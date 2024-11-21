@@ -2508,7 +2508,7 @@ _ZN12clap_builder7builder6action9ArgAction20default_value_parser17h677de5ca7fb5f
   %105 = load i8, ptr %7, align 4, !range !437, !noundef !7
   %106 = icmp eq i8 %105, 9
   %switch.i120 = icmp samesign ult i8 %105, 2
-  %switch.i = select i1 %106, i1 true, i1 %switch.i120
+  %switch.i = or i1 %106, %switch.i120
   %.41 = zext i1 %switch.i to i64
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hbd34959a348268e9E.exit.sink.split"
 

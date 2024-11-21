@@ -109725,8 +109725,8 @@ define void @"_ZN5typst4eval6markup70_$LT$impl$u20$typst..eval..Eval$u20$for$u20
 26:                                               ; preds = %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20664)
   %27 = load i64, ptr %13, align 8, !range !19249, !alias.scope !20667, !noalias !20664, !noundef !4
-  %or.cond.i.i = icmp samesign ult i64 %27, 2
-  br i1 %or.cond.i.i, label %28, label %33
+  %switch.not.i.i.i = icmp samesign ult i64 %27, 2
+  br i1 %switch.not.i.i.i, label %28, label %33
 
 28:                                               ; preds = %26
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.3683678558897460461"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)

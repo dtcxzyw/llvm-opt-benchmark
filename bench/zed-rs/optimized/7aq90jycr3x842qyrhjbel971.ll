@@ -1909,8 +1909,8 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !399, !noundef !4
-  %or.cond54 = icmp samesign ult i8 %38, 3
-  br i1 %or.cond54, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
+  %switch.i.i3453 = icmp samesign ult i8 %38, 3
+  br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
@@ -19538,8 +19538,8 @@ select.unfold.i.i.i:                              ; preds = %._crit_edge.i.i.i.i
 502:                                              ; preds = %501
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %21), !noalias !3711
   %503 = load i64, ptr %22, align 8, !range !651, !alias.scope !3923, !noalias !3711, !noundef !4
-  %or.cond.i.i.i.i = icmp samesign ult i64 %503, 2
-  br i1 %or.cond.i.i.i.i, label %.sink.split.i.i.i.i.i.i, label %568
+  %switch.i.i.i.i.i.i = icmp samesign ult i64 %503, 2
+  br i1 %switch.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i, label %568
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %502
   call void @llvm.experimental.noalias.scope.decl(metadata !3926)

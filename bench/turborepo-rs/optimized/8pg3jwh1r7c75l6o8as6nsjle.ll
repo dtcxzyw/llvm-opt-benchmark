@@ -3917,7 +3917,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit130:
   %275 = and i8 %274, 3
   %276 = icmp ne i8 %275, 3
   %277 = icmp samesign ugt i8 %275, 1
-  %278 = select i1 %276, i1 %277, i1 false
+  %278 = and i1 %276, %277
   %cond.fr.i = freeze i1 %278
   %279 = select i1 %cond.fr.i, i8 -127, i8 1
   br label %_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set.exit

@@ -15112,8 +15112,8 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedILi
   %add.i.i.i.i.i.i.i.i.i.i.i = add i32 %idx, %cast.i.i.i.i.i.i.i.i.i.i.i.i
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i.i.i.i.i, i64 92
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %or.cond = icmp samesign ugt i64 %0, 24
-  br i1 %or.cond, label %for.body.preheader, label %if.end8
+  %cmp733 = icmp samesign ugt i64 %0, 24
+  br i1 %cmp733, label %for.body.preheader, label %if.end8
 
 for.body.preheader:                               ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedILi0ELi24ELi4EEEijRmi.exit
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %and.i.i.i.i.i.i.i20.i.i.i.i.i, -1
@@ -18027,8 +18027,8 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedIL
   %add.i.i.i.i.i.i.i.i.i.i.i = add i32 %idx, %cast.i.i.i.i.i.i.i.i.i.i.i.i
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i.i.i.i.i, i64 92
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %or.cond = icmp samesign ugt i64 %0, 24
-  br i1 %or.cond, label %for.body.preheader, label %if.end8
+  %cmp733 = icmp samesign ugt i64 %0, 24
+  br i1 %cmp733, label %for.body.preheader, label %if.end8
 
 for.body.preheader:                               ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedILi0ELi24ELi4EEEijRmi.exit
   %sub.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %and.i.i.i.i.i.i20.i.i.i.i.i, -1

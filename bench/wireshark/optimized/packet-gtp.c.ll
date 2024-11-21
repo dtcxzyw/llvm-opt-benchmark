@@ -2843,4469 +2843,4469 @@ wrapped_tvb_get_guint8.exit:                      ; preds = %50, %54, %56
   %69 = sub i32 %33, %.pre-phi
   %70 = lshr i32 %69, 1
   %71 = add nuw i32 %70, 2
-  %72 = add i8 %58, -8
-  %or.cond5 = icmp ult i8 %72, 90
-  br i1 %or.cond5, label %73, label %.thread
+  %72 = add nsw i32 %60, -8
+  %73 = icmp ult i32 %72, 90
+  br i1 %73, label %74, label %.thread
 
-73:                                               ; preds = %68
-  %74 = add i32 %.1, 2
-  %75 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %74) #13
-  %76 = add i8 %75, -97
-  %or.cond.i.i1072 = icmp ult i8 %76, 6
-  br i1 %or.cond.i.i1072, label %77, label %79
+74:                                               ; preds = %68
+  %75 = add i32 %.1, 2
+  %76 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %75) #13
+  %77 = add i8 %76, -97
+  %or.cond.i.i1072 = icmp ult i8 %77, 6
+  br i1 %or.cond.i.i1072, label %78, label %80
 
-77:                                               ; preds = %73
-  %78 = add nsw i8 %75, -87
+78:                                               ; preds = %74
+  %79 = add nsw i8 %76, -87
   br label %hex2dec.exit.i1076
 
-79:                                               ; preds = %73
-  %80 = add i8 %75, -65
-  %or.cond5.i.i1073 = icmp ult i8 %80, 6
-  br i1 %or.cond5.i.i1073, label %81, label %83
+80:                                               ; preds = %74
+  %81 = add i8 %76, -65
+  %or.cond5.i.i1073 = icmp ult i8 %81, 6
+  br i1 %or.cond5.i.i1073, label %82, label %84
 
-81:                                               ; preds = %79
-  %82 = add nsw i8 %75, -55
+82:                                               ; preds = %80
+  %83 = add nsw i8 %76, -55
   br label %hex2dec.exit.i1076
 
-83:                                               ; preds = %79
-  %84 = add i8 %75, -48
-  %or.cond8.i.i1074 = icmp ult i8 %84, 10
-  %spec.select.i.i1075 = select i1 %or.cond8.i.i1074, i8 %84, i8 0
+84:                                               ; preds = %80
+  %85 = add i8 %76, -48
+  %or.cond8.i.i1074 = icmp ult i8 %85, 10
+  %spec.select.i.i1075 = select i1 %or.cond8.i.i1074, i8 %85, i8 0
   br label %hex2dec.exit.i1076
 
-hex2dec.exit.i1076:                               ; preds = %83, %81, %77
-  %.0.i.i1077 = phi i8 [ %78, %77 ], [ %82, %81 ], [ %spec.select.i.i1075, %83 ]
-  %85 = shl nuw i8 %.0.i.i1077, 4
-  %86 = add i32 %.1, 3
-  %87 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %86) #13
-  %88 = add i8 %87, -97
-  %or.cond.i7.i1078 = icmp ult i8 %88, 6
-  br i1 %or.cond.i7.i1078, label %89, label %91
+hex2dec.exit.i1076:                               ; preds = %84, %82, %78
+  %.0.i.i1077 = phi i8 [ %79, %78 ], [ %83, %82 ], [ %spec.select.i.i1075, %84 ]
+  %86 = shl nuw i8 %.0.i.i1077, 4
+  %87 = add i32 %.1, 3
+  %88 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %87) #13
+  %89 = add i8 %88, -97
+  %or.cond.i7.i1078 = icmp ult i8 %89, 6
+  br i1 %or.cond.i7.i1078, label %90, label %92
 
-89:                                               ; preds = %hex2dec.exit.i1076
-  %90 = add nsw i8 %87, -87
+90:                                               ; preds = %hex2dec.exit.i1076
+  %91 = add nsw i8 %88, -87
   br label %wrapped_tvb_get_guint8.exit1083
 
-91:                                               ; preds = %hex2dec.exit.i1076
-  %92 = add i8 %87, -65
-  %or.cond5.i8.i1079 = icmp ult i8 %92, 6
-  br i1 %or.cond5.i8.i1079, label %93, label %95
+92:                                               ; preds = %hex2dec.exit.i1076
+  %93 = add i8 %88, -65
+  %or.cond5.i8.i1079 = icmp ult i8 %93, 6
+  br i1 %or.cond5.i8.i1079, label %94, label %96
 
-93:                                               ; preds = %91
-  %94 = add nsw i8 %87, -55
+94:                                               ; preds = %92
+  %95 = add nsw i8 %88, -55
   br label %wrapped_tvb_get_guint8.exit1083
 
-95:                                               ; preds = %91
-  %96 = add i8 %87, -48
-  %or.cond8.i9.i1080 = icmp ult i8 %96, 10
-  %spec.select.i10.i1081 = select i1 %or.cond8.i9.i1080, i8 %96, i8 0
+96:                                               ; preds = %92
+  %97 = add i8 %88, -48
+  %or.cond8.i9.i1080 = icmp ult i8 %97, 10
+  %spec.select.i10.i1081 = select i1 %or.cond8.i9.i1080, i8 %97, i8 0
   br label %wrapped_tvb_get_guint8.exit1083
 
-wrapped_tvb_get_guint8.exit1083:                  ; preds = %89, %93, %95
-  %.0.i11.i1082 = phi i8 [ %90, %89 ], [ %94, %93 ], [ %spec.select.i10.i1081, %95 ]
-  %97 = add nuw nsw i8 %.0.i11.i1082, %85
-  %98 = load i32, ptr @hf_gtp_qos_arp, align 4
-  %99 = load i32, ptr @ett_gtp_qos_arp, align 4
-  %100 = zext i8 %97 to i64
-  %101 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %35, ptr noundef %0, i32 noundef %74, i32 noundef %98, i32 noundef %99, ptr noundef nonnull @decode_qos_umts.arp_flags, i64 noundef %100, i32 noundef 1) #13
-  %102 = add i32 %.1, 4
-  %103 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %102) #13
-  %104 = add i8 %103, -97
-  %or.cond.i.i1084 = icmp ult i8 %104, 6
-  br i1 %or.cond.i.i1084, label %105, label %107
+wrapped_tvb_get_guint8.exit1083:                  ; preds = %90, %94, %96
+  %.0.i11.i1082 = phi i8 [ %91, %90 ], [ %95, %94 ], [ %spec.select.i10.i1081, %96 ]
+  %98 = add nuw nsw i8 %.0.i11.i1082, %86
+  %99 = load i32, ptr @hf_gtp_qos_arp, align 4
+  %100 = load i32, ptr @ett_gtp_qos_arp, align 4
+  %101 = zext i8 %98 to i64
+  %102 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %35, ptr noundef %0, i32 noundef %75, i32 noundef %99, i32 noundef %100, ptr noundef nonnull @decode_qos_umts.arp_flags, i64 noundef %101, i32 noundef 1) #13
+  %103 = add i32 %.1, 4
+  %104 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %103) #13
+  %105 = add i8 %104, -97
+  %or.cond.i.i1084 = icmp ult i8 %105, 6
+  br i1 %or.cond.i.i1084, label %106, label %108
 
-105:                                              ; preds = %wrapped_tvb_get_guint8.exit1083
-  %106 = add nsw i8 %103, -87
+106:                                              ; preds = %wrapped_tvb_get_guint8.exit1083
+  %107 = add nsw i8 %104, -87
   br label %hex2dec.exit.i1088
 
-107:                                              ; preds = %wrapped_tvb_get_guint8.exit1083
-  %108 = add i8 %103, -65
-  %or.cond5.i.i1085 = icmp ult i8 %108, 6
-  br i1 %or.cond5.i.i1085, label %109, label %111
+108:                                              ; preds = %wrapped_tvb_get_guint8.exit1083
+  %109 = add i8 %104, -65
+  %or.cond5.i.i1085 = icmp ult i8 %109, 6
+  br i1 %or.cond5.i.i1085, label %110, label %112
 
-109:                                              ; preds = %107
-  %110 = add nsw i8 %103, -55
+110:                                              ; preds = %108
+  %111 = add nsw i8 %104, -55
   br label %hex2dec.exit.i1088
 
-111:                                              ; preds = %107
-  %112 = add i8 %103, -48
-  %or.cond8.i.i1086 = icmp ult i8 %112, 10
-  %spec.select.i.i1087 = select i1 %or.cond8.i.i1086, i8 %112, i8 0
+112:                                              ; preds = %108
+  %113 = add i8 %104, -48
+  %or.cond8.i.i1086 = icmp ult i8 %113, 10
+  %spec.select.i.i1087 = select i1 %or.cond8.i.i1086, i8 %113, i8 0
   br label %hex2dec.exit.i1088
 
-hex2dec.exit.i1088:                               ; preds = %111, %109, %105
-  %.0.i.i1089 = phi i8 [ %106, %105 ], [ %110, %109 ], [ %spec.select.i.i1087, %111 ]
-  %113 = shl nuw i8 %.0.i.i1089, 4
-  %114 = add i32 %.1, 5
-  %115 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %114) #13
-  %116 = add i8 %115, -97
-  %or.cond.i7.i1090 = icmp ult i8 %116, 6
-  br i1 %or.cond.i7.i1090, label %117, label %119
+hex2dec.exit.i1088:                               ; preds = %112, %110, %106
+  %.0.i.i1089 = phi i8 [ %107, %106 ], [ %111, %110 ], [ %spec.select.i.i1087, %112 ]
+  %114 = shl nuw i8 %.0.i.i1089, 4
+  %115 = add i32 %.1, 5
+  %116 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %115) #13
+  %117 = add i8 %116, -97
+  %or.cond.i7.i1090 = icmp ult i8 %117, 6
+  br i1 %or.cond.i7.i1090, label %118, label %120
 
-117:                                              ; preds = %hex2dec.exit.i1088
-  %118 = add nsw i8 %115, -87
+118:                                              ; preds = %hex2dec.exit.i1088
+  %119 = add nsw i8 %116, -87
   br label %wrapped_tvb_get_guint8.exit1095
 
-119:                                              ; preds = %hex2dec.exit.i1088
-  %120 = add i8 %115, -65
-  %or.cond5.i8.i1091 = icmp ult i8 %120, 6
-  br i1 %or.cond5.i8.i1091, label %121, label %123
+120:                                              ; preds = %hex2dec.exit.i1088
+  %121 = add i8 %116, -65
+  %or.cond5.i8.i1091 = icmp ult i8 %121, 6
+  br i1 %or.cond5.i8.i1091, label %122, label %124
 
-121:                                              ; preds = %119
-  %122 = add nsw i8 %115, -55
+122:                                              ; preds = %120
+  %123 = add nsw i8 %116, -55
   br label %wrapped_tvb_get_guint8.exit1095
 
-123:                                              ; preds = %119
-  %124 = add i8 %115, -48
-  %or.cond8.i9.i1092 = icmp ult i8 %124, 10
-  %spec.select.i10.i1093 = select i1 %or.cond8.i9.i1092, i8 %124, i8 0
+124:                                              ; preds = %120
+  %125 = add i8 %116, -48
+  %or.cond8.i9.i1092 = icmp ult i8 %125, 10
+  %spec.select.i10.i1093 = select i1 %or.cond8.i9.i1092, i8 %125, i8 0
   br label %wrapped_tvb_get_guint8.exit1095
 
-wrapped_tvb_get_guint8.exit1095:                  ; preds = %117, %121, %123
-  %.0.i11.i1094 = phi i8 [ %118, %117 ], [ %122, %121 ], [ %spec.select.i10.i1093, %123 ]
-  %125 = add nuw nsw i8 %.0.i11.i1094, %113
-  %126 = load i32, ptr @hf_gtp_qos_qci, align 4
-  %127 = zext i8 %125 to i32
-  %128 = tail call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %126, ptr noundef %0, i32 noundef %102, i32 noundef 2, i32 noundef %127) #13
-  %129 = add i32 %.1, 6
-  %130 = icmp ult i8 %125, 5
-  %131 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %129) #13
-  %132 = add i8 %131, -97
-  %or.cond.i.i1096 = icmp ult i8 %132, 6
-  br i1 %130, label %133, label %671
+wrapped_tvb_get_guint8.exit1095:                  ; preds = %118, %122, %124
+  %.0.i11.i1094 = phi i8 [ %119, %118 ], [ %123, %122 ], [ %spec.select.i10.i1093, %124 ]
+  %126 = add nuw nsw i8 %.0.i11.i1094, %114
+  %127 = load i32, ptr @hf_gtp_qos_qci, align 4
+  %128 = zext i8 %126 to i32
+  %129 = tail call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %127, ptr noundef %0, i32 noundef %103, i32 noundef 2, i32 noundef %128) #13
+  %130 = add i32 %.1, 6
+  %131 = icmp ult i8 %126, 5
+  %132 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %130) #13
+  %133 = add i8 %132, -97
+  %or.cond.i.i1096 = icmp ult i8 %133, 6
+  br i1 %131, label %134, label %672
 
-133:                                              ; preds = %wrapped_tvb_get_guint8.exit1095
-  br i1 %or.cond.i.i1096, label %134, label %136
+134:                                              ; preds = %wrapped_tvb_get_guint8.exit1095
+  br i1 %or.cond.i.i1096, label %135, label %137
 
-134:                                              ; preds = %133
-  %135 = add nsw i8 %131, -87
+135:                                              ; preds = %134
+  %136 = add nsw i8 %132, -87
   br label %hex2dec.exit.i1100
 
-136:                                              ; preds = %133
-  %137 = add i8 %131, -65
-  %or.cond5.i.i1097 = icmp ult i8 %137, 6
-  br i1 %or.cond5.i.i1097, label %138, label %140
+137:                                              ; preds = %134
+  %138 = add i8 %132, -65
+  %or.cond5.i.i1097 = icmp ult i8 %138, 6
+  br i1 %or.cond5.i.i1097, label %139, label %141
 
-138:                                              ; preds = %136
-  %139 = add nsw i8 %131, -55
+139:                                              ; preds = %137
+  %140 = add nsw i8 %132, -55
   br label %hex2dec.exit.i1100
 
-140:                                              ; preds = %136
-  %141 = add i8 %131, -48
-  %or.cond8.i.i1098 = icmp ult i8 %141, 10
-  %spec.select.i.i1099 = select i1 %or.cond8.i.i1098, i8 %141, i8 0
+141:                                              ; preds = %137
+  %142 = add i8 %132, -48
+  %or.cond8.i.i1098 = icmp ult i8 %142, 10
+  %spec.select.i.i1099 = select i1 %or.cond8.i.i1098, i8 %142, i8 0
   br label %hex2dec.exit.i1100
 
-hex2dec.exit.i1100:                               ; preds = %140, %138, %134
-  %.0.i.i1101 = phi i8 [ %135, %134 ], [ %139, %138 ], [ %spec.select.i.i1099, %140 ]
-  %142 = shl nuw i8 %.0.i.i1101, 4
-  %143 = add i32 %.1, 7
-  %144 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %143) #13
-  %145 = add i8 %144, -97
-  %or.cond.i7.i1102 = icmp ult i8 %145, 6
-  br i1 %or.cond.i7.i1102, label %146, label %148
+hex2dec.exit.i1100:                               ; preds = %141, %139, %135
+  %.0.i.i1101 = phi i8 [ %136, %135 ], [ %140, %139 ], [ %spec.select.i.i1099, %141 ]
+  %143 = shl nuw i8 %.0.i.i1101, 4
+  %144 = add i32 %.1, 7
+  %145 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %144) #13
+  %146 = add i8 %145, -97
+  %or.cond.i7.i1102 = icmp ult i8 %146, 6
+  br i1 %or.cond.i7.i1102, label %147, label %149
 
-146:                                              ; preds = %hex2dec.exit.i1100
-  %147 = add nsw i8 %144, -87
+147:                                              ; preds = %hex2dec.exit.i1100
+  %148 = add nsw i8 %145, -87
   br label %wrapped_tvb_get_guint8.exit1107
 
-148:                                              ; preds = %hex2dec.exit.i1100
-  %149 = add i8 %144, -65
-  %or.cond5.i8.i1103 = icmp ult i8 %149, 6
-  br i1 %or.cond5.i8.i1103, label %150, label %152
+149:                                              ; preds = %hex2dec.exit.i1100
+  %150 = add i8 %145, -65
+  %or.cond5.i8.i1103 = icmp ult i8 %150, 6
+  br i1 %or.cond5.i8.i1103, label %151, label %153
 
-150:                                              ; preds = %148
-  %151 = add nsw i8 %144, -55
+151:                                              ; preds = %149
+  %152 = add nsw i8 %145, -55
   br label %wrapped_tvb_get_guint8.exit1107
 
-152:                                              ; preds = %148
-  %153 = add i8 %144, -48
-  %or.cond8.i9.i1104 = icmp ult i8 %153, 10
-  %spec.select.i10.i1105 = select i1 %or.cond8.i9.i1104, i8 %153, i8 0
+153:                                              ; preds = %149
+  %154 = add i8 %145, -48
+  %or.cond8.i9.i1104 = icmp ult i8 %154, 10
+  %spec.select.i10.i1105 = select i1 %or.cond8.i9.i1104, i8 %154, i8 0
   br label %wrapped_tvb_get_guint8.exit1107
 
-wrapped_tvb_get_guint8.exit1107:                  ; preds = %146, %150, %152
-  %.0.i11.i1106 = phi i8 [ %147, %146 ], [ %151, %150 ], [ %spec.select.i10.i1105, %152 ]
-  %154 = add nuw nsw i8 %.0.i11.i1106, %142
-  %155 = zext i8 %154 to i64
-  %156 = shl nuw nsw i64 %155, 32
-  %157 = add i32 %.1, 8
-  %158 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %157) #13
-  %159 = add i8 %158, -97
-  %or.cond.i.i1108 = icmp ult i8 %159, 6
-  br i1 %or.cond.i.i1108, label %160, label %162
+wrapped_tvb_get_guint8.exit1107:                  ; preds = %147, %151, %153
+  %.0.i11.i1106 = phi i8 [ %148, %147 ], [ %152, %151 ], [ %spec.select.i10.i1105, %153 ]
+  %155 = add nuw nsw i8 %.0.i11.i1106, %143
+  %156 = zext i8 %155 to i64
+  %157 = shl nuw nsw i64 %156, 32
+  %158 = add i32 %.1, 8
+  %159 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %158) #13
+  %160 = add i8 %159, -97
+  %or.cond.i.i1108 = icmp ult i8 %160, 6
+  br i1 %or.cond.i.i1108, label %161, label %163
 
-160:                                              ; preds = %wrapped_tvb_get_guint8.exit1107
-  %161 = add nsw i8 %158, -87
+161:                                              ; preds = %wrapped_tvb_get_guint8.exit1107
+  %162 = add nsw i8 %159, -87
   br label %hex2dec.exit.i1112
 
-162:                                              ; preds = %wrapped_tvb_get_guint8.exit1107
-  %163 = add i8 %158, -65
-  %or.cond5.i.i1109 = icmp ult i8 %163, 6
-  br i1 %or.cond5.i.i1109, label %164, label %166
+163:                                              ; preds = %wrapped_tvb_get_guint8.exit1107
+  %164 = add i8 %159, -65
+  %or.cond5.i.i1109 = icmp ult i8 %164, 6
+  br i1 %or.cond5.i.i1109, label %165, label %167
 
-164:                                              ; preds = %162
-  %165 = add nsw i8 %158, -55
+165:                                              ; preds = %163
+  %166 = add nsw i8 %159, -55
   br label %hex2dec.exit.i1112
 
-166:                                              ; preds = %162
-  %167 = add i8 %158, -48
-  %or.cond8.i.i1110 = icmp ult i8 %167, 10
-  %spec.select.i.i1111 = select i1 %or.cond8.i.i1110, i8 %167, i8 0
+167:                                              ; preds = %163
+  %168 = add i8 %159, -48
+  %or.cond8.i.i1110 = icmp ult i8 %168, 10
+  %spec.select.i.i1111 = select i1 %or.cond8.i.i1110, i8 %168, i8 0
   br label %hex2dec.exit.i1112
 
-hex2dec.exit.i1112:                               ; preds = %166, %164, %160
-  %.0.i.i1113 = phi i8 [ %161, %160 ], [ %165, %164 ], [ %spec.select.i.i1111, %166 ]
-  %168 = shl nuw i8 %.0.i.i1113, 4
-  %169 = add i32 %.1, 9
-  %170 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %169) #13
-  %171 = add i8 %170, -97
-  %or.cond.i7.i1114 = icmp ult i8 %171, 6
-  br i1 %or.cond.i7.i1114, label %172, label %174
+hex2dec.exit.i1112:                               ; preds = %167, %165, %161
+  %.0.i.i1113 = phi i8 [ %162, %161 ], [ %166, %165 ], [ %spec.select.i.i1111, %167 ]
+  %169 = shl nuw i8 %.0.i.i1113, 4
+  %170 = add i32 %.1, 9
+  %171 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %170) #13
+  %172 = add i8 %171, -97
+  %or.cond.i7.i1114 = icmp ult i8 %172, 6
+  br i1 %or.cond.i7.i1114, label %173, label %175
 
-172:                                              ; preds = %hex2dec.exit.i1112
-  %173 = add nsw i8 %170, -87
+173:                                              ; preds = %hex2dec.exit.i1112
+  %174 = add nsw i8 %171, -87
   br label %wrapped_tvb_get_guint8.exit1119
 
-174:                                              ; preds = %hex2dec.exit.i1112
-  %175 = add i8 %170, -65
-  %or.cond5.i8.i1115 = icmp ult i8 %175, 6
-  br i1 %or.cond5.i8.i1115, label %176, label %178
+175:                                              ; preds = %hex2dec.exit.i1112
+  %176 = add i8 %171, -65
+  %or.cond5.i8.i1115 = icmp ult i8 %176, 6
+  br i1 %or.cond5.i8.i1115, label %177, label %179
 
-176:                                              ; preds = %174
-  %177 = add nsw i8 %170, -55
+177:                                              ; preds = %175
+  %178 = add nsw i8 %171, -55
   br label %wrapped_tvb_get_guint8.exit1119
 
-178:                                              ; preds = %174
-  %179 = add i8 %170, -48
-  %or.cond8.i9.i1116 = icmp ult i8 %179, 10
-  %spec.select.i10.i1117 = select i1 %or.cond8.i9.i1116, i8 %179, i8 0
+179:                                              ; preds = %175
+  %180 = add i8 %171, -48
+  %or.cond8.i9.i1116 = icmp ult i8 %180, 10
+  %spec.select.i10.i1117 = select i1 %or.cond8.i9.i1116, i8 %180, i8 0
   br label %wrapped_tvb_get_guint8.exit1119
 
-wrapped_tvb_get_guint8.exit1119:                  ; preds = %172, %176, %178
-  %.0.i11.i1118 = phi i8 [ %173, %172 ], [ %177, %176 ], [ %spec.select.i10.i1117, %178 ]
-  %180 = add nuw nsw i8 %.0.i11.i1118, %168
-  %181 = zext i8 %180 to i64
-  %182 = shl nuw nsw i64 %181, 24
-  %183 = or disjoint i64 %182, %156
-  %184 = add i32 %.1, 10
-  %185 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %184) #13
-  %186 = add i8 %185, -97
-  %or.cond.i.i1120 = icmp ult i8 %186, 6
-  br i1 %or.cond.i.i1120, label %187, label %189
+wrapped_tvb_get_guint8.exit1119:                  ; preds = %173, %177, %179
+  %.0.i11.i1118 = phi i8 [ %174, %173 ], [ %178, %177 ], [ %spec.select.i10.i1117, %179 ]
+  %181 = add nuw nsw i8 %.0.i11.i1118, %169
+  %182 = zext i8 %181 to i64
+  %183 = shl nuw nsw i64 %182, 24
+  %184 = or disjoint i64 %183, %157
+  %185 = add i32 %.1, 10
+  %186 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %185) #13
+  %187 = add i8 %186, -97
+  %or.cond.i.i1120 = icmp ult i8 %187, 6
+  br i1 %or.cond.i.i1120, label %188, label %190
 
-187:                                              ; preds = %wrapped_tvb_get_guint8.exit1119
-  %188 = add nsw i8 %185, -87
+188:                                              ; preds = %wrapped_tvb_get_guint8.exit1119
+  %189 = add nsw i8 %186, -87
   br label %hex2dec.exit.i1124
 
-189:                                              ; preds = %wrapped_tvb_get_guint8.exit1119
-  %190 = add i8 %185, -65
-  %or.cond5.i.i1121 = icmp ult i8 %190, 6
-  br i1 %or.cond5.i.i1121, label %191, label %193
+190:                                              ; preds = %wrapped_tvb_get_guint8.exit1119
+  %191 = add i8 %186, -65
+  %or.cond5.i.i1121 = icmp ult i8 %191, 6
+  br i1 %or.cond5.i.i1121, label %192, label %194
 
-191:                                              ; preds = %189
-  %192 = add nsw i8 %185, -55
+192:                                              ; preds = %190
+  %193 = add nsw i8 %186, -55
   br label %hex2dec.exit.i1124
 
-193:                                              ; preds = %189
-  %194 = add i8 %185, -48
-  %or.cond8.i.i1122 = icmp ult i8 %194, 10
-  %spec.select.i.i1123 = select i1 %or.cond8.i.i1122, i8 %194, i8 0
+194:                                              ; preds = %190
+  %195 = add i8 %186, -48
+  %or.cond8.i.i1122 = icmp ult i8 %195, 10
+  %spec.select.i.i1123 = select i1 %or.cond8.i.i1122, i8 %195, i8 0
   br label %hex2dec.exit.i1124
 
-hex2dec.exit.i1124:                               ; preds = %193, %191, %187
-  %.0.i.i1125 = phi i8 [ %188, %187 ], [ %192, %191 ], [ %spec.select.i.i1123, %193 ]
-  %195 = shl nuw i8 %.0.i.i1125, 4
-  %196 = add i32 %.1, 11
-  %197 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %196) #13
-  %198 = add i8 %197, -97
-  %or.cond.i7.i1126 = icmp ult i8 %198, 6
-  br i1 %or.cond.i7.i1126, label %199, label %201
+hex2dec.exit.i1124:                               ; preds = %194, %192, %188
+  %.0.i.i1125 = phi i8 [ %189, %188 ], [ %193, %192 ], [ %spec.select.i.i1123, %194 ]
+  %196 = shl nuw i8 %.0.i.i1125, 4
+  %197 = add i32 %.1, 11
+  %198 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %197) #13
+  %199 = add i8 %198, -97
+  %or.cond.i7.i1126 = icmp ult i8 %199, 6
+  br i1 %or.cond.i7.i1126, label %200, label %202
 
-199:                                              ; preds = %hex2dec.exit.i1124
-  %200 = add nsw i8 %197, -87
+200:                                              ; preds = %hex2dec.exit.i1124
+  %201 = add nsw i8 %198, -87
   br label %wrapped_tvb_get_guint8.exit1131
 
-201:                                              ; preds = %hex2dec.exit.i1124
-  %202 = add i8 %197, -65
-  %or.cond5.i8.i1127 = icmp ult i8 %202, 6
-  br i1 %or.cond5.i8.i1127, label %203, label %205
+202:                                              ; preds = %hex2dec.exit.i1124
+  %203 = add i8 %198, -65
+  %or.cond5.i8.i1127 = icmp ult i8 %203, 6
+  br i1 %or.cond5.i8.i1127, label %204, label %206
 
-203:                                              ; preds = %201
-  %204 = add nsw i8 %197, -55
+204:                                              ; preds = %202
+  %205 = add nsw i8 %198, -55
   br label %wrapped_tvb_get_guint8.exit1131
 
-205:                                              ; preds = %201
-  %206 = add i8 %197, -48
-  %or.cond8.i9.i1128 = icmp ult i8 %206, 10
-  %spec.select.i10.i1129 = select i1 %or.cond8.i9.i1128, i8 %206, i8 0
+206:                                              ; preds = %202
+  %207 = add i8 %198, -48
+  %or.cond8.i9.i1128 = icmp ult i8 %207, 10
+  %spec.select.i10.i1129 = select i1 %or.cond8.i9.i1128, i8 %207, i8 0
   br label %wrapped_tvb_get_guint8.exit1131
 
-wrapped_tvb_get_guint8.exit1131:                  ; preds = %199, %203, %205
-  %.0.i11.i1130 = phi i8 [ %200, %199 ], [ %204, %203 ], [ %spec.select.i10.i1129, %205 ]
-  %207 = add nuw nsw i8 %.0.i11.i1130, %195
-  %208 = zext i8 %207 to i64
-  %209 = shl nuw nsw i64 %208, 16
-  %210 = or disjoint i64 %209, %183
-  %211 = add i32 %.1, 12
-  %212 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %211) #13
-  %213 = add i8 %212, -97
-  %or.cond.i.i1132 = icmp ult i8 %213, 6
-  br i1 %or.cond.i.i1132, label %214, label %216
+wrapped_tvb_get_guint8.exit1131:                  ; preds = %200, %204, %206
+  %.0.i11.i1130 = phi i8 [ %201, %200 ], [ %205, %204 ], [ %spec.select.i10.i1129, %206 ]
+  %208 = add nuw nsw i8 %.0.i11.i1130, %196
+  %209 = zext i8 %208 to i64
+  %210 = shl nuw nsw i64 %209, 16
+  %211 = or disjoint i64 %210, %184
+  %212 = add i32 %.1, 12
+  %213 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %212) #13
+  %214 = add i8 %213, -97
+  %or.cond.i.i1132 = icmp ult i8 %214, 6
+  br i1 %or.cond.i.i1132, label %215, label %217
 
-214:                                              ; preds = %wrapped_tvb_get_guint8.exit1131
-  %215 = add nsw i8 %212, -87
+215:                                              ; preds = %wrapped_tvb_get_guint8.exit1131
+  %216 = add nsw i8 %213, -87
   br label %hex2dec.exit.i1136
 
-216:                                              ; preds = %wrapped_tvb_get_guint8.exit1131
-  %217 = add i8 %212, -65
-  %or.cond5.i.i1133 = icmp ult i8 %217, 6
-  br i1 %or.cond5.i.i1133, label %218, label %220
+217:                                              ; preds = %wrapped_tvb_get_guint8.exit1131
+  %218 = add i8 %213, -65
+  %or.cond5.i.i1133 = icmp ult i8 %218, 6
+  br i1 %or.cond5.i.i1133, label %219, label %221
 
-218:                                              ; preds = %216
-  %219 = add nsw i8 %212, -55
+219:                                              ; preds = %217
+  %220 = add nsw i8 %213, -55
   br label %hex2dec.exit.i1136
 
-220:                                              ; preds = %216
-  %221 = add i8 %212, -48
-  %or.cond8.i.i1134 = icmp ult i8 %221, 10
-  %spec.select.i.i1135 = select i1 %or.cond8.i.i1134, i8 %221, i8 0
+221:                                              ; preds = %217
+  %222 = add i8 %213, -48
+  %or.cond8.i.i1134 = icmp ult i8 %222, 10
+  %spec.select.i.i1135 = select i1 %or.cond8.i.i1134, i8 %222, i8 0
   br label %hex2dec.exit.i1136
 
-hex2dec.exit.i1136:                               ; preds = %220, %218, %214
-  %.0.i.i1137 = phi i8 [ %215, %214 ], [ %219, %218 ], [ %spec.select.i.i1135, %220 ]
-  %222 = shl nuw i8 %.0.i.i1137, 4
-  %223 = add i32 %.1, 13
-  %224 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %223) #13
-  %225 = add i8 %224, -97
-  %or.cond.i7.i1138 = icmp ult i8 %225, 6
-  br i1 %or.cond.i7.i1138, label %226, label %228
+hex2dec.exit.i1136:                               ; preds = %221, %219, %215
+  %.0.i.i1137 = phi i8 [ %216, %215 ], [ %220, %219 ], [ %spec.select.i.i1135, %221 ]
+  %223 = shl nuw i8 %.0.i.i1137, 4
+  %224 = add i32 %.1, 13
+  %225 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %224) #13
+  %226 = add i8 %225, -97
+  %or.cond.i7.i1138 = icmp ult i8 %226, 6
+  br i1 %or.cond.i7.i1138, label %227, label %229
 
-226:                                              ; preds = %hex2dec.exit.i1136
-  %227 = add nsw i8 %224, -87
+227:                                              ; preds = %hex2dec.exit.i1136
+  %228 = add nsw i8 %225, -87
   br label %wrapped_tvb_get_guint8.exit1143
 
-228:                                              ; preds = %hex2dec.exit.i1136
-  %229 = add i8 %224, -65
-  %or.cond5.i8.i1139 = icmp ult i8 %229, 6
-  br i1 %or.cond5.i8.i1139, label %230, label %232
+229:                                              ; preds = %hex2dec.exit.i1136
+  %230 = add i8 %225, -65
+  %or.cond5.i8.i1139 = icmp ult i8 %230, 6
+  br i1 %or.cond5.i8.i1139, label %231, label %233
 
-230:                                              ; preds = %228
-  %231 = add nsw i8 %224, -55
+231:                                              ; preds = %229
+  %232 = add nsw i8 %225, -55
   br label %wrapped_tvb_get_guint8.exit1143
 
-232:                                              ; preds = %228
-  %233 = add i8 %224, -48
-  %or.cond8.i9.i1140 = icmp ult i8 %233, 10
-  %spec.select.i10.i1141 = select i1 %or.cond8.i9.i1140, i8 %233, i8 0
+233:                                              ; preds = %229
+  %234 = add i8 %225, -48
+  %or.cond8.i9.i1140 = icmp ult i8 %234, 10
+  %spec.select.i10.i1141 = select i1 %or.cond8.i9.i1140, i8 %234, i8 0
   br label %wrapped_tvb_get_guint8.exit1143
 
-wrapped_tvb_get_guint8.exit1143:                  ; preds = %226, %230, %232
-  %.0.i11.i1142 = phi i8 [ %227, %226 ], [ %231, %230 ], [ %spec.select.i10.i1141, %232 ]
-  %234 = add nuw nsw i8 %.0.i11.i1142, %222
-  %235 = zext i8 %234 to i64
-  %236 = shl nuw nsw i64 %235, 8
-  %237 = or disjoint i64 %236, %210
-  %238 = add i32 %.1, 14
-  %239 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %238) #13
-  %240 = add i8 %239, -97
-  %or.cond.i.i1144 = icmp ult i8 %240, 6
-  br i1 %or.cond.i.i1144, label %241, label %243
+wrapped_tvb_get_guint8.exit1143:                  ; preds = %227, %231, %233
+  %.0.i11.i1142 = phi i8 [ %228, %227 ], [ %232, %231 ], [ %spec.select.i10.i1141, %233 ]
+  %235 = add nuw nsw i8 %.0.i11.i1142, %223
+  %236 = zext i8 %235 to i64
+  %237 = shl nuw nsw i64 %236, 8
+  %238 = or disjoint i64 %237, %211
+  %239 = add i32 %.1, 14
+  %240 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %239) #13
+  %241 = add i8 %240, -97
+  %or.cond.i.i1144 = icmp ult i8 %241, 6
+  br i1 %or.cond.i.i1144, label %242, label %244
 
-241:                                              ; preds = %wrapped_tvb_get_guint8.exit1143
-  %242 = add nsw i8 %239, -87
+242:                                              ; preds = %wrapped_tvb_get_guint8.exit1143
+  %243 = add nsw i8 %240, -87
   br label %hex2dec.exit.i1148
 
-243:                                              ; preds = %wrapped_tvb_get_guint8.exit1143
-  %244 = add i8 %239, -65
-  %or.cond5.i.i1145 = icmp ult i8 %244, 6
-  br i1 %or.cond5.i.i1145, label %245, label %247
+244:                                              ; preds = %wrapped_tvb_get_guint8.exit1143
+  %245 = add i8 %240, -65
+  %or.cond5.i.i1145 = icmp ult i8 %245, 6
+  br i1 %or.cond5.i.i1145, label %246, label %248
 
-245:                                              ; preds = %243
-  %246 = add nsw i8 %239, -55
+246:                                              ; preds = %244
+  %247 = add nsw i8 %240, -55
   br label %hex2dec.exit.i1148
 
-247:                                              ; preds = %243
-  %248 = add i8 %239, -48
-  %or.cond8.i.i1146 = icmp ult i8 %248, 10
-  %spec.select.i.i1147 = select i1 %or.cond8.i.i1146, i8 %248, i8 0
+248:                                              ; preds = %244
+  %249 = add i8 %240, -48
+  %or.cond8.i.i1146 = icmp ult i8 %249, 10
+  %spec.select.i.i1147 = select i1 %or.cond8.i.i1146, i8 %249, i8 0
   br label %hex2dec.exit.i1148
 
-hex2dec.exit.i1148:                               ; preds = %247, %245, %241
-  %.0.i.i1149 = phi i8 [ %242, %241 ], [ %246, %245 ], [ %spec.select.i.i1147, %247 ]
-  %249 = shl nuw i8 %.0.i.i1149, 4
-  %250 = add i32 %.1, 15
-  %251 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %250) #13
-  %252 = add i8 %251, -97
-  %or.cond.i7.i1150 = icmp ult i8 %252, 6
-  br i1 %or.cond.i7.i1150, label %253, label %255
+hex2dec.exit.i1148:                               ; preds = %248, %246, %242
+  %.0.i.i1149 = phi i8 [ %243, %242 ], [ %247, %246 ], [ %spec.select.i.i1147, %248 ]
+  %250 = shl nuw i8 %.0.i.i1149, 4
+  %251 = add i32 %.1, 15
+  %252 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %251) #13
+  %253 = add i8 %252, -97
+  %or.cond.i7.i1150 = icmp ult i8 %253, 6
+  br i1 %or.cond.i7.i1150, label %254, label %256
 
-253:                                              ; preds = %hex2dec.exit.i1148
-  %254 = add nsw i8 %251, -87
+254:                                              ; preds = %hex2dec.exit.i1148
+  %255 = add nsw i8 %252, -87
   br label %wrapped_tvb_get_guint8.exit1155
 
-255:                                              ; preds = %hex2dec.exit.i1148
-  %256 = add i8 %251, -65
-  %or.cond5.i8.i1151 = icmp ult i8 %256, 6
-  br i1 %or.cond5.i8.i1151, label %257, label %259
+256:                                              ; preds = %hex2dec.exit.i1148
+  %257 = add i8 %252, -65
+  %or.cond5.i8.i1151 = icmp ult i8 %257, 6
+  br i1 %or.cond5.i8.i1151, label %258, label %260
 
-257:                                              ; preds = %255
-  %258 = add nsw i8 %251, -55
+258:                                              ; preds = %256
+  %259 = add nsw i8 %252, -55
   br label %wrapped_tvb_get_guint8.exit1155
 
-259:                                              ; preds = %255
-  %260 = add i8 %251, -48
-  %or.cond8.i9.i1152 = icmp ult i8 %260, 10
-  %spec.select.i10.i1153 = select i1 %or.cond8.i9.i1152, i8 %260, i8 0
+260:                                              ; preds = %256
+  %261 = add i8 %252, -48
+  %or.cond8.i9.i1152 = icmp ult i8 %261, 10
+  %spec.select.i10.i1153 = select i1 %or.cond8.i9.i1152, i8 %261, i8 0
   br label %wrapped_tvb_get_guint8.exit1155
 
-wrapped_tvb_get_guint8.exit1155:                  ; preds = %253, %257, %259
-  %.0.i11.i1154 = phi i8 [ %254, %253 ], [ %258, %257 ], [ %spec.select.i10.i1153, %259 ]
-  %261 = add nuw nsw i8 %.0.i11.i1154, %249
-  %262 = zext i8 %261 to i64
-  %263 = or disjoint i64 %237, %262
-  %264 = load i32, ptr @hf_gtp_qos_ul_mbr, align 4
-  %265 = tail call ptr @proto_tree_add_uint64(ptr noundef %35, i32 noundef %264, ptr noundef %0, i32 noundef %129, i32 noundef 10, i64 noundef %263) #13
-  %266 = add i32 %.1, 16
-  %267 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %266) #13
-  %268 = add i8 %267, -97
-  %or.cond.i.i1156 = icmp ult i8 %268, 6
-  br i1 %or.cond.i.i1156, label %269, label %271
+wrapped_tvb_get_guint8.exit1155:                  ; preds = %254, %258, %260
+  %.0.i11.i1154 = phi i8 [ %255, %254 ], [ %259, %258 ], [ %spec.select.i10.i1153, %260 ]
+  %262 = add nuw nsw i8 %.0.i11.i1154, %250
+  %263 = zext i8 %262 to i64
+  %264 = or disjoint i64 %238, %263
+  %265 = load i32, ptr @hf_gtp_qos_ul_mbr, align 4
+  %266 = tail call ptr @proto_tree_add_uint64(ptr noundef %35, i32 noundef %265, ptr noundef %0, i32 noundef %130, i32 noundef 10, i64 noundef %264) #13
+  %267 = add i32 %.1, 16
+  %268 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %267) #13
+  %269 = add i8 %268, -97
+  %or.cond.i.i1156 = icmp ult i8 %269, 6
+  br i1 %or.cond.i.i1156, label %270, label %272
 
-269:                                              ; preds = %wrapped_tvb_get_guint8.exit1155
-  %270 = add nsw i8 %267, -87
+270:                                              ; preds = %wrapped_tvb_get_guint8.exit1155
+  %271 = add nsw i8 %268, -87
   br label %hex2dec.exit.i1160
 
-271:                                              ; preds = %wrapped_tvb_get_guint8.exit1155
-  %272 = add i8 %267, -65
-  %or.cond5.i.i1157 = icmp ult i8 %272, 6
-  br i1 %or.cond5.i.i1157, label %273, label %275
+272:                                              ; preds = %wrapped_tvb_get_guint8.exit1155
+  %273 = add i8 %268, -65
+  %or.cond5.i.i1157 = icmp ult i8 %273, 6
+  br i1 %or.cond5.i.i1157, label %274, label %276
 
-273:                                              ; preds = %271
-  %274 = add nsw i8 %267, -55
+274:                                              ; preds = %272
+  %275 = add nsw i8 %268, -55
   br label %hex2dec.exit.i1160
 
-275:                                              ; preds = %271
-  %276 = add i8 %267, -48
-  %or.cond8.i.i1158 = icmp ult i8 %276, 10
-  %spec.select.i.i1159 = select i1 %or.cond8.i.i1158, i8 %276, i8 0
+276:                                              ; preds = %272
+  %277 = add i8 %268, -48
+  %or.cond8.i.i1158 = icmp ult i8 %277, 10
+  %spec.select.i.i1159 = select i1 %or.cond8.i.i1158, i8 %277, i8 0
   br label %hex2dec.exit.i1160
 
-hex2dec.exit.i1160:                               ; preds = %275, %273, %269
-  %.0.i.i1161 = phi i8 [ %270, %269 ], [ %274, %273 ], [ %spec.select.i.i1159, %275 ]
-  %277 = shl nuw i8 %.0.i.i1161, 4
-  %278 = add i32 %.1, 17
-  %279 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %278) #13
-  %280 = add i8 %279, -97
-  %or.cond.i7.i1162 = icmp ult i8 %280, 6
-  br i1 %or.cond.i7.i1162, label %281, label %283
+hex2dec.exit.i1160:                               ; preds = %276, %274, %270
+  %.0.i.i1161 = phi i8 [ %271, %270 ], [ %275, %274 ], [ %spec.select.i.i1159, %276 ]
+  %278 = shl nuw i8 %.0.i.i1161, 4
+  %279 = add i32 %.1, 17
+  %280 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %279) #13
+  %281 = add i8 %280, -97
+  %or.cond.i7.i1162 = icmp ult i8 %281, 6
+  br i1 %or.cond.i7.i1162, label %282, label %284
 
-281:                                              ; preds = %hex2dec.exit.i1160
-  %282 = add nsw i8 %279, -87
+282:                                              ; preds = %hex2dec.exit.i1160
+  %283 = add nsw i8 %280, -87
   br label %wrapped_tvb_get_guint8.exit1167
 
-283:                                              ; preds = %hex2dec.exit.i1160
-  %284 = add i8 %279, -65
-  %or.cond5.i8.i1163 = icmp ult i8 %284, 6
-  br i1 %or.cond5.i8.i1163, label %285, label %287
+284:                                              ; preds = %hex2dec.exit.i1160
+  %285 = add i8 %280, -65
+  %or.cond5.i8.i1163 = icmp ult i8 %285, 6
+  br i1 %or.cond5.i8.i1163, label %286, label %288
 
-285:                                              ; preds = %283
-  %286 = add nsw i8 %279, -55
+286:                                              ; preds = %284
+  %287 = add nsw i8 %280, -55
   br label %wrapped_tvb_get_guint8.exit1167
 
-287:                                              ; preds = %283
-  %288 = add i8 %279, -48
-  %or.cond8.i9.i1164 = icmp ult i8 %288, 10
-  %spec.select.i10.i1165 = select i1 %or.cond8.i9.i1164, i8 %288, i8 0
+288:                                              ; preds = %284
+  %289 = add i8 %280, -48
+  %or.cond8.i9.i1164 = icmp ult i8 %289, 10
+  %spec.select.i10.i1165 = select i1 %or.cond8.i9.i1164, i8 %289, i8 0
   br label %wrapped_tvb_get_guint8.exit1167
 
-wrapped_tvb_get_guint8.exit1167:                  ; preds = %281, %285, %287
-  %.0.i11.i1166 = phi i8 [ %282, %281 ], [ %286, %285 ], [ %spec.select.i10.i1165, %287 ]
-  %289 = add nuw nsw i8 %.0.i11.i1166, %277
-  %290 = zext i8 %289 to i64
-  %291 = shl nuw nsw i64 %290, 32
-  %292 = add i32 %.1, 18
-  %293 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %292) #13
-  %294 = add i8 %293, -97
-  %or.cond.i.i1168 = icmp ult i8 %294, 6
-  br i1 %or.cond.i.i1168, label %295, label %297
+wrapped_tvb_get_guint8.exit1167:                  ; preds = %282, %286, %288
+  %.0.i11.i1166 = phi i8 [ %283, %282 ], [ %287, %286 ], [ %spec.select.i10.i1165, %288 ]
+  %290 = add nuw nsw i8 %.0.i11.i1166, %278
+  %291 = zext i8 %290 to i64
+  %292 = shl nuw nsw i64 %291, 32
+  %293 = add i32 %.1, 18
+  %294 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %293) #13
+  %295 = add i8 %294, -97
+  %or.cond.i.i1168 = icmp ult i8 %295, 6
+  br i1 %or.cond.i.i1168, label %296, label %298
 
-295:                                              ; preds = %wrapped_tvb_get_guint8.exit1167
-  %296 = add nsw i8 %293, -87
+296:                                              ; preds = %wrapped_tvb_get_guint8.exit1167
+  %297 = add nsw i8 %294, -87
   br label %hex2dec.exit.i1172
 
-297:                                              ; preds = %wrapped_tvb_get_guint8.exit1167
-  %298 = add i8 %293, -65
-  %or.cond5.i.i1169 = icmp ult i8 %298, 6
-  br i1 %or.cond5.i.i1169, label %299, label %301
+298:                                              ; preds = %wrapped_tvb_get_guint8.exit1167
+  %299 = add i8 %294, -65
+  %or.cond5.i.i1169 = icmp ult i8 %299, 6
+  br i1 %or.cond5.i.i1169, label %300, label %302
 
-299:                                              ; preds = %297
-  %300 = add nsw i8 %293, -55
+300:                                              ; preds = %298
+  %301 = add nsw i8 %294, -55
   br label %hex2dec.exit.i1172
 
-301:                                              ; preds = %297
-  %302 = add i8 %293, -48
-  %or.cond8.i.i1170 = icmp ult i8 %302, 10
-  %spec.select.i.i1171 = select i1 %or.cond8.i.i1170, i8 %302, i8 0
+302:                                              ; preds = %298
+  %303 = add i8 %294, -48
+  %or.cond8.i.i1170 = icmp ult i8 %303, 10
+  %spec.select.i.i1171 = select i1 %or.cond8.i.i1170, i8 %303, i8 0
   br label %hex2dec.exit.i1172
 
-hex2dec.exit.i1172:                               ; preds = %301, %299, %295
-  %.0.i.i1173 = phi i8 [ %296, %295 ], [ %300, %299 ], [ %spec.select.i.i1171, %301 ]
-  %303 = shl nuw i8 %.0.i.i1173, 4
-  %304 = add i32 %.1, 19
-  %305 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %304) #13
-  %306 = add i8 %305, -97
-  %or.cond.i7.i1174 = icmp ult i8 %306, 6
-  br i1 %or.cond.i7.i1174, label %307, label %309
+hex2dec.exit.i1172:                               ; preds = %302, %300, %296
+  %.0.i.i1173 = phi i8 [ %297, %296 ], [ %301, %300 ], [ %spec.select.i.i1171, %302 ]
+  %304 = shl nuw i8 %.0.i.i1173, 4
+  %305 = add i32 %.1, 19
+  %306 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %305) #13
+  %307 = add i8 %306, -97
+  %or.cond.i7.i1174 = icmp ult i8 %307, 6
+  br i1 %or.cond.i7.i1174, label %308, label %310
 
-307:                                              ; preds = %hex2dec.exit.i1172
-  %308 = add nsw i8 %305, -87
+308:                                              ; preds = %hex2dec.exit.i1172
+  %309 = add nsw i8 %306, -87
   br label %wrapped_tvb_get_guint8.exit1179
 
-309:                                              ; preds = %hex2dec.exit.i1172
-  %310 = add i8 %305, -65
-  %or.cond5.i8.i1175 = icmp ult i8 %310, 6
-  br i1 %or.cond5.i8.i1175, label %311, label %313
+310:                                              ; preds = %hex2dec.exit.i1172
+  %311 = add i8 %306, -65
+  %or.cond5.i8.i1175 = icmp ult i8 %311, 6
+  br i1 %or.cond5.i8.i1175, label %312, label %314
 
-311:                                              ; preds = %309
-  %312 = add nsw i8 %305, -55
+312:                                              ; preds = %310
+  %313 = add nsw i8 %306, -55
   br label %wrapped_tvb_get_guint8.exit1179
 
-313:                                              ; preds = %309
-  %314 = add i8 %305, -48
-  %or.cond8.i9.i1176 = icmp ult i8 %314, 10
-  %spec.select.i10.i1177 = select i1 %or.cond8.i9.i1176, i8 %314, i8 0
+314:                                              ; preds = %310
+  %315 = add i8 %306, -48
+  %or.cond8.i9.i1176 = icmp ult i8 %315, 10
+  %spec.select.i10.i1177 = select i1 %or.cond8.i9.i1176, i8 %315, i8 0
   br label %wrapped_tvb_get_guint8.exit1179
 
-wrapped_tvb_get_guint8.exit1179:                  ; preds = %307, %311, %313
-  %.0.i11.i1178 = phi i8 [ %308, %307 ], [ %312, %311 ], [ %spec.select.i10.i1177, %313 ]
-  %315 = add nuw nsw i8 %.0.i11.i1178, %303
-  %316 = zext i8 %315 to i64
-  %317 = shl nuw nsw i64 %316, 24
-  %318 = or disjoint i64 %317, %291
-  %319 = add i32 %.1, 20
-  %320 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %319) #13
-  %321 = add i8 %320, -97
-  %or.cond.i.i1180 = icmp ult i8 %321, 6
-  br i1 %or.cond.i.i1180, label %322, label %324
+wrapped_tvb_get_guint8.exit1179:                  ; preds = %308, %312, %314
+  %.0.i11.i1178 = phi i8 [ %309, %308 ], [ %313, %312 ], [ %spec.select.i10.i1177, %314 ]
+  %316 = add nuw nsw i8 %.0.i11.i1178, %304
+  %317 = zext i8 %316 to i64
+  %318 = shl nuw nsw i64 %317, 24
+  %319 = or disjoint i64 %318, %292
+  %320 = add i32 %.1, 20
+  %321 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %320) #13
+  %322 = add i8 %321, -97
+  %or.cond.i.i1180 = icmp ult i8 %322, 6
+  br i1 %or.cond.i.i1180, label %323, label %325
 
-322:                                              ; preds = %wrapped_tvb_get_guint8.exit1179
-  %323 = add nsw i8 %320, -87
+323:                                              ; preds = %wrapped_tvb_get_guint8.exit1179
+  %324 = add nsw i8 %321, -87
   br label %hex2dec.exit.i1184
 
-324:                                              ; preds = %wrapped_tvb_get_guint8.exit1179
-  %325 = add i8 %320, -65
-  %or.cond5.i.i1181 = icmp ult i8 %325, 6
-  br i1 %or.cond5.i.i1181, label %326, label %328
+325:                                              ; preds = %wrapped_tvb_get_guint8.exit1179
+  %326 = add i8 %321, -65
+  %or.cond5.i.i1181 = icmp ult i8 %326, 6
+  br i1 %or.cond5.i.i1181, label %327, label %329
 
-326:                                              ; preds = %324
-  %327 = add nsw i8 %320, -55
+327:                                              ; preds = %325
+  %328 = add nsw i8 %321, -55
   br label %hex2dec.exit.i1184
 
-328:                                              ; preds = %324
-  %329 = add i8 %320, -48
-  %or.cond8.i.i1182 = icmp ult i8 %329, 10
-  %spec.select.i.i1183 = select i1 %or.cond8.i.i1182, i8 %329, i8 0
+329:                                              ; preds = %325
+  %330 = add i8 %321, -48
+  %or.cond8.i.i1182 = icmp ult i8 %330, 10
+  %spec.select.i.i1183 = select i1 %or.cond8.i.i1182, i8 %330, i8 0
   br label %hex2dec.exit.i1184
 
-hex2dec.exit.i1184:                               ; preds = %328, %326, %322
-  %.0.i.i1185 = phi i8 [ %323, %322 ], [ %327, %326 ], [ %spec.select.i.i1183, %328 ]
-  %330 = shl nuw i8 %.0.i.i1185, 4
-  %331 = add i32 %.1, 21
-  %332 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %331) #13
-  %333 = add i8 %332, -97
-  %or.cond.i7.i1186 = icmp ult i8 %333, 6
-  br i1 %or.cond.i7.i1186, label %334, label %336
+hex2dec.exit.i1184:                               ; preds = %329, %327, %323
+  %.0.i.i1185 = phi i8 [ %324, %323 ], [ %328, %327 ], [ %spec.select.i.i1183, %329 ]
+  %331 = shl nuw i8 %.0.i.i1185, 4
+  %332 = add i32 %.1, 21
+  %333 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %332) #13
+  %334 = add i8 %333, -97
+  %or.cond.i7.i1186 = icmp ult i8 %334, 6
+  br i1 %or.cond.i7.i1186, label %335, label %337
 
-334:                                              ; preds = %hex2dec.exit.i1184
-  %335 = add nsw i8 %332, -87
+335:                                              ; preds = %hex2dec.exit.i1184
+  %336 = add nsw i8 %333, -87
   br label %wrapped_tvb_get_guint8.exit1191
 
-336:                                              ; preds = %hex2dec.exit.i1184
-  %337 = add i8 %332, -65
-  %or.cond5.i8.i1187 = icmp ult i8 %337, 6
-  br i1 %or.cond5.i8.i1187, label %338, label %340
+337:                                              ; preds = %hex2dec.exit.i1184
+  %338 = add i8 %333, -65
+  %or.cond5.i8.i1187 = icmp ult i8 %338, 6
+  br i1 %or.cond5.i8.i1187, label %339, label %341
 
-338:                                              ; preds = %336
-  %339 = add nsw i8 %332, -55
+339:                                              ; preds = %337
+  %340 = add nsw i8 %333, -55
   br label %wrapped_tvb_get_guint8.exit1191
 
-340:                                              ; preds = %336
-  %341 = add i8 %332, -48
-  %or.cond8.i9.i1188 = icmp ult i8 %341, 10
-  %spec.select.i10.i1189 = select i1 %or.cond8.i9.i1188, i8 %341, i8 0
+341:                                              ; preds = %337
+  %342 = add i8 %333, -48
+  %or.cond8.i9.i1188 = icmp ult i8 %342, 10
+  %spec.select.i10.i1189 = select i1 %or.cond8.i9.i1188, i8 %342, i8 0
   br label %wrapped_tvb_get_guint8.exit1191
 
-wrapped_tvb_get_guint8.exit1191:                  ; preds = %334, %338, %340
-  %.0.i11.i1190 = phi i8 [ %335, %334 ], [ %339, %338 ], [ %spec.select.i10.i1189, %340 ]
-  %342 = add nuw nsw i8 %.0.i11.i1190, %330
-  %343 = zext i8 %342 to i64
-  %344 = shl nuw nsw i64 %343, 16
-  %345 = or disjoint i64 %344, %318
-  %346 = add i32 %.1, 22
-  %347 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %346) #13
-  %348 = add i8 %347, -97
-  %or.cond.i.i1192 = icmp ult i8 %348, 6
-  br i1 %or.cond.i.i1192, label %349, label %351
+wrapped_tvb_get_guint8.exit1191:                  ; preds = %335, %339, %341
+  %.0.i11.i1190 = phi i8 [ %336, %335 ], [ %340, %339 ], [ %spec.select.i10.i1189, %341 ]
+  %343 = add nuw nsw i8 %.0.i11.i1190, %331
+  %344 = zext i8 %343 to i64
+  %345 = shl nuw nsw i64 %344, 16
+  %346 = or disjoint i64 %345, %319
+  %347 = add i32 %.1, 22
+  %348 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %347) #13
+  %349 = add i8 %348, -97
+  %or.cond.i.i1192 = icmp ult i8 %349, 6
+  br i1 %or.cond.i.i1192, label %350, label %352
 
-349:                                              ; preds = %wrapped_tvb_get_guint8.exit1191
-  %350 = add nsw i8 %347, -87
+350:                                              ; preds = %wrapped_tvb_get_guint8.exit1191
+  %351 = add nsw i8 %348, -87
   br label %hex2dec.exit.i1196
 
-351:                                              ; preds = %wrapped_tvb_get_guint8.exit1191
-  %352 = add i8 %347, -65
-  %or.cond5.i.i1193 = icmp ult i8 %352, 6
-  br i1 %or.cond5.i.i1193, label %353, label %355
+352:                                              ; preds = %wrapped_tvb_get_guint8.exit1191
+  %353 = add i8 %348, -65
+  %or.cond5.i.i1193 = icmp ult i8 %353, 6
+  br i1 %or.cond5.i.i1193, label %354, label %356
 
-353:                                              ; preds = %351
-  %354 = add nsw i8 %347, -55
+354:                                              ; preds = %352
+  %355 = add nsw i8 %348, -55
   br label %hex2dec.exit.i1196
 
-355:                                              ; preds = %351
-  %356 = add i8 %347, -48
-  %or.cond8.i.i1194 = icmp ult i8 %356, 10
-  %spec.select.i.i1195 = select i1 %or.cond8.i.i1194, i8 %356, i8 0
+356:                                              ; preds = %352
+  %357 = add i8 %348, -48
+  %or.cond8.i.i1194 = icmp ult i8 %357, 10
+  %spec.select.i.i1195 = select i1 %or.cond8.i.i1194, i8 %357, i8 0
   br label %hex2dec.exit.i1196
 
-hex2dec.exit.i1196:                               ; preds = %355, %353, %349
-  %.0.i.i1197 = phi i8 [ %350, %349 ], [ %354, %353 ], [ %spec.select.i.i1195, %355 ]
-  %357 = shl nuw i8 %.0.i.i1197, 4
-  %358 = add i32 %.1, 23
-  %359 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %358) #13
-  %360 = add i8 %359, -97
-  %or.cond.i7.i1198 = icmp ult i8 %360, 6
-  br i1 %or.cond.i7.i1198, label %361, label %363
+hex2dec.exit.i1196:                               ; preds = %356, %354, %350
+  %.0.i.i1197 = phi i8 [ %351, %350 ], [ %355, %354 ], [ %spec.select.i.i1195, %356 ]
+  %358 = shl nuw i8 %.0.i.i1197, 4
+  %359 = add i32 %.1, 23
+  %360 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %359) #13
+  %361 = add i8 %360, -97
+  %or.cond.i7.i1198 = icmp ult i8 %361, 6
+  br i1 %or.cond.i7.i1198, label %362, label %364
 
-361:                                              ; preds = %hex2dec.exit.i1196
-  %362 = add nsw i8 %359, -87
+362:                                              ; preds = %hex2dec.exit.i1196
+  %363 = add nsw i8 %360, -87
   br label %wrapped_tvb_get_guint8.exit1203
 
-363:                                              ; preds = %hex2dec.exit.i1196
-  %364 = add i8 %359, -65
-  %or.cond5.i8.i1199 = icmp ult i8 %364, 6
-  br i1 %or.cond5.i8.i1199, label %365, label %367
+364:                                              ; preds = %hex2dec.exit.i1196
+  %365 = add i8 %360, -65
+  %or.cond5.i8.i1199 = icmp ult i8 %365, 6
+  br i1 %or.cond5.i8.i1199, label %366, label %368
 
-365:                                              ; preds = %363
-  %366 = add nsw i8 %359, -55
+366:                                              ; preds = %364
+  %367 = add nsw i8 %360, -55
   br label %wrapped_tvb_get_guint8.exit1203
 
-367:                                              ; preds = %363
-  %368 = add i8 %359, -48
-  %or.cond8.i9.i1200 = icmp ult i8 %368, 10
-  %spec.select.i10.i1201 = select i1 %or.cond8.i9.i1200, i8 %368, i8 0
+368:                                              ; preds = %364
+  %369 = add i8 %360, -48
+  %or.cond8.i9.i1200 = icmp ult i8 %369, 10
+  %spec.select.i10.i1201 = select i1 %or.cond8.i9.i1200, i8 %369, i8 0
   br label %wrapped_tvb_get_guint8.exit1203
 
-wrapped_tvb_get_guint8.exit1203:                  ; preds = %361, %365, %367
-  %.0.i11.i1202 = phi i8 [ %362, %361 ], [ %366, %365 ], [ %spec.select.i10.i1201, %367 ]
-  %369 = add nuw nsw i8 %.0.i11.i1202, %357
-  %370 = zext i8 %369 to i64
-  %371 = shl nuw nsw i64 %370, 8
-  %372 = or disjoint i64 %371, %345
-  %373 = add i32 %.1, 24
-  %374 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %373) #13
-  %375 = add i8 %374, -97
-  %or.cond.i.i1204 = icmp ult i8 %375, 6
-  br i1 %or.cond.i.i1204, label %376, label %378
+wrapped_tvb_get_guint8.exit1203:                  ; preds = %362, %366, %368
+  %.0.i11.i1202 = phi i8 [ %363, %362 ], [ %367, %366 ], [ %spec.select.i10.i1201, %368 ]
+  %370 = add nuw nsw i8 %.0.i11.i1202, %358
+  %371 = zext i8 %370 to i64
+  %372 = shl nuw nsw i64 %371, 8
+  %373 = or disjoint i64 %372, %346
+  %374 = add i32 %.1, 24
+  %375 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %374) #13
+  %376 = add i8 %375, -97
+  %or.cond.i.i1204 = icmp ult i8 %376, 6
+  br i1 %or.cond.i.i1204, label %377, label %379
 
-376:                                              ; preds = %wrapped_tvb_get_guint8.exit1203
-  %377 = add nsw i8 %374, -87
+377:                                              ; preds = %wrapped_tvb_get_guint8.exit1203
+  %378 = add nsw i8 %375, -87
   br label %hex2dec.exit.i1208
 
-378:                                              ; preds = %wrapped_tvb_get_guint8.exit1203
-  %379 = add i8 %374, -65
-  %or.cond5.i.i1205 = icmp ult i8 %379, 6
-  br i1 %or.cond5.i.i1205, label %380, label %382
+379:                                              ; preds = %wrapped_tvb_get_guint8.exit1203
+  %380 = add i8 %375, -65
+  %or.cond5.i.i1205 = icmp ult i8 %380, 6
+  br i1 %or.cond5.i.i1205, label %381, label %383
 
-380:                                              ; preds = %378
-  %381 = add nsw i8 %374, -55
+381:                                              ; preds = %379
+  %382 = add nsw i8 %375, -55
   br label %hex2dec.exit.i1208
 
-382:                                              ; preds = %378
-  %383 = add i8 %374, -48
-  %or.cond8.i.i1206 = icmp ult i8 %383, 10
-  %spec.select.i.i1207 = select i1 %or.cond8.i.i1206, i8 %383, i8 0
+383:                                              ; preds = %379
+  %384 = add i8 %375, -48
+  %or.cond8.i.i1206 = icmp ult i8 %384, 10
+  %spec.select.i.i1207 = select i1 %or.cond8.i.i1206, i8 %384, i8 0
   br label %hex2dec.exit.i1208
 
-hex2dec.exit.i1208:                               ; preds = %382, %380, %376
-  %.0.i.i1209 = phi i8 [ %377, %376 ], [ %381, %380 ], [ %spec.select.i.i1207, %382 ]
-  %384 = shl nuw i8 %.0.i.i1209, 4
-  %385 = add i32 %.1, 25
-  %386 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %385) #13
-  %387 = add i8 %386, -97
-  %or.cond.i7.i1210 = icmp ult i8 %387, 6
-  br i1 %or.cond.i7.i1210, label %388, label %390
+hex2dec.exit.i1208:                               ; preds = %383, %381, %377
+  %.0.i.i1209 = phi i8 [ %378, %377 ], [ %382, %381 ], [ %spec.select.i.i1207, %383 ]
+  %385 = shl nuw i8 %.0.i.i1209, 4
+  %386 = add i32 %.1, 25
+  %387 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %386) #13
+  %388 = add i8 %387, -97
+  %or.cond.i7.i1210 = icmp ult i8 %388, 6
+  br i1 %or.cond.i7.i1210, label %389, label %391
 
-388:                                              ; preds = %hex2dec.exit.i1208
-  %389 = add nsw i8 %386, -87
+389:                                              ; preds = %hex2dec.exit.i1208
+  %390 = add nsw i8 %387, -87
   br label %wrapped_tvb_get_guint8.exit1215
 
-390:                                              ; preds = %hex2dec.exit.i1208
-  %391 = add i8 %386, -65
-  %or.cond5.i8.i1211 = icmp ult i8 %391, 6
-  br i1 %or.cond5.i8.i1211, label %392, label %394
+391:                                              ; preds = %hex2dec.exit.i1208
+  %392 = add i8 %387, -65
+  %or.cond5.i8.i1211 = icmp ult i8 %392, 6
+  br i1 %or.cond5.i8.i1211, label %393, label %395
 
-392:                                              ; preds = %390
-  %393 = add nsw i8 %386, -55
+393:                                              ; preds = %391
+  %394 = add nsw i8 %387, -55
   br label %wrapped_tvb_get_guint8.exit1215
 
-394:                                              ; preds = %390
-  %395 = add i8 %386, -48
-  %or.cond8.i9.i1212 = icmp ult i8 %395, 10
-  %spec.select.i10.i1213 = select i1 %or.cond8.i9.i1212, i8 %395, i8 0
+395:                                              ; preds = %391
+  %396 = add i8 %387, -48
+  %or.cond8.i9.i1212 = icmp ult i8 %396, 10
+  %spec.select.i10.i1213 = select i1 %or.cond8.i9.i1212, i8 %396, i8 0
   br label %wrapped_tvb_get_guint8.exit1215
 
-wrapped_tvb_get_guint8.exit1215:                  ; preds = %388, %392, %394
-  %.0.i11.i1214 = phi i8 [ %389, %388 ], [ %393, %392 ], [ %spec.select.i10.i1213, %394 ]
-  %396 = add nuw nsw i8 %.0.i11.i1214, %384
-  %397 = zext i8 %396 to i64
-  %398 = or disjoint i64 %372, %397
-  %399 = load i32, ptr @hf_gtp_qos_dl_mbr, align 4
-  %400 = tail call ptr @proto_tree_add_uint64(ptr noundef %35, i32 noundef %399, ptr noundef %0, i32 noundef %266, i32 noundef 10, i64 noundef %398) #13
-  %401 = add i32 %.1, 26
-  %402 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %401) #13
-  %403 = add i8 %402, -97
-  %or.cond.i.i1216 = icmp ult i8 %403, 6
-  br i1 %or.cond.i.i1216, label %404, label %406
+wrapped_tvb_get_guint8.exit1215:                  ; preds = %389, %393, %395
+  %.0.i11.i1214 = phi i8 [ %390, %389 ], [ %394, %393 ], [ %spec.select.i10.i1213, %395 ]
+  %397 = add nuw nsw i8 %.0.i11.i1214, %385
+  %398 = zext i8 %397 to i64
+  %399 = or disjoint i64 %373, %398
+  %400 = load i32, ptr @hf_gtp_qos_dl_mbr, align 4
+  %401 = tail call ptr @proto_tree_add_uint64(ptr noundef %35, i32 noundef %400, ptr noundef %0, i32 noundef %267, i32 noundef 10, i64 noundef %399) #13
+  %402 = add i32 %.1, 26
+  %403 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %402) #13
+  %404 = add i8 %403, -97
+  %or.cond.i.i1216 = icmp ult i8 %404, 6
+  br i1 %or.cond.i.i1216, label %405, label %407
 
-404:                                              ; preds = %wrapped_tvb_get_guint8.exit1215
-  %405 = add nsw i8 %402, -87
+405:                                              ; preds = %wrapped_tvb_get_guint8.exit1215
+  %406 = add nsw i8 %403, -87
   br label %hex2dec.exit.i1220
 
-406:                                              ; preds = %wrapped_tvb_get_guint8.exit1215
-  %407 = add i8 %402, -65
-  %or.cond5.i.i1217 = icmp ult i8 %407, 6
-  br i1 %or.cond5.i.i1217, label %408, label %410
+407:                                              ; preds = %wrapped_tvb_get_guint8.exit1215
+  %408 = add i8 %403, -65
+  %or.cond5.i.i1217 = icmp ult i8 %408, 6
+  br i1 %or.cond5.i.i1217, label %409, label %411
 
-408:                                              ; preds = %406
-  %409 = add nsw i8 %402, -55
+409:                                              ; preds = %407
+  %410 = add nsw i8 %403, -55
   br label %hex2dec.exit.i1220
 
-410:                                              ; preds = %406
-  %411 = add i8 %402, -48
-  %or.cond8.i.i1218 = icmp ult i8 %411, 10
-  %spec.select.i.i1219 = select i1 %or.cond8.i.i1218, i8 %411, i8 0
+411:                                              ; preds = %407
+  %412 = add i8 %403, -48
+  %or.cond8.i.i1218 = icmp ult i8 %412, 10
+  %spec.select.i.i1219 = select i1 %or.cond8.i.i1218, i8 %412, i8 0
   br label %hex2dec.exit.i1220
 
-hex2dec.exit.i1220:                               ; preds = %410, %408, %404
-  %.0.i.i1221 = phi i8 [ %405, %404 ], [ %409, %408 ], [ %spec.select.i.i1219, %410 ]
-  %412 = shl nuw i8 %.0.i.i1221, 4
-  %413 = add i32 %.1, 27
-  %414 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %413) #13
-  %415 = add i8 %414, -97
-  %or.cond.i7.i1222 = icmp ult i8 %415, 6
-  br i1 %or.cond.i7.i1222, label %416, label %418
+hex2dec.exit.i1220:                               ; preds = %411, %409, %405
+  %.0.i.i1221 = phi i8 [ %406, %405 ], [ %410, %409 ], [ %spec.select.i.i1219, %411 ]
+  %413 = shl nuw i8 %.0.i.i1221, 4
+  %414 = add i32 %.1, 27
+  %415 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %414) #13
+  %416 = add i8 %415, -97
+  %or.cond.i7.i1222 = icmp ult i8 %416, 6
+  br i1 %or.cond.i7.i1222, label %417, label %419
 
-416:                                              ; preds = %hex2dec.exit.i1220
-  %417 = add nsw i8 %414, -87
+417:                                              ; preds = %hex2dec.exit.i1220
+  %418 = add nsw i8 %415, -87
   br label %wrapped_tvb_get_guint8.exit1227
 
-418:                                              ; preds = %hex2dec.exit.i1220
-  %419 = add i8 %414, -65
-  %or.cond5.i8.i1223 = icmp ult i8 %419, 6
-  br i1 %or.cond5.i8.i1223, label %420, label %422
+419:                                              ; preds = %hex2dec.exit.i1220
+  %420 = add i8 %415, -65
+  %or.cond5.i8.i1223 = icmp ult i8 %420, 6
+  br i1 %or.cond5.i8.i1223, label %421, label %423
 
-420:                                              ; preds = %418
-  %421 = add nsw i8 %414, -55
+421:                                              ; preds = %419
+  %422 = add nsw i8 %415, -55
   br label %wrapped_tvb_get_guint8.exit1227
 
-422:                                              ; preds = %418
-  %423 = add i8 %414, -48
-  %or.cond8.i9.i1224 = icmp ult i8 %423, 10
-  %spec.select.i10.i1225 = select i1 %or.cond8.i9.i1224, i8 %423, i8 0
+423:                                              ; preds = %419
+  %424 = add i8 %415, -48
+  %or.cond8.i9.i1224 = icmp ult i8 %424, 10
+  %spec.select.i10.i1225 = select i1 %or.cond8.i9.i1224, i8 %424, i8 0
   br label %wrapped_tvb_get_guint8.exit1227
 
-wrapped_tvb_get_guint8.exit1227:                  ; preds = %416, %420, %422
-  %.0.i11.i1226 = phi i8 [ %417, %416 ], [ %421, %420 ], [ %spec.select.i10.i1225, %422 ]
-  %424 = add nuw nsw i8 %.0.i11.i1226, %412
-  %425 = zext i8 %424 to i64
-  %426 = shl nuw nsw i64 %425, 32
-  %427 = add i32 %.1, 28
-  %428 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %427) #13
-  %429 = add i8 %428, -97
-  %or.cond.i.i1228 = icmp ult i8 %429, 6
-  br i1 %or.cond.i.i1228, label %430, label %432
+wrapped_tvb_get_guint8.exit1227:                  ; preds = %417, %421, %423
+  %.0.i11.i1226 = phi i8 [ %418, %417 ], [ %422, %421 ], [ %spec.select.i10.i1225, %423 ]
+  %425 = add nuw nsw i8 %.0.i11.i1226, %413
+  %426 = zext i8 %425 to i64
+  %427 = shl nuw nsw i64 %426, 32
+  %428 = add i32 %.1, 28
+  %429 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %428) #13
+  %430 = add i8 %429, -97
+  %or.cond.i.i1228 = icmp ult i8 %430, 6
+  br i1 %or.cond.i.i1228, label %431, label %433
 
-430:                                              ; preds = %wrapped_tvb_get_guint8.exit1227
-  %431 = add nsw i8 %428, -87
+431:                                              ; preds = %wrapped_tvb_get_guint8.exit1227
+  %432 = add nsw i8 %429, -87
   br label %hex2dec.exit.i1232
 
-432:                                              ; preds = %wrapped_tvb_get_guint8.exit1227
-  %433 = add i8 %428, -65
-  %or.cond5.i.i1229 = icmp ult i8 %433, 6
-  br i1 %or.cond5.i.i1229, label %434, label %436
+433:                                              ; preds = %wrapped_tvb_get_guint8.exit1227
+  %434 = add i8 %429, -65
+  %or.cond5.i.i1229 = icmp ult i8 %434, 6
+  br i1 %or.cond5.i.i1229, label %435, label %437
 
-434:                                              ; preds = %432
-  %435 = add nsw i8 %428, -55
+435:                                              ; preds = %433
+  %436 = add nsw i8 %429, -55
   br label %hex2dec.exit.i1232
 
-436:                                              ; preds = %432
-  %437 = add i8 %428, -48
-  %or.cond8.i.i1230 = icmp ult i8 %437, 10
-  %spec.select.i.i1231 = select i1 %or.cond8.i.i1230, i8 %437, i8 0
+437:                                              ; preds = %433
+  %438 = add i8 %429, -48
+  %or.cond8.i.i1230 = icmp ult i8 %438, 10
+  %spec.select.i.i1231 = select i1 %or.cond8.i.i1230, i8 %438, i8 0
   br label %hex2dec.exit.i1232
 
-hex2dec.exit.i1232:                               ; preds = %436, %434, %430
-  %.0.i.i1233 = phi i8 [ %431, %430 ], [ %435, %434 ], [ %spec.select.i.i1231, %436 ]
-  %438 = shl nuw i8 %.0.i.i1233, 4
-  %439 = add i32 %.1, 29
-  %440 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %439) #13
-  %441 = add i8 %440, -97
-  %or.cond.i7.i1234 = icmp ult i8 %441, 6
-  br i1 %or.cond.i7.i1234, label %442, label %444
+hex2dec.exit.i1232:                               ; preds = %437, %435, %431
+  %.0.i.i1233 = phi i8 [ %432, %431 ], [ %436, %435 ], [ %spec.select.i.i1231, %437 ]
+  %439 = shl nuw i8 %.0.i.i1233, 4
+  %440 = add i32 %.1, 29
+  %441 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %440) #13
+  %442 = add i8 %441, -97
+  %or.cond.i7.i1234 = icmp ult i8 %442, 6
+  br i1 %or.cond.i7.i1234, label %443, label %445
 
-442:                                              ; preds = %hex2dec.exit.i1232
-  %443 = add nsw i8 %440, -87
+443:                                              ; preds = %hex2dec.exit.i1232
+  %444 = add nsw i8 %441, -87
   br label %wrapped_tvb_get_guint8.exit1239
 
-444:                                              ; preds = %hex2dec.exit.i1232
-  %445 = add i8 %440, -65
-  %or.cond5.i8.i1235 = icmp ult i8 %445, 6
-  br i1 %or.cond5.i8.i1235, label %446, label %448
+445:                                              ; preds = %hex2dec.exit.i1232
+  %446 = add i8 %441, -65
+  %or.cond5.i8.i1235 = icmp ult i8 %446, 6
+  br i1 %or.cond5.i8.i1235, label %447, label %449
 
-446:                                              ; preds = %444
-  %447 = add nsw i8 %440, -55
+447:                                              ; preds = %445
+  %448 = add nsw i8 %441, -55
   br label %wrapped_tvb_get_guint8.exit1239
 
-448:                                              ; preds = %444
-  %449 = add i8 %440, -48
-  %or.cond8.i9.i1236 = icmp ult i8 %449, 10
-  %spec.select.i10.i1237 = select i1 %or.cond8.i9.i1236, i8 %449, i8 0
+449:                                              ; preds = %445
+  %450 = add i8 %441, -48
+  %or.cond8.i9.i1236 = icmp ult i8 %450, 10
+  %spec.select.i10.i1237 = select i1 %or.cond8.i9.i1236, i8 %450, i8 0
   br label %wrapped_tvb_get_guint8.exit1239
 
-wrapped_tvb_get_guint8.exit1239:                  ; preds = %442, %446, %448
-  %.0.i11.i1238 = phi i8 [ %443, %442 ], [ %447, %446 ], [ %spec.select.i10.i1237, %448 ]
-  %450 = add nuw nsw i8 %.0.i11.i1238, %438
-  %451 = zext i8 %450 to i64
-  %452 = shl nuw nsw i64 %451, 24
-  %453 = or disjoint i64 %452, %426
-  %454 = add i32 %.1, 30
-  %455 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %454) #13
-  %456 = add i8 %455, -97
-  %or.cond.i.i1240 = icmp ult i8 %456, 6
-  br i1 %or.cond.i.i1240, label %457, label %459
+wrapped_tvb_get_guint8.exit1239:                  ; preds = %443, %447, %449
+  %.0.i11.i1238 = phi i8 [ %444, %443 ], [ %448, %447 ], [ %spec.select.i10.i1237, %449 ]
+  %451 = add nuw nsw i8 %.0.i11.i1238, %439
+  %452 = zext i8 %451 to i64
+  %453 = shl nuw nsw i64 %452, 24
+  %454 = or disjoint i64 %453, %427
+  %455 = add i32 %.1, 30
+  %456 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %455) #13
+  %457 = add i8 %456, -97
+  %or.cond.i.i1240 = icmp ult i8 %457, 6
+  br i1 %or.cond.i.i1240, label %458, label %460
 
-457:                                              ; preds = %wrapped_tvb_get_guint8.exit1239
-  %458 = add nsw i8 %455, -87
+458:                                              ; preds = %wrapped_tvb_get_guint8.exit1239
+  %459 = add nsw i8 %456, -87
   br label %hex2dec.exit.i1244
 
-459:                                              ; preds = %wrapped_tvb_get_guint8.exit1239
-  %460 = add i8 %455, -65
-  %or.cond5.i.i1241 = icmp ult i8 %460, 6
-  br i1 %or.cond5.i.i1241, label %461, label %463
+460:                                              ; preds = %wrapped_tvb_get_guint8.exit1239
+  %461 = add i8 %456, -65
+  %or.cond5.i.i1241 = icmp ult i8 %461, 6
+  br i1 %or.cond5.i.i1241, label %462, label %464
 
-461:                                              ; preds = %459
-  %462 = add nsw i8 %455, -55
+462:                                              ; preds = %460
+  %463 = add nsw i8 %456, -55
   br label %hex2dec.exit.i1244
 
-463:                                              ; preds = %459
-  %464 = add i8 %455, -48
-  %or.cond8.i.i1242 = icmp ult i8 %464, 10
-  %spec.select.i.i1243 = select i1 %or.cond8.i.i1242, i8 %464, i8 0
+464:                                              ; preds = %460
+  %465 = add i8 %456, -48
+  %or.cond8.i.i1242 = icmp ult i8 %465, 10
+  %spec.select.i.i1243 = select i1 %or.cond8.i.i1242, i8 %465, i8 0
   br label %hex2dec.exit.i1244
 
-hex2dec.exit.i1244:                               ; preds = %463, %461, %457
-  %.0.i.i1245 = phi i8 [ %458, %457 ], [ %462, %461 ], [ %spec.select.i.i1243, %463 ]
-  %465 = shl nuw i8 %.0.i.i1245, 4
-  %466 = add i32 %.1, 31
-  %467 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %466) #13
-  %468 = add i8 %467, -97
-  %or.cond.i7.i1246 = icmp ult i8 %468, 6
-  br i1 %or.cond.i7.i1246, label %469, label %471
+hex2dec.exit.i1244:                               ; preds = %464, %462, %458
+  %.0.i.i1245 = phi i8 [ %459, %458 ], [ %463, %462 ], [ %spec.select.i.i1243, %464 ]
+  %466 = shl nuw i8 %.0.i.i1245, 4
+  %467 = add i32 %.1, 31
+  %468 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %467) #13
+  %469 = add i8 %468, -97
+  %or.cond.i7.i1246 = icmp ult i8 %469, 6
+  br i1 %or.cond.i7.i1246, label %470, label %472
 
-469:                                              ; preds = %hex2dec.exit.i1244
-  %470 = add nsw i8 %467, -87
+470:                                              ; preds = %hex2dec.exit.i1244
+  %471 = add nsw i8 %468, -87
   br label %wrapped_tvb_get_guint8.exit1251
 
-471:                                              ; preds = %hex2dec.exit.i1244
-  %472 = add i8 %467, -65
-  %or.cond5.i8.i1247 = icmp ult i8 %472, 6
-  br i1 %or.cond5.i8.i1247, label %473, label %475
+472:                                              ; preds = %hex2dec.exit.i1244
+  %473 = add i8 %468, -65
+  %or.cond5.i8.i1247 = icmp ult i8 %473, 6
+  br i1 %or.cond5.i8.i1247, label %474, label %476
 
-473:                                              ; preds = %471
-  %474 = add nsw i8 %467, -55
+474:                                              ; preds = %472
+  %475 = add nsw i8 %468, -55
   br label %wrapped_tvb_get_guint8.exit1251
 
-475:                                              ; preds = %471
-  %476 = add i8 %467, -48
-  %or.cond8.i9.i1248 = icmp ult i8 %476, 10
-  %spec.select.i10.i1249 = select i1 %or.cond8.i9.i1248, i8 %476, i8 0
+476:                                              ; preds = %472
+  %477 = add i8 %468, -48
+  %or.cond8.i9.i1248 = icmp ult i8 %477, 10
+  %spec.select.i10.i1249 = select i1 %or.cond8.i9.i1248, i8 %477, i8 0
   br label %wrapped_tvb_get_guint8.exit1251
 
-wrapped_tvb_get_guint8.exit1251:                  ; preds = %469, %473, %475
-  %.0.i11.i1250 = phi i8 [ %470, %469 ], [ %474, %473 ], [ %spec.select.i10.i1249, %475 ]
-  %477 = add nuw nsw i8 %.0.i11.i1250, %465
-  %478 = zext i8 %477 to i64
-  %479 = shl nuw nsw i64 %478, 16
-  %480 = or disjoint i64 %479, %453
-  %481 = add i32 %.1, 32
-  %482 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %481) #13
-  %483 = add i8 %482, -97
-  %or.cond.i.i1252 = icmp ult i8 %483, 6
-  br i1 %or.cond.i.i1252, label %484, label %486
+wrapped_tvb_get_guint8.exit1251:                  ; preds = %470, %474, %476
+  %.0.i11.i1250 = phi i8 [ %471, %470 ], [ %475, %474 ], [ %spec.select.i10.i1249, %476 ]
+  %478 = add nuw nsw i8 %.0.i11.i1250, %466
+  %479 = zext i8 %478 to i64
+  %480 = shl nuw nsw i64 %479, 16
+  %481 = or disjoint i64 %480, %454
+  %482 = add i32 %.1, 32
+  %483 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %482) #13
+  %484 = add i8 %483, -97
+  %or.cond.i.i1252 = icmp ult i8 %484, 6
+  br i1 %or.cond.i.i1252, label %485, label %487
 
-484:                                              ; preds = %wrapped_tvb_get_guint8.exit1251
-  %485 = add nsw i8 %482, -87
+485:                                              ; preds = %wrapped_tvb_get_guint8.exit1251
+  %486 = add nsw i8 %483, -87
   br label %hex2dec.exit.i1256
 
-486:                                              ; preds = %wrapped_tvb_get_guint8.exit1251
-  %487 = add i8 %482, -65
-  %or.cond5.i.i1253 = icmp ult i8 %487, 6
-  br i1 %or.cond5.i.i1253, label %488, label %490
+487:                                              ; preds = %wrapped_tvb_get_guint8.exit1251
+  %488 = add i8 %483, -65
+  %or.cond5.i.i1253 = icmp ult i8 %488, 6
+  br i1 %or.cond5.i.i1253, label %489, label %491
 
-488:                                              ; preds = %486
-  %489 = add nsw i8 %482, -55
+489:                                              ; preds = %487
+  %490 = add nsw i8 %483, -55
   br label %hex2dec.exit.i1256
 
-490:                                              ; preds = %486
-  %491 = add i8 %482, -48
-  %or.cond8.i.i1254 = icmp ult i8 %491, 10
-  %spec.select.i.i1255 = select i1 %or.cond8.i.i1254, i8 %491, i8 0
+491:                                              ; preds = %487
+  %492 = add i8 %483, -48
+  %or.cond8.i.i1254 = icmp ult i8 %492, 10
+  %spec.select.i.i1255 = select i1 %or.cond8.i.i1254, i8 %492, i8 0
   br label %hex2dec.exit.i1256
 
-hex2dec.exit.i1256:                               ; preds = %490, %488, %484
-  %.0.i.i1257 = phi i8 [ %485, %484 ], [ %489, %488 ], [ %spec.select.i.i1255, %490 ]
-  %492 = shl nuw i8 %.0.i.i1257, 4
-  %493 = add i32 %.1, 33
-  %494 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %493) #13
-  %495 = add i8 %494, -97
-  %or.cond.i7.i1258 = icmp ult i8 %495, 6
-  br i1 %or.cond.i7.i1258, label %496, label %498
+hex2dec.exit.i1256:                               ; preds = %491, %489, %485
+  %.0.i.i1257 = phi i8 [ %486, %485 ], [ %490, %489 ], [ %spec.select.i.i1255, %491 ]
+  %493 = shl nuw i8 %.0.i.i1257, 4
+  %494 = add i32 %.1, 33
+  %495 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %494) #13
+  %496 = add i8 %495, -97
+  %or.cond.i7.i1258 = icmp ult i8 %496, 6
+  br i1 %or.cond.i7.i1258, label %497, label %499
 
-496:                                              ; preds = %hex2dec.exit.i1256
-  %497 = add nsw i8 %494, -87
+497:                                              ; preds = %hex2dec.exit.i1256
+  %498 = add nsw i8 %495, -87
   br label %wrapped_tvb_get_guint8.exit1263
 
-498:                                              ; preds = %hex2dec.exit.i1256
-  %499 = add i8 %494, -65
-  %or.cond5.i8.i1259 = icmp ult i8 %499, 6
-  br i1 %or.cond5.i8.i1259, label %500, label %502
+499:                                              ; preds = %hex2dec.exit.i1256
+  %500 = add i8 %495, -65
+  %or.cond5.i8.i1259 = icmp ult i8 %500, 6
+  br i1 %or.cond5.i8.i1259, label %501, label %503
 
-500:                                              ; preds = %498
-  %501 = add nsw i8 %494, -55
+501:                                              ; preds = %499
+  %502 = add nsw i8 %495, -55
   br label %wrapped_tvb_get_guint8.exit1263
 
-502:                                              ; preds = %498
-  %503 = add i8 %494, -48
-  %or.cond8.i9.i1260 = icmp ult i8 %503, 10
-  %spec.select.i10.i1261 = select i1 %or.cond8.i9.i1260, i8 %503, i8 0
+503:                                              ; preds = %499
+  %504 = add i8 %495, -48
+  %or.cond8.i9.i1260 = icmp ult i8 %504, 10
+  %spec.select.i10.i1261 = select i1 %or.cond8.i9.i1260, i8 %504, i8 0
   br label %wrapped_tvb_get_guint8.exit1263
 
-wrapped_tvb_get_guint8.exit1263:                  ; preds = %496, %500, %502
-  %.0.i11.i1262 = phi i8 [ %497, %496 ], [ %501, %500 ], [ %spec.select.i10.i1261, %502 ]
-  %504 = add nuw nsw i8 %.0.i11.i1262, %492
-  %505 = zext i8 %504 to i64
-  %506 = shl nuw nsw i64 %505, 8
-  %507 = or disjoint i64 %506, %480
-  %508 = add i32 %.1, 34
-  %509 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %508) #13
-  %510 = add i8 %509, -97
-  %or.cond.i.i1264 = icmp ult i8 %510, 6
-  br i1 %or.cond.i.i1264, label %511, label %513
+wrapped_tvb_get_guint8.exit1263:                  ; preds = %497, %501, %503
+  %.0.i11.i1262 = phi i8 [ %498, %497 ], [ %502, %501 ], [ %spec.select.i10.i1261, %503 ]
+  %505 = add nuw nsw i8 %.0.i11.i1262, %493
+  %506 = zext i8 %505 to i64
+  %507 = shl nuw nsw i64 %506, 8
+  %508 = or disjoint i64 %507, %481
+  %509 = add i32 %.1, 34
+  %510 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %509) #13
+  %511 = add i8 %510, -97
+  %or.cond.i.i1264 = icmp ult i8 %511, 6
+  br i1 %or.cond.i.i1264, label %512, label %514
 
-511:                                              ; preds = %wrapped_tvb_get_guint8.exit1263
-  %512 = add nsw i8 %509, -87
+512:                                              ; preds = %wrapped_tvb_get_guint8.exit1263
+  %513 = add nsw i8 %510, -87
   br label %hex2dec.exit.i1268
 
-513:                                              ; preds = %wrapped_tvb_get_guint8.exit1263
-  %514 = add i8 %509, -65
-  %or.cond5.i.i1265 = icmp ult i8 %514, 6
-  br i1 %or.cond5.i.i1265, label %515, label %517
+514:                                              ; preds = %wrapped_tvb_get_guint8.exit1263
+  %515 = add i8 %510, -65
+  %or.cond5.i.i1265 = icmp ult i8 %515, 6
+  br i1 %or.cond5.i.i1265, label %516, label %518
 
-515:                                              ; preds = %513
-  %516 = add nsw i8 %509, -55
+516:                                              ; preds = %514
+  %517 = add nsw i8 %510, -55
   br label %hex2dec.exit.i1268
 
-517:                                              ; preds = %513
-  %518 = add i8 %509, -48
-  %or.cond8.i.i1266 = icmp ult i8 %518, 10
-  %spec.select.i.i1267 = select i1 %or.cond8.i.i1266, i8 %518, i8 0
+518:                                              ; preds = %514
+  %519 = add i8 %510, -48
+  %or.cond8.i.i1266 = icmp ult i8 %519, 10
+  %spec.select.i.i1267 = select i1 %or.cond8.i.i1266, i8 %519, i8 0
   br label %hex2dec.exit.i1268
 
-hex2dec.exit.i1268:                               ; preds = %517, %515, %511
-  %.0.i.i1269 = phi i8 [ %512, %511 ], [ %516, %515 ], [ %spec.select.i.i1267, %517 ]
-  %519 = shl nuw i8 %.0.i.i1269, 4
-  %520 = add i32 %.1, 35
-  %521 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %520) #13
-  %522 = add i8 %521, -97
-  %or.cond.i7.i1270 = icmp ult i8 %522, 6
-  br i1 %or.cond.i7.i1270, label %523, label %525
+hex2dec.exit.i1268:                               ; preds = %518, %516, %512
+  %.0.i.i1269 = phi i8 [ %513, %512 ], [ %517, %516 ], [ %spec.select.i.i1267, %518 ]
+  %520 = shl nuw i8 %.0.i.i1269, 4
+  %521 = add i32 %.1, 35
+  %522 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %521) #13
+  %523 = add i8 %522, -97
+  %or.cond.i7.i1270 = icmp ult i8 %523, 6
+  br i1 %or.cond.i7.i1270, label %524, label %526
 
-523:                                              ; preds = %hex2dec.exit.i1268
-  %524 = add nsw i8 %521, -87
+524:                                              ; preds = %hex2dec.exit.i1268
+  %525 = add nsw i8 %522, -87
   br label %wrapped_tvb_get_guint8.exit1275
 
-525:                                              ; preds = %hex2dec.exit.i1268
-  %526 = add i8 %521, -65
-  %or.cond5.i8.i1271 = icmp ult i8 %526, 6
-  br i1 %or.cond5.i8.i1271, label %527, label %529
+526:                                              ; preds = %hex2dec.exit.i1268
+  %527 = add i8 %522, -65
+  %or.cond5.i8.i1271 = icmp ult i8 %527, 6
+  br i1 %or.cond5.i8.i1271, label %528, label %530
 
-527:                                              ; preds = %525
-  %528 = add nsw i8 %521, -55
+528:                                              ; preds = %526
+  %529 = add nsw i8 %522, -55
   br label %wrapped_tvb_get_guint8.exit1275
 
-529:                                              ; preds = %525
-  %530 = add i8 %521, -48
-  %or.cond8.i9.i1272 = icmp ult i8 %530, 10
-  %spec.select.i10.i1273 = select i1 %or.cond8.i9.i1272, i8 %530, i8 0
+530:                                              ; preds = %526
+  %531 = add i8 %522, -48
+  %or.cond8.i9.i1272 = icmp ult i8 %531, 10
+  %spec.select.i10.i1273 = select i1 %or.cond8.i9.i1272, i8 %531, i8 0
   br label %wrapped_tvb_get_guint8.exit1275
 
-wrapped_tvb_get_guint8.exit1275:                  ; preds = %523, %527, %529
-  %.0.i11.i1274 = phi i8 [ %524, %523 ], [ %528, %527 ], [ %spec.select.i10.i1273, %529 ]
-  %531 = add nuw nsw i8 %.0.i11.i1274, %519
-  %532 = zext i8 %531 to i64
-  %533 = or disjoint i64 %507, %532
-  %534 = load i32, ptr @hf_gtp_qos_ul_gbr, align 4
-  %535 = tail call ptr @proto_tree_add_uint64(ptr noundef %35, i32 noundef %534, ptr noundef %0, i32 noundef %401, i32 noundef 10, i64 noundef %533) #13
-  %536 = add i32 %.1, 36
-  %537 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %536) #13
-  %538 = add i8 %537, -97
-  %or.cond.i.i1276 = icmp ult i8 %538, 6
-  br i1 %or.cond.i.i1276, label %539, label %541
+wrapped_tvb_get_guint8.exit1275:                  ; preds = %524, %528, %530
+  %.0.i11.i1274 = phi i8 [ %525, %524 ], [ %529, %528 ], [ %spec.select.i10.i1273, %530 ]
+  %532 = add nuw nsw i8 %.0.i11.i1274, %520
+  %533 = zext i8 %532 to i64
+  %534 = or disjoint i64 %508, %533
+  %535 = load i32, ptr @hf_gtp_qos_ul_gbr, align 4
+  %536 = tail call ptr @proto_tree_add_uint64(ptr noundef %35, i32 noundef %535, ptr noundef %0, i32 noundef %402, i32 noundef 10, i64 noundef %534) #13
+  %537 = add i32 %.1, 36
+  %538 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %537) #13
+  %539 = add i8 %538, -97
+  %or.cond.i.i1276 = icmp ult i8 %539, 6
+  br i1 %or.cond.i.i1276, label %540, label %542
 
-539:                                              ; preds = %wrapped_tvb_get_guint8.exit1275
-  %540 = add nsw i8 %537, -87
+540:                                              ; preds = %wrapped_tvb_get_guint8.exit1275
+  %541 = add nsw i8 %538, -87
   br label %hex2dec.exit.i1280
 
-541:                                              ; preds = %wrapped_tvb_get_guint8.exit1275
-  %542 = add i8 %537, -65
-  %or.cond5.i.i1277 = icmp ult i8 %542, 6
-  br i1 %or.cond5.i.i1277, label %543, label %545
+542:                                              ; preds = %wrapped_tvb_get_guint8.exit1275
+  %543 = add i8 %538, -65
+  %or.cond5.i.i1277 = icmp ult i8 %543, 6
+  br i1 %or.cond5.i.i1277, label %544, label %546
 
-543:                                              ; preds = %541
-  %544 = add nsw i8 %537, -55
+544:                                              ; preds = %542
+  %545 = add nsw i8 %538, -55
   br label %hex2dec.exit.i1280
 
-545:                                              ; preds = %541
-  %546 = add i8 %537, -48
-  %or.cond8.i.i1278 = icmp ult i8 %546, 10
-  %spec.select.i.i1279 = select i1 %or.cond8.i.i1278, i8 %546, i8 0
+546:                                              ; preds = %542
+  %547 = add i8 %538, -48
+  %or.cond8.i.i1278 = icmp ult i8 %547, 10
+  %spec.select.i.i1279 = select i1 %or.cond8.i.i1278, i8 %547, i8 0
   br label %hex2dec.exit.i1280
 
-hex2dec.exit.i1280:                               ; preds = %545, %543, %539
-  %.0.i.i1281 = phi i8 [ %540, %539 ], [ %544, %543 ], [ %spec.select.i.i1279, %545 ]
-  %547 = shl nuw i8 %.0.i.i1281, 4
-  %548 = add i32 %.1, 37
-  %549 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %548) #13
-  %550 = add i8 %549, -97
-  %or.cond.i7.i1282 = icmp ult i8 %550, 6
-  br i1 %or.cond.i7.i1282, label %551, label %553
+hex2dec.exit.i1280:                               ; preds = %546, %544, %540
+  %.0.i.i1281 = phi i8 [ %541, %540 ], [ %545, %544 ], [ %spec.select.i.i1279, %546 ]
+  %548 = shl nuw i8 %.0.i.i1281, 4
+  %549 = add i32 %.1, 37
+  %550 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %549) #13
+  %551 = add i8 %550, -97
+  %or.cond.i7.i1282 = icmp ult i8 %551, 6
+  br i1 %or.cond.i7.i1282, label %552, label %554
 
-551:                                              ; preds = %hex2dec.exit.i1280
-  %552 = add nsw i8 %549, -87
+552:                                              ; preds = %hex2dec.exit.i1280
+  %553 = add nsw i8 %550, -87
   br label %wrapped_tvb_get_guint8.exit1287
 
-553:                                              ; preds = %hex2dec.exit.i1280
-  %554 = add i8 %549, -65
-  %or.cond5.i8.i1283 = icmp ult i8 %554, 6
-  br i1 %or.cond5.i8.i1283, label %555, label %557
+554:                                              ; preds = %hex2dec.exit.i1280
+  %555 = add i8 %550, -65
+  %or.cond5.i8.i1283 = icmp ult i8 %555, 6
+  br i1 %or.cond5.i8.i1283, label %556, label %558
 
-555:                                              ; preds = %553
-  %556 = add nsw i8 %549, -55
+556:                                              ; preds = %554
+  %557 = add nsw i8 %550, -55
   br label %wrapped_tvb_get_guint8.exit1287
 
-557:                                              ; preds = %553
-  %558 = add i8 %549, -48
-  %or.cond8.i9.i1284 = icmp ult i8 %558, 10
-  %spec.select.i10.i1285 = select i1 %or.cond8.i9.i1284, i8 %558, i8 0
+558:                                              ; preds = %554
+  %559 = add i8 %550, -48
+  %or.cond8.i9.i1284 = icmp ult i8 %559, 10
+  %spec.select.i10.i1285 = select i1 %or.cond8.i9.i1284, i8 %559, i8 0
   br label %wrapped_tvb_get_guint8.exit1287
 
-wrapped_tvb_get_guint8.exit1287:                  ; preds = %551, %555, %557
-  %.0.i11.i1286 = phi i8 [ %552, %551 ], [ %556, %555 ], [ %spec.select.i10.i1285, %557 ]
-  %559 = add nuw nsw i8 %.0.i11.i1286, %547
-  %560 = zext i8 %559 to i64
-  %561 = shl nuw nsw i64 %560, 32
-  %562 = add i32 %.1, 38
-  %563 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %562) #13
-  %564 = add i8 %563, -97
-  %or.cond.i.i1288 = icmp ult i8 %564, 6
-  br i1 %or.cond.i.i1288, label %565, label %567
+wrapped_tvb_get_guint8.exit1287:                  ; preds = %552, %556, %558
+  %.0.i11.i1286 = phi i8 [ %553, %552 ], [ %557, %556 ], [ %spec.select.i10.i1285, %558 ]
+  %560 = add nuw nsw i8 %.0.i11.i1286, %548
+  %561 = zext i8 %560 to i64
+  %562 = shl nuw nsw i64 %561, 32
+  %563 = add i32 %.1, 38
+  %564 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %563) #13
+  %565 = add i8 %564, -97
+  %or.cond.i.i1288 = icmp ult i8 %565, 6
+  br i1 %or.cond.i.i1288, label %566, label %568
 
-565:                                              ; preds = %wrapped_tvb_get_guint8.exit1287
-  %566 = add nsw i8 %563, -87
+566:                                              ; preds = %wrapped_tvb_get_guint8.exit1287
+  %567 = add nsw i8 %564, -87
   br label %hex2dec.exit.i1292
 
-567:                                              ; preds = %wrapped_tvb_get_guint8.exit1287
-  %568 = add i8 %563, -65
-  %or.cond5.i.i1289 = icmp ult i8 %568, 6
-  br i1 %or.cond5.i.i1289, label %569, label %571
+568:                                              ; preds = %wrapped_tvb_get_guint8.exit1287
+  %569 = add i8 %564, -65
+  %or.cond5.i.i1289 = icmp ult i8 %569, 6
+  br i1 %or.cond5.i.i1289, label %570, label %572
 
-569:                                              ; preds = %567
-  %570 = add nsw i8 %563, -55
+570:                                              ; preds = %568
+  %571 = add nsw i8 %564, -55
   br label %hex2dec.exit.i1292
 
-571:                                              ; preds = %567
-  %572 = add i8 %563, -48
-  %or.cond8.i.i1290 = icmp ult i8 %572, 10
-  %spec.select.i.i1291 = select i1 %or.cond8.i.i1290, i8 %572, i8 0
+572:                                              ; preds = %568
+  %573 = add i8 %564, -48
+  %or.cond8.i.i1290 = icmp ult i8 %573, 10
+  %spec.select.i.i1291 = select i1 %or.cond8.i.i1290, i8 %573, i8 0
   br label %hex2dec.exit.i1292
 
-hex2dec.exit.i1292:                               ; preds = %571, %569, %565
-  %.0.i.i1293 = phi i8 [ %566, %565 ], [ %570, %569 ], [ %spec.select.i.i1291, %571 ]
-  %573 = shl nuw i8 %.0.i.i1293, 4
-  %574 = add i32 %.1, 39
-  %575 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %574) #13
-  %576 = add i8 %575, -97
-  %or.cond.i7.i1294 = icmp ult i8 %576, 6
-  br i1 %or.cond.i7.i1294, label %577, label %579
+hex2dec.exit.i1292:                               ; preds = %572, %570, %566
+  %.0.i.i1293 = phi i8 [ %567, %566 ], [ %571, %570 ], [ %spec.select.i.i1291, %572 ]
+  %574 = shl nuw i8 %.0.i.i1293, 4
+  %575 = add i32 %.1, 39
+  %576 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %575) #13
+  %577 = add i8 %576, -97
+  %or.cond.i7.i1294 = icmp ult i8 %577, 6
+  br i1 %or.cond.i7.i1294, label %578, label %580
 
-577:                                              ; preds = %hex2dec.exit.i1292
-  %578 = add nsw i8 %575, -87
+578:                                              ; preds = %hex2dec.exit.i1292
+  %579 = add nsw i8 %576, -87
   br label %wrapped_tvb_get_guint8.exit1299
 
-579:                                              ; preds = %hex2dec.exit.i1292
-  %580 = add i8 %575, -65
-  %or.cond5.i8.i1295 = icmp ult i8 %580, 6
-  br i1 %or.cond5.i8.i1295, label %581, label %583
+580:                                              ; preds = %hex2dec.exit.i1292
+  %581 = add i8 %576, -65
+  %or.cond5.i8.i1295 = icmp ult i8 %581, 6
+  br i1 %or.cond5.i8.i1295, label %582, label %584
 
-581:                                              ; preds = %579
-  %582 = add nsw i8 %575, -55
+582:                                              ; preds = %580
+  %583 = add nsw i8 %576, -55
   br label %wrapped_tvb_get_guint8.exit1299
 
-583:                                              ; preds = %579
-  %584 = add i8 %575, -48
-  %or.cond8.i9.i1296 = icmp ult i8 %584, 10
-  %spec.select.i10.i1297 = select i1 %or.cond8.i9.i1296, i8 %584, i8 0
+584:                                              ; preds = %580
+  %585 = add i8 %576, -48
+  %or.cond8.i9.i1296 = icmp ult i8 %585, 10
+  %spec.select.i10.i1297 = select i1 %or.cond8.i9.i1296, i8 %585, i8 0
   br label %wrapped_tvb_get_guint8.exit1299
 
-wrapped_tvb_get_guint8.exit1299:                  ; preds = %577, %581, %583
-  %.0.i11.i1298 = phi i8 [ %578, %577 ], [ %582, %581 ], [ %spec.select.i10.i1297, %583 ]
-  %585 = add nuw nsw i8 %.0.i11.i1298, %573
-  %586 = zext i8 %585 to i64
-  %587 = shl nuw nsw i64 %586, 24
-  %588 = or disjoint i64 %587, %561
-  %589 = add i32 %.1, 40
-  %590 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %589) #13
-  %591 = add i8 %590, -97
-  %or.cond.i.i1300 = icmp ult i8 %591, 6
-  br i1 %or.cond.i.i1300, label %592, label %594
+wrapped_tvb_get_guint8.exit1299:                  ; preds = %578, %582, %584
+  %.0.i11.i1298 = phi i8 [ %579, %578 ], [ %583, %582 ], [ %spec.select.i10.i1297, %584 ]
+  %586 = add nuw nsw i8 %.0.i11.i1298, %574
+  %587 = zext i8 %586 to i64
+  %588 = shl nuw nsw i64 %587, 24
+  %589 = or disjoint i64 %588, %562
+  %590 = add i32 %.1, 40
+  %591 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %590) #13
+  %592 = add i8 %591, -97
+  %or.cond.i.i1300 = icmp ult i8 %592, 6
+  br i1 %or.cond.i.i1300, label %593, label %595
 
-592:                                              ; preds = %wrapped_tvb_get_guint8.exit1299
-  %593 = add nsw i8 %590, -87
+593:                                              ; preds = %wrapped_tvb_get_guint8.exit1299
+  %594 = add nsw i8 %591, -87
   br label %hex2dec.exit.i1304
 
-594:                                              ; preds = %wrapped_tvb_get_guint8.exit1299
-  %595 = add i8 %590, -65
-  %or.cond5.i.i1301 = icmp ult i8 %595, 6
-  br i1 %or.cond5.i.i1301, label %596, label %598
+595:                                              ; preds = %wrapped_tvb_get_guint8.exit1299
+  %596 = add i8 %591, -65
+  %or.cond5.i.i1301 = icmp ult i8 %596, 6
+  br i1 %or.cond5.i.i1301, label %597, label %599
 
-596:                                              ; preds = %594
-  %597 = add nsw i8 %590, -55
+597:                                              ; preds = %595
+  %598 = add nsw i8 %591, -55
   br label %hex2dec.exit.i1304
 
-598:                                              ; preds = %594
-  %599 = add i8 %590, -48
-  %or.cond8.i.i1302 = icmp ult i8 %599, 10
-  %spec.select.i.i1303 = select i1 %or.cond8.i.i1302, i8 %599, i8 0
+599:                                              ; preds = %595
+  %600 = add i8 %591, -48
+  %or.cond8.i.i1302 = icmp ult i8 %600, 10
+  %spec.select.i.i1303 = select i1 %or.cond8.i.i1302, i8 %600, i8 0
   br label %hex2dec.exit.i1304
 
-hex2dec.exit.i1304:                               ; preds = %598, %596, %592
-  %.0.i.i1305 = phi i8 [ %593, %592 ], [ %597, %596 ], [ %spec.select.i.i1303, %598 ]
-  %600 = shl nuw i8 %.0.i.i1305, 4
-  %601 = add i32 %.1, 41
-  %602 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %601) #13
-  %603 = add i8 %602, -97
-  %or.cond.i7.i1306 = icmp ult i8 %603, 6
-  br i1 %or.cond.i7.i1306, label %604, label %606
+hex2dec.exit.i1304:                               ; preds = %599, %597, %593
+  %.0.i.i1305 = phi i8 [ %594, %593 ], [ %598, %597 ], [ %spec.select.i.i1303, %599 ]
+  %601 = shl nuw i8 %.0.i.i1305, 4
+  %602 = add i32 %.1, 41
+  %603 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %602) #13
+  %604 = add i8 %603, -97
+  %or.cond.i7.i1306 = icmp ult i8 %604, 6
+  br i1 %or.cond.i7.i1306, label %605, label %607
 
-604:                                              ; preds = %hex2dec.exit.i1304
-  %605 = add nsw i8 %602, -87
+605:                                              ; preds = %hex2dec.exit.i1304
+  %606 = add nsw i8 %603, -87
   br label %wrapped_tvb_get_guint8.exit1311
 
-606:                                              ; preds = %hex2dec.exit.i1304
-  %607 = add i8 %602, -65
-  %or.cond5.i8.i1307 = icmp ult i8 %607, 6
-  br i1 %or.cond5.i8.i1307, label %608, label %610
+607:                                              ; preds = %hex2dec.exit.i1304
+  %608 = add i8 %603, -65
+  %or.cond5.i8.i1307 = icmp ult i8 %608, 6
+  br i1 %or.cond5.i8.i1307, label %609, label %611
 
-608:                                              ; preds = %606
-  %609 = add nsw i8 %602, -55
+609:                                              ; preds = %607
+  %610 = add nsw i8 %603, -55
   br label %wrapped_tvb_get_guint8.exit1311
 
-610:                                              ; preds = %606
-  %611 = add i8 %602, -48
-  %or.cond8.i9.i1308 = icmp ult i8 %611, 10
-  %spec.select.i10.i1309 = select i1 %or.cond8.i9.i1308, i8 %611, i8 0
+611:                                              ; preds = %607
+  %612 = add i8 %603, -48
+  %or.cond8.i9.i1308 = icmp ult i8 %612, 10
+  %spec.select.i10.i1309 = select i1 %or.cond8.i9.i1308, i8 %612, i8 0
   br label %wrapped_tvb_get_guint8.exit1311
 
-wrapped_tvb_get_guint8.exit1311:                  ; preds = %604, %608, %610
-  %.0.i11.i1310 = phi i8 [ %605, %604 ], [ %609, %608 ], [ %spec.select.i10.i1309, %610 ]
-  %612 = add nuw nsw i8 %.0.i11.i1310, %600
-  %613 = zext i8 %612 to i64
-  %614 = shl nuw nsw i64 %613, 16
-  %615 = or disjoint i64 %614, %588
-  %616 = add i32 %.1, 42
-  %617 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %616) #13
-  %618 = add i8 %617, -97
-  %or.cond.i.i1312 = icmp ult i8 %618, 6
-  br i1 %or.cond.i.i1312, label %619, label %621
+wrapped_tvb_get_guint8.exit1311:                  ; preds = %605, %609, %611
+  %.0.i11.i1310 = phi i8 [ %606, %605 ], [ %610, %609 ], [ %spec.select.i10.i1309, %611 ]
+  %613 = add nuw nsw i8 %.0.i11.i1310, %601
+  %614 = zext i8 %613 to i64
+  %615 = shl nuw nsw i64 %614, 16
+  %616 = or disjoint i64 %615, %589
+  %617 = add i32 %.1, 42
+  %618 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %617) #13
+  %619 = add i8 %618, -97
+  %or.cond.i.i1312 = icmp ult i8 %619, 6
+  br i1 %or.cond.i.i1312, label %620, label %622
 
-619:                                              ; preds = %wrapped_tvb_get_guint8.exit1311
-  %620 = add nsw i8 %617, -87
+620:                                              ; preds = %wrapped_tvb_get_guint8.exit1311
+  %621 = add nsw i8 %618, -87
   br label %hex2dec.exit.i1316
 
-621:                                              ; preds = %wrapped_tvb_get_guint8.exit1311
-  %622 = add i8 %617, -65
-  %or.cond5.i.i1313 = icmp ult i8 %622, 6
-  br i1 %or.cond5.i.i1313, label %623, label %625
+622:                                              ; preds = %wrapped_tvb_get_guint8.exit1311
+  %623 = add i8 %618, -65
+  %or.cond5.i.i1313 = icmp ult i8 %623, 6
+  br i1 %or.cond5.i.i1313, label %624, label %626
 
-623:                                              ; preds = %621
-  %624 = add nsw i8 %617, -55
+624:                                              ; preds = %622
+  %625 = add nsw i8 %618, -55
   br label %hex2dec.exit.i1316
 
-625:                                              ; preds = %621
-  %626 = add i8 %617, -48
-  %or.cond8.i.i1314 = icmp ult i8 %626, 10
-  %spec.select.i.i1315 = select i1 %or.cond8.i.i1314, i8 %626, i8 0
+626:                                              ; preds = %622
+  %627 = add i8 %618, -48
+  %or.cond8.i.i1314 = icmp ult i8 %627, 10
+  %spec.select.i.i1315 = select i1 %or.cond8.i.i1314, i8 %627, i8 0
   br label %hex2dec.exit.i1316
 
-hex2dec.exit.i1316:                               ; preds = %625, %623, %619
-  %.0.i.i1317 = phi i8 [ %620, %619 ], [ %624, %623 ], [ %spec.select.i.i1315, %625 ]
-  %627 = shl nuw i8 %.0.i.i1317, 4
-  %628 = add i32 %.1, 43
-  %629 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %628) #13
-  %630 = add i8 %629, -97
-  %or.cond.i7.i1318 = icmp ult i8 %630, 6
-  br i1 %or.cond.i7.i1318, label %631, label %633
+hex2dec.exit.i1316:                               ; preds = %626, %624, %620
+  %.0.i.i1317 = phi i8 [ %621, %620 ], [ %625, %624 ], [ %spec.select.i.i1315, %626 ]
+  %628 = shl nuw i8 %.0.i.i1317, 4
+  %629 = add i32 %.1, 43
+  %630 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %629) #13
+  %631 = add i8 %630, -97
+  %or.cond.i7.i1318 = icmp ult i8 %631, 6
+  br i1 %or.cond.i7.i1318, label %632, label %634
 
-631:                                              ; preds = %hex2dec.exit.i1316
-  %632 = add nsw i8 %629, -87
+632:                                              ; preds = %hex2dec.exit.i1316
+  %633 = add nsw i8 %630, -87
   br label %wrapped_tvb_get_guint8.exit1323
 
-633:                                              ; preds = %hex2dec.exit.i1316
-  %634 = add i8 %629, -65
-  %or.cond5.i8.i1319 = icmp ult i8 %634, 6
-  br i1 %or.cond5.i8.i1319, label %635, label %637
+634:                                              ; preds = %hex2dec.exit.i1316
+  %635 = add i8 %630, -65
+  %or.cond5.i8.i1319 = icmp ult i8 %635, 6
+  br i1 %or.cond5.i8.i1319, label %636, label %638
 
-635:                                              ; preds = %633
-  %636 = add nsw i8 %629, -55
+636:                                              ; preds = %634
+  %637 = add nsw i8 %630, -55
   br label %wrapped_tvb_get_guint8.exit1323
 
-637:                                              ; preds = %633
-  %638 = add i8 %629, -48
-  %or.cond8.i9.i1320 = icmp ult i8 %638, 10
-  %spec.select.i10.i1321 = select i1 %or.cond8.i9.i1320, i8 %638, i8 0
+638:                                              ; preds = %634
+  %639 = add i8 %630, -48
+  %or.cond8.i9.i1320 = icmp ult i8 %639, 10
+  %spec.select.i10.i1321 = select i1 %or.cond8.i9.i1320, i8 %639, i8 0
   br label %wrapped_tvb_get_guint8.exit1323
 
-wrapped_tvb_get_guint8.exit1323:                  ; preds = %631, %635, %637
-  %.0.i11.i1322 = phi i8 [ %632, %631 ], [ %636, %635 ], [ %spec.select.i10.i1321, %637 ]
-  %639 = add nuw nsw i8 %.0.i11.i1322, %627
-  %640 = zext i8 %639 to i64
-  %641 = shl nuw nsw i64 %640, 8
-  %642 = or disjoint i64 %641, %615
-  %643 = add i32 %.1, 44
-  %644 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %643) #13
-  %645 = add i8 %644, -97
-  %or.cond.i.i1324 = icmp ult i8 %645, 6
-  br i1 %or.cond.i.i1324, label %646, label %648
+wrapped_tvb_get_guint8.exit1323:                  ; preds = %632, %636, %638
+  %.0.i11.i1322 = phi i8 [ %633, %632 ], [ %637, %636 ], [ %spec.select.i10.i1321, %638 ]
+  %640 = add nuw nsw i8 %.0.i11.i1322, %628
+  %641 = zext i8 %640 to i64
+  %642 = shl nuw nsw i64 %641, 8
+  %643 = or disjoint i64 %642, %616
+  %644 = add i32 %.1, 44
+  %645 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %644) #13
+  %646 = add i8 %645, -97
+  %or.cond.i.i1324 = icmp ult i8 %646, 6
+  br i1 %or.cond.i.i1324, label %647, label %649
 
-646:                                              ; preds = %wrapped_tvb_get_guint8.exit1323
-  %647 = add nsw i8 %644, -87
+647:                                              ; preds = %wrapped_tvb_get_guint8.exit1323
+  %648 = add nsw i8 %645, -87
   br label %hex2dec.exit.i1328
 
-648:                                              ; preds = %wrapped_tvb_get_guint8.exit1323
-  %649 = add i8 %644, -65
-  %or.cond5.i.i1325 = icmp ult i8 %649, 6
-  br i1 %or.cond5.i.i1325, label %650, label %652
+649:                                              ; preds = %wrapped_tvb_get_guint8.exit1323
+  %650 = add i8 %645, -65
+  %or.cond5.i.i1325 = icmp ult i8 %650, 6
+  br i1 %or.cond5.i.i1325, label %651, label %653
 
-650:                                              ; preds = %648
-  %651 = add nsw i8 %644, -55
+651:                                              ; preds = %649
+  %652 = add nsw i8 %645, -55
   br label %hex2dec.exit.i1328
 
-652:                                              ; preds = %648
-  %653 = add i8 %644, -48
-  %or.cond8.i.i1326 = icmp ult i8 %653, 10
-  %spec.select.i.i1327 = select i1 %or.cond8.i.i1326, i8 %653, i8 0
+653:                                              ; preds = %649
+  %654 = add i8 %645, -48
+  %or.cond8.i.i1326 = icmp ult i8 %654, 10
+  %spec.select.i.i1327 = select i1 %or.cond8.i.i1326, i8 %654, i8 0
   br label %hex2dec.exit.i1328
 
-hex2dec.exit.i1328:                               ; preds = %652, %650, %646
-  %.0.i.i1329 = phi i8 [ %647, %646 ], [ %651, %650 ], [ %spec.select.i.i1327, %652 ]
-  %654 = shl nuw i8 %.0.i.i1329, 4
-  %655 = add i32 %.1, 45
-  %656 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %655) #13
-  %657 = add i8 %656, -97
-  %or.cond.i7.i1330 = icmp ult i8 %657, 6
-  br i1 %or.cond.i7.i1330, label %658, label %660
+hex2dec.exit.i1328:                               ; preds = %653, %651, %647
+  %.0.i.i1329 = phi i8 [ %648, %647 ], [ %652, %651 ], [ %spec.select.i.i1327, %653 ]
+  %655 = shl nuw i8 %.0.i.i1329, 4
+  %656 = add i32 %.1, 45
+  %657 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %656) #13
+  %658 = add i8 %657, -97
+  %or.cond.i7.i1330 = icmp ult i8 %658, 6
+  br i1 %or.cond.i7.i1330, label %659, label %661
 
-658:                                              ; preds = %hex2dec.exit.i1328
-  %659 = add nsw i8 %656, -87
+659:                                              ; preds = %hex2dec.exit.i1328
+  %660 = add nsw i8 %657, -87
   br label %wrapped_tvb_get_guint8.exit1335
 
-660:                                              ; preds = %hex2dec.exit.i1328
-  %661 = add i8 %656, -65
-  %or.cond5.i8.i1331 = icmp ult i8 %661, 6
-  br i1 %or.cond5.i8.i1331, label %662, label %664
+661:                                              ; preds = %hex2dec.exit.i1328
+  %662 = add i8 %657, -65
+  %or.cond5.i8.i1331 = icmp ult i8 %662, 6
+  br i1 %or.cond5.i8.i1331, label %663, label %665
 
-662:                                              ; preds = %660
-  %663 = add nsw i8 %656, -55
+663:                                              ; preds = %661
+  %664 = add nsw i8 %657, -55
   br label %wrapped_tvb_get_guint8.exit1335
 
-664:                                              ; preds = %660
-  %665 = add i8 %656, -48
-  %or.cond8.i9.i1332 = icmp ult i8 %665, 10
-  %spec.select.i10.i1333 = select i1 %or.cond8.i9.i1332, i8 %665, i8 0
+665:                                              ; preds = %661
+  %666 = add i8 %657, -48
+  %or.cond8.i9.i1332 = icmp ult i8 %666, 10
+  %spec.select.i10.i1333 = select i1 %or.cond8.i9.i1332, i8 %666, i8 0
   br label %wrapped_tvb_get_guint8.exit1335
 
-wrapped_tvb_get_guint8.exit1335:                  ; preds = %658, %662, %664
-  %.0.i11.i1334 = phi i8 [ %659, %658 ], [ %663, %662 ], [ %spec.select.i10.i1333, %664 ]
-  %666 = add nuw nsw i8 %.0.i11.i1334, %654
-  %667 = zext i8 %666 to i64
-  %668 = or disjoint i64 %642, %667
-  %669 = load i32, ptr @hf_gtp_qos_dl_gbr, align 4
-  %670 = tail call ptr @proto_tree_add_uint64(ptr noundef %35, i32 noundef %669, ptr noundef %0, i32 noundef %536, i32 noundef 10, i64 noundef %668) #13
-  br label %.thread2045
+wrapped_tvb_get_guint8.exit1335:                  ; preds = %659, %663, %665
+  %.0.i11.i1334 = phi i8 [ %660, %659 ], [ %664, %663 ], [ %spec.select.i10.i1333, %665 ]
+  %667 = add nuw nsw i8 %.0.i11.i1334, %655
+  %668 = zext i8 %667 to i64
+  %669 = or disjoint i64 %643, %668
+  %670 = load i32, ptr @hf_gtp_qos_dl_gbr, align 4
+  %671 = tail call ptr @proto_tree_add_uint64(ptr noundef %35, i32 noundef %670, ptr noundef %0, i32 noundef %537, i32 noundef 10, i64 noundef %669) #13
+  br label %.thread2044
 
-671:                                              ; preds = %wrapped_tvb_get_guint8.exit1095
-  br i1 %or.cond.i.i1096, label %672, label %674
+672:                                              ; preds = %wrapped_tvb_get_guint8.exit1095
+  br i1 %or.cond.i.i1096, label %673, label %675
 
-672:                                              ; preds = %671
-  %673 = add nsw i8 %131, -87
+673:                                              ; preds = %672
+  %674 = add nsw i8 %132, -87
   br label %hex2dec.exit.i1340
 
-674:                                              ; preds = %671
-  %675 = add i8 %131, -65
-  %or.cond5.i.i1337 = icmp ult i8 %675, 6
-  br i1 %or.cond5.i.i1337, label %676, label %678
+675:                                              ; preds = %672
+  %676 = add i8 %132, -65
+  %or.cond5.i.i1337 = icmp ult i8 %676, 6
+  br i1 %or.cond5.i.i1337, label %677, label %679
 
-676:                                              ; preds = %674
-  %677 = add nsw i8 %131, -55
+677:                                              ; preds = %675
+  %678 = add nsw i8 %132, -55
   br label %hex2dec.exit.i1340
 
-678:                                              ; preds = %674
-  %679 = add i8 %131, -48
-  %or.cond8.i.i1338 = icmp ult i8 %679, 10
-  %spec.select.i.i1339 = select i1 %or.cond8.i.i1338, i8 %679, i8 0
+679:                                              ; preds = %675
+  %680 = add i8 %132, -48
+  %or.cond8.i.i1338 = icmp ult i8 %680, 10
+  %spec.select.i.i1339 = select i1 %or.cond8.i.i1338, i8 %680, i8 0
   br label %hex2dec.exit.i1340
 
-hex2dec.exit.i1340:                               ; preds = %678, %676, %672
-  %.0.i.i1341 = phi i8 [ %673, %672 ], [ %677, %676 ], [ %spec.select.i.i1339, %678 ]
-  %680 = shl nuw i8 %.0.i.i1341, 4
-  %681 = add i32 %.1, 7
-  %682 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %681) #13
-  %683 = add i8 %682, -97
-  %or.cond.i7.i1342 = icmp ult i8 %683, 6
-  br i1 %or.cond.i7.i1342, label %684, label %686
+hex2dec.exit.i1340:                               ; preds = %679, %677, %673
+  %.0.i.i1341 = phi i8 [ %674, %673 ], [ %678, %677 ], [ %spec.select.i.i1339, %679 ]
+  %681 = shl nuw i8 %.0.i.i1341, 4
+  %682 = add i32 %.1, 7
+  %683 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %682) #13
+  %684 = add i8 %683, -97
+  %or.cond.i7.i1342 = icmp ult i8 %684, 6
+  br i1 %or.cond.i7.i1342, label %685, label %687
 
-684:                                              ; preds = %hex2dec.exit.i1340
-  %685 = add nsw i8 %682, -87
+685:                                              ; preds = %hex2dec.exit.i1340
+  %686 = add nsw i8 %683, -87
   br label %wrapped_tvb_get_guint8.exit1347
 
-686:                                              ; preds = %hex2dec.exit.i1340
-  %687 = add i8 %682, -65
-  %or.cond5.i8.i1343 = icmp ult i8 %687, 6
-  br i1 %or.cond5.i8.i1343, label %688, label %690
+687:                                              ; preds = %hex2dec.exit.i1340
+  %688 = add i8 %683, -65
+  %or.cond5.i8.i1343 = icmp ult i8 %688, 6
+  br i1 %or.cond5.i8.i1343, label %689, label %691
 
-688:                                              ; preds = %686
-  %689 = add nsw i8 %682, -55
+689:                                              ; preds = %687
+  %690 = add nsw i8 %683, -55
   br label %wrapped_tvb_get_guint8.exit1347
 
-690:                                              ; preds = %686
-  %691 = add i8 %682, -48
-  %or.cond8.i9.i1344 = icmp ult i8 %691, 10
-  %spec.select.i10.i1345 = select i1 %or.cond8.i9.i1344, i8 %691, i8 0
+691:                                              ; preds = %687
+  %692 = add i8 %683, -48
+  %or.cond8.i9.i1344 = icmp ult i8 %692, 10
+  %spec.select.i10.i1345 = select i1 %or.cond8.i9.i1344, i8 %692, i8 0
   br label %wrapped_tvb_get_guint8.exit1347
 
-wrapped_tvb_get_guint8.exit1347:                  ; preds = %684, %688, %690
-  %.0.i11.i1346 = phi i8 [ %685, %684 ], [ %689, %688 ], [ %spec.select.i10.i1345, %690 ]
-  %692 = add nuw nsw i8 %.0.i11.i1346, %680
-  %693 = zext i8 %692 to i32
-  %694 = shl nuw i32 %693, 24
-  %695 = add i32 %.1, 8
-  %696 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %695) #13
-  %697 = add i8 %696, -97
-  %or.cond.i.i1348 = icmp ult i8 %697, 6
-  br i1 %or.cond.i.i1348, label %698, label %700
+wrapped_tvb_get_guint8.exit1347:                  ; preds = %685, %689, %691
+  %.0.i11.i1346 = phi i8 [ %686, %685 ], [ %690, %689 ], [ %spec.select.i10.i1345, %691 ]
+  %693 = add nuw nsw i8 %.0.i11.i1346, %681
+  %694 = zext i8 %693 to i32
+  %695 = shl nuw i32 %694, 24
+  %696 = add i32 %.1, 8
+  %697 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %696) #13
+  %698 = add i8 %697, -97
+  %or.cond.i.i1348 = icmp ult i8 %698, 6
+  br i1 %or.cond.i.i1348, label %699, label %701
 
-698:                                              ; preds = %wrapped_tvb_get_guint8.exit1347
-  %699 = add nsw i8 %696, -87
+699:                                              ; preds = %wrapped_tvb_get_guint8.exit1347
+  %700 = add nsw i8 %697, -87
   br label %hex2dec.exit.i1352
 
-700:                                              ; preds = %wrapped_tvb_get_guint8.exit1347
-  %701 = add i8 %696, -65
-  %or.cond5.i.i1349 = icmp ult i8 %701, 6
-  br i1 %or.cond5.i.i1349, label %702, label %704
+701:                                              ; preds = %wrapped_tvb_get_guint8.exit1347
+  %702 = add i8 %697, -65
+  %or.cond5.i.i1349 = icmp ult i8 %702, 6
+  br i1 %or.cond5.i.i1349, label %703, label %705
 
-702:                                              ; preds = %700
-  %703 = add nsw i8 %696, -55
+703:                                              ; preds = %701
+  %704 = add nsw i8 %697, -55
   br label %hex2dec.exit.i1352
 
-704:                                              ; preds = %700
-  %705 = add i8 %696, -48
-  %or.cond8.i.i1350 = icmp ult i8 %705, 10
-  %spec.select.i.i1351 = select i1 %or.cond8.i.i1350, i8 %705, i8 0
+705:                                              ; preds = %701
+  %706 = add i8 %697, -48
+  %or.cond8.i.i1350 = icmp ult i8 %706, 10
+  %spec.select.i.i1351 = select i1 %or.cond8.i.i1350, i8 %706, i8 0
   br label %hex2dec.exit.i1352
 
-hex2dec.exit.i1352:                               ; preds = %704, %702, %698
-  %.0.i.i1353 = phi i8 [ %699, %698 ], [ %703, %702 ], [ %spec.select.i.i1351, %704 ]
-  %706 = shl nuw i8 %.0.i.i1353, 4
-  %707 = add i32 %.1, 9
-  %708 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %707) #13
-  %709 = add i8 %708, -97
-  %or.cond.i7.i1354 = icmp ult i8 %709, 6
-  br i1 %or.cond.i7.i1354, label %710, label %712
+hex2dec.exit.i1352:                               ; preds = %705, %703, %699
+  %.0.i.i1353 = phi i8 [ %700, %699 ], [ %704, %703 ], [ %spec.select.i.i1351, %705 ]
+  %707 = shl nuw i8 %.0.i.i1353, 4
+  %708 = add i32 %.1, 9
+  %709 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %708) #13
+  %710 = add i8 %709, -97
+  %or.cond.i7.i1354 = icmp ult i8 %710, 6
+  br i1 %or.cond.i7.i1354, label %711, label %713
 
-710:                                              ; preds = %hex2dec.exit.i1352
-  %711 = add nsw i8 %708, -87
+711:                                              ; preds = %hex2dec.exit.i1352
+  %712 = add nsw i8 %709, -87
   br label %wrapped_tvb_get_guint8.exit1359
 
-712:                                              ; preds = %hex2dec.exit.i1352
-  %713 = add i8 %708, -65
-  %or.cond5.i8.i1355 = icmp ult i8 %713, 6
-  br i1 %or.cond5.i8.i1355, label %714, label %716
+713:                                              ; preds = %hex2dec.exit.i1352
+  %714 = add i8 %709, -65
+  %or.cond5.i8.i1355 = icmp ult i8 %714, 6
+  br i1 %or.cond5.i8.i1355, label %715, label %717
 
-714:                                              ; preds = %712
-  %715 = add nsw i8 %708, -55
+715:                                              ; preds = %713
+  %716 = add nsw i8 %709, -55
   br label %wrapped_tvb_get_guint8.exit1359
 
-716:                                              ; preds = %712
-  %717 = add i8 %708, -48
-  %or.cond8.i9.i1356 = icmp ult i8 %717, 10
-  %spec.select.i10.i1357 = select i1 %or.cond8.i9.i1356, i8 %717, i8 0
+717:                                              ; preds = %713
+  %718 = add i8 %709, -48
+  %or.cond8.i9.i1356 = icmp ult i8 %718, 10
+  %spec.select.i10.i1357 = select i1 %or.cond8.i9.i1356, i8 %718, i8 0
   br label %wrapped_tvb_get_guint8.exit1359
 
-wrapped_tvb_get_guint8.exit1359:                  ; preds = %710, %714, %716
-  %.0.i11.i1358 = phi i8 [ %711, %710 ], [ %715, %714 ], [ %spec.select.i10.i1357, %716 ]
-  %718 = add nuw nsw i8 %.0.i11.i1358, %706
-  %719 = zext i8 %718 to i32
-  %720 = shl nuw nsw i32 %719, 16
-  %721 = or disjoint i32 %720, %694
-  %722 = add i32 %.1, 10
-  %723 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %722) #13
-  %724 = add i8 %723, -97
-  %or.cond.i.i1360 = icmp ult i8 %724, 6
-  br i1 %or.cond.i.i1360, label %725, label %727
+wrapped_tvb_get_guint8.exit1359:                  ; preds = %711, %715, %717
+  %.0.i11.i1358 = phi i8 [ %712, %711 ], [ %716, %715 ], [ %spec.select.i10.i1357, %717 ]
+  %719 = add nuw nsw i8 %.0.i11.i1358, %707
+  %720 = zext i8 %719 to i32
+  %721 = shl nuw nsw i32 %720, 16
+  %722 = or disjoint i32 %721, %695
+  %723 = add i32 %.1, 10
+  %724 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %723) #13
+  %725 = add i8 %724, -97
+  %or.cond.i.i1360 = icmp ult i8 %725, 6
+  br i1 %or.cond.i.i1360, label %726, label %728
 
-725:                                              ; preds = %wrapped_tvb_get_guint8.exit1359
-  %726 = add nsw i8 %723, -87
+726:                                              ; preds = %wrapped_tvb_get_guint8.exit1359
+  %727 = add nsw i8 %724, -87
   br label %hex2dec.exit.i1364
 
-727:                                              ; preds = %wrapped_tvb_get_guint8.exit1359
-  %728 = add i8 %723, -65
-  %or.cond5.i.i1361 = icmp ult i8 %728, 6
-  br i1 %or.cond5.i.i1361, label %729, label %731
+728:                                              ; preds = %wrapped_tvb_get_guint8.exit1359
+  %729 = add i8 %724, -65
+  %or.cond5.i.i1361 = icmp ult i8 %729, 6
+  br i1 %or.cond5.i.i1361, label %730, label %732
 
-729:                                              ; preds = %727
-  %730 = add nsw i8 %723, -55
+730:                                              ; preds = %728
+  %731 = add nsw i8 %724, -55
   br label %hex2dec.exit.i1364
 
-731:                                              ; preds = %727
-  %732 = add i8 %723, -48
-  %or.cond8.i.i1362 = icmp ult i8 %732, 10
-  %spec.select.i.i1363 = select i1 %or.cond8.i.i1362, i8 %732, i8 0
+732:                                              ; preds = %728
+  %733 = add i8 %724, -48
+  %or.cond8.i.i1362 = icmp ult i8 %733, 10
+  %spec.select.i.i1363 = select i1 %or.cond8.i.i1362, i8 %733, i8 0
   br label %hex2dec.exit.i1364
 
-hex2dec.exit.i1364:                               ; preds = %731, %729, %725
-  %.0.i.i1365 = phi i8 [ %726, %725 ], [ %730, %729 ], [ %spec.select.i.i1363, %731 ]
-  %733 = shl nuw i8 %.0.i.i1365, 4
-  %734 = add i32 %.1, 11
-  %735 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %734) #13
-  %736 = add i8 %735, -97
-  %or.cond.i7.i1366 = icmp ult i8 %736, 6
-  br i1 %or.cond.i7.i1366, label %737, label %739
+hex2dec.exit.i1364:                               ; preds = %732, %730, %726
+  %.0.i.i1365 = phi i8 [ %727, %726 ], [ %731, %730 ], [ %spec.select.i.i1363, %732 ]
+  %734 = shl nuw i8 %.0.i.i1365, 4
+  %735 = add i32 %.1, 11
+  %736 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %735) #13
+  %737 = add i8 %736, -97
+  %or.cond.i7.i1366 = icmp ult i8 %737, 6
+  br i1 %or.cond.i7.i1366, label %738, label %740
 
-737:                                              ; preds = %hex2dec.exit.i1364
-  %738 = add nsw i8 %735, -87
+738:                                              ; preds = %hex2dec.exit.i1364
+  %739 = add nsw i8 %736, -87
   br label %wrapped_tvb_get_guint8.exit1371
 
-739:                                              ; preds = %hex2dec.exit.i1364
-  %740 = add i8 %735, -65
-  %or.cond5.i8.i1367 = icmp ult i8 %740, 6
-  br i1 %or.cond5.i8.i1367, label %741, label %743
+740:                                              ; preds = %hex2dec.exit.i1364
+  %741 = add i8 %736, -65
+  %or.cond5.i8.i1367 = icmp ult i8 %741, 6
+  br i1 %or.cond5.i8.i1367, label %742, label %744
 
-741:                                              ; preds = %739
-  %742 = add nsw i8 %735, -55
+742:                                              ; preds = %740
+  %743 = add nsw i8 %736, -55
   br label %wrapped_tvb_get_guint8.exit1371
 
-743:                                              ; preds = %739
-  %744 = add i8 %735, -48
-  %or.cond8.i9.i1368 = icmp ult i8 %744, 10
-  %spec.select.i10.i1369 = select i1 %or.cond8.i9.i1368, i8 %744, i8 0
+744:                                              ; preds = %740
+  %745 = add i8 %736, -48
+  %or.cond8.i9.i1368 = icmp ult i8 %745, 10
+  %spec.select.i10.i1369 = select i1 %or.cond8.i9.i1368, i8 %745, i8 0
   br label %wrapped_tvb_get_guint8.exit1371
 
-wrapped_tvb_get_guint8.exit1371:                  ; preds = %737, %741, %743
-  %.0.i11.i1370 = phi i8 [ %738, %737 ], [ %742, %741 ], [ %spec.select.i10.i1369, %743 ]
-  %745 = add nuw nsw i8 %.0.i11.i1370, %733
-  %746 = zext i8 %745 to i32
-  %747 = shl nuw nsw i32 %746, 8
-  %748 = or disjoint i32 %747, %721
-  %749 = add i32 %.1, 12
-  %750 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %749) #13
-  %751 = add i8 %750, -97
-  %or.cond.i.i1372 = icmp ult i8 %751, 6
-  br i1 %or.cond.i.i1372, label %752, label %754
+wrapped_tvb_get_guint8.exit1371:                  ; preds = %738, %742, %744
+  %.0.i11.i1370 = phi i8 [ %739, %738 ], [ %743, %742 ], [ %spec.select.i10.i1369, %744 ]
+  %746 = add nuw nsw i8 %.0.i11.i1370, %734
+  %747 = zext i8 %746 to i32
+  %748 = shl nuw nsw i32 %747, 8
+  %749 = or disjoint i32 %748, %722
+  %750 = add i32 %.1, 12
+  %751 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %750) #13
+  %752 = add i8 %751, -97
+  %or.cond.i.i1372 = icmp ult i8 %752, 6
+  br i1 %or.cond.i.i1372, label %753, label %755
 
-752:                                              ; preds = %wrapped_tvb_get_guint8.exit1371
-  %753 = add nsw i8 %750, -87
+753:                                              ; preds = %wrapped_tvb_get_guint8.exit1371
+  %754 = add nsw i8 %751, -87
   br label %hex2dec.exit.i1376
 
-754:                                              ; preds = %wrapped_tvb_get_guint8.exit1371
-  %755 = add i8 %750, -65
-  %or.cond5.i.i1373 = icmp ult i8 %755, 6
-  br i1 %or.cond5.i.i1373, label %756, label %758
+755:                                              ; preds = %wrapped_tvb_get_guint8.exit1371
+  %756 = add i8 %751, -65
+  %or.cond5.i.i1373 = icmp ult i8 %756, 6
+  br i1 %or.cond5.i.i1373, label %757, label %759
 
-756:                                              ; preds = %754
-  %757 = add nsw i8 %750, -55
+757:                                              ; preds = %755
+  %758 = add nsw i8 %751, -55
   br label %hex2dec.exit.i1376
 
-758:                                              ; preds = %754
-  %759 = add i8 %750, -48
-  %or.cond8.i.i1374 = icmp ult i8 %759, 10
-  %spec.select.i.i1375 = select i1 %or.cond8.i.i1374, i8 %759, i8 0
+759:                                              ; preds = %755
+  %760 = add i8 %751, -48
+  %or.cond8.i.i1374 = icmp ult i8 %760, 10
+  %spec.select.i.i1375 = select i1 %or.cond8.i.i1374, i8 %760, i8 0
   br label %hex2dec.exit.i1376
 
-hex2dec.exit.i1376:                               ; preds = %758, %756, %752
-  %.0.i.i1377 = phi i8 [ %753, %752 ], [ %757, %756 ], [ %spec.select.i.i1375, %758 ]
-  %760 = shl nuw i8 %.0.i.i1377, 4
-  %761 = add i32 %.1, 13
-  %762 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %761) #13
-  %763 = add i8 %762, -97
-  %or.cond.i7.i1378 = icmp ult i8 %763, 6
-  br i1 %or.cond.i7.i1378, label %764, label %766
+hex2dec.exit.i1376:                               ; preds = %759, %757, %753
+  %.0.i.i1377 = phi i8 [ %754, %753 ], [ %758, %757 ], [ %spec.select.i.i1375, %759 ]
+  %761 = shl nuw i8 %.0.i.i1377, 4
+  %762 = add i32 %.1, 13
+  %763 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %762) #13
+  %764 = add i8 %763, -97
+  %or.cond.i7.i1378 = icmp ult i8 %764, 6
+  br i1 %or.cond.i7.i1378, label %765, label %767
 
-764:                                              ; preds = %hex2dec.exit.i1376
-  %765 = add nsw i8 %762, -87
+765:                                              ; preds = %hex2dec.exit.i1376
+  %766 = add nsw i8 %763, -87
   br label %wrapped_tvb_get_guint8.exit1383
 
-766:                                              ; preds = %hex2dec.exit.i1376
-  %767 = add i8 %762, -65
-  %or.cond5.i8.i1379 = icmp ult i8 %767, 6
-  br i1 %or.cond5.i8.i1379, label %768, label %770
+767:                                              ; preds = %hex2dec.exit.i1376
+  %768 = add i8 %763, -65
+  %or.cond5.i8.i1379 = icmp ult i8 %768, 6
+  br i1 %or.cond5.i8.i1379, label %769, label %771
 
-768:                                              ; preds = %766
-  %769 = add nsw i8 %762, -55
+769:                                              ; preds = %767
+  %770 = add nsw i8 %763, -55
   br label %wrapped_tvb_get_guint8.exit1383
 
-770:                                              ; preds = %766
-  %771 = add i8 %762, -48
-  %or.cond8.i9.i1380 = icmp ult i8 %771, 10
-  %spec.select.i10.i1381 = select i1 %or.cond8.i9.i1380, i8 %771, i8 0
+771:                                              ; preds = %767
+  %772 = add i8 %763, -48
+  %or.cond8.i9.i1380 = icmp ult i8 %772, 10
+  %spec.select.i10.i1381 = select i1 %or.cond8.i9.i1380, i8 %772, i8 0
   br label %wrapped_tvb_get_guint8.exit1383
 
-wrapped_tvb_get_guint8.exit1383:                  ; preds = %764, %768, %770
-  %.0.i11.i1382 = phi i8 [ %765, %764 ], [ %769, %768 ], [ %spec.select.i10.i1381, %770 ]
-  %772 = add nuw nsw i8 %.0.i11.i1382, %760
-  %773 = zext i8 %772 to i32
-  %774 = or disjoint i32 %748, %773
-  %775 = load i32, ptr @hf_gtp_qos_ul_apn_ambr, align 4
-  %776 = tail call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %775, ptr noundef %0, i32 noundef %129, i32 noundef 8, i32 noundef %774) #13
-  %777 = add i32 %.1, 14
-  %778 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %777) #13
-  %779 = add i8 %778, -97
-  %or.cond.i.i1384 = icmp ult i8 %779, 6
-  br i1 %or.cond.i.i1384, label %780, label %782
+wrapped_tvb_get_guint8.exit1383:                  ; preds = %765, %769, %771
+  %.0.i11.i1382 = phi i8 [ %766, %765 ], [ %770, %769 ], [ %spec.select.i10.i1381, %771 ]
+  %773 = add nuw nsw i8 %.0.i11.i1382, %761
+  %774 = zext i8 %773 to i32
+  %775 = or disjoint i32 %749, %774
+  %776 = load i32, ptr @hf_gtp_qos_ul_apn_ambr, align 4
+  %777 = tail call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %776, ptr noundef %0, i32 noundef %130, i32 noundef 8, i32 noundef %775) #13
+  %778 = add i32 %.1, 14
+  %779 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %778) #13
+  %780 = add i8 %779, -97
+  %or.cond.i.i1384 = icmp ult i8 %780, 6
+  br i1 %or.cond.i.i1384, label %781, label %783
 
-780:                                              ; preds = %wrapped_tvb_get_guint8.exit1383
-  %781 = add nsw i8 %778, -87
+781:                                              ; preds = %wrapped_tvb_get_guint8.exit1383
+  %782 = add nsw i8 %779, -87
   br label %hex2dec.exit.i1388
 
-782:                                              ; preds = %wrapped_tvb_get_guint8.exit1383
-  %783 = add i8 %778, -65
-  %or.cond5.i.i1385 = icmp ult i8 %783, 6
-  br i1 %or.cond5.i.i1385, label %784, label %786
+783:                                              ; preds = %wrapped_tvb_get_guint8.exit1383
+  %784 = add i8 %779, -65
+  %or.cond5.i.i1385 = icmp ult i8 %784, 6
+  br i1 %or.cond5.i.i1385, label %785, label %787
 
-784:                                              ; preds = %782
-  %785 = add nsw i8 %778, -55
+785:                                              ; preds = %783
+  %786 = add nsw i8 %779, -55
   br label %hex2dec.exit.i1388
 
-786:                                              ; preds = %782
-  %787 = add i8 %778, -48
-  %or.cond8.i.i1386 = icmp ult i8 %787, 10
-  %spec.select.i.i1387 = select i1 %or.cond8.i.i1386, i8 %787, i8 0
+787:                                              ; preds = %783
+  %788 = add i8 %779, -48
+  %or.cond8.i.i1386 = icmp ult i8 %788, 10
+  %spec.select.i.i1387 = select i1 %or.cond8.i.i1386, i8 %788, i8 0
   br label %hex2dec.exit.i1388
 
-hex2dec.exit.i1388:                               ; preds = %786, %784, %780
-  %.0.i.i1389 = phi i8 [ %781, %780 ], [ %785, %784 ], [ %spec.select.i.i1387, %786 ]
-  %788 = shl nuw i8 %.0.i.i1389, 4
-  %789 = add i32 %.1, 15
-  %790 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %789) #13
-  %791 = add i8 %790, -97
-  %or.cond.i7.i1390 = icmp ult i8 %791, 6
-  br i1 %or.cond.i7.i1390, label %792, label %794
+hex2dec.exit.i1388:                               ; preds = %787, %785, %781
+  %.0.i.i1389 = phi i8 [ %782, %781 ], [ %786, %785 ], [ %spec.select.i.i1387, %787 ]
+  %789 = shl nuw i8 %.0.i.i1389, 4
+  %790 = add i32 %.1, 15
+  %791 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %790) #13
+  %792 = add i8 %791, -97
+  %or.cond.i7.i1390 = icmp ult i8 %792, 6
+  br i1 %or.cond.i7.i1390, label %793, label %795
 
-792:                                              ; preds = %hex2dec.exit.i1388
-  %793 = add nsw i8 %790, -87
+793:                                              ; preds = %hex2dec.exit.i1388
+  %794 = add nsw i8 %791, -87
   br label %wrapped_tvb_get_guint8.exit1395
 
-794:                                              ; preds = %hex2dec.exit.i1388
-  %795 = add i8 %790, -65
-  %or.cond5.i8.i1391 = icmp ult i8 %795, 6
-  br i1 %or.cond5.i8.i1391, label %796, label %798
+795:                                              ; preds = %hex2dec.exit.i1388
+  %796 = add i8 %791, -65
+  %or.cond5.i8.i1391 = icmp ult i8 %796, 6
+  br i1 %or.cond5.i8.i1391, label %797, label %799
 
-796:                                              ; preds = %794
-  %797 = add nsw i8 %790, -55
+797:                                              ; preds = %795
+  %798 = add nsw i8 %791, -55
   br label %wrapped_tvb_get_guint8.exit1395
 
-798:                                              ; preds = %794
-  %799 = add i8 %790, -48
-  %or.cond8.i9.i1392 = icmp ult i8 %799, 10
-  %spec.select.i10.i1393 = select i1 %or.cond8.i9.i1392, i8 %799, i8 0
+799:                                              ; preds = %795
+  %800 = add i8 %791, -48
+  %or.cond8.i9.i1392 = icmp ult i8 %800, 10
+  %spec.select.i10.i1393 = select i1 %or.cond8.i9.i1392, i8 %800, i8 0
   br label %wrapped_tvb_get_guint8.exit1395
 
-wrapped_tvb_get_guint8.exit1395:                  ; preds = %792, %796, %798
-  %.0.i11.i1394 = phi i8 [ %793, %792 ], [ %797, %796 ], [ %spec.select.i10.i1393, %798 ]
-  %800 = add nuw nsw i8 %.0.i11.i1394, %788
-  %801 = zext i8 %800 to i32
-  %802 = shl nuw i32 %801, 24
-  %803 = add i32 %.1, 16
-  %804 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %803) #13
-  %805 = add i8 %804, -97
-  %or.cond.i.i1396 = icmp ult i8 %805, 6
-  br i1 %or.cond.i.i1396, label %806, label %808
+wrapped_tvb_get_guint8.exit1395:                  ; preds = %793, %797, %799
+  %.0.i11.i1394 = phi i8 [ %794, %793 ], [ %798, %797 ], [ %spec.select.i10.i1393, %799 ]
+  %801 = add nuw nsw i8 %.0.i11.i1394, %789
+  %802 = zext i8 %801 to i32
+  %803 = shl nuw i32 %802, 24
+  %804 = add i32 %.1, 16
+  %805 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %804) #13
+  %806 = add i8 %805, -97
+  %or.cond.i.i1396 = icmp ult i8 %806, 6
+  br i1 %or.cond.i.i1396, label %807, label %809
 
-806:                                              ; preds = %wrapped_tvb_get_guint8.exit1395
-  %807 = add nsw i8 %804, -87
+807:                                              ; preds = %wrapped_tvb_get_guint8.exit1395
+  %808 = add nsw i8 %805, -87
   br label %hex2dec.exit.i1400
 
-808:                                              ; preds = %wrapped_tvb_get_guint8.exit1395
-  %809 = add i8 %804, -65
-  %or.cond5.i.i1397 = icmp ult i8 %809, 6
-  br i1 %or.cond5.i.i1397, label %810, label %812
+809:                                              ; preds = %wrapped_tvb_get_guint8.exit1395
+  %810 = add i8 %805, -65
+  %or.cond5.i.i1397 = icmp ult i8 %810, 6
+  br i1 %or.cond5.i.i1397, label %811, label %813
 
-810:                                              ; preds = %808
-  %811 = add nsw i8 %804, -55
+811:                                              ; preds = %809
+  %812 = add nsw i8 %805, -55
   br label %hex2dec.exit.i1400
 
-812:                                              ; preds = %808
-  %813 = add i8 %804, -48
-  %or.cond8.i.i1398 = icmp ult i8 %813, 10
-  %spec.select.i.i1399 = select i1 %or.cond8.i.i1398, i8 %813, i8 0
+813:                                              ; preds = %809
+  %814 = add i8 %805, -48
+  %or.cond8.i.i1398 = icmp ult i8 %814, 10
+  %spec.select.i.i1399 = select i1 %or.cond8.i.i1398, i8 %814, i8 0
   br label %hex2dec.exit.i1400
 
-hex2dec.exit.i1400:                               ; preds = %812, %810, %806
-  %.0.i.i1401 = phi i8 [ %807, %806 ], [ %811, %810 ], [ %spec.select.i.i1399, %812 ]
-  %814 = shl nuw i8 %.0.i.i1401, 4
-  %815 = add i32 %.1, 17
-  %816 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %815) #13
-  %817 = add i8 %816, -97
-  %or.cond.i7.i1402 = icmp ult i8 %817, 6
-  br i1 %or.cond.i7.i1402, label %818, label %820
+hex2dec.exit.i1400:                               ; preds = %813, %811, %807
+  %.0.i.i1401 = phi i8 [ %808, %807 ], [ %812, %811 ], [ %spec.select.i.i1399, %813 ]
+  %815 = shl nuw i8 %.0.i.i1401, 4
+  %816 = add i32 %.1, 17
+  %817 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %816) #13
+  %818 = add i8 %817, -97
+  %or.cond.i7.i1402 = icmp ult i8 %818, 6
+  br i1 %or.cond.i7.i1402, label %819, label %821
 
-818:                                              ; preds = %hex2dec.exit.i1400
-  %819 = add nsw i8 %816, -87
+819:                                              ; preds = %hex2dec.exit.i1400
+  %820 = add nsw i8 %817, -87
   br label %wrapped_tvb_get_guint8.exit1407
 
-820:                                              ; preds = %hex2dec.exit.i1400
-  %821 = add i8 %816, -65
-  %or.cond5.i8.i1403 = icmp ult i8 %821, 6
-  br i1 %or.cond5.i8.i1403, label %822, label %824
+821:                                              ; preds = %hex2dec.exit.i1400
+  %822 = add i8 %817, -65
+  %or.cond5.i8.i1403 = icmp ult i8 %822, 6
+  br i1 %or.cond5.i8.i1403, label %823, label %825
 
-822:                                              ; preds = %820
-  %823 = add nsw i8 %816, -55
+823:                                              ; preds = %821
+  %824 = add nsw i8 %817, -55
   br label %wrapped_tvb_get_guint8.exit1407
 
-824:                                              ; preds = %820
-  %825 = add i8 %816, -48
-  %or.cond8.i9.i1404 = icmp ult i8 %825, 10
-  %spec.select.i10.i1405 = select i1 %or.cond8.i9.i1404, i8 %825, i8 0
+825:                                              ; preds = %821
+  %826 = add i8 %817, -48
+  %or.cond8.i9.i1404 = icmp ult i8 %826, 10
+  %spec.select.i10.i1405 = select i1 %or.cond8.i9.i1404, i8 %826, i8 0
   br label %wrapped_tvb_get_guint8.exit1407
 
-wrapped_tvb_get_guint8.exit1407:                  ; preds = %818, %822, %824
-  %.0.i11.i1406 = phi i8 [ %819, %818 ], [ %823, %822 ], [ %spec.select.i10.i1405, %824 ]
-  %826 = add nuw nsw i8 %.0.i11.i1406, %814
-  %827 = zext i8 %826 to i32
-  %828 = shl nuw nsw i32 %827, 16
-  %829 = or disjoint i32 %828, %802
-  %830 = add i32 %.1, 18
-  %831 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %830) #13
-  %832 = add i8 %831, -97
-  %or.cond.i.i1408 = icmp ult i8 %832, 6
-  br i1 %or.cond.i.i1408, label %833, label %835
+wrapped_tvb_get_guint8.exit1407:                  ; preds = %819, %823, %825
+  %.0.i11.i1406 = phi i8 [ %820, %819 ], [ %824, %823 ], [ %spec.select.i10.i1405, %825 ]
+  %827 = add nuw nsw i8 %.0.i11.i1406, %815
+  %828 = zext i8 %827 to i32
+  %829 = shl nuw nsw i32 %828, 16
+  %830 = or disjoint i32 %829, %803
+  %831 = add i32 %.1, 18
+  %832 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %831) #13
+  %833 = add i8 %832, -97
+  %or.cond.i.i1408 = icmp ult i8 %833, 6
+  br i1 %or.cond.i.i1408, label %834, label %836
 
-833:                                              ; preds = %wrapped_tvb_get_guint8.exit1407
-  %834 = add nsw i8 %831, -87
+834:                                              ; preds = %wrapped_tvb_get_guint8.exit1407
+  %835 = add nsw i8 %832, -87
   br label %hex2dec.exit.i1412
 
-835:                                              ; preds = %wrapped_tvb_get_guint8.exit1407
-  %836 = add i8 %831, -65
-  %or.cond5.i.i1409 = icmp ult i8 %836, 6
-  br i1 %or.cond5.i.i1409, label %837, label %839
+836:                                              ; preds = %wrapped_tvb_get_guint8.exit1407
+  %837 = add i8 %832, -65
+  %or.cond5.i.i1409 = icmp ult i8 %837, 6
+  br i1 %or.cond5.i.i1409, label %838, label %840
 
-837:                                              ; preds = %835
-  %838 = add nsw i8 %831, -55
+838:                                              ; preds = %836
+  %839 = add nsw i8 %832, -55
   br label %hex2dec.exit.i1412
 
-839:                                              ; preds = %835
-  %840 = add i8 %831, -48
-  %or.cond8.i.i1410 = icmp ult i8 %840, 10
-  %spec.select.i.i1411 = select i1 %or.cond8.i.i1410, i8 %840, i8 0
+840:                                              ; preds = %836
+  %841 = add i8 %832, -48
+  %or.cond8.i.i1410 = icmp ult i8 %841, 10
+  %spec.select.i.i1411 = select i1 %or.cond8.i.i1410, i8 %841, i8 0
   br label %hex2dec.exit.i1412
 
-hex2dec.exit.i1412:                               ; preds = %839, %837, %833
-  %.0.i.i1413 = phi i8 [ %834, %833 ], [ %838, %837 ], [ %spec.select.i.i1411, %839 ]
-  %841 = shl nuw i8 %.0.i.i1413, 4
-  %842 = add i32 %.1, 19
-  %843 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %842) #13
-  %844 = add i8 %843, -97
-  %or.cond.i7.i1414 = icmp ult i8 %844, 6
-  br i1 %or.cond.i7.i1414, label %845, label %847
+hex2dec.exit.i1412:                               ; preds = %840, %838, %834
+  %.0.i.i1413 = phi i8 [ %835, %834 ], [ %839, %838 ], [ %spec.select.i.i1411, %840 ]
+  %842 = shl nuw i8 %.0.i.i1413, 4
+  %843 = add i32 %.1, 19
+  %844 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %843) #13
+  %845 = add i8 %844, -97
+  %or.cond.i7.i1414 = icmp ult i8 %845, 6
+  br i1 %or.cond.i7.i1414, label %846, label %848
 
-845:                                              ; preds = %hex2dec.exit.i1412
-  %846 = add nsw i8 %843, -87
+846:                                              ; preds = %hex2dec.exit.i1412
+  %847 = add nsw i8 %844, -87
   br label %wrapped_tvb_get_guint8.exit1419
 
-847:                                              ; preds = %hex2dec.exit.i1412
-  %848 = add i8 %843, -65
-  %or.cond5.i8.i1415 = icmp ult i8 %848, 6
-  br i1 %or.cond5.i8.i1415, label %849, label %851
+848:                                              ; preds = %hex2dec.exit.i1412
+  %849 = add i8 %844, -65
+  %or.cond5.i8.i1415 = icmp ult i8 %849, 6
+  br i1 %or.cond5.i8.i1415, label %850, label %852
 
-849:                                              ; preds = %847
-  %850 = add nsw i8 %843, -55
+850:                                              ; preds = %848
+  %851 = add nsw i8 %844, -55
   br label %wrapped_tvb_get_guint8.exit1419
 
-851:                                              ; preds = %847
-  %852 = add i8 %843, -48
-  %or.cond8.i9.i1416 = icmp ult i8 %852, 10
-  %spec.select.i10.i1417 = select i1 %or.cond8.i9.i1416, i8 %852, i8 0
+852:                                              ; preds = %848
+  %853 = add i8 %844, -48
+  %or.cond8.i9.i1416 = icmp ult i8 %853, 10
+  %spec.select.i10.i1417 = select i1 %or.cond8.i9.i1416, i8 %853, i8 0
   br label %wrapped_tvb_get_guint8.exit1419
 
-wrapped_tvb_get_guint8.exit1419:                  ; preds = %845, %849, %851
-  %.0.i11.i1418 = phi i8 [ %846, %845 ], [ %850, %849 ], [ %spec.select.i10.i1417, %851 ]
-  %853 = add nuw nsw i8 %.0.i11.i1418, %841
-  %854 = zext i8 %853 to i32
-  %855 = shl nuw nsw i32 %854, 8
-  %856 = or disjoint i32 %855, %829
-  %857 = add i32 %.1, 20
-  %858 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %857) #13
-  %859 = add i8 %858, -97
-  %or.cond.i.i1420 = icmp ult i8 %859, 6
-  br i1 %or.cond.i.i1420, label %860, label %862
+wrapped_tvb_get_guint8.exit1419:                  ; preds = %846, %850, %852
+  %.0.i11.i1418 = phi i8 [ %847, %846 ], [ %851, %850 ], [ %spec.select.i10.i1417, %852 ]
+  %854 = add nuw nsw i8 %.0.i11.i1418, %842
+  %855 = zext i8 %854 to i32
+  %856 = shl nuw nsw i32 %855, 8
+  %857 = or disjoint i32 %856, %830
+  %858 = add i32 %.1, 20
+  %859 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %858) #13
+  %860 = add i8 %859, -97
+  %or.cond.i.i1420 = icmp ult i8 %860, 6
+  br i1 %or.cond.i.i1420, label %861, label %863
 
-860:                                              ; preds = %wrapped_tvb_get_guint8.exit1419
-  %861 = add nsw i8 %858, -87
+861:                                              ; preds = %wrapped_tvb_get_guint8.exit1419
+  %862 = add nsw i8 %859, -87
   br label %hex2dec.exit.i1424
 
-862:                                              ; preds = %wrapped_tvb_get_guint8.exit1419
-  %863 = add i8 %858, -65
-  %or.cond5.i.i1421 = icmp ult i8 %863, 6
-  br i1 %or.cond5.i.i1421, label %864, label %866
+863:                                              ; preds = %wrapped_tvb_get_guint8.exit1419
+  %864 = add i8 %859, -65
+  %or.cond5.i.i1421 = icmp ult i8 %864, 6
+  br i1 %or.cond5.i.i1421, label %865, label %867
 
-864:                                              ; preds = %862
-  %865 = add nsw i8 %858, -55
+865:                                              ; preds = %863
+  %866 = add nsw i8 %859, -55
   br label %hex2dec.exit.i1424
 
-866:                                              ; preds = %862
-  %867 = add i8 %858, -48
-  %or.cond8.i.i1422 = icmp ult i8 %867, 10
-  %spec.select.i.i1423 = select i1 %or.cond8.i.i1422, i8 %867, i8 0
+867:                                              ; preds = %863
+  %868 = add i8 %859, -48
+  %or.cond8.i.i1422 = icmp ult i8 %868, 10
+  %spec.select.i.i1423 = select i1 %or.cond8.i.i1422, i8 %868, i8 0
   br label %hex2dec.exit.i1424
 
-hex2dec.exit.i1424:                               ; preds = %866, %864, %860
-  %.0.i.i1425 = phi i8 [ %861, %860 ], [ %865, %864 ], [ %spec.select.i.i1423, %866 ]
-  %868 = shl nuw i8 %.0.i.i1425, 4
-  %869 = add i32 %.1, 21
-  %870 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %869) #13
-  %871 = add i8 %870, -97
-  %or.cond.i7.i1426 = icmp ult i8 %871, 6
-  br i1 %or.cond.i7.i1426, label %872, label %874
+hex2dec.exit.i1424:                               ; preds = %867, %865, %861
+  %.0.i.i1425 = phi i8 [ %862, %861 ], [ %866, %865 ], [ %spec.select.i.i1423, %867 ]
+  %869 = shl nuw i8 %.0.i.i1425, 4
+  %870 = add i32 %.1, 21
+  %871 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %870) #13
+  %872 = add i8 %871, -97
+  %or.cond.i7.i1426 = icmp ult i8 %872, 6
+  br i1 %or.cond.i7.i1426, label %873, label %875
 
-872:                                              ; preds = %hex2dec.exit.i1424
-  %873 = add nsw i8 %870, -87
+873:                                              ; preds = %hex2dec.exit.i1424
+  %874 = add nsw i8 %871, -87
   br label %wrapped_tvb_get_guint8.exit1431
 
-874:                                              ; preds = %hex2dec.exit.i1424
-  %875 = add i8 %870, -65
-  %or.cond5.i8.i1427 = icmp ult i8 %875, 6
-  br i1 %or.cond5.i8.i1427, label %876, label %878
+875:                                              ; preds = %hex2dec.exit.i1424
+  %876 = add i8 %871, -65
+  %or.cond5.i8.i1427 = icmp ult i8 %876, 6
+  br i1 %or.cond5.i8.i1427, label %877, label %879
 
-876:                                              ; preds = %874
-  %877 = add nsw i8 %870, -55
+877:                                              ; preds = %875
+  %878 = add nsw i8 %871, -55
   br label %wrapped_tvb_get_guint8.exit1431
 
-878:                                              ; preds = %874
-  %879 = add i8 %870, -48
-  %or.cond8.i9.i1428 = icmp ult i8 %879, 10
-  %spec.select.i10.i1429 = select i1 %or.cond8.i9.i1428, i8 %879, i8 0
+879:                                              ; preds = %875
+  %880 = add i8 %871, -48
+  %or.cond8.i9.i1428 = icmp ult i8 %880, 10
+  %spec.select.i10.i1429 = select i1 %or.cond8.i9.i1428, i8 %880, i8 0
   br label %wrapped_tvb_get_guint8.exit1431
 
-wrapped_tvb_get_guint8.exit1431:                  ; preds = %872, %876, %878
-  %.0.i11.i1430 = phi i8 [ %873, %872 ], [ %877, %876 ], [ %spec.select.i10.i1429, %878 ]
-  %880 = add nuw nsw i8 %.0.i11.i1430, %868
-  %881 = zext i8 %880 to i32
-  %882 = or disjoint i32 %856, %881
-  %883 = load i32, ptr @hf_gtp_qos_dl_apn_ambr, align 4
-  %884 = tail call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %883, ptr noundef %0, i32 noundef %777, i32 noundef 8, i32 noundef %882) #13
-  br label %.thread2045
+wrapped_tvb_get_guint8.exit1431:                  ; preds = %873, %877, %879
+  %.0.i11.i1430 = phi i8 [ %874, %873 ], [ %878, %877 ], [ %spec.select.i10.i1429, %879 ]
+  %881 = add nuw nsw i8 %.0.i11.i1430, %869
+  %882 = zext i8 %881 to i32
+  %883 = or disjoint i32 %857, %882
+  %884 = load i32, ptr @hf_gtp_qos_dl_apn_ambr, align 4
+  %885 = tail call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %884, ptr noundef %0, i32 noundef %778, i32 noundef 8, i32 noundef %883) #13
+  br label %.thread2044
 
 .thread:                                          ; preds = %7, %13, %22, %6, %68
-  %885 = phi i1 [ true, %68 ], [ false, %6 ], [ false, %22 ], [ false, %13 ], [ false, %7 ]
-  %.01877 = phi i32 [ %71, %68 ], [ 0, %6 ], [ %26, %22 ], [ %16, %13 ], [ %8, %7 ]
-  %.010211875 = phi i32 [ 2, %68 ], [ 1, %6 ], [ 1, %22 ], [ 1, %13 ], [ 1, %7 ]
-  %.010221874 = phi i32 [ %.pre-phi, %68 ], [ %1, %6 ], [ %31, %22 ], [ %21, %13 ], [ %1, %7 ]
-  %.010231873 = phi i32 [ %70, %68 ], [ 0, %6 ], [ %25, %22 ], [ %15, %13 ], [ %8, %7 ]
-  %.010281872 = phi ptr [ %35, %68 ], [ null, %6 ], [ %28, %22 ], [ %18, %13 ], [ %10, %7 ]
-  %886 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.010221874) #13
-  %887 = add i32 %.010221874, 1
-  %888 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %887) #13
-  br i1 %885, label %889, label %wrapped_tvb_get_guint8.exit1457
+  %886 = phi i1 [ true, %68 ], [ false, %6 ], [ false, %22 ], [ false, %13 ], [ false, %7 ]
+  %.01876 = phi i32 [ %71, %68 ], [ 0, %6 ], [ %26, %22 ], [ %16, %13 ], [ %8, %7 ]
+  %.010211874 = phi i32 [ 2, %68 ], [ 1, %6 ], [ 1, %22 ], [ 1, %13 ], [ 1, %7 ]
+  %.010221873 = phi i32 [ %.pre-phi, %68 ], [ %1, %6 ], [ %31, %22 ], [ %21, %13 ], [ %1, %7 ]
+  %.010231872 = phi i32 [ %70, %68 ], [ 0, %6 ], [ %25, %22 ], [ %15, %13 ], [ %8, %7 ]
+  %.010281871 = phi ptr [ %35, %68 ], [ null, %6 ], [ %28, %22 ], [ %18, %13 ], [ %10, %7 ]
+  %887 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.010221873) #13
+  %888 = add i32 %.010221873, 1
+  %889 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %888) #13
+  br i1 %886, label %890, label %wrapped_tvb_get_guint8.exit1457
 
-889:                                              ; preds = %.thread
-  %890 = add i8 %888, -97
-  %or.cond.i.i1432 = icmp ult i8 %890, 6
-  br i1 %or.cond.i.i1432, label %891, label %893
+890:                                              ; preds = %.thread
+  %891 = add i8 %889, -97
+  %or.cond.i.i1432 = icmp ult i8 %891, 6
+  br i1 %or.cond.i.i1432, label %892, label %894
 
-891:                                              ; preds = %889
-  %892 = add nsw i8 %888, -87
+892:                                              ; preds = %890
+  %893 = add nsw i8 %889, -87
   br label %hex2dec.exit.i1436
 
-893:                                              ; preds = %889
-  %894 = add i8 %888, -65
-  %or.cond5.i.i1433 = icmp ult i8 %894, 6
-  br i1 %or.cond5.i.i1433, label %895, label %897
+894:                                              ; preds = %890
+  %895 = add i8 %889, -65
+  %or.cond5.i.i1433 = icmp ult i8 %895, 6
+  br i1 %or.cond5.i.i1433, label %896, label %898
 
-895:                                              ; preds = %893
-  %896 = add nsw i8 %888, -55
+896:                                              ; preds = %894
+  %897 = add nsw i8 %889, -55
   br label %hex2dec.exit.i1436
 
-897:                                              ; preds = %893
-  %898 = add i8 %888, -48
-  %or.cond8.i.i1434 = icmp ult i8 %898, 10
-  %spec.select.i.i1435 = select i1 %or.cond8.i.i1434, i8 %898, i8 0
+898:                                              ; preds = %894
+  %899 = add i8 %889, -48
+  %or.cond8.i.i1434 = icmp ult i8 %899, 10
+  %spec.select.i.i1435 = select i1 %or.cond8.i.i1434, i8 %899, i8 0
   br label %hex2dec.exit.i1436
 
-hex2dec.exit.i1436:                               ; preds = %897, %895, %891
-  %.0.i.i1437 = phi i8 [ %892, %891 ], [ %896, %895 ], [ %spec.select.i.i1435, %897 ]
-  %899 = shl nuw i8 %.0.i.i1437, 4
-  %900 = add i32 %.010221874, 2
-  %901 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %900) #13
-  %902 = add i8 %901, -97
-  %or.cond.i7.i1438 = icmp ult i8 %902, 6
-  br i1 %or.cond.i7.i1438, label %903, label %905
+hex2dec.exit.i1436:                               ; preds = %898, %896, %892
+  %.0.i.i1437 = phi i8 [ %893, %892 ], [ %897, %896 ], [ %spec.select.i.i1435, %898 ]
+  %900 = shl nuw i8 %.0.i.i1437, 4
+  %901 = add i32 %.010221873, 2
+  %902 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %901) #13
+  %903 = add i8 %902, -97
+  %or.cond.i7.i1438 = icmp ult i8 %903, 6
+  br i1 %or.cond.i7.i1438, label %904, label %906
 
-903:                                              ; preds = %hex2dec.exit.i1436
-  %904 = add nsw i8 %901, -87
-  br label %911
+904:                                              ; preds = %hex2dec.exit.i1436
+  %905 = add nsw i8 %902, -87
+  br label %912
 
-905:                                              ; preds = %hex2dec.exit.i1436
-  %906 = add i8 %901, -65
-  %or.cond5.i8.i1439 = icmp ult i8 %906, 6
-  br i1 %or.cond5.i8.i1439, label %907, label %909
+906:                                              ; preds = %hex2dec.exit.i1436
+  %907 = add i8 %902, -65
+  %or.cond5.i8.i1439 = icmp ult i8 %907, 6
+  br i1 %or.cond5.i8.i1439, label %908, label %910
 
-907:                                              ; preds = %905
-  %908 = add nsw i8 %901, -55
-  br label %911
+908:                                              ; preds = %906
+  %909 = add nsw i8 %902, -55
+  br label %912
 
-909:                                              ; preds = %905
-  %910 = add i8 %901, -48
-  %or.cond8.i9.i1440 = icmp ult i8 %910, 10
-  %spec.select.i10.i1441 = select i1 %or.cond8.i9.i1440, i8 %910, i8 0
-  br label %911
+910:                                              ; preds = %906
+  %911 = add i8 %902, -48
+  %or.cond8.i9.i1440 = icmp ult i8 %911, 10
+  %spec.select.i10.i1441 = select i1 %or.cond8.i9.i1440, i8 %911, i8 0
+  br label %912
 
-911:                                              ; preds = %903, %907, %909
-  %.0.i11.i1442 = phi i8 [ %904, %903 ], [ %908, %907 ], [ %spec.select.i10.i1441, %909 ]
-  %912 = add nuw nsw i8 %.0.i11.i1442, %899
-  %913 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %887) #13
-  %914 = add i8 %913, -97
-  %or.cond.i.i1445 = icmp ult i8 %914, 6
-  br i1 %or.cond.i.i1445, label %915, label %917
+912:                                              ; preds = %904, %908, %910
+  %.0.i11.i1442 = phi i8 [ %905, %904 ], [ %909, %908 ], [ %spec.select.i10.i1441, %910 ]
+  %913 = add nuw nsw i8 %.0.i11.i1442, %900
+  %914 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %888) #13
+  %915 = add i8 %914, -97
+  %or.cond.i.i1445 = icmp ult i8 %915, 6
+  br i1 %or.cond.i.i1445, label %916, label %918
 
-915:                                              ; preds = %911
-  %916 = add nsw i8 %913, -87
+916:                                              ; preds = %912
+  %917 = add nsw i8 %914, -87
   br label %hex2dec.exit.i1449
 
-917:                                              ; preds = %911
-  %918 = add i8 %913, -65
-  %or.cond5.i.i1446 = icmp ult i8 %918, 6
-  br i1 %or.cond5.i.i1446, label %919, label %921
+918:                                              ; preds = %912
+  %919 = add i8 %914, -65
+  %or.cond5.i.i1446 = icmp ult i8 %919, 6
+  br i1 %or.cond5.i.i1446, label %920, label %922
 
-919:                                              ; preds = %917
-  %920 = add nsw i8 %913, -55
+920:                                              ; preds = %918
+  %921 = add nsw i8 %914, -55
   br label %hex2dec.exit.i1449
 
-921:                                              ; preds = %917
-  %922 = add i8 %913, -48
-  %or.cond8.i.i1447 = icmp ult i8 %922, 10
-  %spec.select.i.i1448 = select i1 %or.cond8.i.i1447, i8 %922, i8 0
+922:                                              ; preds = %918
+  %923 = add i8 %914, -48
+  %or.cond8.i.i1447 = icmp ult i8 %923, 10
+  %spec.select.i.i1448 = select i1 %or.cond8.i.i1447, i8 %923, i8 0
   br label %hex2dec.exit.i1449
 
-hex2dec.exit.i1449:                               ; preds = %921, %919, %915
-  %.0.i.i1450 = phi i8 [ %916, %915 ], [ %920, %919 ], [ %spec.select.i.i1448, %921 ]
-  %923 = shl nuw i8 %.0.i.i1450, 4
-  %924 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %900) #13
-  %925 = add i8 %924, -97
-  %or.cond.i7.i1451 = icmp ult i8 %925, 6
-  br i1 %or.cond.i7.i1451, label %926, label %928
+hex2dec.exit.i1449:                               ; preds = %922, %920, %916
+  %.0.i.i1450 = phi i8 [ %917, %916 ], [ %921, %920 ], [ %spec.select.i.i1448, %922 ]
+  %924 = shl nuw i8 %.0.i.i1450, 4
+  %925 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %901) #13
+  %926 = add i8 %925, -97
+  %or.cond.i7.i1451 = icmp ult i8 %926, 6
+  br i1 %or.cond.i7.i1451, label %927, label %929
 
-926:                                              ; preds = %hex2dec.exit.i1449
-  %927 = add nsw i8 %924, -87
-  br label %936
+927:                                              ; preds = %hex2dec.exit.i1449
+  %928 = add nsw i8 %925, -87
+  br label %937
 
-928:                                              ; preds = %hex2dec.exit.i1449
-  %929 = add i8 %924, -65
-  %or.cond5.i8.i1452 = icmp ult i8 %929, 6
-  br i1 %or.cond5.i8.i1452, label %930, label %932
+929:                                              ; preds = %hex2dec.exit.i1449
+  %930 = add i8 %925, -65
+  %or.cond5.i8.i1452 = icmp ult i8 %930, 6
+  br i1 %or.cond5.i8.i1452, label %931, label %933
 
-930:                                              ; preds = %928
-  %931 = add nsw i8 %924, -55
-  br label %936
+931:                                              ; preds = %929
+  %932 = add nsw i8 %925, -55
+  br label %937
 
-932:                                              ; preds = %928
-  %933 = add i8 %924, -48
-  %or.cond8.i9.i1453 = icmp ult i8 %933, 10
-  %spec.select.i10.i1454 = select i1 %or.cond8.i9.i1453, i8 %933, i8 0
-  br label %936
+933:                                              ; preds = %929
+  %934 = add i8 %925, -48
+  %or.cond8.i9.i1453 = icmp ult i8 %934, 10
+  %spec.select.i10.i1454 = select i1 %or.cond8.i9.i1453, i8 %934, i8 0
+  br label %937
 
 wrapped_tvb_get_guint8.exit1457:                  ; preds = %.thread
-  %934 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %887) #13
-  %935 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %887) #13
+  %935 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %888) #13
+  %936 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %888) #13
   br label %wrapped_tvb_get_guint8.exit1471
 
-936:                                              ; preds = %926, %930, %932
-  %.0.i11.i1456 = phi i8 [ %927, %926 ], [ %931, %930 ], [ %spec.select.i10.i1454, %932 ]
-  %937 = add nuw nsw i8 %.0.i11.i1456, %923
-  %938 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %887) #13
-  %939 = add i8 %938, -97
-  %or.cond.i.i1459 = icmp ult i8 %939, 6
-  br i1 %or.cond.i.i1459, label %940, label %942
+937:                                              ; preds = %927, %931, %933
+  %.0.i11.i1456 = phi i8 [ %928, %927 ], [ %932, %931 ], [ %spec.select.i10.i1454, %933 ]
+  %938 = add nuw nsw i8 %.0.i11.i1456, %924
+  %939 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %888) #13
+  %940 = add i8 %939, -97
+  %or.cond.i.i1459 = icmp ult i8 %940, 6
+  br i1 %or.cond.i.i1459, label %941, label %943
 
-940:                                              ; preds = %936
-  %941 = add nsw i8 %938, -87
+941:                                              ; preds = %937
+  %942 = add nsw i8 %939, -87
   br label %hex2dec.exit.i1463
 
-942:                                              ; preds = %936
-  %943 = add i8 %938, -65
-  %or.cond5.i.i1460 = icmp ult i8 %943, 6
-  br i1 %or.cond5.i.i1460, label %944, label %946
+943:                                              ; preds = %937
+  %944 = add i8 %939, -65
+  %or.cond5.i.i1460 = icmp ult i8 %944, 6
+  br i1 %or.cond5.i.i1460, label %945, label %947
 
-944:                                              ; preds = %942
-  %945 = add nsw i8 %938, -55
+945:                                              ; preds = %943
+  %946 = add nsw i8 %939, -55
   br label %hex2dec.exit.i1463
 
-946:                                              ; preds = %942
-  %947 = add i8 %938, -48
-  %or.cond8.i.i1461 = icmp ult i8 %947, 10
-  %spec.select.i.i1462 = select i1 %or.cond8.i.i1461, i8 %947, i8 0
+947:                                              ; preds = %943
+  %948 = add i8 %939, -48
+  %or.cond8.i.i1461 = icmp ult i8 %948, 10
+  %spec.select.i.i1462 = select i1 %or.cond8.i.i1461, i8 %948, i8 0
   br label %hex2dec.exit.i1463
 
-hex2dec.exit.i1463:                               ; preds = %946, %944, %940
-  %.0.i.i1464 = phi i8 [ %941, %940 ], [ %945, %944 ], [ %spec.select.i.i1462, %946 ]
-  %948 = shl nuw i8 %.0.i.i1464, 4
-  %949 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %900) #13
-  %950 = add i8 %949, -97
-  %or.cond.i7.i1465 = icmp ult i8 %950, 6
-  br i1 %or.cond.i7.i1465, label %951, label %953
+hex2dec.exit.i1463:                               ; preds = %947, %945, %941
+  %.0.i.i1464 = phi i8 [ %942, %941 ], [ %946, %945 ], [ %spec.select.i.i1462, %947 ]
+  %949 = shl nuw i8 %.0.i.i1464, 4
+  %950 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %901) #13
+  %951 = add i8 %950, -97
+  %or.cond.i7.i1465 = icmp ult i8 %951, 6
+  br i1 %or.cond.i7.i1465, label %952, label %954
 
-951:                                              ; preds = %hex2dec.exit.i1463
-  %952 = add nsw i8 %949, -87
+952:                                              ; preds = %hex2dec.exit.i1463
+  %953 = add nsw i8 %950, -87
   br label %hex2dec.exit12.i1469
 
-953:                                              ; preds = %hex2dec.exit.i1463
-  %954 = add i8 %949, -65
-  %or.cond5.i8.i1466 = icmp ult i8 %954, 6
-  br i1 %or.cond5.i8.i1466, label %955, label %957
+954:                                              ; preds = %hex2dec.exit.i1463
+  %955 = add i8 %950, -65
+  %or.cond5.i8.i1466 = icmp ult i8 %955, 6
+  br i1 %or.cond5.i8.i1466, label %956, label %958
 
-955:                                              ; preds = %953
-  %956 = add nsw i8 %949, -55
+956:                                              ; preds = %954
+  %957 = add nsw i8 %950, -55
   br label %hex2dec.exit12.i1469
 
-957:                                              ; preds = %953
-  %958 = add i8 %949, -48
-  %or.cond8.i9.i1467 = icmp ult i8 %958, 10
-  %spec.select.i10.i1468 = select i1 %or.cond8.i9.i1467, i8 %958, i8 0
+958:                                              ; preds = %954
+  %959 = add i8 %950, -48
+  %or.cond8.i9.i1467 = icmp ult i8 %959, 10
+  %spec.select.i10.i1468 = select i1 %or.cond8.i9.i1467, i8 %959, i8 0
   br label %hex2dec.exit12.i1469
 
-hex2dec.exit12.i1469:                             ; preds = %957, %955, %951
-  %.0.i11.i1470 = phi i8 [ %952, %951 ], [ %956, %955 ], [ %spec.select.i10.i1468, %957 ]
-  %959 = add nuw nsw i8 %.0.i11.i1470, %948
+hex2dec.exit12.i1469:                             ; preds = %958, %956, %952
+  %.0.i11.i1470 = phi i8 [ %953, %952 ], [ %957, %956 ], [ %spec.select.i10.i1468, %958 ]
+  %960 = add nuw nsw i8 %.0.i11.i1470, %949
   br label %wrapped_tvb_get_guint8.exit1471
 
 wrapped_tvb_get_guint8.exit1471:                  ; preds = %wrapped_tvb_get_guint8.exit1457, %hex2dec.exit12.i1469
-  %.in = phi i8 [ %937, %hex2dec.exit12.i1469 ], [ %934, %wrapped_tvb_get_guint8.exit1457 ]
-  %.in2047 = phi i8 [ %912, %hex2dec.exit12.i1469 ], [ %888, %wrapped_tvb_get_guint8.exit1457 ]
-  %.0.i1458 = phi i8 [ %959, %hex2dec.exit12.i1469 ], [ %935, %wrapped_tvb_get_guint8.exit1457 ]
-  %960 = and i8 %.in2047, -64
-  %961 = and i8 %.in, 56
-  %962 = and i8 %.0.i1458, 7
-  %963 = add i32 %.010221874, %.010211875
-  %964 = add i32 %963, 1
-  %965 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %964) #13
-  br i1 %885, label %966, label %wrapped_tvb_get_guint8.exit1499
+  %.in = phi i8 [ %938, %hex2dec.exit12.i1469 ], [ %935, %wrapped_tvb_get_guint8.exit1457 ]
+  %.in2046 = phi i8 [ %913, %hex2dec.exit12.i1469 ], [ %889, %wrapped_tvb_get_guint8.exit1457 ]
+  %.0.i1458 = phi i8 [ %960, %hex2dec.exit12.i1469 ], [ %936, %wrapped_tvb_get_guint8.exit1457 ]
+  %961 = and i8 %.in2046, -64
+  %962 = and i8 %.in, 56
+  %963 = and i8 %.0.i1458, 7
+  %964 = add i32 %.010221873, %.010211874
+  %965 = add i32 %964, 1
+  %966 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %965) #13
+  br i1 %886, label %967, label %wrapped_tvb_get_guint8.exit1499
 
-966:                                              ; preds = %wrapped_tvb_get_guint8.exit1471
-  %967 = add i8 %965, -97
-  %or.cond.i.i1473 = icmp ult i8 %967, 6
-  br i1 %or.cond.i.i1473, label %968, label %970
+967:                                              ; preds = %wrapped_tvb_get_guint8.exit1471
+  %968 = add i8 %966, -97
+  %or.cond.i.i1473 = icmp ult i8 %968, 6
+  br i1 %or.cond.i.i1473, label %969, label %971
 
-968:                                              ; preds = %966
-  %969 = add nsw i8 %965, -87
+969:                                              ; preds = %967
+  %970 = add nsw i8 %966, -87
   br label %hex2dec.exit.i1477
 
-970:                                              ; preds = %966
-  %971 = add i8 %965, -65
-  %or.cond5.i.i1474 = icmp ult i8 %971, 6
-  br i1 %or.cond5.i.i1474, label %972, label %974
+971:                                              ; preds = %967
+  %972 = add i8 %966, -65
+  %or.cond5.i.i1474 = icmp ult i8 %972, 6
+  br i1 %or.cond5.i.i1474, label %973, label %975
 
-972:                                              ; preds = %970
-  %973 = add nsw i8 %965, -55
+973:                                              ; preds = %971
+  %974 = add nsw i8 %966, -55
   br label %hex2dec.exit.i1477
 
-974:                                              ; preds = %970
-  %975 = add i8 %965, -48
-  %or.cond8.i.i1475 = icmp ult i8 %975, 10
-  %spec.select.i.i1476 = select i1 %or.cond8.i.i1475, i8 %975, i8 0
+975:                                              ; preds = %971
+  %976 = add i8 %966, -48
+  %or.cond8.i.i1475 = icmp ult i8 %976, 10
+  %spec.select.i.i1476 = select i1 %or.cond8.i.i1475, i8 %976, i8 0
   br label %hex2dec.exit.i1477
 
-hex2dec.exit.i1477:                               ; preds = %974, %972, %968
-  %.0.i.i1478 = phi i8 [ %969, %968 ], [ %973, %972 ], [ %spec.select.i.i1476, %974 ]
-  %976 = shl nuw i8 %.0.i.i1478, 4
-  %977 = add i32 %963, 2
-  %978 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %977) #13
-  %979 = add i8 %978, -97
-  %or.cond.i7.i1479 = icmp ult i8 %979, 6
-  br i1 %or.cond.i7.i1479, label %980, label %982
+hex2dec.exit.i1477:                               ; preds = %975, %973, %969
+  %.0.i.i1478 = phi i8 [ %970, %969 ], [ %974, %973 ], [ %spec.select.i.i1476, %975 ]
+  %977 = shl nuw i8 %.0.i.i1478, 4
+  %978 = add i32 %964, 2
+  %979 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %978) #13
+  %980 = add i8 %979, -97
+  %or.cond.i7.i1479 = icmp ult i8 %980, 6
+  br i1 %or.cond.i7.i1479, label %981, label %983
 
-980:                                              ; preds = %hex2dec.exit.i1477
-  %981 = add nsw i8 %978, -87
+981:                                              ; preds = %hex2dec.exit.i1477
+  %982 = add nsw i8 %979, -87
   br label %hex2dec.exit.i1491
 
-982:                                              ; preds = %hex2dec.exit.i1477
-  %983 = add i8 %978, -65
-  %or.cond5.i8.i1480 = icmp ult i8 %983, 6
-  br i1 %or.cond5.i8.i1480, label %984, label %986
+983:                                              ; preds = %hex2dec.exit.i1477
+  %984 = add i8 %979, -65
+  %or.cond5.i8.i1480 = icmp ult i8 %984, 6
+  br i1 %or.cond5.i8.i1480, label %985, label %987
 
-984:                                              ; preds = %982
-  %985 = add nsw i8 %978, -55
+985:                                              ; preds = %983
+  %986 = add nsw i8 %979, -55
   br label %hex2dec.exit.i1491
 
-986:                                              ; preds = %982
-  %987 = add i8 %978, -48
-  %or.cond8.i9.i1481 = icmp ult i8 %987, 10
-  %spec.select.i10.i1482 = select i1 %or.cond8.i9.i1481, i8 %987, i8 0
+987:                                              ; preds = %983
+  %988 = add i8 %979, -48
+  %or.cond8.i9.i1481 = icmp ult i8 %988, 10
+  %spec.select.i10.i1482 = select i1 %or.cond8.i9.i1481, i8 %988, i8 0
   br label %hex2dec.exit.i1491
 
-hex2dec.exit.i1491:                               ; preds = %980, %984, %986
-  %.0.i11.i1484 = phi i8 [ %981, %980 ], [ %985, %984 ], [ %spec.select.i10.i1482, %986 ]
-  %988 = add nuw nsw i8 %.0.i11.i1484, %976
-  %989 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %964) #13
-  %990 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %977) #13
-  %991 = add i8 %990, -97
-  %or.cond.i7.i1493 = icmp ult i8 %991, 6
-  br i1 %or.cond.i7.i1493, label %992, label %994
+hex2dec.exit.i1491:                               ; preds = %981, %985, %987
+  %.0.i11.i1484 = phi i8 [ %982, %981 ], [ %986, %985 ], [ %spec.select.i10.i1482, %987 ]
+  %989 = add nuw nsw i8 %.0.i11.i1484, %977
+  %990 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %965) #13
+  %991 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %978) #13
+  %992 = add i8 %991, -97
+  %or.cond.i7.i1493 = icmp ult i8 %992, 6
+  br i1 %or.cond.i7.i1493, label %993, label %995
 
-992:                                              ; preds = %hex2dec.exit.i1491
-  %993 = add nsw i8 %990, -87
-  br label %1002
+993:                                              ; preds = %hex2dec.exit.i1491
+  %994 = add nsw i8 %991, -87
+  br label %1003
 
-994:                                              ; preds = %hex2dec.exit.i1491
-  %995 = add i8 %990, -65
-  %or.cond5.i8.i1494 = icmp ult i8 %995, 6
-  br i1 %or.cond5.i8.i1494, label %996, label %998
+995:                                              ; preds = %hex2dec.exit.i1491
+  %996 = add i8 %991, -65
+  %or.cond5.i8.i1494 = icmp ult i8 %996, 6
+  br i1 %or.cond5.i8.i1494, label %997, label %999
 
-996:                                              ; preds = %994
-  %997 = add nsw i8 %990, -55
-  br label %1002
+997:                                              ; preds = %995
+  %998 = add nsw i8 %991, -55
+  br label %1003
 
-998:                                              ; preds = %994
-  %999 = add i8 %990, -48
-  %or.cond8.i9.i1495 = icmp ult i8 %999, 10
-  %spec.select.i10.i1496 = select i1 %or.cond8.i9.i1495, i8 %999, i8 0
-  br label %1002
+999:                                              ; preds = %995
+  %1000 = add i8 %991, -48
+  %or.cond8.i9.i1495 = icmp ult i8 %1000, 10
+  %spec.select.i10.i1496 = select i1 %or.cond8.i9.i1495, i8 %1000, i8 0
+  br label %1003
 
 wrapped_tvb_get_guint8.exit1499:                  ; preds = %wrapped_tvb_get_guint8.exit1471
-  %1000 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %964) #13
-  %1001 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %964) #13
+  %1001 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %965) #13
+  %1002 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %965) #13
   br label %wrapped_tvb_get_guint8.exit1513
 
-1002:                                             ; preds = %992, %996, %998
-  %.0.i11.i1498 = phi i8 [ %993, %992 ], [ %997, %996 ], [ %spec.select.i10.i1496, %998 ]
-  %1003 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %964) #13
-  %1004 = add i8 %1003, -97
-  %or.cond.i.i1501 = icmp ult i8 %1004, 6
-  br i1 %or.cond.i.i1501, label %1005, label %1007
+1003:                                             ; preds = %993, %997, %999
+  %.0.i11.i1498 = phi i8 [ %994, %993 ], [ %998, %997 ], [ %spec.select.i10.i1496, %999 ]
+  %1004 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %965) #13
+  %1005 = add i8 %1004, -97
+  %or.cond.i.i1501 = icmp ult i8 %1005, 6
+  br i1 %or.cond.i.i1501, label %1006, label %1008
 
-1005:                                             ; preds = %1002
-  %1006 = add nsw i8 %1003, -87
+1006:                                             ; preds = %1003
+  %1007 = add nsw i8 %1004, -87
   br label %hex2dec.exit.i1505
 
-1007:                                             ; preds = %1002
-  %1008 = add i8 %1003, -65
-  %or.cond5.i.i1502 = icmp ult i8 %1008, 6
-  br i1 %or.cond5.i.i1502, label %1009, label %1011
+1008:                                             ; preds = %1003
+  %1009 = add i8 %1004, -65
+  %or.cond5.i.i1502 = icmp ult i8 %1009, 6
+  br i1 %or.cond5.i.i1502, label %1010, label %1012
 
-1009:                                             ; preds = %1007
-  %1010 = add nsw i8 %1003, -55
+1010:                                             ; preds = %1008
+  %1011 = add nsw i8 %1004, -55
   br label %hex2dec.exit.i1505
 
-1011:                                             ; preds = %1007
-  %1012 = add i8 %1003, -48
-  %or.cond8.i.i1503 = icmp ult i8 %1012, 10
-  %spec.select.i.i1504 = select i1 %or.cond8.i.i1503, i8 %1012, i8 0
+1012:                                             ; preds = %1008
+  %1013 = add i8 %1004, -48
+  %or.cond8.i.i1503 = icmp ult i8 %1013, 10
+  %spec.select.i.i1504 = select i1 %or.cond8.i.i1503, i8 %1013, i8 0
   br label %hex2dec.exit.i1505
 
-hex2dec.exit.i1505:                               ; preds = %1011, %1009, %1005
-  %.0.i.i1506 = phi i8 [ %1006, %1005 ], [ %1010, %1009 ], [ %spec.select.i.i1504, %1011 ]
-  %1013 = shl nuw i8 %.0.i.i1506, 4
-  %1014 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %977) #13
-  %1015 = add i8 %1014, -97
-  %or.cond.i7.i1507 = icmp ult i8 %1015, 6
-  br i1 %or.cond.i7.i1507, label %1016, label %1018
+hex2dec.exit.i1505:                               ; preds = %1012, %1010, %1006
+  %.0.i.i1506 = phi i8 [ %1007, %1006 ], [ %1011, %1010 ], [ %spec.select.i.i1504, %1012 ]
+  %1014 = shl nuw i8 %.0.i.i1506, 4
+  %1015 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %978) #13
+  %1016 = add i8 %1015, -97
+  %or.cond.i7.i1507 = icmp ult i8 %1016, 6
+  br i1 %or.cond.i7.i1507, label %1017, label %1019
 
-1016:                                             ; preds = %hex2dec.exit.i1505
-  %1017 = add nsw i8 %1014, -87
+1017:                                             ; preds = %hex2dec.exit.i1505
+  %1018 = add nsw i8 %1015, -87
   br label %hex2dec.exit12.i1511
 
-1018:                                             ; preds = %hex2dec.exit.i1505
-  %1019 = add i8 %1014, -65
-  %or.cond5.i8.i1508 = icmp ult i8 %1019, 6
-  br i1 %or.cond5.i8.i1508, label %1020, label %1022
+1019:                                             ; preds = %hex2dec.exit.i1505
+  %1020 = add i8 %1015, -65
+  %or.cond5.i8.i1508 = icmp ult i8 %1020, 6
+  br i1 %or.cond5.i8.i1508, label %1021, label %1023
 
-1020:                                             ; preds = %1018
-  %1021 = add nsw i8 %1014, -55
+1021:                                             ; preds = %1019
+  %1022 = add nsw i8 %1015, -55
   br label %hex2dec.exit12.i1511
 
-1022:                                             ; preds = %1018
-  %1023 = add i8 %1014, -48
-  %or.cond8.i9.i1509 = icmp ult i8 %1023, 10
-  %spec.select.i10.i1510 = select i1 %or.cond8.i9.i1509, i8 %1023, i8 0
+1023:                                             ; preds = %1019
+  %1024 = add i8 %1015, -48
+  %or.cond8.i9.i1509 = icmp ult i8 %1024, 10
+  %spec.select.i10.i1510 = select i1 %or.cond8.i9.i1509, i8 %1024, i8 0
   br label %hex2dec.exit12.i1511
 
-hex2dec.exit12.i1511:                             ; preds = %1022, %1020, %1016
-  %.0.i11.i1512 = phi i8 [ %1017, %1016 ], [ %1021, %1020 ], [ %spec.select.i10.i1510, %1022 ]
-  %1024 = add nuw nsw i8 %.0.i11.i1512, %1013
+hex2dec.exit12.i1511:                             ; preds = %1023, %1021, %1017
+  %.0.i11.i1512 = phi i8 [ %1018, %1017 ], [ %1022, %1021 ], [ %spec.select.i10.i1510, %1023 ]
+  %1025 = add nuw nsw i8 %.0.i11.i1512, %1014
   br label %wrapped_tvb_get_guint8.exit1513
 
 wrapped_tvb_get_guint8.exit1513:                  ; preds = %wrapped_tvb_get_guint8.exit1499, %hex2dec.exit12.i1511
-  %.in2048 = phi i8 [ %.0.i11.i1498, %hex2dec.exit12.i1511 ], [ %1000, %wrapped_tvb_get_guint8.exit1499 ]
-  %.in2049 = phi i8 [ %988, %hex2dec.exit12.i1511 ], [ %965, %wrapped_tvb_get_guint8.exit1499 ]
-  %.0.i1500 = phi i8 [ %1024, %hex2dec.exit12.i1511 ], [ %1001, %wrapped_tvb_get_guint8.exit1499 ]
-  %1025 = and i8 %.in2049, -16
-  %1026 = and i8 %.in2048, 8
-  %1027 = and i8 %.0.i1500, 7
-  %1028 = shl nuw nsw i32 %.010211875, 1
-  %1029 = add i32 %.010221874, %1028
-  %1030 = add i32 %1029, 1
-  %1031 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1030) #13
-  br i1 %885, label %1032, label %1077
+  %.in2047 = phi i8 [ %.0.i11.i1498, %hex2dec.exit12.i1511 ], [ %1001, %wrapped_tvb_get_guint8.exit1499 ]
+  %.in2048 = phi i8 [ %989, %hex2dec.exit12.i1511 ], [ %966, %wrapped_tvb_get_guint8.exit1499 ]
+  %.0.i1500 = phi i8 [ %1025, %hex2dec.exit12.i1511 ], [ %1002, %wrapped_tvb_get_guint8.exit1499 ]
+  %1026 = and i8 %.in2048, -16
+  %1027 = and i8 %.in2047, 8
+  %1028 = and i8 %.0.i1500, 7
+  %1029 = shl nuw nsw i32 %.010211874, 1
+  %1030 = add i32 %.010221873, %1029
+  %1031 = add i32 %1030, 1
+  %1032 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1031) #13
+  br i1 %886, label %1033, label %1078
 
-1032:                                             ; preds = %wrapped_tvb_get_guint8.exit1513
-  %1033 = add i8 %1031, -97
-  %or.cond.i.i1515 = icmp ult i8 %1033, 6
-  br i1 %or.cond.i.i1515, label %1034, label %1036
+1033:                                             ; preds = %wrapped_tvb_get_guint8.exit1513
+  %1034 = add i8 %1032, -97
+  %or.cond.i.i1515 = icmp ult i8 %1034, 6
+  br i1 %or.cond.i.i1515, label %1035, label %1037
 
-1034:                                             ; preds = %1032
-  %1035 = add nsw i8 %1031, -87
+1035:                                             ; preds = %1033
+  %1036 = add nsw i8 %1032, -87
   br label %hex2dec.exit.i1519
 
-1036:                                             ; preds = %1032
-  %1037 = add i8 %1031, -65
-  %or.cond5.i.i1516 = icmp ult i8 %1037, 6
-  br i1 %or.cond5.i.i1516, label %1038, label %1040
+1037:                                             ; preds = %1033
+  %1038 = add i8 %1032, -65
+  %or.cond5.i.i1516 = icmp ult i8 %1038, 6
+  br i1 %or.cond5.i.i1516, label %1039, label %1041
 
-1038:                                             ; preds = %1036
-  %1039 = add nsw i8 %1031, -55
+1039:                                             ; preds = %1037
+  %1040 = add nsw i8 %1032, -55
   br label %hex2dec.exit.i1519
 
-1040:                                             ; preds = %1036
-  %1041 = add i8 %1031, -48
-  %or.cond8.i.i1517 = icmp ult i8 %1041, 10
-  %spec.select.i.i1518 = select i1 %or.cond8.i.i1517, i8 %1041, i8 0
+1041:                                             ; preds = %1037
+  %1042 = add i8 %1032, -48
+  %or.cond8.i.i1517 = icmp ult i8 %1042, 10
+  %spec.select.i.i1518 = select i1 %or.cond8.i.i1517, i8 %1042, i8 0
   br label %hex2dec.exit.i1519
 
-hex2dec.exit.i1519:                               ; preds = %1040, %1038, %1034
-  %.0.i.i1520 = phi i8 [ %1035, %1034 ], [ %1039, %1038 ], [ %spec.select.i.i1518, %1040 ]
-  %1042 = shl nuw i8 %.0.i.i1520, 4
-  %1043 = add i32 %1029, 2
-  %1044 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1043) #13
-  %1045 = add i8 %1044, -97
-  %or.cond.i7.i1521 = icmp ult i8 %1045, 6
-  br i1 %or.cond.i7.i1521, label %1046, label %1048
+hex2dec.exit.i1519:                               ; preds = %1041, %1039, %1035
+  %.0.i.i1520 = phi i8 [ %1036, %1035 ], [ %1040, %1039 ], [ %spec.select.i.i1518, %1041 ]
+  %1043 = shl nuw i8 %.0.i.i1520, 4
+  %1044 = add i32 %1030, 2
+  %1045 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1044) #13
+  %1046 = add i8 %1045, -97
+  %or.cond.i7.i1521 = icmp ult i8 %1046, 6
+  br i1 %or.cond.i7.i1521, label %1047, label %1049
 
-1046:                                             ; preds = %hex2dec.exit.i1519
-  %1047 = add nsw i8 %1044, -87
-  br label %1054
+1047:                                             ; preds = %hex2dec.exit.i1519
+  %1048 = add nsw i8 %1045, -87
+  br label %1055
 
-1048:                                             ; preds = %hex2dec.exit.i1519
-  %1049 = add i8 %1044, -65
-  %or.cond5.i8.i1522 = icmp ult i8 %1049, 6
-  br i1 %or.cond5.i8.i1522, label %1050, label %1052
+1049:                                             ; preds = %hex2dec.exit.i1519
+  %1050 = add i8 %1045, -65
+  %or.cond5.i8.i1522 = icmp ult i8 %1050, 6
+  br i1 %or.cond5.i8.i1522, label %1051, label %1053
 
-1050:                                             ; preds = %1048
-  %1051 = add nsw i8 %1044, -55
-  br label %1054
+1051:                                             ; preds = %1049
+  %1052 = add nsw i8 %1045, -55
+  br label %1055
 
-1052:                                             ; preds = %1048
-  %1053 = add i8 %1044, -48
-  %or.cond8.i9.i1523 = icmp ult i8 %1053, 10
-  %spec.select.i10.i1524 = select i1 %or.cond8.i9.i1523, i8 %1053, i8 0
-  br label %1054
+1053:                                             ; preds = %1049
+  %1054 = add i8 %1045, -48
+  %or.cond8.i9.i1523 = icmp ult i8 %1054, 10
+  %spec.select.i10.i1524 = select i1 %or.cond8.i9.i1523, i8 %1054, i8 0
+  br label %1055
 
-1054:                                             ; preds = %1046, %1050, %1052
-  %.0.i11.i1526 = phi i8 [ %1047, %1046 ], [ %1051, %1050 ], [ %spec.select.i10.i1524, %1052 ]
-  %1055 = add nuw nsw i8 %.0.i11.i1526, %1042
-  %1056 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1030) #13
-  %1057 = add i8 %1056, -97
-  %or.cond.i.i1529 = icmp ult i8 %1057, 6
-  br i1 %or.cond.i.i1529, label %1058, label %1060
+1055:                                             ; preds = %1047, %1051, %1053
+  %.0.i11.i1526 = phi i8 [ %1048, %1047 ], [ %1052, %1051 ], [ %spec.select.i10.i1524, %1053 ]
+  %1056 = add nuw nsw i8 %.0.i11.i1526, %1043
+  %1057 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1031) #13
+  %1058 = add i8 %1057, -97
+  %or.cond.i.i1529 = icmp ult i8 %1058, 6
+  br i1 %or.cond.i.i1529, label %1059, label %1061
 
-1058:                                             ; preds = %1054
-  %1059 = add nsw i8 %1056, -87
+1059:                                             ; preds = %1055
+  %1060 = add nsw i8 %1057, -87
   br label %hex2dec.exit.i1533
 
-1060:                                             ; preds = %1054
-  %1061 = add i8 %1056, -65
-  %or.cond5.i.i1530 = icmp ult i8 %1061, 6
-  br i1 %or.cond5.i.i1530, label %1062, label %1064
+1061:                                             ; preds = %1055
+  %1062 = add i8 %1057, -65
+  %or.cond5.i.i1530 = icmp ult i8 %1062, 6
+  br i1 %or.cond5.i.i1530, label %1063, label %1065
 
-1062:                                             ; preds = %1060
-  %1063 = add nsw i8 %1056, -55
+1063:                                             ; preds = %1061
+  %1064 = add nsw i8 %1057, -55
   br label %hex2dec.exit.i1533
 
-1064:                                             ; preds = %1060
-  %1065 = add i8 %1056, -48
-  %or.cond8.i.i1531 = icmp ult i8 %1065, 10
-  %spec.select.i.i1532 = select i1 %or.cond8.i.i1531, i8 %1065, i8 0
+1065:                                             ; preds = %1061
+  %1066 = add i8 %1057, -48
+  %or.cond8.i.i1531 = icmp ult i8 %1066, 10
+  %spec.select.i.i1532 = select i1 %or.cond8.i.i1531, i8 %1066, i8 0
   br label %hex2dec.exit.i1533
 
-hex2dec.exit.i1533:                               ; preds = %1064, %1062, %1058
-  %.0.i.i1534 = phi i8 [ %1059, %1058 ], [ %1063, %1062 ], [ %spec.select.i.i1532, %1064 ]
-  %1066 = shl nuw i8 %.0.i.i1534, 4
-  %1067 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1043) #13
-  %1068 = add i8 %1067, -97
-  %or.cond.i7.i1535 = icmp ult i8 %1068, 6
-  br i1 %or.cond.i7.i1535, label %1069, label %1071
+hex2dec.exit.i1533:                               ; preds = %1065, %1063, %1059
+  %.0.i.i1534 = phi i8 [ %1060, %1059 ], [ %1064, %1063 ], [ %spec.select.i.i1532, %1065 ]
+  %1067 = shl nuw i8 %.0.i.i1534, 4
+  %1068 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1044) #13
+  %1069 = add i8 %1068, -97
+  %or.cond.i7.i1535 = icmp ult i8 %1069, 6
+  br i1 %or.cond.i7.i1535, label %1070, label %1072
 
-1069:                                             ; preds = %hex2dec.exit.i1533
-  %1070 = add nsw i8 %1067, -87
-  br label %1082
+1070:                                             ; preds = %hex2dec.exit.i1533
+  %1071 = add nsw i8 %1068, -87
+  br label %1083
 
-1071:                                             ; preds = %hex2dec.exit.i1533
-  %1072 = add i8 %1067, -65
-  %or.cond5.i8.i1536 = icmp ult i8 %1072, 6
-  br i1 %or.cond5.i8.i1536, label %1073, label %1075
+1072:                                             ; preds = %hex2dec.exit.i1533
+  %1073 = add i8 %1068, -65
+  %or.cond5.i8.i1536 = icmp ult i8 %1073, 6
+  br i1 %or.cond5.i8.i1536, label %1074, label %1076
 
-1073:                                             ; preds = %1071
-  %1074 = add nsw i8 %1067, -55
-  br label %1082
+1074:                                             ; preds = %1072
+  %1075 = add nsw i8 %1068, -55
+  br label %1083
 
-1075:                                             ; preds = %1071
-  %1076 = add i8 %1067, -48
-  %or.cond8.i9.i1537 = icmp ult i8 %1076, 10
-  %spec.select.i10.i1538 = select i1 %or.cond8.i9.i1537, i8 %1076, i8 0
-  br label %1082
+1076:                                             ; preds = %1072
+  %1077 = add i8 %1068, -48
+  %or.cond8.i9.i1537 = icmp ult i8 %1077, 10
+  %spec.select.i10.i1538 = select i1 %or.cond8.i9.i1537, i8 %1077, i8 0
+  br label %1083
 
-1077:                                             ; preds = %wrapped_tvb_get_guint8.exit1513
-  %1078 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1030) #13
-  %1079 = load i32, ptr @hf_gtp_qos_al_ret_priority, align 4
-  %1080 = zext i8 %886 to i32
-  %1081 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1079, ptr noundef %0, i32 noundef %.010221874, i32 noundef 1, i32 noundef %1080) #13
-  br label %1085
+1078:                                             ; preds = %wrapped_tvb_get_guint8.exit1513
+  %1079 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1031) #13
+  %1080 = load i32, ptr @hf_gtp_qos_al_ret_priority, align 4
+  %1081 = zext i8 %887 to i32
+  %1082 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1080, ptr noundef %0, i32 noundef %.010221873, i32 noundef 1, i32 noundef %1081) #13
+  br label %1086
 
-1082:                                             ; preds = %1069, %1073, %1075
-  %.0.i11.i1540 = phi i8 [ %1070, %1069 ], [ %1074, %1073 ], [ %spec.select.i10.i1538, %1075 ]
-  %1083 = add nuw nsw i8 %.0.i11.i1540, %1066
-  %1084 = add i32 %.010231873, 1
-  br label %1085
+1083:                                             ; preds = %1070, %1074, %1076
+  %.0.i11.i1540 = phi i8 [ %1071, %1070 ], [ %1075, %1074 ], [ %spec.select.i10.i1538, %1076 ]
+  %1084 = add nuw nsw i8 %.0.i11.i1540, %1067
+  %1085 = add i32 %.010231872, 1
+  br label %1086
 
-1085:                                             ; preds = %1082, %1077
-  %.in2059 = phi i8 [ %1078, %1077 ], [ %1083, %1082 ]
-  %.in2060 = phi i8 [ %1031, %1077 ], [ %1055, %1082 ]
-  %.11024 = phi i32 [ %.010231873, %1077 ], [ %1084, %1082 ]
-  %1086 = and i8 %.in2060, -32
-  %1087 = and i8 %.in2059, 31
-  %1088 = load i32, ptr @hf_gtp_qos_spare1, align 4
-  %1089 = zext i8 %960 to i32
-  %1090 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1088, ptr noundef %0, i32 noundef %887, i32 noundef %.010211875, i32 noundef %1089) #13
-  %1091 = load i32, ptr @hf_gtp_qos_delay, align 4
-  %1092 = zext nneg i8 %961 to i32
-  %1093 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1091, ptr noundef %0, i32 noundef %887, i32 noundef %.010211875, i32 noundef %1092) #13
-  %1094 = load i32, ptr @hf_gtp_qos_reliability, align 4
-  %1095 = zext nneg i8 %962 to i32
-  %1096 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1094, ptr noundef %0, i32 noundef %887, i32 noundef %.010211875, i32 noundef %1095) #13
-  %1097 = load i32, ptr @hf_gtp_qos_peak, align 4
-  %1098 = zext i8 %1025 to i32
-  %1099 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1097, ptr noundef %0, i32 noundef %964, i32 noundef %.010211875, i32 noundef %1098) #13
-  %1100 = load i32, ptr @hf_gtp_qos_spare2, align 4
-  %1101 = zext nneg i8 %1026 to i32
-  %1102 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1100, ptr noundef %0, i32 noundef %964, i32 noundef %.010211875, i32 noundef %1101) #13
-  %1103 = load i32, ptr @hf_gtp_qos_precedence, align 4
-  %1104 = zext nneg i8 %1027 to i32
-  %1105 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1103, ptr noundef %0, i32 noundef %964, i32 noundef %.010211875, i32 noundef %1104) #13
-  %1106 = load i32, ptr @hf_gtp_qos_spare3, align 4
-  %1107 = zext i8 %1086 to i32
-  %1108 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1106, ptr noundef %0, i32 noundef %1030, i32 noundef %.010211875, i32 noundef %1107) #13
-  %1109 = load i32, ptr @hf_gtp_qos_mean, align 4
-  %1110 = zext nneg i8 %1087 to i32
-  %1111 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1109, ptr noundef %0, i32 noundef %1030, i32 noundef %.010211875, i32 noundef %1110) #13
-  %1112 = icmp ugt i32 %.11024, 4
-  br i1 %1112, label %1113, label %.thread2045
+1086:                                             ; preds = %1083, %1078
+  %.in2058 = phi i8 [ %1079, %1078 ], [ %1084, %1083 ]
+  %.in2059 = phi i8 [ %1032, %1078 ], [ %1056, %1083 ]
+  %.11024 = phi i32 [ %.010231872, %1078 ], [ %1085, %1083 ]
+  %1087 = and i8 %.in2059, -32
+  %1088 = and i8 %.in2058, 31
+  %1089 = load i32, ptr @hf_gtp_qos_spare1, align 4
+  %1090 = zext i8 %961 to i32
+  %1091 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1089, ptr noundef %0, i32 noundef %888, i32 noundef %.010211874, i32 noundef %1090) #13
+  %1092 = load i32, ptr @hf_gtp_qos_delay, align 4
+  %1093 = zext nneg i8 %962 to i32
+  %1094 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1092, ptr noundef %0, i32 noundef %888, i32 noundef %.010211874, i32 noundef %1093) #13
+  %1095 = load i32, ptr @hf_gtp_qos_reliability, align 4
+  %1096 = zext nneg i8 %963 to i32
+  %1097 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1095, ptr noundef %0, i32 noundef %888, i32 noundef %.010211874, i32 noundef %1096) #13
+  %1098 = load i32, ptr @hf_gtp_qos_peak, align 4
+  %1099 = zext i8 %1026 to i32
+  %1100 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1098, ptr noundef %0, i32 noundef %965, i32 noundef %.010211874, i32 noundef %1099) #13
+  %1101 = load i32, ptr @hf_gtp_qos_spare2, align 4
+  %1102 = zext nneg i8 %1027 to i32
+  %1103 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1101, ptr noundef %0, i32 noundef %965, i32 noundef %.010211874, i32 noundef %1102) #13
+  %1104 = load i32, ptr @hf_gtp_qos_precedence, align 4
+  %1105 = zext nneg i8 %1028 to i32
+  %1106 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1104, ptr noundef %0, i32 noundef %965, i32 noundef %.010211874, i32 noundef %1105) #13
+  %1107 = load i32, ptr @hf_gtp_qos_spare3, align 4
+  %1108 = zext i8 %1087 to i32
+  %1109 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1107, ptr noundef %0, i32 noundef %1031, i32 noundef %.010211874, i32 noundef %1108) #13
+  %1110 = load i32, ptr @hf_gtp_qos_mean, align 4
+  %1111 = zext nneg i8 %1088 to i32
+  %1112 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1110, ptr noundef %0, i32 noundef %1031, i32 noundef %.010211874, i32 noundef %1111) #13
+  %1113 = icmp ugt i32 %.11024, 4
+  br i1 %1113, label %1114, label %.thread2044
 
-1113:                                             ; preds = %1085
-  %1114 = mul nuw nsw i32 %.010211875, 3
-  %1115 = add i32 %.010221874, %1114
-  %1116 = add i32 %1115, 1
-  %1117 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1116) #13
-  br i1 %885, label %1118, label %wrapped_tvb_get_guint8.exit1569
+1114:                                             ; preds = %1086
+  %1115 = mul nuw nsw i32 %.010211874, 3
+  %1116 = add i32 %.010221873, %1115
+  %1117 = add i32 %1116, 1
+  %1118 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1117) #13
+  br i1 %886, label %1119, label %wrapped_tvb_get_guint8.exit1569
 
-1118:                                             ; preds = %1113
-  %1119 = add i8 %1117, -97
-  %or.cond.i.i1543 = icmp ult i8 %1119, 6
-  br i1 %or.cond.i.i1543, label %1120, label %1122
+1119:                                             ; preds = %1114
+  %1120 = add i8 %1118, -97
+  %or.cond.i.i1543 = icmp ult i8 %1120, 6
+  br i1 %or.cond.i.i1543, label %1121, label %1123
 
-1120:                                             ; preds = %1118
-  %1121 = add nsw i8 %1117, -87
+1121:                                             ; preds = %1119
+  %1122 = add nsw i8 %1118, -87
   br label %hex2dec.exit.i1547
 
-1122:                                             ; preds = %1118
-  %1123 = add i8 %1117, -65
-  %or.cond5.i.i1544 = icmp ult i8 %1123, 6
-  br i1 %or.cond5.i.i1544, label %1124, label %1126
+1123:                                             ; preds = %1119
+  %1124 = add i8 %1118, -65
+  %or.cond5.i.i1544 = icmp ult i8 %1124, 6
+  br i1 %or.cond5.i.i1544, label %1125, label %1127
 
-1124:                                             ; preds = %1122
-  %1125 = add nsw i8 %1117, -55
+1125:                                             ; preds = %1123
+  %1126 = add nsw i8 %1118, -55
   br label %hex2dec.exit.i1547
 
-1126:                                             ; preds = %1122
-  %1127 = add i8 %1117, -48
-  %or.cond8.i.i1545 = icmp ult i8 %1127, 10
-  %spec.select.i.i1546 = select i1 %or.cond8.i.i1545, i8 %1127, i8 0
+1127:                                             ; preds = %1123
+  %1128 = add i8 %1118, -48
+  %or.cond8.i.i1545 = icmp ult i8 %1128, 10
+  %spec.select.i.i1546 = select i1 %or.cond8.i.i1545, i8 %1128, i8 0
   br label %hex2dec.exit.i1547
 
-hex2dec.exit.i1547:                               ; preds = %1126, %1124, %1120
-  %.0.i.i1548 = phi i8 [ %1121, %1120 ], [ %1125, %1124 ], [ %spec.select.i.i1546, %1126 ]
-  %1128 = shl nuw i8 %.0.i.i1548, 4
-  %1129 = add i32 %1115, 2
-  %1130 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1129) #13
-  %1131 = add i8 %1130, -97
-  %or.cond.i7.i1549 = icmp ult i8 %1131, 6
-  br i1 %or.cond.i7.i1549, label %1132, label %1134
+hex2dec.exit.i1547:                               ; preds = %1127, %1125, %1121
+  %.0.i.i1548 = phi i8 [ %1122, %1121 ], [ %1126, %1125 ], [ %spec.select.i.i1546, %1127 ]
+  %1129 = shl nuw i8 %.0.i.i1548, 4
+  %1130 = add i32 %1116, 2
+  %1131 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1130) #13
+  %1132 = add i8 %1131, -97
+  %or.cond.i7.i1549 = icmp ult i8 %1132, 6
+  br i1 %or.cond.i7.i1549, label %1133, label %1135
 
-1132:                                             ; preds = %hex2dec.exit.i1547
-  %1133 = add nsw i8 %1130, -87
-  br label %1140
+1133:                                             ; preds = %hex2dec.exit.i1547
+  %1134 = add nsw i8 %1131, -87
+  br label %1141
 
-1134:                                             ; preds = %hex2dec.exit.i1547
-  %1135 = add i8 %1130, -65
-  %or.cond5.i8.i1550 = icmp ult i8 %1135, 6
-  br i1 %or.cond5.i8.i1550, label %1136, label %1138
+1135:                                             ; preds = %hex2dec.exit.i1547
+  %1136 = add i8 %1131, -65
+  %or.cond5.i8.i1550 = icmp ult i8 %1136, 6
+  br i1 %or.cond5.i8.i1550, label %1137, label %1139
 
-1136:                                             ; preds = %1134
-  %1137 = add nsw i8 %1130, -55
-  br label %1140
+1137:                                             ; preds = %1135
+  %1138 = add nsw i8 %1131, -55
+  br label %1141
 
-1138:                                             ; preds = %1134
-  %1139 = add i8 %1130, -48
-  %or.cond8.i9.i1551 = icmp ult i8 %1139, 10
-  %spec.select.i10.i1552 = select i1 %or.cond8.i9.i1551, i8 %1139, i8 0
-  br label %1140
+1139:                                             ; preds = %1135
+  %1140 = add i8 %1131, -48
+  %or.cond8.i9.i1551 = icmp ult i8 %1140, 10
+  %spec.select.i10.i1552 = select i1 %or.cond8.i9.i1551, i8 %1140, i8 0
+  br label %1141
 
-1140:                                             ; preds = %1132, %1136, %1138
-  %.0.i11.i1554 = phi i8 [ %1133, %1132 ], [ %1137, %1136 ], [ %spec.select.i10.i1552, %1138 ]
-  %1141 = add nuw nsw i8 %.0.i11.i1554, %1128
-  %1142 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1116) #13
-  %1143 = add i8 %1142, -97
-  %or.cond.i.i1557 = icmp ult i8 %1143, 6
-  br i1 %or.cond.i.i1557, label %1144, label %1146
+1141:                                             ; preds = %1133, %1137, %1139
+  %.0.i11.i1554 = phi i8 [ %1134, %1133 ], [ %1138, %1137 ], [ %spec.select.i10.i1552, %1139 ]
+  %1142 = add nuw nsw i8 %.0.i11.i1554, %1129
+  %1143 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1117) #13
+  %1144 = add i8 %1143, -97
+  %or.cond.i.i1557 = icmp ult i8 %1144, 6
+  br i1 %or.cond.i.i1557, label %1145, label %1147
 
-1144:                                             ; preds = %1140
-  %1145 = add nsw i8 %1142, -87
+1145:                                             ; preds = %1141
+  %1146 = add nsw i8 %1143, -87
   br label %hex2dec.exit.i1561
 
-1146:                                             ; preds = %1140
-  %1147 = add i8 %1142, -65
-  %or.cond5.i.i1558 = icmp ult i8 %1147, 6
-  br i1 %or.cond5.i.i1558, label %1148, label %1150
+1147:                                             ; preds = %1141
+  %1148 = add i8 %1143, -65
+  %or.cond5.i.i1558 = icmp ult i8 %1148, 6
+  br i1 %or.cond5.i.i1558, label %1149, label %1151
 
-1148:                                             ; preds = %1146
-  %1149 = add nsw i8 %1142, -55
+1149:                                             ; preds = %1147
+  %1150 = add nsw i8 %1143, -55
   br label %hex2dec.exit.i1561
 
-1150:                                             ; preds = %1146
-  %1151 = add i8 %1142, -48
-  %or.cond8.i.i1559 = icmp ult i8 %1151, 10
-  %spec.select.i.i1560 = select i1 %or.cond8.i.i1559, i8 %1151, i8 0
+1151:                                             ; preds = %1147
+  %1152 = add i8 %1143, -48
+  %or.cond8.i.i1559 = icmp ult i8 %1152, 10
+  %spec.select.i.i1560 = select i1 %or.cond8.i.i1559, i8 %1152, i8 0
   br label %hex2dec.exit.i1561
 
-hex2dec.exit.i1561:                               ; preds = %1150, %1148, %1144
-  %.0.i.i1562 = phi i8 [ %1145, %1144 ], [ %1149, %1148 ], [ %spec.select.i.i1560, %1150 ]
-  %1152 = shl nuw i8 %.0.i.i1562, 4
-  %1153 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1129) #13
-  %1154 = add i8 %1153, -97
-  %or.cond.i7.i1563 = icmp ult i8 %1154, 6
-  br i1 %or.cond.i7.i1563, label %1155, label %1157
+hex2dec.exit.i1561:                               ; preds = %1151, %1149, %1145
+  %.0.i.i1562 = phi i8 [ %1146, %1145 ], [ %1150, %1149 ], [ %spec.select.i.i1560, %1151 ]
+  %1153 = shl nuw i8 %.0.i.i1562, 4
+  %1154 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1130) #13
+  %1155 = add i8 %1154, -97
+  %or.cond.i7.i1563 = icmp ult i8 %1155, 6
+  br i1 %or.cond.i7.i1563, label %1156, label %1158
 
-1155:                                             ; preds = %hex2dec.exit.i1561
-  %1156 = add nsw i8 %1153, -87
-  br label %1165
+1156:                                             ; preds = %hex2dec.exit.i1561
+  %1157 = add nsw i8 %1154, -87
+  br label %1166
 
-1157:                                             ; preds = %hex2dec.exit.i1561
-  %1158 = add i8 %1153, -65
-  %or.cond5.i8.i1564 = icmp ult i8 %1158, 6
-  br i1 %or.cond5.i8.i1564, label %1159, label %1161
+1158:                                             ; preds = %hex2dec.exit.i1561
+  %1159 = add i8 %1154, -65
+  %or.cond5.i8.i1564 = icmp ult i8 %1159, 6
+  br i1 %or.cond5.i8.i1564, label %1160, label %1162
 
-1159:                                             ; preds = %1157
-  %1160 = add nsw i8 %1153, -55
-  br label %1165
+1160:                                             ; preds = %1158
+  %1161 = add nsw i8 %1154, -55
+  br label %1166
 
-1161:                                             ; preds = %1157
-  %1162 = add i8 %1153, -48
-  %or.cond8.i9.i1565 = icmp ult i8 %1162, 10
-  %spec.select.i10.i1566 = select i1 %or.cond8.i9.i1565, i8 %1162, i8 0
-  br label %1165
+1162:                                             ; preds = %1158
+  %1163 = add i8 %1154, -48
+  %or.cond8.i9.i1565 = icmp ult i8 %1163, 10
+  %spec.select.i10.i1566 = select i1 %or.cond8.i9.i1565, i8 %1163, i8 0
+  br label %1166
 
-wrapped_tvb_get_guint8.exit1569:                  ; preds = %1113
-  %1163 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1116) #13
-  %1164 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1116) #13
+wrapped_tvb_get_guint8.exit1569:                  ; preds = %1114
+  %1164 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1117) #13
+  %1165 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1117) #13
   br label %wrapped_tvb_get_guint8.exit1583
 
-1165:                                             ; preds = %1155, %1159, %1161
-  %.0.i11.i1568 = phi i8 [ %1156, %1155 ], [ %1160, %1159 ], [ %spec.select.i10.i1566, %1161 ]
-  %1166 = add nuw nsw i8 %.0.i11.i1568, %1152
-  %1167 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1116) #13
-  %1168 = add i8 %1167, -97
-  %or.cond.i.i1571 = icmp ult i8 %1168, 6
-  br i1 %or.cond.i.i1571, label %1169, label %1171
+1166:                                             ; preds = %1156, %1160, %1162
+  %.0.i11.i1568 = phi i8 [ %1157, %1156 ], [ %1161, %1160 ], [ %spec.select.i10.i1566, %1162 ]
+  %1167 = add nuw nsw i8 %.0.i11.i1568, %1153
+  %1168 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1117) #13
+  %1169 = add i8 %1168, -97
+  %or.cond.i.i1571 = icmp ult i8 %1169, 6
+  br i1 %or.cond.i.i1571, label %1170, label %1172
 
-1169:                                             ; preds = %1165
-  %1170 = add nsw i8 %1167, -87
+1170:                                             ; preds = %1166
+  %1171 = add nsw i8 %1168, -87
   br label %hex2dec.exit.i1575
 
-1171:                                             ; preds = %1165
-  %1172 = add i8 %1167, -65
-  %or.cond5.i.i1572 = icmp ult i8 %1172, 6
-  br i1 %or.cond5.i.i1572, label %1173, label %1175
+1172:                                             ; preds = %1166
+  %1173 = add i8 %1168, -65
+  %or.cond5.i.i1572 = icmp ult i8 %1173, 6
+  br i1 %or.cond5.i.i1572, label %1174, label %1176
 
-1173:                                             ; preds = %1171
-  %1174 = add nsw i8 %1167, -55
+1174:                                             ; preds = %1172
+  %1175 = add nsw i8 %1168, -55
   br label %hex2dec.exit.i1575
 
-1175:                                             ; preds = %1171
-  %1176 = add i8 %1167, -48
-  %or.cond8.i.i1573 = icmp ult i8 %1176, 10
-  %spec.select.i.i1574 = select i1 %or.cond8.i.i1573, i8 %1176, i8 0
+1176:                                             ; preds = %1172
+  %1177 = add i8 %1168, -48
+  %or.cond8.i.i1573 = icmp ult i8 %1177, 10
+  %spec.select.i.i1574 = select i1 %or.cond8.i.i1573, i8 %1177, i8 0
   br label %hex2dec.exit.i1575
 
-hex2dec.exit.i1575:                               ; preds = %1175, %1173, %1169
-  %.0.i.i1576 = phi i8 [ %1170, %1169 ], [ %1174, %1173 ], [ %spec.select.i.i1574, %1175 ]
-  %1177 = shl nuw i8 %.0.i.i1576, 4
-  %1178 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1129) #13
-  %1179 = add i8 %1178, -97
-  %or.cond.i7.i1577 = icmp ult i8 %1179, 6
-  br i1 %or.cond.i7.i1577, label %1180, label %1182
+hex2dec.exit.i1575:                               ; preds = %1176, %1174, %1170
+  %.0.i.i1576 = phi i8 [ %1171, %1170 ], [ %1175, %1174 ], [ %spec.select.i.i1574, %1176 ]
+  %1178 = shl nuw i8 %.0.i.i1576, 4
+  %1179 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1130) #13
+  %1180 = add i8 %1179, -97
+  %or.cond.i7.i1577 = icmp ult i8 %1180, 6
+  br i1 %or.cond.i7.i1577, label %1181, label %1183
 
-1180:                                             ; preds = %hex2dec.exit.i1575
-  %1181 = add nsw i8 %1178, -87
+1181:                                             ; preds = %hex2dec.exit.i1575
+  %1182 = add nsw i8 %1179, -87
   br label %hex2dec.exit12.i1581
 
-1182:                                             ; preds = %hex2dec.exit.i1575
-  %1183 = add i8 %1178, -65
-  %or.cond5.i8.i1578 = icmp ult i8 %1183, 6
-  br i1 %or.cond5.i8.i1578, label %1184, label %1186
+1183:                                             ; preds = %hex2dec.exit.i1575
+  %1184 = add i8 %1179, -65
+  %or.cond5.i8.i1578 = icmp ult i8 %1184, 6
+  br i1 %or.cond5.i8.i1578, label %1185, label %1187
 
-1184:                                             ; preds = %1182
-  %1185 = add nsw i8 %1178, -55
+1185:                                             ; preds = %1183
+  %1186 = add nsw i8 %1179, -55
   br label %hex2dec.exit12.i1581
 
-1186:                                             ; preds = %1182
-  %1187 = add i8 %1178, -48
-  %or.cond8.i9.i1579 = icmp ult i8 %1187, 10
-  %spec.select.i10.i1580 = select i1 %or.cond8.i9.i1579, i8 %1187, i8 0
+1187:                                             ; preds = %1183
+  %1188 = add i8 %1179, -48
+  %or.cond8.i9.i1579 = icmp ult i8 %1188, 10
+  %spec.select.i10.i1580 = select i1 %or.cond8.i9.i1579, i8 %1188, i8 0
   br label %hex2dec.exit12.i1581
 
-hex2dec.exit12.i1581:                             ; preds = %1186, %1184, %1180
-  %.0.i11.i1582 = phi i8 [ %1181, %1180 ], [ %1185, %1184 ], [ %spec.select.i10.i1580, %1186 ]
-  %1188 = add nuw nsw i8 %.0.i11.i1582, %1177
+hex2dec.exit12.i1581:                             ; preds = %1187, %1185, %1181
+  %.0.i11.i1582 = phi i8 [ %1182, %1181 ], [ %1186, %1185 ], [ %spec.select.i10.i1580, %1187 ]
+  %1189 = add nuw nsw i8 %.0.i11.i1582, %1178
   br label %wrapped_tvb_get_guint8.exit1583
 
 wrapped_tvb_get_guint8.exit1583:                  ; preds = %wrapped_tvb_get_guint8.exit1569, %hex2dec.exit12.i1581
-  %.in2051 = phi i8 [ %1166, %hex2dec.exit12.i1581 ], [ %1163, %wrapped_tvb_get_guint8.exit1569 ]
-  %.in2052 = phi i8 [ %1141, %hex2dec.exit12.i1581 ], [ %1117, %wrapped_tvb_get_guint8.exit1569 ]
-  %.0.i1570 = phi i8 [ %1188, %hex2dec.exit12.i1581 ], [ %1164, %wrapped_tvb_get_guint8.exit1569 ]
-  %1189 = and i8 %.in2052, -32
-  %1190 = and i8 %.in2051, 24
-  %1191 = and i8 %.0.i1570, 7
-  %1192 = shl nuw nsw i32 %.010211875, 2
-  %1193 = add i32 %.010221874, %1192
-  %1194 = add i32 %1193, 1
-  %1195 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1194) #13
-  br i1 %885, label %1196, label %wrapped_tvb_get_guint8.exit1597
+  %.in2050 = phi i8 [ %1167, %hex2dec.exit12.i1581 ], [ %1164, %wrapped_tvb_get_guint8.exit1569 ]
+  %.in2051 = phi i8 [ %1142, %hex2dec.exit12.i1581 ], [ %1118, %wrapped_tvb_get_guint8.exit1569 ]
+  %.0.i1570 = phi i8 [ %1189, %hex2dec.exit12.i1581 ], [ %1165, %wrapped_tvb_get_guint8.exit1569 ]
+  %1190 = and i8 %.in2051, -32
+  %1191 = and i8 %.in2050, 24
+  %1192 = and i8 %.0.i1570, 7
+  %1193 = shl nuw nsw i32 %.010211874, 2
+  %1194 = add i32 %.010221873, %1193
+  %1195 = add i32 %1194, 1
+  %1196 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1195) #13
+  br i1 %886, label %1197, label %wrapped_tvb_get_guint8.exit1597
 
-1196:                                             ; preds = %wrapped_tvb_get_guint8.exit1583
-  %1197 = add i8 %1195, -97
-  %or.cond.i.i1585 = icmp ult i8 %1197, 6
-  br i1 %or.cond.i.i1585, label %1198, label %1200
+1197:                                             ; preds = %wrapped_tvb_get_guint8.exit1583
+  %1198 = add i8 %1196, -97
+  %or.cond.i.i1585 = icmp ult i8 %1198, 6
+  br i1 %or.cond.i.i1585, label %1199, label %1201
 
-1198:                                             ; preds = %1196
-  %1199 = add nsw i8 %1195, -87
+1199:                                             ; preds = %1197
+  %1200 = add nsw i8 %1196, -87
   br label %hex2dec.exit.i1589
 
-1200:                                             ; preds = %1196
-  %1201 = add i8 %1195, -65
-  %or.cond5.i.i1586 = icmp ult i8 %1201, 6
-  br i1 %or.cond5.i.i1586, label %1202, label %1204
+1201:                                             ; preds = %1197
+  %1202 = add i8 %1196, -65
+  %or.cond5.i.i1586 = icmp ult i8 %1202, 6
+  br i1 %or.cond5.i.i1586, label %1203, label %1205
 
-1202:                                             ; preds = %1200
-  %1203 = add nsw i8 %1195, -55
+1203:                                             ; preds = %1201
+  %1204 = add nsw i8 %1196, -55
   br label %hex2dec.exit.i1589
 
-1204:                                             ; preds = %1200
-  %1205 = add i8 %1195, -48
-  %or.cond8.i.i1587 = icmp ult i8 %1205, 10
-  %spec.select.i.i1588 = select i1 %or.cond8.i.i1587, i8 %1205, i8 0
+1205:                                             ; preds = %1201
+  %1206 = add i8 %1196, -48
+  %or.cond8.i.i1587 = icmp ult i8 %1206, 10
+  %spec.select.i.i1588 = select i1 %or.cond8.i.i1587, i8 %1206, i8 0
   br label %hex2dec.exit.i1589
 
-hex2dec.exit.i1589:                               ; preds = %1204, %1202, %1198
-  %.0.i.i1590 = phi i8 [ %1199, %1198 ], [ %1203, %1202 ], [ %spec.select.i.i1588, %1204 ]
-  %1206 = shl nuw i8 %.0.i.i1590, 4
-  %1207 = add i32 %1193, 2
-  %1208 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1207) #13
-  %1209 = add i8 %1208, -97
-  %or.cond.i7.i1591 = icmp ult i8 %1209, 6
-  br i1 %or.cond.i7.i1591, label %1210, label %1212
+hex2dec.exit.i1589:                               ; preds = %1205, %1203, %1199
+  %.0.i.i1590 = phi i8 [ %1200, %1199 ], [ %1204, %1203 ], [ %spec.select.i.i1588, %1205 ]
+  %1207 = shl nuw i8 %.0.i.i1590, 4
+  %1208 = add i32 %1194, 2
+  %1209 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1208) #13
+  %1210 = add i8 %1209, -97
+  %or.cond.i7.i1591 = icmp ult i8 %1210, 6
+  br i1 %or.cond.i7.i1591, label %1211, label %1213
 
-1210:                                             ; preds = %hex2dec.exit.i1589
-  %1211 = add nsw i8 %1208, -87
+1211:                                             ; preds = %hex2dec.exit.i1589
+  %1212 = add nsw i8 %1209, -87
   br label %hex2dec.exit12.i1595
 
-1212:                                             ; preds = %hex2dec.exit.i1589
-  %1213 = add i8 %1208, -65
-  %or.cond5.i8.i1592 = icmp ult i8 %1213, 6
-  br i1 %or.cond5.i8.i1592, label %1214, label %1216
+1213:                                             ; preds = %hex2dec.exit.i1589
+  %1214 = add i8 %1209, -65
+  %or.cond5.i8.i1592 = icmp ult i8 %1214, 6
+  br i1 %or.cond5.i8.i1592, label %1215, label %1217
 
-1214:                                             ; preds = %1212
-  %1215 = add nsw i8 %1208, -55
+1215:                                             ; preds = %1213
+  %1216 = add nsw i8 %1209, -55
   br label %hex2dec.exit12.i1595
 
-1216:                                             ; preds = %1212
-  %1217 = add i8 %1208, -48
-  %or.cond8.i9.i1593 = icmp ult i8 %1217, 10
-  %spec.select.i10.i1594 = select i1 %or.cond8.i9.i1593, i8 %1217, i8 0
+1217:                                             ; preds = %1213
+  %1218 = add i8 %1209, -48
+  %or.cond8.i9.i1593 = icmp ult i8 %1218, 10
+  %spec.select.i10.i1594 = select i1 %or.cond8.i9.i1593, i8 %1218, i8 0
   br label %hex2dec.exit12.i1595
 
-hex2dec.exit12.i1595:                             ; preds = %1216, %1214, %1210
-  %.0.i11.i1596 = phi i8 [ %1211, %1210 ], [ %1215, %1214 ], [ %spec.select.i10.i1594, %1216 ]
-  %1218 = add nuw nsw i8 %.0.i11.i1596, %1206
+hex2dec.exit12.i1595:                             ; preds = %1217, %1215, %1211
+  %.0.i11.i1596 = phi i8 [ %1212, %1211 ], [ %1216, %1215 ], [ %spec.select.i10.i1594, %1217 ]
+  %1219 = add nuw nsw i8 %.0.i11.i1596, %1207
   br label %wrapped_tvb_get_guint8.exit1597
 
 wrapped_tvb_get_guint8.exit1597:                  ; preds = %wrapped_tvb_get_guint8.exit1583, %hex2dec.exit12.i1595
-  %.0.i1584 = phi i8 [ %1218, %hex2dec.exit12.i1595 ], [ %1195, %wrapped_tvb_get_guint8.exit1583 ]
-  %1219 = mul nuw nsw i32 %.010211875, 5
-  %1220 = add i32 %.010221874, %1219
-  %1221 = add i32 %1220, 1
-  %1222 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1221) #13
-  br i1 %885, label %1223, label %wrapped_tvb_get_guint8.exit1611
+  %.0.i1584 = phi i8 [ %1219, %hex2dec.exit12.i1595 ], [ %1196, %wrapped_tvb_get_guint8.exit1583 ]
+  %1220 = mul nuw nsw i32 %.010211874, 5
+  %1221 = add i32 %.010221873, %1220
+  %1222 = add i32 %1221, 1
+  %1223 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1222) #13
+  br i1 %886, label %1224, label %wrapped_tvb_get_guint8.exit1611
 
-1223:                                             ; preds = %wrapped_tvb_get_guint8.exit1597
-  %1224 = add i8 %1222, -97
-  %or.cond.i.i1599 = icmp ult i8 %1224, 6
-  br i1 %or.cond.i.i1599, label %1225, label %1227
+1224:                                             ; preds = %wrapped_tvb_get_guint8.exit1597
+  %1225 = add i8 %1223, -97
+  %or.cond.i.i1599 = icmp ult i8 %1225, 6
+  br i1 %or.cond.i.i1599, label %1226, label %1228
 
-1225:                                             ; preds = %1223
-  %1226 = add nsw i8 %1222, -87
+1226:                                             ; preds = %1224
+  %1227 = add nsw i8 %1223, -87
   br label %hex2dec.exit.i1603
 
-1227:                                             ; preds = %1223
-  %1228 = add i8 %1222, -65
-  %or.cond5.i.i1600 = icmp ult i8 %1228, 6
-  br i1 %or.cond5.i.i1600, label %1229, label %1231
+1228:                                             ; preds = %1224
+  %1229 = add i8 %1223, -65
+  %or.cond5.i.i1600 = icmp ult i8 %1229, 6
+  br i1 %or.cond5.i.i1600, label %1230, label %1232
 
-1229:                                             ; preds = %1227
-  %1230 = add nsw i8 %1222, -55
+1230:                                             ; preds = %1228
+  %1231 = add nsw i8 %1223, -55
   br label %hex2dec.exit.i1603
 
-1231:                                             ; preds = %1227
-  %1232 = add i8 %1222, -48
-  %or.cond8.i.i1601 = icmp ult i8 %1232, 10
-  %spec.select.i.i1602 = select i1 %or.cond8.i.i1601, i8 %1232, i8 0
+1232:                                             ; preds = %1228
+  %1233 = add i8 %1223, -48
+  %or.cond8.i.i1601 = icmp ult i8 %1233, 10
+  %spec.select.i.i1602 = select i1 %or.cond8.i.i1601, i8 %1233, i8 0
   br label %hex2dec.exit.i1603
 
-hex2dec.exit.i1603:                               ; preds = %1231, %1229, %1225
-  %.0.i.i1604 = phi i8 [ %1226, %1225 ], [ %1230, %1229 ], [ %spec.select.i.i1602, %1231 ]
-  %1233 = shl nuw i8 %.0.i.i1604, 4
-  %1234 = add i32 %1220, 2
-  %1235 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1234) #13
-  %1236 = add i8 %1235, -97
-  %or.cond.i7.i1605 = icmp ult i8 %1236, 6
-  br i1 %or.cond.i7.i1605, label %1237, label %1239
+hex2dec.exit.i1603:                               ; preds = %1232, %1230, %1226
+  %.0.i.i1604 = phi i8 [ %1227, %1226 ], [ %1231, %1230 ], [ %spec.select.i.i1602, %1232 ]
+  %1234 = shl nuw i8 %.0.i.i1604, 4
+  %1235 = add i32 %1221, 2
+  %1236 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1235) #13
+  %1237 = add i8 %1236, -97
+  %or.cond.i7.i1605 = icmp ult i8 %1237, 6
+  br i1 %or.cond.i7.i1605, label %1238, label %1240
 
-1237:                                             ; preds = %hex2dec.exit.i1603
-  %1238 = add nsw i8 %1235, -87
+1238:                                             ; preds = %hex2dec.exit.i1603
+  %1239 = add nsw i8 %1236, -87
   br label %hex2dec.exit12.i1609
 
-1239:                                             ; preds = %hex2dec.exit.i1603
-  %1240 = add i8 %1235, -65
-  %or.cond5.i8.i1606 = icmp ult i8 %1240, 6
-  br i1 %or.cond5.i8.i1606, label %1241, label %1243
+1240:                                             ; preds = %hex2dec.exit.i1603
+  %1241 = add i8 %1236, -65
+  %or.cond5.i8.i1606 = icmp ult i8 %1241, 6
+  br i1 %or.cond5.i8.i1606, label %1242, label %1244
 
-1241:                                             ; preds = %1239
-  %1242 = add nsw i8 %1235, -55
+1242:                                             ; preds = %1240
+  %1243 = add nsw i8 %1236, -55
   br label %hex2dec.exit12.i1609
 
-1243:                                             ; preds = %1239
-  %1244 = add i8 %1235, -48
-  %or.cond8.i9.i1607 = icmp ult i8 %1244, 10
-  %spec.select.i10.i1608 = select i1 %or.cond8.i9.i1607, i8 %1244, i8 0
+1244:                                             ; preds = %1240
+  %1245 = add i8 %1236, -48
+  %or.cond8.i9.i1607 = icmp ult i8 %1245, 10
+  %spec.select.i10.i1608 = select i1 %or.cond8.i9.i1607, i8 %1245, i8 0
   br label %hex2dec.exit12.i1609
 
-hex2dec.exit12.i1609:                             ; preds = %1243, %1241, %1237
-  %.0.i11.i1610 = phi i8 [ %1238, %1237 ], [ %1242, %1241 ], [ %spec.select.i10.i1608, %1243 ]
-  %1245 = add nuw nsw i8 %.0.i11.i1610, %1233
+hex2dec.exit12.i1609:                             ; preds = %1244, %1242, %1238
+  %.0.i11.i1610 = phi i8 [ %1239, %1238 ], [ %1243, %1242 ], [ %spec.select.i10.i1608, %1244 ]
+  %1246 = add nuw nsw i8 %.0.i11.i1610, %1234
   br label %wrapped_tvb_get_guint8.exit1611
 
 wrapped_tvb_get_guint8.exit1611:                  ; preds = %wrapped_tvb_get_guint8.exit1597, %hex2dec.exit12.i1609
-  %.0.i1598 = phi i8 [ %1245, %hex2dec.exit12.i1609 ], [ %1222, %wrapped_tvb_get_guint8.exit1597 ]
-  %1246 = mul nuw nsw i32 %.010211875, 6
-  %1247 = add i32 %.010221874, %1246
-  %1248 = add i32 %1247, 1
-  %1249 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1248) #13
-  br i1 %885, label %1250, label %wrapped_tvb_get_guint8.exit1625
+  %.0.i1598 = phi i8 [ %1246, %hex2dec.exit12.i1609 ], [ %1223, %wrapped_tvb_get_guint8.exit1597 ]
+  %1247 = mul nuw nsw i32 %.010211874, 6
+  %1248 = add i32 %.010221873, %1247
+  %1249 = add i32 %1248, 1
+  %1250 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1249) #13
+  br i1 %886, label %1251, label %wrapped_tvb_get_guint8.exit1625
 
-1250:                                             ; preds = %wrapped_tvb_get_guint8.exit1611
-  %1251 = add i8 %1249, -97
-  %or.cond.i.i1613 = icmp ult i8 %1251, 6
-  br i1 %or.cond.i.i1613, label %1252, label %1254
+1251:                                             ; preds = %wrapped_tvb_get_guint8.exit1611
+  %1252 = add i8 %1250, -97
+  %or.cond.i.i1613 = icmp ult i8 %1252, 6
+  br i1 %or.cond.i.i1613, label %1253, label %1255
 
-1252:                                             ; preds = %1250
-  %1253 = add nsw i8 %1249, -87
+1253:                                             ; preds = %1251
+  %1254 = add nsw i8 %1250, -87
   br label %hex2dec.exit.i1617
 
-1254:                                             ; preds = %1250
-  %1255 = add i8 %1249, -65
-  %or.cond5.i.i1614 = icmp ult i8 %1255, 6
-  br i1 %or.cond5.i.i1614, label %1256, label %1258
+1255:                                             ; preds = %1251
+  %1256 = add i8 %1250, -65
+  %or.cond5.i.i1614 = icmp ult i8 %1256, 6
+  br i1 %or.cond5.i.i1614, label %1257, label %1259
 
-1256:                                             ; preds = %1254
-  %1257 = add nsw i8 %1249, -55
+1257:                                             ; preds = %1255
+  %1258 = add nsw i8 %1250, -55
   br label %hex2dec.exit.i1617
 
-1258:                                             ; preds = %1254
-  %1259 = add i8 %1249, -48
-  %or.cond8.i.i1615 = icmp ult i8 %1259, 10
-  %spec.select.i.i1616 = select i1 %or.cond8.i.i1615, i8 %1259, i8 0
+1259:                                             ; preds = %1255
+  %1260 = add i8 %1250, -48
+  %or.cond8.i.i1615 = icmp ult i8 %1260, 10
+  %spec.select.i.i1616 = select i1 %or.cond8.i.i1615, i8 %1260, i8 0
   br label %hex2dec.exit.i1617
 
-hex2dec.exit.i1617:                               ; preds = %1258, %1256, %1252
-  %.0.i.i1618 = phi i8 [ %1253, %1252 ], [ %1257, %1256 ], [ %spec.select.i.i1616, %1258 ]
-  %1260 = shl nuw i8 %.0.i.i1618, 4
-  %1261 = add i32 %1247, 2
-  %1262 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1261) #13
-  %1263 = add i8 %1262, -97
-  %or.cond.i7.i1619 = icmp ult i8 %1263, 6
-  br i1 %or.cond.i7.i1619, label %1264, label %1266
+hex2dec.exit.i1617:                               ; preds = %1259, %1257, %1253
+  %.0.i.i1618 = phi i8 [ %1254, %1253 ], [ %1258, %1257 ], [ %spec.select.i.i1616, %1259 ]
+  %1261 = shl nuw i8 %.0.i.i1618, 4
+  %1262 = add i32 %1248, 2
+  %1263 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1262) #13
+  %1264 = add i8 %1263, -97
+  %or.cond.i7.i1619 = icmp ult i8 %1264, 6
+  br i1 %or.cond.i7.i1619, label %1265, label %1267
 
-1264:                                             ; preds = %hex2dec.exit.i1617
-  %1265 = add nsw i8 %1262, -87
+1265:                                             ; preds = %hex2dec.exit.i1617
+  %1266 = add nsw i8 %1263, -87
   br label %hex2dec.exit12.i1623
 
-1266:                                             ; preds = %hex2dec.exit.i1617
-  %1267 = add i8 %1262, -65
-  %or.cond5.i8.i1620 = icmp ult i8 %1267, 6
-  br i1 %or.cond5.i8.i1620, label %1268, label %1270
+1267:                                             ; preds = %hex2dec.exit.i1617
+  %1268 = add i8 %1263, -65
+  %or.cond5.i8.i1620 = icmp ult i8 %1268, 6
+  br i1 %or.cond5.i8.i1620, label %1269, label %1271
 
-1268:                                             ; preds = %1266
-  %1269 = add nsw i8 %1262, -55
+1269:                                             ; preds = %1267
+  %1270 = add nsw i8 %1263, -55
   br label %hex2dec.exit12.i1623
 
-1270:                                             ; preds = %1266
-  %1271 = add i8 %1262, -48
-  %or.cond8.i9.i1621 = icmp ult i8 %1271, 10
-  %spec.select.i10.i1622 = select i1 %or.cond8.i9.i1621, i8 %1271, i8 0
+1271:                                             ; preds = %1267
+  %1272 = add i8 %1263, -48
+  %or.cond8.i9.i1621 = icmp ult i8 %1272, 10
+  %spec.select.i10.i1622 = select i1 %or.cond8.i9.i1621, i8 %1272, i8 0
   br label %hex2dec.exit12.i1623
 
-hex2dec.exit12.i1623:                             ; preds = %1270, %1268, %1264
-  %.0.i11.i1624 = phi i8 [ %1265, %1264 ], [ %1269, %1268 ], [ %spec.select.i10.i1622, %1270 ]
-  %1272 = add nuw nsw i8 %.0.i11.i1624, %1260
+hex2dec.exit12.i1623:                             ; preds = %1271, %1269, %1265
+  %.0.i11.i1624 = phi i8 [ %1266, %1265 ], [ %1270, %1269 ], [ %spec.select.i10.i1622, %1271 ]
+  %1273 = add nuw nsw i8 %.0.i11.i1624, %1261
   br label %wrapped_tvb_get_guint8.exit1625
 
 wrapped_tvb_get_guint8.exit1625:                  ; preds = %wrapped_tvb_get_guint8.exit1611, %hex2dec.exit12.i1623
-  %.0.i1612 = phi i8 [ %1272, %hex2dec.exit12.i1623 ], [ %1249, %wrapped_tvb_get_guint8.exit1611 ]
-  %1273 = mul nuw nsw i32 %.010211875, 7
-  %1274 = add i32 %.010221874, %1273
-  %1275 = add i32 %1274, 1
-  %1276 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1275) #13
-  br i1 %885, label %1277, label %wrapped_tvb_get_guint8.exit1639
+  %.0.i1612 = phi i8 [ %1273, %hex2dec.exit12.i1623 ], [ %1250, %wrapped_tvb_get_guint8.exit1611 ]
+  %1274 = mul nuw nsw i32 %.010211874, 7
+  %1275 = add i32 %.010221873, %1274
+  %1276 = add i32 %1275, 1
+  %1277 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1276) #13
+  br i1 %886, label %1278, label %wrapped_tvb_get_guint8.exit1639
 
-1277:                                             ; preds = %wrapped_tvb_get_guint8.exit1625
-  %1278 = add i8 %1276, -97
-  %or.cond.i.i1627 = icmp ult i8 %1278, 6
-  br i1 %or.cond.i.i1627, label %1279, label %1281
+1278:                                             ; preds = %wrapped_tvb_get_guint8.exit1625
+  %1279 = add i8 %1277, -97
+  %or.cond.i.i1627 = icmp ult i8 %1279, 6
+  br i1 %or.cond.i.i1627, label %1280, label %1282
 
-1279:                                             ; preds = %1277
-  %1280 = add nsw i8 %1276, -87
+1280:                                             ; preds = %1278
+  %1281 = add nsw i8 %1277, -87
   br label %hex2dec.exit.i1631
 
-1281:                                             ; preds = %1277
-  %1282 = add i8 %1276, -65
-  %or.cond5.i.i1628 = icmp ult i8 %1282, 6
-  br i1 %or.cond5.i.i1628, label %1283, label %1285
+1282:                                             ; preds = %1278
+  %1283 = add i8 %1277, -65
+  %or.cond5.i.i1628 = icmp ult i8 %1283, 6
+  br i1 %or.cond5.i.i1628, label %1284, label %1286
 
-1283:                                             ; preds = %1281
-  %1284 = add nsw i8 %1276, -55
+1284:                                             ; preds = %1282
+  %1285 = add nsw i8 %1277, -55
   br label %hex2dec.exit.i1631
 
-1285:                                             ; preds = %1281
-  %1286 = add i8 %1276, -48
-  %or.cond8.i.i1629 = icmp ult i8 %1286, 10
-  %spec.select.i.i1630 = select i1 %or.cond8.i.i1629, i8 %1286, i8 0
+1286:                                             ; preds = %1282
+  %1287 = add i8 %1277, -48
+  %or.cond8.i.i1629 = icmp ult i8 %1287, 10
+  %spec.select.i.i1630 = select i1 %or.cond8.i.i1629, i8 %1287, i8 0
   br label %hex2dec.exit.i1631
 
-hex2dec.exit.i1631:                               ; preds = %1285, %1283, %1279
-  %.0.i.i1632 = phi i8 [ %1280, %1279 ], [ %1284, %1283 ], [ %spec.select.i.i1630, %1285 ]
-  %1287 = shl nuw i8 %.0.i.i1632, 4
-  %1288 = add i32 %1274, 2
-  %1289 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1288) #13
-  %1290 = add i8 %1289, -97
-  %or.cond.i7.i1633 = icmp ult i8 %1290, 6
-  br i1 %or.cond.i7.i1633, label %1291, label %1293
+hex2dec.exit.i1631:                               ; preds = %1286, %1284, %1280
+  %.0.i.i1632 = phi i8 [ %1281, %1280 ], [ %1285, %1284 ], [ %spec.select.i.i1630, %1286 ]
+  %1288 = shl nuw i8 %.0.i.i1632, 4
+  %1289 = add i32 %1275, 2
+  %1290 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1289) #13
+  %1291 = add i8 %1290, -97
+  %or.cond.i7.i1633 = icmp ult i8 %1291, 6
+  br i1 %or.cond.i7.i1633, label %1292, label %1294
 
-1291:                                             ; preds = %hex2dec.exit.i1631
-  %1292 = add nsw i8 %1289, -87
-  br label %1300
+1292:                                             ; preds = %hex2dec.exit.i1631
+  %1293 = add nsw i8 %1290, -87
+  br label %1301
 
-1293:                                             ; preds = %hex2dec.exit.i1631
-  %1294 = add i8 %1289, -65
-  %or.cond5.i8.i1634 = icmp ult i8 %1294, 6
-  br i1 %or.cond5.i8.i1634, label %1295, label %1297
+1294:                                             ; preds = %hex2dec.exit.i1631
+  %1295 = add i8 %1290, -65
+  %or.cond5.i8.i1634 = icmp ult i8 %1295, 6
+  br i1 %or.cond5.i8.i1634, label %1296, label %1298
 
-1295:                                             ; preds = %1293
-  %1296 = add nsw i8 %1289, -55
-  br label %1300
+1296:                                             ; preds = %1294
+  %1297 = add nsw i8 %1290, -55
+  br label %1301
 
-1297:                                             ; preds = %1293
-  %1298 = add i8 %1289, -48
-  %or.cond8.i9.i1635 = icmp ult i8 %1298, 10
-  %spec.select.i10.i1636 = select i1 %or.cond8.i9.i1635, i8 %1298, i8 0
-  br label %1300
+1298:                                             ; preds = %1294
+  %1299 = add i8 %1290, -48
+  %or.cond8.i9.i1635 = icmp ult i8 %1299, 10
+  %spec.select.i10.i1636 = select i1 %or.cond8.i9.i1635, i8 %1299, i8 0
+  br label %1301
 
 wrapped_tvb_get_guint8.exit1639:                  ; preds = %wrapped_tvb_get_guint8.exit1625
-  %1299 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1275) #13
+  %1300 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1276) #13
   br label %wrapped_tvb_get_guint8.exit1653
 
-1300:                                             ; preds = %1291, %1295, %1297
-  %.0.i11.i1638 = phi i8 [ %1292, %1291 ], [ %1296, %1295 ], [ %spec.select.i10.i1636, %1297 ]
-  %1301 = add nuw nsw i8 %.0.i11.i1638, %1287
-  %1302 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1275) #13
-  %1303 = add i8 %1302, -97
-  %or.cond.i.i1641 = icmp ult i8 %1303, 6
-  br i1 %or.cond.i.i1641, label %1304, label %1306
+1301:                                             ; preds = %1292, %1296, %1298
+  %.0.i11.i1638 = phi i8 [ %1293, %1292 ], [ %1297, %1296 ], [ %spec.select.i10.i1636, %1298 ]
+  %1302 = add nuw nsw i8 %.0.i11.i1638, %1288
+  %1303 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1276) #13
+  %1304 = add i8 %1303, -97
+  %or.cond.i.i1641 = icmp ult i8 %1304, 6
+  br i1 %or.cond.i.i1641, label %1305, label %1307
 
-1304:                                             ; preds = %1300
-  %1305 = add nsw i8 %1302, -87
+1305:                                             ; preds = %1301
+  %1306 = add nsw i8 %1303, -87
   br label %hex2dec.exit.i1645
 
-1306:                                             ; preds = %1300
-  %1307 = add i8 %1302, -65
-  %or.cond5.i.i1642 = icmp ult i8 %1307, 6
-  br i1 %or.cond5.i.i1642, label %1308, label %1310
+1307:                                             ; preds = %1301
+  %1308 = add i8 %1303, -65
+  %or.cond5.i.i1642 = icmp ult i8 %1308, 6
+  br i1 %or.cond5.i.i1642, label %1309, label %1311
 
-1308:                                             ; preds = %1306
-  %1309 = add nsw i8 %1302, -55
+1309:                                             ; preds = %1307
+  %1310 = add nsw i8 %1303, -55
   br label %hex2dec.exit.i1645
 
-1310:                                             ; preds = %1306
-  %1311 = add i8 %1302, -48
-  %or.cond8.i.i1643 = icmp ult i8 %1311, 10
-  %spec.select.i.i1644 = select i1 %or.cond8.i.i1643, i8 %1311, i8 0
+1311:                                             ; preds = %1307
+  %1312 = add i8 %1303, -48
+  %or.cond8.i.i1643 = icmp ult i8 %1312, 10
+  %spec.select.i.i1644 = select i1 %or.cond8.i.i1643, i8 %1312, i8 0
   br label %hex2dec.exit.i1645
 
-hex2dec.exit.i1645:                               ; preds = %1310, %1308, %1304
-  %.0.i.i1646 = phi i8 [ %1305, %1304 ], [ %1309, %1308 ], [ %spec.select.i.i1644, %1310 ]
-  %1312 = shl nuw i8 %.0.i.i1646, 4
-  %1313 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1288) #13
-  %1314 = add i8 %1313, -97
-  %or.cond.i7.i1647 = icmp ult i8 %1314, 6
-  br i1 %or.cond.i7.i1647, label %1315, label %1317
+hex2dec.exit.i1645:                               ; preds = %1311, %1309, %1305
+  %.0.i.i1646 = phi i8 [ %1306, %1305 ], [ %1310, %1309 ], [ %spec.select.i.i1644, %1311 ]
+  %1313 = shl nuw i8 %.0.i.i1646, 4
+  %1314 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1289) #13
+  %1315 = add i8 %1314, -97
+  %or.cond.i7.i1647 = icmp ult i8 %1315, 6
+  br i1 %or.cond.i7.i1647, label %1316, label %1318
 
-1315:                                             ; preds = %hex2dec.exit.i1645
-  %1316 = add nsw i8 %1313, -87
+1316:                                             ; preds = %hex2dec.exit.i1645
+  %1317 = add nsw i8 %1314, -87
   br label %hex2dec.exit12.i1651
 
-1317:                                             ; preds = %hex2dec.exit.i1645
-  %1318 = add i8 %1313, -65
-  %or.cond5.i8.i1648 = icmp ult i8 %1318, 6
-  br i1 %or.cond5.i8.i1648, label %1319, label %1321
+1318:                                             ; preds = %hex2dec.exit.i1645
+  %1319 = add i8 %1314, -65
+  %or.cond5.i8.i1648 = icmp ult i8 %1319, 6
+  br i1 %or.cond5.i8.i1648, label %1320, label %1322
 
-1319:                                             ; preds = %1317
-  %1320 = add nsw i8 %1313, -55
+1320:                                             ; preds = %1318
+  %1321 = add nsw i8 %1314, -55
   br label %hex2dec.exit12.i1651
 
-1321:                                             ; preds = %1317
-  %1322 = add i8 %1313, -48
-  %or.cond8.i9.i1649 = icmp ult i8 %1322, 10
-  %spec.select.i10.i1650 = select i1 %or.cond8.i9.i1649, i8 %1322, i8 0
+1322:                                             ; preds = %1318
+  %1323 = add i8 %1314, -48
+  %or.cond8.i9.i1649 = icmp ult i8 %1323, 10
+  %spec.select.i10.i1650 = select i1 %or.cond8.i9.i1649, i8 %1323, i8 0
   br label %hex2dec.exit12.i1651
 
-hex2dec.exit12.i1651:                             ; preds = %1321, %1319, %1315
-  %.0.i11.i1652 = phi i8 [ %1316, %1315 ], [ %1320, %1319 ], [ %spec.select.i10.i1650, %1321 ]
-  %1323 = add nuw nsw i8 %.0.i11.i1652, %1312
+hex2dec.exit12.i1651:                             ; preds = %1322, %1320, %1316
+  %.0.i11.i1652 = phi i8 [ %1317, %1316 ], [ %1321, %1320 ], [ %spec.select.i10.i1650, %1322 ]
+  %1324 = add nuw nsw i8 %.0.i11.i1652, %1313
   br label %wrapped_tvb_get_guint8.exit1653
 
 wrapped_tvb_get_guint8.exit1653:                  ; preds = %wrapped_tvb_get_guint8.exit1639, %hex2dec.exit12.i1651
-  %.in2053 = phi i8 [ %1301, %hex2dec.exit12.i1651 ], [ %1276, %wrapped_tvb_get_guint8.exit1639 ]
-  %.0.i1640 = phi i8 [ %1323, %hex2dec.exit12.i1651 ], [ %1299, %wrapped_tvb_get_guint8.exit1639 ]
-  %1324 = and i8 %.in2053, -16
-  %1325 = and i8 %.0.i1640, 15
-  %1326 = shl nuw nsw i32 %.010211875, 3
-  %1327 = add i32 %.010221874, %1326
-  %1328 = add i32 %1327, 1
-  %1329 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1328) #13
-  br i1 %885, label %1330, label %wrapped_tvb_get_guint8.exit1667
+  %.in2052 = phi i8 [ %1302, %hex2dec.exit12.i1651 ], [ %1277, %wrapped_tvb_get_guint8.exit1639 ]
+  %.0.i1640 = phi i8 [ %1324, %hex2dec.exit12.i1651 ], [ %1300, %wrapped_tvb_get_guint8.exit1639 ]
+  %1325 = and i8 %.in2052, -16
+  %1326 = and i8 %.0.i1640, 15
+  %1327 = shl nuw nsw i32 %.010211874, 3
+  %1328 = add i32 %.010221873, %1327
+  %1329 = add i32 %1328, 1
+  %1330 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1329) #13
+  br i1 %886, label %1331, label %wrapped_tvb_get_guint8.exit1667
 
-1330:                                             ; preds = %wrapped_tvb_get_guint8.exit1653
-  %1331 = add i8 %1329, -97
-  %or.cond.i.i1655 = icmp ult i8 %1331, 6
-  br i1 %or.cond.i.i1655, label %1332, label %1334
+1331:                                             ; preds = %wrapped_tvb_get_guint8.exit1653
+  %1332 = add i8 %1330, -97
+  %or.cond.i.i1655 = icmp ult i8 %1332, 6
+  br i1 %or.cond.i.i1655, label %1333, label %1335
 
-1332:                                             ; preds = %1330
-  %1333 = add nsw i8 %1329, -87
+1333:                                             ; preds = %1331
+  %1334 = add nsw i8 %1330, -87
   br label %hex2dec.exit.i1659
 
-1334:                                             ; preds = %1330
-  %1335 = add i8 %1329, -65
-  %or.cond5.i.i1656 = icmp ult i8 %1335, 6
-  br i1 %or.cond5.i.i1656, label %1336, label %1338
+1335:                                             ; preds = %1331
+  %1336 = add i8 %1330, -65
+  %or.cond5.i.i1656 = icmp ult i8 %1336, 6
+  br i1 %or.cond5.i.i1656, label %1337, label %1339
 
-1336:                                             ; preds = %1334
-  %1337 = add nsw i8 %1329, -55
+1337:                                             ; preds = %1335
+  %1338 = add nsw i8 %1330, -55
   br label %hex2dec.exit.i1659
 
-1338:                                             ; preds = %1334
-  %1339 = add i8 %1329, -48
-  %or.cond8.i.i1657 = icmp ult i8 %1339, 10
-  %spec.select.i.i1658 = select i1 %or.cond8.i.i1657, i8 %1339, i8 0
+1339:                                             ; preds = %1335
+  %1340 = add i8 %1330, -48
+  %or.cond8.i.i1657 = icmp ult i8 %1340, 10
+  %spec.select.i.i1658 = select i1 %or.cond8.i.i1657, i8 %1340, i8 0
   br label %hex2dec.exit.i1659
 
-hex2dec.exit.i1659:                               ; preds = %1338, %1336, %1332
-  %.0.i.i1660 = phi i8 [ %1333, %1332 ], [ %1337, %1336 ], [ %spec.select.i.i1658, %1338 ]
-  %1340 = shl nuw i8 %.0.i.i1660, 4
-  %1341 = add i32 %1327, 2
-  %1342 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1341) #13
-  %1343 = add i8 %1342, -97
-  %or.cond.i7.i1661 = icmp ult i8 %1343, 6
-  br i1 %or.cond.i7.i1661, label %1344, label %1346
+hex2dec.exit.i1659:                               ; preds = %1339, %1337, %1333
+  %.0.i.i1660 = phi i8 [ %1334, %1333 ], [ %1338, %1337 ], [ %spec.select.i.i1658, %1339 ]
+  %1341 = shl nuw i8 %.0.i.i1660, 4
+  %1342 = add i32 %1328, 2
+  %1343 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1342) #13
+  %1344 = add i8 %1343, -97
+  %or.cond.i7.i1661 = icmp ult i8 %1344, 6
+  br i1 %or.cond.i7.i1661, label %1345, label %1347
 
-1344:                                             ; preds = %hex2dec.exit.i1659
-  %1345 = add nsw i8 %1342, -87
-  br label %1353
+1345:                                             ; preds = %hex2dec.exit.i1659
+  %1346 = add nsw i8 %1343, -87
+  br label %1354
 
-1346:                                             ; preds = %hex2dec.exit.i1659
-  %1347 = add i8 %1342, -65
-  %or.cond5.i8.i1662 = icmp ult i8 %1347, 6
-  br i1 %or.cond5.i8.i1662, label %1348, label %1350
+1347:                                             ; preds = %hex2dec.exit.i1659
+  %1348 = add i8 %1343, -65
+  %or.cond5.i8.i1662 = icmp ult i8 %1348, 6
+  br i1 %or.cond5.i8.i1662, label %1349, label %1351
 
-1348:                                             ; preds = %1346
-  %1349 = add nsw i8 %1342, -55
-  br label %1353
+1349:                                             ; preds = %1347
+  %1350 = add nsw i8 %1343, -55
+  br label %1354
 
-1350:                                             ; preds = %1346
-  %1351 = add i8 %1342, -48
-  %or.cond8.i9.i1663 = icmp ult i8 %1351, 10
-  %spec.select.i10.i1664 = select i1 %or.cond8.i9.i1663, i8 %1351, i8 0
-  br label %1353
+1351:                                             ; preds = %1347
+  %1352 = add i8 %1343, -48
+  %or.cond8.i9.i1663 = icmp ult i8 %1352, 10
+  %spec.select.i10.i1664 = select i1 %or.cond8.i9.i1663, i8 %1352, i8 0
+  br label %1354
 
 wrapped_tvb_get_guint8.exit1667:                  ; preds = %wrapped_tvb_get_guint8.exit1653
-  %1352 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1328) #13
+  %1353 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1329) #13
   br label %wrapped_tvb_get_guint8.exit1681
 
-1353:                                             ; preds = %1344, %1348, %1350
-  %.0.i11.i1666 = phi i8 [ %1345, %1344 ], [ %1349, %1348 ], [ %spec.select.i10.i1664, %1350 ]
-  %1354 = add nuw nsw i8 %.0.i11.i1666, %1340
-  %1355 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1328) #13
-  %1356 = add i8 %1355, -97
-  %or.cond.i.i1669 = icmp ult i8 %1356, 6
-  br i1 %or.cond.i.i1669, label %1357, label %1359
+1354:                                             ; preds = %1345, %1349, %1351
+  %.0.i11.i1666 = phi i8 [ %1346, %1345 ], [ %1350, %1349 ], [ %spec.select.i10.i1664, %1351 ]
+  %1355 = add nuw nsw i8 %.0.i11.i1666, %1341
+  %1356 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1329) #13
+  %1357 = add i8 %1356, -97
+  %or.cond.i.i1669 = icmp ult i8 %1357, 6
+  br i1 %or.cond.i.i1669, label %1358, label %1360
 
-1357:                                             ; preds = %1353
-  %1358 = add nsw i8 %1355, -87
+1358:                                             ; preds = %1354
+  %1359 = add nsw i8 %1356, -87
   br label %hex2dec.exit.i1673
 
-1359:                                             ; preds = %1353
-  %1360 = add i8 %1355, -65
-  %or.cond5.i.i1670 = icmp ult i8 %1360, 6
-  br i1 %or.cond5.i.i1670, label %1361, label %1363
+1360:                                             ; preds = %1354
+  %1361 = add i8 %1356, -65
+  %or.cond5.i.i1670 = icmp ult i8 %1361, 6
+  br i1 %or.cond5.i.i1670, label %1362, label %1364
 
-1361:                                             ; preds = %1359
-  %1362 = add nsw i8 %1355, -55
+1362:                                             ; preds = %1360
+  %1363 = add nsw i8 %1356, -55
   br label %hex2dec.exit.i1673
 
-1363:                                             ; preds = %1359
-  %1364 = add i8 %1355, -48
-  %or.cond8.i.i1671 = icmp ult i8 %1364, 10
-  %spec.select.i.i1672 = select i1 %or.cond8.i.i1671, i8 %1364, i8 0
+1364:                                             ; preds = %1360
+  %1365 = add i8 %1356, -48
+  %or.cond8.i.i1671 = icmp ult i8 %1365, 10
+  %spec.select.i.i1672 = select i1 %or.cond8.i.i1671, i8 %1365, i8 0
   br label %hex2dec.exit.i1673
 
-hex2dec.exit.i1673:                               ; preds = %1363, %1361, %1357
-  %.0.i.i1674 = phi i8 [ %1358, %1357 ], [ %1362, %1361 ], [ %spec.select.i.i1672, %1363 ]
-  %1365 = shl nuw i8 %.0.i.i1674, 4
-  %1366 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1341) #13
-  %1367 = add i8 %1366, -97
-  %or.cond.i7.i1675 = icmp ult i8 %1367, 6
-  br i1 %or.cond.i7.i1675, label %1368, label %1370
+hex2dec.exit.i1673:                               ; preds = %1364, %1362, %1358
+  %.0.i.i1674 = phi i8 [ %1359, %1358 ], [ %1363, %1362 ], [ %spec.select.i.i1672, %1364 ]
+  %1366 = shl nuw i8 %.0.i.i1674, 4
+  %1367 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1342) #13
+  %1368 = add i8 %1367, -97
+  %or.cond.i7.i1675 = icmp ult i8 %1368, 6
+  br i1 %or.cond.i7.i1675, label %1369, label %1371
 
-1368:                                             ; preds = %hex2dec.exit.i1673
-  %1369 = add nsw i8 %1366, -87
+1369:                                             ; preds = %hex2dec.exit.i1673
+  %1370 = add nsw i8 %1367, -87
   br label %hex2dec.exit12.i1679
 
-1370:                                             ; preds = %hex2dec.exit.i1673
-  %1371 = add i8 %1366, -65
-  %or.cond5.i8.i1676 = icmp ult i8 %1371, 6
-  br i1 %or.cond5.i8.i1676, label %1372, label %1374
+1371:                                             ; preds = %hex2dec.exit.i1673
+  %1372 = add i8 %1367, -65
+  %or.cond5.i8.i1676 = icmp ult i8 %1372, 6
+  br i1 %or.cond5.i8.i1676, label %1373, label %1375
 
-1372:                                             ; preds = %1370
-  %1373 = add nsw i8 %1366, -55
+1373:                                             ; preds = %1371
+  %1374 = add nsw i8 %1367, -55
   br label %hex2dec.exit12.i1679
 
-1374:                                             ; preds = %1370
-  %1375 = add i8 %1366, -48
-  %or.cond8.i9.i1677 = icmp ult i8 %1375, 10
-  %spec.select.i10.i1678 = select i1 %or.cond8.i9.i1677, i8 %1375, i8 0
+1375:                                             ; preds = %1371
+  %1376 = add i8 %1367, -48
+  %or.cond8.i9.i1677 = icmp ult i8 %1376, 10
+  %spec.select.i10.i1678 = select i1 %or.cond8.i9.i1677, i8 %1376, i8 0
   br label %hex2dec.exit12.i1679
 
-hex2dec.exit12.i1679:                             ; preds = %1374, %1372, %1368
-  %.0.i11.i1680 = phi i8 [ %1369, %1368 ], [ %1373, %1372 ], [ %spec.select.i10.i1678, %1374 ]
-  %1376 = add nuw nsw i8 %.0.i11.i1680, %1365
+hex2dec.exit12.i1679:                             ; preds = %1375, %1373, %1369
+  %.0.i11.i1680 = phi i8 [ %1370, %1369 ], [ %1374, %1373 ], [ %spec.select.i10.i1678, %1375 ]
+  %1377 = add nuw nsw i8 %.0.i11.i1680, %1366
   br label %wrapped_tvb_get_guint8.exit1681
 
 wrapped_tvb_get_guint8.exit1681:                  ; preds = %wrapped_tvb_get_guint8.exit1667, %hex2dec.exit12.i1679
-  %.in2054 = phi i8 [ %1354, %hex2dec.exit12.i1679 ], [ %1329, %wrapped_tvb_get_guint8.exit1667 ]
-  %.0.i1668 = phi i8 [ %1376, %hex2dec.exit12.i1679 ], [ %1352, %wrapped_tvb_get_guint8.exit1667 ]
-  %1377 = and i8 %.in2054, -4
-  %1378 = and i8 %.0.i1668, 3
-  %1379 = mul nuw nsw i32 %.010211875, 9
-  %1380 = add i32 %.010221874, %1379
-  %1381 = add i32 %1380, 1
-  %1382 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1381) #13
-  br i1 %885, label %1383, label %wrapped_tvb_get_guint8.exit1695
+  %.in2053 = phi i8 [ %1355, %hex2dec.exit12.i1679 ], [ %1330, %wrapped_tvb_get_guint8.exit1667 ]
+  %.0.i1668 = phi i8 [ %1377, %hex2dec.exit12.i1679 ], [ %1353, %wrapped_tvb_get_guint8.exit1667 ]
+  %1378 = and i8 %.in2053, -4
+  %1379 = and i8 %.0.i1668, 3
+  %1380 = mul nuw nsw i32 %.010211874, 9
+  %1381 = add i32 %.010221873, %1380
+  %1382 = add i32 %1381, 1
+  %1383 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1382) #13
+  br i1 %886, label %1384, label %wrapped_tvb_get_guint8.exit1695
 
-1383:                                             ; preds = %wrapped_tvb_get_guint8.exit1681
-  %1384 = add i8 %1382, -97
-  %or.cond.i.i1683 = icmp ult i8 %1384, 6
-  br i1 %or.cond.i.i1683, label %1385, label %1387
+1384:                                             ; preds = %wrapped_tvb_get_guint8.exit1681
+  %1385 = add i8 %1383, -97
+  %or.cond.i.i1683 = icmp ult i8 %1385, 6
+  br i1 %or.cond.i.i1683, label %1386, label %1388
 
-1385:                                             ; preds = %1383
-  %1386 = add nsw i8 %1382, -87
+1386:                                             ; preds = %1384
+  %1387 = add nsw i8 %1383, -87
   br label %hex2dec.exit.i1687
 
-1387:                                             ; preds = %1383
-  %1388 = add i8 %1382, -65
-  %or.cond5.i.i1684 = icmp ult i8 %1388, 6
-  br i1 %or.cond5.i.i1684, label %1389, label %1391
+1388:                                             ; preds = %1384
+  %1389 = add i8 %1383, -65
+  %or.cond5.i.i1684 = icmp ult i8 %1389, 6
+  br i1 %or.cond5.i.i1684, label %1390, label %1392
 
-1389:                                             ; preds = %1387
-  %1390 = add nsw i8 %1382, -55
+1390:                                             ; preds = %1388
+  %1391 = add nsw i8 %1383, -55
   br label %hex2dec.exit.i1687
 
-1391:                                             ; preds = %1387
-  %1392 = add i8 %1382, -48
-  %or.cond8.i.i1685 = icmp ult i8 %1392, 10
-  %spec.select.i.i1686 = select i1 %or.cond8.i.i1685, i8 %1392, i8 0
+1392:                                             ; preds = %1388
+  %1393 = add i8 %1383, -48
+  %or.cond8.i.i1685 = icmp ult i8 %1393, 10
+  %spec.select.i.i1686 = select i1 %or.cond8.i.i1685, i8 %1393, i8 0
   br label %hex2dec.exit.i1687
 
-hex2dec.exit.i1687:                               ; preds = %1391, %1389, %1385
-  %.0.i.i1688 = phi i8 [ %1386, %1385 ], [ %1390, %1389 ], [ %spec.select.i.i1686, %1391 ]
-  %1393 = shl nuw i8 %.0.i.i1688, 4
-  %1394 = add i32 %1380, 2
-  %1395 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1394) #13
-  %1396 = add i8 %1395, -97
-  %or.cond.i7.i1689 = icmp ult i8 %1396, 6
-  br i1 %or.cond.i7.i1689, label %1397, label %1399
+hex2dec.exit.i1687:                               ; preds = %1392, %1390, %1386
+  %.0.i.i1688 = phi i8 [ %1387, %1386 ], [ %1391, %1390 ], [ %spec.select.i.i1686, %1392 ]
+  %1394 = shl nuw i8 %.0.i.i1688, 4
+  %1395 = add i32 %1381, 2
+  %1396 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1395) #13
+  %1397 = add i8 %1396, -97
+  %or.cond.i7.i1689 = icmp ult i8 %1397, 6
+  br i1 %or.cond.i7.i1689, label %1398, label %1400
 
-1397:                                             ; preds = %hex2dec.exit.i1687
-  %1398 = add nsw i8 %1395, -87
+1398:                                             ; preds = %hex2dec.exit.i1687
+  %1399 = add nsw i8 %1396, -87
   br label %hex2dec.exit12.i1693
 
-1399:                                             ; preds = %hex2dec.exit.i1687
-  %1400 = add i8 %1395, -65
-  %or.cond5.i8.i1690 = icmp ult i8 %1400, 6
-  br i1 %or.cond5.i8.i1690, label %1401, label %1403
+1400:                                             ; preds = %hex2dec.exit.i1687
+  %1401 = add i8 %1396, -65
+  %or.cond5.i8.i1690 = icmp ult i8 %1401, 6
+  br i1 %or.cond5.i8.i1690, label %1402, label %1404
 
-1401:                                             ; preds = %1399
-  %1402 = add nsw i8 %1395, -55
+1402:                                             ; preds = %1400
+  %1403 = add nsw i8 %1396, -55
   br label %hex2dec.exit12.i1693
 
-1403:                                             ; preds = %1399
-  %1404 = add i8 %1395, -48
-  %or.cond8.i9.i1691 = icmp ult i8 %1404, 10
-  %spec.select.i10.i1692 = select i1 %or.cond8.i9.i1691, i8 %1404, i8 0
+1404:                                             ; preds = %1400
+  %1405 = add i8 %1396, -48
+  %or.cond8.i9.i1691 = icmp ult i8 %1405, 10
+  %spec.select.i10.i1692 = select i1 %or.cond8.i9.i1691, i8 %1405, i8 0
   br label %hex2dec.exit12.i1693
 
-hex2dec.exit12.i1693:                             ; preds = %1403, %1401, %1397
-  %.0.i11.i1694 = phi i8 [ %1398, %1397 ], [ %1402, %1401 ], [ %spec.select.i10.i1692, %1403 ]
-  %1405 = add nuw nsw i8 %.0.i11.i1694, %1393
+hex2dec.exit12.i1693:                             ; preds = %1404, %1402, %1398
+  %.0.i11.i1694 = phi i8 [ %1399, %1398 ], [ %1403, %1402 ], [ %spec.select.i10.i1692, %1404 ]
+  %1406 = add nuw nsw i8 %.0.i11.i1694, %1394
   br label %wrapped_tvb_get_guint8.exit1695
 
 wrapped_tvb_get_guint8.exit1695:                  ; preds = %wrapped_tvb_get_guint8.exit1681, %hex2dec.exit12.i1693
-  %.0.i1682 = phi i8 [ %1405, %hex2dec.exit12.i1693 ], [ %1382, %wrapped_tvb_get_guint8.exit1681 ]
-  %1406 = mul nuw nsw i32 %.010211875, 10
-  %1407 = add i32 %.010221874, %1406
-  %1408 = add i32 %1407, 1
-  %1409 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1408) #13
-  br i1 %885, label %1410, label %wrapped_tvb_get_guint8.exit1709
+  %.0.i1682 = phi i8 [ %1406, %hex2dec.exit12.i1693 ], [ %1383, %wrapped_tvb_get_guint8.exit1681 ]
+  %1407 = mul nuw nsw i32 %.010211874, 10
+  %1408 = add i32 %.010221873, %1407
+  %1409 = add i32 %1408, 1
+  %1410 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1409) #13
+  br i1 %886, label %1411, label %wrapped_tvb_get_guint8.exit1709
 
-1410:                                             ; preds = %wrapped_tvb_get_guint8.exit1695
-  %1411 = add i8 %1409, -97
-  %or.cond.i.i1697 = icmp ult i8 %1411, 6
-  br i1 %or.cond.i.i1697, label %1412, label %1414
+1411:                                             ; preds = %wrapped_tvb_get_guint8.exit1695
+  %1412 = add i8 %1410, -97
+  %or.cond.i.i1697 = icmp ult i8 %1412, 6
+  br i1 %or.cond.i.i1697, label %1413, label %1415
 
-1412:                                             ; preds = %1410
-  %1413 = add nsw i8 %1409, -87
+1413:                                             ; preds = %1411
+  %1414 = add nsw i8 %1410, -87
   br label %hex2dec.exit.i1701
 
-1414:                                             ; preds = %1410
-  %1415 = add i8 %1409, -65
-  %or.cond5.i.i1698 = icmp ult i8 %1415, 6
-  br i1 %or.cond5.i.i1698, label %1416, label %1418
+1415:                                             ; preds = %1411
+  %1416 = add i8 %1410, -65
+  %or.cond5.i.i1698 = icmp ult i8 %1416, 6
+  br i1 %or.cond5.i.i1698, label %1417, label %1419
 
-1416:                                             ; preds = %1414
-  %1417 = add nsw i8 %1409, -55
+1417:                                             ; preds = %1415
+  %1418 = add nsw i8 %1410, -55
   br label %hex2dec.exit.i1701
 
-1418:                                             ; preds = %1414
-  %1419 = add i8 %1409, -48
-  %or.cond8.i.i1699 = icmp ult i8 %1419, 10
-  %spec.select.i.i1700 = select i1 %or.cond8.i.i1699, i8 %1419, i8 0
+1419:                                             ; preds = %1415
+  %1420 = add i8 %1410, -48
+  %or.cond8.i.i1699 = icmp ult i8 %1420, 10
+  %spec.select.i.i1700 = select i1 %or.cond8.i.i1699, i8 %1420, i8 0
   br label %hex2dec.exit.i1701
 
-hex2dec.exit.i1701:                               ; preds = %1418, %1416, %1412
-  %.0.i.i1702 = phi i8 [ %1413, %1412 ], [ %1417, %1416 ], [ %spec.select.i.i1700, %1418 ]
-  %1420 = shl nuw i8 %.0.i.i1702, 4
-  %1421 = add i32 %1407, 2
-  %1422 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1421) #13
-  %1423 = add i8 %1422, -97
-  %or.cond.i7.i1703 = icmp ult i8 %1423, 6
-  br i1 %or.cond.i7.i1703, label %1424, label %1426
+hex2dec.exit.i1701:                               ; preds = %1419, %1417, %1413
+  %.0.i.i1702 = phi i8 [ %1414, %1413 ], [ %1418, %1417 ], [ %spec.select.i.i1700, %1419 ]
+  %1421 = shl nuw i8 %.0.i.i1702, 4
+  %1422 = add i32 %1408, 2
+  %1423 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1422) #13
+  %1424 = add i8 %1423, -97
+  %or.cond.i7.i1703 = icmp ult i8 %1424, 6
+  br i1 %or.cond.i7.i1703, label %1425, label %1427
 
-1424:                                             ; preds = %hex2dec.exit.i1701
-  %1425 = add nsw i8 %1422, -87
+1425:                                             ; preds = %hex2dec.exit.i1701
+  %1426 = add nsw i8 %1423, -87
   br label %hex2dec.exit12.i1707
 
-1426:                                             ; preds = %hex2dec.exit.i1701
-  %1427 = add i8 %1422, -65
-  %or.cond5.i8.i1704 = icmp ult i8 %1427, 6
-  br i1 %or.cond5.i8.i1704, label %1428, label %1430
+1427:                                             ; preds = %hex2dec.exit.i1701
+  %1428 = add i8 %1423, -65
+  %or.cond5.i8.i1704 = icmp ult i8 %1428, 6
+  br i1 %or.cond5.i8.i1704, label %1429, label %1431
 
-1428:                                             ; preds = %1426
-  %1429 = add nsw i8 %1422, -55
+1429:                                             ; preds = %1427
+  %1430 = add nsw i8 %1423, -55
   br label %hex2dec.exit12.i1707
 
-1430:                                             ; preds = %1426
-  %1431 = add i8 %1422, -48
-  %or.cond8.i9.i1705 = icmp ult i8 %1431, 10
-  %spec.select.i10.i1706 = select i1 %or.cond8.i9.i1705, i8 %1431, i8 0
+1431:                                             ; preds = %1427
+  %1432 = add i8 %1423, -48
+  %or.cond8.i9.i1705 = icmp ult i8 %1432, 10
+  %spec.select.i10.i1706 = select i1 %or.cond8.i9.i1705, i8 %1432, i8 0
   br label %hex2dec.exit12.i1707
 
-hex2dec.exit12.i1707:                             ; preds = %1430, %1428, %1424
-  %.0.i11.i1708 = phi i8 [ %1425, %1424 ], [ %1429, %1428 ], [ %spec.select.i10.i1706, %1430 ]
-  %1432 = add nuw nsw i8 %.0.i11.i1708, %1420
+hex2dec.exit12.i1707:                             ; preds = %1431, %1429, %1425
+  %.0.i11.i1708 = phi i8 [ %1426, %1425 ], [ %1430, %1429 ], [ %spec.select.i10.i1706, %1431 ]
+  %1433 = add nuw nsw i8 %.0.i11.i1708, %1421
   br label %wrapped_tvb_get_guint8.exit1709
 
 wrapped_tvb_get_guint8.exit1709:                  ; preds = %wrapped_tvb_get_guint8.exit1695, %hex2dec.exit12.i1707
-  %.0.i1696 = phi i8 [ %1432, %hex2dec.exit12.i1707 ], [ %1409, %wrapped_tvb_get_guint8.exit1695 ]
-  %1433 = icmp ugt i32 %.11024, 13
-  br i1 %1433, label %1437, label %1434
+  %.0.i1696 = phi i8 [ %1433, %hex2dec.exit12.i1707 ], [ %1410, %wrapped_tvb_get_guint8.exit1695 ]
+  %1434 = icmp ugt i32 %.11024, 13
+  br i1 %1434, label %1438, label %1435
 
-1434:                                             ; preds = %wrapped_tvb_get_guint8.exit1709
-  %1435 = icmp eq i8 %5, 2
-  %1436 = icmp eq i32 %.11024, 13
-  %or.cond7 = select i1 %1435, i1 %1436, i1 false
-  br i1 %or.cond7, label %1437, label %.thread1930
+1435:                                             ; preds = %wrapped_tvb_get_guint8.exit1709
+  %1436 = icmp eq i8 %5, 2
+  %1437 = icmp eq i32 %.11024, 13
+  %or.cond7 = select i1 %1436, i1 %1437, i1 false
+  br i1 %or.cond7, label %1438, label %.thread1929
 
-1437:                                             ; preds = %1434, %wrapped_tvb_get_guint8.exit1709
-  %1438 = mul nuw nsw i32 %.010211875, 11
-  %1439 = add i32 %.010221874, %1438
-  %1440 = add i32 %1439, 1
-  %1441 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1440) #13
-  br i1 %885, label %1442, label %wrapped_tvb_get_guint8.exit1737
+1438:                                             ; preds = %1435, %wrapped_tvb_get_guint8.exit1709
+  %1439 = mul nuw nsw i32 %.010211874, 11
+  %1440 = add i32 %.010221873, %1439
+  %1441 = add i32 %1440, 1
+  %1442 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1441) #13
+  br i1 %886, label %1443, label %wrapped_tvb_get_guint8.exit1737
 
-1442:                                             ; preds = %1437
-  %1443 = add i8 %1441, -97
-  %or.cond.i.i1711 = icmp ult i8 %1443, 6
-  br i1 %or.cond.i.i1711, label %1444, label %1446
+1443:                                             ; preds = %1438
+  %1444 = add i8 %1442, -97
+  %or.cond.i.i1711 = icmp ult i8 %1444, 6
+  br i1 %or.cond.i.i1711, label %1445, label %1447
 
-1444:                                             ; preds = %1442
-  %1445 = add nsw i8 %1441, -87
+1445:                                             ; preds = %1443
+  %1446 = add nsw i8 %1442, -87
   br label %hex2dec.exit.i1715
 
-1446:                                             ; preds = %1442
-  %1447 = add i8 %1441, -65
-  %or.cond5.i.i1712 = icmp ult i8 %1447, 6
-  br i1 %or.cond5.i.i1712, label %1448, label %1450
+1447:                                             ; preds = %1443
+  %1448 = add i8 %1442, -65
+  %or.cond5.i.i1712 = icmp ult i8 %1448, 6
+  br i1 %or.cond5.i.i1712, label %1449, label %1451
 
-1448:                                             ; preds = %1446
-  %1449 = add nsw i8 %1441, -55
+1449:                                             ; preds = %1447
+  %1450 = add nsw i8 %1442, -55
   br label %hex2dec.exit.i1715
 
-1450:                                             ; preds = %1446
-  %1451 = add i8 %1441, -48
-  %or.cond8.i.i1713 = icmp ult i8 %1451, 10
-  %spec.select.i.i1714 = select i1 %or.cond8.i.i1713, i8 %1451, i8 0
+1451:                                             ; preds = %1447
+  %1452 = add i8 %1442, -48
+  %or.cond8.i.i1713 = icmp ult i8 %1452, 10
+  %spec.select.i.i1714 = select i1 %or.cond8.i.i1713, i8 %1452, i8 0
   br label %hex2dec.exit.i1715
 
-hex2dec.exit.i1715:                               ; preds = %1450, %1448, %1444
-  %.0.i.i1716 = phi i8 [ %1445, %1444 ], [ %1449, %1448 ], [ %spec.select.i.i1714, %1450 ]
-  %1452 = shl nuw i8 %.0.i.i1716, 4
-  %1453 = add i32 %1439, 2
-  %1454 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1453) #13
-  %1455 = add i8 %1454, -97
-  %or.cond.i7.i1717 = icmp ult i8 %1455, 6
-  br i1 %or.cond.i7.i1717, label %1456, label %1458
+hex2dec.exit.i1715:                               ; preds = %1451, %1449, %1445
+  %.0.i.i1716 = phi i8 [ %1446, %1445 ], [ %1450, %1449 ], [ %spec.select.i.i1714, %1451 ]
+  %1453 = shl nuw i8 %.0.i.i1716, 4
+  %1454 = add i32 %1440, 2
+  %1455 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1454) #13
+  %1456 = add i8 %1455, -97
+  %or.cond.i7.i1717 = icmp ult i8 %1456, 6
+  br i1 %or.cond.i7.i1717, label %1457, label %1459
 
-1456:                                             ; preds = %hex2dec.exit.i1715
-  %1457 = add nsw i8 %1454, -87
-  br label %1464
+1457:                                             ; preds = %hex2dec.exit.i1715
+  %1458 = add nsw i8 %1455, -87
+  br label %1465
 
-1458:                                             ; preds = %hex2dec.exit.i1715
-  %1459 = add i8 %1454, -65
-  %or.cond5.i8.i1718 = icmp ult i8 %1459, 6
-  br i1 %or.cond5.i8.i1718, label %1460, label %1462
+1459:                                             ; preds = %hex2dec.exit.i1715
+  %1460 = add i8 %1455, -65
+  %or.cond5.i8.i1718 = icmp ult i8 %1460, 6
+  br i1 %or.cond5.i8.i1718, label %1461, label %1463
 
-1460:                                             ; preds = %1458
-  %1461 = add nsw i8 %1454, -55
-  br label %1464
+1461:                                             ; preds = %1459
+  %1462 = add nsw i8 %1455, -55
+  br label %1465
 
-1462:                                             ; preds = %1458
-  %1463 = add i8 %1454, -48
-  %or.cond8.i9.i1719 = icmp ult i8 %1463, 10
-  %spec.select.i10.i1720 = select i1 %or.cond8.i9.i1719, i8 %1463, i8 0
-  br label %1464
+1463:                                             ; preds = %1459
+  %1464 = add i8 %1455, -48
+  %or.cond8.i9.i1719 = icmp ult i8 %1464, 10
+  %spec.select.i10.i1720 = select i1 %or.cond8.i9.i1719, i8 %1464, i8 0
+  br label %1465
 
-1464:                                             ; preds = %1456, %1460, %1462
-  %.0.i11.i1722 = phi i8 [ %1457, %1456 ], [ %1461, %1460 ], [ %spec.select.i10.i1720, %1462 ]
-  %1465 = add nuw nsw i8 %.0.i11.i1722, %1452
-  %1466 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1440) #13
-  %1467 = add i8 %1466, -97
-  %or.cond.i.i1725 = icmp ult i8 %1467, 6
-  br i1 %or.cond.i.i1725, label %1468, label %1470
+1465:                                             ; preds = %1457, %1461, %1463
+  %.0.i11.i1722 = phi i8 [ %1458, %1457 ], [ %1462, %1461 ], [ %spec.select.i10.i1720, %1463 ]
+  %1466 = add nuw nsw i8 %.0.i11.i1722, %1453
+  %1467 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1441) #13
+  %1468 = add i8 %1467, -97
+  %or.cond.i.i1725 = icmp ult i8 %1468, 6
+  br i1 %or.cond.i.i1725, label %1469, label %1471
 
-1468:                                             ; preds = %1464
-  %1469 = add nsw i8 %1466, -87
+1469:                                             ; preds = %1465
+  %1470 = add nsw i8 %1467, -87
   br label %hex2dec.exit.i1729
 
-1470:                                             ; preds = %1464
-  %1471 = add i8 %1466, -65
-  %or.cond5.i.i1726 = icmp ult i8 %1471, 6
-  br i1 %or.cond5.i.i1726, label %1472, label %1474
+1471:                                             ; preds = %1465
+  %1472 = add i8 %1467, -65
+  %or.cond5.i.i1726 = icmp ult i8 %1472, 6
+  br i1 %or.cond5.i.i1726, label %1473, label %1475
 
-1472:                                             ; preds = %1470
-  %1473 = add nsw i8 %1466, -55
+1473:                                             ; preds = %1471
+  %1474 = add nsw i8 %1467, -55
   br label %hex2dec.exit.i1729
 
-1474:                                             ; preds = %1470
-  %1475 = add i8 %1466, -48
-  %or.cond8.i.i1727 = icmp ult i8 %1475, 10
-  %spec.select.i.i1728 = select i1 %or.cond8.i.i1727, i8 %1475, i8 0
+1475:                                             ; preds = %1471
+  %1476 = add i8 %1467, -48
+  %or.cond8.i.i1727 = icmp ult i8 %1476, 10
+  %spec.select.i.i1728 = select i1 %or.cond8.i.i1727, i8 %1476, i8 0
   br label %hex2dec.exit.i1729
 
-hex2dec.exit.i1729:                               ; preds = %1474, %1472, %1468
-  %.0.i.i1730 = phi i8 [ %1469, %1468 ], [ %1473, %1472 ], [ %spec.select.i.i1728, %1474 ]
-  %1476 = shl nuw i8 %.0.i.i1730, 4
-  %1477 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1453) #13
-  %1478 = add i8 %1477, -97
-  %or.cond.i7.i1731 = icmp ult i8 %1478, 6
-  br i1 %or.cond.i7.i1731, label %1479, label %1481
+hex2dec.exit.i1729:                               ; preds = %1475, %1473, %1469
+  %.0.i.i1730 = phi i8 [ %1470, %1469 ], [ %1474, %1473 ], [ %spec.select.i.i1728, %1475 ]
+  %1477 = shl nuw i8 %.0.i.i1730, 4
+  %1478 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1454) #13
+  %1479 = add i8 %1478, -97
+  %or.cond.i7.i1731 = icmp ult i8 %1479, 6
+  br i1 %or.cond.i7.i1731, label %1480, label %1482
 
-1479:                                             ; preds = %hex2dec.exit.i1729
-  %1480 = add nsw i8 %1477, -87
-  br label %1489
+1480:                                             ; preds = %hex2dec.exit.i1729
+  %1481 = add nsw i8 %1478, -87
+  br label %1490
 
-1481:                                             ; preds = %hex2dec.exit.i1729
-  %1482 = add i8 %1477, -65
-  %or.cond5.i8.i1732 = icmp ult i8 %1482, 6
-  br i1 %or.cond5.i8.i1732, label %1483, label %1485
+1482:                                             ; preds = %hex2dec.exit.i1729
+  %1483 = add i8 %1478, -65
+  %or.cond5.i8.i1732 = icmp ult i8 %1483, 6
+  br i1 %or.cond5.i8.i1732, label %1484, label %1486
 
-1483:                                             ; preds = %1481
-  %1484 = add nsw i8 %1477, -55
-  br label %1489
+1484:                                             ; preds = %1482
+  %1485 = add nsw i8 %1478, -55
+  br label %1490
 
-1485:                                             ; preds = %1481
-  %1486 = add i8 %1477, -48
-  %or.cond8.i9.i1733 = icmp ult i8 %1486, 10
-  %spec.select.i10.i1734 = select i1 %or.cond8.i9.i1733, i8 %1486, i8 0
-  br label %1489
+1486:                                             ; preds = %1482
+  %1487 = add i8 %1478, -48
+  %or.cond8.i9.i1733 = icmp ult i8 %1487, 10
+  %spec.select.i10.i1734 = select i1 %or.cond8.i9.i1733, i8 %1487, i8 0
+  br label %1490
 
-wrapped_tvb_get_guint8.exit1737:                  ; preds = %1437
-  %1487 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1440) #13
-  %1488 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1440) #13
-  br label %1513
+wrapped_tvb_get_guint8.exit1737:                  ; preds = %1438
+  %1488 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1441) #13
+  %1489 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1441) #13
+  br label %1514
 
-1489:                                             ; preds = %1479, %1483, %1485
-  %.0.i11.i1736 = phi i8 [ %1480, %1479 ], [ %1484, %1483 ], [ %spec.select.i10.i1734, %1485 ]
-  %1490 = add nuw nsw i8 %.0.i11.i1736, %1476
-  %1491 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1440) #13
-  %1492 = add i8 %1491, -97
-  %or.cond.i.i1739 = icmp ult i8 %1492, 6
-  br i1 %or.cond.i.i1739, label %1493, label %1495
+1490:                                             ; preds = %1480, %1484, %1486
+  %.0.i11.i1736 = phi i8 [ %1481, %1480 ], [ %1485, %1484 ], [ %spec.select.i10.i1734, %1486 ]
+  %1491 = add nuw nsw i8 %.0.i11.i1736, %1477
+  %1492 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1441) #13
+  %1493 = add i8 %1492, -97
+  %or.cond.i.i1739 = icmp ult i8 %1493, 6
+  br i1 %or.cond.i.i1739, label %1494, label %1496
 
-1493:                                             ; preds = %1489
-  %1494 = add nsw i8 %1491, -87
+1494:                                             ; preds = %1490
+  %1495 = add nsw i8 %1492, -87
   br label %hex2dec.exit.i1743
 
-1495:                                             ; preds = %1489
-  %1496 = add i8 %1491, -65
-  %or.cond5.i.i1740 = icmp ult i8 %1496, 6
-  br i1 %or.cond5.i.i1740, label %1497, label %1499
+1496:                                             ; preds = %1490
+  %1497 = add i8 %1492, -65
+  %or.cond5.i.i1740 = icmp ult i8 %1497, 6
+  br i1 %or.cond5.i.i1740, label %1498, label %1500
 
-1497:                                             ; preds = %1495
-  %1498 = add nsw i8 %1491, -55
+1498:                                             ; preds = %1496
+  %1499 = add nsw i8 %1492, -55
   br label %hex2dec.exit.i1743
 
-1499:                                             ; preds = %1495
-  %1500 = add i8 %1491, -48
-  %or.cond8.i.i1741 = icmp ult i8 %1500, 10
-  %spec.select.i.i1742 = select i1 %or.cond8.i.i1741, i8 %1500, i8 0
+1500:                                             ; preds = %1496
+  %1501 = add i8 %1492, -48
+  %or.cond8.i.i1741 = icmp ult i8 %1501, 10
+  %spec.select.i.i1742 = select i1 %or.cond8.i.i1741, i8 %1501, i8 0
   br label %hex2dec.exit.i1743
 
-hex2dec.exit.i1743:                               ; preds = %1499, %1497, %1493
-  %.0.i.i1744 = phi i8 [ %1494, %1493 ], [ %1498, %1497 ], [ %spec.select.i.i1742, %1499 ]
-  %1501 = shl nuw i8 %.0.i.i1744, 4
-  %1502 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1453) #13
-  %1503 = add i8 %1502, -97
-  %or.cond.i7.i1745 = icmp ult i8 %1503, 6
-  br i1 %or.cond.i7.i1745, label %1504, label %1506
+hex2dec.exit.i1743:                               ; preds = %1500, %1498, %1494
+  %.0.i.i1744 = phi i8 [ %1495, %1494 ], [ %1499, %1498 ], [ %spec.select.i.i1742, %1500 ]
+  %1502 = shl nuw i8 %.0.i.i1744, 4
+  %1503 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1454) #13
+  %1504 = add i8 %1503, -97
+  %or.cond.i7.i1745 = icmp ult i8 %1504, 6
+  br i1 %or.cond.i7.i1745, label %1505, label %1507
 
-1504:                                             ; preds = %hex2dec.exit.i1743
-  %1505 = add nsw i8 %1502, -87
+1505:                                             ; preds = %hex2dec.exit.i1743
+  %1506 = add nsw i8 %1503, -87
   br label %hex2dec.exit12.i1749
 
-1506:                                             ; preds = %hex2dec.exit.i1743
-  %1507 = add i8 %1502, -65
-  %or.cond5.i8.i1746 = icmp ult i8 %1507, 6
-  br i1 %or.cond5.i8.i1746, label %1508, label %1510
+1507:                                             ; preds = %hex2dec.exit.i1743
+  %1508 = add i8 %1503, -65
+  %or.cond5.i8.i1746 = icmp ult i8 %1508, 6
+  br i1 %or.cond5.i8.i1746, label %1509, label %1511
 
-1508:                                             ; preds = %1506
-  %1509 = add nsw i8 %1502, -55
+1509:                                             ; preds = %1507
+  %1510 = add nsw i8 %1503, -55
   br label %hex2dec.exit12.i1749
 
-1510:                                             ; preds = %1506
-  %1511 = add i8 %1502, -48
-  %or.cond8.i9.i1747 = icmp ult i8 %1511, 10
-  %spec.select.i10.i1748 = select i1 %or.cond8.i9.i1747, i8 %1511, i8 0
+1511:                                             ; preds = %1507
+  %1512 = add i8 %1503, -48
+  %or.cond8.i9.i1747 = icmp ult i8 %1512, 10
+  %spec.select.i10.i1748 = select i1 %or.cond8.i9.i1747, i8 %1512, i8 0
   br label %hex2dec.exit12.i1749
 
-hex2dec.exit12.i1749:                             ; preds = %1510, %1508, %1504
-  %.0.i11.i1750 = phi i8 [ %1505, %1504 ], [ %1509, %1508 ], [ %spec.select.i10.i1748, %1510 ]
-  %1512 = add nuw nsw i8 %.0.i11.i1750, %1501
-  br label %1513
+hex2dec.exit12.i1749:                             ; preds = %1511, %1509, %1505
+  %.0.i11.i1750 = phi i8 [ %1506, %1505 ], [ %1510, %1509 ], [ %spec.select.i10.i1748, %1511 ]
+  %1513 = add nuw nsw i8 %.0.i11.i1750, %1502
+  br label %1514
 
-1513:                                             ; preds = %hex2dec.exit12.i1749, %wrapped_tvb_get_guint8.exit1737
-  %.in2055 = phi i8 [ %1490, %hex2dec.exit12.i1749 ], [ %1487, %wrapped_tvb_get_guint8.exit1737 ]
-  %.in2056 = phi i8 [ %1465, %hex2dec.exit12.i1749 ], [ %1441, %wrapped_tvb_get_guint8.exit1737 ]
-  %.0.i1738 = phi i8 [ %1512, %hex2dec.exit12.i1749 ], [ %1488, %wrapped_tvb_get_guint8.exit1737 ]
-  %1514 = and i8 %.in2056, -32
-  %1515 = and i8 %.in2055, 16
-  %1516 = and i8 %.0.i1738, 15
-  %1517 = icmp ugt i32 %.11024, 14
-  br i1 %1517, label %1518, label %.thread1930
+1514:                                             ; preds = %hex2dec.exit12.i1749, %wrapped_tvb_get_guint8.exit1737
+  %.in2054 = phi i8 [ %1491, %hex2dec.exit12.i1749 ], [ %1488, %wrapped_tvb_get_guint8.exit1737 ]
+  %.in2055 = phi i8 [ %1466, %hex2dec.exit12.i1749 ], [ %1442, %wrapped_tvb_get_guint8.exit1737 ]
+  %.0.i1738 = phi i8 [ %1513, %hex2dec.exit12.i1749 ], [ %1489, %wrapped_tvb_get_guint8.exit1737 ]
+  %1515 = and i8 %.in2055, -32
+  %1516 = and i8 %.in2054, 16
+  %1517 = and i8 %.0.i1738, 15
+  %1518 = icmp ugt i32 %.11024, 14
+  br i1 %1518, label %1519, label %.thread1929
 
-1518:                                             ; preds = %1513
-  %1519 = mul nuw nsw i32 %.010211875, 12
-  %1520 = add i32 %.010221874, %1519
-  %1521 = add i32 %1520, 1
-  %1522 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1521) #13
-  br i1 %885, label %1523, label %wrapped_tvb_get_guint8.exit1765
+1519:                                             ; preds = %1514
+  %1520 = mul nuw nsw i32 %.010211874, 12
+  %1521 = add i32 %.010221873, %1520
+  %1522 = add i32 %1521, 1
+  %1523 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1522) #13
+  br i1 %886, label %1524, label %wrapped_tvb_get_guint8.exit1765
 
-1523:                                             ; preds = %1518
-  %1524 = add i8 %1522, -97
-  %or.cond.i.i1753 = icmp ult i8 %1524, 6
-  br i1 %or.cond.i.i1753, label %1525, label %1527
+1524:                                             ; preds = %1519
+  %1525 = add i8 %1523, -97
+  %or.cond.i.i1753 = icmp ult i8 %1525, 6
+  br i1 %or.cond.i.i1753, label %1526, label %1528
 
-1525:                                             ; preds = %1523
-  %1526 = add nsw i8 %1522, -87
+1526:                                             ; preds = %1524
+  %1527 = add nsw i8 %1523, -87
   br label %hex2dec.exit.i1757
 
-1527:                                             ; preds = %1523
-  %1528 = add i8 %1522, -65
-  %or.cond5.i.i1754 = icmp ult i8 %1528, 6
-  br i1 %or.cond5.i.i1754, label %1529, label %1531
+1528:                                             ; preds = %1524
+  %1529 = add i8 %1523, -65
+  %or.cond5.i.i1754 = icmp ult i8 %1529, 6
+  br i1 %or.cond5.i.i1754, label %1530, label %1532
 
-1529:                                             ; preds = %1527
-  %1530 = add nsw i8 %1522, -55
+1530:                                             ; preds = %1528
+  %1531 = add nsw i8 %1523, -55
   br label %hex2dec.exit.i1757
 
-1531:                                             ; preds = %1527
-  %1532 = add i8 %1522, -48
-  %or.cond8.i.i1755 = icmp ult i8 %1532, 10
-  %spec.select.i.i1756 = select i1 %or.cond8.i.i1755, i8 %1532, i8 0
+1532:                                             ; preds = %1528
+  %1533 = add i8 %1523, -48
+  %or.cond8.i.i1755 = icmp ult i8 %1533, 10
+  %spec.select.i.i1756 = select i1 %or.cond8.i.i1755, i8 %1533, i8 0
   br label %hex2dec.exit.i1757
 
-hex2dec.exit.i1757:                               ; preds = %1531, %1529, %1525
-  %.0.i.i1758 = phi i8 [ %1526, %1525 ], [ %1530, %1529 ], [ %spec.select.i.i1756, %1531 ]
-  %1533 = shl nuw i8 %.0.i.i1758, 4
-  %1534 = add i32 %1520, 2
-  %1535 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1534) #13
-  %1536 = add i8 %1535, -97
-  %or.cond.i7.i1759 = icmp ult i8 %1536, 6
-  br i1 %or.cond.i7.i1759, label %1537, label %1539
+hex2dec.exit.i1757:                               ; preds = %1532, %1530, %1526
+  %.0.i.i1758 = phi i8 [ %1527, %1526 ], [ %1531, %1530 ], [ %spec.select.i.i1756, %1532 ]
+  %1534 = shl nuw i8 %.0.i.i1758, 4
+  %1535 = add i32 %1521, 2
+  %1536 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1535) #13
+  %1537 = add i8 %1536, -97
+  %or.cond.i7.i1759 = icmp ult i8 %1537, 6
+  br i1 %or.cond.i7.i1759, label %1538, label %1540
 
-1537:                                             ; preds = %hex2dec.exit.i1757
-  %1538 = add nsw i8 %1535, -87
+1538:                                             ; preds = %hex2dec.exit.i1757
+  %1539 = add nsw i8 %1536, -87
   br label %hex2dec.exit12.i1763
 
-1539:                                             ; preds = %hex2dec.exit.i1757
-  %1540 = add i8 %1535, -65
-  %or.cond5.i8.i1760 = icmp ult i8 %1540, 6
-  br i1 %or.cond5.i8.i1760, label %1541, label %1543
+1540:                                             ; preds = %hex2dec.exit.i1757
+  %1541 = add i8 %1536, -65
+  %or.cond5.i8.i1760 = icmp ult i8 %1541, 6
+  br i1 %or.cond5.i8.i1760, label %1542, label %1544
 
-1541:                                             ; preds = %1539
-  %1542 = add nsw i8 %1535, -55
+1542:                                             ; preds = %1540
+  %1543 = add nsw i8 %1536, -55
   br label %hex2dec.exit12.i1763
 
-1543:                                             ; preds = %1539
-  %1544 = add i8 %1535, -48
-  %or.cond8.i9.i1761 = icmp ult i8 %1544, 10
-  %spec.select.i10.i1762 = select i1 %or.cond8.i9.i1761, i8 %1544, i8 0
+1544:                                             ; preds = %1540
+  %1545 = add i8 %1536, -48
+  %or.cond8.i9.i1761 = icmp ult i8 %1545, 10
+  %spec.select.i10.i1762 = select i1 %or.cond8.i9.i1761, i8 %1545, i8 0
   br label %hex2dec.exit12.i1763
 
-hex2dec.exit12.i1763:                             ; preds = %1543, %1541, %1537
-  %.0.i11.i1764 = phi i8 [ %1538, %1537 ], [ %1542, %1541 ], [ %spec.select.i10.i1762, %1543 ]
-  %1545 = add nuw nsw i8 %.0.i11.i1764, %1533
+hex2dec.exit12.i1763:                             ; preds = %1544, %1542, %1538
+  %.0.i11.i1764 = phi i8 [ %1539, %1538 ], [ %1543, %1542 ], [ %spec.select.i10.i1762, %1544 ]
+  %1546 = add nuw nsw i8 %.0.i11.i1764, %1534
   br label %wrapped_tvb_get_guint8.exit1765
 
-wrapped_tvb_get_guint8.exit1765:                  ; preds = %1518, %hex2dec.exit12.i1763
-  %.0.i1752 = phi i8 [ %1545, %hex2dec.exit12.i1763 ], [ %1522, %1518 ]
-  %1546 = mul nuw nsw i32 %.010211875, 13
-  %1547 = add i32 %.010221874, %1546
-  %1548 = add i32 %1547, 1
-  %1549 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1548) #13
-  br i1 %885, label %1550, label %1573
+wrapped_tvb_get_guint8.exit1765:                  ; preds = %1519, %hex2dec.exit12.i1763
+  %.0.i1752 = phi i8 [ %1546, %hex2dec.exit12.i1763 ], [ %1523, %1519 ]
+  %1547 = mul nuw nsw i32 %.010211874, 13
+  %1548 = add i32 %.010221873, %1547
+  %1549 = add i32 %1548, 1
+  %1550 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1549) #13
+  br i1 %886, label %1551, label %1574
 
-1550:                                             ; preds = %wrapped_tvb_get_guint8.exit1765
-  %1551 = add i8 %1549, -97
-  %or.cond.i.i1767 = icmp ult i8 %1551, 6
-  br i1 %or.cond.i.i1767, label %1552, label %1554
+1551:                                             ; preds = %wrapped_tvb_get_guint8.exit1765
+  %1552 = add i8 %1550, -97
+  %or.cond.i.i1767 = icmp ult i8 %1552, 6
+  br i1 %or.cond.i.i1767, label %1553, label %1555
 
-1552:                                             ; preds = %1550
-  %1553 = add nsw i8 %1549, -87
+1553:                                             ; preds = %1551
+  %1554 = add nsw i8 %1550, -87
   br label %hex2dec.exit.i1771
 
-1554:                                             ; preds = %1550
-  %1555 = add i8 %1549, -65
-  %or.cond5.i.i1768 = icmp ult i8 %1555, 6
-  br i1 %or.cond5.i.i1768, label %1556, label %1558
+1555:                                             ; preds = %1551
+  %1556 = add i8 %1550, -65
+  %or.cond5.i.i1768 = icmp ult i8 %1556, 6
+  br i1 %or.cond5.i.i1768, label %1557, label %1559
 
-1556:                                             ; preds = %1554
-  %1557 = add nsw i8 %1549, -55
+1557:                                             ; preds = %1555
+  %1558 = add nsw i8 %1550, -55
   br label %hex2dec.exit.i1771
 
-1558:                                             ; preds = %1554
-  %1559 = add i8 %1549, -48
-  %or.cond8.i.i1769 = icmp ult i8 %1559, 10
-  %spec.select.i.i1770 = select i1 %or.cond8.i.i1769, i8 %1559, i8 0
+1559:                                             ; preds = %1555
+  %1560 = add i8 %1550, -48
+  %or.cond8.i.i1769 = icmp ult i8 %1560, 10
+  %spec.select.i.i1770 = select i1 %or.cond8.i.i1769, i8 %1560, i8 0
   br label %hex2dec.exit.i1771
 
-hex2dec.exit.i1771:                               ; preds = %1558, %1556, %1552
-  %.0.i.i1772 = phi i8 [ %1553, %1552 ], [ %1557, %1556 ], [ %spec.select.i.i1770, %1558 ]
-  %1560 = shl nuw i8 %.0.i.i1772, 4
-  %1561 = add i32 %1547, 2
-  %1562 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1561) #13
-  %1563 = add i8 %1562, -97
-  %or.cond.i7.i1773 = icmp ult i8 %1563, 6
-  br i1 %or.cond.i7.i1773, label %1564, label %1566
+hex2dec.exit.i1771:                               ; preds = %1559, %1557, %1553
+  %.0.i.i1772 = phi i8 [ %1554, %1553 ], [ %1558, %1557 ], [ %spec.select.i.i1770, %1559 ]
+  %1561 = shl nuw i8 %.0.i.i1772, 4
+  %1562 = add i32 %1548, 2
+  %1563 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1562) #13
+  %1564 = add i8 %1563, -97
+  %or.cond.i7.i1773 = icmp ult i8 %1564, 6
+  br i1 %or.cond.i7.i1773, label %1565, label %1567
 
-1564:                                             ; preds = %hex2dec.exit.i1771
-  %1565 = add nsw i8 %1562, -87
+1565:                                             ; preds = %hex2dec.exit.i1771
+  %1566 = add nsw i8 %1563, -87
   br label %hex2dec.exit12.i1777
 
-1566:                                             ; preds = %hex2dec.exit.i1771
-  %1567 = add i8 %1562, -65
-  %or.cond5.i8.i1774 = icmp ult i8 %1567, 6
-  br i1 %or.cond5.i8.i1774, label %1568, label %1570
+1567:                                             ; preds = %hex2dec.exit.i1771
+  %1568 = add i8 %1563, -65
+  %or.cond5.i8.i1774 = icmp ult i8 %1568, 6
+  br i1 %or.cond5.i8.i1774, label %1569, label %1571
 
-1568:                                             ; preds = %1566
-  %1569 = add nsw i8 %1562, -55
+1569:                                             ; preds = %1567
+  %1570 = add nsw i8 %1563, -55
   br label %hex2dec.exit12.i1777
 
-1570:                                             ; preds = %1566
-  %1571 = add i8 %1562, -48
-  %or.cond8.i9.i1775 = icmp ult i8 %1571, 10
-  %spec.select.i10.i1776 = select i1 %or.cond8.i9.i1775, i8 %1571, i8 0
+1571:                                             ; preds = %1567
+  %1572 = add i8 %1563, -48
+  %or.cond8.i9.i1775 = icmp ult i8 %1572, 10
+  %spec.select.i10.i1776 = select i1 %or.cond8.i9.i1775, i8 %1572, i8 0
   br label %hex2dec.exit12.i1777
 
-hex2dec.exit12.i1777:                             ; preds = %1570, %1568, %1564
-  %.0.i11.i1778 = phi i8 [ %1565, %1564 ], [ %1569, %1568 ], [ %spec.select.i10.i1776, %1570 ]
-  %1572 = add nuw nsw i8 %.0.i11.i1778, %1560
-  br label %1573
+hex2dec.exit12.i1777:                             ; preds = %1571, %1569, %1565
+  %.0.i11.i1778 = phi i8 [ %1566, %1565 ], [ %1570, %1569 ], [ %spec.select.i10.i1776, %1571 ]
+  %1573 = add nuw nsw i8 %.0.i11.i1778, %1561
+  br label %1574
 
-1573:                                             ; preds = %hex2dec.exit12.i1777, %wrapped_tvb_get_guint8.exit1765
-  %.0.i1766 = phi i8 [ %1572, %hex2dec.exit12.i1777 ], [ %1549, %wrapped_tvb_get_guint8.exit1765 ]
-  %1574 = icmp ugt i32 %.11024, 16
-  br i1 %1574, label %1575, label %.thread1930
+1574:                                             ; preds = %hex2dec.exit12.i1777, %wrapped_tvb_get_guint8.exit1765
+  %.0.i1766 = phi i8 [ %1573, %hex2dec.exit12.i1777 ], [ %1550, %wrapped_tvb_get_guint8.exit1765 ]
+  %1575 = icmp ugt i32 %.11024, 16
+  br i1 %1575, label %1576, label %.thread1929
 
-1575:                                             ; preds = %1573
-  %1576 = mul nuw nsw i32 %.010211875, 14
-  %1577 = add i32 %.010221874, %1576
-  %1578 = add i32 %1577, 1
-  %1579 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1578) #13
-  br i1 %885, label %1580, label %wrapped_tvb_get_guint8.exit1793
+1576:                                             ; preds = %1574
+  %1577 = mul nuw nsw i32 %.010211874, 14
+  %1578 = add i32 %.010221873, %1577
+  %1579 = add i32 %1578, 1
+  %1580 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1579) #13
+  br i1 %886, label %1581, label %wrapped_tvb_get_guint8.exit1793
 
-1580:                                             ; preds = %1575
-  %1581 = add i8 %1579, -97
-  %or.cond.i.i1781 = icmp ult i8 %1581, 6
-  br i1 %or.cond.i.i1781, label %1582, label %1584
+1581:                                             ; preds = %1576
+  %1582 = add i8 %1580, -97
+  %or.cond.i.i1781 = icmp ult i8 %1582, 6
+  br i1 %or.cond.i.i1781, label %1583, label %1585
 
-1582:                                             ; preds = %1580
-  %1583 = add nsw i8 %1579, -87
+1583:                                             ; preds = %1581
+  %1584 = add nsw i8 %1580, -87
   br label %hex2dec.exit.i1785
 
-1584:                                             ; preds = %1580
-  %1585 = add i8 %1579, -65
-  %or.cond5.i.i1782 = icmp ult i8 %1585, 6
-  br i1 %or.cond5.i.i1782, label %1586, label %1588
+1585:                                             ; preds = %1581
+  %1586 = add i8 %1580, -65
+  %or.cond5.i.i1782 = icmp ult i8 %1586, 6
+  br i1 %or.cond5.i.i1782, label %1587, label %1589
 
-1586:                                             ; preds = %1584
-  %1587 = add nsw i8 %1579, -55
+1587:                                             ; preds = %1585
+  %1588 = add nsw i8 %1580, -55
   br label %hex2dec.exit.i1785
 
-1588:                                             ; preds = %1584
-  %1589 = add i8 %1579, -48
-  %or.cond8.i.i1783 = icmp ult i8 %1589, 10
-  %spec.select.i.i1784 = select i1 %or.cond8.i.i1783, i8 %1589, i8 0
+1589:                                             ; preds = %1585
+  %1590 = add i8 %1580, -48
+  %or.cond8.i.i1783 = icmp ult i8 %1590, 10
+  %spec.select.i.i1784 = select i1 %or.cond8.i.i1783, i8 %1590, i8 0
   br label %hex2dec.exit.i1785
 
-hex2dec.exit.i1785:                               ; preds = %1588, %1586, %1582
-  %.0.i.i1786 = phi i8 [ %1583, %1582 ], [ %1587, %1586 ], [ %spec.select.i.i1784, %1588 ]
-  %1590 = shl nuw i8 %.0.i.i1786, 4
-  %1591 = add i32 %1577, 2
-  %1592 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1591) #13
-  %1593 = add i8 %1592, -97
-  %or.cond.i7.i1787 = icmp ult i8 %1593, 6
-  br i1 %or.cond.i7.i1787, label %1594, label %1596
+hex2dec.exit.i1785:                               ; preds = %1589, %1587, %1583
+  %.0.i.i1786 = phi i8 [ %1584, %1583 ], [ %1588, %1587 ], [ %spec.select.i.i1784, %1589 ]
+  %1591 = shl nuw i8 %.0.i.i1786, 4
+  %1592 = add i32 %1578, 2
+  %1593 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1592) #13
+  %1594 = add i8 %1593, -97
+  %or.cond.i7.i1787 = icmp ult i8 %1594, 6
+  br i1 %or.cond.i7.i1787, label %1595, label %1597
 
-1594:                                             ; preds = %hex2dec.exit.i1785
-  %1595 = add nsw i8 %1592, -87
+1595:                                             ; preds = %hex2dec.exit.i1785
+  %1596 = add nsw i8 %1593, -87
   br label %hex2dec.exit12.i1791
 
-1596:                                             ; preds = %hex2dec.exit.i1785
-  %1597 = add i8 %1592, -65
-  %or.cond5.i8.i1788 = icmp ult i8 %1597, 6
-  br i1 %or.cond5.i8.i1788, label %1598, label %1600
+1597:                                             ; preds = %hex2dec.exit.i1785
+  %1598 = add i8 %1593, -65
+  %or.cond5.i8.i1788 = icmp ult i8 %1598, 6
+  br i1 %or.cond5.i8.i1788, label %1599, label %1601
 
-1598:                                             ; preds = %1596
-  %1599 = add nsw i8 %1592, -55
+1599:                                             ; preds = %1597
+  %1600 = add nsw i8 %1593, -55
   br label %hex2dec.exit12.i1791
 
-1600:                                             ; preds = %1596
-  %1601 = add i8 %1592, -48
-  %or.cond8.i9.i1789 = icmp ult i8 %1601, 10
-  %spec.select.i10.i1790 = select i1 %or.cond8.i9.i1789, i8 %1601, i8 0
+1601:                                             ; preds = %1597
+  %1602 = add i8 %1593, -48
+  %or.cond8.i9.i1789 = icmp ult i8 %1602, 10
+  %spec.select.i10.i1790 = select i1 %or.cond8.i9.i1789, i8 %1602, i8 0
   br label %hex2dec.exit12.i1791
 
-hex2dec.exit12.i1791:                             ; preds = %1600, %1598, %1594
-  %.0.i11.i1792 = phi i8 [ %1595, %1594 ], [ %1599, %1598 ], [ %spec.select.i10.i1790, %1600 ]
-  %1602 = add nuw nsw i8 %.0.i11.i1792, %1590
+hex2dec.exit12.i1791:                             ; preds = %1601, %1599, %1595
+  %.0.i11.i1792 = phi i8 [ %1596, %1595 ], [ %1600, %1599 ], [ %spec.select.i10.i1790, %1601 ]
+  %1603 = add nuw nsw i8 %.0.i11.i1792, %1591
   br label %wrapped_tvb_get_guint8.exit1793
 
-wrapped_tvb_get_guint8.exit1793:                  ; preds = %1575, %hex2dec.exit12.i1791
-  %.0.i1780 = phi i8 [ %1602, %hex2dec.exit12.i1791 ], [ %1579, %1575 ]
-  %1603 = mul nuw nsw i32 %.010211875, 15
-  %1604 = add i32 %.010221874, %1603
-  %1605 = add i32 %1604, 1
-  %1606 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1605) #13
-  br i1 %885, label %1607, label %1630
+wrapped_tvb_get_guint8.exit1793:                  ; preds = %1576, %hex2dec.exit12.i1791
+  %.0.i1780 = phi i8 [ %1603, %hex2dec.exit12.i1791 ], [ %1580, %1576 ]
+  %1604 = mul nuw nsw i32 %.010211874, 15
+  %1605 = add i32 %.010221873, %1604
+  %1606 = add i32 %1605, 1
+  %1607 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1606) #13
+  br i1 %886, label %1608, label %1631
 
-1607:                                             ; preds = %wrapped_tvb_get_guint8.exit1793
-  %1608 = add i8 %1606, -97
-  %or.cond.i.i1795 = icmp ult i8 %1608, 6
-  br i1 %or.cond.i.i1795, label %1609, label %1611
+1608:                                             ; preds = %wrapped_tvb_get_guint8.exit1793
+  %1609 = add i8 %1607, -97
+  %or.cond.i.i1795 = icmp ult i8 %1609, 6
+  br i1 %or.cond.i.i1795, label %1610, label %1612
 
-1609:                                             ; preds = %1607
-  %1610 = add nsw i8 %1606, -87
+1610:                                             ; preds = %1608
+  %1611 = add nsw i8 %1607, -87
   br label %hex2dec.exit.i1799
 
-1611:                                             ; preds = %1607
-  %1612 = add i8 %1606, -65
-  %or.cond5.i.i1796 = icmp ult i8 %1612, 6
-  br i1 %or.cond5.i.i1796, label %1613, label %1615
+1612:                                             ; preds = %1608
+  %1613 = add i8 %1607, -65
+  %or.cond5.i.i1796 = icmp ult i8 %1613, 6
+  br i1 %or.cond5.i.i1796, label %1614, label %1616
 
-1613:                                             ; preds = %1611
-  %1614 = add nsw i8 %1606, -55
+1614:                                             ; preds = %1612
+  %1615 = add nsw i8 %1607, -55
   br label %hex2dec.exit.i1799
 
-1615:                                             ; preds = %1611
-  %1616 = add i8 %1606, -48
-  %or.cond8.i.i1797 = icmp ult i8 %1616, 10
-  %spec.select.i.i1798 = select i1 %or.cond8.i.i1797, i8 %1616, i8 0
+1616:                                             ; preds = %1612
+  %1617 = add i8 %1607, -48
+  %or.cond8.i.i1797 = icmp ult i8 %1617, 10
+  %spec.select.i.i1798 = select i1 %or.cond8.i.i1797, i8 %1617, i8 0
   br label %hex2dec.exit.i1799
 
-hex2dec.exit.i1799:                               ; preds = %1615, %1613, %1609
-  %.0.i.i1800 = phi i8 [ %1610, %1609 ], [ %1614, %1613 ], [ %spec.select.i.i1798, %1615 ]
-  %1617 = shl nuw i8 %.0.i.i1800, 4
-  %1618 = add i32 %1604, 2
-  %1619 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1618) #13
-  %1620 = add i8 %1619, -97
-  %or.cond.i7.i1801 = icmp ult i8 %1620, 6
-  br i1 %or.cond.i7.i1801, label %1621, label %1623
+hex2dec.exit.i1799:                               ; preds = %1616, %1614, %1610
+  %.0.i.i1800 = phi i8 [ %1611, %1610 ], [ %1615, %1614 ], [ %spec.select.i.i1798, %1616 ]
+  %1618 = shl nuw i8 %.0.i.i1800, 4
+  %1619 = add i32 %1605, 2
+  %1620 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1619) #13
+  %1621 = add i8 %1620, -97
+  %or.cond.i7.i1801 = icmp ult i8 %1621, 6
+  br i1 %or.cond.i7.i1801, label %1622, label %1624
 
-1621:                                             ; preds = %hex2dec.exit.i1799
-  %1622 = add nsw i8 %1619, -87
+1622:                                             ; preds = %hex2dec.exit.i1799
+  %1623 = add nsw i8 %1620, -87
   br label %hex2dec.exit12.i1805
 
-1623:                                             ; preds = %hex2dec.exit.i1799
-  %1624 = add i8 %1619, -65
-  %or.cond5.i8.i1802 = icmp ult i8 %1624, 6
-  br i1 %or.cond5.i8.i1802, label %1625, label %1627
+1624:                                             ; preds = %hex2dec.exit.i1799
+  %1625 = add i8 %1620, -65
+  %or.cond5.i8.i1802 = icmp ult i8 %1625, 6
+  br i1 %or.cond5.i8.i1802, label %1626, label %1628
 
-1625:                                             ; preds = %1623
-  %1626 = add nsw i8 %1619, -55
+1626:                                             ; preds = %1624
+  %1627 = add nsw i8 %1620, -55
   br label %hex2dec.exit12.i1805
 
-1627:                                             ; preds = %1623
-  %1628 = add i8 %1619, -48
-  %or.cond8.i9.i1803 = icmp ult i8 %1628, 10
-  %spec.select.i10.i1804 = select i1 %or.cond8.i9.i1803, i8 %1628, i8 0
+1628:                                             ; preds = %1624
+  %1629 = add i8 %1620, -48
+  %or.cond8.i9.i1803 = icmp ult i8 %1629, 10
+  %spec.select.i10.i1804 = select i1 %or.cond8.i9.i1803, i8 %1629, i8 0
   br label %hex2dec.exit12.i1805
 
-hex2dec.exit12.i1805:                             ; preds = %1627, %1625, %1621
-  %.0.i11.i1806 = phi i8 [ %1622, %1621 ], [ %1626, %1625 ], [ %spec.select.i10.i1804, %1627 ]
-  %1629 = add nuw nsw i8 %.0.i11.i1806, %1617
-  br label %1630
+hex2dec.exit12.i1805:                             ; preds = %1628, %1626, %1622
+  %.0.i11.i1806 = phi i8 [ %1623, %1622 ], [ %1627, %1626 ], [ %spec.select.i10.i1804, %1628 ]
+  %1630 = add nuw nsw i8 %.0.i11.i1806, %1618
+  br label %1631
 
-1630:                                             ; preds = %hex2dec.exit12.i1805, %wrapped_tvb_get_guint8.exit1793
-  %.0.i1794 = phi i8 [ %1629, %hex2dec.exit12.i1805 ], [ %1606, %wrapped_tvb_get_guint8.exit1793 ]
-  %1631 = icmp ugt i32 %.11024, 18
-  br i1 %1631, label %1632, label %.thread1930
+1631:                                             ; preds = %hex2dec.exit12.i1805, %wrapped_tvb_get_guint8.exit1793
+  %.0.i1794 = phi i8 [ %1630, %hex2dec.exit12.i1805 ], [ %1607, %wrapped_tvb_get_guint8.exit1793 ]
+  %1632 = icmp ugt i32 %.11024, 18
+  br i1 %1632, label %1633, label %.thread1929
 
-1632:                                             ; preds = %1630
-  %1633 = shl nuw nsw i32 %.010211875, 4
-  %1634 = add i32 %.010221874, %1633
-  %1635 = add i32 %1634, 1
-  %1636 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1635) #13
-  br i1 %885, label %1637, label %wrapped_tvb_get_guint8.exit1821
+1633:                                             ; preds = %1631
+  %1634 = shl nuw nsw i32 %.010211874, 4
+  %1635 = add i32 %.010221873, %1634
+  %1636 = add i32 %1635, 1
+  %1637 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1636) #13
+  br i1 %886, label %1638, label %wrapped_tvb_get_guint8.exit1821
 
-1637:                                             ; preds = %1632
-  %1638 = add i8 %1636, -97
-  %or.cond.i.i1809 = icmp ult i8 %1638, 6
-  br i1 %or.cond.i.i1809, label %1639, label %1641
+1638:                                             ; preds = %1633
+  %1639 = add i8 %1637, -97
+  %or.cond.i.i1809 = icmp ult i8 %1639, 6
+  br i1 %or.cond.i.i1809, label %1640, label %1642
 
-1639:                                             ; preds = %1637
-  %1640 = add nsw i8 %1636, -87
+1640:                                             ; preds = %1638
+  %1641 = add nsw i8 %1637, -87
   br label %hex2dec.exit.i1813
 
-1641:                                             ; preds = %1637
-  %1642 = add i8 %1636, -65
-  %or.cond5.i.i1810 = icmp ult i8 %1642, 6
-  br i1 %or.cond5.i.i1810, label %1643, label %1645
+1642:                                             ; preds = %1638
+  %1643 = add i8 %1637, -65
+  %or.cond5.i.i1810 = icmp ult i8 %1643, 6
+  br i1 %or.cond5.i.i1810, label %1644, label %1646
 
-1643:                                             ; preds = %1641
-  %1644 = add nsw i8 %1636, -55
+1644:                                             ; preds = %1642
+  %1645 = add nsw i8 %1637, -55
   br label %hex2dec.exit.i1813
 
-1645:                                             ; preds = %1641
-  %1646 = add i8 %1636, -48
-  %or.cond8.i.i1811 = icmp ult i8 %1646, 10
-  %spec.select.i.i1812 = select i1 %or.cond8.i.i1811, i8 %1646, i8 0
+1646:                                             ; preds = %1642
+  %1647 = add i8 %1637, -48
+  %or.cond8.i.i1811 = icmp ult i8 %1647, 10
+  %spec.select.i.i1812 = select i1 %or.cond8.i.i1811, i8 %1647, i8 0
   br label %hex2dec.exit.i1813
 
-hex2dec.exit.i1813:                               ; preds = %1645, %1643, %1639
-  %.0.i.i1814 = phi i8 [ %1640, %1639 ], [ %1644, %1643 ], [ %spec.select.i.i1812, %1645 ]
-  %1647 = shl nuw i8 %.0.i.i1814, 4
-  %1648 = add i32 %1634, 2
-  %1649 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1648) #13
-  %1650 = add i8 %1649, -97
-  %or.cond.i7.i1815 = icmp ult i8 %1650, 6
-  br i1 %or.cond.i7.i1815, label %1651, label %1653
+hex2dec.exit.i1813:                               ; preds = %1646, %1644, %1640
+  %.0.i.i1814 = phi i8 [ %1641, %1640 ], [ %1645, %1644 ], [ %spec.select.i.i1812, %1646 ]
+  %1648 = shl nuw i8 %.0.i.i1814, 4
+  %1649 = add i32 %1635, 2
+  %1650 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1649) #13
+  %1651 = add i8 %1650, -97
+  %or.cond.i7.i1815 = icmp ult i8 %1651, 6
+  br i1 %or.cond.i7.i1815, label %1652, label %1654
 
-1651:                                             ; preds = %hex2dec.exit.i1813
-  %1652 = add nsw i8 %1649, -87
+1652:                                             ; preds = %hex2dec.exit.i1813
+  %1653 = add nsw i8 %1650, -87
   br label %hex2dec.exit12.i1819
 
-1653:                                             ; preds = %hex2dec.exit.i1813
-  %1654 = add i8 %1649, -65
-  %or.cond5.i8.i1816 = icmp ult i8 %1654, 6
-  br i1 %or.cond5.i8.i1816, label %1655, label %1657
+1654:                                             ; preds = %hex2dec.exit.i1813
+  %1655 = add i8 %1650, -65
+  %or.cond5.i8.i1816 = icmp ult i8 %1655, 6
+  br i1 %or.cond5.i8.i1816, label %1656, label %1658
 
-1655:                                             ; preds = %1653
-  %1656 = add nsw i8 %1649, -55
+1656:                                             ; preds = %1654
+  %1657 = add nsw i8 %1650, -55
   br label %hex2dec.exit12.i1819
 
-1657:                                             ; preds = %1653
-  %1658 = add i8 %1649, -48
-  %or.cond8.i9.i1817 = icmp ult i8 %1658, 10
-  %spec.select.i10.i1818 = select i1 %or.cond8.i9.i1817, i8 %1658, i8 0
+1658:                                             ; preds = %1654
+  %1659 = add i8 %1650, -48
+  %or.cond8.i9.i1817 = icmp ult i8 %1659, 10
+  %spec.select.i10.i1818 = select i1 %or.cond8.i9.i1817, i8 %1659, i8 0
   br label %hex2dec.exit12.i1819
 
-hex2dec.exit12.i1819:                             ; preds = %1657, %1655, %1651
-  %.0.i11.i1820 = phi i8 [ %1652, %1651 ], [ %1656, %1655 ], [ %spec.select.i10.i1818, %1657 ]
-  %1659 = add nuw nsw i8 %.0.i11.i1820, %1647
+hex2dec.exit12.i1819:                             ; preds = %1658, %1656, %1652
+  %.0.i11.i1820 = phi i8 [ %1653, %1652 ], [ %1657, %1656 ], [ %spec.select.i10.i1818, %1658 ]
+  %1660 = add nuw nsw i8 %.0.i11.i1820, %1648
   br label %wrapped_tvb_get_guint8.exit1821
 
-wrapped_tvb_get_guint8.exit1821:                  ; preds = %1632, %hex2dec.exit12.i1819
-  %.0.i1808 = phi i8 [ %1659, %hex2dec.exit12.i1819 ], [ %1636, %1632 ]
-  %1660 = mul nuw nsw i32 %.010211875, 17
-  %1661 = add i32 %.010221874, %1660
-  %1662 = add i32 %1661, 1
-  %1663 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1662) #13
-  br i1 %885, label %1664, label %1687
+wrapped_tvb_get_guint8.exit1821:                  ; preds = %1633, %hex2dec.exit12.i1819
+  %.0.i1808 = phi i8 [ %1660, %hex2dec.exit12.i1819 ], [ %1637, %1633 ]
+  %1661 = mul nuw nsw i32 %.010211874, 17
+  %1662 = add i32 %.010221873, %1661
+  %1663 = add i32 %1662, 1
+  %1664 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1663) #13
+  br i1 %886, label %1665, label %1688
 
-1664:                                             ; preds = %wrapped_tvb_get_guint8.exit1821
-  %1665 = add i8 %1663, -97
-  %or.cond.i.i1823 = icmp ult i8 %1665, 6
-  br i1 %or.cond.i.i1823, label %1666, label %1668
+1665:                                             ; preds = %wrapped_tvb_get_guint8.exit1821
+  %1666 = add i8 %1664, -97
+  %or.cond.i.i1823 = icmp ult i8 %1666, 6
+  br i1 %or.cond.i.i1823, label %1667, label %1669
 
-1666:                                             ; preds = %1664
-  %1667 = add nsw i8 %1663, -87
+1667:                                             ; preds = %1665
+  %1668 = add nsw i8 %1664, -87
   br label %hex2dec.exit.i1827
 
-1668:                                             ; preds = %1664
-  %1669 = add i8 %1663, -65
-  %or.cond5.i.i1824 = icmp ult i8 %1669, 6
-  br i1 %or.cond5.i.i1824, label %1670, label %1672
+1669:                                             ; preds = %1665
+  %1670 = add i8 %1664, -65
+  %or.cond5.i.i1824 = icmp ult i8 %1670, 6
+  br i1 %or.cond5.i.i1824, label %1671, label %1673
 
-1670:                                             ; preds = %1668
-  %1671 = add nsw i8 %1663, -55
+1671:                                             ; preds = %1669
+  %1672 = add nsw i8 %1664, -55
   br label %hex2dec.exit.i1827
 
-1672:                                             ; preds = %1668
-  %1673 = add i8 %1663, -48
-  %or.cond8.i.i1825 = icmp ult i8 %1673, 10
-  %spec.select.i.i1826 = select i1 %or.cond8.i.i1825, i8 %1673, i8 0
+1673:                                             ; preds = %1669
+  %1674 = add i8 %1664, -48
+  %or.cond8.i.i1825 = icmp ult i8 %1674, 10
+  %spec.select.i.i1826 = select i1 %or.cond8.i.i1825, i8 %1674, i8 0
   br label %hex2dec.exit.i1827
 
-hex2dec.exit.i1827:                               ; preds = %1672, %1670, %1666
-  %.0.i.i1828 = phi i8 [ %1667, %1666 ], [ %1671, %1670 ], [ %spec.select.i.i1826, %1672 ]
-  %1674 = shl nuw i8 %.0.i.i1828, 4
-  %1675 = add i32 %1661, 2
-  %1676 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1675) #13
-  %1677 = add i8 %1676, -97
-  %or.cond.i7.i1829 = icmp ult i8 %1677, 6
-  br i1 %or.cond.i7.i1829, label %1678, label %1680
+hex2dec.exit.i1827:                               ; preds = %1673, %1671, %1667
+  %.0.i.i1828 = phi i8 [ %1668, %1667 ], [ %1672, %1671 ], [ %spec.select.i.i1826, %1673 ]
+  %1675 = shl nuw i8 %.0.i.i1828, 4
+  %1676 = add i32 %1662, 2
+  %1677 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1676) #13
+  %1678 = add i8 %1677, -97
+  %or.cond.i7.i1829 = icmp ult i8 %1678, 6
+  br i1 %or.cond.i7.i1829, label %1679, label %1681
 
-1678:                                             ; preds = %hex2dec.exit.i1827
-  %1679 = add nsw i8 %1676, -87
+1679:                                             ; preds = %hex2dec.exit.i1827
+  %1680 = add nsw i8 %1677, -87
   br label %hex2dec.exit12.i1833
 
-1680:                                             ; preds = %hex2dec.exit.i1827
-  %1681 = add i8 %1676, -65
-  %or.cond5.i8.i1830 = icmp ult i8 %1681, 6
-  br i1 %or.cond5.i8.i1830, label %1682, label %1684
+1681:                                             ; preds = %hex2dec.exit.i1827
+  %1682 = add i8 %1677, -65
+  %or.cond5.i8.i1830 = icmp ult i8 %1682, 6
+  br i1 %or.cond5.i8.i1830, label %1683, label %1685
 
-1682:                                             ; preds = %1680
-  %1683 = add nsw i8 %1676, -55
+1683:                                             ; preds = %1681
+  %1684 = add nsw i8 %1677, -55
   br label %hex2dec.exit12.i1833
 
-1684:                                             ; preds = %1680
-  %1685 = add i8 %1676, -48
-  %or.cond8.i9.i1831 = icmp ult i8 %1685, 10
-  %spec.select.i10.i1832 = select i1 %or.cond8.i9.i1831, i8 %1685, i8 0
+1685:                                             ; preds = %1681
+  %1686 = add i8 %1677, -48
+  %or.cond8.i9.i1831 = icmp ult i8 %1686, 10
+  %spec.select.i10.i1832 = select i1 %or.cond8.i9.i1831, i8 %1686, i8 0
   br label %hex2dec.exit12.i1833
 
-hex2dec.exit12.i1833:                             ; preds = %1684, %1682, %1678
-  %.0.i11.i1834 = phi i8 [ %1679, %1678 ], [ %1683, %1682 ], [ %spec.select.i10.i1832, %1684 ]
-  %1686 = add nuw nsw i8 %.0.i11.i1834, %1674
-  br label %1687
+hex2dec.exit12.i1833:                             ; preds = %1685, %1683, %1679
+  %.0.i11.i1834 = phi i8 [ %1680, %1679 ], [ %1684, %1683 ], [ %spec.select.i10.i1832, %1685 ]
+  %1687 = add nuw nsw i8 %.0.i11.i1834, %1675
+  br label %1688
 
-1687:                                             ; preds = %hex2dec.exit12.i1833, %wrapped_tvb_get_guint8.exit1821
-  %.0.i1822 = phi i8 [ %1686, %hex2dec.exit12.i1833 ], [ %1663, %wrapped_tvb_get_guint8.exit1821 ]
-  %1688 = icmp ugt i32 %.11024, 20
-  br i1 %1688, label %1689, label %.thread1930
+1688:                                             ; preds = %hex2dec.exit12.i1833, %wrapped_tvb_get_guint8.exit1821
+  %.0.i1822 = phi i8 [ %1687, %hex2dec.exit12.i1833 ], [ %1664, %wrapped_tvb_get_guint8.exit1821 ]
+  %1689 = icmp ugt i32 %.11024, 20
+  br i1 %1689, label %1690, label %.thread1929
 
-1689:                                             ; preds = %1687
-  %1690 = mul nuw nsw i32 %.010211875, 18
-  %1691 = add i32 %.010221874, %1690
-  %1692 = add i32 %1691, 1
-  %1693 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1692) #13
-  br i1 %885, label %1694, label %wrapped_tvb_get_guint8.exit1849
+1690:                                             ; preds = %1688
+  %1691 = mul nuw nsw i32 %.010211874, 18
+  %1692 = add i32 %.010221873, %1691
+  %1693 = add i32 %1692, 1
+  %1694 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1693) #13
+  br i1 %886, label %1695, label %wrapped_tvb_get_guint8.exit1849
 
-1694:                                             ; preds = %1689
-  %1695 = add i8 %1693, -97
-  %or.cond.i.i1837 = icmp ult i8 %1695, 6
-  br i1 %or.cond.i.i1837, label %1696, label %1698
+1695:                                             ; preds = %1690
+  %1696 = add i8 %1694, -97
+  %or.cond.i.i1837 = icmp ult i8 %1696, 6
+  br i1 %or.cond.i.i1837, label %1697, label %1699
 
-1696:                                             ; preds = %1694
-  %1697 = add nsw i8 %1693, -87
+1697:                                             ; preds = %1695
+  %1698 = add nsw i8 %1694, -87
   br label %hex2dec.exit.i1841
 
-1698:                                             ; preds = %1694
-  %1699 = add i8 %1693, -65
-  %or.cond5.i.i1838 = icmp ult i8 %1699, 6
-  br i1 %or.cond5.i.i1838, label %1700, label %1702
+1699:                                             ; preds = %1695
+  %1700 = add i8 %1694, -65
+  %or.cond5.i.i1838 = icmp ult i8 %1700, 6
+  br i1 %or.cond5.i.i1838, label %1701, label %1703
 
-1700:                                             ; preds = %1698
-  %1701 = add nsw i8 %1693, -55
+1701:                                             ; preds = %1699
+  %1702 = add nsw i8 %1694, -55
   br label %hex2dec.exit.i1841
 
-1702:                                             ; preds = %1698
-  %1703 = add i8 %1693, -48
-  %or.cond8.i.i1839 = icmp ult i8 %1703, 10
-  %spec.select.i.i1840 = select i1 %or.cond8.i.i1839, i8 %1703, i8 0
+1703:                                             ; preds = %1699
+  %1704 = add i8 %1694, -48
+  %or.cond8.i.i1839 = icmp ult i8 %1704, 10
+  %spec.select.i.i1840 = select i1 %or.cond8.i.i1839, i8 %1704, i8 0
   br label %hex2dec.exit.i1841
 
-hex2dec.exit.i1841:                               ; preds = %1702, %1700, %1696
-  %.0.i.i1842 = phi i8 [ %1697, %1696 ], [ %1701, %1700 ], [ %spec.select.i.i1840, %1702 ]
-  %1704 = shl nuw i8 %.0.i.i1842, 4
-  %1705 = add i32 %1691, 2
-  %1706 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1705) #13
-  %1707 = add i8 %1706, -97
-  %or.cond.i7.i1843 = icmp ult i8 %1707, 6
-  br i1 %or.cond.i7.i1843, label %1708, label %1710
+hex2dec.exit.i1841:                               ; preds = %1703, %1701, %1697
+  %.0.i.i1842 = phi i8 [ %1698, %1697 ], [ %1702, %1701 ], [ %spec.select.i.i1840, %1703 ]
+  %1705 = shl nuw i8 %.0.i.i1842, 4
+  %1706 = add i32 %1692, 2
+  %1707 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1706) #13
+  %1708 = add i8 %1707, -97
+  %or.cond.i7.i1843 = icmp ult i8 %1708, 6
+  br i1 %or.cond.i7.i1843, label %1709, label %1711
 
-1708:                                             ; preds = %hex2dec.exit.i1841
-  %1709 = add nsw i8 %1706, -87
+1709:                                             ; preds = %hex2dec.exit.i1841
+  %1710 = add nsw i8 %1707, -87
   br label %hex2dec.exit12.i1847
 
-1710:                                             ; preds = %hex2dec.exit.i1841
-  %1711 = add i8 %1706, -65
-  %or.cond5.i8.i1844 = icmp ult i8 %1711, 6
-  br i1 %or.cond5.i8.i1844, label %1712, label %1714
+1711:                                             ; preds = %hex2dec.exit.i1841
+  %1712 = add i8 %1707, -65
+  %or.cond5.i8.i1844 = icmp ult i8 %1712, 6
+  br i1 %or.cond5.i8.i1844, label %1713, label %1715
 
-1712:                                             ; preds = %1710
-  %1713 = add nsw i8 %1706, -55
+1713:                                             ; preds = %1711
+  %1714 = add nsw i8 %1707, -55
   br label %hex2dec.exit12.i1847
 
-1714:                                             ; preds = %1710
-  %1715 = add i8 %1706, -48
-  %or.cond8.i9.i1845 = icmp ult i8 %1715, 10
-  %spec.select.i10.i1846 = select i1 %or.cond8.i9.i1845, i8 %1715, i8 0
+1715:                                             ; preds = %1711
+  %1716 = add i8 %1707, -48
+  %or.cond8.i9.i1845 = icmp ult i8 %1716, 10
+  %spec.select.i10.i1846 = select i1 %or.cond8.i9.i1845, i8 %1716, i8 0
   br label %hex2dec.exit12.i1847
 
-hex2dec.exit12.i1847:                             ; preds = %1714, %1712, %1708
-  %.0.i11.i1848 = phi i8 [ %1709, %1708 ], [ %1713, %1712 ], [ %spec.select.i10.i1846, %1714 ]
-  %1716 = add nuw nsw i8 %.0.i11.i1848, %1704
+hex2dec.exit12.i1847:                             ; preds = %1715, %1713, %1709
+  %.0.i11.i1848 = phi i8 [ %1710, %1709 ], [ %1714, %1713 ], [ %spec.select.i10.i1846, %1715 ]
+  %1717 = add nuw nsw i8 %.0.i11.i1848, %1705
   br label %wrapped_tvb_get_guint8.exit1849
 
-wrapped_tvb_get_guint8.exit1849:                  ; preds = %1689, %hex2dec.exit12.i1847
-  %.0.i1836 = phi i8 [ %1716, %hex2dec.exit12.i1847 ], [ %1693, %1689 ]
-  %1717 = mul nuw nsw i32 %.010211875, 19
-  %1718 = add i32 %.010221874, %1717
-  %1719 = add i32 %1718, 1
-  %1720 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1719) #13
-  br i1 %885, label %1721, label %wrapped_tvb_get_guint8.exit1863
+wrapped_tvb_get_guint8.exit1849:                  ; preds = %1690, %hex2dec.exit12.i1847
+  %.0.i1836 = phi i8 [ %1717, %hex2dec.exit12.i1847 ], [ %1694, %1690 ]
+  %1718 = mul nuw nsw i32 %.010211874, 19
+  %1719 = add i32 %.010221873, %1718
+  %1720 = add i32 %1719, 1
+  %1721 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1720) #13
+  br i1 %886, label %1722, label %wrapped_tvb_get_guint8.exit1863
 
-1721:                                             ; preds = %wrapped_tvb_get_guint8.exit1849
-  %1722 = add i8 %1720, -97
-  %or.cond.i.i1851 = icmp ult i8 %1722, 6
-  br i1 %or.cond.i.i1851, label %1723, label %1725
+1722:                                             ; preds = %wrapped_tvb_get_guint8.exit1849
+  %1723 = add i8 %1721, -97
+  %or.cond.i.i1851 = icmp ult i8 %1723, 6
+  br i1 %or.cond.i.i1851, label %1724, label %1726
 
-1723:                                             ; preds = %1721
-  %1724 = add nsw i8 %1720, -87
+1724:                                             ; preds = %1722
+  %1725 = add nsw i8 %1721, -87
   br label %hex2dec.exit.i1855
 
-1725:                                             ; preds = %1721
-  %1726 = add i8 %1720, -65
-  %or.cond5.i.i1852 = icmp ult i8 %1726, 6
-  br i1 %or.cond5.i.i1852, label %1727, label %1729
+1726:                                             ; preds = %1722
+  %1727 = add i8 %1721, -65
+  %or.cond5.i.i1852 = icmp ult i8 %1727, 6
+  br i1 %or.cond5.i.i1852, label %1728, label %1730
 
-1727:                                             ; preds = %1725
-  %1728 = add nsw i8 %1720, -55
+1728:                                             ; preds = %1726
+  %1729 = add nsw i8 %1721, -55
   br label %hex2dec.exit.i1855
 
-1729:                                             ; preds = %1725
-  %1730 = add i8 %1720, -48
-  %or.cond8.i.i1853 = icmp ult i8 %1730, 10
-  %spec.select.i.i1854 = select i1 %or.cond8.i.i1853, i8 %1730, i8 0
+1730:                                             ; preds = %1726
+  %1731 = add i8 %1721, -48
+  %or.cond8.i.i1853 = icmp ult i8 %1731, 10
+  %spec.select.i.i1854 = select i1 %or.cond8.i.i1853, i8 %1731, i8 0
   br label %hex2dec.exit.i1855
 
-hex2dec.exit.i1855:                               ; preds = %1729, %1727, %1723
-  %.0.i.i1856 = phi i8 [ %1724, %1723 ], [ %1728, %1727 ], [ %spec.select.i.i1854, %1729 ]
-  %1731 = shl nuw i8 %.0.i.i1856, 4
-  %1732 = add i32 %1718, 2
-  %1733 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1732) #13
-  %1734 = add i8 %1733, -97
-  %or.cond.i7.i1857 = icmp ult i8 %1734, 6
-  br i1 %or.cond.i7.i1857, label %1735, label %1737
+hex2dec.exit.i1855:                               ; preds = %1730, %1728, %1724
+  %.0.i.i1856 = phi i8 [ %1725, %1724 ], [ %1729, %1728 ], [ %spec.select.i.i1854, %1730 ]
+  %1732 = shl nuw i8 %.0.i.i1856, 4
+  %1733 = add i32 %1719, 2
+  %1734 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1733) #13
+  %1735 = add i8 %1734, -97
+  %or.cond.i7.i1857 = icmp ult i8 %1735, 6
+  br i1 %or.cond.i7.i1857, label %1736, label %1738
 
-1735:                                             ; preds = %hex2dec.exit.i1855
-  %1736 = add nsw i8 %1733, -87
+1736:                                             ; preds = %hex2dec.exit.i1855
+  %1737 = add nsw i8 %1734, -87
   br label %hex2dec.exit12.i1861
 
-1737:                                             ; preds = %hex2dec.exit.i1855
-  %1738 = add i8 %1733, -65
-  %or.cond5.i8.i1858 = icmp ult i8 %1738, 6
-  br i1 %or.cond5.i8.i1858, label %1739, label %1741
+1738:                                             ; preds = %hex2dec.exit.i1855
+  %1739 = add i8 %1734, -65
+  %or.cond5.i8.i1858 = icmp ult i8 %1739, 6
+  br i1 %or.cond5.i8.i1858, label %1740, label %1742
 
-1739:                                             ; preds = %1737
-  %1740 = add nsw i8 %1733, -55
+1740:                                             ; preds = %1738
+  %1741 = add nsw i8 %1734, -55
   br label %hex2dec.exit12.i1861
 
-1741:                                             ; preds = %1737
-  %1742 = add i8 %1733, -48
-  %or.cond8.i9.i1859 = icmp ult i8 %1742, 10
-  %spec.select.i10.i1860 = select i1 %or.cond8.i9.i1859, i8 %1742, i8 0
+1742:                                             ; preds = %1738
+  %1743 = add i8 %1734, -48
+  %or.cond8.i9.i1859 = icmp ult i8 %1743, 10
+  %spec.select.i10.i1860 = select i1 %or.cond8.i9.i1859, i8 %1743, i8 0
   br label %hex2dec.exit12.i1861
 
-hex2dec.exit12.i1861:                             ; preds = %1741, %1739, %1735
-  %.0.i11.i1862 = phi i8 [ %1736, %1735 ], [ %1740, %1739 ], [ %spec.select.i10.i1860, %1741 ]
-  %1743 = add nuw nsw i8 %.0.i11.i1862, %1731
+hex2dec.exit12.i1861:                             ; preds = %1742, %1740, %1736
+  %.0.i11.i1862 = phi i8 [ %1737, %1736 ], [ %1741, %1740 ], [ %spec.select.i10.i1860, %1742 ]
+  %1744 = add nuw nsw i8 %.0.i11.i1862, %1732
   br label %wrapped_tvb_get_guint8.exit1863
 
 wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_guint8.exit1849, %hex2dec.exit12.i1861
-  %.0.i1850 = phi i8 [ %1743, %hex2dec.exit12.i1861 ], [ %1720, %wrapped_tvb_get_guint8.exit1849 ]
-  %1744 = zext i8 %.0.i1836 to i32
-  %1745 = zext i8 %.0.i1850 to i32
-  br label %.thread1930
+  %.0.i1850 = phi i8 [ %1744, %hex2dec.exit12.i1861 ], [ %1721, %wrapped_tvb_get_guint8.exit1849 ]
+  %1745 = zext i8 %.0.i1836 to i32
+  %1746 = zext i8 %.0.i1850 to i32
+  br label %.thread1929
 
-.thread1930:                                      ; preds = %1630, %1513, %1434, %1573, %wrapped_tvb_get_guint8.exit1863, %1687
-  %1746 = phi i1 [ true, %wrapped_tvb_get_guint8.exit1863 ], [ false, %1687 ], [ false, %1573 ], [ false, %1434 ], [ false, %1513 ], [ false, %1630 ]
-  %.010321948.shrunk = phi i8 [ %.0.i1822, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1822, %1687 ], [ 0, %1573 ], [ 0, %1434 ], [ 0, %1513 ], [ 0, %1630 ]
-  %.010361947.shrunk = phi i8 [ %.0.i1808, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1808, %1687 ], [ 0, %1573 ], [ 0, %1434 ], [ 0, %1513 ], [ 0, %1630 ]
-  %1747 = phi i1 [ true, %wrapped_tvb_get_guint8.exit1863 ], [ true, %1687 ], [ false, %1573 ], [ false, %1434 ], [ false, %1513 ], [ true, %1630 ]
-  %.01026190719191946.shrunk = phi i8 [ %.0.i1752, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1752, %1687 ], [ %.0.i1752, %1573 ], [ 0, %1434 ], [ 0, %1513 ], [ %.0.i1752, %1630 ]
-  %.01034190619201945.shrunk = phi i8 [ %.0.i1766, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1766, %1687 ], [ %.0.i1766, %1573 ], [ 0, %1434 ], [ 0, %1513 ], [ %.0.i1766, %1630 ]
-  %.010311893190519211944.shrunk = phi i8 [ %1516, %wrapped_tvb_get_guint8.exit1863 ], [ %1516, %1687 ], [ %1516, %1573 ], [ 0, %1434 ], [ %1516, %1513 ], [ %1516, %1630 ]
-  %.010301894190419221943.shrunk = phi i8 [ %1515, %wrapped_tvb_get_guint8.exit1863 ], [ %1515, %1687 ], [ %1515, %1573 ], [ 0, %1434 ], [ %1515, %1513 ], [ %1515, %1630 ]
-  %.010291895190319231942.shrunk = phi i8 [ %1514, %wrapped_tvb_get_guint8.exit1863 ], [ %1514, %1687 ], [ %1514, %1573 ], [ 0, %1434 ], [ %1514, %1513 ], [ %1514, %1630 ]
-  %1748 = phi i1 [ true, %wrapped_tvb_get_guint8.exit1863 ], [ true, %1687 ], [ true, %1573 ], [ false, %1434 ], [ false, %1513 ], [ true, %1630 ]
-  %.0103519241941.shrunk = phi i8 [ %.0.i1794, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1794, %1687 ], [ 0, %1573 ], [ 0, %1434 ], [ 0, %1513 ], [ %.0.i1794, %1630 ]
-  %.0102519251940.shrunk = phi i8 [ %.0.i1780, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1780, %1687 ], [ 0, %1573 ], [ 0, %1434 ], [ 0, %1513 ], [ %.0.i1780, %1630 ]
-  %1749 = phi i1 [ true, %wrapped_tvb_get_guint8.exit1863 ], [ true, %1687 ], [ false, %1573 ], [ false, %1434 ], [ false, %1513 ], [ false, %1630 ]
-  %.01033 = phi i32 [ %1745, %wrapped_tvb_get_guint8.exit1863 ], [ 0, %1687 ], [ 0, %1573 ], [ 0, %1434 ], [ 0, %1513 ], [ 0, %1630 ]
-  %.01027 = phi i32 [ %1744, %wrapped_tvb_get_guint8.exit1863 ], [ 0, %1687 ], [ 0, %1573 ], [ 0, %1434 ], [ 0, %1513 ], [ 0, %1630 ]
-  %.0102519251940 = zext i8 %.0102519251940.shrunk to i32
-  %.0103519241941 = zext i8 %.0103519241941.shrunk to i32
-  %.010291895190319231942 = zext i8 %.010291895190319231942.shrunk to i32
-  %.010301894190419221943 = zext nneg i8 %.010301894190419221943.shrunk to i64
-  %.010311893190519211944 = zext nneg i8 %.010311893190519211944.shrunk to i32
-  %.01034190619201945 = zext i8 %.01034190619201945.shrunk to i32
-  %.01026190719191946 = zext i8 %.01026190719191946.shrunk to i32
-  %.010361947 = zext i8 %.010361947.shrunk to i32
-  %.010321948 = zext i8 %.010321948.shrunk to i32
-  %1750 = load i32, ptr @hf_gtp_qos_traf_class, align 4
-  %1751 = zext i8 %1189 to i32
-  %1752 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1750, ptr noundef %0, i32 noundef %1116, i32 noundef %.010211875, i32 noundef %1751) #13
-  %1753 = load i32, ptr @hf_gtp_qos_del_order, align 4
-  %1754 = zext nneg i8 %1190 to i32
-  %1755 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1753, ptr noundef %0, i32 noundef %1116, i32 noundef %.010211875, i32 noundef %1754) #13
-  %1756 = load i32, ptr @hf_gtp_qos_del_err_sdu, align 4
-  %1757 = zext nneg i8 %1191 to i32
-  %1758 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1756, ptr noundef %0, i32 noundef %1116, i32 noundef %.010211875, i32 noundef %1757) #13
-  %1759 = zext i8 %.0.i1584 to i32
-  %1760 = add i8 %.0.i1584, 105
-  %or.cond10 = icmp ult i8 %1760, 106
-  br i1 %or.cond10, label %1761, label %1764
+.thread1929:                                      ; preds = %1631, %1514, %1435, %1574, %wrapped_tvb_get_guint8.exit1863, %1688
+  %1747 = phi i1 [ true, %wrapped_tvb_get_guint8.exit1863 ], [ false, %1688 ], [ false, %1574 ], [ false, %1435 ], [ false, %1514 ], [ false, %1631 ]
+  %.010321947.shrunk = phi i8 [ %.0.i1822, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1822, %1688 ], [ 0, %1574 ], [ 0, %1435 ], [ 0, %1514 ], [ 0, %1631 ]
+  %.010361946.shrunk = phi i8 [ %.0.i1808, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1808, %1688 ], [ 0, %1574 ], [ 0, %1435 ], [ 0, %1514 ], [ 0, %1631 ]
+  %1748 = phi i1 [ true, %wrapped_tvb_get_guint8.exit1863 ], [ true, %1688 ], [ false, %1574 ], [ false, %1435 ], [ false, %1514 ], [ true, %1631 ]
+  %.01026190619181945.shrunk = phi i8 [ %.0.i1752, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1752, %1688 ], [ %.0.i1752, %1574 ], [ 0, %1435 ], [ 0, %1514 ], [ %.0.i1752, %1631 ]
+  %.01034190519191944.shrunk = phi i8 [ %.0.i1766, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1766, %1688 ], [ %.0.i1766, %1574 ], [ 0, %1435 ], [ 0, %1514 ], [ %.0.i1766, %1631 ]
+  %.010311892190419201943.shrunk = phi i8 [ %1517, %wrapped_tvb_get_guint8.exit1863 ], [ %1517, %1688 ], [ %1517, %1574 ], [ 0, %1435 ], [ %1517, %1514 ], [ %1517, %1631 ]
+  %.010301893190319211942.shrunk = phi i8 [ %1516, %wrapped_tvb_get_guint8.exit1863 ], [ %1516, %1688 ], [ %1516, %1574 ], [ 0, %1435 ], [ %1516, %1514 ], [ %1516, %1631 ]
+  %.010291894190219221941.shrunk = phi i8 [ %1515, %wrapped_tvb_get_guint8.exit1863 ], [ %1515, %1688 ], [ %1515, %1574 ], [ 0, %1435 ], [ %1515, %1514 ], [ %1515, %1631 ]
+  %1749 = phi i1 [ true, %wrapped_tvb_get_guint8.exit1863 ], [ true, %1688 ], [ true, %1574 ], [ false, %1435 ], [ false, %1514 ], [ true, %1631 ]
+  %.0103519231940.shrunk = phi i8 [ %.0.i1794, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1794, %1688 ], [ 0, %1574 ], [ 0, %1435 ], [ 0, %1514 ], [ %.0.i1794, %1631 ]
+  %.0102519241939.shrunk = phi i8 [ %.0.i1780, %wrapped_tvb_get_guint8.exit1863 ], [ %.0.i1780, %1688 ], [ 0, %1574 ], [ 0, %1435 ], [ 0, %1514 ], [ %.0.i1780, %1631 ]
+  %1750 = phi i1 [ true, %wrapped_tvb_get_guint8.exit1863 ], [ true, %1688 ], [ false, %1574 ], [ false, %1435 ], [ false, %1514 ], [ false, %1631 ]
+  %.01033 = phi i32 [ %1746, %wrapped_tvb_get_guint8.exit1863 ], [ 0, %1688 ], [ 0, %1574 ], [ 0, %1435 ], [ 0, %1514 ], [ 0, %1631 ]
+  %.01027 = phi i32 [ %1745, %wrapped_tvb_get_guint8.exit1863 ], [ 0, %1688 ], [ 0, %1574 ], [ 0, %1435 ], [ 0, %1514 ], [ 0, %1631 ]
+  %.0102519241939 = zext i8 %.0102519241939.shrunk to i32
+  %.0103519231940 = zext i8 %.0103519231940.shrunk to i32
+  %.010291894190219221941 = zext i8 %.010291894190219221941.shrunk to i32
+  %.010301893190319211942 = zext nneg i8 %.010301893190319211942.shrunk to i64
+  %.010311892190419201943 = zext nneg i8 %.010311892190419201943.shrunk to i32
+  %.01034190519191944 = zext i8 %.01034190519191944.shrunk to i32
+  %.01026190619181945 = zext i8 %.01026190619181945.shrunk to i32
+  %.010361946 = zext i8 %.010361946.shrunk to i32
+  %.010321947 = zext i8 %.010321947.shrunk to i32
+  %1751 = load i32, ptr @hf_gtp_qos_traf_class, align 4
+  %1752 = zext i8 %1190 to i32
+  %1753 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1751, ptr noundef %0, i32 noundef %1117, i32 noundef %.010211874, i32 noundef %1752) #13
+  %1754 = load i32, ptr @hf_gtp_qos_del_order, align 4
+  %1755 = zext nneg i8 %1191 to i32
+  %1756 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1754, ptr noundef %0, i32 noundef %1117, i32 noundef %.010211874, i32 noundef %1755) #13
+  %1757 = load i32, ptr @hf_gtp_qos_del_err_sdu, align 4
+  %1758 = zext nneg i8 %1192 to i32
+  %1759 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1757, ptr noundef %0, i32 noundef %1117, i32 noundef %.010211874, i32 noundef %1758) #13
+  %1760 = zext i8 %.0.i1584 to i32
+  %1761 = add i8 %.0.i1584, 105
+  %or.cond10 = icmp ult i8 %1761, 106
+  br i1 %or.cond10, label %1762, label %1765
 
-1761:                                             ; preds = %.thread1930
-  %1762 = load i32, ptr @hf_gtp_qos_max_sdu_size, align 4
-  %1763 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1762, ptr noundef %0, i32 noundef %1194, i32 noundef %.010211875, i32 noundef %1759) #13
-  br label %1768
+1762:                                             ; preds = %.thread1929
+  %1763 = load i32, ptr @hf_gtp_qos_max_sdu_size, align 4
+  %1764 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1763, ptr noundef %0, i32 noundef %1195, i32 noundef %.010211874, i32 noundef %1760) #13
+  br label %1769
 
-1764:                                             ; preds = %.thread1930
-  %1765 = mul nuw nsw i32 %1759, 10
-  %1766 = load i32, ptr @hf_gtp_qos_max_sdu_size, align 4
-  %1767 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1766, ptr noundef %0, i32 noundef %1194, i32 noundef %.010211875, i32 noundef %1765, ptr noundef nonnull @.str.1, i32 noundef %1765) #13
-  br label %1768
+1765:                                             ; preds = %.thread1929
+  %1766 = mul nuw nsw i32 %1760, 10
+  %1767 = load i32, ptr @hf_gtp_qos_max_sdu_size, align 4
+  %1768 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1767, ptr noundef %0, i32 noundef %1195, i32 noundef %.010211874, i32 noundef %1766, ptr noundef nonnull @.str.1, i32 noundef %1766) #13
+  br label %1769
 
-1768:                                             ; preds = %1761, %1764
-  %1769 = zext i8 %.0.i1598 to i32
-  %1770 = add i8 %.0.i1598, 1
-  %or.cond16 = icmp ult i8 %1770, 2
-  br i1 %or.cond16, label %.thread1951, label %1773
+1769:                                             ; preds = %1762, %1765
+  %1770 = zext i8 %.0.i1598 to i32
+  %1771 = add i8 %.0.i1598, 1
+  %or.cond16 = icmp ult i8 %1771, 2
+  br i1 %or.cond16, label %.thread1950, label %1774
 
-.thread1951:                                      ; preds = %1768
-  %1771 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %1772 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1771, ptr noundef %0, i32 noundef %1221, i32 noundef %.010211875, i32 noundef %1769) #13
-  br label %.thread1957
+.thread1950:                                      ; preds = %1769
+  %1772 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %1773 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1772, ptr noundef %0, i32 noundef %1222, i32 noundef %.010211874, i32 noundef %1770) #13
+  br label %.thread1956
 
-1773:                                             ; preds = %1768
-  %1774 = add i8 %.0.i1598, -1
-  %or.cond19 = icmp ult i8 %1774, 63
-  br i1 %or.cond19, label %1775, label %1778
+1774:                                             ; preds = %1769
+  %1775 = add i8 %.0.i1598, -1
+  %or.cond19 = icmp ult i8 %1775, 63
+  br i1 %or.cond19, label %1776, label %1779
 
-1775:                                             ; preds = %1773
-  %1776 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %1777 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1776, ptr noundef %0, i32 noundef %1221, i32 noundef %.010211875, i32 noundef %1769, ptr noundef nonnull @.str.2, i32 noundef %1769) #13
-  br label %.thread1957
+1776:                                             ; preds = %1774
+  %1777 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %1778 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1777, ptr noundef %0, i32 noundef %1222, i32 noundef %.010211874, i32 noundef %1770, ptr noundef nonnull @.str.2, i32 noundef %1770) #13
+  br label %.thread1956
 
-1778:                                             ; preds = %1773
+1779:                                             ; preds = %1774
   %or.cond22 = icmp sgt i8 %.0.i1598, 63
-  %1779 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  br i1 %or.cond22, label %1780, label %1784
+  %1780 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  br i1 %or.cond22, label %1781, label %1785
 
-1780:                                             ; preds = %1778
-  %1781 = shl nuw nsw i32 %1769, 3
-  %1782 = add nsw i32 %1781, -448
-  %1783 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1779, ptr noundef %0, i32 noundef %1221, i32 noundef %.010211875, i32 noundef %1782, ptr noundef nonnull @.str.2, i32 noundef %1782) #13
-  br label %.thread1957
+1781:                                             ; preds = %1779
+  %1782 = shl nuw nsw i32 %1770, 3
+  %1783 = add nsw i32 %1782, -448
+  %1784 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1780, ptr noundef %0, i32 noundef %1222, i32 noundef %.010211874, i32 noundef %1783, ptr noundef nonnull @.str.2, i32 noundef %1783) #13
+  br label %.thread1956
 
-1784:                                             ; preds = %1778
-  %1785 = shl nuw nsw i32 %1769, 6
-  %1786 = add nsw i32 %1785, -7616
-  %1787 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1779, ptr noundef %0, i32 noundef %1221, i32 noundef %.010211875, i32 noundef %1786, ptr noundef nonnull @.str.2, i32 noundef %1786) #13
-  br label %.thread1957
+1785:                                             ; preds = %1779
+  %1786 = shl nuw nsw i32 %1770, 6
+  %1787 = add nsw i32 %1786, -7616
+  %1788 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1780, ptr noundef %0, i32 noundef %1222, i32 noundef %.010211874, i32 noundef %1787, ptr noundef nonnull @.str.2, i32 noundef %1787) #13
+  br label %.thread1956
 
-.thread1957:                                      ; preds = %1775, %.thread1951, %1780, %1784
-  %1788 = zext i8 %.0.i1612 to i32
-  %1789 = add i8 %.0.i1612, 1
-  %or.cond28 = icmp ult i8 %1789, 2
-  br i1 %or.cond28, label %.thread1959, label %1792
+.thread1956:                                      ; preds = %1776, %.thread1950, %1781, %1785
+  %1789 = zext i8 %.0.i1612 to i32
+  %1790 = add i8 %.0.i1612, 1
+  %or.cond28 = icmp ult i8 %1790, 2
+  br i1 %or.cond28, label %.thread1958, label %1793
 
-.thread1959:                                      ; preds = %.thread1957
-  %1790 = load i32, ptr @hf_gtp_qos_max_dl, align 4
-  %1791 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1790, ptr noundef %0, i32 noundef %1248, i32 noundef %.010211875, i32 noundef %1788) #13
-  br label %.thread1965
+.thread1958:                                      ; preds = %.thread1956
+  %1791 = load i32, ptr @hf_gtp_qos_max_dl, align 4
+  %1792 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1791, ptr noundef %0, i32 noundef %1249, i32 noundef %.010211874, i32 noundef %1789) #13
+  br label %.thread1964
 
-1792:                                             ; preds = %.thread1957
-  %1793 = add i8 %.0.i1612, -1
-  %or.cond31 = icmp ult i8 %1793, 63
-  br i1 %or.cond31, label %1794, label %1797
+1793:                                             ; preds = %.thread1956
+  %1794 = add i8 %.0.i1612, -1
+  %or.cond31 = icmp ult i8 %1794, 63
+  br i1 %or.cond31, label %1795, label %1798
 
-1794:                                             ; preds = %1792
-  %1795 = load i32, ptr @hf_gtp_qos_max_dl, align 4
-  %1796 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1795, ptr noundef %0, i32 noundef %1248, i32 noundef %.010211875, i32 noundef %1788, ptr noundef nonnull @.str.2, i32 noundef %1788) #13
-  br label %.thread1965
+1795:                                             ; preds = %1793
+  %1796 = load i32, ptr @hf_gtp_qos_max_dl, align 4
+  %1797 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1796, ptr noundef %0, i32 noundef %1249, i32 noundef %.010211874, i32 noundef %1789, ptr noundef nonnull @.str.2, i32 noundef %1789) #13
+  br label %.thread1964
 
-1797:                                             ; preds = %1792
+1798:                                             ; preds = %1793
   %or.cond34 = icmp sgt i8 %.0.i1612, 63
-  %1798 = load i32, ptr @hf_gtp_qos_max_dl, align 4
-  br i1 %or.cond34, label %1799, label %1803
+  %1799 = load i32, ptr @hf_gtp_qos_max_dl, align 4
+  br i1 %or.cond34, label %1800, label %1804
 
-1799:                                             ; preds = %1797
-  %1800 = shl nuw nsw i32 %1788, 3
-  %1801 = add nsw i32 %1800, -448
-  %1802 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1798, ptr noundef %0, i32 noundef %1248, i32 noundef %.010211875, i32 noundef %1801, ptr noundef nonnull @.str.2, i32 noundef %1801) #13
-  br label %.thread1965
+1800:                                             ; preds = %1798
+  %1801 = shl nuw nsw i32 %1789, 3
+  %1802 = add nsw i32 %1801, -448
+  %1803 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1799, ptr noundef %0, i32 noundef %1249, i32 noundef %.010211874, i32 noundef %1802, ptr noundef nonnull @.str.2, i32 noundef %1802) #13
+  br label %.thread1964
 
-1803:                                             ; preds = %1797
-  %1804 = shl nuw nsw i32 %1788, 6
-  %1805 = add nsw i32 %1804, -7616
-  %1806 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1798, ptr noundef %0, i32 noundef %1248, i32 noundef %.010211875, i32 noundef %1805, ptr noundef nonnull @.str.2, i32 noundef %1805) #13
-  br label %.thread1965
+1804:                                             ; preds = %1798
+  %1805 = shl nuw nsw i32 %1789, 6
+  %1806 = add nsw i32 %1805, -7616
+  %1807 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1799, ptr noundef %0, i32 noundef %1249, i32 noundef %.010211874, i32 noundef %1806, ptr noundef nonnull @.str.2, i32 noundef %1806) #13
+  br label %.thread1964
 
-.thread1965:                                      ; preds = %1794, %.thread1959, %1799, %1803
-  %1807 = load i32, ptr @hf_gtp_qos_res_ber, align 4
-  %1808 = zext i8 %1324 to i32
-  %1809 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1807, ptr noundef %0, i32 noundef %1275, i32 noundef %.010211875, i32 noundef %1808) #13
-  %1810 = load i32, ptr @hf_gtp_qos_sdu_err_ratio, align 4
-  %1811 = zext nneg i8 %1325 to i32
-  %1812 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1810, ptr noundef %0, i32 noundef %1275, i32 noundef %.010211875, i32 noundef %1811) #13
-  %1813 = load i32, ptr @hf_gtp_qos_trans_delay, align 4
-  %1814 = zext i8 %1377 to i32
-  %1815 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1813, ptr noundef %0, i32 noundef %1328, i32 noundef %.010211875, i32 noundef %1814) #13
-  %1816 = load i32, ptr @hf_gtp_qos_traf_handl_prio, align 4
-  %1817 = zext nneg i8 %1378 to i32
-  %1818 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1816, ptr noundef %0, i32 noundef %1328, i32 noundef %.010211875, i32 noundef %1817) #13
-  %1819 = zext i8 %.0.i1682 to i32
-  %1820 = add i8 %.0.i1682, 1
-  %or.cond40 = icmp ult i8 %1820, 2
-  br i1 %or.cond40, label %.thread1967, label %1823
+.thread1964:                                      ; preds = %1795, %.thread1958, %1800, %1804
+  %1808 = load i32, ptr @hf_gtp_qos_res_ber, align 4
+  %1809 = zext i8 %1325 to i32
+  %1810 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1808, ptr noundef %0, i32 noundef %1276, i32 noundef %.010211874, i32 noundef %1809) #13
+  %1811 = load i32, ptr @hf_gtp_qos_sdu_err_ratio, align 4
+  %1812 = zext nneg i8 %1326 to i32
+  %1813 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1811, ptr noundef %0, i32 noundef %1276, i32 noundef %.010211874, i32 noundef %1812) #13
+  %1814 = load i32, ptr @hf_gtp_qos_trans_delay, align 4
+  %1815 = zext i8 %1378 to i32
+  %1816 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1814, ptr noundef %0, i32 noundef %1329, i32 noundef %.010211874, i32 noundef %1815) #13
+  %1817 = load i32, ptr @hf_gtp_qos_traf_handl_prio, align 4
+  %1818 = zext nneg i8 %1379 to i32
+  %1819 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1817, ptr noundef %0, i32 noundef %1329, i32 noundef %.010211874, i32 noundef %1818) #13
+  %1820 = zext i8 %.0.i1682 to i32
+  %1821 = add i8 %.0.i1682, 1
+  %or.cond40 = icmp ult i8 %1821, 2
+  br i1 %or.cond40, label %.thread1966, label %1824
 
-.thread1967:                                      ; preds = %.thread1965
-  %1821 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %1822 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1821, ptr noundef %0, i32 noundef %1381, i32 noundef %.010211875, i32 noundef %1819) #13
-  br label %.thread1973
+.thread1966:                                      ; preds = %.thread1964
+  %1822 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %1823 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1822, ptr noundef %0, i32 noundef %1382, i32 noundef %.010211874, i32 noundef %1820) #13
+  br label %.thread1972
 
-1823:                                             ; preds = %.thread1965
-  %1824 = add i8 %.0.i1682, -1
-  %or.cond43 = icmp ult i8 %1824, 63
-  br i1 %or.cond43, label %1825, label %1828
+1824:                                             ; preds = %.thread1964
+  %1825 = add i8 %.0.i1682, -1
+  %or.cond43 = icmp ult i8 %1825, 63
+  br i1 %or.cond43, label %1826, label %1829
 
-1825:                                             ; preds = %1823
-  %1826 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %1827 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1826, ptr noundef %0, i32 noundef %1381, i32 noundef %.010211875, i32 noundef %1819, ptr noundef nonnull @.str.2, i32 noundef %1819) #13
-  br label %.thread1973
+1826:                                             ; preds = %1824
+  %1827 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %1828 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1827, ptr noundef %0, i32 noundef %1382, i32 noundef %.010211874, i32 noundef %1820, ptr noundef nonnull @.str.2, i32 noundef %1820) #13
+  br label %.thread1972
 
-1828:                                             ; preds = %1823
+1829:                                             ; preds = %1824
   %or.cond46 = icmp sgt i8 %.0.i1682, 63
-  %1829 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  br i1 %or.cond46, label %1830, label %1834
+  %1830 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  br i1 %or.cond46, label %1831, label %1835
 
-1830:                                             ; preds = %1828
-  %1831 = shl nuw nsw i32 %1819, 3
-  %1832 = add nsw i32 %1831, -448
-  %1833 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1829, ptr noundef %0, i32 noundef %1381, i32 noundef %.010211875, i32 noundef %1832, ptr noundef nonnull @.str.2, i32 noundef %1832) #13
-  br label %.thread1973
+1831:                                             ; preds = %1829
+  %1832 = shl nuw nsw i32 %1820, 3
+  %1833 = add nsw i32 %1832, -448
+  %1834 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1830, ptr noundef %0, i32 noundef %1382, i32 noundef %.010211874, i32 noundef %1833, ptr noundef nonnull @.str.2, i32 noundef %1833) #13
+  br label %.thread1972
 
-1834:                                             ; preds = %1828
-  %1835 = shl nuw nsw i32 %1819, 6
-  %1836 = add nsw i32 %1835, -7616
-  %1837 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1829, ptr noundef %0, i32 noundef %1381, i32 noundef %.010211875, i32 noundef %1836, ptr noundef nonnull @.str.2, i32 noundef %1836) #13
-  br label %.thread1973
+1835:                                             ; preds = %1829
+  %1836 = shl nuw nsw i32 %1820, 6
+  %1837 = add nsw i32 %1836, -7616
+  %1838 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1830, ptr noundef %0, i32 noundef %1382, i32 noundef %.010211874, i32 noundef %1837, ptr noundef nonnull @.str.2, i32 noundef %1837) #13
+  br label %.thread1972
 
-.thread1973:                                      ; preds = %1825, %.thread1967, %1830, %1834
-  %1838 = zext i8 %.0.i1696 to i32
-  %1839 = add i8 %.0.i1696, 1
-  %or.cond52 = icmp ult i8 %1839, 2
-  br i1 %or.cond52, label %.thread1975, label %1842
+.thread1972:                                      ; preds = %1826, %.thread1966, %1831, %1835
+  %1839 = zext i8 %.0.i1696 to i32
+  %1840 = add i8 %.0.i1696, 1
+  %or.cond52 = icmp ult i8 %1840, 2
+  br i1 %or.cond52, label %.thread1974, label %1843
 
-.thread1975:                                      ; preds = %.thread1973
-  %1840 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
-  %1841 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1840, ptr noundef %0, i32 noundef %1408, i32 noundef %.010211875, i32 noundef %1838) #13
-  br label %.thread1981
+.thread1974:                                      ; preds = %.thread1972
+  %1841 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
+  %1842 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1841, ptr noundef %0, i32 noundef %1409, i32 noundef %.010211874, i32 noundef %1839) #13
+  br label %.thread1980
 
-1842:                                             ; preds = %.thread1973
-  %1843 = add i8 %.0.i1696, -1
-  %or.cond55 = icmp ult i8 %1843, 63
-  br i1 %or.cond55, label %1844, label %1847
+1843:                                             ; preds = %.thread1972
+  %1844 = add i8 %.0.i1696, -1
+  %or.cond55 = icmp ult i8 %1844, 63
+  br i1 %or.cond55, label %1845, label %1848
 
-1844:                                             ; preds = %1842
-  %1845 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
-  %1846 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1845, ptr noundef %0, i32 noundef %1408, i32 noundef %.010211875, i32 noundef %1838, ptr noundef nonnull @.str.2, i32 noundef %1838) #13
-  br label %.thread1981
+1845:                                             ; preds = %1843
+  %1846 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
+  %1847 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1846, ptr noundef %0, i32 noundef %1409, i32 noundef %.010211874, i32 noundef %1839, ptr noundef nonnull @.str.2, i32 noundef %1839) #13
+  br label %.thread1980
 
-1847:                                             ; preds = %1842
+1848:                                             ; preds = %1843
   %or.cond58 = icmp sgt i8 %.0.i1696, 63
-  %1848 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
-  br i1 %or.cond58, label %1849, label %1853
+  %1849 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
+  br i1 %or.cond58, label %1850, label %1854
 
-1849:                                             ; preds = %1847
-  %1850 = shl nuw nsw i32 %1838, 3
-  %1851 = add nsw i32 %1850, -448
-  %1852 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1848, ptr noundef %0, i32 noundef %1408, i32 noundef %.010211875, i32 noundef %1851, ptr noundef nonnull @.str.2, i32 noundef %1851) #13
-  br label %.thread1981
+1850:                                             ; preds = %1848
+  %1851 = shl nuw nsw i32 %1839, 3
+  %1852 = add nsw i32 %1851, -448
+  %1853 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1849, ptr noundef %0, i32 noundef %1409, i32 noundef %.010211874, i32 noundef %1852, ptr noundef nonnull @.str.2, i32 noundef %1852) #13
+  br label %.thread1980
 
-1853:                                             ; preds = %1847
-  %1854 = shl nuw nsw i32 %1838, 6
-  %1855 = add nsw i32 %1854, -7616
-  %1856 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281872, i32 noundef %1848, ptr noundef %0, i32 noundef %1408, i32 noundef %.010211875, i32 noundef %1855, ptr noundef nonnull @.str.2, i32 noundef %1855) #13
-  br label %.thread1981
+1854:                                             ; preds = %1848
+  %1855 = shl nuw nsw i32 %1839, 6
+  %1856 = add nsw i32 %1855, -7616
+  %1857 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.010281871, i32 noundef %1849, ptr noundef %0, i32 noundef %1409, i32 noundef %.010211874, i32 noundef %1856, ptr noundef nonnull @.str.2, i32 noundef %1856) #13
+  br label %.thread1980
 
-.thread1981:                                      ; preds = %1844, %.thread1975, %1849, %1853
-  br i1 %1433, label %1860, label %1857
+.thread1980:                                      ; preds = %1845, %.thread1974, %1850, %1854
+  br i1 %1434, label %1861, label %1858
 
-1857:                                             ; preds = %.thread1981
-  %1858 = icmp eq i8 %5, 2
-  %1859 = icmp eq i32 %.11024, 13
-  %or.cond63 = select i1 %1858, i1 %1859, i1 false
-  br i1 %or.cond63, label %1860, label %1870
+1858:                                             ; preds = %.thread1980
+  %1859 = icmp eq i8 %5, 2
+  %1860 = icmp eq i32 %.11024, 13
+  %or.cond63 = select i1 %1859, i1 %1860, i1 false
+  br i1 %or.cond63, label %1861, label %1871
 
-1860:                                             ; preds = %1857, %.thread1981
-  %1861 = load i32, ptr @hf_gtp_qos_spare4, align 4
-  %1862 = mul nuw nsw i32 %.010211875, 11
-  %1863 = add nuw nsw i32 %1862, 1
-  %1864 = add i32 %1863, %.010221874
-  %1865 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1861, ptr noundef %0, i32 noundef %1864, i32 noundef %.010211875, i32 noundef %.010291895190319231942) #13
-  %1866 = load i32, ptr @hf_gtp_qos_sig_ind, align 4
-  %1867 = tail call ptr @proto_tree_add_boolean(ptr noundef %.010281872, i32 noundef %1866, ptr noundef %0, i32 noundef %1864, i32 noundef %.010211875, i64 noundef %.010301894190419221943) #13
-  %1868 = load i32, ptr @hf_gtp_qos_src_stat_desc, align 4
-  %1869 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281872, i32 noundef %1868, ptr noundef %0, i32 noundef %1864, i32 noundef %.010211875, i32 noundef %.010311893190519211944) #13
-  br label %1870
+1861:                                             ; preds = %1858, %.thread1980
+  %1862 = load i32, ptr @hf_gtp_qos_spare4, align 4
+  %1863 = mul nuw nsw i32 %.010211874, 11
+  %1864 = add nuw nsw i32 %1863, 1
+  %1865 = add i32 %1864, %.010221873
+  %1866 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1862, ptr noundef %0, i32 noundef %1865, i32 noundef %.010211874, i32 noundef %.010291894190219221941) #13
+  %1867 = load i32, ptr @hf_gtp_qos_sig_ind, align 4
+  %1868 = tail call ptr @proto_tree_add_boolean(ptr noundef %.010281871, i32 noundef %1867, ptr noundef %0, i32 noundef %1865, i32 noundef %.010211874, i64 noundef %.010301893190319211942) #13
+  %1869 = load i32, ptr @hf_gtp_qos_src_stat_desc, align 4
+  %1870 = tail call ptr @proto_tree_add_uint(ptr noundef %.010281871, i32 noundef %1869, ptr noundef %0, i32 noundef %1865, i32 noundef %.010211874, i32 noundef %.010311892190419201943) #13
+  br label %1871
 
-1870:                                             ; preds = %1860, %1857
-  br i1 %1748, label %1871, label %.thread1997
+1871:                                             ; preds = %1861, %1858
+  br i1 %1749, label %1872, label %.thread1996
 
-1871:                                             ; preds = %1870
-  %1872 = icmp eq i8 %.01026190719191946.shrunk, 0
-  br i1 %1872, label %.thread1983, label %1877
+1872:                                             ; preds = %1871
+  %1873 = icmp eq i8 %.01026190619181945.shrunk, 0
+  br i1 %1873, label %.thread1982, label %1878
 
-.thread1983:                                      ; preds = %1871
-  %1873 = mul nuw nsw i32 %.010211875, 12
-  %1874 = or disjoint i32 %1873, 1
-  %1875 = add i32 %1874, %.010221874
-  %1876 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281872, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %1875, i32 noundef %.010211875, ptr noundef nonnull @.str.3) #13
-  br label %.thread1989
+.thread1982:                                      ; preds = %1872
+  %1874 = mul nuw nsw i32 %.010211874, 12
+  %1875 = or disjoint i32 %1874, 1
+  %1876 = add i32 %1875, %.010221873
+  %1877 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281871, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %1876, i32 noundef %.010211874, ptr noundef nonnull @.str.3) #13
+  br label %.thread1988
 
-1877:                                             ; preds = %1871
-  %or.cond66 = icmp ult i8 %.01026190719191946.shrunk, 75
-  br i1 %or.cond66, label %1878, label %1886
+1878:                                             ; preds = %1872
+  %or.cond66 = icmp ult i8 %.01026190619181945.shrunk, 75
+  br i1 %or.cond66, label %1879, label %1887
 
-1878:                                             ; preds = %1877
-  %1879 = mul nuw nsw i32 %.01026190719191946, 100
-  %1880 = add nuw nsw i32 %1879, 8600
-  %1881 = load i32, ptr @hf_gtp_qos_max_dl, align 4
-  %1882 = mul nuw nsw i32 %.010211875, 12
-  %1883 = or disjoint i32 %1882, 1
-  %1884 = add i32 %1883, %.010221874
-  %1885 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1881, ptr noundef %0, i32 noundef %1884, i32 noundef %.010211875, i32 noundef %1880, ptr noundef nonnull @.str.4, i32 noundef %1880) #13
-  br label %.thread1989
+1879:                                             ; preds = %1878
+  %1880 = mul nuw nsw i32 %.01026190619181945, 100
+  %1881 = add nuw nsw i32 %1880, 8600
+  %1882 = load i32, ptr @hf_gtp_qos_max_dl, align 4
+  %1883 = mul nuw nsw i32 %.010211874, 12
+  %1884 = or disjoint i32 %1883, 1
+  %1885 = add i32 %1884, %.010221873
+  %1886 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1882, ptr noundef %0, i32 noundef %1885, i32 noundef %.010211874, i32 noundef %1881, ptr noundef nonnull @.str.4, i32 noundef %1881) #13
+  br label %.thread1988
 
-1886:                                             ; preds = %1877
-  %1887 = add nsw i32 %.01026190719191946, -75
-  %or.cond69 = icmp samesign ult i32 %1887, 112
-  br i1 %or.cond69, label %1888, label %1895
+1887:                                             ; preds = %1878
+  %1888 = add nsw i32 %.01026190619181945, -75
+  %or.cond69 = icmp samesign ult i32 %1888, 112
+  br i1 %or.cond69, label %1889, label %1896
 
-1888:                                             ; preds = %1886
-  %1889 = add nsw i32 %.01026190719191946, -58
-  %1890 = load i32, ptr @hf_gtp_qos_max_dl, align 4
-  %1891 = mul nuw nsw i32 %.010211875, 12
-  %1892 = or disjoint i32 %1891, 1
-  %1893 = add i32 %1892, %.010221874
-  %1894 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1890, ptr noundef %0, i32 noundef %1893, i32 noundef %.010211875, i32 noundef %1889, ptr noundef nonnull @.str.5, i32 noundef %1889) #13
-  br label %.thread1989
+1889:                                             ; preds = %1887
+  %1890 = add nsw i32 %.01026190619181945, -58
+  %1891 = load i32, ptr @hf_gtp_qos_max_dl, align 4
+  %1892 = mul nuw nsw i32 %.010211874, 12
+  %1893 = or disjoint i32 %1892, 1
+  %1894 = add i32 %1893, %.010221873
+  %1895 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1891, ptr noundef %0, i32 noundef %1894, i32 noundef %.010211874, i32 noundef %1890, ptr noundef nonnull @.str.5, i32 noundef %1890) #13
+  br label %.thread1988
 
-1895:                                             ; preds = %1886
-  %1896 = add nsw i32 %.01026190719191946, -187
-  %or.cond72 = icmp samesign ult i32 %1896, 64
-  br i1 %or.cond72, label %1897, label %.thread1989
+1896:                                             ; preds = %1887
+  %1897 = add nsw i32 %.01026190619181945, -187
+  %or.cond72 = icmp samesign ult i32 %1897, 64
+  br i1 %or.cond72, label %1898, label %.thread1988
 
-1897:                                             ; preds = %1895
-  %1898 = shl nuw nsw i32 %.01026190719191946, 1
-  %1899 = add nsw i32 %1898, -244
-  %1900 = load i32, ptr @hf_gtp_qos_max_dl, align 4
-  %1901 = mul nuw nsw i32 %.010211875, 12
-  %1902 = or disjoint i32 %1901, 1
-  %1903 = add i32 %1902, %.010221874
-  %1904 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1900, ptr noundef %0, i32 noundef %1903, i32 noundef %.010211875, i32 noundef %1899, ptr noundef nonnull @.str.5, i32 noundef %1899) #13
-  br label %.thread1989
+1898:                                             ; preds = %1896
+  %1899 = shl nuw nsw i32 %.01026190619181945, 1
+  %1900 = add nsw i32 %1899, -244
+  %1901 = load i32, ptr @hf_gtp_qos_max_dl, align 4
+  %1902 = mul nuw nsw i32 %.010211874, 12
+  %1903 = or disjoint i32 %1902, 1
+  %1904 = add i32 %1903, %.010221873
+  %1905 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1901, ptr noundef %0, i32 noundef %1904, i32 noundef %.010211874, i32 noundef %1900, ptr noundef nonnull @.str.5, i32 noundef %1900) #13
+  br label %.thread1988
 
-.thread1989:                                      ; preds = %1878, %.thread1983, %1888, %1897, %1895
-  %1905 = icmp eq i8 %.01034190619201945.shrunk, 0
-  br i1 %1905, label %.thread1991, label %1910
+.thread1988:                                      ; preds = %1879, %.thread1982, %1889, %1898, %1896
+  %1906 = icmp eq i8 %.01034190519191944.shrunk, 0
+  br i1 %1906, label %.thread1990, label %1911
 
-.thread1991:                                      ; preds = %.thread1989
-  %1906 = mul nuw nsw i32 %.010211875, 13
-  %1907 = add nuw nsw i32 %1906, 1
-  %1908 = add i32 %1907, %.010221874
-  %1909 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281872, ptr noundef %2, ptr noundef nonnull @ei_gtp_guaranteed_bit_rate_value, ptr noundef %0, i32 noundef %1908, i32 noundef %.010211875, ptr noundef nonnull @.str.6) #13
-  br label %.thread1997
+.thread1990:                                      ; preds = %.thread1988
+  %1907 = mul nuw nsw i32 %.010211874, 13
+  %1908 = add nuw nsw i32 %1907, 1
+  %1909 = add i32 %1908, %.010221873
+  %1910 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281871, ptr noundef %2, ptr noundef nonnull @ei_gtp_guaranteed_bit_rate_value, ptr noundef %0, i32 noundef %1909, i32 noundef %.010211874, ptr noundef nonnull @.str.6) #13
+  br label %.thread1996
 
-1910:                                             ; preds = %.thread1989
-  %or.cond75 = icmp ult i8 %.01034190619201945.shrunk, 75
-  br i1 %or.cond75, label %1911, label %1919
+1911:                                             ; preds = %.thread1988
+  %or.cond75 = icmp ult i8 %.01034190519191944.shrunk, 75
+  br i1 %or.cond75, label %1912, label %1920
 
-1911:                                             ; preds = %1910
-  %1912 = mul nuw nsw i32 %.01034190619201945, 100
-  %1913 = add nuw nsw i32 %1912, 8600
-  %1914 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
-  %1915 = mul nuw nsw i32 %.010211875, 13
-  %1916 = add nuw nsw i32 %1915, 1
-  %1917 = add i32 %1916, %.010221874
-  %1918 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1914, ptr noundef %0, i32 noundef %1917, i32 noundef %.010211875, i32 noundef %1913, ptr noundef nonnull @.str.7, i32 noundef %1913) #13
-  br label %.thread1997
+1912:                                             ; preds = %1911
+  %1913 = mul nuw nsw i32 %.01034190519191944, 100
+  %1914 = add nuw nsw i32 %1913, 8600
+  %1915 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
+  %1916 = mul nuw nsw i32 %.010211874, 13
+  %1917 = add nuw nsw i32 %1916, 1
+  %1918 = add i32 %1917, %.010221873
+  %1919 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1915, ptr noundef %0, i32 noundef %1918, i32 noundef %.010211874, i32 noundef %1914, ptr noundef nonnull @.str.7, i32 noundef %1914) #13
+  br label %.thread1996
 
-1919:                                             ; preds = %1910
-  %1920 = add nsw i32 %.01034190619201945, -75
-  %or.cond78 = icmp samesign ult i32 %1920, 112
-  br i1 %or.cond78, label %1921, label %1928
+1920:                                             ; preds = %1911
+  %1921 = add nsw i32 %.01034190519191944, -75
+  %or.cond78 = icmp samesign ult i32 %1921, 112
+  br i1 %or.cond78, label %1922, label %1929
 
-1921:                                             ; preds = %1919
-  %1922 = add nsw i32 %.01034190619201945, -58
-  %1923 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
-  %1924 = mul nuw nsw i32 %.010211875, 13
-  %1925 = add nuw nsw i32 %1924, 1
-  %1926 = add i32 %1925, %.010221874
-  %1927 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1923, ptr noundef %0, i32 noundef %1926, i32 noundef %.010211875, i32 noundef %1922, ptr noundef nonnull @.str.8, i32 noundef %1922) #13
-  br label %.thread1997
+1922:                                             ; preds = %1920
+  %1923 = add nsw i32 %.01034190519191944, -58
+  %1924 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
+  %1925 = mul nuw nsw i32 %.010211874, 13
+  %1926 = add nuw nsw i32 %1925, 1
+  %1927 = add i32 %1926, %.010221873
+  %1928 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1924, ptr noundef %0, i32 noundef %1927, i32 noundef %.010211874, i32 noundef %1923, ptr noundef nonnull @.str.8, i32 noundef %1923) #13
+  br label %.thread1996
 
-1928:                                             ; preds = %1919
-  %1929 = add nsw i32 %.01034190619201945, -187
-  %or.cond81 = icmp samesign ult i32 %1929, 64
-  br i1 %or.cond81, label %1930, label %.thread1997
+1929:                                             ; preds = %1920
+  %1930 = add nsw i32 %.01034190519191944, -187
+  %or.cond81 = icmp samesign ult i32 %1930, 64
+  br i1 %or.cond81, label %1931, label %.thread1996
 
-1930:                                             ; preds = %1928
-  %1931 = shl nuw nsw i32 %.01034190619201945, 1
-  %1932 = add nsw i32 %1931, -244
-  %1933 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
-  %1934 = mul nuw nsw i32 %.010211875, 13
-  %1935 = add nuw nsw i32 %1934, 1
-  %1936 = add i32 %1935, %.010221874
-  %1937 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1933, ptr noundef %0, i32 noundef %1936, i32 noundef %.010211875, i32 noundef %1932, ptr noundef nonnull @.str.8, i32 noundef %1932) #13
-  br label %.thread1997
+1931:                                             ; preds = %1929
+  %1932 = shl nuw nsw i32 %.01034190519191944, 1
+  %1933 = add nsw i32 %1932, -244
+  %1934 = load i32, ptr @hf_gtp_qos_guar_dl, align 4
+  %1935 = mul nuw nsw i32 %.010211874, 13
+  %1936 = add nuw nsw i32 %1935, 1
+  %1937 = add i32 %1936, %.010221873
+  %1938 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1934, ptr noundef %0, i32 noundef %1937, i32 noundef %.010211874, i32 noundef %1933, ptr noundef nonnull @.str.8, i32 noundef %1933) #13
+  br label %.thread1996
 
-.thread1997:                                      ; preds = %1911, %.thread1991, %1921, %1928, %1930, %1870
-  br i1 %1747, label %1938, label %.thread2013
+.thread1996:                                      ; preds = %1912, %.thread1990, %1922, %1929, %1931, %1871
+  br i1 %1748, label %1939, label %.thread2012
 
-1938:                                             ; preds = %.thread1997
-  %1939 = icmp eq i8 %.0102519251940.shrunk, 0
-  br i1 %1939, label %.thread1999, label %1944
+1939:                                             ; preds = %.thread1996
+  %1940 = icmp eq i8 %.0102519241939.shrunk, 0
+  br i1 %1940, label %.thread1998, label %1945
 
-.thread1999:                                      ; preds = %1938
-  %1940 = mul nuw nsw i32 %.010211875, 14
-  %1941 = or disjoint i32 %1940, 1
-  %1942 = add i32 %1941, %.010221874
-  %1943 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281872, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %1942, i32 noundef %.010211875, ptr noundef nonnull @.str.9) #13
-  br label %.thread2005
+.thread1998:                                      ; preds = %1939
+  %1941 = mul nuw nsw i32 %.010211874, 14
+  %1942 = or disjoint i32 %1941, 1
+  %1943 = add i32 %1942, %.010221873
+  %1944 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281871, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %1943, i32 noundef %.010211874, ptr noundef nonnull @.str.9) #13
+  br label %.thread2004
 
-1944:                                             ; preds = %1938
-  %or.cond84 = icmp ult i8 %.0102519251940.shrunk, 75
-  br i1 %or.cond84, label %1945, label %1953
+1945:                                             ; preds = %1939
+  %or.cond84 = icmp ult i8 %.0102519241939.shrunk, 75
+  br i1 %or.cond84, label %1946, label %1954
 
-1945:                                             ; preds = %1944
-  %1946 = mul nuw nsw i32 %.0102519251940, 100
-  %1947 = add nuw nsw i32 %1946, 8600
-  %1948 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %1949 = mul nuw nsw i32 %.010211875, 14
-  %1950 = or disjoint i32 %1949, 1
-  %1951 = add i32 %1950, %.010221874
-  %1952 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1948, ptr noundef %0, i32 noundef %1951, i32 noundef %.010211875, i32 noundef %1947, ptr noundef nonnull @.str.10, i32 noundef %1947) #13
-  br label %.thread2005
+1946:                                             ; preds = %1945
+  %1947 = mul nuw nsw i32 %.0102519241939, 100
+  %1948 = add nuw nsw i32 %1947, 8600
+  %1949 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %1950 = mul nuw nsw i32 %.010211874, 14
+  %1951 = or disjoint i32 %1950, 1
+  %1952 = add i32 %1951, %.010221873
+  %1953 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1949, ptr noundef %0, i32 noundef %1952, i32 noundef %.010211874, i32 noundef %1948, ptr noundef nonnull @.str.10, i32 noundef %1948) #13
+  br label %.thread2004
 
-1953:                                             ; preds = %1944
-  %1954 = add nsw i32 %.0102519251940, -75
-  %or.cond87 = icmp samesign ult i32 %1954, 112
-  br i1 %or.cond87, label %1955, label %1962
+1954:                                             ; preds = %1945
+  %1955 = add nsw i32 %.0102519241939, -75
+  %or.cond87 = icmp samesign ult i32 %1955, 112
+  br i1 %or.cond87, label %1956, label %1963
 
-1955:                                             ; preds = %1953
-  %1956 = add nsw i32 %.0102519251940, -58
-  %1957 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %1958 = mul nuw nsw i32 %.010211875, 14
-  %1959 = or disjoint i32 %1958, 1
-  %1960 = add i32 %1959, %.010221874
-  %1961 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1957, ptr noundef %0, i32 noundef %1960, i32 noundef %.010211875, i32 noundef %1956, ptr noundef nonnull @.str.11, i32 noundef %1956) #13
-  br label %.thread2005
+1956:                                             ; preds = %1954
+  %1957 = add nsw i32 %.0102519241939, -58
+  %1958 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %1959 = mul nuw nsw i32 %.010211874, 14
+  %1960 = or disjoint i32 %1959, 1
+  %1961 = add i32 %1960, %.010221873
+  %1962 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1958, ptr noundef %0, i32 noundef %1961, i32 noundef %.010211874, i32 noundef %1957, ptr noundef nonnull @.str.11, i32 noundef %1957) #13
+  br label %.thread2004
 
-1962:                                             ; preds = %1953
-  %1963 = add nsw i32 %.0102519251940, -187
-  %or.cond90 = icmp samesign ult i32 %1963, 64
-  br i1 %or.cond90, label %1964, label %.thread2005
+1963:                                             ; preds = %1954
+  %1964 = add nsw i32 %.0102519241939, -187
+  %or.cond90 = icmp samesign ult i32 %1964, 64
+  br i1 %or.cond90, label %1965, label %.thread2004
 
-1964:                                             ; preds = %1962
-  %1965 = shl nuw nsw i32 %.0102519251940, 1
-  %1966 = add nsw i32 %1965, -244
-  %1967 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %1968 = mul nuw nsw i32 %.010211875, 14
-  %1969 = or disjoint i32 %1968, 1
-  %1970 = add i32 %1969, %.010221874
-  %1971 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1967, ptr noundef %0, i32 noundef %1970, i32 noundef %.010211875, i32 noundef %1966, ptr noundef nonnull @.str.11, i32 noundef %1966) #13
-  br label %.thread2005
+1965:                                             ; preds = %1963
+  %1966 = shl nuw nsw i32 %.0102519241939, 1
+  %1967 = add nsw i32 %1966, -244
+  %1968 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %1969 = mul nuw nsw i32 %.010211874, 14
+  %1970 = or disjoint i32 %1969, 1
+  %1971 = add i32 %1970, %.010221873
+  %1972 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1968, ptr noundef %0, i32 noundef %1971, i32 noundef %.010211874, i32 noundef %1967, ptr noundef nonnull @.str.11, i32 noundef %1967) #13
+  br label %.thread2004
 
-.thread2005:                                      ; preds = %1945, %.thread1999, %1955, %1964, %1962
-  %1972 = icmp eq i8 %.0103519241941.shrunk, 0
-  br i1 %1972, label %.thread2007, label %1977
+.thread2004:                                      ; preds = %1946, %.thread1998, %1956, %1965, %1963
+  %1973 = icmp eq i8 %.0103519231940.shrunk, 0
+  br i1 %1973, label %.thread2006, label %1978
 
-.thread2007:                                      ; preds = %.thread2005
-  %1973 = mul nuw nsw i32 %.010211875, 15
-  %1974 = add nuw nsw i32 %1973, 1
-  %1975 = add i32 %1974, %.010221874
-  %1976 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281872, ptr noundef %2, ptr noundef nonnull @ei_gtp_guaranteed_bit_rate_value, ptr noundef %0, i32 noundef %1975, i32 noundef %.010211875, ptr noundef nonnull @.str.12) #13
-  br label %.thread2013
+.thread2006:                                      ; preds = %.thread2004
+  %1974 = mul nuw nsw i32 %.010211874, 15
+  %1975 = add nuw nsw i32 %1974, 1
+  %1976 = add i32 %1975, %.010221873
+  %1977 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281871, ptr noundef %2, ptr noundef nonnull @ei_gtp_guaranteed_bit_rate_value, ptr noundef %0, i32 noundef %1976, i32 noundef %.010211874, ptr noundef nonnull @.str.12) #13
+  br label %.thread2012
 
-1977:                                             ; preds = %.thread2005
-  %or.cond93 = icmp ult i8 %.0103519241941.shrunk, 75
-  br i1 %or.cond93, label %1978, label %1986
+1978:                                             ; preds = %.thread2004
+  %or.cond93 = icmp ult i8 %.0103519231940.shrunk, 75
+  br i1 %or.cond93, label %1979, label %1987
 
-1978:                                             ; preds = %1977
-  %1979 = mul nuw nsw i32 %.0103519241941, 100
-  %1980 = add nuw nsw i32 %1979, 8600
-  %1981 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %1982 = mul nuw nsw i32 %.010211875, 15
-  %1983 = add nuw nsw i32 %1982, 1
-  %1984 = add i32 %1983, %.010221874
-  %1985 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1981, ptr noundef %0, i32 noundef %1984, i32 noundef %.010211875, i32 noundef %1980, ptr noundef nonnull @.str.13, i32 noundef %1980) #13
-  br label %.thread2013
+1979:                                             ; preds = %1978
+  %1980 = mul nuw nsw i32 %.0103519231940, 100
+  %1981 = add nuw nsw i32 %1980, 8600
+  %1982 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %1983 = mul nuw nsw i32 %.010211874, 15
+  %1984 = add nuw nsw i32 %1983, 1
+  %1985 = add i32 %1984, %.010221873
+  %1986 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1982, ptr noundef %0, i32 noundef %1985, i32 noundef %.010211874, i32 noundef %1981, ptr noundef nonnull @.str.13, i32 noundef %1981) #13
+  br label %.thread2012
 
-1986:                                             ; preds = %1977
-  %1987 = add nsw i32 %.0103519241941, -75
-  %or.cond96 = icmp samesign ult i32 %1987, 112
-  br i1 %or.cond96, label %1988, label %1995
+1987:                                             ; preds = %1978
+  %1988 = add nsw i32 %.0103519231940, -75
+  %or.cond96 = icmp samesign ult i32 %1988, 112
+  br i1 %or.cond96, label %1989, label %1996
 
-1988:                                             ; preds = %1986
-  %1989 = add nsw i32 %.0103519241941, -58
-  %1990 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %1991 = mul nuw nsw i32 %.010211875, 15
-  %1992 = add nuw nsw i32 %1991, 1
-  %1993 = add i32 %1992, %.010221874
-  %1994 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %1990, ptr noundef %0, i32 noundef %1993, i32 noundef %.010211875, i32 noundef %1989, ptr noundef nonnull @.str.14, i32 noundef %1989) #13
-  br label %.thread2013
+1989:                                             ; preds = %1987
+  %1990 = add nsw i32 %.0103519231940, -58
+  %1991 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %1992 = mul nuw nsw i32 %.010211874, 15
+  %1993 = add nuw nsw i32 %1992, 1
+  %1994 = add i32 %1993, %.010221873
+  %1995 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %1991, ptr noundef %0, i32 noundef %1994, i32 noundef %.010211874, i32 noundef %1990, ptr noundef nonnull @.str.14, i32 noundef %1990) #13
+  br label %.thread2012
 
-1995:                                             ; preds = %1986
-  %1996 = add nsw i32 %.0103519241941, -187
-  %or.cond99 = icmp samesign ult i32 %1996, 64
-  br i1 %or.cond99, label %1997, label %.thread2013
+1996:                                             ; preds = %1987
+  %1997 = add nsw i32 %.0103519231940, -187
+  %or.cond99 = icmp samesign ult i32 %1997, 64
+  br i1 %or.cond99, label %1998, label %.thread2012
 
-1997:                                             ; preds = %1995
-  %1998 = shl nuw nsw i32 %.0103519241941, 1
-  %1999 = add nsw i32 %1998, -244
-  %2000 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %2001 = mul nuw nsw i32 %.010211875, 15
-  %2002 = add nuw nsw i32 %2001, 1
-  %2003 = add i32 %2002, %.010221874
-  %2004 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2000, ptr noundef %0, i32 noundef %2003, i32 noundef %.010211875, i32 noundef %1999, ptr noundef nonnull @.str.14, i32 noundef %1999) #13
-  br label %.thread2013
+1998:                                             ; preds = %1996
+  %1999 = shl nuw nsw i32 %.0103519231940, 1
+  %2000 = add nsw i32 %1999, -244
+  %2001 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %2002 = mul nuw nsw i32 %.010211874, 15
+  %2003 = add nuw nsw i32 %2002, 1
+  %2004 = add i32 %2003, %.010221873
+  %2005 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2001, ptr noundef %0, i32 noundef %2004, i32 noundef %.010211874, i32 noundef %2000, ptr noundef nonnull @.str.14, i32 noundef %2000) #13
+  br label %.thread2012
 
-.thread2013:                                      ; preds = %1978, %.thread2007, %1988, %1995, %1997, %.thread1997
-  br i1 %1749, label %2005, label %.thread2029
+.thread2012:                                      ; preds = %1979, %.thread2006, %1989, %1996, %1998, %.thread1996
+  br i1 %1750, label %2006, label %.thread2028
 
-2005:                                             ; preds = %.thread2013
-  %2006 = icmp eq i8 %.010361947.shrunk, 0
-  br i1 %2006, label %.thread2015, label %2011
+2006:                                             ; preds = %.thread2012
+  %2007 = icmp eq i8 %.010361946.shrunk, 0
+  br i1 %2007, label %.thread2014, label %2012
 
-.thread2015:                                      ; preds = %2005
-  %2007 = shl nuw nsw i32 %.010211875, 4
-  %2008 = or disjoint i32 %2007, 1
-  %2009 = add i32 %2008, %.010221874
-  %2010 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281872, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %2009, i32 noundef %.010211875, ptr noundef nonnull @.str.15) #13
-  br label %.thread2021
+.thread2014:                                      ; preds = %2006
+  %2008 = shl nuw nsw i32 %.010211874, 4
+  %2009 = or disjoint i32 %2008, 1
+  %2010 = add i32 %2009, %.010221873
+  %2011 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281871, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %2010, i32 noundef %.010211874, ptr noundef nonnull @.str.15) #13
+  br label %.thread2020
 
-2011:                                             ; preds = %2005
-  %or.cond102 = icmp ult i8 %.010361947.shrunk, 62
-  br i1 %or.cond102, label %2012, label %2020
+2012:                                             ; preds = %2006
+  %or.cond102 = icmp ult i8 %.010361946.shrunk, 62
+  br i1 %or.cond102, label %2013, label %2021
 
-2012:                                             ; preds = %2011
-  %2013 = shl nuw nsw i32 %.010361947, 2
-  %2014 = or disjoint i32 %2013, 256
-  %2015 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %2016 = mul nuw nsw i32 %.010211875, 14
-  %2017 = or disjoint i32 %2016, 1
-  %2018 = add i32 %2017, %.010221874
-  %2019 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2015, ptr noundef %0, i32 noundef %2018, i32 noundef %.010211875, i32 noundef %2014, ptr noundef nonnull @.str.16, i32 noundef %2014) #13
-  br label %.thread2021
+2013:                                             ; preds = %2012
+  %2014 = shl nuw nsw i32 %.010361946, 2
+  %2015 = or disjoint i32 %2014, 256
+  %2016 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %2017 = mul nuw nsw i32 %.010211874, 14
+  %2018 = or disjoint i32 %2017, 1
+  %2019 = add i32 %2018, %.010221873
+  %2020 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2016, ptr noundef %0, i32 noundef %2019, i32 noundef %.010211874, i32 noundef %2015, ptr noundef nonnull @.str.16, i32 noundef %2015) #13
+  br label %.thread2020
 
-2020:                                             ; preds = %2011
-  %2021 = add nsw i32 %.010361947, -62
-  %or.cond105 = icmp samesign ult i32 %2021, 100
-  br i1 %or.cond105, label %2022, label %2030
+2021:                                             ; preds = %2012
+  %2022 = add nsw i32 %.010361946, -62
+  %or.cond105 = icmp samesign ult i32 %2022, 100
+  br i1 %or.cond105, label %2023, label %2031
 
-2022:                                             ; preds = %2020
-  %2023 = mul nuw nsw i32 %.010361947, 10
-  %2024 = add nsw i32 %2023, -110
-  %2025 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %2026 = mul nuw nsw i32 %.010211875, 14
-  %2027 = or disjoint i32 %2026, 1
-  %2028 = add i32 %2027, %.010221874
-  %2029 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2025, ptr noundef %0, i32 noundef %2028, i32 noundef %.010211875, i32 noundef %2024, ptr noundef nonnull @.str.16, i32 noundef %2024) #13
-  br label %.thread2021
+2023:                                             ; preds = %2021
+  %2024 = mul nuw nsw i32 %.010361946, 10
+  %2025 = add nsw i32 %2024, -110
+  %2026 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %2027 = mul nuw nsw i32 %.010211874, 14
+  %2028 = or disjoint i32 %2027, 1
+  %2029 = add i32 %2028, %.010221873
+  %2030 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2026, ptr noundef %0, i32 noundef %2029, i32 noundef %.010211874, i32 noundef %2025, ptr noundef nonnull @.str.16, i32 noundef %2025) #13
+  br label %.thread2020
 
-2030:                                             ; preds = %2020
-  %2031 = add nsw i32 %.010361947, -162
-  %or.cond108 = icmp samesign ult i32 %2031, 85
-  br i1 %or.cond108, label %2032, label %.thread2021
+2031:                                             ; preds = %2021
+  %2032 = add nsw i32 %.010361946, -162
+  %or.cond108 = icmp samesign ult i32 %2032, 85
+  br i1 %or.cond108, label %2033, label %.thread2020
 
-2032:                                             ; preds = %2030
-  %2033 = mul nuw nsw i32 %.010361947, 10
-  %2034 = add nsw i32 %2033, -110
-  %2035 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %2036 = mul nuw nsw i32 %.010211875, 14
-  %2037 = or disjoint i32 %2036, 1
-  %2038 = add i32 %2037, %.010221874
-  %2039 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2035, ptr noundef %0, i32 noundef %2038, i32 noundef %.010211875, i32 noundef %2034, ptr noundef nonnull @.str.16, i32 noundef %2034) #13
-  br label %.thread2021
+2033:                                             ; preds = %2031
+  %2034 = mul nuw nsw i32 %.010361946, 10
+  %2035 = add nsw i32 %2034, -110
+  %2036 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %2037 = mul nuw nsw i32 %.010211874, 14
+  %2038 = or disjoint i32 %2037, 1
+  %2039 = add i32 %2038, %.010221873
+  %2040 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2036, ptr noundef %0, i32 noundef %2039, i32 noundef %.010211874, i32 noundef %2035, ptr noundef nonnull @.str.16, i32 noundef %2035) #13
+  br label %.thread2020
 
-.thread2021:                                      ; preds = %2012, %.thread2015, %2022, %2032, %2030
-  %2040 = icmp eq i8 %.010321948.shrunk, 0
-  br i1 %2040, label %.thread2023, label %2045
+.thread2020:                                      ; preds = %2013, %.thread2014, %2023, %2033, %2031
+  %2041 = icmp eq i8 %.010321947.shrunk, 0
+  br i1 %2041, label %.thread2022, label %2046
 
-.thread2023:                                      ; preds = %.thread2021
-  %2041 = mul nuw nsw i32 %.010211875, 15
-  %2042 = add nuw nsw i32 %2041, 1
-  %2043 = add i32 %2042, %.010221874
-  %2044 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281872, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %2043, i32 noundef %.010211875, ptr noundef nonnull @.str.17) #13
-  br label %.thread2029
+.thread2022:                                      ; preds = %.thread2020
+  %2042 = mul nuw nsw i32 %.010211874, 15
+  %2043 = add nuw nsw i32 %2042, 1
+  %2044 = add i32 %2043, %.010221873
+  %2045 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281871, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %2044, i32 noundef %.010211874, ptr noundef nonnull @.str.17) #13
+  br label %.thread2028
 
-2045:                                             ; preds = %.thread2021
-  %or.cond111 = icmp ult i8 %.010321948.shrunk, 62
-  br i1 %or.cond111, label %2046, label %2054
+2046:                                             ; preds = %.thread2020
+  %or.cond111 = icmp ult i8 %.010321947.shrunk, 62
+  br i1 %or.cond111, label %2047, label %2055
 
-2046:                                             ; preds = %2045
-  %2047 = shl nuw nsw i32 %.010321948, 2
-  %2048 = or disjoint i32 %2047, 256
-  %2049 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %2050 = mul nuw nsw i32 %.010211875, 15
-  %2051 = add nuw nsw i32 %2050, 1
-  %2052 = add i32 %2051, %.010221874
-  %2053 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2049, ptr noundef %0, i32 noundef %2052, i32 noundef %.010211875, i32 noundef %2048, ptr noundef nonnull @.str.18, i32 noundef %2048) #13
-  br label %.thread2029
+2047:                                             ; preds = %2046
+  %2048 = shl nuw nsw i32 %.010321947, 2
+  %2049 = or disjoint i32 %2048, 256
+  %2050 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %2051 = mul nuw nsw i32 %.010211874, 15
+  %2052 = add nuw nsw i32 %2051, 1
+  %2053 = add i32 %2052, %.010221873
+  %2054 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2050, ptr noundef %0, i32 noundef %2053, i32 noundef %.010211874, i32 noundef %2049, ptr noundef nonnull @.str.18, i32 noundef %2049) #13
+  br label %.thread2028
 
-2054:                                             ; preds = %2045
-  %2055 = add nsw i32 %.010321948, -62
-  %or.cond114 = icmp samesign ult i32 %2055, 100
-  br i1 %or.cond114, label %2056, label %2064
+2055:                                             ; preds = %2046
+  %2056 = add nsw i32 %.010321947, -62
+  %or.cond114 = icmp samesign ult i32 %2056, 100
+  br i1 %or.cond114, label %2057, label %2065
 
-2056:                                             ; preds = %2054
-  %2057 = mul nuw nsw i32 %.010321948, 10
-  %2058 = add nsw i32 %2057, -110
-  %2059 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %2060 = mul nuw nsw i32 %.010211875, 15
-  %2061 = add nuw nsw i32 %2060, 1
-  %2062 = add i32 %2061, %.010221874
-  %2063 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2059, ptr noundef %0, i32 noundef %2062, i32 noundef %.010211875, i32 noundef %2058, ptr noundef nonnull @.str.18, i32 noundef %2058) #13
-  br label %.thread2029
+2057:                                             ; preds = %2055
+  %2058 = mul nuw nsw i32 %.010321947, 10
+  %2059 = add nsw i32 %2058, -110
+  %2060 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %2061 = mul nuw nsw i32 %.010211874, 15
+  %2062 = add nuw nsw i32 %2061, 1
+  %2063 = add i32 %2062, %.010221873
+  %2064 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2060, ptr noundef %0, i32 noundef %2063, i32 noundef %.010211874, i32 noundef %2059, ptr noundef nonnull @.str.18, i32 noundef %2059) #13
+  br label %.thread2028
 
-2064:                                             ; preds = %2054
-  %2065 = add nsw i32 %.010321948, -187
-  %or.cond117 = icmp ult i32 %2065, 64
-  br i1 %or.cond117, label %2066, label %.thread2029
+2065:                                             ; preds = %2055
+  %2066 = add nsw i32 %.010321947, -187
+  %or.cond117 = icmp ult i32 %2066, 64
+  br i1 %or.cond117, label %2067, label %.thread2028
 
-2066:                                             ; preds = %2064
-  %2067 = mul nuw nsw i32 %.010321948, 10
-  %2068 = add nsw i32 %2067, -110
-  %2069 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %2070 = mul nuw nsw i32 %.010211875, 15
-  %2071 = add nuw nsw i32 %2070, 1
-  %2072 = add i32 %2071, %.010221874
-  %2073 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2069, ptr noundef %0, i32 noundef %2072, i32 noundef %.010211875, i32 noundef %2068, ptr noundef nonnull @.str.18, i32 noundef %2068) #13
-  br label %.thread2029
+2067:                                             ; preds = %2065
+  %2068 = mul nuw nsw i32 %.010321947, 10
+  %2069 = add nsw i32 %2068, -110
+  %2070 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %2071 = mul nuw nsw i32 %.010211874, 15
+  %2072 = add nuw nsw i32 %2071, 1
+  %2073 = add i32 %2072, %.010221873
+  %2074 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2070, ptr noundef %0, i32 noundef %2073, i32 noundef %.010211874, i32 noundef %2069, ptr noundef nonnull @.str.18, i32 noundef %2069) #13
+  br label %.thread2028
 
-.thread2029:                                      ; preds = %2046, %.thread2023, %2056, %2064, %2066, %.thread2013
-  br i1 %1746, label %2074, label %.thread2045
+.thread2028:                                      ; preds = %2047, %.thread2022, %2057, %2065, %2067, %.thread2012
+  br i1 %1747, label %2075, label %.thread2044
 
-2074:                                             ; preds = %.thread2029
-  %2075 = icmp eq i32 %.01027, 0
-  br i1 %2075, label %.thread2031, label %2080
+2075:                                             ; preds = %.thread2028
+  %2076 = icmp eq i32 %.01027, 0
+  br i1 %2076, label %.thread2030, label %2081
 
-.thread2031:                                      ; preds = %2074
-  %2076 = shl nuw nsw i32 %.010211875, 4
-  %2077 = or disjoint i32 %2076, 1
-  %2078 = add i32 %2077, %.010221874
-  %2079 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281872, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %2078, i32 noundef %.010211875, ptr noundef nonnull @.str.19) #13
-  br label %.thread2037
+.thread2030:                                      ; preds = %2075
+  %2077 = shl nuw nsw i32 %.010211874, 4
+  %2078 = or disjoint i32 %2077, 1
+  %2079 = add i32 %2078, %.010221873
+  %2080 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281871, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %2079, i32 noundef %.010211874, ptr noundef nonnull @.str.19) #13
+  br label %.thread2036
 
-2080:                                             ; preds = %2074
+2081:                                             ; preds = %2075
   %or.cond120 = icmp samesign ult i32 %.01027, 62
-  br i1 %or.cond120, label %2081, label %2089
+  br i1 %or.cond120, label %2082, label %2090
 
-2081:                                             ; preds = %2080
-  %2082 = shl nuw nsw i32 %.01027, 2
-  %2083 = or disjoint i32 %2082, 256
-  %2084 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %2085 = mul nuw nsw i32 %.010211875, 14
-  %2086 = or disjoint i32 %2085, 1
-  %2087 = add i32 %2086, %.010221874
-  %2088 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2084, ptr noundef %0, i32 noundef %2087, i32 noundef %.010211875, i32 noundef %2083, ptr noundef nonnull @.str.20, i32 noundef %2083) #13
-  br label %.thread2037
+2082:                                             ; preds = %2081
+  %2083 = shl nuw nsw i32 %.01027, 2
+  %2084 = or disjoint i32 %2083, 256
+  %2085 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %2086 = mul nuw nsw i32 %.010211874, 14
+  %2087 = or disjoint i32 %2086, 1
+  %2088 = add i32 %2087, %.010221873
+  %2089 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2085, ptr noundef %0, i32 noundef %2088, i32 noundef %.010211874, i32 noundef %2084, ptr noundef nonnull @.str.20, i32 noundef %2084) #13
+  br label %.thread2036
 
-2089:                                             ; preds = %2080
-  %2090 = add nsw i32 %.01027, -62
-  %or.cond123 = icmp samesign ult i32 %2090, 100
-  br i1 %or.cond123, label %2091, label %2099
+2090:                                             ; preds = %2081
+  %2091 = add nsw i32 %.01027, -62
+  %or.cond123 = icmp samesign ult i32 %2091, 100
+  br i1 %or.cond123, label %2092, label %2100
 
-2091:                                             ; preds = %2089
-  %2092 = mul nuw nsw i32 %.01027, 10
-  %2093 = add nsw i32 %2092, -110
-  %2094 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %2095 = mul nuw nsw i32 %.010211875, 14
-  %2096 = or disjoint i32 %2095, 1
-  %2097 = add i32 %2096, %.010221874
-  %2098 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2094, ptr noundef %0, i32 noundef %2097, i32 noundef %.010211875, i32 noundef %2093, ptr noundef nonnull @.str.20, i32 noundef %2093) #13
-  br label %.thread2037
+2092:                                             ; preds = %2090
+  %2093 = mul nuw nsw i32 %.01027, 10
+  %2094 = add nsw i32 %2093, -110
+  %2095 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %2096 = mul nuw nsw i32 %.010211874, 14
+  %2097 = or disjoint i32 %2096, 1
+  %2098 = add i32 %2097, %.010221873
+  %2099 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2095, ptr noundef %0, i32 noundef %2098, i32 noundef %.010211874, i32 noundef %2094, ptr noundef nonnull @.str.20, i32 noundef %2094) #13
+  br label %.thread2036
 
-2099:                                             ; preds = %2089
-  %2100 = add nsw i32 %.01027, -162
-  %or.cond126 = icmp samesign ult i32 %2100, 85
-  br i1 %or.cond126, label %2101, label %.thread2037
+2100:                                             ; preds = %2090
+  %2101 = add nsw i32 %.01027, -162
+  %or.cond126 = icmp samesign ult i32 %2101, 85
+  br i1 %or.cond126, label %2102, label %.thread2036
 
-2101:                                             ; preds = %2099
-  %2102 = mul nuw nsw i32 %.01027, 10
-  %2103 = add nsw i32 %2102, -110
-  %2104 = load i32, ptr @hf_gtp_qos_max_ul, align 4
-  %2105 = mul nuw nsw i32 %.010211875, 14
-  %2106 = or disjoint i32 %2105, 1
-  %2107 = add i32 %2106, %.010221874
-  %2108 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2104, ptr noundef %0, i32 noundef %2107, i32 noundef %.010211875, i32 noundef %2103, ptr noundef nonnull @.str.20, i32 noundef %2103) #13
-  br label %.thread2037
+2102:                                             ; preds = %2100
+  %2103 = mul nuw nsw i32 %.01027, 10
+  %2104 = add nsw i32 %2103, -110
+  %2105 = load i32, ptr @hf_gtp_qos_max_ul, align 4
+  %2106 = mul nuw nsw i32 %.010211874, 14
+  %2107 = or disjoint i32 %2106, 1
+  %2108 = add i32 %2107, %.010221873
+  %2109 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2105, ptr noundef %0, i32 noundef %2108, i32 noundef %.010211874, i32 noundef %2104, ptr noundef nonnull @.str.20, i32 noundef %2104) #13
+  br label %.thread2036
 
-.thread2037:                                      ; preds = %2081, %.thread2031, %2091, %2101, %2099
-  %2109 = icmp eq i32 %.01033, 0
-  br i1 %2109, label %.thread2039, label %2114
+.thread2036:                                      ; preds = %2082, %.thread2030, %2092, %2102, %2100
+  %2110 = icmp eq i32 %.01033, 0
+  br i1 %2110, label %.thread2038, label %2115
 
-.thread2039:                                      ; preds = %.thread2037
-  %2110 = mul nuw nsw i32 %.010211875, 15
-  %2111 = add nuw nsw i32 %2110, 1
-  %2112 = add i32 %2111, %.010221874
-  %2113 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281872, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %2112, i32 noundef %.010211875, ptr noundef nonnull @.str.21) #13
-  br label %.thread2045
+.thread2038:                                      ; preds = %.thread2036
+  %2111 = mul nuw nsw i32 %.010211874, 15
+  %2112 = add nuw nsw i32 %2111, 1
+  %2113 = add i32 %2112, %.010221873
+  %2114 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.010281871, ptr noundef %2, ptr noundef nonnull @ei_gtp_max_bit_rate_value, ptr noundef %0, i32 noundef %2113, i32 noundef %.010211874, ptr noundef nonnull @.str.21) #13
+  br label %.thread2044
 
-2114:                                             ; preds = %.thread2037
+2115:                                             ; preds = %.thread2036
   %or.cond129 = icmp samesign ult i32 %.01033, 62
-  br i1 %or.cond129, label %2115, label %2123
+  br i1 %or.cond129, label %2116, label %2124
 
-2115:                                             ; preds = %2114
-  %2116 = shl nuw nsw i32 %.01033, 2
-  %2117 = or disjoint i32 %2116, 256
-  %2118 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %2119 = mul nuw nsw i32 %.010211875, 15
-  %2120 = add nuw nsw i32 %2119, 1
-  %2121 = add i32 %2120, %.010221874
-  %2122 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2118, ptr noundef %0, i32 noundef %2121, i32 noundef %.010211875, i32 noundef %2117, ptr noundef nonnull @.str.22, i32 noundef %2117) #13
-  br label %.thread2045
+2116:                                             ; preds = %2115
+  %2117 = shl nuw nsw i32 %.01033, 2
+  %2118 = or disjoint i32 %2117, 256
+  %2119 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %2120 = mul nuw nsw i32 %.010211874, 15
+  %2121 = add nuw nsw i32 %2120, 1
+  %2122 = add i32 %2121, %.010221873
+  %2123 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2119, ptr noundef %0, i32 noundef %2122, i32 noundef %.010211874, i32 noundef %2118, ptr noundef nonnull @.str.22, i32 noundef %2118) #13
+  br label %.thread2044
 
-2123:                                             ; preds = %2114
-  %2124 = add nsw i32 %.01033, -62
-  %or.cond132 = icmp samesign ult i32 %2124, 100
-  br i1 %or.cond132, label %2125, label %2133
+2124:                                             ; preds = %2115
+  %2125 = add nsw i32 %.01033, -62
+  %or.cond132 = icmp samesign ult i32 %2125, 100
+  br i1 %or.cond132, label %2126, label %2134
 
-2125:                                             ; preds = %2123
-  %2126 = mul nuw nsw i32 %.01033, 10
-  %2127 = add nsw i32 %2126, -110
-  %2128 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %2129 = mul nuw nsw i32 %.010211875, 15
-  %2130 = add nuw nsw i32 %2129, 1
-  %2131 = add i32 %2130, %.010221874
-  %2132 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2128, ptr noundef %0, i32 noundef %2131, i32 noundef %.010211875, i32 noundef %2127, ptr noundef nonnull @.str.22, i32 noundef %2127) #13
-  br label %.thread2045
+2126:                                             ; preds = %2124
+  %2127 = mul nuw nsw i32 %.01033, 10
+  %2128 = add nsw i32 %2127, -110
+  %2129 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %2130 = mul nuw nsw i32 %.010211874, 15
+  %2131 = add nuw nsw i32 %2130, 1
+  %2132 = add i32 %2131, %.010221873
+  %2133 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2129, ptr noundef %0, i32 noundef %2132, i32 noundef %.010211874, i32 noundef %2128, ptr noundef nonnull @.str.22, i32 noundef %2128) #13
+  br label %.thread2044
 
-2133:                                             ; preds = %2123
-  %2134 = add nsw i32 %.01033, -187
-  %or.cond135 = icmp ult i32 %2134, 64
-  br i1 %or.cond135, label %2135, label %.thread2045
+2134:                                             ; preds = %2124
+  %2135 = add nsw i32 %.01033, -187
+  %or.cond135 = icmp ult i32 %2135, 64
+  br i1 %or.cond135, label %2136, label %.thread2044
 
-2135:                                             ; preds = %2133
-  %2136 = mul nuw nsw i32 %.01033, 10
-  %2137 = add nsw i32 %2136, -110
-  %2138 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
-  %2139 = mul nuw nsw i32 %.010211875, 15
-  %2140 = add nuw nsw i32 %2139, 1
-  %2141 = add i32 %2140, %.010221874
-  %2142 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281872, i32 noundef %2138, ptr noundef %0, i32 noundef %2141, i32 noundef %.010211875, i32 noundef %2137, ptr noundef nonnull @.str.22, i32 noundef %2137) #13
-  br label %.thread2045
+2136:                                             ; preds = %2134
+  %2137 = mul nuw nsw i32 %.01033, 10
+  %2138 = add nsw i32 %2137, -110
+  %2139 = load i32, ptr @hf_gtp_qos_guar_ul, align 4
+  %2140 = mul nuw nsw i32 %.010211874, 15
+  %2141 = add nuw nsw i32 %2140, 1
+  %2142 = add i32 %2141, %.010221873
+  %2143 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.010281871, i32 noundef %2139, ptr noundef %0, i32 noundef %2142, i32 noundef %.010211874, i32 noundef %2138, ptr noundef nonnull @.str.22, i32 noundef %2138) #13
+  br label %.thread2044
 
-.thread2045:                                      ; preds = %2115, %.thread2039, %2125, %1085, %2133, %2135, %.thread2029, %wrapped_tvb_get_guint8.exit1335, %wrapped_tvb_get_guint8.exit1431
-  %.01876 = phi i32 [ %.01877, %1085 ], [ %.01877, %2133 ], [ %.01877, %2135 ], [ %.01877, %.thread2029 ], [ %71, %wrapped_tvb_get_guint8.exit1335 ], [ %71, %wrapped_tvb_get_guint8.exit1431 ], [ %.01877, %2125 ], [ %.01877, %.thread2039 ], [ %.01877, %2115 ]
-  ret i32 %.01876
+.thread2044:                                      ; preds = %2116, %.thread2038, %2126, %1086, %2134, %2136, %.thread2028, %wrapped_tvb_get_guint8.exit1335, %wrapped_tvb_get_guint8.exit1431
+  %.01875 = phi i32 [ %.01876, %1086 ], [ %.01876, %2134 ], [ %.01876, %2136 ], [ %.01876, %.thread2028 ], [ %71, %wrapped_tvb_get_guint8.exit1335 ], [ %71, %wrapped_tvb_get_guint8.exit1431 ], [ %.01876, %2126 ], [ %.01876, %.thread2038 ], [ %.01876, %2116 ]
+  ret i32 %.01875
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #0

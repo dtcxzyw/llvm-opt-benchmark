@@ -117288,8 +117288,8 @@ define hidden noundef zeroext i1 @"_ZN7project14task_inventory9Inventory26remove
 .thread.i:                                        ; preds = %46
   %54 = getelementptr inbounds i8, ptr %6, i64 16
   %55 = load i8, ptr %54, align 8, !range !29574, !alias.scope !34176, !noalias !34173, !noundef !11
-  %or.cond54.i = icmp samesign ult i8 %55, 3
-  br i1 %or.cond54.i, label %42, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3b1665d911890dceE.exit.i"
+  %switch.i.i3453.i = icmp samesign ult i8 %55, 3
+  br i1 %switch.i.i3453.i, label %42, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3b1665d911890dceE.exit.i"
 
 ._crit_edge.i:                                    ; preds = %50
   br i1 %switch.i.i.i, label %42, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3b1665d911890dceE.exit.i"

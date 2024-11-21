@@ -19300,8 +19300,8 @@ sw.bb.i:                                          ; preds = %cond.true
   br i1 %cmp.i30, label %if.then.i31, label %if.end11.i
 
 if.then.i31:                                      ; preds = %sw.bb.i
-  %or.cond328 = icmp samesign ult i16 %2, 2
-  br i1 %or.cond328, label %if.end.i34, label %for.body.i.preheader
+  %cmp3.i.not = icmp samesign ult i16 %2, 2
+  br i1 %cmp3.i.not, label %if.end.i34, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then.i31
   %and.i = and i32 %3, 16777215
@@ -50817,8 +50817,8 @@ if.then.i39:                                      ; preds = %sw.bb.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %out.coerce, i64 noundef %add.i87)
   %call.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %out.coerce, i64 noundef 0)
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %call2.i
-  %or.cond249 = icmp samesign ult i16 %2, 2
-  br i1 %or.cond249, label %while.end.i.i, label %for.body.i.preheader
+  %cmp4.i.not = icmp samesign ult i16 %2, 2
+  br i1 %cmp4.i.not, label %while.end.i.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then.i39
   %and.i = and i32 %3, 16777215
@@ -54149,8 +54149,8 @@ if.then.i26.i:                                    ; preds = %sw.bb.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i347, i64 noundef %add.i)
   %call.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i347, i64 noundef 0)
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %call2.i
-  %or.cond1233 = icmp samesign ult i16 %7, 2
-  br i1 %or.cond1233, label %if.end.i29.i, label %for.body.i.i.preheader
+  %cmp4.i.i.not = icmp samesign ult i16 %7, 2
+  br i1 %cmp4.i.i.not, label %if.end.i29.i, label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %if.then.i26.i
   %and.i.i = and i32 %8, 16777215
@@ -54645,8 +54645,8 @@ if.then.i26.i303:                                 ; preds = %sw.bb.i.i294
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i, i64 noundef %add.i500)
   %call.i.i501 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i, i64 noundef 0)
   %add.ptr.i502 = getelementptr inbounds i8, ptr %call.i.i501, i64 %call2.i499
-  %or.cond1237 = icmp samesign ult i16 %50, 2
-  br i1 %or.cond1237, label %if.end.i29.i310, label %for.body.i.i318.preheader
+  %cmp4.i.i309.not = icmp samesign ult i16 %50, 2
+  br i1 %cmp4.i.i309.not, label %if.end.i29.i310, label %for.body.i.i318.preheader
 
 for.body.i.i318.preheader:                        ; preds = %if.then.i26.i303
   %and.i.i314 = and i32 %51, 16777215
@@ -55210,8 +55210,8 @@ if.then.i26.i572:                                 ; preds = %sw.bb.i.i563
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i690, i64 noundef %add.i710)
   %call.i.i711 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i690, i64 noundef 0)
   %add.ptr.i712 = getelementptr inbounds i8, ptr %call.i.i711, i64 %call2.i709
-  %or.cond1241 = icmp samesign ult i16 %118, 2
-  br i1 %or.cond1241, label %if.end.i29.i579, label %for.body.i.i587.preheader
+  %cmp4.i.i578.not = icmp samesign ult i16 %118, 2
+  br i1 %cmp4.i.i578.not, label %if.end.i29.i579, label %for.body.i.i587.preheader
 
 for.body.i.i587.preheader:                        ; preds = %if.then.i26.i572
   %and.i.i583 = and i32 %119, 16777215
@@ -55694,8 +55694,8 @@ if.then.i26.i841:                                 ; preds = %sw.bb.i.i832
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i901, i64 noundef %add.i921)
   %call.i.i922 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i901, i64 noundef 0)
   %add.ptr.i923 = getelementptr inbounds i8, ptr %call.i.i922, i64 %call2.i920
-  %or.cond1245 = icmp samesign ult i16 %152, 2
-  br i1 %or.cond1245, label %if.end.i29.i848, label %for.body.i.i856.preheader
+  %cmp4.i.i847.not = icmp samesign ult i16 %152, 2
+  br i1 %cmp4.i.i847.not, label %if.end.i29.i848, label %for.body.i.i856.preheader
 
 for.body.i.i856.preheader:                        ; preds = %if.then.i26.i841
   %and.i.i852 = and i32 %153, 16777215

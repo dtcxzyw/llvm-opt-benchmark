@@ -4908,7 +4908,7 @@ default.unreachable:                              ; preds = %5
   %.sroa.4.0.i.ph = phi i32 [ %53, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit13.i" ], [ %63, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit15.i" ], [ %74, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit17.i" ]
   %76 = icmp eq i32 %.sroa.4.0.i.ph, 1114112
   %77 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
-  %or.cond.i = select i1 %76, i1 true, i1 %77
+  %or.cond.i = or i1 %76, %77
   br i1 %or.cond.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6b513b0ea80d69a0E.exit", label %78
 
 78:                                               ; preds = %75

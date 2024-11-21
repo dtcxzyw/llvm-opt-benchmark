@@ -15109,8 +15109,8 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !2811, !noundef !5
-  %or.cond55 = icmp samesign ult i8 %38, 3
-  br i1 %or.cond55, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
+  %switch.i.i3454 = icmp samesign ult i8 %38, 3
+  br i1 %switch.i.i3454, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
@@ -25705,8 +25705,8 @@ default.unreachable:                              ; preds = %1428, %419, %281
 
 .thread.i.i.i:                                    ; preds = %354
   %359 = load i8, ptr %323, align 8, !range !2811, !alias.scope !4617, !noalias !4620, !noundef !5
-  %or.cond55.i.i.i = icmp samesign ult i8 %359, 3
-  br i1 %or.cond55.i.i.i, label %.thread21.thread.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i.i"
+  %switch.i.i3454.i.i.i = icmp samesign ult i8 %359, 3
+  br i1 %switch.i.i3454.i.i.i, label %.thread21.thread.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i.i"
 
 .thread21.thread.i.i:                             ; preds = %.thread.i.i.i
   %360 = load i8, ptr %324, align 2, !range !9, !alias.scope !4614, !noalias !4619, !noundef !5
@@ -26091,8 +26091,8 @@ default.unreachable:                              ; preds = %1428, %419, %281
 
 .thread.i.i306.i:                                 ; preds = %462
   %467 = load i8, ptr %263, align 8, !range !2811, !alias.scope !4689, !noalias !4692, !noundef !5
-  %or.cond55.i.i307.i = icmp samesign ult i8 %467, 3
-  br i1 %or.cond55.i.i307.i, label %.thread21.thread.i308.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i302.i"
+  %switch.i.i3454.i.i307.i = icmp samesign ult i8 %467, 3
+  br i1 %switch.i.i3454.i.i307.i, label %.thread21.thread.i308.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i302.i"
 
 .thread21.thread.i308.i:                          ; preds = %.thread.i.i306.i
   %468 = load i8, ptr %264, align 2, !range !9, !alias.scope !4686, !noalias !4691, !noundef !5
@@ -28202,8 +28202,8 @@ _ZN13outline_panel10FsChildren16may_be_fold_part17h58ed0e989d9ae85cE.exit.i: ; p
 
 .thread.i.i505.i:                                 ; preds = %1276
   %1281 = load i8, ptr %170, align 8, !range !2811, !alias.scope !5152, !noalias !5155, !noundef !5
-  %or.cond55.i.i506.i = icmp samesign ult i8 %1281, 3
-  br i1 %or.cond55.i.i506.i, label %.thread21.thread.i507.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i501.i"
+  %switch.i.i3454.i.i506.i = icmp samesign ult i8 %1281, 3
+  br i1 %switch.i.i3454.i.i506.i, label %.thread21.thread.i507.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i501.i"
 
 .thread21.thread.i507.i:                          ; preds = %.thread.i.i505.i
   %1282 = load i8, ptr %171, align 2, !range !9, !alias.scope !5149, !noalias !5154, !noundef !5

@@ -37051,7 +37051,7 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..option..Opti
   %3 = icmp eq i64 %2, -9223372036854775808
   br i1 %3, label %"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit", label %4
 
-"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit": ; preds = %16, %13, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit.i", %1
+"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit": ; preds = %17, %13, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit.i", %1
   ret void
 
 4:                                                ; preds = %1
@@ -37080,11 +37080,11 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..option..Opti
   %15 = icmp ugt i8 %14, 22
   %cond1.i.i.i = icmp eq i8 %14, 7
   %cond.i.i.i = or i1 %15, %cond1.i.i.i
-  %or.cond.i.i.i.i = icmp samesign ult i8 %11, 39
-  %or.cond.i.i.i = select i1 %cond.i.i.i, i1 %or.cond.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %16, label %"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit"
+  %16 = icmp samesign ult i8 %11, 39
+  %or.cond.i.i.i = select i1 %cond.i.i.i, i1 %16, i1 false
+  br i1 %or.cond.i.i.i, label %17, label %"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit"
 
-16:                                               ; preds = %13
+17:                                               ; preds = %13
   tail call fastcc void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10)
   br label %"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit"
 }
@@ -48989,7 +48989,7 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Optio
   %3 = icmp eq i8 %2, 65
   br i1 %3, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit", label %4
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit": ; preds = %7, %4, %1
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit": ; preds = %8, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -48997,11 +48997,11 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Optio
   %6 = icmp ugt i8 %5, 22
   %cond1.i = icmp eq i8 %5, 7
   %cond.i = or i1 %6, %cond1.i
-  %or.cond.i.i = icmp samesign ult i8 %2, 39
-  %or.cond.i = select i1 %cond.i, i1 %or.cond.i.i, i1 false
-  br i1 %or.cond.i, label %7, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit"
+  %7 = icmp samesign ult i8 %2, 39
+  %or.cond.i = select i1 %cond.i, i1 %7, i1 false
+  br i1 %or.cond.i, label %8, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit"
 
-7:                                                ; preds = %4
+8:                                                ; preds = %4
   tail call fastcc void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
   br label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit"
 }

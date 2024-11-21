@@ -17052,8 +17052,8 @@ define internal void @"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$c
 ; Function Attrs: nonlazybind uwtable
 define internal void @"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E"(ptr noalias noundef align 8 dereferenceable(112) %0) unnamed_addr #7 {
   %2 = load i64, ptr %0, align 8, !range !650, !noundef !4
-  %or.cond = icmp samesign ult i64 %2, 2
-  br i1 %or.cond, label %3, label %"_ZN4core3ptr120drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h176de8cd111f0171E.exit"
+  %switch.not.i = icmp samesign ult i64 %2, 2
+  br i1 %switch.not.i, label %3, label %"_ZN4core3ptr120drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h176de8cd111f0171E.exit"
 
 "_ZN4core3ptr120drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h176de8cd111f0171E.exit": ; preds = %3, %1
   ret void

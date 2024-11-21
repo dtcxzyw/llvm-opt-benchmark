@@ -19791,8 +19791,8 @@ define internal void @"_ZN4core3ptr145drop_in_place$LT$$RF$core..option..Option$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !4753, !noundef !12
-  %or.cond = icmp samesign ult i64 %2, 2
-  br i1 %or.cond, label %3, label %"_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.llvm.11057974413330164255.exit"
+  %switch.not.i = icmp samesign ult i64 %2, 2
+  br i1 %switch.not.i, label %3, label %"_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.llvm.11057974413330164255.exit"
 
 "_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.llvm.11057974413330164255.exit": ; preds = %3, %1
   ret void
@@ -28574,8 +28574,8 @@ default.unreachable:                              ; preds = %3
 
 107:                                              ; preds = %51
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !6873
-  %or.cond.i.i = icmp samesign ult i32 %46, 3
-  br i1 %or.cond.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_inner17h18a137d93ea12ea6E.exit"
+  %switch.i.i.i.i.i = icmp samesign ult i32 %46, 3
+  br i1 %switch.i.i.i.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_inner17h18a137d93ea12ea6E.exit"
 
 .sink.split.i.i.i.i.i:                            ; preds = %107
   %108 = getelementptr inbounds i8, ptr %6, i64 16
@@ -28585,8 +28585,8 @@ default.unreachable:                              ; preds = %3
 109:                                              ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit"
   %110 = landingpad { ptr, i32 }
           cleanup
-  %or.cond.i14.i = icmp samesign ult i32 %46, 3
-  br i1 %or.cond.i14.i, label %.sink.split.i.i.i.i15.i, label %.body
+  %switch.i.i.i.i14.i = icmp samesign ult i32 %46, 3
+  br i1 %switch.i.i.i.i14.i, label %.sink.split.i.i.i.i15.i, label %.body
 
 .sink.split.i.i.i.i15.i:                          ; preds = %109
   %111 = getelementptr inbounds i8, ptr %6, i64 16
@@ -127132,8 +127132,8 @@ define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..Eq
 define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$15with_supplement17hdb07ec60043c9da9E"(ptr noalias nocapture noundef writeonly sret({ { i64, [3 x i64] }, { [32 x i8], i8, [7 x i8] }, { { { { ptr, ptr } }, {}, {} }, i64 }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(104) %0, ptr noalias nocapture noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30553)
   %4 = load i64, ptr %1, align 8, !range !4753, !alias.scope !30556, !noalias !30553, !noundef !12
-  %or.cond.i.i = icmp samesign ult i64 %4, 2
-  br i1 %or.cond.i.i, label %5, label %7
+  %switch.not.i.i.i = icmp samesign ult i64 %4, 2
+  br i1 %switch.not.i.i.i, label %5, label %7
 
 5:                                                ; preds = %3
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
@@ -127246,8 +127246,8 @@ define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..Eq
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$15push_supplement17h7c90409126c90ffeE"(ptr noalias noundef align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4753, !alias.scope !30581, !noundef !12
-  %or.cond.i = icmp samesign ult i64 %3, 2
-  br i1 %or.cond.i, label %4, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %switch.not.i.i = icmp samesign ult i64 %3, 2
+  br i1 %switch.not.i.i, label %4, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 4:                                                ; preds = %2
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
@@ -129878,8 +129878,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !31585
   %77 = load i64, ptr %0, align 8, !range !4753, !alias.scope !31636, !noundef !12
-  %or.cond.i = icmp samesign ult i64 %77, 2
-  br i1 %or.cond.i, label %78, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %switch.not.i.i = icmp samesign ult i64 %77, 2
+  br i1 %switch.not.i.i, label %78, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 78:                                               ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
@@ -130768,8 +130768,8 @@ define void @"_ZN5typst4math8equation1_104_$LT$impl$u20$typst..foundations..elem
   %80 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink.i, ptr %80, align 8
   store ptr null, ptr %0, align 8
-  %or.cond.i = icmp samesign ult i64 %78, 2
-  br i1 %or.cond.i, label %81, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %switch.not.i.i = icmp samesign ult i64 %78, 2
+  br i1 %switch.not.i.i, label %81, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 81:                                               ; preds = %77
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
@@ -130786,8 +130786,8 @@ define void @"_ZN5typst4math8equation1_104_$LT$impl$u20$typst..foundations..elem
 .body.thread:                                     ; preds = %62, %.body.thread118
   %eh.lpad-body117 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread118 ], [ %63, %62 ]
   %83 = load i64, ptr %10, align 8, !range !4753, !alias.scope !31753, !noundef !12
-  %or.cond.i86 = icmp samesign ult i64 %83, 2
-  br i1 %or.cond.i86, label %84, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit88.thread"
+  %switch.not.i.i86 = icmp samesign ult i64 %83, 2
+  br i1 %switch.not.i.i86, label %84, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit88.thread"
 
 84:                                               ; preds = %.body.thread
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
@@ -137659,8 +137659,8 @@ define void @"_ZN5typst5model6figure1_50_$LT$impl$u20$typst..model..figure..Figu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34031)
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 16, !range !4753, !alias.scope !34034, !noalias !34031, !noundef !12
-  %or.cond.i.i = icmp samesign ult i64 %5, 2
-  br i1 %or.cond.i.i, label %6, label %8
+  %switch.not.i.i.i = icmp samesign ult i64 %5, 2
+  br i1 %switch.not.i.i.i, label %6, label %8
 
 6:                                                ; preds = %3
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
@@ -137913,8 +137913,8 @@ define void @"_ZN5typst5model6figure1_50_$LT$impl$u20$typst..model..figure..Figu
 define void @"_ZN5typst5model6figure1_50_$LT$impl$u20$typst..model..figure..FigureElem$GT$15push_supplement17h5651e4e5fee0fd68E"(ptr noalias noundef align 16 dereferenceable(256) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 16, !range !4753, !alias.scope !34110, !noundef !12
-  %or.cond.i = icmp samesign ult i64 %4, 2
-  br i1 %or.cond.i, label %5, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %switch.not.i.i = icmp samesign ult i64 %4, 2
+  br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 5:                                                ; preds = %2
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
@@ -141781,8 +141781,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6), !noalias !35724
   %121 = load i64, ptr %101, align 16, !range !4753, !alias.scope !35775, !noundef !12
-  %or.cond.i = icmp samesign ult i64 %121, 2
-  br i1 %or.cond.i, label %122, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %switch.not.i.i = icmp samesign ult i64 %121, 2
+  br i1 %switch.not.i.i, label %122, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 122:                                              ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %101)
@@ -143428,8 +143428,8 @@ common.resume:                                    ; preds = %.thread234, %31
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit": ; preds = %123, %127, %97
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   %128 = load i64, ptr %14, align 8, !range !4753, !alias.scope !36078, !noundef !12
-  %or.cond.i = icmp samesign ult i64 %128, 2
-  br i1 %or.cond.i, label %129, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %switch.not.i.i = icmp samesign ult i64 %128, 2
+  br i1 %switch.not.i.i, label %129, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 129:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit"
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
@@ -143474,8 +143474,8 @@ common.resume:                                    ; preds = %.thread234, %31
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit166.thread": ; preds = %130, %132, %.thread212
   %.pn216 = phi { ptr, i32 } [ %88, %.thread212 ], [ %lpad.thr_comm, %132 ], [ %lpad.thr_comm, %130 ]
   %142 = load i64, ptr %14, align 8, !range !4753, !alias.scope !36092, !noundef !12
-  %or.cond.i168 = icmp samesign ult i64 %142, 2
-  br i1 %or.cond.i168, label %143, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit170.thread"
+  %switch.not.i.i168 = icmp samesign ult i64 %142, 2
+  br i1 %switch.not.i.i168, label %143, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit170.thread"
 
 143:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit166.thread"
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
@@ -154155,8 +154155,8 @@ define void @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..He
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39015)
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8, !range !4753, !alias.scope !39018, !noalias !39015, !noundef !12
-  %or.cond.i.i = icmp samesign ult i64 %5, 2
-  br i1 %or.cond.i.i, label %6, label %8
+  %switch.not.i.i.i = icmp samesign ult i64 %5, 2
+  br i1 %switch.not.i.i.i, label %6, label %8
 
 6:                                                ; preds = %3
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
@@ -154296,8 +154296,8 @@ define void @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..He
 define void @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$15push_supplement17h4eb11515de8b3ef5E"(ptr noalias noundef align 8 dereferenceable(144) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !range !4753, !alias.scope !39049, !noundef !12
-  %or.cond.i = icmp samesign ult i64 %4, 2
-  br i1 %or.cond.i, label %5, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %switch.not.i.i = icmp samesign ult i64 %4, 2
+  br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 5:                                                ; preds = %2
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
@@ -157086,8 +157086,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6), !noalias !40262
   %94 = load i64, ptr %74, align 8, !range !4753, !alias.scope !40313, !noundef !12
-  %or.cond.i = icmp samesign ult i64 %94, 2
-  br i1 %or.cond.i, label %95, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %switch.not.i.i = icmp samesign ult i64 %94, 2
+  br i1 %switch.not.i.i, label %95, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 95:                                               ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %74)
@@ -158220,8 +158220,8 @@ define void @"_ZN5typst5model7heading1_103_$LT$impl$u20$typst..foundations..elem
   store i64 %.sink, ptr %98, align 8
   store ptr null, ptr %0, align 8
   %99 = load i64, ptr %10, align 8, !range !4753, !alias.scope !40527, !noundef !12
-  %or.cond.i = icmp samesign ult i64 %99, 2
-  br i1 %or.cond.i, label %100, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %switch.not.i.i = icmp samesign ult i64 %99, 2
+  br i1 %switch.not.i.i, label %100, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 100:                                              ; preds = %96
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
@@ -158242,8 +158242,8 @@ define void @"_ZN5typst5model7heading1_103_$LT$impl$u20$typst..foundations..elem
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %104 = load i64, ptr %10, align 8, !range !4753, !alias.scope !40533, !noundef !12
-  %or.cond.i113 = icmp samesign ult i64 %104, 2
-  br i1 %or.cond.i113, label %105, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit115.thread"
+  %switch.not.i.i113 = icmp samesign ult i64 %104, 2
+  br i1 %switch.not.i.i113, label %105, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit115.thread"
 
 105:                                              ; preds = %103
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)

@@ -26014,11 +26014,11 @@ _ZN4gpui3app10entity_map9EntityMap4read17hd19a981438eb315dE.exit.i: ; preds = %.
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %.noexc7.i
-  %switch.i.i = icmp samesign ugt i32 %45, 1
+  %switch2.i.i = icmp samesign ugt i32 %45, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !6905
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !6905
   store i64 -9223372036854775808, ptr %4, align 8, !noalias !6905
-  invoke void @_ZN8language6buffer6Buffer5build17h527eff2009e40937E(ptr noalias nocapture noundef nonnull sret([1056 x i8]) align 8 dereferenceable(1056) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(360) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noundef null, ptr undef, i1 noundef zeroext %switch.i.i)
+  invoke void @_ZN8language6buffer6Buffer5build17h527eff2009e40937E(ptr noalias nocapture noundef nonnull sret([1056 x i8]) align 8 dereferenceable(1056) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(360) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noundef null, ptr undef, i1 noundef zeroext %switch2.i.i)
           to label %65 unwind label %56
 
 53:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17hd19a981438eb315dE.exit.i, %38, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc5f7196570a4b9b7E.exit.i.i", %27, %.noexc.i, %19

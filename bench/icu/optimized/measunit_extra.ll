@@ -3359,8 +3359,8 @@ while.body.i:                                     ; preds = %_ZN6icu_7512_GLOBAL
   br i1 %cmp.i102.i, label %sw.bb55.i, label %if.end.i103.i
 
 if.end.i103.i:                                    ; preds = %while.body.i
-  %or.cond163.i = icmp samesign ult i32 %token.sroa.0.1.i, 256
-  br i1 %or.cond163.i, label %nrvo.skipdtor.sink.split, label %if.end9.i107.i
+  %cmp7.i106.i = icmp samesign ult i32 %token.sroa.0.1.i, 256
+  br i1 %cmp7.i106.i, label %nrvo.skipdtor.sink.split, label %if.end9.i107.i
 
 if.end9.i107.i:                                   ; preds = %if.end.i103.i
   %cmp11.i108.i = icmp samesign ult i32 %token.sroa.0.1.i, 512

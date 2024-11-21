@@ -8281,8 +8281,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hfa35faf444da5e76E.exit: ; preds = %.no
 
 .thread.i.i:                                      ; preds = %446
   %451 = load i8, ptr %394, align 8, !range !1617, !alias.scope !1613, !noalias !1616, !noundef !5
-  %or.cond54.i.i = icmp samesign ult i8 %451, 3
-  br i1 %or.cond54.i.i, label %.thread264.thread, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hec1f3f7d0c6c346fE.exit.i.i"
+  %switch.i.i3453.i.i = icmp samesign ult i8 %451, 3
+  br i1 %switch.i.i3453.i.i, label %.thread264.thread, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hec1f3f7d0c6c346fE.exit.i.i"
 
 .thread264.thread:                                ; preds = %.thread.i.i
   %452 = load i8, ptr %395, align 2, !range !12, !alias.scope !1610, !noalias !1615, !noundef !5

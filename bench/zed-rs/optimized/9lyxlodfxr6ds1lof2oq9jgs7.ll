@@ -4773,8 +4773,8 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$
 .thread.i.i:                                      ; preds = %33
   %41 = getelementptr inbounds i8, ptr %4, i64 16
   %42 = load i8, ptr %41, align 8, !range !1214, !alias.scope !1209, !noalias !1213, !noundef !4
-  %or.cond54.i.i = icmp samesign ult i8 %42, 3
-  br i1 %or.cond54.i.i, label %29, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i.i"
+  %switch.i.i3453.i.i = icmp samesign ult i8 %42, 3
+  br i1 %switch.i.i3453.i.i, label %29, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %37
   br i1 %switch.i.i.i.i, label %29, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i.i"

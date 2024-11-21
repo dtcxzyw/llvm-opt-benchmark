@@ -275544,10 +275544,9 @@ sqlite3WhereExprListUsage.exit70:                 ; preds = %sqlite3WhereExprUsa
 define internal fastcc range(i32 0, 2) i32 @exprMightBeIndexed(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = load i8, ptr %2, align 8
   %6 = icmp eq i8 %5, -79
-  %7 = icmp samesign ugt i32 %3, 53
-  %or.cond = select i1 %6, i1 %7, i1 false
-  %8 = icmp samesign ult i32 %3, 58
-  %or.cond3 = select i1 %or.cond, i1 %8, i1 false
+  %7 = add nsw i32 %3, -54
+  %8 = icmp ult i32 %7, 4
+  %or.cond3 = select i1 %6, i1 %8, i1 false
   br i1 %or.cond3, label %9, label %14
 
 9:                                                ; preds = %4
@@ -275555,11 +275554,11 @@ define internal fastcc range(i32 0, 2) i32 @exprMightBeIndexed(ptr nocapture nou
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %.pre = load i8, ptr %13, align 8
+  %.pr = load i8, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %9, %4
-  %15 = phi i8 [ %.pre, %9 ], [ %5, %4 ]
+  %15 = phi i8 [ %.pr, %9 ], [ %5, %4 ]
   %.026 = phi ptr [ %13, %9 ], [ %2, %4 ]
   %16 = icmp eq i8 %15, -89
   br i1 %16, label %20, label %.preheader
@@ -275718,11 +275717,11 @@ sqlite3ExprCompareSkip.exit.i:                    ; preds = %67, %.lr.ph.i3.i.i,
   br i1 %.not.i, label %._crit_edge.split.i.loopexit, label %.lr.ph34.i, !llvm.loop !1112
 
 ._crit_edge.split.i.loopexit:                     ; preds = %.loopexit.i
-  %.pre42 = load i32, ptr %0, align 8
+  %.pre = load i32, ptr %0, align 8
   br label %._crit_edge.split.i
 
 ._crit_edge.split.i:                              ; preds = %._crit_edge.split.i.loopexit, %.split36.i
-  %79 = phi i32 [ %.pre42, %._crit_edge.split.i.loopexit ], [ %37, %.split36.i ]
+  %79 = phi i32 [ %.pre, %._crit_edge.split.i.loopexit ], [ %37, %.split36.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next47.i, %80

@@ -136068,8 +136068,8 @@ define void @"_ZN5typst9visualize5shape1_54_$LT$impl$u20$typst..visualize..shape
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33206)
   %4 = getelementptr inbounds i8, ptr %1, i64 352
   %5 = load i64, ptr %4, align 8, !range !9730, !alias.scope !33209, !noalias !33206, !noundef !4
-  %or.cond.i.i = icmp samesign ult i64 %5, 2
-  br i1 %or.cond.i.i, label %6, label %8
+  %switch.not.i.i.i = icmp samesign ult i64 %5, 2
+  br i1 %switch.not.i.i.i, label %6, label %8
 
 6:                                                ; preds = %3
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %4)
@@ -136208,8 +136208,8 @@ define void @"_ZN5typst9visualize5shape1_54_$LT$impl$u20$typst..visualize..shape
 define void @"_ZN5typst9visualize5shape1_54_$LT$impl$u20$typst..visualize..shape..EllipseElem$GT$11push_stroke17h0ced5924faaea74bE"(ptr noalias noundef align 8 dereferenceable(488) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   %4 = load i64, ptr %3, align 8, !range !9730, !alias.scope !33246, !noundef !4
-  %or.cond.i = icmp samesign ult i64 %4, 2
-  br i1 %or.cond.i, label %5, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
+  %switch.not.i.i = icmp samesign ult i64 %4, 2
+  br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
 
 5:                                                ; preds = %2
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %3)
@@ -139764,8 +139764,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h08e11b7d821999baE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %11), !noalias !34718
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %93 = load i64, ptr %90, align 8, !range !9730, !alias.scope !34724, !noundef !4
-  %or.cond.i = icmp samesign ult i64 %93, 2
-  br i1 %or.cond.i, label %94, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
+  %switch.not.i.i = icmp samesign ult i64 %93, 2
+  br i1 %switch.not.i.i, label %94, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
 
 94:                                               ; preds = %89
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %90)
@@ -141572,8 +141572,8 @@ define void @"_ZN5typst9visualize5shape1_105_$LT$impl$u20$typst..foundations..el
   store i64 %.sink, ptr %93, align 8
   store ptr null, ptr %0, align 8
   %94 = load i64, ptr %10, align 8, !range !9730, !alias.scope !35158, !noundef !4
-  %or.cond.i = icmp samesign ult i64 %94, 2
-  br i1 %or.cond.i, label %95, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
+  %switch.not.i.i = icmp samesign ult i64 %94, 2
+  br i1 %switch.not.i.i, label %95, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
 
 95:                                               ; preds = %91
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %10)
@@ -141594,8 +141594,8 @@ define void @"_ZN5typst9visualize5shape1_105_$LT$impl$u20$typst..foundations..el
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %99 = load i64, ptr %10, align 8, !range !9730, !alias.scope !35164, !noundef !4
-  %or.cond.i163 = icmp samesign ult i64 %99, 2
-  br i1 %or.cond.i163, label %100, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit165.thread"
+  %switch.not.i.i163 = icmp samesign ult i64 %99, 2
+  br i1 %switch.not.i.i163, label %100, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit165.thread"
 
 100:                                              ; preds = %98
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %10)
@@ -143060,8 +143060,8 @@ define void @"_ZN5typst9visualize5shape1_53_$LT$impl$u20$typst..visualize..shape
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35431)
   %4 = getelementptr inbounds i8, ptr %1, i64 352
   %5 = load i64, ptr %4, align 8, !range !9730, !alias.scope !35434, !noalias !35431, !noundef !4
-  %or.cond.i.i = icmp samesign ult i64 %5, 2
-  br i1 %or.cond.i.i, label %6, label %8
+  %switch.not.i.i.i = icmp samesign ult i64 %5, 2
+  br i1 %switch.not.i.i.i, label %6, label %8
 
 6:                                                ; preds = %3
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %4)
@@ -143200,8 +143200,8 @@ define void @"_ZN5typst9visualize5shape1_53_$LT$impl$u20$typst..visualize..shape
 define void @"_ZN5typst9visualize5shape1_53_$LT$impl$u20$typst..visualize..shape..CircleElem$GT$11push_stroke17h2c9f4f6dde120a7dE"(ptr noalias noundef align 8 dereferenceable(488) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   %4 = load i64, ptr %3, align 8, !range !9730, !alias.scope !35471, !noundef !4
-  %or.cond.i = icmp samesign ult i64 %4, 2
-  br i1 %or.cond.i, label %5, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
+  %switch.not.i.i = icmp samesign ult i64 %4, 2
+  br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
 
 5:                                                ; preds = %2
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %3)
@@ -146756,8 +146756,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h08e11b7d821999baE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %11), !noalias !36943
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %93 = load i64, ptr %90, align 8, !range !9730, !alias.scope !36949, !noundef !4
-  %or.cond.i = icmp samesign ult i64 %93, 2
-  br i1 %or.cond.i, label %94, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
+  %switch.not.i.i = icmp samesign ult i64 %93, 2
+  br i1 %switch.not.i.i, label %94, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
 
 94:                                               ; preds = %89
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %90)
@@ -148617,8 +148617,8 @@ define void @"_ZN5typst9visualize5shape1_104_$LT$impl$u20$typst..foundations..el
   store i64 %.sink, ptr %114, align 8
   store ptr null, ptr %0, align 8
   %115 = load i64, ptr %10, align 8, !range !9730, !alias.scope !37383, !noundef !4
-  %or.cond.i = icmp samesign ult i64 %115, 2
-  br i1 %or.cond.i, label %116, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
+  %switch.not.i.i = icmp samesign ult i64 %115, 2
+  br i1 %switch.not.i.i, label %116, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
 
 116:                                              ; preds = %112
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %10)
@@ -148639,8 +148639,8 @@ define void @"_ZN5typst9visualize5shape1_104_$LT$impl$u20$typst..foundations..el
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %120 = load i64, ptr %10, align 8, !range !9730, !alias.scope !37389, !noundef !4
-  %or.cond.i197 = icmp samesign ult i64 %120, 2
-  br i1 %or.cond.i197, label %121, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit199.thread"
+  %switch.not.i.i197 = icmp samesign ult i64 %120, 2
+  br i1 %switch.not.i.i197, label %121, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit199.thread"
 
 121:                                              ; preds = %119
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %10)

@@ -135220,8 +135220,8 @@ thread-pre-split:                                 ; preds = %67, %"_ZN4core3ptr1
   %291 = landingpad { ptr, i32 }
           cleanup
   %292 = load i64, ptr %35, align 8, !range !2224, !alias.scope !33362, !noundef !9
-  %or.cond.i.i = icmp samesign ult i64 %292, 2
-  br i1 %or.cond.i.i, label %293, label %.body77
+  %switch.not.i.i.i = icmp samesign ult i64 %292, 2
+  br i1 %switch.not.i.i.i, label %293, label %.body77
 
 293:                                              ; preds = %290
   invoke void @"_ZN4core3ptr43drop_in_place$LT$git..blame..BlameEntry$GT$17h8f9a5d3789e1ab70E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %35)
@@ -135229,8 +135229,8 @@ thread-pre-split:                                 ; preds = %67, %"_ZN4core3ptr1
 
 "_ZN4core3ptr329drop_in_place$LT$core..iter..adapters..fuse..Fuse$LT$core..iter..adapters..flatten..FlatMap$LT$alloc..vec..into_iter..IntoIter$LT$git..blame..BlameEntry$GT$$C$smallvec..SmallVec$LT$$u5b$editor..git..blame..GitBlameEntry$u3b$$u20$2$u5d$$GT$$C$editor..git..blame..build_blame_entry_sum_tree..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hcb59436af5d6f6c5E.llvm.17862517299867782409.exit.i": ; preds = %289, %"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$sum_tree..Node$LT$editor..git..blame..GitBlameEntry$GT$$GT$$GT$17hd142476b5a946914E.exit"
   %294 = load i64, ptr %35, align 8, !range !2224, !alias.scope !33365, !noundef !9
-  %or.cond.i2.i = icmp samesign ult i64 %294, 2
-  br i1 %or.cond.i2.i, label %295, label %"_ZN4core3ptr377drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..fuse..Fuse$LT$core..iter..adapters..flatten..FlatMap$LT$alloc..vec..into_iter..IntoIter$LT$git..blame..BlameEntry$GT$$C$smallvec..SmallVec$LT$$u5b$editor..git..blame..GitBlameEntry$u3b$$u20$2$u5d$$GT$$C$editor..git..blame..build_blame_entry_sum_tree..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha29952cc1b300453E.exit"
+  %switch.not.i.i2.i = icmp samesign ult i64 %294, 2
+  br i1 %switch.not.i.i2.i, label %295, label %"_ZN4core3ptr377drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..fuse..Fuse$LT$core..iter..adapters..flatten..FlatMap$LT$alloc..vec..into_iter..IntoIter$LT$git..blame..BlameEntry$GT$$C$smallvec..SmallVec$LT$$u5b$editor..git..blame..GitBlameEntry$u3b$$u20$2$u5d$$GT$$C$editor..git..blame..build_blame_entry_sum_tree..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha29952cc1b300453E.exit"
 
 295:                                              ; preds = %"_ZN4core3ptr329drop_in_place$LT$core..iter..adapters..fuse..Fuse$LT$core..iter..adapters..flatten..FlatMap$LT$alloc..vec..into_iter..IntoIter$LT$git..blame..BlameEntry$GT$$C$smallvec..SmallVec$LT$$u5b$editor..git..blame..GitBlameEntry$u3b$$u20$2$u5d$$GT$$C$editor..git..blame..build_blame_entry_sum_tree..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hcb59436af5d6f6c5E.llvm.17862517299867782409.exit.i"
   invoke void @"_ZN4core3ptr43drop_in_place$LT$git..blame..BlameEntry$GT$17h8f9a5d3789e1ab70E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %35)

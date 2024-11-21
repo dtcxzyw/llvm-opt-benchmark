@@ -211,10 +211,9 @@ lor.lhs.false94:                                  ; preds = %if.then69
   %or86 = or disjoint i32 %9, %or77
   %and96 = and i32 %conv79, 192
   %cmp97 = icmp eq i32 %and96, 128
-  %cmp99 = icmp samesign ugt i32 %or77, 65535
-  %or.cond4 = select i1 %cmp97, i1 %cmp99, i1 false
-  %cmp101 = icmp samesign ult i32 %or77, 1114112
-  %or.cond5 = select i1 %or.cond4, i1 %cmp101, i1 false
+  %10 = add nsw i32 %or77, -65536
+  %11 = icmp ult i32 %10, 1048576
+  %or.cond5 = select i1 %cmp97, i1 %11, i1 false
   br i1 %or.cond5, label %Failure.thread76, label %.thread
 
 if.else106:                                       ; preds = %if.else62
@@ -240,11 +239,11 @@ if.else116:                                       ; preds = %if.else106
   br label %Failure.thread76
 
 Failure.thread76:                                 ; preds = %if.else116, %lor.lhs.false94, %lor.lhs.false50, %if.then2, %if.then13, %if.then110, %.thread
-  %10 = phi ptr [ %.ph, %.thread ], [ %add.ptr11, %if.then13 ], [ %add.ptr111, %if.then110 ], [ %add.ptr67, %lor.lhs.false94 ], [ %add.ptr32, %lor.lhs.false50 ], [ %add.ptr, %if.then2 ], [ %add.ptr121, %if.else116 ]
+  %12 = phi ptr [ %.ph, %.thread ], [ %add.ptr11, %if.then13 ], [ %add.ptr111, %if.then110 ], [ %add.ptr67, %lor.lhs.false94 ], [ %add.ptr32, %lor.lhs.false50 ], [ %add.ptr, %if.then2 ], [ %add.ptr121, %if.else116 ]
   %success.07388 = phi i1 [ false, %.thread ], [ true, %if.then13 ], [ true, %if.then110 ], [ true, %lor.lhs.false94 ], [ true, %lor.lhs.false50 ], [ true, %if.then2 ], [ true, %if.else116 ]
-  %11 = phi i32 [ 65535, %.thread ], [ %or, %if.then13 ], [ 65535, %if.then110 ], [ %or86, %lor.lhs.false94 ], [ %or46, %lor.lhs.false50 ], [ %conv, %if.then2 ], [ 65535, %if.else116 ]
-  store ptr %10, ptr %p, align 8
-  store i32 %11, ptr %result, align 4
+  %13 = phi i32 [ 65535, %.thread ], [ %or, %if.then13 ], [ 65535, %if.then110 ], [ %or86, %lor.lhs.false94 ], [ %or46, %lor.lhs.false50 ], [ %conv, %if.then2 ], [ 65535, %if.else116 ]
+  store ptr %12, ptr %p, align 8
+  store i32 %13, ptr %result, align 4
   ret i1 %success.07388
 }
 

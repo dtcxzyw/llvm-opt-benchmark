@@ -40075,8 +40075,8 @@ define internal fastcc void @"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_in
 
 53:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  %or.cond.i = icmp samesign ult i32 %5, 3
-  br i1 %or.cond.i, label %.sink.split.i.i.i.i, label %"_ZN4core3ptr141drop_in_place$LT$alloc..borrow..Cow$LT$comemo..constraint..ConstraintEntry$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$GT$17h5c3eb6e3df9a2adeE.exit"
+  %switch.i.i.i.i = icmp samesign ult i32 %5, 3
+  br i1 %switch.i.i.i.i, label %.sink.split.i.i.i.i, label %"_ZN4core3ptr141drop_in_place$LT$alloc..borrow..Cow$LT$comemo..constraint..ConstraintEntry$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$GT$17h5c3eb6e3df9a2adeE.exit"
 
 .sink.split.i.i.i.i:                              ; preds = %53
   %54 = getelementptr inbounds i8, ptr %1, i64 16
@@ -40090,8 +40090,8 @@ define internal fastcc void @"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_in
 55:                                               ; preds = %2
   %56 = landingpad { ptr, i32 }
           cleanup
-  %or.cond.i14 = icmp samesign ult i32 %5, 3
-  br i1 %or.cond.i14, label %.sink.split.i.i.i.i15, label %.body.thread
+  %switch.i.i.i.i14 = icmp samesign ult i32 %5, 3
+  br i1 %switch.i.i.i.i14, label %.sink.split.i.i.i.i15, label %.body.thread
 
 .sink.split.i.i.i.i15:                            ; preds = %55
   %57 = getelementptr inbounds i8, ptr %1, i64 16

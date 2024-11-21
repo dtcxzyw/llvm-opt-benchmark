@@ -188,8 +188,8 @@ for.end:                                          ; preds = %for.body, %entry
   %2 = load i32, ptr %c, align 4
   %and = and i32 %2, 2097151
   %cmp5 = icmp samesign ult i32 %and, 2048
-  %or.cond37 = icmp samesign ult i32 %and, 55296
-  br i1 %or.cond37, label %if.end, label %cond.end21
+  %cmp8 = icmp samesign ult i32 %and, 55296
+  br i1 %cmp8, label %if.end, label %cond.end21
 
 cond.end21:                                       ; preds = %for.end
   %3 = add nsw i32 %and, -1114112

@@ -544,8 +544,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h0bc666f429281eceE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i8, ptr %6, align 8, !range !107, !noundef !9
-  %or.cond.not = icmp samesign ugt i8 %8, 1
-  br i1 %or.cond.not, label %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit", label %.sink.split.i.i.i
+  %switch.i.i.i = icmp samesign ugt i8 %8, 1
+  br i1 %switch.i.i.i, label %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit", label %.sink.split.i.i.i
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !157
@@ -640,8 +640,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hc42ba8858bcd8fbeE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i8, ptr %6, align 8, !range !107, !noundef !9
-  %or.cond.not = icmp samesign ugt i8 %8, 1
-  br i1 %or.cond.not, label %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit", label %.sink.split.i.i.i
+  %switch.i.i.i = icmp samesign ugt i8 %8, 1
+  br i1 %switch.i.i.i, label %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit", label %.sink.split.i.i.i
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !182

@@ -14228,8 +14228,8 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$co
 .thread:                                          ; preds = %31
   %39 = getelementptr inbounds i8, ptr %1, i64 16
   %40 = load i8, ptr %39, align 8, !range !2288, !noundef !4
-  %or.cond55 = icmp samesign ult i8 %40, 3
-  br i1 %or.cond55, label %27, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3d3ffb40e6a91cb9E.exit"
+  %switch.i.i3454 = icmp samesign ult i8 %40, 3
+  br i1 %switch.i.i3454, label %27, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3d3ffb40e6a91cb9E.exit"
 
 ._crit_edge:                                      ; preds = %35
   br i1 %switch.i.i, label %27, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3d3ffb40e6a91cb9E.exit"

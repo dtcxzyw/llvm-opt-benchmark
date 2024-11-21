@@ -5553,7 +5553,7 @@ define internal fastcc void @"_ZN4core3ptr998drop_in_place$LT$awc..middleware..r
   %20 = load i8, ptr %19, align 8, !range !377, !alias.scope !378, !noundef !5
   %21 = icmp eq i8 %20, 11
   %switch.i.i.i = icmp samesign ult i8 %20, 10
-  %or.cond.i = select i1 %21, i1 true, i1 %switch.i.i.i
+  %or.cond.i = or i1 %21, %switch.i.i.i
   br i1 %or.cond.i, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$http..method..Method$GT$$GT$17hd9283c1e7fdd90f9E.exit", label %22
 
 22:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h9130a5aad43283b5E.exit"
@@ -5571,7 +5571,7 @@ define internal fastcc void @"_ZN4core3ptr998drop_in_place$LT$awc..middleware..r
   %27 = load i8, ptr %26, align 8, !range !377, !alias.scope !381, !noundef !5
   %28 = icmp eq i8 %27, 11
   %switch.i.i.i12 = icmp samesign ult i8 %27, 10
-  %or.cond.i13 = select i1 %28, i1 true, i1 %switch.i.i.i12
+  %or.cond.i13 = or i1 %28, %switch.i.i.i12
   br i1 %or.cond.i13, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$http..method..Method$GT$$GT$17hd9283c1e7fdd90f9E.exit15", label %29
 
 29:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h9130a5aad43283b5E.exit10"

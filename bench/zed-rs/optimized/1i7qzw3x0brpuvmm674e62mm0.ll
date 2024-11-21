@@ -10357,8 +10357,8 @@ _ZN3std4path7PathBuf4push17h5c5d2c8f4ca9634dE.exit.i: ; preds = %134
 .thread.i.i.i:                                    ; preds = %165
   %173 = getelementptr inbounds i8, ptr %10, i64 16
   %174 = load i8, ptr %173, align 8, !range !2019, !alias.scope !2014, !noalias !2018, !noundef !19
-  %or.cond54.i.i.i = icmp samesign ult i8 %174, 3
-  br i1 %or.cond54.i.i.i, label %161, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbfa582da56741b3fE.exit.i.i.i"
+  %switch.i.i3453.i.i.i = icmp samesign ult i8 %174, 3
+  br i1 %switch.i.i3453.i.i.i, label %161, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbfa582da56741b3fE.exit.i.i.i"
 
 ._crit_edge.i.i.i:                                ; preds = %169
   br i1 %switch.i.i.i.i.i, label %161, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbfa582da56741b3fE.exit.i.i.i"

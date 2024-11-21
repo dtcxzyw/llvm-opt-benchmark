@@ -632,7 +632,7 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set(
   %35 = and i8 %34, 3
   %36 = icmp ne i8 %35, 3
   %37 = icmp samesign ugt i8 %35, 1
-  %38 = select i1 %36, i1 %37, i1 false
+  %38 = and i1 %36, %37
   %cond.fr = freeze i1 %38
   %39 = select i1 %cond.fr, i8 -127, i8 1
   br label %.thread

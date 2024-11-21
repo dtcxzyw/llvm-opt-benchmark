@@ -77502,8 +77502,8 @@ define hidden void @"_ZN82_$LT$repl..repl_sessions_ui..ReplSessionsPage$u20$as$u
 .thread.i.i:                                      ; preds = %112
   %120 = getelementptr inbounds i8, ptr %25, i64 16
   %121 = load i8, ptr %120, align 8, !range !2293, !alias.scope !18679, !noalias !18676, !noundef !7
-  %or.cond54.i.i = icmp samesign ult i8 %121, 3
-  br i1 %or.cond54.i.i, label %108, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6734b51a880d9149E.exit.i.i"
+  %switch.i.i3453.i.i = icmp samesign ult i8 %121, 3
+  br i1 %switch.i.i3453.i.i, label %108, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6734b51a880d9149E.exit.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %116
   br i1 %switch.i.i.i.i, label %108, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6734b51a880d9149E.exit.i.i"

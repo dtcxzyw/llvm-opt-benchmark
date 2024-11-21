@@ -42822,7 +42822,7 @@ define hidden void @"_ZN4core3ptr29drop_in_place$LT$vim..Vim$GT$17had554cfcf94cd
   tail call void @"_ZN4core3ptr135drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$C$alloc..string..String$RP$$GT$$GT$17h377f2fc34dc874ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #34
   %8 = getelementptr inbounds i8, ptr %0, i64 416
   invoke void @"_ZN4core3ptr201drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$multi_buffer..anchor..Anchor$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hef2ca339096841b5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #34
-          to label %46 unwind label %128
+          to label %46 unwind label %129
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 72
@@ -42953,7 +42953,7 @@ define hidden void @"_ZN4core3ptr29drop_in_place$LT$vim..Vim$GT$17had554cfcf94cd
   tail call void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h4ea9894bbe40afd9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #34
   %54 = getelementptr inbounds i8, ptr %0, i64 448
   invoke void @"_ZN4core3ptr159drop_in_place$LT$std..collections..hash..map..HashMap$LT$clock..Lamport$C$vim..state..Mode$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h9f2eb38ae2db62caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %54) #34
-          to label %91 unwind label %128
+          to label %91 unwind label %129
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$$LP$vim..state..Mode$C$alloc..vec..Vec$LT$bool$GT$$RP$$GT$$GT$17h951f5a6efd1faaa4E.exit19": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16203528845727909344.exit.i.i1.i.i.i18", %"_ZN4core3ptr201drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$multi_buffer..anchor..Anchor$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hef2ca339096841b5E.exit", %"_ZN4core3ptr201drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$multi_buffer..anchor..Anchor$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hef2ca339096841b5E.exit"
   %55 = getelementptr inbounds i8, ptr %0, i64 96
@@ -43042,7 +43042,7 @@ define hidden void @"_ZN4core3ptr29drop_in_place$LT$vim..Vim$GT$17had554cfcf94cd
   %.pn8 = phi { ptr, i32 } [ %94, %93 ], [ %.pn2, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$$LP$vim..state..Mode$C$alloc..vec..Vec$LT$bool$GT$$RP$$GT$$GT$17h951f5a6efd1faaa4E.exit" ]
   %92 = getelementptr inbounds i8, ptr %0, i64 120
   invoke void @"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %92) #34
-          to label %114 unwind label %128
+          to label %115 unwind label %129
 
 93:                                               ; preds = %78
   %94 = landingpad { ptr, i32 }
@@ -43093,61 +43093,61 @@ define hidden void @"_ZN4core3ptr29drop_in_place$LT$vim..Vim$GT$17had554cfcf94cd
   %112 = icmp ugt i8 %111, 22
   %cond1.i.i.i = icmp eq i8 %111, 7
   %cond.i.i.i = or i1 %112, %cond1.i.i.i
-  %or.cond.i.i.i.i = icmp samesign ult i8 %108, 39
-  %or.cond.i.i.i = select i1 %cond.i.i.i, i1 %or.cond.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %113, label %"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE.exit"
+  %113 = icmp samesign ult i8 %108, 39
+  %or.cond.i.i.i = select i1 %cond.i.i.i, i1 %113, i1 false
+  br i1 %or.cond.i.i.i, label %114, label %"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE.exit"
 
-113:                                              ; preds = %110
+114:                                              ; preds = %110
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %107)
-          to label %"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE.exit" unwind label %117
+          to label %"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE.exit" unwind label %118
 
-114:                                              ; preds = %117, %91
-  %.pn10 = phi { ptr, i32 } [ %118, %117 ], [ %.pn8, %91 ]
-  %115 = getelementptr inbounds i8, ptr %0, i64 480
-  tail call void @"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h105a6244ec07f8f2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %115) #34
-  %116 = getelementptr inbounds i8, ptr %0, i64 240
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$gpui..subscription..Subscription$GT$$GT$17h871df7e8a5632881E"(ptr noalias noundef align 8 dereferenceable(24) %116) #34
-          to label %130 unwind label %128
+115:                                              ; preds = %118, %91
+  %.pn10 = phi { ptr, i32 } [ %119, %118 ], [ %.pn8, %91 ]
+  %116 = getelementptr inbounds i8, ptr %0, i64 480
+  tail call void @"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h105a6244ec07f8f2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %116) #34
+  %117 = getelementptr inbounds i8, ptr %0, i64 240
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$gpui..subscription..Subscription$GT$$GT$17h871df7e8a5632881E"(ptr noalias noundef align 8 dereferenceable(24) %117) #34
+          to label %131 unwind label %129
 
-117:                                              ; preds = %113
-  %118 = landingpad { ptr, i32 }
+118:                                              ; preds = %114
+  %119 = landingpad { ptr, i32 }
           cleanup
-  br label %114
+  br label %115
 
-"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE.exit": ; preds = %110, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit2.i", %113
+"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE.exit": ; preds = %110, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit2.i", %114
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15300)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15303)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15306)
-  %119 = getelementptr inbounds i8, ptr %0, i64 488
+  %120 = getelementptr inbounds i8, ptr %0, i64 488
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15309)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15312)
-  %120 = load ptr, ptr %119, align 8, !alias.scope !15315, !nonnull !4, !noundef !4
-  %121 = icmp eq ptr %120, inttoptr (i64 -1 to ptr)
-  br i1 %121, label %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h105a6244ec07f8f2E.exit", label %122
+  %121 = load ptr, ptr %120, align 8, !alias.scope !15315, !nonnull !4, !noundef !4
+  %122 = icmp eq ptr %121, inttoptr (i64 -1 to ptr)
+  br i1 %122, label %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h105a6244ec07f8f2E.exit", label %123
 
-122:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE.exit"
-  %123 = getelementptr inbounds i8, ptr %120, i64 8
-  %124 = atomicrmw sub ptr %123, i64 1 release, align 8, !noalias !15315
-  %125 = icmp eq i64 %124, 1
-  br i1 %125, label %126, label %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h105a6244ec07f8f2E.exit"
+123:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE.exit"
+  %124 = getelementptr inbounds i8, ptr %121, i64 8
+  %125 = atomicrmw sub ptr %124, i64 1 release, align 8, !noalias !15315
+  %126 = icmp eq i64 %125, 1
+  br i1 %126, label %127, label %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h105a6244ec07f8f2E.exit"
 
-126:                                              ; preds = %122
+127:                                              ; preds = %123
   fence acquire
-  tail call void @__rust_dealloc(ptr noundef nonnull %120, i64 noundef 80, i64 noundef 8) #30, !noalias !15315
+  tail call void @__rust_dealloc(ptr noundef nonnull %121, i64 noundef 80, i64 noundef 8) #30, !noalias !15315
   br label %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h105a6244ec07f8f2E.exit"
 
-"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h105a6244ec07f8f2E.exit": ; preds = %126, %122, %"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE.exit"
-  %127 = getelementptr inbounds i8, ptr %0, i64 240
-  tail call fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$gpui..subscription..Subscription$GT$$GT$17h871df7e8a5632881E"(ptr noalias noundef align 8 dereferenceable(24) %127)
+"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h105a6244ec07f8f2E.exit": ; preds = %127, %123, %"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$17h73d9f9e64025f60aE.exit"
+  %128 = getelementptr inbounds i8, ptr %0, i64 240
+  tail call fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$gpui..subscription..Subscription$GT$$GT$17h871df7e8a5632881E"(ptr noalias noundef align 8 dereferenceable(24) %128)
   ret void
 
-128:                                              ; preds = %114, %91, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$$LP$vim..state..Mode$C$alloc..vec..Vec$LT$bool$GT$$RP$$GT$$GT$17h951f5a6efd1faaa4E.exit", %5
-  %129 = landingpad { ptr, i32 }
+129:                                              ; preds = %115, %91, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$$LP$vim..state..Mode$C$alloc..vec..Vec$LT$bool$GT$$RP$$GT$$GT$17h951f5a6efd1faaa4E.exit", %5
+  %130 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32
   unreachable
 
-130:                                              ; preds = %114
+131:                                              ; preds = %115
   resume { ptr, i32 } %.pn10
 }
 
@@ -53114,15 +53114,15 @@ define hidden void @"_ZN4core3ptr38drop_in_place$LT$vim..PushOperator$GT$17h0027
   %4 = icmp ugt i8 %3, 22
   %cond1.i = icmp eq i8 %3, 7
   %cond.i = or i1 %4, %cond1.i
-  %or.cond.i.i = icmp samesign ult i8 %2, 39
-  %or.cond.i = select i1 %cond.i, i1 %or.cond.i.i, i1 false
-  br i1 %or.cond.i, label %5, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit"
+  %5 = icmp samesign ult i8 %2, 39
+  %or.cond.i = select i1 %cond.i, i1 %5, i1 false
+  br i1 %or.cond.i, label %6, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit"
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   tail call void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
   br label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit"
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit": ; preds = %1, %5
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit": ; preds = %1, %6
   ret void
 }
 
@@ -56716,14 +56716,14 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2
   %4 = icmp ugt i8 %3, 22
   %cond1 = icmp eq i8 %3, 7
   %cond = or i1 %4, %cond1
-  %or.cond.i = icmp samesign ult i8 %2, 39
-  %or.cond = select i1 %cond, i1 %or.cond.i, i1 false
-  br i1 %or.cond, label %5, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16203528845727909344.exit"
+  %5 = icmp samesign ult i8 %2, 39
+  %or.cond = select i1 %cond, i1 %5, i1 false
+  br i1 %or.cond, label %6, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16203528845727909344.exit"
 
-"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16203528845727909344.exit": ; preds = %5, %1
+"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16203528845727909344.exit": ; preds = %6, %1
   ret void
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   tail call void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
   br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16203528845727909344.exit"
 }
@@ -60395,15 +60395,15 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$vim..state..SearchState$GT$1
   %18 = icmp ugt i8 %17, 22
   %cond1.i.i = icmp eq i8 %17, 7
   %cond.i.i = or i1 %18, %cond1.i.i
-  %or.cond.i.i.i = icmp samesign ult i8 %14, 39
-  %or.cond.i.i = select i1 %cond.i.i, i1 %or.cond.i.i.i, i1 false
-  br i1 %or.cond.i.i, label %19, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16203528845727909344.exit"
+  %19 = icmp samesign ult i8 %14, 39
+  %or.cond.i.i = select i1 %cond.i.i, i1 %19, i1 false
+  br i1 %or.cond.i.i, label %20, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16203528845727909344.exit"
 
-19:                                               ; preds = %16
+20:                                               ; preds = %16
   tail call void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %13)
   br label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16203528845727909344.exit"
 
-"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16203528845727909344.exit": ; preds = %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit2", %16, %19
+"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16203528845727909344.exit": ; preds = %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit2", %16, %20
   ret void
 }
 
@@ -65821,61 +65821,61 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$$u5b$vim..state..Operator$u5
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit"
-  %.sroa.0.013 = phi i64 [ %5, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %0, i64 0, i64 %.sroa.0.013
-  %5 = add nuw i64 %.sroa.0.013, 1
+  %.sroa.0.012 = phi i64 [ %5, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %0, i64 0, i64 %.sroa.0.012
+  %5 = add nuw i64 %.sroa.0.012, 1
   %6 = load i8, ptr %4, align 8, !range !19773, !alias.scope !25648, !noundef !4
   %7 = add nsw i8 %6, -42
   %8 = icmp ugt i8 %7, 22
   %cond1.i = icmp eq i8 %7, 7
   %cond.i = or i1 %8, %cond1.i
-  %or.cond.i.i = icmp samesign ult i8 %6, 39
-  %or.cond.i = select i1 %cond.i, i1 %or.cond.i.i, i1 false
-  br i1 %or.cond.i, label %9, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit"
+  %9 = icmp samesign ult i8 %6, 39
+  %or.cond.i = select i1 %cond.i, i1 %9, i1 false
+  br i1 %or.cond.i, label %10, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit"
 
-9:                                                ; preds = %.lr.ph
+10:                                               ; preds = %.lr.ph
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4)
-          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit" unwind label %11
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit" unwind label %12
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit": ; preds = %9, %.lr.ph
-  %10 = icmp eq i64 %5, %1
-  br i1 %10, label %._crit_edge, label %.lr.ph
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit": ; preds = %10, %.lr.ph
+  %11 = icmp eq i64 %5, %1
+  br i1 %11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit", %2
   ret void
 
-11:                                               ; preds = %9
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = icmp eq i64 %5, %1
-  br i1 %13, label %._crit_edge17, label %.lr.ph16
+  %14 = icmp eq i64 %5, %1
+  br i1 %14, label %._crit_edge16, label %.lr.ph15
 
-.lr.ph16:                                         ; preds = %11, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12"
-  %.sroa.0.114 = phi i64 [ %15, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12" ], [ %5, %11 ]
-  %14 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %0, i64 0, i64 %.sroa.0.114
-  %15 = add i64 %.sroa.0.114, 1
-  %16 = load i8, ptr %14, align 8, !range !19773, !alias.scope !25651, !noundef !4
-  %17 = add nsw i8 %16, -42
-  %18 = icmp ugt i8 %17, 22
-  %cond1.i7 = icmp eq i8 %17, 7
-  %cond.i8 = or i1 %18, %cond1.i7
-  %or.cond.i.i9 = icmp samesign ult i8 %16, 39
-  %or.cond.i10 = select i1 %cond.i8, i1 %or.cond.i.i9, i1 false
-  br i1 %or.cond.i10, label %19, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12"
+.lr.ph15:                                         ; preds = %12, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11"
+  %.sroa.0.113 = phi i64 [ %16, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11" ], [ %5, %12 ]
+  %15 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %0, i64 0, i64 %.sroa.0.113
+  %16 = add i64 %.sroa.0.113, 1
+  %17 = load i8, ptr %15, align 8, !range !19773, !alias.scope !25651, !noundef !4
+  %18 = add nsw i8 %17, -42
+  %19 = icmp ugt i8 %18, 22
+  %cond1.i7 = icmp eq i8 %18, 7
+  %cond.i8 = or i1 %19, %cond1.i7
+  %20 = icmp samesign ult i8 %17, 39
+  %or.cond.i9 = select i1 %cond.i8, i1 %20, i1 false
+  br i1 %or.cond.i9, label %21, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11"
 
-19:                                               ; preds = %.lr.ph16
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %14)
-          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12" unwind label %21
+21:                                               ; preds = %.lr.ph15
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %15)
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11" unwind label %23
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12": ; preds = %19, %.lr.ph16
-  %20 = icmp eq i64 %15, %1
-  br i1 %20, label %._crit_edge17, label %.lr.ph16
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11": ; preds = %21, %.lr.ph15
+  %22 = icmp eq i64 %16, %1
+  br i1 %22, label %._crit_edge16, label %.lr.ph15
 
-._crit_edge17:                                    ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12", %11
-  resume { ptr, i32 } %12
+._crit_edge16:                                    ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11", %12
+  resume { ptr, i32 } %13
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %21
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32
   unreachable
@@ -76621,88 +76621,88 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$vim..stat
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbff92e80b415a73bE.llvm.16203528845727909344.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i.i"
-  %.sroa.0.013.i.i = phi i64 [ %8, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %3, i64 0, i64 %.sroa.0.013.i.i
-  %8 = add nuw i64 %.sroa.0.013.i.i, 1
+  %.sroa.0.012.i.i = phi i64 [ %8, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %3, i64 0, i64 %.sroa.0.012.i.i
+  %8 = add nuw i64 %.sroa.0.012.i.i, 1
   %9 = load i8, ptr %7, align 8, !range !19773, !alias.scope !30136, !noalias !30130, !noundef !4
   %10 = add nsw i8 %9, -42
   %11 = icmp ugt i8 %10, 22
   %cond1.i.i.i = icmp eq i8 %10, 7
   %cond.i.i.i = or i1 %11, %cond1.i.i.i
-  %or.cond.i.i.i.i = icmp samesign ult i8 %9, 39
-  %or.cond.i.i.i = select i1 %cond.i.i.i, i1 %or.cond.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %12, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i.i"
+  %12 = icmp samesign ult i8 %9, 39
+  %or.cond.i.i.i = select i1 %cond.i.i.i, i1 %12, i1 false
+  br i1 %or.cond.i.i.i, label %13, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i.i"
 
-12:                                               ; preds = %.lr.ph.i.i
+13:                                               ; preds = %.lr.ph.i.i
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7)
-          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i.i" unwind label %14, !noalias !30130
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i.i" unwind label %15, !noalias !30130
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i.i": ; preds = %12, %.lr.ph.i.i
-  %13 = icmp eq i64 %8, %5
-  br i1 %13, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbff92e80b415a73bE.llvm.16203528845727909344.exit", label %.lr.ph.i.i
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i.i": ; preds = %13, %.lr.ph.i.i
+  %14 = icmp eq i64 %8, %5
+  br i1 %14, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbff92e80b415a73bE.llvm.16203528845727909344.exit", label %.lr.ph.i.i
 
-14:                                               ; preds = %12
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = icmp eq i64 %8, %5
-  br i1 %16, label %.body, label %.lr.ph16.i.i
+  %17 = icmp eq i64 %8, %5
+  br i1 %17, label %.body, label %.lr.ph15.i.i
 
-.lr.ph16.i.i:                                     ; preds = %14, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i.i"
-  %.sroa.0.114.i.i = phi i64 [ %18, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i.i" ], [ %8, %14 ]
-  %17 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %3, i64 0, i64 %.sroa.0.114.i.i
-  %18 = add i64 %.sroa.0.114.i.i, 1
-  %19 = load i8, ptr %17, align 8, !range !19773, !alias.scope !30139, !noalias !30130, !noundef !4
-  %20 = add nsw i8 %19, -42
-  %21 = icmp ugt i8 %20, 22
-  %cond1.i7.i.i = icmp eq i8 %20, 7
-  %cond.i8.i.i = or i1 %21, %cond1.i7.i.i
-  %or.cond.i.i9.i.i = icmp samesign ult i8 %19, 39
-  %or.cond.i10.i.i = select i1 %cond.i8.i.i, i1 %or.cond.i.i9.i.i, i1 false
-  br i1 %or.cond.i10.i.i, label %22, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i.i"
+.lr.ph15.i.i:                                     ; preds = %15, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i.i"
+  %.sroa.0.113.i.i = phi i64 [ %19, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i.i" ], [ %8, %15 ]
+  %18 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %3, i64 0, i64 %.sroa.0.113.i.i
+  %19 = add i64 %.sroa.0.113.i.i, 1
+  %20 = load i8, ptr %18, align 8, !range !19773, !alias.scope !30139, !noalias !30130, !noundef !4
+  %21 = add nsw i8 %20, -42
+  %22 = icmp ugt i8 %21, 22
+  %cond1.i7.i.i = icmp eq i8 %21, 7
+  %cond.i8.i.i = or i1 %22, %cond1.i7.i.i
+  %23 = icmp samesign ult i8 %20, 39
+  %or.cond.i9.i.i = select i1 %cond.i8.i.i, i1 %23, i1 false
+  br i1 %or.cond.i9.i.i, label %24, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i.i"
 
-22:                                               ; preds = %.lr.ph16.i.i
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %17)
-          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i.i" unwind label %24, !noalias !30130
+24:                                               ; preds = %.lr.ph15.i.i
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %18)
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i.i" unwind label %26, !noalias !30130
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i.i": ; preds = %22, %.lr.ph16.i.i
-  %23 = icmp eq i64 %18, %5
-  br i1 %23, label %.body, label %.lr.ph16.i.i
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i.i": ; preds = %24, %.lr.ph15.i.i
+  %25 = icmp eq i64 %19, %5
+  br i1 %25, label %.body, label %.lr.ph15.i.i
 
-24:                                               ; preds = %22
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32, !noalias !30142
   unreachable
 
-.body:                                            ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i.i", %14
+.body:                                            ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i.i", %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30143)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30146)
-  %26 = load i64, ptr %0, align 8, !alias.scope !30149, !noalias !30152, !noundef !4
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$vim..state..Operator$GT$$GT$17h508e06247631592dE.llvm.16203528845727909344.exit", label %28
+  %28 = load i64, ptr %0, align 8, !alias.scope !30149, !noalias !30152, !noundef !4
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$vim..state..Operator$GT$$GT$17h508e06247631592dE.llvm.16203528845727909344.exit", label %30
 
-28:                                               ; preds = %.body
-  %29 = mul nuw i64 %26, 56
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %29, i64 noundef 8) #30, !noalias !30154
+30:                                               ; preds = %.body
+  %31 = mul nuw i64 %28, 56
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %31, i64 noundef 8) #30, !noalias !30154
   br label %"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$vim..state..Operator$GT$$GT$17h508e06247631592dE.llvm.16203528845727909344.exit"
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbff92e80b415a73bE.llvm.16203528845727909344.exit": ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i.i", %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30158)
-  %30 = load i64, ptr %0, align 8, !alias.scope !30161, !noalias !30164, !noundef !4
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$vim..state..Operator$GT$$GT$17h508e06247631592dE.llvm.16203528845727909344.exit1", label %32
+  %32 = load i64, ptr %0, align 8, !alias.scope !30161, !noalias !30164, !noundef !4
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$vim..state..Operator$GT$$GT$17h508e06247631592dE.llvm.16203528845727909344.exit1", label %34
 
-32:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbff92e80b415a73bE.llvm.16203528845727909344.exit"
-  %33 = mul nuw i64 %30, 56
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %33, i64 noundef 8) #30, !noalias !30166
+34:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbff92e80b415a73bE.llvm.16203528845727909344.exit"
+  %35 = mul nuw i64 %32, 56
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %35, i64 noundef 8) #30, !noalias !30166
   br label %"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$vim..state..Operator$GT$$GT$17h508e06247631592dE.llvm.16203528845727909344.exit1"
 
-"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$vim..state..Operator$GT$$GT$17h508e06247631592dE.llvm.16203528845727909344.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbff92e80b415a73bE.llvm.16203528845727909344.exit", %32
+"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$vim..state..Operator$GT$$GT$17h508e06247631592dE.llvm.16203528845727909344.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbff92e80b415a73bE.llvm.16203528845727909344.exit", %34
   ret void
 
-"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$vim..state..Operator$GT$$GT$17h508e06247631592dE.llvm.16203528845727909344.exit": ; preds = %28, %.body
-  resume { ptr, i32 } %15
+"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$vim..state..Operator$GT$$GT$17h508e06247631592dE.llvm.16203528845727909344.exit": ; preds = %30, %.body
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -80485,7 +80485,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim.
   %3 = icmp eq i8 %2, 65
   br i1 %3, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit", label %4
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit": ; preds = %7, %4, %1
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit": ; preds = %8, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -80493,11 +80493,11 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim.
   %6 = icmp ugt i8 %5, 22
   %cond1.i = icmp eq i8 %5, 7
   %cond.i = or i1 %6, %cond1.i
-  %or.cond.i.i = icmp samesign ult i8 %2, 39
-  %or.cond.i = select i1 %cond.i, i1 %or.cond.i.i, i1 false
-  br i1 %or.cond.i, label %7, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit"
+  %7 = icmp samesign ult i8 %2, 39
+  %or.cond.i = select i1 %cond.i, i1 %7, i1 false
+  br i1 %or.cond.i, label %8, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit"
 
-7:                                                ; preds = %4
+8:                                                ; preds = %4
   tail call void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
   br label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit"
 }
@@ -86702,13 +86702,13 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16203528845727909344"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #4 {
   %2 = load i8, ptr %0, align 8, !range !34741, !noundef !4
-  %or.cond = icmp samesign ult i8 %2, 39
-  br i1 %or.cond, label %3, label %"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16203528845727909344.exit"
+  %3 = icmp samesign ult i8 %2, 39
+  br i1 %3, label %4, label %"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16203528845727909344.exit"
 
-"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16203528845727909344.exit": ; preds = %3, %1
+"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16203528845727909344.exit": ; preds = %4, %1
   ret void
 
-3:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
   br label %"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16203528845727909344.exit"
 }
@@ -100966,58 +100966,58 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %6, label %"_ZN4core3ptr51drop_in_place$LT$$u5b$vim..state..Operator$u5d$$GT$17h2a6dfc40ff93e555E.llvm.16203528845727909344.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i"
-  %.sroa.0.013.i = phi i64 [ %8, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %3, i64 0, i64 %.sroa.0.013.i
-  %8 = add nuw i64 %.sroa.0.013.i, 1
+  %.sroa.0.012.i = phi i64 [ %8, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %3, i64 0, i64 %.sroa.0.012.i
+  %8 = add nuw i64 %.sroa.0.012.i, 1
   %9 = load i8, ptr %7, align 8, !range !19773, !alias.scope !39327, !noundef !4
   %10 = add nsw i8 %9, -42
   %11 = icmp ugt i8 %10, 22
   %cond1.i.i = icmp eq i8 %10, 7
   %cond.i.i = or i1 %11, %cond1.i.i
-  %or.cond.i.i.i = icmp samesign ult i8 %9, 39
-  %or.cond.i.i = select i1 %cond.i.i, i1 %or.cond.i.i.i, i1 false
-  br i1 %or.cond.i.i, label %12, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i"
+  %12 = icmp samesign ult i8 %9, 39
+  %or.cond.i.i = select i1 %cond.i.i, i1 %12, i1 false
+  br i1 %or.cond.i.i, label %13, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i"
 
-12:                                               ; preds = %.lr.ph.i
+13:                                               ; preds = %.lr.ph.i
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7)
-          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i" unwind label %14
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i" unwind label %15
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i": ; preds = %12, %.lr.ph.i
-  %13 = icmp eq i64 %8, %5
-  br i1 %13, label %"_ZN4core3ptr51drop_in_place$LT$$u5b$vim..state..Operator$u5d$$GT$17h2a6dfc40ff93e555E.llvm.16203528845727909344.exit", label %.lr.ph.i
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit.i": ; preds = %13, %.lr.ph.i
+  %14 = icmp eq i64 %8, %5
+  br i1 %14, label %"_ZN4core3ptr51drop_in_place$LT$$u5b$vim..state..Operator$u5d$$GT$17h2a6dfc40ff93e555E.llvm.16203528845727909344.exit", label %.lr.ph.i
 
-14:                                               ; preds = %12
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = icmp eq i64 %8, %5
-  br i1 %16, label %._crit_edge17.i, label %.lr.ph16.i
+  %17 = icmp eq i64 %8, %5
+  br i1 %17, label %._crit_edge16.i, label %.lr.ph15.i
 
-.lr.ph16.i:                                       ; preds = %14, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i"
-  %.sroa.0.114.i = phi i64 [ %18, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i" ], [ %8, %14 ]
-  %17 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %3, i64 0, i64 %.sroa.0.114.i
-  %18 = add i64 %.sroa.0.114.i, 1
-  %19 = load i8, ptr %17, align 8, !range !19773, !alias.scope !39330, !noundef !4
-  %20 = add nsw i8 %19, -42
-  %21 = icmp ugt i8 %20, 22
-  %cond1.i7.i = icmp eq i8 %20, 7
-  %cond.i8.i = or i1 %21, %cond1.i7.i
-  %or.cond.i.i9.i = icmp samesign ult i8 %19, 39
-  %or.cond.i10.i = select i1 %cond.i8.i, i1 %or.cond.i.i9.i, i1 false
-  br i1 %or.cond.i10.i, label %22, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i"
+.lr.ph15.i:                                       ; preds = %15, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i"
+  %.sroa.0.113.i = phi i64 [ %19, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i" ], [ %8, %15 ]
+  %18 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %3, i64 0, i64 %.sroa.0.113.i
+  %19 = add i64 %.sroa.0.113.i, 1
+  %20 = load i8, ptr %18, align 8, !range !19773, !alias.scope !39330, !noundef !4
+  %21 = add nsw i8 %20, -42
+  %22 = icmp ugt i8 %21, 22
+  %cond1.i7.i = icmp eq i8 %21, 7
+  %cond.i8.i = or i1 %22, %cond1.i7.i
+  %23 = icmp samesign ult i8 %20, 39
+  %or.cond.i9.i = select i1 %cond.i8.i, i1 %23, i1 false
+  br i1 %or.cond.i9.i, label %24, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i"
 
-22:                                               ; preds = %.lr.ph16.i
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %17)
-          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i" unwind label %24
+24:                                               ; preds = %.lr.ph15.i
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16203528845727909344"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %18)
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i" unwind label %26
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i": ; preds = %22, %.lr.ph16.i
-  %23 = icmp eq i64 %18, %5
-  br i1 %23, label %._crit_edge17.i, label %.lr.ph16.i
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i": ; preds = %24, %.lr.ph15.i
+  %25 = icmp eq i64 %19, %5
+  br i1 %25, label %._crit_edge16.i, label %.lr.ph15.i
 
-._crit_edge17.i:                                  ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit12.i", %14
-  resume { ptr, i32 } %15
+._crit_edge16.i:                                  ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16203528845727909344.exit11.i", %15
+  resume { ptr, i32 } %16
 
-24:                                               ; preds = %22
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32, !noalias !39324
   unreachable

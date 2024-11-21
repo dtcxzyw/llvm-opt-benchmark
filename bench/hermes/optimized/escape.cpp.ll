@@ -3679,7 +3679,7 @@ for.inc:                                          ; preds = %land.rhs48
 for.end:                                          ; preds = %land.rhs48
   %cmp55 = icmp eq i32 %n.0597, 1
   %cmp56 = icmp samesign ugt i32 %n.0597, 4
-  %or.cond = select i1 %cmp55, i1 true, i1 %cmp56
+  %or.cond = or i1 %cmp55, %cmp56
   br i1 %or.cond, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %for.end, %for.inc

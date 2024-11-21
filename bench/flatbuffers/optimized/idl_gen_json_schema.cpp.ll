@@ -5842,7 +5842,7 @@ if.then7.i:                                       ; preds = %if.end5.i
 if.end9.i:                                        ; preds = %if.end5.i
   %cmp10.i = icmp eq i32 %len.031.i, 1
   %cmp11.i = icmp samesign ugt i32 %len.031.i, 4
-  %or.cond.i = select i1 %cmp10.i, i1 true, i1 %cmp11.i
+  %or.cond.i = or i1 %cmp10.i, %cmp11.i
   br i1 %or.cond.i, label %if.then23, label %for.body22.lr.ph.i
 
 for.body22.lr.ph.i:                               ; preds = %if.end9.i

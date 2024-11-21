@@ -59190,7 +59190,7 @@ define internal fastcc void @_ZN3vim7command10VimCommand14parse_position17h78099
   tail call void @llvm.assume(i1 %106)
   %107 = icmp ne i32 %105, 1114112
   %108 = icmp samesign ugt i32 %105, 47
-  %or.cond.i = select i1 %107, i1 %108, i1 false
+  %or.cond.i = and i1 %107, %108
   %109 = icmp samesign ult i32 %105, 58
   %or.cond12.i = select i1 %or.cond.i, i1 %109, i1 false
   br i1 %or.cond12.i, label %110, label %_ZN3vim7command10VimCommand9parse_u3217h1fcab26717cfb94dE.exit
@@ -59441,7 +59441,7 @@ define internal fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17h
   tail call void @llvm.assume(i1 %95)
   %96 = icmp ne i32 %94, 1114112
   %97 = icmp samesign ugt i32 %94, 47
-  %or.cond = select i1 %96, i1 %97, i1 false
+  %or.cond = and i1 %96, %97
   %98 = icmp samesign ult i32 %94, 58
   %or.cond17 = select i1 %or.cond, i1 %98, i1 false
   br i1 %or.cond17, label %99, label %163
@@ -59539,7 +59539,7 @@ define internal fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17h
   tail call void @llvm.assume(i1 %150)
   %151 = icmp ne i32 %149, 1114112
   %152 = icmp samesign ugt i32 %149, 47
-  %or.cond.i = select i1 %151, i1 %152, i1 false
+  %or.cond.i = and i1 %151, %152
   %153 = icmp samesign ult i32 %149, 58
   %or.cond12.i = select i1 %or.cond.i, i1 %153, i1 false
   br i1 %or.cond12.i, label %154, label %_ZN3vim7command10VimCommand9parse_u3217h1fcab26717cfb94dE.exit

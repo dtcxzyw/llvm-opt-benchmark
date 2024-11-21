@@ -4565,8 +4565,8 @@ define linkonce_odr dso_local ptr @_ZNK3fmt3v106detail6concatINS1_9code_unitIcEE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.copyload.i, i64 noundef %59)
   %60 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.copyload.i, i64 noundef 0)
   %61 = getelementptr inbounds i8, ptr %60, i64 %58
-  %or.cond572 = icmp samesign ult i16 %33, 2
-  br i1 %or.cond572, label %.loopexit527, label %.lr.ph550.preheader
+  %.not405 = icmp samesign ult i16 %33, 2
+  br i1 %.not405, label %.loopexit527, label %.lr.ph550.preheader
 
 .lr.ph550.preheader:                              ; preds = %57
   %62 = and i32 %36, 16777215
@@ -5057,8 +5057,8 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit420: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %306)
   %307 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0)
   %308 = getelementptr inbounds i8, ptr %307, i64 %305
-  %or.cond576 = icmp samesign ult i16 %279, 2
-  br i1 %or.cond576, label %.loopexit, label %.lr.ph570.preheader
+  %.not393 = icmp samesign ult i16 %279, 2
+  br i1 %.not393, label %.loopexit, label %.lr.ph570.preheader
 
 .lr.ph570.preheader:                              ; preds = %304
   %309 = and i32 %282, 16777215

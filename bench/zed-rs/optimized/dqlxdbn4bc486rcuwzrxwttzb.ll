@@ -129284,8 +129284,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h13caafb75fea8173E.exit: ; preds = %"_Z
 .thread.i.i:                                      ; preds = %68
   %76 = getelementptr inbounds i8, ptr %16, i64 16
   %77 = load i8, ptr %76, align 8, !range !18992, !alias.scope !26933, !noalias !26930, !noundef !7
-  %or.cond54.i.i = icmp samesign ult i8 %77, 3
-  br i1 %or.cond54.i.i, label %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit.i.i"
+  %switch.i.i3453.i.i = icmp samesign ult i8 %77, 3
+  br i1 %switch.i.i3453.i.i, label %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %72
   br i1 %switch.i.i.i.i, label %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit.i.i"

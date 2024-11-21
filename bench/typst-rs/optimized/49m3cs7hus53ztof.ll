@@ -60113,8 +60113,8 @@ default.unreachable:                              ; preds = %489
 
 582:                                              ; preds = %540
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !9635
-  %or.cond.i.i.i.i = icmp samesign ult i32 %535, 3
-  br i1 %or.cond.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i, label %"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_inner17h18a137d93ea12ea6E.exit.i.i"
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i32 %535, 3
+  br i1 %switch.i.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i, label %"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_inner17h18a137d93ea12ea6E.exit.i.i"
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %582
   %583 = getelementptr inbounds i8, ptr %10, i64 16
@@ -60124,8 +60124,8 @@ default.unreachable:                              ; preds = %489
 584:                                              ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit.i.i41"
   %585 = landingpad { ptr, i32 }
           cleanup
-  %or.cond.i14.i.i.i = icmp samesign ult i32 %535, 3
-  br i1 %or.cond.i14.i.i.i, label %.sink.split.i.i.i.i15.i.i.i, label %.body.i.i
+  %switch.i.i.i.i14.i.i.i = icmp samesign ult i32 %535, 3
+  br i1 %switch.i.i.i.i14.i.i.i, label %.sink.split.i.i.i.i15.i.i.i, label %.body.i.i
 
 .sink.split.i.i.i.i15.i.i.i:                      ; preds = %584
   %586 = getelementptr inbounds i8, ptr %10, i64 16

@@ -4219,7 +4219,7 @@ define internal void @"_ZN4core3ptr998drop_in_place$LT$awc..middleware..redirect
   %19 = load i8, ptr %18, align 8, !range !929, !alias.scope !930, !noundef !7
   %20 = icmp eq i8 %19, 11
   %switch.i.i.i = icmp samesign ult i8 %19, 10
-  %or.cond.i = select i1 %20, i1 true, i1 %switch.i.i.i
+  %or.cond.i = or i1 %20, %switch.i.i.i
   br i1 %or.cond.i, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$http..method..Method$GT$$GT$17hd9283c1e7fdd90f9E.exit", label %21
 
 21:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h9130a5aad43283b5E.exit"
@@ -4237,7 +4237,7 @@ define internal void @"_ZN4core3ptr998drop_in_place$LT$awc..middleware..redirect
   %26 = load i8, ptr %25, align 8, !range !929, !alias.scope !933, !noundef !7
   %27 = icmp eq i8 %26, 11
   %switch.i.i.i12 = icmp samesign ult i8 %26, 10
-  %or.cond.i13 = select i1 %27, i1 true, i1 %switch.i.i.i12
+  %or.cond.i13 = or i1 %27, %switch.i.i.i12
   br i1 %or.cond.i13, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$http..method..Method$GT$$GT$17hd9283c1e7fdd90f9E.exit15", label %28
 
 28:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h9130a5aad43283b5E.exit10"

@@ -15131,10 +15131,9 @@ switch.early.test:                                ; preds = %26
   ]
 
 30:                                               ; preds = %switch.early.test
-  %31 = icmp samesign ugt i32 %24, 47
-  %or.cond14 = select i1 %20, i1 %31, i1 false
-  %32 = icmp samesign ult i32 %24, 58
-  %or.cond17 = select i1 %or.cond14, i1 %32, i1 false
+  %31 = add nsw i32 %24, -48
+  %32 = icmp ult i32 %31, 10
+  %or.cond17 = select i1 %20, i1 %32, i1 false
   br i1 %or.cond17, label %48, label %33
 
 33:                                               ; preds = %30

@@ -37505,8 +37505,8 @@ default.unreachable:                              ; preds = %3
 
 94:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !8350
-  %or.cond.i.i = icmp samesign ult i32 %47, 3
-  br i1 %or.cond.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_inner17h18a137d93ea12ea6E.exit"
+  %switch.i.i.i.i.i = icmp samesign ult i32 %47, 3
+  br i1 %switch.i.i.i.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_inner17h18a137d93ea12ea6E.exit"
 
 .sink.split.i.i.i.i.i:                            ; preds = %94
   %95 = getelementptr inbounds i8, ptr %7, i64 16
@@ -37516,8 +37516,8 @@ default.unreachable:                              ; preds = %3
 96:                                               ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit"
   %97 = landingpad { ptr, i32 }
           cleanup
-  %or.cond.i14.i = icmp samesign ult i32 %47, 3
-  br i1 %or.cond.i14.i, label %.sink.split.i.i.i.i15.i, label %.body
+  %switch.i.i.i.i14.i = icmp samesign ult i32 %47, 3
+  br i1 %switch.i.i.i.i14.i, label %.sink.split.i.i.i.i15.i, label %.body
 
 .sink.split.i.i.i.i15.i:                          ; preds = %96
   %98 = getelementptr inbounds i8, ptr %7, i64 16
@@ -57359,8 +57359,8 @@ define { ptr, i64 } @"_ZN5typst4math8equation148_$LT$impl$u20$typst..foundations
 64:                                               ; preds = %42
   call void @llvm.experimental.noalias.scope.decl(metadata !11988)
   %65 = load i64, ptr %43, align 8, !range !318, !alias.scope !11989, !noalias !11988, !noundef !4
-  %or.cond.i.i = icmp samesign ult i64 %65, 2
-  br i1 %or.cond.i.i, label %66, label %67
+  %switch.not.i.i.i = icmp samesign ult i64 %65, 2
+  br i1 %switch.not.i.i.i, label %66, label %67
 
 66:                                               ; preds = %64
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(104) %43)
@@ -64756,8 +64756,8 @@ _ZN5typst11foundations7content7Content11query_first17h81e58f8cab3b599eE.exit: ; 
   %.sroa.030.0 = phi i64 [ 0, %403 ], [ 2, %396 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13770)
   %399 = load i64, ptr %78, align 16, !range !318, !alias.scope !13773, !noalias !13770, !noundef !4
-  %or.cond.i.i = icmp samesign ult i64 %399, 2
-  br i1 %or.cond.i.i, label %400, label %404
+  %switch.not.i.i.i = icmp samesign ult i64 %399, 2
+  br i1 %switch.not.i.i.i, label %400, label %404
 
 400:                                              ; preds = %398
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %78)
@@ -66551,8 +66551,8 @@ define { ptr, i64 } @"_ZN5typst5model7heading147_$LT$impl$u20$typst..foundations
   call void @llvm.experimental.noalias.scope.decl(metadata !14186)
   %70 = getelementptr inbounds i8, ptr %45, i64 32
   %71 = load i64, ptr %70, align 8, !range !318, !alias.scope !14187, !noalias !14186, !noundef !4
-  %or.cond.i.i = icmp samesign ult i64 %71, 2
-  br i1 %or.cond.i.i, label %72, label %73
+  %switch.not.i.i.i = icmp samesign ult i64 %71, 2
+  br i1 %switch.not.i.i.i, label %72, label %73
 
 72:                                               ; preds = %68
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %70)

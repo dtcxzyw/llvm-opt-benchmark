@@ -2681,8 +2681,8 @@ if.end2:                                          ; preds = %if.then1, %if.end
   br i1 %or.cond, label %do.cond, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end2
-  %or.cond.i = icmp samesign ult i64 %2, 9
-  br i1 %or.cond.i, label %if.end.i6, label %if.end12.i
+  %cmp6.i = icmp samesign ult i64 %2, 9
+  br i1 %cmp6.i, label %if.end.i6, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %shl.i = shl nuw nsw i64 %2, 1
@@ -2707,8 +2707,8 @@ if.end12.i:                                       ; preds = %if.end.i
 
 if.end.i6:                                        ; preds = %if.end12.i, %if.end.i
   %retval.0.i = phi i32 [ %add36.i, %if.end12.i ], [ 0, %if.end.i ]
-  %or.cond.i7 = icmp samesign ult i64 %1, 9
-  br i1 %or.cond.i7, label %sz_size2index_compute.exit25, label %if.end12.i8
+  %cmp6.i7 = icmp samesign ult i64 %1, 9
+  br i1 %cmp6.i7, label %sz_size2index_compute.exit25, label %if.end12.i8
 
 if.end12.i8:                                      ; preds = %if.end.i6
   %shl.i9 = shl nuw nsw i64 %1, 1

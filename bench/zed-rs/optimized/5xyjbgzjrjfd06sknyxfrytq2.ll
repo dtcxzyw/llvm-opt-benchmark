@@ -35005,8 +35005,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr39drop
 .thread.i.i.i.i:                                  ; preds = %543
   %551 = getelementptr inbounds i8, ptr %45, i64 16
   %552 = load i8, ptr %551, align 8, !range !9304, !alias.scope !9300, !noalias !9303, !noundef !9
-  %or.cond54.i.i.i.i = icmp samesign ult i8 %552, 3
-  br i1 %or.cond54.i.i.i.i, label %539, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
+  %switch.i.i3453.i.i.i.i = icmp samesign ult i8 %552, 3
+  br i1 %switch.i.i3453.i.i.i.i, label %539, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
 
 ._crit_edge.i.i.i.i:                              ; preds = %547
   br i1 %switch.i.i.i.i.i.i, label %539, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
