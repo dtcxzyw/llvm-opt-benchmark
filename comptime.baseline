@@ -2004,7 +2004,7 @@ boost/get_turns_linear_areal.ll 50365174139
 boost/get_turns_linear_areal_sph.ll 44457588222
 boost/get_turns_linear_linear.ll 65515054969
 boost/get_turns_linear_linear_geo.ll 33976544153
-boost/get_turns_linear_linear_sph.ll 65630492688
+boost/get_turns_linear_linear_sph.ll 65696126414
 boost/global_logger_storage.ll 442639834
 boost/global_resource.ll 75459690
 boost/graphml.ll 6239881427
@@ -3007,7 +3007,7 @@ clamav/Lzma2Dec.c.ll 142610570
 clamav/LzmaDec.c.ll 888350161
 clamav/Ppmd7.c.ll 411343948
 clamav/Ppmd7Dec.c.ll 126822024
-clamav/XzDec.c.ll 406539236
+clamav/XzDec.c.ll 406945797
 clamav/XzIn.c.ll 207811811
 clamav/actions.c.ll 102960960
 clamav/allow_list.c.ll 119935954
@@ -29000,7 +29000,7 @@ postgres/createplan.ll 1708204379
 postgres/createuser.ll 174522342
 postgres/crosstabview.ll 196818026
 postgres/crypt.ll 74903680
-postgres/cryptohashfuncs.ll 69116782
+postgres/cryptohashfuncs.ll 69186020
 postgres/d2s.ll 527441387
 postgres/d2s_shlib.ll 527951595
 postgres/d2s_srv.ll 527718026
@@ -36463,7 +36463,7 @@ wasmtime-rs/1xbg7k9kapo8ag7l.ll 666270679
 wasmtime-rs/1xdghmr48oeeku8v.ll 497485811
 wasmtime-rs/1xoxv960o6cdv738.ll 73554955
 wasmtime-rs/1y39e8j6qsvzx17r.ll 921927389
-wasmtime-rs/1y3i26dupb4fvxe1.ll 34282990
+wasmtime-rs/1y3i26dupb4fvxe1.ll 34317469
 wasmtime-rs/1y60six9knjssobm.ll 39425882
 wasmtime-rs/1yasvam9m0oj9fj7.ll 105764016
 wasmtime-rs/1yfvjntoc8ylik9q.ll 50551813
