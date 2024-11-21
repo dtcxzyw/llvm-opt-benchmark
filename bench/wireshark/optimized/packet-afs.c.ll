@@ -1656,7 +1656,7 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %138
 
 138:                                              ; preds = %120, %128, %134
-  %or.cond246273 = phi i1 [ true, %120 ], [ true, %128 ], [ false, %134 ]
+  %brmerge271 = phi i1 [ true, %120 ], [ true, %128 ], [ false, %134 ]
   %.1269 = phi ptr [ %.1270285, %120 ], [ %.0220, %128 ], [ %.0220, %134 ]
   %.1229267 = phi i32 [ %.1229266287, %120 ], [ %.0228, %128 ], [ %.0228, %134 ]
   %.1231264 = phi i32 [ %.1231265288, %120 ], [ %.0230, %128 ], [ %.0230, %134 ]
@@ -1721,7 +1721,7 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 173:                                              ; preds = %170
   %174 = load i32, ptr @hf_afs_service, align 4
-  %175 = or i1 %or.cond7, %or.cond246273
+  %175 = or i1 %or.cond7, %brmerge271
   %176 = select i1 %175, ptr @.str.896, ptr @.str.906
   %177 = load i32, ptr @hf_afs_ubik, align 4
   %178 = icmp eq i32 %.1229267, %177
@@ -1767,7 +1767,7 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.thread290
 
 .thread290:                                       ; preds = %184, %187, %194, %191, %190
-  br i1 %or.cond246273, label %203, label %.sink.split
+  br i1 %brmerge271, label %203, label %.sink.split
 
 203:                                              ; preds = %.thread290
   store ptr null, ptr %6, align 8
