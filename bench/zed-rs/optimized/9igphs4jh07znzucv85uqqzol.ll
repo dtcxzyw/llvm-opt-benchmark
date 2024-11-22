@@ -16772,14 +16772,14 @@ define internal fastcc void @"_ZN7channel12channel_chat14ChannelMessage10from_pr
   %16 = alloca [8 x i8], align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 304
   %18 = load i8, ptr %17, align 8, !range !365, !noundef !5
-  switch i8 %18, label %default.unreachable126 [
+  switch i8 %18, label %default.unreachable128 [
     i8 0, label %19
     i8 1, label %43
     i8 2, label %44
     i8 3, label %28
   ]
 
-default.unreachable126:                           ; preds = %3
+default.unreachable128:                           ; preds = %3
   unreachable
 
 19:                                               ; preds = %3
@@ -16849,7 +16849,7 @@ default.unreachable126:                           ; preds = %3
   br label %45
 
 42:                                               ; preds = %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17ha88c3c59c95157c3E.exit.thread", %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17ha88c3c59c95157c3E.exit._crit_edge", %64
-  %.sroa.6101.0.in = phi ptr [ %.sroa.3.0.i.ph, %64 ], [ %.pre, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17ha88c3c59c95157c3E.exit._crit_edge" ], [ %35, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17ha88c3c59c95157c3E.exit.thread" ]
+  %.sroa.6101.0.in = phi ptr [ %.sroa.3.0.i.pn.i.ph, %64 ], [ %.pre, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17ha88c3c59c95157c3E.exit._crit_edge" ], [ %35, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17ha88c3c59c95157c3E.exit.thread" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   br label %208
 
@@ -16909,9 +16909,9 @@ default.unreachable126:                           ; preds = %3
   invoke fastcc void @"_ZN4core3ptr135drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$alloc..sync..Arc$LT$client..user..User$GT$$C$anyhow..Error$GT$$GT$$GT$17h33f653f9816443adE"(ptr noalias noundef align 8 dereferenceable(16) %46) #47
           to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17hfc457a8ab4c85413E.exit72" unwind label %160
 
-62:                                               ; preds = %50, %57
-  %.sroa.3.0.i.ph = phi ptr [ %58, %57 ], [ %51, %50 ]
-  %.sroa.0.0.i.ph = phi i64 [ %55, %57 ], [ %47, %50 ]
+62:                                               ; preds = %57, %50
+  %.sroa.0.0.i.pn.i.ph = phi i64 [ %47, %50 ], [ %55, %57 ]
+  %.sroa.3.0.i.pn.i.ph = phi ptr [ %51, %50 ], [ %58, %57 ]
   invoke fastcc void @"_ZN4core3ptr135drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$alloc..sync..Arc$LT$client..user..User$GT$$C$anyhow..Error$GT$$GT$$GT$17h33f653f9816443adE"(ptr noalias noundef align 8 dereferenceable(16) %46)
           to label %64 unwind label %38
 
@@ -16926,13 +16926,13 @@ common.ret:                                       ; preds = %127, %63
   br label %common.ret
 
 64:                                               ; preds = %62
-  %65 = icmp ne ptr %.sroa.3.0.i.ph, null
+  %65 = icmp ne ptr %.sroa.3.0.i.pn.i.ph, null
   tail call void @llvm.assume(i1 %65)
-  %switch = icmp eq i64 %.sroa.0.0.i.ph, 0
+  %switch = icmp eq i64 %.sroa.0.0.i.pn.i.ph, 0
   br i1 %switch, label %66, label %42
 
 66:                                               ; preds = %64
-  store ptr %.sroa.3.0.i.ph, ptr %16, align 8
+  store ptr %.sroa.3.0.i.pn.i.ph, ptr %16, align 8
   %67 = getelementptr inbounds i8, ptr %1, i64 144
   %68 = getelementptr inbounds i8, ptr %1, i64 184
   %69 = load i64, ptr %68, align 8, !range !238, !noundef !5
@@ -17085,8 +17085,8 @@ common.ret:                                       ; preds = %127, %63
   %.sroa.699.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 160
   %.sroa.699.0.copyload = load i64, ptr %.sroa.699.0..sroa_idx, align 8
   %.sroa.598.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 152
-  %.sroa.598.0.copyload125 = load i64, ptr %.sroa.598.0..sroa_idx, align 8
-  %115 = invoke noundef i128 @"_ZN5proto74_$LT$impl$u20$core..convert..From$LT$proto..Nonce$GT$$u20$for$u20$u128$GT$4from17h1319c01b3e4a6133E"(i64 noundef %.sroa.598.0.copyload125, i64 noundef %.sroa.699.0.copyload)
+  %.sroa.598.0.copyload127 = load i64, ptr %.sroa.598.0..sroa_idx, align 8
+  %115 = invoke noundef i128 @"_ZN5proto74_$LT$impl$u20$core..convert..From$LT$proto..Nonce$GT$$u20$for$u20$u128$GT$4from17h1319c01b3e4a6133E"(i64 noundef %.sroa.598.0.copyload127, i64 noundef %.sroa.699.0.copyload)
           to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h540cbf2c8564eba8E.exit" unwind label %116
 
 116:                                              ; preds = %114

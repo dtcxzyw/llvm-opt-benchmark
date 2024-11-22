@@ -649,11 +649,11 @@ define hidden { float, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$
   br i1 %29, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h830bc9435bd8a68bE.llvm.10321688783904056783.exit", label %16
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h830bc9435bd8a68bE.llvm.10321688783904056783.exit": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit.i.i", %3
-  %.sroa.3.0.i.i = phi i64 [ %2, %3 ], [ %.sroa.3.0.i.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit.i.i" ]
-  %.sroa.04.0.i.i = phi float [ %1, %3 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit.i.i" ]
-  %30 = insertvalue { float, i64 } poison, float %.sroa.04.0.i.i, 0
-  %31 = insertvalue { float, i64 } %30, i64 %.sroa.3.0.i.i, 1
-  ret { float, i64 } %31
+  %.pn29.i.i = phi float [ %1, %3 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit.i.i" ]
+  %.pn27.i.i = phi i64 [ %2, %3 ], [ %.sroa.3.0.i.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit.i.i" ]
+  %.pn.i.i = insertvalue { float, i64 } poison, float %.pn29.i.i, 0
+  %.merged.i.i = insertvalue { float, i64 } %.pn.i.i, i64 %.pn27.i.i, 1
+  ret { float, i64 } %.merged.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2290,11 +2290,11 @@ define hidden { float, i64 } @"_ZN110_$LT$core..iter..adapters..enumerate..Enume
   br i1 %33, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hffaa41d542be390fE.llvm.10321688783904056783.exit", label %20
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hffaa41d542be390fE.llvm.10321688783904056783.exit": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit.i", %4
-  %.sroa.3.0.i = phi i64 [ %2, %4 ], [ %.sroa.3.0.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit.i" ]
-  %.sroa.04.0.i = phi float [ %1, %4 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit.i" ]
-  %34 = insertvalue { float, i64 } poison, float %.sroa.04.0.i, 0
-  %35 = insertvalue { float, i64 } %34, i64 %.sroa.3.0.i, 1
-  ret { float, i64 } %35
+  %.pn29.i = phi float [ %1, %4 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit.i" ]
+  %.pn27.i = phi i64 [ %2, %4 ], [ %.sroa.3.0.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit.i" ]
+  %.pn.i = insertvalue { float, i64 } poison, float %.pn29.i, 0
+  %.merged.i = insertvalue { float, i64 } %.pn.i, i64 %.pn27.i, 1
+  ret { float, i64 } %.merged.i
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -20677,11 +20677,11 @@ define hidden { float, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as
   br i1 %31, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit", %6
-  %.sroa.3.0 = phi i64 [ %3, %6 ], [ %.sroa.3.0.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit" ]
-  %.sroa.04.0 = phi float [ %2, %6 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit" ]
-  %32 = insertvalue { float, i64 } poison, float %.sroa.04.0, 0
-  %33 = insertvalue { float, i64 } %32, i64 %.sroa.3.0, 1
-  ret { float, i64 } %33
+  %.pn29 = phi float [ %2, %6 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit" ]
+  %.pn27 = phi i64 [ %3, %6 ], [ %.sroa.3.0.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h851a313012a864beE.exit" ]
+  %.pn = insertvalue { float, i64 } poison, float %.pn29, 0
+  %.merged = insertvalue { float, i64 } %.pn, i64 %.pn27, 1
+  ret { float, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

@@ -1805,13 +1805,13 @@ define hidden void @_ZN6diesel11deserialize7FromSql17from_nullable_sql17ha85ccd9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17h95ff7b0d7e428cdbE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !316, !nonnull !8, !noundef !8
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !316, !noundef !8
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0.i.i, 1
-  ret { ptr, i64 } %3
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !316, !noundef !8
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !316, !nonnull !8, !noundef !8
+  %.pn.i.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i.i, 0
+  %.merged.i.i = insertvalue { ptr, i64 } %.pn.i.i, i64 %.pn1.i.i, 1
+  ret { ptr, i64 } %.merged.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

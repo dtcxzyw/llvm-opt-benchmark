@@ -13627,12 +13627,12 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h6c34fbf5f8f8b0bcE.exit.thread"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h6c34fbf5f8f8b0bcE.exit.thread": ; preds = %18, %3
-  %.sroa.5.0.ph = phi i64 [ 0, %3 ], [ %19, %18 ]
+  %.sroa.5.041.ph = phi i64 [ 0, %3 ], [ %19, %18 ]
   %.sroa.039.0.ph = phi i64 [ 0, %3 ], [ %.sroa.0.0.i, %18 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds { i64, ptr }, ptr %21, i64 %.sroa.039.0.ph
-  %23 = sub i64 %.sroa.5.0.ph, %.sroa.039.0.ph
+  %23 = sub i64 %.sroa.5.041.ph, %.sroa.039.0.ph
   br label %.thread
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h6c34fbf5f8f8b0bcE.exit": ; preds = %11
@@ -13723,12 +13723,12 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %.sroa.5.2 = add i64 %.sroa.3.0.i34, %17
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbc7d597621372446E.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbc7d597621372446E.exit": ; preds = %32, %._crit_edge.i, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h6c34fbf5f8f8b0bcE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbc7d597621372446E.exit36"
-  %.sroa.5.1 = phi i64 [ %.sroa.5.2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbc7d597621372446E.exit36" ], [ %17, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h6c34fbf5f8f8b0bcE.exit" ], [ %.sroa.03.0.lcssa.i, %._crit_edge.i ], [ %34, %32 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0.i35, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbc7d597621372446E.exit36" ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h6c34fbf5f8f8b0bcE.exit" ], [ 1, %._crit_edge.i ], [ 0, %32 ]
-  %56 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %57 = insertvalue { i64, i64 } %56, i64 %.sroa.5.1, 1
-  ret { i64, i64 } %57
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbc7d597621372446E.exit": ; preds = %32, %._crit_edge.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbc7d597621372446E.exit36", %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h6c34fbf5f8f8b0bcE.exit"
+  %.sroa.0.0.pn = phi i64 [ %.sroa.0.0.i35, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbc7d597621372446E.exit36" ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h6c34fbf5f8f8b0bcE.exit" ], [ 1, %._crit_edge.i ], [ 0, %32 ]
+  %.sroa.5.0.pn = phi i64 [ %.sroa.5.2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbc7d597621372446E.exit36" ], [ %17, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h6c34fbf5f8f8b0bcE.exit" ], [ %.sroa.03.0.lcssa.i, %._crit_edge.i ], [ %34, %32 ]
+  %.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.pn, 0
+  %.merged = insertvalue { i64, i64 } %.pn, i64 %.sroa.5.0.pn, 1
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

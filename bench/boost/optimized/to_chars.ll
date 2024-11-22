@@ -9434,7 +9434,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
   %12 = sub i64 %10, %11
   %.not59 = icmp eq i32 %7, 255
   %13 = icmp slt i32 %0, 0
-  br i1 %.not59, label %30, label %14
+  br i1 %.not59, label %35, label %14
 
 14:                                               ; preds = %4
   br i1 %13, label %15, label %17
@@ -9448,7 +9448,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
   %.044 = phi ptr [ %16, %15 ], [ %1, %14 ]
   %.mask.i.i = and i32 %0, 2147483647
   %.not60 = icmp eq i32 %.mask.i.i, 0
-  br i1 %.not60, label %23, label %18
+  br i1 %.not60, label %21, label %18
 
 18:                                               ; preds = %17
   %.sroa.26.0.insert.ext.i = zext i32 %9 to i64
@@ -9464,94 +9464,105 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
   %.sroa.06.4.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.06.4.extract.trunc = trunc nuw i64 %.sroa.06.4.extract.shift to i32
   %20 = call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail22dragon_box_print_charsIfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENT0_12carrier_uintEiPcS9_NS0_12chars_formatE(i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.sroa.06.4.extract.trunc, ptr noundef %.044, ptr noundef %2, i32 noundef %3) #15
-  %21 = extractvalue { ptr, i32 } %20, 0
-  %22 = extractvalue { ptr, i32 } %20, 1
-  br label %53
+  br label %61
 
-23:                                               ; preds = %17
+21:                                               ; preds = %17
   %.not48 = icmp eq i32 %3, 1
-  br i1 %.not48, label %26, label %24
+  br i1 %.not48, label %26, label %22
 
-24:                                               ; preds = %23
+22:                                               ; preds = %21
   store i8 48, ptr %.044, align 1
-  %25 = getelementptr inbounds i8, ptr %.044, i64 1
-  br label %53
+  %23 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 0, 1
+  br label %61
 
-26:                                               ; preds = %23
+26:                                               ; preds = %21
   %27 = icmp sgt i64 %12, 4
-  br i1 %27, label %28, label %53
+  br i1 %27, label %28, label %32
 
 28:                                               ; preds = %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.044, ptr noundef nonnull align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
   %29 = getelementptr inbounds i8, ptr %.044, i64 5
-  br label %53
+  %30 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 0, 1
+  br label %61
 
-30:                                               ; preds = %4
-  br i1 %13, label %31, label %33
+32:                                               ; preds = %26
+  %33 = insertvalue { ptr, i32 } poison, ptr %2, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 75, 1
+  br label %61
 
-31:                                               ; preds = %30
+35:                                               ; preds = %4
+  br i1 %13, label %36, label %38
+
+36:                                               ; preds = %35
   store i8 45, ptr %1, align 1, !tbaa !23
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %33
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  br label %38
 
-33:                                               ; preds = %31, %30
-  %.1 = phi ptr [ %32, %31 ], [ %1, %30 ]
+38:                                               ; preds = %36, %35
+  %.1 = phi ptr [ %37, %36 ], [ %1, %35 ]
   %.mask.i.i49 = and i32 %9, 2147483647
-  %34 = icmp eq i32 %.mask.i.i49, 0
-  br i1 %34, label %35, label %39
+  %39 = icmp eq i32 %.mask.i.i49, 0
+  br i1 %39, label %40, label %44
 
-35:                                               ; preds = %33
-  %36 = select i1 %13, i64 4, i64 3
-  %.not47 = icmp slt i64 %12, %36
-  br i1 %.not47, label %53, label %37
+40:                                               ; preds = %38
+  %41 = select i1 %13, i64 4, i64 3
+  %.not47 = icmp slt i64 %12, %41
+  br i1 %.not47, label %58, label %42
 
-37:                                               ; preds = %35
+42:                                               ; preds = %40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.1, ptr noundef nonnull align 1 dereferenceable(3) @.str.6, i64 3, i1 false)
-  %38 = getelementptr inbounds i8, ptr %.1, i64 3
-  br label %53
+  %43 = getelementptr inbounds i8, ptr %.1, i64 3
+  br label %58
 
-39:                                               ; preds = %33
-  %40 = and i32 %0, 8388607
-  %41 = icmp eq i32 %40, 4194304
-  br i1 %41, label %42, label %49
+44:                                               ; preds = %38
+  %45 = and i32 %0, 8388607
+  %46 = icmp eq i32 %45, 4194304
+  br i1 %46, label %47, label %54
 
-42:                                               ; preds = %39
-  br i1 %13, label %46, label %43
+47:                                               ; preds = %44
+  br i1 %13, label %51, label %48
 
-43:                                               ; preds = %42
+48:                                               ; preds = %47
   %.not45 = icmp slt i64 %12, 3
-  br i1 %.not45, label %53, label %44
+  br i1 %.not45, label %58, label %49
 
-44:                                               ; preds = %43
+49:                                               ; preds = %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.1, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
-  %45 = getelementptr inbounds i8, ptr %.1, i64 3
-  br label %53
+  %50 = getelementptr inbounds i8, ptr %.1, i64 3
+  br label %58
 
-46:                                               ; preds = %42
+51:                                               ; preds = %47
   %.not46 = icmp slt i64 %12, 9
-  br i1 %.not46, label %53, label %47
+  br i1 %.not46, label %58, label %52
 
-47:                                               ; preds = %46
+52:                                               ; preds = %51
   store i64 2982630251155054958, ptr %.1, align 1
-  %48 = getelementptr inbounds i8, ptr %.1, i64 8
-  br label %53
+  %53 = getelementptr inbounds i8, ptr %.1, i64 8
+  br label %58
 
-49:                                               ; preds = %39
-  %50 = select i1 %13, i64 10, i64 9
-  %.not = icmp slt i64 %12, %50
-  br i1 %.not, label %53, label %51
+54:                                               ; preds = %44
+  %55 = select i1 %13, i64 10, i64 9
+  %.not = icmp slt i64 %12, %55
+  br i1 %.not, label %58, label %56
 
-51:                                               ; preds = %49
+56:                                               ; preds = %54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.1, ptr noundef nonnull align 1 dereferenceable(9) @.str.3, i64 9, i1 false)
-  %52 = getelementptr inbounds i8, ptr %.1, i64 9
-  br label %53
+  %57 = getelementptr inbounds i8, ptr %.1, i64 9
+  br label %58
 
-53:                                               ; preds = %37, %35, %49, %46, %43, %51, %47, %44, %26, %28, %24, %18
-  %.sroa.042.0 = phi ptr [ %21, %18 ], [ %25, %24 ], [ %29, %28 ], [ %2, %26 ], [ %38, %37 ], [ %2, %35 ], [ %48, %47 ], [ %45, %44 ], [ %52, %51 ], [ %2, %43 ], [ %2, %46 ], [ %2, %49 ]
-  %.sroa.13.0 = phi i32 [ %22, %18 ], [ 0, %24 ], [ 0, %28 ], [ 75, %26 ], [ 0, %37 ], [ 75, %35 ], [ 0, %47 ], [ 0, %44 ], [ 0, %51 ], [ 75, %43 ], [ 75, %46 ], [ 75, %49 ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.042.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.13.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+58:                                               ; preds = %49, %52, %56, %48, %51, %54, %40, %42
+  %.sroa.042.1 = phi ptr [ %43, %42 ], [ %2, %40 ], [ %53, %52 ], [ %50, %49 ], [ %57, %56 ], [ %2, %48 ], [ %2, %51 ], [ %2, %54 ]
+  %.sroa.13.1 = phi i32 [ 0, %42 ], [ 75, %40 ], [ 0, %52 ], [ 0, %49 ], [ 0, %56 ], [ 75, %48 ], [ 75, %51 ], [ 75, %54 ]
+  %59 = insertvalue { ptr, i32 } poison, ptr %.sroa.042.1, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %.sroa.13.1, 1
+  br label %61
+
+61:                                               ; preds = %58, %32, %28, %22, %18
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %20, %18 ], [ %25, %22 ], [ %31, %28 ], [ %34, %32 ], [ %60, %58 ]
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -10692,7 +10703,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
   %10 = sub i64 %8, %9
   %.not61 = icmp eq i32 %7, 2047
   %11 = icmp slt i64 %0, 0
-  br i1 %.not61, label %42, label %12
+  br i1 %.not61, label %47, label %12
 
 12:                                               ; preds = %4
   br i1 %11, label %13, label %15
@@ -10706,7 +10717,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
   %.043 = phi ptr [ %14, %13 ], [ %1, %12 ]
   %.mask.i.i = and i64 %0, 9223372036854775807
   %.not62 = icmp eq i64 %.mask.i.i, 0
-  br i1 %.not62, label %35, label %16
+  br i1 %.not62, label %33, label %16
 
 16:                                               ; preds = %15
   %17 = shl i64 %0, 1
@@ -10741,91 +10752,102 @@ _ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11p
   %31 = extractvalue { i64, i64 } %.pn.i, 0
   %.sroa.4.8.extract.trunc = trunc i64 %30 to i32
   %32 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail22dragon_box_print_charsIdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENT0_12carrier_uintEiPcS9_NS0_12chars_formatE(i64 noundef %31, i32 noundef %.sroa.4.8.extract.trunc, ptr noundef %.043, ptr noundef %2, i32 noundef %3) #15
-  %33 = extractvalue { ptr, i32 } %32, 0
-  %34 = extractvalue { ptr, i32 } %32, 1
-  br label %61
+  br label %69
 
-35:                                               ; preds = %15
+33:                                               ; preds = %15
   %.not47 = icmp eq i32 %3, 1
-  br i1 %.not47, label %38, label %36
+  br i1 %.not47, label %38, label %34
 
-36:                                               ; preds = %35
+34:                                               ; preds = %33
   store i8 48, ptr %.043, align 1
-  %37 = getelementptr inbounds i8, ptr %.043, i64 1
-  br label %61
+  %35 = getelementptr inbounds i8, ptr %.043, i64 1
+  %36 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 0, 1
+  br label %69
 
-38:                                               ; preds = %35
+38:                                               ; preds = %33
   %39 = icmp sgt i64 %10, 4
-  br i1 %39, label %40, label %61
+  br i1 %39, label %40, label %44
 
 40:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.043, ptr noundef nonnull align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
   %41 = getelementptr inbounds i8, ptr %.043, i64 5
-  br label %61
+  %42 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 0, 1
+  br label %69
 
-42:                                               ; preds = %4
-  br i1 %11, label %43, label %45
+44:                                               ; preds = %38
+  %45 = insertvalue { ptr, i32 } poison, ptr %2, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 75, 1
+  br label %69
 
-43:                                               ; preds = %42
+47:                                               ; preds = %4
+  br i1 %11, label %48, label %50
+
+48:                                               ; preds = %47
   store i8 45, ptr %1, align 1, !tbaa !23
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %45
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  br label %50
 
-45:                                               ; preds = %43, %42
-  %.1 = phi ptr [ %44, %43 ], [ %1, %42 ]
+50:                                               ; preds = %48, %47
+  %.1 = phi ptr [ %49, %48 ], [ %1, %47 ]
   %.mask.i.i48 = and i64 %0, 4503599627370495
-  switch i64 %.mask.i.i48, label %57 [
-    i64 0, label %46
-    i64 2251799813685248, label %50
+  switch i64 %.mask.i.i48, label %62 [
+    i64 0, label %51
+    i64 2251799813685248, label %55
   ]
 
-46:                                               ; preds = %45
-  %47 = select i1 %11, i64 4, i64 3
-  %.not46 = icmp slt i64 %10, %47
-  br i1 %.not46, label %61, label %48
-
-48:                                               ; preds = %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.1, ptr noundef nonnull align 1 dereferenceable(3) @.str.6, i64 3, i1 false)
-  %49 = getelementptr inbounds i8, ptr %.1, i64 3
-  br label %61
-
-50:                                               ; preds = %45
-  br i1 %11, label %54, label %51
-
 51:                                               ; preds = %50
+  %52 = select i1 %11, i64 4, i64 3
+  %.not46 = icmp slt i64 %10, %52
+  br i1 %.not46, label %66, label %53
+
+53:                                               ; preds = %51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.1, ptr noundef nonnull align 1 dereferenceable(3) @.str.6, i64 3, i1 false)
+  %54 = getelementptr inbounds i8, ptr %.1, i64 3
+  br label %66
+
+55:                                               ; preds = %50
+  br i1 %11, label %59, label %56
+
+56:                                               ; preds = %55
   %.not44 = icmp slt i64 %10, 3
-  br i1 %.not44, label %61, label %52
+  br i1 %.not44, label %66, label %57
 
-52:                                               ; preds = %51
+57:                                               ; preds = %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.1, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
-  %53 = getelementptr inbounds i8, ptr %.1, i64 3
-  br label %61
+  %58 = getelementptr inbounds i8, ptr %.1, i64 3
+  br label %66
 
-54:                                               ; preds = %50
+59:                                               ; preds = %55
   %.not45 = icmp slt i64 %10, 9
-  br i1 %.not45, label %61, label %55
+  br i1 %.not45, label %66, label %60
 
-55:                                               ; preds = %54
+60:                                               ; preds = %59
   store i64 2982630251155054958, ptr %.1, align 1
-  %56 = getelementptr inbounds i8, ptr %.1, i64 8
-  br label %61
+  %61 = getelementptr inbounds i8, ptr %.1, i64 8
+  br label %66
 
-57:                                               ; preds = %45
-  %58 = select i1 %11, i64 10, i64 9
-  %.not = icmp slt i64 %10, %58
-  br i1 %.not, label %61, label %59
+62:                                               ; preds = %50
+  %63 = select i1 %11, i64 10, i64 9
+  %.not = icmp slt i64 %10, %63
+  br i1 %.not, label %66, label %64
 
-59:                                               ; preds = %57
+64:                                               ; preds = %62
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.1, ptr noundef nonnull align 1 dereferenceable(9) @.str.3, i64 9, i1 false)
-  %60 = getelementptr inbounds i8, ptr %.1, i64 9
-  br label %61
+  %65 = getelementptr inbounds i8, ptr %.1, i64 9
+  br label %66
 
-61:                                               ; preds = %48, %46, %57, %54, %51, %59, %55, %52, %38, %40, %36, %_ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_.exit
-  %.sroa.041.0 = phi ptr [ %33, %_ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_.exit ], [ %37, %36 ], [ %41, %40 ], [ %2, %38 ], [ %49, %48 ], [ %2, %46 ], [ %56, %55 ], [ %53, %52 ], [ %60, %59 ], [ %2, %51 ], [ %2, %54 ], [ %2, %57 ]
-  %.sroa.13.0 = phi i32 [ %34, %_ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_.exit ], [ 0, %36 ], [ 0, %40 ], [ 75, %38 ], [ 0, %48 ], [ 75, %46 ], [ 0, %55 ], [ 0, %52 ], [ 0, %59 ], [ 75, %51 ], [ 75, %54 ], [ 75, %57 ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.041.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.13.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+66:                                               ; preds = %57, %60, %64, %56, %59, %62, %51, %53
+  %.sroa.041.1 = phi ptr [ %54, %53 ], [ %2, %51 ], [ %61, %60 ], [ %58, %57 ], [ %65, %64 ], [ %2, %56 ], [ %2, %59 ], [ %2, %62 ]
+  %.sroa.13.1 = phi i32 [ 0, %53 ], [ 75, %51 ], [ 0, %60 ], [ 0, %57 ], [ 0, %64 ], [ 75, %56 ], [ 75, %59 ], [ 75, %62 ]
+  %67 = insertvalue { ptr, i32 } poison, ptr %.sroa.041.1, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %.sroa.13.1, 1
+  br label %69
+
+69:                                               ; preds = %66, %44, %40, %34, %_ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_.exit
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %32, %_ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_.exit ], [ %37, %34 ], [ %43, %40 ], [ %46, %44 ], [ %68, %66 ]
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

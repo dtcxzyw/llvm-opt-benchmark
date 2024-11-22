@@ -5430,11 +5430,11 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h97399f74bfa37cc
   %.sroa.0.06.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %17, %2 ]
   %22 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i.i, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !1445)
-  %.sroa.0.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i.i.i, i64 8
-  %.sroa.0.0.i.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i.i, align 8, !alias.scope !1448, !noalias !1451, !nonnull !16, !noundef !16
-  %.sroa.5.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i.i.i, i64 16
-  %.sroa.5.0.i.i.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.i.i, align 8, !alias.scope !1448, !noalias !1451, !noundef !16
-  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.5.0.i.i.i.i.i), !noalias !1454
+  %.pn1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i.i.i, i64 16
+  %.pn1.i.i.i.i.i = load i64, ptr %.pn1.in.i.i.i.i.i, align 8, !alias.scope !1448, !noalias !1451, !noundef !16
+  %.pn3.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i.i.i, i64 8
+  %.pn3.i.i.i.i.i = load ptr, ptr %.pn3.in.i.i.i.i.i, align 8, !alias.scope !1448, !noalias !1451, !nonnull !16, !noundef !16
+  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i.i.i, i64 noundef %.pn1.i.i.i.i.i), !noalias !1454
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !1455
   store i8 -1, ptr %3, align 1, !noalias !1455
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !1454
@@ -8119,11 +8119,11 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %.sroa.0.06.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %10, %2 ]
   %15 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !2285)
-  %.sroa.0.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 8
-  %.sroa.0.0.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i, align 8, !alias.scope !2288, !noalias !2291, !nonnull !16, !noundef !16
-  %.sroa.5.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 16
-  %.sroa.5.0.i.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.i, align 8, !alias.scope !2288, !noalias !2291, !noundef !16
-  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.5.0.i.i.i.i), !noalias !2294
+  %.pn1.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 16
+  %.pn1.i.i.i.i = load i64, ptr %.pn1.in.i.i.i.i, align 8, !alias.scope !2288, !noalias !2291, !noundef !16
+  %.pn3.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 8
+  %.pn3.i.i.i.i = load ptr, ptr %.pn3.in.i.i.i.i, align 8, !alias.scope !2288, !noalias !2291, !nonnull !16, !noundef !16
+  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i.i, i64 noundef %.pn1.i.i.i.i), !noalias !2294
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !2295
   store i8 -1, ptr %3, align 1, !noalias !2295
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !2294
@@ -21659,11 +21659,11 @@ define hidden void @"_ZN95_$LT$wasmtime_environ..component..translate..inline..I
   %.sroa.0.06.i = phi ptr [ %14, %.lr.ph.i ], [ %9, %2 ]
   %14 = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !4772)
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 8
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !4775, !noalias !4778, !nonnull !16, !noundef !16
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 16
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !4775, !noalias !4778, !noundef !16
-  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.5.0.i.i.i), !noalias !4772
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 16
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !4775, !noalias !4778, !noundef !16
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 8
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !4775, !noalias !4778, !nonnull !16, !noundef !16
+  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i, i64 noundef %.pn1.i.i.i), !noalias !4772
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !4781
   store i8 -1, ptr %3, align 1, !noalias !4781
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !4772

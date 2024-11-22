@@ -4120,11 +4120,11 @@ define void @"_ZN88_$LT$actix_files..named..NamedFile$u20$as$u20$actix_web..serv
           to label %13 unwind label %29
 
 16:                                               ; preds = %2
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !677, !nonnull !5, !noundef !5
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !677, !noundef !5
-  invoke void @_ZN12actix_router8resource11ResourceDef11root_prefix17he1cc6bc9126194bfE(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, { i64, [7 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i16, i8, [5 x i8] }) align 8 dereferenceable(152) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !677, !noundef !5
+  %.pn3.in.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !677, !nonnull !5, !noundef !5
+  invoke void @_ZN12actix_router8resource11ResourceDef11root_prefix17he1cc6bc9126194bfE(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, { i64, [7 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i16, i8, [5 x i8] }) align 8 dereferenceable(152) %7, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %17 unwind label %14
 
 17:                                               ; preds = %16

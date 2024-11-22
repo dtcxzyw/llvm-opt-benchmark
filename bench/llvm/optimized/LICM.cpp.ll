@@ -7592,11 +7592,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit145:
 492:                                              ; preds = %._crit_edge.i.i.i, %.lr.ph.i
   %493 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %57, ptr noundef %478) #21, !noalias !123
   %.pre.i.i = load ptr, ptr %57, align 8
-  %.pre8.i.i = load i32, ptr %80, align 4
+  %.pre6.i.i = load i32, ptr %80, align 4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %.lr.ph.i.i.i, %492, %488
-  %494 = phi i32 [ %491, %488 ], [ %.pre8.i.i, %492 ], [ %474, %.lr.ph.i.i.i ]
+  %494 = phi i32 [ %491, %488 ], [ %.pre6.i.i, %492 ], [ %474, %.lr.ph.i.i.i ]
   %495 = phi ptr [ %490, %488 ], [ %.pre.i.i, %492 ], [ %475, %.lr.ph.i.i.i ]
   %496 = load ptr, ptr %78, align 8
   %497 = load i32, ptr %79, align 8, !noalias !123

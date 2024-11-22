@@ -326,19 +326,19 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h89fd2829392182b6E.llvm.952538468121597485"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !119, !noundef !7
-  %.sroa.5.0.in.i3 = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i4 = load i64, ptr %.sroa.5.0.in.i3, align 8, !alias.scope !122, !noundef !7
-  %.not.i.i = icmp eq i64 %.sroa.5.0.i, %.sroa.5.0.i4
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !119, !noundef !7
+  %.pn1.in.i1 = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i2 = load i64, ptr %.pn1.in.i1, align 8, !alias.scope !122, !noundef !7
+  %.not.i.i = icmp eq i64 %.pn1.i, %.pn1.i2
   br i1 %.not.i.i, label %3, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h0a6f45b168ae3f7aE.llvm.952538468121597485.exit"
 
 3:                                                ; preds = %2
-  %.sroa.0.0.in.i1 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i2 = load ptr, ptr %.sroa.0.0.in.i1, align 8, !alias.scope !122, !nonnull !7, !noundef !7
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !119, !nonnull !7, !noundef !7
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %.sroa.0.0.i2, i64 %.sroa.5.0.i), !alias.scope !125
+  %.pn3.in.i3 = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i4 = load ptr, ptr %.pn3.in.i3, align 8, !alias.scope !122, !nonnull !7, !noundef !7
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !119, !nonnull !7, !noundef !7
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i, ptr nonnull readonly align 1 %.pn3.i4, i64 %.pn1.i), !alias.scope !125
   %4 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h0a6f45b168ae3f7aE.llvm.952538468121597485.exit"
 
@@ -979,19 +979,19 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hbb4295e34cf2d7f8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !259, !noalias !257, !noundef !7
-  %.sroa.5.0.in.i3.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i4.i = load i64, ptr %.sroa.5.0.in.i3.i, align 8, !alias.scope !262, !noalias !254, !noundef !7
-  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i, %.sroa.5.0.i4.i
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !259, !noalias !257, !noundef !7
+  %.pn1.in.i1.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i2.i = load i64, ptr %.pn1.in.i1.i, align 8, !alias.scope !262, !noalias !254, !noundef !7
+  %.not.i.i.i = icmp eq i64 %.pn1.i.i, %.pn1.i2.i
   br i1 %.not.i.i.i, label %3, label %"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h89fd2829392182b6E.llvm.952538468121597485.exit"
 
 3:                                                ; preds = %2
-  %.sroa.0.0.in.i1.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i2.i = load ptr, ptr %.sroa.0.0.in.i1.i, align 8, !alias.scope !262, !noalias !254, !nonnull !7, !noundef !7
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !259, !noalias !257, !nonnull !7, !noundef !7
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i2.i, i64 %.sroa.5.0.i.i), !alias.scope !265, !noalias !272
+  %.pn3.in.i3.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i4.i = load ptr, ptr %.pn3.in.i3.i, align 8, !alias.scope !262, !noalias !254, !nonnull !7, !noundef !7
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !259, !noalias !257, !nonnull !7, !noundef !7
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i.i, ptr nonnull readonly align 1 %.pn3.i4.i, i64 %.pn1.i.i), !alias.scope !265, !noalias !272
   %4 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h89fd2829392182b6E.llvm.952538468121597485.exit"
 
@@ -1088,13 +1088,13 @@ define hidden { i32, float } @"_ZN6common27fixed_length_priority_queue33FixedLen
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hbf7bc85e74353922E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #12 {
-  %.sroa.0.0.in = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !7, !noundef !7
-  %.sroa.5.0.in = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8, !noundef !7
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %3
+  %.pn1.in = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1 = load i64, ptr %.pn1.in, align 8, !noundef !7
+  %.pn3.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3 = load ptr, ptr %.pn3.in, align 8, !nonnull !7, !noundef !7
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn3, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

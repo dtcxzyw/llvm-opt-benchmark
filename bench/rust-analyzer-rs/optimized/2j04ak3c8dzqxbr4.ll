@@ -182,19 +182,19 @@ default.unreachable:                              ; preds = %11
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit.i
 
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit.i: ; preds = %25, %20, %14
-  %.sroa.4.0.i.i = phi i64 [ %27, %25 ], [ %24, %20 ], [ %18, %14 ]
-  %.sroa.0.0.i.i = phi ptr [ %28, %25 ], [ %22, %20 ], [ %19, %14 ]
-  %29 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h68b55aafef0a0af1E"(i64 noundef %.sroa.4.0.i.i, i1 noundef zeroext false), !noalias !25
+  %.pn5.i.i = phi ptr [ %28, %25 ], [ %22, %20 ], [ %19, %14 ]
+  %.pn3.i.i = phi i64 [ %27, %25 ], [ %24, %20 ], [ %18, %14 ]
+  %29 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h68b55aafef0a0af1E"(i64 noundef %.pn3.i.i, i1 noundef zeroext false), !noalias !25
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
   %32 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %32)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %.pn5.i.i, i64 %.pn3.i.i, i1 false)
   store i64 %30, ptr %0, align 8, !alias.scope !23, !noalias !26
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %31, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !23, !noalias !26
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !23, !noalias !26
+  store i64 %.pn3.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !23, !noalias !26
   br label %"_ZN52_$LT$cfg..CfgOptions$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h433081aa53677f58E.llvm.357507703110778157.exit"
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.357507703110778157.exit.i: ; preds = %3
@@ -387,11 +387,11 @@ default.unreachable:                              ; preds = %1
   br label %19
 
 19:                                               ; preds = %15, %10, %4
-  %.sroa.4.0 = phi i64 [ %17, %15 ], [ %14, %10 ], [ %8, %4 ]
-  %.sroa.0.0 = phi ptr [ %18, %15 ], [ %12, %10 ], [ %9, %4 ]
-  %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %21
+  %.pn5 = phi ptr [ %18, %15 ], [ %12, %10 ], [ %9, %4 ]
+  %.pn3 = phi i64 [ %17, %15 ], [ %14, %10 ], [ %8, %4 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn5, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn3, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -431,19 +431,19 @@ default.unreachable:                              ; preds = %2
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit
 
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit: ; preds = %5, %11, %16
-  %.sroa.4.0.i = phi i64 [ %18, %16 ], [ %15, %11 ], [ %9, %5 ]
-  %.sroa.0.0.i = phi ptr [ %19, %16 ], [ %13, %11 ], [ %10, %5 ]
-  %20 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h68b55aafef0a0af1E"(i64 noundef %.sroa.4.0.i, i1 noundef zeroext false)
+  %.pn5.i = phi ptr [ %19, %16 ], [ %13, %11 ], [ %10, %5 ]
+  %.pn3.i = phi i64 [ %18, %16 ], [ %15, %11 ], [ %9, %5 ]
+  %20 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h68b55aafef0a0af1E"(i64 noundef %.pn3.i, i1 noundef zeroext false)
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.4.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %.pn5.i, i64 %.pn3.i, i1 false)
   store i64 %21, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %22, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.i, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.pn3.i, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
@@ -531,19 +531,19 @@ default.unreachable:                              ; preds = %11
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit
 
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit: ; preds = %14, %20, %25
-  %.sroa.4.0.i = phi i64 [ %27, %25 ], [ %24, %20 ], [ %18, %14 ]
-  %.sroa.0.0.i = phi ptr [ %28, %25 ], [ %22, %20 ], [ %19, %14 ]
-  %29 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h68b55aafef0a0af1E"(i64 noundef %.sroa.4.0.i, i1 noundef zeroext false), !noalias !85
+  %.pn5.i = phi ptr [ %28, %25 ], [ %22, %20 ], [ %19, %14 ]
+  %.pn3.i = phi i64 [ %27, %25 ], [ %24, %20 ], [ %18, %14 ]
+  %29 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h68b55aafef0a0af1E"(i64 noundef %.pn3.i, i1 noundef zeroext false), !noalias !85
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
   %32 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %32)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.4.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %.pn5.i, i64 %.pn3.i, i1 false)
   store i64 %30, ptr %0, align 8, !alias.scope !85, !noalias !91
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %31, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !85, !noalias !91
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !85, !noalias !91
+  store i64 %.pn3.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !85, !noalias !91
   br label %36
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.357507703110778157.exit: ; preds = %3

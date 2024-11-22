@@ -1179,11 +1179,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Localizer18localizeIntraBlockERNS_
 62:                                               ; preds = %._crit_edge.i.i, %48
   %63 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull %45) #15, !noalias !25
   %.pre.i = load ptr, ptr %3, align 8
-  %.pre8.i = load i32, ptr %12, align 4
+  %.pre6.i = load i32, ptr %12, align 4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %62, %58
-  %64 = phi i32 [ %61, %58 ], [ %.pre8.i, %62 ], [ %41, %.lr.ph.i.i ]
+  %64 = phi i32 [ %61, %58 ], [ %.pre6.i, %62 ], [ %41, %.lr.ph.i.i ]
   %65 = phi ptr [ %60, %58 ], [ %.pre.i, %62 ], [ %42, %.lr.ph.i.i ]
   %66 = load ptr, ptr %10, align 8
   %67 = load i32, ptr %11, align 8

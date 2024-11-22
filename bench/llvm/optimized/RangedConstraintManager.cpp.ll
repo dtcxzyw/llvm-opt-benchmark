@@ -439,12 +439,12 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i.i: ; preds = %_ZN5clang
   br label %_ZN5clang4ento11SValBuilder13makeSymbolValEPKNS0_7SymExprE.exit.i
 
 _ZN5clang4ento11SValBuilder13makeSymbolValEPKNS0_7SymExprE.exit.i: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
-  %.sroa.07.0.i.i = phi ptr [ %28, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i.i ], [ %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i.i ], [ %1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ]
-  %.sroa.38.0.i.i = phi i8 [ 4, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i.i ], [ 9, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i.i ], [ 9, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ]
+  %.pn11.i.i = phi ptr [ %28, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i.i ], [ %1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ], [ %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i.i ]
+  %.pn.i.i = phi i8 [ 4, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i.i ], [ 9, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ], [ 9, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i.i ]
   %29 = load ptr, ptr %10, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 72
   %31 = load ptr, ptr %30, align 8
-  %32 = call { ptr, i8 } %31(ptr noundef nonnull align 8 dereferenceable(412) %10, ptr noundef nonnull %3, ptr %.sroa.07.0.i.i, i8 %.sroa.38.0.i.i) #10
+  %32 = call { ptr, i8 } %31(ptr noundef nonnull align 8 dereferenceable(412) %10, ptr noundef nonnull %3, ptr %.pn11.i.i, i8 %.pn.i.i) #10
   %33 = load ptr, ptr %3, align 8
   %.not.i.i13.i = icmp eq ptr %33, null
   br i1 %.not.i.i13.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %34
@@ -1557,12 +1557,12 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i: ; preds = %_ZN5clang4e
   br label %_ZN5clang4ento11SValBuilder13makeSymbolValEPKNS0_7SymExprE.exit
 
 _ZN5clang4ento11SValBuilder13makeSymbolValEPKNS0_7SymExprE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i
-  %.sroa.07.0.i = phi ptr [ %25, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i ], [ %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i ], [ %1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ]
-  %.sroa.38.0.i = phi i8 [ 4, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i ], [ 9, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i ], [ 9, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ]
+  %.pn11.i = phi ptr [ %25, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i ], [ %1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ], [ %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i ]
+  %.pn.i = phi i8 [ 4, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i ], [ 9, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ], [ 9, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i ]
   %26 = load ptr, ptr %7, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 72
   %28 = load ptr, ptr %27, align 8
-  %29 = call { ptr, i8 } %28(ptr noundef nonnull align 8 dereferenceable(412) %7, ptr noundef nonnull %2, ptr %.sroa.07.0.i, i8 %.sroa.38.0.i) #10
+  %29 = call { ptr, i8 } %28(ptr noundef nonnull align 8 dereferenceable(412) %7, ptr noundef nonnull %2, ptr %.pn11.i, i8 %.pn.i) #10
   %30 = load ptr, ptr %2, align 8
   %.not.i.i13 = icmp eq ptr %30, null
   br i1 %.not.i.i13, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %31

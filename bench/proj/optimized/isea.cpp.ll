@@ -590,7 +590,7 @@ switch.lookup:                                    ; preds = %178
   %195 = fadd double %193, %180
   store double %195, ptr %5, align 8
   %196 = fadd double %179, %194
-  br label %332
+  br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
 197:                                              ; preds = %_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i
   %198 = getelementptr inbounds i8, ptr %5, i64 8
@@ -602,7 +602,7 @@ switch.lookup:                                    ; preds = %178
   store double %203, ptr %5, align 8
   %204 = fadd double %202, 0x3FD279A74590331C
   store double %204, ptr %198, align 8
-  switch i32 %165, label %332 [
+  switch i32 %165, label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit [
     i32 8, label %319
     i32 7, label %205
     i32 5, label %229
@@ -643,7 +643,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i:   ; preds = %221, %205
   %227 = add nsw i32 %226, %225
   %228 = getelementptr inbounds i8, ptr %9, i64 64
   store i32 %227, ptr %228, align 8
-  br label %332
+  br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
 229:                                              ; preds = %197
   %230 = add nsw i32 %127, -1
@@ -678,22 +678,22 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
   %251 = add nsw i32 %250, %249
   %252 = getelementptr inbounds i8, ptr %9, i64 64
   store i32 %251, ptr %252, align 8
-  br label %332
+  br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
 253:                                              ; preds = %197
   %254 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef %5, ptr noundef %6)
-          to label %.noexc unwind label %333
+          to label %.noexc unwind label %332
 
 .noexc:                                           ; preds = %253
   %255 = getelementptr inbounds i8, ptr %9, i64 64
   store i32 %254, ptr %255, align 8
   %.sroa.6.0..sroa_idx24.i = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.6.0.copyload25.i = load double, ptr %.sroa.6.0..sroa_idx24.i, align 8
-  br label %332
+  br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
 256:                                              ; preds = %197
   %257 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef %5, ptr noundef %6)
-          to label %.noexc16 unwind label %333
+          to label %.noexc16 unwind label %332
 
 .noexc16:                                         ; preds = %256
   %258 = getelementptr inbounds i8, ptr %9, i64 64
@@ -776,12 +776,12 @@ _ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i: ; preds = %299, %2
   store i64 %.032.sink.i.i, ptr %318, align 8
   %.sroa.6.0..sroa_idx26.i = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.6.0.copyload27.i = load double, ptr %.sroa.6.0..sroa_idx26.i, align 8
-  br label %332
+  br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
 319:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %320 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef range(i32 -2147483648, 21) %127, ptr noundef nonnull readonly %5, ptr noundef %4)
-          to label %.noexc17 unwind label %333
+          to label %.noexc17 unwind label %332
 
 .noexc17:                                         ; preds = %319
   %321 = load double, ptr %4, align 8
@@ -794,7 +794,7 @@ _ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i: ; preds = %299, %2
   %325 = tail call ptr @__cxa_allocate_exception(i64 8) #16
   store ptr @.str.24, ptr %325, align 16
   invoke void @__cxa_throw(ptr nonnull %325, ptr nonnull @_ZTIPKc, ptr null) #19
-          to label %.noexc18 unwind label %333
+          to label %.noexc18 unwind label %332
 
 .noexc18:                                         ; preds = %324
   unreachable
@@ -808,56 +808,56 @@ _ZL8isea_hexPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds = %.noex
   %330 = getelementptr inbounds i8, ptr %4, i64 8
   %331 = load double, ptr %330, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %332
+  br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
-332:                                              ; preds = %_ZL8isea_hexPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i, %_ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i, %.noexc, %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i, %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i, %197, %switch.lookup
+_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit: ; preds = %switch.lookup, %197, %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i, %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i, %.noexc, %_ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i, %_ZL8isea_hexPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i
   %.sroa.0.0.in.i = phi ptr [ %5, %switch.lookup ], [ %6, %_ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i ], [ %6, %.noexc ], [ %6, %_ZL8isea_hexPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i ], [ %5, %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i ], [ %5, %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i ], [ %5, %197 ]
   %.sroa.6.0.i = phi double [ %196, %switch.lookup ], [ %.sroa.6.0.copyload27.i, %_ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i ], [ %.sroa.6.0.copyload25.i, %.noexc ], [ %331, %_ZL8isea_hexPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i ], [ %.sroa.6.0.copyload3125.i, %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i ], [ %.sroa.6.0.copyload3124.i, %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i ], [ %204, %197 ]
   %.sroa.0.0.i = load double, ptr %.sroa.0.0.in.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %346
+  br label %345
 
-333:                                              ; preds = %324, %319, %256, %253
-  %334 = landingpad { ptr, i32 }
+332:                                              ; preds = %324, %319, %256, %253
+  %333 = landingpad { ptr, i32 }
           catch ptr @_ZTIPKc
-  %335 = extractvalue { ptr, i32 } %334, 1
-  %336 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIPKc) #16
-  %337 = icmp eq i32 %335, %336
-  br i1 %337, label %338, label %347
+  %334 = extractvalue { ptr, i32 } %333, 1
+  %335 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIPKc) #16
+  %336 = icmp eq i32 %334, %335
+  br i1 %336, label %337, label %346
 
-338:                                              ; preds = %333
-  %339 = extractvalue { ptr, i32 } %334, 0
-  %340 = tail call ptr @__cxa_begin_catch(ptr %339) #16
-  %341 = invoke i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
-          to label %342 unwind label %344
+337:                                              ; preds = %332
+  %338 = extractvalue { ptr, i32 } %333, 0
+  %339 = tail call ptr @__cxa_begin_catch(ptr %338) #16
+  %340 = invoke i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
+          to label %341 unwind label %343
 
-342:                                              ; preds = %338
+341:                                              ; preds = %337
   invoke void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7)
-          to label %343 unwind label %344
+          to label %342 unwind label %343
 
-343:                                              ; preds = %342
+342:                                              ; preds = %341
   %.sroa.011.0.copyload = load double, ptr %7, align 8
   %.sroa.312.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.312.0.copyload = load double, ptr %.sroa.312.0..sroa_idx, align 8
   call void @__cxa_end_catch() #16
-  br label %346
+  br label %345
 
-344:                                              ; preds = %342, %338
-  %345 = landingpad { ptr, i32 }
+343:                                              ; preds = %341, %337
+  %344 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_end_catch() #16
-  br label %347
+  br label %346
 
-346:                                              ; preds = %332, %343
-  %.sroa.011.0 = phi double [ %.sroa.0.0.i, %332 ], [ %.sroa.011.0.copyload, %343 ]
-  %.sroa.312.0 = phi double [ %.sroa.6.0.i, %332 ], [ %.sroa.312.0.copyload, %343 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.011.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.312.0, 1
-  ret { double, double } %.fca.1.insert
+345:                                              ; preds = %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit, %342
+  %.sroa.011.0.copyload.pn = phi double [ %.sroa.011.0.copyload, %342 ], [ %.sroa.0.0.i, %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit ]
+  %.sroa.312.0.copyload.pn = phi double [ %.sroa.312.0.copyload, %342 ], [ %.sroa.6.0.i, %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit ]
+  %.pn = insertvalue { double, double } poison, double %.sroa.011.0.copyload.pn, 0
+  %.fca.1.insert.merged = insertvalue { double, double } %.pn, double %.sroa.312.0.copyload.pn, 1
+  ret { double, double } %.fca.1.insert.merged
 
-347:                                              ; preds = %344, %333
-  %.merged = phi { ptr, i32 } [ %345, %344 ], [ %334, %333 ]
+346:                                              ; preds = %343, %332
+  %.merged = phi { ptr, i32 } [ %344, %343 ], [ %333, %332 ]
   resume { ptr, i32 } %.merged
 }
 

@@ -1354,11 +1354,11 @@ _ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread: ; preds = %8, %1, %13,
   br label %_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit
 
 _ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit:       ; preds = %54, %51, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread ], [ %27, %54 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ], [ null, %51 ]
-  %.sroa.3.0 = phi ptr [ %.sroa.3.0.copyload, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread ], [ %59, %54 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ], [ null, %51 ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %.fca.1.insert
+  %.pn7 = phi ptr [ %.sroa.0.0.copyload, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread ], [ %27, %54 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ], [ null, %51 ]
+  %.pn = phi ptr [ %.sroa.3.0.copyload, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread ], [ %59, %54 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ], [ null, %51 ]
+  %.fca.0.insert.i.pn = insertvalue { ptr, ptr } poison, ptr %.pn7, 0
+  %.fca.1.insert.merged = insertvalue { ptr, ptr } %.fca.0.insert.i.pn, ptr %.pn, 1
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 declare { i64, i8 } @_ZNK4llvm14DWARFFormValue18getAsReferenceUValEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
@@ -2606,369 +2606,369 @@ define internal fastcc { i64, i8 } @_ZL15getTypeSizeImplN4llvm8DWARFDieEmRNS_15S
   %31 = add nuw i32 %21, 1
   store i32 %31, ptr %20, align 4, !noalias !108
   store ptr %1, ptr %23, align 8, !noalias !108
-  br label %34
+  br label %35
 
 _ZN4llvm15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEE6insertES3_.exit: ; preds = %._crit_edge.i.i, %4
   %32 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %1) #19, !noalias !108
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %32, 1
-  %33 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %33, label %34, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
+  %33 = extractvalue { ptr, i8 } %32, 1
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
-34:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEE6insertES3_.exit
+35:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEE6insertES3_.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %.not.i.i10 = icmp ne ptr %0, null
-  %35 = icmp ne ptr %1, null
-  %36 = select i1 %.not.i.i10, i1 %35, i1 false
-  br i1 %36, label %37, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread.sink.split
+  %36 = icmp ne ptr %1, null
+  %37 = select i1 %.not.i.i10, i1 %36, i1 false
+  br i1 %37, label %38, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread.sink.split
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %39 = load ptr, ptr %38, align 8, !noalias !112
-  %.not.i = icmp eq ptr %39, null
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %40 = load ptr, ptr %39, align 8, !noalias !112
+  %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread.sink.split, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit: ; preds = %37
-  %40 = load i64, ptr %1, align 8, !noalias !112
-  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %10, ptr noundef nonnull align 8 dereferenceable(160) %39, i64 noundef %40, i16 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(448) %0) #19
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit: ; preds = %38
+  %41 = load i64, ptr %1, align 8, !noalias !112
+  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %10, ptr noundef nonnull align 8 dereferenceable(160) %40, i64 noundef %41, i16 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(448) %0) #19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 48
   %.pre = load i8, ptr %.phi.trans.insert, align 8
-  %41 = trunc i8 %.pre to i1
-  br i1 %41, label %42, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread
+  %42 = trunc i8 %.pre to i1
+  br i1 %42, label %43, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread
 
-42:                                               ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit
-  %43 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %10) #19
-  %44 = extractvalue { i64, i8 } %43, 0
-  %45 = extractvalue { i64, i8 } %43, 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread
+43:                                               ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit
+  %44 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %10) #19
+  %45 = extractvalue { i64, i8 } %44, 0
+  %46 = extractvalue { i64, i8 } %44, 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread.sink.split: ; preds = %37, %34
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i8 0, ptr %47, align 8, !alias.scope !112
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread.sink.split: ; preds = %38, %35
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store i8 0, ptr %48, align 8, !alias.scope !112
   br label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread.sink.split, %42, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit
-  %.sroa.0112.1 = phi i64 [ %44, %42 ], [ undef, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit ], [ undef, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread.sink.split ]
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %.not.i11 = icmp eq ptr %49, null
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread.sink.split, %43, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit
+  %.sroa.0111.1 = phi i64 [ %45, %43 ], [ undef, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit ], [ undef, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread.sink.split ]
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %.not.i11 = icmp eq ptr %50, null
   br i1 %.not.i11, label %_ZNK4llvm8DWARFDie6getTagEv.exit.thread, label %_ZNK4llvm8DWARFDie6getTagEv.exit
 
 _ZNK4llvm8DWARFDie6getTagEv.exit:                 ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %51 = load i16, ptr %50, align 4
-  switch i16 %51, label %.thread [
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %52 = load i16, ptr %51, align 4
+  switch i16 %52, label %.thread [
     i16 15, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
     i16 16, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
     i16 66, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
-    i16 31, label %52
-    i16 38, label %67
-    i16 75, label %67
-    i16 53, label %67
-    i16 55, label %67
-    i16 67, label %67
-    i16 22, label %67
-    i16 1, label %79
+    i16 31, label %53
+    i16 38, label %68
+    i16 75, label %68
+    i16 53, label %68
+    i16 55, label %68
+    i16 67, label %68
+    i16 22, label %68
+    i16 1, label %80
   ]
 
-52:                                               ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit
+53:                                               ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
-  br i1 %36, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread
+  br i1 %37, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i: ; preds = %52
-  %53 = load i64, ptr %1, align 8, !noalias !115
-  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %8, ptr noundef nonnull align 8 dereferenceable(160) %49, i64 noundef %53, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(448) %0) #19
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i: ; preds = %53
+  %54 = load i64, ptr %1, align 8, !noalias !115
+  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %8, ptr noundef nonnull align 8 dereferenceable(160) %50, i64 noundef %54, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(448) %0) #19
   %.phi.trans.insert.i13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.pre.i14 = load i8, ptr %.phi.trans.insert.i13, align 8
-  %54 = trunc i8 %.pre.i14 to i1
-  br i1 %54, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread
+  %55 = trunc i8 %.pre.i14 to i1
+  br i1 %55, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread
 
-_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i, %52
+_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i, %53
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
 _ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i
-  %55 = call { ptr, ptr } @_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieERKNS_14DWARFFormValueE(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %8)
-  %56 = extractvalue { ptr, ptr } %55, 0
-  %57 = extractvalue { ptr, ptr } %55, 1
+  %56 = call { ptr, ptr } @_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieERKNS_14DWARFFormValueE(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  %57 = extractvalue { ptr, ptr } %56, 0
+  %58 = extractvalue { ptr, ptr } %56, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  %.not.i.i15 = icmp ne ptr %56, null
-  %58 = icmp ne ptr %57, null
-  %59 = select i1 %.not.i.i15, i1 %58, i1 false
-  br i1 %59, label %60, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
+  %.not.i.i15 = icmp ne ptr %57, null
+  %59 = icmp ne ptr %58, null
+  %60 = select i1 %.not.i.i15, i1 %59, i1 false
+  br i1 %60, label %61, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
-60:                                               ; preds = %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %.not.i16 = icmp eq ptr %62, null
+61:                                               ; preds = %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %.not.i16 = icmp eq ptr %63, null
   br i1 %.not.i16, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread, label %_ZNK4llvm8DWARFDie6getTagEv.exit18
 
-_ZNK4llvm8DWARFDie6getTagEv.exit18:               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %64 = load i16, ptr %63, align 4
-  %65 = icmp eq i16 %64, 21
-  %66 = zext i1 %65 to i64
-  %spec.select = shl i64 %2, %66
+_ZNK4llvm8DWARFDie6getTagEv.exit18:               ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %65 = load i16, ptr %64, align 4
+  %66 = icmp eq i16 %65, 21
+  %67 = zext i1 %66 to i64
+  %spec.select = shl i64 %2, %67
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
-67:                                               ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit
+68:                                               ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
-  br i1 %36, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i25, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread
+  br i1 %37, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i25, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i25: ; preds = %67
-  %68 = load i64, ptr %1, align 8, !noalias !118
-  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %7, ptr noundef nonnull align 8 dereferenceable(160) %49, i64 noundef %68, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(448) %0) #19
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i25: ; preds = %68
+  %69 = load i64, ptr %1, align 8, !noalias !118
+  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %7, ptr noundef nonnull align 8 dereferenceable(160) %50, i64 noundef %69, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(448) %0) #19
   %.phi.trans.insert.i26 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.pre.i27 = load i8, ptr %.phi.trans.insert.i26, align 8
-  %69 = trunc i8 %.pre.i27 to i1
-  br i1 %69, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread
+  %70 = trunc i8 %.pre.i27 to i1
+  br i1 %70, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread
 
-_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i25, %67
+_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i25, %68
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
 _ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i25
-  %70 = call { ptr, ptr } @_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieERKNS_14DWARFFormValueE(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %7)
-  %71 = extractvalue { ptr, ptr } %70, 0
-  %72 = extractvalue { ptr, ptr } %70, 1
+  %71 = call { ptr, ptr } @_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieERKNS_14DWARFFormValueE(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %72 = extractvalue { ptr, ptr } %71, 0
+  %73 = extractvalue { ptr, ptr } %71, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  %.not.i.i29 = icmp ne ptr %71, null
-  %73 = icmp ne ptr %72, null
-  %74 = select i1 %.not.i.i29, i1 %73, i1 false
-  br i1 %74, label %75, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
+  %.not.i.i29 = icmp ne ptr %72, null
+  %74 = icmp ne ptr %73, null
+  %75 = select i1 %.not.i.i29, i1 %74, i1 false
+  br i1 %75, label %76, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
-75:                                               ; preds = %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28
-  %76 = call fastcc { i64, i8 } @_ZL15getTypeSizeImplN4llvm8DWARFDieEmRNS_15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEEE(ptr nonnull %71, ptr nonnull %72, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3)
-  %77 = extractvalue { i64, i8 } %76, 0
-  %78 = extractvalue { i64, i8 } %76, 1
+76:                                               ; preds = %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28
+  %77 = call fastcc { i64, i8 } @_ZL15getTypeSizeImplN4llvm8DWARFDieEmRNS_15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEEE(ptr nonnull %72, ptr nonnull %73, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3)
+  %78 = extractvalue { i64, i8 } %77, 0
+  %79 = extractvalue { i64, i8 } %77, 1
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
-79:                                               ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit
+80:                                               ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  br i1 %36, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i36, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread
+  br i1 %37, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i36, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i36: ; preds = %79
-  %80 = load i64, ptr %1, align 8, !noalias !121
-  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %6, ptr noundef nonnull align 8 dereferenceable(160) %49, i64 noundef %80, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(448) %0) #19
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i36: ; preds = %80
+  %81 = load i64, ptr %1, align 8, !noalias !121
+  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %6, ptr noundef nonnull align 8 dereferenceable(160) %50, i64 noundef %81, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(448) %0) #19
   %.phi.trans.insert.i37 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.pre.i38 = load i8, ptr %.phi.trans.insert.i37, align 8
-  %81 = trunc i8 %.pre.i38 to i1
-  br i1 %81, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread
+  %82 = trunc i8 %.pre.i38 to i1
+  br i1 %82, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread
 
-_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i36, %79
+_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i36, %80
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
 _ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i36
-  %82 = call { ptr, ptr } @_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieERKNS_14DWARFFormValueE(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %6)
-  %83 = extractvalue { ptr, ptr } %82, 0
-  %84 = extractvalue { ptr, ptr } %82, 1
+  %83 = call { ptr, ptr } @_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieERKNS_14DWARFFormValueE(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  %84 = extractvalue { ptr, ptr } %83, 0
+  %85 = extractvalue { ptr, ptr } %83, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  %.not.i.i40 = icmp ne ptr %83, null
-  %85 = icmp ne ptr %84, null
-  %86 = select i1 %.not.i.i40, i1 %85, i1 false
-  br i1 %86, label %87, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
+  %.not.i.i40 = icmp ne ptr %84, null
+  %86 = icmp ne ptr %85, null
+  %87 = select i1 %.not.i.i40, i1 %86, i1 false
+  br i1 %87, label %88, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
-87:                                               ; preds = %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39
-  %88 = call fastcc { i64, i8 } @_ZL15getTypeSizeImplN4llvm8DWARFDieEmRNS_15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEEE(ptr nonnull %83, ptr nonnull %84, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3)
-  %89 = extractvalue { i64, i8 } %88, 0
-  %90 = extractvalue { i64, i8 } %88, 1
-  %91 = trunc i8 %90 to i1
-  br i1 %91, label %92, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
+88:                                               ; preds = %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39
+  %89 = call fastcc { i64, i8 } @_ZL15getTypeSizeImplN4llvm8DWARFDieEmRNS_15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEEE(ptr nonnull %84, ptr nonnull %85, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3)
+  %90 = extractvalue { i64, i8 } %89, 0
+  %91 = extractvalue { i64, i8 } %89, 1
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %9, align 8
-  %.not.i.i.i41 = icmp ne ptr %93, null
-  %94 = load ptr, ptr %14, align 8
-  %95 = icmp ne ptr %94, null
-  %96 = select i1 %.not.i.i.i41, i1 %95, i1 false
-  br i1 %96, label %97, label %_ZNK4llvm8DWARFDie3endEv.exit
+93:                                               ; preds = %88
+  %94 = load ptr, ptr %9, align 8
+  %.not.i.i.i41 = icmp ne ptr %94, null
+  %95 = load ptr, ptr %14, align 8
+  %96 = icmp ne ptr %95, null
+  %97 = select i1 %.not.i.i.i41, i1 %96, i1 false
+  br i1 %97, label %98, label %_ZNK4llvm8DWARFDie3endEv.exit
 
-97:                                               ; preds = %92
-  %98 = call { ptr, ptr } @_ZN4llvm9DWARFUnit13getFirstChildEPKNS_19DWARFDebugInfoEntryE(ptr noundef nonnull align 8 dereferenceable(448) %93, ptr noundef nonnull %94) #19
-  %99 = extractvalue { ptr, ptr } %98, 0
-  %100 = extractvalue { ptr, ptr } %98, 1
-  %101 = call { ptr, ptr } @_ZN4llvm9DWARFUnit12getLastChildEPKNS_19DWARFDebugInfoEntryE(ptr noundef nonnull align 8 dereferenceable(448) %93, ptr noundef nonnull %94) #19
-  %102 = extractvalue { ptr, ptr } %101, 0
-  %103 = extractvalue { ptr, ptr } %101, 1
+98:                                               ; preds = %93
+  %99 = call { ptr, ptr } @_ZN4llvm9DWARFUnit13getFirstChildEPKNS_19DWARFDebugInfoEntryE(ptr noundef nonnull align 8 dereferenceable(448) %94, ptr noundef nonnull %95) #19
+  %100 = extractvalue { ptr, ptr } %99, 0
+  %101 = extractvalue { ptr, ptr } %99, 1
+  %102 = call { ptr, ptr } @_ZN4llvm9DWARFUnit12getLastChildEPKNS_19DWARFDebugInfoEntryE(ptr noundef nonnull align 8 dereferenceable(448) %94, ptr noundef nonnull %95) #19
+  %103 = extractvalue { ptr, ptr } %102, 0
+  %104 = extractvalue { ptr, ptr } %102, 1
   br label %_ZNK4llvm8DWARFDie3endEv.exit
 
-_ZNK4llvm8DWARFDie3endEv.exit:                    ; preds = %92, %97
-  %.sroa.4.0.i.i42138 = phi ptr [ %100, %97 ], [ null, %92 ]
-  %.sroa.0.0.i.i136 = phi ptr [ %99, %97 ], [ null, %92 ]
-  %.sroa.0.0.i.i44 = phi ptr [ %102, %97 ], [ null, %92 ]
-  %.sroa.4.0.i.i45 = phi ptr [ %103, %97 ], [ null, %92 ]
-  %104 = icmp ne ptr %.sroa.4.0.i.i42138, %.sroa.4.0.i.i45
-  %105 = icmp ne ptr %.sroa.0.0.i.i136, %.sroa.0.0.i.i44
-  %.not3.i149 = select i1 %104, i1 true, i1 %105
-  br i1 %.not3.i149, label %.lr.ph, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
+_ZNK4llvm8DWARFDie3endEv.exit:                    ; preds = %93, %98
+  %.sroa.4.0.i.i137 = phi ptr [ %101, %98 ], [ null, %93 ]
+  %.sroa.0.0.i.i135 = phi ptr [ %100, %98 ], [ null, %93 ]
+  %.sroa.0.0.i.i43 = phi ptr [ %103, %98 ], [ null, %93 ]
+  %.sroa.4.0.i.i44 = phi ptr [ %104, %98 ], [ null, %93 ]
+  %105 = icmp ne ptr %.sroa.4.0.i.i137, %.sroa.4.0.i.i44
+  %106 = icmp ne ptr %.sroa.0.0.i.i135, %.sroa.0.0.i.i43
+  %.not3.i148 = select i1 %105, i1 true, i1 %106
+  br i1 %.not3.i148, label %.lr.ph, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
 .lr.ph:                                           ; preds = %_ZNK4llvm8DWARFDie3endEv.exit
-  %106 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %107 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %108 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  br label %109
+  %107 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  br label %110
 
-109:                                              ; preds = %.lr.ph, %_ZN4llvm8DWARFDie8iteratorppEv.exit
-  %.0114152 = phi i64 [ %89, %.lr.ph ], [ %.1165, %_ZN4llvm8DWARFDie8iteratorppEv.exit ]
-  %.sroa.5.0151 = phi ptr [ %.sroa.4.0.i.i42138, %.lr.ph ], [ %.sroa.4.0.i.i63, %_ZN4llvm8DWARFDie8iteratorppEv.exit ]
-  %.sroa.088.0150 = phi ptr [ %.sroa.0.0.i.i136, %.lr.ph ], [ %.sroa.0.0.i.i62, %_ZN4llvm8DWARFDie8iteratorppEv.exit ]
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.5.0151, i64 16
-  %111 = load ptr, ptr %110, align 8
-  %.not.i48 = icmp eq ptr %111, null
-  br i1 %.not.i48, label %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread, label %_ZNK4llvm8DWARFDie6getTagEv.exit50
+110:                                              ; preds = %.lr.ph, %_ZN4llvm8DWARFDie8iteratorppEv.exit
+  %.0113151 = phi i64 [ %90, %.lr.ph ], [ %.1164, %_ZN4llvm8DWARFDie8iteratorppEv.exit ]
+  %.sroa.5.0150 = phi ptr [ %.sroa.4.0.i.i137, %.lr.ph ], [ %.sroa.4.0.i.i62, %_ZN4llvm8DWARFDie8iteratorppEv.exit ]
+  %.sroa.087.0149 = phi ptr [ %.sroa.0.0.i.i135, %.lr.ph ], [ %.sroa.0.0.i.i61, %_ZN4llvm8DWARFDie8iteratorppEv.exit ]
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.5.0150, i64 16
+  %112 = load ptr, ptr %111, align 8
+  %.not.i47 = icmp eq ptr %112, null
+  br i1 %.not.i47, label %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread, label %_ZNK4llvm8DWARFDie6getTagEv.exit49
 
-_ZNK4llvm8DWARFDie6getTagEv.exit50:               ; preds = %109
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  %113 = load i16, ptr %112, align 4
-  %.not = icmp eq i16 %113, 33
-  br i1 %.not, label %114, label %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread
+_ZNK4llvm8DWARFDie6getTagEv.exit49:               ; preds = %110
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
+  %114 = load i16, ptr %113, align 4
+  %.not = icmp eq i16 %114, 33
+  br i1 %.not, label %115, label %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread
 
-114:                                              ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit50
+115:                                              ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit49
   call void @llvm.experimental.noalias.scope.decl(metadata !124)
-  %.not.i.i51.not = icmp eq ptr %.sroa.088.0150, null
-  br i1 %.not.i.i51.not, label %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread166, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit53
+  %.not.i.i50.not = icmp eq ptr %.sroa.087.0149, null
+  br i1 %.not.i.i50.not, label %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread165, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit52
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit53: ; preds = %114
-  %115 = load i64, ptr %.sroa.5.0151, align 8, !noalias !124
-  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %11, ptr noundef nonnull align 8 dereferenceable(160) %111, i64 noundef %115, i16 noundef zeroext 55, ptr noundef nonnull align 8 dereferenceable(448) %.sroa.088.0150) #19
-  %.pre154 = load i8, ptr %106, align 8
-  %116 = trunc i8 %.pre154 to i1
-  br i1 %116, label %117, label %124
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit52: ; preds = %115
+  %116 = load i64, ptr %.sroa.5.0150, align 8, !noalias !124
+  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %11, ptr noundef nonnull align 8 dereferenceable(160) %112, i64 noundef %116, i16 noundef zeroext 55, ptr noundef nonnull align 8 dereferenceable(448) %.sroa.087.0149) #19
+  %.pre153 = load i8, ptr %107, align 8
+  %117 = trunc i8 %.pre153 to i1
+  br i1 %117, label %118, label %125
 
-117:                                              ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit53
-  %118 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #19
-  %119 = extractvalue { i64, i8 } %118, 1
-  %120 = trunc i8 %119 to i1
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit52
+  %119 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #19
+  %120 = extractvalue { i64, i8 } %119, 1
+  %121 = trunc i8 %120 to i1
+  br i1 %121, label %122, label %125
 
-121:                                              ; preds = %117
-  %122 = extractvalue { i64, i8 } %118, 0
-  %123 = mul i64 %122, %.0114152
-  br label %124
+122:                                              ; preds = %118
+  %123 = extractvalue { i64, i8 } %119, 0
+  %124 = mul i64 %123, %.0113151
+  br label %125
 
-_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread166: ; preds = %114
-  store i8 0, ptr %106, align 8, !alias.scope !124
+_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread165: ; preds = %115
+  store i8 0, ptr %107, align 8, !alias.scope !124
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  store i8 0, ptr %107, align 8, !alias.scope !127
+  store i8 0, ptr %108, align 8, !alias.scope !127
   br label %_ZN4llvm8DWARFDie8iteratorppEv.exit
 
-124:                                              ; preds = %117, %121, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit53
-  %.2.ph = phi i64 [ %.0114152, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit53 ], [ %.0114152, %117 ], [ %123, %121 ]
-  %125 = load ptr, ptr %110, align 8, !noalias !127
-  %.not.i55 = icmp eq ptr %125, null
-  br i1 %.not.i55, label %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread169, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit56
+125:                                              ; preds = %118, %122, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit52
+  %.2.ph = phi i64 [ %.0113151, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit52 ], [ %.0113151, %118 ], [ %124, %122 ]
+  %126 = load ptr, ptr %111, align 8, !noalias !127
+  %.not.i54 = icmp eq ptr %126, null
+  br i1 %.not.i54, label %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread168, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit55
 
-_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread169: ; preds = %124
-  store i8 0, ptr %107, align 8, !alias.scope !127
-  br label %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread
+_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread168: ; preds = %125
+  store i8 0, ptr %108, align 8, !alias.scope !127
+  br label %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit56: ; preds = %124
-  %126 = load i64, ptr %.sroa.5.0151, align 8, !noalias !127
-  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %12, ptr noundef nonnull align 8 dereferenceable(160) %125, i64 noundef %126, i16 noundef zeroext 47, ptr noundef nonnull align 8 dereferenceable(448) %.sroa.088.0150) #19
-  %.pre155 = load i8, ptr %107, align 8
-  %127 = trunc i8 %.pre155 to i1
-  br i1 %127, label %128, label %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit55: ; preds = %125
+  %127 = load i64, ptr %.sroa.5.0150, align 8, !noalias !127
+  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %12, ptr noundef nonnull align 8 dereferenceable(160) %126, i64 noundef %127, i16 noundef zeroext 47, ptr noundef nonnull align 8 dereferenceable(448) %.sroa.087.0149) #19
+  %.pre154 = load i8, ptr %108, align 8
+  %128 = trunc i8 %.pre154 to i1
+  br i1 %128, label %129, label %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread
 
-128:                                              ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit56
-  %129 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue19getAsSignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #19
-  %130 = extractvalue { i64, i8 } %129, 0
-  %131 = extractvalue { i64, i8 } %129, 1
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %133, label %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread
+129:                                              ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit55
+  %130 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue19getAsSignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #19
+  %131 = extractvalue { i64, i8 } %130, 0
+  %132 = extractvalue { i64, i8 } %130, 1
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %134, label %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread
 
-133:                                              ; preds = %128
+134:                                              ; preds = %129
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  %134 = load ptr, ptr %110, align 8, !noalias !130
-  %.not.i58 = icmp eq ptr %134, null
-  br i1 %.not.i58, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit59.thread, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit59
+  %135 = load ptr, ptr %111, align 8, !noalias !130
+  %.not.i57 = icmp eq ptr %135, null
+  br i1 %.not.i57, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit58.thread, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit58
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit59.thread: ; preds = %133
-  store i8 0, ptr %108, align 8, !alias.scope !130
-  br label %142
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit58.thread: ; preds = %134
+  store i8 0, ptr %109, align 8, !alias.scope !130
+  br label %143
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit59: ; preds = %133
-  %135 = load i64, ptr %.sroa.5.0151, align 8, !noalias !130
-  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %13, ptr noundef nonnull align 8 dereferenceable(160) %134, i64 noundef %135, i16 noundef zeroext 34, ptr noundef nonnull align 8 dereferenceable(448) %.sroa.088.0150) #19
-  %.pre156 = load i8, ptr %108, align 8
-  %136 = trunc i8 %.pre156 to i1
-  br i1 %136, label %137, label %142
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit58: ; preds = %134
+  %136 = load i64, ptr %.sroa.5.0150, align 8, !noalias !130
+  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %13, ptr noundef nonnull align 8 dereferenceable(160) %135, i64 noundef %136, i16 noundef zeroext 34, ptr noundef nonnull align 8 dereferenceable(448) %.sroa.087.0149) #19
+  %.pre155 = load i8, ptr %109, align 8
+  %137 = trunc i8 %.pre155 to i1
+  br i1 %137, label %138, label %143
 
-137:                                              ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit59
-  %138 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue19getAsSignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #19
-  %139 = extractvalue { i64, i8 } %138, 0
-  %140 = extractvalue { i64, i8 } %138, 1
-  %141 = trunc i8 %140 to i1
-  %.0.i60 = select i1 %141, i64 %139, i64 0
-  br label %142
+138:                                              ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit58
+  %139 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue19getAsSignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #19
+  %140 = extractvalue { i64, i8 } %139, 0
+  %141 = extractvalue { i64, i8 } %139, 1
+  %142 = trunc i8 %141 to i1
+  %.0.i59 = select i1 %142, i64 %140, i64 0
+  br label %143
 
-142:                                              ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit59.thread, %137, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit59
-  %.0 = phi i64 [ %.0.i60, %137 ], [ 0, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit59 ], [ 0, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit59.thread ]
-  %143 = add i64 %130, 1
-  %144 = sub i64 %143, %.0
-  %145 = mul i64 %144, %.2.ph
-  br label %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread
+143:                                              ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit58.thread, %138, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit58
+  %.0 = phi i64 [ %.0.i59, %138 ], [ 0, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit58 ], [ 0, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit58.thread ]
+  %144 = add i64 %131, 1
+  %145 = sub i64 %144, %.0
+  %146 = mul i64 %145, %.2.ph
+  br label %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread
 
-_ZNK4llvm8DWARFDie6getTagEv.exit50.thread:        ; preds = %109, %_ZNK4llvm8DWARFDie6getTagEv.exit50
-  %.not.i.i.i61.not = icmp eq ptr %.sroa.088.0150, null
-  br i1 %.not.i.i.i61.not, label %_ZN4llvm8DWARFDie8iteratorppEv.exit, label %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread
+_ZNK4llvm8DWARFDie6getTagEv.exit49.thread:        ; preds = %110, %_ZNK4llvm8DWARFDie6getTagEv.exit49
+  %.not.i.i.i60.not = icmp eq ptr %.sroa.087.0149, null
+  br i1 %.not.i.i.i60.not, label %_ZN4llvm8DWARFDie8iteratorppEv.exit, label %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread
 
-_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread: ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread169, %128, %142, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit56, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread
-  %.1164 = phi i64 [ %.0114152, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread ], [ %.2.ph, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit56 ], [ %.2.ph, %128 ], [ %145, %142 ], [ %.2.ph, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread169 ]
-  %146 = call { ptr, ptr } @_ZN4llvm9DWARFUnit10getSiblingEPKNS_19DWARFDebugInfoEntryE(ptr noundef nonnull align 8 dereferenceable(448) %.sroa.088.0150, ptr noundef nonnull %.sroa.5.0151) #19
-  %147 = extractvalue { ptr, ptr } %146, 0
-  %148 = extractvalue { ptr, ptr } %146, 1
+_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread: ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread168, %129, %143, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit55, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread
+  %.1163 = phi i64 [ %.0113151, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread ], [ %.2.ph, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit55 ], [ %.2.ph, %129 ], [ %146, %143 ], [ %.2.ph, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread168 ]
+  %147 = call { ptr, ptr } @_ZN4llvm9DWARFUnit10getSiblingEPKNS_19DWARFDebugInfoEntryE(ptr noundef nonnull align 8 dereferenceable(448) %.sroa.087.0149, ptr noundef nonnull %.sroa.5.0150) #19
+  %148 = extractvalue { ptr, ptr } %147, 0
+  %149 = extractvalue { ptr, ptr } %147, 1
   br label %_ZN4llvm8DWARFDie8iteratorppEv.exit
 
-_ZN4llvm8DWARFDie8iteratorppEv.exit:              ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread166, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread
-  %.1165 = phi i64 [ %.1164, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread ], [ %.0114152, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread ], [ %.0114152, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread166 ]
-  %.sroa.0.0.i.i62 = phi ptr [ %147, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread ], [ null, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread ], [ null, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread166 ]
-  %.sroa.4.0.i.i63 = phi ptr [ %148, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread ], [ null, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread ], [ null, %_ZNK4llvm8DWARFDie6getTagEv.exit50.thread.thread166 ]
-  %149 = icmp ne ptr %.sroa.4.0.i.i63, %.sroa.4.0.i.i45
-  %150 = icmp ne ptr %.sroa.0.0.i.i62, %.sroa.0.0.i.i44
-  %.not3.i = select i1 %149, i1 true, i1 %150
-  br i1 %.not3.i, label %109, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
+_ZN4llvm8DWARFDie8iteratorppEv.exit:              ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread165, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread
+  %.1164 = phi i64 [ %.1163, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread ], [ %.0113151, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread ], [ %.0113151, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread165 ]
+  %.sroa.0.0.i.i61 = phi ptr [ %148, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread ], [ null, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread ], [ null, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread165 ]
+  %.sroa.4.0.i.i62 = phi ptr [ %149, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread ], [ null, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread ], [ null, %_ZNK4llvm8DWARFDie6getTagEv.exit49.thread.thread165 ]
+  %150 = icmp ne ptr %.sroa.4.0.i.i62, %.sroa.4.0.i.i44
+  %151 = icmp ne ptr %.sroa.0.0.i.i61, %.sroa.0.0.i.i43
+  %.not3.i = select i1 %150, i1 true, i1 %151
+  br i1 %.not3.i, label %110, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
 _ZNK4llvm8DWARFDie6getTagEv.exit.thread:          ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  br label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73.thread
+  br label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72.thread
 
 .thread:                                          ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  br i1 %36, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i70, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73.thread
+  br i1 %37, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i69, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72.thread
 
-_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i70: ; preds = %.thread
-  %151 = load i64, ptr %1, align 8, !noalias !133
-  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %5, ptr noundef nonnull align 8 dereferenceable(160) %49, i64 noundef %151, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(448) %0) #19
-  %.phi.trans.insert.i71 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %.pre.i72 = load i8, ptr %.phi.trans.insert.i71, align 8
-  %152 = trunc i8 %.pre.i72 to i1
-  br i1 %152, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73.thread
+_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i69: ; preds = %.thread
+  %152 = load i64, ptr %1, align 8, !noalias !133
+  call void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValueEmNS_5dwarf9AttributeERKNS_9DWARFUnitE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %5, ptr noundef nonnull align 8 dereferenceable(160) %50, i64 noundef %152, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(448) %0) #19
+  %.phi.trans.insert.i70 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %.pre.i71 = load i8, ptr %.phi.trans.insert.i70, align 8
+  %153 = trunc i8 %.pre.i71 to i1
+  br i1 %153, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72, label %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72.thread
 
-_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73.thread: ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit.thread, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i70, %.thread
+_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72.thread: ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit.thread, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i69, %.thread
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
-_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i70
-  %153 = call { ptr, ptr } @_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieERKNS_14DWARFFormValueE(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %5)
-  %154 = extractvalue { ptr, ptr } %153, 0
-  %155 = extractvalue { ptr, ptr } %153, 1
+_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72: ; preds = %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i69
+  %154 = call { ptr, ptr } @_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieERKNS_14DWARFFormValueE(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %155 = extractvalue { ptr, ptr } %154, 0
+  %156 = extractvalue { ptr, ptr } %154, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  %.not.i.i74 = icmp ne ptr %154, null
-  %156 = icmp ne ptr %155, null
-  %157 = select i1 %.not.i.i74, i1 %156, i1 false
-  br i1 %157, label %158, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
+  %.not.i.i73 = icmp ne ptr %155, null
+  %157 = icmp ne ptr %156, null
+  %158 = select i1 %.not.i.i73, i1 %157, i1 false
+  br i1 %158, label %159, label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
-158:                                              ; preds = %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73
-  %159 = call fastcc { i64, i8 } @_ZL15getTypeSizeImplN4llvm8DWARFDieEmRNS_15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEEE(ptr nonnull %154, ptr nonnull %155, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3)
-  %160 = extractvalue { i64, i8 } %159, 0
-  %161 = extractvalue { i64, i8 } %159, 1
+159:                                              ; preds = %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72
+  %160 = call fastcc { i64, i8 } @_ZL15getTypeSizeImplN4llvm8DWARFDieEmRNS_15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEEE(ptr nonnull %155, ptr nonnull %156, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3)
+  %161 = extractvalue { i64, i8 } %160, 0
+  %162 = extractvalue { i64, i8 } %160, 1
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit18.thread
 
-_ZNK4llvm8DWARFDie6getTagEv.exit18.thread:        ; preds = %.lr.ph.i.i, %_ZN4llvm8DWARFDie8iteratorppEv.exit, %_ZNK4llvm8DWARFDie3endEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit18, %60, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73.thread, %87, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZN4llvm15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEE6insertES3_.exit, %42, %158, %75
-  %.sroa.0112.0 = phi i64 [ %44, %42 ], [ %160, %158 ], [ %77, %75 ], [ undef, %_ZN4llvm15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEE6insertES3_.exit ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %2, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread ], [ %2, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit ], [ %.sroa.0112.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread ], [ %.sroa.0112.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39 ], [ %.sroa.0112.1, %87 ], [ %.sroa.0112.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73.thread ], [ %.sroa.0112.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread ], [ %.sroa.0112.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73 ], [ %.sroa.0112.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28 ], [ %2, %60 ], [ %spec.select, %_ZNK4llvm8DWARFDie6getTagEv.exit18 ], [ %89, %_ZNK4llvm8DWARFDie3endEv.exit ], [ %.1165, %_ZN4llvm8DWARFDie8iteratorppEv.exit ], [ undef, %.lr.ph.i.i ]
-  %.sroa.8.0 = phi i8 [ %45, %42 ], [ %161, %158 ], [ %78, %75 ], [ 0, %_ZN4llvm15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEE6insertES3_.exit ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread ], [ 1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39 ], [ 0, %87 ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73.thread ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit73 ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28 ], [ 1, %60 ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit18 ], [ 1, %_ZNK4llvm8DWARFDie3endEv.exit ], [ 1, %_ZN4llvm8DWARFDie8iteratorppEv.exit ], [ 0, %.lr.ph.i.i ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0112.0, 0
+_ZNK4llvm8DWARFDie6getTagEv.exit18.thread:        ; preds = %.lr.ph.i.i, %_ZN4llvm8DWARFDie8iteratorppEv.exit, %_ZNK4llvm8DWARFDie3endEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit18, %61, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72.thread, %88, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZN4llvm15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEE6insertES3_.exit, %43, %159, %76
+  %.sroa.0111.0 = phi i64 [ %45, %43 ], [ %161, %159 ], [ %78, %76 ], [ undef, %_ZN4llvm15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEE6insertES3_.exit ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %2, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread ], [ %2, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit ], [ %.sroa.0111.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread ], [ %.sroa.0111.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39 ], [ %.sroa.0111.1, %88 ], [ %.sroa.0111.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72.thread ], [ %.sroa.0111.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread ], [ %.sroa.0111.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72 ], [ %.sroa.0111.1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28 ], [ %2, %61 ], [ %spec.select, %_ZNK4llvm8DWARFDie6getTagEv.exit18 ], [ %90, %_ZNK4llvm8DWARFDie3endEv.exit ], [ %.1164, %_ZN4llvm8DWARFDie8iteratorppEv.exit ], [ undef, %.lr.ph.i.i ]
+  %.sroa.8.0 = phi i8 [ %46, %43 ], [ %162, %159 ], [ %79, %76 ], [ 0, %_ZN4llvm15SmallPtrSetImplIPKNS_19DWARFDebugInfoEntryEE6insertES3_.exit ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread ], [ 1, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39.thread ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit39 ], [ 0, %88 ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72.thread ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28.thread ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit72 ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit28 ], [ 1, %61 ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit18 ], [ 1, %_ZNK4llvm8DWARFDie3endEv.exit ], [ 1, %_ZN4llvm8DWARFDie8iteratorppEv.exit ], [ 0, %.lr.ph.i.i ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0111.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.8.0, 1
   ret { i64, i8 } %.fca.1.insert
 }

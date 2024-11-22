@@ -8924,10 +8924,10 @@ define hidden void @_ZN11aws_runtime10env_config14EnvConfigValue26validate_and_r
   %38 = icmp eq ptr %37, null
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !1173, !nonnull !4, !align !74
-  %.sroa.0.0.i = select i1 %38, ptr %40, ptr %37
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !1173, !noundef !4
-  invoke void @_ZN10aws_config11environment9parse_url17h9a705c492c92f706E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn3.i = select i1 %38, ptr %40, ptr %37
+  %.pn1.in.i = getelementptr inbounds i8, ptr %13, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !1173, !noundef !4
+  invoke void @_ZN10aws_config11environment9parse_url17h9a705c492c92f706E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %_ZN4core3ops8function2Fn4call17h6820d454bff8da57E.exit unwind label %34
 
 _ZN4core3ops8function2Fn4call17h6820d454bff8da57E.exit: ; preds = %36
@@ -9334,10 +9334,10 @@ define hidden void @_ZN11aws_runtime10env_config14EnvConfigValue8validate17h86ee
   %24 = icmp eq ptr %23, null
   %25 = getelementptr inbounds i8, ptr %12, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !1230, !noalias !1226, !nonnull !4, !align !74
-  %.sroa.0.0.i.i = select i1 %24, ptr %26, ptr %23
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !1230, !noalias !1226, !noundef !4
-  invoke void @_ZN10aws_config16default_provider12retry_config21validate_max_attempts17hd1b1b0f9b8dd0207E(ptr noalias nocapture noundef nonnull sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i)
+  %.pn3.i.i = select i1 %24, ptr %26, ptr %23
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !1230, !noalias !1226, !noundef !4
+  invoke void @_ZN10aws_config16default_provider12retry_config21validate_max_attempts17hd1b1b0f9b8dd0207E(ptr noalias nocapture noundef nonnull sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i)
           to label %_ZN4core3ops8function2Fn4call17h24d6e55552457fd5E.exit.i unwind label %27, !noalias !1226
 
 27:                                               ; preds = %21
@@ -9593,10 +9593,10 @@ define hidden void @"_ZN11aws_runtime10env_config14EnvConfigValue8validate28_$u7
   %12 = load ptr, ptr %10, align 8, !alias.scope !1272, !noundef !4
   %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !1272, !nonnull !4, !align !74
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !1272, !noundef !4
+  %.pn1.in.i = getelementptr inbounds i8, ptr %10, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !1272, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1275
-  %15 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17had280107bd1d13adE"(i64 noundef %.sroa.5.0.i, i1 noundef zeroext false)
+  %15 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17had280107bd1d13adE"(i64 noundef %.pn1.i, i1 noundef zeroext false)
           to label %.noexc unwind label %16
 
 16:                                               ; preds = %27, %.noexc, %3
@@ -9607,17 +9607,17 @@ define hidden void @"_ZN11aws_runtime10env_config14EnvConfigValue8validate28_$u7
 
 .noexc:                                           ; preds = %3
   %18 = icmp eq ptr %12, null
-  %.sroa.0.0.i = select i1 %18, ptr %14, ptr %12
+  %.pn3.i = select i1 %18, ptr %14, ptr %12
   %19 = extractvalue { ptr, i64 } %15, 0
   %20 = extractvalue { ptr, i64 } %15, 1
   %21 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.5.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %.pn3.i, i64 %.pn1.i, i1 false)
   store ptr %19, ptr %7, align 8, !noalias !1275
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %20, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1275
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
-  store i64 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1275
+  store i64 %.pn1.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1275
   invoke void @_ZN9aws_types8app_name7AppName3new17hd16aa2881ff2460aE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
           to label %22 unwind label %16
 
@@ -9744,10 +9744,10 @@ define hidden void @"_ZN11aws_runtime10env_config14EnvConfigValue8validate28_$u7
   %15 = icmp eq ptr %14, null
   %16 = getelementptr inbounds i8, ptr %12, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !1318, !nonnull !4, !align !74
-  %.sroa.0.0.i = select i1 %15, ptr %17, ptr %14
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !1318, !noundef !4
-  invoke void @_ZN10aws_config11environment10parse_bool17h8a2c4c03e7f84fbcE(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn3.i = select i1 %15, ptr %17, ptr %14
+  %.pn1.in.i = getelementptr inbounds i8, ptr %12, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !1318, !noundef !4
+  invoke void @_ZN10aws_config11environment10parse_bool17h8a2c4c03e7f84fbcE(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %_ZN4core3ops8function2Fn4call17h654c2d27ec9a4d99E.exit unwind label %18
 
 18:                                               ; preds = %3
@@ -9903,11 +9903,11 @@ define hidden void @"_ZN11aws_runtime10env_config14EnvConfigValue8validate28_$u7
   %16 = icmp eq ptr %15, null
   %17 = getelementptr inbounds i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !1362, !nonnull !4, !align !74
-  %.sroa.0.0.i = select i1 %16, ptr %18, ptr %15
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !1362, !noundef !4
+  %.pn3.i = select i1 %16, ptr %18, ptr %15
+  %.pn1.in.i = getelementptr inbounds i8, ptr %13, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !1362, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !1365
-  invoke void @"_ZN81_$LT$aws_smithy_types..retry..RetryMode$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h900e2dba6e42f896E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  invoke void @"_ZN81_$LT$aws_smithy_types..retry..RetryMode$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h900e2dba6e42f896E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %.noexc unwind label %19
 
 19:                                               ; preds = %25, %3
@@ -10092,10 +10092,10 @@ define hidden void @"_ZN11aws_runtime10env_config14EnvConfigValue8validate28_$u7
   %12 = load ptr, ptr %10, align 8, !alias.scope !1421, !noundef !4
   %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !1421, !nonnull !4, !align !74
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !1421, !noundef !4
+  %.pn1.in.i = getelementptr inbounds i8, ptr %10, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !1421, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1424
-  %15 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17had280107bd1d13adE"(i64 noundef %.sroa.5.0.i, i1 noundef zeroext false)
+  %15 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17had280107bd1d13adE"(i64 noundef %.pn1.i, i1 noundef zeroext false)
           to label %.noexc unwind label %16
 
 16:                                               ; preds = %27, %.noexc, %3
@@ -10106,17 +10106,17 @@ define hidden void @"_ZN11aws_runtime10env_config14EnvConfigValue8validate28_$u7
 
 .noexc:                                           ; preds = %3
   %18 = icmp eq ptr %12, null
-  %.sroa.0.0.i = select i1 %18, ptr %14, ptr %12
+  %.pn3.i = select i1 %18, ptr %14, ptr %12
   %19 = extractvalue { ptr, i64 } %15, 0
   %20 = extractvalue { ptr, i64 } %15, 1
   %21 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.5.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %.pn3.i, i64 %.pn1.i, i1 false)
   store ptr %19, ptr %7, align 8, !noalias !1424
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %20, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1424
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
-  store i64 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1424
+  store i64 %.pn1.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1424
   invoke void @_ZN9aws_types8app_name7AppName3new17hd16aa2881ff2460aE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
           to label %22 unwind label %16
 
@@ -113471,13 +113471,13 @@ define { ptr, i64 } @_ZN9ockam_api2ui8terminal12notification12Notification8conte
   %2 = load i64, ptr %0, align 8, !range !1172, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !4
-  switch i64 %2, label %default.unreachable9 [
+  switch i64 %2, label %default.unreachable11 [
     i64 0, label %5
     i64 1, label %8
     i64 2, label %11
   ]
 
-default.unreachable9:                             ; preds = %1
+default.unreachable11:                            ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
@@ -113498,10 +113498,10 @@ default.unreachable9:                             ; preds = %1
   br label %15
 
 15:                                               ; preds = %11, %8, %5
-  %.sroa.4.0 = phi i64 [ %.sroa.3.0.i, %11 ], [ %10, %8 ], [ %7, %5 ]
-  %16 = insertvalue { ptr, i64 } poison, ptr %4, 0
-  %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %17
+  %.sroa.3.0.i.pn = phi i64 [ %.sroa.3.0.i, %11 ], [ %10, %8 ], [ %7, %5 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.sroa.3.0.i.pn, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

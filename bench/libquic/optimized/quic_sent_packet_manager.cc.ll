@@ -3701,8 +3701,8 @@ if.end26.i:                                       ; preds = %if.end13.i
   br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit
 
 _ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit: ; preds = %if.then7.i, %if.then15.i, %if.end26.i
-  %retval.sroa.4.0.i = phi i64 [ %mul.i.i14, %if.then7.i ], [ %mul.i14.i, %if.end26.i ], [ %retval.sroa.4.0.copyload.sroa.speculated.i, %if.then15.i ]
-  %add.i15 = add nsw i64 %retval.sroa.4.0.i, %call18
+  %mul.i.pn.i = phi i64 [ %mul.i.i14, %if.then7.i ], [ %mul.i14.i, %if.end26.i ], [ %retval.sroa.4.0.copyload.sroa.speculated.i, %if.then15.i ]
+  %add.i15 = add nsw i64 %mul.i.pn.i, %call18
   %clock_26 = getelementptr inbounds i8, ptr %this, i64 216
   %15 = load ptr, ptr %clock_26, align 8
   %vtable27 = load ptr, ptr %15, align 8
@@ -3729,60 +3729,60 @@ sw.bb32:                                          ; preds = %if.then11.i, %if.en
   %21 = tail call i64 @llvm.umin.i64(i64 %20, i64 10)
   %mul.i.i21 = shl i64 %retransmission_delay.sroa.6.0.i, %21
   %cmp17.i = icmp sgt i64 %mul.i.i21, 60000999
-  %spec.select18.i = select i1 %cmp17.i, i64 60000000, i64 %mul.i.i21
-  %add.i23 = add nsw i64 %spec.select18.i, %call35
+  %22 = select i1 %cmp17.i, i64 60000000, i64 %mul.i.i21
+  %add.i22 = add nsw i64 %22, %call35
   %call46 = tail call i64 @_ZNK3net20QuicUnackedPacketMap21GetLastPacketSentTimeEv(ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets_)
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i24 = getelementptr inbounds i8, ptr %this, i64 304
-  %retval.sroa.2.0.copyload.i.i25 = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i24, align 8
-  %cmp.i.i26 = icmp eq i64 %retval.sroa.2.0.copyload.i.i25, 0
-  %initial_rtt_us_.i.i27 = getelementptr inbounds i8, ptr %this, i64 344
-  %22 = load i64, ptr %initial_rtt_us_.i.i27, align 8
-  %srtt.sroa.4.0.i28 = select i1 %cmp.i.i26, i64 %22, i64 %retval.sroa.2.0.copyload.i.i25
-  %enable_half_rtt_tail_loss_probe_.i29 = getelementptr inbounds i8, ptr %this, i64 608
-  %23 = load i8, ptr %enable_half_rtt_tail_loss_probe_.i29, align 8
-  %tobool.i30 = trunc i8 %23 to i1
-  %24 = load i64, ptr %consecutive_tlp_count_.i, align 8
-  %cmp.i32 = icmp eq i64 %24, 0
-  %or.cond.i33 = select i1 %tobool.i30, i1 %cmp.i32, i1 false
-  br i1 %or.cond.i33, label %if.then7.i51, label %if.end13.i34
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i23 = getelementptr inbounds i8, ptr %this, i64 304
+  %retval.sroa.2.0.copyload.i.i24 = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i23, align 8
+  %cmp.i.i25 = icmp eq i64 %retval.sroa.2.0.copyload.i.i24, 0
+  %initial_rtt_us_.i.i26 = getelementptr inbounds i8, ptr %this, i64 344
+  %23 = load i64, ptr %initial_rtt_us_.i.i26, align 8
+  %srtt.sroa.4.0.i27 = select i1 %cmp.i.i25, i64 %23, i64 %retval.sroa.2.0.copyload.i.i24
+  %enable_half_rtt_tail_loss_probe_.i28 = getelementptr inbounds i8, ptr %this, i64 608
+  %24 = load i8, ptr %enable_half_rtt_tail_loss_probe_.i28, align 8
+  %tobool.i29 = trunc i8 %24 to i1
+  %25 = load i64, ptr %consecutive_tlp_count_.i, align 8
+  %cmp.i31 = icmp eq i64 %25, 0
+  %or.cond.i32 = select i1 %tobool.i29, i1 %cmp.i31, i1 false
+  br i1 %or.cond.i32, label %if.then7.i50, label %if.end13.i33
 
-if.then7.i51:                                     ; preds = %sw.bb32
-  %div.i.i52 = sdiv i64 %srtt.sroa.4.0.i28, 1000
-  %conv.i53 = sitofp i64 %div.i.i52 to double
-  %mul.i54 = fmul double %conv.i53, 5.000000e-01
-  %conv10.i55 = fptosi double %mul.i54 to i64
-  %.sroa.speculated20.i56 = tail call i64 @llvm.smax.i64(i64 %conv10.i55, i64 10)
-  %mul.i.i57 = mul nuw nsw i64 %.sroa.speculated20.i56, 1000
-  br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit58
+if.then7.i50:                                     ; preds = %sw.bb32
+  %div.i.i51 = sdiv i64 %srtt.sroa.4.0.i27, 1000
+  %conv.i52 = sitofp i64 %div.i.i51 to double
+  %mul.i53 = fmul double %conv.i52, 5.000000e-01
+  %conv10.i54 = fptosi double %mul.i53 to i64
+  %.sroa.speculated20.i55 = tail call i64 @llvm.smax.i64(i64 %conv10.i54, i64 10)
+  %mul.i.i56 = mul nuw nsw i64 %.sroa.speculated20.i55, 1000
+  br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit57
 
-if.end13.i34:                                     ; preds = %sw.bb32
-  %call14.i36 = tail call noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap26HasMultipleInFlightPacketsEv(ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets_)
-  br i1 %call14.i36, label %if.end26.i46, label %if.then15.i37
+if.end13.i33:                                     ; preds = %sw.bb32
+  %call14.i35 = tail call noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap26HasMultipleInFlightPacketsEv(ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets_)
+  br i1 %call14.i35, label %if.end26.i45, label %if.then15.i36
 
-if.then15.i37:                                    ; preds = %if.end13.i34
-  %mul.i.i.i38 = shl nsw i64 %srtt.sroa.4.0.i28, 1
-  %conv.i.i.i39 = sitofp i64 %srtt.sroa.4.0.i28 to double
-  %mul.i.i6.i40 = fmul double %conv.i.i.i39, 1.500000e+00
-  %call.i.i.i41 = tail call i64 @llround(double noundef %mul.i.i6.i40) #17
-  %add.i.i42 = add nsw i64 %call.i.i.i41, 100000
-  %retval.sroa.4.0.copyload.sroa.speculated.i43 = tail call i64 @llvm.smax.i64(i64 %mul.i.i.i38, i64 %add.i.i42)
-  br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit58
+if.then15.i36:                                    ; preds = %if.end13.i33
+  %mul.i.i.i37 = shl nsw i64 %srtt.sroa.4.0.i27, 1
+  %conv.i.i.i38 = sitofp i64 %srtt.sroa.4.0.i27 to double
+  %mul.i.i6.i39 = fmul double %conv.i.i.i38, 1.500000e+00
+  %call.i.i.i40 = tail call i64 @llround(double noundef %mul.i.i6.i39) #17
+  %add.i.i41 = add nsw i64 %call.i.i.i40, 100000
+  %retval.sroa.4.0.copyload.sroa.speculated.i42 = tail call i64 @llvm.smax.i64(i64 %mul.i.i.i37, i64 %add.i.i41)
+  br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit57
 
-if.end26.i46:                                     ; preds = %if.end13.i34
-  %div.i11.i47 = sdiv i64 %srtt.sroa.4.0.i28, 1000
-  %mul29.i48 = shl nsw i64 %div.i11.i47, 1
-  %.sroa.speculated.i49 = tail call i64 @llvm.smax.i64(i64 %mul29.i48, i64 10)
-  %mul.i14.i50 = mul nuw nsw i64 %.sroa.speculated.i49, 1000
-  br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit58
+if.end26.i45:                                     ; preds = %if.end13.i33
+  %div.i11.i46 = sdiv i64 %srtt.sroa.4.0.i27, 1000
+  %mul29.i47 = shl nsw i64 %div.i11.i46, 1
+  %.sroa.speculated.i48 = tail call i64 @llvm.smax.i64(i64 %mul29.i47, i64 10)
+  %mul.i14.i49 = mul nuw nsw i64 %.sroa.speculated.i48, 1000
+  br label %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit57
 
-_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit58: ; preds = %if.then7.i51, %if.then15.i37, %if.end26.i46
-  %retval.sroa.4.0.i44 = phi i64 [ %mul.i.i57, %if.then7.i51 ], [ %mul.i14.i50, %if.end26.i46 ], [ %retval.sroa.4.0.copyload.sroa.speculated.i43, %if.then15.i37 ]
-  %add.i59 = add nsw i64 %retval.sroa.4.0.i44, %call46
-  %retval.sroa.0.0.copyload1.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %add.i59, i64 %add.i23)
+_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit57: ; preds = %if.then7.i50, %if.then15.i36, %if.end26.i45
+  %mul.i.pn.i43 = phi i64 [ %mul.i.i56, %if.then7.i50 ], [ %mul.i14.i49, %if.end26.i45 ], [ %retval.sroa.4.0.copyload.sroa.speculated.i42, %if.then15.i36 ]
+  %add.i58 = add nsw i64 %mul.i.pn.i43, %call46
+  %retval.sroa.0.0.copyload1.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %add.i58, i64 %add.i22)
   br label %return
 
-return:                                           ; preds = %entry, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit58, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit, %sw.bb11, %sw.bb
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload1.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit58 ], [ %retval.sroa.0.0.copyload.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit ], [ %call14, %sw.bb11 ], [ %add.i, %sw.bb ], [ 0, %entry ]
+return:                                           ; preds = %entry, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit57, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit, %sw.bb11, %sw.bb
+  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload1.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit57 ], [ %retval.sroa.0.0.copyload.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit ], [ %call14, %sw.bb11 ], [ %add.i, %sw.bb ], [ 0, %entry ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -3861,9 +3861,9 @@ if.end26:                                         ; preds = %if.end13
   br label %return
 
 return:                                           ; preds = %if.end26, %if.then15, %if.then7
-  %retval.sroa.4.0 = phi i64 [ %mul.i, %if.then7 ], [ %mul.i14, %if.end26 ], [ %retval.sroa.4.0.copyload.sroa.speculated, %if.then15 ]
-  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %retval.sroa.4.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %mul.i.pn = phi i64 [ %mul.i, %if.then7 ], [ %mul.i14, %if.end26 ], [ %retval.sroa.4.0.copyload.sroa.speculated, %if.then15 ]
+  %.fca.1.insert.merged = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %mul.i.pn, 1
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3884,9 +3884,9 @@ entry:
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 10)
   %mul.i = shl i64 %retransmission_delay.sroa.6.0, %4
   %cmp17 = icmp sgt i64 %mul.i, 60000999
-  %spec.select18 = select i1 %cmp17, i64 60000000, i64 %mul.i
-  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %spec.select18, 1
-  ret { i64, i64 } %.fca.1.insert
+  %5 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %mul.i, 1
+  %spec.select17 = select i1 %cmp17, { i64, i64 } { i64 0, i64 60000000 }, { i64, i64 } %5
+  ret { i64, i64 } %spec.select17
 }
 
 declare noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap26HasMultipleInFlightPacketsEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1

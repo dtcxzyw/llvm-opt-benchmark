@@ -1112,12 +1112,12 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %_ZN4llvm19SmallPtrS
 117:                                              ; preds = %._crit_edge.i.i.i, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
   %118 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef %.0174.i) #20, !noalias !7
   %.pre.i.i = load ptr, ptr %7, align 8
-  %.pre8.i.i = load i32, ptr %71, align 4
+  %.pre6.i.i = load i32, ptr %71, align 4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %.lr.ph.i.i.i, %117, %113
   %119 = phi ptr [ %115, %113 ], [ %.pre.i.i, %117 ], [ %100, %.lr.ph.i.i.i ]
-  %120 = phi i32 [ %116, %113 ], [ %.pre8.i.i, %117 ], [ %104, %.lr.ph.i.i.i ]
+  %120 = phi i32 [ %116, %113 ], [ %.pre6.i.i, %117 ], [ %104, %.lr.ph.i.i.i ]
   %121 = load ptr, ptr %6, align 8
   %122 = icmp eq ptr %.0174.i, %121
   br i1 %122, label %split.i.loopexit, label %123

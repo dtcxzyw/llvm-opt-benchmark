@@ -73,6 +73,8 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i30.i.i.i.i = mul i64 %xor.i.i29.i.i.i.i, 1609587791953885689
   %shr.i4.i31.i.i.i.i = lshr i64 %mul.i30.i.i.i.i, 32
   %xor.i5.i32.i.i.i.i = xor i64 %shr.i4.i31.i.i.i.i, %mul.i30.i.i.i.i
+  %.fca.0.insert.i.i.i.i = insertvalue { i64, i64 } poison, i64 %xor.i5.i.i.i.i.i, 0
+  %.fca.1.insert.i.i.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i.i.i, i64 %xor.i5.i32.i.i.i.i, 1
   br label %_ZL23XXH_INLINE_XXH3_128bitsPKvm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -111,6 +113,8 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   %mul.i18.i.i.i.i = mul i64 %xor.i.i.i31.i.i.i, 1609587791953885689
   %shr.i4.i.i32.i.i.i = lshr i64 %mul.i18.i.i.i.i, 32
   %xor.i5.i.i33.i.i.i = xor i64 %shr.i4.i.i32.i.i.i, %mul.i18.i.i.i.i
+  %.fca.0.insert.i34.i.i.i = insertvalue { i64, i64 } poison, i64 %xor.i17.i.i.i.i, 0
+  %.fca.1.insert.i35.i.i.i = insertvalue { i64, i64 } %.fca.0.insert.i34.i.i.i, i64 %xor.i5.i.i33.i.i.i, 1
   br label %_ZL23XXH_INLINE_XXH3_128bitsPKvm.exit
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -153,6 +157,8 @@ if.then5.i.i.i:                                   ; preds = %if.end4.i.i.i
   %mul3.i19.i.i.i.i = mul i64 %xor2.i18.i.i.i.i, 1609587929392839161
   %shr4.i20.i.i.i.i = lshr i64 %mul3.i19.i.i.i.i, 32
   %xor5.i21.i.i.i.i = xor i64 %shr4.i20.i.i.i.i, %mul3.i19.i.i.i.i
+  %.fca.0.insert.i42.i.i.i = insertvalue { i64, i64 } poison, i64 %xor5.i.i.i.i.i, 0
+  %.fca.1.insert.i43.i.i.i = insertvalue { i64, i64 } %.fca.0.insert.i42.i.i.i, i64 %xor5.i21.i.i.i.i, 1
   br label %_ZL23XXH_INLINE_XXH3_128bitsPKvm.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -162,17 +168,17 @@ if.end.i.i:                                       ; preds = %entry
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %mul.i.i.i = mul i64 %size, -7046029288634856825
   %cmp.i19.i.i = icmp samesign ugt i64 %size, 32
-  br i1 %cmp.i19.i.i, label %if.then.i24.i.i, label %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i
+  br i1 %cmp.i19.i.i, label %if.then.i22.i.i, label %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i
 
-if.then.i24.i.i:                                  ; preds = %if.then2.i.i
-  %cmp1.i25.i.i = icmp samesign ugt i64 %size, 64
-  br i1 %cmp1.i25.i.i, label %if.then2.i26.i.i, label %if.end15.i.i.i
+if.then.i22.i.i:                                  ; preds = %if.then2.i.i
+  %cmp1.i23.i.i = icmp samesign ugt i64 %size, 64
+  br i1 %cmp1.i23.i.i, label %if.then2.i24.i.i, label %if.end15.i.i.i
 
-if.then2.i26.i.i:                                 ; preds = %if.then.i24.i.i
+if.then2.i24.i.i:                                 ; preds = %if.then.i22.i.i
   %cmp3.i.i.i = icmp samesign ugt i64 %size, 96
-  br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end.i27.i.i
+  br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end.i25.i.i
 
-if.then4.i.i.i:                                   ; preds = %if.then2.i26.i.i
+if.then4.i.i.i:                                   ; preds = %if.then2.i24.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %array, i64 48
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %array, i64 %size
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i.i, i64 -64
@@ -182,17 +188,17 @@ if.then4.i.i.i:                                   ; preds = %if.then2.i26.i.i
   %add.ptr6.val.i.i.i = load i64, ptr %add.ptr6.i.i.i, align 1
   %7 = getelementptr i8, ptr %add.ptr5.i.i.i, i64 -56
   %add.ptr6.val36.i.i.i = load i64, ptr %7, align 1
-  %xor.i.i.i28.i.i = xor i64 %add.ptr.val.i.i.i, 4554437623014685352
-  %xor5.i.i.i29.i.i = xor i64 %add.ptr.val35.i.i.i, 2111919702937427193
-  %conv.i.i.i.i.i.i.i = zext i64 %xor.i.i.i28.i.i to i128
-  %conv1.i.i.i.i.i.i.i = zext i64 %xor5.i.i.i29.i.i to i128
+  %xor.i.i.i26.i.i = xor i64 %add.ptr.val.i.i.i, 4554437623014685352
+  %xor5.i.i.i27.i.i = xor i64 %add.ptr.val35.i.i.i, 2111919702937427193
+  %conv.i.i.i.i.i.i.i = zext i64 %xor.i.i.i26.i.i to i128
+  %conv1.i.i.i.i.i.i.i = zext i64 %xor5.i.i.i27.i.i to i128
   %mul.i.i.i.i.i.i.i = mul nuw i128 %conv1.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i, 64
   %xor1.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i
-  %xor.i.i.i.i30.i.i = trunc i128 %xor1.i.i.i.i.i.i to i64
-  %add.i.i31.i.i = add i64 %mul.i.i.i, %xor.i.i.i.i30.i.i
+  %xor.i.i.i.i28.i.i = trunc i128 %xor1.i.i.i.i.i.i to i64
+  %add.i.i29.i.i = add i64 %mul.i.i.i, %xor.i.i.i.i28.i.i
   %add4.i.i.i.i = add i64 %add.ptr6.val36.i.i.i, %add.ptr6.val.i.i.i
-  %xor.i.i.i.i = xor i64 %add.i.i31.i.i, %add4.i.i.i.i
+  %xor.i.i.i.i = xor i64 %add.i.i29.i.i, %add4.i.i.i.i
   %xor.i15.i.i.i.i = xor i64 %add.ptr6.val.i.i.i, 3556072174620004746
   %xor5.i16.i.i.i.i = xor i64 %add.ptr6.val36.i.i.i, 7238261902898274248
   %conv.i.i.i17.i.i.i.i = zext i64 %xor.i15.i.i.i.i to i128
@@ -202,12 +208,12 @@ if.then4.i.i.i:                                   ; preds = %if.then2.i26.i.i
   %xor1.i.i21.i.i.i.i = xor i128 %shr.i.i.i20.i.i.i.i, %mul.i.i.i19.i.i.i.i
   %xor.i.i22.i.i.i.i = trunc i128 %xor1.i.i21.i.i.i.i to i64
   %add12.i.i.i.i = add i64 %add.ptr.val35.i.i.i, %add.ptr.val.i.i.i
-  %xor14.i.i32.i.i = xor i64 %add12.i.i.i.i, %xor.i.i22.i.i.i.i
-  br label %if.end.i27.i.i
+  %xor14.i.i30.i.i = xor i64 %add12.i.i.i.i, %xor.i.i22.i.i.i.i
+  br label %if.end.i25.i.i
 
-if.end.i27.i.i:                                   ; preds = %if.then4.i.i.i, %if.then2.i26.i.i
-  %acc.sroa.0.2.i.i.i = phi i64 [ %xor.i.i.i.i, %if.then4.i.i.i ], [ %mul.i.i.i, %if.then2.i26.i.i ]
-  %acc.sroa.11.2.i.i.i = phi i64 [ %xor14.i.i32.i.i, %if.then4.i.i.i ], [ 0, %if.then2.i26.i.i ]
+if.end.i25.i.i:                                   ; preds = %if.then4.i.i.i, %if.then2.i24.i.i
+  %acc.sroa.0.2.i.i.i = phi i64 [ %xor.i.i.i.i, %if.then4.i.i.i ], [ %mul.i.i.i, %if.then2.i24.i.i ]
+  %acc.sroa.11.2.i.i.i = phi i64 [ %xor14.i.i30.i.i, %if.then4.i.i.i ], [ 0, %if.then2.i24.i.i ]
   %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %array, i64 32
   %add.ptr11.i.i.i = getelementptr inbounds i8, ptr %array, i64 %size
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr11.i.i.i, i64 -48
@@ -241,9 +247,9 @@ if.end.i27.i.i:                                   ; preds = %if.then4.i.i.i, %if
   %xor14.i63.i.i.i = xor i64 %add8.i.i.i.i, %add12.i62.i.i.i
   br label %if.end15.i.i.i
 
-if.end15.i.i.i:                                   ; preds = %if.end.i27.i.i, %if.then.i24.i.i
-  %acc.sroa.0.1.i.i.i = phi i64 [ %xor.i53.i.i.i, %if.end.i27.i.i ], [ %mul.i.i.i, %if.then.i24.i.i ]
-  %acc.sroa.11.1.i.i.i = phi i64 [ %xor14.i63.i.i.i, %if.end.i27.i.i ], [ 0, %if.then.i24.i.i ]
+if.end15.i.i.i:                                   ; preds = %if.end.i25.i.i, %if.then.i22.i.i
+  %acc.sroa.0.1.i.i.i = phi i64 [ %xor.i53.i.i.i, %if.end.i25.i.i ], [ %mul.i.i.i, %if.then.i22.i.i ]
+  %acc.sroa.11.1.i.i.i = phi i64 [ %xor14.i63.i.i.i, %if.end.i25.i.i ], [ 0, %if.then.i22.i.i ]
   %add.ptr18.i.i.i = getelementptr inbounds i8, ptr %array, i64 16
   %add.ptr19.i.i.i = getelementptr inbounds i8, ptr %array, i64 %size
   %add.ptr20.i.i.i = getelementptr inbounds i8, ptr %add.ptr19.i.i.i, i64 -32
@@ -327,6 +333,8 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i:     ; preds = %if.end15.i.i.i, %if
   %shr.i4.i118.i.i.i = lshr i64 %mul.i117.i.i.i, 32
   %xor.i5.i119.i.i.i = xor i64 %shr.i4.i118.i.i.i, %mul.i117.i.i.i
   %sub45.i.i.i = sub i64 0, %xor.i5.i119.i.i.i
+  %.fca.0.insert.i.i.i = insertvalue { i64, i64 } poison, i64 %xor.i5.i.i.i.i, 0
+  %.fca.1.insert.i.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i.i, i64 %sub45.i.i.i, 1
   br label %_ZL23XXH_INLINE_XXH3_128bitsPKvm.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
@@ -334,52 +342,52 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end8.i.i
 
 if.then6.i.i:                                     ; preds = %if.end4.i.i
-  %mul.i33.i.i = mul i64 %size, -7046029288634856825
+  %mul.i31.i.i = mul i64 %size, -7046029288634856825
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then6.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then6.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %acc.sroa.11.03.i.i.i = phi i64 [ 0, %if.then6.i.i ], [ %xor14.i.i58.i.i, %for.body.i.i.i ]
-  %acc.sroa.0.02.i.i.i = phi i64 [ %mul.i33.i.i, %if.then6.i.i ], [ %xor.i.i47.i.i, %for.body.i.i.i ]
+  %acc.sroa.11.03.i.i.i = phi i64 [ 0, %if.then6.i.i ], [ %xor14.i.i56.i.i, %for.body.i.i.i ]
+  %acc.sroa.0.02.i.i.i = phi i64 [ %mul.i31.i.i, %if.then6.i.i ], [ %xor.i.i45.i.i, %for.body.i.i.i ]
   %14 = shl nuw nsw i64 %indvars.iv.i.i.i, 5
-  %add.ptr.i34.i.i = getelementptr inbounds i8, ptr %array, i64 %14
-  %add.ptr5.i35.i.i = getelementptr inbounds i8, ptr %add.ptr.i34.i.i, i64 16
+  %add.ptr.i32.i.i = getelementptr inbounds i8, ptr %array, i64 %14
+  %add.ptr5.i33.i.i = getelementptr inbounds i8, ptr %add.ptr.i32.i.i, i64 16
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %14
-  %add.ptr.val.i36.i.i = load i64, ptr %add.ptr.i34.i.i, align 1
-  %15 = getelementptr i8, ptr %add.ptr.i34.i.i, i64 8
+  %add.ptr.val.i34.i.i = load i64, ptr %add.ptr.i32.i.i, align 1
+  %15 = getelementptr i8, ptr %add.ptr.i32.i.i, i64 8
   %add.ptr.val37.i.i.i = load i64, ptr %15, align 1
-  %add.ptr5.val.i.i.i = load i64, ptr %add.ptr5.i35.i.i, align 1
-  %16 = getelementptr i8, ptr %add.ptr.i34.i.i, i64 24
+  %add.ptr5.val.i.i.i = load i64, ptr %add.ptr5.i33.i.i, align 1
+  %16 = getelementptr i8, ptr %add.ptr.i32.i.i, i64 24
   %add.ptr5.val38.i.i.i = load i64, ptr %16, align 1
   %secret.val.i.i.i.i = load i64, ptr %add.ptr8.i.i.i, align 32
   %17 = getelementptr i8, ptr %add.ptr8.i.i.i, i64 8
   %secret.val11.i.i.i.i = load i64, ptr %17, align 8
-  %xor.i.i.i37.i.i = xor i64 %secret.val.i.i.i.i, %add.ptr.val.i36.i.i
-  %xor5.i.i.i38.i.i = xor i64 %secret.val11.i.i.i.i, %add.ptr.val37.i.i.i
-  %conv.i.i.i.i.i39.i.i = zext i64 %xor.i.i.i37.i.i to i128
-  %conv1.i.i.i.i.i40.i.i = zext i64 %xor5.i.i.i38.i.i to i128
-  %mul.i.i.i.i.i41.i.i = mul nuw i128 %conv1.i.i.i.i.i40.i.i, %conv.i.i.i.i.i39.i.i
-  %shr.i.i.i.i.i42.i.i = lshr i128 %mul.i.i.i.i.i41.i.i, 64
-  %xor1.i.i.i.i43.i.i = xor i128 %shr.i.i.i.i.i42.i.i, %mul.i.i.i.i.i41.i.i
-  %xor.i.i.i.i44.i.i = trunc i128 %xor1.i.i.i.i43.i.i to i64
-  %add.i.i45.i.i = add i64 %acc.sroa.0.02.i.i.i, %xor.i.i.i.i44.i.i
-  %add4.i.i46.i.i = add i64 %add.ptr5.val38.i.i.i, %add.ptr5.val.i.i.i
-  %xor.i.i47.i.i = xor i64 %add.i.i45.i.i, %add4.i.i46.i.i
+  %xor.i.i.i35.i.i = xor i64 %secret.val.i.i.i.i, %add.ptr.val.i34.i.i
+  %xor5.i.i.i36.i.i = xor i64 %secret.val11.i.i.i.i, %add.ptr.val37.i.i.i
+  %conv.i.i.i.i.i37.i.i = zext i64 %xor.i.i.i35.i.i to i128
+  %conv1.i.i.i.i.i38.i.i = zext i64 %xor5.i.i.i36.i.i to i128
+  %mul.i.i.i.i.i39.i.i = mul nuw i128 %conv1.i.i.i.i.i38.i.i, %conv.i.i.i.i.i37.i.i
+  %shr.i.i.i.i.i40.i.i = lshr i128 %mul.i.i.i.i.i39.i.i, 64
+  %xor1.i.i.i.i41.i.i = xor i128 %shr.i.i.i.i.i40.i.i, %mul.i.i.i.i.i39.i.i
+  %xor.i.i.i.i42.i.i = trunc i128 %xor1.i.i.i.i41.i.i to i64
+  %add.i.i43.i.i = add i64 %acc.sroa.0.02.i.i.i, %xor.i.i.i.i42.i.i
+  %add4.i.i44.i.i = add i64 %add.ptr5.val38.i.i.i, %add.ptr5.val.i.i.i
+  %xor.i.i45.i.i = xor i64 %add.i.i43.i.i, %add4.i.i44.i.i
   %add.ptr6.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i.i, i64 16
   %add.ptr6.val.i.i.i.i = load i64, ptr %add.ptr6.i.i.i.i, align 16
   %18 = getelementptr i8, ptr %add.ptr8.i.i.i, i64 24
   %add.ptr6.val14.i.i.i.i = load i64, ptr %18, align 8
-  %xor.i15.i.i48.i.i = xor i64 %add.ptr6.val.i.i.i.i, %add.ptr5.val.i.i.i
-  %xor5.i16.i.i49.i.i = xor i64 %add.ptr6.val14.i.i.i.i, %add.ptr5.val38.i.i.i
-  %conv.i.i.i17.i.i50.i.i = zext i64 %xor.i15.i.i48.i.i to i128
-  %conv1.i.i.i18.i.i51.i.i = zext i64 %xor5.i16.i.i49.i.i to i128
-  %mul.i.i.i19.i.i52.i.i = mul nuw i128 %conv1.i.i.i18.i.i51.i.i, %conv.i.i.i17.i.i50.i.i
-  %shr.i.i.i20.i.i53.i.i = lshr i128 %mul.i.i.i19.i.i52.i.i, 64
-  %xor1.i.i21.i.i54.i.i = xor i128 %shr.i.i.i20.i.i53.i.i, %mul.i.i.i19.i.i52.i.i
-  %xor.i.i22.i.i55.i.i = trunc i128 %xor1.i.i21.i.i54.i.i to i64
-  %add8.i.i56.i.i = add i64 %acc.sroa.11.03.i.i.i, %xor.i.i22.i.i55.i.i
-  %add12.i.i57.i.i = add i64 %add.ptr.val37.i.i.i, %add.ptr.val.i36.i.i
-  %xor14.i.i58.i.i = xor i64 %add8.i.i56.i.i, %add12.i.i57.i.i
+  %xor.i15.i.i46.i.i = xor i64 %add.ptr6.val.i.i.i.i, %add.ptr5.val.i.i.i
+  %xor5.i16.i.i47.i.i = xor i64 %add.ptr6.val14.i.i.i.i, %add.ptr5.val38.i.i.i
+  %conv.i.i.i17.i.i48.i.i = zext i64 %xor.i15.i.i46.i.i to i128
+  %conv1.i.i.i18.i.i49.i.i = zext i64 %xor5.i16.i.i47.i.i to i128
+  %mul.i.i.i19.i.i50.i.i = mul nuw i128 %conv1.i.i.i18.i.i49.i.i, %conv.i.i.i17.i.i48.i.i
+  %shr.i.i.i20.i.i51.i.i = lshr i128 %mul.i.i.i19.i.i50.i.i, 64
+  %xor1.i.i21.i.i52.i.i = xor i128 %shr.i.i.i20.i.i51.i.i, %mul.i.i.i19.i.i50.i.i
+  %xor.i.i22.i.i53.i.i = trunc i128 %xor1.i.i21.i.i52.i.i to i64
+  %add8.i.i54.i.i = add i64 %acc.sroa.11.03.i.i.i, %xor.i.i22.i.i53.i.i
+  %add12.i.i55.i.i = add i64 %add.ptr.val37.i.i.i, %add.ptr.val.i34.i.i
+  %xor14.i.i56.i.i = xor i64 %add8.i.i54.i.i, %add12.i.i55.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !4
@@ -387,13 +395,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %conv.i.i.i = trunc nuw nsw i64 %size to i32
   %div36.i.i.i = lshr i32 %conv.i.i.i, 5
-  %shr.i.i.i59.i.i = lshr i64 %xor.i.i47.i.i, 37
-  %xor.i.i43.i60.i.i = xor i64 %shr.i.i.i59.i.i, %xor.i.i47.i.i
-  %mul.i.i61.i.i = mul i64 %xor.i.i43.i60.i.i, 1609587791953885689
-  %shr.i4.i.i62.i.i = lshr i64 %mul.i.i61.i.i, 32
-  %xor.i5.i.i63.i.i = xor i64 %shr.i4.i.i62.i.i, %mul.i.i61.i.i
-  %shr.i.i44.i.i.i = lshr i64 %xor14.i.i58.i.i, 37
-  %xor.i.i45.i.i.i = xor i64 %shr.i.i44.i.i.i, %xor14.i.i58.i.i
+  %shr.i.i.i57.i.i = lshr i64 %xor.i.i45.i.i, 37
+  %xor.i.i43.i58.i.i = xor i64 %shr.i.i.i57.i.i, %xor.i.i45.i.i
+  %mul.i.i59.i.i = mul i64 %xor.i.i43.i58.i.i, 1609587791953885689
+  %shr.i4.i.i60.i.i = lshr i64 %mul.i.i59.i.i, 32
+  %xor.i5.i.i61.i.i = xor i64 %shr.i4.i.i60.i.i, %mul.i.i59.i.i
+  %shr.i.i44.i.i.i = lshr i64 %xor14.i.i56.i.i, 37
+  %xor.i.i45.i.i.i = xor i64 %shr.i.i44.i.i.i, %xor14.i.i56.i.i
   %mul.i46.i.i.i = mul i64 %xor.i.i45.i.i.i, 1609587791953885689
   %shr.i4.i47.i.i.i = lshr i64 %mul.i46.i.i.i, 32
   %xor.i5.i48.i.i.i = xor i64 %shr.i4.i47.i.i.i, %mul.i46.i.i.i
@@ -407,16 +415,16 @@ for.body17.preheader.i.i.i:                       ; preds = %for.end.i.i.i
 for.body17.i.i.i:                                 ; preds = %for.body17.i.i.i, %for.body17.preheader.i.i.i
   %indvars.iv11.i.i.i = phi i64 [ 4, %for.body17.preheader.i.i.i ], [ %indvars.iv.next12.i.i.i, %for.body17.i.i.i ]
   %acc.sroa.11.17.i.i.i = phi i64 [ %xor.i5.i48.i.i.i, %for.body17.preheader.i.i.i ], [ %xor14.i75.i.i.i, %for.body17.i.i.i ]
-  %acc.sroa.0.16.i.i.i = phi i64 [ %xor.i5.i.i63.i.i, %for.body17.preheader.i.i.i ], [ %xor.i61.i.i.i, %for.body17.i.i.i ]
+  %acc.sroa.0.16.i.i.i = phi i64 [ %xor.i5.i.i61.i.i, %for.body17.preheader.i.i.i ], [ %xor.i61.i.i.i, %for.body17.i.i.i ]
   %19 = shl nsw i64 %indvars.iv11.i.i.i, 5
   %add.ptr22.i.i.i = getelementptr inbounds i8, ptr %array, i64 %19
-  %add.ptr26.i64.i.i = getelementptr inbounds i8, ptr %add.ptr22.i.i.i, i64 16
+  %add.ptr26.i62.i.i = getelementptr inbounds i8, ptr %add.ptr22.i.i.i, i64 16
   %20 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 3), i64 %19
   %add.ptr30.i.i.i = getelementptr i8, ptr %20, i64 -128
   %add.ptr22.val.i.i.i = load i64, ptr %add.ptr22.i.i.i, align 1
   %21 = getelementptr i8, ptr %add.ptr22.i.i.i, i64 8
   %add.ptr22.val39.i.i.i = load i64, ptr %21, align 1
-  %add.ptr26.val.i.i.i = load i64, ptr %add.ptr26.i64.i.i, align 1
+  %add.ptr26.val.i.i.i = load i64, ptr %add.ptr26.i62.i.i, align 1
   %22 = getelementptr i8, ptr %add.ptr22.i.i.i, i64 24
   %add.ptr26.val40.i.i.i = load i64, ptr %22, align 1
   %secret.val.i49.i.i.i = load i64, ptr %add.ptr30.i.i.i, align 1
@@ -453,7 +461,7 @@ for.body17.i.i.i:                                 ; preds = %for.body17.i.i.i, %
   br i1 %exitcond15.not.i.i.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i, label %for.body17.i.i.i, !llvm.loop !6
 
 _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i:    ; preds = %for.body17.i.i.i, %for.end.i.i.i
-  %acc.sroa.0.1.lcssa.i.i.i = phi i64 [ %xor.i5.i.i63.i.i, %for.end.i.i.i ], [ %xor.i61.i.i.i, %for.body17.i.i.i ]
+  %acc.sroa.0.1.lcssa.i.i.i = phi i64 [ %xor.i5.i.i61.i.i, %for.end.i.i.i ], [ %xor.i61.i.i.i, %for.body17.i.i.i ]
   %acc.sroa.11.1.lcssa.i.i.i = phi i64 [ %xor.i5.i48.i.i.i, %for.end.i.i.i ], [ %xor14.i75.i.i.i, %for.body17.i.i.i ]
   %add.ptr37.i.i.i = getelementptr inbounds i8, ptr %array, i64 %size
   %add.ptr38.i.i.i = getelementptr inbounds i8, ptr %add.ptr37.i.i.i, i64 -16
@@ -486,14 +494,14 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i:    ; preds = %for.body17.i.i.i, %
   %add8.i97.i.i.i = add i64 %acc.sroa.11.1.lcssa.i.i.i, %xor.i.i22.i96.i.i.i
   %add12.i98.i.i.i = add i64 %add.ptr38.val41.i.i.i, %add.ptr38.val.i.i.i
   %xor14.i99.i.i.i = xor i64 %add8.i97.i.i.i, %add12.i98.i.i.i
-  %add.i65.i.i = add i64 %xor14.i99.i.i.i, %xor.i88.i.i.i
+  %add.i63.i.i = add i64 %xor14.i99.i.i.i, %xor.i88.i.i.i
   %mul50.i.i.i = mul i64 %xor.i88.i.i.i, -7046029288634856825
   %mul52.i.i.i = mul i64 %xor14.i99.i.i.i, -8796714831421723037
   %mul55.i.i.i = mul i64 %size, -4417276706812531889
   %add53.i.i.i = add i64 %mul50.i.i.i, %mul55.i.i.i
   %add56.i.i.i = add i64 %add53.i.i.i, %mul52.i.i.i
-  %shr.i.i102.i.i.i = lshr i64 %add.i65.i.i, 37
-  %xor.i.i103.i.i.i = xor i64 %shr.i.i102.i.i.i, %add.i65.i.i
+  %shr.i.i102.i.i.i = lshr i64 %add.i63.i.i, 37
+  %xor.i.i103.i.i.i = xor i64 %shr.i.i102.i.i.i, %add.i63.i.i
   %mul.i104.i.i.i = mul i64 %xor.i.i103.i.i.i, 1609587791953885689
   %shr.i4.i105.i.i.i = lshr i64 %mul.i104.i.i.i, 32
   %xor.i5.i106.i.i.i = xor i64 %shr.i4.i105.i.i.i, %mul.i104.i.i.i
@@ -503,6 +511,8 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i:    ; preds = %for.body17.i.i.i, %
   %shr.i4.i110.i.i.i = lshr i64 %mul.i109.i.i.i, 32
   %xor.i5.i111.i.i.i = xor i64 %shr.i4.i110.i.i.i, %mul.i109.i.i.i
   %sub63.i.i.i = sub i64 0, %xor.i5.i111.i.i.i
+  %.fca.0.insert.i64.i.i = insertvalue { i64, i64 } poison, i64 %xor.i5.i106.i.i.i, 0
+  %.fca.1.insert.i65.i.i = insertvalue { i64, i64 } %.fca.0.insert.i64.i.i, i64 %sub63.i.i.i, 1
   br label %_ZL23XXH_INLINE_XXH3_128bitsPKvm.exit
 
 if.end8.i.i:                                      ; preds = %if.end4.i.i
@@ -730,23 +740,26 @@ _ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i:  ; preds = %for.body.i13.i.i.i
   %mul.i.i37.i.i.i = mul i64 %xor.i.i7.i36.i.i.i, 1609587791953885689
   %shr.i4.i.i38.i.i.i = lshr i64 %mul.i.i37.i.i.i, 32
   %xor.i5.i.i39.i.i.i = xor i64 %shr.i4.i.i38.i.i.i, %mul.i.i37.i.i.i
+  %.fca.0.insert.i.i15.i = insertvalue { i64, i64 } poison, i64 %xor.i5.i.i.i.i14.i, 0
+  %.fca.1.insert.i.i16.i = insertvalue { i64, i64 } %.fca.0.insert.i.i15.i, i64 %xor.i5.i.i39.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i.i.i)
   br label %_ZL23XXH_INLINE_XXH3_128bitsPKvm.exit
 
 _ZL23XXH_INLINE_XXH3_128bitsPKvm.exit:            ; preds = %if.then.i.i.i, %if.then2.i.i.i, %if.end4.i.i.i, %if.then5.i.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i, %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i
-  %retval.sroa.0.0.i.i.pn.i = phi i64 [ %xor.i5.i.i.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i ], [ %xor.i5.i106.i.i.i, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i ], [ %xor.i5.i.i.i.i14.i, %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i ], [ %xor.i5.i.i.i.i.i, %if.then.i.i.i ], [ %xor.i17.i.i.i.i, %if.then2.i.i.i ], [ %xor5.i.i.i.i.i, %if.then5.i.i.i ], [ 6918025063187695999, %if.end4.i.i.i ]
-  %retval.sroa.5.0.i.i.pn.i = phi i64 [ %sub45.i.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i ], [ %sub63.i.i.i, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i ], [ %xor.i5.i.i39.i.i.i, %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i ], [ %xor.i5.i32.i.i.i.i, %if.then.i.i.i ], [ %xor.i5.i.i33.i.i.i, %if.then2.i.i.i ], [ %xor5.i21.i.i.i.i, %if.then5.i.i.i ], [ -7374073936536430376, %if.end4.i.i.i ]
+  %call.pn.i.i = phi { i64, i64 } [ %.fca.1.insert.i.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i ], [ %.fca.1.insert.i65.i.i, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i ], [ %.fca.1.insert.i.i16.i, %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i ], [ %.fca.1.insert.i.i.i.i, %if.then.i.i.i ], [ %.fca.1.insert.i35.i.i.i, %if.then2.i.i.i ], [ %.fca.1.insert.i43.i.i.i, %if.then5.i.i.i ], [ { i64 6918025063187695999, i64 -7374073936536430376 }, %if.end4.i.i.i ]
+  %67 = extractvalue { i64, i64 } %call.pn.i.i, 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %oss)
   %add.ptr = getelementptr inbounds i8, ptr %oss, i64 16
   %call1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZL23XXH_INLINE_XXH3_128bitsPKvm.exit
-  %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call1, i64 noundef %retval.sroa.0.0.i.i.pn.i)
+  %68 = extractvalue { i64, i64 } %call.pn.i.i, 0
+  %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call1, i64 noundef %68)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call3, i64 noundef %retval.sroa.5.0.i.i.pn.i)
+  %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call3, i64 noundef %67)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -758,10 +771,10 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont2, %invoke.cont, %_ZL23XXH_INLINE_XXH3_128bitsPKvm.exit
-  %67 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %oss) #9
-  resume { ptr, i32 } %67
+  resume { ptr, i32 } %69
 }
 
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1

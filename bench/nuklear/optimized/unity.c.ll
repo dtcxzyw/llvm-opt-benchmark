@@ -38150,13 +38150,13 @@ land.rhs.i373:                                    ; preds = %if.end.i368
   %or.cond417 = select i1 %cmp10.i, i1 true, i1 %cmp17.i
   %hover = getelementptr inbounds i8, ptr %ctx, i64 8680
   %spec.select = select i1 %or.cond417, i64 9204, i64 9208
-  %spec.select427 = select i1 %or.cond417, ptr %window, ptr %hover
+  %spec.select426 = select i1 %or.cond417, ptr %window, ptr %hover
   br label %if.end228
 
 if.end228:                                        ; preds = %land.rhs.i373, %if.end.i368, %if.then204
-  %.sink425 = phi i64 [ 9212, %if.then204 ], [ 9204, %if.end.i368 ], [ %spec.select, %land.rhs.i373 ]
-  %background.0 = phi ptr [ %active207, %if.then204 ], [ %window, %if.end.i368 ], [ %spec.select427, %land.rhs.i373 ]
-  %label_hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink425
+  %.sink424 = phi i64 [ 9212, %if.then204 ], [ 9204, %if.end.i368 ], [ %spec.select, %land.rhs.i373 ]
+  %background.0 = phi ptr [ %active207, %if.then204 ], [ %window, %if.end.i368 ], [ %spec.select426, %land.rhs.i373 ]
+  %label_hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink424
   %text.sroa.7.0 = load i32, ptr %label_hover, align 4
   %add230 = fadd float %67, 1.000000e+00
   %header170.sroa.21.12.vec.insert133 = insertelement <2 x float> %header170.sroa.21.8.vec.insert, float %add230, i64 1
@@ -38239,22 +38239,22 @@ if.end313:                                        ; preds = %if.else292, %if.the
   %86 = load ptr, ptr %style21, align 8
   %call320 = call fastcc i32 @nk_do_button_symbol(ptr noundef %ws, ptr noundef nonnull %buffer, <2 x float> %button.sroa.0.1, <2 x float> %button.sroa.9.8.vec.insert, i32 noundef %85, i32 noundef 0, ptr noundef nonnull %close_button, ptr noundef %cond, ptr noundef %86)
   %tobool321.not = icmp ne i32 %call320, 0
-  %.pre423 = load i32, ptr %flags, align 8
-  %and324 = and i32 %.pre423, 4096
+  %.pre422 = load i32, ptr %flags, align 8
+  %and324 = and i32 %.pre422, 4096
   %tobool325.not = icmp eq i32 %and324, 0
-  %or.cond426 = select i1 %tobool321.not, i1 %tobool325.not, i1 false
-  br i1 %or.cond426, label %if.then326, label %if.end331
+  %or.cond425 = select i1 %tobool321.not, i1 %tobool325.not, i1 false
+  br i1 %or.cond425, label %if.then326, label %if.end331
 
 if.then326:                                       ; preds = %if.end313
   %87 = load i32, ptr %flags103, align 4
   %or = and i32 %87, -40961
   %and329 = or disjoint i32 %or, 8192
   store i32 %and329, ptr %flags103, align 4
-  %.pre422 = load i32, ptr %flags, align 8
+  %.pre421 = load i32, ptr %flags, align 8
   br label %if.end331
 
 if.end331:                                        ; preds = %if.end313, %if.then326, %sw.epilog
-  %88 = phi i32 [ %.pre422, %if.then326 ], [ %.pre423, %if.end313 ], [ %79, %sw.epilog ]
+  %88 = phi i32 [ %.pre421, %if.then326 ], [ %.pre422, %if.end313 ], [ %79, %sw.epilog ]
   %header170.sroa.0.0 = phi <2 x float> [ %header170.sroa.0.1, %if.then326 ], [ %header170.sroa.0.1, %if.end313 ], [ %header170.sroa.0.4.vec.insert, %sw.epilog ]
   %header170.sroa.21.0 = phi <2 x float> [ %header170.sroa.21.1, %if.then326 ], [ %header170.sroa.21.1, %if.end313 ], [ %header170.sroa.21.12.vec.insert133, %sw.epilog ]
   %button.sroa.0.0 = phi <2 x float> [ %button.sroa.0.1, %if.then326 ], [ %button.sroa.0.1, %if.end313 ], [ %button.sroa.0.4.vec.insert, %sw.epilog ]
@@ -39879,14 +39879,13 @@ if.end:                                           ; preds = %lor.lhs.false
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %bounds, align 4
   %retval.sroa.3.0.bounds.sroa_idx = getelementptr inbounds i8, ptr %0, i64 84
   %retval.sroa.3.0.copyload = load <2 x float>, ptr %retval.sroa.3.0.bounds.sroa_idx, align 4
+  %1 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
+  %2 = insertvalue { <2 x float>, <2 x float> } %1, <2 x float> %retval.sroa.3.0.copyload, 1
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.copyload, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
-  %retval.sroa.3.0 = phi <2 x float> [ %retval.sroa.3.0.copyload, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.3.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %2, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -40004,14 +40003,13 @@ if.end:                                           ; preds = %lor.lhs.false
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %clip, align 4
   %retval.sroa.3.0.clip.sroa_idx = getelementptr inbounds i8, ptr %1, i64 76
   %retval.sroa.3.0.copyload = load <2 x float>, ptr %retval.sroa.3.0.clip.sroa_idx, align 4
+  %2 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
+  %3 = insertvalue { <2 x float>, <2 x float> } %2, <2 x float> %retval.sroa.3.0.copyload, 1
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.copyload, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
-  %retval.sroa.3.0 = phi <2 x float> [ %retval.sroa.3.0.copyload, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.3.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %3, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -51004,7 +51002,7 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false
   %layout4.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load ptr, ptr %layout4.i, align 8
   %tobool5.not.i = icmp eq ptr %1, null
-  br i1 %tobool5.not.i, label %return, label %if.end.i
+  br i1 %tobool5.not.i, label %nk_layout_peek.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false2.i
   %at_y.i = getelementptr inbounds i8, ptr %1, i64 44
@@ -51044,14 +51042,18 @@ if.end23.i:                                       ; preds = %if.then21.i, %if.en
   %retval.sroa.0.0.copyload.pre = load <2 x float>, ptr %bounds, align 8
   %retval.sroa.3.0.bounds.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %bounds, i64 8
   %retval.sroa.3.0.copyload.pre = load <2 x float>, ptr %retval.sroa.3.0.bounds.sroa_idx.phi.trans.insert, align 8
+  br label %nk_layout_peek.exit
+
+nk_layout_peek.exit:                              ; preds = %lor.lhs.false2.i, %if.end23.i
+  %retval.sroa.3.0.copyload = phi <2 x float> [ %retval.sroa.3.0.copyload.pre, %if.end23.i ], [ zeroinitializer, %lor.lhs.false2.i ]
+  %retval.sroa.0.0.copyload = phi <2 x float> [ %retval.sroa.0.0.copyload.pre, %if.end23.i ], [ zeroinitializer, %lor.lhs.false2.i ]
+  %9 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
+  %10 = insertvalue { <2 x float>, <2 x float> } %9, <2 x float> %retval.sroa.3.0.copyload, 1
   br label %return
 
-return:                                           ; preds = %lor.lhs.false2.i, %if.end23.i, %entry, %lor.lhs.false
-  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ], [ %retval.sroa.0.0.copyload.pre, %if.end23.i ], [ zeroinitializer, %lor.lhs.false2.i ]
-  %retval.sroa.3.0 = phi <2 x float> [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ], [ %retval.sroa.3.0.copyload.pre, %if.end23.i ], [ zeroinitializer, %lor.lhs.false2.i ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.3.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+return:                                           ; preds = %entry, %lor.lhs.false, %nk_layout_peek.exit
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %10, %nk_layout_peek.exit ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -76361,137 +76363,139 @@ entry:
   br i1 %cmp12, label %if.end14, label %return
 
 if.end14:                                         ; preds = %entry
-  %3 = extractelement <2 x float> %scroll.coerce0, i64 1
+  %3 = extractelement <2 x float> %scroll.coerce0, i64 0
+  %4 = extractelement <2 x float> %scroll.coerce0, i64 1
   %show_buttons = getelementptr inbounds i8, ptr %style, i64 284
-  %4 = load i32, ptr %show_buttons, align 4
-  %tobool15.not = icmp eq i32 %4, 0
+  %5 = load i32, ptr %show_buttons, align 4
+  %tobool15.not = icmp eq i32 %5, 0
   br i1 %tobool15.not, label %if.end55, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %5 = load <4 x float>, ptr %scroll, align 16
+  %6 = load <4 x float>, ptr %scroll, align 16
   %button.sroa.5.8.vec.insert = insertelement <2 x float> poison, float %cond, i64 0
   %button.sroa.5.12.vec.insert = shufflevector <2 x float> %button.sroa.5.8.vec.insert, <2 x float> poison, <2 x i32> zeroinitializer
-  %6 = tail call float @llvm.fmuladd.f32(float %cond, float -2.000000e+00, float %cond9)
-  %cmp24 = fcmp olt float %6, 0.000000e+00
-  %cond30 = select i1 %cmp24, float 0.000000e+00, float %6
+  %7 = tail call float @llvm.fmuladd.f32(float %cond, float -2.000000e+00, float %cond9)
+  %cmp24 = fcmp olt float %7, 0.000000e+00
+  %cond30 = select i1 %cmp24, float 0.000000e+00, float %7
   %cmp31 = fcmp olt float %step, %button_pixel_inc
   %cond35 = select i1 %cmp31, float %step, float %button_pixel_inc
   %y = getelementptr inbounds i8, ptr %scroll, i64 4
-  %7 = extractelement <4 x float> %5, i64 1
-  %button.sroa.0.4.vec.insert = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %8 = extractelement <4 x float> %6, i64 1
+  %button.sroa.0.4.vec.insert = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %dec_symbol = getelementptr inbounds i8, ptr %style, i64 724
-  %8 = load i32, ptr %dec_symbol, align 4
+  %9 = load i32, ptr %dec_symbol, align 4
   %dec_button = getelementptr inbounds i8, ptr %style, i64 504
-  %call = call fastcc i32 @nk_do_button_symbol(ptr noundef %ws, ptr noundef nonnull %out, <2 x float> %button.sroa.0.4.vec.insert, <2 x float> %button.sroa.5.12.vec.insert, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %dec_button, ptr noundef %in, ptr noundef %font)
+  %call = call fastcc i32 @nk_do_button_symbol(ptr noundef %ws, ptr noundef nonnull %out, <2 x float> %button.sroa.0.4.vec.insert, <2 x float> %button.sroa.5.12.vec.insert, i32 noundef %9, i32 noundef 1, ptr noundef nonnull %dec_button, ptr noundef %in, ptr noundef %font)
   %tobool37.not = icmp eq i32 %call, 0
   %sub = fsub float %offset, %cond35
   %offset.addr.1 = select i1 %tobool37.not, float %offset, float %sub
-  %add = fadd float %cond9, %7
+  %add = fadd float %cond9, %8
   %sub43 = fsub float %add, %cond
   %button.sroa.0.4.vec.insert4 = insertelement <2 x float> %button.sroa.0.4.vec.insert, float %sub43, i64 1
   %inc_symbol = getelementptr inbounds i8, ptr %style, i64 720
-  %9 = load i32, ptr %inc_symbol, align 8
+  %10 = load i32, ptr %inc_symbol, align 8
   %inc_button = getelementptr inbounds i8, ptr %style, i64 288
-  %call45 = call fastcc i32 @nk_do_button_symbol(ptr noundef %ws, ptr noundef nonnull %out, <2 x float> %button.sroa.0.4.vec.insert4, <2 x float> %button.sroa.5.12.vec.insert, i32 noundef %9, i32 noundef 1, ptr noundef nonnull %inc_button, ptr noundef %in, ptr noundef %font)
+  %call45 = call fastcc i32 @nk_do_button_symbol(ptr noundef %ws, ptr noundef nonnull %out, <2 x float> %button.sroa.0.4.vec.insert4, <2 x float> %button.sroa.5.12.vec.insert, i32 noundef %10, i32 noundef 1, ptr noundef nonnull %inc_button, ptr noundef %in, ptr noundef %font)
   %tobool46.not = icmp eq i32 %call45, 0
   %add48 = fadd float %cond35, %offset.addr.1
   %offset.addr.2 = select i1 %tobool46.not, float %offset.addr.1, float %add48
-  %add52 = fadd float %cond, %7
+  %add52 = fadd float %cond, %8
   store float %add52, ptr %y, align 4
   store float %cond30, ptr %h, align 4
+  %11 = extractelement <4 x float> %6, i64 0
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then16, %if.end14
-  %10 = phi float [ %add52, %if.then16 ], [ %3, %if.end14 ]
-  %11 = phi float [ %cond30, %if.then16 ], [ %cond9, %if.end14 ]
+  %12 = phi float [ %11, %if.then16 ], [ %3, %if.end14 ]
+  %13 = phi float [ %add52, %if.then16 ], [ %4, %if.end14 ]
+  %14 = phi float [ %cond30, %if.then16 ], [ %cond9, %if.end14 ]
   %offset.addr.0 = phi float [ %offset.addr.2, %if.then16 ], [ %offset, %if.end14 ]
-  %cmp57 = fcmp olt float %step, %11
-  %cond62 = select i1 %cmp57, float %step, float %11
-  %sub64 = fsub float %target, %11
+  %cmp57 = fcmp olt float %step, %14
+  %cond62 = select i1 %cmp57, float %step, float %14
+  %sub64 = fsub float %target, %14
   %cmp65 = fcmp olt float %offset.addr.0, %sub64
   %cond71 = select i1 %cmp65, float %offset.addr.0, float %sub64
   %cmp72 = fcmp olt float %cond71, 0.000000e+00
   %cond85 = select i1 %cmp72, float 0.000000e+00, float %cond71
-  %div = fdiv float %11, %target
+  %div = fdiv float %14, %target
   %div87 = fdiv float %cond85, %target
   %border = getelementptr inbounds i8, ptr %style, i64 252
-  %12 = load float, ptr %border, align 4
+  %15 = load float, ptr %border, align 4
   %padding = getelementptr inbounds i8, ptr %style, i64 268
   %y90 = getelementptr inbounds i8, ptr %style, i64 272
-  %13 = load float, ptr %y90, align 4
-  %mul91 = fmul float %13, 2.000000e+00
-  %14 = tail call float @llvm.fmuladd.f32(float %12, float 2.000000e+00, float %mul91)
-  %neg = fneg float %14
-  %15 = tail call float @llvm.fmuladd.f32(float %div, float %11, float %neg)
-  %cmp92 = fcmp olt float %15, 0.000000e+00
-  %cond103 = select i1 %cmp92, float 0.000000e+00, float %15
+  %16 = load float, ptr %y90, align 4
+  %mul91 = fmul float %16, 2.000000e+00
+  %17 = tail call float @llvm.fmuladd.f32(float %15, float 2.000000e+00, float %mul91)
+  %neg = fneg float %17
+  %18 = tail call float @llvm.fmuladd.f32(float %div, float %14, float %neg)
+  %cmp92 = fcmp olt float %18, 0.000000e+00
+  %cond103 = select i1 %cmp92, float 0.000000e+00, float %18
   %h104 = getelementptr inbounds i8, ptr %cursor, i64 12
   store float %cond103, ptr %h104, align 4
-  %16 = tail call float @llvm.fmuladd.f32(float %div87, float %11, float %10)
-  %add108 = fadd float %12, %16
-  %add111 = fadd float %13, %add108
+  %19 = tail call float @llvm.fmuladd.f32(float %div87, float %14, float %13)
+  %add108 = fadd float %15, %19
+  %add111 = fadd float %16, %add108
   %y112 = getelementptr inbounds i8, ptr %cursor, i64 4
   store float %add111, ptr %y112, align 4
-  %17 = load float, ptr %padding, align 4
-  %mul117 = fmul float %17, 2.000000e+00
-  %18 = tail call float @llvm.fmuladd.f32(float %12, float 2.000000e+00, float %mul117)
-  %sub118 = fsub float %cond, %18
+  %20 = load float, ptr %padding, align 4
+  %mul117 = fmul float %20, 2.000000e+00
+  %21 = tail call float @llvm.fmuladd.f32(float %15, float 2.000000e+00, float %mul117)
+  %sub118 = fsub float %cond, %21
   %w119 = getelementptr inbounds i8, ptr %cursor, i64 8
   store float %sub118, ptr %w119, align 8
-  %19 = load float, ptr %scroll, align 16
-  %add122 = fadd float %12, %19
-  %add125 = fadd float %17, %add122
+  %add122 = fadd float %15, %12
+  %add125 = fadd float %20, %add122
   store float %add125, ptr %cursor, align 8
-  %empty_north.sroa.0.0.vec.insert = insertelement <2 x float> <float poison, float undef>, float %19, i64 0
-  %empty_north.sroa.0.4.vec.insert = insertelement <2 x float> %empty_north.sroa.0.0.vec.insert, float %10, i64 1
+  %empty_north.sroa.0.0.vec.insert = insertelement <2 x float> <float poison, float undef>, float %12, i64 0
+  %empty_north.sroa.0.4.vec.insert = insertelement <2 x float> %empty_north.sroa.0.0.vec.insert, float %13, i64 1
   %empty_north.sroa.3.8.vec.insert = insertelement <2 x float> <float poison, float undef>, float %cond, i64 0
-  %sub135 = fsub float %add111, %10
+  %sub135 = fsub float %add111, %13
   %cmp136 = fcmp olt float %sub135, 0.000000e+00
   %cond143 = select i1 %cmp136, float 0.000000e+00, float %sub135
   %empty_north.sroa.3.12.vec.insert = insertelement <2 x float> %empty_north.sroa.3.8.vec.insert, float %cond143, i64 1
   %add149 = fadd float %cond103, %add111
   %empty_south.sroa.0.4.vec.insert = insertelement <2 x float> %empty_north.sroa.0.0.vec.insert, float %add149, i64 1
-  %add155 = fadd float %11, %10
+  %add155 = fadd float %14, %13
   %sub159 = fsub float %add155, %add149
   %cmp160 = fcmp olt float %sub159, 0.000000e+00
   %cond171 = select i1 %cmp160, float 0.000000e+00, float %sub159
   %empty_south.sroa.3.12.vec.insert = insertelement <2 x float> %empty_north.sroa.3.8.vec.insert, float %cond171, i64 1
   %call173 = call fastcc float @nk_scrollbar_behavior(ptr noundef %state, ptr noundef %in, i32 noundef %has_scrolling, ptr noundef %scroll, ptr noundef %cursor, <2 x float> %empty_north.sroa.0.4.vec.insert, <2 x float> %empty_north.sroa.3.12.vec.insert, <2 x float> %empty_south.sroa.0.4.vec.insert, <2 x float> %empty_south.sroa.3.12.vec.insert, float noundef %cond85, float noundef %target, float noundef %cond62, i32 noundef 0)
   %div174 = fdiv float %call173, %target
-  %20 = tail call float @llvm.fmuladd.f32(float %div174, float %11, float %10)
+  %22 = tail call float @llvm.fmuladd.f32(float %div174, float %14, float %13)
   %border_cursor = getelementptr inbounds i8, ptr %style, i64 260
-  %21 = load float, ptr %border_cursor, align 4
-  %add177 = fadd float %21, %20
-  %22 = load float, ptr %y90, align 4
-  %add180 = fadd float %22, %add177
+  %23 = load float, ptr %border_cursor, align 4
+  %add177 = fadd float %23, %22
+  %24 = load float, ptr %y90, align 4
+  %add180 = fadd float %24, %add177
   store float %add180, ptr %y112, align 4
   %draw_begin = getelementptr inbounds i8, ptr %style, i64 736
-  %23 = load ptr, ptr %draw_begin, align 8
-  %tobool182.not = icmp eq ptr %23, null
+  %25 = load ptr, ptr %draw_begin, align 8
+  %tobool182.not = icmp eq ptr %25, null
   br i1 %tobool182.not, label %if.end185, label %if.then183
 
 if.then183:                                       ; preds = %if.end55
   %userdata = getelementptr inbounds i8, ptr %style, i64 728
-  %24 = load ptr, ptr %userdata, align 8
-  tail call void %23(ptr noundef nonnull %out, ptr %24) #52
+  %26 = load ptr, ptr %userdata, align 8
+  tail call void %25(ptr noundef nonnull %out, ptr %26) #52
   br label %if.end185
 
 if.end185:                                        ; preds = %if.then183, %if.end55
-  %25 = load i32, ptr %state, align 4
+  %27 = load i32, ptr %state, align 4
   %scroll.val = load <2 x float>, ptr %scroll, align 16
   %scroll.val75 = load <2 x float>, ptr %0, align 8
   %cursor.val = load <2 x float>, ptr %cursor, align 8
   %cursor.val76 = load <2 x float>, ptr %w119, align 8
-  tail call fastcc void @nk_draw_scrollbar(ptr noundef %out, i32 noundef %25, ptr noundef %style, <2 x float> %scroll.val, <2 x float> %scroll.val75, <2 x float> %cursor.val, <2 x float> %cursor.val76)
+  tail call fastcc void @nk_draw_scrollbar(ptr noundef %out, i32 noundef %27, ptr noundef %style, <2 x float> %scroll.val, <2 x float> %scroll.val75, <2 x float> %cursor.val, <2 x float> %cursor.val76)
   %draw_end = getelementptr inbounds i8, ptr %style, i64 744
-  %26 = load ptr, ptr %draw_end, align 8
-  %tobool186.not = icmp eq ptr %26, null
+  %28 = load ptr, ptr %draw_end, align 8
+  %tobool186.not = icmp eq ptr %28, null
   br i1 %tobool186.not, label %return, label %if.then187
 
 if.then187:                                       ; preds = %if.end185
   %userdata189 = getelementptr inbounds i8, ptr %style, i64 728
-  %27 = load ptr, ptr %userdata189, align 8
-  tail call void %26(ptr noundef nonnull %out, ptr %27) #52
+  %29 = load ptr, ptr %userdata189, align 8
+  tail call void %28(ptr noundef nonnull %out, ptr %29) #52
   br label %return
 
 return:                                           ; preds = %if.end185, %if.then187, %entry

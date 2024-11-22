@@ -108,7 +108,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %33
 
 31:                                               ; preds = %26, %16
-  %.sroa.4.0.i.i = phi ptr [ null, %26 ], [ %20, %16 ]
+  %.sroa.4.0.i.i = phi ptr [ %20, %16 ], [ null, %26 ]
   %32 = getelementptr inbounds i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %3)
   call void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h4477ac7ee5d2a3e9E.llvm.11958950475034435786"(ptr noalias nocapture noundef nonnull sret({ i64, [40 x i64] }) align 8 dereferenceable(328) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %10, ptr noalias noundef readonly align 8 dereferenceable_or_null(176) %.sroa.4.0.i.i)
@@ -178,8 +178,8 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8cdd9d215b6305afE.llvm.13348757914254812529.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8cdd9d215b6305afE.llvm.13348757914254812529.exit": ; preds = %1, %14, %22, %24
-  %.sroa.4.0.i = phi ptr [ undef, %1 ], [ null, %22 ], [ null, %24 ], [ %18, %14 ]
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ null, %22 ], [ %8, %24 ], [ %8, %14 ]
+  %.sroa.4.0.i = phi ptr [ undef, %1 ], [ %18, %14 ], [ null, %24 ], [ null, %22 ]
+  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %8, %14 ], [ %8, %24 ], [ null, %22 ]
   %28 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %29 = insertvalue { ptr, ptr } %28, ptr %.sroa.4.0.i, 1
   ret { ptr, ptr } %29
@@ -241,9 +241,9 @@ define hidden { ptr, ptr } @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$
   store i32 %27, ptr %25, align 4, !alias.scope !107
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e28bfe966c23803E.exit"
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e28bfe966c23803E.exit": ; preds = %24, %22, %14, %1
-  %.sroa.4.0 = phi ptr [ undef, %1 ], [ null, %22 ], [ null, %24 ], [ %18, %14 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %22 ], [ %8, %24 ], [ %8, %14 ]
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e28bfe966c23803E.exit": ; preds = %14, %24, %22, %1
+  %.sroa.4.0 = phi ptr [ undef, %1 ], [ %18, %14 ], [ null, %24 ], [ null, %22 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %8, %14 ], [ %8, %24 ], [ null, %22 ]
   %28 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %29 = insertvalue { ptr, ptr } %28, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %29
@@ -1481,7 +1481,7 @@ define hidden void @"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iter
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7722ebe9153b3ea4E.llvm.13348757914254812529.exit"
 
 46:                                               ; preds = %41, %31
-  %.sroa.4.0.i.i.i = phi ptr [ null, %41 ], [ %35, %31 ]
+  %.sroa.4.0.i.i.i = phi ptr [ %35, %31 ], [ null, %41 ]
   %47 = getelementptr inbounds i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %3), !noalias !449
   call void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h4477ac7ee5d2a3e9E.llvm.11958950475034435786"(ptr noalias nocapture noundef nonnull sret({ i64, [40 x i64] }) align 8 dereferenceable(328) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %25, ptr noalias noundef readonly align 8 dereferenceable_or_null(176) %.sroa.4.0.i.i.i), !noalias !410

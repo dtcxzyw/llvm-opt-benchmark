@@ -58,7 +58,7 @@ define internal void @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C
 ; Function Attrs: nonlazybind uwtable
 define internal { i64, ptr } @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17he79e10ce9a2185f4E"(ptr noundef nonnull align 8 %0, i128 noundef %1) unnamed_addr #1 {
   switch i128 %1, label %3 [
-    i128 -79055229170850857463703397092563394882, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit"
+    i128 -79055229170850857463703397092563394882, label %12
     i128 77464130843211394987693935577399715461, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit"
     i128 -157070736696414120353515684520890932144, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit"
   ]
@@ -80,12 +80,17 @@ define internal { i64, ptr } @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT
   %.sroa.4.1.i.i = select i1 %switch.i.i, ptr %10, ptr %4
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit": ; preds = %6, %3, %2, %2, %2
-  %.sroa.3.0 = phi ptr [ %0, %2 ], [ %.sroa.4.1.i.i, %6 ], [ %4, %3 ], [ %0, %2 ], [ %0, %2 ]
-  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %.sroa.0.1.i.i, %6 ], [ 1, %3 ], [ 1, %2 ], [ 1, %2 ]
-  %11 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %12 = insertvalue { i64, ptr } %11, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %12
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit": ; preds = %2, %2, %3, %6
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.1.i.i, %6 ], [ 1, %3 ], [ 1, %2 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ %.sroa.4.1.i.i, %6 ], [ %4, %3 ], [ %0, %2 ], [ %0, %2 ]
+  %11 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  br label %12
+
+12:                                               ; preds = %2, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit"
+  %.pn = phi { i64, ptr } [ %11, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit" ], [ { i64 1, ptr poison }, %2 ]
+  %.pn2 = phi ptr [ %.sroa.4.0.i, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit" ], [ %0, %2 ]
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn2, 1
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -285,16 +290,16 @@ define hidden { i64, i64 } @"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$
 
 "_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit": ; preds = %2, %1
   %3 = tail call { i64, i64 } @_ZN12sharded_slab3tid12Registration3new17h86cfd6066ab4f36cE()
-  %.fca.0.extract = extractvalue { i64, i64 } %3, 0
-  %.fca.1.extract = extractvalue { i64, i64 } %3, 1
-  br label %4
+  br label %7
 
-4:                                                ; preds = %2, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit"
-  %.sroa.0.0 = phi i64 [ %.fca.0.extract, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit" ], [ %.sroa.5.0.copyload, %2 ]
-  %.sroa.3.0 = phi i64 [ %.fca.1.extract, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit" ], [ %.sroa.6.0.copyload, %2 ]
-  %5 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %6 = insertvalue { i64, i64 } %5, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %6
+4:                                                ; preds = %2
+  %5 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %.sroa.6.0.copyload, 1
+  br label %7
+
+7:                                                ; preds = %4, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit"
+  %.merged = phi { i64, i64 } [ %6, %4 ], [ %3, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit" ]
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -1023,39 +1028,43 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !118
   store i64 0, ptr %1, align 8, !alias.scope !118
   %.not3.i = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not3.i, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit.i", label %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit"
+  br i1 %.not3.i, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit.i", label %6
 
 "_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit.i": ; preds = %4, %2
   %5 = tail call { i64, i64 } @_ZN12sharded_slab3tid12Registration3new17h86cfd6066ab4f36cE(), !noalias !118
-  %.fca.0.extract.i = extractvalue { i64, i64 } %5, 0
-  %.fca.1.extract.i = extractvalue { i64, i64 } %5, 1
   br label %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit"
 
-"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit": ; preds = %4, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit.i"
-  %.sroa.0.0.i = phi i64 [ %.fca.0.extract.i, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit.i" ], [ %.sroa.5.0.copyload.i, %4 ]
-  %.sroa.3.0.i = phi i64 [ %.fca.1.extract.i, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit.i" ], [ %.sroa.6.0.copyload.i, %4 ]
+6:                                                ; preds = %4
+  %7 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i, 0
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.6.0.copyload.i, 1
+  br label %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit"
+
+"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit.i", %6
+  %.merged.i = phi { i64, i64 } [ %8, %6 ], [ %5, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit.i" ]
+  %.fca.0.extract = extractvalue { i64, i64 } %.merged.i, 0
+  %.fca.1.extract = extractvalue { i64, i64 } %.merged.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i, ptr %.sroa.42.0..sroa_idx, align 8
+  store i64 %.fca.0.extract, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.i, ptr %.sroa.5.0..sroa_idx, align 8
-  %6 = load i64, ptr %3, align 8, !range !58, !alias.scope !121, !noundef !8
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit", label %8
+  store i64 %.fca.1.extract, ptr %.sroa.5.0..sroa_idx, align 8
+  %9 = load i64, ptr %3, align 8, !range !58, !alias.scope !121, !noundef !8
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit", label %11
 
-8:                                                ; preds = %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit"
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @"_ZN73_$LT$sharded_slab..tid..Registration$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd104d0cb2cd29e51E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+11:                                               ; preds = %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit"
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @"_ZN73_$LT$sharded_slab..tid..Registration$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd104d0cb2cd29e51E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
   %.pre = load i64, ptr %0, align 8, !range !58
-  %10 = icmp ne i64 %.pre, 0
+  %13 = icmp ne i64 %.pre, 0
   br label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit"
 
-"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit": ; preds = %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit", %8
-  %11 = phi i1 [ true, %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit" ], [ %10, %8 ]
+"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sharded_slab..tid..Registration$GT$$GT$17h66196eba411e50dfE.llvm.6546454688099798842.exit": ; preds = %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit", %11
+  %14 = phi i1 [ true, %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3461a64d7b6be8d6E.llvm.6546454688099798842.exit" ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.assume(i1 %11)
+  call void @llvm.assume(i1 %14)
   ret ptr %.sroa.42.0..sroa_idx
 }
 

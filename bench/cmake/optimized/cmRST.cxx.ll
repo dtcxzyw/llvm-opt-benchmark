@@ -3429,7 +3429,7 @@ define dso_local void @_ZN5cmRST17OutputMarkupLinesEb(ptr noundef nonnull align 
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %3, i64 32
   %12 = getelementptr inbounds i8, ptr %3, i64 40
   br label %13
 
@@ -3448,7 +3448,7 @@ define dso_local void @_ZN5cmRST17OutputMarkupLinesEb(ptr noundef nonnull align 
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
   store i64 %17, ptr %11, align 8, !alias.scope !101, !noalias !98
-  store ptr %18, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !101, !noalias !98
+  store ptr %18, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !101, !noalias !98
   store ptr null, ptr %12, align 8, !alias.scope !101, !noalias !98
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull %3, i64 2)
           to label %19 unwind label %21

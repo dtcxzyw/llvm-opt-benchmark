@@ -177,8 +177,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_cm_jaltP11
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
 _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %38, %41
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %31
+  %.fca.1.insert.merged.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
+  %44 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i, i64 %31
   %.sroa.023.0.copyload = load i32, ptr %44, align 4
   %45 = icmp samesign ugt i64 %25, 31
   br i1 %45, label %46, label %48
@@ -310,8 +310,8 @@ define noundef range(i64 0, -1) i64 @_Z18fast_rv64i_cm_jaltP11processor_t6insn_t
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
 _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %36, %39
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %29
+  %.fca.1.insert.merged.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
+  %42 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i, i64 %29
   %.sroa.023.0.copyload = load i64, ptr %42, align 8
   %43 = icmp samesign ugt i64 %23, 31
   br i1 %43, label %44, label %46
@@ -429,8 +429,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_cm_jaltP
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
 _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %38, %41
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %31
+  %.fca.1.insert.merged.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
+  %44 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i, i64 %31
   %.sroa.026.0.copyload = load i32, ptr %44, align 4
   %45 = icmp samesign ugt i64 %25, 31
   br i1 %45, label %46, label %72
@@ -603,8 +603,8 @@ define noundef range(i64 0, -1) i64 @_Z20logged_rv64i_cm_jaltP11processor_t6insn
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
 _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %36, %39
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %29
+  %.fca.1.insert.merged.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
+  %42 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i, i64 %29
   %.sroa.026.0.copyload = load i64, ptr %42, align 8
   %43 = icmp samesign ugt i64 %23, 31
   br i1 %43, label %44, label %70
@@ -778,8 +778,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_cm_jaltP11
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
 _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %38, %41
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %31
+  %.fca.1.insert.merged.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
+  %44 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i, i64 %31
   %.sroa.023.0.copyload = load i32, ptr %44, align 4
   %45 = icmp samesign ugt i64 %25, 31
   br i1 %45, label %46, label %48
@@ -896,8 +896,8 @@ define noundef range(i64 0, -1) i64 @_Z18fast_rv64e_cm_jaltP11processor_t6insn_t
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
 _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %36, %39
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %29
+  %.fca.1.insert.merged.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
+  %42 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i, i64 %29
   %.sroa.023.0.copyload = load i64, ptr %42, align 8
   %43 = icmp samesign ugt i64 %23, 31
   br i1 %43, label %44, label %46
@@ -1015,8 +1015,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_cm_jaltP
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
 _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %38, %41
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %31
+  %.fca.1.insert.merged.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
+  %44 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i, i64 %31
   %.sroa.026.0.copyload = load i32, ptr %44, align 4
   %45 = icmp samesign ugt i64 %25, 31
   br i1 %45, label %46, label %72
@@ -1189,8 +1189,8 @@ define noundef range(i64 0, -1) i64 @_Z20logged_rv64e_cm_jaltP11processor_t6insn
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
 _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %36, %39
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %29
+  %.fca.1.insert.merged.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
+  %42 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i, i64 %29
   %.sroa.026.0.copyload = load i64, ptr %42, align 8
   %43 = icmp samesign ugt i64 %23, 31
   br i1 %43, label %44, label %70

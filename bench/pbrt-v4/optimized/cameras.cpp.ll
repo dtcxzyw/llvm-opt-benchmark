@@ -8315,7 +8315,7 @@ if.then13.i:                                      ; preds = %if.end6.i
 
 if.end:                                           ; preds = %if.end.i, %if.then13.i, %if.end6.i
   %t1.0.t1.0. = phi float [ %div.i, %if.end.i ], [ %div10.i, %if.then13.i ], [ %div11.i, %if.end6.i ]
-  %t0.0.t0.0.59 = phi float [ %div.i, %if.end.i ], [ %div11.i, %if.then13.i ], [ %div10.i, %if.end6.i ]
+  %t0.0.t0.0.57 = phi float [ %div.i, %if.end.i ], [ %div11.i, %if.then13.i ], [ %div10.i, %if.end6.i ]
   %9 = load float, ptr %z, align 4
   %cmp = fcmp ogt float %9, 0.000000e+00
   %cmp43 = fcmp olt float %radius, 0.000000e+00
@@ -8323,16 +8323,16 @@ if.end:                                           ; preds = %if.end.i, %if.then1
   br i1 %xor19, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
-  %cmp.i20 = fcmp olt float %t1.0.t1.0., %t0.0.t0.0.59
+  %cmp.i20 = fcmp olt float %t1.0.t1.0., %t0.0.t0.0.57
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %cmp.i21 = fcmp olt float %t0.0.t0.0.59, %t1.0.t1.0.
+  %cmp.i21 = fcmp olt float %t0.0.t0.0.57, %t1.0.t1.0.
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cmp.i21.sink = phi i1 [ %cmp.i21, %cond.false ], [ %cmp.i20, %cond.true ]
-  %cond = select i1 %cmp.i21.sink, float %t1.0.t1.0., float %t0.0.t0.0.59
+  %cond = select i1 %cmp.i21.sink, float %t1.0.t1.0., float %t0.0.t0.0.57
   store float %cond, ptr %t, align 4
   %cmp48 = fcmp olt float %cond, 0.000000e+00
   br i1 %cmp48, label %return, label %if.end50
@@ -8386,10 +8386,10 @@ if.end50:                                         ; preds = %cond.end
   %fneg3.i.i = fneg float %div3.i.i
   %retval.sroa.0.0.vec.insert.i.i53 = insertelement <2 x float> poison, float %fneg.i.i52, i64 0
   %retval.sroa.0.4.vec.insert.i.i54 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i53, float %fneg2.i.i, i64 1
-  %retval.sroa.0.0.i = select i1 %cmp.i51, <2 x float> %retval.sroa.0.4.vec.insert.i.i54, <2 x float> %retval.sroa.0.4.vec.insert.i.i40
-  %retval.sroa.3.0.i = select i1 %cmp.i51, float %fneg3.i.i, float %div3.i.i
-  store <2 x float> %retval.sroa.0.0.i, ptr %n, align 4
-  store float %retval.sroa.3.0.i, ptr %ref.tmp.sroa.3.0.n.sroa_idx, align 4
+  %retval.sroa.0.4.vec.insert.i.pn.i = select i1 %cmp.i51, <2 x float> %retval.sroa.0.4.vec.insert.i.i54, <2 x float> %retval.sroa.0.4.vec.insert.i.i40
+  %fneg3.i.pn.i = select i1 %cmp.i51, float %fneg3.i.i, float %div3.i.i
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.pn.i, ptr %n, align 4
+  store float %fneg3.i.pn.i, ptr %ref.tmp.sroa.3.0.n.sroa_idx, align 4
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.then.i, %cond.end, %if.end50

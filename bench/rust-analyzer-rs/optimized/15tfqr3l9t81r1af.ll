@@ -23523,10 +23523,10 @@ _ZN4core3ops8function6FnOnce9call_once17h41bcee07fb5881bdE.exit.thread.i.i.i.i: 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80), !noalias !5590
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %79), !noalias !5590
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %78), !noalias !5590
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.424.0..sroa_idx.i.i, align 8, !alias.scope !5777, !noalias !5590, !nonnull !8, !noundef !8
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %83, i64 16
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !5777, !noalias !5590, !noundef !8
-  invoke void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %78, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.5.0.i.i.i)
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %83, i64 16
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !5777, !noalias !5590, !noundef !8
+  %.pn3.i.i.i = load ptr, ptr %.sroa.424.0..sroa_idx.i.i, align 8, !alias.scope !5777, !noalias !5590, !nonnull !8, !noundef !8
+  invoke void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %78, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i, i64 noundef %.pn1.i.i.i)
           to label %1665 unwind label %1662, !noalias !5590
 
 1665:                                             ; preds = %1664

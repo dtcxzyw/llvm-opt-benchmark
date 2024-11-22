@@ -2885,15 +2885,15 @@ define hidden void @_ZN5alloc3str17join_generic_copy17haa4d8768115a32e2E(ptr noa
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %31, align 8
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !462, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !462, !noundef !4
-  %32 = icmp ugt i64 %.sroa.5.0.i.i, %28
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !462, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !462, !nonnull !4, !noundef !4
+  %32 = icmp ugt i64 %.pn1.i.i, %28
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %26
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hd0a93c6626f5c644E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 0, i64 noundef %.sroa.5.0.i.i)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hd0a93c6626f5c644E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 0, i64 noundef %.pn1.i.i)
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %33
@@ -2905,9 +2905,9 @@ define hidden void @_ZN5alloc3str17join_generic_copy17haa4d8768115a32e2E(ptr noa
   %35 = phi ptr [ %29, %26 ], [ %.pre, %.noexc ]
   %36 = phi i64 [ 0, %26 ], [ %.pre.i.i, %.noexc ]
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %.pn3.i.i, i64 %.pn1.i.i, i1 false)
   %38 = load i64, ptr %31, align 8, !alias.scope !467, !noalias !472, !noundef !4
-  %39 = add i64 %38, %.sroa.5.0.i.i
+  %39 = add i64 %38, %.pn1.i.i
   store i64 %39, ptr %31, align 8, !alias.scope !467, !noalias !472
   %40 = load ptr, ptr %30, align 8, !alias.scope !474, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds i8, ptr %40, i64 %39

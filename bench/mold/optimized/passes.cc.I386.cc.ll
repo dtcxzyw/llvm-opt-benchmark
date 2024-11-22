@@ -46352,26 +46352,26 @@ for.cond.preheader:                               ; preds = %if.end13
   br i1 %cmp.i2.i.i, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.cond.preheader, %for.inc.us
-  %__begin3.0.idx54.us = phi i64 [ %__begin3.0.add.us, %for.inc.us ], [ 0, %for.cond.preheader ]
-  %__begin3.0.ptr.us = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes, i64 %__begin3.0.idx54.us
+  %__begin3.0.idx55.us = phi i64 [ %__begin3.0.add.us, %for.inc.us ], [ 0, %for.cond.preheader ]
+  %__begin3.0.ptr.us = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes, i64 %__begin3.0.idx55.us
   %prefix.sroa.0.0.copyload.us = load i64, ptr %__begin3.0.ptr.us, align 16
   %sub.us = add i64 %prefix.sroa.0.0.copyload.us, -1
   %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 %prefix.sroa.0.0.copyload.us, i64 %sub.us)
   %cmp.i.us = icmp eq i64 %.sroa.speculated.i.us, 0
-  br i1 %cmp.i.us, label %return.loopexit78, label %lor.lhs.false.us
+  br i1 %cmp.i.us, label %return.loopexit79, label %lor.lhs.false.us
 
 lor.lhs.false.us:                                 ; preds = %for.body.us
   %cmp.i.not.i.us.not = icmp eq i64 %prefix.sroa.0.0.copyload.us, 0
-  br i1 %cmp.i.not.i.us.not, label %return.loopexit78, label %for.inc.us
+  br i1 %cmp.i.not.i.us.not, label %return.loopexit79, label %for.inc.us
 
 for.inc.us:                                       ; preds = %lor.lhs.false.us
-  %__begin3.0.add.us = add nuw nsw i64 %__begin3.0.idx54.us, 16
+  %__begin3.0.add.us = add nuw nsw i64 %__begin3.0.idx55.us, 16
   %cmp.not.us = icmp eq i64 %__begin3.0.add.us, 80
   br i1 %cmp.not.us, label %if.end26, label %for.body.us
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %__begin3.0.idx54 = phi i64 [ %__begin3.0.add, %for.inc ], [ 0, %for.cond.preheader ]
-  %__begin3.0.ptr = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes, i64 %__begin3.0.idx54
+  %__begin3.0.idx55 = phi i64 [ %__begin3.0.add, %for.inc ], [ 0, %for.cond.preheader ]
+  %__begin3.0.ptr = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes, i64 %__begin3.0.idx55
   %prefix.sroa.0.0.copyload = load i64, ptr %__begin3.0.ptr, align 16
   %prefix.sroa.4.0.__begin3.0.ptr.sroa_idx = getelementptr inbounds i8, ptr %__begin3.0.ptr, i64 8
   %prefix.sroa.4.0.copyload = load ptr, ptr %prefix.sroa.4.0.__begin3.0.ptr.sroa_idx, align 8
@@ -46400,7 +46400,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i, label %return, label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx54, 16
+  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx55, 16
   %cmp.not = icmp eq i64 %__begin3.0.add, 80
   br i1 %cmp.not, label %if.end26, label %for.body
 
@@ -46409,8 +46409,8 @@ if.end26:                                         ; preds = %for.inc, %for.inc.u
   br i1 %cmp.i2.i.i26, label %for.body29.us, label %for.body29
 
 for.body29.us:                                    ; preds = %if.end26, %for.inc42.us
-  %__begin2.0.idx60.us = phi i64 [ %__begin2.0.add.us, %for.inc42.us ], [ 0, %if.end26 ]
-  %__begin2.0.ptr.us = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes_0, i64 %__begin2.0.idx60.us
+  %__begin2.0.idx61.us = phi i64 [ %__begin2.0.add.us, %for.inc42.us ], [ 0, %if.end26 ]
+  %__begin2.0.ptr.us = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes_0, i64 %__begin2.0.idx61.us
   %prefix30.sroa.0.0.copyload.us = load i64, ptr %__begin2.0.ptr.us, align 16
   %sub32.us = add i64 %prefix30.sroa.0.0.copyload.us, -1
   %.sroa.speculated.i19.us = tail call i64 @llvm.umin.i64(i64 %prefix30.sroa.0.0.copyload.us, i64 %sub32.us)
@@ -46422,13 +46422,13 @@ lor.lhs.false37.us:                               ; preds = %for.body29.us
   br i1 %cmp.i.not.i34.us.not, label %return.loopexit.sink.split, label %for.inc42.us
 
 for.inc42.us:                                     ; preds = %lor.lhs.false37.us
-  %__begin2.0.add.us = add nuw nsw i64 %__begin2.0.idx60.us, 16
+  %__begin2.0.add.us = add nuw nsw i64 %__begin2.0.idx61.us, 16
   %cmp28.not.us = icmp eq i64 %__begin2.0.add.us, 240
   br i1 %cmp28.not.us, label %return, label %for.body29.us
 
 for.body29:                                       ; preds = %if.end26, %for.inc42
-  %__begin2.0.idx60 = phi i64 [ %__begin2.0.add, %for.inc42 ], [ 0, %if.end26 ]
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes_0, i64 %__begin2.0.idx60
+  %__begin2.0.idx61 = phi i64 [ %__begin2.0.add, %for.inc42 ], [ 0, %if.end26 ]
+  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes_0, i64 %__begin2.0.idx61
   %prefix30.sroa.0.0.copyload = load i64, ptr %__begin2.0.ptr, align 16
   %prefix30.sroa.4.0.__begin2.0.ptr.sroa_idx = getelementptr inbounds i8, ptr %__begin2.0.ptr, i64 8
   %prefix30.sroa.4.0.copyload = load ptr, ptr %prefix30.sroa.4.0.__begin2.0.ptr.sroa_idx, align 8
@@ -46457,33 +46457,33 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i37: ; preds = %land.rhs.i.i35
   br i1 %cmp.i.i.i39, label %return, label %for.inc42
 
 for.inc42:                                        ; preds = %lor.lhs.false37, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i37
-  %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx60, 16
+  %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx61, 16
   %cmp28.not = icmp eq i64 %__begin2.0.add, 240
   br i1 %cmp28.not, label %return, label %for.body29
 
 return.loopexit.sink.split:                       ; preds = %lor.lhs.false37.us, %for.body29.us
-  %retval.sroa.0.0.ph.ph97 = phi i64 [ 0, %for.body29.us ], [ %.sroa.speculated.i19.us, %lor.lhs.false37.us ]
-  %__begin2.0.ptr.us.le = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes_0, i64 %__begin2.0.idx60.us
+  %name.coerce0.pn.ph.ph98 = phi i64 [ 0, %for.body29.us ], [ %.sroa.speculated.i19.us, %lor.lhs.false37.us ]
+  %__begin2.0.ptr.us.le = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes_0, i64 %__begin2.0.idx61.us
   br label %return.sink.split
 
-return.loopexit78:                                ; preds = %for.body.us, %lor.lhs.false.us
-  %retval.sroa.0.0.ph79 = phi i64 [ %.sroa.speculated.i.us, %lor.lhs.false.us ], [ 0, %for.body.us ]
-  %__begin3.0.ptr.us.le = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes, i64 %__begin3.0.idx54.us
+return.loopexit79:                                ; preds = %for.body.us, %lor.lhs.false.us
+  %name.coerce0.pn.ph80 = phi i64 [ %.sroa.speculated.i.us, %lor.lhs.false.us ], [ 0, %for.body.us ]
+  %__begin3.0.ptr.us.le = getelementptr inbounds i8, ptr @_ZZN4mold3elf15get_output_nameINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_7ContextIT_EES6_mE8prefixes, i64 %__begin3.0.idx55.us
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %return.loopexit78, %return.loopexit.sink.split
-  %__begin2.0.ptr.us.le.sink = phi ptr [ %__begin2.0.ptr.us.le, %return.loopexit.sink.split ], [ %__begin3.0.ptr.us.le, %return.loopexit78 ]
-  %retval.sroa.0.0.ph = phi i64 [ %retval.sroa.0.0.ph.ph97, %return.loopexit.sink.split ], [ %retval.sroa.0.0.ph79, %return.loopexit78 ]
-  %prefix30.sroa.4.0.__begin2.0.ptr.sroa_idx.us.le93 = getelementptr inbounds i8, ptr %__begin2.0.ptr.us.le.sink, i64 8
-  %prefix30.sroa.4.0.copyload.us.le = load ptr, ptr %prefix30.sroa.4.0.__begin2.0.ptr.sroa_idx.us.le93, align 8
+return.sink.split:                                ; preds = %return.loopexit79, %return.loopexit.sink.split
+  %__begin2.0.ptr.us.le.sink = phi ptr [ %__begin2.0.ptr.us.le, %return.loopexit.sink.split ], [ %__begin3.0.ptr.us.le, %return.loopexit79 ]
+  %name.coerce0.pn.ph = phi i64 [ %name.coerce0.pn.ph.ph98, %return.loopexit.sink.split ], [ %name.coerce0.pn.ph80, %return.loopexit79 ]
+  %prefix30.sroa.4.0.__begin2.0.ptr.sroa_idx.us.le94 = getelementptr inbounds i8, ptr %__begin2.0.ptr.us.le.sink, i64 8
+  %prefix30.sroa.4.0.copyload.us.le = load ptr, ptr %prefix30.sroa.4.0.__begin2.0.ptr.sroa_idx.us.le94, align 8
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %land.rhs.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.rhs.i25, %land.rhs.i.i35, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i37, %for.inc42, %for.inc42.us, %return.sink.split, %if.end10, %land.lhs.true4, %land.lhs.true
-  %retval.sroa.0.0 = phi i64 [ %name.coerce0.fr, %land.lhs.true ], [ %name.coerce0.fr, %land.lhs.true4 ], [ %name.coerce0.fr, %if.end10 ], [ %retval.sroa.0.0.ph, %return.sink.split ], [ 0, %for.inc42.us ], [ %name.coerce0.fr, %for.inc42 ], [ %.sroa.speculated.i19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i37 ], [ %.sroa.speculated.i19, %land.rhs.i.i35 ], [ %name.coerce0.fr, %land.rhs.i25 ], [ %name.coerce0.fr, %land.rhs.i ], [ %.sroa.speculated.i, %land.rhs.i.i ], [ %.sroa.speculated.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
-  %retval.sroa.9.0 = phi ptr [ %name.coerce1, %land.lhs.true ], [ %name.coerce1, %land.lhs.true4 ], [ %name.coerce1, %if.end10 ], [ %prefix30.sroa.4.0.copyload.us.le, %return.sink.split ], [ %name.coerce1, %for.inc42.us ], [ %name.coerce1, %for.inc42 ], [ %prefix30.sroa.4.0.copyload, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i37 ], [ %prefix30.sroa.4.0.copyload, %land.rhs.i.i35 ], [ %prefix30.sroa.4.0.copyload, %land.rhs.i25 ], [ %prefix.sroa.4.0.copyload, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %prefix.sroa.4.0.copyload, %land.rhs.i.i ], [ %prefix.sroa.4.0.copyload, %land.rhs.i ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.9.0, 1
-  ret { i64, ptr } %.fca.1.insert
+  %name.coerce0.pn = phi i64 [ %name.coerce0.fr, %land.lhs.true ], [ %name.coerce0.fr, %land.lhs.true4 ], [ %name.coerce0.fr, %if.end10 ], [ %name.coerce0.pn.ph, %return.sink.split ], [ 0, %for.inc42.us ], [ %name.coerce0.fr, %for.inc42 ], [ %.sroa.speculated.i19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i37 ], [ %.sroa.speculated.i19, %land.rhs.i.i35 ], [ %name.coerce0.fr, %land.rhs.i25 ], [ %name.coerce0.fr, %land.rhs.i ], [ %.sroa.speculated.i, %land.rhs.i.i ], [ %.sroa.speculated.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+  %name.coerce1.pn = phi ptr [ %name.coerce1, %land.lhs.true ], [ %name.coerce1, %land.lhs.true4 ], [ %name.coerce1, %if.end10 ], [ %prefix30.sroa.4.0.copyload.us.le, %return.sink.split ], [ %name.coerce1, %for.inc42.us ], [ %name.coerce1, %for.inc42 ], [ %prefix30.sroa.4.0.copyload, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i37 ], [ %prefix30.sroa.4.0.copyload, %land.rhs.i.i35 ], [ %prefix30.sroa.4.0.copyload, %land.rhs.i25 ], [ %prefix.sroa.4.0.copyload, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %prefix.sroa.4.0.copyload, %land.rhs.i.i ], [ %prefix.sroa.4.0.copyload, %land.rhs.i ]
+  %.pn = insertvalue { i64, ptr } poison, i64 %name.coerce0.pn, 0
+  %.fca.1.insert.merged = insertvalue { i64, ptr } %.pn, ptr %name.coerce1.pn, 1
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 declare noundef zeroext i1 @_ZN4mold4Glob5matchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24), i64, ptr) local_unnamed_addr #0

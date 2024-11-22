@@ -18691,21 +18691,19 @@ define dso_local { i64, ptr } @_ZNK4llvm6object15MachOObjectFile19getRelocationS
   %6 = and i64 %3, 2147483648
   %7 = icmp ne i64 %6, 0
   %.0.i = select i1 %5, i1 %7, i1 false
-  br i1 %.0.i, label %8, label %15
+  br i1 %.0.i, label %8, label %13
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = tail call { i64, ptr } %11(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
-  %13 = extractvalue { i64, ptr } %12, 0
-  %14 = extractvalue { i64, ptr } %12, 1
-  br label %61
+  br label %59
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i32, ptr %16, align 8
-  switch i32 %17, label %19 [
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load i32, ptr %14, align 8
+  switch i32 %15, label %17 [
     i32 14, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
     i32 16, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
     i32 18, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
@@ -18714,71 +18712,69 @@ define dso_local { i64, ptr } @_ZNK4llvm6object15MachOObjectFile19getRelocationS
     i32 12, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
   ]
 
-_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i: ; preds = %15, %15, %15, %15, %15, %15
-  %18 = lshr i32 %.sroa.220.0.extract.trunc, 8
+_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i: ; preds = %13, %13, %13, %13, %13, %13
+  %16 = lshr i32 %.sroa.220.0.extract.trunc, 8
   br label %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
 
-19:                                               ; preds = %15
-  %20 = and i32 %.sroa.220.0.extract.trunc, 16777215
+17:                                               ; preds = %13
+  %18 = and i32 %.sroa.220.0.extract.trunc, 16777215
   br label %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
 
-_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit: ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i, %19
-  %21 = phi i32 [ %20, %19 ], [ %18, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i ]
-  %switch.tableidx = add i32 %17, -11
-  %22 = icmp ult i32 %switch.tableidx, 10
-  br i1 %22, label %switch.lookup, label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
+_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit: ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i, %17
+  %19 = phi i32 [ %18, %17 ], [ %16, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i ]
+  %switch.tableidx = add i32 %15, -11
+  %20 = icmp ult i32 %switch.tableidx, 10
+  br i1 %20, label %switch.lookup, label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
 
 switch.lookup:                                    ; preds = %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
-  %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 0, i64 %23
+  %21 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
 
 _ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit: ; preds = %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit, %switch.lookup
   %.sink4.i = phi i32 [ %switch.load, %switch.lookup ], [ 134217728, %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit ]
-  %24 = and i32 %.sink4.i, %.sroa.220.0.extract.trunc
-  %.0.i7.not = icmp eq i32 %24, 0
-  br i1 %.0.i7.not, label %25, label %32
+  %22 = and i32 %.sink4.i, %.sroa.220.0.extract.trunc
+  %.0.i7.not = icmp eq i32 %22, 0
+  br i1 %.0.i7.not, label %23, label %28
 
-25:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 56
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call { i64, ptr } %28(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  br label %61
+23:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call { i64, ptr } %26(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
+  br label %59
 
-32:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %34 = load ptr, ptr %33, align 8, !noalias !2882
-  %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit, label %35
+28:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %30 = load ptr, ptr %29, align 8, !noalias !2882
+  %.not.i = icmp eq ptr %30, null
+  br i1 %.not.i, label %_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit, label %31
 
-35:                                               ; preds = %32
-  %36 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #29, !noalias !2885
-  %37 = extractvalue { ptr, i64 } %36, 0
-  %38 = icmp ult ptr %34, %37
-  br i1 %38, label %.critedge.i.i, label %39
+31:                                               ; preds = %28
+  %32 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #29, !noalias !2885
+  %33 = extractvalue { ptr, i64 } %32, 0
+  %34 = icmp ult ptr %30, %33
+  br i1 %34, label %.critedge.i.i, label %35
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %34, i64 24
-  %41 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #29, !noalias !2885
-  %42 = extractvalue { ptr, i64 } %41, 0
-  %43 = extractvalue { ptr, i64 } %41, 1
-  %44 = getelementptr inbounds i8, ptr %42, i64 %43
-  %45 = icmp ugt ptr %40, %44
-  br i1 %45, label %.critedge.i.i, label %46
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %30, i64 24
+  %37 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #29, !noalias !2885
+  %38 = extractvalue { ptr, i64 } %37, 0
+  %39 = extractvalue { ptr, i64 } %37, 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 %39
+  %41 = icmp ugt ptr %36, %40
+  br i1 %41, label %.critedge.i.i, label %42
 
-.critedge.i.i:                                    ; preds = %39, %35
+.critedge.i.i:                                    ; preds = %35, %31
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.472, i1 noundef zeroext true) #31, !noalias !2885
   unreachable
 
-46:                                               ; preds = %39
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
+42:                                               ; preds = %35
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 1
-  %47 = load i32, ptr %16, align 8, !noalias !2885
-  switch i32 %47, label %_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit [
+  %43 = load i32, ptr %14, align 8, !noalias !2885
+  switch i32 %43, label %_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit [
     i32 14, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
     i32 16, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
     i32 18, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
@@ -18787,32 +18783,31 @@ _ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_r
     i32 12, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
   ]
 
-_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i: ; preds = %46, %46, %46, %46, %46, %46
-  %48 = tail call noundef i32 @llvm.bswap.i32(i32 %.sroa.7.0.copyload)
+_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i: ; preds = %42, %42, %42, %42, %42, %42
+  %44 = tail call noundef i32 @llvm.bswap.i32(i32 %.sroa.7.0.copyload)
   br label %_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit
 
-_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit: ; preds = %32, %46, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
-  %.sroa.7.0 = phi i32 [ %.sroa.7.0.copyload, %46 ], [ %48, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i ], [ 0, %32 ]
-  %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 64
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
-  %53 = select i1 %52, i32 16, i32 12
-  %54 = mul nuw nsw i32 %53, %21
-  %55 = add i32 %54, %.sroa.7.0
-  %56 = zext i32 %55 to i64
-  %57 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
-  %58 = extractvalue { ptr, i64 } %57, 0
-  %59 = getelementptr inbounds i8, ptr %58, i64 %56
-  %60 = ptrtoint ptr %59 to i64
-  br label %61
+_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit: ; preds = %28, %42, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
+  %.sroa.7.0 = phi i32 [ %.sroa.7.0.copyload, %42 ], [ %44, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i ], [ 0, %28 ]
+  %45 = load ptr, ptr %0, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 64
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
+  %49 = select i1 %48, i32 16, i32 12
+  %50 = mul nuw nsw i32 %49, %19
+  %51 = add i32 %50, %.sroa.7.0
+  %52 = zext i32 %51 to i64
+  %53 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
+  %54 = extractvalue { ptr, i64 } %53, 0
+  %55 = getelementptr inbounds i8, ptr %54, i64 %52
+  %56 = ptrtoint ptr %55 to i64
+  %57 = insertvalue { i64, ptr } poison, i64 %56, 0
+  %58 = insertvalue { i64, ptr } %57, ptr %0, 1
+  br label %59
 
-61:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit, %25, %8
-  %.sroa.023.0 = phi i64 [ %13, %8 ], [ %60, %_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit ], [ %30, %25 ]
-  %.sroa.424.0 = phi ptr [ %14, %8 ], [ %0, %_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit ], [ %31, %25 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.023.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.424.0, 1
-  ret { i64, ptr } %.fca.1.insert
+59:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit, %23, %8
+  %.fca.1.insert.merged = phi { i64, ptr } [ %12, %8 ], [ %58, %_ZNK4llvm6object15MachOObjectFile20getSymtabLoadCommandEv.exit ], [ %27, %23 ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -18909,19 +18904,17 @@ _ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_r
   %.sink4.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 134217728, %8 ]
   %13 = and i32 %.sink4.i.i, %.sroa.2.0.extract.trunc
   %.0.i6.not.i = icmp eq i32 %13, 0
-  br i1 %.0.i6.not.i, label %21, label %14
+  br i1 %.0.i6.not.i, label %19, label %14
 
 14:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit.i, %2
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 360
   %17 = load ptr, ptr %16, align 8
   %18 = tail call { i64, ptr } %17(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
-  %19 = extractvalue { i64, ptr } %18, 0
-  %20 = extractvalue { i64, ptr } %18, 1
   br label %_ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE.exit
 
-21:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit.i
-  switch i32 %10, label %23 [
+19:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit.i
+  switch i32 %10, label %21 [
     i32 14, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
     i32 16, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
     i32 18, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
@@ -18930,46 +18923,43 @@ _ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_r
     i32 12, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
   ]
 
-_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i: ; preds = %21, %21, %21, %21, %21, %21
-  %22 = lshr i32 %.sroa.2.0.extract.trunc, 8
+_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i: ; preds = %19, %19, %19, %19, %19, %19
+  %20 = lshr i32 %.sroa.2.0.extract.trunc, 8
   br label %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit.i
 
-23:                                               ; preds = %21
-  %24 = and i32 %.sroa.2.0.extract.trunc, 16777215
+21:                                               ; preds = %19
+  %22 = and i32 %.sroa.2.0.extract.trunc, 16777215
   br label %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit.i
 
-_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit.i: ; preds = %23, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
-  %25 = phi i32 [ %24, %23 ], [ %22, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i ]
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %32, label %27
+_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit.i: ; preds = %21, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
+  %23 = phi i32 [ %22, %21 ], [ %20, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i ]
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %30, label %25
 
-27:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit.i
-  %28 = zext nneg i32 %25 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #29
-  %31 = icmp ult i64 %30, %28
-  br i1 %31, label %32, label %39
+25:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit.i
+  %26 = zext nneg i32 %23 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #29
+  %29 = icmp ult i64 %28, %26
+  br i1 %29, label %30, label %35
 
-32:                                               ; preds = %27, %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit.i
-  %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 360
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call { i64, ptr } %35(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
-  %37 = extractvalue { i64, ptr } %36, 0
-  %38 = extractvalue { i64, ptr } %36, 1
+30:                                               ; preds = %25, %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit.i
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 360
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call { i64, ptr } %33(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
   br label %_ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE.exit
 
-39:                                               ; preds = %27
-  %40 = add nsw i32 %25, -1
-  %.sroa.0.0.insert.ext.i = zext nneg i32 %40 to i64
+35:                                               ; preds = %25
+  %36 = add nsw i32 %23, -1
+  %.sroa.0.0.insert.ext.i = zext nneg i32 %36 to i64
+  %37 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.insert.ext.i, 0
+  %38 = insertvalue { i64, ptr } %37, ptr %0, 1
   br label %_ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE.exit
 
-_ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE.exit: ; preds = %14, %32, %39
-  %.sroa.010.0.i = phi i64 [ %19, %14 ], [ %37, %32 ], [ %.sroa.0.0.insert.ext.i, %39 ]
-  %.sroa.4.0.i = phi ptr [ %20, %14 ], [ %38, %32 ], [ %0, %39 ]
-  %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.sroa.010.0.i, 0
-  %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %.sroa.4.0.i, 1
-  ret { i64, ptr } %.fca.1.insert.i
+_ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE.exit: ; preds = %14, %30, %35
+  %.fca.1.insert.merged.i = phi { i64, ptr } [ %18, %14 ], [ %34, %30 ], [ %38, %35 ]
+  ret { i64, ptr } %.fca.1.insert.merged.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19001,19 +18991,17 @@ _ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_r
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, %.sink4.i
   %.0.i6.not = icmp eq i32 %13, 0
-  br i1 %.0.i6.not, label %21, label %14
+  br i1 %.0.i6.not, label %19, label %14
 
 14:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit, %2
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 360
   %17 = load ptr, ptr %16, align 8
   %18 = tail call { i64, ptr } %17(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
-  %19 = extractvalue { i64, ptr } %18, 0
-  %20 = extractvalue { i64, ptr } %18, 1
-  br label %41
+  br label %39
 
-21:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
-  switch i32 %8, label %23 [
+19:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
+  switch i32 %8, label %21 [
     i32 14, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
     i32 16, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
     i32 18, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
@@ -19022,46 +19010,43 @@ _ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_r
     i32 12, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
   ]
 
-_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i: ; preds = %21, %21, %21, %21, %21, %21
-  %22 = lshr i32 %12, 8
+_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i: ; preds = %19, %19, %19, %19, %19, %19
+  %20 = lshr i32 %12, 8
   br label %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
 
-23:                                               ; preds = %21
-  %24 = and i32 %12, 16777215
+21:                                               ; preds = %19
+  %22 = and i32 %12, 16777215
   br label %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
 
-_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit: ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i, %23
-  %25 = phi i32 [ %24, %23 ], [ %22, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i ]
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %32, label %27
+_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit: ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i, %21
+  %23 = phi i32 [ %22, %21 ], [ %20, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i ]
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %30, label %25
 
-27:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
-  %28 = zext nneg i32 %25 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #29
-  %31 = icmp ult i64 %30, %28
-  br i1 %31, label %32, label %39
+25:                                               ; preds = %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
+  %26 = zext nneg i32 %23 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #29
+  %29 = icmp ult i64 %28, %26
+  br i1 %29, label %30, label %35
 
-32:                                               ; preds = %27, %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
-  %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 360
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call { i64, ptr } %35(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
-  %37 = extractvalue { i64, ptr } %36, 0
-  %38 = extractvalue { i64, ptr } %36, 1
-  br label %41
+30:                                               ; preds = %25, %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 360
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call { i64, ptr } %33(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
+  br label %39
 
-39:                                               ; preds = %27
-  %40 = add nsw i32 %25, -1
-  %.sroa.0.0.insert.ext = zext nneg i32 %40 to i64
-  br label %41
+35:                                               ; preds = %25
+  %36 = add nsw i32 %23, -1
+  %.sroa.0.0.insert.ext = zext nneg i32 %36 to i64
+  %37 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.insert.ext, 0
+  %38 = insertvalue { i64, ptr } %37, ptr %0, 1
+  br label %39
 
-41:                                               ; preds = %39, %32, %14
-  %.sroa.010.0 = phi i64 [ %19, %14 ], [ %37, %32 ], [ %.sroa.0.0.insert.ext, %39 ]
-  %.sroa.4.0 = phi ptr [ %20, %14 ], [ %38, %32 ], [ %0, %39 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.010.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %.fca.1.insert
+39:                                               ; preds = %35, %30, %14
+  %.fca.1.insert.merged = phi { i64, ptr } [ %18, %14 ], [ %34, %30 ], [ %38, %35 ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

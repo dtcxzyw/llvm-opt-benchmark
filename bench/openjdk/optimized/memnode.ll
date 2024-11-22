@@ -11197,7 +11197,7 @@ define hidden noundef ptr @_ZN25MergePrimitiveArrayStores3runEv(ptr nocapture no
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(52) %5) #13
-  switch i32 %8, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit [
+  switch i32 %8, label %88 [
     i32 329, label %9
     i32 325, label %9
     i32 324, label %9
@@ -11210,13 +11210,13 @@ define hidden noundef ptr @_ZN25MergePrimitiveArrayStores3runEv(ptr nocapture no
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(56) %10) #13
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit, label %16
+  br i1 %15, label %88, label %16
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %14, i64 16
   %18 = load i32, ptr %17, align 8
-  %.not31 = icmp eq i32 %18, 22
-  br i1 %.not31, label %19, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit
+  %.not22 = icmp eq i32 %18, 22
+  br i1 %.not22, label %19, label %88
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %14, i64 80
@@ -11226,7 +11226,7 @@ define hidden noundef ptr @_ZN25MergePrimitiveArrayStores3runEv(ptr nocapture no
   %24 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %23) #13
   %25 = add i8 %24, -4
   %26 = icmp ult i8 %25, 8
-  br i1 %26, label %27, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit
+  br i1 %26, label %27, label %88
 
 27:                                               ; preds = %19
   %28 = zext nneg i8 %24 to i64
@@ -11238,14 +11238,14 @@ define hidden noundef ptr @_ZN25MergePrimitiveArrayStores3runEv(ptr nocapture no
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(56) %31) #13
   %.not = icmp eq i32 %30, %35
-  br i1 %.not, label %36, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit
+  br i1 %.not, label %36, label %88
 
 36:                                               ; preds = %27
   %37 = load ptr, ptr %4, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 54
   %39 = load i8, ptr %38, align 2
   %40 = trunc i8 %39 to i1
-  br i1 %40, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit, label %41
+  br i1 %40, label %88, label %41
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %37, i64 16
@@ -11255,12 +11255,12 @@ define hidden noundef ptr @_ZN25MergePrimitiveArrayStores3runEv(ptr nocapture no
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds ptr, ptr %43, i64 %46
   %.not.i.i.i = icmp eq i32 %45, 0
-  br i1 %.not.i.i.i, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit.thread27, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 48:                                               ; preds = %.lr.ph.i.i.i
   %49 = getelementptr inbounds i8, ptr %.011.i.i.i, i64 8
   %50 = icmp ult ptr %49, %47
-  br i1 %50, label %.lr.ph.i.i.i, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit.thread27, !llvm.loop !23
+  br i1 %50, label %.lr.ph.i.i.i, label %.critedge, !llvm.loop !23
 
 .lr.ph.i.i.i:                                     ; preds = %41, %48
   %.011.i.i.i = phi ptr [ %49, %48 ], [ %43, %41 ]
@@ -11276,22 +11276,22 @@ define hidden noundef ptr @_ZN25MergePrimitiveArrayStores3runEv(ptr nocapture no
 57:                                               ; preds = %.lr.ph.i.i.i
   %58 = tail call noundef i32 @_ZN25MergePrimitiveArrayStores19cfg_status_for_pairEPK9StoreNodeS2_(ptr noundef %spec.select.i.i.i.i, ptr noundef nonnull readonly %37)
   %59 = icmp eq i32 %58, 2
-  %.not.i = icmp eq ptr %spec.select.i.i.i.i, null
-  %or.cond = or i1 %59, %.not.i
-  br i1 %or.cond, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit.thread27, label %60
+  %cond = icmp eq ptr %spec.select.i.i.i.i, null
+  %or.cond = or i1 %59, %cond
+  br i1 %or.cond, label %.critedge, label %60
 
 60:                                               ; preds = %57
   %61 = tail call noundef zeroext i1 @_ZNK25MergePrimitiveArrayStores16is_adjacent_pairEPK9StoreNodeS2_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %spec.select.i.i.i.i, ptr noundef %37)
-  br i1 %61, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit.thread27
+  br i1 %61, label %88, label %.critedge
 
-_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit.thread27: ; preds = %48, %57, %41, %60
+.critedge:                                        ; preds = %48, %57, %41, %60
   %62 = load ptr, ptr %4, align 8
   %63 = tail call { ptr, i8 } @_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %62)
   %64 = extractvalue { ptr, i8 } %63, 0
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit, label %66
+  br i1 %65, label %88, label %66
 
-66:                                               ; preds = %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit.thread27
+66:                                               ; preds = %.critedge
   %67 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 800
@@ -11326,10 +11326,10 @@ _ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit.threa
 87:                                               ; preds = %66, %85
   %.1 = phi ptr [ %86, %85 ], [ null, %66 ]
   call void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
-  br label %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit
+  br label %88
 
-_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit: ; preds = %60, %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit.thread27, %36, %19, %27, %16, %9, %1, %87
-  %.0 = phi ptr [ %.1, %87 ], [ null, %1 ], [ null, %9 ], [ null, %16 ], [ null, %27 ], [ null, %19 ], [ null, %36 ], [ null, %_ZNK25MergePrimitiveArrayStores23find_adjacent_use_storeEPK9StoreNode.exit.thread27 ], [ null, %60 ]
+88:                                               ; preds = %60, %.critedge, %36, %19, %27, %16, %9, %1, %87
+  %.0 = phi ptr [ %.1, %87 ], [ null, %1 ], [ null, %9 ], [ null, %16 ], [ null, %27 ], [ null, %19 ], [ null, %36 ], [ null, %.critedge ], [ null, %60 ]
   ret ptr %.0
 }
 
@@ -11373,23 +11373,19 @@ define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores23find_adjacent_use_st
 _ZNK25MergePrimitiveArrayStores14find_use_storeEPK9StoreNode.exit: ; preds = %9, %2, %18
   %.pn.i.i = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %18 ], [ zeroinitializer, %2 ], [ zeroinitializer, %9 ]
   %23 = extractvalue { ptr, i8 } %.pn.i.i, 0
-  %24 = extractvalue { ptr, i8 } %.pn.i.i, 1
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %27, label %25
+  br i1 %.not, label %26, label %24
 
-25:                                               ; preds = %_ZNK25MergePrimitiveArrayStores14find_use_storeEPK9StoreNode.exit
-  %26 = tail call noundef zeroext i1 @_ZNK25MergePrimitiveArrayStores16is_adjacent_pairEPK9StoreNodeS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %23, ptr noundef %1)
-  br i1 %26, label %27, label %28
+24:                                               ; preds = %_ZNK25MergePrimitiveArrayStores14find_use_storeEPK9StoreNode.exit
+  %25 = tail call noundef zeroext i1 @_ZNK25MergePrimitiveArrayStores16is_adjacent_pairEPK9StoreNodeS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %23, ptr noundef %1)
+  br i1 %25, label %26, label %27
 
-27:                                               ; preds = %25, %_ZNK25MergePrimitiveArrayStores14find_use_storeEPK9StoreNode.exit
-  br label %28
+26:                                               ; preds = %24, %_ZNK25MergePrimitiveArrayStores14find_use_storeEPK9StoreNode.exit
+  br label %27
 
-28:                                               ; preds = %25, %27
-  %.sroa.0.0 = phi ptr [ %23, %27 ], [ null, %25 ]
-  %.sroa.3.0 = phi i8 [ %24, %27 ], [ 0, %25 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+27:                                               ; preds = %24, %26
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %.pn.i.i, %26 ], [ zeroinitializer, %24 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11419,23 +11415,19 @@ define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores23find_adjacent_def_st
 _ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit: ; preds = %2, %12
   %.pn.i.i = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %12 ], [ zeroinitializer, %2 ]
   %17 = extractvalue { ptr, i8 } %.pn.i.i, 0
-  %18 = extractvalue { ptr, i8 } %.pn.i.i, 1
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %21, label %19
+  br i1 %.not, label %20, label %18
 
-19:                                               ; preds = %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit
-  %20 = tail call noundef zeroext i1 @_ZNK25MergePrimitiveArrayStores16is_adjacent_pairEPK9StoreNodeS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull %17)
-  br i1 %20, label %21, label %22
+18:                                               ; preds = %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit
+  %19 = tail call noundef zeroext i1 @_ZNK25MergePrimitiveArrayStores16is_adjacent_pairEPK9StoreNodeS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull %17)
+  br i1 %19, label %20, label %21
 
-21:                                               ; preds = %19, %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit
-  br label %22
+20:                                               ; preds = %18, %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit
+  br label %21
 
-22:                                               ; preds = %19, %21
-  %.sroa.0.0 = phi ptr [ %17, %21 ], [ null, %19 ]
-  %.sroa.3.0 = phi i8 [ %18, %21 ], [ 0, %19 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+21:                                               ; preds = %18, %20
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %.pn.i.i, %20 ], [ zeroinitializer, %18 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11467,15 +11459,15 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %2, %16
   %19 = zext i32 %12 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
   store ptr %10, ptr %20, align 8
-  %.not28 = icmp ne ptr %10, null
+  %.not18 = icmp ne ptr %10, null
   %21 = load i32, ptr %11, align 8
   %22 = icmp ult i32 %21, %9
-  %or.cond29 = select i1 %.not28, i1 %22, i1 false
-  br i1 %or.cond29, label %.lr.ph, label %.critedge
+  %or.cond19 = select i1 %.not18, i1 %22, i1 false
+  br i1 %or.cond19, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZN9Node_List4pushEP4Node.exit, %_ZN9Node_List4pushEP4Node.exit16
-  %.030 = phi ptr [ %37, %_ZN9Node_List4pushEP4Node.exit16 ], [ %10, %_ZN9Node_List4pushEP4Node.exit ]
-  %23 = getelementptr inbounds i8, ptr %.030, i64 8
+  %.020 = phi ptr [ %41, %_ZN9Node_List4pushEP4Node.exit16 ], [ %10, %_ZN9Node_List4pushEP4Node.exit ]
+  %23 = getelementptr inbounds i8, ptr %.020, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -11488,7 +11480,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %2, %16
   br i1 %31, label %32, label %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit.i
 
 32:                                               ; preds = %.lr.ph
-  %33 = tail call noundef i32 @_ZN25MergePrimitiveArrayStores19cfg_status_for_pairEPK9StoreNodeS2_(ptr noundef nonnull %.030, ptr noundef %spec.select.i.i.i.i)
+  %33 = tail call noundef i32 @_ZN25MergePrimitiveArrayStores19cfg_status_for_pairEPK9StoreNodeS2_(ptr noundef nonnull %.020, ptr noundef %spec.select.i.i.i.i)
   %34 = icmp eq i32 %33, 2
   %35 = icmp eq i32 %33, 1
   %36 = zext i1 %35 to i8
@@ -11500,54 +11492,59 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %2, %16
 _ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit.i: ; preds = %32, %.lr.ph
   %.pn.i.i.i = phi { ptr, i8 } [ %.fca.1.insert.i.i.i.i, %32 ], [ zeroinitializer, %.lr.ph ]
   %37 = extractvalue { ptr, i8 } %.pn.i.i.i, 0
-  %38 = extractvalue { ptr, i8 } %.pn.i.i.i, 1
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit.thread23.thread, label %39
+  br i1 %.not.i, label %40, label %38
 
-39:                                               ; preds = %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit.i
-  %40 = tail call noundef zeroext i1 @_ZNK25MergePrimitiveArrayStores16is_adjacent_pairEPK9StoreNodeS2_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %.030, ptr noundef nonnull %37)
-  br i1 %40, label %41, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit.thread23.thread
+38:                                               ; preds = %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit.i
+  %39 = tail call noundef zeroext i1 @_ZNK25MergePrimitiveArrayStores16is_adjacent_pairEPK9StoreNodeS2_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %.020, ptr noundef nonnull %37)
+  br i1 %39, label %40, label %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit
 
-41:                                               ; preds = %39
-  %42 = load i32, ptr %11, align 8
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %11, align 8
-  %44 = load i32, ptr %14, align 8
-  %.not.i.i15 = icmp ult i32 %42, %44
-  br i1 %.not.i.i15, label %_ZN9Node_List4pushEP4Node.exit16, label %45
+40:                                               ; preds = %38, %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit.i
+  br label %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit
 
-45:                                               ; preds = %41
-  tail call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %42) #13
+_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit: ; preds = %38, %40
+  %.fca.1.insert.merged.i = phi { ptr, i8 } [ %.pn.i.i.i, %40 ], [ zeroinitializer, %38 ]
+  %41 = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 0
+  %42 = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 1
+  %.not14 = icmp eq ptr %41, null
+  %43 = load i32, ptr %11, align 8
+  br i1 %.not14, label %.critedge, label %44
+
+44:                                               ; preds = %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit
+  %45 = add i32 %43, 1
+  store i32 %45, ptr %11, align 8
+  %46 = load i32, ptr %14, align 8
+  %.not.i.i15 = icmp ult i32 %43, %46
+  br i1 %.not.i.i15, label %_ZN9Node_List4pushEP4Node.exit16, label %47
+
+47:                                               ; preds = %44
+  tail call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %43) #13
   br label %_ZN9Node_List4pushEP4Node.exit16
 
-_ZN9Node_List4pushEP4Node.exit16:                 ; preds = %41, %45
-  %46 = load ptr, ptr %17, align 8
-  %47 = zext i32 %42 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
-  store ptr %37, ptr %48, align 8
-  %49 = trunc i8 %38 to i1
+_ZN9Node_List4pushEP4Node.exit16:                 ; preds = %44, %47
+  %48 = load ptr, ptr %17, align 8
+  %49 = zext i32 %43 to i64
+  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  store ptr %41, ptr %50, align 8
+  %51 = trunc i8 %42 to i1
   %.pre.pre = load i32, ptr %11, align 8
-  %50 = icmp uge i32 %.pre.pre, %9
-  %or.cond36.not = select i1 %49, i1 true, i1 %50
-  br i1 %or.cond36.not, label %.critedge, label %.lr.ph, !llvm.loop !24
+  %52 = icmp uge i32 %.pre.pre, %9
+  %or.cond25.not = select i1 %51, i1 true, i1 %52
+  br i1 %or.cond25.not, label %.critedge, label %.lr.ph, !llvm.loop !24
 
-_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit.thread23.thread: ; preds = %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit.i, %39
-  %51 = load i32, ptr %11, align 8
-  br label %.critedge
+.critedge:                                        ; preds = %_ZN9Node_List4pushEP4Node.exit16, %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit, %_ZN9Node_List4pushEP4Node.exit
+  %53 = phi i32 [ %21, %_ZN9Node_List4pushEP4Node.exit ], [ %43, %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit ], [ %.pre.pre, %_ZN9Node_List4pushEP4Node.exit16 ]
+  %54 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
+  %55 = xor i32 %54, 31
+  %56 = shl nuw i32 1, %55
+  %57 = icmp ugt i32 %53, %56
+  br i1 %57, label %.lr.ph21.preheader, label %58
 
-.critedge:                                        ; preds = %_ZN9Node_List4pushEP4Node.exit16, %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit.thread23.thread, %_ZN9Node_List4pushEP4Node.exit
-  %52 = phi i32 [ %21, %_ZN9Node_List4pushEP4Node.exit ], [ %51, %_ZNK25MergePrimitiveArrayStores23find_adjacent_def_storeEPK9StoreNode.exit.thread23.thread ], [ %.pre.pre, %_ZN9Node_List4pushEP4Node.exit16 ]
-  %53 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
-  %54 = xor i32 %53, 31
-  %55 = shl nuw i32 1, %54
-  %56 = icmp ugt i32 %52, %55
-  br i1 %56, label %.lr.ph31.preheader, label %57
+.lr.ph21.preheader:                               ; preds = %.critedge
+  store i32 %56, ptr %11, align 8
+  br label %58
 
-.lr.ph31.preheader:                               ; preds = %.critedge
-  store i32 %55, ptr %11, align 8
-  br label %57
-
-57:                                               ; preds = %.lr.ph31.preheader, %.critedge
+58:                                               ; preds = %.lr.ph21.preheader, %.critedge
   ret void
 }
 

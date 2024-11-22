@@ -1196,10 +1196,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %32 = getelementptr inbounds i8, ptr %4, i64 8
   %33 = getelementptr inbounds i8, ptr %4, i64 24
   %34 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %3, i64 32
   %35 = getelementptr inbounds i8, ptr %3, i64 40
   %36 = getelementptr inbounds i8, ptr %3, i64 48
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %3, i64 56
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %3, i64 56
   %37 = getelementptr inbounds i8, ptr %3, i64 64
   br label %38
 
@@ -1280,13 +1280,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr %33, ptr %34, align 8, !noalias !15
   store i8 47, ptr %33, align 8, !noalias !15
   store i64 1, ptr %31, align 8, !alias.scope !21, !noalias !15
-  store ptr %33, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !21, !noalias !15
+  store ptr %33, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !21, !noalias !15
   store ptr null, ptr %35, align 8, !alias.scope !21, !noalias !15
   %59 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #19, !noalias !15
   %60 = extractvalue { i64, ptr } %59, 0
   %61 = extractvalue { i64, ptr } %59, 1
   store i64 %60, ptr %36, align 8, !alias.scope !24, !noalias !15
-  store ptr %61, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !24, !noalias !15
+  store ptr %61, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !24, !noalias !15
   store ptr null, ptr %37, align 8, !alias.scope !24, !noalias !15
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr nonnull %3, i64 3)
           to label %62 unwind label %67

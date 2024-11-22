@@ -1025,10 +1025,10 @@ define dso_local range(i32 0, 65536) i32 @_ZNK4llvm22DefaultEvictionAdvisor24try
   store i32 -1, ptr %7, align 4
   %10 = zext i8 %3 to i32
   %11 = tail call i64 @_ZNK4llvm23RegAllocEvictionAdvisor13getOrderLimitERKNS_12LiveIntervalERKNS_15AllocationOrderEj(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(76) %2, i32 noundef %10) #18
-  %.sroa.021.0.extract.trunc = trunc i64 %11 to i32
+  %.sroa.019.0.extract.trunc = trunc i64 %11 to i32
   %12 = and i64 %11, 4294967296
-  %.not24 = icmp eq i64 %12, 0
-  br i1 %.not24, label %.loopexit, label %13
+  %.not22 = icmp eq i64 %12, 0
+  br i1 %.not22, label %.loopexit, label %13
 
 13:                                               ; preds = %5
   %.not = icmp eq i8 %3, -1
@@ -1049,7 +1049,7 @@ define dso_local range(i32 0, 65536) i32 @_ZNK4llvm22DefaultEvictionAdvisor24try
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %20, ptr %.sroa.28.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %21 = icmp eq i32 %.sroa.021.0.extract.trunc, 0
+  %21 = icmp eq i32 %.sroa.019.0.extract.trunc, 0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
@@ -1057,7 +1057,7 @@ define dso_local range(i32 0, 65536) i32 @_ZNK4llvm22DefaultEvictionAdvisor24try
   br label %_ZNK4llvm15AllocationOrder16getOrderLimitEndEj.exit
 
 24:                                               ; preds = %17
-  %25 = add nsw i32 %.sroa.021.0.extract.trunc, -1
+  %25 = add nsw i32 %.sroa.019.0.extract.trunc, -1
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %27 = load i32, ptr %26, align 8
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %27, i32 %25)
@@ -1069,15 +1069,15 @@ define dso_local range(i32 0, 65536) i32 @_ZNK4llvm22DefaultEvictionAdvisor24try
   br label %_ZNK4llvm15AllocationOrder16getOrderLimitEndEj.exit
 
 _ZNK4llvm15AllocationOrder16getOrderLimitEndEj.exit: ; preds = %22, %24
-  %.sroa.3.0.in.i = phi ptr [ %23, %22 ], [ %.sroa.3.0..sroa_idx.i, %24 ]
-  %.sroa.3.0.i = load i32, ptr %.sroa.3.0.in.i, align 8
+  %.pn.in.i = phi ptr [ %23, %22 ], [ %.sroa.3.0..sroa_idx.i, %24 ]
+  %.pn.i = load i32, ptr %.pn.in.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %.not2526 = icmp eq i32 %.sroa.3.0.i, %20
-  br i1 %.not2526, label %.loopexit, label %.lr.ph
+  %.not2324 = icmp eq i32 %.pn.i, %20
+  br i1 %.not2324, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm15AllocationOrder16getOrderLimitEndEj.exit, %51
   %30 = phi i32 [ %53, %51 ], [ %20, %_ZNK4llvm15AllocationOrder16getOrderLimitEndEj.exit ]
-  %.sroa.022.027 = phi i32 [ %.sroa.022.2, %51 ], [ 0, %_ZNK4llvm15AllocationOrder16getOrderLimitEndEj.exit ]
+  %.sroa.020.025 = phi i32 [ %.sroa.020.2, %51 ], [ 0, %_ZNK4llvm15AllocationOrder16getOrderLimitEndEj.exit ]
   %31 = icmp slt i32 %30, 0
   %32 = load ptr, ptr %8, align 8
   br i1 %31, label %33, label %40
@@ -1115,15 +1115,15 @@ _ZNK4llvm15AllocationOrder8IteratordeEv.exit:     ; preds = %33, %40
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %48, %_ZNK4llvm15AllocationOrder8IteratordeEv.exit, %46
-  %.sroa.022.2 = phi i32 [ %.sroa.0.0.i, %48 ], [ %.sroa.022.027, %46 ], [ %.sroa.022.027, %_ZNK4llvm15AllocationOrder8IteratordeEv.exit ]
+  %.sroa.020.2 = phi i32 [ %.sroa.0.0.i, %48 ], [ %.sroa.020.025, %46 ], [ %.sroa.020.025, %_ZNK4llvm15AllocationOrder8IteratordeEv.exit ]
   %52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15AllocationOrder8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
   %53 = load i32, ptr %.sroa.28.0..sroa_idx, align 8
-  %.not25 = icmp eq i32 %53, %.sroa.3.0.i
-  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  %.not23 = icmp eq i32 %53, %.pn.i
+  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %48, %51, %_ZNK4llvm15AllocationOrder16getOrderLimitEndEj.exit, %5
-  %.sroa.023.0 = phi i32 [ 0, %5 ], [ 0, %_ZNK4llvm15AllocationOrder16getOrderLimitEndEj.exit ], [ %.sroa.0.0.i, %48 ], [ %.sroa.022.2, %51 ]
-  ret i32 %.sroa.023.0
+  %.sroa.021.0 = phi i32 [ 0, %5 ], [ 0, %_ZNK4llvm15AllocationOrder16getOrderLimitEndEj.exit ], [ %.sroa.0.0.i, %48 ], [ %.sroa.020.2, %51 ]
+  ret i32 %.sroa.021.0
 }
 
 declare i64 @_ZNK4llvm23RegAllocEvictionAdvisor13getOrderLimitERKNS_12LiveIntervalERKNS_15AllocationOrderEj(ptr noundef nonnull align 8 dereferenceable(89), ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(76), i32 noundef) local_unnamed_addr #3

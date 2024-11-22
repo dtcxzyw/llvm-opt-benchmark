@@ -230,14 +230,13 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { i64, i64 } %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %now.coerce, i64 noundef %bytes_in_flight)
-  %2 = extractvalue { i64, i64 } %call, 0
-  %3 = extractvalue { i64, i64 } %call, 1
+  %2 = extractvalue { i64, i64 } %call, 1
   %burst_tokens_ = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i32, ptr %burst_tokens_, align 8
-  %cmp = icmp eq i32 %4, 0
+  %3 = load i32, ptr %burst_tokens_, align 8
+  %cmp = icmp eq i32 %3, 0
   %cmp3 = icmp ne i64 %bytes_in_flight, 0
   %or.cond.not10 = and i1 %cmp3, %cmp
-  %cmp.i = icmp eq i64 %3, 0
+  %cmp.i = icmp eq i64 %2, 0
   %or.cond9 = select i1 %or.cond.not10, i1 %cmp.i, i1 false
   br i1 %or.cond9, label %if.end6, label %return
 
@@ -252,14 +251,12 @@ if.then17:                                        ; preds = %if.end6
   %was_last_send_delayed_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %was_last_send_delayed_, align 8
   %sub.i = sub nsw i64 %agg.tmp7.sroa.0.0.copyload, %now.coerce
+  %.fca.1.insert.i = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %sub.i, 1
   br label %return
 
 return:                                           ; preds = %if.end6, %entry, %if.then17
-  %retval.sroa.0.0 = phi i64 [ 0, %if.then17 ], [ %2, %entry ], [ 0, %if.end6 ]
-  %retval.sroa.5.0 = phi i64 [ %sub.i, %if.then17 ], [ %3, %entry ], [ 0, %if.end6 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, i64 } [ %.fca.1.insert.i, %if.then17 ], [ %call, %entry ], [ zeroinitializer, %if.end6 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 declare noundef zeroext i1 @_ZNK3net13QuicBandwidth6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1

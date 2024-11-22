@@ -634,11 +634,11 @@ default.unreachable:                              ; preds = %7
   br label %_ZN9anthropic5Model2id17hb72e6cbcd6427368E.exit
 
 _ZN9anthropic5Model2id17hb72e6cbcd6427368E.exit:  ; preds = %13, %12, %11, %10, %7, %18
-  %.sroa.3.0 = phi i64 [ %22, %18 ], [ %17, %13 ], [ 23, %12 ], [ 24, %11 ], [ 22, %10 ], [ 26, %7 ]
-  %.sroa.0.0 = phi ptr [ %20, %18 ], [ %15, %13 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.11, %12 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.10, %11 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.9, %10 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.8, %7 ]
-  %23 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %24 = insertvalue { ptr, i64 } %23, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %24
+  %.sroa.0.0.i.pn = phi ptr [ %20, %18 ], [ %15, %13 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.11, %12 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.10, %11 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.9, %10 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.8, %7 ]
+  %.sroa.6.0.i.pn = phi i64 [ %22, %18 ], [ %17, %13 ], [ 23, %12 ], [ 24, %11 ], [ 22, %10 ], [ 26, %7 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.sroa.6.0.i.pn, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

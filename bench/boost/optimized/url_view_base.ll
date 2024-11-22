@@ -1094,13 +1094,13 @@ define { ptr, i64 } @_ZNK5boost4urls13url_view_base4portEv(ptr nocapture noundef
   %4 = tail call { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr noundef nonnull align 8 dereferenceable(171) %3, i32 noundef 3) #24
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
-  %7 = icmp ne i64 %6, 0
-  %.sroa.0.0.idx = zext i1 %7 to i64
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.0.0.idx
-  %.sroa.3.0 = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %7 = icmp eq i64 %6, 0
+  %8 = add i64 %6, -1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %9, 0
+  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %8, 1
+  %.fca.1.insert.merged = select i1 %7, { ptr, i64 } %4, { ptr, i64 } %.fca.1.insert.i
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

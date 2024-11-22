@@ -3415,37 +3415,31 @@ if.then:                                          ; preds = %invoke.cont47
 lpad18:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = extractvalue { ptr, i32 } %6, 1
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit112
 
 lpad27:                                           ; preds = %invoke.cont19
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = extractvalue { ptr, i32 } %9, 1
   br label %ehcleanup70
 
 lpad29:                                           ; preds = %invoke.cont64, %if.then62, %try.cont, %invoke.cont39, %invoke.cont38, %invoke.cont36, %invoke.cont35, %invoke.cont34, %invoke.cont33, %invoke.cont31, %invoke.cont30, %invoke.cont28
-  %12 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = extractvalue { ptr, i32 } %12, 1
   br label %ehcleanup68
 
 lpad46:                                           ; preds = %if.then, %invoke.cont45
-  %15 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI8LuaError
-  %16 = extractvalue { ptr, i32 } %15, 0
-  %17 = extractvalue { ptr, i32 } %15, 1
-  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI8LuaError) #28
-  %matches = icmp eq i32 %17, %18
+  %10 = extractvalue { ptr, i32 } %9, 1
+  %11 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI8LuaError) #28
+  %matches = icmp eq i32 %10, %11
   br i1 %matches, label %catch, label %ehcleanup68
 
 catch:                                            ; preds = %lpad46
-  %19 = tail call ptr @__cxa_begin_catch(ptr %16) #28
-  invoke void @_ZN6Server18setAsyncFatalErrorERK8LuaError(ptr noundef nonnull align 8 dereferenceable(1640) %call, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  %12 = extractvalue { ptr, i32 } %9, 0
+  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #28
+  invoke void @_ZN6Server18setAsyncFatalErrorERK8LuaError(ptr noundef nonnull align 8 dereferenceable(1640) %call, ptr noundef nonnull align 8 dereferenceable(40) %13)
           to label %invoke.cont55 unwind label %lpad54
 
 invoke.cont55:                                    ; preds = %catch
@@ -3457,35 +3451,29 @@ try.cont:                                         ; preds = %invoke.cont55, %if.
           to label %invoke.cont59 unwind label %lpad29
 
 invoke.cont59:                                    ; preds = %try.cont
-  %20 = load i32, ptr %refcount, align 8, !tbaa !111
-  %cmp61 = icmp eq i32 %20, 0
+  %14 = load i32, ptr %refcount, align 8, !tbaa !111
+  %cmp61 = icmp eq i32 %14, 0
   br i1 %cmp61, label %if.then62, label %if.end67
 
 if.then62:                                        ; preds = %invoke.cont59
-  %21 = load i32, ptr %callback_ref, align 8, !tbaa !109
-  invoke void @luaL_unref(ptr noundef %1, i32 noundef -10000, i32 noundef %21)
+  %15 = load i32, ptr %callback_ref, align 8, !tbaa !109
+  invoke void @luaL_unref(ptr noundef %1, i32 noundef -10000, i32 noundef %15)
           to label %invoke.cont64 unwind label %lpad29
 
 invoke.cont64:                                    ; preds = %if.then62
-  %22 = load i32, ptr %args_ref, align 4, !tbaa !112
-  invoke void @luaL_unref(ptr noundef %1, i32 noundef -10000, i32 noundef %22)
+  %16 = load i32, ptr %args_ref, align 4, !tbaa !112
+  invoke void @luaL_unref(ptr noundef %1, i32 noundef -10000, i32 noundef %16)
           to label %if.end67 unwind label %lpad29
 
 lpad54:                                           ; preds = %catch
-  %23 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %ehcleanup unwind label %terminate.lpad
+          to label %ehcleanup68 unwind label %terminate.lpad
 
 lpad56:                                           ; preds = %invoke.cont55
-  %24 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad56, %lpad54
-  %.pn = phi { ptr, i32 } [ %24, %lpad56 ], [ %23, %lpad54 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   br label %ehcleanup68
 
 if.end67:                                         ; preds = %invoke.cont64, %invoke.cont59
@@ -3493,48 +3481,43 @@ if.end67:                                         ; preds = %invoke.cont64, %inv
           to label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.end67
-  %25 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #31
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #31
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %if.end67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #28
-  %27 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !17
-  %dec.i = add nsw i32 %27, -1
+  %21 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !17
+  %dec.i = add nsw i32 %21, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !17
   %call1.i.i.i.i.i104 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #28
   ret void
 
-ehcleanup68:                                      ; preds = %ehcleanup, %lpad46, %lpad29
-  %ehselector.slot.1 = phi i32 [ %14, %lpad29 ], [ %ehselector.slot.0, %ehcleanup ], [ %17, %lpad46 ]
-  %exn.slot.1 = phi ptr [ %13, %lpad29 ], [ %exn.slot.0, %ehcleanup ], [ %16, %lpad46 ]
+ehcleanup68:                                      ; preds = %lpad54, %lpad56, %lpad46, %lpad29
+  %.merged1 = phi { ptr, i32 } [ %8, %lpad29 ], [ %9, %lpad46 ], [ %18, %lpad56 ], [ %17, %lpad54 ]
   call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #28
   br label %ehcleanup70
 
 ehcleanup70:                                      ; preds = %ehcleanup68, %lpad27
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %ehcleanup68 ], [ %11, %lpad27 ]
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %ehcleanup68 ], [ %10, %lpad27 ]
+  %.merged = phi { ptr, i32 } [ %.merged1, %ehcleanup68 ], [ %7, %lpad27 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #28
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit112
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit112: ; preds = %ehcleanup70, %lpad18
-  %ehselector.slot.3 = phi i32 [ %ehselector.slot.2, %ehcleanup70 ], [ %8, %lpad18 ]
-  %exn.slot.3 = phi ptr [ %exn.slot.2, %ehcleanup70 ], [ %7, %lpad18 ]
-  %28 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !17
-  %dec.i105 = add nsw i32 %28, -1
+  %lpad.val79.merged = phi { ptr, i32 } [ %.merged, %ehcleanup70 ], [ %6, %lpad18 ]
+  %22 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !17
+  %dec.i105 = add nsw i32 %22, -1
   store i32 %dec.i105, ptr %m_lock_recursion_count, align 4, !tbaa !17
   %call1.i.i.i.i.i111 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #28
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.3, 0
-  %lpad.val79 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.3, 1
-  resume { ptr, i32 } %lpad.val79
+  resume { ptr, i32 } %lpad.val79.merged
 
 terminate.lpad:                                   ; preds = %lpad54
-  %29 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #31
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #31
   unreachable
 }
 

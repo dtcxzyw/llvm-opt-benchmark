@@ -2156,13 +2156,13 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %cond
   br label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %do.cond.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %retval.sroa.0.0.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %f.coerce0, %do.cond.i.i.i ]
-  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %f.coerce1, %do.cond.i.i.i ]
-  %cmp.not.i = icmp ult i64 %retval.sroa.0.0.i, 9
+  %filename.coerce0.pn.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %f.coerce0, %do.cond.i.i.i ]
+  %filename.coerce1.pn.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %f.coerce1, %do.cond.i.i.i ]
+  %cmp.not.i = icmp ult i64 %filename.coerce0.pn.i, 9
   br i1 %cmp.not.i, label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %retval.sroa.3.0.i, ptr noundef nonnull dereferenceable(9) @.str.21, i64 9)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %filename.coerce1.pn.i, ptr noundef nonnull dereferenceable(9) @.str.21, i64 9)
   %cmp7.i = icmp eq i32 %bcmp.i, 0
   br label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
 

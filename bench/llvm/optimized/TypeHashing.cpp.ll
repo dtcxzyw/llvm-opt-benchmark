@@ -68,40 +68,40 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %14 = load ptr, ptr %8, align 8
   %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
   %16 = getelementptr inbounds %"struct.llvm::codeview::TiReference", ptr %14, i64 %15
-  %.not77 = icmp eq i64 %15, 0
-  br i1 %.not77, label %._crit_edge82, label %.lr.ph81
+  %.not75 = icmp eq i64 %15, 0
+  br i1 %.not75, label %._crit_edge80, label %.lr.ph79
 
-.lr.ph81:                                         ; preds = %6, %._crit_edge
-  %.079 = phi i32 [ %49, %._crit_edge ], [ 0, %6 ]
-  %.03778 = phi ptr [ %50, %._crit_edge ], [ %14, %6 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.03778, i64 4
+.lr.ph79:                                         ; preds = %6, %._crit_edge
+  %.077 = phi i32 [ %49, %._crit_edge ], [ 0, %6 ]
+  %.03776 = phi ptr [ %50, %._crit_edge ], [ %14, %6 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.03776, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = sub i32 %18, %.079
-  %20 = zext i32 %.079 to i64
+  %19 = sub i32 %18, %.077
+  %20 = zext i32 %.077 to i64
   %21 = zext i32 %19 to i64
   %22 = getelementptr inbounds i8, ptr %13, i64 %20
   call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %22, i64 noundef %21) #8
-  %23 = load i32, ptr %.03778, align 4
+  %23 = load i32, ptr %.03776, align 4
   %24 = icmp eq i32 %23, 1
-  %.sroa.058.0.copyload.sroa.speculated = select i1 %24, ptr %4, ptr %2
-  %.sroa.360.0.copyload.sroa.speculated = select i1 %24, i64 %5, i64 %3
+  %.sroa.056.0.copyload.sroa.speculated = select i1 %24, ptr %4, ptr %2
+  %.sroa.358.0.copyload.sroa.speculated = select i1 %24, i64 %5, i64 %3
   %25 = load i32, ptr %17, align 4
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %.03778, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.03776, i64 8
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %13, i64 %26
   %31 = getelementptr inbounds %"class.llvm::codeview::TypeIndex", ptr %30, i64 %29
-  %.not3975 = icmp eq i32 %28, 0
-  br i1 %.not3975, label %._crit_edge, label %.lr.ph
+  %.not3973 = icmp eq i32 %28, 0
+  br i1 %.not3973, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph81
+.lr.ph:                                           ; preds = %.lr.ph79
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   br label %32
 
 32:                                               ; preds = %.lr.ph, %44
-  %.03876 = phi ptr [ %30, %.lr.ph ], [ %45, %44 ]
-  %33 = load i32, ptr %.03876, align 1
+  %.03874 = phi ptr [ %30, %.lr.ph ], [ %45, %44 ]
+  %33 = load i32, ptr %.03874, align 1
   store i32 %33, ptr %10, align 4
   %34 = icmp ult i32 %33, 4096
   br i1 %34, label %44, label %35
@@ -112,12 +112,12 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %36 = and i32 %33, 2147483647
   %37 = add nsw i32 %36, -4096
   %38 = zext i32 %37 to i64
-  %.not40 = icmp ugt i64 %.sroa.360.0.copyload.sroa.speculated, %38
+  %.not40 = icmp ugt i64 %.sroa.358.0.copyload.sroa.speculated, %38
   br i1 %.not40, label %39, label %.loopexit
 
 39:                                               ; preds = %35
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
-  %40 = getelementptr inbounds %"struct.llvm::codeview::GloballyHashedType", ptr %.sroa.058.0.copyload.sroa.speculated, i64 %38
+  %40 = getelementptr inbounds %"struct.llvm::codeview::GloballyHashedType", ptr %.sroa.056.0.copyload.sroa.speculated, i64 %38
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %.loopexit, label %43
@@ -128,32 +128,32 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
 
 44:                                               ; preds = %32, %43
   %.sroa.4.2 = phi i64 [ 8, %43 ], [ 4, %32 ]
-  %.sroa.053.2 = phi ptr [ %40, %43 ], [ %10, %32 ]
-  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %.sroa.053.2, i64 noundef %.sroa.4.2) #8
-  %45 = getelementptr inbounds i8, ptr %.03876, i64 4
+  %.sroa.051.2 = phi ptr [ %40, %43 ], [ %10, %32 ]
+  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %.sroa.051.2, i64 noundef %.sroa.4.2) #8
+  %45 = getelementptr inbounds i8, ptr %.03874, i64 4
   %.not39 = icmp eq ptr %45, %31
   br i1 %.not39, label %._crit_edge.loopexit, label %32
 
 ._crit_edge.loopexit:                             ; preds = %44
   %.pre = load i32, ptr %17, align 4
-  %.pre83 = load i32, ptr %27, align 4
-  %46 = shl i32 %.pre83, 2
+  %.pre81 = load i32, ptr %27, align 4
+  %46 = shl i32 %.pre81, 2
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph81
-  %47 = phi i32 [ %46, %._crit_edge.loopexit ], [ 0, %.lr.ph81 ]
-  %48 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph81 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph79
+  %47 = phi i32 [ %46, %._crit_edge.loopexit ], [ 0, %.lr.ph79 ]
+  %48 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph79 ]
   %49 = add i32 %47, %48
-  %50 = getelementptr inbounds i8, ptr %.03778, i64 12
+  %50 = getelementptr inbounds i8, ptr %.03776, i64 12
   %.not = icmp eq ptr %50, %16
-  br i1 %.not, label %._crit_edge82.loopexit, label %.lr.ph81
+  br i1 %.not, label %._crit_edge80.loopexit, label %.lr.ph79
 
-._crit_edge82.loopexit:                           ; preds = %._crit_edge
+._crit_edge80.loopexit:                           ; preds = %._crit_edge
   %51 = zext i32 %49 to i64
-  br label %._crit_edge82
+  br label %._crit_edge80
 
-._crit_edge82:                                    ; preds = %._crit_edge82.loopexit, %6
-  %.0.lcssa = phi i64 [ 0, %6 ], [ %51, %._crit_edge82.loopexit ]
+._crit_edge80:                                    ; preds = %._crit_edge80.loopexit, %6
+  %.0.lcssa = phi i64 [ 0, %6 ], [ %51, %._crit_edge80.loopexit ]
   %52 = sub i64 %12, %.0.lcssa
   %53 = getelementptr inbounds i8, ptr %13, i64 %.0.lcssa
   call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %53, i64 noundef %52) #8
@@ -163,8 +163,8 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %39, %._crit_edge82
-  %.sroa.073.0 = phi i64 [ %54, %._crit_edge82 ], [ 0, %39 ], [ 0, %35 ]
+.loopexit:                                        ; preds = %35, %39, %._crit_edge80
+  %.sroa.071.0 = phi i64 [ %54, %._crit_edge80 ], [ 0, %39 ], [ 0, %35 ]
   %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %8) #8
   %56 = load ptr, ptr %8, align 8
   %57 = icmp eq ptr %56, %11
@@ -175,7 +175,7 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   br label %_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit: ; preds = %.loopexit, %58
-  ret i64 %.sroa.073.0
+  ret i64 %.sroa.071.0
 }
 
 declare void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr, i64, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2

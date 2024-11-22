@@ -5330,8 +5330,6 @@ if.then.i.i119:                                   ; preds = %lpad3
 
 ehcleanup:                                        ; preds = %if.then.i.i119, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i120, %lpad
   %.pn = phi { ptr, i32 } [ %18, %lpad ], [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i120 ], [ %19, %if.then.i.i119 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #32
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit207
 
@@ -5701,22 +5699,21 @@ ehcleanup88:                                      ; preds = %invoke.cont.i193, %
   %ehselector.slot.9 = phi i32 [ %24, %lpad7 ], [ %27, %lpad10 ], [ %ehselector.slot.4, %ehcleanup82 ], [ %ehselector.slot.4, %invoke.cont.i193 ]
   %exn.slot.9 = phi ptr [ %23, %lpad7 ], [ %26, %lpad10 ], [ %exn.slot.4, %ehcleanup82 ], [ %exn.slot.4, %invoke.cont.i193 ]
   call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %sp) #32
+  %80 = insertvalue { ptr, i32 } poison, ptr %exn.slot.9, 0
+  %81 = insertvalue { ptr, i32 } %80, i32 %ehselector.slot.9, 1
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit207
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit207:         ; preds = %ehcleanup88, %ehcleanup
-  %ehselector.slot.10 = phi i32 [ %ehselector.slot.9, %ehcleanup88 ], [ %ehselector.slot.0, %ehcleanup ]
-  %exn.slot.10 = phi ptr [ %exn.slot.9, %ehcleanup88 ], [ %exn.slot.0, %ehcleanup ]
+  %lpad.val97.merged = phi { ptr, i32 } [ %81, %ehcleanup88 ], [ %.pn, %ehcleanup ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %sp) #32
   %call1.i.i.i.i206 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_env_mutex) #32
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.10, 0
-  %lpad.val97 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.10, 1
-  resume { ptr, i32 } %lpad.val97
+  resume { ptr, i32 } %lpad.val97.merged
 
 terminate.lpad:                                   ; preds = %lpad54
-  %80 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           catch ptr null
-  %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #34
+  %83 = extractvalue { ptr, i32 } %82, 0
+  call void @__clang_call_terminate(ptr %83) #34
   unreachable
 }
 

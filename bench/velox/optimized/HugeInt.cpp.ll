@@ -186,14 +186,13 @@ for.end67:                                        ; preds = %if.end64, %if.end64
   %retval.sroa.0.0.extract.trunc35 = trunc i128 %cond to i64
   %retval.sroa.4.0.extract.shift38 = lshr i128 %cond, 64
   %retval.sroa.4.0.extract.trunc39 = trunc nuw i128 %retval.sroa.4.0.extract.shift38 to i64
+  %9 = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.extract.trunc35, 0
+  %10 = insertvalue { i64, i64 } %9, i64 %retval.sroa.4.0.extract.trunc39, 1
   br label %return
 
 return:                                           ; preds = %if.else58, %if.else50.us, %for.end67
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.extract.trunc35, %for.end67 ], [ 0, %if.else50.us ], [ -1, %if.else58 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.extract.trunc39, %for.end67 ], [ -9223372036854775808, %if.else50.us ], [ 9223372036854775807, %if.else58 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, i64 } [ %10, %for.end67 ], [ { i64 0, i64 -9223372036854775808 }, %if.else50.us ], [ { i64 -1, i64 9223372036854775807 }, %if.else58 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nounwind

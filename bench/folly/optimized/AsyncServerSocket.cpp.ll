@@ -1404,8 +1404,6 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  %2 = extractvalue { ptr, i32 } %0, 1
   call void @__cxa_free_exception(ptr %exception) #46
   br label %ehcleanup179
 
@@ -1416,10 +1414,10 @@ for.cond:                                         ; preds = %invoke.cont157, %fo
   br i1 %tobool5.not290, label %for.cond.cleanup6, label %for.body7
 
 for.cond.cleanup6:                                ; preds = %for.inc, %for.cond
-  %3 = load ptr, ptr %_M_finish.i, align 8, !tbaa !98
-  %4 = load ptr, ptr %sockets_, align 8, !tbaa !99
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
+  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !98
+  %2 = load ptr, ptr %sockets_, align 8, !tbaa !99
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp14 = icmp eq i64 %sub.ptr.sub.i, 208
   %or.cond = and i1 %cmp16, %cmp14
@@ -1428,8 +1426,8 @@ for.cond.cleanup6:                                ; preds = %for.inc, %for.cond
 for.body7:                                        ; preds = %for.cond, %for.inc
   %res.0291 = phi ptr [ %res.0, %for.inc ], [ %res.0289, %for.cond ]
   %ai_family8 = getelementptr inbounds i8, ptr %res.0291, i64 4
-  %5 = load i32, ptr %ai_family8, align 4, !tbaa !100
-  %cmp = icmp eq i32 %5, 10
+  %3 = load i32, ptr %ai_family8, align 4, !tbaa !100
+  %cmp = icmp eq i32 %3, 10
   br i1 %cmp, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %for.body7
@@ -1437,10 +1435,8 @@ if.then9:                                         ; preds = %for.body7
           to label %for.inc unwind label %lpad10
 
 lpad10:                                           ; preds = %if.then9
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = extractvalue { ptr, i32 } %6, 1
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244"
 
 for.inc:                                          ; preds = %if.then9, %for.body7
@@ -1457,8 +1453,8 @@ if.then17:                                        ; preds = %for.cond.cleanup6
 invoke.cont19:                                    ; preds = %if.then17
   store i16 0, ptr %port_.i, align 8, !tbaa !77
   store i8 0, ptr %external_.i, align 2, !tbaa !79
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !17
-  %socket_ = getelementptr inbounds i8, ptr %9, i64 -24
+  %5 = load ptr, ptr %_M_finish.i, align 8, !tbaa !17
+  %socket_ = getelementptr inbounds i8, ptr %5, i64 -24
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %socket_, align 8, !tbaa !20
   invoke void @_ZN5folly13SocketAddress19setFromLocalAddressENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(27) %address, i32 %agg.tmp.sroa.0.0.copyload)
           to label %invoke.cont23 unwind label %lpad22
@@ -1470,8 +1466,8 @@ invoke.cont23:                                    ; preds = %invoke.cont19
 invoke.cont25:                                    ; preds = %invoke.cont23
   %conv27 = zext i16 %call26 to i32
   %call28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sport, i64 noundef 6, ptr noundef nonnull @.str.47, i32 noundef %conv27) #46
-  %10 = load ptr, ptr %res0, align 8, !tbaa !17
-  call void @freeaddrinfo(ptr noundef %10) #46
+  %6 = load ptr, ptr %res0, align 8, !tbaa !17
+  call void @freeaddrinfo(ptr noundef %6) #46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #46
   %call34 = invoke i32 @getaddrinfo(ptr noundef null, ptr noundef nonnull %sport, ptr noundef nonnull %hints, ptr noundef nonnull %res0)
           to label %invoke.cont33 unwind label %lpad29
@@ -1502,17 +1498,17 @@ invoke.cont37:                                    ; preds = %if.else.i.i
 
 while.exit:                                       ; preds = %invoke.cont37, %invoke.cont37.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result) #46
-  %11 = load i8, ptr %external_.i, align 2, !tbaa !79, !range !10, !noundef !80
-  %tobool.not.i = icmp eq i8 %11, 0
+  %7 = load i8, ptr %external_.i, align 2, !tbaa !79, !range !10, !noundef !80
+  %tobool.not.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %while.exit
-  %12 = load ptr, ptr %address, align 8, !tbaa !81
-  %isnull.i.i = icmp eq ptr %12, null
+  %8 = load ptr, ptr %address, align 8, !tbaa !81
+  %isnull.i.i = icmp eq ptr %8, null
   br i1 %isnull.i.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i
-  call void @_ZdlPv(ptr noundef nonnull %12) #48
+  call void @_ZdlPv(ptr noundef nonnull %8) #48
   br label %_ZN5folly13SocketAddressD2Ev.exit
 
 _ZN5folly13SocketAddressD2Ev.exit:                ; preds = %delete.notnull.i.i, %if.then.i, %while.exit
@@ -1520,17 +1516,17 @@ _ZN5folly13SocketAddressD2Ev.exit:                ; preds = %delete.notnull.i.i,
   br label %if.end51
 
 lpad18:                                           ; preds = %if.then17
-  %13 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup50
 
 lpad22:                                           ; preds = %invoke.cont23, %invoke.cont19
-  %14 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup49
 
 lpad29:                                           ; preds = %if.else.i.i, %invoke.cont25
-  %15 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
 
@@ -1548,41 +1544,39 @@ invoke.cont46:                                    ; preds = %invoke.cont44
   unreachable
 
 lpad43:                                           ; preds = %while.body
-  %16 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp42) #46
   br label %ehcleanup48
 
 lpad45:                                           ; preds = %invoke.cont44
-  %17 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp42) #45
   unreachable
 
 ehcleanup48:                                      ; preds = %lpad43, %lpad29
-  %.pn205 = phi { ptr, i32 } [ %16, %lpad43 ], [ %15, %lpad29 ]
+  %.pn205 = phi { ptr, i32 } [ %12, %lpad43 ], [ %11, %lpad29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result) #46
   br label %ehcleanup49
 
 ehcleanup49:                                      ; preds = %ehcleanup48, %lpad22
-  %.pn205.pn = phi { ptr, i32 } [ %.pn205, %ehcleanup48 ], [ %14, %lpad22 ]
-  %18 = load i8, ptr %external_.i, align 2, !tbaa !79, !range !10, !noundef !80
-  %tobool.not.i216 = icmp eq i8 %18, 0
+  %.pn205.pn = phi { ptr, i32 } [ %.pn205, %ehcleanup48 ], [ %10, %lpad22 ]
+  %14 = load i8, ptr %external_.i, align 2, !tbaa !79, !range !10, !noundef !80
+  %tobool.not.i216 = icmp eq i8 %14, 0
   br i1 %tobool.not.i216, label %ehcleanup50, label %if.then.i217
 
 if.then.i217:                                     ; preds = %ehcleanup49
-  %19 = load ptr, ptr %address, align 8, !tbaa !81
-  %isnull.i.i218 = icmp eq ptr %19, null
+  %15 = load ptr, ptr %address, align 8, !tbaa !81
+  %isnull.i.i218 = icmp eq ptr %15, null
   br i1 %isnull.i.i218, label %ehcleanup50, label %delete.notnull.i.i219
 
 delete.notnull.i.i219:                            ; preds = %if.then.i217
-  call void @_ZdlPv(ptr noundef nonnull %19) #48
+  call void @_ZdlPv(ptr noundef nonnull %15) #48
   br label %ehcleanup50
 
 ehcleanup50:                                      ; preds = %delete.notnull.i.i219, %if.then.i217, %ehcleanup49, %lpad18
-  %.pn205.pn.pn = phi { ptr, i32 } [ %13, %lpad18 ], [ %.pn205.pn, %ehcleanup49 ], [ %.pn205.pn, %if.then.i217 ], [ %.pn205.pn, %delete.notnull.i.i219 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn205.pn.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn205.pn.pn, 1
+  %.pn205.pn.pn = phi { ptr, i32 } [ %9, %lpad18 ], [ %.pn205.pn, %ehcleanup49 ], [ %.pn205.pn, %if.then.i217 ], [ %.pn205.pn, %delete.notnull.i.i219 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %address) #46
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244"
 
@@ -1592,16 +1586,16 @@ if.end51:                                         ; preds = %_ZN5folly13SocketAd
   br i1 %tobool54.not293, label %for.cond.cleanup55, label %for.body56
 
 for.cond.cleanup55:                               ; preds = %if.end51, %for.inc63
-  %20 = load ptr, ptr %sockets_, align 8, !tbaa !17
-  %21 = load ptr, ptr %_M_finish.i, align 8, !tbaa !17
-  %cmp.i.i222 = icmp eq ptr %20, %21
+  %16 = load ptr, ptr %sockets_, align 8, !tbaa !17
+  %17 = load ptr, ptr %_M_finish.i, align 8, !tbaa !17
+  %cmp.i.i222 = icmp eq ptr %16, %17
   br i1 %cmp.i.i222, label %if.then168, label %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit"
 
 for.body56:                                       ; preds = %if.end51, %for.inc63
   %res52.0294 = phi ptr [ %res52.0, %for.inc63 ], [ %res52.0292, %if.end51 ]
   %ai_family57 = getelementptr inbounds i8, ptr %res52.0294, i64 4
-  %22 = load i32, ptr %ai_family57, align 4, !tbaa !100
-  %cmp58.not = icmp eq i32 %22, 10
+  %18 = load i32, ptr %ai_family57, align 4, !tbaa !100
+  %cmp58.not = icmp eq i32 %18, 10
   br i1 %cmp58.not, label %for.inc63, label %if.then59
 
 if.then59:                                        ; preds = %for.body56
@@ -1609,50 +1603,50 @@ if.then59:                                        ; preds = %for.body56
           to label %for.inc63 unwind label %lpad60
 
 lpad60:                                           ; preds = %if.then59
-  %23 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12system_error
-  %24 = extractvalue { ptr, i32 } %23, 0
-  %25 = extractvalue { ptr, i32 } %23, 1
-  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12system_error) #46
-  %matches = icmp eq i32 %25, %26
+  %20 = extractvalue { ptr, i32 } %19, 1
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12system_error) #46
+  %matches = icmp eq i32 %20, %21
   br i1 %matches, label %catch, label %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244"
 
 catch:                                            ; preds = %lpad60
-  %27 = call ptr @__cxa_begin_catch(ptr %24) #46
+  %22 = extractvalue { ptr, i32 } %19, 0
+  %23 = call ptr @__cxa_begin_catch(ptr %22) #46
   br i1 %cmp16, label %land.lhs.true69, label %if.end153
 
 land.lhs.true69:                                  ; preds = %catch
-  %28 = load ptr, ptr %sockets_, align 8, !tbaa !17
-  %29 = load ptr, ptr %_M_finish.i, align 8, !tbaa !17
-  %cmp.i.i224 = icmp eq ptr %28, %29
+  %24 = load ptr, ptr %sockets_, align 8, !tbaa !17
+  %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !17
+  %cmp.i.i224 = icmp eq ptr %24, %25
   %cmp73 = icmp eq i32 %tries.0, 25
   %or.cond186.not = select i1 %cmp.i.i224, i1 true, i1 %cmp73
   br i1 %or.cond186.not, label %if.end153, label %for.body83
 
 for.cond.cleanup82:                               ; preds = %cleanup
-  %30 = load ptr, ptr %sockets_, align 8, !tbaa !99
-  %31 = load ptr, ptr %_M_finish.i, align 8, !tbaa !98
-  %tobool.not.i.i = icmp eq ptr %31, %30
+  %26 = load ptr, ptr %sockets_, align 8, !tbaa !99
+  %27 = load ptr, ptr %_M_finish.i, align 8, !tbaa !98
+  %tobool.not.i.i = icmp eq ptr %27, %26
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE5clearEv.exit, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.cleanup82, %for.body.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %30, %for.cond.cleanup82 ]
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %26, %for.cond.cleanup82 ]
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8, !tbaa !7
-  %32 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(202) %__first.addr.04.i.i.i.i.i) #46
+  %28 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(202) %__first.addr.04.i.i.i.i.i) #46
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 208
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %31
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %27
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !106
 
 invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
-  store ptr %30, ptr %_M_finish.i, align 8, !tbaa !98
+  store ptr %26, ptr %_M_finish.i, align 8, !tbaa !98
   br label %_ZNSt6vectorIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE5clearEv.exit
 
 _ZNSt6vectorIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE5clearEv.exit: ; preds = %invoke.cont.i.i, %for.cond.cleanup82
   %call124 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sport, i64 noundef 6, ptr noundef nonnull @.str.47, i32 noundef 0) #46
-  %33 = load ptr, ptr %res0, align 8, !tbaa !17
-  call void @freeaddrinfo(ptr noundef %33) #46
+  %29 = load ptr, ptr %res0, align 8, !tbaa !17
+  call void @freeaddrinfo(ptr noundef %29) #46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result126) #46
   %call132 = invoke i32 @getaddrinfo(ptr noundef null, ptr noundef nonnull %sport, ptr noundef nonnull %hints, ptr noundef nonnull %res0)
           to label %invoke.cont131 unwind label %lpad127
@@ -1664,36 +1658,36 @@ for.inc63:                                        ; preds = %if.then59, %for.bod
   br i1 %tobool54.not, label %for.cond.cleanup55, label %for.body56, !llvm.loop !107
 
 for.body83:                                       ; preds = %land.lhs.true69, %cleanup
-  %__begin4.sroa.0.0298 = phi ptr [ %incdec.ptr.i, %cleanup ], [ %28, %land.lhs.true69 ]
+  %__begin4.sroa.0.0298 = phi ptr [ %incdec.ptr.i, %cleanup ], [ %24, %land.lhs.true69 ]
   %socket_85 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0298, i64 184
-  %34 = load i32, ptr %socket_85, align 4, !tbaa !20
-  %cmp.i228 = icmp eq i32 %34, -1
+  %30 = load i32, ptr %socket_85, align 4, !tbaa !20
+  %cmp.i228 = icmp eq i32 %30, -1
   br i1 %cmp.i228, label %cleanup, label %if.else
 
 if.else:                                          ; preds = %for.body83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %shutdownSocketSet) #46
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  %35 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !tbaa !111, !noalias !108
-  store ptr %35, ptr %_M_refcount.i.i.i, align 8, !tbaa !112, !alias.scope !108
-  %tobool.not.i.i.i.i = icmp eq ptr %35, null
+  %31 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !tbaa !111, !noalias !108
+  store ptr %31, ptr %_M_refcount.i.i.i, align 8, !tbaa !112, !alias.scope !108
+  %tobool.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i, label %_ZNKSt8weak_ptrIN5folly17ShutdownSocketSetEE4lockEv.exit.thread, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.else
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
-  %36 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i monotonic, align 8, !noalias !108
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i monotonic, align 8, !noalias !108
   br label %do.body.i.i.i.i.i
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
-  %__count.0.i.i.i.i.i = phi i32 [ %36, %land.lhs.true.i.i.i.i ], [ %39, %do.cond.i.i.i.i.i ]
+  %__count.0.i.i.i.i.i = phi i32 [ %32, %land.lhs.true.i.i.i.i ], [ %35, %do.cond.i.i.i.i.i ]
   %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
   br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
-  %37 = cmpxchg weak ptr %_M_use_count.i.i.i.i.i.i, i32 %__count.0.i.i.i.i.i, i32 %add.i.i.i.i.i acq_rel monotonic, align 8, !noalias !108
-  %38 = extractvalue { i32, i1 } %37, 1
-  %39 = extractvalue { i32, i1 } %37, 0
-  br i1 %38, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, label %do.body.i.i.i.i.i, !llvm.loop !113
+  %33 = cmpxchg weak ptr %_M_use_count.i.i.i.i.i.i, i32 %__count.0.i.i.i.i.i, i32 %add.i.i.i.i.i acq_rel monotonic, align 8, !noalias !108
+  %34 = extractvalue { i32, i1 } %33, 1
+  %35 = extractvalue { i32, i1 } %33, 0
+  br i1 %34, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, label %do.body.i.i.i.i.i, !llvm.loop !113
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i
   store ptr null, ptr %_M_refcount.i.i.i, align 8, !tbaa !112, !alias.scope !108
@@ -1706,10 +1700,10 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2E
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i: ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 8
-  %40 = load atomic i32, ptr %_M_use_count.i.i.i.i.i monotonic, align 8, !noalias !108
-  %.fr.i.i.i = freeze i32 %40
+  %36 = load atomic i32, ptr %_M_use_count.i.i.i.i.i monotonic, align 8, !noalias !108
+  %.fr.i.i.i = freeze i32 %36
   %tobool.not.i.i.i = icmp eq i32 %.fr.i.i.i, 0
-  %41 = load ptr, ptr %wShutdownSocketSet_, align 8, !noalias !108
+  %37 = load ptr, ptr %wShutdownSocketSet_, align 8, !noalias !108
   br i1 %tobool.not.i.i.i, label %_ZNKSt8weak_ptrIN5folly17ShutdownSocketSetEE4lockEv.exit.thread, label %_ZNKSt8weak_ptrIN5folly17ShutdownSocketSetEE4lockEv.exit
 
 _ZNKSt8weak_ptrIN5folly17ShutdownSocketSetEE4lockEv.exit.thread: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, %if.then.i.i.i.i, %if.else
@@ -1718,17 +1712,17 @@ _ZNKSt8weak_ptrIN5folly17ShutdownSocketSetEE4lockEv.exit.thread: ; preds = %_ZNK
   br label %if.else101
 
 _ZNKSt8weak_ptrIN5folly17ShutdownSocketSetEE4lockEv.exit: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
-  store ptr %41, ptr %shutdownSocketSet, align 8, !tbaa !114, !alias.scope !108
-  %cmp.i229.not = icmp eq ptr %41, null
+  store ptr %37, ptr %shutdownSocketSet, align 8, !tbaa !114, !alias.scope !108
+  %cmp.i229.not = icmp eq ptr %37, null
   %agg.tmp102.sroa.0.0.copyload.pre311 = load i32, ptr %socket_85, align 8, !tbaa !20
   br i1 %cmp.i229.not, label %if.else101, label %if.then93
 
 if.then93:                                        ; preds = %_ZNKSt8weak_ptrIN5folly17ShutdownSocketSetEE4lockEv.exit
-  %call100 = invoke noundef i32 @_ZN5folly17ShutdownSocketSet5closeENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(24) %41, i32 %agg.tmp102.sroa.0.0.copyload.pre311)
+  %call100 = invoke noundef i32 @_ZN5folly17ShutdownSocketSet5closeENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(24) %37, i32 %agg.tmp102.sroa.0.0.copyload.pre311)
           to label %if.end107 unwind label %lpad98
 
 lpad98:                                           ; preds = %if.else101, %if.then93
-  %42 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN5folly17ShutdownSocketSetELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %shutdownSocketSet) #46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %shutdownSocketSet) #46
@@ -1746,7 +1740,7 @@ if.end107:                                        ; preds = %if.else101, %if.the
 
 cleanup:                                          ; preds = %if.end107, %for.body83
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0298, i64 208
-  %cmp.i226.not = icmp eq ptr %incdec.ptr.i, %29
+  %cmp.i226.not = icmp eq ptr %incdec.ptr.i, %25
   br i1 %cmp.i226.not, label %for.cond.cleanup82, label %for.body83
 
 invoke.cont131:                                   ; preds = %_ZNSt6vectorIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE5clearEv.exit
@@ -1779,7 +1773,7 @@ while.exit140:                                    ; preds = %invoke.cont135, %in
           to label %invoke.cont157 unwind label %lpad156
 
 lpad127:                                          ; preds = %if.else.i.i233, %_ZNSt6vectorIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE5clearEv.exit
-  %43 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup151
 
@@ -1797,19 +1791,19 @@ invoke.cont146:                                   ; preds = %invoke.cont144
   unreachable
 
 lpad143:                                          ; preds = %while.body141
-  %44 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp142) #46
   br label %ehcleanup151
 
 lpad145:                                          ; preds = %invoke.cont144
-  %45 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp142) #45
   unreachable
 
 ehcleanup151:                                     ; preds = %lpad143, %lpad127
-  %.pn = phi { ptr, i32 } [ %44, %lpad143 ], [ %43, %lpad127 ]
+  %.pn = phi { ptr, i32 } [ %40, %lpad143 ], [ %39, %lpad127 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result126) #46
   br label %ehcleanup158
 
@@ -1818,7 +1812,7 @@ if.end153:                                        ; preds = %land.lhs.true69, %c
           to label %unreachable unwind label %lpad154
 
 lpad154:                                          ; preds = %if.end153
-  %46 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup158
 
@@ -1827,20 +1821,14 @@ invoke.cont157:                                   ; preds = %while.exit140
   br label %for.cond, !llvm.loop !116
 
 lpad156:                                          ; preds = %while.exit140
-  %47 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup161
+  br label %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244"
 
 ehcleanup158:                                     ; preds = %lpad154, %ehcleanup151, %lpad98
-  %.pn202 = phi { ptr, i32 } [ %42, %lpad98 ], [ %.pn, %ehcleanup151 ], [ %46, %lpad154 ]
+  %.pn202 = phi { ptr, i32 } [ %38, %lpad98 ], [ %.pn, %ehcleanup151 ], [ %42, %lpad154 ]
   invoke void @__cxa_end_catch()
-          to label %ehcleanup161 unwind label %terminate.lpad
-
-ehcleanup161:                                     ; preds = %ehcleanup158, %lpad156
-  %.pn202.pn = phi { ptr, i32 } [ %.pn202, %ehcleanup158 ], [ %47, %lpad156 ]
-  %exn.slot.5 = extractvalue { ptr, i32 } %.pn202.pn, 0
-  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn202.pn, 1
-  br label %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244"
+          to label %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244" unwind label %terminate.lpad
 
 if.then168:                                       ; preds = %for.cond.cleanup55
   %exception169 = call ptr @__cxa_allocate_exception(i64 16) #46
@@ -1852,18 +1840,14 @@ invoke.cont171:                                   ; preds = %if.then168
           to label %unreachable unwind label %lpad173
 
 lpad170:                                          ; preds = %if.then168
-  %48 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  %50 = extractvalue { ptr, i32 } %48, 1
   call void @__cxa_free_exception(ptr %exception169) #46
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244"
 
 lpad173:                                          ; preds = %invoke.cont171
-  %51 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  %53 = extractvalue { ptr, i32 } %51, 1
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244"
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit": ; preds = %for.cond.cleanup55
@@ -1874,28 +1858,24 @@ lpad173:                                          ; preds = %invoke.cont171
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints) #46
   ret void
 
-"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244": ; preds = %lpad60, %lpad173, %lpad170, %ehcleanup161, %ehcleanup50, %lpad10
-  %ehselector.slot.7 = phi i32 [ %53, %lpad173 ], [ %50, %lpad170 ], [ %8, %lpad10 ], [ %ehselector.slot.2, %ehcleanup50 ], [ %ehselector.slot.5, %ehcleanup161 ], [ %25, %lpad60 ]
-  %exn.slot.7 = phi ptr [ %52, %lpad173 ], [ %49, %lpad170 ], [ %7, %lpad10 ], [ %exn.slot.2, %ehcleanup50 ], [ %exn.slot.5, %ehcleanup161 ], [ %24, %lpad60 ]
+"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244": ; preds = %lpad60, %lpad156, %ehcleanup158, %lpad173, %lpad170, %ehcleanup50, %lpad10
+  %.merged = phi { ptr, i32 } [ %45, %lpad173 ], [ %44, %lpad170 ], [ %4, %lpad10 ], [ %.pn205.pn.pn, %ehcleanup50 ], [ %.pn202, %ehcleanup158 ], [ %43, %lpad156 ], [ %19, %lpad60 ]
   %this.val.val.i243 = load ptr, ptr %res0, align 8, !tbaa !17
   call void @freeaddrinfo(ptr noundef %this.val.val.i243) #46
   br label %ehcleanup179
 
 ehcleanup179:                                     ; preds = %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244", %lpad
-  %ehselector.slot.8 = phi i32 [ %2, %lpad ], [ %ehselector.slot.7, %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244" ]
-  %exn.slot.8 = phi ptr [ %1, %lpad ], [ %exn.slot.7, %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244" ]
+  %lpad.val185.merged = phi { ptr, i32 } [ %0, %lpad ], [ %.merged, %"_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit244" ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %sport) #46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res0) #46
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints) #46
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.8, 0
-  %lpad.val185 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.8, 1
-  resume { ptr, i32 } %lpad.val185
+  resume { ptr, i32 } %lpad.val185.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup158
-  %54 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #45
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #45
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont171, %if.end153

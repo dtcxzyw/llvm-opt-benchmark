@@ -24,7 +24,7 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
 
 6:                                                ; preds = %4
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str) #4
-  br label %615
+  br label %617
 
 7:                                                ; preds = %4
   %8 = inttoptr i64 %2 to ptr
@@ -82,7 +82,7 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
     i32 75, label %.split741.us
     i32 76, label %.outer
     i32 80, label %.split747.us
-    i32 90, label %.outer.loopexit3102
+    i32 90, label %.outer.loopexit3101
     i32 100, label %.split752.us
     i32 101, label %.split755.us
     i32 102, label %.split759.us
@@ -902,566 +902,566 @@ OGLRenderQueue_CheckPreviousOp.exit467:           ; preds = %.split801.us, %389
 
 .split1296.us:                                    ; preds = %.lr.ph.split.split.split.split
   %390 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
-  %.pre = load i64, ptr %390, align 8
   %391 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
-  %.not458 = icmp eq i64 %.pre, 0
+  %392 = load i64, ptr %390, align 8
+  %.not458 = icmp eq i64 %392, 0
   br i1 %.not458, label %.outer, label %.split796.us
 
 .split796.us:                                     ; preds = %.split1296.us
-  %392 = inttoptr i64 %.pre to ptr
-  %393 = load i32, ptr @previousOp, align 4
-  switch i32 %393, label %401 [
+  %393 = inttoptr i64 %392 to ptr
+  %394 = load i32, ptr @previousOp, align 4
+  switch i32 %394, label %402 [
     i32 -1, label %OGLRenderQueue_CheckPreviousOp.exit468
-    i32 3553, label %394
-    i32 34037, label %394
-    i32 -3, label %398
-    i32 -4, label %399
-    i32 -5, label %400
-    i32 -2, label %403
+    i32 3553, label %395
+    i32 34037, label %395
+    i32 -3, label %399
+    i32 -4, label %400
+    i32 -5, label %401
+    i32 -2, label %404
   ]
 
-394:                                              ; preds = %.split796.us, %.split796.us
-  %395 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %395(i32 noundef %393) #4
-  %396 = load ptr, ptr @j2d_glBindTexture, align 8
-  %397 = load i32, ptr @previousOp, align 4
-  tail call void %396(i32 noundef %397, i32 noundef 0) #4
-  br label %403
-
-398:                                              ; preds = %.split796.us
-  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
-  br label %403
+395:                                              ; preds = %.split796.us, %.split796.us
+  %396 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %396(i32 noundef %394) #4
+  %397 = load ptr, ptr @j2d_glBindTexture, align 8
+  %398 = load i32, ptr @previousOp, align 4
+  tail call void %397(i32 noundef %398, i32 noundef 0) #4
+  br label %404
 
 399:                                              ; preds = %.split796.us
-  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
-  br label %403
+  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
+  br label %404
 
 400:                                              ; preds = %.split796.us
-  tail call void (...) @OGLRenderer_DisableAAParallelogramProgram() #4
-  br label %403
+  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
+  br label %404
 
 401:                                              ; preds = %.split796.us
-  %402 = load ptr, ptr @j2d_glEnd, align 8
-  tail call void %402() #4
-  br label %403
+  tail call void (...) @OGLRenderer_DisableAAParallelogramProgram() #4
+  br label %404
 
-403:                                              ; preds = %.split796.us, %401, %400, %399, %398, %394
+402:                                              ; preds = %.split796.us
+  %403 = load ptr, ptr @j2d_glEnd, align 8
+  tail call void %403() #4
+  br label %404
+
+404:                                              ; preds = %.split796.us, %402, %401, %400, %399, %395
   store i32 -1, ptr @previousOp, align 4
   br label %OGLRenderQueue_CheckPreviousOp.exit468
 
-OGLRenderQueue_CheckPreviousOp.exit468:           ; preds = %.split796.us, %403
-  tail call void @OGLSD_Delete(ptr noundef %0, ptr noundef nonnull %392) #4
-  %404 = getelementptr inbounds i8, ptr %392, i64 56
-  %405 = load ptr, ptr %404, align 8
-  %.not459 = icmp eq ptr %405, null
-  br i1 %.not459, label %.outer, label %406
+OGLRenderQueue_CheckPreviousOp.exit468:           ; preds = %.split796.us, %404
+  tail call void @OGLSD_Delete(ptr noundef %0, ptr noundef nonnull %393) #4
+  %405 = getelementptr inbounds i8, ptr %393, i64 56
+  %406 = load ptr, ptr %405, align 8
+  %.not459 = icmp eq ptr %406, null
+  br i1 %.not459, label %.outer, label %407
 
-406:                                              ; preds = %OGLRenderQueue_CheckPreviousOp.exit468
-  tail call void @free(ptr noundef nonnull %405) #4
+407:                                              ; preds = %OGLRenderQueue_CheckPreviousOp.exit468
+  tail call void @free(ptr noundef nonnull %406) #4
   br label %.outer
 
 .split1020.us:                                    ; preds = %.lr.ph.split.split.split.split
-  %407 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
-  %.pre2803 = load i64, ptr %407, align 8
-  %408 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
-  %409 = load i32, ptr @previousOp, align 4
-  switch i32 %409, label %417 [
+  %408 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %409 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
+  %410 = load i64, ptr %408, align 8
+  %411 = load i32, ptr @previousOp, align 4
+  switch i32 %411, label %419 [
     i32 -1, label %OGLRenderQueue_CheckPreviousOp.exit469
-    i32 3553, label %410
-    i32 34037, label %410
-    i32 -3, label %414
-    i32 -4, label %415
-    i32 -5, label %416
-    i32 -2, label %419
+    i32 3553, label %412
+    i32 34037, label %412
+    i32 -3, label %416
+    i32 -4, label %417
+    i32 -5, label %418
+    i32 -2, label %421
   ]
 
-410:                                              ; preds = %.split1020.us, %.split1020.us
-  %411 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %411(i32 noundef %409) #4
-  %412 = load ptr, ptr @j2d_glBindTexture, align 8
-  %413 = load i32, ptr @previousOp, align 4
-  tail call void %412(i32 noundef %413, i32 noundef 0) #4
-  br label %419
-
-414:                                              ; preds = %.split1020.us
-  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
-  br label %419
-
-415:                                              ; preds = %.split1020.us
-  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
-  br label %419
+412:                                              ; preds = %.split1020.us, %.split1020.us
+  %413 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %413(i32 noundef %411) #4
+  %414 = load ptr, ptr @j2d_glBindTexture, align 8
+  %415 = load i32, ptr @previousOp, align 4
+  tail call void %414(i32 noundef %415, i32 noundef 0) #4
+  br label %421
 
 416:                                              ; preds = %.split1020.us
-  tail call void (...) @OGLRenderer_DisableAAParallelogramProgram() #4
-  br label %419
+  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
+  br label %421
 
 417:                                              ; preds = %.split1020.us
-  %418 = load ptr, ptr @j2d_glEnd, align 8
-  tail call void %418() #4
-  br label %419
+  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
+  br label %421
 
-419:                                              ; preds = %.split1020.us, %417, %416, %415, %414, %410
+418:                                              ; preds = %.split1020.us
+  tail call void (...) @OGLRenderer_DisableAAParallelogramProgram() #4
+  br label %421
+
+419:                                              ; preds = %.split1020.us
+  %420 = load ptr, ptr @j2d_glEnd, align 8
+  tail call void %420() #4
+  br label %421
+
+421:                                              ; preds = %.split1020.us, %419, %418, %417, %416, %412
   store i32 -1, ptr @previousOp, align 4
   br label %OGLRenderQueue_CheckPreviousOp.exit469
 
-OGLRenderQueue_CheckPreviousOp.exit469:           ; preds = %.split1020.us, %419
-  tail call void @OGLGC_DestroyOGLGraphicsConfig(i64 noundef %.pre2803) #4
+OGLRenderQueue_CheckPreviousOp.exit469:           ; preds = %.split1020.us, %421
+  tail call void @OGLGC_DestroyOGLGraphicsConfig(i64 noundef %410) #4
   store ptr null, ptr @oglc, align 8
   store ptr null, ptr @dstOps, align 8
   br label %.outer
 
 .split741.us.thread:                              ; preds = %.lr.ph.split.split.split.split
-  %420 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
-  br label %421
+  %422 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  br label %423
 
 .split741.us:                                     ; preds = %.lr.ph.split.us
   %.not457 = icmp eq ptr %.fr1955, null
-  br i1 %.not457, label %434, label %421
+  br i1 %.not457, label %436, label %423
 
-421:                                              ; preds = %.split741.us.thread, %.split741.us
-  %.us-phi7422812 = phi ptr [ %420, %.split741.us.thread ], [ %14, %.split741.us ]
-  %422 = load i32, ptr @previousOp, align 4
-  switch i32 %422, label %430 [
+423:                                              ; preds = %.split741.us.thread, %.split741.us
+  %.us-phi7422811 = phi ptr [ %422, %.split741.us.thread ], [ %14, %.split741.us ]
+  %424 = load i32, ptr @previousOp, align 4
+  switch i32 %424, label %432 [
     i32 -1, label %OGLRenderQueue_CheckPreviousOp.exit470
-    i32 3553, label %423
-    i32 34037, label %423
-    i32 -3, label %427
-    i32 -4, label %428
-    i32 -5, label %429
-    i32 -2, label %432
+    i32 3553, label %425
+    i32 34037, label %425
+    i32 -3, label %429
+    i32 -4, label %430
+    i32 -5, label %431
+    i32 -2, label %434
   ]
 
-423:                                              ; preds = %421, %421
-  %424 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %424(i32 noundef %422) #4
-  %425 = load ptr, ptr @j2d_glBindTexture, align 8
-  %426 = load i32, ptr @previousOp, align 4
-  tail call void %425(i32 noundef %426, i32 noundef 0) #4
-  br label %432
+425:                                              ; preds = %423, %423
+  %426 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %426(i32 noundef %424) #4
+  %427 = load ptr, ptr @j2d_glBindTexture, align 8
+  %428 = load i32, ptr @previousOp, align 4
+  tail call void %427(i32 noundef %428, i32 noundef 0) #4
+  br label %434
 
-427:                                              ; preds = %421
+429:                                              ; preds = %423
   tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
-  br label %432
+  br label %434
 
-428:                                              ; preds = %421
+430:                                              ; preds = %423
   tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
-  br label %432
+  br label %434
 
-429:                                              ; preds = %421
+431:                                              ; preds = %423
   tail call void (...) @OGLRenderer_DisableAAParallelogramProgram() #4
-  br label %432
+  br label %434
 
-430:                                              ; preds = %421
-  %431 = load ptr, ptr @j2d_glEnd, align 8
-  tail call void %431() #4
-  br label %432
-
-432:                                              ; preds = %421, %430, %429, %428, %427, %423
-  store i32 -1, ptr @previousOp, align 4
-  br label %OGLRenderQueue_CheckPreviousOp.exit470
-
-OGLRenderQueue_CheckPreviousOp.exit470:           ; preds = %421, %432
-  %433 = load ptr, ptr @j2d_glFlush, align 8
+432:                                              ; preds = %423
+  %433 = load ptr, ptr @j2d_glEnd, align 8
   tail call void %433() #4
   br label %434
 
-434:                                              ; preds = %OGLRenderQueue_CheckPreviousOp.exit470, %.split741.us
-  %.us-phi7422813 = phi ptr [ %.us-phi7422812, %OGLRenderQueue_CheckPreviousOp.exit470 ], [ %14, %.split741.us ]
+434:                                              ; preds = %423, %432, %431, %430, %429, %425
+  store i32 -1, ptr @previousOp, align 4
+  br label %OGLRenderQueue_CheckPreviousOp.exit470
+
+OGLRenderQueue_CheckPreviousOp.exit470:           ; preds = %423, %434
+  %435 = load ptr, ptr @j2d_glFlush, align 8
+  tail call void %435() #4
+  br label %436
+
+436:                                              ; preds = %OGLRenderQueue_CheckPreviousOp.exit470, %.split741.us
+  %.us-phi7422812 = phi ptr [ %.us-phi7422811, %OGLRenderQueue_CheckPreviousOp.exit470 ], [ %14, %.split741.us ]
   store ptr null, ptr @oglc, align 8
   store ptr null, ptr @dstOps, align 8
   br label %.outer
 
 .split744.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %435 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %437 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.outer
 
 .split747.us.thread:                              ; preds = %.lr.ph.split.split.split.split
-  %436 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
-  %437 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
-  %438 = load i64, ptr %436, align 8
-  br label %441
+  %438 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %439 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
+  %440 = load i64, ptr %438, align 8
+  br label %443
 
 .split747.us:                                     ; preds = %.lr.ph.split.us
-  %439 = getelementptr inbounds i8, ptr %.0446631.us, i64 12
-  %440 = load i64, ptr %14, align 8
+  %441 = getelementptr inbounds i8, ptr %.0446631.us, i64 12
+  %442 = load i64, ptr %14, align 8
   %.not456 = icmp eq ptr %.fr1955, null
-  br i1 %.not456, label %OGLRenderQueue_CheckPreviousOp.exit471, label %441
+  br i1 %.not456, label %OGLRenderQueue_CheckPreviousOp.exit471, label %443
 
-441:                                              ; preds = %.split747.us.thread, %.split747.us
-  %442 = phi i64 [ %438, %.split747.us.thread ], [ %440, %.split747.us ]
-  %443 = phi ptr [ %437, %.split747.us.thread ], [ %439, %.split747.us ]
-  %444 = load i32, ptr @previousOp, align 4
-  switch i32 %444, label %452 [
+443:                                              ; preds = %.split747.us.thread, %.split747.us
+  %444 = phi i64 [ %440, %.split747.us.thread ], [ %442, %.split747.us ]
+  %445 = phi ptr [ %439, %.split747.us.thread ], [ %441, %.split747.us ]
+  %446 = load i32, ptr @previousOp, align 4
+  switch i32 %446, label %454 [
     i32 -1, label %OGLRenderQueue_CheckPreviousOp.exit471
-    i32 3553, label %445
-    i32 34037, label %445
-    i32 -3, label %449
-    i32 -4, label %450
-    i32 -5, label %451
-    i32 -2, label %454
+    i32 3553, label %447
+    i32 34037, label %447
+    i32 -3, label %451
+    i32 -4, label %452
+    i32 -5, label %453
+    i32 -2, label %456
   ]
 
-445:                                              ; preds = %441, %441
-  %446 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %446(i32 noundef %444) #4
-  %447 = load ptr, ptr @j2d_glBindTexture, align 8
-  %448 = load i32, ptr @previousOp, align 4
-  tail call void %447(i32 noundef %448, i32 noundef 0) #4
-  br label %454
+447:                                              ; preds = %443, %443
+  %448 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %448(i32 noundef %446) #4
+  %449 = load ptr, ptr @j2d_glBindTexture, align 8
+  %450 = load i32, ptr @previousOp, align 4
+  tail call void %449(i32 noundef %450, i32 noundef 0) #4
+  br label %456
 
-449:                                              ; preds = %441
+451:                                              ; preds = %443
   tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %.fr1955) #4
-  br label %454
+  br label %456
 
-450:                                              ; preds = %441
+452:                                              ; preds = %443
   tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %.fr1955) #4
-  br label %454
+  br label %456
 
-451:                                              ; preds = %441
+453:                                              ; preds = %443
   tail call void (...) @OGLRenderer_DisableAAParallelogramProgram() #4
-  br label %454
+  br label %456
 
-452:                                              ; preds = %441
-  %453 = load ptr, ptr @j2d_glEnd, align 8
-  tail call void %453() #4
-  br label %454
+454:                                              ; preds = %443
+  %455 = load ptr, ptr @j2d_glEnd, align 8
+  tail call void %455() #4
+  br label %456
 
-454:                                              ; preds = %441, %452, %451, %450, %449, %445
+456:                                              ; preds = %443, %454, %453, %452, %451, %447
   store i32 -1, ptr @previousOp, align 4
   br label %OGLRenderQueue_CheckPreviousOp.exit471
 
-OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %441, %454, %.split747.us
-  %455 = phi i64 [ %442, %441 ], [ %442, %454 ], [ %440, %.split747.us ]
-  %456 = phi ptr [ %443, %441 ], [ %443, %454 ], [ %439, %.split747.us ]
-  tail call void @OGLSD_SwapBuffers(ptr noundef %0, i64 noundef %455) #4
+OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split747.us
+  %457 = phi i64 [ %444, %443 ], [ %444, %456 ], [ %442, %.split747.us ]
+  %458 = phi ptr [ %445, %443 ], [ %445, %456 ], [ %441, %.split747.us ]
+  tail call void @OGLSD_SwapBuffers(ptr noundef %0, i64 noundef %457) #4
   br label %.outer
 
 .split752.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %457 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %459 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split752.us
 
 .split752.us:                                     ; preds = %.lr.ph.split.us, %.split752.split.split
-  %.us-phi753 = phi ptr [ %457, %.split752.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi753 = phi ptr [ %459, %.split752.split.split ], [ %14, %.lr.ph.split.us ]
   tail call void @OGLPaints_ResetPaint(ptr noundef %.fr1955) #4
   br label %.outer
 
 .split755.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %458 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %460 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split755.us
 
 .split755.us:                                     ; preds = %.lr.ph.split.us, %.split755.split.split
-  %.us-phi756 = phi ptr [ %458, %.split755.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi756 = phi ptr [ %460, %.split755.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi757 = phi ptr [ %.0446.ph1812, %.split755.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %459 = getelementptr inbounds i8, ptr %.us-phi757, i64 8
-  %460 = load i32, ptr %.us-phi756, align 4
-  tail call void @OGLPaints_SetColor(ptr noundef %.fr1955, i32 noundef %460) #4
+  %461 = getelementptr inbounds i8, ptr %.us-phi757, i64 8
+  %462 = load i32, ptr %.us-phi756, align 4
+  tail call void @OGLPaints_SetColor(ptr noundef %.fr1955, i32 noundef %462) #4
   br label %.outer
 
 .split759.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %461 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %463 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split759.us
 
 .split759.us:                                     ; preds = %.lr.ph.split.us, %.split759.split.split
-  %.us-phi760 = phi ptr [ %461, %.split759.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi760 = phi ptr [ %463, %.split759.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi761 = phi ptr [ %.0446.ph1812, %.split759.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %462 = load i32, ptr %.us-phi760, align 4
-  %463 = trunc i32 %462 to i8
-  %464 = getelementptr inbounds i8, ptr %.us-phi761, i64 8
-  %465 = load i32, ptr %464, align 4
-  %466 = trunc i32 %465 to i8
-  %467 = getelementptr inbounds i8, ptr %.us-phi761, i64 12
-  %468 = load double, ptr %467, align 8
-  %469 = getelementptr inbounds i8, ptr %.us-phi761, i64 20
+  %464 = load i32, ptr %.us-phi760, align 4
+  %465 = trunc i32 %464 to i8
+  %466 = getelementptr inbounds i8, ptr %.us-phi761, i64 8
+  %467 = load i32, ptr %466, align 4
+  %468 = trunc i32 %467 to i8
+  %469 = getelementptr inbounds i8, ptr %.us-phi761, i64 12
   %470 = load double, ptr %469, align 8
-  %471 = getelementptr inbounds i8, ptr %.us-phi761, i64 28
+  %471 = getelementptr inbounds i8, ptr %.us-phi761, i64 20
   %472 = load double, ptr %471, align 8
-  %473 = getelementptr inbounds i8, ptr %.us-phi761, i64 36
-  %474 = load i32, ptr %473, align 4
-  %475 = getelementptr inbounds i8, ptr %.us-phi761, i64 44
-  %476 = getelementptr inbounds i8, ptr %.us-phi761, i64 40
-  %477 = load i32, ptr %476, align 4
-  tail call void @OGLPaints_SetGradientPaint(ptr noundef %.fr1955, i8 noundef zeroext %463, i8 noundef zeroext %466, double noundef %468, double noundef %470, double noundef %472, i32 noundef %474, i32 noundef %477) #4
+  %473 = getelementptr inbounds i8, ptr %.us-phi761, i64 28
+  %474 = load double, ptr %473, align 8
+  %475 = getelementptr inbounds i8, ptr %.us-phi761, i64 36
+  %476 = load i32, ptr %475, align 4
+  %477 = getelementptr inbounds i8, ptr %.us-phi761, i64 44
+  %478 = getelementptr inbounds i8, ptr %.us-phi761, i64 40
+  %479 = load i32, ptr %478, align 4
+  tail call void @OGLPaints_SetGradientPaint(ptr noundef %.fr1955, i8 noundef zeroext %465, i8 noundef zeroext %468, double noundef %470, double noundef %472, double noundef %474, i32 noundef %476, i32 noundef %479) #4
   br label %.outer
 
 .split763.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %478 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %480 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split763.us
 
 .split763.us:                                     ; preds = %.lr.ph.split.us, %.split763.split.split
-  %.us-phi764 = phi ptr [ %478, %.split763.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi764 = phi ptr [ %480, %.split763.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi765 = phi ptr [ %.0446.ph1812, %.split763.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %479 = load i32, ptr %.us-phi764, align 4
-  %480 = trunc i32 %479 to i8
-  %481 = getelementptr inbounds i8, ptr %.us-phi765, i64 8
-  %482 = load i32, ptr %481, align 4
-  %483 = trunc i32 %482 to i8
-  %484 = getelementptr inbounds i8, ptr %.us-phi765, i64 12
-  %485 = load i32, ptr %484, align 4
-  %486 = getelementptr inbounds i8, ptr %.us-phi765, i64 16
+  %481 = load i32, ptr %.us-phi764, align 4
+  %482 = trunc i32 %481 to i8
+  %483 = getelementptr inbounds i8, ptr %.us-phi765, i64 8
+  %484 = load i32, ptr %483, align 4
+  %485 = trunc i32 %484 to i8
+  %486 = getelementptr inbounds i8, ptr %.us-phi765, i64 12
   %487 = load i32, ptr %486, align 4
-  %488 = getelementptr inbounds i8, ptr %.us-phi765, i64 20
-  %489 = load float, ptr %488, align 4
-  %490 = getelementptr inbounds i8, ptr %.us-phi765, i64 24
+  %488 = getelementptr inbounds i8, ptr %.us-phi765, i64 16
+  %489 = load i32, ptr %488, align 4
+  %490 = getelementptr inbounds i8, ptr %.us-phi765, i64 20
   %491 = load float, ptr %490, align 4
-  %492 = getelementptr inbounds i8, ptr %.us-phi765, i64 32
-  %493 = getelementptr inbounds i8, ptr %.us-phi765, i64 28
-  %494 = load float, ptr %493, align 4
-  %495 = sext i32 %487 to i64
-  %496 = shl nsw i64 %495, 2
-  %497 = getelementptr inbounds i8, ptr %492, i64 %496
-  %498 = getelementptr inbounds i8, ptr %497, i64 %496
-  %499 = load ptr, ptr @dstOps, align 8
-  tail call void @OGLPaints_SetLinearGradientPaint(ptr noundef %.fr1955, ptr noundef %499, i8 noundef zeroext %480, i8 noundef zeroext %483, i32 noundef %485, i32 noundef %487, float noundef %489, float noundef %491, float noundef %494, ptr noundef nonnull %492, ptr noundef nonnull %497) #4
+  %492 = getelementptr inbounds i8, ptr %.us-phi765, i64 24
+  %493 = load float, ptr %492, align 4
+  %494 = getelementptr inbounds i8, ptr %.us-phi765, i64 32
+  %495 = getelementptr inbounds i8, ptr %.us-phi765, i64 28
+  %496 = load float, ptr %495, align 4
+  %497 = sext i32 %489 to i64
+  %498 = shl nsw i64 %497, 2
+  %499 = getelementptr inbounds i8, ptr %494, i64 %498
+  %500 = getelementptr inbounds i8, ptr %499, i64 %498
+  %501 = load ptr, ptr @dstOps, align 8
+  tail call void @OGLPaints_SetLinearGradientPaint(ptr noundef %.fr1955, ptr noundef %501, i8 noundef zeroext %482, i8 noundef zeroext %485, i32 noundef %487, i32 noundef %489, float noundef %491, float noundef %493, float noundef %496, ptr noundef nonnull %494, ptr noundef nonnull %499) #4
   br label %.outer
 
 .split767.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %500 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %502 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split767.us
 
 .split767.us:                                     ; preds = %.lr.ph.split.us, %.split767.split.split
-  %.us-phi768 = phi ptr [ %500, %.split767.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi768 = phi ptr [ %502, %.split767.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi769 = phi ptr [ %.0446.ph1812, %.split767.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %501 = load i32, ptr %.us-phi768, align 4
-  %502 = trunc i32 %501 to i8
-  %503 = getelementptr inbounds i8, ptr %.us-phi769, i64 8
-  %504 = load i32, ptr %503, align 4
-  %505 = trunc i32 %504 to i8
-  %506 = getelementptr inbounds i8, ptr %.us-phi769, i64 12
-  %507 = load i32, ptr %506, align 4
-  %508 = getelementptr inbounds i8, ptr %.us-phi769, i64 16
+  %503 = load i32, ptr %.us-phi768, align 4
+  %504 = trunc i32 %503 to i8
+  %505 = getelementptr inbounds i8, ptr %.us-phi769, i64 8
+  %506 = load i32, ptr %505, align 4
+  %507 = trunc i32 %506 to i8
+  %508 = getelementptr inbounds i8, ptr %.us-phi769, i64 12
   %509 = load i32, ptr %508, align 4
-  %510 = getelementptr inbounds i8, ptr %.us-phi769, i64 20
-  %511 = load float, ptr %510, align 4
-  %512 = getelementptr inbounds i8, ptr %.us-phi769, i64 24
+  %510 = getelementptr inbounds i8, ptr %.us-phi769, i64 16
+  %511 = load i32, ptr %510, align 4
+  %512 = getelementptr inbounds i8, ptr %.us-phi769, i64 20
   %513 = load float, ptr %512, align 4
-  %514 = getelementptr inbounds i8, ptr %.us-phi769, i64 28
+  %514 = getelementptr inbounds i8, ptr %.us-phi769, i64 24
   %515 = load float, ptr %514, align 4
-  %516 = getelementptr inbounds i8, ptr %.us-phi769, i64 32
+  %516 = getelementptr inbounds i8, ptr %.us-phi769, i64 28
   %517 = load float, ptr %516, align 4
-  %518 = getelementptr inbounds i8, ptr %.us-phi769, i64 36
+  %518 = getelementptr inbounds i8, ptr %.us-phi769, i64 32
   %519 = load float, ptr %518, align 4
-  %520 = getelementptr inbounds i8, ptr %.us-phi769, i64 40
+  %520 = getelementptr inbounds i8, ptr %.us-phi769, i64 36
   %521 = load float, ptr %520, align 4
-  %522 = getelementptr inbounds i8, ptr %.us-phi769, i64 48
-  %523 = getelementptr inbounds i8, ptr %.us-phi769, i64 44
-  %524 = load float, ptr %523, align 4
-  %525 = sext i32 %507 to i64
-  %526 = shl nsw i64 %525, 2
-  %527 = getelementptr inbounds i8, ptr %522, i64 %526
-  %528 = getelementptr inbounds i8, ptr %527, i64 %526
-  %529 = load ptr, ptr @dstOps, align 8
-  tail call void @OGLPaints_SetRadialGradientPaint(ptr noundef %.fr1955, ptr noundef %529, i8 noundef zeroext %502, i8 noundef zeroext %505, i32 noundef %509, i32 noundef %507, float noundef %511, float noundef %513, float noundef %515, float noundef %517, float noundef %519, float noundef %521, float noundef %524, ptr noundef nonnull %522, ptr noundef nonnull %527) #4
+  %522 = getelementptr inbounds i8, ptr %.us-phi769, i64 40
+  %523 = load float, ptr %522, align 4
+  %524 = getelementptr inbounds i8, ptr %.us-phi769, i64 48
+  %525 = getelementptr inbounds i8, ptr %.us-phi769, i64 44
+  %526 = load float, ptr %525, align 4
+  %527 = sext i32 %509 to i64
+  %528 = shl nsw i64 %527, 2
+  %529 = getelementptr inbounds i8, ptr %524, i64 %528
+  %530 = getelementptr inbounds i8, ptr %529, i64 %528
+  %531 = load ptr, ptr @dstOps, align 8
+  tail call void @OGLPaints_SetRadialGradientPaint(ptr noundef %.fr1955, ptr noundef %531, i8 noundef zeroext %504, i8 noundef zeroext %507, i32 noundef %511, i32 noundef %509, float noundef %513, float noundef %515, float noundef %517, float noundef %519, float noundef %521, float noundef %523, float noundef %526, ptr noundef nonnull %524, ptr noundef nonnull %529) #4
   br label %.outer
 
 .split771.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %530 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %532 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split771.us
 
 .split771.us:                                     ; preds = %.lr.ph.split.us, %.split771.split.split
-  %.us-phi772 = phi ptr [ %530, %.split771.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi772 = phi ptr [ %532, %.split771.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi773 = phi ptr [ %.0446.ph1812, %.split771.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %531 = load i32, ptr %.us-phi772, align 4
-  %532 = trunc i32 %531 to i8
-  %533 = getelementptr inbounds i8, ptr %.us-phi773, i64 8
-  %534 = load i32, ptr %533, align 4
-  %535 = trunc i32 %534 to i8
-  %536 = getelementptr inbounds i8, ptr %.us-phi773, i64 12
-  %537 = load i64, ptr %536, align 8
-  %538 = getelementptr inbounds i8, ptr %.us-phi773, i64 20
-  %539 = load double, ptr %538, align 8
-  %540 = getelementptr inbounds i8, ptr %.us-phi773, i64 28
+  %533 = load i32, ptr %.us-phi772, align 4
+  %534 = trunc i32 %533 to i8
+  %535 = getelementptr inbounds i8, ptr %.us-phi773, i64 8
+  %536 = load i32, ptr %535, align 4
+  %537 = trunc i32 %536 to i8
+  %538 = getelementptr inbounds i8, ptr %.us-phi773, i64 12
+  %539 = load i64, ptr %538, align 8
+  %540 = getelementptr inbounds i8, ptr %.us-phi773, i64 20
   %541 = load double, ptr %540, align 8
-  %542 = getelementptr inbounds i8, ptr %.us-phi773, i64 36
+  %542 = getelementptr inbounds i8, ptr %.us-phi773, i64 28
   %543 = load double, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %.us-phi773, i64 44
+  %544 = getelementptr inbounds i8, ptr %.us-phi773, i64 36
   %545 = load double, ptr %544, align 8
-  %546 = getelementptr inbounds i8, ptr %.us-phi773, i64 52
+  %546 = getelementptr inbounds i8, ptr %.us-phi773, i64 44
   %547 = load double, ptr %546, align 8
-  %548 = getelementptr inbounds i8, ptr %.us-phi773, i64 68
-  %549 = getelementptr inbounds i8, ptr %.us-phi773, i64 60
-  %550 = load double, ptr %549, align 8
-  tail call void @OGLPaints_SetTexturePaint(ptr noundef %.fr1955, i8 noundef zeroext %532, i64 noundef %537, i8 noundef zeroext %535, double noundef %539, double noundef %541, double noundef %543, double noundef %545, double noundef %547, double noundef %550) #4
+  %548 = getelementptr inbounds i8, ptr %.us-phi773, i64 52
+  %549 = load double, ptr %548, align 8
+  %550 = getelementptr inbounds i8, ptr %.us-phi773, i64 68
+  %551 = getelementptr inbounds i8, ptr %.us-phi773, i64 60
+  %552 = load double, ptr %551, align 8
+  tail call void @OGLPaints_SetTexturePaint(ptr noundef %.fr1955, i8 noundef zeroext %534, i64 noundef %539, i8 noundef zeroext %537, double noundef %541, double noundef %543, double noundef %545, double noundef %547, double noundef %549, double noundef %552) #4
   br label %.outer
 
 .split775.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %551 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %553 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split775.us
 
 .split775.us:                                     ; preds = %.lr.ph.split.us, %.split775.split.split
-  %.us-phi776 = phi ptr [ %551, %.split775.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi776 = phi ptr [ %553, %.split775.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi777 = phi ptr [ %.0446.ph1812, %.split775.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %552 = load i64, ptr %.us-phi776, align 8
-  %553 = getelementptr inbounds i8, ptr %.us-phi777, i64 12
-  %554 = load i32, ptr %553, align 4
-  %555 = trunc i32 %554 to i8
-  %556 = getelementptr inbounds i8, ptr %.us-phi777, i64 16
-  %557 = load i32, ptr %556, align 4
-  %558 = getelementptr inbounds i8, ptr %.us-phi777, i64 24
-  %559 = getelementptr inbounds i8, ptr %.us-phi777, i64 20
-  %560 = load i32, ptr %559, align 4
-  tail call void @OGLBufImgOps_EnableConvolveOp(ptr noundef %.fr1955, i64 noundef %552, i8 noundef zeroext %555, i32 noundef %557, i32 noundef %560, ptr noundef nonnull %558) #4
-  %561 = mul nsw i32 %560, %557
-  %562 = sext i32 %561 to i64
-  %563 = shl nsw i64 %562, 2
-  %564 = getelementptr inbounds i8, ptr %558, i64 %563
+  %554 = load i64, ptr %.us-phi776, align 8
+  %555 = getelementptr inbounds i8, ptr %.us-phi777, i64 12
+  %556 = load i32, ptr %555, align 4
+  %557 = trunc i32 %556 to i8
+  %558 = getelementptr inbounds i8, ptr %.us-phi777, i64 16
+  %559 = load i32, ptr %558, align 4
+  %560 = getelementptr inbounds i8, ptr %.us-phi777, i64 24
+  %561 = getelementptr inbounds i8, ptr %.us-phi777, i64 20
+  %562 = load i32, ptr %561, align 4
+  tail call void @OGLBufImgOps_EnableConvolveOp(ptr noundef %.fr1955, i64 noundef %554, i8 noundef zeroext %557, i32 noundef %559, i32 noundef %562, ptr noundef nonnull %560) #4
+  %563 = mul nsw i32 %562, %559
+  %564 = sext i32 %563 to i64
+  %565 = shl nsw i64 %564, 2
+  %566 = getelementptr inbounds i8, ptr %560, i64 %565
   br label %.outer
 
 .split779.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %565 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %567 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split779.us
 
 .split779.us:                                     ; preds = %.lr.ph.split.us, %.split779.split.split
-  %.us-phi780 = phi ptr [ %565, %.split779.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi780 = phi ptr [ %567, %.split779.split.split ], [ %14, %.lr.ph.split.us ]
   tail call void @OGLBufImgOps_DisableConvolveOp(ptr noundef %.fr1955) #4
   br label %.outer
 
 .split782.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %566 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %568 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split782.us
 
 .split782.us:                                     ; preds = %.lr.ph.split.us, %.split782.split.split
-  %.us-phi783 = phi ptr [ %566, %.split782.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi783 = phi ptr [ %568, %.split782.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi784 = phi ptr [ %.0446.ph1812, %.split782.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %567 = load i64, ptr %.us-phi783, align 8
-  %568 = getelementptr inbounds i8, ptr %.us-phi784, i64 16
-  %569 = getelementptr inbounds i8, ptr %.us-phi784, i64 12
-  %570 = load i32, ptr %569, align 4
-  %571 = trunc i32 %570 to i8
-  %572 = getelementptr inbounds i8, ptr %.us-phi784, i64 32
-  tail call void @OGLBufImgOps_EnableRescaleOp(ptr noundef %.fr1955, i64 noundef %567, i8 noundef zeroext %571, ptr noundef nonnull %568, ptr noundef nonnull %572) #4
-  %573 = getelementptr inbounds i8, ptr %.us-phi784, i64 48
+  %569 = load i64, ptr %.us-phi783, align 8
+  %570 = getelementptr inbounds i8, ptr %.us-phi784, i64 16
+  %571 = getelementptr inbounds i8, ptr %.us-phi784, i64 12
+  %572 = load i32, ptr %571, align 4
+  %573 = trunc i32 %572 to i8
+  %574 = getelementptr inbounds i8, ptr %.us-phi784, i64 32
+  tail call void @OGLBufImgOps_EnableRescaleOp(ptr noundef %.fr1955, i64 noundef %569, i8 noundef zeroext %573, ptr noundef nonnull %570, ptr noundef nonnull %574) #4
+  %575 = getelementptr inbounds i8, ptr %.us-phi784, i64 48
   br label %.outer
 
 .split786.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %574 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %576 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split786.us
 
 .split786.us:                                     ; preds = %.lr.ph.split.us, %.split786.split.split
-  %.us-phi787 = phi ptr [ %574, %.split786.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi787 = phi ptr [ %576, %.split786.split.split ], [ %14, %.lr.ph.split.us ]
   tail call void @OGLBufImgOps_DisableRescaleOp(ptr noundef %.fr1955) #4
   br label %.outer
 
 .split789.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %575 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %577 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split789.us
 
 .split789.us:                                     ; preds = %.lr.ph.split.us, %.split789.split.split
-  %.us-phi790 = phi ptr [ %575, %.split789.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi790 = phi ptr [ %577, %.split789.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi791 = phi ptr [ %.0446.ph1812, %.split789.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %576 = load i64, ptr %.us-phi790, align 8
-  %577 = getelementptr inbounds i8, ptr %.us-phi791, i64 12
-  %578 = load i32, ptr %577, align 4
-  %579 = trunc i32 %578 to i8
-  %580 = getelementptr inbounds i8, ptr %.us-phi791, i64 16
-  %581 = load i32, ptr %580, align 4
-  %582 = trunc i32 %581 to i8
-  %583 = getelementptr inbounds i8, ptr %.us-phi791, i64 20
-  %584 = load i32, ptr %583, align 4
-  %585 = getelementptr inbounds i8, ptr %.us-phi791, i64 24
+  %578 = load i64, ptr %.us-phi790, align 8
+  %579 = getelementptr inbounds i8, ptr %.us-phi791, i64 12
+  %580 = load i32, ptr %579, align 4
+  %581 = trunc i32 %580 to i8
+  %582 = getelementptr inbounds i8, ptr %.us-phi791, i64 16
+  %583 = load i32, ptr %582, align 4
+  %584 = trunc i32 %583 to i8
+  %585 = getelementptr inbounds i8, ptr %.us-phi791, i64 20
   %586 = load i32, ptr %585, align 4
-  %587 = getelementptr inbounds i8, ptr %.us-phi791, i64 32
-  %588 = getelementptr inbounds i8, ptr %.us-phi791, i64 28
-  %589 = load i32, ptr %588, align 4
-  %590 = and i32 %581, 255
-  %.not455 = icmp ne i32 %590, 0
-  tail call void @OGLBufImgOps_EnableLookupOp(ptr noundef %.fr1955, i64 noundef %576, i8 noundef zeroext %579, i8 noundef zeroext %582, i32 noundef %584, i32 noundef %586, i32 noundef %589, ptr noundef nonnull %587) #4
-  %591 = mul nsw i32 %586, %584
-  %592 = zext i1 %.not455 to i32
-  %593 = shl i32 %591, %592
-  %594 = sext i32 %593 to i64
-  %595 = getelementptr inbounds i8, ptr %587, i64 %594
+  %587 = getelementptr inbounds i8, ptr %.us-phi791, i64 24
+  %588 = load i32, ptr %587, align 4
+  %589 = getelementptr inbounds i8, ptr %.us-phi791, i64 32
+  %590 = getelementptr inbounds i8, ptr %.us-phi791, i64 28
+  %591 = load i32, ptr %590, align 4
+  %592 = and i32 %583, 255
+  %.not455 = icmp ne i32 %592, 0
+  tail call void @OGLBufImgOps_EnableLookupOp(ptr noundef %.fr1955, i64 noundef %578, i8 noundef zeroext %581, i8 noundef zeroext %584, i32 noundef %586, i32 noundef %588, i32 noundef %591, ptr noundef nonnull %589) #4
+  %593 = mul nsw i32 %588, %586
+  %594 = zext i1 %.not455 to i32
+  %595 = shl i32 %593, %594
+  %596 = sext i32 %595 to i64
+  %597 = getelementptr inbounds i8, ptr %589, i64 %596
   br label %.outer
 
 .split793.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %596 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %598 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.split793.us
 
 .split793.us:                                     ; preds = %.lr.ph.split.us, %.split793.split.split
-  %.us-phi794 = phi ptr [ %596, %.split793.split.split ], [ %14, %.lr.ph.split.us ]
+  %.us-phi794 = phi ptr [ %598, %.split793.split.split ], [ %14, %.lr.ph.split.us ]
   tail call void @OGLBufImgOps_DisableLookupOp(ptr noundef %.fr1955) #4
   br label %.outer
 
 .split.us:                                        ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.us
   %.us-phi = phi i32 [ %15, %.lr.ph.split.us ], [ %27, %.lr.ph.split.split.split.split ]
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.1, i32 noundef %.us-phi) #4
-  %597 = load ptr, ptr @oglc, align 8
-  %.not465 = icmp eq ptr %597, null
-  br i1 %.not465, label %615, label %598
+  %599 = load ptr, ptr @oglc, align 8
+  %.not465 = icmp eq ptr %599, null
+  br i1 %.not465, label %617, label %600
 
-598:                                              ; preds = %.split.us
+600:                                              ; preds = %.split.us
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1)
-  br label %615
+  br label %617
 
 .loopexit.split.split.loopexit.split.loopexit:    ; preds = %.lr.ph.split.split.split.split
-  %599 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %601 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
   br label %.outer
 
-.outer.loopexit3102:                              ; preds = %.lr.ph.split.us
+.outer.loopexit3101:                              ; preds = %.lr.ph.split.us
   br label %.outer
 
-.outer:                                           ; preds = %21, %18, %.lr.ph.split.us, %.outer.loopexit3102, %.split1296.us, %.split1586.us, %.loopexit.split.split.loopexit.split.loopexit, %.split744.split.split, %406, %OGLRenderQueue_CheckPreviousOp.exit468, %OGLRenderQueue_CheckPreviousOp.exit467, %222, %225, %.split793.us, %.split789.us, %.split786.us, %.split782.us, %.split779.us, %.split775.us, %.split771.us, %.split767.us, %.split763.us, %.split759.us, %.split755.us, %.split752.us, %OGLRenderQueue_CheckPreviousOp.exit471, %434, %OGLRenderQueue_CheckPreviousOp.exit469, %OGLRenderQueue_CheckPreviousOp.exit466, %OGLRenderQueue_CheckPreviousOp.exit, %.split730.us, %.split726.us, %.split723.us, %.split719.us, %.split715.us, %.split712.us, %.split709.us, %.split705.us, %.split702.us, %.split698.us, %.split694.us, %.split690.us, %.split686.us, %.split678.us, %.split674.us, %.split670.us, %.split666.us, %.split662.us, %.split658.us, %.split654.us, %.split650.us, %.split646.us, %.split806.us, %.split642.us, %.split638.us, %.split634.us
-  %.1447 = phi ptr [ %.us-phi794, %.split793.us ], [ %595, %.split789.us ], [ %.us-phi787, %.split786.us ], [ %573, %.split782.us ], [ %.us-phi780, %.split779.us ], [ %564, %.split775.us ], [ %548, %.split771.us ], [ %528, %.split767.us ], [ %498, %.split763.us ], [ %475, %.split759.us ], [ %459, %.split755.us ], [ %.us-phi753, %.split752.us ], [ %456, %OGLRenderQueue_CheckPreviousOp.exit471 ], [ %.us-phi7422813, %434 ], [ %408, %OGLRenderQueue_CheckPreviousOp.exit469 ], [ %391, %406 ], [ %391, %OGLRenderQueue_CheckPreviousOp.exit468 ], [ %376, %OGLRenderQueue_CheckPreviousOp.exit467 ], [ %373, %OGLRenderQueue_CheckPreviousOp.exit466 ], [ %349, %OGLRenderQueue_CheckPreviousOp.exit ], [ %.us-phi731, %.split730.us ], [ %320, %.split726.us ], [ %.us-phi724, %.split723.us ], [ %307, %.split719.us ], [ %303, %.split715.us ], [ %.us-phi713, %.split712.us ], [ %.us-phi710, %.split709.us ], [ %295, %.split705.us ], [ %.us-phi703, %.split702.us ], [ %285, %.split698.us ], [ %278, %.split694.us ], [ %265, %.split690.us ], [ %244, %.split686.us ], [ %211, %222 ], [ %211, %225 ], [ %187, %.split678.us ], [ %176, %.split674.us ], [ %148, %.split670.us ], [ %135, %.split666.us ], [ %124, %.split662.us ], [ %116, %.split658.us ], [ %106, %.split654.us ], [ %89, %.split650.us ], [ %74, %.split646.us ], [ %61, %.split806.us ], [ %59, %.split642.us ], [ %43, %.split638.us ], [ %34, %.split634.us ], [ %435, %.split744.split.split ], [ %391, %.split1296.us ], [ %376, %.split1586.us ], [ %599, %.loopexit.split.split.loopexit.split.loopexit ], [ %14, %.lr.ph.split.us ], [ %22, %21 ], [ %19, %18 ], [ %14, %.outer.loopexit3102 ]
-  %.1 = phi i8 [ %.0.ph1813, %.split793.us ], [ %.0.ph1813, %.split789.us ], [ %.0.ph1813, %.split786.us ], [ %.0.ph1813, %.split782.us ], [ %.0.ph1813, %.split779.us ], [ %.0.ph1813, %.split775.us ], [ %.0.ph1813, %.split771.us ], [ %.0.ph1813, %.split767.us ], [ %.0.ph1813, %.split763.us ], [ %.0.ph1813, %.split759.us ], [ %.0.ph1813, %.split755.us ], [ %.0.ph1813, %.split752.us ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit471 ], [ %.0.ph1813, %434 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit469 ], [ %.0.ph1813, %406 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit468 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit467 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit466 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit ], [ %.0.ph1813, %.split730.us ], [ %.0.ph1813, %.split726.us ], [ %.0.ph1813, %.split723.us ], [ %.0.ph1813, %.split719.us ], [ %.0.ph1813, %.split715.us ], [ %.0.ph1813, %.split712.us ], [ %.0.ph1813, %.split709.us ], [ %.0.ph1813, %.split705.us ], [ %.0.ph1813, %.split702.us ], [ %.0.ph1813, %.split698.us ], [ %.0.ph1813, %.split694.us ], [ %.0.ph1813, %.split690.us ], [ %.0.ph1813, %.split686.us ], [ %.0.ph1813, %222 ], [ %.0.ph1813, %225 ], [ %.0.ph1813, %.split678.us ], [ %.0.ph1813, %.split674.us ], [ %.0.ph1813, %.split670.us ], [ %.0.ph1813, %.split666.us ], [ %.0.ph1813, %.split662.us ], [ %.0.ph1813, %.split658.us ], [ %.0.ph1813, %.split654.us ], [ %.0.ph1813, %.split650.us ], [ %.0.ph1813, %.split646.us ], [ %.0.ph1813, %.split806.us ], [ %.0.ph1813, %.split642.us ], [ %.0.ph1813, %.split638.us ], [ %.0.ph1813, %.split634.us ], [ 1, %.split744.split.split ], [ %.0.ph1813, %.split1296.us ], [ %.0.ph1813, %.split1586.us ], [ %.0.ph1813, %.loopexit.split.split.loopexit.split.loopexit ], [ 1, %.lr.ph.split.us ], [ %.0.ph1813, %18 ], [ %.0.ph1813, %21 ], [ %.0.ph1813, %.outer.loopexit3102 ]
-  %600 = icmp ult ptr %.1447, %10
-  br i1 %600, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !6
+.outer:                                           ; preds = %21, %18, %.lr.ph.split.us, %.outer.loopexit3101, %.split1296.us, %.split1586.us, %.loopexit.split.split.loopexit.split.loopexit, %.split744.split.split, %407, %OGLRenderQueue_CheckPreviousOp.exit468, %OGLRenderQueue_CheckPreviousOp.exit467, %222, %225, %.split793.us, %.split789.us, %.split786.us, %.split782.us, %.split779.us, %.split775.us, %.split771.us, %.split767.us, %.split763.us, %.split759.us, %.split755.us, %.split752.us, %OGLRenderQueue_CheckPreviousOp.exit471, %436, %OGLRenderQueue_CheckPreviousOp.exit469, %OGLRenderQueue_CheckPreviousOp.exit466, %OGLRenderQueue_CheckPreviousOp.exit, %.split730.us, %.split726.us, %.split723.us, %.split719.us, %.split715.us, %.split712.us, %.split709.us, %.split705.us, %.split702.us, %.split698.us, %.split694.us, %.split690.us, %.split686.us, %.split678.us, %.split674.us, %.split670.us, %.split666.us, %.split662.us, %.split658.us, %.split654.us, %.split650.us, %.split646.us, %.split806.us, %.split642.us, %.split638.us, %.split634.us
+  %.1447 = phi ptr [ %.us-phi794, %.split793.us ], [ %597, %.split789.us ], [ %.us-phi787, %.split786.us ], [ %575, %.split782.us ], [ %.us-phi780, %.split779.us ], [ %566, %.split775.us ], [ %550, %.split771.us ], [ %530, %.split767.us ], [ %500, %.split763.us ], [ %477, %.split759.us ], [ %461, %.split755.us ], [ %.us-phi753, %.split752.us ], [ %458, %OGLRenderQueue_CheckPreviousOp.exit471 ], [ %.us-phi7422812, %436 ], [ %409, %OGLRenderQueue_CheckPreviousOp.exit469 ], [ %391, %407 ], [ %391, %OGLRenderQueue_CheckPreviousOp.exit468 ], [ %376, %OGLRenderQueue_CheckPreviousOp.exit467 ], [ %373, %OGLRenderQueue_CheckPreviousOp.exit466 ], [ %349, %OGLRenderQueue_CheckPreviousOp.exit ], [ %.us-phi731, %.split730.us ], [ %320, %.split726.us ], [ %.us-phi724, %.split723.us ], [ %307, %.split719.us ], [ %303, %.split715.us ], [ %.us-phi713, %.split712.us ], [ %.us-phi710, %.split709.us ], [ %295, %.split705.us ], [ %.us-phi703, %.split702.us ], [ %285, %.split698.us ], [ %278, %.split694.us ], [ %265, %.split690.us ], [ %244, %.split686.us ], [ %211, %222 ], [ %211, %225 ], [ %187, %.split678.us ], [ %176, %.split674.us ], [ %148, %.split670.us ], [ %135, %.split666.us ], [ %124, %.split662.us ], [ %116, %.split658.us ], [ %106, %.split654.us ], [ %89, %.split650.us ], [ %74, %.split646.us ], [ %61, %.split806.us ], [ %59, %.split642.us ], [ %43, %.split638.us ], [ %34, %.split634.us ], [ %437, %.split744.split.split ], [ %391, %.split1296.us ], [ %376, %.split1586.us ], [ %601, %.loopexit.split.split.loopexit.split.loopexit ], [ %14, %.lr.ph.split.us ], [ %22, %21 ], [ %19, %18 ], [ %14, %.outer.loopexit3101 ]
+  %.1 = phi i8 [ %.0.ph1813, %.split793.us ], [ %.0.ph1813, %.split789.us ], [ %.0.ph1813, %.split786.us ], [ %.0.ph1813, %.split782.us ], [ %.0.ph1813, %.split779.us ], [ %.0.ph1813, %.split775.us ], [ %.0.ph1813, %.split771.us ], [ %.0.ph1813, %.split767.us ], [ %.0.ph1813, %.split763.us ], [ %.0.ph1813, %.split759.us ], [ %.0.ph1813, %.split755.us ], [ %.0.ph1813, %.split752.us ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit471 ], [ %.0.ph1813, %436 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit469 ], [ %.0.ph1813, %407 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit468 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit467 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit466 ], [ %.0.ph1813, %OGLRenderQueue_CheckPreviousOp.exit ], [ %.0.ph1813, %.split730.us ], [ %.0.ph1813, %.split726.us ], [ %.0.ph1813, %.split723.us ], [ %.0.ph1813, %.split719.us ], [ %.0.ph1813, %.split715.us ], [ %.0.ph1813, %.split712.us ], [ %.0.ph1813, %.split709.us ], [ %.0.ph1813, %.split705.us ], [ %.0.ph1813, %.split702.us ], [ %.0.ph1813, %.split698.us ], [ %.0.ph1813, %.split694.us ], [ %.0.ph1813, %.split690.us ], [ %.0.ph1813, %.split686.us ], [ %.0.ph1813, %222 ], [ %.0.ph1813, %225 ], [ %.0.ph1813, %.split678.us ], [ %.0.ph1813, %.split674.us ], [ %.0.ph1813, %.split670.us ], [ %.0.ph1813, %.split666.us ], [ %.0.ph1813, %.split662.us ], [ %.0.ph1813, %.split658.us ], [ %.0.ph1813, %.split654.us ], [ %.0.ph1813, %.split650.us ], [ %.0.ph1813, %.split646.us ], [ %.0.ph1813, %.split806.us ], [ %.0.ph1813, %.split642.us ], [ %.0.ph1813, %.split638.us ], [ %.0.ph1813, %.split634.us ], [ 1, %.split744.split.split ], [ %.0.ph1813, %.split1296.us ], [ %.0.ph1813, %.split1586.us ], [ %.0.ph1813, %.loopexit.split.split.loopexit.split.loopexit ], [ 1, %.lr.ph.split.us ], [ %.0.ph1813, %18 ], [ %.0.ph1813, %21 ], [ %.0.ph1813, %.outer.loopexit3101 ]
+  %602 = icmp ult ptr %.1447, %10
+  br i1 %602, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge.us, %7
   %.0.ph.lcssa628 = phi i8 [ 0, %7 ], [ %.0.ph1813, %.backedge.us ], [ %.1, %.outer ]
-  %601 = load ptr, ptr @oglc, align 8
-  %.not = icmp eq ptr %601, null
-  br i1 %.not, label %615, label %602
+  %603 = load ptr, ptr @oglc, align 8
+  %.not = icmp eq ptr %603, null
+  br i1 %.not, label %617, label %604
 
-602:                                              ; preds = %.outer._crit_edge
-  %603 = load i32, ptr @previousOp, align 4
-  switch i32 %603, label %611 [
+604:                                              ; preds = %.outer._crit_edge
+  %605 = load i32, ptr @previousOp, align 4
+  switch i32 %605, label %613 [
     i32 -1, label %OGLRenderQueue_CheckPreviousOp.exit472
-    i32 3553, label %604
-    i32 34037, label %604
-    i32 -3, label %608
-    i32 -4, label %609
-    i32 -5, label %610
-    i32 -2, label %613
+    i32 3553, label %606
+    i32 34037, label %606
+    i32 -3, label %610
+    i32 -4, label %611
+    i32 -5, label %612
+    i32 -2, label %615
   ]
 
-604:                                              ; preds = %602, %602
-  %605 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %605(i32 noundef %603) #4
-  %606 = load ptr, ptr @j2d_glBindTexture, align 8
-  %607 = load i32, ptr @previousOp, align 4
-  tail call void %606(i32 noundef %607, i32 noundef 0) #4
-  br label %613
+606:                                              ; preds = %604, %604
+  %607 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %607(i32 noundef %605) #4
+  %608 = load ptr, ptr @j2d_glBindTexture, align 8
+  %609 = load i32, ptr @previousOp, align 4
+  tail call void %608(i32 noundef %609, i32 noundef 0) #4
+  br label %615
 
-608:                                              ; preds = %602
-  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %601) #4
-  br label %613
+610:                                              ; preds = %604
+  tail call void @OGLVertexCache_DisableMaskCache(ptr noundef nonnull %603) #4
+  br label %615
 
-609:                                              ; preds = %602
-  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %601) #4
-  br label %613
+611:                                              ; preds = %604
+  tail call void @OGLTR_DisableGlyphVertexCache(ptr noundef nonnull %603) #4
+  br label %615
 
-610:                                              ; preds = %602
+612:                                              ; preds = %604
   tail call void (...) @OGLRenderer_DisableAAParallelogramProgram() #4
-  br label %613
+  br label %615
 
-611:                                              ; preds = %602
-  %612 = load ptr, ptr @j2d_glEnd, align 8
-  tail call void %612() #4
-  br label %613
+613:                                              ; preds = %604
+  %614 = load ptr, ptr @j2d_glEnd, align 8
+  tail call void %614() #4
+  br label %615
 
-613:                                              ; preds = %602, %611, %610, %609, %608, %604
+615:                                              ; preds = %604, %613, %612, %611, %610, %606
   store i32 -1, ptr @previousOp, align 4
   br label %OGLRenderQueue_CheckPreviousOp.exit472
 
-OGLRenderQueue_CheckPreviousOp.exit472:           ; preds = %602, %613
+OGLRenderQueue_CheckPreviousOp.exit472:           ; preds = %604, %615
   %.not454 = icmp eq i8 %.0.ph.lcssa628, 0
   %j2d_glFlush.val = load ptr, ptr @j2d_glFlush, align 8
   %j2d_glFinish.val = load ptr, ptr @j2d_glFinish, align 8
-  %614 = select i1 %.not454, ptr %j2d_glFlush.val, ptr %j2d_glFinish.val
-  tail call void %614() #4
+  %616 = select i1 %.not454, ptr %j2d_glFlush.val, ptr %j2d_glFinish.val
+  tail call void %616() #4
   tail call void @OGLSD_Flush(ptr noundef %0) #4
-  br label %615
+  br label %617
 
-615:                                              ; preds = %.split.us, %598, %OGLRenderQueue_CheckPreviousOp.exit472, %.outer._crit_edge, %6
+617:                                              ; preds = %.split.us, %600, %OGLRenderQueue_CheckPreviousOp.exit472, %.outer._crit_edge, %6
   ret void
 }
 

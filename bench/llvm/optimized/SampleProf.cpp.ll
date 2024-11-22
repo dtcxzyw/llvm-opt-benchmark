@@ -5054,18 +5054,18 @@ define dso_local void @_ZN4llvm10sampleprof20SampleContextTrimmer31trimAndMergeC
   %spec.select = and i1 %5, %not.
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sroa.059.075 = load ptr, ptr %18, align 8
-  %.not76 = icmp eq ptr %.sroa.059.075, null
-  br i1 %.not76, label %._crit_edge, label %.lr.ph
+  %.sroa.057.073 = load ptr, ptr %18, align 8
+  %.not74 = icmp eq ptr %.sroa.057.073, null
+  br i1 %.not74, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit
-  %.sroa.059.080 = phi ptr [ %.sroa.059.0, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit ], [ %.sroa.059.075, %16 ]
-  %.sroa.062.079 = phi ptr [ %.sroa.062.1, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit ], [ null, %16 ]
-  %.sroa.5.078 = phi ptr [ %.sroa.5.1, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit ], [ null, %16 ]
-  %.sroa.12.077 = phi ptr [ %.sroa.12.1, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit ], [ null, %16 ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.059.080, i64 8
-  %20 = getelementptr inbounds i8, ptr %.sroa.059.080, i64 16
-  %21 = getelementptr inbounds i8, ptr %.sroa.059.080, i64 72
+  %.sroa.057.078 = phi ptr [ %.sroa.057.0, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit ], [ %.sroa.057.073, %16 ]
+  %.sroa.060.077 = phi ptr [ %.sroa.060.1, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit ], [ null, %16 ]
+  %.sroa.5.076 = phi ptr [ %.sroa.5.1, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit ], [ null, %16 ]
+  %.sroa.12.075 = phi ptr [ %.sroa.12.1, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit ], [ null, %16 ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.057.078, i64 8
+  %20 = getelementptr inbounds i8, ptr %.sroa.057.078, i64 16
+  %21 = getelementptr inbounds i8, ptr %.sroa.057.078, i64 72
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %22, %1
   br i1 %23, label %24, label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit
@@ -5074,26 +5074,26 @@ define dso_local void @_ZN4llvm10sampleprof20SampleContextTrimmer31trimAndMergeC
   br i1 %spec.select, label %25, label %29
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %.sroa.059.080, i64 56
+  %26 = getelementptr inbounds i8, ptr %.sroa.057.078, i64 56
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 1
   br i1 %28, label %29, label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit
 
 29:                                               ; preds = %25, %24
-  %.not.i = icmp eq ptr %.sroa.5.078, %.sroa.12.077
+  %.not.i = icmp eq ptr %.sroa.5.076, %.sroa.12.075
   br i1 %.not.i, label %34, label %30
 
 30:                                               ; preds = %29
   %31 = load i64, ptr %19, align 8
-  store i64 %31, ptr %.sroa.5.078, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.5.078, i64 8
+  store i64 %31, ptr %.sroa.5.076, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.5.076, i64 8
   store ptr %20, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.sroa.5.078, i64 16
+  %33 = getelementptr inbounds i8, ptr %.sroa.5.076, i64 16
   br label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit
 
 34:                                               ; preds = %29
-  %35 = ptrtoint ptr %.sroa.5.078 to i64
-  %36 = ptrtoint ptr %.sroa.062.079 to i64
+  %35 = ptrtoint ptr %.sroa.5.076 to i64
+  %36 = ptrtoint ptr %.sroa.060.077 to i64
   %37 = sub i64 %35, %36
   %38 = icmp eq i64 %37, 9223372036854775792
   br i1 %38, label %39, label %_ZNKSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12_M_check_lenEmPKc.exit.i
@@ -5124,26 +5124,26 @@ _ZNSt12_Vector_baseISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamples
   store i64 %50, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %20, ptr %51, align 8
-  %.not10.i.i.i.i = icmp eq ptr %.sroa.062.079, %.sroa.5.078
+  %.not10.i.i.i.i = icmp eq ptr %.sroa.060.077, %.sroa.5.076
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %48, %_ZNSt12_Vector_baseISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_M_allocateEm.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i ], [ %.sroa.062.079, %_ZNSt12_Vector_baseISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_M_allocateEm.exit.i ]
+  %.0911.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i ], [ %.sroa.060.077, %_ZNSt12_Vector_baseISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i, i64 16, i1 false), !alias.scope !60
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %53 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %.not.i.i.i.i43 = icmp eq ptr %52, %.sroa.5.078
-  br i1 %.not.i.i.i.i43, label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
+  %.not.i.i.i.i41 = icmp eq ptr %52, %.sroa.5.076
+  br i1 %.not.i.i.i.i41, label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %48, %_ZNSt12_Vector_baseISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_M_allocateEm.exit.i ], [ %53, %.lr.ph.i.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %.not.i24.i = icmp eq ptr %.sroa.062.079, null
+  %.not.i24.i = icmp eq ptr %.sroa.060.077, null
   br i1 %.not.i24.i, label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE17_M_realloc_insertIJRKS2_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, label %55
 
 55:                                               ; preds = %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.062.079, i64 noundef %37) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.077, i64 noundef %37) #27
   br label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE17_M_realloc_insertIJRKS2_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit
 
 _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE17_M_realloc_insertIJRKS2_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i, %55
@@ -5151,11 +5151,11 @@ _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7
   br label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit
 
 _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE17_M_realloc_insertIJRKS2_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, %30, %.lr.ph, %25
-  %.sroa.12.1 = phi ptr [ %.sroa.12.077, %25 ], [ %.sroa.12.077, %.lr.ph ], [ %56, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE17_M_realloc_insertIJRKS2_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %.sroa.12.077, %30 ]
-  %.sroa.5.1 = phi ptr [ %.sroa.5.078, %25 ], [ %.sroa.5.078, %.lr.ph ], [ %54, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE17_M_realloc_insertIJRKS2_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %33, %30 ]
-  %.sroa.062.1 = phi ptr [ %.sroa.062.079, %25 ], [ %.sroa.062.079, %.lr.ph ], [ %48, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE17_M_realloc_insertIJRKS2_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %.sroa.062.079, %30 ]
-  %.sroa.059.0 = load ptr, ptr %.sroa.059.080, align 8
-  %.not = icmp eq ptr %.sroa.059.0, null
+  %.sroa.12.1 = phi ptr [ %.sroa.12.075, %25 ], [ %.sroa.12.075, %.lr.ph ], [ %56, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE17_M_realloc_insertIJRKS2_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %.sroa.12.075, %30 ]
+  %.sroa.5.1 = phi ptr [ %.sroa.5.076, %25 ], [ %.sroa.5.076, %.lr.ph ], [ %54, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE17_M_realloc_insertIJRKS2_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %33, %30 ]
+  %.sroa.060.1 = phi ptr [ %.sroa.060.077, %25 ], [ %.sroa.060.077, %.lr.ph ], [ %48, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE17_M_realloc_insertIJRKS2_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %.sroa.060.077, %30 ]
+  %.sroa.057.0 = load ptr, ptr %.sroa.057.078, align 8
+  %.not = icmp eq ptr %.sroa.057.0, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE12emplace_backIJRKS2_S6_EEERS7_DpOT_.exit
@@ -5165,7 +5165,7 @@ _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %16
   %.sroa.12.0.lcssa = phi i64 [ 0, %16 ], [ %57, %._crit_edge.loopexit ]
   %.sroa.5.0.lcssa = phi ptr [ null, %16 ], [ %.sroa.5.1, %._crit_edge.loopexit ]
-  %.sroa.062.0.lcssa = phi ptr [ null, %16 ], [ %.sroa.062.1, %._crit_edge.loopexit ]
+  %.sroa.060.0.lcssa = phi ptr [ null, %16 ], [ %.sroa.060.1, %._crit_edge.loopexit ]
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %58, ptr %10, align 8
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5176,33 +5176,33 @@ _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7
   store float 1.000000e+00, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
-  %.not7083 = icmp eq ptr %.sroa.062.0.lcssa, %.sroa.5.0.lcssa
-  br i1 %.not7083, label %._crit_edge87, label %.lr.ph86
+  %.not6881 = icmp eq ptr %.sroa.060.0.lcssa, %.sroa.5.0.lcssa
+  br i1 %.not6881, label %._crit_edge85, label %.lr.ph84
 
-.lr.ph86:                                         ; preds = %._crit_edge
+.lr.ph84:                                         ; preds = %._crit_edge
   %63 = zext i32 %4 to i64
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  br i1 %3, label %.lr.ph86.split.us, label %.lr.ph86.split
+  br i1 %3, label %.lr.ph84.split.us, label %.lr.ph84.split
 
-.lr.ph86.split.us:                                ; preds = %.lr.ph86, %.lr.ph86.split.us
-  %.sroa.054.084.us = phi ptr [ %77, %.lr.ph86.split.us ], [ %.sroa.062.0.lcssa, %.lr.ph86 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.054.084.us, i64 8
+.lr.ph84.split.us:                                ; preds = %.lr.ph84, %.lr.ph84.split.us
+  %.sroa.052.082.us = phi ptr [ %77, %.lr.ph84.split.us ], [ %.sroa.060.0.lcssa, %.lr.ph84 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.052.082.us, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %.sroa.0.0.copyload.i.us = load ptr, ptr %69, align 8
   %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %68, i64 40
   %.sroa.2.0.copyload.i.us = load i64, ptr %.sroa.2.0..sroa_idx.i.us, align 8
   %.sroa.4.0.us = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.us, i64 %63)
-  %.sroa.050.0.us.idx = call i64 @llvm.usub.sat.i64(i64 %.sroa.2.0.copyload.i.us, i64 %63)
-  %.sroa.050.0.us = getelementptr inbounds %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.0.0.copyload.i.us, i64 %.sroa.050.0.us.idx
+  %.sroa.048.0.us.idx = call i64 @llvm.usub.sat.i64(i64 %.sroa.2.0.copyload.i.us, i64 %63)
+  %.sroa.048.0.us = getelementptr inbounds %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.0.0.copyload.i.us, i64 %.sroa.048.0.us.idx
   store i32 0, ptr %65, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 16, i1 false)
-  store ptr %.sroa.050.0.us, ptr %64, align 8
+  store ptr %.sroa.048.0.us, ptr %64, align 8
   store i64 %.sroa.4.0.us, ptr %.sroa.3.0..sroa_idx.i.i, align 8
-  %70 = getelementptr %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.050.0.us, i64 %.sroa.4.0.us
+  %70 = getelementptr %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.048.0.us, i64 %.sroa.4.0.us
   %71 = getelementptr i8, ptr %70, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
   store i32 1, ptr %66, align 8
@@ -5210,29 +5210,29 @@ _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7
   %73 = load ptr, ptr %67, align 8
   %74 = call noundef i32 @_ZN4llvm10sampleprof15FunctionSamples5mergeERKS1_m(ptr noundef nonnull align 8 dereferenceable(176) %72, ptr noundef nonnull align 8 dereferenceable(176) %73, i64 noundef 1)
   %75 = load ptr, ptr %0, align 8
-  %76 = call noundef i64 @_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS3_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.054.084.us)
-  %77 = getelementptr inbounds i8, ptr %.sroa.054.084.us, i64 16
-  %.not70.us = icmp eq ptr %77, %.sroa.5.0.lcssa
-  br i1 %.not70.us, label %._crit_edge87thread-pre-split, label %.lr.ph86.split.us
+  %76 = call noundef i64 @_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS3_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.052.082.us)
+  %77 = getelementptr inbounds i8, ptr %.sroa.052.082.us, i64 16
+  %.not68.us = icmp eq ptr %77, %.sroa.5.0.lcssa
+  br i1 %.not68.us, label %._crit_edge85thread-pre-split, label %.lr.ph84.split.us
 
-.lr.ph86.split:                                   ; preds = %.lr.ph86, %.lr.ph86.split
-  %.sroa.054.084 = phi ptr [ %80, %.lr.ph86.split ], [ %.sroa.062.0.lcssa, %.lr.ph86 ]
+.lr.ph84.split:                                   ; preds = %.lr.ph84, %.lr.ph84.split
+  %.sroa.052.082 = phi ptr [ %80, %.lr.ph84.split ], [ %.sroa.060.0.lcssa, %.lr.ph84 ]
   %78 = load ptr, ptr %0, align 8
-  %79 = call noundef i64 @_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS3_(ptr noundef nonnull align 8 dereferenceable(56) %78, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.054.084)
-  %80 = getelementptr inbounds i8, ptr %.sroa.054.084, i64 16
-  %.not70 = icmp eq ptr %80, %.sroa.5.0.lcssa
-  br i1 %.not70, label %._crit_edge87thread-pre-split, label %.lr.ph86.split
+  %79 = call noundef i64 @_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS3_(ptr noundef nonnull align 8 dereferenceable(56) %78, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.052.082)
+  %80 = getelementptr inbounds i8, ptr %.sroa.052.082, i64 16
+  %.not68 = icmp eq ptr %80, %.sroa.5.0.lcssa
+  br i1 %.not68, label %._crit_edge85thread-pre-split, label %.lr.ph84.split
 
-._crit_edge87thread-pre-split:                    ; preds = %.lr.ph86.split, %.lr.ph86.split.us
+._crit_edge85thread-pre-split:                    ; preds = %.lr.ph84.split, %.lr.ph84.split.us
   %.pr = load ptr, ptr %60, align 8
-  br label %._crit_edge87
+  br label %._crit_edge85
 
-._crit_edge87:                                    ; preds = %._crit_edge87thread-pre-split, %._crit_edge
-  %81 = phi ptr [ %.pr, %._crit_edge87thread-pre-split ], [ null, %._crit_edge ]
-  %.not7188 = icmp eq ptr %81, null
-  br i1 %.not7188, label %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i, label %.lr.ph92
+._crit_edge85:                                    ; preds = %._crit_edge85thread-pre-split, %._crit_edge
+  %81 = phi ptr [ %.pr, %._crit_edge85thread-pre-split ], [ null, %._crit_edge ]
+  %.not6986 = icmp eq ptr %81, null
+  br i1 %.not6986, label %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i, label %.lr.ph90
 
-.lr.ph92:                                         ; preds = %._crit_edge87
+.lr.ph90:                                         ; preds = %._crit_edge85
   %82 = getelementptr inbounds i8, ptr %12, i64 80
   %83 = getelementptr inbounds i8, ptr %12, i64 88
   %84 = getelementptr inbounds i8, ptr %12, i64 96
@@ -5246,26 +5246,26 @@ _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7
   %92 = getelementptr inbounds nuw i8, ptr %12, i64 72
   br label %93
 
-93:                                               ; preds = %.lr.ph92, %119
-  %.sroa.047.089 = phi ptr [ %81, %.lr.ph92 ], [ %120, %119 ]
+93:                                               ; preds = %.lr.ph90, %119
+  %.sroa.045.087 = phi ptr [ %81, %.lr.ph90 ], [ %120, %119 ]
   br i1 %2, label %94, label %.critedge
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %.sroa.047.089, i64 72
+  %95 = getelementptr inbounds i8, ptr %.sroa.045.087, i64 72
   %96 = load i64, ptr %95, align 8
   %97 = icmp ult i64 %96, %1
   br i1 %97, label %98, label %.critedge
 
 98:                                               ; preds = %94
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %.sroa.047.089, i64 32
+  %100 = getelementptr inbounds i8, ptr %.sroa.045.087, i64 32
   %101 = call ptr @_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15FunctionSamplesEJEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %99, ptr noundef nonnull align 8 dereferenceable(40) %100)
   %102 = icmp eq ptr %101, null
   br i1 %102, label %119, label %.critedge
 
 .critedge:                                        ; preds = %94, %93, %98
   %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds i8, ptr %.sroa.047.089, i64 16
+  %104 = getelementptr inbounds i8, ptr %.sroa.045.087, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %12, i8 0, i64 136, i1 false)
   store ptr %82, ptr %84, align 8
   store ptr %82, ptr %85, align 8
@@ -5275,24 +5275,24 @@ _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7
   store ptr %86, ptr %89, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %105 = getelementptr inbounds i8, ptr %.sroa.047.089, i64 64
+  %105 = getelementptr inbounds i8, ptr %.sroa.045.087, i64 64
   %106 = load i32, ptr %105, align 8
   %.not.i.i.i.i = icmp eq i32 %106, 0
   br i1 %.not.i.i.i.i, label %111, label %107
 
 107:                                              ; preds = %.critedge
-  %108 = getelementptr inbounds i8, ptr %.sroa.047.089, i64 48
+  %108 = getelementptr inbounds i8, ptr %.sroa.045.087, i64 48
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %108, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.047.089, i64 56
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.045.087, i64 56
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %109 = getelementptr inbounds %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i
   %110 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_10sampleprof18SampleContextFrameEEENS_9hash_codeET_S8_(ptr noundef %.sroa.0.0.copyload.i.i.i.i.i, ptr noundef %109)
   br label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15FunctionSamplesEJEE7emplaceIJRS3_S4_EEESt4pairINSt8__detail14_Node_iteratorIS8_IKNS_9hash_codeES4_ELb0ELb1EEEbEDpOT_.exit
 
 111:                                              ; preds = %.critedge
-  %112 = getelementptr inbounds i8, ptr %.sroa.047.089, i64 32
+  %112 = getelementptr inbounds i8, ptr %.sroa.045.087, i64 32
   %.sroa.0.0.copyload.i1.i.i.i.i = load ptr, ptr %112, align 8
-  %.sroa.2.0..sroa_idx.i2.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.047.089, i64 40
+  %.sroa.2.0..sroa_idx.i2.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.045.087, i64 40
   %.sroa.2.0.copyload.i3.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i2.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i1.i.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15FunctionSamplesEJEE7emplaceIJRS3_S4_EEESt4pairINSt8__detail14_Node_iteratorIS8_IKNS_9hash_codeES4_ELb0ELb1EEEbEDpOT_.exit, label %113
@@ -5324,17 +5324,17 @@ _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15Func
   br label %119
 
 119:                                              ; preds = %98, %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15FunctionSamplesEJEE7emplaceIJRS3_S4_EEESt4pairINSt8__detail14_Node_iteratorIS8_IKNS_9hash_codeES4_ELb0ELb1EEEbEDpOT_.exit
-  %120 = load ptr, ptr %.sroa.047.089, align 8
-  %.not71 = icmp eq ptr %120, null
-  br i1 %.not71, label %._crit_edge93, label %93
+  %120 = load ptr, ptr %.sroa.045.087, align 8
+  %.not69 = icmp eq ptr %120, null
+  br i1 %.not69, label %._crit_edge91, label %93
 
-._crit_edge93:                                    ; preds = %119
+._crit_edge91:                                    ; preds = %119
   %.pre = load ptr, ptr %60, align 8
   %.not5.i.i.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not5.i.i.i.i.i.i, label %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %._crit_edge93, %.lr.ph.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i.i.i.i ], [ %.pre, %._crit_edge93 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %._crit_edge91, %.lr.ph.i.i.i.i.i.i
+  %.06.i.i.i.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i.i.i.i ], [ %.pre, %._crit_edge91 ]
   %121 = load ptr, ptr %.06.i.i.i.i.i.i, align 8
   %122 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i, i64 136
   %123 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i, i64 152
@@ -5348,7 +5348,7 @@ _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15Func
   %.not.i.i.i.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !64
 
-_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge87, %._crit_edge93
+_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge85, %._crit_edge91
   %128 = load ptr, ptr %10, align 8
   %129 = load i64, ptr %59, align 8
   %130 = shl i64 %129, 3
@@ -5365,13 +5365,13 @@ _ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamples
   br label %_ZN4llvm10sampleprof16SampleProfileMapD2Ev.exit
 
 _ZN4llvm10sampleprof16SampleProfileMapD2Ev.exit:  ; preds = %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i, %133
-  %.not.i.i.i = icmp eq ptr %.sroa.062.0.lcssa, null
+  %.not.i.i.i = icmp eq ptr %.sroa.060.0.lcssa, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EED2Ev.exit, label %136
 
 136:                                              ; preds = %_ZN4llvm10sampleprof16SampleProfileMapD2Ev.exit
-  %137 = ptrtoint ptr %.sroa.062.0.lcssa to i64
+  %137 = ptrtoint ptr %.sroa.060.0.lcssa to i64
   %138 = sub i64 %.sroa.12.0.lcssa, %137
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.062.0.lcssa, i64 noundef %138) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.0.lcssa, i64 noundef %138) #27
   br label %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EED2Ev.exit: ; preds = %136, %_ZN4llvm10sampleprof16SampleProfileMapD2Ev.exit, %15, %13

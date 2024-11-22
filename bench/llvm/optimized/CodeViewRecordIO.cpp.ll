@@ -2301,9 +2301,9 @@ _ZNK4llvm8codeview16CodeViewRecordIO14maxFieldLengthEv.exit: ; preds = %_ZNK4llv
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %71 = load i64, ptr %70, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %69, i64 %71)
-  %.sroa.0.0.i = load ptr, ptr %2, align 8
+  %.sroa.0.0.copyload.pn.i = load ptr, ptr %2, align 8
   %72 = load ptr, ptr %11, align 8
-  tail call void @_ZN4llvm18BinaryStreamWriter12writeCStringENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %72, ptr %.sroa.0.0.i, i64 %..i) #14
+  tail call void @_ZN4llvm18BinaryStreamWriter12writeCStringENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %72, ptr %.sroa.0.0.copyload.pn.i, i64 %..i) #14
   %73 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %73, null
   br i1 %.not, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %75

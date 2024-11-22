@@ -282,16 +282,16 @@ define hidden void @"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrap
   unreachable
 
 19:                                               ; preds = %9, %16
-  %.sroa.3.0.i.i.i.ph = phi ptr [ %17, %16 ], [ %10, %9 ]
+  %.sroa.3.0.i.pn.i.i.i.ph = phi ptr [ %17, %16 ], [ %10, %9 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.3.0.i.i.i.ph, ptr %20, align 8
+  store ptr %.sroa.3.0.i.pn.i.i.i.ph, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %5, ptr %21, align 8
   br label %"_ZN117_$LT$futures_util..future..try_future..into_future..IntoFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd11e1894a8424de7E.llvm.11720741875364829747.exit"
 
 "_ZN117_$LT$futures_util..future..try_future..into_future..IntoFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd11e1894a8424de7E.llvm.11720741875364829747.exit": ; preds = %11, %19
-  %.sroa.0.0.i.i.i5 = phi i64 [ 0, %19 ], [ 1, %11 ]
-  store i64 %.sroa.0.0.i.i.i5, ptr %0, align 8
+  %.pn.i.i.i4 = phi i64 [ 0, %19 ], [ 1, %11 ]
+  store i64 %.pn.i.i.i4, ptr %0, align 8
   ret void
 }
 
@@ -504,12 +504,12 @@ define hidden { i64, i8 } @"_ZN109_$LT$futures_util..stream..futures_ordered..Or
   unreachable
 
 22:                                               ; preds = %19, %12
-  %.sroa.3.0.i.ph.i = phi ptr [ %20, %19 ], [ %13, %12 ]
-  %23 = icmp eq ptr %.sroa.3.0.i.ph.i, null
+  %.sroa.3.0.i.pn.i.ph.i = phi ptr [ %20, %19 ], [ %13, %12 ]
+  %23 = icmp eq ptr %.sroa.3.0.i.pn.i.ph.i, null
   br i1 %23, label %"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit", label %24
 
 24:                                               ; preds = %22
-  call void @_ZN4util21log_error_with_caller17h35e97f66897bd922E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.ph.i, i64 noundef %7)
+  call void @_ZN4util21log_error_with_caller17h35e97f66897bd922E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.pn.i.ph.i, i64 noundef %7)
   br label %"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit"
 
 "_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit": ; preds = %22, %24
@@ -585,58 +585,58 @@ define hidden { i64, ptr } @"_ZN110_$LT$futures_util..future..try_maybe_done..Tr
   unreachable
 
 24:                                               ; preds = %13, %20
-  %25 = phi ptr [ %21, %20 ], [ %14, %13 ]
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %31
+  %.ph = phi ptr [ %21, %20 ], [ %14, %13 ]
+  %25 = icmp eq ptr %.ph, null
+  br i1 %25, label %26, label %30
 
-27:                                               ; preds = %24
+26:                                               ; preds = %24
   invoke void @"_ZN4core3ptr224drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h34933ff6b6711f21E.llvm.11720741875364829747"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h121e4f77d0792de5E.llvm.11720741875364829747.exit" unwind label %28, !noalias !113
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h121e4f77d0792de5E.llvm.11720741875364829747.exit" unwind label %27, !noalias !113
 
-common.resume:                                    ; preds = %.body, %28
-  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %30, %.body ]
+common.resume:                                    ; preds = %.body, %27
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %29, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-28:                                               ; preds = %27
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %26
+  %28 = landingpad { ptr, i32 }
           cleanup
   store i64 3, ptr %0, align 8, !noalias !113
   br label %common.resume
 
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h121e4f77d0792de5E.llvm.11720741875364829747.exit": ; preds = %27
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h121e4f77d0792de5E.llvm.11720741875364829747.exit": ; preds = %26
   store i64 3, ptr %0, align 8, !noalias !113
   br label %"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17hc42db6dd2fbddfecE.llvm.11720741875364829747.exit"
 
-.body:                                            ; preds = %31
-  %30 = landingpad { ptr, i32 }
+.body:                                            ; preds = %30
+  %29 = landingpad { ptr, i32 }
           cleanup
   store i64 4, ptr %0, align 8, !noalias !116
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %common.resume unwind label %33
+          to label %common.resume unwind label %32
 
-31:                                               ; preds = %24
+30:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %25, ptr %3, align 8
+  store ptr %.ph, ptr %3, align 8
   invoke void @"_ZN4core3ptr224drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h34933ff6b6711f21E.llvm.11720741875364829747"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
-          to label %32 unwind label %.body, !noalias !116
+          to label %31 unwind label %.body, !noalias !116
 
-32:                                               ; preds = %31
+31:                                               ; preds = %30
   store i64 4, ptr %0, align 8, !noalias !116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17hc42db6dd2fbddfecE.llvm.11720741875364829747.exit"
 
-33:                                               ; preds = %.body
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %.body
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37
   unreachable
 
-"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17hc42db6dd2fbddfecE.llvm.11720741875364829747.exit": ; preds = %15, %32, %2, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h121e4f77d0792de5E.llvm.11720741875364829747.exit"
-  %.sroa.4.0 = phi ptr [ null, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h121e4f77d0792de5E.llvm.11720741875364829747.exit" ], [ null, %2 ], [ %25, %32 ], [ undef, %15 ]
-  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h121e4f77d0792de5E.llvm.11720741875364829747.exit" ], [ 0, %2 ], [ 0, %32 ], [ 1, %15 ]
-  %35 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %36 = insertvalue { i64, ptr } %35, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %36
+"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17hc42db6dd2fbddfecE.llvm.11720741875364829747.exit": ; preds = %15, %31, %2, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h121e4f77d0792de5E.llvm.11720741875364829747.exit"
+  %.sroa.4.0 = phi ptr [ null, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h121e4f77d0792de5E.llvm.11720741875364829747.exit" ], [ null, %2 ], [ %.ph, %31 ], [ undef, %15 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h121e4f77d0792de5E.llvm.11720741875364829747.exit" ], [ 0, %2 ], [ 0, %31 ], [ 1, %15 ]
+  %34 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %35 = insertvalue { i64, ptr } %34, ptr %.sroa.4.0, 1
+  ret { i64, ptr } %35
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1183,13 +1183,13 @@ define hidden { i64, ptr } @"_ZN117_$LT$futures_util..future..try_future..into_f
   %7 = load ptr, ptr %5, align 8, !alias.scope !169, !noalias !170
   store i64 0, ptr %0, align 8, !alias.scope !169, !noalias !170
   %switch.i.i = icmp eq i64 %3, 0
-  br i1 %switch.i.i, label %15, label %"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17he32bf7cb1f79248cE.llvm.11720741875364829747.exit"
+  br i1 %switch.i.i, label %16, label %"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17he32bf7cb1f79248cE.llvm.11720741875364829747.exit"
 
 8:                                                ; preds = %2
   %9 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h33f9d8bdb55c6238E.llvm.5196727410964091947"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %10 = extractvalue { i64, ptr } %9, 0
   switch i64 %10, label %11 [
-    i64 2, label %"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17he32bf7cb1f79248cE.llvm.11720741875364829747.exit"
+    i64 2, label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i"
     i64 0, label %12
     i64 1, label %13
   ]
@@ -1203,18 +1203,23 @@ define hidden { i64, ptr } @"_ZN117_$LT$futures_util..future..try_future..into_f
 
 13:                                               ; preds = %8
   %14 = extractvalue { i64, ptr } %9, 1
+  br label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i"
+
+"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i": ; preds = %13, %8
+  %.sroa.3.0.i.i.i = phi ptr [ %14, %13 ], [ undef, %8 ]
+  %.sroa.0.0.i.i.i = phi i64 [ 0, %13 ], [ 1, %8 ]
+  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i.i, 0
   br label %"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17he32bf7cb1f79248cE.llvm.11720741875364829747.exit"
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.143.llvm.17120096847998249645) #36, !noalias !173
   unreachable
 
-"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17he32bf7cb1f79248cE.llvm.11720741875364829747.exit": ; preds = %6, %8, %13
-  %.sroa.3.0.i.i = phi ptr [ %7, %6 ], [ %14, %13 ], [ undef, %8 ]
-  %.sroa.0.0.i.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ 1, %8 ]
-  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0.i.i, 1
-  ret { i64, ptr } %17
+"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFuture$GT$8try_poll17he32bf7cb1f79248cE.llvm.11720741875364829747.exit": ; preds = %6, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i"
+  %.pn.i.i = phi { i64, ptr } [ %15, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i" ], [ { i64 0, ptr poison }, %6 ]
+  %.sroa.3.0.i.pn.i.i = phi ptr [ %.sroa.3.0.i.i.i, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i" ], [ %7, %6 ]
+  %.merged.i.i = insertvalue { i64, ptr } %.pn.i.i, ptr %.sroa.3.0.i.pn.i.i, 1
+  ret { i64, ptr } %.merged.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14183,13 +14188,13 @@ define hidden { i64, ptr } @"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFut
   %7 = load ptr, ptr %5, align 8, !alias.scope !3160, !noalias !3161
   store i64 0, ptr %0, align 8, !alias.scope !3160, !noalias !3161
   %switch.i.i.i = icmp eq i64 %3, 0
-  br i1 %switch.i.i.i, label %15, label %"_ZN117_$LT$futures_util..future..try_future..into_future..IntoFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd11e1894a8424de7E.llvm.11720741875364829747.exit"
+  br i1 %switch.i.i.i, label %16, label %"_ZN117_$LT$futures_util..future..try_future..into_future..IntoFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd11e1894a8424de7E.llvm.11720741875364829747.exit"
 
 8:                                                ; preds = %2
   %9 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h33f9d8bdb55c6238E.llvm.5196727410964091947"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %10 = extractvalue { i64, ptr } %9, 0
   switch i64 %10, label %11 [
-    i64 2, label %"_ZN117_$LT$futures_util..future..try_future..into_future..IntoFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd11e1894a8424de7E.llvm.11720741875364829747.exit"
+    i64 2, label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i.i"
     i64 0, label %12
     i64 1, label %13
   ]
@@ -14203,18 +14208,23 @@ define hidden { i64, ptr } @"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFut
 
 13:                                               ; preds = %8
   %14 = extractvalue { i64, ptr } %9, 1
+  br label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i.i"
+
+"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i.i": ; preds = %13, %8
+  %.sroa.3.0.i.i.i.i = phi ptr [ %14, %13 ], [ undef, %8 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ 0, %13 ], [ 1, %8 ]
+  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i.i.i, 0
   br label %"_ZN117_$LT$futures_util..future..try_future..into_future..IntoFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd11e1894a8424de7E.llvm.11720741875364829747.exit"
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.143.llvm.17120096847998249645) #36, !noalias !3165
   unreachable
 
-"_ZN117_$LT$futures_util..future..try_future..into_future..IntoFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd11e1894a8424de7E.llvm.11720741875364829747.exit": ; preds = %6, %8, %13
-  %.sroa.3.0.i.i.i = phi ptr [ %7, %6 ], [ %14, %13 ], [ undef, %8 ]
-  %.sroa.0.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ 1, %8 ]
-  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i.i, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0.i.i.i, 1
-  ret { i64, ptr } %17
+"_ZN117_$LT$futures_util..future..try_future..into_future..IntoFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd11e1894a8424de7E.llvm.11720741875364829747.exit": ; preds = %6, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i.i"
+  %.pn.i.i.i = phi { i64, ptr } [ %15, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i.i" ], [ { i64 0, ptr poison }, %6 ]
+  %.sroa.3.0.i.pn.i.i.i = phi ptr [ %.sroa.3.0.i.i.i.i, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i.i.i" ], [ %7, %6 ]
+  %.merged.i.i.i = insertvalue { i64, ptr } %.pn.i.i.i, ptr %.sroa.3.0.i.pn.i.i.i, 1
+  ret { i64, ptr } %.merged.i.i.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -14229,13 +14239,13 @@ define hidden { i64, ptr } @"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFut
   %7 = load ptr, ptr %5, align 8, !alias.scope !3166, !noalias !3169
   store i64 0, ptr %0, align 8, !alias.scope !3166, !noalias !3169
   %switch.i = icmp eq i64 %3, 0
-  br i1 %switch.i, label %15, label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit"
+  br i1 %switch.i, label %16, label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit"
 
 8:                                                ; preds = %2
   %9 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h33f9d8bdb55c6238E.llvm.5196727410964091947"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %10 = extractvalue { i64, ptr } %9, 0
   switch i64 %10, label %11 [
-    i64 2, label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit"
+    i64 2, label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i"
     i64 0, label %12
     i64 1, label %13
   ]
@@ -14249,18 +14259,23 @@ define hidden { i64, ptr } @"_ZN53_$LT$F$u20$as$u20$futures_core..future..TryFut
 
 13:                                               ; preds = %8
   %14 = extractvalue { i64, ptr } %9, 1
+  br label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i"
+
+"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i": ; preds = %13, %8
+  %.sroa.3.0.i.i = phi ptr [ %14, %13 ], [ undef, %8 ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %13 ], [ 1, %8 ]
+  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
   br label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit"
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.143.llvm.17120096847998249645) #36, !noalias !3171
   unreachable
 
-"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit": ; preds = %6, %8, %13
-  %.sroa.3.0.i = phi ptr [ %7, %6 ], [ %14, %13 ], [ undef, %8 ]
-  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ 1, %8 ]
-  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %17
+"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit": ; preds = %6, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i"
+  %.pn.i = phi { i64, ptr } [ %15, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i" ], [ { i64 0, ptr poison }, %6 ]
+  %.sroa.3.0.i.pn.i = phi ptr [ %.sroa.3.0.i.i, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ba36f5c7811248cE.exit.i" ], [ %7, %6 ]
+  %.merged.i = insertvalue { i64, ptr } %.pn.i, ptr %.sroa.3.0.i.pn.i, 1
+  ret { i64, ptr } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable

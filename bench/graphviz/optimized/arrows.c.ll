@@ -1055,14 +1055,14 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
   br label %30
 
 30:                                               ; preds = %9, %arrow_gen_type.exit
-  %.sroa.4.038 = phi double [ %3, %9 ], [ %.sroa.418.0.i, %arrow_gen_type.exit ]
-  %.sroa.031.037 = phi double [ %2, %9 ], [ %.sroa.017.0.i, %arrow_gen_type.exit ]
-  %.036 = phi i32 [ 0, %9 ], [ %54, %arrow_gen_type.exit ]
+  %.sroa.4.038 = phi double [ %3, %9 ], [ %55, %arrow_gen_type.exit ]
+  %.sroa.031.037 = phi double [ %2, %9 ], [ %54, %arrow_gen_type.exit ]
+  %.036 = phi i32 [ 0, %9 ], [ %56, %arrow_gen_type.exit ]
   %31 = shl nuw nsw i32 %.036, 3
   %32 = lshr i32 %8, %31
   %33 = and i32 %32, 255
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %55, label %35
+  br i1 %34, label %57, label %35
 
 35:                                               ; preds = %30
   %36 = and i32 %32, 15
@@ -1071,7 +1071,7 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
 37:                                               ; preds = %39
   %38 = add nuw nsw i64 %.021.i, 1
   %exitcond.not.i = icmp eq i64 %38, 8
-  br i1 %exitcond.not.i, label %arrow_gen_type.exit, label %39
+  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %39
 
 39:                                               ; preds = %37, %35
   %.021.i = phi i64 [ 0, %35 ], [ %38, %37 ]
@@ -1089,18 +1089,22 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
   %49 = getelementptr inbounds i8, ptr %40, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = tail call { double, double } %50(ptr noundef nonnull %0, double %.sroa.031.037, double %.sroa.4.038, double %47, double %48, double noundef %6, double noundef %7, i32 noundef range(i32 1, 256) %33) #12
-  %52 = extractvalue { double, double } %51, 0
-  %53 = extractvalue { double, double } %51, 1
   br label %arrow_gen_type.exit
 
-arrow_gen_type.exit:                              ; preds = %37, %43
-  %.sroa.017.0.i = phi double [ %52, %43 ], [ %.sroa.031.037, %37 ]
-  %.sroa.418.0.i = phi double [ %53, %43 ], [ %.sroa.4.038, %37 ]
-  %54 = add nuw nsw i32 %.036, 1
-  %exitcond.not = icmp eq i32 %54, 4
-  br i1 %exitcond.not, label %55, label %30
+.loopexit.loopexit.i:                             ; preds = %37
+  %52 = insertvalue { double, double } poison, double %.sroa.031.037, 0
+  %53 = insertvalue { double, double } %52, double %.sroa.4.038, 1
+  br label %arrow_gen_type.exit
 
-55:                                               ; preds = %30, %arrow_gen_type.exit
+arrow_gen_type.exit:                              ; preds = %43, %.loopexit.loopexit.i
+  %.fca.1.insert.merged.i = phi { double, double } [ %51, %43 ], [ %53, %.loopexit.loopexit.i ]
+  %54 = extractvalue { double, double } %.fca.1.insert.merged.i, 0
+  %55 = extractvalue { double, double } %.fca.1.insert.merged.i, 1
+  %56 = add nuw nsw i32 %.036, 1
+  %exitcond.not = icmp eq i32 %56, 4
+  br i1 %exitcond.not, label %57, label %30
+
+57:                                               ; preds = %30, %arrow_gen_type.exit
   store i32 %13, ptr %12, align 8
   ret void
 }

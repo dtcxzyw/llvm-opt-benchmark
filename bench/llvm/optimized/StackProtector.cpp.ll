@@ -3014,8 +3014,8 @@ define internal fastcc noundef zeroext i1 @_ZL15HasAddressTakenPKN4llvm11Instruc
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %17
 
-17:                                               ; preds = %.lr.ph, %.critedge124
-  %.sroa.075.094 = phi ptr [ %.sroa.075.093, %.lr.ph ], [ %.sroa.075.0, %.critedge124 ]
+17:                                               ; preds = %.lr.ph, %.critedge125
+  %.sroa.075.094 = phi ptr [ %.sroa.075.093, %.lr.ph ], [ %.sroa.075.0, %.critedge125 ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.075.094, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @_ZN4llvm14MemoryLocation9getOrNoneEPKNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.274") align 8 %6, ptr noundef %19) #20
@@ -3052,41 +3052,41 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exi
     i8 65, label %34
     i8 76, label %38
     i8 85, label %42
-    i8 30, label %.critedge124
+    i8 30, label %.critedge125
     i8 63, label %46
     i8 78, label %72
     i8 86, label %72
     i8 79, label %72
     i8 84, label %74
-    i8 61, label %.critedge124
-    i8 66, label %.critedge124
+    i8 61, label %.critedge125
+    i8 66, label %.critedge125
   ]
 
 30:                                               ; preds = %.critedge
   %31 = getelementptr inbounds i8, ptr %19, i64 -64
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %0, %32
-  br i1 %33, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge124
+  br i1 %33, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge125
 
 34:                                               ; preds = %.critedge
   %35 = getelementptr inbounds i8, ptr %19, i64 -32
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %0, %36
-  br i1 %37, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge124
+  br i1 %37, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge125
 
 38:                                               ; preds = %.critedge
   %39 = getelementptr inbounds i8, ptr %19, i64 -32
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %0, %40
-  br i1 %41, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge124
+  br i1 %41, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge125
 
 42:                                               ; preds = %.critedge
   %43 = call noundef zeroext i1 @_ZNK4llvm11Instruction19isDebugOrPseudoInstEv(ptr noundef nonnull align 8 dereferenceable(72) %19) #21
-  br i1 %43, label %.critedge124, label %44
+  br i1 %43, label %.critedge125, label %44
 
 44:                                               ; preds = %42
   %45 = call noundef zeroext i1 @_ZNK4llvm11Instruction20isLifetimeStartOrEndEv(ptr noundef nonnull align 8 dereferenceable(72) %19) #21
-  br i1 %45, label %.critedge124, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread
+  br i1 %45, label %.critedge125, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread
 
 46:                                               ; preds = %.critedge
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -3154,14 +3154,14 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %54, %_ZNK4llvm5APIn
 
 71:                                               ; preds = %.thread
   call void @_ZdaPv(ptr noundef nonnull %67) #22
-  br i1 %.057, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge124
+  br i1 %.057, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge125
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %64, %.thread
-  br i1 %.057, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge124
+  br i1 %.057, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge125
 
 72:                                               ; preds = %.critedge, %.critedge, %.critedge
   %73 = call fastcc noundef zeroext i1 @_ZL15HasAddressTakenPKN4llvm11InstructionENS_8TypeSizeEPNS_6ModuleERNS_11SmallPtrSetIPKNS_7PHINodeELj16EEE(ptr noundef nonnull %19, i64 %1, i8 %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(160) %4)
-  br i1 %73, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge124
+  br i1 %73, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge125
 
 74:                                               ; preds = %.critedge
   %75 = load ptr, ptr %13, align 8, !noalias !67
@@ -3180,7 +3180,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %64, %.thread
   %.025.i.i = phi ptr [ %85, %84 ], [ %76, %78 ]
   %82 = load ptr, ptr %.025.i.i, align 8, !noalias !67
   %83 = icmp eq ptr %82, %19
-  br i1 %83, label %.critedge124, label %84
+  br i1 %83, label %.critedge125, label %84
 
 84:                                               ; preds = %.lr.ph.i.i
   %85 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -3190,32 +3190,32 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %64, %.thread
 ._crit_edge.i.i:                                  ; preds = %84, %78
   %86 = load i32, ptr %15, align 8, !noalias !67
   %87 = icmp ult i32 %79, %86
-  br i1 %87, label %.critedge123, label %_ZN4llvm15SmallPtrSetImplIPKNS_7PHINodeEE6insertES3_.exit
+  br i1 %87, label %.critedge124, label %_ZN4llvm15SmallPtrSetImplIPKNS_7PHINodeEE6insertES3_.exit
 
-.critedge123:                                     ; preds = %._crit_edge.i.i
+.critedge124:                                     ; preds = %._crit_edge.i.i
   %88 = add nuw i32 %79, 1
   store i32 %88, ptr %14, align 4, !noalias !67
   store ptr %19, ptr %81, align 8, !noalias !67
-  br label %91
+  br label %92
 
 _ZN4llvm15SmallPtrSetImplIPKNS_7PHINodeEE6insertES3_.exit: ; preds = %._crit_edge.i.i, %74
   %89 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull %19) #20, !noalias !67
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %89, 1
-  %90 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %90, label %91, label %.critedge124
+  %90 = extractvalue { ptr, i8 } %89, 1
+  %91 = trunc i8 %90 to i1
+  br i1 %91, label %92, label %.critedge125
 
-91:                                               ; preds = %.critedge123, %_ZN4llvm15SmallPtrSetImplIPKNS_7PHINodeEE6insertES3_.exit
-  %92 = call fastcc noundef zeroext i1 @_ZL15HasAddressTakenPKN4llvm11InstructionENS_8TypeSizeEPNS_6ModuleERNS_11SmallPtrSetIPKNS_7PHINodeELj16EEE(ptr noundef nonnull %19, i64 %1, i8 %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(160) %4)
-  br i1 %92, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge124
+92:                                               ; preds = %.critedge124, %_ZN4llvm15SmallPtrSetImplIPKNS_7PHINodeEE6insertES3_.exit
+  %93 = call fastcc noundef zeroext i1 @_ZL15HasAddressTakenPKN4llvm11InstructionENS_8TypeSizeEPNS_6ModuleERNS_11SmallPtrSetIPKNS_7PHINodeELj16EEE(ptr noundef nonnull %19, i64 %1, i8 %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(160) %4)
+  br i1 %93, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge125
 
-.critedge124:                                     ; preds = %.lr.ph.i.i, %71, %_ZN4llvm5APIntD2Ev.exit, %.critedge, %30, %34, %38, %44, %42, %72, %91, %_ZN4llvm15SmallPtrSetImplIPKNS_7PHINodeEE6insertES3_.exit, %.critedge, %.critedge
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.075.094, i64 8
-  %.sroa.075.0 = load ptr, ptr %93, align 8
+.critedge125:                                     ; preds = %.lr.ph.i.i, %71, %_ZN4llvm5APIntD2Ev.exit, %.critedge, %30, %34, %38, %44, %42, %72, %92, %_ZN4llvm15SmallPtrSetImplIPKNS_7PHINodeEE6insertES3_.exit, %.critedge, %.critedge
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.075.094, i64 8
+  %.sroa.075.0 = load ptr, ptr %94, align 8
   %.not112 = icmp eq ptr %.sroa.075.0, null
   br i1 %.not112, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %17
 
-_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread: ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit, %30, %34, %38, %44, %_ZN4llvm5APIntD2Ev.exit, %72, %91, %.critedge, %.critedge124, %26, %71, %.thread.thread, %.thread120, %5
-  %.lcssa = phi i1 [ false, %5 ], [ true, %.thread120 ], [ true, %.thread.thread ], [ true, %71 ], [ true, %26 ], [ false, %.critedge124 ], [ true, %.critedge ], [ true, %91 ], [ true, %72 ], [ true, %_ZN4llvm5APIntD2Ev.exit ], [ true, %44 ], [ true, %38 ], [ true, %34 ], [ true, %30 ], [ true, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit ]
+_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread: ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit, %30, %34, %38, %44, %_ZN4llvm5APIntD2Ev.exit, %72, %92, %.critedge, %.critedge125, %26, %71, %.thread.thread, %.thread120, %5
+  %.lcssa = phi i1 [ false, %5 ], [ true, %.thread120 ], [ true, %.thread.thread ], [ true, %71 ], [ true, %26 ], [ false, %.critedge125 ], [ true, %.critedge ], [ true, %92 ], [ true, %72 ], [ true, %_ZN4llvm5APIntD2Ev.exit ], [ true, %44 ], [ true, %38 ], [ true, %34 ], [ true, %30 ], [ true, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit ]
   ret i1 %.lcssa
 }
 

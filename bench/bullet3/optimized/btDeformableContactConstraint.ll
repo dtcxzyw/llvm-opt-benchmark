@@ -1689,23 +1689,23 @@ for.body.i309:                                    ; preds = %for.body.i309, %for
   br i1 %cmp.i314, label %for.body.i309, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit, !llvm.loop !9
 
 _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit: ; preds = %for.body.i309
-  %.pre370 = load ptr, ptr %m_contact, align 8
-  %.pre371 = load ptr, ptr %m_multiBody, align 8
-  %.pre372 = load float, ptr %impulse, align 8
-  %.pre373 = load float, ptr %arrayidx5.i133, align 4
-  %.pre374 = load float, ptr %42, align 8
-  %m_dofCount.i.i323.phi.trans.insert = getelementptr inbounds i8, ptr %.pre371, i64 628
-  %.pre375 = load i32, ptr %m_dofCount.i.i323.phi.trans.insert, align 4
-  %182 = icmp sgt i32 %.pre375, -6
+  %.pre = load ptr, ptr %m_contact, align 8
+  %.pre370 = load ptr, ptr %m_multiBody, align 8
+  %.pre371 = load float, ptr %impulse, align 8
+  %.pre372 = load float, ptr %arrayidx5.i133, align 4
+  %.pre373 = load float, ptr %42, align 8
+  %m_dofCount.i.i323.phi.trans.insert = getelementptr inbounds i8, ptr %.pre370, i64 628
+  %.pre374 = load i32, ptr %m_dofCount.i.i323.phi.trans.insert, align 4
+  %182 = icmp sgt i32 %.pre374, -6
   br label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315
 
 _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315: ; preds = %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit, %if.then176
   %cmp5.i324 = phi i1 [ %182, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ false, %if.then176 ]
-  %183 = phi float [ %.pre374, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ %171, %if.then176 ]
-  %184 = phi float [ %.pre373, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ %168, %if.then176 ]
-  %185 = phi float [ %.pre372, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ %166, %if.then176 ]
-  %186 = phi ptr [ %.pre371, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ %165, %if.then176 ]
-  %187 = phi ptr [ %.pre370, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ %163, %if.then176 ]
+  %183 = phi float [ %.pre373, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ %171, %if.then176 ]
+  %184 = phi float [ %.pre372, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ %168, %if.then176 ]
+  %185 = phi float [ %.pre371, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ %166, %if.then176 ]
+  %186 = phi ptr [ %.pre370, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ %165, %if.then176 ]
+  %187 = phi ptr [ %.pre, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit315.loopexit ], [ %163, %if.then176 ]
   %m_data.i316 = getelementptr inbounds i8, ptr %187, i64 656
   %188 = load ptr, ptr %m_data.i316, align 8
   %t2 = getelementptr inbounds i8, ptr %187, i64 832
@@ -3008,11 +3008,11 @@ return.sink.split:                                ; preds = %if.end9, %if.end
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %entry ], [ %retval.sroa.0.4.vec.insert.i27, %return.sink.split ]
-  %retval.sroa.5.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i, %entry ], [ %retval.sroa.3.12.vec.insert.i28, %return.sink.split ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.5.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %retval.sroa.0.4.vec.insert.i7.pn = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %entry ], [ %retval.sroa.0.4.vec.insert.i27, %return.sink.split ]
+  %retval.sroa.3.12.vec.insert.i8.pn = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i, %entry ], [ %retval.sroa.3.12.vec.insert.i28, %return.sink.split ]
+  %.fca.0.insert.i9.pn = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.4.vec.insert.i7.pn, 0
+  %.fca.1.insert.merged = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i9.pn, <2 x float> %retval.sroa.3.12.vec.insert.i8.pn, 1
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

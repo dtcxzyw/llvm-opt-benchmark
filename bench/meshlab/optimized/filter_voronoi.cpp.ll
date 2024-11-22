@@ -93989,14 +93989,15 @@ _ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_It
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
   %.sroa_idx14.i.i.i.us26 = getelementptr inbounds i8, ptr %0, i64 4
+  %.pre35 = load float, ptr %0, align 4
   br label %67
 
-67:                                               ; preds = %72, %.lr.ph.split.split.us.split
-  %.011.us12 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %73, %72 ]
-  %68 = load float, ptr %.011.us12, align 4
-  %69 = load float, ptr %0, align 4
-  %70 = fcmp olt float %68, %69
-  br i1 %70, label %._crit_edge.i.i.us13, label %72
+67:                                               ; preds = %73, %.lr.ph.split.split.us.split
+  %68 = phi float [ %.pre35, %.lr.ph.split.split.us.split ], [ %74, %73 ]
+  %.011.us12 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %75, %73 ]
+  %69 = load float, ptr %.011.us12, align 4
+  %70 = fcmp olt float %69, %68
+  br i1 %70, label %._crit_edge.i.i.us13, label %73
 
 ._crit_edge.i.i.us13:                             ; preds = %67
   %.sroa.02.0.copyload.i.us14 = load i64, ptr %.011.us12, align 4
@@ -94007,44 +94008,46 @@ _ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_It
   %.sroa.3.0.extract.trunc.i.i.i.us25 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i.us24 to i32
   store i32 %.sroa.0.0.extract.trunc.i.i.i.us16, ptr %0, align 4
   store i32 %.sroa.3.0.extract.trunc.i.i.i.us25, ptr %.sroa_idx14.i.i.i.us26, align 4
-  br label %72
+  %72 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.i.us16 to float
+  br label %73
 
-72:                                               ; preds = %._crit_edge.i.i.us13, %67
-  %73 = getelementptr inbounds i8, ptr %.011.us12, i64 8
-  %74 = icmp ult ptr %73, %2
-  br i1 %74, label %67, label %._crit_edge, !llvm.loop !892
+73:                                               ; preds = %._crit_edge.i.i.us13, %67
+  %74 = phi float [ %72, %._crit_edge.i.i.us13 ], [ %68, %67 ]
+  %75 = getelementptr inbounds i8, ptr %.011.us12, i64 8
+  %76 = icmp ult ptr %75, %2
+  br i1 %76, label %67, label %._crit_edge, !llvm.loop !892
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   %.sroa_idx14.i.i.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre = load float, ptr %0, align 4
-  br label %75
+  br label %77
 
-75:                                               ; preds = %.lr.ph.split.split, %81
-  %76 = phi float [ %.pre, %.lr.ph.split.split ], [ %82, %81 ]
-  %.011 = phi ptr [ %1, %.lr.ph.split.split ], [ %83, %81 ]
-  %77 = load float, ptr %.011, align 4
-  %78 = fcmp olt float %77, %76
-  br i1 %78, label %._crit_edge.i.i, label %81
+77:                                               ; preds = %.lr.ph.split.split, %83
+  %78 = phi float [ %.pre, %.lr.ph.split.split ], [ %84, %83 ]
+  %.011 = phi ptr [ %1, %.lr.ph.split.split ], [ %85, %83 ]
+  %79 = load float, ptr %.011, align 4
+  %80 = fcmp olt float %79, %78
+  br i1 %80, label %._crit_edge.i.i, label %83
 
-._crit_edge.i.i:                                  ; preds = %75
+._crit_edge.i.i:                                  ; preds = %77
   %.sroa.02.0.copyload.i = load i64, ptr %.011, align 4
-  %79 = load i64, ptr %0, align 4
-  store i64 %79, ptr %.011, align 4
+  %81 = load i64, ptr %0, align 4
+  store i64 %81, ptr %.011, align 4
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.sroa.02.0.copyload.i to i32
   %.sroa.3.0.extract.shift.i.i.i = lshr i64 %.sroa.02.0.copyload.i, 32
   %.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i to i32
   store i32 %.sroa.0.0.extract.trunc.i.i.i, ptr %0, align 4
   store i32 %.sroa.3.0.extract.trunc.i.i.i, ptr %.sroa_idx14.i.i.i, align 4
-  %80 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.i to float
-  br label %81
+  %82 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.i to float
+  br label %83
 
-81:                                               ; preds = %75, %._crit_edge.i.i
-  %82 = phi float [ %76, %75 ], [ %80, %._crit_edge.i.i ]
-  %83 = getelementptr inbounds i8, ptr %.011, i64 8
-  %84 = icmp ult ptr %83, %2
-  br i1 %84, label %75, label %._crit_edge, !llvm.loop !892
+83:                                               ; preds = %77, %._crit_edge.i.i
+  %84 = phi float [ %78, %77 ], [ %82, %._crit_edge.i.i ]
+  %85 = getelementptr inbounds i8, ptr %.011, i64 8
+  %86 = icmp ult ptr %85, %2
+  br i1 %86, label %77, label %._crit_edge, !llvm.loop !892
 
-._crit_edge:                                      ; preds = %81, %72, %64, %48, %3
+._crit_edge:                                      ; preds = %83, %73, %64, %48, %3
   ret void
 }
 

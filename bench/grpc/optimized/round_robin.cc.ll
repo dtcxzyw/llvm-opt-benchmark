@@ -8202,23 +8202,20 @@ cond.true:                                        ; preds = %entry
   %1 = inttoptr i64 %sub.i to ptr
   %message = getelementptr inbounds i8, ptr %1, i64 8
   %call4 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message) #22
-  %2 = extractvalue { i64, ptr } %call4, 0
-  %3 = extractvalue { i64, ptr } %call4, 1
   br label %cond.end9
 
 cond.false:                                       ; preds = %entry
-  %4 = and i64 %0, 2
-  %.not = icmp eq i64 %4, 0
+  %2 = and i64 %0, 2
+  %.not = icmp eq i64 %2, 0
   %spec.select = select i1 %.not, i64 0, i64 27
   %spec.select1 = select i1 %.not, ptr null, ptr @_ZN4absl12lts_202308026Status16kMovedFromStringE
+  %3 = insertvalue { i64, ptr } poison, i64 %spec.select, 0
+  %4 = insertvalue { i64, ptr } %3, ptr %spec.select1, 1
   br label %cond.end9
 
 cond.end9:                                        ; preds = %cond.false, %cond.true
-  %retval.sroa.0.0 = phi i64 [ %2, %cond.true ], [ %spec.select, %cond.false ]
-  %retval.sroa.4.0 = phi ptr [ %3, %cond.true ], [ %spec.select1, %cond.false ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
-  ret { i64, ptr } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, ptr } [ %call4, %cond.true ], [ %4, %cond.false ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

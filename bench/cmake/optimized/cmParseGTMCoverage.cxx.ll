@@ -152,10 +152,10 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage16LoadCoverageDataER
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   %19 = getelementptr inbounds i8, ptr %4, i64 24
   %20 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %3, i64 32
   %21 = getelementptr inbounds i8, ptr %3, i64 40
   %22 = getelementptr inbounds i8, ptr %3, i64 48
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %3, i64 56
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %3, i64 56
   %23 = getelementptr inbounds i8, ptr %3, i64 64
   br label %24
 
@@ -238,13 +238,13 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage16LoadCoverageDataER
   store ptr %19, ptr %20, align 8, !noalias !5
   store i8 47, ptr %19, align 8, !noalias !5
   store i64 1, ptr %17, align 8, !alias.scope !11, !noalias !5
-  store ptr %19, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !11, !noalias !5
+  store ptr %19, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !11, !noalias !5
   store ptr null, ptr %21, align 8, !alias.scope !11, !noalias !5
   %47 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #17, !noalias !5
   %48 = extractvalue { i64, ptr } %47, 0
   %49 = extractvalue { i64, ptr } %47, 1
   store i64 %48, ptr %22, align 8, !alias.scope !14, !noalias !5
-  store ptr %49, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !14, !noalias !5
+  store ptr %49, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !14, !noalias !5
   store ptr null, ptr %23, align 8, !alias.scope !14, !noalias !5
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr nonnull %3, i64 3)
           to label %50 unwind label %60

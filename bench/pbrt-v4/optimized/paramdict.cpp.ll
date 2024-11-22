@@ -1087,12 +1087,12 @@ entry:
   %nStored.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %nStored.i, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i, i64 %2
-  %cmp.not21 = icmp eq i64 %2, 0
-  br i1 %cmp.not21, label %return, label %for.body
+  %cmp.not22 = icmp eq i64 %2, 0
+  br i1 %cmp.not22, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin2.022 = phi ptr [ %incdec.ptr, %for.inc ], [ %cond.i, %entry ]
-  %3 = load ptr, ptr %__begin2.022, align 8
+  %__begin2.023 = phi ptr [ %incdec.ptr, %for.inc ], [ %cond.i, %entry ]
+  %3 = load ptr, ptr %__begin2.023, align 8
   %name3 = getelementptr inbounds i8, ptr %3, i64 32
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name3) #23
   %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #23
@@ -1149,16 +1149,16 @@ if.end14:                                         ; preds = %if.end
   br label %return
 
 for.inc:                                          ; preds = %for.body, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %lor.lhs.false
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.022, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.023, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc, %entry, %if.end14
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %if.end14 ], [ %defaultValue.coerce0, %entry ], [ %defaultValue.coerce0, %for.inc ]
-  %retval.sroa.3.0 = phi float [ %8, %if.end14 ], [ %defaultValue.coerce1, %entry ], [ %defaultValue.coerce1, %for.inc ]
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.3.0, 1
-  ret { <2 x float>, float } %.fca.1.insert
+  %retval.sroa.0.4.vec.insert.i.pn = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %if.end14 ], [ %defaultValue.coerce0, %entry ], [ %defaultValue.coerce0, %for.inc ]
+  %.pn = phi float [ %8, %if.end14 ], [ %defaultValue.coerce1, %entry ], [ %defaultValue.coerce1, %for.inc ]
+  %.fca.0.insert.i.pn = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert.i.pn, 0
+  %.fca.1.insert.merged = insertvalue { <2 x float>, float } %.fca.0.insert.i.pn, float %.pn, 1
+  ret { <2 x float>, float } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1787,12 +1787,12 @@ entry:
   %nStored.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %nStored.i, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i, i64 %2
-  %cmp.not21 = icmp eq i64 %2, 0
-  br i1 %cmp.not21, label %return, label %for.body
+  %cmp.not22 = icmp eq i64 %2, 0
+  br i1 %cmp.not22, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin2.022 = phi ptr [ %incdec.ptr, %for.inc ], [ %cond.i, %entry ]
-  %3 = load ptr, ptr %__begin2.022, align 8
+  %__begin2.023 = phi ptr [ %incdec.ptr, %for.inc ], [ %cond.i, %entry ]
+  %3 = load ptr, ptr %__begin2.023, align 8
   %name3 = getelementptr inbounds i8, ptr %3, i64 32
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name3) #23
   %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #23
@@ -1849,16 +1849,16 @@ if.end14:                                         ; preds = %if.end
   br label %return
 
 for.inc:                                          ; preds = %for.body, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %lor.lhs.false
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.022, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.023, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc, %entry, %if.end14
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %if.end14 ], [ %defaultValue.coerce0, %entry ], [ %defaultValue.coerce0, %for.inc ]
-  %retval.sroa.3.0 = phi float [ %8, %if.end14 ], [ %defaultValue.coerce1, %entry ], [ %defaultValue.coerce1, %for.inc ]
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.3.0, 1
-  ret { <2 x float>, float } %.fca.1.insert
+  %retval.sroa.0.4.vec.insert.i.pn = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %if.end14 ], [ %defaultValue.coerce0, %entry ], [ %defaultValue.coerce0, %for.inc ]
+  %.pn = phi float [ %8, %if.end14 ], [ %defaultValue.coerce1, %entry ], [ %defaultValue.coerce1, %for.inc ]
+  %.fca.0.insert.i.pn = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert.i.pn, 0
+  %.fca.1.insert.merged = insertvalue { <2 x float>, float } %.fca.0.insert.i.pn, float %.pn, 1
+  ret { <2 x float>, float } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1879,12 +1879,12 @@ entry:
   %nStored.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %nStored.i, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i, i64 %2
-  %cmp.not21 = icmp eq i64 %2, 0
-  br i1 %cmp.not21, label %return, label %for.body
+  %cmp.not22 = icmp eq i64 %2, 0
+  br i1 %cmp.not22, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin2.022 = phi ptr [ %incdec.ptr, %for.inc ], [ %cond.i, %entry ]
-  %3 = load ptr, ptr %__begin2.022, align 8
+  %__begin2.023 = phi ptr [ %incdec.ptr, %for.inc ], [ %cond.i, %entry ]
+  %3 = load ptr, ptr %__begin2.023, align 8
   %name3 = getelementptr inbounds i8, ptr %3, i64 32
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name3) #23
   %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #23
@@ -1941,16 +1941,16 @@ if.end14:                                         ; preds = %if.end
   br label %return
 
 for.inc:                                          ; preds = %for.body, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %lor.lhs.false
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.022, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.023, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc, %entry, %if.end14
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %if.end14 ], [ %defaultValue.coerce0, %entry ], [ %defaultValue.coerce0, %for.inc ]
-  %retval.sroa.3.0 = phi float [ %8, %if.end14 ], [ %defaultValue.coerce1, %entry ], [ %defaultValue.coerce1, %for.inc ]
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.3.0, 1
-  ret { <2 x float>, float } %.fca.1.insert
+  %retval.sroa.0.4.vec.insert.i.pn = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %if.end14 ], [ %defaultValue.coerce0, %entry ], [ %defaultValue.coerce0, %for.inc ]
+  %.pn = phi float [ %8, %if.end14 ], [ %defaultValue.coerce1, %entry ], [ %defaultValue.coerce1, %for.inc ]
+  %.fca.0.insert.i.pn = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert.i.pn, 0
+  %.fca.1.insert.merged = insertvalue { <2 x float>, float } %.fca.0.insert.i.pn, float %.pn, 1
+  ret { <2 x float>, float } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

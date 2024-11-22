@@ -247,10 +247,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %25
 
 25:                                               ; preds = %4, %._crit_edge.i, %24
-  %.sroa.4.0.lcssa.sink.i10 = phi ptr [ %.sroa.4.024.i, %24 ], [ %2, %4 ], [ %23, %._crit_edge.i ]
-  %26 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.4.0.lcssa.sink.i10, 1
-  ret { ptr, ptr } %27
+  %.sroa.4.024.i.pn = phi ptr [ %.sroa.4.024.i, %24 ], [ %2, %4 ], [ %23, %._crit_edge.i ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.4.024.i.pn, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

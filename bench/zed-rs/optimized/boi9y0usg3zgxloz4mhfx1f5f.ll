@@ -545,9 +545,9 @@ define hidden { i64, ptr } @_ZN3std2io4Read13read_vectored17h49ce0caed681f953E(p
   br label %_ZN3std2io21default_read_vectored17h4c9f588ee260e85bE.exit
 
 _ZN3std2io21default_read_vectored17h4c9f588ee260e85bE.exit: ; preds = %5, %12
-  %.sroa.3.0.i.i = phi i64 [ %11, %12 ], [ 0, %5 ]
-  %.sroa.02.0.i.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
-  %14 = tail call { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$std..io..Read$GT$4read17h7aa9c4e0aa4203f7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.sroa.02.0.i.i, i64 noundef %.sroa.3.0.i.i)
+  %.pn7.i.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn5.i.i = phi i64 [ %11, %12 ], [ 0, %5 ]
+  %14 = tail call { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$std..io..Read$GT$4read17h7aa9c4e0aa4203f7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.pn7.i.i, i64 noundef %.pn5.i.i)
   ret { i64, ptr } %14
 }
 

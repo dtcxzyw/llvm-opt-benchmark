@@ -88,8 +88,8 @@ define noundef zeroext i1 @"_ZN73_$LT$markup5ever..interface..ExpandedName$u20$a
   unreachable
 
 "_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8a818541783fc6ecE.exit": ; preds = %16, %12, %24
-  %.sroa.4.0.i = phi i64 [ %26, %24 ], [ %15, %12 ], [ %18, %16 ]
-  %28 = icmp eq i64 %.sroa.4.0.i, 0
+  %.pn9.i = phi i64 [ %26, %24 ], [ %15, %12 ], [ %18, %16 ]
+  %28 = icmp eq i64 %.pn9.i, 0
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %28, label %30, label %37
 

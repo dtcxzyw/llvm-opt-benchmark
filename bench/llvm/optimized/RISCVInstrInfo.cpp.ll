@@ -7136,12 +7136,12 @@ _ZN4llvm7RISCVCC26getOppositeBranchConditionENS0_8CondCodeE.exit: ; preds = %swi
   %117 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull %71) #25, !noalias !170
   %.pre.i = load ptr, ptr %2, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %.pre8.i = load i32, ptr %.phi.trans.insert.i, align 4
+  %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %116, %112
   %118 = phi ptr [ %114, %112 ], [ %.pre.i, %116 ], [ %98, %.lr.ph.i.i ]
-  %119 = phi i32 [ %115, %112 ], [ %.pre8.i, %116 ], [ %102, %.lr.ph.i.i ]
+  %119 = phi i32 [ %115, %112 ], [ %.pre6.i, %116 ], [ %102, %.lr.ph.i.i ]
   %120 = load ptr, ptr %96, align 8
   %121 = icmp eq ptr %120, %118
   br i1 %121, label %122, label %135

@@ -477,11 +477,11 @@ define void @_ZN17diesel_migrations21file_based_migrations16SqlFileMigration9fro
           to label %.noexc22 unwind label %81
 
 .noexc22:                                         ; preds = %68
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !59, !noalias !56, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !59, !noalias !56, !noundef !4
-  invoke void @_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_name17he13b36644cca4805E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i)
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !59, !noalias !56, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !59, !noalias !56, !nonnull !4, !noundef !4
+  invoke void @_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_name17he13b36644cca4805E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i)
           to label %69 unwind label %66
 
 69:                                               ; preds = %.noexc22
@@ -505,7 +505,7 @@ define void @_ZN17diesel_migrations21file_based_migrations16SqlFileMigration9fro
   %76 = load ptr, ptr %5, align 8, !noalias !65, !nonnull !4, !noundef !4
   %77 = getelementptr inbounds i8, ptr %5, i64 16
   %78 = load i64, ptr %77, align 8, !noalias !65, !noundef !4
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1191848617827839331"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i.i, ptr noundef nonnull %76, i64 noundef %74, i64 noundef %78)
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1191848617827839331"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i.i, ptr noundef nonnull %76, i64 noundef %74, i64 noundef %78)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30846a94a26df7afE.exit.i.i" unwind label %81
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30846a94a26df7afE.exit.i.i": ; preds = %75, %.noexc23

@@ -1658,11 +1658,11 @@ define hidden void @_ZN3std2io21default_read_vectored17h9ee08582ee40f59dE(ptr no
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf66309bf3de0612bE.llvm.13009932103675954609.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hf66309bf3de0612bE.llvm.13009932103675954609.exit": ; preds = %6, %13
-  %.sroa.3.0.i = phi i64 [ %12, %13 ], [ 0, %6 ]
-  %.sroa.0.0.i = phi ptr [ %14, %13 ], [ @anon.8116ce5b6f07845c538d26bdcae5af43.16.llvm.13009932103675954609, %6 ]
-  %15 = icmp ne ptr %.sroa.0.0.i, null
+  %.pn6.i = phi ptr [ %14, %13 ], [ @anon.8116ce5b6f07845c538d26bdcae5af43.16.llvm.13009932103675954609, %6 ]
+  %.pn4.i = phi i64 [ %12, %13 ], [ 0, %6 ]
+  %15 = icmp ne ptr %.pn6.i, null
   tail call void @llvm.assume(i1 %15)
-  tail call void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hd5479084a095c776E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i)
+  tail call void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hd5479084a095c776E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 1 %.pn6.i, i64 noundef %.pn4.i)
   ret void
 }
 
@@ -2118,11 +2118,11 @@ define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17hf66309bf3
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.3.0 = phi i64 [ %8, %5 ], [ %2, %3 ]
-  %.sroa.0.0 = phi ptr [ %6, %5 ], [ %1, %3 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %11
+  %.pn6 = phi ptr [ %6, %5 ], [ %1, %3 ]
+  %.pn4 = phi i64 [ %8, %5 ], [ %2, %3 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn6, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn4, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable

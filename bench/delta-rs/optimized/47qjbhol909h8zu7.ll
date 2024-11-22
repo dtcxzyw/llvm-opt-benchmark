@@ -3804,9 +3804,9 @@ define hidden void @"_ZN104_$LT$serde_urlencoded..ser..pair..PairSerializer$LT$T
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %38 = getelementptr inbounds i8, ptr %1, i64 24
   %39 = load ptr, ptr %38, align 8, !nonnull !12, !align !59, !noundef !12
-  %.sroa.0.0.i = load ptr, ptr %.sroa.6.0..sroa_idx2, align 8, !alias.scope !766, !nonnull !12, !noundef !12
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !766, !noundef !12
+  %.pn1.in.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !766, !noundef !12
+  %.pn3.i = load ptr, ptr %.sroa.6.0..sroa_idx2, align 8, !alias.scope !766, !nonnull !12, !noundef !12
   %.val27 = load ptr, ptr %2, align 8, !nonnull !12, !align !58, !noundef !12
   %40 = getelementptr inbounds i8, ptr %2, i64 8
   %.val28 = load i64, ptr %40, align 8, !noundef !12
@@ -3832,7 +3832,7 @@ define hidden void @"_ZN104_$LT$serde_urlencoded..ser..pair..PairSerializer$LT$T
   %47 = load ptr, ptr %46, align 8, !alias.scope !796, !noalias !786, !align !58, !noundef !12
   %48 = getelementptr inbounds i8, ptr %39, i64 40
   %49 = load ptr, ptr %48, align 8, !alias.scope !796, !noalias !786
-  invoke void @_ZN15form_urlencoded11append_pair17hd885db2cbde10b0eE(ptr noalias noundef nonnull align 8 dereferenceable(48) %39, i64 noundef %45, ptr noundef align 1 %47, ptr %49, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i, ptr noalias noundef nonnull readonly align 1 %.val27, i64 noundef %.val28)
+  invoke void @_ZN15form_urlencoded11append_pair17hd885db2cbde10b0eE(ptr noalias noundef nonnull align 8 dereferenceable(48) %39, i64 noundef %45, ptr noundef align 1 %47, ptr %49, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i, ptr noalias noundef nonnull readonly align 1 %.val27, i64 noundef %.val28)
           to label %50 unwind label %35
 
 50:                                               ; preds = %"_ZN5serde3ser5impls55_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$str$GT$9serialize17h03086264ce8f54f6E.exit.i"
@@ -4041,9 +4041,9 @@ define hidden void @"_ZN104_$LT$serde_urlencoded..ser..pair..PairSerializer$LT$T
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %38 = getelementptr inbounds i8, ptr %1, i64 24
   %39 = load ptr, ptr %38, align 8, !nonnull !12, !align !59, !noundef !12
-  %.sroa.0.0.i = load ptr, ptr %.sroa.6.0..sroa_idx2, align 8, !alias.scope !851, !nonnull !12, !noundef !12
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !851, !noundef !12
+  %.pn1.in.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !851, !noundef !12
+  %.pn3.i = load ptr, ptr %.sroa.6.0..sroa_idx2, align 8, !alias.scope !851, !nonnull !12, !noundef !12
   %.val27 = load ptr, ptr %2, align 8, !nonnull !12, !align !58, !noundef !12
   %40 = getelementptr inbounds i8, ptr %2, i64 8
   %.val28 = load i64, ptr %40, align 8, !noundef !12
@@ -4073,7 +4073,7 @@ define hidden void @"_ZN104_$LT$serde_urlencoded..ser..pair..PairSerializer$LT$T
   %48 = load ptr, ptr %47, align 8, !alias.scope !881, !noalias !871, !align !58, !noundef !12
   %49 = getelementptr inbounds i8, ptr %39, i64 48
   %50 = load ptr, ptr %49, align 8, !alias.scope !881, !noalias !871
-  invoke void @_ZN15form_urlencoded11append_pair17hd885db2cbde10b0eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %46, ptr noundef align 1 %48, ptr %50, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i, ptr noalias noundef nonnull readonly align 1 %.val27, i64 noundef %.val28)
+  invoke void @_ZN15form_urlencoded11append_pair17hd885db2cbde10b0eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %46, ptr noundef align 1 %48, ptr %50, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i, ptr noalias noundef nonnull readonly align 1 %.val27, i64 noundef %.val28)
           to label %51 unwind label %35
 
 51:                                               ; preds = %.noexc30
@@ -126119,13 +126119,13 @@ define hidden void @"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf458aecdc4585247E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
-  %.sroa.0.0.in = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !12, !noundef !12
-  %.sroa.5.0.in = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8, !noundef !12
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %3
+  %.pn1.in = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1 = load i64, ptr %.pn1.in, align 8, !noundef !12
+  %.pn3.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3 = load ptr, ptr %.pn3.in, align 8, !nonnull !12, !noundef !12
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn3, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -128677,13 +128677,13 @@ tailrecurse:                                      ; preds = %339, %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN77_$LT$alloc..borrow..Cow$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$T$GT$$GT$6as_ref17h7e883d8574a3468dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !22292, !nonnull !12, !noundef !12
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !22292, !noundef !12
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %3
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !22292, !noundef !12
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !22292, !nonnull !12, !noundef !12
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn1.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -132274,11 +132274,11 @@ define hidden void @"_ZN87_$LT$datafusion_common..table_reference..TableReferenc
   store i64 %13, ptr %9, align 8, !noalias !22968
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !22968
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !nonnull !12, !noundef !12
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !12
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !12
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !nonnull !12, !noundef !12
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
   switch i64 %13, label %default.unreachable [
     i64 0, label %14
     i64 1, label %15
@@ -132300,11 +132300,11 @@ default.unreachable:                              ; preds = %2
   store i8 -1, ptr %7, align 1, !noalias !22978
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 1), !noalias !22982
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !22978
-  %.sroa.0.0.in.i5 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.i6 = load ptr, ptr %.sroa.0.0.in.i5, align 8, !alias.scope !22983, !nonnull !12, !noundef !12
-  %.sroa.5.0.in.i7 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.5.0.i8 = load i64, ptr %.sroa.5.0.in.i7, align 8, !alias.scope !22983, !noundef !12
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i6, i64 noundef %.sroa.5.0.i8)
+  %.pn1.in.i7 = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn1.i8 = load i64, ptr %.pn1.in.i7, align 8, !alias.scope !22983, !noundef !12
+  %.pn3.in.i9 = getelementptr inbounds i8, ptr %0, i64 32
+  %.pn3.i10 = load ptr, ptr %.pn3.in.i9, align 8, !alias.scope !22983, !nonnull !12, !noundef !12
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i10, i64 noundef %.pn1.i8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !22986
   store i8 -1, ptr %6, align 1, !noalias !22986
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 1), !noalias !22990
@@ -132316,20 +132316,20 @@ default.unreachable:                              ; preds = %2
   store i8 -1, ptr %5, align 1, !noalias !22991
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !22995
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !22991
-  %.sroa.0.0.in.i13 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.i14 = load ptr, ptr %.sroa.0.0.in.i13, align 8, !alias.scope !22996, !nonnull !12, !noundef !12
-  %.sroa.5.0.in.i15 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.5.0.i16 = load i64, ptr %.sroa.5.0.in.i15, align 8, !alias.scope !22996, !noundef !12
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14, i64 noundef %.sroa.5.0.i16)
+  %.pn1.in.i19 = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn1.i20 = load i64, ptr %.pn1.in.i19, align 8, !alias.scope !22996, !noundef !12
+  %.pn3.in.i21 = getelementptr inbounds i8, ptr %0, i64 32
+  %.pn3.i22 = load ptr, ptr %.pn3.in.i21, align 8, !alias.scope !22996, !nonnull !12, !noundef !12
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i22, i64 noundef %.pn1.i20)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !22999
   store i8 -1, ptr %4, align 1, !noalias !22999
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 1), !noalias !23003
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !22999
-  %.sroa.0.0.in.i17 = getelementptr inbounds i8, ptr %0, i64 56
-  %.sroa.0.0.i18 = load ptr, ptr %.sroa.0.0.in.i17, align 8, !alias.scope !23004, !nonnull !12, !noundef !12
-  %.sroa.5.0.in.i19 = getelementptr inbounds i8, ptr %0, i64 64
-  %.sroa.5.0.i20 = load i64, ptr %.sroa.5.0.in.i19, align 8, !alias.scope !23004, !noundef !12
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18, i64 noundef %.sroa.5.0.i20)
+  %.pn1.in.i25 = getelementptr inbounds i8, ptr %0, i64 64
+  %.pn1.i26 = load i64, ptr %.pn1.in.i25, align 8, !alias.scope !23004, !noundef !12
+  %.pn3.in.i27 = getelementptr inbounds i8, ptr %0, i64 56
+  %.pn3.i28 = load ptr, ptr %.pn3.in.i27, align 8, !alias.scope !23004, !nonnull !12, !noundef !12
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i28, i64 noundef %.pn1.i26)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !23007
   store i8 -1, ptr %3, align 1, !noalias !23007
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !23011

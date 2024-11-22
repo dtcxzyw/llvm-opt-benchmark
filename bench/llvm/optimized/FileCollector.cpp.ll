@@ -1070,213 +1070,189 @@ define dso_local { i32, ptr } @_ZN4llvm13FileCollector9copyFilesEb(ptr noundef n
   store ptr %15, ptr %5, align 8
   %18 = call { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true, i32 noundef 504) #15
   %19 = extractvalue { i32, ptr } %18, 0
-  %20 = extractvalue { i32, ptr } %18, 1
   %.not43 = icmp eq i32 %19, 0
-  br i1 %.not43, label %21, label %105
+  br i1 %.not43, label %20, label %100
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %22) #15
-  %.not.i.i = icmp eq i32 %23, 0
-  br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %24
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %21) #15
+  %.not.i.i = icmp eq i32 %22, 0
+  br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %23
 
-24:                                               ; preds = %21
-  call void @_ZSt20__throw_system_errori(i32 noundef %23) #16
+23:                                               ; preds = %20
+  call void @_ZSt20__throw_system_errori(i32 noundef %22) #16
   unreachable
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %28 = load ptr, ptr %27, align 8
-  %.not4465 = icmp eq ptr %26, %28
-  br i1 %.not4465, label %._crit_edge, label %.lr.ph
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %27 = load ptr, ptr %26, align 8
+  %.not4449 = icmp eq ptr %25, %27
+  br i1 %.not4449, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %37 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  %39 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %40 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  %41 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %42 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  %43 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %45 = getelementptr inbounds nuw i8, ptr %14, i64 33
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  br label %51
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 33
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  br label %50
 
-51:                                               ; preds = %.lr.ph, %96
-  %.sroa.031.066 = phi ptr [ %26, %.lr.ph ], [ %97, %96 ]
+50:                                               ; preds = %.lr.ph, %95
+  %.sroa.031.050 = phi ptr [ %25, %.lr.ph ], [ %96, %95 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 44, i1 false)
-  store i32 65535, ptr %29, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  store i8 4, ptr %31, align 8
-  store i8 1, ptr %32, align 1
-  store ptr %.sroa.031.066, ptr %7, align 8
-  %52 = call { i32, ptr } @_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb(ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(72) %6, i1 noundef zeroext true) #15
-  %53 = extractvalue { i32, ptr } %52, 0
-  %.not45 = icmp eq i32 %53, 0
-  br i1 %.not45, label %55, label %54
+  store i32 65535, ptr %28, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  store i8 4, ptr %30, align 8
+  store i8 1, ptr %31, align 1
+  store ptr %.sroa.031.050, ptr %7, align 8
+  %51 = call { i32, ptr } @_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb(ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(72) %6, i1 noundef zeroext true) #15
+  %52 = extractvalue { i32, ptr } %51, 0
+  %.not45 = icmp eq i32 %52, 0
+  br i1 %.not45, label %54, label %53
 
-54:                                               ; preds = %51
-  br i1 %1, label %.loopexit.split.loop.exit, label %96
+53:                                               ; preds = %50
+  br i1 %1, label %.loopexit, label %95
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr %33, align 8
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %96, label %58
+54:                                               ; preds = %50
+  %55 = load i32, ptr %32, align 8
+  %56 = icmp eq i32 %55, 1
+  br i1 %56, label %95, label %57
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.031.066, i64 32
-  %60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #15
-  %61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #15
-  %62 = call { ptr, i64 } @_ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE(ptr %60, i64 %61, i32 noundef 0) #15
-  %63 = extractvalue { ptr, i64 } %62, 0
-  %64 = extractvalue { ptr, i64 } %62, 1
-  store i8 5, ptr %34, align 8
-  store i8 1, ptr %35, align 1
-  store ptr %63, ptr %8, align 8
-  store i64 %64, ptr %36, align 8
-  %65 = call { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext true, i32 noundef 504) #15
-  %66 = extractvalue { i32, ptr } %65, 0
-  %.not46 = icmp ne i32 %66, 0
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 32
+  %59 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #15
+  %60 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #15
+  %61 = call { ptr, i64 } @_ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE(ptr %59, i64 %60, i32 noundef 0) #15
+  %62 = extractvalue { ptr, i64 } %61, 0
+  %63 = extractvalue { ptr, i64 } %61, 1
+  store i8 5, ptr %33, align 8
+  store i8 1, ptr %34, align 1
+  store ptr %62, ptr %8, align 8
+  store i64 %63, ptr %35, align 8
+  %64 = call { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext true, i32 noundef 504) #15
+  %65 = extractvalue { i32, ptr } %64, 0
+  %.not46 = icmp ne i32 %65, 0
   %brmerge.not = and i1 %1, %.not46
-  br i1 %brmerge.not, label %.loopexit.split.loop.exit49, label %67
+  br i1 %brmerge.not, label %.loopexit, label %66
 
-67:                                               ; preds = %58
-  %68 = load i32, ptr %33, align 8
-  %69 = icmp eq i32 %68, 3
-  br i1 %69, label %70, label %73
+66:                                               ; preds = %57
+  %67 = load i32, ptr %32, align 8
+  %68 = icmp eq i32 %67, 3
+  br i1 %68, label %69, label %72
 
-70:                                               ; preds = %67
-  store i8 4, ptr %49, align 8
-  store i8 1, ptr %50, align 1
-  store ptr %59, ptr %9, align 8
-  %71 = call { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true, i32 noundef 504) #15
-  %72 = extractvalue { i32, ptr } %71, 0
-  %.not48 = icmp ne i32 %72, 0
+69:                                               ; preds = %66
+  store i8 4, ptr %48, align 8
+  store i8 1, ptr %49, align 1
+  store ptr %58, ptr %9, align 8
+  %70 = call { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true, i32 noundef 504) #15
+  %71 = extractvalue { i32, ptr } %70, 0
+  %.not48 = icmp ne i32 %71, 0
   %brmerge19.not = and i1 %1, %.not48
-  br i1 %brmerge19.not, label %.loopexit.split.loop.exit52, label %96
+  br i1 %brmerge19.not, label %.loopexit, label %95
 
-73:                                               ; preds = %67
-  store i8 4, ptr %37, align 8
-  store i8 1, ptr %38, align 1
-  store ptr %.sroa.031.066, ptr %10, align 8
-  store i8 4, ptr %39, align 8
-  store i8 1, ptr %40, align 1
-  store ptr %59, ptr %11, align 8
-  %74 = call { i32, ptr } @_ZN4llvm3sys2fs9copy_fileERKNS_5TwineES4_(ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(34) %11) #15
-  %75 = extractvalue { i32, ptr } %74, 0
-  %.not = icmp ne i32 %75, 0
+72:                                               ; preds = %66
+  store i8 4, ptr %36, align 8
+  store i8 1, ptr %37, align 1
+  store ptr %.sroa.031.050, ptr %10, align 8
+  store i8 4, ptr %38, align 8
+  store i8 1, ptr %39, align 1
+  store ptr %58, ptr %11, align 8
+  %73 = call { i32, ptr } @_ZN4llvm3sys2fs9copy_fileERKNS_5TwineES4_(ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(34) %11) #15
+  %74 = extractvalue { i32, ptr } %73, 0
+  %.not = icmp ne i32 %74, 0
   %brmerge22.not = and i1 %1, %.not
-  br i1 %brmerge22.not, label %.loopexit.split.loop.exit55, label %76
+  br i1 %brmerge22.not, label %.loopexit, label %75
 
-76:                                               ; preds = %73
-  store i8 4, ptr %41, align 8
-  store i8 1, ptr %42, align 1
-  store ptr %.sroa.031.066, ptr %13, align 8
+75:                                               ; preds = %72
+  store i8 4, ptr %40, align 8
+  store i8 1, ptr %41, align 1
+  store ptr %.sroa.031.050, ptr %13, align 8
   call void @_ZN4llvm3sys2fs14getPermissionsERKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr") align 8 %12, ptr noundef nonnull align 8 dereferenceable(34) %13) #15
-  %77 = load i8, ptr %43, align 8
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %.critedge, label %79
+  %76 = load i8, ptr %42, align 8
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %.critedge, label %78
 
-79:                                               ; preds = %76
-  store i8 4, ptr %44, align 8
-  store i8 1, ptr %45, align 1
-  store ptr %59, ptr %14, align 8
-  %80 = load i32, ptr %12, align 8
-  %81 = call { i32, ptr } @_ZN4llvm3sys2fs14setPermissionsERKNS_5TwineENS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %14, i32 noundef %80) #15
-  %82 = extractvalue { i32, ptr } %81, 0
-  %.not47 = icmp ne i32 %82, 0
+78:                                               ; preds = %75
+  store i8 4, ptr %43, align 8
+  store i8 1, ptr %44, align 1
+  store ptr %58, ptr %14, align 8
+  %79 = load i32, ptr %12, align 8
+  %80 = call { i32, ptr } @_ZN4llvm3sys2fs14setPermissionsERKNS_5TwineENS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %14, i32 noundef %79) #15
+  %81 = extractvalue { i32, ptr } %80, 0
+  %.not47 = icmp ne i32 %81, 0
   %brmerge25.not = and i1 %1, %.not47
-  br i1 %brmerge25.not, label %.loopexit.split.loop.exit58, label %.critedge
+  br i1 %brmerge25.not, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %79, %76
-  %83 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #15
-  %84 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #15
+.critedge:                                        ; preds = %78, %75
+  %82 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #15
+  %83 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  store i8 5, ptr %46, align 8
-  store i8 1, ptr %47, align 1
-  store ptr %83, ptr %4, align 8
-  store i64 %84, ptr %48, align 8
-  %85 = call { i32, ptr } @_ZN4llvm3sys2fs8openFileERKNS_5TwineERiNS1_19CreationDispositionENS1_10FileAccessENS1_9OpenFlagsEj(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 438) #15
-  %86 = extractvalue { i32, ptr } %85, 0
-  %.not.i = icmp eq i32 %86, 0
-  br i1 %.not.i, label %87, label %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
+  store i8 5, ptr %45, align 8
+  store i8 1, ptr %46, align 1
+  store ptr %82, ptr %4, align 8
+  store i64 %83, ptr %47, align 8
+  %84 = call { i32, ptr } @_ZN4llvm3sys2fs8openFileERKNS_5TwineERiNS1_19CreationDispositionENS1_10FileAccessENS1_9OpenFlagsEj(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 438) #15
+  %85 = extractvalue { i32, ptr } %84, 0
+  %.not.i = icmp eq i32 %85, 0
+  br i1 %.not.i, label %86, label %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
 
-87:                                               ; preds = %.critedge
-  %88 = load i32, ptr %3, align 4
-  %89 = call i64 @_ZNK4llvm3sys2fs17basic_file_status19getLastAccessedTimeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #15
-  %90 = call i64 @_ZNK4llvm3sys2fs17basic_file_status23getLastModificationTimeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #15
-  %91 = call { i32, ptr } @_ZN4llvm3sys2fs32setLastAccessAndModificationTimeEiNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESA_(i32 noundef %88, i64 %89, i64 %90) #15
-  %92 = extractvalue { i32, ptr } %91, 0
-  %.not7.i = icmp eq i32 %92, 0
-  br i1 %.not7.i, label %93, label %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
+86:                                               ; preds = %.critedge
+  %87 = load i32, ptr %3, align 4
+  %88 = call i64 @_ZNK4llvm3sys2fs17basic_file_status19getLastAccessedTimeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #15
+  %89 = call i64 @_ZNK4llvm3sys2fs17basic_file_status23getLastModificationTimeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #15
+  %90 = call { i32, ptr } @_ZN4llvm3sys2fs32setLastAccessAndModificationTimeEiNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESA_(i32 noundef %87, i64 %88, i64 %89) #15
+  %91 = extractvalue { i32, ptr } %90, 0
+  %.not7.i = icmp eq i32 %91, 0
+  br i1 %.not7.i, label %92, label %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
 
-93:                                               ; preds = %87
-  %94 = load i32, ptr %3, align 4
-  %95 = call { i32, ptr } @_ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi(i32 noundef %94) #15
+92:                                               ; preds = %86
+  %93 = load i32, ptr %3, align 4
+  %94 = call { i32, ptr } @_ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi(i32 noundef %93) #15
   br label %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
 
-_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit: ; preds = %93, %.critedge, %87
+_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit: ; preds = %92, %.critedge, %86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  br label %96
+  br label %95
 
-96:                                               ; preds = %70, %55, %54, %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
-  %97 = getelementptr inbounds i8, ptr %.sroa.031.066, i64 72
-  %.not44 = icmp eq ptr %97, %28
-  br i1 %.not44, label %._crit_edge, label %51
+95:                                               ; preds = %69, %54, %53, %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
+  %96 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 72
+  %.not44 = icmp eq ptr %96, %27
+  br i1 %.not44, label %._crit_edge, label %50
 
-._crit_edge:                                      ; preds = %96, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %98 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #17
+._crit_edge:                                      ; preds = %95, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+  %97 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #17
+  %98 = insertvalue { i32, ptr } { i32 0, ptr poison }, ptr %97, 1
   br label %.loopexit
 
-.loopexit.split.loop.exit:                        ; preds = %54
-  %99 = extractvalue { i32, ptr } %52, 1
-  br label %.loopexit
+.loopexit:                                        ; preds = %78, %72, %69, %57, %53, %._crit_edge
+  %.merged = phi { i32, ptr } [ %98, %._crit_edge ], [ %80, %78 ], [ %64, %57 ], [ %73, %72 ], [ %70, %69 ], [ %51, %53 ]
+  %99 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %21) #15
+  br label %100
 
-.loopexit.split.loop.exit49:                      ; preds = %58
-  %100 = extractvalue { i32, ptr } %65, 1
-  br label %.loopexit
-
-.loopexit.split.loop.exit52:                      ; preds = %70
-  %101 = extractvalue { i32, ptr } %71, 1
-  br label %.loopexit
-
-.loopexit.split.loop.exit55:                      ; preds = %73
-  %102 = extractvalue { i32, ptr } %74, 1
-  br label %.loopexit
-
-.loopexit.split.loop.exit58:                      ; preds = %79
-  %103 = extractvalue { i32, ptr } %81, 1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.split.loop.exit, %.loopexit.split.loop.exit49, %.loopexit.split.loop.exit52, %.loopexit.split.loop.exit55, %.loopexit.split.loop.exit58, %._crit_edge
-  %.sroa.037.1 = phi i32 [ 0, %._crit_edge ], [ %53, %.loopexit.split.loop.exit ], [ %66, %.loopexit.split.loop.exit49 ], [ %72, %.loopexit.split.loop.exit52 ], [ %75, %.loopexit.split.loop.exit55 ], [ %82, %.loopexit.split.loop.exit58 ]
-  %.sroa.14.1 = phi ptr [ %98, %._crit_edge ], [ %99, %.loopexit.split.loop.exit ], [ %100, %.loopexit.split.loop.exit49 ], [ %101, %.loopexit.split.loop.exit52 ], [ %102, %.loopexit.split.loop.exit55 ], [ %103, %.loopexit.split.loop.exit58 ]
-  %104 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %22) #15
-  br label %105
-
-105:                                              ; preds = %2, %.loopexit
-  %.sroa.037.0 = phi i32 [ %.sroa.037.1, %.loopexit ], [ %19, %2 ]
-  %.sroa.14.0 = phi ptr [ %.sroa.14.1, %.loopexit ], [ %20, %2 ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.037.0, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.14.0, 1
-  ret { i32, ptr } %.fca.1.insert
+100:                                              ; preds = %2, %.loopexit
+  %.fca.1.insert.merged = phi { i32, ptr } [ %.merged, %.loopexit ], [ %18, %2 ]
+  ret { i32, ptr } %.fca.1.insert.merged
 }
 
 declare { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34), i1 noundef zeroext, i32 noundef) local_unnamed_addr #4

@@ -1497,7 +1497,7 @@ define dso_local noundef zeroext i1 @_ZN10cmCTestSVN15NoteNewRevisionEv(ptr noun
   %17 = getelementptr inbounds i8, ptr %3, i64 8
   %18 = getelementptr inbounds i8, ptr %3, i64 24
   %19 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %2, i64 32
   %20 = getelementptr inbounds i8, ptr %2, i64 40
   br label %21
 
@@ -1589,7 +1589,7 @@ define dso_local noundef zeroext i1 @_ZN10cmCTestSVN15NoteNewRevisionEv(ptr noun
   store ptr %18, ptr %19, align 8, !noalias !14
   store i8 47, ptr %18, align 8, !noalias !14
   store i64 1, ptr %16, align 8, !alias.scope !15, !noalias !14
-  store ptr %18, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !15, !noalias !14
+  store ptr %18, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !15, !noalias !14
   store ptr null, ptr %20, align 8, !alias.scope !15, !noalias !14
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull %2, i64 2)
           to label %68 unwind label %78

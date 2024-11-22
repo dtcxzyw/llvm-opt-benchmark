@@ -140,24 +140,24 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
 
 28:                                               ; preds = %21
   %29 = call { i64, ptr } @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0aa175831c6aa53dE.llvm.6846860928439149388"(ptr noundef nonnull %22, ptr noundef nonnull %16, i64 noundef %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %25, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, i64 noundef %23), !noalias !35
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
+  %30 = extractvalue { i64, ptr } %29, 1
+  %31 = icmp ne ptr %30, null
+  call void @llvm.assume(i1 %31)
+  %32 = extractvalue { i64, ptr } %29, 0
   %33 = load i64, ptr %7, align 8, !alias.scope !15, !noalias !16, !noundef !19
-  %34 = icmp ult i64 %30, %33
+  %34 = icmp ult i64 %32, %33
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr %6, align 8, !alias.scope !15, !noalias !16, !nonnull !19, !noundef !19
-  %37 = getelementptr inbounds [0 x { { i64, [21 x i64] }, { { ptr, { { ptr, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, i8, [7 x i8] }, { { i32, [1 x i32], [16 x { [2 x i64] }] }, ptr, {}, i8, i8, [6 x i8] } }, i8, [7 x i8] } } }], ptr %36, i64 0, i64 %30
+  %37 = getelementptr inbounds [0 x { { i64, [21 x i64] }, { { ptr, { { ptr, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, i8, [7 x i8] }, { { i32, [1 x i32], [16 x { [2 x i64] }] }, ptr, {}, i8, i8, [6 x i8] } }, i8, [7 x i8] } } }], ptr %36, i64 0, i64 %32
   %.sroa.025.0.copyload.i.i.i = load i64, ptr %37, align 8, !noalias !16
   store i64 -9223372036854775807, ptr %37, align 8, !noalias !16
   %38 = icmp eq i64 %.sroa.025.0.copyload.i.i.i, -9223372036854775807
   br i1 %38, label %40, label %90
 
 39:                                               ; preds = %28
-  call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %30, i64 noundef %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.08ab136e6145284ac05dc8c93d78f03b.102) #41, !noalias !16
+  call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %32, i64 noundef %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.08ab136e6145284ac05dc8c93d78f03b.102) #41, !noalias !16
   unreachable
 
 40:                                               ; preds = %35

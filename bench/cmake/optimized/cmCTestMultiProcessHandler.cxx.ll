@@ -12855,14 +12855,14 @@ define dso_local noundef zeroext i1 @_ZN26cmCTestMultiProcessHandler21InitResour
   %14 = extractvalue { i64, ptr } %13, 0
   %15 = extractvalue { i64, ptr } %13, 1
   store i64 %14, ptr %12, align 8, !alias.scope !86, !noalias !83
-  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %15, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !86, !noalias !83
+  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %15, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !86, !noalias !83
   %16 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr null, ptr %16, align 8, !alias.scope !86, !noalias !83
   %17 = getelementptr inbounds i8, ptr %3, i64 48
   store i64 2, ptr %17, align 8, !alias.scope !89, !noalias !83
-  %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr @.str.77, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !89, !noalias !83
+  %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr @.str.77, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !alias.scope !89, !noalias !83
   %18 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr null, ptr %18, align 8, !alias.scope !89, !noalias !83
   %19 = getelementptr inbounds i8, ptr %3, i64 72
@@ -12871,8 +12871,8 @@ define dso_local noundef zeroext i1 @_ZN26cmCTestMultiProcessHandler21InitResour
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
   store i64 %21, ptr %19, align 8, !alias.scope !92, !noalias !83
-  %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr %22, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !92, !noalias !83
+  %.sroa.2.0..sroa_idx.i23.i = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %22, ptr %.sroa.2.0..sroa_idx.i23.i, align 8, !alias.scope !92, !noalias !83
   %23 = getelementptr inbounds i8, ptr %3, i64 88
   store ptr %5, ptr %23, align 8, !alias.scope !92, !noalias !83
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr nonnull %3, i64 4)

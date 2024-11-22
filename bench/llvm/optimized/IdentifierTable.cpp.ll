@@ -19491,8 +19491,8 @@ define dso_local { ptr, i64 } @_ZNK5clang14IdentifierInfo14deuglifiedNameEv(ptr 
   %16 = icmp eq i8 %15, 95
   %17 = add i8 %15, -65
   %or.cond = icmp ult i8 %17, 26
-  %or.cond1 = or i1 %16, %or.cond
-  br i1 %or.cond1, label %18, label %24
+  %or.cond3 = or i1 %16, %or.cond
+  br i1 %or.cond3, label %18, label %24
 
 18:                                               ; preds = %13
   %19 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 noundef signext 95, i64 noundef 0) #26
@@ -19504,11 +19504,11 @@ define dso_local { ptr, i64 } @_ZNK5clang14IdentifierInfo14deuglifiedNameEv(ptr 
   br label %24
 
 24:                                               ; preds = %13, %1, %10, %18
-  %.sroa.0.0 = phi ptr [ %22, %18 ], [ %5, %10 ], [ %5, %1 ], [ %5, %13 ]
-  %.sroa.3.0 = phi i64 [ %23, %18 ], [ %7, %10 ], [ %7, %1 ], [ %7, %13 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.pn2 = phi ptr [ %22, %18 ], [ %5, %10 ], [ %5, %1 ], [ %5, %13 ]
+  %.pn = phi i64 [ %23, %18 ], [ %7, %10 ], [ %7, %1 ], [ %7, %13 ]
+  %.fca.0.insert.i.i.i.pn = insertvalue { ptr, i64 } poison, ptr %.pn2, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i.pn, i64 %.pn, 1
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -1068,8 +1068,8 @@ define { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 de
 
 _ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit: ; preds = %2, %6
   %.sroa.3.0 = phi i64 [ %11, %6 ], [ 0, %2 ]
-  %.sroa.5.040 = phi i8 [ %9, %6 ], [ 0, %2 ]
-  %12 = trunc nuw i8 %.sroa.5.040 to i1
+  %.sroa.5.0 = phi i8 [ %9, %6 ], [ 0, %2 ]
+  %12 = trunc nuw i8 %.sroa.5.0 to i1
   tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 0, i64 noundef %1, i1 noundef zeroext %12, i64 undef, i8 0)
   %13 = lshr i64 %1, 12
   %14 = getelementptr inbounds i8, ptr %0, i64 37008
@@ -1078,7 +1078,7 @@ _ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit: ; preds = %2
   %17 = load i64, ptr %16, align 8
   %18 = or disjoint i64 %13, -9223372036854775808
   %.not = icmp eq i64 %17, %18
-  br i1 %.not, label %63, label %19
+  br i1 %.not, label %64, label %19
 
 19:                                               ; preds = %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -1086,7 +1086,7 @@ _ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit: ; preds = %2
   %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.sroa.3.0, ptr %.sroa.237.0..sroa_idx, align 8
   %.sroa.338.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i8 %.sroa.5.040, ptr %.sroa.338.0..sroa_idx, align 8
+  store i8 %.sroa.5.0, ptr %.sroa.338.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 17
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
@@ -1115,80 +1115,81 @@ _ZN5mmu_t9translateE17mem_access_info_tm.exit:    ; preds = %19, %21
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(16) %28, i64 noundef %.0.i)
   %.not27 = icmp eq ptr %31, null
-  br i1 %.not27, label %36, label %32
+  br i1 %.not27, label %35, label %32
 
 32:                                               ; preds = %_ZN5mmu_t9translateE17mem_access_info_tm.exit
   %33 = tail call { ptr, i64 } @_ZN5mmu_t10refill_tlbEmmPc11access_type(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef %.0.i, ptr noundef nonnull %31, i32 noundef 2)
   %34 = extractvalue { ptr, i64 } %33, 0
-  %35 = extractvalue { ptr, i64 } %33, 1
-  br label %66
+  br label %69
 
-36:                                               ; preds = %_ZN5mmu_t9translateE17mem_access_info_tm.exit
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
-  %38 = icmp ult i64 %.0.i, 4096
-  br i1 %38, label %39, label %_ZN5mmu_t10mmio_fetchEmmPh.exit
+35:                                               ; preds = %_ZN5mmu_t9translateE17mem_access_info_tm.exit
+  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = icmp ult i64 %.0.i, 4096
+  br i1 %37, label %38, label %_ZN5mmu_t10mmio_fetchEmmPh.exit
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %4, align 8
-  %.not.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i, label %_ZN5mmu_t10mmio_fetchEmmPh.exit, label %41
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %4, align 8
+  %.not.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i, label %_ZN5mmu_t10mmio_fetchEmmPh.exit, label %40
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %40, i64 2248
-  %43 = load i8, ptr %42, align 8
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %_ZN5mmu_t10mmio_fetchEmmPh.exit, label %_ZN5mmu_t10mmio_fetchEmmPh.exit.thread
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds i8, ptr %39, i64 2248
+  %42 = load i8, ptr %41, align 8
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %_ZN5mmu_t10mmio_fetchEmmPh.exit, label %_ZN5mmu_t10mmio_fetchEmmPh.exit.thread
 
-_ZN5mmu_t10mmio_fetchEmmPh.exit:                  ; preds = %36, %39, %41
-  %45 = load ptr, ptr %27, align 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %45, i64 noundef %.0.i, i64 noundef 2, ptr noundef nonnull %37)
-  br i1 %49, label %59, label %_ZN5mmu_t10mmio_fetchEmmPh.exit.thread
+_ZN5mmu_t10mmio_fetchEmmPh.exit:                  ; preds = %35, %38, %40
+  %44 = load ptr, ptr %27, align 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef %.0.i, i64 noundef 2, ptr noundef nonnull %36)
+  br i1 %48, label %58, label %_ZN5mmu_t10mmio_fetchEmmPh.exit.thread
 
-_ZN5mmu_t10mmio_fetchEmmPh.exit.thread:           ; preds = %41, %_ZN5mmu_t10mmio_fetchEmmPh.exit
-  %50 = tail call ptr @__cxa_allocate_exception(i64 48) #24
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 962
-  %53 = load i8, ptr %52, align 2
-  %54 = and i8 %53, 1
-  %55 = getelementptr inbounds i8, ptr %50, i64 8
-  store i64 1, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %50, i64 16
-  store i8 %54, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %50, i64 24
-  store i64 %1, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %50, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_instruction_access_fault, i64 16), ptr %50, align 8
-  tail call void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTI29trap_instruction_access_fault, ptr nonnull @_ZN29trap_instruction_access_faultD2Ev) #25
+_ZN5mmu_t10mmio_fetchEmmPh.exit.thread:           ; preds = %40, %_ZN5mmu_t10mmio_fetchEmmPh.exit
+  %49 = tail call ptr @__cxa_allocate_exception(i64 48) #24
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 962
+  %52 = load i8, ptr %51, align 2
+  %53 = and i8 %52, 1
+  %54 = getelementptr inbounds i8, ptr %49, i64 8
+  store i64 1, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %49, i64 16
+  store i8 %53, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %49, i64 24
+  store i64 %1, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %49, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_instruction_access_fault, i64 16), ptr %49, align 8
+  tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTI29trap_instruction_access_fault, ptr nonnull @_ZN29trap_instruction_access_faultD2Ev) #25
   unreachable
 
-59:                                               ; preds = %_ZN5mmu_t10mmio_fetchEmmPh.exit
-  %60 = sub i64 0, %1
-  %61 = getelementptr inbounds i8, ptr %37, i64 %60
-  %62 = sub i64 %.0.i, %1
-  br label %66
+58:                                               ; preds = %_ZN5mmu_t10mmio_fetchEmmPh.exit
+  %59 = sub i64 0, %1
+  %60 = getelementptr inbounds i8, ptr %36, i64 %59
+  %61 = sub i64 %.0.i, %1
+  %62 = insertvalue { ptr, i64 } poison, ptr %60, 0
+  %63 = insertvalue { ptr, i64 } %62, i64 %61, 1
+  br label %69
 
-63:                                               ; preds = %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 32912
-  %65 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %64, i64 0, i64 %15
-  %.sroa.026.0.copyload = load ptr, ptr %65, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 8
+64:                                               ; preds = %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit
+  %65 = getelementptr inbounds i8, ptr %0, i64 32912
+  %66 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %65, i64 0, i64 %15
+  %.sroa.026.0.copyload = load ptr, ptr %66, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %66
+  %67 = insertvalue { ptr, i64 } poison, ptr %.sroa.026.0.copyload, 0
+  %68 = insertvalue { ptr, i64 } %67, i64 %.sroa.5.0.copyload, 1
+  br label %69
 
-66:                                               ; preds = %32, %59, %63
-  %.sroa.026.0 = phi ptr [ %34, %32 ], [ %61, %59 ], [ %.sroa.026.0.copyload, %63 ]
-  %.sroa.5.0 = phi i64 [ %35, %32 ], [ %62, %59 ], [ %.sroa.5.0.copyload, %63 ]
-  %67 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %1
-  %68 = load i16, ptr %67, align 2
-  %69 = zext i16 %68 to i64
-  tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 0, i64 noundef %1, i1 noundef zeroext %12, i64 %69, i8 1)
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.026.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+69:                                               ; preds = %32, %58, %64
+  %.sroa.026.0 = phi ptr [ %34, %32 ], [ %60, %58 ], [ %.sroa.026.0.copyload, %64 ]
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %33, %32 ], [ %63, %58 ], [ %68, %64 ]
+  %70 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %1
+  %71 = load i16, ptr %70, align 2
+  %72 = zext i16 %71 to i64
+  tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 0, i64 noundef %1, i1 noundef zeroext %12, i64 %72, i8 1)
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1140,11 +1140,11 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit.thread:
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h35a21ad09f7d8c57E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h35a21ad09f7d8c57E.exit": ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit, %_ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit.thread, %9, %13
-  %.sroa.02.0.i = phi i16 [ 1, %_ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit ], [ 0, %_ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit.thread ], [ 1, %13 ], [ 0, %9 ]
-  %.sroa.33.0.i = phi i16 [ %6, %_ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit ], [ undef, %_ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit.thread ], [ %15, %13 ], [ undef, %9 ]
-  %16 = insertvalue { i16, i16 } poison, i16 %.sroa.02.0.i, 0
-  %17 = insertvalue { i16, i16 } %16, i16 %.sroa.33.0.i, 1
-  ret { i16, i16 } %17
+  %.pn8.i = phi i16 [ 0, %_ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit.thread ], [ 1, %13 ], [ 0, %9 ], [ 1, %_ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit ]
+  %.pn6.i = phi i16 [ undef, %_ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit.thread ], [ %15, %13 ], [ undef, %9 ], [ %6, %_ZN4core4iter8adapters5chain17and_then_or_clear17h507fb37247b771c9E.exit ]
+  %.pn.i = insertvalue { i16, i16 } poison, i16 %.pn8.i, 0
+  %.merged.i = insertvalue { i16, i16 } %.pn.i, i16 %.pn6.i, 1
+  ret { i16, i16 } %.merged.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -9872,15 +9872,15 @@ default.unreachable35:                            ; preds = %41
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1929, !noalias !1927
   %.sroa.34.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.34.0.copyload.i.i.i = load i32, ptr %.sroa.34.0..sroa_idx.i.i.i, align 8, !alias.scope !1929, !noalias !1927
-  %.sroa.3.0.i.i.i = select i1 %79, i32 %72, i32 %.sroa.34.0.copyload.i.i.i
-  %.sroa.0.0.i.i.i = select i1 %79, i64 %70, i64 %.sroa.2.0.copyload.i.i.i
+  %.pn8.i.i.i = select i1 %79, i64 %70, i64 %.sroa.2.0.copyload.i.i.i
+  %.pn6.i.i.i = select i1 %79, i32 %72, i32 %.sroa.34.0.copyload.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1927
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !1927
   br label %"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$21semantic_search_right17hf46b91b109289cabE.exit.i"
 
 "_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$21semantic_search_right17hf46b91b109289cabE.exit.i": ; preds = %73, %60
-  %.sroa.3.0.i.i = phi i32 [ %.sroa.3.0.i.i.i, %73 ], [ %72, %60 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.i.i.i, %73 ], [ %70, %60 ]
+  %.pn3.i.i = phi i64 [ %.pn8.i.i.i, %73 ], [ %70, %60 ]
+  %.pn1.i.i = phi i32 [ %.pn6.i.i.i, %73 ], [ %72, %60 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1927
   br label %_ZN18alacritty_terminal9selection9Selection14range_semantic17h176ad0087e0eac53E.exit
 
@@ -9923,8 +9923,8 @@ default.unreachable35:                            ; preds = %41
   br label %_ZN18alacritty_terminal9selection9Selection14range_semantic17h176ad0087e0eac53E.exit
 
 _ZN18alacritty_terminal9selection9Selection14range_semantic17h176ad0087e0eac53E.exit: ; preds = %"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$21semantic_search_right17hf46b91b109289cabE.exit.i", %93
-  %.sroa.9.0 = phi i32 [ %.sroa.5.0.i, %93 ], [ %.sroa.3.0.i.i, %"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$21semantic_search_right17hf46b91b109289cabE.exit.i" ]
-  %.sroa.717.0 = phi i64 [ %.sroa.013.0.i, %93 ], [ %.sroa.0.0.i.i, %"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$21semantic_search_right17hf46b91b109289cabE.exit.i" ]
+  %.sroa.9.0 = phi i32 [ %.sroa.5.0.i, %93 ], [ %.pn1.i.i, %"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$21semantic_search_right17hf46b91b109289cabE.exit.i" ]
+  %.sroa.717.0 = phi i64 [ %.sroa.013.0.i, %93 ], [ %.pn3.i.i, %"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$21semantic_search_right17hf46b91b109289cabE.exit.i" ]
   %.sroa.5.0 = phi i32 [ %.sroa.7.0.i, %93 ], [ %63, %"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$21semantic_search_right17hf46b91b109289cabE.exit.i" ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %93 ], [ %62, %"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$21semantic_search_right17hf46b91b109289cabE.exit.i" ]
   store i64 %.sroa.0.0, ptr %0, align 8

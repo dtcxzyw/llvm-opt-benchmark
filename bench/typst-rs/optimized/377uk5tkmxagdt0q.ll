@@ -137,17 +137,17 @@ define internal fastcc void @_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca
   br label %_ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i
 
 _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
-  %.sroa.3.0.i.i.i = phi i64 [ %.sroa.4.0.i.i.i.i, %16 ], [ %15, %14 ]
-  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i, %16 ], [ %3, %14 ]
+  %.sroa.0.0.i.pn.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i, %16 ], [ %3, %14 ]
+  %.sroa.4.0.i.pn.i.i.i = phi i64 [ %.sroa.4.0.i.i.i.i, %16 ], [ %15, %14 ]
   %21 = getelementptr inbounds i8, ptr %.0.val, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !11, !noundef !14
   %23 = load i64, ptr %.0.val, align 8, !alias.scope !15, !noundef !14
   %24 = sub i64 %23, %22
-  %25 = icmp ugt i64 %.sroa.3.0.i.i.i, %24
+  %25 = icmp ugt i64 %.sroa.4.0.i.pn.i.i.i, %24
   br i1 %25, label %26, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i.i"
 
 26:                                               ; preds = %_ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6e62e7f32b5be7dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.0.val, i64 noundef %22, i64 noundef %.sroa.3.0.i.i.i)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6e62e7f32b5be7dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.0.val, i64 noundef %22, i64 noundef %.sroa.4.0.i.pn.i.i.i)
   %.pre.i.i.i = load i64, ptr %21, align 8, !alias.scope !11
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i.i"
 
@@ -156,9 +156,9 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
   %28 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %29 = load ptr, ptr %28, align 8, !alias.scope !11, !nonnull !14, !noundef !14
   %30 = getelementptr inbounds i8, ptr %29, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %.sroa.0.0.i.pn.i.i.i, i64 %.sroa.4.0.i.pn.i.i.i, i1 false)
   %31 = load i64, ptr %21, align 8, !alias.scope !11, !noundef !14
-  %32 = add i64 %31, %.sroa.3.0.i.i.i
+  %32 = add i64 %31, %.sroa.4.0.i.pn.i.i.i
   store i64 %32, ptr %21, align 8, !alias.scope !11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !10
   br label %"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.exit"

@@ -15994,17 +15994,16 @@ for.body191.us526.preheader.4:                    ; preds = %for.cond.cleanup190
   store float %fneg.us.2.4, ptr %TCoords.i480, align 4, !tbaa !248
   store float %44, ptr %Y192.us.2.4, align 4, !tbaa !247
   %fneg.us.3.4 = fneg nsz float %35
-  %158 = load float, ptr %TCoords.i488, align 4, !tbaa !248
   store float %fneg.us.3.4, ptr %TCoords.i488, align 4, !tbaa !248
-  store float %158, ptr %Y.i4.i489, align 4, !tbaa !247
+  store float %34, ptr %Y.i4.i489, align 4, !tbaa !247
   br label %for.cond.cleanup190.4
 
 for.body191.us.preheader.4:                       ; preds = %for.cond.cleanup190.3
   %Y202.us.4 = getelementptr inbounds i8, ptr %agg.result, i64 608
-  %159 = load float, ptr %Y202.us.4, align 4, !tbaa !247
-  %160 = load float, ptr %TCoords.i464, align 4, !tbaa !248
-  %fneg204.us.4 = fneg nsz float %160
-  store float %159, ptr %TCoords.i464, align 4, !tbaa !248
+  %158 = load float, ptr %Y202.us.4, align 4, !tbaa !247
+  %159 = load float, ptr %TCoords.i464, align 4, !tbaa !248
+  %fneg204.us.4 = fneg nsz float %159
+  store float %158, ptr %TCoords.i464, align 4, !tbaa !248
   store float %fneg204.us.4, ptr %Y202.us.4, align 4, !tbaa !247
   %fneg204.us.1.4 = fneg nsz float %33
   store float %31, ptr %TCoords.i472, align 4, !tbaa !248
@@ -16013,8 +16012,7 @@ for.body191.us.preheader.4:                       ; preds = %for.cond.cleanup190
   %fneg204.us.2.4 = fneg nsz float %44
   store float %43, ptr %TCoords.i480, align 4, !tbaa !248
   store float %fneg204.us.2.4, ptr %Y202.us.2.4, align 4, !tbaa !247
-  %161 = load float, ptr %TCoords.i488, align 4, !tbaa !248
-  %fneg204.us.3.4 = fneg nsz float %161
+  %fneg204.us.3.4 = fneg nsz float %34
   store float %35, ptr %TCoords.i488, align 4, !tbaa !248
   store float %fneg204.us.3.4, ptr %Y.i4.i489, align 4, !tbaa !247
   br label %for.cond.cleanup190.4
@@ -16023,24 +16021,24 @@ for.cond.cleanup190.4:                            ; preds = %for.body191.us.preh
   %cond.5 = tail call i32 @llvm.smin.i32(i32 %sub, i32 5)
   %idxprom.5 = sext i32 %cond.5 to i64
   %rotation.5 = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.5, i32 1
-  %162 = load i8, ptr %rotation.5, align 1, !tbaa !52
-  switch i8 %162, label %for.cond.cleanup190.5 [
+  %160 = load i8, ptr %rotation.5, align 1, !tbaa !52
+  switch i8 %160, label %for.cond.cleanup190.5 [
     i8 3, label %for.body191.us.preheader.5
     i8 1, label %for.body191.us526.preheader.5
     i8 2, label %for.body191.us536.preheader.5
   ]
 
 for.body191.us536.preheader.5:                    ; preds = %for.cond.cleanup190.4
-  %163 = fneg nsz <2 x float> %36
-  store <2 x float> %163, ptr %TCoords.i496, align 4, !tbaa !49
-  %164 = load <2 x float>, ptr %TCoords.i504, align 4, !tbaa !49
-  %165 = fneg nsz <2 x float> %164
-  store <2 x float> %165, ptr %TCoords.i504, align 4, !tbaa !49
-  %166 = fneg nsz <2 x float> %38
-  store <2 x float> %166, ptr %TCoords.i512, align 4, !tbaa !49
-  %167 = load <2 x float>, ptr %TCoords.i520, align 4, !tbaa !49
-  %168 = fneg nsz <2 x float> %167
-  store <2 x float> %168, ptr %TCoords.i520, align 4, !tbaa !49
+  %161 = fneg nsz <2 x float> %36
+  store <2 x float> %161, ptr %TCoords.i496, align 4, !tbaa !49
+  %162 = load <2 x float>, ptr %TCoords.i504, align 4, !tbaa !49
+  %163 = fneg nsz <2 x float> %162
+  store <2 x float> %163, ptr %TCoords.i504, align 4, !tbaa !49
+  %164 = fneg nsz <2 x float> %38
+  store <2 x float> %164, ptr %TCoords.i512, align 4, !tbaa !49
+  %165 = load <2 x float>, ptr %TCoords.i520, align 4, !tbaa !49
+  %166 = fneg nsz <2 x float> %165
+  store <2 x float> %166, ptr %TCoords.i520, align 4, !tbaa !49
   br label %for.cond.cleanup190.5
 
 for.body191.us526.preheader.5:                    ; preds = %for.cond.cleanup190.4
@@ -16056,9 +16054,8 @@ for.body191.us526.preheader.5:                    ; preds = %for.cond.cleanup190
   store float %fneg.us.2.5, ptr %TCoords.i512, align 4, !tbaa !248
   store float %48, ptr %Y192.us.2.5, align 4, !tbaa !247
   %fneg.us.3.5 = fneg nsz float %41
-  %169 = load float, ptr %TCoords.i520, align 4, !tbaa !248
   store float %fneg.us.3.5, ptr %TCoords.i520, align 4, !tbaa !248
-  store float %169, ptr %Y.i4.i521, align 4, !tbaa !247
+  store float %40, ptr %Y.i4.i521, align 4, !tbaa !247
   br label %for.cond.cleanup190.5
 
 for.body191.us.preheader.5:                       ; preds = %for.cond.cleanup190.4
@@ -16073,8 +16070,7 @@ for.body191.us.preheader.5:                       ; preds = %for.cond.cleanup190
   %fneg204.us.2.5 = fneg nsz float %48
   store float %47, ptr %TCoords.i512, align 4, !tbaa !248
   store float %fneg204.us.2.5, ptr %Y202.us.2.5, align 4, !tbaa !247
-  %170 = load float, ptr %TCoords.i520, align 4, !tbaa !248
-  %fneg204.us.3.5 = fneg nsz float %170
+  %fneg204.us.3.5 = fneg nsz float %40
   store float %41, ptr %TCoords.i520, align 4, !tbaa !248
   store float %fneg204.us.3.5, ptr %Y.i4.i521, align 4, !tbaa !247
   br label %for.cond.cleanup190.5

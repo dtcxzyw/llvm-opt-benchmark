@@ -22432,7 +22432,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h01b417413
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #72
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !3789
@@ -22440,63 +22440,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h01b417413
   %19 = extractvalue { i64, ptr } %12, 1
   %20 = icmp eq i64 %18, 2
   %..i = select i1 %20, i64 1, i64 %18
+  %21 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %31 unwind label %21
+          to label %32 unwind label %22
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !3801)
   call void @llvm.experimental.noalias.scope.decl(metadata !3804)
-  %23 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3807, !nonnull !9, !noundef !9
-  %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %common.resume, label %25
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3807, !nonnull !9, !noundef !9
+  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
+  br i1 %25, label %common.resume, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !3807
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %common.resume
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !3807
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %common.resume
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   fence acquire
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3807, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 80, i64 noundef 8) #74, !noalias !3807
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3807, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 80, i64 noundef 8) #74, !noalias !3807
   br label %common.resume
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !3808)
   call void @llvm.experimental.noalias.scope.decl(metadata !3811)
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3814, !nonnull !9, !noundef !9
-  %33 = icmp eq ptr %32, inttoptr (i64 -1 to ptr)
-  br i1 %33, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %34
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3814, !nonnull !9, !noundef !9
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  br i1 %34, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !3821
-  %37 = icmp eq i64 %36, 1
-  br i1 %37, label %38, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !3821
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %39, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   fence acquire
-  %39 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3814, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 80, i64 noundef 8) #74, !noalias !3821
+  %40 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !3814, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 80, i64 noundef 8) #74, !noalias !3821
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-common.resume:                                    ; preds = %15, %21, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %22, %26, %30
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %26 ], [ %23, %22 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %38, %34, %31, %13
-  %.sroa.3.0 = phi ptr [ %14, %13 ], [ %19, %31 ], [ %19, %34 ], [ %19, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %..i, %31 ], [ %..i, %34 ], [ %..i, %38 ]
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %39, %35, %32, %13
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %13 ], [ %21, %32 ], [ %21, %35 ], [ %21, %39 ]
+  %.pn33 = phi ptr [ %14, %13 ], [ %19, %32 ], [ %19, %35 ], [ %19, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %15
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -29822,7 +29822,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h3fe4ada7f
   %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #72
-          to label %common.resume unwind label %44
+          to label %common.resume unwind label %43
 
 19:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !6212
@@ -29831,63 +29831,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h3fe4ada7f
   %21 = extractvalue { i64, ptr } %14, 1
   %22 = icmp eq i64 %20, 2
   %..i = select i1 %22, i64 1, i64 %20
+  %23 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
-          to label %33 unwind label %23
+          to label %34 unwind label %24
 
-23:                                               ; preds = %19
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %19
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !6225)
   call void @llvm.experimental.noalias.scope.decl(metadata !6228)
-  %25 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6231, !nonnull !9, !noundef !9
-  %26 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
-  br i1 %26, label %common.resume, label %27
+  %26 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6231, !nonnull !9, !noundef !9
+  %27 = icmp eq ptr %26, inttoptr (i64 -1 to ptr)
+  br i1 %27, label %common.resume, label %28
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
-  %29 = atomicrmw sub ptr %28, i64 1 release, align 8, !noalias !6231
-  %30 = icmp eq i64 %29, 1
-  br i1 %30, label %31, label %common.resume
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = atomicrmw sub ptr %29, i64 1 release, align 8, !noalias !6231
+  %31 = icmp eq i64 %30, 1
+  br i1 %31, label %32, label %common.resume
 
-31:                                               ; preds = %27
+32:                                               ; preds = %28
   fence acquire
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6231, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef 80, i64 noundef 8) #74, !noalias !6231
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6231, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef 80, i64 noundef 8) #74, !noalias !6231
   br label %common.resume
 
-33:                                               ; preds = %19
+34:                                               ; preds = %19
   call void @llvm.experimental.noalias.scope.decl(metadata !6232)
   call void @llvm.experimental.noalias.scope.decl(metadata !6235)
-  %34 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6238, !nonnull !9, !noundef !9
-  %35 = icmp eq ptr %34, inttoptr (i64 -1 to ptr)
-  br i1 %35, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit", label %36
+  %35 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6238, !nonnull !9, !noundef !9
+  %36 = icmp eq ptr %35, inttoptr (i64 -1 to ptr)
+  br i1 %36, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit", label %37
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
-  %38 = atomicrmw sub ptr %37, i64 1 release, align 8, !noalias !6245
-  %39 = icmp eq i64 %38, 1
-  br i1 %39, label %40, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = atomicrmw sub ptr %38, i64 1 release, align 8, !noalias !6245
+  %40 = icmp eq i64 %39, 1
+  br i1 %40, label %41, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
 
-40:                                               ; preds = %36
+41:                                               ; preds = %37
   fence acquire
-  %41 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6238, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %41, i64 noundef 80, i64 noundef 8) #74, !noalias !6245
+  %42 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6238, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef 80, i64 noundef 8) #74, !noalias !6245
   br label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
 
-common.resume:                                    ; preds = %17, %23, %27, %31
-  %common.resume.op = phi { ptr, i32 } [ %24, %31 ], [ %24, %27 ], [ %24, %23 ], [ %18, %17 ]
+common.resume:                                    ; preds = %17, %24, %28, %32
+  %common.resume.op = phi { ptr, i32 } [ %25, %32 ], [ %25, %28 ], [ %25, %24 ], [ %18, %17 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %40, %36, %33, %15
-  %.sroa.3.0 = phi ptr [ %16, %15 ], [ %21, %33 ], [ %21, %36 ], [ %21, %40 ]
-  %.sroa.0.0 = phi i64 [ 1, %15 ], [ %..i, %33 ], [ %..i, %36 ], [ %..i, %40 ]
+"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %41, %37, %34, %15
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %15 ], [ %23, %34 ], [ %23, %37 ], [ %23, %41 ]
+  %.pn33 = phi ptr [ %16, %15 ], [ %21, %34 ], [ %21, %37 ], [ %21, %41 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  %42 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %43 = insertvalue { i64, ptr } %42, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %43
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-44:                                               ; preds = %17
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %17
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -31832,7 +31832,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h507bd55c8
   %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #72
-          to label %common.resume unwind label %36
+          to label %common.resume unwind label %34
 
 14:                                               ; preds = %8
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
@@ -31883,15 +31883,14 @@ common.resume:                                    ; preds = %12, %15, %19, %23
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %32, %28, %25, %10
-  %.sroa.3.0 = phi ptr [ %11, %10 ], [ %9, %25 ], [ %9, %28 ], [ %9, %32 ]
-  %.sroa.0.0 = phi i64 [ 1, %10 ], [ 0, %25 ], [ 0, %28 ], [ 0, %32 ]
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %10 ], [ { i64 0, ptr poison }, %25 ], [ { i64 0, ptr poison }, %28 ], [ { i64 0, ptr poison }, %32 ]
+  %.pn34 = phi ptr [ %11, %10 ], [ %9, %25 ], [ %9, %28 ], [ %9, %32 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %34 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %35 = insertvalue { i64, ptr } %34, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %35
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn34, 1
+  ret { i64, ptr } %.merged
 
-36:                                               ; preds = %12
-  %37 = landingpad { ptr, i32 }
+34:                                               ; preds = %12
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -32205,7 +32204,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h521071625
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #72
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !6974
@@ -32213,63 +32212,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h521071625
   %19 = extractvalue { i64, ptr } %12, 1
   %20 = icmp eq i64 %18, 2
   %..i = select i1 %20, i64 1, i64 %18
+  %21 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %31 unwind label %21
+          to label %32 unwind label %22
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !6986)
   call void @llvm.experimental.noalias.scope.decl(metadata !6989)
-  %23 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6992, !nonnull !9, !noundef !9
-  %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %common.resume, label %25
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6992, !nonnull !9, !noundef !9
+  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
+  br i1 %25, label %common.resume, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !6992
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %common.resume
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !6992
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %common.resume
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   fence acquire
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6992, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 80, i64 noundef 8) #74, !noalias !6992
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6992, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 80, i64 noundef 8) #74, !noalias !6992
   br label %common.resume
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !6993)
   call void @llvm.experimental.noalias.scope.decl(metadata !6996)
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6999, !nonnull !9, !noundef !9
-  %33 = icmp eq ptr %32, inttoptr (i64 -1 to ptr)
-  br i1 %33, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %34
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6999, !nonnull !9, !noundef !9
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  br i1 %34, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !7006
-  %37 = icmp eq i64 %36, 1
-  br i1 %37, label %38, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !7006
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %39, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   fence acquire
-  %39 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6999, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 80, i64 noundef 8) #74, !noalias !7006
+  %40 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6999, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 80, i64 noundef 8) #74, !noalias !7006
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-common.resume:                                    ; preds = %15, %21, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %22, %26, %30
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %26 ], [ %23, %22 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %38, %34, %31, %13
-  %.sroa.3.0 = phi ptr [ %14, %13 ], [ %19, %31 ], [ %19, %34 ], [ %19, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %..i, %31 ], [ %..i, %34 ], [ %..i, %38 ]
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %39, %35, %32, %13
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %13 ], [ %21, %32 ], [ %21, %35 ], [ %21, %39 ]
+  %.pn33 = phi ptr [ %14, %13 ], [ %19, %32 ], [ %19, %35 ], [ %19, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %15
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -35115,7 +35114,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h6e4abe98e
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #72
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !7871
@@ -35123,63 +35122,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h6e4abe98e
   %19 = extractvalue { i64, ptr } %12, 1
   %20 = icmp eq i64 %18, 2
   %..i = select i1 %20, i64 1, i64 %18
+  %21 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %31 unwind label %21
+          to label %32 unwind label %22
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !7883)
   call void @llvm.experimental.noalias.scope.decl(metadata !7886)
-  %23 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !7889, !nonnull !9, !noundef !9
-  %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %common.resume, label %25
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !7889, !nonnull !9, !noundef !9
+  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
+  br i1 %25, label %common.resume, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !7889
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %common.resume
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !7889
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %common.resume
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   fence acquire
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !7889, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 80, i64 noundef 8) #74, !noalias !7889
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !7889, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 80, i64 noundef 8) #74, !noalias !7889
   br label %common.resume
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !7890)
   call void @llvm.experimental.noalias.scope.decl(metadata !7893)
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !7896, !nonnull !9, !noundef !9
-  %33 = icmp eq ptr %32, inttoptr (i64 -1 to ptr)
-  br i1 %33, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit", label %34
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !7896, !nonnull !9, !noundef !9
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  br i1 %34, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit", label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !7903
-  %37 = icmp eq i64 %36, 1
-  br i1 %37, label %38, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !7903
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %39, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   fence acquire
-  %39 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !7896, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 80, i64 noundef 8) #74, !noalias !7903
+  %40 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !7896, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 80, i64 noundef 8) #74, !noalias !7903
   br label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
 
-common.resume:                                    ; preds = %15, %21, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %22, %26, %30
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %26 ], [ %23, %22 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %38, %34, %31, %13
-  %.sroa.3.0 = phi ptr [ %14, %13 ], [ %19, %31 ], [ %19, %34 ], [ %19, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %..i, %31 ], [ %..i, %34 ], [ %..i, %38 ]
+"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %39, %35, %32, %13
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %13 ], [ %21, %32 ], [ %21, %35 ], [ %21, %39 ]
+  %.pn33 = phi ptr [ %14, %13 ], [ %19, %32 ], [ %19, %35 ], [ %19, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %15
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -42081,7 +42080,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hac26f254e
   %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #72
-          to label %common.resume unwind label %44
+          to label %common.resume unwind label %43
 
 19:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !10124
@@ -42090,63 +42089,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hac26f254e
   %21 = extractvalue { i64, ptr } %14, 1
   %22 = icmp eq i64 %20, 2
   %..i = select i1 %22, i64 1, i64 %20
+  %23 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
-          to label %33 unwind label %23
+          to label %34 unwind label %24
 
-23:                                               ; preds = %19
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %19
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !10137)
   call void @llvm.experimental.noalias.scope.decl(metadata !10140)
-  %25 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10143, !nonnull !9, !noundef !9
-  %26 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
-  br i1 %26, label %common.resume, label %27
+  %26 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10143, !nonnull !9, !noundef !9
+  %27 = icmp eq ptr %26, inttoptr (i64 -1 to ptr)
+  br i1 %27, label %common.resume, label %28
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
-  %29 = atomicrmw sub ptr %28, i64 1 release, align 8, !noalias !10143
-  %30 = icmp eq i64 %29, 1
-  br i1 %30, label %31, label %common.resume
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = atomicrmw sub ptr %29, i64 1 release, align 8, !noalias !10143
+  %31 = icmp eq i64 %30, 1
+  br i1 %31, label %32, label %common.resume
 
-31:                                               ; preds = %27
+32:                                               ; preds = %28
   fence acquire
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10143, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef 80, i64 noundef 8) #74, !noalias !10143
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10143, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef 80, i64 noundef 8) #74, !noalias !10143
   br label %common.resume
 
-33:                                               ; preds = %19
+34:                                               ; preds = %19
   call void @llvm.experimental.noalias.scope.decl(metadata !10144)
   call void @llvm.experimental.noalias.scope.decl(metadata !10147)
-  %34 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10150, !nonnull !9, !noundef !9
-  %35 = icmp eq ptr %34, inttoptr (i64 -1 to ptr)
-  br i1 %35, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %36
+  %35 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10150, !nonnull !9, !noundef !9
+  %36 = icmp eq ptr %35, inttoptr (i64 -1 to ptr)
+  br i1 %36, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %37
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
-  %38 = atomicrmw sub ptr %37, i64 1 release, align 8, !noalias !10157
-  %39 = icmp eq i64 %38, 1
-  br i1 %39, label %40, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = atomicrmw sub ptr %38, i64 1 release, align 8, !noalias !10157
+  %40 = icmp eq i64 %39, 1
+  br i1 %40, label %41, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-40:                                               ; preds = %36
+41:                                               ; preds = %37
   fence acquire
-  %41 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10150, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %41, i64 noundef 80, i64 noundef 8) #74, !noalias !10157
+  %42 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10150, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef 80, i64 noundef 8) #74, !noalias !10157
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-common.resume:                                    ; preds = %17, %23, %27, %31
-  %common.resume.op = phi { ptr, i32 } [ %24, %31 ], [ %24, %27 ], [ %24, %23 ], [ %18, %17 ]
+common.resume:                                    ; preds = %17, %24, %28, %32
+  %common.resume.op = phi { ptr, i32 } [ %25, %32 ], [ %25, %28 ], [ %25, %24 ], [ %18, %17 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %40, %36, %33, %15
-  %.sroa.3.0 = phi ptr [ %16, %15 ], [ %21, %33 ], [ %21, %36 ], [ %21, %40 ]
-  %.sroa.0.0 = phi i64 [ 1, %15 ], [ %..i, %33 ], [ %..i, %36 ], [ %..i, %40 ]
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %41, %37, %34, %15
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %15 ], [ %23, %34 ], [ %23, %37 ], [ %23, %41 ]
+  %.pn33 = phi ptr [ %16, %15 ], [ %21, %34 ], [ %21, %37 ], [ %21, %41 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  %42 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %43 = insertvalue { i64, ptr } %42, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %43
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-44:                                               ; preds = %17
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %17
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -44434,7 +44433,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hba4a53d55
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #72
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !10882
@@ -44442,63 +44441,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hba4a53d55
   %19 = extractvalue { i64, ptr } %12, 1
   %20 = icmp eq i64 %18, 2
   %..i = select i1 %20, i64 1, i64 %18
+  %21 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %31 unwind label %21
+          to label %32 unwind label %22
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !10894)
   call void @llvm.experimental.noalias.scope.decl(metadata !10897)
-  %23 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10900, !nonnull !9, !noundef !9
-  %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %common.resume, label %25
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10900, !nonnull !9, !noundef !9
+  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
+  br i1 %25, label %common.resume, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !10900
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %common.resume
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !10900
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %common.resume
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   fence acquire
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10900, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 80, i64 noundef 8) #74, !noalias !10900
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10900, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 80, i64 noundef 8) #74, !noalias !10900
   br label %common.resume
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !10901)
   call void @llvm.experimental.noalias.scope.decl(metadata !10904)
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10907, !nonnull !9, !noundef !9
-  %33 = icmp eq ptr %32, inttoptr (i64 -1 to ptr)
-  br i1 %33, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %34
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10907, !nonnull !9, !noundef !9
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  br i1 %34, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !10914
-  %37 = icmp eq i64 %36, 1
-  br i1 %37, label %38, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !10914
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %39, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   fence acquire
-  %39 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10907, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 80, i64 noundef 8) #74, !noalias !10914
+  %40 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10907, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 80, i64 noundef 8) #74, !noalias !10914
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-common.resume:                                    ; preds = %15, %21, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %22, %26, %30
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %26 ], [ %23, %22 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %38, %34, %31, %13
-  %.sroa.3.0 = phi ptr [ %14, %13 ], [ %19, %31 ], [ %19, %34 ], [ %19, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %..i, %31 ], [ %..i, %34 ], [ %..i, %38 ]
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %39, %35, %32, %13
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %13 ], [ %21, %32 ], [ %21, %35 ], [ %21, %39 ]
+  %.pn33 = phi ptr [ %14, %13 ], [ %19, %32 ], [ %19, %35 ], [ %19, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %15
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -44549,7 +44548,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hbaa6b49e8
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #72
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !10921
@@ -44557,63 +44556,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hbaa6b49e8
   %19 = extractvalue { i64, ptr } %12, 1
   %20 = icmp eq i64 %18, 2
   %..i = select i1 %20, i64 1, i64 %18
+  %21 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %31 unwind label %21
+          to label %32 unwind label %22
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !10933)
   call void @llvm.experimental.noalias.scope.decl(metadata !10936)
-  %23 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10939, !nonnull !9, !noundef !9
-  %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %common.resume, label %25
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10939, !nonnull !9, !noundef !9
+  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
+  br i1 %25, label %common.resume, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !10939
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %common.resume
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !10939
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %common.resume
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   fence acquire
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10939, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 80, i64 noundef 8) #74, !noalias !10939
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10939, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 80, i64 noundef 8) #74, !noalias !10939
   br label %common.resume
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !10940)
   call void @llvm.experimental.noalias.scope.decl(metadata !10943)
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10946, !nonnull !9, !noundef !9
-  %33 = icmp eq ptr %32, inttoptr (i64 -1 to ptr)
-  br i1 %33, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %34
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10946, !nonnull !9, !noundef !9
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  br i1 %34, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !10953
-  %37 = icmp eq i64 %36, 1
-  br i1 %37, label %38, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !10953
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %39, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   fence acquire
-  %39 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10946, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 80, i64 noundef 8) #74, !noalias !10953
+  %40 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10946, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 80, i64 noundef 8) #74, !noalias !10953
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-common.resume:                                    ; preds = %15, %21, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %22, %26, %30
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %26 ], [ %23, %22 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %38, %34, %31, %13
-  %.sroa.3.0 = phi ptr [ %14, %13 ], [ %19, %31 ], [ %19, %34 ], [ %19, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %..i, %31 ], [ %..i, %34 ], [ %..i, %38 ]
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %39, %35, %32, %13
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %13 ], [ %21, %32 ], [ %21, %35 ], [ %21, %39 ]
+  %.pn33 = phi ptr [ %14, %13 ], [ %19, %32 ], [ %19, %35 ], [ %19, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %15
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -46483,7 +46482,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hcacaaf752
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #72
-          to label %common.resume unwind label %46
+          to label %common.resume unwind label %45
 
 21:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11539
@@ -46492,63 +46491,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hcacaaf752
   %23 = extractvalue { i64, ptr } %16, 1
   %24 = icmp eq i64 %22, 2
   %..i = select i1 %24, i64 1, i64 %22
+  %25 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
-          to label %35 unwind label %25
+          to label %36 unwind label %26
 
-25:                                               ; preds = %21
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %21
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !11552)
   call void @llvm.experimental.noalias.scope.decl(metadata !11555)
-  %27 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !11558, !nonnull !9, !noundef !9
-  %28 = icmp eq ptr %27, inttoptr (i64 -1 to ptr)
-  br i1 %28, label %common.resume, label %29
+  %28 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !11558, !nonnull !9, !noundef !9
+  %29 = icmp eq ptr %28, inttoptr (i64 -1 to ptr)
+  br i1 %29, label %common.resume, label %30
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
-  %31 = atomicrmw sub ptr %30, i64 1 release, align 8, !noalias !11558
-  %32 = icmp eq i64 %31, 1
-  br i1 %32, label %33, label %common.resume
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = atomicrmw sub ptr %31, i64 1 release, align 8, !noalias !11558
+  %33 = icmp eq i64 %32, 1
+  br i1 %33, label %34, label %common.resume
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   fence acquire
-  %34 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !11558, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef 80, i64 noundef 8) #74, !noalias !11558
+  %35 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !11558, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef 80, i64 noundef 8) #74, !noalias !11558
   br label %common.resume
 
-35:                                               ; preds = %21
+36:                                               ; preds = %21
   call void @llvm.experimental.noalias.scope.decl(metadata !11559)
   call void @llvm.experimental.noalias.scope.decl(metadata !11562)
-  %36 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !11565, !nonnull !9, !noundef !9
-  %37 = icmp eq ptr %36, inttoptr (i64 -1 to ptr)
-  br i1 %37, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit", label %38
+  %37 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !11565, !nonnull !9, !noundef !9
+  %38 = icmp eq ptr %37, inttoptr (i64 -1 to ptr)
+  br i1 %38, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit", label %39
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
-  %40 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !11572
-  %41 = icmp eq i64 %40, 1
-  br i1 %41, label %42, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %41 = atomicrmw sub ptr %40, i64 1 release, align 8, !noalias !11572
+  %42 = icmp eq i64 %41, 1
+  br i1 %42, label %43, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
 
-42:                                               ; preds = %38
+43:                                               ; preds = %39
   fence acquire
-  %43 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !11565, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef 80, i64 noundef 8) #74, !noalias !11572
+  %44 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !11565, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %44, i64 noundef 80, i64 noundef 8) #74, !noalias !11572
   br label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
 
-common.resume:                                    ; preds = %19, %25, %29, %33
-  %common.resume.op = phi { ptr, i32 } [ %26, %33 ], [ %26, %29 ], [ %26, %25 ], [ %20, %19 ]
+common.resume:                                    ; preds = %19, %26, %30, %34
+  %common.resume.op = phi { ptr, i32 } [ %27, %34 ], [ %27, %30 ], [ %27, %26 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %42, %38, %35, %17
-  %.sroa.3.0 = phi ptr [ %18, %17 ], [ %23, %35 ], [ %23, %38 ], [ %23, %42 ]
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ %..i, %35 ], [ %..i, %38 ], [ %..i, %42 ]
+"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %43, %39, %36, %17
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %17 ], [ %25, %36 ], [ %25, %39 ], [ %25, %43 ]
+  %.pn33 = phi ptr [ %18, %17 ], [ %23, %36 ], [ %23, %39 ], [ %23, %43 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  %44 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %45 = insertvalue { i64, ptr } %44, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %45
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-46:                                               ; preds = %19
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %19
+  %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -48991,7 +48990,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17he54a21c3c
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #72
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !12319
@@ -48999,63 +48998,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17he54a21c3c
   %19 = extractvalue { i64, ptr } %12, 1
   %20 = icmp eq i64 %18, 2
   %..i = select i1 %20, i64 1, i64 %18
+  %21 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %31 unwind label %21
+          to label %32 unwind label %22
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !12331)
   call void @llvm.experimental.noalias.scope.decl(metadata !12334)
-  %23 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12337, !nonnull !9, !noundef !9
-  %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %common.resume, label %25
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12337, !nonnull !9, !noundef !9
+  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
+  br i1 %25, label %common.resume, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !12337
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %common.resume
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !12337
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %common.resume
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   fence acquire
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12337, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 80, i64 noundef 8) #74, !noalias !12337
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12337, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 80, i64 noundef 8) #74, !noalias !12337
   br label %common.resume
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !12338)
   call void @llvm.experimental.noalias.scope.decl(metadata !12341)
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12344, !nonnull !9, !noundef !9
-  %33 = icmp eq ptr %32, inttoptr (i64 -1 to ptr)
-  br i1 %33, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %34
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12344, !nonnull !9, !noundef !9
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  br i1 %34, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !12351
-  %37 = icmp eq i64 %36, 1
-  br i1 %37, label %38, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !12351
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %39, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   fence acquire
-  %39 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12344, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 80, i64 noundef 8) #74, !noalias !12351
+  %40 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12344, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 80, i64 noundef 8) #74, !noalias !12351
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-common.resume:                                    ; preds = %15, %21, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %22, %26, %30
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %26 ], [ %23, %22 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %38, %34, %31, %13
-  %.sroa.3.0 = phi ptr [ %14, %13 ], [ %19, %31 ], [ %19, %34 ], [ %19, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %..i, %31 ], [ %..i, %34 ], [ %..i, %38 ]
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %39, %35, %32, %13
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %13 ], [ %21, %32 ], [ %21, %35 ], [ %21, %39 ]
+  %.pn33 = phi ptr [ %14, %13 ], [ %19, %32 ], [ %19, %35 ], [ %19, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %15
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -49546,7 +49545,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17he9764d7cf
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !12503
   invoke void @_ZN4gpui3app10entity_map12AnyWeakModel7upgrade17h60c5a235dd6ff1d5E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
-          to label %.noexc unwind label %71
+          to label %.noexc unwind label %70
 
 .noexc:                                           ; preds = %3
   %9 = load i32, ptr %7, align 8, !noalias !12507, !noundef !9
@@ -49557,11 +49556,11 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17he9764d7cf
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !12503
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !12508
   invoke void @_ZN3std9backtrace9Backtrace7capture17haac13786173b9ed6E(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %6)
-          to label %.noexc20 unwind label %71
+          to label %.noexc20 unwind label %70
 
 .noexc20:                                         ; preds = %11
   %12 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h6ed90c6db7d9c061E.llvm.11720741875364829747"(ptr noalias noundef nonnull readonly align 1 @anon.f933f18f7b9967fd2df2bbb185996820.45.llvm.17803978538969967659, i64 noundef 20, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.790f4c68c0a80773cc28aa20d10c1e03.155.llvm.11720741875364829747, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
-          to label %17 unwind label %71
+          to label %17 unwind label %70
 
 13:                                               ; preds = %.noexc
   %.sroa.625.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 4
@@ -49634,8 +49633,8 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17he9764d7cf
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
 
-common.resume:                                    ; preds = %71, %56, %52, %48, %42, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %72, %71 ], [ %49, %56 ], [ %49, %52 ], [ %49, %48 ], [ %43, %42 ]
+common.resume:                                    ; preds = %70, %57, %53, %49, %42, %21
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %71, %70 ], [ %50, %57 ], [ %50, %53 ], [ %50, %49 ], [ %43, %42 ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %17
@@ -49656,7 +49655,7 @@ common.resume:                                    ; preds = %71, %56, %52, %48, 
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #72
-          to label %common.resume unwind label %69
+          to label %common.resume unwind label %68
 
 44:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !12513
@@ -49665,71 +49664,71 @@ common.resume:                                    ; preds = %71, %56, %52, %48, 
   %46 = extractvalue { i64, ptr } %16, 1
   %47 = icmp eq i64 %45, 2
   %..i = select i1 %47, i64 1, i64 %45
+  %48 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
-          to label %58 unwind label %48
+          to label %59 unwind label %49
 
-48:                                               ; preds = %44
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %44
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !12545)
   call void @llvm.experimental.noalias.scope.decl(metadata !12548)
-  %50 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12551, !nonnull !9, !noundef !9
-  %51 = icmp eq ptr %50, inttoptr (i64 -1 to ptr)
-  br i1 %51, label %common.resume, label %52
+  %51 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12551, !nonnull !9, !noundef !9
+  %52 = icmp eq ptr %51, inttoptr (i64 -1 to ptr)
+  br i1 %52, label %common.resume, label %53
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
-  %54 = atomicrmw sub ptr %53, i64 1 release, align 8, !noalias !12551
-  %55 = icmp eq i64 %54, 1
-  br i1 %55, label %56, label %common.resume
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %55 = atomicrmw sub ptr %54, i64 1 release, align 8, !noalias !12551
+  %56 = icmp eq i64 %55, 1
+  br i1 %56, label %57, label %common.resume
 
-56:                                               ; preds = %52
+57:                                               ; preds = %53
   fence acquire
-  %57 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12551, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %57, i64 noundef 80, i64 noundef 8) #74, !noalias !12551
+  %58 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12551, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef 80, i64 noundef 8) #74, !noalias !12551
   br label %common.resume
 
-58:                                               ; preds = %44
+59:                                               ; preds = %44
   call void @llvm.experimental.noalias.scope.decl(metadata !12552)
   call void @llvm.experimental.noalias.scope.decl(metadata !12555)
-  %59 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12558, !nonnull !9, !noundef !9
-  %60 = icmp eq ptr %59, inttoptr (i64 -1 to ptr)
-  br i1 %60, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit", label %61
+  %60 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12558, !nonnull !9, !noundef !9
+  %61 = icmp eq ptr %60, inttoptr (i64 -1 to ptr)
+  br i1 %61, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit", label %62
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %59, i64 8
-  %63 = atomicrmw sub ptr %62, i64 1 release, align 8, !noalias !12565
-  %64 = icmp eq i64 %63, 1
-  br i1 %64, label %65, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %60, i64 8
+  %64 = atomicrmw sub ptr %63, i64 1 release, align 8, !noalias !12565
+  %65 = icmp eq i64 %64, 1
+  br i1 %65, label %66, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
 
-65:                                               ; preds = %61
+66:                                               ; preds = %62
   fence acquire
-  %66 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12558, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %66, i64 noundef 80, i64 noundef 8) #74, !noalias !12565
+  %67 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12558, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %67, i64 noundef 80, i64 noundef 8) #74, !noalias !12565
   br label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
 
-"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %65, %61, %58
+"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %66, %62, %59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %"_ZN4core3ptr150drop_in_place$LT$workspace..Workspace..prompt_for_open_path..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a8b10c36bf0a168E.exit"
 
 "_ZN4core3ptr150drop_in_place$LT$workspace..Workspace..prompt_for_open_path..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a8b10c36bf0a168E.exit": ; preds = %41, %36, %32, %28, %24, %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
-  %.sroa.3.0 = phi ptr [ %46, %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit" ], [ %12, %24 ], [ %12, %28 ], [ %12, %32 ], [ %12, %36 ], [ %12, %41 ]
-  %.sroa.0.0 = phi i64 [ %..i, %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit" ], [ 1, %24 ], [ 1, %28 ], [ 1, %32 ], [ 1, %36 ], [ 1, %41 ]
-  %67 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %68 = insertvalue { i64, ptr } %67, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %68
+  %.pn = phi { i64, ptr } [ %48, %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit" ], [ { i64 1, ptr poison }, %24 ], [ { i64 1, ptr poison }, %28 ], [ { i64 1, ptr poison }, %32 ], [ { i64 1, ptr poison }, %36 ], [ { i64 1, ptr poison }, %41 ]
+  %.pn43 = phi ptr [ %46, %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit" ], [ %12, %24 ], [ %12, %28 ], [ %12, %32 ], [ %12, %36 ], [ %12, %41 ]
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn43, 1
+  ret { i64, ptr } %.merged
 
-69:                                               ; preds = %71, %42
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %70, %42
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
 
-71:                                               ; preds = %.noexc20, %11, %3
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %.noexc20, %11, %3
+  %71 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr150drop_in_place$LT$workspace..Workspace..prompt_for_open_path..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a8b10c36bf0a168E"(ptr noalias noundef align 8 dereferenceable(40) %2) #72
-          to label %common.resume unwind label %69
+          to label %common.resume unwind label %68
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -50015,7 +50014,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17heb9511921
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #72
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !12650
@@ -50023,63 +50022,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17heb9511921
   %19 = extractvalue { i64, ptr } %12, 1
   %20 = icmp eq i64 %18, 2
   %..i = select i1 %20, i64 1, i64 %18
+  %21 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %31 unwind label %21
+          to label %32 unwind label %22
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !12662)
   call void @llvm.experimental.noalias.scope.decl(metadata !12665)
-  %23 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12668, !nonnull !9, !noundef !9
-  %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %common.resume, label %25
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12668, !nonnull !9, !noundef !9
+  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
+  br i1 %25, label %common.resume, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !12668
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %common.resume
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !12668
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %common.resume
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   fence acquire
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12668, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 80, i64 noundef 8) #74, !noalias !12668
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12668, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 80, i64 noundef 8) #74, !noalias !12668
   br label %common.resume
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !12669)
   call void @llvm.experimental.noalias.scope.decl(metadata !12672)
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12675, !nonnull !9, !noundef !9
-  %33 = icmp eq ptr %32, inttoptr (i64 -1 to ptr)
-  br i1 %33, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %34
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12675, !nonnull !9, !noundef !9
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  br i1 %34, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !12682
-  %37 = icmp eq i64 %36, 1
-  br i1 %37, label %38, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !12682
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %39, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   fence acquire
-  %39 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12675, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 80, i64 noundef 8) #74, !noalias !12682
+  %40 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12675, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 80, i64 noundef 8) #74, !noalias !12682
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-common.resume:                                    ; preds = %15, %21, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %22, %26, %30
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %26 ], [ %23, %22 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %38, %34, %31, %13
-  %.sroa.3.0 = phi ptr [ %14, %13 ], [ %19, %31 ], [ %19, %34 ], [ %19, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %..i, %31 ], [ %..i, %34 ], [ %..i, %38 ]
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %39, %35, %32, %13
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %13 ], [ %21, %32 ], [ %21, %35 ], [ %21, %39 ]
+  %.pn33 = phi ptr [ %14, %13 ], [ %19, %32 ], [ %19, %35 ], [ %19, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %15
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -50130,7 +50129,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hec3e0d4eb
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #72
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !12689
@@ -50138,63 +50137,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hec3e0d4eb
   %19 = extractvalue { i64, ptr } %12, 1
   %20 = icmp eq i64 %18, 2
   %..i = select i1 %20, i64 1, i64 %18
+  %21 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %31 unwind label %21
+          to label %32 unwind label %22
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !12701)
   call void @llvm.experimental.noalias.scope.decl(metadata !12704)
-  %23 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12707, !nonnull !9, !noundef !9
-  %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %common.resume, label %25
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12707, !nonnull !9, !noundef !9
+  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
+  br i1 %25, label %common.resume, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !12707
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %common.resume
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !12707
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %common.resume
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   fence acquire
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12707, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 80, i64 noundef 8) #74, !noalias !12707
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12707, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 80, i64 noundef 8) #74, !noalias !12707
   br label %common.resume
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !12708)
   call void @llvm.experimental.noalias.scope.decl(metadata !12711)
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12714, !nonnull !9, !noundef !9
-  %33 = icmp eq ptr %32, inttoptr (i64 -1 to ptr)
-  br i1 %33, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit", label %34
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12714, !nonnull !9, !noundef !9
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  br i1 %34, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit", label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !12721
-  %37 = icmp eq i64 %36, 1
-  br i1 %37, label %38, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !12721
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %39, label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   fence acquire
-  %39 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12714, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 80, i64 noundef 8) #74, !noalias !12721
+  %40 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12714, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 80, i64 noundef 8) #74, !noalias !12721
   br label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit"
 
-common.resume:                                    ; preds = %15, %21, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %22, %26, %30
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %26 ], [ %23, %22 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %38, %34, %31, %13
-  %.sroa.3.0 = phi ptr [ %14, %13 ], [ %19, %31 ], [ %19, %34 ], [ %19, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %..i, %31 ], [ %..i, %34 ], [ %..i, %38 ]
+"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17hb80c46073031644dE.exit": ; preds = %39, %35, %32, %13
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %13 ], [ %21, %32 ], [ %21, %35 ], [ %21, %39 ]
+  %.pn33 = phi ptr [ %14, %13 ], [ %19, %32 ], [ %19, %35 ], [ %19, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %15
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -51023,7 +51022,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hf3028c1e9
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #72
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !12964
@@ -51031,63 +51030,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hf3028c1e9
   %19 = extractvalue { i64, ptr } %12, 1
   %20 = icmp eq i64 %18, 2
   %..i = select i1 %20, i64 1, i64 %18
+  %21 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %31 unwind label %21
+          to label %32 unwind label %22
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !12976)
   call void @llvm.experimental.noalias.scope.decl(metadata !12979)
-  %23 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12982, !nonnull !9, !noundef !9
-  %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %common.resume, label %25
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12982, !nonnull !9, !noundef !9
+  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
+  br i1 %25, label %common.resume, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !12982
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %common.resume
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !12982
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %common.resume
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   fence acquire
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12982, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 80, i64 noundef 8) #74, !noalias !12982
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12982, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 80, i64 noundef 8) #74, !noalias !12982
   br label %common.resume
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !12983)
   call void @llvm.experimental.noalias.scope.decl(metadata !12986)
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12989, !nonnull !9, !noundef !9
-  %33 = icmp eq ptr %32, inttoptr (i64 -1 to ptr)
-  br i1 %33, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %34
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12989, !nonnull !9, !noundef !9
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  br i1 %34, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !12996
-  %37 = icmp eq i64 %36, 1
-  br i1 %37, label %38, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !12996
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %39, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   fence acquire
-  %39 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12989, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 80, i64 noundef 8) #74, !noalias !12996
+  %40 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !12989, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 80, i64 noundef 8) #74, !noalias !12996
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-common.resume:                                    ; preds = %15, %21, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %22, %26, %30
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %26 ], [ %23, %22 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %38, %34, %31, %13
-  %.sroa.3.0 = phi ptr [ %14, %13 ], [ %19, %31 ], [ %19, %34 ], [ %19, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %..i, %31 ], [ %..i, %34 ], [ %..i, %38 ]
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %39, %35, %32, %13
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %13 ], [ %21, %32 ], [ %21, %35 ], [ %21, %39 ]
+  %.pn33 = phi ptr [ %14, %13 ], [ %19, %32 ], [ %19, %35 ], [ %19, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %15
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
@@ -51352,7 +51351,7 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hf64c3e2fc
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #72
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !13069
@@ -51360,63 +51359,63 @@ define hidden { i64, ptr } @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hf64c3e2fc
   %19 = extractvalue { i64, ptr } %12, 1
   %20 = icmp eq i64 %18, 2
   %..i = select i1 %20, i64 1, i64 %18
+  %21 = insertvalue { i64, ptr } poison, i64 %..i, 0
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %31 unwind label %21
+          to label %32 unwind label %22
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !13081)
   call void @llvm.experimental.noalias.scope.decl(metadata !13084)
-  %23 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13087, !nonnull !9, !noundef !9
-  %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %common.resume, label %25
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13087, !nonnull !9, !noundef !9
+  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
+  br i1 %25, label %common.resume, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !13087
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %common.resume
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !13087
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %common.resume
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   fence acquire
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13087, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 80, i64 noundef 8) #74, !noalias !13087
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13087, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 80, i64 noundef 8) #74, !noalias !13087
   br label %common.resume
 
-31:                                               ; preds = %17
+32:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !13088)
   call void @llvm.experimental.noalias.scope.decl(metadata !13091)
-  %32 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13094, !nonnull !9, !noundef !9
-  %33 = icmp eq ptr %32, inttoptr (i64 -1 to ptr)
-  br i1 %33, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %34
+  %33 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13094, !nonnull !9, !noundef !9
+  %34 = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  br i1 %34, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit", label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !13101
-  %37 = icmp eq i64 %36, 1
-  br i1 %37, label %38, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !13101
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %39, label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   fence acquire
-  %39 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13094, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 80, i64 noundef 8) #74, !noalias !13101
+  %40 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13094, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 80, i64 noundef 8) #74, !noalias !13101
   br label %"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit"
 
-common.resume:                                    ; preds = %15, %21, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %22, %26, %30
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %26 ], [ %23, %22 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %38, %34, %31, %13
-  %.sroa.3.0 = phi ptr [ %14, %13 ], [ %19, %31 ], [ %19, %34 ], [ %19, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %..i, %31 ], [ %..i, %34 ], [ %..i, %38 ]
+"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE.exit": ; preds = %39, %35, %32, %13
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %13 ], [ %21, %32 ], [ %21, %35 ], [ %21, %39 ]
+  %.pn33 = phi ptr [ %14, %13 ], [ %19, %32 ], [ %19, %35 ], [ %19, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn33, 1
+  ret { i64, ptr } %.merged
 
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %15
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable

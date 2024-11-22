@@ -1961,10 +1961,10 @@ entry:
   %fneg3.i.i = fneg float %div3.i.i60
   %retval.sroa.0.0.vec.insert.i.i66 = insertelement <2 x float> poison, float %fneg.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i67 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i66, float %fneg2.i.i, i64 1
-  %retval.sroa.0.0.i = select i1 %cmp.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i67, <2 x float> %retval.sroa.0.4.vec.insert.i.i62
-  %retval.sroa.3.0.i = select i1 %cmp.i, float %fneg3.i.i, float %div3.i.i60
-  store <2 x float> %retval.sroa.0.0.i, ptr %shading56, align 8
-  store float %retval.sroa.3.0.i, ptr %ref.tmp46.sroa.2.0.n57.sroa_idx, align 8
+  %retval.sroa.0.4.vec.insert.i.pn.i = select i1 %cmp.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i67, <2 x float> %retval.sroa.0.4.vec.insert.i.i62
+  %fneg3.i.pn.i = select i1 %cmp.i, float %fneg3.i.i, float %div3.i.i60
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.pn.i, ptr %shading56, align 8
+  store float %fneg3.i.pn.i, ptr %ref.tmp46.sroa.2.0.n57.sroa_idx, align 8
   %faceIndex = getelementptr inbounds i8, ptr %si, i64 188
   %15 = load i32, ptr %faceIndex, align 4
   %faceIndex125 = getelementptr inbounds i8, ptr %agg.result, i64 188
@@ -4142,10 +4142,10 @@ entry:
   %fneg3.i.i = fneg float %div3.i.i47
   %retval.sroa.0.0.vec.insert.i.i53 = insertelement <2 x float> poison, float %fneg.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i54 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i53, float %fneg2.i.i, i64 1
-  %retval.sroa.0.0.i = select i1 %cmp.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i54, <2 x float> %retval.sroa.0.4.vec.insert.i.i49
-  %retval.sroa.3.0.i = select i1 %cmp.i, float %fneg3.i.i, float %div3.i.i47
-  store <2 x float> %retval.sroa.0.0.i, ptr %shading56, align 8
-  store float %retval.sroa.3.0.i, ptr %ref.tmp46.sroa.2.0.n57.sroa_idx, align 8
+  %retval.sroa.0.4.vec.insert.i.pn.i = select i1 %cmp.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i54, <2 x float> %retval.sroa.0.4.vec.insert.i.i49
+  %fneg3.i.pn.i = select i1 %cmp.i, float %fneg3.i.i, float %div3.i.i47
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.pn.i, ptr %shading56, align 8
+  store float %fneg3.i.pn.i, ptr %ref.tmp46.sroa.2.0.n57.sroa_idx, align 8
   %faceIndex = getelementptr inbounds i8, ptr %si, i64 188
   %15 = load i32, ptr %faceIndex, align 4
   %faceIndex125 = getelementptr inbounds i8, ptr %agg.result, i64 188

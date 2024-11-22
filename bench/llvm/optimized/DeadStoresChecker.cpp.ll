@@ -910,12 +910,12 @@ _ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE
   %.not25.i.i.i.i = icmp eq ptr %70, %71
   br i1 %.not25.i.i.i.i, label %_ZN12_GLOBAL__N_111FindEscaped27findLambdaReferenceCapturesEPKN5clang10LambdaExprE.exit.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %67, %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i
-  %.026.i.i.i.i = phi ptr [ %345, %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i ], [ %70, %67 ]
+.lr.ph.i.i.i.i:                                   ; preds = %67, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i
+  %.026.i.i.i.i = phi ptr [ %345, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i ], [ %70, %67 ]
   %.0.copyload.i.i.i.i.i.i7.i.i = load i64, ptr %.026.i.i.i.i, align 8
   %72 = and i64 %.0.copyload.i.i.i.i.i.i7.i.i, -8
   %.not.i.i.i.i.i.i.i = icmp eq i64 %72, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i.i.i.i
 
 _ZNK5clang13LambdaCapture16capturesVariableEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %73 = inttoptr i64 %72 to ptr
@@ -924,7 +924,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.i.i.i.i: ; preds = %.lr.ph.i.
   %76 = and i32 %75, 127
   %77 = add nsw i32 %76, -23
   %78 = icmp ult i32 %77, 27
-  br i1 %78, label %79, label %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i
+  br i1 %78, label %79, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i
 
 79:                                               ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i.i.i.i
   %80 = load ptr, ptr %5, align 8
@@ -1390,14 +1390,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12Den
   %308 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   %309 = load ptr, ptr %308, align 8
   %.not15.i.i.i.i = icmp eq ptr %309, null
-  br i1 %.not15.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i, label %310
+  br i1 %.not15.i.i.i.i, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i, label %310
 
 310:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_.exit.i.i.i.i
   %311 = load i32, ptr %74, align 4
   %312 = and i32 %311, 127
   %313 = add nsw i32 %312, -37
   %314 = icmp ult i32 %313, 7
-  br i1 %314, label %315, label %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i
+  br i1 %314, label %315, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i
 
 315:                                              ; preds = %310
   %316 = getelementptr inbounds nuw i8, ptr %309, i64 48
@@ -1414,7 +1414,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12Den
   %325 = load i8, ptr %324, align 16
   %326 = and i8 %325, -2
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %326, 42
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i, label %327, label %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i, label %327, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i
 
 327:                                              ; preds = %315
   %328 = load ptr, ptr %40, align 8, !noalias !33
@@ -1433,7 +1433,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12Den
   %.025.i.i.i.i.i.i = phi ptr [ %338, %337 ], [ %329, %331 ]
   %335 = load ptr, ptr %.025.i.i.i.i.i.i, align 8, !noalias !33
   %336 = icmp eq ptr %335, %73
-  br i1 %336, label %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i, label %337
+  br i1 %336, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i, label %337
 
 337:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %338 = getelementptr inbounds i8, ptr %.025.i.i.i.i.i.i, i64 8
@@ -1449,18 +1449,18 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12Den
   %342 = add nuw i32 %332, 1
   store i32 %342, ptr %42, align 4, !noalias !33
   store ptr %73, ptr %334, align 8, !noalias !33
-  br label %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i
+  br label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i
 
 343:                                              ; preds = %._crit_edge.i.i.i.i.i.i, %327
   %344 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(288) %8, ptr noundef nonnull %73) #23, !noalias !33
-  br label %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i
+  br label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i
 
-_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %343, %341, %315, %310, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_.exit.i.i.i.i, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i.i.i.i, %.lr.ph.i.i.i.i
+_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %343, %341, %315, %310, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_.exit.i.i.i.i, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i.i.i.i, %.lr.ph.i.i.i.i
   %345 = getelementptr inbounds i8, ptr %.026.i.i.i.i, i64 16
   %.not.i.i.i25.i = icmp eq ptr %345, %71
   br i1 %.not.i.i.i25.i, label %_ZN12_GLOBAL__N_111FindEscaped27findLambdaReferenceCapturesEPKN5clang10LambdaExprE.exit.i.i.i, label %.lr.ph.i.i.i.i
 
-_ZN12_GLOBAL__N_111FindEscaped27findLambdaReferenceCapturesEPKN5clang10LambdaExprE.exit.i.i.i: ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit.i.i.i.i, %67
+_ZN12_GLOBAL__N_111FindEscaped27findLambdaReferenceCapturesEPKN5clang10LambdaExprE.exit.i.i.i: ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i, %67
   %346 = load ptr, ptr %5, align 8
   %347 = load i32, ptr %46, align 8
   %348 = zext i32 %347 to i64

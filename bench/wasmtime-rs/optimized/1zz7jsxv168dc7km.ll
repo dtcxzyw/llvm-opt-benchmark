@@ -3522,7 +3522,7 @@ define { i64, ptr } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory3
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br i1 %8, label %29, label %10
+  br i1 %8, label %15, label %10
 
 10:                                               ; preds = %1
   %.sroa.011.0.copyload.cast = ptrtoint ptr %9 to i64
@@ -3532,9 +3532,13 @@ define { i64, ptr } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory3
   %12 = icmp eq i64 %11, 2
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
-  br i1 %12, label %28, label %15
+  br i1 %12, label %28, label %17
 
-15:                                               ; preds = %10
+15:                                               ; preds = %1
+  %16 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %9, 1
+  br label %30
+
+17:                                               ; preds = %10
   %.sroa.516.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.9.0..sroa_idx9 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.9.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.516.0..sroa_idx, i64 96, i1 false)
@@ -3542,53 +3546,49 @@ define { i64, ptr } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory3
   store i64 %11, ptr %3, align 8
   %.sroa.76.0..sroa_idx7 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %14, ptr %.sroa.76.0..sroa_idx7, align 8
-  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !204
-  %17 = tail call noundef align 8 dereferenceable_or_null(112) ptr @__rust_alloc(i64 noundef 112, i64 noundef 8) #32, !noalias !204
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc002dfa64a783629E.exit"
+  %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !204
+  %19 = tail call noundef align 8 dereferenceable_or_null(112) ptr @__rust_alloc(i64 noundef 112, i64 noundef 8) #32, !noalias !204
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc002dfa64a783629E.exit"
 
-19:                                               ; preds = %15
+21:                                               ; preds = %17
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 112) #30
-          to label %.noexc unwind label %20
+          to label %.noexc unwind label %22
 
-.noexc:                                           ; preds = %19
+.noexc:                                           ; preds = %21
   unreachable
 
-20:                                               ; preds = %19
-  %21 = landingpad { ptr, i32 }
+22:                                               ; preds = %21
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wasmtime_runtime..memory..MmapMemory$GT$17he14f6b698b32bccdE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %3) #33
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-24:                                               ; preds = %20
-  resume { ptr, i32 } %21
+26:                                               ; preds = %22
+  resume { ptr, i32 } %23
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc002dfa64a783629E.exit": ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %17, ptr noundef nonnull align 8 dereferenceable(112) %3, i64 112, i1 false)
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc002dfa64a783629E.exit": ; preds = %17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef nonnull align 8 dereferenceable(112) %3, i64 112, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %25 = call { i64, ptr } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory4wrap17h44cc0aa2286d3400E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.142, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2)
-  %26 = extractvalue { i64, ptr } %25, 0
-  %27 = extractvalue { i64, ptr } %25, 1
+  %27 = call { i64, ptr } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory4wrap17h44cc0aa2286d3400E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.142, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  br label %29
+  br label %30
 
 28:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
-  br label %29
+  %29 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %14, 1
+  br label %30
 
-29:                                               ; preds = %1, %28, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc002dfa64a783629E.exit"
-  %.sroa.4.0 = phi ptr [ %14, %28 ], [ %27, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc002dfa64a783629E.exit" ], [ %9, %1 ]
-  %.sroa.0.0 = phi i64 [ 1, %28 ], [ %26, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc002dfa64a783629E.exit" ], [ 1, %1 ]
-  %30 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %31 = insertvalue { i64, ptr } %30, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %31
+30:                                               ; preds = %28, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc002dfa64a783629E.exit", %15
+  %.merged = phi { i64, ptr } [ %16, %15 ], [ %29, %28 ], [ %27, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc002dfa64a783629E.exit" ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4372,14 +4372,14 @@ define { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13a
   %22 = getelementptr inbounds i8, ptr %21, i64 112
   %23 = and i64 %1, 3
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread
+  br i1 %24, label %25, label %265
 
 25:                                               ; preds = %5
   %26 = getelementptr inbounds i8, ptr %21, i64 120
   %27 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hf3d221024a2fb983E.llvm.12299150788236080081(ptr noundef nonnull %26, i8 noundef 0), !noalias !273
   %28 = tail call i64 @llvm.uadd.sat.i64(i64 %1, i64 4)
   %29 = icmp ult i64 %28, %27
-  br i1 %29, label %30, label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread
+  br i1 %29, label %30, label %265
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %22, align 8, !noalias !273, !noundef !4
@@ -5041,7 +5041,7 @@ _ZN16wasmtime_runtime7threads12parking_spot4Spot6remove17hdf1af999a7d4498fE.exit
   %250 = load i64, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, align 8, !noalias !355, !noundef !4
   %251 = add i64 %250, 1
   store i64 %251, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, align 8, !noalias !355
-  br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread
+  br label %265
 
 252:                                              ; preds = %30
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
@@ -5110,12 +5110,11 @@ _ZN16wasmtime_runtime7threads12parking_spot4Spot6remove17hdf1af999a7d4498fE.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   br label %36
 
-_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread: ; preds = %25, %5, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit"
-  %.sroa.3.0 = phi i8 [ %.0.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ 1, %25 ], [ 2, %5 ]
-  %.sroa.0.0 = phi i1 [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ true, %25 ], [ true, %5 ]
-  %265 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
-  %266 = insertvalue { i1, i8 } %265, i8 %.sroa.3.0, 1
-  ret { i1, i8 } %266
+265:                                              ; preds = %25, %5, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit"
+  %.pn = phi { i1, i8 } [ { i1 false, i8 poison }, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ { i1 true, i8 poison }, %5 ], [ { i1 true, i8 poison }, %25 ]
+  %.sroa.4.0.ph.pn = phi i8 [ %.0.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ 2, %5 ], [ 1, %25 ]
+  %.merged = insertvalue { i1, i8 } %.pn, i8 %.sroa.4.0.ph.pn, 1
+  ret { i1, i8 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5143,14 +5142,14 @@ define { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13a
   %22 = getelementptr inbounds i8, ptr %21, i64 112
   %23 = and i64 %1, 7
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread
+  br i1 %24, label %25, label %265
 
 25:                                               ; preds = %5
   %26 = getelementptr inbounds i8, ptr %21, i64 120
   %27 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hf3d221024a2fb983E.llvm.12299150788236080081(ptr noundef nonnull %26, i8 noundef 0), !noalias !362
   %28 = tail call i64 @llvm.uadd.sat.i64(i64 %1, i64 8)
   %29 = icmp ult i64 %28, %27
-  br i1 %29, label %30, label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread
+  br i1 %29, label %30, label %265
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %22, align 8, !noalias !362, !noundef !4
@@ -5812,7 +5811,7 @@ _ZN16wasmtime_runtime7threads12parking_spot4Spot6remove17hdf1af999a7d4498fE.exit
   %250 = load i64, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, align 8, !noalias !444, !noundef !4
   %251 = add i64 %250, 1
   store i64 %251, ptr @_ZN16wasmtime_runtime7threads13shared_memory6WAITER7__getit3VAL17h41a36b94d38688bfE, align 8, !noalias !444
-  br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread
+  br label %265
 
 252:                                              ; preds = %30
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
@@ -5881,12 +5880,11 @@ _ZN16wasmtime_runtime7threads12parking_spot4Spot6remove17hdf1af999a7d4498fE.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   br label %36
 
-_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread: ; preds = %25, %5, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit"
-  %.sroa.3.0 = phi i8 [ %.0.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ 1, %25 ], [ 2, %5 ]
-  %.sroa.0.0 = phi i1 [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ true, %25 ], [ true, %5 ]
-  %265 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
-  %266 = insertvalue { i1, i8 } %265, i8 %.sroa.3.0, 1
-  ret { i1, i8 } %266
+265:                                              ; preds = %25, %5, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit"
+  %.pn = phi { i1, i8 } [ { i1 false, i8 poison }, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ { i1 true, i8 poison }, %5 ], [ { i1 true, i8 poison }, %25 ]
+  %.sroa.4.0.ph.pn = phi i8 [ %.0.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ 2, %5 ], [ 1, %25 ]
+  %.merged = insertvalue { i1, i8 } %.pn, i8 %.sroa.4.0.ph.pn, 1
+  ret { i1, i8 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

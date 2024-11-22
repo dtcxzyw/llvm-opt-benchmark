@@ -30185,19 +30185,19 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
 
 342:                                              ; preds = %339
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !5800
-  %.phi.trans.insert138.i = getelementptr inbounds i8, ptr %1, i64 264
-  %.pre139.i = load ptr, ptr %.phi.trans.insert138.i, align 8, !alias.scope !5804, !noalias !5809
-  %.phi.trans.insert140.i = getelementptr inbounds i8, ptr %1, i64 272
-  %.pre141.i = load ptr, ptr %.phi.trans.insert140.i, align 8, !alias.scope !5804, !noalias !5809
+  %.phi.trans.insert131.i = getelementptr inbounds i8, ptr %1, i64 264
+  %.pre132.i = load ptr, ptr %.phi.trans.insert131.i, align 8, !alias.scope !5804, !noalias !5809
+  %.phi.trans.insert133.i = getelementptr inbounds i8, ptr %1, i64 272
+  %.pre134.i = load ptr, ptr %.phi.trans.insert133.i, align 8, !alias.scope !5804, !noalias !5809
   br label %491
 
 343:                                              ; preds = %339
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !5800
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13), !noalias !5800
-  %.phi.trans.insert142.i = getelementptr inbounds i8, ptr %1, i64 264
-  %.pre143.i = load ptr, ptr %.phi.trans.insert142.i, align 8, !alias.scope !5812, !noalias !5817
-  %.phi.trans.insert144.i = getelementptr inbounds i8, ptr %1, i64 272
-  %.pre145.i = load ptr, ptr %.phi.trans.insert144.i, align 8, !alias.scope !5812, !noalias !5817
+  %.phi.trans.insert135.i = getelementptr inbounds i8, ptr %1, i64 264
+  %.pre136.i = load ptr, ptr %.phi.trans.insert135.i, align 8, !alias.scope !5812, !noalias !5817
+  %.phi.trans.insert137.i = getelementptr inbounds i8, ptr %1, i64 272
+  %.pre138.i = load ptr, ptr %.phi.trans.insert137.i, align 8, !alias.scope !5812, !noalias !5817
   br label %613
 
 344:                                              ; preds = %380, %363, %346
@@ -30329,8 +30329,8 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
           to label %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h430175b7bb6766caE.exit.i" unwind label %363, !noalias !5828
 
 "_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h430175b7bb6766caE.exit.i": ; preds = %388, %387, %384, %382, %372
-  %.sroa.3.0.i.ph134.i = phi ptr [ %383, %382 ], [ %383, %384 ], [ %383, %387 ], [ %383, %388 ], [ %373, %372 ]
-  %389 = icmp eq ptr %.sroa.3.0.i.ph134.i, null
+  %.sroa.3.0.i.pn.i.ph145.i = phi ptr [ %383, %388 ], [ %383, %387 ], [ %383, %382 ], [ %383, %384 ], [ %373, %372 ]
+  %389 = icmp eq ptr %.sroa.3.0.i.pn.i.ph145.i, null
   br i1 %389, label %361, label %480
 
 390:                                              ; preds = %361
@@ -30386,19 +30386,19 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
   %416 = icmp ult i64 %415, 6
   tail call void @llvm.assume(i1 %416)
   %switch.i71.i = icmp samesign ugt i64 %415, 2
-  br i1 %switch.i71.i, label %425, label %.thread147.i
+  br i1 %switch.i71.i, label %425, label %.thread146.i
 
-.thread147.i:                                     ; preds = %408
+.thread146.i:                                     ; preds = %408
   %417 = getelementptr inbounds i8, ptr %1, i64 200
   %418 = load ptr, ptr %417, align 8, !noalias !5800, !nonnull !11, !align !43, !noundef !11
-  %.val59149.i = load ptr, ptr %418, align 8, !noalias !5828, !nonnull !11, !noundef !11
+  %.val59148.i = load ptr, ptr %418, align 8, !noalias !5828, !nonnull !11, !noundef !11
   %419 = getelementptr i8, ptr %418, i64 8
-  %.val60150.i = load ptr, ptr %419, align 8, !noalias !5828, !nonnull !11, !align !43, !noundef !11
-  %420 = getelementptr inbounds i8, ptr %.val60150.i, i64 16
+  %.val60149.i = load ptr, ptr %419, align 8, !noalias !5828, !nonnull !11, !align !43, !noundef !11
+  %420 = getelementptr inbounds i8, ptr %.val60149.i, i64 16
   %421 = load i64, ptr %420, align 8, !range !232, !invariant.load !11, !noalias !5828
   %422 = add i64 %421, -1
   %423 = and i64 %422, -16
-  %424 = getelementptr i8, ptr %.val59149.i, i64 %423
+  %424 = getelementptr i8, ptr %.val59148.i, i64 %423
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !5800
   br label %455
 
@@ -30455,10 +30455,10 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25), !noalias !5800
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23), !noalias !5800
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !5800
-  %.pre135.i = load i64, ptr %414, align 8, !range !239, !alias.scope !5853, !noalias !5858
-  %.pre136.i = load ptr, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !5853, !noalias !5858
-  %.pre137.i = load i64, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !alias.scope !5853, !noalias !5858
-  %442 = trunc nuw i64 %.pre135.i to i1
+  %.pre128.i = load i64, ptr %414, align 8, !range !239, !alias.scope !5853, !noalias !5858
+  %.pre129.i = load ptr, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !5853, !noalias !5858
+  %.pre130.i = load i64, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !alias.scope !5853, !noalias !5858
+  %442 = trunc nuw i64 %.pre128.i to i1
   %443 = getelementptr inbounds i8, ptr %1, i64 200
   %444 = load ptr, ptr %443, align 8, !noalias !5800, !nonnull !11, !align !43, !noundef !11
   %.val59.i = load ptr, ptr %444, align 8, !noalias !5828, !nonnull !11, !noundef !11
@@ -30476,7 +30476,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
   br i1 %442, label %451, label %455
 
 451:                                              ; preds = %441
-  %452 = atomicrmw add ptr %.pre136.i, i64 1 monotonic, align 8, !noalias !5864
+  %452 = atomicrmw add ptr %.pre129.i, i64 1 monotonic, align 8, !noalias !5864
   %453 = icmp slt i64 %452, 0
   br i1 %453, label %454, label %455
 
@@ -30484,12 +30484,12 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
   call void @llvm.trap()
   unreachable
 
-455:                                              ; preds = %451, %441, %.thread147.i
-  %.pn.i = phi ptr [ %450, %451 ], [ %450, %441 ], [ %424, %.thread147.i ]
-  %.val60151.i = phi ptr [ %.val60.i, %451 ], [ %.val60.i, %441 ], [ %.val60150.i, %.thread147.i ]
-  %456 = phi ptr [ %.pre136.i, %451 ], [ %.pre136.i, %441 ], [ @anon.7ab57987de18c81dd60b87306f1b6a7b.450.llvm.6633197745336603733, %.thread147.i ]
-  %457 = phi i64 [ %.pre137.i, %451 ], [ %.pre137.i, %441 ], [ 27, %.thread147.i ]
-  %storemerge.i.i.i = phi i64 [ 1, %451 ], [ 0, %441 ], [ 0, %.thread147.i ]
+455:                                              ; preds = %451, %441, %.thread146.i
+  %.pn.i = phi ptr [ %450, %451 ], [ %450, %441 ], [ %424, %.thread146.i ]
+  %.val60150.i = phi ptr [ %.val60.i, %451 ], [ %.val60.i, %441 ], [ %.val60149.i, %.thread146.i ]
+  %456 = phi ptr [ %.pre129.i, %451 ], [ %.pre129.i, %441 ], [ @anon.7ab57987de18c81dd60b87306f1b6a7b.450.llvm.6633197745336603733, %.thread146.i ]
+  %457 = phi i64 [ %.pre130.i, %451 ], [ %.pre130.i, %441 ], [ 27, %.thread146.i ]
+  %storemerge.i.i.i = phi i64 [ 1, %451 ], [ 0, %441 ], [ 0, %.thread146.i ]
   %458 = getelementptr i8, ptr %.pn.i, i64 16
   store i64 %storemerge.i.i.i, ptr %22, align 8, !alias.scope !5861, !noalias !5865
   %.sroa.42.0..sroa_idx.i73.i = getelementptr inbounds i8, ptr %22, i64 8
@@ -30498,7 +30498,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
   store i64 %457, ptr %.sroa.53.0..sroa_idx.i74.i, align 8, !alias.scope !5861, !noalias !5865
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !5800
   store i64 -9223372036854775807, ptr %21, align 8, !noalias !5800
-  %459 = getelementptr inbounds i8, ptr %.val60151.i, i64 56
+  %459 = getelementptr inbounds i8, ptr %.val60150.i, i64 56
   %460 = load ptr, ptr %459, align 8, !invariant.load !11, !noalias !5828, !nonnull !11
   invoke void %460(ptr noundef align 1 %458, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %22, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21)
           to label %463 unwind label %461, !noalias !5828
@@ -30570,7 +30570,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
 "_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hdd164e00af1581a5E.exit.i": ; preds = %609, %605, %601, %596, %591, %587, %480
   %482 = phi ptr [ %341, %480 ], [ %492, %587 ], [ %492, %591 ], [ %492, %596 ], [ %492, %601 ], [ %492, %605 ], [ %492, %609 ]
   %483 = phi ptr [ %340, %480 ], [ %493, %587 ], [ %493, %591 ], [ %493, %596 ], [ %493, %601 ], [ %493, %605 ], [ %493, %609 ]
-  %.sroa.4.0.i = phi ptr [ %.sroa.3.0.i.ph134.i, %480 ], [ %.sroa.2.0.copyload.i, %587 ], [ %.sroa.2.0.copyload.i, %591 ], [ %.sroa.2.0.copyload.i, %596 ], [ %.sroa.2.0.copyload.i, %601 ], [ %.sroa.2.0.copyload.i, %605 ], [ %.sroa.2.0.copyload.i, %609 ]
+  %.sroa.4.0.i = phi ptr [ %.sroa.3.0.i.pn.i.ph145.i, %480 ], [ %.sroa.2.0.copyload.i, %587 ], [ %.sroa.2.0.copyload.i, %591 ], [ %.sroa.2.0.copyload.i, %596 ], [ %.sroa.2.0.copyload.i, %601 ], [ %.sroa.2.0.copyload.i, %605 ], [ %.sroa.2.0.copyload.i, %609 ]
   %484 = getelementptr inbounds i8, ptr %1, i64 208
   call void @llvm.experimental.noalias.scope.decl(metadata !5869)
   call void @llvm.experimental.noalias.scope.decl(metadata !5872)
@@ -30597,8 +30597,8 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
 491:                                              ; preds = %474, %342
   %492 = phi ptr [ %341, %342 ], [ %409, %474 ]
   %493 = phi ptr [ %340, %342 ], [ %410, %474 ]
-  %494 = phi ptr [ %.pre141.i, %342 ], [ @anon.7ab57987de18c81dd60b87306f1b6a7b.452.llvm.6633197745336603733, %474 ]
-  %495 = phi ptr [ %.pre139.i, %342 ], [ %467, %474 ]
+  %494 = phi ptr [ %.pre134.i, %342 ], [ @anon.7ab57987de18c81dd60b87306f1b6a7b.452.llvm.6633197745336603733, %474 ]
+  %495 = phi ptr [ %.pre132.i, %342 ], [ %467, %474 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !5800
   %496 = getelementptr inbounds i8, ptr %1, i64 264
   call void @llvm.experimental.noalias.scope.decl(metadata !5893)
@@ -30914,8 +30914,8 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit81.i: ; preds = %541
 613:                                              ; preds = %580, %343
   %614 = phi ptr [ %341, %343 ], [ %492, %580 ]
   %615 = phi ptr [ %340, %343 ], [ %493, %580 ]
-  %616 = phi ptr [ %.pre145.i, %343 ], [ @anon.7ab57987de18c81dd60b87306f1b6a7b.457.llvm.6633197745336603733, %580 ]
-  %617 = phi ptr [ %.pre143.i, %343 ], [ %573, %580 ]
+  %616 = phi ptr [ %.pre138.i, %343 ], [ @anon.7ab57987de18c81dd60b87306f1b6a7b.457.llvm.6633197745336603733, %580 ]
+  %617 = phi ptr [ %.pre136.i, %343 ], [ %573, %580 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12), !noalias !5800
   %618 = getelementptr inbounds i8, ptr %1, i64 264
   call void @llvm.experimental.noalias.scope.decl(metadata !5952)

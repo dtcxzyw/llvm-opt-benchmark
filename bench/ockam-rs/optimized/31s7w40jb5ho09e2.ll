@@ -5916,12 +5916,11 @@ _ZN4core4sync6atomic28atomic_compare_exchange_weak17hf35d0f4d962296b2E.exit: ; p
   %.sroa.07.0.i = extractvalue { i32, i1 } %.pn.i, 0
   br i1 %.sroa.18.0.in.i, label %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.thread", label %29
 
-"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.thread": ; preds = %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit", %29, %32, %_ZN4core4sync6atomic28atomic_compare_exchange_weak17hf35d0f4d962296b2E.exit
-  %.sroa.3.0 = phi i32 [ %.sroa.07.0.i, %_ZN4core4sync6atomic28atomic_compare_exchange_weak17hf35d0f4d962296b2E.exit ], [ %.0, %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit" ], [ %.0, %29 ], [ -1, %32 ]
-  %.sroa.0.0 = phi i32 [ 0, %_ZN4core4sync6atomic28atomic_compare_exchange_weak17hf35d0f4d962296b2E.exit ], [ 1, %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit" ], [ 1, %29 ], [ 1, %32 ]
-  %84 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %85 = insertvalue { i32, i32 } %84, i32 %.sroa.3.0, 1
-  ret { i32, i32 } %85
+"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.thread": ; preds = %32, %29, %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit", %_ZN4core4sync6atomic28atomic_compare_exchange_weak17hf35d0f4d962296b2E.exit
+  %.pn = phi { i32, i32 } [ { i32 0, i32 poison }, %_ZN4core4sync6atomic28atomic_compare_exchange_weak17hf35d0f4d962296b2E.exit ], [ { i32 1, i32 poison }, %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit" ], [ { i32 1, i32 poison }, %29 ], [ { i32 1, i32 poison }, %32 ]
+  %.0.pn = phi i32 [ %.sroa.07.0.i, %_ZN4core4sync6atomic28atomic_compare_exchange_weak17hf35d0f4d962296b2E.exit ], [ %.0, %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit" ], [ %.0, %29 ], [ -1, %32 ]
+  %.merged = insertvalue { i32, i32 } %.pn, i32 %.0.pn, 1
+  ret { i32, i32 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -9529,74 +9528,74 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_incremen
   %.0.i = phi i32 [ %8, %4 ], [ %.sroa.07.0.i.i, %19 ]
   %12 = load atomic i8, ptr %9 acquire, align 1, !noalias !1434
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %14, label %25
+  br i1 %13, label %14, label %24
 
 14:                                               ; preds = %11
   %15 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %.0.i, i32 1)
   %16 = extractvalue { i32, i1 } %15, 0
   %17 = extractvalue { i32, i1 } %15, 1
-  br i1 %17, label %25, label %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.i"
+  br i1 %17, label %24, label %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.i"
 
 "_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.i": ; preds = %14
   %18 = load i32, ptr %10, align 4, !noalias !1434, !noundef !4
   %.not3.i.i.not.i = icmp ugt i32 %16, %18
-  br i1 %.not3.i.i.not.i, label %25, label %19
+  br i1 %.not3.i.i.not.i, label %24, label %19
 
 19:                                               ; preds = %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.i"
   %20 = cmpxchg weak ptr %7, i32 %.0.i, i32 %16 acq_rel acquire, align 4, !noalias !1431
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %20, 1
   %.sroa.07.0.i.i = extractvalue { i32, i1 } %20, 0
-  br i1 %.sroa.18.0.in.i.i, label %21, label %11
+  br i1 %.sroa.18.0.in.i.i, label %.critedge, label %11
 
-21:                                               ; preds = %19
-  %22 = atomicrmw add ptr %6, i64 1 monotonic, align 8, !noalias !1437
-  %23 = icmp slt i64 %22, 0
-  br i1 %23, label %24, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h566cc05cc8afe216E.llvm.16910215836284360165.exit"
+.critedge:                                        ; preds = %19
+  %21 = atomicrmw add ptr %6, i64 1 monotonic, align 8, !noalias !1437
+  %22 = icmp slt i64 %21, 0
+  br i1 %22, label %23, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h566cc05cc8afe216E.llvm.16910215836284360165.exit"
 
-24:                                               ; preds = %21
+23:                                               ; preds = %.critedge
   tail call void @llvm.trap()
   unreachable
 
-25:                                               ; preds = %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.i", %11, %14
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %3, ptr %27, align 8
-  br label %35
+24:                                               ; preds = %11, %14, %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.i"
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %2, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %3, ptr %26, align 8
+  br label %34
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h566cc05cc8afe216E.llvm.16910215836284360165.exit": ; preds = %21
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h566cc05cc8afe216E.llvm.16910215836284360165.exit": ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   invoke void @_ZN9sqlx_core4sync22AsyncSemaphoreReleaser6disarm17h6d53e352ce182114E(ptr noundef nonnull align 8 %2, i32 noundef %3)
-          to label %32 unwind label %28
+          to label %31 unwind label %27
 
-28:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h566cc05cc8afe216E.llvm.16910215836284360165.exit"
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h566cc05cc8afe216E.llvm.16910215836284360165.exit"
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17he75bdd9f7a8b8f30E.llvm.16910215836284360165"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #35
-          to label %.body unwind label %30
+          to label %.body unwind label %29
 
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %27
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-32:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h566cc05cc8afe216E.llvm.16910215836284360165.exit"
+31:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h566cc05cc8afe216E.llvm.16910215836284360165.exit"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %6, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 0, ptr %34, align 8
-  br label %35
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 0, ptr %33, align 8
+  br label %34
 
-35:                                               ; preds = %32, %25
-  %storemerge = phi i64 [ 1, %25 ], [ 0, %32 ]
+34:                                               ; preds = %31, %24
+  %storemerge = phi i64 [ 1, %24 ], [ 0, %31 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 
-.body:                                            ; preds = %28
-  resume { ptr, i32 } %29
+.body:                                            ; preds = %27
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

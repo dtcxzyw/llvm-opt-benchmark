@@ -7392,8 +7392,8 @@ define linkonce_odr hidden void @_ZN5clang5Scope7AddDeclEPNS_4DeclE(ptr noundef 
   %5 = and i32 %4, 127
   %6 = add nsw i32 %5, -44
   %7 = icmp ult i32 %6, -7
-  %.not31 = icmp eq ptr %1, null
-  %.not = or i1 %.not31, %7
+  %.not30 = icmp eq ptr %1, null
+  %.not = or i1 %.not30, %7
   %8 = icmp eq i32 %5, 40
   %or.cond = or i1 %.not, %8
   br i1 %or.cond, label %_ZN4llvm15SmallPtrSetImplIPN5clang7VarDeclEE6insertES3_.exit, label %9
@@ -7454,37 +7454,37 @@ _ZN4llvm15SmallPtrSetImplIPN5clang7VarDeclEE6insertES3_.exit: ; preds = %.lr.ph.
   %38 = load i32, ptr %37, align 4, !noalias !28
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds ptr, ptr %34, i64 %39
-  %.not24.i.i21 = icmp eq i32 %38, 0
-  br i1 %.not24.i.i21, label %._crit_edge.i.i25, label %.lr.ph.i.i22
+  %.not24.i.i20 = icmp eq i32 %38, 0
+  br i1 %.not24.i.i20, label %._crit_edge.i.i24, label %.lr.ph.i.i21
 
-.lr.ph.i.i22:                                     ; preds = %36, %43
-  %.025.i.i23 = phi ptr [ %44, %43 ], [ %34, %36 ]
-  %41 = load ptr, ptr %.025.i.i23, align 8, !noalias !28
+.lr.ph.i.i21:                                     ; preds = %36, %43
+  %.025.i.i22 = phi ptr [ %44, %43 ], [ %34, %36 ]
+  %41 = load ptr, ptr %.025.i.i22, align 8, !noalias !28
   %42 = icmp eq ptr %41, %1
   br i1 %42, label %_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit, label %43
 
-43:                                               ; preds = %.lr.ph.i.i22
-  %44 = getelementptr inbounds i8, ptr %.025.i.i23, i64 8
-  %.not.i.i24 = icmp eq ptr %44, %40
-  br i1 %.not.i.i24, label %._crit_edge.i.i25, label %.lr.ph.i.i22, !llvm.loop !27
+43:                                               ; preds = %.lr.ph.i.i21
+  %44 = getelementptr inbounds i8, ptr %.025.i.i22, i64 8
+  %.not.i.i23 = icmp eq ptr %44, %40
+  br i1 %.not.i.i23, label %._crit_edge.i.i24, label %.lr.ph.i.i21, !llvm.loop !27
 
-._crit_edge.i.i25:                                ; preds = %43, %36
+._crit_edge.i.i24:                                ; preds = %43, %36
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %46 = load i32, ptr %45, align 8, !noalias !28
   %47 = icmp ult i32 %38, %46
   br i1 %47, label %48, label %50
 
-48:                                               ; preds = %._crit_edge.i.i25
+48:                                               ; preds = %._crit_edge.i.i24
   %49 = add nuw i32 %38, 1
   store i32 %49, ptr %37, align 4, !noalias !28
   store ptr %1, ptr %40, align 8, !noalias !28
   br label %_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit
 
-50:                                               ; preds = %._crit_edge.i.i25, %_ZN4llvm15SmallPtrSetImplIPN5clang7VarDeclEE6insertES3_.exit
+50:                                               ; preds = %._crit_edge.i.i24, %_ZN4llvm15SmallPtrSetImplIPN5clang7VarDeclEE6insertES3_.exit
   %51 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %31, ptr noundef %1) #24, !noalias !28
   br label %_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit
 
-_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit: ; preds = %.lr.ph.i.i22, %48, %50
+_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit: ; preds = %.lr.ph.i.i21, %48, %50
   ret void
 }
 

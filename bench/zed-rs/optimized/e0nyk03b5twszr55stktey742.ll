@@ -1400,16 +1400,16 @@ define hidden void @"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrap
   unreachable
 
 19:                                               ; preds = %9, %16
-  %.sroa.3.0.i.ph = phi ptr [ %17, %16 ], [ %10, %9 ]
+  %.sroa.3.0.i.pn.i.ph = phi ptr [ %17, %16 ], [ %10, %9 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.3.0.i.ph, ptr %20, align 8
+  store ptr %.sroa.3.0.i.pn.i.ph, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %5, ptr %21, align 8
   br label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7f3c369f1cf1ce75E.exit"
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7f3c369f1cf1ce75E.exit": ; preds = %11, %19
-  %.sroa.0.0.i5 = phi i64 [ 0, %19 ], [ 1, %11 ]
-  store i64 %.sroa.0.0.i5, ptr %0, align 8
+  %.pn.i4 = phi i64 [ 0, %19 ], [ 1, %11 ]
+  store i64 %.pn.i4, ptr %0, align 8
   ret void
 }
 
@@ -14020,13 +14020,13 @@ define internal noundef zeroext i1 @"_ZN70_$LT$language_model..LanguageModelName
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17heb8eec111cc51de6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #11 {
-  %.sroa.0.0.in = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !9, !noundef !9
-  %.sroa.5.0.in = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8, !noundef !9
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %3
+  %.pn1.in = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1 = load i64, ptr %.pn1.in, align 8, !noundef !9
+  %.pn3.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3 = load ptr, ptr %.pn3.in, align 8, !nonnull !9, !noundef !9
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn3, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

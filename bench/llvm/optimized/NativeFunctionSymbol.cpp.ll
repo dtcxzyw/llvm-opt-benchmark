@@ -4152,12 +4152,12 @@ _ZN4llvm8codeview24BinaryAnnotationIterator23GetCompressedAnnotationERNS_8ArrayR
   %705 = load i64, ptr %704, align 8
   %706 = sub i64 %705, %703
   %..i = tail call i64 @llvm.umin.i64(i64 %706, i64 %705)
-  %.sroa.0.0.i = load ptr, ptr %6, align 8
+  %.sroa.0.0.copyload.pn.i = load ptr, ptr %6, align 8
   store ptr %.sroa.060.0, ptr %0, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.16.0, ptr %.sroa.16.0..sroa_idx, align 8
   %.sroa.30.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.0.0.i, ptr %.sroa.30.0..sroa_idx, align 8
+  store ptr %.sroa.0.0.copyload.pn.i, ptr %.sroa.30.0..sroa_idx, align 8
   %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %..i, ptr %.sroa.31.0..sroa_idx, align 8
   %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32

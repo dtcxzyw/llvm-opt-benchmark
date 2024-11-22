@@ -4164,8 +4164,8 @@ define hidden void @_ZN12object_store4path4Path13from_url_path17h5a8e442dcf520d7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !725)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !728)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.361.i)
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !730, !noalias !725, !nonnull !21, !noundef !21
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !730, !noalias !725, !nonnull !21, !noundef !21
   %.not.i.i.i = icmp eq i64 %.sroa.8.8.copyload27, 0
   br i1 %.not.i.i.i, label %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h971641d4d3763f68E.exit.i.i"
 
@@ -4185,10 +4185,10 @@ define hidden void @_ZN12object_store4path4Path13from_url_path17h5a8e442dcf520d7
           to label %126 unwind label %124, !noalias !725
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h971641d4d3763f68E.exit.i.i": ; preds = %18
-  %rhsc.i.i = load i8, ptr %.sroa.0.0.i.i.i, align 1, !alias.scope !735, !noalias !738
+  %rhsc.i.i = load i8, ptr %.pn3.i.i.i, align 1, !alias.scope !735, !noalias !738
   %rhsc.fr.i.i = freeze i8 %rhsc.i.i
   %19 = icmp eq i8 %rhsc.fr.i.i, 47
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 1
+  %20 = getelementptr inbounds i8, ptr %.pn3.i.i.i, i64 1
   %21 = add i64 %.sroa.8.8.copyload27, -1
   %spec.select.i.i = select i1 %19, ptr %20, ptr null
   br label %22
@@ -4241,7 +4241,7 @@ define hidden void @_ZN12object_store4path4Path13from_url_path17h5a8e442dcf520d7
   br label %_ZN12object_store4path4Path5parse17hf3766d8fd07ef0bfE.exit
 
 41:                                               ; preds = %22
-  %.sroa.025.0.i = select i1 %25, ptr %.sroa.0.0.i.i.i, ptr %24
+  %.sroa.025.0.i = select i1 %25, ptr %.pn3.i.i.i, ptr %24
   %42 = getelementptr i8, ptr %.sroa.025.0.i, i64 %.sroa.6.0.i
   %43 = getelementptr i8, ptr %42, i64 -1
   %rhsc.i67.i = load i8, ptr %43, align 1, !alias.scope !752, !noalias !738
@@ -4399,7 +4399,7 @@ define hidden void @_ZN12object_store4path4Path13from_url_path17h5a8e442dcf520d7
   %97 = extractvalue { i64, ptr } %93, 1
   %98 = icmp ne ptr %97, null
   call void @llvm.assume(i1 %98)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr nonnull align 1 %.sroa.0.0.i.i.i, i64 %.sroa.8.8.copyload27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr nonnull align 1 %.pn3.i.i.i, i64 %.sroa.8.8.copyload27, i1 false)
   store i64 0, ptr %0, align 8, !alias.scope !776, !noalias !728
   %.sroa.5.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %96, ptr %.sroa.5.0..sroa_idx.i21, align 8, !alias.scope !776, !noalias !728
@@ -4478,7 +4478,7 @@ define hidden void @_ZN12object_store4path4Path13from_url_path17h5a8e442dcf520d7
   %120 = extractvalue { i64, ptr } %104, 1
   %121 = icmp ne ptr %120, null
   call void @llvm.assume(i1 %121)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 %.sroa.8.8.copyload27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull readonly align 1 %.pn3.i.i.i, i64 %.sroa.8.8.copyload27, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !787
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.361.i, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false), !noalias !738
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !738
@@ -16891,9 +16891,9 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3bb75104d1d4891bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #19 {
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !2872, !noundef !21
-  %3 = icmp ne i64 %.sroa.5.0.i.i, 0
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !2872, !noundef !21
+  %3 = icmp ne i64 %.pn1.i.i, 0
   ret i1 %3
 }
 
@@ -17074,17 +17074,17 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7ce78ebf4fb7bfe0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #19 {
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !2983, !noundef !21
-  %3 = icmp ne i64 %.sroa.5.0.i.i, 0
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !2983, !noundef !21
+  %3 = icmp ne i64 %.pn1.i.i, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9fe9b09c3039839bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #19 {
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !2988, !noundef !21
-  %3 = icmp ne i64 %.sroa.5.0.i.i, 0
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !2988, !noundef !21
+  %3 = icmp ne i64 %.pn1.i.i, 0
   ret i1 %3
 }
 
@@ -77020,17 +77020,17 @@ define hidden void @"_ZN95_$LT$object_store..path..Path$u20$as$u20$core..iter..t
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN95_$LT$object_store..path..Path$u20$as$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h219707f51937931eE.llvm.3801596959246744488"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #15 {
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !13112, !noundef !21
-  %3 = icmp ne i64 %.sroa.5.0.i, 0
+  %.pn1.in.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !13112, !noundef !21
+  %3 = icmp ne i64 %.pn1.i, 0
   ret i1 %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN95_$LT$object_store..path..Path$u20$as$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5394bfa82da1486bE.llvm.3801596959246744488"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #15 {
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !13115, !noundef !21
-  %3 = icmp ne i64 %.sroa.5.0.i, 0
+  %.pn1.in.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !13115, !noundef !21
+  %3 = icmp ne i64 %.pn1.i, 0
   ret i1 %3
 }
 
@@ -77048,9 +77048,9 @@ define hidden void @"_ZN95_$LT$object_store..path..Path$u20$as$u20$core..iter..t
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN95_$LT$object_store..path..Path$u20$as$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17he0a8e9789c9810beE.llvm.3801596959246744488"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #15 {
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !13118, !noundef !21
-  %3 = icmp ne i64 %.sroa.5.0.i, 0
+  %.pn1.in.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !13118, !noundef !21
+  %3 = icmp ne i64 %.pn1.i, 0
   ret i1 %3
 }
 

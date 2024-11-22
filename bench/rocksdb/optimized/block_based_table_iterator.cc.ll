@@ -6343,11 +6343,11 @@ if.else:                                          ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.0.copyload.i, %if.else ]
-  %retval.sroa.3.0 = phi i64 [ %retval.sroa.3.0.copyload, %if.then ], [ %retval.sroa.2.0.copyload.i, %if.else ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %retval.sroa.0.0.copyload.pn = phi ptr [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.0.copyload.i, %if.else ]
+  %retval.sroa.3.0.copyload.pn = phi i64 [ %retval.sroa.3.0.copyload, %if.then ], [ %retval.sroa.2.0.copyload.i, %if.else ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i64 } %.pn, i64 %retval.sroa.3.0.copyload.pn, 1
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

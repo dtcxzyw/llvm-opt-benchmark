@@ -1771,10 +1771,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %18
 
 18:                                               ; preds = %4, %._crit_edge.i, %17
-  %.sroa.8.011 = phi ptr [ %.sroa.8.026.i, %17 ], [ %2, %4 ], [ %15, %._crit_edge.i ]
-  %19 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %20 = insertvalue { ptr, ptr } %19, ptr %.sroa.8.011, 1
-  ret { ptr, ptr } %20
+  %.sroa.8.026.i.pn = phi ptr [ %.sroa.8.026.i, %17 ], [ %2, %4 ], [ %15, %._crit_edge.i ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.026.i.pn, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
@@ -1828,10 +1828,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %19
 
 19:                                               ; preds = %4, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2cbf4ebe4e45824E.exit.thread.sink.split.i", %18
-  %.sroa.8.011 = phi ptr [ %.sroa.8.025.i, %18 ], [ %.sroa.8.024.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2cbf4ebe4e45824E.exit.thread.sink.split.i" ], [ %2, %4 ]
-  %20 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.8.011, 1
-  ret { ptr, ptr } %21
+  %.sroa.8.025.i.pn = phi ptr [ %.sroa.8.025.i, %18 ], [ %.sroa.8.024.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2cbf4ebe4e45824E.exit.thread.sink.split.i" ], [ %2, %4 ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.025.i.pn, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

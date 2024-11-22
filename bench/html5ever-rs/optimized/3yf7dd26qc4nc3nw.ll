@@ -239,11 +239,11 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %4 = alloca { { i64, [2 x i64] } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !19, !nonnull !17, !noundef !17
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !19, !noundef !17
-  invoke void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_internal17h31fa4870a91038ccE.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !19, !noundef !17
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !19, !nonnull !17, !noundef !17
+  invoke void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_internal17h31fa4870a91038ccE.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %6 unwind label %23
 
 6:                                                ; preds = %1
@@ -321,11 +321,11 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %4 = alloca { { i64, [2 x i64] } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !47, !nonnull !17, !noundef !17
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !47, !noundef !17
-  invoke void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_internal17h7d2d434a9b3805baE.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !47, !noundef !17
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !47, !nonnull !17, !noundef !17
+  invoke void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_internal17h7d2d434a9b3805baE.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %6 unwind label %23
 
 6:                                                ; preds = %1
@@ -403,11 +403,11 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %4 = alloca { { i64, [2 x i64] } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !72, !nonnull !17, !noundef !17
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !72, !noundef !17
-  invoke void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_internal17h3d5e172d56017734E.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !72, !noundef !17
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !72, !nonnull !17, !noundef !17
+  invoke void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_internal17h3d5e172d56017734E.llvm.13834333043177491542"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %6 unwind label %23
 
 6:                                                ; preds = %1
@@ -483,9 +483,9 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %.sroa.4.sroa.0 = alloca i56, align 8
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !17
-  %5 = icmp ult i64 %.sroa.5.0.i, 8
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !17
+  %5 = icmp ult i64 %.pn1.i, 8
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
@@ -516,16 +516,16 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5022496a4fe05820E.llvm.13834333043177491542.exit"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5022496a4fe05820E.llvm.13834333043177491542.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i", %14, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit"
-  %.030 = phi i64 [ %13, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit" ], [ %.sroa.0.0.insert.insert, %14 ], [ %.sroa.0.0.insert.insert, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i" ]
-  ret i64 %.030
+  %.032 = phi i64 [ %13, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit" ], [ %.sroa.0.0.insert.insert, %14 ], [ %.sroa.0.0.insert.insert, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i" ]
+  ret i64 %.032
 
 14:                                               ; preds = %2
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !nonnull !17, !noundef !17
-  %15 = shl nuw nsw i64 %.sroa.5.0.i, 4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !nonnull !17, !noundef !17
+  %15 = shl nuw nsw i64 %.pn1.i, 4
   %.sroa.0.0.extract.trunc = or disjoint i64 %15, 1
   store i56 0, ptr %.sroa.4.sroa.0, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.sroa.0, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.5.0.i, i1 false), !alias.scope !97, !noalias !101
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.sroa.0, ptr nonnull readonly align 1 %.pn3.i, i64 %.pn1.i, i1 false), !alias.scope !97, !noalias !101
   %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. = load i56, ptr %.sroa.4.sroa.0, align 8
   %.sroa.4.0.insert.ext = zext i56 %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 8
@@ -547,7 +547,7 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %22 = load ptr, ptr %3, align 8, !noalias !106, !nonnull !17, !noundef !17
   %23 = getelementptr inbounds i8, ptr %3, i64 16
   %24 = load i64, ptr %23, align 8, !noalias !106, !noundef !17
-  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6570740198009921828"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i, ptr noundef nonnull %22, i64 noundef %20, i64 noundef %24)
+  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6570740198009921828"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i, ptr noundef nonnull %22, i64 noundef %20, i64 noundef %24)
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i": ; preds = %21, %18
@@ -575,9 +575,9 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %.sroa.4.sroa.0 = alloca i56, align 8
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !17
-  %5 = icmp ult i64 %.sroa.5.0.i, 8
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !17
+  %5 = icmp ult i64 %.pn1.i, 8
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
@@ -608,16 +608,16 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5022496a4fe05820E.llvm.13834333043177491542.exit"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5022496a4fe05820E.llvm.13834333043177491542.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i", %14, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit"
-  %.030 = phi i64 [ %13, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit" ], [ %.sroa.0.0.insert.insert, %14 ], [ %.sroa.0.0.insert.insert, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i" ]
-  ret i64 %.030
+  %.032 = phi i64 [ %13, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit" ], [ %.sroa.0.0.insert.insert, %14 ], [ %.sroa.0.0.insert.insert, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i" ]
+  ret i64 %.032
 
 14:                                               ; preds = %2
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !nonnull !17, !noundef !17
-  %15 = shl nuw nsw i64 %.sroa.5.0.i, 4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !nonnull !17, !noundef !17
+  %15 = shl nuw nsw i64 %.pn1.i, 4
   %.sroa.0.0.extract.trunc = or disjoint i64 %15, 1
   store i56 0, ptr %.sroa.4.sroa.0, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.sroa.0, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.5.0.i, i1 false), !alias.scope !115, !noalias !119
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.sroa.0, ptr nonnull readonly align 1 %.pn3.i, i64 %.pn1.i, i1 false), !alias.scope !115, !noalias !119
   %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. = load i56, ptr %.sroa.4.sroa.0, align 8
   %.sroa.4.0.insert.ext = zext i56 %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 8
@@ -639,7 +639,7 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %22 = load ptr, ptr %3, align 8, !noalias !124, !nonnull !17, !noundef !17
   %23 = getelementptr inbounds i8, ptr %3, i64 16
   %24 = load i64, ptr %23, align 8, !noalias !124, !noundef !17
-  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6570740198009921828"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i, ptr noundef nonnull %22, i64 noundef %20, i64 noundef %24)
+  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6570740198009921828"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i, ptr noundef nonnull %22, i64 noundef %20, i64 noundef %24)
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i": ; preds = %21, %18
@@ -667,9 +667,9 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %.sroa.4.sroa.0 = alloca i56, align 8
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !17
-  %5 = icmp ult i64 %.sroa.5.0.i, 8
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !17
+  %5 = icmp ult i64 %.pn1.i, 8
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
@@ -700,16 +700,16 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5022496a4fe05820E.llvm.13834333043177491542.exit"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5022496a4fe05820E.llvm.13834333043177491542.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i", %14, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit"
-  %.030 = phi i64 [ %13, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit" ], [ %.sroa.0.0.insert.insert, %14 ], [ %.sroa.0.0.insert.insert, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i" ]
-  ret i64 %.030
+  %.032 = phi i64 [ %13, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E.exit" ], [ %.sroa.0.0.insert.insert, %14 ], [ %.sroa.0.0.insert.insert, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i" ]
+  ret i64 %.032
 
 14:                                               ; preds = %2
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !nonnull !17, !noundef !17
-  %15 = shl nuw nsw i64 %.sroa.5.0.i, 4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !nonnull !17, !noundef !17
+  %15 = shl nuw nsw i64 %.pn1.i, 4
   %.sroa.0.0.extract.trunc = or disjoint i64 %15, 1
   store i56 0, ptr %.sroa.4.sroa.0, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.sroa.0, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.5.0.i, i1 false), !alias.scope !133, !noalias !137
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.sroa.0, ptr nonnull readonly align 1 %.pn3.i, i64 %.pn1.i, i1 false), !alias.scope !133, !noalias !137
   %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. = load i56, ptr %.sroa.4.sroa.0, align 8
   %.sroa.4.0.insert.ext = zext i56 %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 8
@@ -731,7 +731,7 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %22 = load ptr, ptr %3, align 8, !noalias !142, !nonnull !17, !noundef !17
   %23 = getelementptr inbounds i8, ptr %3, i64 16
   %24 = load i64, ptr %23, align 8, !noalias !142, !noundef !17
-  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6570740198009921828"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i, ptr noundef nonnull %22, i64 noundef %20, i64 noundef %24)
+  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6570740198009921828"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i, ptr noundef nonnull %22, i64 noundef %20, i64 noundef %24)
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf33714300857a13aE.exit.i": ; preds = %21, %18
@@ -1198,9 +1198,9 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
   unreachable
 
 "_ZN12string_cache13trivial_impls87_$LT$impl$u20$core..fmt..Display$u20$for$u20$string_cache..atom..Atom$LT$Static$GT$$GT$3fmt17h01023332667949d0E.exit": ; preds = %8, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i", %25
-  %.sroa.4.0.i.i = phi i64 [ %31, %25 ], [ %15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i" ], [ %12, %8 ]
-  %.sroa.0.0.i.i = phi ptr [ %29, %25 ], [ %18, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i" ], [ %10, %8 ]
-  %33 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hdff585370e905cbdE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %.pn11.i.i = phi ptr [ %29, %25 ], [ %18, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i" ], [ %10, %8 ]
+  %.pn9.i.i = phi i64 [ %31, %25 ], [ %15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i" ], [ %12, %8 ]
+  %33 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hdff585370e905cbdE"(ptr noalias noundef nonnull readonly align 1 %.pn11.i.i, i64 noundef %.pn9.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %33
 }
 
@@ -1264,9 +1264,9 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
   unreachable
 
 "_ZN12string_cache13trivial_impls87_$LT$impl$u20$core..fmt..Display$u20$for$u20$string_cache..atom..Atom$LT$Static$GT$$GT$3fmt17hae3ca64ebc80ea18E.exit": ; preds = %8, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i", %25
-  %.sroa.4.0.i.i = phi i64 [ %31, %25 ], [ %15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i" ], [ %12, %8 ]
-  %.sroa.0.0.i.i = phi ptr [ %29, %25 ], [ %18, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i" ], [ %10, %8 ]
-  %33 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hdff585370e905cbdE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %.pn11.i.i = phi ptr [ %29, %25 ], [ %18, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i" ], [ %10, %8 ]
+  %.pn9.i.i = phi i64 [ %31, %25 ], [ %15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i" ], [ %12, %8 ]
+  %33 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hdff585370e905cbdE"(ptr noalias noundef nonnull readonly align 1 %.pn11.i.i, i64 noundef %.pn9.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %33
 }
 

@@ -17518,10 +17518,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -17742,10 +17742,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -17770,10 +17770,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18002,10 +18002,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18030,10 +18030,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18058,10 +18058,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18464,10 +18464,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -19147,10 +19147,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -19380,10 +19380,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -19608,10 +19608,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %39
 
 39:                                               ; preds = %4, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he25d4820e96ab620E.exit.thread.sink.split.i", %38
-  %.sroa.8.011 = phi ptr [ %.sroa.8.034.i, %38 ], [ %.sroa.8.033.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he25d4820e96ab620E.exit.thread.sink.split.i" ], [ %2, %4 ]
-  %40 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %41 = insertvalue { ptr, ptr } %40, ptr %.sroa.8.011, 1
-  ret { ptr, ptr } %41
+  %.sroa.8.034.i.pn = phi ptr [ %.sroa.8.034.i, %38 ], [ %.sroa.8.033.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he25d4820e96ab620E.exit.thread.sink.split.i" ], [ %2, %4 ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.034.i.pn, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -20233,10 +20233,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -20537,10 +20537,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -20735,10 +20735,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -20794,10 +20794,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %15, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %17, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %18 = insertvalue { ptr, ptr } poison, ptr %15, 0
-  %19 = insertvalue { ptr, ptr } %18, ptr %17, 1
-  ret { ptr, ptr } %19
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -20908,10 +20908,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21305,10 +21305,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %27
 
 27:                                               ; preds = %4, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0bc1315108edf9dE.exit.thread.sink.split.i", %26
-  %.sroa.8.011 = phi ptr [ %.sroa.8.032.i, %26 ], [ %.sroa.8.030.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0bc1315108edf9dE.exit.thread.sink.split.i" ], [ %2, %4 ]
-  %28 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %29 = insertvalue { ptr, ptr } %28, ptr %.sroa.8.011, 1
-  ret { ptr, ptr } %29
+  %.sroa.8.032.i.pn = phi ptr [ %.sroa.8.032.i, %26 ], [ %.sroa.8.030.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0bc1315108edf9dE.exit.thread.sink.split.i" ], [ %2, %4 ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.032.i.pn, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21336,10 +21336,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21385,10 +21385,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21611,10 +21611,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21700,10 +21700,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22086,10 +22086,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %13, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %15, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %16 = insertvalue { ptr, ptr } poison, ptr %13, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %15, 1
-  ret { ptr, ptr } %17
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22214,10 +22214,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22699,10 +22699,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23144,10 +23144,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23238,10 +23238,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23494,10 +23494,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23665,10 +23665,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23925,9 +23925,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %26
 
 26:                                               ; preds = %4, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa6604fcd420808fE.exit.thread.sink.split.i", %25
-  %27 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %28 = insertvalue { ptr, ptr } %27, ptr %2, 1
-  ret { ptr, ptr } %28
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %2, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23952,10 +23952,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24003,10 +24003,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24119,11 +24119,11 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %34
 
 34:                                               ; preds = %25, %33
-  %.sroa.9.012 = phi ptr [ %.sroa.8.030.i, %33 ], [ %.sroa.8.028.i, %25 ]
+  %.sroa.8.030.i.pn = phi ptr [ %.sroa.8.030.i, %33 ], [ %.sroa.8.028.i, %25 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5), !noalias !6787
-  %35 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %36 = insertvalue { ptr, ptr } %35, ptr %.sroa.9.012, 1
-  ret { ptr, ptr } %36
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.030.i.pn, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24148,10 +24148,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24228,10 +24228,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24255,10 +24255,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %13, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %15, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %16 = insertvalue { ptr, ptr } poison, ptr %13, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %15, 1
-  ret { ptr, ptr } %17
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24839,10 +24839,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24892,10 +24892,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24962,10 +24962,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25700,10 +25700,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %39
 
 39:                                               ; preds = %4, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c557f730e472ef4E.exit.thread.sink.split.i", %38
-  %.sroa.8.011 = phi ptr [ %.sroa.8.035.i, %38 ], [ %.sroa.8.034.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c557f730e472ef4E.exit.thread.sink.split.i" ], [ %2, %4 ]
-  %40 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %41 = insertvalue { ptr, ptr } %40, ptr %.sroa.8.011, 1
-  ret { ptr, ptr } %41
+  %.sroa.8.035.i.pn = phi ptr [ %.sroa.8.035.i, %38 ], [ %.sroa.8.034.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c557f730e472ef4E.exit.thread.sink.split.i" ], [ %2, %4 ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.035.i.pn, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25728,10 +25728,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25965,10 +25965,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26057,10 +26057,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26347,10 +26347,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26490,10 +26490,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26840,10 +26840,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %13, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %15, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %16 = insertvalue { ptr, ptr } poison, ptr %13, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %15, 1
-  ret { ptr, ptr } %17
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26893,10 +26893,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27276,10 +27276,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %13, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %15, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %16 = insertvalue { ptr, ptr } poison, ptr %13, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %15, 1
-  ret { ptr, ptr } %17
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27457,10 +27457,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27485,10 +27485,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28437,10 +28437,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28568,10 +28568,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28596,10 +28596,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28647,10 +28647,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28675,10 +28675,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -139548,11 +139548,11 @@ define hidden void @"_ZN248_$LT$deltalake_core..kernel..models..actions.._..$LT$
 217:                                              ; preds = %6, %9, %13, %17, %21, %25, %29, %33, %37, %41, %45, %49, %53, %60, %63, %67, %71, %75, %79, %83, %87, %91, %95, %99, %103, %107, %111, %115, %121, %123, %127, %131, %135, %139, %143, %147, %151, %155, %159, %163, %167, %173, %177, %181, %185, %189, %193, %197, %201, %205, %209, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN5serde9__private6string15from_utf8_lossy17h25bd0243a266bc00E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !31378, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !31378, !noundef !4
-  %218 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17hf2139592af5fa3ddE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i, ptr noalias noundef nonnull readonly align 8 @anon.af2c6469e34a74e5b434b49a924e5785.744, i64 noundef 4)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !31378, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !31378, !nonnull !4, !noundef !4
+  %218 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17hf2139592af5fa3ddE(ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i, ptr noalias noundef nonnull readonly align 8 @anon.af2c6469e34a74e5b434b49a924e5785.744, i64 noundef 4)
           to label %219 unwind label %215
 
 219:                                              ; preds = %217
@@ -142429,11 +142429,11 @@ define hidden void @"_ZN248_$LT$deltalake_core..kernel..models..actions.._..$LT$
 686:                                              ; preds = %6, %8, %12, %16, %20, %24, %28, %32, %36, %40, %44, %51, %55, %59, %63, %67, %71, %75, %79, %85, %87, %91, %95, %99, %103, %107, %111, %115, %119, %123, %127, %131, %135, %139, %143, %147, %153, %157, %161, %165, %169, %173, %177, %181, %185, %189, %193, %197, %201, %205, %211, %213, %217, %221, %225, %229, %233, %237, %241, %245, %249, %253, %257, %261, %265, %271, %275, %279, %283, %287, %291, %295, %299, %303, %307, %311, %315, %321, %324, %328, %332, %336, %340, %344, %348, %352, %356, %360, %364, %368, %374, %376, %379, %383, %387, %391, %395, %399, %403, %407, %411, %415, %419, %423, %427, %431, %435, %441, %445, %449, %453, %457, %461, %465, %469, %473, %477, %481, %485, %491, %495, %499, %503, %507, %511, %515, %519, %523, %527, %531, %535, %539, %545, %548, %552, %556, %560, %564, %568, %572, %576, %580, %584, %590, %592, %596, %600, %604, %608, %612, %616, %620, %624, %628, %632, %636, %642, %646, %650, %654, %658, %662, %666, %670, %674, %678, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN5serde9__private6string15from_utf8_lossy17h25bd0243a266bc00E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !32333, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !32333, !noundef !4
-  %687 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17hf2139592af5fa3ddE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i, ptr noalias noundef nonnull readonly align 8 @anon.af2c6469e34a74e5b434b49a924e5785.764, i64 noundef 13)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !32333, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !32333, !nonnull !4, !noundef !4
+  %687 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17hf2139592af5fa3ddE(ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i, ptr noalias noundef nonnull readonly align 8 @anon.af2c6469e34a74e5b434b49a924e5785.764, i64 noundef 13)
           to label %688 unwind label %684
 
 688:                                              ; preds = %686

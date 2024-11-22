@@ -528,7 +528,7 @@ define dso_local void @_ZN17cmFindPathCommand16FindNormalHeaderB5cxx11ER20cmFind
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 16
   %17 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %4, i64 32
   %18 = getelementptr inbounds i8, ptr %4, i64 40
   %19 = getelementptr inbounds i8, ptr %1, i64 600
   %20 = load ptr, ptr %14, align 8
@@ -556,7 +556,7 @@ define dso_local void @_ZN17cmFindPathCommand16FindNormalHeaderB5cxx11ER20cmFind
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
   store i64 %29, ptr %17, align 8, !alias.scope !15, !noalias !9
-  store ptr %30, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !15, !noalias !9
+  store ptr %30, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !15, !noalias !9
   store ptr null, ptr %18, align 8, !alias.scope !15, !noalias !9
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr nonnull %4, i64 2)
           to label %31 unwind label %.loopexit
@@ -766,14 +766,14 @@ define dso_local void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cx
   %50 = extractvalue { i64, ptr } %49, 0
   %51 = extractvalue { i64, ptr } %49, 1
   store i64 %50, ptr %48, align 8, !alias.scope !25, !noalias !19
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %51, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !25, !noalias !19
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr %51, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !25, !noalias !19
   %52 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr null, ptr %52, align 8, !alias.scope !25, !noalias !19
   %53 = getelementptr inbounds i8, ptr %8, i64 48
   store i64 10, ptr %53, align 8, !alias.scope !28, !noalias !19
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %8, i64 56
-  store ptr @.str.3, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !28, !noalias !19
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %8, i64 56
+  store ptr @.str.3, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !28, !noalias !19
   %54 = getelementptr inbounds i8, ptr %8, i64 64
   store ptr null, ptr %54, align 8, !alias.scope !28, !noalias !19
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr nonnull %8, i64 3)
@@ -792,8 +792,8 @@ define dso_local void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cx
   store ptr null, ptr %59, align 8, !alias.scope !34, !noalias !31
   %60 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 9, ptr %60, align 8, !alias.scope !37, !noalias !31
-  %.sroa.2.0..sroa_idx.i7.i36 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr @.str.4, ptr %.sroa.2.0..sroa_idx.i7.i36, align 8, !alias.scope !37, !noalias !31
+  %.sroa.2.0..sroa_idx.i6.i36 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr @.str.4, ptr %.sroa.2.0..sroa_idx.i6.i36, align 8, !alias.scope !37, !noalias !31
   %61 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr null, ptr %61, align 8, !alias.scope !37, !noalias !31
   %62 = getelementptr inbounds i8, ptr %7, i64 48
@@ -801,8 +801,8 @@ define dso_local void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cx
   %64 = extractvalue { i64, ptr } %63, 0
   %65 = extractvalue { i64, ptr } %63, 1
   store i64 %64, ptr %62, align 8, !alias.scope !40, !noalias !31
-  %.sroa.2.0..sroa_idx.i16.i37 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr %65, ptr %.sroa.2.0..sroa_idx.i16.i37, align 8, !alias.scope !40, !noalias !31
+  %.sroa.2.0..sroa_idx.i14.i37 = getelementptr inbounds i8, ptr %7, i64 56
+  store ptr %65, ptr %.sroa.2.0..sroa_idx.i14.i37, align 8, !alias.scope !40, !noalias !31
   %66 = getelementptr inbounds i8, ptr %7, i64 64
   store ptr null, ptr %66, align 8, !alias.scope !40, !noalias !31
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr nonnull %7, i64 3)
@@ -896,8 +896,8 @@ define dso_local void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cx
   store ptr null, ptr %95, align 8, !alias.scope !46, !noalias !43
   %96 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 20, ptr %96, align 8, !alias.scope !49, !noalias !43
-  %.sroa.2.0..sroa_idx.i7.i39 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr @.str.5, ptr %.sroa.2.0..sroa_idx.i7.i39, align 8, !alias.scope !49, !noalias !43
+  %.sroa.2.0..sroa_idx.i6.i39 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr @.str.5, ptr %.sroa.2.0..sroa_idx.i6.i39, align 8, !alias.scope !49, !noalias !43
   %97 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr null, ptr %97, align 8, !alias.scope !49, !noalias !43
   %98 = getelementptr inbounds i8, ptr %6, i64 48
@@ -905,8 +905,8 @@ define dso_local void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cx
   %100 = extractvalue { i64, ptr } %99, 0
   %101 = extractvalue { i64, ptr } %99, 1
   store i64 %100, ptr %98, align 8, !alias.scope !52, !noalias !43
-  %.sroa.2.0..sroa_idx.i16.i40 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %101, ptr %.sroa.2.0..sroa_idx.i16.i40, align 8, !alias.scope !52, !noalias !43
+  %.sroa.2.0..sroa_idx.i14.i40 = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %101, ptr %.sroa.2.0..sroa_idx.i14.i40, align 8, !alias.scope !52, !noalias !43
   %102 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr null, ptr %102, align 8, !alias.scope !52, !noalias !43
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr nonnull %6, i64 3)

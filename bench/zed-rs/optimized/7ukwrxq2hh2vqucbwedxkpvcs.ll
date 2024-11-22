@@ -37632,8 +37632,8 @@ define { ptr, i64 } @_ZN8language8Language21code_fence_block_name17hce4c57298d8d
   resume { ptr, i32 } %25
 
 "_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17hbaaaf4219b455a3dE.exit": ; preds = %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i4.i"
-  %33 = extractvalue { ptr, i64 } %23, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  %33 = icmp ne ptr %29, null
   br label %39
 
 34:                                               ; preds = %1
@@ -37641,16 +37641,18 @@ define { ptr, i64 } @_ZN8language8Language21code_fence_block_name17hce4c57298d8d
   %36 = load i64, ptr %35, align 8, !noundef !9
   %37 = atomicrmw add ptr %6, i64 1 monotonic, align 8
   %38 = icmp slt i64 %37, 0
-  br i1 %38, label %43, label %39
+  br i1 %38, label %43, label %40
 
-39:                                               ; preds = %34, %"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17hbaaaf4219b455a3dE.exit"
-  %.sroa.3.0 = phi i64 [ %33, %"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17hbaaaf4219b455a3dE.exit" ], [ %36, %34 ]
-  %.sroa.0.0 = phi ptr [ %29, %"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17hbaaaf4219b455a3dE.exit" ], [ %6, %34 ]
-  %40 = icmp ne ptr %.sroa.0.0, null
-  call void @llvm.assume(i1 %40)
-  %41 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %42 = insertvalue { ptr, i64 } %41, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %42
+39:                                               ; preds = %40, %"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17hbaaaf4219b455a3dE.exit"
+  %.sroa.0.0 = phi i1 [ %33, %"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17hbaaaf4219b455a3dE.exit" ], [ true, %40 ]
+  %.merged = phi { ptr, i64 } [ %23, %"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17hbaaaf4219b455a3dE.exit" ], [ %42, %40 ]
+  call void @llvm.assume(i1 %.sroa.0.0)
+  ret { ptr, i64 } %.merged
+
+40:                                               ; preds = %34
+  %41 = insertvalue { ptr, i64 } poison, ptr %6, 0
+  %42 = insertvalue { ptr, i64 } %41, i64 %36, 1
+  br label %39
 
 43:                                               ; preds = %34
   tail call void @llvm.trap()
@@ -40340,14 +40342,14 @@ define void @_ZN8language14range_from_lsp17h4031de9d99373db3E(ptr dead_on_unwind
 
 21:                                               ; preds = %2, %29
   %22 = phi i32 [ %18, %2 ], [ %10, %29 ]
-  %23 = phi i32 [ %10, %2 ], [ %33, %29 ]
-  %24 = phi i32 [ %9, %2 ], [ %31, %29 ]
-  %25 = load i32, ptr %3, align 8, !noundef !9
-  store i32 %24, ptr %0, align 4
+  %23 = phi i32 [ %17, %2 ], [ %9, %29 ]
+  %24 = phi i32 [ %10, %2 ], [ %33, %29 ]
+  %25 = phi i32 [ %9, %2 ], [ %31, %29 ]
+  store i32 %25, ptr %0, align 4
   %26 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4
+  store i32 %24, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %25, ptr %27, align 4
+  store i32 %23, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %22, ptr %28, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -40356,7 +40358,6 @@ define void @_ZN8language14range_from_lsp17h4031de9d99373db3E(ptr dead_on_unwind
 
 29:                                               ; preds = %2
   %30 = load i64, ptr %3, align 8
-  store i32 %9, ptr %3, align 8
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
   %33 = trunc nuw i64 %32 to i32

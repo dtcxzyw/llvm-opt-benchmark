@@ -1313,8 +1313,8 @@ define dso_local void @_ZN4llvm9LiveRange14RenumberValuesEv(ptr noundef nonnull 
   %14 = getelementptr inbounds i8, ptr %0, i64 80
   br label %15
 
-15:                                               ; preds = %.lr.ph, %.critedge15
-  %.013 = phi ptr [ %11, %.lr.ph ], [ %47, %.critedge15 ]
+15:                                               ; preds = %.lr.ph, %.critedge16
+  %.013 = phi ptr [ %11, %.lr.ph ], [ %48, %.critedge16 ]
   %16 = getelementptr inbounds nuw i8, ptr %.013, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %4, align 8, !noalias !15
@@ -1333,7 +1333,7 @@ define dso_local void @_ZN4llvm9LiveRange14RenumberValuesEv(ptr noundef nonnull 
   %.025.i.i = phi ptr [ %28, %27 ], [ %19, %21 ]
   %25 = load ptr, ptr %.025.i.i, align 8, !noalias !15
   %26 = icmp eq ptr %25, %17
-  br i1 %26, label %.critedge15, label %27
+  br i1 %26, label %.critedge16, label %27
 
 27:                                               ; preds = %.lr.ph.i.i
   %28 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -1349,55 +1349,55 @@ define dso_local void @_ZN4llvm9LiveRange14RenumberValuesEv(ptr noundef nonnull 
   %31 = add nuw i32 %22, 1
   store i32 %31, ptr %6, align 4, !noalias !15
   store ptr %17, ptr %24, align 8, !noalias !15
-  br label %34
+  br label %35
 
 _ZN4llvm15SmallPtrSetImplIPNS_6VNInfoEE6insertES2_.exit: ; preds = %._crit_edge.i.i, %15
   %32 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %17) #14, !noalias !15
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %32, 1
-  %33 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %33, label %34, label %.critedge15
+  %33 = extractvalue { ptr, i8 } %32, 1
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %.critedge16
 
-34:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPNS_6VNInfoEE6insertES2_.exit
-  %35 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
-  %36 = trunc i64 %35 to i32
-  store i32 %36, ptr %17, align 8
-  %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
-  %38 = add i64 %37, 1
-  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
-  %.not.i.i.i = icmp ugt i64 %38, %39
-  br i1 %.not.i.i.i, label %40, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_6VNInfoELb1EE9push_backES2_.exit
+35:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPNS_6VNInfoEE6insertES2_.exit
+  %36 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %37 = trunc i64 %36 to i32
+  store i32 %37, ptr %17, align 8
+  %38 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %39 = add i64 %38, 1
+  %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %.not.i.i.i = icmp ugt i64 %39, %40
+  br i1 %.not.i.i.i, label %41, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_6VNInfoELb1EE9push_backES2_.exit
 
-40:                                               ; preds = %34
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %14, i64 noundef %38, i64 noundef 8) #14
+41:                                               ; preds = %35
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %14, i64 noundef %39, i64 noundef 8) #14
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_6VNInfoELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_6VNInfoELb1EE9push_backES2_.exit: ; preds = %34, %40
-  %41 = load ptr, ptr %8, align 8
-  %42 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
-  %44 = ptrtoint ptr %17 to i64
-  store i64 %44, ptr %43, align 1
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
-  %46 = add i64 %45, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %46) #14
-  br label %.critedge15
+_ZN4llvm23SmallVectorTemplateBaseIPNS_6VNInfoELb1EE9push_backES2_.exit: ; preds = %35, %41
+  %42 = load ptr, ptr %8, align 8
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  %45 = ptrtoint ptr %17 to i64
+  store i64 %45, ptr %44, align 1
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %47 = add i64 %46, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %47) #14
+  br label %.critedge16
 
-.critedge15:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_6VNInfoEE6insertES2_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_6VNInfoELb1EE9push_backES2_.exit
-  %47 = getelementptr inbounds i8, ptr %.013, i64 24
-  %.not = icmp eq ptr %47, %13
+.critedge16:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_6VNInfoEE6insertES2_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_6VNInfoELb1EE9push_backES2_.exit
+  %48 = getelementptr inbounds i8, ptr %.013, i64 24
+  %.not = icmp eq ptr %48, %13
   br i1 %.not, label %._crit_edge, label %15
 
-._crit_edge:                                      ; preds = %.critedge15, %1
-  %48 = load ptr, ptr %4, align 8
-  %49 = load ptr, ptr %2, align 8
-  %50 = icmp eq ptr %48, %49
-  br i1 %50, label %_ZN4llvm11SmallPtrSetIPNS_6VNInfoELj8EED2Ev.exit, label %51
+._crit_edge:                                      ; preds = %.critedge16, %1
+  %49 = load ptr, ptr %4, align 8
+  %50 = load ptr, ptr %2, align 8
+  %51 = icmp eq ptr %49, %50
+  br i1 %51, label %_ZN4llvm11SmallPtrSetIPNS_6VNInfoELj8EED2Ev.exit, label %52
 
-51:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef %48) #14
+52:                                               ; preds = %._crit_edge
+  call void @free(ptr noundef %49) #14
   br label %_ZN4llvm11SmallPtrSetIPNS_6VNInfoELj8EED2Ev.exit
 
-_ZN4llvm11SmallPtrSetIPNS_6VNInfoELj8EED2Ev.exit: ; preds = %._crit_edge, %51
+_ZN4llvm11SmallPtrSetIPNS_6VNInfoELj8EED2Ev.exit: ; preds = %._crit_edge, %52
   ret void
 }
 

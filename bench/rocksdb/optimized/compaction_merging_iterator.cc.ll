@@ -2527,22 +2527,19 @@ if.then:                                          ; preds = %entry
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 104
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call { ptr, i64 } %3(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %4 = extractvalue { ptr, i64 } %call.i, 0
-  %5 = extractvalue { ptr, i64 } %call.i, 1
   br label %return
 
 if.else:                                          ; preds = %entry
   %dummy_tombstone_val = getelementptr inbounds i8, ptr %this, i64 128
   %call.i1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %dummy_tombstone_val) #18
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %dummy_tombstone_val) #18
+  %4 = insertvalue { ptr, i64 } poison, ptr %call.i1, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %call2.i, 1
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %retval.sroa.3.0 = phi i64 [ %5, %if.then ], [ %call2.i, %if.else ]
-  %retval.sroa.0.0 = phi ptr [ %4, %if.then ], [ %call.i1, %if.else ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %call.i, %if.then ], [ %5, %if.else ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1880,6 +1880,7 @@ ratio.exit:                                       ; preds = %724, %729
   br label %809
 
 809:                                              ; preds = %800, %786, %775
+  %.in = phi i64 [ %768, %775 ], [ %796, %786 ], [ %806, %800 ]
   %810 = phi i32 [ %776, %775 ], [ %798, %786 ], [ %808, %800 ]
   %.2433 = phi double [ %.1432, %775 ], [ %.3434, %786 ], [ %.1432, %800 ]
   %811 = and i32 %810, 2146435072
@@ -1892,8 +1893,8 @@ ratio.exit:                                       ; preds = %724, %729
   %815 = sitofp i32 %814 to double
   %816 = fsub double %.2433, %815
   %817 = icmp eq i32 %594, 0
-  %818 = load i32, ptr %10, align 8
-  %819 = icmp eq i32 %818, 0
+  %818 = and i64 %.in, 4294967295
+  %819 = icmp eq i64 %818, 0
   %or.cond37.not776 = select i1 %817, i1 %819, i1 false
   %820 = and i32 %810, 1048575
   %.not558 = icmp eq i32 %820, 0
@@ -3528,32 +3529,32 @@ define nonnull ptr @jvp_dtoa(ptr nocapture noundef %0, double noundef %1, i32 no
   %13 = lshr i64 %12, 32
   %14 = trunc nuw i64 %13 to i32
   %.not = icmp sgt i64 %12, -1
-  br i1 %.not, label %17, label %15
+  %15 = trunc i64 %12 to i32
+  br i1 %.not, label %18, label %16
 
-15:                                               ; preds = %7
-  %16 = and i32 %14, 2147483647
-  store i32 %16, ptr %11, align 4
-  br label %17
+16:                                               ; preds = %7
+  %17 = and i32 %14, 2147483647
+  store i32 %17, ptr %11, align 4
+  br label %18
 
-17:                                               ; preds = %7, %15
-  %18 = phi i32 [ %16, %15 ], [ %14, %7 ]
-  %.sink = phi i32 [ 1, %15 ], [ 0, %7 ]
+18:                                               ; preds = %7, %16
+  %19 = phi i32 [ %17, %16 ], [ %14, %7 ]
+  %.sink = phi i32 [ 1, %16 ], [ 0, %7 ]
   store i32 %.sink, ptr %5, align 4
-  %19 = and i32 %18, 2146435072
-  %20 = icmp eq i32 %19, 2146435072
-  br i1 %20, label %21, label %50
+  %20 = and i32 %19, 2146435072
+  %21 = icmp eq i32 %20, 2146435072
+  br i1 %21, label %22, label %50
 
-21:                                               ; preds = %17
+22:                                               ; preds = %18
   store i32 9999, ptr %4, align 4
-  %22 = load i32, ptr %10, align 8
-  %23 = and i32 %18, 1048575
-  %24 = or i32 %22, %23
+  %23 = and i32 %19, 1048575
+  %24 = or i32 %23, %15
   %or.cond741 = icmp eq i32 %24, 0
   %25 = load ptr, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %25, null
   br i1 %or.cond741, label %26, label %38
 
-26:                                               ; preds = %21
+26:                                               ; preds = %22
   br i1 %.not.i.i.i, label %29, label %27
 
 27:                                               ; preds = %26
@@ -3595,7 +3596,7 @@ rv_alloc.exit.i:                                  ; preds = %29, %27
   %.not10.i = icmp eq ptr %6, null
   br i1 %.not10.i, label %nrv_alloc.exit, label %nrv_alloc.exit.sink.split
 
-38:                                               ; preds = %21
+38:                                               ; preds = %22
   br i1 %.not.i.i.i, label %41, label %39
 
 39:                                               ; preds = %38
@@ -3637,7 +3638,7 @@ rv_alloc.exit.i597:                               ; preds = %41, %39
   %.not10.i604 = icmp eq ptr %6, null
   br i1 %.not10.i604, label %nrv_alloc.exit, label %nrv_alloc.exit.sink.split
 
-50:                                               ; preds = %17
+50:                                               ; preds = %18
   %51 = load double, ptr %10, align 8
   %52 = fcmp une double %51, 0.000000e+00
   br i1 %52, label %65, label %53

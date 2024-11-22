@@ -1124,12 +1124,12 @@ define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$co
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !20
-  %.sroa.0.0 = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8, !noundef !4
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %7
+  %.pn3 = select i1 %3, ptr %5, ptr %2
+  %.pn1.in = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1 = load i64, ptr %.pn1.in, align 8, !noundef !4
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn3, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
@@ -1668,20 +1668,20 @@ define void @_ZN10ockam_core4cbor7cow_str6CowStr8to_owned17ha66d6fbc37343c6aE(pt
   %4 = icmp eq ptr %3, null
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !251, !nonnull !4, !align !20
-  %.sroa.0.0.i = select i1 %4, ptr %6, ptr %3
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !251, !noundef !4
-  %7 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5d4dcbe078451b82E"(i64 noundef %.sroa.5.0.i, i1 noundef zeroext false), !noalias !254
+  %.pn4.i = select i1 %4, ptr %6, ptr %3
+  %.pn2.in.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn2.i = load i64, ptr %.pn2.in.i, align 8, !alias.scope !251, !noundef !4
+  %7 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5d4dcbe078451b82E"(i64 noundef %.pn2.i, i1 noundef zeroext false), !noalias !254
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.5.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %.pn4.i, i64 %.pn2.i, i1 false)
   store ptr %8, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %9, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.i, ptr %.sroa.53.0..sroa_idx, align 8
+  store i64 %.pn2.i, ptr %.sroa.53.0..sroa_idx, align 8
   ret void
 }
 
@@ -1755,12 +1755,12 @@ define { ptr, i64 } @"_ZN77_$LT$ockam_core..cbor..cow_str..CowStr$u20$as$u20$cor
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !271, !nonnull !4, !align !20
-  %.sroa.0.0.i = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !271, !noundef !4
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %7
+  %.pn4.i = select i1 %3, ptr %5, ptr %2
+  %.pn2.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn2.i = load i64, ptr %.pn2.in.i, align 8, !alias.scope !271, !noundef !4
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn4.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn2.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1784,12 +1784,12 @@ define { ptr, i64 } @"_ZN85_$LT$ockam_core..cbor..cow_str..CowStr$u20$as$u20$cor
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !279, !nonnull !4, !align !20
-  %.sroa.0.0.i = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !279, !noundef !4
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %7
+  %.pn4.i = select i1 %3, ptr %5, ptr %2
+  %.pn2.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn2.i = load i64, ptr %.pn2.in.i, align 8, !alias.scope !279, !noundef !4
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn4.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn2.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -6680,11 +6680,11 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang23OMPDeclareReductionDeclESt4pairI
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang23OMPDeclareReductionDeclESt4pairIPNS_8FunctionES8_ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E6lookupES5_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang23OMPDeclareReductionDeclESt4pairIPNS_8FunctionES8_ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E6lookupES5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang23OMPDeclareReductionDeclESt4pairIPNS_8FunctionES8_ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E6doFindIS5_EEPKSE_RKT_.exit.i, %34, %32
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %32 ], [ %.sroa.0.0.copyload.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang23OMPDeclareReductionDeclESt4pairIPNS_8FunctionES8_ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E6doFindIS5_EEPKSE_RKT_.exit.i ], [ null, %34 ], [ null, %.lr.ph.i.i.i ]
-  %.sroa.3.0 = phi ptr [ %.sroa.3.0.copyload, %32 ], [ %.sroa.3.0.copyload.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang23OMPDeclareReductionDeclESt4pairIPNS_8FunctionES8_ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E6doFindIS5_EEPKSE_RKT_.exit.i ], [ null, %34 ], [ null, %.lr.ph.i.i.i ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %.fca.1.insert
+  %.sroa.0.0.copyload.pn = phi ptr [ %.sroa.0.0.copyload, %32 ], [ %.sroa.0.0.copyload.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang23OMPDeclareReductionDeclESt4pairIPNS_8FunctionES8_ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E6doFindIS5_EEPKSE_RKT_.exit.i ], [ null, %34 ], [ null, %.lr.ph.i.i.i ]
+  %.sroa.3.0.copyload.pn = phi ptr [ %.sroa.3.0.copyload, %32 ], [ %.sroa.3.0.copyload.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang23OMPDeclareReductionDeclESt4pairIPNS_8FunctionES8_ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E6doFindIS5_EEPKSE_RKT_.exit.i ], [ null, %34 ], [ null, %.lr.ph.i.i.i ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.copyload.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.3.0.copyload.pn, 1
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

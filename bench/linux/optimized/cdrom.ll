@@ -4854,8 +4854,8 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   %61 = getelementptr i8, ptr %28, i64 11
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
-  %64 = or disjoint i32 %60, %63
-  %65 = or disjoint i32 %64, %56
+  %64 = or disjoint i32 %60, %56
+  %65 = or disjoint i32 %64, %63
   %66 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %65, ptr %66, align 4
   %67 = getelementptr i8, ptr %28, i64 12
@@ -4916,29 +4916,29 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   %107 = phi i8 [ %88, %86 ], [ %81, %47 ]
   %108 = phi i8 [ %91, %86 ], [ %77, %47 ]
   %109 = phi i8 [ %94, %86 ], [ %72, %47 ]
-  %110 = phi i8 [ %100, %86 ], [ %58, %47 ]
-  %111 = phi i8 [ %103, %86 ], [ %53, %47 ]
+  %110 = phi i8 [ %97, %86 ], [ %62, %47 ]
+  %111 = phi i8 [ %100, %86 ], [ %58, %47 ]
+  %112 = phi i8 [ %103, %86 ], [ %53, %47 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #17
-  %112 = getelementptr inbounds i8, ptr %5, i64 8
-  %113 = icmp eq i8 %45, %9
-  br i1 %113, label %160, label %114
+  %113 = getelementptr inbounds i8, ptr %5, i64 8
+  %114 = icmp eq i8 %45, %9
+  br i1 %114, label %160, label %115
 
-114:                                              ; preds = %106
-  %115 = icmp eq i8 %9, 1
-  br i1 %115, label %116, label %135
+115:                                              ; preds = %106
+  %116 = icmp eq i8 %9, 1
+  br i1 %116, label %117, label %135
 
-116:                                              ; preds = %114
-  %117 = zext i8 %111 to i32
-  %118 = zext i8 %110 to i32
-  %119 = add nsw i32 %118, -2
-  %120 = load i8, ptr %112, align 4
-  %121 = zext i8 %120 to i32
+117:                                              ; preds = %115
+  %118 = zext i8 %112 to i32
+  %119 = zext i8 %111 to i32
+  %120 = add nsw i32 %119, -2
+  %121 = zext i8 %110 to i32
   %122 = mul nuw nsw i32 %121, 60
-  %123 = add nsw i32 %119, %122
+  %123 = add nsw i32 %120, %122
   %124 = mul nsw i32 %123, 75
-  %125 = add nsw i32 %124, %117
-  store i32 %125, ptr %112, align 4
+  %125 = add nsw i32 %124, %118
+  store i32 %125, ptr %113, align 4
   %126 = getelementptr inbounds i8, ptr %5, i64 12
   %127 = zext i8 %109 to i32
   %128 = zext i8 %108 to i32
@@ -4951,8 +4951,8 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   store i32 %134, ptr %126, align 4
   br label %159
 
-135:                                              ; preds = %114
-  %136 = load i32, ptr %112, align 4
+135:                                              ; preds = %115
+  %136 = load i32, ptr %113, align 4
   %137 = srem i32 %136, 75
   %138 = trunc nsw i32 %137 to i8
   %139 = getelementptr inbounds i8, ptr %5, i64 10
@@ -4965,7 +4965,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   store i8 %143, ptr %144, align 1
   %145 = sdiv i32 %141, 60
   %146 = trunc i32 %145 to i8
-  store i8 %146, ptr %112, align 4
+  store i8 %146, ptr %113, align 4
   %147 = getelementptr inbounds i8, ptr %5, i64 12
   %148 = load i32, ptr %147, align 4
   %149 = srem i32 %148, 75
@@ -4983,7 +4983,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   store i8 %158, ptr %147, align 4
   br label %159
 
-159:                                              ; preds = %135, %116
+159:                                              ; preds = %135, %117
   store i8 %9, ptr %5, align 4
   br label %160
 

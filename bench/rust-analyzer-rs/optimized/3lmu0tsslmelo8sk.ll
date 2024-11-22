@@ -961,10 +961,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           cleanup
   br label %112
 
-17:                                               ; preds = %.noexc, %2
-  %.sroa.3.0.i = phi ptr [ %spec.select.i.i.i, %.noexc ], [ %7, %2 ]
-  %.sroa.0.0.i = phi i64 [ %12, %.noexc ], [ %5, %2 ]
-  %18 = icmp eq i64 %.sroa.0.0.i, 16
+17:                                               ; preds = %2, %.noexc
+  %.pn.i = phi i64 [ %12, %.noexc ], [ %5, %2 ]
+  %spec.select.i.i.pn.i = phi ptr [ %spec.select.i.i.i, %.noexc ], [ %7, %2 ]
+  %18 = icmp eq i64 %.pn.i, 16
   br i1 %18, label %19, label %41
 
 19:                                               ; preds = %17
@@ -1046,9 +1046,9 @@ common.resume:                                    ; preds = %112, %.body, %31, %
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           cleanup
-  %45 = icmp ne ptr %.sroa.3.0.i, null
+  %45 = icmp ne ptr %spec.select.i.i.pn.i, null
   tail call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 48
+  %46 = getelementptr inbounds i8, ptr %spec.select.i.i.pn.i, i64 48
   %47 = load i32, ptr %46, align 4, !noalias !4, !noundef !4
   %48 = add i32 %47, -1
   store i32 %48, ptr %46, align 4, !noalias !4
@@ -1056,7 +1056,7 @@ common.resume:                                    ; preds = %112, %.body, %31, %
   br i1 %49, label %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17h7e458b86bb6b9fb2E.exit.sink.split.i", label %112
 
 "_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17h7e458b86bb6b9fb2E.exit.sink.split.i": ; preds = %43
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.3.0.i)
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i.i.pn.i)
           to label %112 unwind label %110
 
 50:                                               ; preds = %41
@@ -1064,9 +1064,9 @@ common.resume:                                    ; preds = %112, %.body, %31, %
   %52 = extractvalue { i64, ptr } %42, 1
   %53 = icmp ne ptr %52, null
   tail call void @llvm.assume(i1 %53)
-  store i64 %.sroa.0.0.i, ptr %52, align 8
+  store i64 %.pn.i, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %52, i64 8
-  store ptr %.sroa.3.0.i, ptr %54, align 8
+  store ptr %spec.select.i.i.pn.i, ptr %54, align 8
   store i64 %51, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %52, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1111,9 +1111,9 @@ common.resume:                                    ; preds = %112, %.body, %31, %
   br label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17hcb09c93f2910b6e8E.exit.i.i"
 
 68:                                               ; preds = %.noexc.i.i, %57
-  %.sroa.3.0.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %.noexc.i.i ], [ %59, %57 ]
-  %.sroa.0.0.i.i.i = phi i64 [ %63, %.noexc.i.i ], [ %58, %57 ]
-  %.not.i.i = icmp eq i64 %.sroa.0.0.i.i.i, 16
+  %.pn.i.i.i = phi i64 [ %63, %.noexc.i.i ], [ %58, %57 ]
+  %spec.select.i.i.pn.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %.noexc.i.i ], [ %59, %57 ]
+  %.not.i.i = icmp eq i64 %.pn.i.i.i, 16
   br i1 %.not.i.i, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Pat$GT$$GT$17h4dba6efd8fd978fdE.exit.i.i", label %69
 
 69:                                               ; preds = %68
@@ -1140,9 +1140,9 @@ common.resume:                                    ; preds = %112, %.body, %31, %
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ca94dc024b5fe95E.exit.i.i": ; preds = %87, %69
   %76 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !219, !noalias !220, !nonnull !4, !noundef !4
   %77 = getelementptr inbounds { i64, [1 x i64] }, ptr %76, i64 %70
-  store i64 %.sroa.0.0.i.i.i, ptr %77, align 8
+  store i64 %.pn.i.i.i, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 8
-  store ptr %.sroa.3.0.i.i.i, ptr %78, align 8
+  store ptr %spec.select.i.i.pn.i.i.i, ptr %78, align 8
   %79 = add i64 %70, 1
   store i64 %79, ptr %.sroa.63.0..sroa_idx, align 8, !alias.scope !219, !noalias !220
   br label %57
@@ -1150,9 +1150,9 @@ common.resume:                                    ; preds = %112, %.body, %31, %
 80:                                               ; preds = %87
   %81 = landingpad { ptr, i32 }
           cleanup
-  %82 = icmp ne ptr %.sroa.3.0.i.i.i, null
+  %82 = icmp ne ptr %spec.select.i.i.pn.i.i.i, null
   call void @llvm.assume(i1 %82)
-  %83 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 48
+  %83 = getelementptr inbounds i8, ptr %spec.select.i.i.pn.i.i.i, i64 48
   %84 = load i32, ptr %83, align 4, !noalias !4, !noundef !4
   %85 = add i32 %84, -1
   store i32 %85, ptr %83, align 4, !noalias !4
@@ -1160,7 +1160,7 @@ common.resume:                                    ; preds = %112, %.body, %31, %
   br i1 %86, label %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17h7e458b86bb6b9fb2E.exit.sink.split.i.i.i", label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17hcb09c93f2910b6e8E.exit.i.i"
 
 "_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17h7e458b86bb6b9fb2E.exit.sink.split.i.i.i": ; preds = %80
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.3.0.i.i.i)
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i.i.pn.i.i.i)
           to label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17hcb09c93f2910b6e8E.exit.i.i" unwind label %88
 
 87:                                               ; preds = %75, %74, %73

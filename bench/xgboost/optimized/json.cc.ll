@@ -4821,106 +4821,111 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_11JsonIntegerE(ptr nocapture nou
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 21
   %8 = icmp eq i64 %6, 0
-  br i1 %8, label %_ZN7xgboost8to_charsEPcS0_l.exit.thread, label %10
+  br i1 %8, label %9, label %13
 
-_ZN7xgboost8to_charsEPcS0_l.exit.thread:          ; preds = %2
+9:                                                ; preds = %2
   store i8 48, ptr %3, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 1
-  br label %34
-
-10:                                               ; preds = %2
-  %11 = icmp slt i64 %6, 0
-  br i1 %11, label %12, label %_ZN7xgboost8to_charsEPcS0_l.exit
-
-12:                                               ; preds = %10
-  store i8 45, ptr %3, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
-  %14 = sub i64 0, %6
+  %10 = getelementptr inbounds i8, ptr %3, i64 1
+  %11 = insertvalue { ptr, i32 } poison, ptr %10, 0
+  %12 = insertvalue { ptr, i32 } %11, i32 0, 1
   br label %_ZN7xgboost8to_charsEPcS0_l.exit
 
-_ZN7xgboost8to_charsEPcS0_l.exit:                 ; preds = %10, %12
-  %.011.i = phi ptr [ %13, %12 ], [ %3, %10 ]
-  %.0.i = phi i64 [ %14, %12 ], [ %6, %10 ]
-  %15 = call { ptr, i32 } @_ZN7xgboost6detail19ToCharsUnsignedImplEPcS1_m(ptr noundef nonnull %.011.i, ptr noundef nonnull %7, i64 noundef %.0.i)
-  %16 = extractvalue { ptr, i32 } %15, 0
-  %17 = extractvalue { ptr, i32 } %15, 1
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %34, label %18
+13:                                               ; preds = %2
+  %14 = icmp slt i64 %6, 0
+  br i1 %14, label %15, label %18
 
-18:                                               ; preds = %_ZN7xgboost8to_charsEPcS0_l.exit
-  %19 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %_ZN4dmlc15LogMessageFatalC2EPKci.exit, !prof !6
+15:                                               ; preds = %13
+  store i8 45, ptr %3, align 1
+  %16 = getelementptr inbounds i8, ptr %3, i64 1
+  %17 = sub i64 0, %6
+  br label %18
 
-21:                                               ; preds = %18
+18:                                               ; preds = %15, %13
+  %.011.i = phi ptr [ %16, %15 ], [ %3, %13 ]
+  %.0.i = phi i64 [ %17, %15 ], [ %6, %13 ]
+  %19 = call { ptr, i32 } @_ZN7xgboost6detail19ToCharsUnsignedImplEPcS1_m(ptr noundef nonnull %.011.i, ptr noundef nonnull %7, i64 noundef %.0.i)
+  br label %_ZN7xgboost8to_charsEPcS0_l.exit
+
+_ZN7xgboost8to_charsEPcS0_l.exit:                 ; preds = %9, %18
+  %.fca.1.insert.merged.i = phi { ptr, i32 } [ %12, %9 ], [ %19, %18 ]
+  %20 = extractvalue { ptr, i32 } %.fca.1.insert.merged.i, 1
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %37, label %21
+
+21:                                               ; preds = %_ZN7xgboost8to_charsEPcS0_l.exit
+  %22 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
+  %23 = icmp eq i8 %22, 0
+  br i1 %23, label %24, label %_ZN4dmlc15LogMessageFatalC2EPKci.exit, !prof !6
+
+24:                                               ; preds = %21
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
-  %22 = call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4dmlc15LogMessageFatal5EntryD2Ev, ptr nonnull @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, ptr nonnull @__dso_handle) #14
+  %25 = call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4dmlc15LogMessageFatal5EntryD2Ev, ptr nonnull @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, ptr nonnull @__dso_handle) #14
   store i8 1, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
   br label %_ZN4dmlc15LogMessageFatalC2EPKci.exit
 
-_ZN4dmlc15LogMessageFatalC2EPKci.exit:            ; preds = %18, %21
-  %23 = call noundef nonnull align 8 dereferenceable(376) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
-  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %23, ptr noundef nonnull @.str, i32 noundef 81)
-  %24 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
-  %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit, !prof !6
+_ZN4dmlc15LogMessageFatalC2EPKci.exit:            ; preds = %21, %24
+  %26 = call noundef nonnull align 8 dereferenceable(376) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
+  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %26, ptr noundef nonnull @.str, i32 noundef 81)
+  %27 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %29, label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit, !prof !6
 
-26:                                               ; preds = %_ZN4dmlc15LogMessageFatalC2EPKci.exit
+29:                                               ; preds = %_ZN4dmlc15LogMessageFatalC2EPKci.exit
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
-          to label %.noexc unwind label %32
+          to label %.noexc unwind label %35
 
-.noexc:                                           ; preds = %26
-  %27 = call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4dmlc15LogMessageFatal5EntryD2Ev, ptr nonnull @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, ptr nonnull @__dso_handle) #14
+.noexc:                                           ; preds = %29
+  %30 = call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4dmlc15LogMessageFatal5EntryD2Ev, ptr nonnull @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, ptr nonnull @__dso_handle) #14
   store i8 1, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
   br label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
 
 _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15LogMessageFatalC2EPKci.exit
-  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.1)
-          to label %29 unwind label %32
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.1)
+          to label %32 unwind label %35
 
-29:                                               ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
-  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.2)
-          to label %31 unwind label %32
+32:                                               ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.2)
+          to label %34 unwind label %35
 
-31:                                               ; preds = %29
+34:                                               ; preds = %32
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
-  br label %34
+  br label %37
 
-32:                                               ; preds = %26, %29, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
-  %33 = landingpad { ptr, i32 }
+35:                                               ; preds = %29, %32, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
+  %36 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %50 unwind label %51
+          to label %54 unwind label %55
 
-34:                                               ; preds = %_ZN7xgboost8to_charsEPcS0_l.exit.thread, %31, %_ZN7xgboost8to_charsEPcS0_l.exit
-  %.sroa.0.0.i14 = phi ptr [ %9, %_ZN7xgboost8to_charsEPcS0_l.exit.thread ], [ %16, %31 ], [ %16, %_ZN7xgboost8to_charsEPcS0_l.exit ]
-  %35 = ptrtoint ptr %.sroa.0.0.i14 to i64
-  %36 = ptrtoint ptr %3 to i64
-  %37 = sub i64 %35, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %39, align 8
-  %43 = ptrtoint ptr %41 to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = add i64 %45, %37
-  call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %46)
-  %47 = load ptr, ptr %38, align 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 %45
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr nonnull align 1 %3, i64 %37, i1 false)
+37:                                               ; preds = %34, %_ZN7xgboost8to_charsEPcS0_l.exit
+  %38 = extractvalue { ptr, i32 } %.fca.1.insert.merged.i, 0
+  %39 = ptrtoint ptr %38 to i64
+  %40 = ptrtoint ptr %3 to i64
+  %41 = sub i64 %39, %40
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %43, align 8
+  %47 = ptrtoint ptr %45 to i64
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %47, %48
+  %50 = add i64 %49, %41
+  call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %50)
+  %51 = load ptr, ptr %42, align 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 %49
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 1 %3, i64 %41, i1 false)
   ret void
 
-50:                                               ; preds = %32
-  resume { ptr, i32 } %33
+54:                                               ; preds = %35
+  resume { ptr, i32 } %36
 
-51:                                               ; preds = %32
-  %52 = landingpad { ptr, i32 }
+55:                                               ; preds = %35
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #34
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #34
   unreachable
 }
 

@@ -3047,12 +3047,12 @@ define hidden { i64, i32 } @"_ZN4core6option15Option$LT$T$GT$7or_else17h4e585527
   store i64 %58, ptr %54, align 8, !alias.scope !612, !noalias !603
   br label %"_ZN96_$LT$itertools..peek_nth..PeekNth$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h3454cfca0a260f55E.llvm.687266931824691263.exit"
 
-"_ZN96_$LT$itertools..peek_nth..PeekNth$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h3454cfca0a260f55E.llvm.687266931824691263.exit": ; preds = %.thread8.i.i.i, %41, %10, %5, %3
-  %.sroa.3.0 = phi i32 [ %1, %3 ], [ 1114112, %5 ], [ %.sroa.4.0.i.ph10.i.i.i, %.thread8.i.i.i ], [ 1114112, %41 ], [ 1114112, %10 ]
-  %.sroa.02.0 = phi i64 [ %0, %3 ], [ undef, %5 ], [ %55, %.thread8.i.i.i ], [ undef, %41 ], [ undef, %10 ]
-  %59 = insertvalue { i64, i32 } poison, i64 %.sroa.02.0, 0
-  %60 = insertvalue { i64, i32 } %59, i32 %.sroa.3.0, 1
-  ret { i64, i32 } %60
+"_ZN96_$LT$itertools..peek_nth..PeekNth$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h3454cfca0a260f55E.llvm.687266931824691263.exit": ; preds = %3, %.thread8.i.i.i, %41, %10, %5
+  %.sroa.0.0.i.i.pn = phi i64 [ undef, %5 ], [ %55, %.thread8.i.i.i ], [ undef, %41 ], [ undef, %10 ], [ %0, %3 ]
+  %.sroa.2.0.i.i.pn = phi i32 [ 1114112, %5 ], [ %.sroa.4.0.i.ph10.i.i.i, %.thread8.i.i.i ], [ 1114112, %41 ], [ 1114112, %10 ], [ %1, %3 ]
+  %.pn = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.i.i.pn, 0
+  %.merged = insertvalue { i64, i32 } %.pn, i32 %.sroa.2.0.i.i.pn, 1
+  ret { i64, i32 } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
@@ -5714,11 +5714,11 @@ define hidden { i64, i32 } @"_ZN96_$LT$itertools..peek_nth..PeekNth$LT$I$GT$$u20
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4e58552768f61f79E.llvm.687266931824691263.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h4e58552768f61f79E.llvm.687266931824691263.exit": ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h5be5881128b59841E.llvm.687266931824691263.exit", %17, %21, %52, %.thread8.i.i.i.i
-  %.sroa.3.0.i = phi i32 [ %16, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h5be5881128b59841E.llvm.687266931824691263.exit" ], [ 1114112, %17 ], [ %.sroa.4.0.i.ph10.i.i.i.i, %.thread8.i.i.i.i ], [ 1114112, %52 ], [ 1114112, %21 ]
-  %.sroa.02.0.i = phi i64 [ %14, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h5be5881128b59841E.llvm.687266931824691263.exit" ], [ undef, %17 ], [ %66, %.thread8.i.i.i.i ], [ undef, %52 ], [ undef, %21 ]
-  %70 = insertvalue { i64, i32 } poison, i64 %.sroa.02.0.i, 0
-  %71 = insertvalue { i64, i32 } %70, i32 %.sroa.3.0.i, 1
-  ret { i64, i32 } %71
+  %.sroa.0.0.i.i.pn.i = phi i64 [ undef, %17 ], [ %66, %.thread8.i.i.i.i ], [ undef, %52 ], [ undef, %21 ], [ %14, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h5be5881128b59841E.llvm.687266931824691263.exit" ]
+  %.sroa.2.0.i.i.pn.i = phi i32 [ 1114112, %17 ], [ %.sroa.4.0.i.ph10.i.i.i.i, %.thread8.i.i.i.i ], [ 1114112, %52 ], [ 1114112, %21 ], [ %16, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h5be5881128b59841E.llvm.687266931824691263.exit" ]
+  %.pn.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.i.i.pn.i, 0
+  %.merged.i = insertvalue { i64, i32 } %.pn.i, i32 %.sroa.2.0.i.i.pn.i, 1
+  ret { i64, i32 } %.merged.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable

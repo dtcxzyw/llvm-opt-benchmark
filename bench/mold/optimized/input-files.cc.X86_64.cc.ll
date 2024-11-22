@@ -12263,7 +12263,7 @@ land.lhs.true3.i.if.then_crit_edge:               ; preds = %land.lhs.true3.i
   %nameptr.i.phi.trans.insert = getelementptr inbounds i8, ptr %sym, i64 24
   %.pre = load ptr, ptr %nameptr.i.phi.trans.insert, align 8
   %namelen.i.phi.trans.insert = getelementptr inbounds i8, ptr %sym, i64 32
-  %.pre21 = load i32, ptr %namelen.i.phi.trans.insert, align 8
+  %.pre22 = load i32, ptr %namelen.i.phi.trans.insert, align 8
   br label %if.then
 
 if.end.i:                                         ; preds = %land.lhs.true3.i, %land.lhs.true.i, %entry
@@ -12271,17 +12271,17 @@ if.end.i:                                         ; preds = %land.lhs.true3.i, %
   %3 = load i32, ptr %namelen.i.i, align 8
   %cmp.i.not.i.i.i = icmp ult i32 %3, 2
   %nameptr.i6.phi.trans.insert = getelementptr inbounds i8, ptr %sym, i64 24
-  %.pre22 = load ptr, ptr %nameptr.i6.phi.trans.insert, align 8
+  %.pre23 = load ptr, ptr %nameptr.i6.phi.trans.insert, align 8
   br i1 %cmp.i.not.i.i.i, label %if.else, label %_ZN4mold3elfL14is_rust_symbolINS0_6X86_64EEEbRKNS0_6SymbolIT_EE.exit
 
 _ZN4mold3elfL14is_rust_symbolINS0_6X86_64EEEbRKNS0_6SymbolIT_EE.exit: ; preds = %if.end.i
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.pre22, ptr noundef nonnull dereferenceable(2) @.str.100, i64 2)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.pre23, ptr noundef nonnull dereferenceable(2) @.str.100, i64 2)
   %cmp.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true3.i.if.then_crit_edge, %_ZN4mold3elfL14is_rust_symbolINS0_6X86_64EEEbRKNS0_6SymbolIT_EE.exit
-  %4 = phi i32 [ %.pre21, %land.lhs.true3.i.if.then_crit_edge ], [ %3, %_ZN4mold3elfL14is_rust_symbolINS0_6X86_64EEEbRKNS0_6SymbolIT_EE.exit ]
-  %5 = phi ptr [ %.pre, %land.lhs.true3.i.if.then_crit_edge ], [ %.pre22, %_ZN4mold3elfL14is_rust_symbolINS0_6X86_64EEEbRKNS0_6SymbolIT_EE.exit ]
+  %4 = phi i32 [ %.pre22, %land.lhs.true3.i.if.then_crit_edge ], [ %3, %_ZN4mold3elfL14is_rust_symbolINS0_6X86_64EEEbRKNS0_6SymbolIT_EE.exit ]
+  %5 = phi ptr [ %.pre, %land.lhs.true3.i.if.then_crit_edge ], [ %.pre23, %_ZN4mold3elfL14is_rust_symbolINS0_6X86_64EEEbRKNS0_6SymbolIT_EE.exit ]
   %conv.i = sext i32 %4 to i64
   call void @_ZN4mold13demangle_rustESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::optional.397") align 8 %s, i64 %conv.i, ptr %5) #14
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %s, i64 16
@@ -12297,7 +12297,7 @@ if.then3:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.end.i, %_ZN4mold3elfL14is_rust_symbolINS0_6X86_64EEEbRKNS0_6SymbolIT_EE.exit
   %conv.i8 = sext i32 %3 to i64
-  call void @_ZN4mold12demangle_cppESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::optional.397") align 8 %s5, i64 %conv.i8, ptr %.pre22) #14
+  call void @_ZN4mold12demangle_cppESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::optional.397") align 8 %s5, i64 %conv.i8, ptr %.pre23) #14
   %_M_engaged.i.i11 = getelementptr inbounds i8, ptr %s5, i64 16
   %7 = load i8, ptr %_M_engaged.i.i11, align 8
   %tobool.i.i12 = trunc i8 %7 to i1
@@ -12318,11 +12318,11 @@ if.end12:                                         ; preds = %if.else, %if.then
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then9, %if.then3
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %if.then3 ], [ %conv.i15, %if.end12 ], [ %retval.sroa.0.0.copyload4, %if.then9 ]
-  %retval.sroa.4.0 = phi ptr [ %retval.sroa.4.0.copyload, %if.then3 ], [ %8, %if.end12 ], [ %retval.sroa.4.0.copyload5, %if.then9 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
-  ret { i64, ptr } %.fca.1.insert
+  %retval.sroa.0.0.copyload.pn = phi i64 [ %retval.sroa.0.0.copyload, %if.then3 ], [ %conv.i15, %if.end12 ], [ %retval.sroa.0.0.copyload4, %if.then9 ]
+  %retval.sroa.4.0.copyload.pn = phi ptr [ %retval.sroa.4.0.copyload, %if.then3 ], [ %8, %if.end12 ], [ %retval.sroa.4.0.copyload5, %if.then9 ]
+  %.pn = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0.copyload.pn, 0
+  %.fca.1.insert.merged = insertvalue { i64, ptr } %.pn, ptr %retval.sroa.4.0.copyload.pn, 1
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 declare void @_ZN4mold13demangle_rustESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::optional.397") align 8, i64, ptr) local_unnamed_addr #0

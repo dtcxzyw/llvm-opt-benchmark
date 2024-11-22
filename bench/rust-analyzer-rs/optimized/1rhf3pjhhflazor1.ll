@@ -13916,9 +13916,9 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i
   store i64 0, ptr %44, align 8
   br label %159
 
-45:                                               ; preds = %38, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i, %25
-  %.sroa.33.0.i.i.ph = phi i32 [ %28, %25 ], [ %16, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i ], [ %41, %38 ]
-  %.sroa.02.0.i.i.ph = phi i32 [ %26, %25 ], [ %13, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i ], [ %39, %38 ]
+45:                                               ; preds = %38, %25, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i
+  %.sroa.0.0.i.pn.i.i.ph = phi i32 [ %13, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i ], [ %26, %25 ], [ %39, %38 ]
+  %.sroa.3.0.i.pn.i.i.ph = phi i32 [ %16, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i ], [ %28, %25 ], [ %41, %38 ]
   %46 = load i64, ptr %1, align 8, !range !113, !alias.scope !4940, !noalias !4943, !noundef !15
   %trunc.i = trunc nuw i64 %46 to i1
   %47 = getelementptr inbounds i8, ptr %1, i64 88
@@ -13999,9 +13999,9 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i
   %86 = extractvalue { i64, ptr } %84, 1
   %87 = icmp ne ptr %86, null
   tail call void @llvm.assume(i1 %87)
-  store i32 %.sroa.02.0.i.i.ph, ptr %86, align 4
+  store i32 %.sroa.0.0.i.pn.i.i.ph, ptr %86, align 4
   %88 = getelementptr inbounds i8, ptr %86, i64 4
-  store i32 %.sroa.33.0.i.i.ph, ptr %88, align 4
+  store i32 %.sroa.3.0.i.pn.i.i.ph, ptr %88, align 4
   store i64 %85, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %86, ptr %.sroa.4.0..sroa_idx, align 8
@@ -14092,8 +14092,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i
   br label %128
 
 128:                                              ; preds = %124, %112, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i.i.i
-  %.sroa.33.0.i.i.ph.i.i = phi i32 [ %115, %112 ], [ %104, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i.i.i ], [ %127, %124 ]
-  %.sroa.02.0.i.i.ph.i.i = phi i32 [ %113, %112 ], [ %101, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i.i.i ], [ %125, %124 ]
+  %.sroa.0.0.i.pn.i.i.ph.i.i = phi i32 [ %101, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i.i.i ], [ %113, %112 ], [ %125, %124 ]
+  %.sroa.3.0.i.pn.i.i.ph.i.i = phi i32 [ %104, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i.i.i ], [ %115, %112 ], [ %127, %124 ]
   %129 = load i64, ptr %.sroa.63.0..sroa_idx, align 8, !alias.scope !5020, !noalias !5038, !noundef !15
   %130 = load i64, ptr %4, align 8, !alias.scope !5020, !noalias !5038, !noundef !15
   %131 = icmp eq i64 %129, %130
@@ -14118,7 +14118,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i
 
 141:                                              ; preds = %138
   %142 = load i64, ptr %93, align 8, !alias.scope !5038, !noalias !5020
-  %spec.select11.i.i = select i1 %140, i64 0, i64 %142
+  %spec.select13.i.i = select i1 %140, i64 0, i64 %142
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdecd917df3fb46f2E.exit.i.i"
 
 143:                                              ; preds = %138
@@ -14128,14 +14128,14 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i
 
 146:                                              ; preds = %143
   %147 = load i64, ptr %93, align 8, !alias.scope !5038, !noalias !5020
-  %spec.select13.i.i = select i1 %140, i64 0, i64 %147
+  %spec.select15.i.i = select i1 %140, i64 0, i64 %147
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9a3bfcbb5d646fdfE.exit13.thread.i.i.i"
 
 148:                                              ; preds = %143
   br i1 %140, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9a3bfcbb5d646fdfE.exit13.thread.i.i.i", label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9a3bfcbb5d646fdfE.exit13.i.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9a3bfcbb5d646fdfE.exit13.thread.i.i.i": ; preds = %148, %146
-  %.sink13.i10.ph.i.i.i = phi i64 [ 0, %148 ], [ %spec.select13.i.i, %146 ]
+  %.sink13.i10.ph.i.i.i = phi i64 [ 0, %148 ], [ %spec.select15.i.i, %146 ]
   %149 = load i64, ptr %92, align 8, !alias.scope !5044, !noalias !5049, !noundef !15
   %150 = call i64 @llvm.uadd.sat.i64(i64 %.sink13.i10.ph.i.i.i, i64 %149)
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdecd917df3fb46f2E.exit.i.i"
@@ -14147,7 +14147,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdecd917df3fb46f2E.exit.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdecd917df3fb46f2E.exit.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9a3bfcbb5d646fdfE.exit13.i.i.i", %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9a3bfcbb5d646fdfE.exit13.thread.i.i.i", %141, %136
-  %.sink.i.i.i = phi i64 [ %150, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9a3bfcbb5d646fdfE.exit13.thread.i.i.i" ], [ %153, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9a3bfcbb5d646fdfE.exit13.i.i.i" ], [ %spec.select.i.i, %136 ], [ %spec.select11.i.i, %141 ]
+  %.sink.i.i.i = phi i64 [ %150, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9a3bfcbb5d646fdfE.exit13.thread.i.i.i" ], [ %153, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9a3bfcbb5d646fdfE.exit13.i.i.i" ], [ %spec.select.i.i, %136 ], [ %spec.select13.i.i, %141 ]
   %154 = call i64 @llvm.uadd.sat.i64(i64 %.sink.i.i.i, i64 1)
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h3d47c970cc9183c7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %129, i64 noundef range(i64 1, 0) %154)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbd0706171092dc6aE.exit.i.i" unwind label %160
@@ -14155,9 +14155,9 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf3d57a0cef40d98aE.exit.i.i.i.i
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbd0706171092dc6aE.exit.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdecd917df3fb46f2E.exit.i.i", %128
   %155 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !5020, !noalias !5038, !nonnull !15, !noundef !15
   %156 = getelementptr inbounds { i32, i32 }, ptr %155, i64 %129
-  store i32 %.sroa.02.0.i.i.ph.i.i, ptr %156, align 4
+  store i32 %.sroa.0.0.i.pn.i.i.ph.i.i, ptr %156, align 4
   %157 = getelementptr inbounds i8, ptr %156, i64 4
-  store i32 %.sroa.33.0.i.i.ph.i.i, ptr %157, align 4
+  store i32 %.sroa.3.0.i.pn.i.i.ph.i.i, ptr %157, align 4
   %158 = add i64 %129, 1
   store i64 %158, ptr %.sroa.63.0..sroa_idx, align 8, !alias.scope !5020, !noalias !5038
   br label %94

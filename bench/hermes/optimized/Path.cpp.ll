@@ -1837,11 +1837,11 @@ if.end:                                           ; preds = %if.end.i, %entry
   br label %return
 
 return:                                           ; preds = %if.end.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %cond.true.i.i, %sw.bb2.i, %if.end
-  %retval.sroa.3.0 = phi i64 [ %conv.i, %if.end ], [ %conv.i.i, %sw.bb7.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ %call2.i.i, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ], [ 0, %if.end.i ]
-  %retval.sroa.0.0 = phi ptr [ %8, %if.end ], [ %6, %sw.bb7.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ %call.i18.i, %sw.bb3.i ], [ null, %sw.bb2.i ], [ %2, %cond.true.i.i ], [ null, %if.end.i ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %retval.sroa.0.0.i.pn = phi ptr [ %8, %if.end ], [ %6, %sw.bb7.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ %call.i18.i, %sw.bb3.i ], [ null, %sw.bb2.i ], [ %2, %cond.true.i.i ], [ null, %if.end.i ]
+  %retval.sroa.7.0.i.pn = phi i64 [ %conv.i, %if.end ], [ %conv.i.i, %sw.bb7.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ %call2.i.i, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ], [ 0, %if.end.i ]
+  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.i.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %retval.sroa.7.0.i.pn, 1
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 declare noundef i64 @_ZNK4llvh9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #5
@@ -5151,6 +5151,8 @@ if.then.i.i.i.i:                                  ; preds = %cleanup.i
   br label %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit
 
 _ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit: ; preds = %cleanup.i, %if.then.i.i.i.i
+  %.fca.0.insert.i = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0.i, 0
+  %.fca.1.insert.i = insertvalue { i32, ptr } %.fca.0.insert.i, ptr %retval.sroa.3.0.i, 1
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %path_storage.i)
   %call.i.i18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #29
   %cmp.i.i.i = icmp ne ptr %retval.sroa.3.0.i, %call.i.i18
@@ -5180,7 +5182,6 @@ if.end7:                                          ; preds = %if.end
   store ptr %Parent, ptr %ref.tmp9, align 8
   %call11 = call { i32, ptr } @_ZN4llvh3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp9, i1 noundef zeroext %IgnoreExisting, i32 noundef %Perms)
   %7 = extractvalue { i32, ptr } %call11, 0
-  %8 = extractvalue { i32, ptr } %call11, 1
   %cmp.i26.not = icmp eq i32 %7, 0
   br i1 %cmp.i26.not, label %if.end14, label %cleanup
 
@@ -5198,15 +5199,15 @@ if.end14:                                         ; preds = %if.end7
   %Capacity2.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %path_storage.i29, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i32, align 4
   %call.i33 = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %path_storage.i29) #28
-  %9 = extractvalue { ptr, i64 } %call.i33, 0
-  %call2.i34 = call i32 @mkdir(ptr noundef %9, i32 noundef %Perms) #28
+  %8 = extractvalue { ptr, i64 } %call.i33, 0
+  %call2.i34 = call i32 @mkdir(ptr noundef %8, i32 noundef %Perms) #28
   %cmp.i35 = icmp eq i32 %call2.i34, -1
   br i1 %cmp.i35, label %if.then.i45, label %if.end8.i36
 
 if.then.i45:                                      ; preds = %if.end14
   %call3.i46 = tail call ptr @__errno_location() #29
-  %10 = load i32, ptr %call3.i46, align 4
-  %cmp4.not.i47 = icmp eq i32 %10, 17
+  %9 = load i32, ptr %call3.i46, align 4
+  %cmp4.not.i47 = icmp eq i32 %9, 17
   %brmerge.not.i48 = and i1 %IgnoreExisting, %cmp4.not.i47
   br i1 %brmerge.not.i48, label %if.end8.i36, label %cleanup.i38
 
@@ -5215,35 +5216,34 @@ if.end8.i36:                                      ; preds = %if.then.i45, %if.en
   br label %cleanup.i38
 
 cleanup.i38:                                      ; preds = %if.then.i45, %if.end8.i36
-  %retval.sroa.0.0.i39 = phi i32 [ 0, %if.end8.i36 ], [ %10, %if.then.i45 ]
+  %retval.sroa.0.0.i39 = phi i32 [ 0, %if.end8.i36 ], [ %9, %if.then.i45 ]
   %retval.sroa.3.0.i40 = phi ptr [ %call.i.i37, %if.end8.i36 ], [ %call.i.i18, %if.then.i45 ]
-  %11 = load ptr, ptr %path_storage.i29, align 8
-  %cmp.i.i.i.i.i41 = icmp eq ptr %11, %add.ptr.i.i.i.i.i.i.i30
+  %10 = load ptr, ptr %path_storage.i29, align 8
+  %cmp.i.i.i.i.i41 = icmp eq ptr %10, %add.ptr.i.i.i.i.i.i.i30
   br i1 %cmp.i.i.i.i.i41, label %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit51, label %if.then.i.i.i.i42
 
 if.then.i.i.i.i42:                                ; preds = %cleanup.i38
-  call void @free(ptr noundef %11) #28
+  call void @free(ptr noundef %10) #28
   br label %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit51
 
 _ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit51: ; preds = %cleanup.i38, %if.then.i.i.i.i42
+  %.fca.0.insert.i43 = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0.i39, 0
+  %.fca.1.insert.i44 = insertvalue { i32, ptr } %.fca.0.insert.i43, ptr %retval.sroa.3.0.i40, 1
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %path_storage.i29)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end7, %if.end, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit51
-  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.i39, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit51 ], [ %retval.sroa.0.0.i, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit ], [ 2, %if.end ], [ %7, %if.end7 ]
-  %retval.sroa.512.0 = phi ptr [ %retval.sroa.3.0.i40, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit51 ], [ %retval.sroa.3.0.i, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit ], [ %retval.sroa.3.0.i, %if.end ], [ %8, %if.end7 ]
-  %12 = load ptr, ptr %PathStorage, align 8
-  %cmp.i.i.i.i = icmp eq ptr %12, %add.ptr.i.i.i.i.i.i
+  %.fca.1.insert.merged = phi { i32, ptr } [ %.fca.1.insert.i44, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit51 ], [ %.fca.1.insert.i, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit ], [ %.fca.1.insert.i, %if.end ], [ %call11, %if.end7 ]
+  %11 = load ptr, ptr %PathStorage, align 8
+  %cmp.i.i.i.i = icmp eq ptr %11, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  call void @free(ptr noundef %12) #28
+  call void @free(ptr noundef %11) #28
   br label %_ZN4llvh11SmallStringILj128EED2Ev.exit
 
 _ZN4llvh11SmallStringILj128EED2Ev.exit:           ; preds = %cleanup, %if.then.i.i.i
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.512.0, 1
-  ret { i32, ptr } %.fca.1.insert
+  ret { i32, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7945,26 +7945,28 @@ entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %agg.tmp = alloca %"class.llvh::sys::fs::basic_file_status", align 8
   %call = tail call ptr @__errno_location() #29
+  %Length.i35 = getelementptr inbounds i8, ptr %Name, i64 8
   store i32 0, ptr %call, align 4
   %0 = load i64, ptr %It, align 8
   %1 = inttoptr i64 %0 to ptr
-  %call1 = tail call ptr @readdir(ptr noundef %1) #28
-  %cond = icmp eq ptr %call1, null
-  br i1 %cond, label %land.lhs.true, label %if.then7
+  %call119 = tail call ptr @readdir(ptr noundef %1) #28
+  %cond20 = icmp eq ptr %call119, null
+  br i1 %cond20, label %land.lhs.true, label %if.then7
 
-land.lhs.true:                                    ; preds = %entry
+land.lhs.true:                                    ; preds = %if.then23, %entry
   %2 = load i32, ptr %call, align 4
   %cmp3.not = icmp eq i32 %2, 0
   br i1 %cmp3.not, label %if.else26, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #29
+  %3 = insertvalue { i32, ptr } poison, i32 %2, 0
   br label %return
 
-if.then7:                                         ; preds = %entry
-  %d_name = getelementptr inbounds i8, ptr %call1, i64 19
+if.then7:                                         ; preds = %entry, %if.then23
+  %call121 = phi ptr [ %call1, %if.then23 ], [ %call119, %entry ]
+  %d_name = getelementptr inbounds i8, ptr %call121, i64 19
   store ptr %d_name, ptr %Name, align 8
-  %Length.i35 = getelementptr inbounds i8, ptr %Name, i64 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #27
   store i64 %call.i, ptr %Length.i35, align 8
   switch i64 %call.i, label %if.end [
@@ -7973,26 +7975,28 @@ if.then7:                                         ; preds = %entry
   ]
 
 land.lhs.true10:                                  ; preds = %if.then7
-  %3 = load i8, ptr %d_name, align 1
-  %cmp12 = icmp eq i8 %3, 46
+  %4 = load i8, ptr %d_name, align 1
+  %cmp12 = icmp eq i8 %4, 46
   br i1 %cmp12, label %if.then23, label %if.end
 
 land.lhs.true15:                                  ; preds = %if.then7
-  %4 = load i8, ptr %d_name, align 1
-  %cmp18 = icmp eq i8 %4, 46
+  %5 = load i8, ptr %d_name, align 1
+  %cmp18 = icmp eq i8 %5, 46
   br i1 %cmp18, label %land.lhs.true19, label %if.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true15
-  %arrayidx.i = getelementptr inbounds i8, ptr %call1, i64 20
-  %5 = load i8, ptr %arrayidx.i, align 1
-  %cmp22 = icmp eq i8 %5, 46
+  %arrayidx.i = getelementptr inbounds i8, ptr %call121, i64 20
+  %6 = load i8, ptr %arrayidx.i, align 1
+  %cmp22 = icmp eq i8 %6, 46
   br i1 %cmp22, label %if.then23, label %if.end
 
 if.then23:                                        ; preds = %land.lhs.true19, %land.lhs.true10
-  %call24 = tail call { i32, ptr } @_ZN4llvh3sys2fs6detail28directory_iterator_incrementERNS2_12DirIterStateE(ptr noundef nonnull align 8 dereferenceable(88) %It)
-  %6 = extractvalue { i32, ptr } %call24, 0
-  %7 = extractvalue { i32, ptr } %call24, 1
-  br label %return
+  store i32 0, ptr %call, align 4
+  %7 = load i64, ptr %It, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %call1 = tail call ptr @readdir(ptr noundef %8) #28
+  %cond = icmp eq ptr %call1, null
+  br i1 %cond, label %land.lhs.true, label %if.then7
 
 if.end:                                           ; preds = %if.then7, %land.lhs.true10, %land.lhs.true19, %land.lhs.true15
   %CurrentEntry = getelementptr inbounds i8, ptr %It, i64 8
@@ -8001,19 +8005,19 @@ if.end:                                           ; preds = %if.then7, %land.lhs
   %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %Name, ptr %ref.tmp, align 8
-  %8 = getelementptr i8, ptr %call1, i64 18
-  %call1.val = load i8, ptr %8, align 2
+  %9 = getelementptr i8, ptr %call121, i64 18
+  %call1.val = load i8, ptr %9, align 2
   %conv.i = zext i8 %call1.val to i32
   %shl.i = shl nuw nsw i32 %conv.i, 12
   %and.i.i = and i32 %shl.i, 61440
-  %9 = add nsw i32 %and.i.i, -4096
-  %10 = icmp ult i32 %9, 49152
-  br i1 %10, label %switch.lookup, label %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit
+  %10 = add nsw i32 %and.i.i, -4096
+  %11 = icmp ult i32 %10, 49152
+  br i1 %11, label %switch.lookup, label %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit
 
 switch.lookup:                                    ; preds = %if.end
-  %11 = lshr exact i32 %9, 12
-  %12 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 0, i64 %12
+  %12 = lshr exact i32 %10, 12
+  %13 = zext nneg i32 %12 to i64
+  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit
 
@@ -8028,13 +8032,13 @@ _ZN4llvh3sys2fsL10direntTypeEP6dirent.exit:       ; preds = %if.end, %switch.loo
 
 if.else26:                                        ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
-  %13 = load i64, ptr %It, align 8
-  %tobool.not.i = icmp eq i64 %13, 0
+  %14 = load i64, ptr %It, align 8
+  %tobool.not.i = icmp eq i64 %14, 0
   br i1 %tobool.not.i, label %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else26
-  %14 = inttoptr i64 %13 to ptr
-  %call.i11 = tail call i32 @closedir(ptr noundef nonnull %14)
+  %15 = inttoptr i64 %14 to ptr
+  %call.i11 = tail call i32 @closedir(ptr noundef nonnull %15)
   br label %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit
 
 _ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit: ; preds = %if.else26, %if.then.i
@@ -8055,12 +8059,11 @@ _ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit: ;
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i)
   br label %return
 
-return:                                           ; preds = %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit, %if.then23, %if.then
-  %retval.sroa.5.0 = phi ptr [ %call.i4.i, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %7, %if.then23 ], [ %call.i10, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit ], [ %call5, %if.then ]
-  %retval.sroa.0.0 = phi i32 [ 0, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %6, %if.then23 ], [ 0, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit ], [ %2, %if.then ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.5.0, 1
-  ret { i32, ptr } %.fca.1.insert
+return:                                           ; preds = %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit, %if.then
+  %.pn = phi { i32, ptr } [ { i32 0, ptr poison }, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ { i32 0, ptr poison }, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit ], [ %3, %if.then ]
+  %call.i4.i.pn = phi ptr [ %call.i4.i, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %call.i10, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit ], [ %call5, %if.then ]
+  %.fca.1.insert.merged = insertvalue { i32, ptr } %.pn, ptr %call.i4.i.pn, 1
+  ret { i32, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

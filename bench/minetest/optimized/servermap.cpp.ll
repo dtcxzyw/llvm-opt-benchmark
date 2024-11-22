@@ -1479,8 +1479,6 @@ if.then.i.i593:                                   ; preds = %ehcleanup
 
 ehcleanup7:                                       ; preds = %if.then.i.i593, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i594, %lpad, %if.then.i.i5.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %.pn.pn = phi { ptr, i32 } [ %72, %lpad ], [ %9, %if.then.i.i5.i ], [ %9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i594 ], [ %.pn, %if.then.i.i593 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #31
   br label %ehcleanup409
@@ -3642,21 +3640,20 @@ if.then.i.i1224:                                  ; preds = %ehcleanup405
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1229: ; preds = %if.then.i.i1224, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1226
   call void @_ZN18MapSettingsManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %settings_mgr) #31
+  %368 = insertvalue { ptr, i32 } poison, ptr %exn.slot.31, 0
+  %369 = insertvalue { ptr, i32 } %368, i32 %ehselector.slot.31, 1
   br label %ehcleanup409
 
 ehcleanup409:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1229, %ehcleanup7
-  %ehselector.slot.32 = phi i32 [ %ehselector.slot.31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1229 ], [ %ehselector.slot.1, %ehcleanup7 ]
-  %exn.slot.32 = phi ptr [ %exn.slot.31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1229 ], [ %exn.slot.1, %ehcleanup7 ]
+  %lpad.val412.merged = phi { ptr, i32 } [ %369, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1229 ], [ %.pn.pn, %ehcleanup7 ]
   call void @_ZN3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #31
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.32, 0
-  %lpad.val412 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.32, 1
-  resume { ptr, i32 } %lpad.val412
+  resume { ptr, i32 } %lpad.val412.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup385
-  %368 = landingpad { ptr, i32 }
+  %370 = landingpad { ptr, i32 }
           catch ptr null
-  %369 = extractvalue { ptr, i32 } %368, 0
-  call void @__clang_call_terminate(ptr %369) #33
+  %371 = extractvalue { ptr, i32 } %370, 0
+  call void @__clang_call_terminate(ptr %371) #33
   unreachable
 }
 

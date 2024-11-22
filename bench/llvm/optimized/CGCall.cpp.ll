@@ -18606,8 +18606,8 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit: ; preds = %
   store i32 0, ptr %80, align 8
   br label %81
 
-81:                                               ; preds = %101, %"_ZZL32findDominatingStoreToReturnValueRN5clang7CodeGen15CodeGenFunctionEENK3$_0clEPN4llvm4UserE.exit69"
-  %.0 = phi ptr [ %75, %"_ZZL32findDominatingStoreToReturnValueRN5clang7CodeGen15CodeGenFunctionEENK3$_0clEPN4llvm4UserE.exit69" ], [ %102, %101 ]
+81:                                               ; preds = %102, %"_ZZL32findDominatingStoreToReturnValueRN5clang7CodeGen15CodeGenFunctionEENK3$_0clEPN4llvm4UserE.exit69"
+  %.0 = phi ptr [ %75, %"_ZZL32findDominatingStoreToReturnValueRN5clang7CodeGen15CodeGenFunctionEENK3$_0clEPN4llvm4UserE.exit69" ], [ %103, %102 ]
   %.not50 = icmp eq ptr %.0, %73
   %.pre91 = load ptr, ptr %77, align 8
   br i1 %.not50, label %.critedge, label %82
@@ -18648,37 +18648,37 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit: ; preds = %
 
 97:                                               ; preds = %._crit_edge.i.i, %82
   %98 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %.0) #21, !noalias !312
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %98, 1
-  %99 = trunc i8 %.fca.1.extract.i.i to i1
+  %99 = extractvalue { ptr, i8 } %98, 1
+  %100 = trunc i8 %99 to i1
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %97, %95
-  %.sroa.4.0.i.i = phi i1 [ true, %95 ], [ %99, %97 ], [ false, %.lr.ph.i.i ]
-  %100 = load ptr, ptr %77, align 8
-  br i1 %.sroa.4.0.i.i, label %101, label %.critedge
+  %.fca.1.insert.merged.i.i = phi i1 [ true, %95 ], [ %100, %97 ], [ false, %.lr.ph.i.i ]
+  %101 = load ptr, ptr %77, align 8
+  br i1 %.fca.1.insert.merged.i.i, label %102, label %.critedge
 
-101:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  %102 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %.0) #21
-  %.not51 = icmp eq ptr %102, null
+102:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  %103 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %.0) #21
+  %.not51 = icmp eq ptr %103, null
   br i1 %.not51, label %..critedge_crit_edge, label %81, !llvm.loop !315
 
-..critedge_crit_edge:                             ; preds = %101
+..critedge_crit_edge:                             ; preds = %102
   %.pre = load ptr, ptr %77, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %81, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %..critedge_crit_edge
-  %103 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %100, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre91, %81 ]
+  %104 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %101, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre91, %81 ]
   %.1 = phi ptr [ null, %..critedge_crit_edge ], [ null, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %60, %81 ]
-  %104 = load ptr, ptr %2, align 8
-  %105 = icmp eq ptr %103, %104
-  br i1 %105, label %"_ZZL32findDominatingStoreToReturnValueRN5clang7CodeGen15CodeGenFunctionEENK3$_0clEPN4llvm4UserE.exit", label %106
+  %105 = load ptr, ptr %2, align 8
+  %106 = icmp eq ptr %104, %105
+  br i1 %106, label %"_ZZL32findDominatingStoreToReturnValueRN5clang7CodeGen15CodeGenFunctionEENK3$_0clEPN4llvm4UserE.exit", label %107
 
-106:                                              ; preds = %.critedge
-  call void @free(ptr noundef %103) #21
+107:                                              ; preds = %.critedge
+  call void @free(ptr noundef %104) #21
   br label %"_ZZL32findDominatingStoreToReturnValueRN5clang7CodeGen15CodeGenFunctionEENK3$_0clEPN4llvm4UserE.exit"
 
-"_ZZL32findDominatingStoreToReturnValueRN5clang7CodeGen15CodeGenFunctionEENK3$_0clEPN4llvm4UserE.exit": ; preds = %.preheader, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %23, %20, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %56, %65, %58, %62, %106, %.critedge, %49, %46, %_ZNK4llvm5Value9hasOneUseEv.exit.thread
-  %.046 = phi ptr [ null, %_ZNK4llvm5Value9hasOneUseEv.exit.thread ], [ null, %46 ], [ %spec.select.i, %49 ], [ %.1, %.critedge ], [ %.1, %106 ], [ null, %62 ], [ null, %58 ], [ null, %65 ], [ null, %56 ], [ null, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ], [ null, %20 ], [ null, %23 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i ], [ null, %.preheader ]
+"_ZZL32findDominatingStoreToReturnValueRN5clang7CodeGen15CodeGenFunctionEENK3$_0clEPN4llvm4UserE.exit": ; preds = %.preheader, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %23, %20, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %56, %65, %58, %62, %107, %.critedge, %49, %46, %_ZNK4llvm5Value9hasOneUseEv.exit.thread
+  %.046 = phi ptr [ null, %_ZNK4llvm5Value9hasOneUseEv.exit.thread ], [ null, %46 ], [ %spec.select.i, %49 ], [ %.1, %.critedge ], [ %.1, %107 ], [ null, %62 ], [ null, %58 ], [ null, %65 ], [ null, %56 ], [ null, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ], [ null, %20 ], [ null, %23 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i ], [ null, %.preheader ]
   ret ptr %.046
 }
 

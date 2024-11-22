@@ -1020,9 +1020,7 @@ _ZL18EmitUnrolledSetTagRN4llvm12SelectionDAGERKNS_5SDLocENS_7SDValueES5_mPKNS_17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  %.fca.0.extract9 = extractvalue { ptr, i32 } %103, 0
-  %.fca.1.extract10 = extractvalue { ptr, i32 } %103, 1
-  br label %126
+  br label %128
 
 108:                                              ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(48) @constinit.6, i64 48, i1 false)
@@ -1068,14 +1066,13 @@ _ZL18EmitUnrolledSetTagRN4llvm12SelectionDAGERKNS_5SDLocENS_7SDValueES5_mPKNS_17
   %125 = call noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_8ArrayRefINS_3EVTEEENS4_INS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(904) %1, i32 noundef %.0, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nonnull %19, i64 3, ptr noundef nonnull byval(%"class.llvm::ArrayRef.118") align 8 %21) #11
   store ptr %35, ptr %22, align 8
   call void @_ZN4llvm12SelectionDAG14setNodeMemRefsEPNS_13MachineSDNodeENS_8ArrayRefIPNS_17MachineMemOperandEEE(ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef %125, ptr nonnull %22, i64 1) #11
-  br label %126
+  %126 = insertvalue { ptr, i32 } poison, ptr %125, 0
+  %127 = insertvalue { ptr, i32 } %126, i32 2, 1
+  br label %128
 
-126:                                              ; preds = %120, %_ZL18EmitUnrolledSetTagRN4llvm12SelectionDAGERKNS_5SDLocENS_7SDValueES5_mPKNS_17MachineMemOperandEb.exit
-  %.sroa.050.0 = phi ptr [ %125, %120 ], [ %.fca.0.extract9, %_ZL18EmitUnrolledSetTagRN4llvm12SelectionDAGERKNS_5SDLocENS_7SDValueES5_mPKNS_17MachineMemOperandEb.exit ]
-  %.sroa.3.0 = phi i32 [ 2, %120 ], [ %.fca.1.extract10, %_ZL18EmitUnrolledSetTagRN4llvm12SelectionDAGERKNS_5SDLocENS_7SDValueES5_mPKNS_17MachineMemOperandEb.exit ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.050.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.3.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+128:                                              ; preds = %120, %_ZL18EmitUnrolledSetTagRN4llvm12SelectionDAGERKNS_5SDLocENS_7SDValueES5_mPKNS_17MachineMemOperandEb.exit
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %127, %120 ], [ %103, %_ZL18EmitUnrolledSetTagRN4llvm12SelectionDAGERKNS_5SDLocENS_7SDValueES5_mPKNS_17MachineMemOperandEb.exit ]
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

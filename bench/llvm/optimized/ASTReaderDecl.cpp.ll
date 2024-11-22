@@ -23340,7 +23340,7 @@ define dso_local void @_ZN5clang13ASTDeclMerger20mergeTemplatePatternEPNS_24Rede
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %25 = load ptr, ptr %24, align 8
   %.not40 = icmp eq ptr %25, null
-  br i1 %.not40, label %_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit, label %26
+  br i1 %.not40, label %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_7TagDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, label %26
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 128
@@ -23350,7 +23350,7 @@ define dso_local void @_ZN5clang13ASTDeclMerger20mergeTemplatePatternEPNS_24Rede
 
 29:                                               ; preds = %26
   tail call void @_ZN5clang13ASTDeclMerger19MergeDefinitionDataEPNS_13CXXRecordDeclEONS1_14DefinitionDataE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %23, ptr noundef nonnull align 8 dereferenceable(104) %25)
-  br label %_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit
+  br label %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_7TagDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit
 
 30:                                               ; preds = %26
   store ptr %25, ptr %27, align 8
@@ -23374,7 +23374,7 @@ define dso_local void @_ZN5clang13ASTDeclMerger20mergeTemplatePatternEPNS_24Rede
   %.025.i.i = phi ptr [ %45, %44 ], [ %35, %37 ]
   %42 = load ptr, ptr %.025.i.i, align 8, !noalias !181
   %43 = icmp eq ptr %42, %6
-  br i1 %43, label %_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit, label %44
+  br i1 %43, label %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_7TagDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, label %44
 
 44:                                               ; preds = %.lr.ph.i.i
   %45 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -23391,13 +23391,13 @@ define dso_local void @_ZN5clang13ASTDeclMerger20mergeTemplatePatternEPNS_24Rede
   %50 = add nuw i32 %39, 1
   store i32 %50, ptr %38, align 4, !noalias !181
   store ptr %6, ptr %41, align 8, !noalias !181
-  br label %_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit
+  br label %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_7TagDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit
 
 51:                                               ; preds = %._crit_edge.i.i, %30
   %52 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %32, ptr noundef nonnull %6) #26, !noalias !181
-  br label %_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit
+  br label %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_7TagDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit
 
-_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit: ; preds = %.lr.ph.i.i, %49, %51, %29, %19
+_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_7TagDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit: ; preds = %.lr.ph.i.i, %49, %51, %29, %19
   %53 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %54 = load ptr, ptr %53, align 8
   store ptr %54, ptr %24, align 8
@@ -23436,7 +23436,7 @@ _ZN5clang13ASTDeclMerger17mergeRedeclarableINS_15TypedefNameDeclEEEvPNS_12Redecl
   tail call void @_ZN5clang13ASTDeclMerger21mergeRedeclarableImplINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_NS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %65, ptr noundef %8, i64 %spec.select65)
   br label %66
 
-66:                                               ; preds = %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_7VarDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_12FunctionDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, %_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit
+66:                                               ; preds = %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_7VarDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_12FunctionDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_7TagDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit
   ret void
 }
 

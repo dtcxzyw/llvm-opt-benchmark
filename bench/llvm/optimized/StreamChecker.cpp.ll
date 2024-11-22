@@ -12958,36 +12958,37 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33: ; preds =
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #21
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #21
   %.pre158 = load ptr, ptr %43, align 8
-  %.pre159 = load i8, ptr %49, align 1
-  %.pre160 = load i8, ptr %50, align 1
+  %.pre159 = load i8, ptr %4, align 1
+  %.pre160 = load i8, ptr %49, align 1
+  %.pre161 = load i8, ptr %50, align 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre158, i64 12
-  %.pre161 = load i8, ptr %.phi.trans.insert, align 1
-  %.phi.trans.insert162 = getelementptr inbounds nuw i8, ptr %.pre158, i64 13
-  %.pre163 = load i8, ptr %.phi.trans.insert162, align 1
-  %.phi.trans.insert164 = getelementptr inbounds nuw i8, ptr %.pre158, i64 14
-  %.pre165 = load i8, ptr %.phi.trans.insert164, align 1
-  %.pre167 = trunc i8 %.pre161 to i1
-  %.pre168 = trunc i8 %.pre163 to i1
-  %.pre170 = trunc i8 %.pre165 to i1
+  %.pre162 = load i8, ptr %.phi.trans.insert, align 1
+  %.phi.trans.insert163 = getelementptr inbounds nuw i8, ptr %.pre158, i64 13
+  %.pre164 = load i8, ptr %.phi.trans.insert163, align 1
+  %.phi.trans.insert165 = getelementptr inbounds nuw i8, ptr %.pre158, i64 14
+  %.pre166 = load i8, ptr %.phi.trans.insert165, align 1
+  %.pre168 = trunc i8 %.pre162 to i1
+  %.pre169 = trunc i8 %.pre164 to i1
+  %.pre171 = trunc i8 %.pre166 to i1
   br label %142
 
 142:                                              ; preds = %53, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33
-  %.pre-phi171 = phi i1 [ %57, %53 ], [ %.pre170, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %.pre-phi169 = phi i1 [ %60, %53 ], [ %.pre168, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %.pre-phi = phi i1 [ %47, %53 ], [ %.pre167, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %143 = phi i8 [ %54, %53 ], [ %.pre160, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %144 = phi i8 [ %61, %53 ], [ %.pre159, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %145 = phi ptr [ %44, %53 ], [ %.pre158, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %146 = load i8, ptr %4, align 1
-  %147 = and i8 %146, 1
+  %.pre-phi172 = phi i1 [ %57, %53 ], [ %.pre171, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %.pre-phi170 = phi i1 [ %60, %53 ], [ %.pre169, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %.pre-phi = phi i1 [ %47, %53 ], [ %.pre168, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %143 = phi i8 [ %54, %53 ], [ %.pre161, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %144 = phi i8 [ %61, %53 ], [ %.pre160, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %145 = phi i8 [ %48, %53 ], [ %.pre159, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %146 = phi ptr [ %44, %53 ], [ %.pre158, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %147 = and i8 %145, 1
   %148 = xor i8 %147, 1
   %149 = and i8 %144, 1
   %150 = xor i8 %149, 1
   %151 = and i8 %143, 1
   %152 = xor i8 %151, 1
   %.sroa.096.0.extract.trunc = select i1 %.pre-phi, i8 %148, i8 0
-  %.sroa.4.0.extract.trunc = select i1 %.pre-phi169, i8 %150, i8 0
-  %.sroa.6.0.extract.trunc = select i1 %.pre-phi171, i8 %152, i8 0
+  %.sroa.4.0.extract.trunc = select i1 %.pre-phi170, i8 %150, i8 0
+  %.sroa.6.0.extract.trunc = select i1 %.pre-phi172, i8 %152, i8 0
   %.sroa.6.0.extract.trunc.fr = freeze i8 %.sroa.6.0.extract.trunc
   %153 = trunc nuw i8 %.sroa.096.0.extract.trunc to i1
   br i1 %153, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread, label %154
@@ -13061,7 +13062,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48: ; preds =
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48, %181
-  %182 = getelementptr inbounds nuw i8, ptr %145, i64 15
+  %182 = getelementptr inbounds nuw i8, ptr %146, i64 15
   %183 = load i8, ptr %182, align 1
   %184 = trunc i8 %183 to i1
   %.not157 = xor i1 %184, true
@@ -13143,12 +13144,12 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i89: ; pre
 _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i89, %195
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0120.0) #21
-  %.pre166 = load ptr, ptr %18, align 8
-  %.not.i.i70 = icmp eq ptr %.pre166, null
+  %.pre167 = load ptr, ptr %18, align 8
+  %.not.i.i70 = icmp eq ptr %.pre167, null
   br i1 %.not.i.i70, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73, label %208
 
 208:                                              ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.pre166) #21
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.pre167) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73: ; preds = %192, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69, %208

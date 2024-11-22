@@ -9288,9 +9288,9 @@ _ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !1815)
   %79 = load i32, ptr %18, align 8, !range !1818, !alias.scope !1815, !noalias !1787, !noundef !12
   %80 = icmp eq i32 %79, 3
-  br i1 %80, label %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread73, label %81
+  br i1 %80, label %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread75, label %81
 
-_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread73: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h48c853c2337f9d65E.exit.i"
+_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread75: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h48c853c2337f9d65E.exit.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !1787
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !1787
   br label %104
@@ -9403,7 +9403,7 @@ _ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !1787
   br label %142
 
-104:                                              ; preds = %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread73, %2
+104:                                              ; preds = %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread75, %2
   %105 = getelementptr inbounds i8, ptr %1, i64 24
   %106 = load ptr, ptr %105, align 8, !nonnull !12, !noundef !12
   %107 = getelementptr inbounds i8, ptr %106, i64 16
@@ -9431,8 +9431,8 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit: ; p
   %.0.i.i.i = phi i8 [ %117, %114 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit ]
   %118 = getelementptr inbounds i8, ptr %106, i64 20
   %119 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17he880462d8402345fE.llvm.15399028824041462682(ptr noundef nonnull align 1 %118, i8 noundef 0), !noalias !1858
-  %.not92 = icmp eq i8 %119, 0
-  br i1 %.not92, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0a78c35898be0da4E.exit", label %120
+  %.not96 = icmp eq i8 %119, 0
+  br i1 %.not96, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0a78c35898be0da4E.exit", label %120
 
 120:                                              ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd870b68764f54d62E.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !1861
@@ -9508,12 +9508,12 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit: ; p
   unreachable
 
 142:                                              ; preds = %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit, %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread
-  %.sroa.0.0.i72 = phi ptr [ %62, %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread ], [ %88, %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit ]
-  %.sroa.3.0.i71 = phi ptr [ @anon.613dbf0bc33d550c317acf1fc6a04ca9.113, %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.147.llvm.5712253741694332460, %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit ]
+  %anon.5510db2c7e61de0b2d2879ef0cabf3d4.147.llvm.5712253741694332460.pn.i74 = phi ptr [ @anon.613dbf0bc33d550c317acf1fc6a04ca9.113, %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.147.llvm.5712253741694332460, %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit ]
+  %.sroa.0.0.i.pn.i73 = phi ptr [ %62, %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread ], [ %88, %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit ]
   %143 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.0.0.i72, ptr %143, align 8
+  store ptr %.sroa.0.0.i.pn.i73, ptr %143, align 8
   %144 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.3.0.i71, ptr %144, align 8
+  store ptr %anon.5510db2c7e61de0b2d2879ef0cabf3d4.147.llvm.5712253741694332460.pn.i74, ptr %144, align 8
   %145 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -9223372036854775808, ptr %145, align 8
   br label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h9095562ee50d19e0E.exit"

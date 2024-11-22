@@ -2938,7 +2938,7 @@ define void @_ZN2cv6detail12DpSeamFinder7processERKNS_3MatES4_NS_6Point_IiEES6_R
 37:                                               ; preds = %_ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit115, %_ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit, %82
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %304
+  br label %305
 
 39:                                               ; preds = %7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
@@ -2966,7 +2966,7 @@ define void @_ZN2cv6detail12DpSeamFinder7processERKNS_3MatES4_NS_6Point_IiEES6_R
 46:                                               ; preds = %44, %42
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
-  br label %304
+  br label %305
 
 47:                                               ; preds = %7
   %48 = getelementptr inbounds i8, ptr %2, i64 64
@@ -3010,7 +3010,7 @@ define void @_ZN2cv6detail12DpSeamFinder7processERKNS_3MatES4_NS_6Point_IiEES6_R
 68:                                               ; preds = %66, %64
   %.pn75 = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #28
-  br label %304
+  br label %305
 
 69:                                               ; preds = %47
   %.sroa.speculated171 = call i32 @llvm.smax.i32(i32 %.sroa.0186.0.extract.trunc, i32 %.sroa.0153.0.extract.trunc)
@@ -3032,7 +3032,7 @@ define void @_ZN2cv6detail12DpSeamFinder7processERKNS_3MatES4_NS_6Point_IiEES6_R
   %.not = icmp slt i32 %.sroa.speculated171, %.sroa.speculated136
   %.not77 = icmp slt i32 %.sroa.speculated165, %.sroa.speculated131
   %or.cond196 = select i1 %.not, i1 %.not77, i1 false
-  br i1 %or.cond196, label %82, label %296
+  br i1 %or.cond196, label %82, label %297
 
 82:                                               ; preds = %69
   %.sroa.speculated168 = call i32 @llvm.smin.i32(i32 %.sroa.0153.0.extract.trunc, i32 %.sroa.0186.0.extract.trunc)
@@ -3228,15 +3228,11 @@ _ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit118:          ; preds = %155
   %176 = icmp sgt i32 %175, 0
   br i1 %176, label %.preheader, label %._crit_edge202
 
-.preheaderthread-pre-split:                       ; preds = %._crit_edge
-  %.pr = load i32, ptr %96, align 4
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.lr.ph, %.preheaderthread-pre-split
-  %177 = phi i32 [ %.pr, %.preheaderthread-pre-split ], [ %175, %.preheader.lr.ph ]
-  %178 = phi i32 [ %290, %.preheaderthread-pre-split ], [ %165, %.preheader.lr.ph ]
-  %indvars.iv205 = phi i64 [ %indvars.iv.next206.pre-phi, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
-  %179 = icmp sgt i32 %177, 0
+.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
+  %177 = phi i32 [ %290, %._crit_edge ], [ %165, %.preheader.lr.ph ]
+  %178 = phi i32 [ %291, %._crit_edge ], [ %175, %.preheader.lr.ph ]
+  %indvars.iv205 = phi i64 [ %indvars.iv.next206.pre-phi, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %179 = icmp sgt i32 %178, 0
   br i1 %179, label %.lr.ph, label %.preheader.._crit_edge_crit_edge
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
@@ -3251,7 +3247,7 @@ _ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit118:          ; preds = %155
 
 183:                                              ; preds = %.lr.ph, %286
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %286 ]
-  %184 = phi i32 [ %177, %.lr.ph ], [ %287, %286 ]
+  %184 = phi i32 [ %178, %.lr.ph ], [ %287, %286 ]
   %185 = load ptr, ptr %167, align 8
   %186 = load ptr, ptr %168, align 8
   %187 = load i64, ptr %186, align 8
@@ -3320,46 +3316,46 @@ _ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit118:          ; preds = %155
   %227 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %13) #28
-  br label %304
+  br label %305
 
 228:                                              ; preds = %106
   %229 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %14) #28
-  br label %304
+  br label %305
 
-230:                                              ; preds = %129, %294, %293, %._crit_edge202, %_ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit117, %145
+230:                                              ; preds = %129, %295, %294, %._crit_edge202, %_ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit117, %145
   %231 = landingpad { ptr, i32 }
           cleanup
-  br label %303
+  br label %304
 
 232:                                              ; preds = %126
   %233 = landingpad { ptr, i32 }
           cleanup
-  br label %303
+  br label %304
 
 234:                                              ; preds = %_ZNK2cv4Mat_IhEclERKNS_5Rect_IiEE.exit116
   %235 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #28
-  br label %303
+  br label %304
 
 236:                                              ; preds = %142
   %237 = landingpad { ptr, i32 }
           cleanup
-  br label %303
+  br label %304
 
 238:                                              ; preds = %146
   %239 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %22) #28
-  br label %303
+  br label %304
 
 240:                                              ; preds = %155
   %241 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %23) #28
-  br label %303
+  br label %304
 
 242:                                              ; preds = %219, %214, %183
   %243 = load ptr, ptr %171, align 8
@@ -3442,54 +3438,55 @@ _ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit118:          ; preds = %155
 
 ._crit_edge:                                      ; preds = %.preheader.._crit_edge_crit_edge, %._crit_edge.loopexit
   %indvars.iv.next206.pre-phi = phi i64 [ %.pre208, %.preheader.._crit_edge_crit_edge ], [ %182, %._crit_edge.loopexit ]
-  %290 = phi i32 [ %178, %.preheader.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
-  %291 = sext i32 %290 to i64
-  %292 = icmp slt i64 %indvars.iv.next206.pre-phi, %291
-  br i1 %292, label %.preheaderthread-pre-split, label %._crit_edge202, !llvm.loop !65
+  %290 = phi i32 [ %177, %.preheader.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
+  %291 = phi i32 [ %178, %.preheader.._crit_edge_crit_edge ], [ %287, %._crit_edge.loopexit ]
+  %292 = sext i32 %290 to i64
+  %293 = icmp slt i64 %indvars.iv.next206.pre-phi, %292
+  br i1 %293, label %.preheader, label %._crit_edge202, !llvm.loop !65
 
 ._crit_edge202:                                   ; preds = %._crit_edge, %.preheader.lr.ph, %_ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit118
   invoke void @_ZN2cv6detail12DpSeamFinder14findComponentsEv(ptr noundef nonnull align 8 dereferenceable(1056) %0)
-          to label %293 unwind label %230
-
-293:                                              ; preds = %._crit_edge202
-  invoke void @_ZN2cv6detail12DpSeamFinder9findEdgesEv(ptr noundef nonnull align 8 dereferenceable(1056) %0)
           to label %294 unwind label %230
 
-294:                                              ; preds = %293
-  invoke void @_ZN2cv6detail12DpSeamFinder16resolveConflictsERKNS_3MatES4_NS_6Point_IiEES6_RS2_S7_(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6)
+294:                                              ; preds = %._crit_edge202
+  invoke void @_ZN2cv6detail12DpSeamFinder9findEdgesEv(ptr noundef nonnull align 8 dereferenceable(1056) %0)
           to label %295 unwind label %230
 
 295:                                              ; preds = %294
+  invoke void @_ZN2cv6detail12DpSeamFinder16resolveConflictsERKNS_3MatES4_NS_6Point_IiEES6_RS2_S7_(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6)
+          to label %296 unwind label %230
+
+296:                                              ; preds = %295
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #28
-  br label %296
+  br label %297
 
-296:                                              ; preds = %69, %295
-  %297 = getelementptr inbounds i8, ptr %8, i64 8
-  %298 = load i32, ptr %297, align 8
-  %.not.i = icmp eq i32 %298, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %299
+297:                                              ; preds = %69, %296
+  %298 = getelementptr inbounds i8, ptr %8, i64 8
+  %299 = load i32, ptr %298, align 8
+  %.not.i = icmp eq i32 %299, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %300
 
-299:                                              ; preds = %296
+300:                                              ; preds = %297
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %8)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %300
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %301
 
-300:                                              ; preds = %299
-  %301 = landingpad { ptr, i32 }
+301:                                              ; preds = %300
+  %302 = landingpad { ptr, i32 }
           catch ptr null
-  %302 = extractvalue { ptr, i32 } %301, 0
-  call void @__clang_call_terminate(ptr %302) #30
+  %303 = extractvalue { ptr, i32 } %302, 0
+  call void @__clang_call_terminate(ptr %303) #30
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %296, %299
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %297, %300
   ret void
 
-303:                                              ; preds = %240, %238, %236, %234, %232, %230
+304:                                              ; preds = %240, %238, %236, %234, %232, %230
   %.pn78 = phi { ptr, i32 } [ %231, %230 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %232 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #28
-  br label %304
+  br label %305
 
-304:                                              ; preds = %303, %228, %226, %68, %46, %37
-  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %303 ], [ %38, %37 ], [ %229, %228 ], [ %227, %226 ], [ %.pn75, %68 ], [ %.pn, %46 ]
+305:                                              ; preds = %304, %228, %226, %68, %46, %37
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %304 ], [ %38, %37 ], [ %229, %228 ], [ %227, %226 ], [ %.pn75, %68 ], [ %.pn, %46 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %8) #28
   resume { ptr, i32 } %.pn78.pn
 }

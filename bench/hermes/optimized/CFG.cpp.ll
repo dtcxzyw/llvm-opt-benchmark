@@ -14239,7 +14239,7 @@ while.body.lr.ph.preheader:                       ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %while.body.lr.ph.preheader
-  %12 = phi i32 [ 1, %while.body.lr.ph.preheader ], [ %.be286, %while.body.backedge ]
+  %12 = phi i32 [ 1, %while.body.lr.ph.preheader ], [ %.be287, %while.body.backedge ]
   %13 = load ptr, ptr %Work, align 8
   %conv.i.i = zext i32 %12 to i64
   %add.ptr.i.i14 = getelementptr inbounds ptr, ptr %13, i64 %conv.i.i
@@ -14409,7 +14409,7 @@ while.cond.backedge:                              ; preds = %_ZN4llvh23SmallVect
   br i1 %tobool.not.i, label %while.end, label %while.body.backedge
 
 while.body.backedge:                              ; preds = %while.cond.backedge, %if.end30
-  %.be286 = phi i32 [ %.be, %while.cond.backedge ], [ %.pr, %if.end30 ]
+  %.be287 = phi i32 [ %.be, %while.cond.backedge ], [ %.pr, %if.end30 ]
   br label %while.body, !llvm.loop !118
 
 if.end14:                                         ; preds = %_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.if.end14_crit_edge, %land.rhs

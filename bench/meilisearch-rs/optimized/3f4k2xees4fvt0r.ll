@@ -29481,9 +29481,9 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN74_$LT$kstring..string..KStringBase$LT$B$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7df3ece8f4971b78E.exit"
 
 "_ZN74_$LT$kstring..string..KStringBase$LT$B$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7df3ece8f4971b78E.exit": ; preds = %6, %10, %12
-  %.sroa.4.0.i.i = phi i64 [ %14, %12 ], [ %.val1.i.i, %10 ], [ %9, %6 ]
-  %.sroa.0.0.i.i = phi ptr [ %15, %12 ], [ %.val.i.i, %10 ], [ %7, %6 ]
-  %16 = tail call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17hbb23b6687f8daeb3E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %.pn4.i.i = phi ptr [ %15, %12 ], [ %.val.i.i, %10 ], [ %7, %6 ]
+  %.pn2.i.i = phi i64 [ %14, %12 ], [ %.val1.i.i, %10 ], [ %9, %6 ]
+  %16 = tail call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17hbb23b6687f8daeb3E"(ptr noalias noundef nonnull readonly align 1 %.pn4.i.i, i64 noundef %.pn2.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %16
 }
 
@@ -43635,25 +43635,25 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h1bbe9737a1f46eefE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #18 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8399)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8402)
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !8404, !noalias !8402, !noundef !8
-  %.sroa.5.0.in.i3.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i4.i = load i64, ptr %.sroa.5.0.in.i3.i, align 8, !alias.scope !8407, !noalias !8399, !noundef !8
-  %.not.i.i = icmp eq i64 %.sroa.5.0.i.i, %.sroa.5.0.i4.i
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !8404, !noalias !8402, !noundef !8
+  %.pn1.in.i1.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i2.i = load i64, ptr %.pn1.in.i1.i, align 8, !alias.scope !8407, !noalias !8399, !noundef !8
+  %.not.i.i = icmp eq i64 %.pn1.i.i, %.pn1.i2.i
   br i1 %.not.i.i, label %3, label %"_ZN88_$LT$jsonwebtoken..validation..BorrowedCowIfPossible$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19afe8097fde59d3E.llvm.815708219594649150.exit"
 
 3:                                                ; preds = %2
-  %.sroa.0.0.in.i1.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i2.i = load ptr, ptr %.sroa.0.0.in.i1.i, align 8, !alias.scope !8407, !noalias !8399, !nonnull !8, !noundef !8
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !8404, !noalias !8402, !nonnull !8, !noundef !8
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i2.i, i64 %.sroa.5.0.i.i), !alias.scope !8410, !noalias !8414
+  %.pn3.in.i3.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i4.i = load ptr, ptr %.pn3.in.i3.i, align 8, !alias.scope !8407, !noalias !8399, !nonnull !8, !noundef !8
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !8404, !noalias !8402, !nonnull !8, !noundef !8
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i.i, ptr nonnull readonly align 1 %.pn3.i4.i, i64 %.pn1.i.i), !alias.scope !8410, !noalias !8414
   %4 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN88_$LT$jsonwebtoken..validation..BorrowedCowIfPossible$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19afe8097fde59d3E.llvm.815708219594649150.exit"
 
 "_ZN88_$LT$jsonwebtoken..validation..BorrowedCowIfPossible$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19afe8097fde59d3E.llvm.815708219594649150.exit": ; preds = %2, %3
-  %.sroa.0.0.i5.i = phi i1 [ %4, %3 ], [ false, %2 ]
-  ret i1 %.sroa.0.0.i5.i
+  %.sroa.0.0.i.i = phi i1 [ %4, %3 ], [ false, %2 ]
+  ret i1 %.sroa.0.0.i.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -43727,28 +43727,27 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h9120cc8c5419ddd6E.llvm.815708219594649150"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !align !9, !noundef !8
   %3 = tail call noundef zeroext i1 @_ZN11smartstring5boxed11BoxedString15check_alignment17h6d42c536748e35ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
-  br i1 %3, label %8, label %4
+  br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %2, align 8, !alias.scope !8418, !nonnull !8, !noundef !8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !8418, !noundef !8
+  %8 = insertvalue { ptr, i64 } poison, ptr %5, 0
+  %9 = insertvalue { ptr, i64 } %8, i64 %7, 1
   br label %"_ZN88_$LT$smartstring..SmartString$LT$Mode$GT$$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha6c89ffde11ac235E.exit"
 
-8:                                                ; preds = %1
-  %9 = tail call { ptr, i64 } @"_ZN77_$LT$smartstring..inline..InlineString$u20$as$u20$core..ops..deref..Deref$GT$5deref17had1f1f308ecfbbafE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
-  %10 = extractvalue { ptr, i64 } %9, 0
-  %11 = extractvalue { ptr, i64 } %9, 1
+10:                                               ; preds = %1
+  %11 = tail call { ptr, i64 } @"_ZN77_$LT$smartstring..inline..InlineString$u20$as$u20$core..ops..deref..Deref$GT$5deref17had1f1f308ecfbbafE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  %12 = extractvalue { ptr, i64 } %11, 0
+  %13 = icmp ne ptr %12, null
   br label %"_ZN88_$LT$smartstring..SmartString$LT$Mode$GT$$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha6c89ffde11ac235E.exit"
 
-"_ZN88_$LT$smartstring..SmartString$LT$Mode$GT$$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha6c89ffde11ac235E.exit": ; preds = %4, %8
-  %.sroa.3.0.i.i = phi i64 [ %11, %8 ], [ %7, %4 ]
-  %.sroa.0.0.i.i = phi ptr [ %10, %8 ], [ %5, %4 ]
-  %12 = icmp ne ptr %.sroa.0.0.i.i, null
-  tail call void @llvm.assume(i1 %12)
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.3.0.i.i, 1
-  ret { ptr, i64 } %14
+"_ZN88_$LT$smartstring..SmartString$LT$Mode$GT$$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha6c89ffde11ac235E.exit": ; preds = %4, %10
+  %.sroa.0.0.i.i = phi i1 [ %13, %10 ], [ true, %4 ]
+  %.merged.i.i = phi { ptr, i64 } [ %11, %10 ], [ %9, %4 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0.i.i)
+  ret { ptr, i64 } %.merged.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -45824,15 +45823,16 @@ define hidden void @_ZN5milli22external_documents_ids20ExternalDocumentsIds3get1
 10:                                               ; preds = %4
   %11 = tail call { ptr, i64 } @"_ZN77_$LT$smartstring..inline..InlineString$u20$as$u20$core..ops..deref..Deref$GT$5deref17had1f1f308ecfbbafE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3), !noalias !8487
   %12 = extractvalue { ptr, i64 } %11, 0
-  %13 = extractvalue { ptr, i64 } %11, 1
+  %13 = icmp ne ptr %12, null
+  %14 = extractvalue { ptr, i64 } %11, 1
   br label %"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h9120cc8c5419ddd6E.llvm.815708219594649150.exit"
 
 "_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h9120cc8c5419ddd6E.llvm.815708219594649150.exit": ; preds = %6, %10
-  %.sroa.3.0.i.i.i = phi i64 [ %13, %10 ], [ %9, %6 ]
-  %.sroa.0.0.i.i.i = phi ptr [ %12, %10 ], [ %7, %6 ]
-  %14 = icmp ne ptr %.sroa.0.0.i.i.i, null
-  tail call void @llvm.assume(i1 %14)
-  tail call void @"_ZN4heed8database27Database$LT$KC$C$DC$C$C$GT$3get17h3c57dfe6554ab160E"(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.3.0.i.i.i)
+  %.pre-phi = phi ptr [ %7, %6 ], [ %12, %10 ]
+  %.sroa.0.0.i.i.i = phi i1 [ true, %6 ], [ %13, %10 ]
+  %.merged.i.i.i = phi i64 [ %9, %6 ], [ %14, %10 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0.i.i.i)
+  tail call void @"_ZN4heed8database27Database$LT$KC$C$DC$C$C$GT$3get17h3c57dfe6554ab160E"(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %.pre-phi, i64 noundef %.merged.i.i.i)
   ret void
 }
 
@@ -69038,9 +69038,9 @@ define internal noundef zeroext i1 @"_ZN74_$LT$kstring..string..KStringBase$LT$B
   br label %"_ZN7kstring6string5inner21KStringInner$LT$B$GT$6as_str17had9045337faba1fdE.exit"
 
 "_ZN7kstring6string5inner21KStringInner$LT$B$GT$6as_str17had9045337faba1fdE.exit": ; preds = %5, %9, %11
-  %.sroa.4.0.i = phi i64 [ %13, %11 ], [ %.val1.i, %9 ], [ %8, %5 ]
-  %.sroa.0.0.i = phi ptr [ %14, %11 ], [ %.val.i, %9 ], [ %6, %5 ]
-  %15 = tail call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17hbb23b6687f8daeb3E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %.pn4.i = phi ptr [ %14, %11 ], [ %.val.i, %9 ], [ %6, %5 ]
+  %.pn2.i = phi i64 [ %13, %11 ], [ %.val1.i, %9 ], [ %8, %5 ]
+  %15 = tail call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17hbb23b6687f8daeb3E"(ptr noalias noundef nonnull readonly align 1 %.pn4.i, i64 noundef %.pn2.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %15
 }
 
@@ -82667,25 +82667,25 @@ define hidden void @"_ZN87_$LT$serde_json..de..UnitVariantAccess$LT$R$GT$$u20$as
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @"_ZN88_$LT$jsonwebtoken..validation..BorrowedCowIfPossible$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19afe8097fde59d3E.llvm.815708219594649150"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #31 {
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !15374, !noundef !8
-  %.sroa.5.0.in.i3 = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i4 = load i64, ptr %.sroa.5.0.in.i3, align 8, !alias.scope !15377, !noundef !8
-  %.not.i = icmp eq i64 %.sroa.5.0.i, %.sroa.5.0.i4
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !15374, !noundef !8
+  %.pn1.in.i1 = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i2 = load i64, ptr %.pn1.in.i1, align 8, !alias.scope !15377, !noundef !8
+  %.not.i = icmp eq i64 %.pn1.i, %.pn1.i2
   br i1 %.not.i, label %3, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit"
 
 3:                                                ; preds = %2
-  %.sroa.0.0.in.i1 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i2 = load ptr, ptr %.sroa.0.0.in.i1, align 8, !alias.scope !15377, !nonnull !8, !noundef !8
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !15374, !nonnull !8, !noundef !8
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %.sroa.0.0.i2, i64 %.sroa.5.0.i), !alias.scope !15380
+  %.pn3.in.i3 = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i4 = load ptr, ptr %.pn3.in.i3, align 8, !alias.scope !15377, !nonnull !8, !noundef !8
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !15374, !nonnull !8, !noundef !8
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i, ptr nonnull readonly align 1 %.pn3.i4, i64 %.pn1.i), !alias.scope !15380
   %4 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit": ; preds = %2, %3
-  %.sroa.0.0.i5 = phi i1 [ %4, %3 ], [ false, %2 ]
-  ret i1 %.sroa.0.0.i5
+  %.sroa.0.0.i = phi i1 [ %4, %3 ], [ false, %2 ]
+  ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: cold nonlazybind uwtable

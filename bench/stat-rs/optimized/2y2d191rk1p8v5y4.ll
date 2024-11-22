@@ -1076,11 +1076,11 @@ define hidden { i64, double } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$a
   br i1 %26, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit", %4
-  %.sroa.3.0 = phi double [ %3, %4 ], [ %24, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
-  %.sroa.04.0 = phi i64 [ %2, %4 ], [ %23, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
-  %27 = insertvalue { i64, double } poison, i64 %.sroa.04.0, 0
-  %28 = insertvalue { i64, double } %27, double %.sroa.3.0, 1
-  ret { i64, double } %28
+  %.pn27 = phi i64 [ %2, %4 ], [ %23, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
+  %.pn25 = phi double [ %3, %4 ], [ %24, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
+  %.pn = insertvalue { i64, double } poison, i64 %.pn27, 0
+  %.merged = insertvalue { i64, double } %.pn, double %.pn25, 1
+  ret { i64, double } %.merged
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
@@ -2401,9 +2401,9 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit.i", label %.preheader.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit.i": ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i", %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
-  %.sroa.3.0.i.i = phi double [ %.sroa.02.0.i.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ], [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ]
-  %.sroa.04.0.i.i = phi i64 [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ], [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ]
-  %.not.i = icmp eq i64 %.sroa.04.0.i.i, %0
+  %.pn27.i.i = phi i64 [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ], [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ]
+  %.pn25.i.i = phi double [ %.sroa.02.0.i.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ], [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ]
+  %.not.i = icmp eq i64 %.pn27.i.i, %0
   br i1 %.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.9554138872291501309.exit", label %29
 
 29:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit.i"
@@ -2421,7 +2421,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.9554138872291501309.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit.i"
-  %30 = tail call double @llvm.exp.f64(double %.sroa.3.0.i.i)
+  %30 = tail call double @llvm.exp.f64(double %.pn25.i.i)
   %31 = fadd double %30, 5.000000e-01
   %32 = tail call double @llvm.floor.f64(double %31)
   ret double %32
@@ -2481,13 +2481,13 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit", label %.preheader
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit": ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i", %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
-  %.sroa.3.0.i = phi double [ %.sroa.02.0.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ], [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ]
-  %.sroa.04.0.i = phi i64 [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ], [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ]
-  %.not = icmp eq i64 %.sroa.04.0.i, %1
+  %.pn27.i = phi i64 [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ], [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ]
+  %.pn25.i = phi double [ %.sroa.02.0.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ], [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ]
+  %.not = icmp eq i64 %.pn27.i, %1
   br i1 %.not, label %29, label %34
 
 29:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit"
-  %30 = tail call double @llvm.exp.f64(double %.sroa.3.0.i)
+  %30 = tail call double @llvm.exp.f64(double %.pn25.i)
   %31 = fadd double %30, 5.000000e-01
   %32 = tail call double @llvm.floor.f64(double %31)
   %33 = getelementptr inbounds i8, ptr %0, i64 8

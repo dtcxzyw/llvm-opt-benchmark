@@ -1573,10 +1573,10 @@ _ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_
 _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EESt4lessISA_ESaISt4pairIKSA_SD_EELi256ELb0EEEEEE4findISA_EENS1_14btree_iteratorINS1_10btree_nodeISK_EERSI_PSI_EERKT_.exit.i: ; preds = %.lr.ph.i.i.i.i.i75._crit_edge, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERKT_.exit.i.i.i
   %.pre-phi.i = phi i32 [ %.pre11.i, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERKT_.exit.i.i.i ], [ %293, %.lr.ph.i.i.i.i.i75._crit_edge ]
   %294 = phi ptr [ %.pre.i77, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERKT_.exit.i.i.i ], [ %290, %.lr.ph.i.i.i.i.i75._crit_edge ]
-  %.sroa.02.0.i.i.i.i = phi ptr [ %.sroa.02.013.lcssa.sink.i.ph.i.i.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERKT_.exit.i.i.i ], [ %290, %.lr.ph.i.i.i.i.i75._crit_edge ]
-  %.sroa.33.0.i.i.i.i = phi i32 [ %.lcssa400.sink, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERKT_.exit.i.i.i ], [ %293, %.lr.ph.i.i.i.i.i75._crit_edge ]
-  %295 = icmp eq ptr %.sroa.02.0.i.i.i.i, %294
-  %296 = icmp eq i32 %.sroa.33.0.i.i.i.i, %.pre-phi.i
+  %.pn6.i.i.i.i = phi ptr [ %.sroa.02.013.lcssa.sink.i.ph.i.i.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERKT_.exit.i.i.i ], [ %290, %.lr.ph.i.i.i.i.i75._crit_edge ]
+  %.pn4.i.i.i.i = phi i32 [ %.lcssa400.sink, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERKT_.exit.i.i.i ], [ %293, %.lr.ph.i.i.i.i.i75._crit_edge ]
+  %295 = icmp eq ptr %.pn6.i.i.i.i, %294
+  %296 = icmp eq i32 %.pn4.i.i.i.i, %.pre-phi.i
   %297 = select i1 %295, i1 %296, i1 false
   br i1 %297, label %298, label %299
 
@@ -1588,7 +1588,7 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   unreachable
 
 299:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EESt4lessISA_ESaISt4pairIKSA_SD_EELi256ELb0EEEEEE4findISA_EENS1_14btree_iteratorINS1_10btree_nodeISK_EERSI_PSI_EERKT_.exit.i
-  %.not1.i.i.i = icmp slt i32 %.sroa.33.0.i.i.i.i, 0
+  %.not1.i.i.i = icmp slt i32 %.pn4.i.i.i.i, 0
   br i1 %.not1.i.i.i, label %300, label %301
 
 300:                                              ; preds = %299
@@ -1596,10 +1596,10 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   unreachable
 
 301:                                              ; preds = %299
-  %302 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i.i.i, i64 10
+  %302 = getelementptr inbounds i8, ptr %.pn6.i.i.i.i, i64 10
   %303 = load i8, ptr %302, align 1
   %304 = zext i8 %303 to i32
-  %305 = icmp samesign ult i32 %.sroa.33.0.i.i.i.i, %304
+  %305 = icmp samesign ult i32 %.pn4.i.i.i.i, %304
   br i1 %305, label %307, label %306
 
 306:                                              ; preds = %301
@@ -1607,9 +1607,9 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   unreachable
 
 307:                                              ; preds = %301
-  %308 = zext nneg i32 %.sroa.33.0.i.i.i.i to i64
+  %308 = zext nneg i32 %.pn4.i.i.i.i to i64
   %.idx.i = mul nuw nsw i64 %308, 56
-  %309 = getelementptr i8, ptr %.sroa.02.0.i.i.i.i, i64 48
+  %309 = getelementptr i8, ptr %.pn6.i.i.i.i, i64 48
   %310 = getelementptr i8, ptr %309, i64 %.idx.i
   %311 = load ptr, ptr %310, align 8
   %312 = getelementptr inbounds nuw i8, ptr %310, i64 8

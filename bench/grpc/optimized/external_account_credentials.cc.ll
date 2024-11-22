@@ -11002,23 +11002,20 @@ if.end.i:                                         ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %if.end.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i.i
+  %9 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %add.ptr.i.i, 1
   br label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %delimiter_.i3 = getelementptr inbounds i8, ptr %it, i64 40
   %call3.i.i5 = invoke { i64, ptr } @_ZNK4absl12lts_202308028ByString4FindESt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull align 8 dereferenceable(40) %delimiter_.i3, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i64 noundef %6)
-          to label %call3.i.i.noexc unwind label %lpad
+          to label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i unwind label %lpad
 
-call3.i.i.noexc:                                  ; preds = %if.end.i.i
-  %9 = extractvalue { i64, ptr } %call3.i.i5, 0
-  %10 = extractvalue { i64, ptr } %call3.i.i5, 1
-  br label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
-
-_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i: ; preds = %call3.i.i.noexc, %if.then.i.i
-  %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %9, %call3.i.i.noexc ]
-  %retval.sroa.3.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %10, %call3.i.i.noexc ]
+_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i: ; preds = %if.end.i.i, %if.then.i.i
+  %.fca.1.insert.merged.i.i = phi { i64, ptr } [ %9, %if.then.i.i ], [ %call3.i.i5, %if.end.i.i ]
+  %10 = extractvalue { i64, ptr } %.fca.1.insert.merged.i.i, 0
+  %11 = extractvalue { i64, ptr } %.fca.1.insert.merged.i.i, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i.i
-  %cmp7.i = icmp eq ptr %retval.sroa.3.0.i.i, %add.ptr.i
+  %cmp7.i = icmp eq ptr %11, %add.ptr.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
@@ -11026,28 +11023,28 @@ if.then8.i:                                       ; preds = %_ZN4absl12lts_20230
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
-  %11 = load i64, ptr %it, align 8
-  %cmp.i.i.i = icmp ugt i64 %11, %retval.sroa.0.0.copyload.i.i
+  %12 = load i64, ptr %it, align 8
+  %cmp.i.i.i = icmp ugt i64 %12, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.87, i64 noundef %11, i64 noundef %retval.sroa.0.0.copyload.i.i) #25
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.87, i64 noundef %12, i64 noundef %retval.sroa.0.0.copyload.i.i) #25
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.end10.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %retval.sroa.3.0.i.i to i64
-  %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %11
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
+  %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %12
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %11
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %12
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %it, i64 24
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
-  %add.i = add i64 %11, %retval.sroa.0.0.i.i
+  %add.i = add i64 %12, %10
   %add21.i = add i64 %add.i, %.sroa.speculated.i.i
   store i64 %add21.i, ptr %it, align 8
   br label %invoke.cont6, !llvm.loop !146
@@ -11057,13 +11054,13 @@ invoke.cont6:                                     ; preds = %_ZNKSt17basic_strin
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont6
-  %12 = load i32, ptr %state_.i.i, align 8
+  %13 = load i32, ptr %state_.i.i, align 8
   %state_1.i.i9 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
-  %13 = load i32, ptr %state_1.i.i9, align 8
-  %cmp.i.i10 = icmp ne i32 %12, %13
-  %14 = load i64, ptr %it, align 8
-  %15 = load i64, ptr %ref.tmp8, align 8
-  %cmp3.i.i11 = icmp ne i64 %14, %15
+  %14 = load i32, ptr %state_1.i.i9, align 8
+  %cmp.i.i10 = icmp ne i32 %13, %14
+  %15 = load i64, ptr %it, align 8
+  %16 = load i64, ptr %ref.tmp8, align 8
+  %cmp3.i.i11 = icmp ne i64 %15, %16
   %.not.i12 = select i1 %cmp.i.i10, i1 true, i1 %cmp3.i.i11
   %delimiter_.i13 = getelementptr inbounds i8, ptr %ref.tmp8, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %delimiter_.i13) #26
@@ -11074,11 +11071,11 @@ if.then13:                                        ; preds = %invoke.cont11
   br label %if.end16
 
 lpad:                                             ; preds = %invoke.cont6, %if.then.i.i.i, %if.end.i.i, %entry
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   %delimiter_.i18 = getelementptr inbounds i8, ptr %it, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %delimiter_.i18) #26
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %17
 
 if.end16:                                         ; preds = %invoke.cont11, %if.then13, %invoke.cont3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %first, i64 16, i1 false)
@@ -11153,22 +11150,19 @@ if.end.i:                                         ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.end.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %retval.sroa.0.0.copyload.i
+  %8 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %add.ptr.i.i, 1
   br label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %call3.i.i14 = invoke { i64, ptr } @_ZNK4absl12lts_202308028ByString4FindESt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull align 8 dereferenceable(40) %delimiter_, i64 %retval.sroa.0.0.copyload.i, ptr nonnull %retval.sroa.2.0.copyload.i, i64 noundef %7)
-          to label %call3.i.i.noexc unwind label %lpad
+          to label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i unwind label %lpad
 
-call3.i.i.noexc:                                  ; preds = %if.end.i.i
-  %8 = extractvalue { i64, ptr } %call3.i.i14, 0
-  %9 = extractvalue { i64, ptr } %call3.i.i14, 1
-  br label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
-
-_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i: ; preds = %call3.i.i.noexc, %if.then.i.i
-  %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %8, %call3.i.i.noexc ]
-  %retval.sroa.3.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %9, %call3.i.i.noexc ]
+_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i: ; preds = %if.end.i.i, %if.then.i.i
+  %.fca.1.insert.merged.i.i = phi { i64, ptr } [ %8, %if.then.i.i ], [ %call3.i.i14, %if.end.i.i ]
+  %9 = extractvalue { i64, ptr } %.fca.1.insert.merged.i.i, 0
+  %10 = extractvalue { i64, ptr } %.fca.1.insert.merged.i.i, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %retval.sroa.0.0.copyload.i
-  %cmp7.i = icmp eq ptr %retval.sroa.3.0.i.i, %add.ptr.i
+  %cmp7.i = icmp eq ptr %10, %add.ptr.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
@@ -11176,28 +11170,28 @@ if.then8.i:                                       ; preds = %_ZN4absl12lts_20230
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
-  %10 = load i64, ptr %this, align 8
-  %cmp.i.i.i = icmp ugt i64 %10, %retval.sroa.0.0.copyload.i
+  %11 = load i64, ptr %this, align 8
+  %cmp.i.i.i = icmp ugt i64 %11, %retval.sroa.0.0.copyload.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.87, i64 noundef %10, i64 noundef %retval.sroa.0.0.copyload.i) #25
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.87, i64 noundef %11, i64 noundef %retval.sroa.0.0.copyload.i) #25
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.end10.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %retval.sroa.3.0.i.i to i64
-  %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %10
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
+  %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %11
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i, %10
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i, %11
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
-  %add.i = add i64 %10, %retval.sroa.0.0.i.i
+  %add.i = add i64 %11, %9
   %add21.i = add i64 %add.i, %.sroa.speculated.i.i
   store i64 %add21.i, ptr %this, align 8
   br label %if.end25, !llvm.loop !146

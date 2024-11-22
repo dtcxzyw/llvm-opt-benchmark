@@ -5277,64 +5277,61 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter26Emit
   %14 = load i8, ptr %13, align 16
   %15 = icmp eq i8 %14, 14
   %.not.i.i = icmp ult i64 %2, 16
-  br i1 %15, label %16, label %27
+  br i1 %15, label %16, label %23
 
 16:                                               ; preds = %3
-  br i1 %.not.i.i, label %22, label %17
+  br i1 %.not.i.i, label %20, label %17
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %0, align 8
   %19 = tail call { ptr, ptr } @_ZN5clang7CodeGen15CodeGenFunction23EmitPromotedComplexExprEPKNS_4ExprENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %18, ptr noundef nonnull %1, i64 %2)
-  %20 = extractvalue { ptr, ptr } %19, 0
-  %21 = extractvalue { ptr, ptr } %19, 1
   br label %42
 
-22:                                               ; preds = %16
+20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %23 = load ptr, ptr %0, align 8
-  call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(6488) %23, ptr noundef nonnull %1) #15
-  %24 = call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1)
+  %21 = load ptr, ptr %0, align 8
+  call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(6488) %21, ptr noundef nonnull %1) #15
+  %22 = call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1)
   call void @_ZN5clang7CodeGen18ApplyDebugLocationD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %25 = extractvalue { ptr, ptr } %24, 0
-  %26 = extractvalue { ptr, ptr } %24, 1
   br label %42
 
-27:                                               ; preds = %3
-  br i1 %.not.i.i, label %39, label %28
+23:                                               ; preds = %3
+  br i1 %.not.i.i, label %37, label %24
 
-28:                                               ; preds = %27
-  %29 = and i64 %2, -16
-  %30 = inttoptr i64 %29 to ptr
-  %31 = load ptr, ptr %30, align 16
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load i8, ptr %32, align 16
-  %.not.i = icmp eq i8 %33, 14
-  br i1 %.not.i, label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit, label %34
+24:                                               ; preds = %23
+  %25 = and i64 %2, -16
+  %26 = inttoptr i64 %25 to ptr
+  %27 = load ptr, ptr %26, align 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load i8, ptr %28, align 16
+  %.not.i = icmp eq i8 %29, 14
+  br i1 %.not.i, label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit, label %30
 
-34:                                               ; preds = %28
-  %35 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %31) #15
+30:                                               ; preds = %24
+  %31 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %27) #15
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
-_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %28, %34
-  %.0.i = phi ptr [ %35, %34 ], [ %31, %28 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %.sroa.0.0.copyload.i11 = load i64, ptr %36, align 16
-  %37 = load ptr, ptr %0, align 8
-  %38 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction22EmitPromotedScalarExprEPKNS_4ExprENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %37, ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i11) #15
+_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %24, %30
+  %.0.i = phi ptr [ %31, %30 ], [ %27, %24 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  %.sroa.0.0.copyload.i11 = load i64, ptr %32, align 16
+  %33 = load ptr, ptr %0, align 8
+  %34 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction22EmitPromotedScalarExprEPKNS_4ExprENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %33, ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i11) #15
+  %35 = insertvalue { ptr, ptr } poison, ptr %34, 0
+  %36 = insertvalue { ptr, ptr } %35, ptr null, 1
   br label %42
 
-39:                                               ; preds = %27
-  %40 = load ptr, ptr %0, align 8
-  %41 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %40, ptr noundef nonnull %1, i1 noundef zeroext false) #15
+37:                                               ; preds = %23
+  %38 = load ptr, ptr %0, align 8
+  %39 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %38, ptr noundef nonnull %1, i1 noundef zeroext false) #15
+  %40 = insertvalue { ptr, ptr } poison, ptr %39, 0
+  %41 = insertvalue { ptr, ptr } %40, ptr null, 1
   br label %42
 
-42:                                               ; preds = %39, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit, %22, %17
-  %.sroa.017.0 = phi ptr [ %25, %22 ], [ %20, %17 ], [ %41, %39 ], [ %38, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit ]
-  %.sroa.5.0 = phi ptr [ %26, %22 ], [ %21, %17 ], [ null, %39 ], [ null, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.017.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.5.0, 1
-  ret { ptr, ptr } %.fca.1.insert
+42:                                               ; preds = %37, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit, %20, %17
+  %.fca.1.insert.merged = phi { ptr, ptr } [ %22, %20 ], [ %19, %17 ], [ %41, %37 ], [ %36, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit ]
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction22EmitPromotedScalarExprEPKNS_4ExprENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef, i64) local_unnamed_addr #2
@@ -11939,7 +11936,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter15Visi
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
   %11 = and i64 %6, 4
   %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %21, label %12
+  br i1 %.not.i, label %19, label %12
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %0, align 8
@@ -11950,22 +11947,19 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter15Visi
   call void @_ZN5clang7CodeGen15CodeGenFunction26MakeNaturalAlignAddrLValueEPN4llvm5ValueENS_8QualTypeENS0_14KnownNonNull_tE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %4, ptr noundef nonnull align 8 dereferenceable(6488) %13, ptr noundef %15, i64 %.sroa.0.0.copyload.i.i.i, i32 noundef 0) #15
   %17 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   %18 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16EmitLoadOfLValueEN5clang7CodeGen6LValueENS1_14SourceLocationE(ptr noundef nonnull readonly align 8 dereferenceable(19) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %4, i32 %17)
-  %19 = extractvalue { ptr, ptr } %18, 0
-  %20 = extractvalue { ptr, ptr } %18, 1
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
 
-21:                                               ; preds = %7
-  %22 = and i64 %6, -8
-  %23 = inttoptr i64 %22 to ptr
-  %24 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 0) #15
-  %25 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 1) #15
+19:                                               ; preds = %7
+  %20 = and i64 %6, -8
+  %21 = inttoptr i64 %20 to ptr
+  %22 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef 0) #15
+  %23 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef 1) #15
+  %24 = insertvalue { ptr, ptr } poison, ptr %22, 0
+  %25 = insertvalue { ptr, ptr } %24, ptr %23, 1
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
 
-_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit: ; preds = %12, %21
-  %.sroa.0.0.i = phi ptr [ %19, %12 ], [ %24, %21 ]
-  %.sroa.3.0.i = phi ptr [ %20, %12 ], [ %25, %21 ]
-  %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %.sroa.3.0.i, 1
+_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit: ; preds = %12, %19
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %18, %12 ], [ %25, %19 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
   br label %30
 
@@ -11979,7 +11973,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFu
   br label %30
 
 30:                                               ; preds = %26, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
-  %.pn = phi { ptr, ptr } [ %.fca.1.insert.i, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit ], [ %29, %26 ]
+  %.pn = phi { ptr, ptr } [ %.fca.1.insert.merged.i, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit ], [ %29, %26 ]
   ret { ptr, ptr } %.pn
 }
 
@@ -12241,7 +12235,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter17Visi
   %14 = trunc i64 %13 to i32
   switch i32 %14, label %30 [
     i32 2, label %15
-    i32 1, label %24
+    i32 1, label %26
   ]
 
 15:                                               ; preds = %2
@@ -12253,19 +12247,19 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter17Visi
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %19, ptr noundef %22, i1 noundef zeroext false) #15
-  br label %43
+  %24 = insertvalue { ptr, ptr } poison, ptr %18, 0
+  %25 = insertvalue { ptr, ptr } %24, ptr %23, 1
+  br label %45
 
-24:                                               ; preds = %2
-  %25 = load ptr, ptr %9, align 8
+26:                                               ; preds = %2
+  %27 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %26 = load ptr, ptr %0, align 8
-  call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(6488) %26, ptr noundef %25) #15
-  %27 = call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef %25)
+  %28 = load ptr, ptr %0, align 8
+  call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(6488) %28, ptr noundef %27) #15
+  %29 = call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef %27)
   call void @_ZN5clang7CodeGen18ApplyDebugLocationD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %28 = extractvalue { ptr, ptr } %27, 0
-  %29 = extractvalue { ptr, ptr } %27, 1
-  br label %43
+  br label %45
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12289,14 +12283,13 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %30, %37
   %40 = load ptr, ptr %0, align 8
   %41 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %40, i64 %.sroa.0.0.copyload.i9) #15
   %42 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %41) #15
-  br label %43
+  %43 = insertvalue { ptr, ptr } poison, ptr %42, 0
+  %44 = insertvalue { ptr, ptr } %43, ptr %42, 1
+  br label %45
 
-43:                                               ; preds = %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit, %24, %15
-  %.sroa.013.0 = phi ptr [ %18, %15 ], [ %28, %24 ], [ %42, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit ]
-  %.sroa.4.0 = phi ptr [ %23, %15 ], [ %29, %24 ], [ %42, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.013.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %.fca.1.insert
+45:                                               ; preds = %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit, %26, %15
+  %.fca.1.insert.merged = phi { ptr, ptr } [ %25, %15 ], [ %29, %26 ], [ %44, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit ]
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12569,32 +12562,29 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter17Visi
   %13 = call noundef ptr @_ZN5clang7CodeGen15ConstantEmitter19tryEmitConstantExprEPKNS_12ConstantExprE(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef %1) #15
   call void @_ZN5clang7CodeGen15ConstantEmitterD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #15
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %17, label %14
+  br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %2
   %15 = call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 0) #15
   %16 = call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 1) #15
+  %17 = insertvalue { ptr, ptr } poison, ptr %15, 0
+  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
   br label %24
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %20 = load ptr, ptr %0, align 8
-  call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(6488) %20, ptr noundef %19) #15
-  %21 = call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef %19)
+  %22 = load ptr, ptr %0, align 8
+  call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(6488) %22, ptr noundef %21) #15
+  %23 = call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef %21)
   call void @_ZN5clang7CodeGen18ApplyDebugLocationD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %22 = extractvalue { ptr, ptr } %21, 0
-  %23 = extractvalue { ptr, ptr } %21, 1
   br label %24
 
-24:                                               ; preds = %17, %14
-  %.sroa.0.0 = phi ptr [ %22, %17 ], [ %15, %14 ]
-  %.sroa.3.0 = phi ptr [ %23, %17 ], [ %16, %14 ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %.fca.1.insert
+24:                                               ; preds = %19, %14
+  %.fca.1.insert.merged = phi { ptr, ptr } [ %23, %19 ], [ %18, %14 ]
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12970,7 +12960,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16Visi
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
   %8 = and i64 %6, 4
   %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %18, label %9
+  br i1 %.not.i, label %16, label %9
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %0, align 8
@@ -12981,22 +12971,19 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16Visi
   call void @_ZN5clang7CodeGen15CodeGenFunction26MakeNaturalAlignAddrLValueEPN4llvm5ValueENS_8QualTypeENS0_14KnownNonNull_tE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %4, ptr noundef nonnull align 8 dereferenceable(6488) %10, ptr noundef %12, i64 %.sroa.0.0.copyload.i.i.i, i32 noundef 0) #15
   %14 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   %15 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16EmitLoadOfLValueEN5clang7CodeGen6LValueENS1_14SourceLocationE(ptr noundef nonnull readonly align 8 dereferenceable(19) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %4, i32 %14)
-  %16 = extractvalue { ptr, ptr } %15, 0
-  %17 = extractvalue { ptr, ptr } %15, 1
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
 
-18:                                               ; preds = %7
-  %19 = and i64 %6, -8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 0) #15
-  %22 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 1) #15
+16:                                               ; preds = %7
+  %17 = and i64 %6, -8
+  %18 = inttoptr i64 %17 to ptr
+  %19 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef 0) #15
+  %20 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef 1) #15
+  %21 = insertvalue { ptr, ptr } poison, ptr %19, 0
+  %22 = insertvalue { ptr, ptr } %21, ptr %20, 1
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
 
-_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit: ; preds = %9, %18
-  %.sroa.0.0.i = phi ptr [ %16, %9 ], [ %21, %18 ]
-  %.sroa.3.0.i = phi ptr [ %17, %9 ], [ %22, %18 ]
-  %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %.sroa.3.0.i, 1
+_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit: ; preds = %9, %16
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %15, %9 ], [ %22, %16 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
   br label %27
 
@@ -13010,7 +12997,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFu
   br label %27
 
 27:                                               ; preds = %23, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
-  %.pn = phi { ptr, ptr } [ %.fca.1.insert.i, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit ], [ %26, %23 ]
+  %.pn = phi { ptr, ptr } [ %.fca.1.insert.merged.i, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit ], [ %26, %23 ]
   ret { ptr, ptr } %.pn
 }
 

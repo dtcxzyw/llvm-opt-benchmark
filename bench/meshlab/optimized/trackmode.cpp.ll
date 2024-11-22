@@ -4571,7 +4571,7 @@ define { <2 x float>, float } @_ZN3vcg10trackutils9HitSphereEPNS_9TrackballERKNS
   %23 = fneg float %.sroa.022.4.vec.extract.i
   %24 = fneg float %.fca.1.extract10.i
   %.pre = extractelement <2 x float> %.fca.0.extract5.i, i64 0
-  %.pre212 = extractelement <2 x float> %.fca.0.extract5.i, i64 1
+  %.pre213 = extractelement <2 x float> %.fca.0.extract5.i, i64 1
   br label %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit
 
 25:                                               ; preds = %2
@@ -4585,7 +4585,7 @@ define { <2 x float>, float } @_ZN3vcg10trackutils9HitSphereEPNS_9TrackballERKNS
   br label %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit
 
 _ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit: ; preds = %21, %25
-  %.sroa.0129.4.vec.extract.pre-phi = phi float [ %.pre212, %21 ], [ %.sroa.022.4.vec.extract26.i, %25 ]
+  %.sroa.0129.4.vec.extract.pre-phi = phi float [ %.pre213, %21 ], [ %.sroa.022.4.vec.extract26.i, %25 ]
   %.sroa.0129.0.vec.extract.pre-phi = phi float [ %.pre, %21 ], [ %.sroa.022.0.vec.extract24.i, %25 ]
   %.sink29.i = phi float [ %22, %21 ], [ %27, %25 ]
   %.sink28.i = phi float [ %23, %21 ], [ %29, %25 ]
@@ -4947,20 +4947,20 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit48.i:           ; preds = %225, %_ZN3vcg6Point
   br label %242
 
 _ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit: ; preds = %179
-  br i1 %75, label %276, label %241
+  br i1 %75, label %275, label %241
 
 241:                                              ; preds = %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit
   %.sroa.0.0.vec.insert.i10.i.i = insertelement <2 x float> poison, float %109, i64 0
   %.sroa.0.4.vec.insert.i11.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i10.i.i, float %110, i64 1
-  br label %276
+  br label %275
 
 242:                                              ; preds = %_ZN3vcg10trackutils13HitHyperOrthoENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit, %_ZN3vcg6Point3IfE9NormalizeEv.exit48.i
-  %.sink213 = phi float [ %176, %_ZN3vcg10trackutils13HitHyperOrthoENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ], [ %238, %_ZN3vcg6Point3IfE9NormalizeEv.exit48.i ]
+  %.sink214 = phi float [ %176, %_ZN3vcg10trackutils13HitHyperOrthoENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ], [ %238, %_ZN3vcg6Point3IfE9NormalizeEv.exit48.i ]
   %.sink = phi float [ %177, %_ZN3vcg10trackutils13HitHyperOrthoENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ], [ %239, %_ZN3vcg6Point3IfE9NormalizeEv.exit48.i ]
   %.sroa.6110.0.ph = phi float [ %178, %_ZN3vcg10trackutils13HitHyperOrthoENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ], [ %240, %_ZN3vcg6Point3IfE9NormalizeEv.exit48.i ]
-  %.sroa.0.0.vec.insert.i43.i = insertelement <2 x float> poison, float %.sink213, i64 0
+  %.sroa.0.0.vec.insert.i43.i = insertelement <2 x float> poison, float %.sink214, i64 0
   %.sroa.0.4.vec.insert.i44.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i43.i, float %.sink, i64 1
-  br i1 %75, label %.thread204, label %276
+  br i1 %75, label %.thread204, label %275
 
 .thread204:                                       ; preds = %242
   %243 = fsub <2 x float> %.fca.0.extract33, %.sroa.0154.0.copyload
@@ -5010,17 +5010,16 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %.thread204, %270
   %.010.i = phi float [ %272, %270 ], [ -1.800000e+02, %.thread204 ]
   %273 = fdiv float %.010.i, 0x400921FB60000000
   %274 = fcmp olt float %273, 4.500000e+01
-  br i1 %274, label %276, label %275
+  %.sroa.0111.0..sroa.0107.0.ph = select i1 %274, <2 x float> %.sroa.0111.0, <2 x float> %.sroa.0.4.vec.insert.i44.i
+  %.sroa.8117.0..sroa.6110.0.ph = select i1 %274, float %.sroa.8117.0, float %.sroa.6110.0.ph
+  br label %275
 
-275:                                              ; preds = %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
-  br label %276
-
-276:                                              ; preds = %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %242, %275, %241
-  %.sroa.051.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i44.i, %275 ], [ %.sroa.0.4.vec.insert.i11.i.i, %241 ], [ %.sroa.0.4.vec.insert.i44.i, %242 ], [ %.sroa.0111.0, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ %.sroa.0111.0, %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ]
-  %.sroa.6.0 = phi float [ %.sroa.6110.0.ph, %275 ], [ %111, %241 ], [ %.sroa.6110.0.ph, %242 ], [ %.sroa.8117.0, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ %.sroa.8117.0, %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ]
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.051.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.6.0, 1
-  ret { <2 x float>, float } %.fca.1.insert
+275:                                              ; preds = %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %242, %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit, %241
+  %.sroa.0111.0.pn = phi <2 x float> [ %.sroa.0.4.vec.insert.i11.i.i, %241 ], [ %.sroa.0111.0, %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ], [ %.sroa.0.4.vec.insert.i44.i, %242 ], [ %.sroa.0111.0..sroa.0107.0.ph, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ]
+  %.sroa.8117.0.pn = phi float [ %111, %241 ], [ %.sroa.8117.0, %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ], [ %.sroa.6110.0.ph, %242 ], [ %.sroa.8117.0..sroa.6110.0.ph, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ]
+  %.pn = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0111.0.pn, 0
+  %.fca.1.insert.merged = insertvalue { <2 x float>, float } %.pn, float %.sroa.8117.0.pn, 1
+  ret { <2 x float>, float } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

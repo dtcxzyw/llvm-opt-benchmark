@@ -2814,12 +2814,12 @@ define internal fastcc noundef zeroext i1 @_ZL22iterativelySimplifyCFGRN4llvm8Fu
 36:                                               ; preds = %._crit_edge.i.i, %.lr.ph
   %37 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef %20) #20, !noalias !56
   %.pre.i = load ptr, ptr %6, align 8
-  %.pre8.i = load i32, ptr %12, align 4
+  %.pre6.i = load i32, ptr %12, align 4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %36, %32
   %38 = phi ptr [ %34, %32 ], [ %.pre.i, %36 ], [ %17, %.lr.ph.i.i ]
-  %39 = phi i32 [ %35, %32 ], [ %.pre8.i, %36 ], [ %23, %.lr.ph.i.i ]
+  %39 = phi i32 [ %35, %32 ], [ %.pre6.i, %36 ], [ %23, %.lr.ph.i.i ]
   %40 = load ptr, ptr %10, align 8
   %41 = getelementptr inbounds i8, ptr %.02340, i64 16
   %.not = icmp eq ptr %41, %16

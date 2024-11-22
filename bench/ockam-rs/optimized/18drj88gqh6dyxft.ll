@@ -1604,35 +1604,32 @@ define hidden { i64, ptr } @"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de
 
 5:                                                ; preds = %1
   %trunc = trunc i8 %3 to i1
-  br i1 %trunc, label %9, label %._crit_edge
+  br i1 %trunc, label %10, label %16
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !10, !align !27, !noundef !10
-  br label %15
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !10, !align !27, !noundef !10
-  %12 = tail call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h7bd3e3e434eff19aE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
-  %13 = extractvalue { i64, ptr } %12, 1
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %5, %9
-  %.pn = phi { i64, ptr } [ %12, %9 ], [ zeroinitializer, %5 ]
-  %.sroa.0.1 = extractvalue { i64, ptr } %.pn, 0
-  %.sroa.4.1 = extractvalue { i64, ptr } %.pn, 1
-  br label %15
-
-15:                                               ; preds = %._crit_edge, %6
-  %.sroa.4.0 = phi ptr [ %8, %6 ], [ %.sroa.4.1, %._crit_edge ]
-  %.sroa.0.0 = phi i64 [ 1, %6 ], [ %.sroa.0.1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %17
+  %9 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %8, 1
+  br label %17
+
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !nonnull !10, !align !27, !noundef !10
+  %13 = tail call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h7bd3e3e434eff19aE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
+  %14 = extractvalue { i64, ptr } %13, 1
+  %15 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %15)
+  br label %16
+
+16:                                               ; preds = %5, %10
+  %.pn = phi { i64, ptr } [ %13, %10 ], [ zeroinitializer, %5 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  br label %17
+
+17:                                               ; preds = %16, %6
+  %.merged = phi { i64, ptr } [ %9, %6 ], [ %.pn, %16 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -8274,35 +8271,32 @@ define hidden { i64, ptr } @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$
 
 9:                                                ; preds = %5
   %trunc.i = trunc i8 %7 to i1
-  br i1 %trunc.i, label %13, label %._crit_edge.i
+  br i1 %trunc.i, label %14, label %20
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !1468, !nonnull !10, !align !27, !noundef !10
-  br label %"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h6058aa6349aca79dE.llvm.10085540174115877777.exit"
-
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = load ptr, ptr %14, align 8, !noalias !1468, !nonnull !10, !align !27, !noundef !10
-  %16 = tail call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h7bd3e3e434eff19aE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
-  %17 = extractvalue { i64, ptr } %16, 1
-  %18 = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %18)
-  br label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %9, %13
-  %.pn.i = phi { i64, ptr } [ %16, %13 ], [ zeroinitializer, %9 ]
-  %.sroa.0.1.i = extractvalue { i64, ptr } %.pn.i, 0
-  %.sroa.4.1.i = extractvalue { i64, ptr } %.pn.i, 1
-  br label %"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h6058aa6349aca79dE.llvm.10085540174115877777.exit"
-
-"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h6058aa6349aca79dE.llvm.10085540174115877777.exit": ; preds = %10, %._crit_edge.i
-  %.sroa.4.0.i = phi ptr [ %12, %10 ], [ %.sroa.4.1.i, %._crit_edge.i ]
-  %.sroa.0.0.i = phi i64 [ 1, %10 ], [ %.sroa.0.1.i, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1468
-  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
-  %20 = insertvalue { i64, ptr } %19, ptr %.sroa.4.0.i, 1
-  ret { i64, ptr } %20
+  %13 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %12, 1
+  br label %"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h6058aa6349aca79dE.llvm.10085540174115877777.exit"
+
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = load ptr, ptr %15, align 8, !noalias !1468, !nonnull !10, !align !27, !noundef !10
+  %17 = tail call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h7bd3e3e434eff19aE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
+  %18 = extractvalue { i64, ptr } %17, 1
+  %19 = icmp ne ptr %18, null
+  tail call void @llvm.assume(i1 %19)
+  br label %20
+
+20:                                               ; preds = %14, %9
+  %.pn.i = phi { i64, ptr } [ %17, %14 ], [ zeroinitializer, %9 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1468
+  br label %"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h6058aa6349aca79dE.llvm.10085540174115877777.exit"
+
+"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h6058aa6349aca79dE.llvm.10085540174115877777.exit": ; preds = %10, %20
+  %.merged.i = phi { i64, ptr } [ %13, %10 ], [ %.pn.i, %20 ]
+  ret { i64, ptr } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -10175,7 +10169,7 @@ define hidden { i64, ptr } @"_ZN211_$LT$ockam_transport_websocket..router.._..$L
 .lr.ph.i.i._crit_edge.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i.i, %1
   %.lcssa.i.i.i.i = phi ptr [ %5, %1 ], [ %23, %.lr.ph.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2008
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit"
+  br label %56
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i.i.i
   %.01656.i.i11.i.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i.i.i.i ], [ 0, %1 ]
@@ -10195,7 +10189,7 @@ define hidden { i64, ptr } @"_ZN211_$LT$ockam_transport_websocket..router.._..$L
 
 12:                                               ; preds = %9, %.lr.ph.i.i.i.i
   %13 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_bare..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h5ac93d6ca7010542E"(ptr noalias noundef nonnull readonly align 1 @anon.de05196e861459032a255d939f01b64a.8, i64 noundef 61), !noalias !2038
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit"
+  br label %56
 
 14:                                               ; preds = %9
   %15 = icmp sgt i8 %8, -1
@@ -10225,7 +10219,7 @@ define hidden { i64, ptr } @"_ZN211_$LT$ockam_transport_websocket..router.._..$L
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i": ; preds = %25
   %31 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_bare..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h5ac93d6ca7010542E"(ptr noalias noundef nonnull readonly align 1 @anon.de05196e861459032a255d939f01b64a.88, i64 noundef 50), !noalias !2039
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit"
+  br label %56
 
 32:                                               ; preds = %25
   %33 = icmp eq i64 %29, 0
@@ -10238,55 +10232,60 @@ define hidden { i64, ptr } @"_ZN211_$LT$ockam_transport_websocket..router.._..$L
   store i8 1, ptr %3, align 8, !noalias !2042
   %36 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h12e5ddaf89f417f9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.de05196e861459032a255d939f01b64a.98, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de05196e861459032a255d939f01b64a.22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2042
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit"
+  br label %56
 
 37:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !2043
   call void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$..deserialize_enum..Enum$LT$R$GT$$u20$as$u20$serde..de..EnumAccess$GT$12variant_seed17h60419b9a66ec6591E.llvm.10085540174115877777"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
   %38 = load i8, ptr %2, align 8, !range !383, !noalias !2043, !noundef !10
   %39 = icmp eq i8 %38, 2
-  br i1 %39, label %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread, label %40
+  br i1 %39, label %41, label %40
 
 40:                                               ; preds = %37
   %trunc.i.i.i.i.i.i = trunc i8 %38 to i1
-  br i1 %trunc.i.i.i.i.i.i, label %43, label %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit
+  br i1 %trunc.i.i.i.i.i.i, label %45, label %51
 
-_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread: ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
-  %42 = load ptr, ptr %41, align 8, !noalias !2043, !nonnull !10, !align !27, !noundef !10
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = load ptr, ptr %42, align 8, !noalias !2043, !nonnull !10, !align !27, !noundef !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !2043
-  br label %49
-
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
-  %45 = load ptr, ptr %44, align 8, !noalias !2043, !nonnull !10, !align !27, !noundef !10
-  %46 = call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h7bd3e3e434eff19aE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(16) %45)
-  %47 = extractvalue { i64, ptr } %46, 1
-  %48 = icmp ne ptr %47, null
-  call void @llvm.assume(i1 %48)
+  %44 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %43, 1
   br label %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit
 
-_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit: ; preds = %40, %43
-  %.pn.i.i.i.i.i.i = phi { i64, ptr } [ %46, %43 ], [ zeroinitializer, %40 ]
-  %.sroa.0.1.i.i.i.i.i.i = extractvalue { i64, ptr } %.pn.i.i.i.i.i.i, 0
-  %.sroa.4.1.i.i.i.i.i.i = extractvalue { i64, ptr } %.pn.i.i.i.i.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !2043
-  %switch.i = icmp eq i64 %.sroa.0.1.i.i.i.i.i.i, 0
-  br i1 %switch.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit", label %49
-
-49:                                               ; preds = %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit
-  %.sroa.0.0.i.i.i.i.i.i18 = phi i64 [ 1, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread ], [ %.sroa.0.1.i.i.i.i.i.i, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ]
-  %.sroa.4.0.i.i.i.i.i.i16 = phi ptr [ %42, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread ], [ %.sroa.4.1.i.i.i.i.i.i, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ]
-  %50 = icmp ne ptr %.sroa.4.0.i.i.i.i.i.i16, null
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %47 = load ptr, ptr %46, align 8, !noalias !2043, !nonnull !10, !align !27, !noundef !10
+  %48 = call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h7bd3e3e434eff19aE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(16) %47)
+  %49 = extractvalue { i64, ptr } %48, 1
+  %50 = icmp ne ptr %49, null
   call void @llvm.assume(i1 %50)
+  br label %51
+
+51:                                               ; preds = %45, %40
+  %.pn.i.i.i.i.i.i = phi { i64, ptr } [ %48, %45 ], [ zeroinitializer, %40 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !2043
+  br label %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit
+
+_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit: ; preds = %41, %51
+  %.merged.i.i.i.i.i.i = phi { i64, ptr } [ %44, %41 ], [ %.pn.i.i.i.i.i.i, %51 ]
+  %52 = extractvalue { i64, ptr } %.merged.i.i.i.i.i.i, 0
+  %switch.i = icmp eq i64 %52, 0
+  br i1 %switch.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit", label %53
+
+53:                                               ; preds = %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit
+  %54 = extractvalue { i64, ptr } %.merged.i.i.i.i.i.i, 1
+  %55 = icmp ne ptr %54, null
+  call void @llvm.assume(i1 %55)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit": ; preds = %12, %.lr.ph.i.i._crit_edge.i.i.i.i, %34, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i", %49, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit
-  %.sroa.3.0 = phi ptr [ %.sroa.4.1.i.i.i.i.i.i, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ], [ %.sroa.4.0.i.i.i.i.i.i16, %49 ], [ %13, %12 ], [ %.lcssa.i.i.i.i, %.lr.ph.i.i._crit_edge.i.i.i.i ], [ %36, %34 ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i" ]
-  %.sroa.0.0 = phi i64 [ 0, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ], [ %.sroa.0.0.i.i.i.i.i.i18, %49 ], [ 1, %12 ], [ 1, %.lr.ph.i.i._crit_edge.i.i.i.i ], [ 1, %34 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i" ]
-  %51 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %52 = insertvalue { i64, ptr } %51, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %52
+56:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i", %34, %.lr.ph.i.i._crit_edge.i.i.i.i, %12
+  %.0.i.i.i.i.i.ph = phi ptr [ %13, %12 ], [ %.lcssa.i.i.i.i, %.lr.ph.i.i._crit_edge.i.i.i.i ], [ %36, %34 ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i" ]
+  %57 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.0.i.i.i.i.i.ph, 1
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit"
+
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit": ; preds = %53, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit, %56
+  %.merged = phi { i64, ptr } [ %57, %56 ], [ %.merged.i.i.i.i.i.i, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ], [ %.merged.i.i.i.i.i.i, %53 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -4762,55 +4762,57 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento16MemRegionManager13getStaticSizeEP
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
-  switch i32 %6, label %164 [
+  switch i32 %6, label %170 [
     i32 9, label %7
     i32 10, label %7
-    i32 26, label %9
-    i32 14, label %35
-    i32 15, label %35
-    i32 16, label %35
-    i32 17, label %35
-    i32 18, label %35
-    i32 19, label %35
-    i32 21, label %35
-    i32 22, label %35
-    i32 23, label %35
-    i32 24, label %35
-    i32 25, label %35
-    i32 20, label %58
-    i32 11, label %162
-    i32 12, label %162
-    i32 13, label %162
+    i32 26, label %11
+    i32 14, label %37
+    i32 15, label %37
+    i32 16, label %37
+    i32 17, label %37
+    i32 18, label %37
+    i32 19, label %37
+    i32 21, label %37
+    i32 22, label %37
+    i32 23, label %37
+    i32 24, label %37
+    i32 25, label %37
+    i32 20, label %62
+    i32 11, label %166
+    i32 12, label %166
+    i32 13, label %166
   ]
 
 7:                                                ; preds = %3, %3
   %8 = tail call noundef ptr @_ZN5clang4ento13SymbolManager15getExtentSymbolEPKNS0_9SubRegionE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull %1) #20
-  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread"
+  %9 = insertvalue { ptr, i8 } poison, ptr %8, 0
+  %10 = insertvalue { ptr, i8 } %9, i8 9, 1
+  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %11 = load ptr, ptr %10, align 8
-  %12 = load i32, ptr %11, align 8
-  %13 = lshr i32 %12, 21
-  %14 = and i32 %13, 7
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
-  %16 = load i32, ptr %15, align 4
-  %17 = mul i32 %14, %16
-  %18 = add i32 %17, 1
-  %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 400
-  %.sroa.0.0.copyload.i = load i64, ptr %20, align 8
-  %21 = and i64 %.sroa.0.0.copyload.i, -16
-  %22 = inttoptr i64 %21 to ptr
-  %23 = load ptr, ptr %22, align 16
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %24, align 8
-  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, -16
-  %26 = inttoptr i64 %25 to ptr
-  %27 = load ptr, ptr %26, align 16
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = load i8, ptr %28, align 16
-  switch i8 %29, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i [
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr %13, align 8
+  %15 = lshr i32 %14, 21
+  %16 = and i32 %15, 7
+  %17 = getelementptr inbounds i8, ptr %13, i64 16
+  %18 = load i32, ptr %17, align 4
+  %19 = mul i32 %16, %18
+  %20 = add i32 %19, 1
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 400
+  %.sroa.0.0.copyload.i = load i64, ptr %22, align 8
+  %23 = and i64 %.sroa.0.0.copyload.i, -16
+  %24 = inttoptr i64 %23 to ptr
+  %25 = load ptr, ptr %24, align 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %26, align 8
+  %27 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, -16
+  %28 = inttoptr i64 %27 to ptr
+  %29 = load ptr, ptr %28, align 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load i8, ptr %30, align 16
+  switch i8 %31, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i [
     i8 43, label %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit
     i8 42, label %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit
     i8 41, label %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit
@@ -4819,274 +4821,273 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento16MemRegionManager13getStaticSizeEP
     i8 13, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i
   ]
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i: ; preds = %9
-  %30 = load i32, ptr %28, align 16
-  %31 = and i32 %30, 267911168
-  %32 = icmp eq i32 %31, 252182528
-  br i1 %32, label %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i: ; preds = %11
+  %32 = load i32, ptr %30, align 16
+  %33 = and i32 %32, 267911168
+  %34 = icmp eq i32 %33, 252182528
+  br i1 %34, label %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i, %9
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i, %11
   br label %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit
 
-_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit: ; preds = %9, %9, %9, %9, %9, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i
-  %.sroa.3.0.i = phi i8 [ 6, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i ], [ 2, %9 ], [ 2, %9 ], [ 2, %9 ], [ 2, %9 ], [ 2, %9 ], [ 2, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i ]
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = tail call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %33, i64 noundef %19, i64 %.sroa.0.0.copyload.i) #20
-  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread"
+_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit: ; preds = %11, %11, %11, %11, %11, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i
+  %.sroa.3.0.i = phi i8 [ 6, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %36 = tail call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %35, i64 noundef %21, i64 %.sroa.0.0.copyload.i) #20
+  %.fca.0.insert.i = insertvalue { ptr, i8 } poison, ptr %36, 0
+  %.fca.1.insert.i = insertvalue { ptr, i8 } %.fca.0.insert.i, i8 %.sroa.3.0.i, 1
+  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-35:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %36 = load ptr, ptr %0, align 8
-  %37 = load ptr, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 104
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call i64 %39(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
-  %.not.i.i.i.i = icmp ult i64 %40, 16
+37:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %38 = load ptr, ptr %0, align 8
+  %39 = load ptr, ptr %1, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 104
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call i64 %41(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
+  %.not.i.i.i.i = icmp ult i64 %42, 16
   br i1 %.not.i.i.i.i, label %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i
 
-_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i:   ; preds = %35
-  %41 = and i64 %40, -16
-  %42 = inttoptr i64 %41 to ptr
-  %43 = load ptr, ptr %42, align 16
-  %.not.i = icmp eq ptr %43, null
-  br i1 %.not.i, label %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit, label %44
+_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i:   ; preds = %37
+  %43 = and i64 %42, -16
+  %44 = inttoptr i64 %43 to ptr
+  %45 = load ptr, ptr %44, align 16
+  %.not.i = icmp eq ptr %45, null
+  br i1 %.not.i, label %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit, label %46
 
-44:                                               ; preds = %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i
-  %45 = tail call i64 @_ZN5clang8QualType16getDesugaredTypeES0_RKNS_10ASTContextE(i64 %40, ptr noundef nonnull align 8 dereferenceable(23096) %36) #20
+46:                                               ; preds = %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i
+  %47 = tail call i64 @_ZN5clang8QualType16getDesugaredTypeES0_RKNS_10ASTContextE(i64 %42, ptr noundef nonnull align 8 dereferenceable(23096) %38) #20
   br label %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit
 
-_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit: ; preds = %35, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i, %44
-  %.sroa.0.0.i = phi i64 [ %45, %44 ], [ %40, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i ], [ %40, %35 ]
-  %46 = and i64 %.sroa.0.0.i, -16
-  %47 = inttoptr i64 %46 to ptr
-  %48 = load ptr, ptr %47, align 16
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load i8, ptr %49, align 16
-  %51 = icmp eq i8 %50, 6
-  br i1 %51, label %52, label %54
-
-52:                                               ; preds = %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit
-  %53 = tail call noundef ptr @_ZN5clang4ento13SymbolManager15getExtentSymbolEPKNS0_9SubRegionE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull %1) #20
-  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread"
+_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit: ; preds = %37, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i, %46
+  %.sroa.0.0.i = phi i64 [ %47, %46 ], [ %42, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i ], [ %42, %37 ]
+  %48 = and i64 %.sroa.0.0.i, -16
+  %49 = inttoptr i64 %48 to ptr
+  %50 = load ptr, ptr %49, align 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load i8, ptr %51, align 16
+  %53 = icmp eq i8 %52, 6
+  br i1 %53, label %54, label %58
 
 54:                                               ; preds = %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit
-  %55 = tail call noundef zeroext i1 @_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE(ptr noundef nonnull align 16 dereferenceable(24) %48, ptr noundef null) #20
-  br i1 %55, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %56
+  %55 = tail call noundef ptr @_ZN5clang4ento13SymbolManager15getExtentSymbolEPKNS0_9SubRegionE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull %1) #20
+  %56 = insertvalue { ptr, i8 } poison, ptr %55, 0
+  %57 = insertvalue { ptr, i8 } %56, i8 9, 1
+  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-56:                                               ; preds = %54
-  %57 = tail call { ptr, i8 } @_ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE(i64 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(412) %2) #20
-  %.fca.0.extract7 = extractvalue { ptr, i8 } %57, 0
-  %.fca.1.extract8 = extractvalue { ptr, i8 } %57, 1
-  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread"
+58:                                               ; preds = %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit
+  %59 = tail call noundef zeroext i1 @_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE(ptr noundef nonnull align 16 dereferenceable(24) %50, ptr noundef null) #20
+  br i1 %59, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79", label %60
 
-58:                                               ; preds = %3
-  %59 = load ptr, ptr %1, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 112
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef nonnull ptr %61(ptr noundef nonnull align 8 dereferenceable(64) %1) #20
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 68
-  %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 1
-  %.not = icmp eq i32 %65, 0
-  br i1 %.not, label %66, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread"
+60:                                               ; preds = %58
+  %61 = tail call { ptr, i8 } @_ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE(i64 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(412) %2) #20
+  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-66:                                               ; preds = %58
-  %67 = load ptr, ptr %0, align 8
-  %68 = load ptr, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 104
-  %70 = load ptr, ptr %69, align 8
-  %71 = tail call i64 %70(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
-  %.not.i.i.i.i58 = icmp ult i64 %71, 16
+62:                                               ; preds = %3
+  %63 = load ptr, ptr %1, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 112
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call noundef nonnull ptr %65(ptr noundef nonnull align 8 dereferenceable(64) %1) #20
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 68
+  %68 = load i32, ptr %67, align 4
+  %69 = and i32 %68, 1
+  %.not = icmp eq i32 %69, 0
+  br i1 %.not, label %70, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %0, align 8
+  %72 = load ptr, ptr %1, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 104
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call i64 %74(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
+  %.not.i.i.i.i58 = icmp ult i64 %75, 16
   br i1 %.not.i.i.i.i58, label %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i59
 
-_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i59: ; preds = %66
-  %72 = and i64 %71, -16
-  %73 = inttoptr i64 %72 to ptr
-  %74 = load ptr, ptr %73, align 16
-  %.not.i60 = icmp eq ptr %74, null
-  br i1 %.not.i60, label %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62, label %75
+_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i59: ; preds = %70
+  %76 = and i64 %75, -16
+  %77 = inttoptr i64 %76 to ptr
+  %78 = load ptr, ptr %77, align 16
+  %.not.i60 = icmp eq ptr %78, null
+  br i1 %.not.i60, label %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62, label %79
 
-75:                                               ; preds = %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i59
-  %76 = tail call i64 @_ZN5clang8QualType16getDesugaredTypeES0_RKNS_10ASTContextE(i64 %71, ptr noundef nonnull align 8 dereferenceable(23096) %67) #20
+79:                                               ; preds = %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i59
+  %80 = tail call i64 @_ZN5clang8QualType16getDesugaredTypeES0_RKNS_10ASTContextE(i64 %75, ptr noundef nonnull align 8 dereferenceable(23096) %71) #20
   br label %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62
 
-_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62: ; preds = %66, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i59, %75
-  %.sroa.0.0.i61 = phi i64 [ %76, %75 ], [ %71, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i59 ], [ %71, %66 ]
-  %77 = tail call { ptr, i8 } @_ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE(i64 %.sroa.0.0.i61, ptr noundef nonnull align 8 dereferenceable(412) %2) #20
-  %78 = load ptr, ptr %0, align 8
-  %79 = tail call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %78, i64 %.sroa.0.0.i61) #20
-  %.not.i63 = icmp eq ptr %79, null
-  br i1 %.not.i63, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79", label %80
+_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62: ; preds = %70, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i59, %79
+  %.sroa.0.0.i61 = phi i64 [ %80, %79 ], [ %75, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i59 ], [ %75, %70 ]
+  %81 = tail call { ptr, i8 } @_ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE(i64 %.sroa.0.0.i61, ptr noundef nonnull align 8 dereferenceable(412) %2) #20
+  %82 = load ptr, ptr %0, align 8
+  %83 = tail call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %82, i64 %.sroa.0.0.i61) #20
+  %.not.i63 = icmp eq ptr %83, null
+  br i1 %.not.i63, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79", label %84
 
-80:                                               ; preds = %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62
-  %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 2112
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 200
-  %85 = load i16, ptr %84, align 8
-  %86 = lshr i16 %85, 8
-  %87 = and i16 %86, 3
-  switch i16 %87, label %default.unreachable [
-    i16 0, label %88
-    i16 1, label %112
-    i16 2, label %136
-    i16 3, label %157
+84:                                               ; preds = %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62
+  %85 = load ptr, ptr %0, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 2112
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 200
+  %89 = load i16, ptr %88, align 8
+  %90 = lshr i16 %89, 8
+  %91 = and i16 %90, 3
+  switch i16 %91, label %default.unreachable [
+    i16 0, label %92
+    i16 1, label %116
+    i16 2, label %140
+    i16 3, label %161
   ]
 
-88:                                               ; preds = %80
-  %89 = tail call fastcc noundef zeroext i1 @"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_"(ptr noundef readonly %79)
-  br i1 %89, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %90
+92:                                               ; preds = %84
+  %93 = tail call fastcc noundef zeroext i1 @"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_"(ptr noundef readonly %83)
+  br i1 %93, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %94
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %92 = load i8, ptr %91, align 16
-  %93 = and i8 %92, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i.i = icmp eq i8 %93, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i, label %94, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i"
-
-94:                                               ; preds = %90
-  %95 = load i32, ptr %91, align 16
-  %96 = and i32 %95, 33554432
-  %.not.i.i.i = icmp eq i32 %96, 0
-  %97 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  br i1 %.not.i.i.i, label %106, label %98
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %96 = load i8, ptr %95, align 16
+  %97 = and i8 %96, -2
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i = icmp eq i8 %97, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i, label %98, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i"
 
 98:                                               ; preds = %94
-  %99 = load ptr, ptr %97, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %101 = load i32, ptr %100, align 8
-  %102 = icmp ult i32 %101, 65
-  br i1 %102, label %103, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i"
+  %99 = load i32, ptr %95, align 16
+  %100 = and i32 %99, 33554432
+  %.not.i.i.i = icmp eq i32 %100, 0
+  %101 = getelementptr inbounds nuw i8, ptr %83, i64 40
+  br i1 %.not.i.i.i, label %110, label %102
 
-103:                                              ; preds = %98
-  %104 = load i64, ptr %99, align 8
-  %105 = icmp eq i64 %104, 0
-  br i1 %105, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %101, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %105 = load i32, ptr %104, align 8
+  %106 = icmp ult i32 %105, 65
+  br i1 %106, label %107, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i"
 
-106:                                              ; preds = %94
-  %107 = load i64, ptr %97, align 8
-  %108 = icmp eq i64 %107, 0
-  br i1 %108, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+107:                                              ; preds = %102
+  %108 = load i64, ptr %103, align 8
+  %109 = icmp eq i64 %108, 0
+  br i1 %109, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i": ; preds = %98
-  %109 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %99) #21
-  %110 = icmp eq i32 %109, %101
-  br i1 %110, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+110:                                              ; preds = %98
+  %111 = load i64, ptr %101, align 8
+  %112 = icmp eq i64 %111, 0
+  br i1 %112, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i": ; preds = %90
-  %111 = icmp eq i8 %92, 5
-  br i1 %111, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i": ; preds = %102
+  %113 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %103) #21
+  %114 = icmp eq i32 %113, %105
+  br i1 %114, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-112:                                              ; preds = %80
-  %113 = tail call fastcc noundef zeroext i1 @"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_"(ptr noundef readonly %79)
-  br i1 %113, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %114
+"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i": ; preds = %94
+  %115 = icmp eq i8 %96, 5
+  br i1 %115, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-114:                                              ; preds = %112
-  %115 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %116 = load i8, ptr %115, align 16
-  %117 = and i8 %116, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i16.i = icmp eq i8 %117, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i16.i, label %118, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i"
+116:                                              ; preds = %84
+  %117 = tail call fastcc noundef zeroext i1 @"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_"(ptr noundef readonly %83)
+  br i1 %117, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %118
 
-118:                                              ; preds = %114
-  %119 = load i32, ptr %115, align 16
-  %120 = and i32 %119, 33554432
-  %.not.i.i17.i = icmp eq i32 %120, 0
-  %121 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  br i1 %.not.i.i17.i, label %130, label %122
+118:                                              ; preds = %116
+  %119 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %120 = load i8, ptr %119, align 16
+  %121 = and i8 %120, -2
+  %spec.select.i.i.i.i.i.i.i.i.not.i16.i = icmp eq i8 %121, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i16.i, label %122, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i"
 
 122:                                              ; preds = %118
-  %123 = load ptr, ptr %121, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %125 = load i32, ptr %124, align 8
-  %126 = icmp ult i32 %125, 65
-  br i1 %126, label %127, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i"
+  %123 = load i32, ptr %119, align 16
+  %124 = and i32 %123, 33554432
+  %.not.i.i17.i = icmp eq i32 %124, 0
+  %125 = getelementptr inbounds nuw i8, ptr %83, i64 40
+  br i1 %.not.i.i17.i, label %134, label %126
 
-127:                                              ; preds = %122
-  %128 = load i64, ptr %123, align 8
-  %129 = icmp eq i64 %128, 0
-  br i1 %129, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+126:                                              ; preds = %122
+  %127 = load ptr, ptr %125, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %129 = load i32, ptr %128, align 8
+  %130 = icmp ult i32 %129, 65
+  br i1 %130, label %131, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i"
 
-130:                                              ; preds = %118
-  %131 = load i64, ptr %121, align 8
-  %132 = icmp eq i64 %131, 0
-  br i1 %132, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+131:                                              ; preds = %126
+  %132 = load i64, ptr %127, align 8
+  %133 = icmp eq i64 %132, 0
+  br i1 %133, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i": ; preds = %122
-  %133 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %123) #21
-  %134 = icmp eq i32 %133, %125
-  br i1 %134, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+134:                                              ; preds = %122
+  %135 = load i64, ptr %125, align 8
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i": ; preds = %114
-  %135 = icmp eq i8 %116, 5
-  br i1 %135, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i": ; preds = %126
+  %137 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %127) #21
+  %138 = icmp eq i32 %137, %129
+  br i1 %138, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-136:                                              ; preds = %80
-  %137 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %138 = load i8, ptr %137, align 16
-  %139 = and i8 %138, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i19.i = icmp eq i8 %139, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i19.i, label %140, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit"
+"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i": ; preds = %118
+  %139 = icmp eq i8 %120, 5
+  br i1 %139, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-140:                                              ; preds = %136
-  %141 = load i32, ptr %137, align 16
-  %142 = and i32 %141, 33554432
-  %.not.i.i20.i = icmp eq i32 %142, 0
-  %143 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  br i1 %.not.i.i20.i, label %152, label %144
+140:                                              ; preds = %84
+  %141 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %142 = load i8, ptr %141, align 16
+  %143 = and i8 %142, -2
+  %spec.select.i.i.i.i.i.i.i.i.not.i19.i = icmp eq i8 %143, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i19.i, label %144, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit"
 
 144:                                              ; preds = %140
-  %145 = load ptr, ptr %143, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %147 = load i32, ptr %146, align 8
-  %148 = icmp ult i32 %147, 65
-  br i1 %148, label %149, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i"
+  %145 = load i32, ptr %141, align 16
+  %146 = and i32 %145, 33554432
+  %.not.i.i20.i = icmp eq i32 %146, 0
+  %147 = getelementptr inbounds nuw i8, ptr %83, i64 40
+  br i1 %.not.i.i20.i, label %156, label %148
 
-149:                                              ; preds = %144
-  %150 = load i64, ptr %145, align 8
-  %151 = icmp eq i64 %150, 0
-  br i1 %151, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+148:                                              ; preds = %144
+  %149 = load ptr, ptr %147, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %151 = load i32, ptr %150, align 8
+  %152 = icmp ult i32 %151, 65
+  br i1 %152, label %153, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i"
 
-152:                                              ; preds = %140
-  %153 = load i64, ptr %143, align 8
-  %154 = icmp eq i64 %153, 0
-  br i1 %154, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+153:                                              ; preds = %148
+  %154 = load i64, ptr %149, align 8
+  %155 = icmp eq i64 %154, 0
+  br i1 %155, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i": ; preds = %144
-  %155 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %145) #21
-  %156 = icmp eq i32 %155, %147
-  br i1 %156, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+156:                                              ; preds = %144
+  %157 = load i64, ptr %147, align 8
+  %158 = icmp eq i64 %157, 0
+  br i1 %158, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-default.unreachable:                              ; preds = %80
-  unreachable
-
-157:                                              ; preds = %80
-  %158 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %159 = load i8, ptr %158, align 16
-  %160 = icmp eq i8 %159, 5
+"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i": ; preds = %148
+  %159 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %149) #21
+  %160 = icmp eq i32 %159, %151
   br i1 %160, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
 
-"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit": ; preds = %136
-  %161 = icmp eq i8 %138, 5
-  br i1 %161, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
-
-"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79": ; preds = %127, %130, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i", %103, %106, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i", %152, %149, %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i", %157, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit"
-  %.fca.1.extract = extractvalue { ptr, i8 } %77, 1
-  %.fca.0.extract = extractvalue { ptr, i8 } %77, 0
-  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread"
-
-162:                                              ; preds = %3, %3, %3
-  %163 = tail call noundef ptr @_ZN5clang4ento13SymbolManager15getExtentSymbolEPKNS0_9SubRegionE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull %1) #20
-  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread"
-
-164:                                              ; preds = %3
+default.unreachable:                              ; preds = %84
   unreachable
 
-"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread": ; preds = %149, %152, %127, %130, %103, %106, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i", %112, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i", %88, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i", %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit", %157, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i", %58, %54, %162, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79", %56, %52, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit, %7
-  %.sroa.037.0 = phi ptr [ %163, %162 ], [ %.fca.0.extract, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79" ], [ %53, %52 ], [ %.fca.0.extract7, %56 ], [ %34, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ %8, %7 ], [ null, %54 ], [ null, %58 ], [ null, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i" ], [ null, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i" ], [ null, %157 ], [ null, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit" ], [ null, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i" ], [ null, %88 ], [ null, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i" ], [ null, %112 ], [ null, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i" ], [ null, %106 ], [ null, %103 ], [ null, %130 ], [ null, %127 ], [ null, %152 ], [ null, %149 ]
-  %.sroa.10.0 = phi i8 [ 9, %162 ], [ %.fca.1.extract, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79" ], [ 9, %52 ], [ %.fca.1.extract8, %56 ], [ %.sroa.3.0.i, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ 9, %7 ], [ 1, %54 ], [ 1, %58 ], [ 1, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i" ], [ 1, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i" ], [ 1, %157 ], [ 1, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit" ], [ 1, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i" ], [ 1, %88 ], [ 1, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i" ], [ 1, %112 ], [ 1, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i" ], [ 1, %106 ], [ 1, %103 ], [ 1, %130 ], [ 1, %127 ], [ 1, %152 ], [ 1, %149 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.037.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.10.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+161:                                              ; preds = %84
+  %162 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %163 = load i8, ptr %162, align 16
+  %164 = icmp eq i8 %163, 5
+  br i1 %164, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+
+"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit": ; preds = %140
+  %165 = icmp eq i8 %142, 5
+  br i1 %165, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+
+"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread": ; preds = %153, %156, %131, %134, %107, %110, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i", %116, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i", %92, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i", %161, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit"
+  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+
+166:                                              ; preds = %3, %3, %3
+  %167 = tail call noundef ptr @_ZN5clang4ento13SymbolManager15getExtentSymbolEPKNS0_9SubRegionE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull %1) #20
+  %168 = insertvalue { ptr, i8 } poison, ptr %167, 0
+  %169 = insertvalue { ptr, i8 } %168, i8 9, 1
+  br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79"
+
+170:                                              ; preds = %3
+  unreachable
+
+"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread79": ; preds = %131, %134, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i", %107, %110, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i", %156, %153, %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i", %161, %62, %58, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit", %166, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", %60, %54, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit, %7
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %169, %166 ], [ { ptr null, i8 1 }, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread" ], [ %57, %54 ], [ %61, %60 ], [ %.fca.1.insert.i, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ %10, %7 ], [ %81, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit" ], [ { ptr null, i8 1 }, %58 ], [ { ptr null, i8 1 }, %62 ], [ %81, %161 ], [ %81, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i" ], [ %81, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.thread.i" ], [ %81, %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit62 ], [ %81, %153 ], [ %81, %156 ], [ %81, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit21.i" ], [ %81, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i" ], [ %81, %110 ], [ %81, %107 ], [ %81, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit18.i" ], [ %81, %134 ], [ %81, %131 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 declare noundef ptr @_ZN5clang4ento13SymbolManager15getExtentSymbolEPKNS0_9SubRegionE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #8

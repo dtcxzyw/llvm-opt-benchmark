@@ -27447,11 +27447,11 @@ define { <2 x float>, <2 x float> } @QuaternionSlerp(<2 x float> %0, <2 x float>
   br label %80
 
 80:                                               ; preds = %17, %22, %64, %55
-  %.sroa.073.0 = phi <2 x float> [ %.sroa.028.4.vec.insert34.i, %22 ], [ %.sroa.073.4.vec.insert, %55 ], [ %.sroa.073.4.vec.insert78, %64 ], [ %0, %17 ]
-  %.sroa.8.0 = phi <2 x float> [ %.sroa.8.12.vec.insert41.i, %22 ], [ %.sroa.8.12.vec.insert, %55 ], [ %.sroa.8.12.vec.insert83, %64 ], [ %1, %17 ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.073.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.8.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %.pn87 = phi <2 x float> [ %.sroa.028.4.vec.insert34.i, %22 ], [ %.sroa.073.4.vec.insert, %55 ], [ %.sroa.073.4.vec.insert78, %64 ], [ %0, %17 ]
+  %.pn85 = phi <2 x float> [ %.sroa.8.12.vec.insert41.i, %22 ], [ %.sroa.8.12.vec.insert, %55 ], [ %.sroa.8.12.vec.insert83, %64 ], [ %1, %17 ]
+  %.pn = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.pn87, 0
+  %.fca.1.insert.merged = insertvalue { <2 x float>, <2 x float> } %.pn, <2 x float> %.pn85, 1
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)

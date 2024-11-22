@@ -7692,43 +7692,43 @@ _ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESa
   %rightmost_.i.i.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i.i.i = load ptr, ptr %rightmost_.i.i.phi.trans.insert.i.i.i, align 8, !noalias !324
   %arrayidx.i.i.phi.trans.insert.i.i.i = getelementptr i8, ptr %.pre.i.i.i, i64 10
-  %.pre23.i.i.i = load i8, ptr %arrayidx.i.i.phi.trans.insert.i.i.i, align 1, !noalias !324
-  %.pre24.i.i.i = zext i8 %.pre23.i.i.i to i32
+  %.pre21.i.i.i = load i8, ptr %arrayidx.i.i.phi.trans.insert.i.i.i, align 1, !noalias !324
+  %.pre22.i.i.i = zext i8 %.pre21.i.i.i to i32
   br label %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.i.i.i
 
 _ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.i.i.i: ; preds = %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.loopexit.i.i.i, %cond.false.i.i.i.i
   %10 = phi i8 [ %4, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.loopexit.i.i.i ], [ %9, %cond.false.i.i.i.i ]
-  %conv.i.pre-phi.i.i.i = phi i32 [ %.pre24.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.loopexit.i.i.i ], [ %conv.i.i3.i.i.i, %cond.false.i.i.i.i ]
+  %conv.i.pre-phi.i.i.i = phi i32 [ %.pre22.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.loopexit.i.i.i ], [ %conv.i.i3.i.i.i, %cond.false.i.i.i.i ]
   %11 = phi ptr [ %.pre.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.loopexit.i.i.i ], [ %8, %cond.false.i.i.i.i ]
-  %retval.sroa.0.0.i.i.i.i = phi ptr [ %iter.sroa.0.0.i2.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.loopexit.i.i.i ], [ %8, %cond.false.i.i.i.i ]
-  %retval.sroa.3.0.i.i.i.i = phi i32 [ %iter.sroa.7.0.i.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.loopexit.i.i.i ], [ %conv.i.i3.i.i.i, %cond.false.i.i.i.i ]
-  %cmp.i.i7.i.i.i = icmp ne ptr %retval.sroa.0.0.i.i.i.i, %11
-  %cmp6.i.i.i.i.i = icmp ne i32 %retval.sroa.3.0.i.i.i.i, %conv.i.pre-phi.i.i.i
-  %.not.i.i.i.i = select i1 %cmp.i.i7.i.i.i, i1 true, i1 %cmp6.i.i.i.i.i
+  %iter.coerce0.pn.i.i.i.i = phi ptr [ %iter.sroa.0.0.i2.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.loopexit.i.i.i ], [ %8, %cond.false.i.i.i.i ]
+  %iter.coerce1.pn.i.i.i.i = phi i32 [ %iter.sroa.7.0.i.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.loopexit.i.i.i ], [ %conv.i.i3.i.i.i, %cond.false.i.i.i.i ]
+  %cmp.i.i5.i.i.i = icmp ne ptr %iter.coerce0.pn.i.i.i.i, %11
+  %cmp6.i.i.i.i.i = icmp ne i32 %iter.coerce1.pn.i.i.i.i, %conv.i.pre-phi.i.i.i
+  %.not.i.i.i.i = select i1 %cmp.i.i5.i.i.i, i1 true, i1 %cmp6.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE17lower_bound_equalIiEESt4pairINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEbERKT_.exit.i.i, label %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11equal_rangeIiEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSF_EESI_ERKT_.exit
 
 _ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE17lower_bound_equalIiEESt4pairINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEbERKT_.exit.i.i: ; preds = %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.i.i.i
-  %conv.i9.i.i.i = sext i32 %retval.sroa.3.0.i.i.i.i to i64
-  %add.ptr.i.i.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 12
-  %arrayidx.i.i.i11.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i10.i.i.i, i64 %conv.i9.i.i.i
-  %12 = load i32, ptr %arrayidx.i.i.i11.i.i.i, align 4, !noalias !324
+  %conv.i7.i.i.i = sext i32 %iter.coerce1.pn.i.i.i.i to i64
+  %add.ptr.i.i.i.i.i8.i.i.i = getelementptr inbounds i8, ptr %iter.coerce0.pn.i.i.i.i, i64 12
+  %arrayidx.i.i.i9.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i8.i.i.i, i64 %conv.i7.i.i.i
+  %12 = load i32, ptr %arrayidx.i.i.i9.i.i.i, align 4, !noalias !324
   %cmp.i.i.i.i.not.i.i = icmp slt i32 %0, %12
   br i1 %cmp.i.i.i.i.not.i.i, label %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11equal_rangeIiEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSF_EESI_ERKT_.exit, label %while.body.i.preheader.i.i
 
 while.body.i.preheader.i.i:                       ; preds = %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE17lower_bound_equalIiEESt4pairINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEbERKT_.exit.i.i
-  %arrayidx.i.i.i.i2.i.i = getelementptr i8, ptr %retval.sroa.0.0.i.i.i.i, i64 11
+  %arrayidx.i.i.i.i2.i.i = getelementptr i8, ptr %iter.coerce0.pn.i.i.i.i, i64 11
   %13 = load i8, ptr %arrayidx.i.i.i.i2.i.i, align 1, !noalias !329
   %cmp.i.not.i.i.i3.i.i = icmp eq i8 %13, 0
   br i1 %cmp.i.not.i.i.i3.i.i, label %if.else.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %while.body.i.preheader.i.i
-  %inc.i.i.i.i.i = add nsw i32 %retval.sroa.3.0.i.i.i.i, 1
+  %inc.i.i.i.i.i = add nsw i32 %iter.coerce1.pn.i.i.i.i, 1
   %conv.i.i.i5.i.i = zext i8 %10 to i32
   %cmp8.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, %conv.i.i.i5.i.i
   br i1 %cmp8.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11equal_rangeIiEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSF_EESI_ERKT_.exit
 
 land.rhs.i.i.i.i.i.i:                             ; preds = %land.lhs.true.i.i.i.i.i, %while.body.i.i.i.i.i.i
-  %14 = phi ptr [ %15, %while.body.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %land.lhs.true.i.i.i.i.i ]
+  %14 = phi ptr [ %15, %while.body.i.i.i.i.i.i ], [ %iter.coerce0.pn.i.i.i.i, %land.lhs.true.i.i.i.i.i ]
   %15 = load ptr, ptr %14, align 8, !noalias !329
   %arrayidx.i.i.i.i.i.i8.i.i = getelementptr i8, ptr %15, i64 11
   %16 = load i8, ptr %arrayidx.i.i.i.i.i.i8.i.i, align 1, !noalias !329
@@ -7744,8 +7744,8 @@ while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.
   br i1 %cmp.i2.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERiPiEppEv.exit.i.loopexit25.split.loop.exit28.i.i, !llvm.loop !305
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.body.i.preheader.i.i
-  %add.ptr.i.i.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 256
-  %19 = add i32 %retval.sroa.3.0.i.i.i.i, 1
+  %add.ptr.i.i.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %iter.coerce0.pn.i.i.i.i, i64 256
+  %19 = add i32 %iter.coerce1.pn.i.i.i.i, 1
   %20 = and i32 %19, 255
   %idxprom.i.i.i.i.i.i.i = zext nneg i32 %20 to i64
   %arrayidx.i4.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i3.i.i.i.i.i.i, i64 %idxprom.i.i.i.i.i.i.i
@@ -7765,16 +7765,16 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11equal_rangeIiEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSF_EESI_ERKT_.exit
 
 _ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11equal_rangeIiEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSF_EESI_ERKT_.exit: ; preds = %land.rhs.i.i.i.i.i.i, %while.cond24.i.i.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE17lower_bound_equalIiEESt4pairINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEbERKT_.exit.i.i, %land.lhs.true.i.i.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERiPiEppEv.exit.i.loopexit25.split.loop.exit28.i.i
-  %__x.i.sroa.0.2.sink.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE17lower_bound_equalIiEESt4pairINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEbERKT_.exit.i.i ], [ %retval.sroa.0.0.i.i.i.i, %land.lhs.true.i.i.i.i.i ], [ %15, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERiPiEppEv.exit.i.loopexit25.split.loop.exit28.i.i ], [ %storemerge.i.i.i.i.i.i, %while.cond24.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
-  %__x.i.sroa.9.2.sink.i.i = phi i32 [ %conv.i.pre-phi.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.i.i.i ], [ %retval.sroa.3.0.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE17lower_bound_equalIiEESt4pairINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEbERKT_.exit.i.i ], [ %inc.i.i.i.i.i, %land.lhs.true.i.i.i.i.i ], [ %conv8.i.i.i.i.le.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERiPiEppEv.exit.i.loopexit25.split.loop.exit28.i.i ], [ 0, %while.cond24.i.i.i.i.i.i ], [ %inc.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
-  store ptr %retval.sroa.0.0.i.i.i.i, ptr %equal_range, align 8, !alias.scope !321
+  %__x.i.sroa.0.2.sink.i.i = phi ptr [ %iter.coerce0.pn.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.i.i.i ], [ %iter.coerce0.pn.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE17lower_bound_equalIiEESt4pairINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEbERKT_.exit.i.i ], [ %iter.coerce0.pn.i.i.i.i, %land.lhs.true.i.i.i.i.i ], [ %15, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERiPiEppEv.exit.i.loopexit25.split.loop.exit28.i.i ], [ %storemerge.i.i.i.i.i.i, %while.cond24.i.i.i.i.i.i ], [ %iter.coerce0.pn.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
+  %__x.i.sroa.9.2.sink.i.i = phi i32 [ %conv.i.pre-phi.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.i.i.i ], [ %iter.coerce1.pn.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE17lower_bound_equalIiEESt4pairINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEbERKT_.exit.i.i ], [ %inc.i.i.i.i.i, %land.lhs.true.i.i.i.i.i ], [ %conv8.i.i.i.i.le.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERiPiEppEv.exit.i.loopexit25.split.loop.exit28.i.i ], [ 0, %while.cond24.i.i.i.i.i.i ], [ %inc.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
+  store ptr %iter.coerce0.pn.i.i.i.i, ptr %equal_range, align 8, !alias.scope !321
   %position_.i.i.i = getelementptr inbounds i8, ptr %equal_range, i64 8
-  store i32 %retval.sroa.3.0.i.i.i.i, ptr %position_.i.i.i, align 8, !alias.scope !321
+  store i32 %iter.coerce1.pn.i.i.i.i, ptr %position_.i.i.i, align 8, !alias.scope !321
   %second.i.i = getelementptr inbounds i8, ptr %equal_range, i64 16
   store ptr %__x.i.sroa.0.2.sink.i.i, ptr %second.i.i, align 8, !alias.scope !321
   %position_.i2.i.i = getelementptr inbounds i8, ptr %equal_range, i64 24
   store i32 %__x.i.sroa.9.2.sink.i.i, ptr %position_.i2.i.i, align 8, !alias.scope !321
-  %call = call noundef i64 @_ZNK4absl12lts_2023080218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EmiESE_(ptr noundef nonnull align 8 dereferenceable(12) %second.i.i, ptr %retval.sroa.0.0.i.i.i.i, i32 %retval.sroa.3.0.i.i.i.i)
+  %call = call noundef i64 @_ZNK4absl12lts_2023080218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EmiESE_(ptr noundef nonnull align 8 dereferenceable(12) %second.i.i, ptr %iter.coerce0.pn.i.i.i.i, i32 %iter.coerce1.pn.i.i.i.i)
   ret i64 %call
 }
 

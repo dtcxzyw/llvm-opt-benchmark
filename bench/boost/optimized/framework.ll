@@ -6368,8 +6368,8 @@ _ZNKSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS0_10shared_pt
   br i1 %.not.i.i.i.i.i.i, label %70, label %69
 
 69:                                               ; preds = %61
-  %.not74 = icmp ult i64 %.fr.i.i.i.i, %68
-  br i1 %.not74, label %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit.thread, label %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit
+  %.not75 = icmp ult i64 %.fr.i.i.i.i, %68
+  br i1 %.not75, label %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit.thread, label %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit
 
 70:                                               ; preds = %61
   br i1 %.not12.i.i.i.i.i.i.i.i, label %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit, label %.lr.ph.i.i.i.i.i.i.i
@@ -6391,8 +6391,8 @@ _ZNKSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS0_10shared_pt
   br i1 %.not.i.i.i3.i.i.i.i, label %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !129
 
 _ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.not75 = icmp slt i8 %71, %72
-  br i1 %.not75, label %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit.thread, label %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit
+  %.not76 = icmp slt i8 %71, %72
+  br i1 %.not76, label %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit.thread, label %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit
 
 _ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit: ; preds = %74, %70, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i.i, %69
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #26
@@ -6498,12 +6498,12 @@ _ZN5boost10function_nIvJEED2Ev.exit:              ; preds = %105, %107, %101
 _ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit.thread: ; preds = %3, %_ZNKSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS0_10shared_ptrINS0_7runtime8argumentEEEESt10_Select1stISB_ESt4lessIS4_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS6_.exit.i.i.i.i, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i.i, %69, %_ZN5boost10function_nIvJEED2Ev.exit
   %113 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
   %114 = icmp eq i8 %113, 0
-  br i1 %114, label %115, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit24, !prof !3
+  br i1 %114, label %115, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit25, !prof !3
 
 115:                                              ; preds = %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit.thread
   %116 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i23 = icmp eq i32 %116, 0
-  br i1 %.not.i23, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit24, label %117
+  %.not.i24 = icmp eq i32 %116, 0
+  br i1 %.not.i24, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit25, label %117
 
 117:                                              ; preds = %115
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
@@ -6512,10 +6512,10 @@ _ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit.thread: ; 
 118:                                              ; preds = %117
   %119 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit24
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit25
 
-common.resume:                                    ; preds = %.body, %.body31, %232, %163, %142, %131, %120
-  %common.resume.op = phi { ptr, i32 } [ %121, %120 ], [ %132, %131 ], [ %143, %142 ], [ %164, %163 ], [ %.pn, %.body ], [ %.pn17.pn, %.body31 ], [ %.pn20, %232 ]
+common.resume:                                    ; preds = %.body, %232, %.body32, %163, %142, %131, %120
+  %common.resume.op = phi { ptr, i32 } [ %121, %120 ], [ %132, %131 ], [ %143, %142 ], [ %164, %163 ], [ %.pn, %.body ], [ %.pn17.pn, %.body32 ], [ %.pn20, %232 ]
   resume { ptr, i32 } %common.resume.op
 
 120:                                              ; preds = %117
@@ -6524,7 +6524,7 @@ common.resume:                                    ; preds = %.body, %.body31, %2
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
   br label %common.resume
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit24: ; preds = %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit.thread, %115, %118
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit25: ; preds = %_ZN5boost9unit_test14runtime_config3hasENS0_13basic_cstringIKcEE.exit.thread, %115, %118
   %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 352), align 8, !tbaa !130
   call void @_ZN5boost9unit_test16results_reporter10set_streamERSo(ptr noundef nonnull align 8 dereferenceable(8) %122)
   %123 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_117results_collectorE, align 8, !tbaa !16
@@ -6532,10 +6532,10 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit24: ; preds 
   %125 = icmp eq i8 %124, 0
   br i1 %125, label %126, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit, !prof !3
 
-126:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit24
+126:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit25
   %127 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i.i25 = icmp eq i32 %127, 0
-  br i1 %.not.i.i25, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit, label %128
+  %.not.i.i26 = icmp eq i32 %127, 0
+  br i1 %.not.i.i26, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit, label %128
 
 128:                                              ; preds = %126
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
@@ -6552,7 +6552,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit24: ; preds 
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
   br label %common.resume
 
-_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit: ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit24, %126, %129
+_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit: ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit25, %126, %129
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
   store ptr %123, ptr %9, align 8, !tbaa !16
   %133 = call { ptr, i8 } @_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE16_M_insert_uniqueIS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 112), ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -6560,12 +6560,12 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit: ; p
   %134 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !16
   %135 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
   %136 = icmp eq i8 %135, 0
-  br i1 %136, label %137, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit27, !prof !3
+  br i1 %136, label %137, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit28, !prof !3
 
 137:                                              ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit
   %138 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i.i26 = icmp eq i32 %138, 0
-  br i1 %.not.i.i26, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit27, label %139
+  %.not.i.i27 = icmp eq i32 %138, 0
+  br i1 %.not.i.i27, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit28, label %139
 
 139:                                              ; preds = %137
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
@@ -6574,7 +6574,7 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit: ; p
 140:                                              ; preds = %139
   %141 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit27
+  br label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit28
 
 142:                                              ; preds = %139
   %143 = landingpad { ptr, i32 }
@@ -6582,7 +6582,7 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit: ; p
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
   br label %common.resume
 
-_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit27: ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit, %137, %140
+_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit28: ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit, %137, %140
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
   store ptr %134, ptr %8, align 8, !tbaa !16
   %144 = call { ptr, i8 } @_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE16_M_insert_uniqueIS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 112), ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -6601,18 +6601,18 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit27: ;
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %166
 
-153:                                              ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit27
+153:                                              ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit28
   %154 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_116progress_monitorE, align 8, !tbaa !16
   call void @_ZN5boost9unit_test18progress_monitor_t10set_streamERSo(ptr noundef nonnull align 8 dereferenceable(8) %154, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout)
   %155 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_116progress_monitorE, align 8, !tbaa !16
   %156 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
   %157 = icmp eq i8 %156, 0
-  br i1 %157, label %158, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit29, !prof !3
+  br i1 %157, label %158, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit30, !prof !3
 
 158:                                              ; preds = %153
   %159 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i.i28 = icmp eq i32 %159, 0
-  br i1 %.not.i.i28, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit29, label %160
+  %.not.i.i29 = icmp eq i32 %159, 0
+  br i1 %.not.i.i29, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit30, label %160
 
 160:                                              ; preds = %158
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
@@ -6621,7 +6621,7 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit27: ;
 161:                                              ; preds = %160
   %162 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit29
+  br label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit30
 
 163:                                              ; preds = %160
   %164 = landingpad { ptr, i32 }
@@ -6629,14 +6629,14 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit27: ;
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
   br label %common.resume
 
-_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit29: ; preds = %153, %158, %161
+_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit30: ; preds = %153, %158, %161
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
   store ptr %155, ptr %6, align 8, !tbaa !16
   %165 = call { ptr, i8 } @_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE16_M_insert_uniqueIS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 112), ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
   br label %166
 
-166:                                              ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit29, %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit27
+166:                                              ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit30, %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit28
   %167 = load ptr, ptr @_ZN5boost9unit_test14runtime_config21btrt_detect_mem_leaksB5cxx11E, align 8, !tbaa !8
   %168 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost9unit_test14runtime_config21btrt_detect_mem_leaksB5cxx11E, i64 8), align 8, !tbaa !12
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 %168
@@ -6687,8 +6687,8 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit29: ;
 
 194:                                              ; preds = %186
   %195 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i30 = icmp eq i32 %195, 0
-  br i1 %.not.i30, label %201, label %196
+  %.not.i31 = icmp eq i32 %195, 0
+  br i1 %.not.i31, label %201, label %196
 
 196:                                              ; preds = %194
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
@@ -6704,7 +6704,7 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit29: ;
           cleanup
           catch ptr @_ZTIN5boost19execution_exceptionE
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body31
+  br label %.body32
 
 201:                                              ; preds = %197, %194, %186
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #26
@@ -6719,21 +6719,21 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit29: ;
 
 205:                                              ; preds = %201
   %206 = load ptr, ptr %17, align 8, !tbaa !124
-  %.not.i.i34 = icmp ne ptr %206, null
+  %.not.i.i35 = icmp ne ptr %206, null
   %207 = ptrtoint ptr %206 to i64
   %208 = and i64 %207, 1
-  %.not1.i.i35 = icmp eq i64 %208, 0
-  %or.cond86 = and i1 %.not.i.i34, %.not1.i.i35
-  br i1 %or.cond86, label %209, label %_ZN5boost10function_nIvJEED2Ev.exit38
+  %.not1.i.i36 = icmp eq i64 %208, 0
+  %or.cond87 = and i1 %.not.i.i35, %.not1.i.i36
+  br i1 %or.cond87, label %209, label %_ZN5boost10function_nIvJEED2Ev.exit39
 
 209:                                              ; preds = %205
   %210 = load ptr, ptr %206, align 8, !tbaa !126
-  %.not.i.i.i37 = icmp eq ptr %210, null
-  br i1 %.not.i.i.i37, label %_ZN5boost10function_nIvJEED2Ev.exit38, label %211
+  %.not.i.i.i38 = icmp eq ptr %210, null
+  br i1 %.not.i.i.i38, label %_ZN5boost10function_nIvJEED2Ev.exit39, label %211
 
 211:                                              ; preds = %209
   invoke void %210(ptr noundef nonnull align 8 dereferenceable(24) %203, ptr noundef nonnull align 8 dereferenceable(24) %203, i32 noundef 2)
-          to label %_ZN5boost10function_nIvJEED2Ev.exit38 unwind label %212
+          to label %_ZN5boost10function_nIvJEED2Ev.exit39 unwind label %212
 
 212:                                              ; preds = %211
   %213 = landingpad { ptr, i32 }
@@ -6742,7 +6742,7 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit29: ;
   call void @__clang_call_terminate(ptr %214) #30
   unreachable
 
-_ZN5boost10function_nIvJEED2Ev.exit38:            ; preds = %209, %211, %205
+_ZN5boost10function_nIvJEED2Ev.exit39:            ; preds = %209, %211, %205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #26
   ret void
 
@@ -6752,16 +6752,16 @@ _ZN5boost10function_nIvJEED2Ev.exit38:            ; preds = %209, %211, %205
           catch ptr @_ZTIN5boost19execution_exceptionE
   call void @_ZN5boost10function_nIvJEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #26
-  br label %.body31
+  br label %.body32
 
-.body31:                                          ; preds = %199, %215
+.body32:                                          ; preds = %199, %215
   %.pn17.pn = phi { ptr, i32 } [ %216, %215 ], [ %200, %199 ]
   %.211 = extractvalue { ptr, i32 } %.pn17.pn, 1
   %217 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost19execution_exceptionE) #26
   %218 = icmp eq i32 %.211, %217
   br i1 %218, label %219, label %common.resume
 
-219:                                              ; preds = %.body31
+219:                                              ; preds = %.body32
   %.2 = extractvalue { ptr, i32 } %.pn17.pn, 0
   %220 = call ptr @__cxa_begin_catch(ptr %.2) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #26
@@ -10451,8 +10451,8 @@ define void @_ZN5boost9unit_test9framework3runEmb(i64 noundef %0, i1 noundef zer
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
   br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit
 
-common.resume:                                    ; preds = %750, %36
-  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %752, %750 ]
+common.resume:                                    ; preds = %.body, %36
+  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %.merged, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %33
@@ -10475,1532 +10475,1536 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit: ; preds = 
 40:                                               ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit
   %41 = load i64, ptr %38, align 8, !tbaa !4
   %.not = icmp eq i64 %41, 0
-  br i1 %.not, label %46, label %65
+  br i1 %.not, label %44, label %63
 
 42:                                               ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit
   %43 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  %45 = extractvalue { ptr, i32 } %43, 1
-  br label %750
+  br label %.body
 
-46:                                               ; preds = %40
+44:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #26
-  %47 = load ptr, ptr @_ZN5boost9unit_test14runtime_config16btrt_run_filtersB5cxx11E, align 8, !tbaa !8
-  store ptr %47, ptr %10, align 8, !tbaa !13
-  %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost9unit_test14runtime_config16btrt_run_filtersB5cxx11E, i64 8), align 8, !tbaa !12
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
-  store ptr %50, ptr %48, align 8, !tbaa !15
-  %51 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost9unit_test14runtime_config3getISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEERKT_NS0_13basic_cstringIKcEE(ptr noundef nonnull %10)
-          to label %52 unwind label %60
+  %45 = load ptr, ptr @_ZN5boost9unit_test14runtime_config16btrt_run_filtersB5cxx11E, align 8, !tbaa !8
+  store ptr %45, ptr %10, align 8, !tbaa !13
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost9unit_test14runtime_config16btrt_run_filtersB5cxx11E, i64 8), align 8, !tbaa !12
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %47
+  store ptr %48, ptr %46, align 8, !tbaa !15
+  %49 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost9unit_test14runtime_config3getISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEERKT_NS0_13basic_cstringIKcEE(ptr noundef nonnull %10)
+          to label %50 unwind label %58
 
-52:                                               ; preds = %46
-  %53 = load ptr, ptr %51, align 8, !tbaa !16
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !16
-  %56 = icmp eq ptr %53, %55
-  %spec.select510 = select i1 %56, ptr @.str.36, ptr @.str.37
-  %spec.select511 = select i1 %56, ptr getelementptr inbounds nuw (i8, ptr @.str.36, i64 18), ptr getelementptr inbounds nuw (i8, ptr @.str.37, i64 61)
-  store ptr %spec.select510, ptr %9, align 8, !tbaa !13
-  %57 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %spec.select511, ptr %57, align 8, !tbaa !15
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %49, align 8, !tbaa !16
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !16
+  %54 = icmp eq ptr %51, %53
+  %spec.select513 = select i1 %54, ptr @.str.36, ptr @.str.37
+  %spec.select514 = select i1 %54, ptr getelementptr inbounds nuw (i8, ptr @.str.36, i64 18), ptr getelementptr inbounds nuw (i8, ptr @.str.37, i64 61)
+  store ptr %spec.select513, ptr %9, align 8, !tbaa !13
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %spec.select514, ptr %55, align 8, !tbaa !15
   invoke void @_ZN5boost9unit_test9framework11setup_errorC2ENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9)
-          to label %58 unwind label %60
+          to label %56 unwind label %58
 
-58:                                               ; preds = %52
+56:                                               ; preds = %50
   invoke void @_ZN5boost9unit_test9ut_detail15throw_exceptionINS0_9framework11setup_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
-          to label %59 unwind label %62
+          to label %57 unwind label %60
 
-59:                                               ; preds = %58
+57:                                               ; preds = %56
   unreachable
 
-60:                                               ; preds = %52, %46
+58:                                               ; preds = %50, %44
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  br label %62
+
+60:                                               ; preds = %56
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %64
-
-62:                                               ; preds = %58
-  %63 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
-  br label %64
+  br label %62
 
-64:                                               ; preds = %62, %60
-  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ]
-  %.167 = extractvalue { ptr, i32 } %.pn, 0
-  %.169 = extractvalue { ptr, i32 } %.pn, 1
+62:                                               ; preds = %60, %58
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
-  br label %750
+  br label %.body
 
-65:                                               ; preds = %40
-  %66 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %68, label %76, !prof !3
+63:                                               ; preds = %40
+  %64 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %66, label %73, !prof !3
 
-68:                                               ; preds = %65
-  %69 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i, label %76, label %70
+66:                                               ; preds = %63
+  %67 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i.i = icmp eq i32 %67, 0
+  br i1 %.not.i.i, label %73, label %68
 
-70:                                               ; preds = %68
+68:                                               ; preds = %66
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %71 unwind label %.body
+          to label %69 unwind label %71
 
-71:                                               ; preds = %70
-  %72 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+69:                                               ; preds = %68
+  %70 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %76
+  br label %73
 
-.body:                                            ; preds = %70
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %68
+  %72 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %74 = extractvalue { ptr, i32 } %73, 0
-  %75 = extractvalue { ptr, i32 } %73, 1
-  br label %750
+  br label %.body
 
-76:                                               ; preds = %71, %68, %65
-  %77 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 104), align 8, !tbaa !298, !range !49, !noundef !50
-  %78 = trunc nuw i8 %77 to i1
-  %.demorgan = and i1 %1, %78
+73:                                               ; preds = %69, %66, %63
+  %74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 104), align 8, !tbaa !298, !range !49, !noundef !50
+  %75 = trunc nuw i8 %74 to i1
+  %.demorgan = and i1 %1, %75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #26
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5boost9unit_test25framework_init_observer_tE, i64 16), ptr %11, align 8, !tbaa !38
-  %79 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i8 0, ptr %79, align 8, !tbaa !337
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i8 0, ptr %76, align 8, !tbaa !337
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #26
   store ptr %11, ptr %12, align 8, !tbaa !16
-  %80 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i8 1, ptr %80, align 8, !tbaa !340
-  %81 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %82 = icmp eq i8 %81, 0
-  br i1 %82, label %83, label %_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i, !prof !3
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i8 1, ptr %77, align 8, !tbaa !340
+  %78 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %79 = icmp eq i8 %78, 0
+  br i1 %79, label %80, label %_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i, !prof !3
 
-83:                                               ; preds = %76
-  %84 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i.i.i.i = icmp eq i32 %84, 0
-  br i1 %.not.i.i.i.i, label %_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i, label %85
+80:                                               ; preds = %73
+  %81 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i.i.i.i = icmp eq i32 %81, 0
+  br i1 %.not.i.i.i.i, label %_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i, label %82
 
-85:                                               ; preds = %83
+82:                                               ; preds = %80
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %86 unwind label %88
+          to label %83 unwind label %85
 
-86:                                               ; preds = %85
-  %87 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+83:                                               ; preds = %82
+  %84 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
   br label %_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i
 
-88:                                               ; preds = %85
-  %89 = landingpad { ptr, i32 }
+85:                                               ; preds = %82
+  %86 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body146
+  br label %.body153
 
-_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i: ; preds = %86, %83, %76
+_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i: ; preds = %83, %80, %73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
   store ptr %11, ptr %6, align 8, !tbaa !16
-  %90 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE16_M_insert_uniqueIS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 112), ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %91 unwind label %122
+  %87 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE16_M_insert_uniqueIS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 112), ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %88 unwind label %117
 
-91:                                               ; preds = %_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i
+88:                                               ; preds = %_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
-  br i1 %.demorgan, label %279, label %92
+  br i1 %.demorgan, label %262, label %89
 
-92:                                               ; preds = %91
-  %93 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %94 = icmp eq i8 %93, 0
-  br i1 %94, label %95, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit151, !prof !3
+89:                                               ; preds = %88
+  %90 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %91 = icmp eq i8 %90, 0
+  br i1 %91, label %92, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit158, !prof !3
 
-95:                                               ; preds = %92
-  %96 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i148 = icmp eq i32 %96, 0
-  br i1 %.not.i148, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit151, label %97
+92:                                               ; preds = %89
+  %93 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i155 = icmp eq i32 %93, 0
+  br i1 %.not.i155, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit158, label %94
 
-97:                                               ; preds = %95
+94:                                               ; preds = %92
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %98 unwind label %100
+          to label %95 unwind label %97
 
-98:                                               ; preds = %97
-  %99 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+95:                                               ; preds = %94
+  %96 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit151
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit158
 
-100:                                              ; preds = %97
-  %101 = landingpad { ptr, i32 }
+97:                                               ; preds = %94
+  %98 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body149
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit151: ; preds = %98, %95, %92
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit158: ; preds = %95, %92, %89
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 104), align 8, !tbaa !298
-  %102 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit155, !prof !3
+  %99 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %100 = icmp eq i8 %99, 0
+  br i1 %100, label %101, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit162, !prof !3
 
-104:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit151
-  %105 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i152 = icmp eq i32 %105, 0
-  br i1 %.not.i152, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit155, label %106
+101:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit158
+  %102 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i159 = icmp eq i32 %102, 0
+  br i1 %.not.i159, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit162, label %103
 
-106:                                              ; preds = %104
+103:                                              ; preds = %101
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %107 unwind label %.body153
+          to label %104 unwind label %106
 
-107:                                              ; preds = %106
-  %108 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+104:                                              ; preds = %103
+  %105 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit155
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit162
 
-.body153:                                         ; preds = %106
-  %109 = landingpad { ptr, i32 }
+106:                                              ; preds = %103
+  %107 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %110 = extractvalue { ptr, i32 } %109, 0
-  %111 = extractvalue { ptr, i32 } %109, 1
-  br label %.loopexit371
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit155: ; preds = %107, %104, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit151
-  %112 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %113 = icmp eq i8 %112, 0
-  br i1 %113, label %114, label %130, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit162: ; preds = %104, %101, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit158
+  %108 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %109 = icmp eq i8 %108, 0
+  br i1 %109, label %110, label %121, !prof !3
 
-114:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit155
-  %115 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i156 = icmp eq i32 %115, 0
-  br i1 %.not.i156, label %130, label %116
+110:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit162
+  %111 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i163 = icmp eq i32 %111, 0
+  br i1 %.not.i163, label %121, label %112
 
-116:                                              ; preds = %114
+112:                                              ; preds = %110
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %117 unwind label %.body157
+          to label %113 unwind label %115
 
-117:                                              ; preds = %116
-  %118 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+113:                                              ; preds = %112
+  %114 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %130
+  br label %121
 
-.body157:                                         ; preds = %116
-  %119 = landingpad { ptr, i32 }
+115:                                              ; preds = %112
+  %116 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %120 = extractvalue { ptr, i32 } %119, 0
-  %121 = extractvalue { ptr, i32 } %119, 1
-  br label %.loopexit371
+  br label %.body156
 
-122:                                              ; preds = %_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i
-  %123 = landingpad { ptr, i32 }
+117:                                              ; preds = %_ZN5boost9unit_test9framework24register_observer_helper12register_obsEv.exit.i
+  %118 = landingpad { ptr, i32 }
           cleanup
-  br label %.body146
+  br label %.body153
 
-.body146:                                         ; preds = %88, %122
-  %eh.lpad-body147 = phi { ptr, i32 } [ %123, %122 ], [ %89, %88 ]
-  %124 = extractvalue { ptr, i32 } %eh.lpad-body147, 0
-  %125 = extractvalue { ptr, i32 } %eh.lpad-body147, 1
-  br label %749
-
-126:                                              ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i, %_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i, %736, %604, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264
-  %127 = landingpad { ptr, i32 }
+119:                                              ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i, %_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i, %718, %586, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit271
+  %120 = landingpad { ptr, i32 }
           cleanup
-  br label %.body149
+  br label %.body156
 
-.body149:                                         ; preds = %288, %601, %126, %734, %614, %590, %100
-  %eh.lpad-body150 = phi { ptr, i32 } [ %101, %100 ], [ %289, %288 ], [ %591, %590 ], [ %602, %601 ], [ %615, %614 ], [ %127, %126 ], [ %735, %734 ]
-  %128 = extractvalue { ptr, i32 } %eh.lpad-body150, 0
-  %129 = extractvalue { ptr, i32 } %eh.lpad-body150, 1
-  br label %.loopexit371
+121:                                              ; preds = %113, %110, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit162
+  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 136), align 8, !tbaa !122
+  %123 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %124 = icmp eq i8 %123, 0
+  br i1 %124, label %125, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit170, !prof !3
 
-130:                                              ; preds = %117, %114, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit155
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 136), align 8, !tbaa !122
+125:                                              ; preds = %121
+  %126 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i167 = icmp eq i32 %126, 0
+  br i1 %.not.i167, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit170, label %127
+
+127:                                              ; preds = %125
+  invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
+          to label %128 unwind label %130
+
+128:                                              ; preds = %127
+  %129 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit170
+
+130:                                              ; preds = %127
+  %131 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  br label %.body156
+
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit170: ; preds = %128, %125, %121
   %132 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
   %133 = icmp eq i8 %132, 0
-  br i1 %133, label %134, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit163, !prof !3
+  br i1 %133, label %134, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit174, !prof !3
 
-134:                                              ; preds = %130
+134:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit170
   %135 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i160 = icmp eq i32 %135, 0
-  br i1 %.not.i160, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit163, label %136
+  %.not.i171 = icmp eq i32 %135, 0
+  br i1 %.not.i171, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit174, label %136
 
 136:                                              ; preds = %134
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %137 unwind label %.body161
+          to label %137 unwind label %139
 
 137:                                              ; preds = %136
   %138 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit163
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit174
 
-.body161:                                         ; preds = %136
-  %139 = landingpad { ptr, i32 }
+139:                                              ; preds = %136
+  %140 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %140 = extractvalue { ptr, i32 } %139, 0
-  %141 = extractvalue { ptr, i32 } %139, 1
-  br label %.loopexit371
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit163: ; preds = %137, %134, %130
-  %142 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %143 = icmp eq i8 %142, 0
-  br i1 %143, label %144, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit167, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit174: ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit170, %134, %137
+  %141 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  br label %142
 
-144:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit163
-  %145 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i164 = icmp eq i32 %145, 0
-  br i1 %.not.i164, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit167, label %146
+142:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit174, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit203
+  %.sroa.0372.0 = phi ptr [ %122, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit174 ], [ %259, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit203 ]
+  %.sroa.0375.3 = phi ptr [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit174 ], [ %.sroa.0375.6, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit203 ]
+  %.sroa.6376.3 = phi ptr [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit174 ], [ %.sroa.6376.6, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit203 ]
+  %.3103 = phi i8 [ 1, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit174 ], [ %.7107, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit203 ]
+  %143 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %144 = icmp eq i8 %143, 0
+  br i1 %144, label %145, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit178, !prof !3
 
-146:                                              ; preds = %144
+145:                                              ; preds = %142
+  %146 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i175 = icmp eq i32 %146, 0
+  br i1 %.not.i175, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit178, label %147
+
+147:                                              ; preds = %145
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %147 unwind label %.body165
+          to label %148 unwind label %150
 
-147:                                              ; preds = %146
-  %148 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+148:                                              ; preds = %147
+  %149 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit167
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit178
 
-.body165:                                         ; preds = %146
-  %149 = landingpad { ptr, i32 }
+150:                                              ; preds = %147
+  %151 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %150 = extractvalue { ptr, i32 } %149, 0
-  %151 = extractvalue { ptr, i32 } %149, 1
-  br label %.loopexit371
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit167: ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit163, %144, %147
-  %152 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  br label %153
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit178: ; preds = %148, %145, %142
+  %152 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %153 = icmp eq i8 %152, 0
+  br i1 %153, label %154, label %161, !prof !3
 
-153:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit167, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit196
-  %.sroa.0365.0 = phi ptr [ %131, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit167 ], [ %276, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit196 ]
-  %.sroa.0368.3 = phi ptr [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit167 ], [ %.sroa.0368.6, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit196 ]
-  %.sroa.6369.3 = phi ptr [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit167 ], [ %.sroa.6369.6, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit196 ]
-  %.3103 = phi i8 [ 1, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit167 ], [ %.7107, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit196 ]
-  %154 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %155 = icmp eq i8 %154, 0
-  br i1 %155, label %156, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit171, !prof !3
+154:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit178
+  %155 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i179 = icmp eq i32 %155, 0
+  br i1 %.not.i179, label %161, label %156
 
-156:                                              ; preds = %153
-  %157 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i168 = icmp eq i32 %157, 0
-  br i1 %.not.i168, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit171, label %158
-
-158:                                              ; preds = %156
+156:                                              ; preds = %154
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %159 unwind label %161
+          to label %157 unwind label %159
 
-159:                                              ; preds = %158
-  %160 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+157:                                              ; preds = %156
+  %158 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit171
+  br label %161
 
-161:                                              ; preds = %158
-  %162 = landingpad { ptr, i32 }
+159:                                              ; preds = %156
+  %160 = landingpad { ptr, i32 }
           cleanup
-  br label %.body169
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit171: ; preds = %159, %156, %153
-  %163 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %164 = icmp eq i8 %163, 0
-  br i1 %164, label %165, label %173, !prof !3
+161:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit178, %154, %157
+  %162 = icmp eq ptr %.sroa.0372.0, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 120)
+  br i1 %162, label %260, label %163
 
-165:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit171
-  %166 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i172 = icmp eq i32 %166, 0
-  br i1 %.not.i172, label %173, label %167
+163:                                              ; preds = %161
+  %164 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %165 = icmp eq i8 %164, 0
+  br i1 %165, label %166, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit186, !prof !3
 
-167:                                              ; preds = %165
+166:                                              ; preds = %163
+  %167 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i183 = icmp eq i32 %167, 0
+  br i1 %.not.i183, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit186, label %168
+
+168:                                              ; preds = %166
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %168 unwind label %.body173
+          to label %169 unwind label %171
 
-168:                                              ; preds = %167
-  %169 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+169:                                              ; preds = %168
+  %170 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %173
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit186
 
-.body173:                                         ; preds = %167
-  %170 = landingpad { ptr, i32 }
+171:                                              ; preds = %168
+  %172 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %171 = extractvalue { ptr, i32 } %170, 0
-  %172 = extractvalue { ptr, i32 } %170, 1
-  br label %.loopexit371
+  br label %.body156
 
-173:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit171, %165, %168
-  %174 = icmp eq ptr %.sroa.0365.0, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 120)
-  br i1 %174, label %277, label %177
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit186: ; preds = %169, %166, %163
+  %173 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %174 = icmp eq i8 %173, 0
+  br i1 %174, label %175, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit190, !prof !3
 
-.body169:                                         ; preds = %208, %161
-  %eh.lpad-body170 = phi { ptr, i32 } [ %162, %161 ], [ %209, %208 ]
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %175 = extractvalue { ptr, i32 } %eh.lpad-body170, 0
-  %176 = extractvalue { ptr, i32 } %eh.lpad-body170, 1
-  br label %.loopexit371
+175:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit186
+  %176 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i187 = icmp eq i32 %176, 0
+  br i1 %.not.i187, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit190, label %177
 
-177:                                              ; preds = %173
-  %178 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %179 = icmp eq i8 %178, 0
-  br i1 %179, label %180, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit179, !prof !3
+177:                                              ; preds = %175
+  invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
+          to label %178 unwind label %180
+
+178:                                              ; preds = %177
+  %179 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit190
 
 180:                                              ; preds = %177
-  %181 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i176 = icmp eq i32 %181, 0
-  br i1 %.not.i176, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit179, label %182
-
-182:                                              ; preds = %180
-  invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %183 unwind label %.body177
-
-183:                                              ; preds = %182
-  %184 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit179
-
-.body177:                                         ; preds = %182
-  %185 = landingpad { ptr, i32 }
+  %181 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %186 = extractvalue { ptr, i32 } %185, 0
-  %187 = extractvalue { ptr, i32 } %185, 1
-  br label %.loopexit371
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit179: ; preds = %183, %180, %177
-  %188 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %189 = icmp eq i8 %188, 0
-  br i1 %189, label %190, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit183, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit190: ; preds = %178, %175, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit186
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.0372.0, i64 32
+  %183 = load ptr, ptr %182, align 8, !tbaa !16
+  %184 = ptrtoint ptr %183 to i64
+  %185 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %186 = icmp eq i8 %185, 0
+  br i1 %186, label %194, label %201, !prof !3
 
-190:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit179
-  %191 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i180 = icmp eq i32 %191, 0
-  br i1 %.not.i180, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit183, label %192
+187:                                              ; preds = %245
+  %188 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i191 = icmp eq i32 %188, 0
+  br i1 %.not.i191, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit194, label %189
 
-192:                                              ; preds = %190
+189:                                              ; preds = %187
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %193 unwind label %.body181
+          to label %190 unwind label %192
 
-193:                                              ; preds = %192
-  %194 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+190:                                              ; preds = %189
+  %191 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit183
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit194
 
-.body181:                                         ; preds = %192
-  %195 = landingpad { ptr, i32 }
+192:                                              ; preds = %189
+  %193 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %196 = extractvalue { ptr, i32 } %195, 0
-  %197 = extractvalue { ptr, i32 } %195, 1
-  br label %.loopexit371
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit183: ; preds = %193, %190, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit179
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.0365.0, i64 32
-  %199 = load ptr, ptr %198, align 8, !tbaa !16
-  %200 = ptrtoint ptr %199 to i64
-  %201 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %202 = icmp eq i8 %201, 0
-  br i1 %202, label %210, label %217, !prof !3
+194:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit190
+  %195 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i195 = icmp eq i32 %195, 0
+  br i1 %.not.i195, label %201, label %196
 
-203:                                              ; preds = %261
-  %204 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i184 = icmp eq i32 %204, 0
-  br i1 %.not.i184, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit187, label %205
-
-205:                                              ; preds = %203
+196:                                              ; preds = %194
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %206 unwind label %208
+          to label %197 unwind label %199
 
-206:                                              ; preds = %205
-  %207 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+197:                                              ; preds = %196
+  %198 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit187
+  br label %201
 
-208:                                              ; preds = %205
-  %209 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body169
-
-210:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit183
-  %211 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i188 = icmp eq i32 %211, 0
-  br i1 %.not.i188, label %217, label %212
-
-212:                                              ; preds = %210
-  invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %213 unwind label %215
-
-213:                                              ; preds = %212
-  %214 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %217
-
-215:                                              ; preds = %212
-  %216 = landingpad { ptr, i32 }
+199:                                              ; preds = %196
+  %200 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5boost19execution_exceptionE
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body189
+  br label %.body196
 
-217:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit183, %210, %213
-  %218 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
+201:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit190, %194, %197
+  %202 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
   store i64 %.0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
-  %219 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_117unit_test_monitorE, align 8, !tbaa !16
+  %203 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_117unit_test_monitorE, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #26
   %.sroa.031.0.copyload = load i64, ptr %38, align 8
-  %220 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
-          to label %221 unwind label %238
+  %204 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+          to label %205 unwind label %222
 
-221:                                              ; preds = %217
-  store i64 1, ptr %220, align 8
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %220, i64 8
+205:                                              ; preds = %201
+  store i64 1, ptr %204, align 8
+  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %204, i64 8
   store i64 0, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %220, i64 16
-  store i64 %.0, ptr %222, align 8, !tbaa !4
-  %223 = getelementptr inbounds i8, ptr %220, i64 24
-  store i64 %.sroa.031.0.copyload, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %220, i64 32
-  store i64 %200, ptr %224, align 8, !tbaa !16
-  store ptr %220, ptr %152, align 8, !tbaa !37
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  store i64 %.0, ptr %206, align 8, !tbaa !4
+  %207 = getelementptr inbounds i8, ptr %204, i64 24
+  store i64 %.sroa.031.0.copyload, ptr %207, align 8
+  %208 = getelementptr inbounds i8, ptr %204, i64 32
+  store i64 %184, ptr %208, align 8, !tbaa !16
+  store ptr %204, ptr %141, align 8, !tbaa !37
   store ptr @_ZZN5boost10function_nIvJEE9assign_toINS_3_bi6bind_tINS3_11unspecifiedENS_4_mfi2mfIMNS_9unit_test13test_observerEFvmmEvS9_JmmEEENS3_4listIJNS3_5valueIPS9_EENSE_INS8_17test_case_counter19readonly_property43EEENSE_ImEEEEEEEEEvT_E13stored_vtable, ptr %13, align 8, !tbaa !124
-  %225 = invoke noundef i32 @_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS_8functionIFvvEEEm(ptr noundef nonnull align 8 dereferenceable(48) %219, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 0)
-          to label %226 unwind label %240
+  %209 = invoke noundef i32 @_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS_8functionIFvvEEEm(ptr noundef nonnull align 8 dereferenceable(48) %203, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 0)
+          to label %210 unwind label %224
 
-226:                                              ; preds = %221
-  %227 = load ptr, ptr %13, align 8, !tbaa !124
-  %.not.i.i192 = icmp ne ptr %227, null
-  %228 = ptrtoint ptr %227 to i64
-  %229 = and i64 %228, 1
-  %.not1.i.i = icmp eq i64 %229, 0
-  %or.cond = and i1 %.not.i.i192, %.not1.i.i
-  br i1 %or.cond, label %230, label %_ZN5boost10function_nIvJEED2Ev.exit
+210:                                              ; preds = %205
+  %211 = load ptr, ptr %13, align 8, !tbaa !124
+  %.not.i.i199 = icmp ne ptr %211, null
+  %212 = ptrtoint ptr %211 to i64
+  %213 = and i64 %212, 1
+  %.not1.i.i = icmp eq i64 %213, 0
+  %or.cond = and i1 %.not.i.i199, %.not1.i.i
+  br i1 %or.cond, label %214, label %_ZN5boost10function_nIvJEED2Ev.exit
 
-230:                                              ; preds = %226
-  %231 = load ptr, ptr %227, align 8, !tbaa !126
-  %.not.i.i.i = icmp eq ptr %231, null
-  br i1 %.not.i.i.i, label %_ZN5boost10function_nIvJEED2Ev.exit, label %232
+214:                                              ; preds = %210
+  %215 = load ptr, ptr %211, align 8, !tbaa !126
+  %.not.i.i.i = icmp eq ptr %215, null
+  br i1 %.not.i.i.i, label %_ZN5boost10function_nIvJEED2Ev.exit, label %216
 
-232:                                              ; preds = %230
-  invoke void %231(ptr noundef nonnull align 8 dereferenceable(24) %152, ptr noundef nonnull align 8 dereferenceable(24) %152, i32 noundef 2)
-          to label %_ZN5boost10function_nIvJEED2Ev.exit unwind label %233
+216:                                              ; preds = %214
+  invoke void %215(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr noundef nonnull align 8 dereferenceable(24) %141, i32 noundef 2)
+          to label %_ZN5boost10function_nIvJEED2Ev.exit unwind label %217
 
-233:                                              ; preds = %232
-  %234 = landingpad { ptr, i32 }
+217:                                              ; preds = %216
+  %218 = landingpad { ptr, i32 }
           catch ptr null
-  %235 = extractvalue { ptr, i32 } %234, 0
-  call void @__clang_call_terminate(ptr %235) #30
+  %219 = extractvalue { ptr, i32 } %218, 0
+  call void @__clang_call_terminate(ptr %219) #30
   unreachable
 
-_ZN5boost10function_nIvJEED2Ev.exit:              ; preds = %230, %232, %226
+_ZN5boost10function_nIvJEED2Ev.exit:              ; preds = %214, %216, %210
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #26
-  %236 = trunc nuw i8 %.3103 to i1
-  br i1 %236, label %237, label %248
+  %220 = trunc nuw i8 %.3103 to i1
+  br i1 %220, label %221, label %232
 
-237:                                              ; preds = %_ZN5boost10function_nIvJEED2Ev.exit
-  %.not116 = icmp eq i32 %225, 0
-  br i1 %.not116, label %243, label %248
+221:                                              ; preds = %_ZN5boost10function_nIvJEED2Ev.exit
+  %.not116 = icmp eq i32 %209, 0
+  br i1 %.not116, label %227, label %232
 
-238:                                              ; preds = %217
-  %239 = landingpad { ptr, i32 }
+222:                                              ; preds = %201
+  %223 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5boost19execution_exceptionE
-  br label %242
+  br label %226
 
-240:                                              ; preds = %221
-  %241 = landingpad { ptr, i32 }
+224:                                              ; preds = %205
+  %225 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5boost19execution_exceptionE
   call void @_ZN5boost10function_nIvJEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #26
-  br label %242
+  br label %226
 
-242:                                              ; preds = %240, %238
-  %.pn114 = phi { ptr, i32 } [ %241, %240 ], [ %239, %238 ]
+226:                                              ; preds = %224, %222
+  %.pn114 = phi { ptr, i32 } [ %225, %224 ], [ %223, %222 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #26
-  br label %249
+  br label %233
 
-243:                                              ; preds = %237
-  %244 = invoke noundef zeroext i1 @_ZNK5boost9unit_test25framework_init_observer_t10has_failedEv(ptr noundef nonnull align 8 dereferenceable(9) %11)
-          to label %245 unwind label %246
+227:                                              ; preds = %221
+  %228 = invoke noundef zeroext i1 @_ZNK5boost9unit_test25framework_init_observer_t10has_failedEv(ptr noundef nonnull align 8 dereferenceable(9) %11)
+          to label %229 unwind label %230
 
-245:                                              ; preds = %243
-  %spec.select = select i1 %244, i8 0, i8 %.3103
-  br label %248
+229:                                              ; preds = %227
+  %spec.select = select i1 %228, i8 0, i8 %.3103
+  br label %232
 
-246:                                              ; preds = %243
-  %247 = landingpad { ptr, i32 }
+230:                                              ; preds = %227
+  %231 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5boost19execution_exceptionE
-  br label %249
+  br label %233
 
-248:                                              ; preds = %245, %237, %_ZN5boost10function_nIvJEED2Ev.exit
-  %.5105 = phi i8 [ %.3103, %_ZN5boost10function_nIvJEED2Ev.exit ], [ 0, %237 ], [ %spec.select, %245 ]
-  store i64 %218, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
-  br label %261
+232:                                              ; preds = %229, %221, %_ZN5boost10function_nIvJEED2Ev.exit
+  %.5105 = phi i8 [ %.3103, %_ZN5boost10function_nIvJEED2Ev.exit ], [ 0, %221 ], [ %spec.select, %229 ]
+  store i64 %202, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
+  br label %245
 
-249:                                              ; preds = %246, %242
-  %.pn117 = phi { ptr, i32 } [ %247, %246 ], [ %.pn114, %242 ]
-  store i64 %218, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
-  br label %.body189
+233:                                              ; preds = %230, %226
+  %.pn117 = phi { ptr, i32 } [ %231, %230 ], [ %.pn114, %226 ]
+  store i64 %202, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
+  br label %.body196
 
-.body189:                                         ; preds = %215, %249
-  %.pn117.pn = phi { ptr, i32 } [ %.pn117, %249 ], [ %216, %215 ]
-  %.9 = extractvalue { ptr, i32 } %.pn117.pn, 0
+.body196:                                         ; preds = %199, %233
+  %.pn117.pn = phi { ptr, i32 } [ %.pn117, %233 ], [ %200, %199 ]
   %.977 = extractvalue { ptr, i32 } %.pn117.pn, 1
-  %250 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost19execution_exceptionE) #26
-  %251 = icmp eq i32 %.977, %250
-  br i1 %251, label %252, label %.loopexit371
+  %234 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost19execution_exceptionE) #26
+  %235 = icmp eq i32 %.977, %234
+  br i1 %235, label %236, label %.body156
 
-252:                                              ; preds = %.body189
-  %253 = call ptr @__cxa_begin_catch(ptr %.9) #26
-  %254 = trunc nuw i8 %.3103 to i1
-  br i1 %254, label %255, label %260
+236:                                              ; preds = %.body196
+  %.9 = extractvalue { ptr, i32 } %.pn117.pn, 0
+  %237 = call ptr @__cxa_begin_catch(ptr %.9) #26
+  %238 = trunc nuw i8 %.3103 to i1
+  br i1 %238, label %239, label %244
 
-255:                                              ; preds = %252
-  %256 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  %257 = load ptr, ptr %256, align 8, !tbaa !13, !noalias !342
-  %258 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  %259 = load ptr, ptr %258, align 8, !tbaa !15, !noalias !342
-  br label %260
+239:                                              ; preds = %236
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 8
+  %241 = load ptr, ptr %240, align 8, !tbaa !13, !noalias !342
+  %242 = getelementptr inbounds nuw i8, ptr %237, i64 16
+  %243 = load ptr, ptr %242, align 8, !tbaa !15, !noalias !342
+  br label %244
 
-260:                                              ; preds = %255, %252
-  %.sroa.0368.5 = phi ptr [ %257, %255 ], [ %.sroa.0368.3, %252 ]
-  %.sroa.6369.5 = phi ptr [ %259, %255 ], [ %.sroa.6369.3, %252 ]
-  %.6106 = phi i8 [ 0, %255 ], [ %.3103, %252 ]
+244:                                              ; preds = %239, %236
+  %.sroa.0375.5 = phi ptr [ %241, %239 ], [ %.sroa.0375.3, %236 ]
+  %.sroa.6376.5 = phi ptr [ %243, %239 ], [ %.sroa.6376.3, %236 ]
+  %.6106 = phi i8 [ 0, %239 ], [ %.3103, %236 ]
   invoke void @__cxa_end_catch()
-          to label %261 unwind label %264
+          to label %245 unwind label %248
 
-261:                                              ; preds = %260, %248
-  %.sroa.0368.6 = phi ptr [ %.sroa.0368.3, %248 ], [ %.sroa.0368.5, %260 ]
-  %.sroa.6369.6 = phi ptr [ %.sroa.6369.3, %248 ], [ %.sroa.6369.5, %260 ]
-  %.7107 = phi i8 [ %.5105, %248 ], [ %.6106, %260 ]
-  %262 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %263 = icmp eq i8 %262, 0
-  br i1 %263, label %203, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit187, !prof !3
+245:                                              ; preds = %244, %232
+  %.sroa.0375.6 = phi ptr [ %.sroa.0375.3, %232 ], [ %.sroa.0375.5, %244 ]
+  %.sroa.6376.6 = phi ptr [ %.sroa.6376.3, %232 ], [ %.sroa.6376.5, %244 ]
+  %.7107 = phi i8 [ %.5105, %232 ], [ %.6106, %244 ]
+  %246 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %247 = icmp eq i8 %246, 0
+  br i1 %247, label %187, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit194, !prof !3
 
-264:                                              ; preds = %260
-  %265 = landingpad { ptr, i32 }
+248:                                              ; preds = %244
+  %249 = landingpad { ptr, i32 }
           cleanup
-  %.12 = extractvalue { ptr, i32 } %265, 0
-  %.1280 = extractvalue { ptr, i32 } %265, 1
-  br label %.loopexit371
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit187: ; preds = %206, %203, %261
-  %266 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %267 = icmp eq i8 %266, 0
-  br i1 %267, label %268, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit196, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit194: ; preds = %190, %187, %245
+  %250 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %251 = icmp eq i8 %250, 0
+  br i1 %251, label %252, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit203, !prof !3
 
-268:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit187
-  %269 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i193 = icmp eq i32 %269, 0
-  br i1 %.not.i193, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit196, label %270
+252:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit194
+  %253 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i200 = icmp eq i32 %253, 0
+  br i1 %.not.i200, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit203, label %254
 
-270:                                              ; preds = %268
+254:                                              ; preds = %252
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %271 unwind label %.body194
+          to label %255 unwind label %257
 
-271:                                              ; preds = %270
-  %272 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+255:                                              ; preds = %254
+  %256 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit196
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit203
 
-.body194:                                         ; preds = %270
-  %273 = landingpad { ptr, i32 }
+257:                                              ; preds = %254
+  %258 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %274 = extractvalue { ptr, i32 } %273, 0
-  %275 = extractvalue { ptr, i32 } %273, 1
-  br label %.loopexit371
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit196: ; preds = %271, %268, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit187
-  %276 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0365.0) #31
-  br label %153, !llvm.loop !345
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit203: ; preds = %255, %252, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit194
+  %259 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0372.0) #31
+  br label %142, !llvm.loop !345
 
-277:                                              ; preds = %173
-  %278 = trunc nuw i8 %.3103 to i1
-  br label %279
+260:                                              ; preds = %161
+  %261 = trunc nuw i8 %.3103 to i1
+  br label %262
 
-279:                                              ; preds = %277, %91
-  %.sroa.0368.0 = phi ptr [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %91 ], [ %.sroa.0368.3, %277 ]
-  %.sroa.6369.0 = phi ptr [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %91 ], [ %.sroa.6369.3, %277 ]
-  %.0100 = phi i1 [ true, %91 ], [ %278, %277 ]
-  store i8 0, ptr %80, align 8, !tbaa !340
-  %280 = load ptr, ptr %12, align 8, !tbaa !346
-  %281 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %282 = icmp eq i8 %281, 0
-  br i1 %282, label %283, label %_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i, !prof !3
+262:                                              ; preds = %260, %88
+  %.sroa.0375.0 = phi ptr [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %88 ], [ %.sroa.0375.3, %260 ]
+  %.sroa.6376.0 = phi ptr [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %88 ], [ %.sroa.6376.3, %260 ]
+  %.0100 = phi i1 [ true, %88 ], [ %261, %260 ]
+  store i8 0, ptr %77, align 8, !tbaa !340
+  %263 = load ptr, ptr %12, align 8, !tbaa !346
+  %264 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %265 = icmp eq i8 %264, 0
+  br i1 %265, label %266, label %_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i, !prof !3
 
-283:                                              ; preds = %279
-  %284 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i.i.i197 = icmp eq i32 %284, 0
-  br i1 %.not.i.i.i197, label %_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i, label %285
+266:                                              ; preds = %262
+  %267 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i.i.i204 = icmp eq i32 %267, 0
+  br i1 %.not.i.i.i204, label %_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i, label %268
 
-285:                                              ; preds = %283
+268:                                              ; preds = %266
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %286 unwind label %288
+          to label %269 unwind label %271
 
-286:                                              ; preds = %285
-  %287 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+269:                                              ; preds = %268
+  %270 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
   br label %_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i
 
-288:                                              ; preds = %285
-  %289 = landingpad { ptr, i32 }
+271:                                              ; preds = %268
+  %272 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body149
+  br label %.body156
 
-_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i: ; preds = %286, %283, %279
+_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i: ; preds = %269, %266, %262
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store ptr %280, ptr %5, align 8, !tbaa !16
-  %290 = invoke noundef i64 @_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 112), ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %291 unwind label %126
+  store ptr %263, ptr %5, align 8, !tbaa !16
+  %273 = invoke noundef i64 @_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 112), ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %274 unwind label %119
 
-291:                                              ; preds = %_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i
+274:                                              ; preds = %_ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  br i1 %.0100, label %292, label %582
+  br i1 %.0100, label %275, label %564
 
-292:                                              ; preds = %291
-  %293 = invoke noundef nonnull align 8 dereferenceable(280) ptr @_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE(i64 noundef %.0, i32 noundef 17)
-          to label %294 unwind label %339
+275:                                              ; preds = %274
+  %276 = invoke noundef nonnull align 8 dereferenceable(280) ptr @_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE(i64 noundef %.0, i32 noundef 17)
+          to label %277 unwind label %322
 
-294:                                              ; preds = %292
+277:                                              ; preds = %275
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #26
-  %295 = getelementptr inbounds nuw i8, ptr %293, i64 256
-  %296 = load ptr, ptr %295, align 8, !tbaa !16
-  %297 = getelementptr inbounds nuw i8, ptr %293, i64 264
-  %298 = load ptr, ptr %297, align 8, !tbaa !16
+  %278 = getelementptr inbounds nuw i8, ptr %276, i64 256
+  %279 = load ptr, ptr %278, align 8, !tbaa !16
+  %280 = getelementptr inbounds nuw i8, ptr %276, i64 264
+  %281 = load ptr, ptr %280, align 8, !tbaa !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %299 = ptrtoint ptr %298 to i64
-  %300 = ptrtoint ptr %296 to i64
-  %301 = sub i64 %299, %300
-  %302 = icmp ugt i64 %301, 9223372036854775792
-  br i1 %302, label %303, label %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i
+  %282 = ptrtoint ptr %281 to i64
+  %283 = ptrtoint ptr %279 to i64
+  %284 = sub i64 %282, %283
+  %285 = icmp ugt i64 %284, 9223372036854775792
+  br i1 %285, label %286, label %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i
 
-303:                                              ; preds = %294
+286:                                              ; preds = %277
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.59) #27
-          to label %.noexc.i unwind label %318
+          to label %.noexc.i unwind label %301
 
-.noexc.i:                                         ; preds = %303
+.noexc.i:                                         ; preds = %286
   unreachable
 
-_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i: ; preds = %294
-  %.not.i.i.i200 = icmp eq ptr %298, %296
-  br i1 %.not.i.i.i200, label %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
+_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i: ; preds = %277
+  %.not.i.i.i207 = icmp eq ptr %281, %279
+  br i1 %.not.i.i.i207, label %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i
-  %304 = getelementptr inbounds nuw i8, ptr null, i64 %301
-  %305 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %304, ptr %305, align 8, !tbaa !347
-  br label %.loopexit370
+  %287 = getelementptr inbounds nuw i8, ptr null, i64 %284
+  %288 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %287, ptr %288, align 8, !tbaa !347
+  br label %.loopexit377
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i
-  %306 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %301) #29
-          to label %.noexc5.i unwind label %318
+  %289 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %284) #29
+          to label %.noexc5.i unwind label %301
 
 .noexc5.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
-  store ptr %306, ptr %14, align 8, !tbaa !348
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 %301
-  %308 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %307, ptr %308, align 8, !tbaa !347
+  store ptr %289, ptr %14, align 8, !tbaa !348
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 %284
+  %291 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %290, ptr %291, align 8, !tbaa !347
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.noexc5.i
-  %.09.i.i.i.i.i.i = phi ptr [ %317, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %306, %.noexc5.i ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %316, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %296, %.noexc5.i ]
-  %309 = load ptr, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !349
-  store ptr %309, ptr %.09.i.i.i.i.i.i, align 8, !tbaa !349
-  %310 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
-  %311 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
-  %312 = load ptr, ptr %311, align 8, !tbaa !135
-  store ptr %312, ptr %310, align 8, !tbaa !135
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %312, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %313
+  %.09.i.i.i.i.i.i = phi ptr [ %300, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %289, %.noexc5.i ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %299, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %279, %.noexc5.i ]
+  %292 = load ptr, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !349
+  store ptr %292, ptr %.09.i.i.i.i.i.i, align 8, !tbaa !349
+  %293 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
+  %295 = load ptr, ptr %294, align 8, !tbaa !135
+  store ptr %295, ptr %293, align 8, !tbaa !135
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %295, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %296
 
-313:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %314 = getelementptr inbounds nuw i8, ptr %312, i64 8
-  %315 = atomicrmw add ptr %314, i32 1 monotonic, align 4
+296:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 8
+  %298 = atomicrmw add ptr %297, i32 1 monotonic, align 4
   br label %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
-_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %313, %.lr.ph.i.i.i.i.i.i
-  %316 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
-  %317 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %316, %298
-  br i1 %.not.i.i.i.i.i.i, label %.loopexit370, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !351
+_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %296, %.lr.ph.i.i.i.i.i.i
+  %299 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %299, %281
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit377, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !351
 
-318:                                              ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %303
-  %319 = landingpad { ptr, i32 }
+301:                                              ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %286
+  %302 = landingpad { ptr, i32 }
           cleanup
-  br label %.body201
+  br label %.body208
 
-.loopexit370:                                     ; preds = %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_M_allocateEm.exit.thread.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_M_allocateEm.exit.thread.i.i ], [ %317, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  %320 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %320, align 8, !tbaa !352
-  %321 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %322 = icmp eq i8 %321, 0
-  br i1 %322, label %323, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit206, !prof !3
+.loopexit377:                                     ; preds = %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_M_allocateEm.exit.thread.i.i
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_M_allocateEm.exit.thread.i.i ], [ %300, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+  %303 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %303, align 8, !tbaa !352
+  %304 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %305 = icmp eq i8 %304, 0
+  br i1 %305, label %306, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit213, !prof !3
 
-323:                                              ; preds = %.loopexit370
-  %324 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i203 = icmp eq i32 %324, 0
-  br i1 %.not.i203, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit206, label %325
+306:                                              ; preds = %.loopexit377
+  %307 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i210 = icmp eq i32 %307, 0
+  br i1 %.not.i210, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit213, label %308
 
-325:                                              ; preds = %323
+308:                                              ; preds = %306
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %326 unwind label %328
+          to label %309 unwind label %311
 
-326:                                              ; preds = %325
-  %327 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+309:                                              ; preds = %308
+  %310 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit206
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit213
 
-328:                                              ; preds = %325
-  %329 = landingpad { ptr, i32 }
+311:                                              ; preds = %308
+  %312 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body204
+  br label %.body211
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit206: ; preds = %326, %323, %.loopexit370
-  %330 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %331 = icmp eq i8 %330, 0
-  br i1 %331, label %332, label %341, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit213: ; preds = %309, %306, %.loopexit377
+  %313 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %314 = icmp eq i8 %313, 0
+  br i1 %314, label %315, label %324, !prof !3
 
-332:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit206
-  %333 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i207 = icmp eq i32 %333, 0
-  br i1 %.not.i207, label %341, label %334
+315:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit213
+  %316 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i214 = icmp eq i32 %316, 0
+  br i1 %.not.i214, label %324, label %317
 
-334:                                              ; preds = %332
+317:                                              ; preds = %315
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %335 unwind label %337
+          to label %318 unwind label %320
 
-335:                                              ; preds = %334
-  %336 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+318:                                              ; preds = %317
+  %319 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %341
+  br label %324
 
-337:                                              ; preds = %334
-  %338 = landingpad { ptr, i32 }
+320:                                              ; preds = %317
+  %321 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body204
+  br label %.body211
 
-339:                                              ; preds = %292
-  %340 = landingpad { ptr, i32 }
+322:                                              ; preds = %275
+  %323 = landingpad { ptr, i32 }
           cleanup
-  br label %581
+  br label %.body156
 
-341:                                              ; preds = %335, %332, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit206
-  %342 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 216), align 8, !tbaa !122
-  %343 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %344 = icmp eq i8 %343, 0
-  br i1 %344, label %345, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit214, !prof !3
+324:                                              ; preds = %318, %315, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit213
+  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 216), align 8, !tbaa !122
+  %326 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %327 = icmp eq i8 %326, 0
+  br i1 %327, label %328, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit221, !prof !3
 
-345:                                              ; preds = %341
-  %346 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i211 = icmp eq i32 %346, 0
-  br i1 %.not.i211, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit214, label %347
+328:                                              ; preds = %324
+  %329 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i218 = icmp eq i32 %329, 0
+  br i1 %.not.i218, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit221, label %330
 
-347:                                              ; preds = %345
+330:                                              ; preds = %328
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %348 unwind label %350
+          to label %331 unwind label %333
 
-348:                                              ; preds = %347
-  %349 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+331:                                              ; preds = %330
+  %332 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit214
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit221
 
-350:                                              ; preds = %347
-  %351 = landingpad { ptr, i32 }
+333:                                              ; preds = %330
+  %334 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body204
+  br label %.body211
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit214: ; preds = %348, %345, %341
-  %352 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %353 = icmp eq i8 %352, 0
-  br i1 %353, label %354, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit218, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit221: ; preds = %331, %328, %324
+  %335 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %336 = icmp eq i8 %335, 0
+  br i1 %336, label %337, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit225, !prof !3
 
-354:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit214
-  %355 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i215 = icmp eq i32 %355, 0
-  br i1 %.not.i215, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit218, label %356
+337:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit221
+  %338 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i222 = icmp eq i32 %338, 0
+  br i1 %.not.i222, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit225, label %339
 
-356:                                              ; preds = %354
+339:                                              ; preds = %337
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %357 unwind label %359
+          to label %340 unwind label %342
 
-357:                                              ; preds = %356
-  %358 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+340:                                              ; preds = %339
+  %341 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit218
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit225
 
-359:                                              ; preds = %356
-  %360 = landingpad { ptr, i32 }
+342:                                              ; preds = %339
+  %343 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body204
+  br label %.body211
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit218: ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit214, %354, %357
-  %361 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %362 = getelementptr inbounds nuw i8, ptr %293, i64 272
-  br label %363
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit225: ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit221, %337, %340
+  %344 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %345 = getelementptr inbounds nuw i8, ptr %276, i64 272
+  br label %346
 
-363:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit218, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit247
-  %.sroa.0347.0 = phi ptr [ %342, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit218 ], [ %484, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit247 ]
-  %364 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %365 = icmp eq i8 %364, 0
-  br i1 %365, label %366, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit222, !prof !3
+346:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit225, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit254
+  %.sroa.0354.0 = phi ptr [ %325, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit225 ], [ %467, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit254 ]
+  %347 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %348 = icmp eq i8 %347, 0
+  br i1 %348, label %349, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit229, !prof !3
 
-366:                                              ; preds = %363
-  %367 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i219 = icmp eq i32 %367, 0
-  br i1 %.not.i219, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit222, label %368
+349:                                              ; preds = %346
+  %350 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i226 = icmp eq i32 %350, 0
+  br i1 %.not.i226, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit229, label %351
 
-368:                                              ; preds = %366
+351:                                              ; preds = %349
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %369 unwind label %371
+          to label %352 unwind label %354
 
-369:                                              ; preds = %368
-  %370 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+352:                                              ; preds = %351
+  %353 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit222
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit229
 
-371:                                              ; preds = %368
-  %372 = landingpad { ptr, i32 }
+354:                                              ; preds = %351
+  %355 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body204
+  br label %.body211
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit222: ; preds = %369, %366, %363
-  %373 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %374 = icmp eq i8 %373, 0
-  br i1 %374, label %375, label %382, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit229: ; preds = %352, %349, %346
+  %356 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %357 = icmp eq i8 %356, 0
+  br i1 %357, label %358, label %365, !prof !3
 
-375:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit222
-  %376 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i223 = icmp eq i32 %376, 0
-  br i1 %.not.i223, label %382, label %377
+358:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit229
+  %359 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i230 = icmp eq i32 %359, 0
+  br i1 %.not.i230, label %365, label %360
 
-377:                                              ; preds = %375
+360:                                              ; preds = %358
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %378 unwind label %380
+          to label %361 unwind label %363
 
-378:                                              ; preds = %377
-  %379 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+361:                                              ; preds = %360
+  %362 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %382
+  br label %365
 
-380:                                              ; preds = %377
-  %381 = landingpad { ptr, i32 }
+363:                                              ; preds = %360
+  %364 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body204
+  br label %.body211
 
-382:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit222, %375, %378
-  %383 = icmp eq ptr %.sroa.0347.0, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 200)
-  %384 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %385 = icmp eq i8 %384, 0
-  br i1 %383, label %.critedge2, label %386
+365:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit229, %358, %361
+  %366 = icmp eq ptr %.sroa.0354.0, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 200)
+  %367 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %368 = icmp eq i8 %367, 0
+  br i1 %366, label %.critedge2, label %369
 
-386:                                              ; preds = %382
-  br i1 %385, label %387, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit230, !prof !3
+369:                                              ; preds = %365
+  br i1 %368, label %370, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit237, !prof !3
 
-387:                                              ; preds = %386
-  %388 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i227 = icmp eq i32 %388, 0
-  br i1 %.not.i227, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit230, label %389
+370:                                              ; preds = %369
+  %371 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i234 = icmp eq i32 %371, 0
+  br i1 %.not.i234, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit237, label %372
 
-389:                                              ; preds = %387
+372:                                              ; preds = %370
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %390 unwind label %392
+          to label %373 unwind label %375
 
-390:                                              ; preds = %389
-  %391 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+373:                                              ; preds = %372
+  %374 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit230
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit237
 
-392:                                              ; preds = %389
-  %393 = landingpad { ptr, i32 }
+375:                                              ; preds = %372
+  %376 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body204
+  br label %.body211
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit230: ; preds = %390, %387, %386
-  %394 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %395 = icmp eq i8 %394, 0
-  br i1 %395, label %396, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit234, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit237: ; preds = %373, %370, %369
+  %377 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %378 = icmp eq i8 %377, 0
+  br i1 %378, label %379, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit241, !prof !3
 
-396:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit230
-  %397 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i231 = icmp eq i32 %397, 0
-  br i1 %.not.i231, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit234, label %398
+379:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit237
+  %380 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i238 = icmp eq i32 %380, 0
+  br i1 %.not.i238, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit241, label %381
 
-398:                                              ; preds = %396
+381:                                              ; preds = %379
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %399 unwind label %401
+          to label %382 unwind label %384
 
-399:                                              ; preds = %398
-  %400 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+382:                                              ; preds = %381
+  %383 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit234
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit241
 
-401:                                              ; preds = %398
-  %402 = landingpad { ptr, i32 }
+384:                                              ; preds = %381
+  %385 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body204
+  br label %.body211
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit234: ; preds = %399, %396, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit230
-  %403 = getelementptr inbounds nuw i8, ptr %.sroa.0347.0, i64 32
-  %404 = load ptr, ptr %403, align 8, !tbaa !16
-  %405 = load ptr, ptr %295, align 8, !tbaa !16
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit241: ; preds = %382, %379, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit237
+  %386 = getelementptr inbounds nuw i8, ptr %.sroa.0354.0, i64 32
+  %387 = load ptr, ptr %386, align 8, !tbaa !16
+  %388 = load ptr, ptr %278, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #26
-  %406 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
-          to label %414 unwind label %471
+  %389 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
+          to label %397 unwind label %454
 
-407:                                              ; preds = %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit
-  %408 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i235 = icmp eq i32 %408, 0
-  br i1 %.not.i235, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit238, label %409
+390:                                              ; preds = %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit
+  %391 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i242 = icmp eq i32 %391, 0
+  br i1 %.not.i242, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit245, label %392
 
-409:                                              ; preds = %407
+392:                                              ; preds = %390
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %410 unwind label %412
+          to label %393 unwind label %395
 
-410:                                              ; preds = %409
-  %411 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+393:                                              ; preds = %392
+  %394 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit238
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit245
 
-412:                                              ; preds = %409
-  %413 = landingpad { ptr, i32 }
+395:                                              ; preds = %392
+  %396 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body204
+  br label %.body211
 
-414:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit234
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost9unit_test9framework4impl21global_fixture_handleE, i64 16), ptr %406, align 8, !tbaa !38
-  %415 = getelementptr inbounds nuw i8, ptr %406, i64 8
-  store ptr %404, ptr %415, align 8, !tbaa !353
-  store ptr %406, ptr %15, align 8, !tbaa !349
-  store ptr null, ptr %361, align 8, !tbaa !135
-  %416 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
-          to label %430 unwind label %417
+397:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit241
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost9unit_test9framework4impl21global_fixture_handleE, i64 16), ptr %389, align 8, !tbaa !38
+  %398 = getelementptr inbounds nuw i8, ptr %389, i64 8
+  store ptr %387, ptr %398, align 8, !tbaa !353
+  store ptr %389, ptr %15, align 8, !tbaa !349
+  store ptr null, ptr %344, align 8, !tbaa !135
+  %399 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+          to label %413 unwind label %400
 
-417:                                              ; preds = %414
-  %418 = landingpad { ptr, i32 }
+400:                                              ; preds = %397
+  %401 = landingpad { ptr, i32 }
           catch ptr null
-  %419 = extractvalue { ptr, i32 } %418, 0
-  %420 = call ptr @__cxa_begin_catch(ptr %419) #26
-  %421 = load ptr, ptr %406, align 8, !tbaa !38
-  %422 = getelementptr inbounds i8, ptr %421, i64 8
-  %423 = load ptr, ptr %422, align 8
-  call void %423(ptr noundef nonnull align 8 dereferenceable(16) %406) #26
+  %402 = extractvalue { ptr, i32 } %401, 0
+  %403 = call ptr @__cxa_begin_catch(ptr %402) #26
+  %404 = load ptr, ptr %389, align 8, !tbaa !38
+  %405 = getelementptr inbounds i8, ptr %404, i64 8
+  %406 = load ptr, ptr %405, align 8
+  call void %406(ptr noundef nonnull align 8 dereferenceable(16) %389) #26
   invoke void @__cxa_rethrow() #27
-          to label %429 unwind label %424
+          to label %412 unwind label %407
 
-424:                                              ; preds = %417
-  %425 = landingpad { ptr, i32 }
+407:                                              ; preds = %400
+  %408 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body.i unwind label %426
+          to label %.body.i unwind label %409
 
-426:                                              ; preds = %424
-  %427 = landingpad { ptr, i32 }
+409:                                              ; preds = %407
+  %410 = landingpad { ptr, i32 }
           catch ptr null
-  %428 = extractvalue { ptr, i32 } %427, 0
-  call void @__clang_call_terminate(ptr %428) #30
+  %411 = extractvalue { ptr, i32 } %410, 0
+  call void @__clang_call_terminate(ptr %411) #30
   unreachable
 
-429:                                              ; preds = %417
+412:                                              ; preds = %400
   unreachable
 
-.body.i:                                          ; preds = %424
-  call void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %361) #26
-  br label %.body239
+.body.i:                                          ; preds = %407
+  call void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %344) #26
+  br label %.body246
 
-430:                                              ; preds = %414
-  %431 = getelementptr inbounds nuw i8, ptr %416, i64 8
-  store i32 1, ptr %431, align 8, !tbaa !356
-  %432 = getelementptr inbounds nuw i8, ptr %416, i64 12
-  store i32 1, ptr %432, align 4, !tbaa !358
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_9unit_test9framework4impl21global_fixture_handleEEE, i64 16), ptr %416, align 8, !tbaa !38
-  %433 = getelementptr inbounds nuw i8, ptr %416, i64 16
-  store ptr %406, ptr %433, align 8, !tbaa !359
-  store ptr %416, ptr %361, align 8, !tbaa !135
-  %434 = load ptr, ptr %295, align 8, !tbaa !16
-  %435 = ptrtoint ptr %405 to i64
-  %436 = ptrtoint ptr %434 to i64
-  %437 = sub i64 %435, %436
-  %438 = load ptr, ptr %297, align 8, !tbaa !352
-  %439 = load ptr, ptr %362, align 8, !tbaa !347
-  %.not.i.i241 = icmp eq ptr %438, %439
-  br i1 %.not.i.i241, label %447, label %440
+413:                                              ; preds = %397
+  %414 = getelementptr inbounds nuw i8, ptr %399, i64 8
+  store i32 1, ptr %414, align 8, !tbaa !356
+  %415 = getelementptr inbounds nuw i8, ptr %399, i64 12
+  store i32 1, ptr %415, align 4, !tbaa !358
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_9unit_test9framework4impl21global_fixture_handleEEE, i64 16), ptr %399, align 8, !tbaa !38
+  %416 = getelementptr inbounds nuw i8, ptr %399, i64 16
+  store ptr %389, ptr %416, align 8, !tbaa !359
+  store ptr %399, ptr %344, align 8, !tbaa !135
+  %417 = load ptr, ptr %278, align 8, !tbaa !16
+  %418 = ptrtoint ptr %388 to i64
+  %419 = ptrtoint ptr %417 to i64
+  %420 = sub i64 %418, %419
+  %421 = load ptr, ptr %280, align 8, !tbaa !352
+  %422 = load ptr, ptr %345, align 8, !tbaa !347
+  %.not.i.i248 = icmp eq ptr %421, %422
+  br i1 %.not.i.i248, label %430, label %423
 
-440:                                              ; preds = %430
-  %441 = icmp eq ptr %405, %438
-  br i1 %441, label %442, label %445
+423:                                              ; preds = %413
+  %424 = icmp eq ptr %388, %421
+  br i1 %424, label %425, label %428
 
-442:                                              ; preds = %440
-  store ptr %406, ptr %438, align 8, !tbaa !349
-  %443 = getelementptr inbounds nuw i8, ptr %438, i64 8
-  store ptr %416, ptr %443, align 8, !tbaa !135
+425:                                              ; preds = %423
+  store ptr %389, ptr %421, align 8, !tbaa !349
+  %426 = getelementptr inbounds nuw i8, ptr %421, i64 8
+  store ptr %399, ptr %426, align 8, !tbaa !135
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %444 = getelementptr inbounds nuw i8, ptr %438, i64 16
-  store ptr %444, ptr %297, align 8, !tbaa !352
-  br label %449
+  %427 = getelementptr inbounds nuw i8, ptr %421, i64 16
+  store ptr %427, ptr %280, align 8, !tbaa !352
+  br label %432
 
-445:                                              ; preds = %440
-  %446 = getelementptr inbounds i8, ptr %434, i64 %437
-  invoke void @_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE13_M_insert_auxIS4_EEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEOT_(ptr noundef nonnull align 8 dereferenceable(24) %295, ptr %446, ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %449 unwind label %473
+428:                                              ; preds = %423
+  %429 = getelementptr inbounds i8, ptr %417, i64 %420
+  invoke void @_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE13_M_insert_auxIS4_EEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEOT_(ptr noundef nonnull align 8 dereferenceable(24) %278, ptr %429, ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %432 unwind label %456
 
-447:                                              ; preds = %430
-  %448 = getelementptr inbounds i8, ptr %434, i64 %437
-  invoke void @_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %295, ptr %448, ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %449 unwind label %473
+430:                                              ; preds = %413
+  %431 = getelementptr inbounds i8, ptr %417, i64 %420
+  invoke void @_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %278, ptr %431, ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %432 unwind label %456
 
-449:                                              ; preds = %442, %445, %447
-  %450 = load ptr, ptr %361, align 8, !tbaa !135
-  %.not.i.i243 = icmp eq ptr %450, null
-  br i1 %.not.i.i243, label %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit, label %451
+432:                                              ; preds = %425, %428, %430
+  %433 = load ptr, ptr %344, align 8, !tbaa !135
+  %.not.i.i250 = icmp eq ptr %433, null
+  br i1 %.not.i.i250, label %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit, label %434
 
-451:                                              ; preds = %449
-  %452 = getelementptr inbounds nuw i8, ptr %450, i64 8
-  %453 = atomicrmw sub ptr %452, i32 1 acq_rel, align 4
-  %454 = icmp eq i32 %453, 1
-  br i1 %454, label %455, label %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit
+434:                                              ; preds = %432
+  %435 = getelementptr inbounds nuw i8, ptr %433, i64 8
+  %436 = atomicrmw sub ptr %435, i32 1 acq_rel, align 4
+  %437 = icmp eq i32 %436, 1
+  br i1 %437, label %438, label %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit
 
-455:                                              ; preds = %451
-  %456 = load ptr, ptr %450, align 8, !tbaa !38
-  %457 = getelementptr inbounds i8, ptr %456, i64 16
-  %458 = load ptr, ptr %457, align 8
-  invoke void %458(ptr noundef nonnull align 8 dereferenceable(16) %450)
-          to label %.noexc.i.i unwind label %466
+438:                                              ; preds = %434
+  %439 = load ptr, ptr %433, align 8, !tbaa !38
+  %440 = getelementptr inbounds i8, ptr %439, i64 16
+  %441 = load ptr, ptr %440, align 8
+  invoke void %441(ptr noundef nonnull align 8 dereferenceable(16) %433)
+          to label %.noexc.i.i unwind label %449
 
-.noexc.i.i:                                       ; preds = %455
-  %459 = getelementptr inbounds nuw i8, ptr %450, i64 12
-  %460 = atomicrmw sub ptr %459, i32 1 acq_rel, align 4
-  %461 = icmp eq i32 %460, 1
-  br i1 %461, label %462, label %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit
+.noexc.i.i:                                       ; preds = %438
+  %442 = getelementptr inbounds nuw i8, ptr %433, i64 12
+  %443 = atomicrmw sub ptr %442, i32 1 acq_rel, align 4
+  %444 = icmp eq i32 %443, 1
+  br i1 %444, label %445, label %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit
 
-462:                                              ; preds = %.noexc.i.i
-  %463 = load ptr, ptr %450, align 8, !tbaa !38
-  %464 = getelementptr inbounds i8, ptr %463, i64 24
-  %465 = load ptr, ptr %464, align 8
-  invoke void %465(ptr noundef nonnull align 8 dereferenceable(16) %450)
-          to label %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit unwind label %466
+445:                                              ; preds = %.noexc.i.i
+  %446 = load ptr, ptr %433, align 8, !tbaa !38
+  %447 = getelementptr inbounds i8, ptr %446, i64 24
+  %448 = load ptr, ptr %447, align 8
+  invoke void %448(ptr noundef nonnull align 8 dereferenceable(16) %433)
+          to label %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit unwind label %449
 
-466:                                              ; preds = %462, %455
-  %467 = landingpad { ptr, i32 }
+449:                                              ; preds = %445, %438
+  %450 = landingpad { ptr, i32 }
           catch ptr null
-  %468 = extractvalue { ptr, i32 } %467, 0
-  call void @__clang_call_terminate(ptr %468) #30
+  %451 = extractvalue { ptr, i32 } %450, 0
+  call void @__clang_call_terminate(ptr %451) #30
   unreachable
 
-_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit: ; preds = %449, %451, %.noexc.i.i, %462
+_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit: ; preds = %432, %434, %.noexc.i.i, %445
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #26
-  %469 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %470 = icmp eq i8 %469, 0
-  br i1 %470, label %407, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit238, !prof !3
+  %452 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %453 = icmp eq i8 %452, 0
+  br i1 %453, label %390, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit245, !prof !3
 
-471:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit234
-  %472 = landingpad { ptr, i32 }
+454:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit241
+  %455 = landingpad { ptr, i32 }
           cleanup
-  br label %.body239
+  br label %.body246
 
-473:                                              ; preds = %447, %445
-  %474 = landingpad { ptr, i32 }
+456:                                              ; preds = %430, %428
+  %457 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #26
-  br label %.body239
+  br label %.body246
 
-.body239:                                         ; preds = %471, %.body.i, %473
-  %.pn122 = phi { ptr, i32 } [ %474, %473 ], [ %472, %471 ], [ %425, %.body.i ]
+.body246:                                         ; preds = %454, %.body.i, %456
+  %.pn122 = phi { ptr, i32 } [ %457, %456 ], [ %455, %454 ], [ %408, %.body.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #26
-  br label %.body204
+  br label %.body211
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit238: ; preds = %410, %407, %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit
-  %475 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %476 = icmp eq i8 %475, 0
-  br i1 %476, label %477, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit247, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit245: ; preds = %393, %390, %_ZN5boost10shared_ptrINS_9unit_test17test_unit_fixtureEED2Ev.exit
+  %458 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %459 = icmp eq i8 %458, 0
+  br i1 %459, label %460, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit254, !prof !3
 
-477:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit238
-  %478 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i244 = icmp eq i32 %478, 0
-  br i1 %.not.i244, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit247, label %479
+460:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit245
+  %461 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i251 = icmp eq i32 %461, 0
+  br i1 %.not.i251, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit254, label %462
 
-479:                                              ; preds = %477
+462:                                              ; preds = %460
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %480 unwind label %482
+          to label %463 unwind label %465
 
-480:                                              ; preds = %479
-  %481 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+463:                                              ; preds = %462
+  %464 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit247
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit254
 
-482:                                              ; preds = %479
-  %483 = landingpad { ptr, i32 }
+465:                                              ; preds = %462
+  %466 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body204
+  br label %.body211
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit247: ; preds = %480, %477, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit238
-  %484 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0347.0) #31
-  br label %363, !llvm.loop !361
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit254: ; preds = %463, %460, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit245
+  %467 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0354.0) #31
+  br label %346, !llvm.loop !361
 
-.critedge2:                                       ; preds = %382
-  br i1 %385, label %485, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit251, !prof !3
+.critedge2:                                       ; preds = %365
+  br i1 %368, label %468, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit258, !prof !3
 
-485:                                              ; preds = %.critedge2
-  %486 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i248 = icmp eq i32 %486, 0
-  br i1 %.not.i248, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit251, label %487
+468:                                              ; preds = %.critedge2
+  %469 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i255 = icmp eq i32 %469, 0
+  br i1 %.not.i255, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit258, label %470
 
-487:                                              ; preds = %485
+470:                                              ; preds = %468
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %488 unwind label %490
+          to label %471 unwind label %473
 
-488:                                              ; preds = %487
-  %489 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+471:                                              ; preds = %470
+  %472 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit251
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit258
 
-490:                                              ; preds = %487
-  %491 = landingpad { ptr, i32 }
+473:                                              ; preds = %470
+  %474 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body249
+  br label %.body256
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit251: ; preds = %488, %485, %.critedge2
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit258: ; preds = %471, %468, %.critedge2
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 104), align 8, !tbaa !298
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #26
-  %492 = load ptr, ptr @_ZN5boost9unit_test14runtime_config16btrt_random_seedB5cxx11E, align 8, !tbaa !8
-  %493 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost9unit_test14runtime_config16btrt_random_seedB5cxx11E, i64 8), align 8, !tbaa !12
-  %494 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5boost9unit_test14runtime_config14argument_storeEv()
-          to label %.noexc252 unwind label %500
+  %475 = load ptr, ptr @_ZN5boost9unit_test14runtime_config16btrt_random_seedB5cxx11E, align 8, !tbaa !8
+  %476 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost9unit_test14runtime_config16btrt_random_seedB5cxx11E, i64 8), align 8, !tbaa !12
+  %477 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5boost9unit_test14runtime_config14argument_storeEv()
+          to label %.noexc259 unwind label %483
 
-.noexc252:                                        ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit251
-  %495 = getelementptr inbounds nuw i8, ptr %492, i64 %493
+.noexc259:                                        ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit258
+  %478 = getelementptr inbounds nuw i8, ptr %475, i64 %476
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store ptr %492, ptr %4, align 8, !tbaa !13
-  %496 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %495, ptr %496, align 8, !tbaa !15
-  %497 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5boost7runtime15arguments_store3getIjEERT_NS_9unit_test13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(48) %494, ptr noundef nonnull %4)
-          to label %498 unwind label %500
+  store ptr %475, ptr %4, align 8, !tbaa !13
+  %479 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %478, ptr %479, align 8, !tbaa !15
+  %480 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5boost7runtime15arguments_store3getIjEERT_NS_9unit_test13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(48) %477, ptr noundef nonnull %4)
+          to label %481 unwind label %483
 
-498:                                              ; preds = %.noexc252
+481:                                              ; preds = %.noexc259
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %499 = load i32, ptr %497, align 4, !tbaa !213
-  store i32 %499, ptr %16, align 4, !tbaa !213
-  switch i32 %499, label %507 [
-    i32 0, label %523
-    i32 1, label %502
+  %482 = load i32, ptr %480, align 4, !tbaa !213
+  store i32 %482, ptr %16, align 4, !tbaa !213
+  switch i32 %482, label %490 [
+    i32 0, label %506
+    i32 1, label %485
   ]
 
-500:                                              ; preds = %.noexc252, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit251, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit257
-  %501 = landingpad { ptr, i32 }
+483:                                              ; preds = %.noexc259, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit258, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264
+  %484 = landingpad { ptr, i32 }
           cleanup
-  br label %.body255
+  br label %.body262
 
-502:                                              ; preds = %498
-  %503 = call i32 @rand() #26
-  %504 = call i64 @time(ptr noundef null) #26
-  %505 = trunc i64 %504 to i32
-  %506 = xor i32 %503, %505
-  store i32 %506, ptr %16, align 4, !tbaa !213
-  br label %507
+485:                                              ; preds = %481
+  %486 = call i32 @rand() #26
+  %487 = call i64 @time(ptr noundef null) #26
+  %488 = trunc i64 %487 to i32
+  %489 = xor i32 %486, %488
+  store i32 %489, ptr %16, align 4, !tbaa !213
+  br label %490
 
-507:                                              ; preds = %502, %498
+490:                                              ; preds = %485, %481
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #26
-  %508 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !16
+  %491 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #26
   store ptr @.str.38, ptr %18, align 8, !tbaa !13
-  %509 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr getelementptr inbounds nuw (i8, ptr @.str.38, i64 20), ptr %509, align 8, !tbaa !15
-  %510 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 0, ptr %510, align 8, !tbaa !362
-  %511 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log5beginE(ptr noundef nonnull align 8 dereferenceable(8) %508, ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %512 unwind label %569
+  %492 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr getelementptr inbounds nuw (i8, ptr @.str.38, i64 20), ptr %492, align 8, !tbaa !15
+  %493 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 0, ptr %493, align 8, !tbaa !362
+  %494 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log5beginE(ptr noundef nonnull align 8 dereferenceable(8) %491, ptr noundef nonnull align 8 dereferenceable(24) %18)
+          to label %495 unwind label %552
 
-512:                                              ; preds = %507
-  invoke void @_ZN5boost9unit_test15unit_test_log_tclENS0_9log_levelE(ptr dead_on_unwind nonnull writable sret(%"class.boost::unit_test::ut_detail::entry_value_collector") align 1 %17, ptr noundef nonnull align 8 dereferenceable(8) %511, i32 noundef 2)
-          to label %513 unwind label %569
+495:                                              ; preds = %490
+  invoke void @_ZN5boost9unit_test15unit_test_log_tclENS0_9log_levelE(ptr dead_on_unwind nonnull writable sret(%"class.boost::unit_test::ut_detail::entry_value_collector") align 1 %17, ptr noundef nonnull align 8 dereferenceable(8) %494, i32 noundef 2)
+          to label %496 unwind label %552
 
-513:                                              ; preds = %512
+496:                                              ; preds = %495
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #26
-  %514 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i8 0, ptr %514, align 8, !tbaa !364, !alias.scope !366
+  %497 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i8 0, ptr %497, align 8, !tbaa !364, !alias.scope !366
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS0_12lazy_ostreamEA42_cRA42_KcEE, i64 16), ptr %20, align 8, !tbaa !38, !alias.scope !366
-  %515 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %515, align 8, !tbaa !16, !alias.scope !366
-  %516 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr @.str.39, ptr %516, align 8, !tbaa !16, !alias.scope !366
-  %517 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i8 0, ptr %517, align 8, !tbaa !364, !alias.scope !369
+  %498 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr @_ZN5boost9unit_test12lazy_ostream4instE, ptr %498, align 8, !tbaa !16, !alias.scope !366
+  %499 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store ptr @.str.39, ptr %499, align 8, !tbaa !16, !alias.scope !366
+  %500 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i8 0, ptr %500, align 8, !tbaa !364, !alias.scope !369
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost9unit_test17lazy_ostream_implINS1_INS0_12lazy_ostreamEA42_cRA42_KcEEjRKjEE, i64 16), ptr %19, align 8, !tbaa !38, !alias.scope !369
-  %518 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %20, ptr %518, align 8, !tbaa !16, !alias.scope !369
-  %519 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %16, ptr %519, align 8, !tbaa !16, !alias.scope !369
-  %520 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5boost9unit_test9ut_detail21entry_value_collectorlsERKNS0_12lazy_ostreamE(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(9) %19)
-          to label %521 unwind label %571
+  %501 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store ptr %20, ptr %501, align 8, !tbaa !16, !alias.scope !369
+  %502 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store ptr %16, ptr %502, align 8, !tbaa !16, !alias.scope !369
+  %503 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5boost9unit_test9ut_detail21entry_value_collectorlsERKNS0_12lazy_ostreamE(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(9) %19)
+          to label %504 unwind label %554
 
-521:                                              ; preds = %513
+504:                                              ; preds = %496
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #26
   call void @_ZN5boost9unit_test9ut_detail21entry_value_collectorD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #26
-  %522 = load i32, ptr %16, align 4, !tbaa !213
-  call void @srand(i32 noundef %522) #26
-  br label %523
+  %505 = load i32, ptr %16, align 4, !tbaa !213
+  call void @srand(i32 noundef %505) #26
+  br label %506
 
-523:                                              ; preds = %521, %498
-  %524 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %525 = icmp eq i8 %524, 0
-  br i1 %525, label %526, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit257, !prof !3
+506:                                              ; preds = %504, %481
+  %507 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %508 = icmp eq i8 %507, 0
+  br i1 %508, label %509, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264, !prof !3
 
-526:                                              ; preds = %523
-  %527 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i254 = icmp eq i32 %527, 0
-  br i1 %.not.i254, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit257, label %528
+509:                                              ; preds = %506
+  %510 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i261 = icmp eq i32 %510, 0
+  br i1 %.not.i261, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264, label %511
 
-528:                                              ; preds = %526
+511:                                              ; preds = %509
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %529 unwind label %531
+          to label %512 unwind label %514
 
-529:                                              ; preds = %528
-  %530 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+512:                                              ; preds = %511
+  %513 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit257
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264
 
-531:                                              ; preds = %528
-  %532 = landingpad { ptr, i32 }
+514:                                              ; preds = %511
+  %515 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body255
+  br label %.body262
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit257: ; preds = %529, %526, %523
-  %533 = invoke noundef i32 @_ZN5boost9unit_test9framework5state17execute_test_treeEmmPKNS2_23random_generator_helperE(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 noundef %.0, i64 noundef 0, ptr noundef null)
-          to label %534 unwind label %500
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264: ; preds = %512, %509, %506
+  %516 = invoke noundef i32 @_ZN5boost9unit_test9framework5state17execute_test_treeEmmPKNS2_23random_generator_helperE(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 noundef %.0, i64 noundef 0, ptr noundef null)
+          to label %517 unwind label %483
 
-534:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit257
+517:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #26
-  %535 = load ptr, ptr %14, align 8, !tbaa !348
-  %536 = load ptr, ptr %320, align 8, !tbaa !352
-  %537 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %538 = load ptr, ptr %537, align 8, !tbaa !347
-  %539 = load ptr, ptr %295, align 8, !tbaa !348
-  store ptr %539, ptr %14, align 8, !tbaa !348
-  %540 = load ptr, ptr %297, align 8, !tbaa !352
-  store ptr %540, ptr %320, align 8, !tbaa !352
-  %541 = load ptr, ptr %362, align 8, !tbaa !347
-  store ptr %541, ptr %537, align 8, !tbaa !347
-  store ptr %535, ptr %295, align 8, !tbaa !348
-  store ptr %536, ptr %297, align 8, !tbaa !352
-  store ptr %538, ptr %362, align 8, !tbaa !347
-  %.not4.i.i.i.i = icmp eq ptr %539, %540
+  %518 = load ptr, ptr %14, align 8, !tbaa !348
+  %519 = load ptr, ptr %303, align 8, !tbaa !352
+  %520 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %521 = load ptr, ptr %520, align 8, !tbaa !347
+  %522 = load ptr, ptr %278, align 8, !tbaa !348
+  store ptr %522, ptr %14, align 8, !tbaa !348
+  %523 = load ptr, ptr %280, align 8, !tbaa !352
+  store ptr %523, ptr %303, align 8, !tbaa !352
+  %524 = load ptr, ptr %345, align 8, !tbaa !347
+  store ptr %524, ptr %520, align 8, !tbaa !347
+  store ptr %518, ptr %278, align 8, !tbaa !348
+  store ptr %519, ptr %280, align 8, !tbaa !352
+  store ptr %521, ptr %345, align 8, !tbaa !347
+  %.not4.i.i.i.i = icmp eq ptr %522, %523
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %534, %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %562, %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i ], [ %539, %534 ]
-  %542 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %543 = load ptr, ptr %542, align 8, !tbaa !135
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %543, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i, label %544
+.lr.ph.i.i.i.i:                                   ; preds = %517, %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %545, %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i ], [ %522, %517 ]
+  %525 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %526 = load ptr, ptr %525, align 8, !tbaa !135
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %526, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i, label %527
 
-544:                                              ; preds = %.lr.ph.i.i.i.i
-  %545 = getelementptr inbounds nuw i8, ptr %543, i64 8
-  %546 = atomicrmw sub ptr %545, i32 1 acq_rel, align 4
-  %547 = icmp eq i32 %546, 1
-  br i1 %547, label %548, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i
+527:                                              ; preds = %.lr.ph.i.i.i.i
+  %528 = getelementptr inbounds nuw i8, ptr %526, i64 8
+  %529 = atomicrmw sub ptr %528, i32 1 acq_rel, align 4
+  %530 = icmp eq i32 %529, 1
+  br i1 %530, label %531, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i
 
-548:                                              ; preds = %544
-  %549 = load ptr, ptr %543, align 8, !tbaa !38
-  %550 = getelementptr inbounds i8, ptr %549, i64 16
-  %551 = load ptr, ptr %550, align 8
-  invoke void %551(ptr noundef nonnull align 8 dereferenceable(16) %543)
-          to label %.noexc.i.i.i.i.i.i.i unwind label %559
+531:                                              ; preds = %527
+  %532 = load ptr, ptr %526, align 8, !tbaa !38
+  %533 = getelementptr inbounds i8, ptr %532, i64 16
+  %534 = load ptr, ptr %533, align 8
+  invoke void %534(ptr noundef nonnull align 8 dereferenceable(16) %526)
+          to label %.noexc.i.i.i.i.i.i.i unwind label %542
 
-.noexc.i.i.i.i.i.i.i:                             ; preds = %548
-  %552 = getelementptr inbounds nuw i8, ptr %543, i64 12
-  %553 = atomicrmw sub ptr %552, i32 1 acq_rel, align 4
-  %554 = icmp eq i32 %553, 1
-  br i1 %554, label %555, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i
+.noexc.i.i.i.i.i.i.i:                             ; preds = %531
+  %535 = getelementptr inbounds nuw i8, ptr %526, i64 12
+  %536 = atomicrmw sub ptr %535, i32 1 acq_rel, align 4
+  %537 = icmp eq i32 %536, 1
+  br i1 %537, label %538, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i
 
-555:                                              ; preds = %.noexc.i.i.i.i.i.i.i
-  %556 = load ptr, ptr %543, align 8, !tbaa !38
-  %557 = getelementptr inbounds i8, ptr %556, i64 24
-  %558 = load ptr, ptr %557, align 8
-  invoke void %558(ptr noundef nonnull align 8 dereferenceable(16) %543)
-          to label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i unwind label %559
+538:                                              ; preds = %.noexc.i.i.i.i.i.i.i
+  %539 = load ptr, ptr %526, align 8, !tbaa !38
+  %540 = getelementptr inbounds i8, ptr %539, i64 24
+  %541 = load ptr, ptr %540, align 8
+  invoke void %541(ptr noundef nonnull align 8 dereferenceable(16) %526)
+          to label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i unwind label %542
 
-559:                                              ; preds = %555, %548
-  %560 = landingpad { ptr, i32 }
+542:                                              ; preds = %538, %531
+  %543 = landingpad { ptr, i32 }
           catch ptr null
-  %561 = extractvalue { ptr, i32 } %560, 0
-  call void @__clang_call_terminate(ptr %561) #30
+  %544 = extractvalue { ptr, i32 } %543, 0
+  call void @__clang_call_terminate(ptr %544) #30
   unreachable
 
-_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i: ; preds = %555, %.noexc.i.i.i.i.i.i.i, %544, %.lr.ph.i.i.i.i
-  %562 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i258 = icmp eq ptr %562, %540
-  br i1 %.not.i.i.i.i258, label %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !372
+_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i: ; preds = %538, %.noexc.i.i.i.i.i.i.i, %527, %.lr.ph.i.i.i.i
+  %545 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
+  %.not.i.i.i.i265 = icmp eq ptr %545, %523
+  br i1 %.not.i.i.i.i265, label %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !372
 
 _ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %14, align 8, !tbaa !348
   br label %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, %534
-  %563 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i ], [ %539, %534 ]
-  %.not.i.i.i259 = icmp eq ptr %563, null
-  br i1 %.not.i.i.i259, label %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EED2Ev.exit, label %564
+_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, %517
+  %546 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i ], [ %522, %517 ]
+  %.not.i.i.i266 = icmp eq ptr %546, null
+  br i1 %.not.i.i.i266, label %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EED2Ev.exit, label %547
 
-564:                                              ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exit.i
-  %565 = load ptr, ptr %537, align 8, !tbaa !347
-  %566 = ptrtoint ptr %565 to i64
-  %567 = ptrtoint ptr %563 to i64
-  %568 = sub i64 %566, %567
-  call void @_ZdlPvm(ptr noundef nonnull %563, i64 noundef %568) #28
+547:                                              ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exit.i
+  %548 = load ptr, ptr %520, align 8, !tbaa !347
+  %549 = ptrtoint ptr %548 to i64
+  %550 = ptrtoint ptr %546 to i64
+  %551 = sub i64 %549, %550
+  call void @_ZdlPvm(ptr noundef nonnull %546, i64 noundef %551) #28
   br label %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exit.i, %564
+_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEES4_EvT_S6_RSaIT0_E.exit.i, %547
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #26
-  br label %582
+  br label %564
 
-569:                                              ; preds = %512, %507
-  %570 = landingpad { ptr, i32 }
+552:                                              ; preds = %495, %490
+  %553 = landingpad { ptr, i32 }
           cleanup
-  br label %573
+  br label %556
 
-571:                                              ; preds = %513
-  %572 = landingpad { ptr, i32 }
+554:                                              ; preds = %496
+  %555 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #26
   call void @_ZN5boost9unit_test9ut_detail21entry_value_collectorD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #26
-  br label %573
+  br label %556
 
-573:                                              ; preds = %571, %569
-  %.pn128.pn.pn = phi { ptr, i32 } [ %572, %571 ], [ %570, %569 ]
+556:                                              ; preds = %554, %552
+  %.pn128.pn.pn = phi { ptr, i32 } [ %555, %554 ], [ %553, %552 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #26
-  br label %.body255
+  br label %.body262
 
-.body255:                                         ; preds = %500, %531, %573
-  %.pn132 = phi { ptr, i32 } [ %.pn128.pn.pn, %573 ], [ %501, %500 ], [ %532, %531 ]
+.body262:                                         ; preds = %483, %514, %556
+  %.pn132 = phi { ptr, i32 } [ %.pn128.pn.pn, %556 ], [ %484, %483 ], [ %515, %514 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #26
-  br label %.body249
+  br label %.body256
 
-.body249:                                         ; preds = %490, %.body255
-  %.pn132.pn = phi { ptr, i32 } [ %.pn132, %.body255 ], [ %491, %490 ]
-  %574 = load ptr, ptr %14, align 8, !tbaa !348
-  %575 = load ptr, ptr %320, align 8, !tbaa !352
-  %576 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %577 = load ptr, ptr %576, align 8, !tbaa !347
-  %578 = load ptr, ptr %295, align 8, !tbaa !348
-  store ptr %578, ptr %14, align 8, !tbaa !348
-  %579 = load ptr, ptr %297, align 8, !tbaa !352
-  store ptr %579, ptr %320, align 8, !tbaa !352
-  %580 = load ptr, ptr %362, align 8, !tbaa !347
-  store ptr %580, ptr %576, align 8, !tbaa !347
-  store ptr %574, ptr %295, align 8, !tbaa !348
-  store ptr %575, ptr %297, align 8, !tbaa !352
-  store ptr %577, ptr %362, align 8, !tbaa !347
-  br label %.body204
+.body256:                                         ; preds = %473, %.body262
+  %.pn132.pn = phi { ptr, i32 } [ %.pn132, %.body262 ], [ %474, %473 ]
+  %557 = load ptr, ptr %14, align 8, !tbaa !348
+  %558 = load ptr, ptr %303, align 8, !tbaa !352
+  %559 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %560 = load ptr, ptr %559, align 8, !tbaa !347
+  %561 = load ptr, ptr %278, align 8, !tbaa !348
+  store ptr %561, ptr %14, align 8, !tbaa !348
+  %562 = load ptr, ptr %280, align 8, !tbaa !352
+  store ptr %562, ptr %303, align 8, !tbaa !352
+  %563 = load ptr, ptr %345, align 8, !tbaa !347
+  store ptr %563, ptr %559, align 8, !tbaa !347
+  store ptr %557, ptr %278, align 8, !tbaa !348
+  store ptr %558, ptr %280, align 8, !tbaa !352
+  store ptr %560, ptr %345, align 8, !tbaa !347
+  br label %.body211
 
-.body204:                                         ; preds = %350, %359, %482, %401, %392, %380, %371, %412, %.body239, %337, %328, %.body249
-  %.pn132.pn.pn = phi { ptr, i32 } [ %.pn132.pn, %.body249 ], [ %329, %328 ], [ %338, %337 ], [ %351, %350 ], [ %360, %359 ], [ %.pn122, %.body239 ], [ %372, %371 ], [ %413, %412 ], [ %381, %380 ], [ %393, %392 ], [ %402, %401 ], [ %483, %482 ]
+.body211:                                         ; preds = %333, %342, %465, %384, %375, %363, %354, %395, %.body246, %320, %311, %.body256
+  %.pn132.pn.pn = phi { ptr, i32 } [ %.pn132.pn, %.body256 ], [ %312, %311 ], [ %321, %320 ], [ %334, %333 ], [ %343, %342 ], [ %.pn122, %.body246 ], [ %355, %354 ], [ %396, %395 ], [ %364, %363 ], [ %376, %375 ], [ %385, %384 ], [ %466, %465 ]
   call void @_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #26
-  br label %.body201
+  br label %.body208
 
-.body201:                                         ; preds = %318, %.body204
-  %.pn132.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn.pn, %.body204 ], [ %319, %318 ]
+.body208:                                         ; preds = %301, %.body211
+  %.pn132.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn.pn, %.body211 ], [ %302, %301 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #26
-  br label %581
+  br label %.body156
 
-581:                                              ; preds = %.body201, %339
-  %.pn132.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn.pn.pn, %.body201 ], [ %340, %339 ]
-  %.13 = extractvalue { ptr, i32 } %.pn132.pn.pn.pn.pn, 0
-  %.1381 = extractvalue { ptr, i32 } %.pn132.pn.pn.pn.pn, 1
-  br label %.loopexit371
+564:                                              ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EED2Ev.exit, %274
+  %565 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %566 = icmp eq i8 %565, 0
+  br i1 %566, label %567, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit271, !prof !3
 
-582:                                              ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EED2Ev.exit, %291
-  %583 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %584 = icmp eq i8 %583, 0
-  br i1 %584, label %585, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264, !prof !3
+567:                                              ; preds = %564
+  %568 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i268 = icmp eq i32 %568, 0
+  br i1 %.not.i268, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit271, label %569
 
-585:                                              ; preds = %582
-  %586 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i261 = icmp eq i32 %586, 0
-  br i1 %.not.i261, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264, label %587
-
-587:                                              ; preds = %585
+569:                                              ; preds = %567
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %588 unwind label %590
+          to label %570 unwind label %572
 
-588:                                              ; preds = %587
-  %589 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+570:                                              ; preds = %569
+  %571 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit271
 
-590:                                              ; preds = %587
-  %591 = landingpad { ptr, i32 }
+572:                                              ; preds = %569
+  %573 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body149
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264: ; preds = %588, %585, %582
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit271: ; preds = %570, %567, %564
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 104), align 8, !tbaa !298
   invoke void @_ZN5boost9unit_test16results_reporter11make_reportENS0_12report_levelEm(i32 noundef 0, i64 noundef %.0)
-          to label %592 unwind label %126
+          to label %574 unwind label %119
 
-592:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit264
-  store i8 1, ptr %80, align 8, !tbaa !340
-  %593 = load ptr, ptr %12, align 8, !tbaa !346
-  %594 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %595 = icmp eq i8 %594, 0
-  br i1 %595, label %596, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i, !prof !3
+574:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit271
+  store i8 1, ptr %77, align 8, !tbaa !340
+  %575 = load ptr, ptr %12, align 8, !tbaa !346
+  %576 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %577 = icmp eq i8 %576, 0
+  br i1 %577, label %578, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i, !prof !3
 
-596:                                              ; preds = %592
-  %597 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i.i.i265 = icmp eq i32 %597, 0
-  br i1 %.not.i.i.i265, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i, label %598
+578:                                              ; preds = %574
+  %579 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i.i.i272 = icmp eq i32 %579, 0
+  br i1 %.not.i.i.i272, label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i, label %580
 
-598:                                              ; preds = %596
+580:                                              ; preds = %578
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %599 unwind label %601
+          to label %581 unwind label %583
 
-599:                                              ; preds = %598
-  %600 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+581:                                              ; preds = %580
+  %582 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
   br label %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i
 
-601:                                              ; preds = %598
-  %602 = landingpad { ptr, i32 }
+583:                                              ; preds = %580
+  %584 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body149
+  br label %.body156
 
-_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i: ; preds = %599, %596, %592
+_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i: ; preds = %581, %578, %574
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
-  store ptr %593, ptr %3, align 8, !tbaa !16
-  %603 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE16_M_insert_uniqueIS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 112), ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %604 unwind label %126
+  store ptr %575, ptr %3, align 8, !tbaa !16
+  %585 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE16_M_insert_uniqueIS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 112), ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %586 unwind label %119
 
-604:                                              ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i
+586:                                              ; preds = %_ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
   invoke void @_ZN5boost9unit_test25framework_init_observer_t5clearEv(ptr noundef nonnull align 8 dereferenceable(9) %11)
-          to label %605 unwind label %126
+          to label %587 unwind label %119
 
-605:                                              ; preds = %604
-  br i1 %.demorgan, label %.critedge4, label %606
+587:                                              ; preds = %586
+  br i1 %.demorgan, label %.critedge4, label %588
 
-606:                                              ; preds = %605
+588:                                              ; preds = %587
+  %589 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %590 = icmp eq i8 %589, 0
+  br i1 %590, label %591, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit279, !prof !3
+
+591:                                              ; preds = %588
+  %592 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i276 = icmp eq i32 %592, 0
+  br i1 %.not.i276, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit279, label %593
+
+593:                                              ; preds = %591
+  invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
+          to label %594 unwind label %596
+
+594:                                              ; preds = %593
+  %595 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit279
+
+596:                                              ; preds = %593
+  %597 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  br label %.body156
+
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit279: ; preds = %594, %591, %588
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 104), align 8, !tbaa !298
+  %598 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %599 = icmp eq i8 %598, 0
+  br i1 %599, label %600, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit283, !prof !3
+
+600:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit279
+  %601 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i280 = icmp eq i32 %601, 0
+  br i1 %.not.i280, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit283, label %602
+
+602:                                              ; preds = %600
+  invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
+          to label %603 unwind label %605
+
+603:                                              ; preds = %602
+  %604 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit283
+
+605:                                              ; preds = %602
+  %606 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  br label %.body156
+
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit283: ; preds = %603, %600, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit279
   %607 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
   %608 = icmp eq i8 %607, 0
-  br i1 %608, label %609, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit272, !prof !3
+  br i1 %608, label %609, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit287, !prof !3
 
-609:                                              ; preds = %606
+609:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit283
   %610 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i269 = icmp eq i32 %610, 0
-  br i1 %.not.i269, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit272, label %611
+  %.not.i284 = icmp eq i32 %610, 0
+  br i1 %.not.i284, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit287, label %611
 
 611:                                              ; preds = %609
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
@@ -12009,24 +12013,23 @@ _ZN5boost9unit_test9framework17register_observerERNS0_13test_observerE.exit.i: ;
 612:                                              ; preds = %611
   %613 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit272
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit287
 
 614:                                              ; preds = %611
   %615 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body149
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit272: ; preds = %612, %609, %606
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 104), align 8, !tbaa !298
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit287: ; preds = %612, %609, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit283
   %616 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
   %617 = icmp eq i8 %616, 0
-  br i1 %617, label %618, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit276, !prof !3
+  br i1 %617, label %618, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit291, !prof !3
 
-618:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit272
+618:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit287
   %619 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i273 = icmp eq i32 %619, 0
-  br i1 %.not.i273, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit276, label %620
+  %.not.i288 = icmp eq i32 %619, 0
+  br i1 %.not.i288, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit291, label %620
 
 620:                                              ; preds = %618
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
@@ -12035,23 +12038,23 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit272: ; preds
 621:                                              ; preds = %620
   %622 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit276
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit291
 
 623:                                              ; preds = %620
   %624 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit276: ; preds = %621, %618, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit272
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit291: ; preds = %621, %618, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit287
   %625 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
   %626 = icmp eq i8 %625, 0
-  br i1 %626, label %627, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit280, !prof !3
+  br i1 %626, label %627, label %.split444, !prof !3
 
-627:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit276
+627:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit291
   %628 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i277 = icmp eq i32 %628, 0
-  br i1 %.not.i277, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit280, label %629
+  %.not.i292 = icmp eq i32 %628, 0
+  br i1 %.not.i292, label %.split444, label %629
 
 629:                                              ; preds = %627
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
@@ -12060,371 +12063,308 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit276: ; preds
 630:                                              ; preds = %629
   %631 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit280
+  br label %.split444
 
 632:                                              ; preds = %629
   %633 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit280: ; preds = %630, %627, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit276
-  %634 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %635 = icmp eq i8 %634, 0
-  br i1 %635, label %636, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit284, !prof !3
+.split444:                                        ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit291, %627, %630
+  %634 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 136), align 8, !tbaa !122
+  br label %635
 
-636:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit280
-  %637 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i281 = icmp eq i32 %637, 0
-  br i1 %.not.i281, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit284, label %638
+635:                                              ; preds = %.loopexit.split.us, %.split444
+  %.sroa.0336.0 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 120), %.split444 ], [ %675, %.loopexit.split.us ]
+  %636 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %637 = icmp eq i8 %636, 0
+  br i1 %637, label %638, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit299, !prof !3
 
-638:                                              ; preds = %636
+638:                                              ; preds = %635
+  %639 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i296 = icmp eq i32 %639, 0
+  br i1 %.not.i296, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit299, label %640
+
+640:                                              ; preds = %638
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %639 unwind label %641
+          to label %641 unwind label %643
 
-639:                                              ; preds = %638
-  %640 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+641:                                              ; preds = %640
+  %642 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit284
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit299
 
-641:                                              ; preds = %638
-  %642 = landingpad { ptr, i32 }
+643:                                              ; preds = %640
+  %644 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit284: ; preds = %639, %636, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit280
-  %643 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %644 = icmp eq i8 %643, 0
-  br i1 %644, label %645, label %.split439, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit299: ; preds = %641, %638, %635
+  %645 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %646 = icmp eq i8 %645, 0
+  br i1 %646, label %647, label %654, !prof !3
 
-645:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit284
-  %646 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i285 = icmp eq i32 %646, 0
-  br i1 %.not.i285, label %.split439, label %647
+647:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit299
+  %648 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i300 = icmp eq i32 %648, 0
+  br i1 %.not.i300, label %654, label %649
 
-647:                                              ; preds = %645
+649:                                              ; preds = %647
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %648 unwind label %650
+          to label %650 unwind label %652
 
-648:                                              ; preds = %647
-  %649 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+650:                                              ; preds = %649
+  %651 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.split439
+  br label %654
 
-650:                                              ; preds = %647
-  %651 = landingpad { ptr, i32 }
+652:                                              ; preds = %649
+  %653 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
+  br label %.body156
 
-.split439:                                        ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit284, %645, %648
-  %652 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 136), align 8, !tbaa !122
-  br label %653
+654:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit299, %647, %650
+  %655 = icmp eq ptr %.sroa.0336.0, %634
+  br i1 %655, label %.critedge4, label %656
 
-653:                                              ; preds = %.loopexit.split.us, %.split439
-  %.sroa.0329.0 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 120), %.split439 ], [ %693, %.loopexit.split.us ]
-  %654 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %655 = icmp eq i8 %654, 0
-  br i1 %655, label %656, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit292, !prof !3
+656:                                              ; preds = %654
+  %657 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %658 = icmp eq i8 %657, 0
+  br i1 %658, label %659, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit307, !prof !3
 
-656:                                              ; preds = %653
-  %657 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i289 = icmp eq i32 %657, 0
-  br i1 %.not.i289, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit292, label %658
+659:                                              ; preds = %656
+  %660 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i304 = icmp eq i32 %660, 0
+  br i1 %.not.i304, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit307, label %661
 
-658:                                              ; preds = %656
+661:                                              ; preds = %659
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %659 unwind label %661
+          to label %662 unwind label %664
 
-659:                                              ; preds = %658
-  %660 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+662:                                              ; preds = %661
+  %663 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit292
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit307
 
-661:                                              ; preds = %658
-  %662 = landingpad { ptr, i32 }
+664:                                              ; preds = %661
+  %665 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit292: ; preds = %659, %656, %653
-  %663 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %664 = icmp eq i8 %663, 0
-  br i1 %664, label %665, label %672, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit307: ; preds = %662, %659, %656
+  %666 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %667 = icmp eq i8 %666, 0
+  br i1 %667, label %668, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit311, !prof !3
 
-665:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit292
-  %666 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i293 = icmp eq i32 %666, 0
-  br i1 %.not.i293, label %672, label %667
+668:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit307
+  %669 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i308 = icmp eq i32 %669, 0
+  br i1 %.not.i308, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit311, label %670
 
-667:                                              ; preds = %665
+670:                                              ; preds = %668
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %668 unwind label %670
+          to label %671 unwind label %673
 
-668:                                              ; preds = %667
-  %669 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+671:                                              ; preds = %670
+  %672 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %672
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit311
 
-670:                                              ; preds = %667
-  %671 = landingpad { ptr, i32 }
+673:                                              ; preds = %670
+  %674 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
+  br label %.body156
 
-672:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit292, %665, %668
-  %673 = icmp eq ptr %.sroa.0329.0, %652
-  br i1 %673, label %.critedge4, label %674
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit311: ; preds = %671, %668, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit307
+  %675 = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0336.0) #31
+  %676 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %677 = icmp eq i8 %676, 0
+  br i1 %677, label %678, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit315, !prof !3
 
-674:                                              ; preds = %672
-  %675 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %676 = icmp eq i8 %675, 0
-  br i1 %676, label %677, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit300, !prof !3
+678:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit311
+  %679 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i312 = icmp eq i32 %679, 0
+  br i1 %.not.i312, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit315, label %680
 
-677:                                              ; preds = %674
-  %678 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i297 = icmp eq i32 %678, 0
-  br i1 %.not.i297, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit300, label %679
-
-679:                                              ; preds = %677
+680:                                              ; preds = %678
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %680 unwind label %682
+          to label %681 unwind label %683
 
-680:                                              ; preds = %679
-  %681 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+681:                                              ; preds = %680
+  %682 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit300
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit315
 
-682:                                              ; preds = %679
-  %683 = landingpad { ptr, i32 }
+683:                                              ; preds = %680
+  %684 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit300: ; preds = %680, %677, %674
-  %684 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %685 = icmp eq i8 %684, 0
-  br i1 %685, label %686, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit304, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit315: ; preds = %681, %678, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit311
+  %685 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %686 = icmp eq i8 %685, 0
+  br i1 %686, label %687, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit319, !prof !3
 
-686:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit300
-  %687 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i301 = icmp eq i32 %687, 0
-  br i1 %.not.i301, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit304, label %688
+687:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit315
+  %688 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i316 = icmp eq i32 %688, 0
+  br i1 %.not.i316, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit319, label %689
 
-688:                                              ; preds = %686
+689:                                              ; preds = %687
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %689 unwind label %691
+          to label %690 unwind label %692
 
-689:                                              ; preds = %688
-  %690 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+690:                                              ; preds = %689
+  %691 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit304
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit319
 
-691:                                              ; preds = %688
-  %692 = landingpad { ptr, i32 }
+692:                                              ; preds = %689
+  %693 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit304: ; preds = %689, %686, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit300
-  %693 = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0329.0) #31
-  %694 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %695 = icmp eq i8 %694, 0
-  br i1 %695, label %696, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit308, !prof !3
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit319: ; preds = %690, %687, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit315
+  %694 = getelementptr inbounds nuw i8, ptr %675, i64 32
+  %695 = load ptr, ptr %694, align 8, !tbaa !16
+  %696 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %697 = icmp eq i8 %696, 0
+  br i1 %697, label %698, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit323.us, !prof !3
 
-696:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit304
-  %697 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i305 = icmp eq i32 %697, 0
-  br i1 %.not.i305, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit308, label %698
+698:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit319
+  %699 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i320.us = icmp eq i32 %699, 0
+  br i1 %.not.i320.us, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit323.us, label %700
 
-698:                                              ; preds = %696
+700:                                              ; preds = %698
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %699 unwind label %701
+          to label %701 unwind label %.split.us
 
-699:                                              ; preds = %698
-  %700 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+701:                                              ; preds = %700
+  %702 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit308
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit323.us
 
-701:                                              ; preds = %698
-  %702 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
-
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit308: ; preds = %699, %696, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit304
-  %703 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %704 = icmp eq i8 %703, 0
-  br i1 %704, label %705, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit312, !prof !3
-
-705:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit308
-  %706 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i309 = icmp eq i32 %706, 0
-  br i1 %.not.i309, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit312, label %707
-
-707:                                              ; preds = %705
-  invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %708 unwind label %710
-
-708:                                              ; preds = %707
-  %709 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit312
-
-710:                                              ; preds = %707
-  %711 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
-
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit312: ; preds = %708, %705, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit308
-  %712 = getelementptr inbounds nuw i8, ptr %693, i64 32
-  %713 = load ptr, ptr %712, align 8, !tbaa !16
-  %714 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %715 = icmp eq i8 %714, 0
-  br i1 %715, label %716, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit316.us, !prof !3
-
-716:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit312
-  %717 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i313.us = icmp eq i32 %717, 0
-  br i1 %.not.i313.us, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit316.us, label %718
-
-718:                                              ; preds = %716
-  invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %719 unwind label %.split.us
-
-719:                                              ; preds = %718
-  %720 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit316.us
-
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit316.us: ; preds = %719, %716, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit312
-  %721 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit323.us: ; preds = %701, %698, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit319
+  %703 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
   store i64 %.0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
-  %722 = load ptr, ptr %713, align 8, !tbaa !38
-  %723 = getelementptr inbounds i8, ptr %722, i64 8
-  %724 = load ptr, ptr %723, align 8
-  invoke void %724(ptr noundef nonnull align 8 dereferenceable(8) %713)
-          to label %.loopexit.split.us unwind label %.split432.us
+  %704 = load ptr, ptr %695, align 8, !tbaa !38
+  %705 = getelementptr inbounds i8, ptr %704, i64 8
+  %706 = load ptr, ptr %705, align 8
+  invoke void %706(ptr noundef nonnull align 8 dereferenceable(8) %695)
+          to label %.loopexit.split.us unwind label %.split437.us
 
-.loopexit.split.us:                               ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit316.us
-  store i64 %721, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
-  br label %653, !llvm.loop !373
+.loopexit.split.us:                               ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit323.us
+  store i64 %703, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
+  br label %635, !llvm.loop !373
 
-.split.us:                                        ; preds = %718
-  %725 = landingpad { ptr, i32 }
+.split.us:                                        ; preds = %700
+  %707 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body274
+  br label %.body156
 
-.split432.us:                                     ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit316.us
-  %726 = landingpad { ptr, i32 }
+.split437.us:                                     ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit323.us
+  %708 = landingpad { ptr, i32 }
           cleanup
-  store i64 %721, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
-  br label %.body274
+  store i64 %703, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 32), align 8, !tbaa !4
+  br label %.body156
 
-.body274:                                         ; preds = %641, %650, %.split432.us, %.split.us, %710, %701, %691, %670, %661, %682, %632, %623
-  %.pn138.pn.pn.pn.pn = phi { ptr, i32 } [ %624, %623 ], [ %633, %632 ], [ %642, %641 ], [ %651, %650 ], [ %662, %661 ], [ %683, %682 ], [ %671, %670 ], [ %692, %691 ], [ %702, %701 ], [ %711, %710 ], [ %726, %.split432.us ], [ %725, %.split.us ]
-  %.26 = extractvalue { ptr, i32 } %.pn138.pn.pn.pn.pn, 0
-  %.2694 = extractvalue { ptr, i32 } %.pn138.pn.pn.pn.pn, 1
-  br label %.loopexit371
+.critedge4:                                       ; preds = %654, %587
+  %709 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
+  %710 = icmp eq i8 %709, 0
+  br i1 %710, label %711, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit327, !prof !3
 
-.critedge4:                                       ; preds = %672, %605
-  %727 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
-  %728 = icmp eq i8 %727, 0
-  br i1 %728, label %729, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit320, !prof !3
+711:                                              ; preds = %.critedge4
+  %712 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
+  %.not.i324 = icmp eq i32 %712, 0
+  br i1 %.not.i324, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit327, label %713
 
-729:                                              ; preds = %.critedge4
-  %730 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  %.not.i317 = icmp eq i32 %730, 0
-  br i1 %.not.i317, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit320, label %731
-
-731:                                              ; preds = %729
+713:                                              ; preds = %711
   invoke void @_ZN5boost9unit_test9framework5stateC2Ev(ptr noundef nonnull align 8 dereferenceable(360) @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst)
-          to label %732 unwind label %734
+          to label %714 unwind label %716
 
-732:                                              ; preds = %731
-  %733 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
+714:                                              ; preds = %713
+  %715 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test9framework5stateD2Ev, ptr nonnull @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit320
+  br label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit327
 
-734:                                              ; preds = %731
-  %735 = landingpad { ptr, i32 }
+716:                                              ; preds = %713
+  %717 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst) #26
-  br label %.body149
+  br label %.body156
 
-_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit320: ; preds = %732, %729, %.critedge4
-  store i8 %77, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 104), align 8, !tbaa !298
-  br i1 %.0100, label %736, label %739
+_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit327: ; preds = %714, %711, %.critedge4
+  store i8 %74, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 104), align 8, !tbaa !298
+  br i1 %.0100, label %718, label %721
 
-736:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit320
-  %737 = invoke noundef zeroext i1 @_ZNK5boost9unit_test25framework_init_observer_t10has_failedEv(ptr noundef nonnull align 8 dereferenceable(9) %11)
-          to label %738 unwind label %126
+718:                                              ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit327
+  %719 = invoke noundef zeroext i1 @_ZNK5boost9unit_test25framework_init_observer_t10has_failedEv(ptr noundef nonnull align 8 dereferenceable(9) %11)
+          to label %720 unwind label %119
 
-738:                                              ; preds = %736
-  br i1 %737, label %739, label %748
+720:                                              ; preds = %718
+  br i1 %719, label %721, label %730
 
-739:                                              ; preds = %738, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit320
+721:                                              ; preds = %720, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit327
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #26
-  store ptr %.sroa.0368.0, ptr %22, align 8, !tbaa !13
-  %740 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %.sroa.6369.0, ptr %740, align 8, !tbaa !15
+  store ptr %.sroa.0375.0, ptr %22, align 8, !tbaa !13
+  %722 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr %.sroa.6376.0, ptr %722, align 8, !tbaa !15
   invoke void @_ZN5boost9unit_test9framework11setup_errorC2ENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %22)
-          to label %741 unwind label %743
+          to label %723 unwind label %725
 
-741:                                              ; preds = %739
+723:                                              ; preds = %721
   invoke void @_ZN5boost9unit_test9ut_detail15throw_exceptionINS0_9framework11setup_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %21) #27
-          to label %742 unwind label %745
+          to label %724 unwind label %727
 
-742:                                              ; preds = %741
+724:                                              ; preds = %723
   unreachable
 
-743:                                              ; preds = %739
-  %744 = landingpad { ptr, i32 }
+725:                                              ; preds = %721
+  %726 = landingpad { ptr, i32 }
           cleanup
-  br label %747
+  br label %729
 
-745:                                              ; preds = %741
-  %746 = landingpad { ptr, i32 }
+727:                                              ; preds = %723
+  %728 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #26
-  br label %747
+  br label %729
 
-747:                                              ; preds = %745, %743
-  %.pn144 = phi { ptr, i32 } [ %746, %745 ], [ %744, %743 ]
-  %.31 = extractvalue { ptr, i32 } %.pn144, 0
-  %.3199 = extractvalue { ptr, i32 } %.pn144, 1
+729:                                              ; preds = %727, %725
+  %.pn144 = phi { ptr, i32 } [ %728, %727 ], [ %726, %725 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #26
-  br label %.loopexit371
+  br label %.body156
 
-748:                                              ; preds = %738
+730:                                              ; preds = %720
   call void @_ZN5boost9unit_test9framework24register_observer_helperD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %12) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #26
   ret void
 
-.loopexit371:                                     ; preds = %.body189, %.body161, %.body165, %.body177, %.body181, %264, %.body194, %.body173, %.body169, %.body153, %.body157, %747, %.body274, %581, %.body149
-  %.472 = phi i32 [ %.3199, %747 ], [ %129, %.body149 ], [ %.2694, %.body274 ], [ %.1381, %581 ], [ %121, %.body157 ], [ %111, %.body153 ], [ %151, %.body165 ], [ %141, %.body161 ], [ %275, %.body194 ], [ %176, %.body169 ], [ %172, %.body173 ], [ %.1280, %264 ], [ %197, %.body181 ], [ %187, %.body177 ], [ %.977, %.body189 ]
-  %.4 = phi ptr [ %.31, %747 ], [ %128, %.body149 ], [ %.26, %.body274 ], [ %.13, %581 ], [ %120, %.body157 ], [ %110, %.body153 ], [ %150, %.body165 ], [ %140, %.body161 ], [ %274, %.body194 ], [ %175, %.body169 ], [ %171, %.body173 ], [ %.12, %264 ], [ %196, %.body181 ], [ %186, %.body177 ], [ %.9, %.body189 ]
+.body156:                                         ; preds = %.body196, %623, %632, %.split437.us, %.split.us, %692, %683, %673, %652, %643, %664, %614, %605, %130, %139, %257, %180, %171, %159, %150, %192, %248, %115, %106, %97, %572, %596, %716, %119, %583, %271, %322, %.body208, %729
+  %.merged148 = phi { ptr, i32 } [ %.pn144, %729 ], [ %.pn132.pn.pn.pn, %.body208 ], [ %323, %322 ], [ %98, %97 ], [ %272, %271 ], [ %573, %572 ], [ %584, %583 ], [ %597, %596 ], [ %120, %119 ], [ %717, %716 ], [ %107, %106 ], [ %116, %115 ], [ %131, %130 ], [ %140, %139 ], [ %249, %248 ], [ %151, %150 ], [ %193, %192 ], [ %160, %159 ], [ %172, %171 ], [ %181, %180 ], [ %258, %257 ], [ %606, %605 ], [ %615, %614 ], [ %624, %623 ], [ %633, %632 ], [ %644, %643 ], [ %665, %664 ], [ %653, %652 ], [ %674, %673 ], [ %684, %683 ], [ %693, %692 ], [ %708, %.split437.us ], [ %707, %.split.us ], [ %.pn117.pn, %.body196 ]
   call void @_ZN5boost9unit_test9framework24register_observer_helperD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %12) #26
-  br label %749
+  br label %.body153
 
-749:                                              ; preds = %.loopexit371, %.body146
-  %.371 = phi i32 [ %.472, %.loopexit371 ], [ %125, %.body146 ]
-  %.3 = phi ptr [ %.4, %.loopexit371 ], [ %124, %.body146 ]
+.body153:                                         ; preds = %117, %85, %.body156
+  %.merged147 = phi { ptr, i32 } [ %.merged148, %.body156 ], [ %118, %117 ], [ %86, %85 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #26
-  br label %750
+  br label %.body
 
-750:                                              ; preds = %.body, %749, %64, %42
-  %.068 = phi i32 [ %.169, %64 ], [ %45, %42 ], [ %.371, %749 ], [ %75, %.body ]
-  %.066 = phi ptr [ %.167, %64 ], [ %44, %42 ], [ %.3, %749 ], [ %74, %.body ]
+.body:                                            ; preds = %71, %.body153, %62, %42
+  %.merged = phi { ptr, i32 } [ %.pn, %62 ], [ %43, %42 ], [ %.merged147, %.body153 ], [ %72, %71 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #26
-  %751 = insertvalue { ptr, i32 } poison, ptr %.066, 0
-  %752 = insertvalue { ptr, i32 } %751, i32 %.068, 1
   br label %common.resume
 }
 

@@ -92,7 +92,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %31
   br label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
 
 .lr.ph.i.i.ithread-pre-split.i:                   ; preds = %.lr.ph.i.i.i.preheader.i
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i171.i, i64 1
+  %40 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i169.i, i64 1
   %.pr.i = load i8, ptr %40, align 1, !noalias !4
   %41 = icmp eq i8 %.pr.i, 123
   br i1 %41, label %.lr.ph.i.i.i.preheader.i, label %42
@@ -102,9 +102,9 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %31
   br label %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %31, %.lr.ph.i.i.ithread-pre-split.i
-  %.sroa.0.013.i.i.i171.i = phi ptr [ %40, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.0.027, %31 ]
-  %.pn914.i.i.i170.i = phi i64 [ %44, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.3.026, %31 ]
-  %44 = add i64 %.pn914.i.i.i170.i, -1
+  %.sroa.0.013.i.i.i169.i = phi ptr [ %40, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.0.027, %31 ]
+  %.pn914.i.i.i168.i = phi i64 [ %44, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.3.026, %31 ]
+  %44 = add i64 %.pn914.i.i.i168.i, -1
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i, label %.lr.ph.i.i.ithread-pre-split.i, !llvm.loop !7
 
@@ -112,7 +112,7 @@ _ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i: ; preds = %.lr.
   %.0.i.i.i30.i = phi i64 [ %43, %42 ], [ -1, %.lr.ph.i.i.i.preheader.i ]
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %.0.i.i.i30.i)
   %46 = icmp ugt i64 %.sroa.speculated.i.i.i, 1
-  br i1 %46, label %47, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i
+  br i1 %46, label %47, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i
 
 47:                                               ; preds = %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i
   %48 = lshr i64 %.sroa.speculated.i.i.i, 1
@@ -123,51 +123,51 @@ _ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i: ; preds = %.lr.
   %51 = sub i64 %.sroa.3.026, %.sroa.speculated5.i.i.i
   br label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
 
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i: ; preds = %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i: ; preds = %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i
   %52 = call ptr @memchr(ptr noundef nonnull %.sroa.0.027, i32 noundef 125, i64 noundef %.sroa.3.026) #9, !noalias !4
-  %.not.i.i.i38.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i38.i, label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i
+  %.not.i.i.i36.i = icmp eq ptr %52, null
+  br i1 %.not.i.i.i36.i, label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i
 
-_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i:   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i
+_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i:   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i
   %53 = ptrtoint ptr %52 to i64
   %54 = ptrtoint ptr %.sroa.0.027 to i64
   %55 = sub i64 %53, %54
   %56 = icmp eq i64 %55, -1
   br i1 %56, label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit, label %57
 
-57:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i
-  %.not152.i = icmp eq i64 %.sroa.3.026, 1
-  br i1 %.not152.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i42.i
+57:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i
+  %.not150.i = icmp eq i64 %.sroa.3.026, 1
+  br i1 %.not150.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit42.thread.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i40.i
 
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i42.i: ; preds = %57
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i40.i: ; preds = %57
   %58 = add i64 %.sroa.3.026, -1
   %59 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 1
   %60 = call ptr @memchr(ptr noundef nonnull %59, i32 noundef 123, i64 noundef %58) #9, !noalias !4
-  %.not.i.i.i43.i = icmp eq ptr %60, null
-  br i1 %.not.i.i.i43.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.i
+  %.not.i.i.i41.i = icmp eq ptr %60, null
+  br i1 %.not.i.i.i41.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit42.thread.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit42.i
 
-_ZNK4llvm9StringRef13find_first_ofEcm.exit44.i:   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i42.i
+_ZNK4llvm9StringRef13find_first_ofEcm.exit42.i:   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i40.i
   %61 = ptrtoint ptr %60 to i64
   %62 = sub i64 %61, %54
   %63 = icmp ult i64 %62, %55
-  br i1 %63, label %64, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i
+  br i1 %63, label %64, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit42.thread.i
 
-64:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.i
-  %.sroa.speculated.i46.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %62)
-  %65 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated.i46.i
-  %66 = sub i64 %.sroa.3.026, %.sroa.speculated.i46.i
+64:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit42.i
+  %.sroa.speculated.i44.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %62)
+  %65 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated.i44.i
+  %66 = sub i64 %.sroa.3.026, %.sroa.speculated.i44.i
   br label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
 
-_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i: ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i42.i, %57
+_ZNK4llvm9StringRef13find_first_ofEcm.exit42.thread.i: ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit42.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i40.i, %57
   %67 = icmp ugt i64 %55, %.sroa.3.026
   %..i.i.val.i.i = call i64 @llvm.umax.i64(i64 %55, i64 1)
   %68 = select i1 %67, i64 %.sroa.3.026, i64 %..i.i.val.i.i
   %69 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 1
   %70 = add i64 %68, -1
   %71 = add nuw i64 %55, 1
-  %.sroa.speculated5.i56.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %71)
-  %72 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated5.i56.i
-  %73 = sub i64 %.sroa.3.026, %.sroa.speculated5.i56.i
+  %.sroa.speculated5.i54.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %71)
+  %72 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated5.i54.i
+  %73 = sub i64 %.sroa.3.026, %.sroa.speculated5.i54.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !4
   store ptr %69, ptr %14, align 8, !noalias !9
@@ -216,12 +216,12 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i: ; preds = %_ZNK4llvm9Stri
   %94 = call noundef zeroext i1 @_ZN4llvm22consumeUnsignedIntegerERNS_9StringRefEjRy(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11) #9, !noalias !12
   br i1 %94, label %95, label %96
 
-95:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i
+95:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit42.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i, i8 0, i64 3, i1 false), !noalias !4
   br label %156
 
-96:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i
+96:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit42.thread.i
   %97 = load i64, ptr %11, align 8, !noalias !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !9
@@ -244,8 +244,8 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i: ; preds = %_ZNK4llvm9Stri
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !9
   store ptr %107, ptr %15, align 8, !noalias !9
   store i64 %.sroa.speculated.i.i.i.i20.i.i, ptr %25, align 8, !noalias !9
-  %.not.i.i.i60.i = icmp eq i64 %.sroa.speculated.i.i.i.i20.i.i, 0
-  br i1 %.not.i.i.i60.i, label %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
+  %.not.i.i.i58.i = icmp eq i64 %.sroa.speculated.i.i.i.i20.i.i, 0
+  br i1 %.not.i.i.i58.i, label %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %96
   %lhsc.i.i = load i8, ptr %107, align 1, !noalias !12
@@ -394,11 +394,11 @@ _ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i: ; preds = %137, %_ZNK4l
   br label %156
 
 156:                                              ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i, %95
-  %.sroa.571.0.i = phi i64 [ 0, %95 ], [ %.sroa.2.0.copyload.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.470.0.i = phi ptr [ null, %95 ], [ %.sroa.0.0.copyload.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.672.0.i = phi i64 [ 0, %95 ], [ %97, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.068.0.i = phi i32 [ 0, %95 ], [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.773.0.i = phi i64 [ 0, %95 ], [ %.080.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.569.0.i = phi i64 [ 0, %95 ], [ %.sroa.2.0.copyload.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.468.0.i = phi ptr [ null, %95 ], [ %.sroa.0.0.copyload.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.670.0.i = phi i64 [ 0, %95 ], [ %97, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.066.0.i = phi i32 [ 0, %95 ], [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.771.0.i = phi i64 [ 0, %95 ], [ %.080.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
   %.sroa.8.0.i = phi i32 [ 2, %95 ], [ %.083.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
   %.sroa.10.0.i = phi i8 [ 0, %95 ], [ %.0.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
   %.sroa.13.0.i = phi ptr [ null, %95 ], [ %.sroa.069.0.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
@@ -408,18 +408,18 @@ _ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i: ; preds = %137, %_ZNK4l
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.38, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i, i64 3, i1 false)
   br label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
 
-_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %47, %64, %156
-  %.sroa.46.1 = phi ptr [ %50, %47 ], [ %72, %156 ], [ %65, %64 ], [ %38, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ null, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.53.1 = phi i64 [ %51, %47 ], [ %73, %156 ], [ %66, %64 ], [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.45.0 = phi i64 [ 0, %47 ], [ %.sroa.14.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.44.0 = phi ptr [ null, %47 ], [ %.sroa.13.0.i, %156 ], [ null, %64 ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ null, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.32.0 = phi i8 [ 0, %47 ], [ %.sroa.10.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.26.0 = phi i32 [ 2, %47 ], [ %.sroa.8.0.i, %156 ], [ 2, %64 ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.8.0 = phi ptr [ %.sroa.0.027, %47 ], [ %.sroa.470.0.i, %156 ], [ %.sroa.0.027, %64 ], [ %.sroa.0.027, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ @.str, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ @.str, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.25.1 = phi i64 [ 0, %47 ], [ %.sroa.773.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.01.0 = phi i32 [ 2, %47 ], [ %.sroa.068.0.i, %156 ], [ 2, %64 ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.20.1 = phi i64 [ 0, %47 ], [ %.sroa.672.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.14.1 = phi i64 [ %..i.i, %47 ], [ %.sroa.571.0.i, %156 ], [ %.sroa.speculated.i46.i, %64 ], [ %.sroa.speculated.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 64, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 64, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %47, %64, %156
+  %.sroa.46.1 = phi ptr [ %50, %47 ], [ %72, %156 ], [ %65, %64 ], [ %38, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ null, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
+  %.sroa.53.1 = phi i64 [ %51, %47 ], [ %73, %156 ], [ %66, %64 ], [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
+  %.sroa.45.0 = phi i64 [ 0, %47 ], [ %.sroa.14.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
+  %.sroa.44.0 = phi ptr [ null, %47 ], [ %.sroa.13.0.i, %156 ], [ null, %64 ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ null, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
+  %.sroa.32.0 = phi i8 [ 0, %47 ], [ %.sroa.10.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
+  %.sroa.26.0 = phi i32 [ 2, %47 ], [ %.sroa.8.0.i, %156 ], [ 2, %64 ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
+  %.sroa.8.0 = phi ptr [ %.sroa.0.027, %47 ], [ %.sroa.468.0.i, %156 ], [ %.sroa.0.027, %64 ], [ %.sroa.0.027, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ @.str, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ @.str, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
+  %.sroa.25.1 = phi i64 [ 0, %47 ], [ %.sroa.771.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
+  %.sroa.01.0 = phi i32 [ 2, %47 ], [ %.sroa.066.0.i, %156 ], [ 2, %64 ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
+  %.sroa.20.1 = phi i64 [ 0, %47 ], [ %.sroa.670.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
+  %.sroa.14.1 = phi i64 [ %..i.i, %47 ], [ %.sroa.569.0.i, %156 ], [ %.sroa.speculated.i44.i, %64 ], [ %.sroa.speculated.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 64, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.i ], [ 64, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i35.i ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.12.i)
   store i32 %.sroa.01.0, ptr %16, align 8
   store i32 0, ptr %.sroa.7.0..sroa.2.8..sroa_idx, align 4

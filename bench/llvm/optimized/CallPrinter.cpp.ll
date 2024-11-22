@@ -982,12 +982,12 @@ define linkonce_odr hidden void @_ZN4llvm16CallGraphDOTInfoC2EPNS_6ModuleEPNS_9C
 54:                                               ; preds = %._crit_edge.i.i, %35
   %55 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef %36) #20, !noalias !25
   %.pre.i = load ptr, ptr %6, align 8
-  %.pre8.i = load i32, ptr %19, align 4
+  %.pre6.i = load i32, ptr %19, align 4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %54, %50
   %56 = phi ptr [ %52, %50 ], [ %.pre.i, %54 ], [ %37, %.lr.ph.i.i ]
-  %57 = phi i32 [ %53, %50 ], [ %.pre8.i, %54 ], [ %41, %.lr.ph.i.i ]
+  %57 = phi i32 [ %53, %50 ], [ %.pre6.i, %54 ], [ %41, %.lr.ph.i.i ]
   %58 = load ptr, ptr %17, align 8
   %59 = load i32, ptr %18, align 8
   br label %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit
@@ -1278,7 +1278,7 @@ define linkonce_odr hidden void @_ZN4llvm16CallGraphDOTInfo19removeParallelEdges
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10
-  %.sroa.016.030 = phi ptr [ %6, %.critedge.lr.ph ], [ %81, %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10 ]
+  %.sroa.016.030 = phi ptr [ %6, %.critedge.lr.ph ], [ %82, %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10 ]
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.016.030, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1294,17 +1294,17 @@ define linkonce_odr hidden void @_ZN4llvm16CallGraphDOTInfo19removeParallelEdges
   br i1 %.not192327, label %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge, %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit
-  %19 = phi ptr [ %74, %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit ], [ %18, %.critedge ]
-  %20 = phi ptr [ %73, %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit ], [ %17, %.critedge ]
+  %19 = phi ptr [ %75, %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit ], [ %18, %.critedge ]
+  %20 = phi ptr [ %74, %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit ], [ %17, %.critedge ]
   br label %21
 
-21:                                               ; preds = %.lr.ph, %75
-  %22 = phi ptr [ %8, %.lr.ph ], [ %47, %75 ]
-  %23 = phi i32 [ 16, %.lr.ph ], [ %76, %75 ]
-  %24 = phi i32 [ 0, %.lr.ph ], [ %48, %75 ]
-  %25 = phi ptr [ %8, %.lr.ph ], [ %49, %75 ]
-  %26 = phi ptr [ %8, %.lr.ph ], [ %77, %75 ]
-  %.sroa.012.024 = phi ptr [ %20, %.lr.ph ], [ %78, %75 ]
+21:                                               ; preds = %.lr.ph, %76
+  %22 = phi ptr [ %8, %.lr.ph ], [ %48, %76 ]
+  %23 = phi i32 [ 16, %.lr.ph ], [ %77, %76 ]
+  %24 = phi i32 [ 0, %.lr.ph ], [ %49, %76 ]
+  %25 = phi ptr [ %8, %.lr.ph ], [ %50, %76 ]
+  %26 = phi ptr [ %8, %.lr.ph ], [ %78, %76 ]
+  %.sroa.012.024 = phi ptr [ %20, %.lr.ph ], [ %79, %76 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.012.024, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -1343,94 +1343,94 @@ define linkonce_odr hidden void @_ZN4llvm16CallGraphDOTInfo19removeParallelEdges
 
 44:                                               ; preds = %._crit_edge.i.i, %21
   %45 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %30) #20, !noalias !35
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %45, 1
   %.pre.i = load ptr, ptr %2, align 8
-  %.pre8.i = load i32, ptr %11, align 4, !noalias !35
-  %46 = trunc i8 %.fca.1.extract.i.i to i1
+  %.pre6.i = load i32, ptr %11, align 4, !noalias !35
+  %46 = extractvalue { ptr, i8 } %45, 1
+  %47 = trunc i8 %46 to i1
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %44, %40
-  %47 = phi ptr [ %42, %40 ], [ %.pre.i, %44 ], [ %22, %.lr.ph.i.i ]
-  %48 = phi i32 [ %43, %40 ], [ %.pre8.i, %44 ], [ %24, %.lr.ph.i.i ]
-  %49 = phi ptr [ %42, %40 ], [ %.pre.i, %44 ], [ %25, %.lr.ph.i.i ]
-  %.sroa.4.0.i.i = phi i1 [ true, %40 ], [ %46, %44 ], [ false, %.lr.ph.i.i ]
-  br i1 %.sroa.4.0.i.i, label %75, label %50
+  %48 = phi ptr [ %42, %40 ], [ %.pre.i, %44 ], [ %22, %.lr.ph.i.i ]
+  %49 = phi i32 [ %43, %40 ], [ %.pre6.i, %44 ], [ %24, %.lr.ph.i.i ]
+  %50 = phi ptr [ %42, %40 ], [ %.pre.i, %44 ], [ %25, %.lr.ph.i.i ]
+  %.fca.1.insert.merged.i.i = phi i1 [ true, %40 ], [ %47, %44 ], [ false, %.lr.ph.i.i ]
+  br i1 %.fca.1.insert.merged.i.i, label %76, label %51
 
-50:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.024, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %54 = load i32, ptr %53, align 8
-  %55 = add i32 %54, -1
-  store i32 %55, ptr %53, align 8
-  %56 = load ptr, ptr %16, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 -40
-  call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.012.024, ptr noundef nonnull align 8 dereferenceable(40) %57)
-  %58 = getelementptr inbounds i8, ptr %56, i64 -8
-  %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %51, align 8
-  %60 = load ptr, ptr %16, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 -40
-  store ptr %61, ptr %16, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 -16
-  %63 = load i8, ptr %62, align 8
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %65, label %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit
+51:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.012.024, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %55 = load i32, ptr %54, align 8
+  %56 = add i32 %55, -1
+  store i32 %56, ptr %54, align 8
+  %57 = load ptr, ptr %16, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 -40
+  call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.012.024, ptr noundef nonnull align 8 dereferenceable(40) %58)
+  %59 = getelementptr inbounds i8, ptr %57, i64 -8
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %52, align 8
+  %61 = load ptr, ptr %16, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 -40
+  store ptr %62, ptr %16, align 8
+  %63 = getelementptr inbounds i8, ptr %61, i64 -16
+  %64 = load i8, ptr %63, align 8
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit
 
-65:                                               ; preds = %50
-  store i8 0, ptr %62, align 8
-  %66 = getelementptr inbounds i8, ptr %60, i64 -24
-  %67 = load ptr, ptr %66, align 8
-  %magicptr.i.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %67 to i64
-  switch i64 %magicptr.i.i.i.i.i.i.i.i.i.i.i.i, label %68 [
+66:                                               ; preds = %51
+  store i8 0, ptr %63, align 8
+  %67 = getelementptr inbounds i8, ptr %61, i64 -24
+  %68 = load ptr, ptr %67, align 8
+  %magicptr.i.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %68 to i64
+  switch i64 %magicptr.i.i.i.i.i.i.i.i.i.i.i.i, label %69 [
     i64 0, label %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit
     i64 -4096, label %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit
     i64 -8192, label %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit
   ]
 
-68:                                               ; preds = %65
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %61) #20
+69:                                               ; preds = %66
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %62) #20
   br label %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit
 
-_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit: ; preds = %50, %65, %65, %65, %68
-  %69 = load ptr, ptr %9, align 8
-  %70 = load ptr, ptr %2, align 8
-  %71 = icmp eq ptr %69, %70
-  br i1 %71, label %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit, label %72
+_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit: ; preds = %51, %66, %66, %66, %69
+  %70 = load ptr, ptr %9, align 8
+  %71 = load ptr, ptr %2, align 8
+  %72 = icmp eq ptr %70, %71
+  br i1 %72, label %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit, label %73
 
-72:                                               ; preds = %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit
-  call void @free(ptr noundef %69) #20
+73:                                               ; preds = %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit
+  call void @free(ptr noundef %70) #20
   br label %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit
 
-_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit: ; preds = %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit, %72
+_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit: ; preds = %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit, %73
   store ptr %8, ptr %2, align 8
   store ptr %8, ptr %9, align 8
   store i32 16, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
-  %73 = load ptr, ptr %15, align 8
-  %74 = load ptr, ptr %16, align 8
-  %.not1923 = icmp eq ptr %73, %74
+  %74 = load ptr, ptr %15, align 8
+  %75 = load ptr, ptr %16, align 8
+  %.not1923 = icmp eq ptr %74, %75
   br i1 %.not1923, label %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10, label %.lr.ph
 
-75:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  %76 = load i32, ptr %10, align 8, !noalias !35
-  %77 = load ptr, ptr %9, align 8
-  %78 = getelementptr inbounds i8, ptr %.sroa.012.024, i64 40
-  %.not19 = icmp eq ptr %78, %19
+76:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  %77 = load i32, ptr %10, align 8, !noalias !35
+  %78 = load ptr, ptr %9, align 8
+  %79 = getelementptr inbounds i8, ptr %.sroa.012.024, i64 40
+  %.not19 = icmp eq ptr %79, %19
   br i1 %.not19, label %.critedge9, label %21, !llvm.loop !38
 
-.critedge9:                                       ; preds = %75
-  %79 = icmp eq ptr %77, %47
-  br i1 %79, label %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10, label %80
+.critedge9:                                       ; preds = %76
+  %80 = icmp eq ptr %78, %48
+  br i1 %80, label %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10, label %81
 
-80:                                               ; preds = %.critedge9
-  call void @free(ptr noundef %77) #20
+81:                                               ; preds = %.critedge9
+  call void @free(ptr noundef %78) #20
   br label %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10
 
-_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10: ; preds = %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit, %.critedge, %80, %.critedge9
-  %81 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.016.030) #24
-  %.not = icmp eq ptr %81, %7
+_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10: ; preds = %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit, %.critedge, %81, %.critedge9
+  %82 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.016.030) #24
+  %.not = icmp eq ptr %82, %7
   br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %_ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit10, %1

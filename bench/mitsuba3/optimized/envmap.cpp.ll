@@ -2221,7 +2221,7 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   br label %183
 
 183:                                              ; preds = %.lr.ph473, %._crit_edge470
-  %.0239471 = phi i32 [ 0, %.lr.ph473 ], [ %317, %._crit_edge470 ]
+  %.0239471 = phi i32 [ 0, %.lr.ph473 ], [ %318, %._crit_edge470 ]
   %184 = load ptr, ptr %27, align 8
   %185 = load i32, ptr %184, align 8
   %186 = mul i32 %185, %.0239471
@@ -2355,15 +2355,15 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
 
 _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge: ; preds = %._crit_edge459, %._crit_edge467
   %257 = phi i32 [ %316, %._crit_edge467 ], [ %31, %._crit_edge459 ]
+  %258 = phi i32 [ %317, %._crit_edge467 ], [ %29, %._crit_edge459 ]
   %indvars.iv505 = phi i64 [ %indvars.iv.next506, %._crit_edge467 ], [ 2, %._crit_edge459 ]
-  %258 = load ptr, ptr %27, align 8
-  %259 = getelementptr %"struct.mitsuba::Hierarchical2D<float>::Level", ptr %258, i64 %indvars.iv505
-  %260 = getelementptr i8, ptr %259, i64 -32
-  %261 = getelementptr inbounds %"struct.mitsuba::Hierarchical2D<float>::Level", ptr %258, i64 %indvars.iv505
-  %262 = load i32, ptr %260, align 8
+  %259 = load ptr, ptr %27, align 8
+  %260 = getelementptr %"struct.mitsuba::Hierarchical2D<float>::Level", ptr %259, i64 %indvars.iv505
+  %261 = getelementptr i8, ptr %260, i64 -32
+  %262 = getelementptr inbounds %"struct.mitsuba::Hierarchical2D<float>::Level", ptr %259, i64 %indvars.iv505
   %263 = load i32, ptr %261, align 8
-  %264 = load i32, ptr %9, align 8
-  %265 = add i32 %264, 1
+  %264 = load i32, ptr %262, align 8
+  %265 = add i32 %258, 1
   %266 = add i32 %257, 1
   %267 = lshr i32 %265, 1
   %268 = lshr i32 %266, 1
@@ -2373,94 +2373,91 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge:
   br i1 %.not483, label %._crit_edge467, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge
-  %269 = getelementptr inbounds i8, ptr %261, i64 8
+  %269 = getelementptr inbounds i8, ptr %262, i64 8
   %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr i8, ptr %259, i64 -24
+  %271 = getelementptr i8, ptr %260, i64 -24
   %272 = load ptr, ptr %271, align 8
-  %273 = mul i32 %263, %.0239471
-  %274 = mul i32 %262, %.0239471
-  %275 = getelementptr inbounds i8, ptr %261, i64 4
+  %273 = mul i32 %264, %.0239471
+  %274 = mul i32 %263, %.0239471
+  %275 = getelementptr inbounds i8, ptr %262, i64 4
   %276 = zext i32 %273 to i64
   %invariant.gep463 = getelementptr inbounds float, ptr %270, i64 %276
-  %277 = getelementptr i8, ptr %259, i64 -28
+  %277 = getelementptr i8, ptr %260, i64 -28
   %278 = zext i32 %274 to i64
   %invariant.gep464 = getelementptr inbounds float, ptr %272, i64 %278
-  %279 = load i32, ptr %9, align 8
-  %.not484 = icmp eq i32 %279, 0
+  %.not484 = icmp ult i32 %265, 2
   br i1 %.not484, label %._crit_edge467, label %.preheader
 
-.preheaderthread-pre-split:                       ; preds = %._crit_edge462
-  %.pr = load i32, ptr %9, align 8
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.lr.ph, %.preheaderthread-pre-split
-  %280 = phi i32 [ %.pr, %.preheaderthread-pre-split ], [ 1, %.preheader.lr.ph ]
-  %281 = phi i32 [ %313, %.preheaderthread-pre-split ], [ %268, %.preheader.lr.ph ]
-  %storemerge252466 = phi i32 [ %314, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge462
+  %279 = phi i32 [ %312, %._crit_edge462 ], [ %268, %.preheader.lr.ph ]
+  %280 = phi i32 [ %313, %._crit_edge462 ], [ %267, %.preheader.lr.ph ]
+  %storemerge252466 = phi i32 [ %314, %._crit_edge462 ], [ 0, %.preheader.lr.ph ]
   %.not485 = icmp eq i32 %280, 0
   br i1 %.not485, label %._crit_edge462, label %.lr.ph461
 
 .lr.ph461:                                        ; preds = %.preheader
-  %282 = shl i32 %storemerge252466, 1
-  %283 = and i32 %storemerge252466, 1
-  %284 = and i32 %storemerge252466, -2
-  br label %285
+  %281 = shl i32 %storemerge252466, 1
+  %282 = and i32 %storemerge252466, 1
+  %283 = and i32 %storemerge252466, -2
+  br label %284
 
-285:                                              ; preds = %.lr.ph461, %285
-  %storemerge253460 = phi i32 [ 0, %.lr.ph461 ], [ %310, %285 ]
-  %286 = load i32, ptr %275, align 4
-  %287 = shl i32 %storemerge253460, 2
-  %288 = and i32 %storemerge253460, 1
-  %289 = and i32 %storemerge253460, 2147483646
-  %290 = or disjoint i32 %289, %283
-  %291 = shl nuw i32 %290, 1
-  %292 = or disjoint i32 %291, %288
-  %293 = mul i32 %286, %284
-  %294 = add i32 %292, %293
-  %295 = zext i32 %294 to i64
-  %gep = getelementptr inbounds float, ptr %invariant.gep463, i64 %295
-  %296 = load i32, ptr %277, align 4
-  %297 = mul i32 %282, %296
-  %298 = add i32 %297, %287
-  %299 = zext i32 %298 to i64
-  %gep465 = getelementptr inbounds float, ptr %invariant.gep464, i64 %299
-  %300 = load float, ptr %gep465, align 4
-  %301 = getelementptr inbounds i8, ptr %gep465, i64 4
-  %302 = load float, ptr %301, align 4
-  %303 = fadd contract float %300, %302
-  %304 = getelementptr inbounds i8, ptr %gep465, i64 8
-  %305 = load float, ptr %304, align 4
-  %306 = fadd contract float %303, %305
-  %307 = getelementptr inbounds i8, ptr %gep465, i64 12
-  %308 = load float, ptr %307, align 4
-  %309 = fadd contract float %306, %308
-  store float %309, ptr %gep, align 4
-  %310 = add nuw i32 %storemerge253460, 1
-  %311 = load i32, ptr %9, align 8
-  %312 = icmp ult i32 %310, %311
-  br i1 %312, label %285, label %._crit_edge462.loopexit, !llvm.loop !25
+284:                                              ; preds = %.lr.ph461, %284
+  %storemerge253460 = phi i32 [ 0, %.lr.ph461 ], [ %309, %284 ]
+  %285 = load i32, ptr %275, align 4
+  %286 = shl i32 %storemerge253460, 2
+  %287 = and i32 %storemerge253460, 1
+  %288 = and i32 %storemerge253460, 2147483646
+  %289 = or disjoint i32 %288, %282
+  %290 = shl nuw i32 %289, 1
+  %291 = or disjoint i32 %290, %287
+  %292 = mul i32 %285, %283
+  %293 = add i32 %291, %292
+  %294 = zext i32 %293 to i64
+  %gep = getelementptr inbounds float, ptr %invariant.gep463, i64 %294
+  %295 = load i32, ptr %277, align 4
+  %296 = mul i32 %281, %295
+  %297 = add i32 %296, %286
+  %298 = zext i32 %297 to i64
+  %gep465 = getelementptr inbounds float, ptr %invariant.gep464, i64 %298
+  %299 = load float, ptr %gep465, align 4
+  %300 = getelementptr inbounds i8, ptr %gep465, i64 4
+  %301 = load float, ptr %300, align 4
+  %302 = fadd contract float %299, %301
+  %303 = getelementptr inbounds i8, ptr %gep465, i64 8
+  %304 = load float, ptr %303, align 4
+  %305 = fadd contract float %302, %304
+  %306 = getelementptr inbounds i8, ptr %gep465, i64 12
+  %307 = load float, ptr %306, align 4
+  %308 = fadd contract float %305, %307
+  store float %308, ptr %gep, align 4
+  %309 = add nuw i32 %storemerge253460, 1
+  %310 = load i32, ptr %9, align 8
+  %311 = icmp ult i32 %309, %310
+  br i1 %311, label %284, label %._crit_edge462.loopexit, !llvm.loop !25
 
-._crit_edge462.loopexit:                          ; preds = %285
+._crit_edge462.loopexit:                          ; preds = %284
   %.pre515 = load i32, ptr %.026.i272.sroa.gep317, align 4
   br label %._crit_edge462
 
 ._crit_edge462:                                   ; preds = %._crit_edge462.loopexit, %.preheader
-  %313 = phi i32 [ %.pre515, %._crit_edge462.loopexit ], [ %281, %.preheader ]
+  %312 = phi i32 [ %.pre515, %._crit_edge462.loopexit ], [ %279, %.preheader ]
+  %313 = phi i32 [ %310, %._crit_edge462.loopexit ], [ 0, %.preheader ]
   %314 = add nuw i32 %storemerge252466, 1
-  %315 = icmp ult i32 %314, %313
-  br i1 %315, label %.preheaderthread-pre-split, label %._crit_edge467, !llvm.loop !26
+  %315 = icmp ult i32 %314, %312
+  br i1 %315, label %.preheader, label %._crit_edge467, !llvm.loop !26
 
 ._crit_edge467:                                   ; preds = %._crit_edge462, %.preheader.lr.ph, %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge
-  %316 = phi i32 [ %268, %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge ], [ %268, %.preheader.lr.ph ], [ %313, %._crit_edge462 ]
+  %316 = phi i32 [ %268, %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge ], [ %268, %.preheader.lr.ph ], [ %312, %._crit_edge462 ]
+  %317 = phi i32 [ %267, %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge ], [ 0, %.preheader.lr.ph ], [ %313, %._crit_edge462 ]
   %indvars.iv.next506 = add nuw nsw i64 %indvars.iv505, 1
   %.not.not = icmp samesign ult i64 %indvars.iv505, %182
   br i1 %.not.not, label %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge, label %._crit_edge470, !llvm.loop !28
 
 ._crit_edge470:                                   ; preds = %._crit_edge467, %._crit_edge459
-  %317 = add nuw i32 %.0239471, 1
-  %318 = load i32, ptr %26, align 8
-  %319 = icmp ult i32 %317, %318
-  br i1 %319, label %183, label %.loopexit, !llvm.loop !29
+  %318 = add nuw i32 %.0239471, 1
+  %319 = load i32, ptr %26, align 8
+  %320 = icmp ult i32 %318, %319
+  br i1 %320, label %183, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %._crit_edge437, %._crit_edge470, %._crit_edge441, %_ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE12emplace_backIJRKNS1_6VectorIjLm2EEERjEEERS4_DpOT_.exit
   ret void

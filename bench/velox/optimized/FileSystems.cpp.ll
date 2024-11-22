@@ -1479,14 +1479,10 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem15openFileForReadESt17basic_string_viewIcSt11char_traitsIcEERKNS1_11FileOptionsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 %path.coerce0, ptr %path.coerce1, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp4.not.i.i.not.i = icmp eq i64 %path.coerce0, 0
-  br i1 %cmp4.not.i.i.not.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end6.i.i.i
-
-if.end6.i.i.i:                                    ; preds = %entry
   %cmp11.not20.i.i.i = icmp ult i64 %path.coerce0, 5
   br i1 %cmp11.not20.i.i.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %while.body.lr.ph.i.i.i
 
-while.body.lr.ph.i.i.i:                           ; preds = %if.end6.i.i.i
+while.body.lr.ph.i.i.i:                           ; preds = %entry
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 %path.coerce0
   %sub.ptr.lhs.cast21.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
   br label %while.body.i.i.i
@@ -1520,11 +1516,11 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNK
   %add.ptr.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 5
   br label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %if.end6.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %retval.sroa.0.0.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ 0, %entry ], [ %path.coerce0, %if.end6.i.i.i ], [ %path.coerce0, %if.end20.i.i.i ], [ %path.coerce0, %while.body.i.i.i ]
-  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce1, %entry ], [ %path.coerce1, %if.end6.i.i.i ], [ %path.coerce1, %if.end20.i.i.i ], [ %path.coerce1, %while.body.i.i.i ]
+_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
+  %sub.i.pn.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce0, %entry ], [ %path.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce0, %if.end20.i.i.i ], [ %path.coerce0, %while.body.i.i.i ]
+  %add.ptr.i.pn.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce1, %entry ], [ %path.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce1, %if.end20.i.i.i ], [ %path.coerce1, %while.body.i.i.i ]
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25, !noalias !30
-  invoke void @_ZN8facebook5velox13LocalReadFileC1ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %call.i, i64 %retval.sroa.0.0.i, ptr %retval.sroa.3.0.i)
+  invoke void @_ZN8facebook5velox13LocalReadFileC1ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %call.i, i64 %sub.i.pn.i, ptr %add.ptr.i.pn.i)
           to label %_ZNSt10unique_ptrIN8facebook5velox13LocalReadFileESt14default_deleteIS2_EED2Ev.exit unwind label %lpad.i, !noalias !30
 
 lpad.i:                                           ; preds = %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -1541,14 +1537,10 @@ _ZNSt10unique_ptrIN8facebook5velox13LocalReadFileESt14default_deleteIS2_EED2Ev.e
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem16openFileForWriteESt17basic_string_viewIcSt11char_traitsIcEERKNS1_11FileOptionsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.22") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 %path.coerce0, ptr %path.coerce1, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp4.not.i.i.not.i = icmp eq i64 %path.coerce0, 0
-  br i1 %cmp4.not.i.i.not.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end6.i.i.i
-
-if.end6.i.i.i:                                    ; preds = %entry
   %cmp11.not20.i.i.i = icmp ult i64 %path.coerce0, 5
   br i1 %cmp11.not20.i.i.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %while.body.lr.ph.i.i.i
 
-while.body.lr.ph.i.i.i:                           ; preds = %if.end6.i.i.i
+while.body.lr.ph.i.i.i:                           ; preds = %entry
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 %path.coerce0
   %sub.ptr.lhs.cast21.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
   br label %while.body.i.i.i
@@ -1582,11 +1574,11 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNK
   %add.ptr.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 5
   br label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %if.end6.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %retval.sroa.0.0.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ 0, %entry ], [ %path.coerce0, %if.end6.i.i.i ], [ %path.coerce0, %if.end20.i.i.i ], [ %path.coerce0, %while.body.i.i.i ]
-  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce1, %entry ], [ %path.coerce1, %if.end6.i.i.i ], [ %path.coerce1, %if.end20.i.i.i ], [ %path.coerce1, %while.body.i.i.i ]
+_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
+  %sub.i.pn.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce0, %entry ], [ %path.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce0, %if.end20.i.i.i ], [ %path.coerce0, %while.body.i.i.i ]
+  %add.ptr.i.pn.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce1, %entry ], [ %path.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce1, %if.end20.i.i.i ], [ %path.coerce1, %while.body.i.i.i ]
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25, !noalias !33
-  invoke void @_ZN8facebook5velox14LocalWriteFileC1ESt17basic_string_viewIcSt11char_traitsIcEEbb(ptr noundef nonnull align 8 dereferenceable(32) %call.i, i64 %retval.sroa.0.0.i, ptr %retval.sroa.3.0.i, i1 noundef zeroext false, i1 noundef zeroext true)
+  invoke void @_ZN8facebook5velox14LocalWriteFileC1ESt17basic_string_viewIcSt11char_traitsIcEEbb(ptr noundef nonnull align 8 dereferenceable(32) %call.i, i64 %sub.i.pn.i, ptr %add.ptr.i.pn.i, i1 noundef zeroext false, i1 noundef zeroext true)
           to label %_ZNSt10unique_ptrIN8facebook5velox14LocalWriteFileESt14default_deleteIS2_EED2Ev.exit unwind label %lpad.i, !noalias !33
 
 lpad.i:                                           ; preds = %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -1609,14 +1601,10 @@ entry:
   %ref.tmp2 = alloca %"class.std::allocator.17", align 1
   %ref.tmp5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %ref.tmp18 = alloca %"class.google::LogMessage", align 8
-  %cmp4.not.i.i.not.i = icmp eq i64 %path.coerce0, 0
-  br i1 %cmp4.not.i.i.not.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end6.i.i.i
-
-if.end6.i.i.i:                                    ; preds = %entry
   %cmp11.not20.i.i.i = icmp ult i64 %path.coerce0, 5
   br i1 %cmp11.not20.i.i.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %while.body.lr.ph.i.i.i
 
-while.body.lr.ph.i.i.i:                           ; preds = %if.end6.i.i.i
+while.body.lr.ph.i.i.i:                           ; preds = %entry
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 %path.coerce0
   %sub.ptr.lhs.cast21.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
   br label %while.body.i.i.i
@@ -1650,15 +1638,15 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNK
   %add.ptr.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 5
   br label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %if.end6.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %retval.sroa.0.0.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ 0, %entry ], [ %path.coerce0, %if.end6.i.i.i ], [ %path.coerce0, %if.end20.i.i.i ], [ %path.coerce0, %while.body.i.i.i ]
-  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce1, %entry ], [ %path.coerce1, %if.end6.i.i.i ], [ %path.coerce1, %if.end20.i.i.i ], [ %path.coerce1, %while.body.i.i.i ]
-  store i64 %retval.sroa.0.0.i, ptr %file, align 8
+_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
+  %sub.i.pn.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce0, %entry ], [ %path.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce0, %if.end20.i.i.i ], [ %path.coerce0, %while.body.i.i.i ]
+  %add.ptr.i.pn.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce1, %entry ], [ %path.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce1, %if.end20.i.i.i ], [ %path.coerce1, %while.body.i.i.i ]
+  store i64 %sub.i.pn.i, ptr %file, align 8
   %0 = getelementptr inbounds i8, ptr %file, i64 8
-  store ptr %retval.sroa.3.0.i, ptr %0, align 8
+  store ptr %add.ptr.i.pn.i, ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %retval.sroa.0.0.i, ptr %retval.sroa.3.0.i) #24
+  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %sub.i.pn.i, ptr %add.ptr.i.pn.i) #24
   %1 = extractvalue { i64, ptr } %call.i, 0
   %2 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %1, ptr %2) #24
@@ -1765,21 +1753,17 @@ eh.resume:                                        ; preds = %lpad20, %lpad6, %lp
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem6renameESt17basic_string_viewIcSt11char_traitsIcEES7_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %oldPath.coerce0, ptr %oldPath.coerce1, i64 %newPath.coerce0, ptr %newPath.coerce1, i1 noundef zeroext %overwrite) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i36 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
+  %agg.tmp.i34 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator.17", align 1
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::allocator.17", align 1
   %ref.tmp22 = alloca %"class.google::LogMessage", align 8
-  %cmp4.not.i.i.not.i = icmp eq i64 %oldPath.coerce0, 0
-  br i1 %cmp4.not.i.i.not.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end6.i.i.i
-
-if.end6.i.i.i:                                    ; preds = %entry
   %cmp11.not20.i.i.i = icmp ult i64 %oldPath.coerce0, 5
   br i1 %cmp11.not20.i.i.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %while.body.lr.ph.i.i.i
 
-while.body.lr.ph.i.i.i:                           ; preds = %if.end6.i.i.i
+while.body.lr.ph.i.i.i:                           ; preds = %entry
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %oldPath.coerce1, i64 %oldPath.coerce0
   %sub.ptr.lhs.cast21.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
   br label %while.body.i.i.i
@@ -1813,56 +1797,52 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNK
   %add.ptr.i.i = getelementptr inbounds i8, ptr %oldPath.coerce1, i64 5
   br label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %if.end6.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %retval.sroa.0.0.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %oldPath.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ 0, %entry ], [ %oldPath.coerce0, %if.end6.i.i.i ], [ %oldPath.coerce0, %if.end20.i.i.i ], [ %oldPath.coerce0, %while.body.i.i.i ]
-  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %oldPath.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %oldPath.coerce1, %entry ], [ %oldPath.coerce1, %if.end6.i.i.i ], [ %oldPath.coerce1, %if.end20.i.i.i ], [ %oldPath.coerce1, %while.body.i.i.i ]
-  %cmp4.not.i.i.not.i6 = icmp eq i64 %newPath.coerce0, 0
-  br i1 %cmp4.not.i.i.not.i6, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit35, label %if.end6.i.i.i7
+_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
+  %sub.i.pn.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %oldPath.coerce0, %entry ], [ %oldPath.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %oldPath.coerce0, %if.end20.i.i.i ], [ %oldPath.coerce0, %while.body.i.i.i ]
+  %add.ptr.i.pn.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %oldPath.coerce1, %entry ], [ %oldPath.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %oldPath.coerce1, %if.end20.i.i.i ], [ %oldPath.coerce1, %while.body.i.i.i ]
+  %cmp11.not20.i.i.i6 = icmp ult i64 %newPath.coerce0, 5
+  br i1 %cmp11.not20.i.i.i6, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit33, label %while.body.lr.ph.i.i.i7
 
-if.end6.i.i.i7:                                   ; preds = %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %cmp11.not20.i.i.i8 = icmp ult i64 %newPath.coerce0, 5
-  br i1 %cmp11.not20.i.i.i8, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit35, label %while.body.lr.ph.i.i.i9
+while.body.lr.ph.i.i.i7:                          ; preds = %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %add.ptr9.i.i.i8 = getelementptr inbounds i8, ptr %newPath.coerce1, i64 %newPath.coerce0
+  %sub.ptr.lhs.cast21.i.i.i9 = ptrtoint ptr %add.ptr9.i.i.i8 to i64
+  br label %while.body.i.i.i10
 
-while.body.lr.ph.i.i.i9:                          ; preds = %if.end6.i.i.i7
-  %add.ptr9.i.i.i10 = getelementptr inbounds i8, ptr %newPath.coerce1, i64 %newPath.coerce0
-  %sub.ptr.lhs.cast21.i.i.i11 = ptrtoint ptr %add.ptr9.i.i.i10 to i64
-  br label %while.body.i.i.i12
+while.body.i.i.i10:                               ; preds = %if.end20.i.i.i19, %while.body.lr.ph.i.i.i7
+  %__len.022.i.i.i11 = phi i64 [ %newPath.coerce0, %while.body.lr.ph.i.i.i7 ], [ %sub.ptr.sub23.i.i.i22, %if.end20.i.i.i19 ]
+  %__first.021.i.i.i12 = phi ptr [ %newPath.coerce1, %while.body.lr.ph.i.i.i7 ], [ %incdec.ptr.i.i.i20, %if.end20.i.i.i19 ]
+  %add.i.i.i13 = add i64 %__len.022.i.i.i11, -4
+  %call.i.i.i.i14 = tail call ptr @memchr(ptr noundef %__first.021.i.i.i12, i32 noundef 102, i64 noundef %add.i.i.i13) #24
+  %tobool.not.i.i.i15 = icmp eq ptr %call.i.i.i.i14, null
+  br i1 %tobool.not.i.i.i15, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit33, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i16
 
-while.body.i.i.i12:                               ; preds = %if.end20.i.i.i21, %while.body.lr.ph.i.i.i9
-  %__len.022.i.i.i13 = phi i64 [ %newPath.coerce0, %while.body.lr.ph.i.i.i9 ], [ %sub.ptr.sub23.i.i.i24, %if.end20.i.i.i21 ]
-  %__first.021.i.i.i14 = phi ptr [ %newPath.coerce1, %while.body.lr.ph.i.i.i9 ], [ %incdec.ptr.i.i.i22, %if.end20.i.i.i21 ]
-  %add.i.i.i15 = add i64 %__len.022.i.i.i13, -4
-  %call.i.i.i.i16 = tail call ptr @memchr(ptr noundef %__first.021.i.i.i14, i32 noundef 102, i64 noundef %add.i.i.i15) #24
-  %tobool.not.i.i.i17 = icmp eq ptr %call.i.i.i.i16, null
-  br i1 %tobool.not.i.i.i17, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit35, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i18
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i16: ; preds = %while.body.i.i.i10
+  %bcmp.i.i.i17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %call.i.i.i.i14, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
+  %cmp17.i.i.i18 = icmp eq i32 %bcmp.i.i.i17, 0
+  br i1 %cmp17.i.i.i18, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i28, label %if.end20.i.i.i19
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i18: ; preds = %while.body.i.i.i12
-  %bcmp.i.i.i19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %call.i.i.i.i16, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
-  %cmp17.i.i.i20 = icmp eq i32 %bcmp.i.i.i19, 0
-  br i1 %cmp17.i.i.i20, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i30, label %if.end20.i.i.i21
+if.end20.i.i.i19:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i16
+  %incdec.ptr.i.i.i20 = getelementptr inbounds i8, ptr %call.i.i.i.i14, i64 1
+  %sub.ptr.rhs.cast22.i.i.i21 = ptrtoint ptr %incdec.ptr.i.i.i20 to i64
+  %sub.ptr.sub23.i.i.i22 = sub i64 %sub.ptr.lhs.cast21.i.i.i9, %sub.ptr.rhs.cast22.i.i.i21
+  %cmp11.not.i.i.i23 = icmp ult i64 %sub.ptr.sub23.i.i.i22, 5
+  br i1 %cmp11.not.i.i.i23, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit33, label %while.body.i.i.i10, !llvm.loop !14
 
-if.end20.i.i.i21:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i18
-  %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %call.i.i.i.i16, i64 1
-  %sub.ptr.rhs.cast22.i.i.i23 = ptrtoint ptr %incdec.ptr.i.i.i22 to i64
-  %sub.ptr.sub23.i.i.i24 = sub i64 %sub.ptr.lhs.cast21.i.i.i11, %sub.ptr.rhs.cast22.i.i.i23
-  %cmp11.not.i.i.i25 = icmp ult i64 %sub.ptr.sub23.i.i.i24, 5
-  br i1 %cmp11.not.i.i.i25, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit35, label %while.body.i.i.i12, !llvm.loop !14
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i28: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i16
+  %cmp.i29 = icmp eq ptr %call.i.i.i.i14, %newPath.coerce1
+  br i1 %cmp.i29, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i30, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit33
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i30: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i18
-  %cmp.i31 = icmp eq ptr %call.i.i.i.i16, %newPath.coerce1
-  br i1 %cmp.i31, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i32, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit35
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i30: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i28
+  %sub.i.i31 = add i64 %newPath.coerce0, -5
+  %add.ptr.i.i32 = getelementptr inbounds i8, ptr %newPath.coerce1, i64 5
+  br label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit33
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i32: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i30
-  %sub.i.i33 = add i64 %newPath.coerce0, -5
-  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %newPath.coerce1, i64 5
-  br label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit35
-
-_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit35: ; preds = %while.body.i.i.i12, %if.end20.i.i.i21, %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, %if.end6.i.i.i7, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i30, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i32
-  %retval.sroa.0.0.i26 = phi i64 [ %sub.i.i33, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i32 ], [ %newPath.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i30 ], [ 0, %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %newPath.coerce0, %if.end6.i.i.i7 ], [ %newPath.coerce0, %if.end20.i.i.i21 ], [ %newPath.coerce0, %while.body.i.i.i12 ]
-  %retval.sroa.3.0.i27 = phi ptr [ %add.ptr.i.i34, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i32 ], [ %newPath.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i30 ], [ %newPath.coerce1, %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %newPath.coerce1, %if.end6.i.i.i7 ], [ %newPath.coerce1, %if.end20.i.i.i21 ], [ %newPath.coerce1, %while.body.i.i.i12 ]
+_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit33: ; preds = %while.body.i.i.i10, %if.end20.i.i.i19, %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i28, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i30
+  %sub.i.pn.i24 = phi i64 [ %sub.i.i31, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i30 ], [ %newPath.coerce0, %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %newPath.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i28 ], [ %newPath.coerce0, %if.end20.i.i.i19 ], [ %newPath.coerce0, %while.body.i.i.i10 ]
+  %add.ptr.i.pn.i25 = phi ptr [ %add.ptr.i.i32, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i30 ], [ %newPath.coerce1, %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %newPath.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i28 ], [ %newPath.coerce1, %if.end20.i.i.i19 ], [ %newPath.coerce1, %while.body.i.i.i10 ]
   br i1 %overwrite, label %if.end, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit35
+land.lhs.true:                                    ; preds = %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit33
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
@@ -1873,10 +1853,10 @@ if.then:                                          ; preds = %land.lhs.true
   tail call void @llvm.trap()
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true, %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit35
+if.end:                                           ; preds = %land.lhs.true, %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit33
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %retval.sroa.0.0.i, ptr %retval.sroa.3.0.i) #24
+  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %sub.i.pn.i, ptr %add.ptr.i.pn.i) #24
   %1 = extractvalue { i64, ptr } %call.i, 0
   %2 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %1, ptr %2) #24
@@ -1890,19 +1870,19 @@ invoke.cont:                                      ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   %call7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i36)
-  %call.i40 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %retval.sroa.0.0.i26, ptr %retval.sroa.3.0.i27) #24
-  %6 = extractvalue { i64, ptr } %call.i40, 0
-  %7 = extractvalue { i64, ptr } %call.i40, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i36, i64 %6, ptr %7) #24
-  %8 = load i64, ptr %agg.tmp.i36, align 8
-  %9 = getelementptr inbounds i8, ptr %agg.tmp.i36, i64 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i34)
+  %call.i38 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %sub.i.pn.i24, ptr %add.ptr.i.pn.i25) #24
+  %6 = extractvalue { i64, ptr } %call.i38, 0
+  %7 = extractvalue { i64, ptr } %call.i38, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i34, i64 %6, ptr %7) #24
+  %8 = load i64, ptr %agg.tmp.i34, align 8
+  %9 = getelementptr inbounds i8, ptr %agg.tmp.i34, i64 8
   %10 = load ptr, ptr %9, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, i64 %8, ptr %10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i36)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i34)
   %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #24
   %call13 = call i32 @rename(ptr noundef %call7, ptr noundef %call12) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #24
@@ -1957,15 +1937,15 @@ invoke.cont24:                                    ; preds = %cond.false
           to label %invoke.cont26 unwind label %lpad23
 
 invoke.cont26:                                    ; preds = %invoke.cont24
-  %call2.i42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call27, ptr noundef %retval.sroa.3.0.i, i64 noundef %retval.sroa.0.0.i)
+  %call2.i40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call27, ptr noundef %add.ptr.i.pn.i, i64 noundef %sub.i.pn.i)
           to label %invoke.cont29 unwind label %lpad23
 
 invoke.cont29:                                    ; preds = %invoke.cont26
-  %call32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2.i42, ptr noundef nonnull @.str.9)
+  %call32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2.i40, ptr noundef nonnull @.str.9)
           to label %invoke.cont31 unwind label %lpad23
 
 invoke.cont31:                                    ; preds = %invoke.cont29
-  %call2.i43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call32, ptr noundef %retval.sroa.3.0.i27, i64 noundef %retval.sroa.0.0.i26)
+  %call2.i41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call32, ptr noundef %add.ptr.i.pn.i25, i64 noundef %sub.i.pn.i24)
           to label %cleanup.action unwind label %lpad23
 
 cleanup.action:                                   ; preds = %invoke.cont31
@@ -1991,14 +1971,10 @@ define internal noundef zeroext i1 @_ZN8facebook5velox11filesystems12_GLOBAL__N_
 entry:
   %file = alloca %"class.std::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %cmp4.not.i.i.not.i = icmp eq i64 %path.coerce0, 0
-  br i1 %cmp4.not.i.i.not.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end6.i.i.i
-
-if.end6.i.i.i:                                    ; preds = %entry
   %cmp11.not20.i.i.i = icmp ult i64 %path.coerce0, 5
   br i1 %cmp11.not20.i.i.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %while.body.lr.ph.i.i.i
 
-while.body.lr.ph.i.i.i:                           ; preds = %if.end6.i.i.i
+while.body.lr.ph.i.i.i:                           ; preds = %entry
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 %path.coerce0
   %sub.ptr.lhs.cast21.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
   br label %while.body.i.i.i
@@ -2032,12 +2008,12 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNK
   %add.ptr.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 5
   br label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %if.end6.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %retval.sroa.0.0.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ 0, %entry ], [ %path.coerce0, %if.end6.i.i.i ], [ %path.coerce0, %if.end20.i.i.i ], [ %path.coerce0, %while.body.i.i.i ]
-  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce1, %entry ], [ %path.coerce1, %if.end6.i.i.i ], [ %path.coerce1, %if.end20.i.i.i ], [ %path.coerce1, %while.body.i.i.i ]
-  store i64 %retval.sroa.0.0.i, ptr %file, align 8
+_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
+  %sub.i.pn.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce0, %entry ], [ %path.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce0, %if.end20.i.i.i ], [ %path.coerce0, %while.body.i.i.i ]
+  %add.ptr.i.pn.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce1, %entry ], [ %path.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce1, %if.end20.i.i.i ], [ %path.coerce1, %while.body.i.i.i ]
+  store i64 %sub.i.pn.i, ptr %file, align 8
   %0 = getelementptr inbounds i8, ptr %file, i64 8
-  store ptr %retval.sroa.3.0.i, ptr %0, align 8
+  store ptr %add.ptr.i.pn.i, ptr %0, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2ISt17basic_string_viewIcSt11char_traitsIcEES1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %file, i8 noundef zeroext 2)
   %call.i1 = invoke i64 @_ZNSt10filesystem6statusERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2078,14 +2054,10 @@ entry:
   %agg.tmp2 = alloca %"class.std::filesystem::__cxx11::directory_iterator", align 8
   %__end3 = alloca %"class.std::filesystem::__cxx11::directory_iterator", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %cmp4.not.i.i.not.i = icmp eq i64 %path.coerce0, 0
-  br i1 %cmp4.not.i.i.not.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end6.i.i.i
-
-if.end6.i.i.i:                                    ; preds = %entry
   %cmp11.not20.i.i.i = icmp ult i64 %path.coerce0, 5
   br i1 %cmp11.not20.i.i.i, label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %while.body.lr.ph.i.i.i
 
-while.body.lr.ph.i.i.i:                           ; preds = %if.end6.i.i.i
+while.body.lr.ph.i.i.i:                           ; preds = %entry
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 %path.coerce0
   %sub.ptr.lhs.cast21.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
   br label %while.body.i.i.i
@@ -2119,12 +2091,12 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNK
   %add.ptr.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 5
   br label %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %if.end6.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %retval.sroa.0.0.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ 0, %entry ], [ %path.coerce0, %if.end6.i.i.i ], [ %path.coerce0, %if.end20.i.i.i ], [ %path.coerce0, %while.body.i.i.i ]
-  %retval.sroa.3.0.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce1, %entry ], [ %path.coerce1, %if.end6.i.i.i ], [ %path.coerce1, %if.end20.i.i.i ], [ %path.coerce1, %while.body.i.i.i ]
-  store i64 %retval.sroa.0.0.i, ptr %directoryPath, align 8
+_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.body.i.i.i, %if.end20.i.i.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
+  %sub.i.pn.i = phi i64 [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce0, %entry ], [ %path.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce0, %if.end20.i.i.i ], [ %path.coerce0, %while.body.i.i.i ]
+  %add.ptr.i.pn.i = phi ptr [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %path.coerce1, %entry ], [ %path.coerce1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ %path.coerce1, %if.end20.i.i.i ], [ %path.coerce1, %while.body.i.i.i ]
+  store i64 %sub.i.pn.i, ptr %directoryPath, align 8
   %0 = getelementptr inbounds i8, ptr %directoryPath, i64 8
-  store ptr %retval.sroa.3.0.i, ptr %0, align 8
+  store ptr %add.ptr.i.pn.i, ptr %0, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2ISt17basic_string_viewIcSt11char_traitsIcEES1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %folder, ptr noundef nonnull align 8 dereferenceable(16) %directoryPath, i8 noundef zeroext 2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   invoke void @_ZNSt10filesystem7__cxx1118directory_iteratorC2ERKNS0_4pathENS_17directory_optionsEPSt10error_code(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %folder, i8 noundef zeroext 0, ptr noundef null)

@@ -237,8 +237,8 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16Envir
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %7, align 8
-  switch i8 %10, label %17 [
-    i8 -118, label %12
+  switch i8 %10, label %19 [
+    i8 -118, label %14
     i8 19, label %11
     i8 13, label %11
     i8 7, label %11
@@ -259,69 +259,73 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16Envir
   %.sroa.018.0.copyload = load ptr, ptr %4, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit
+  %12 = insertvalue { ptr, i8 } poison, ptr %.sroa.018.0.copyload, 0
+  %13 = insertvalue { ptr, i8 } %12, i8 %.sroa.5.0.copyload, 1
+  br label %40
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit, label %15
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %40, label %17
 
-15:                                               ; preds = %12
-  call void @_ZN5clang4ento16EnvironmentEntryC1EPKNS_4StmtEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %14, ptr noundef %9) #16
-  %16 = call { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16EnvironmentEntryERNS0_11SValBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(412) %2)
-  %.fca.0.extract1 = extractvalue { ptr, i8 } %16, 0
-  %.fca.1.extract2 = extractvalue { ptr, i8 } %16, 1
-  br label %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit
+17:                                               ; preds = %14
+  call void @_ZN5clang4ento16EnvironmentEntryC1EPKNS_4StmtEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %16, ptr noundef %9) #16
+  %18 = call { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16EnvironmentEntryERNS0_11SValBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(412) %2)
+  br label %40
 
-17:                                               ; preds = %3
+19:                                               ; preds = %3
   call void @_ZN5clang4ento16EnvironmentEntryC1EPKNS_4StmtEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, ptr noundef %9) #16
-  %18 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i, label %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit, label %19
+  %20 = load ptr, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i, label %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit, label %21
 
-19:                                               ; preds = %17
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load ptr, ptr %21, align 8
-  br label %23
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %24 = load ptr, ptr %23, align 8
+  br label %25
 
-23:                                               ; preds = %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i, %19
-  %.01113.i.i.i = phi ptr [ %18, %19 ], [ %.1.i.i.i, %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 48
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %20, %25
-  %27 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 56
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %22, %28
-  %30 = select i1 %26, i1 %29, i1 false
-  br i1 %30, label %36, label %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i
+25:                                               ; preds = %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i, %21
+  %.01113.i.i.i = phi ptr [ %20, %21 ], [ %.1.i.i.i, %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 48
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %22, %27
+  %29 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 56
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %24, %30
+  %32 = select i1 %28, i1 %31, i1 false
+  br i1 %32, label %38, label %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i
 
-_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i: ; preds = %23
-  %31 = icmp ult ptr %20, %25
-  %32 = icmp uge ptr %25, %20
-  %33 = icmp ult ptr %22, %28
-  %or.cond.i.i.i = select i1 %32, i1 %33, i1 false
-  %34 = select i1 %31, i1 true, i1 %or.cond.i.i.i
-  %.sink.i.i.i = select i1 %34, i64 8, i64 16
-  %35 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 %.sink.i.i.i
-  %.1.i.i.i = load ptr, ptr %35, align 8
+_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i: ; preds = %25
+  %33 = icmp ult ptr %22, %27
+  %34 = icmp uge ptr %27, %22
+  %35 = icmp ult ptr %24, %30
+  %or.cond.i.i.i = select i1 %34, i1 %35, i1 false
+  %36 = select i1 %33, i1 true, i1 %or.cond.i.i.i
+  %.sink.i.i.i = select i1 %36, i64 8, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 %.sink.i.i.i
+  %.1.i.i.i = load ptr, ptr %37, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit, label %23, !llvm.loop !4
+  br i1 %.not.i.i.i, label %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit, label %25, !llvm.loop !4
 
-36:                                               ; preds = %23
-  %37 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 64
+38:                                               ; preds = %25
+  %39 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 64
   %.sroa.3.0..0.1.sroa_idx.i = getelementptr inbounds i8, ptr %.01113.i.i.i, i64 72
   %.sroa.3.0.copyload.i = load i8, ptr %.sroa.3.0..0.1.sroa_idx.i, align 8
-  %.sroa.0.0.in.sroa.speculate.load..i = load ptr, ptr %37, align 8
+  %.sroa.0.0.in.sroa.speculate.load..i = load ptr, ptr %39, align 8
   br label %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit
 
-_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit: ; preds = %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i, %36, %17, %12, %15, %11
-  %.sroa.018.0 = phi ptr [ %.sroa.018.0.copyload, %11 ], [ %.fca.0.extract1, %15 ], [ null, %12 ], [ %.sroa.0.0.in.sroa.speculate.load..i, %36 ], [ null, %17 ], [ null, %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i ]
-  %.sroa.5.0 = phi i8 [ %.sroa.5.0.copyload, %11 ], [ %.fca.1.extract2, %15 ], [ 0, %12 ], [ %.sroa.3.0.copyload.i, %36 ], [ 1, %17 ], [ 1, %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.018.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit: ; preds = %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i, %19, %38
+  %.sroa.0.0.in.sroa.speculated.i = phi ptr [ %.sroa.0.0.in.sroa.speculate.load..i, %38 ], [ null, %19 ], [ null, %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i ]
+  %.sroa.3.0.i = phi i8 [ %.sroa.3.0.copyload.i, %38 ], [ 1, %19 ], [ 1, %_ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS3_S7_.exit.thread.i.i.i ]
+  %.fca.0.insert.i = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0.in.sroa.speculated.i, 0
+  %.fca.1.insert.i = insertvalue { ptr, i8 } %.fca.0.insert.i, i8 %.sroa.3.0.i, 1
+  br label %40
+
+40:                                               ; preds = %14, %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit, %17, %11
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %.fca.1.insert.i, %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit ], [ %13, %11 ], [ %18, %17 ], [ zeroinitializer, %14 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 declare void @_ZN5clang4ento11SValBuilder14getConstantValEPKNS_4ExprE(ptr dead_on_unwind writable sret(%"class.std::optional") align 8, ptr noundef nonnull align 8 dereferenceable(412), ptr noundef) local_unnamed_addr #1
@@ -1247,11 +1251,11 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang15LocationContextEE5countES4_.exit: ; preds 
 156:                                              ; preds = %._crit_edge.i.i39, %.lr.ph
   %157 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %11, ptr noundef nonnull %.079) #16, !noalias !35
   %.pre.i35 = load ptr, ptr %11, align 8, !noalias !35
-  %.pre8.i = load i32, ptr %82, align 4, !noalias !35
+  %.pre6.i = load i32, ptr %82, align 4, !noalias !35
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i37, %156, %152
-  %158 = phi i32 [ %155, %152 ], [ %.pre8.i, %156 ], [ %140, %.lr.ph.i.i37 ]
+  %158 = phi i32 [ %155, %152 ], [ %.pre6.i, %156 ], [ %140, %.lr.ph.i.i37 ]
   %159 = phi ptr [ %154, %152 ], [ %.pre.i35, %156 ], [ %141, %.lr.ph.i.i37 ]
   %160 = load ptr, ptr %80, align 8, !noalias !35
   %161 = load i32, ptr %81, align 8, !noalias !35

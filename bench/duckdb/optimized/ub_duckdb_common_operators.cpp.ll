@@ -12254,15 +12254,11 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @_ZN6duckdb4Date4PINFE, align 8, !tbaa !188
   %call3 = tail call { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKc(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef %0)
-  %1 = extractvalue { i64, ptr } %call3, 0
-  %2 = extractvalue { i64, ptr } %call3, 1
   br label %return
 
 if.then10:                                        ; preds = %entry
-  %3 = load ptr, ptr @_ZN6duckdb4Date4NINFE, align 8, !tbaa !188
-  %call11 = tail call { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKc(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef %3)
-  %4 = extractvalue { i64, ptr } %call11, 0
-  %5 = extractvalue { i64, ptr } %call11, 1
+  %1 = load ptr, ptr @_ZN6duckdb4Date4NINFE, align 8, !tbaa !188
+  %call11 = tail call { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKc(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef %1)
   br label %return
 
 if.end14:                                         ; preds = %entry
@@ -12281,42 +12277,42 @@ if.end14:                                         ; preds = %entry
   %arrayidx24 = getelementptr inbounds i8, ptr %time, i64 12
   call void @_ZN6duckdb4Time7ConvertENS_7dtime_tERiS2_S2_S2_(i64 %agg.tmp20.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(4) %time, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx22, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx23, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx24)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %micro_buffer) #26
-  %6 = load i32, ptr %date, align 4, !tbaa !10
-  %cmp.i50 = icmp sgt i32 %6, 0
+  %2 = load i32, ptr %date, align 4, !tbaa !10
+  %cmp.i50 = icmp sgt i32 %2, 0
   br i1 %cmp.i50, label %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %add2.i = sub i32 1, %6
+  %add2.i = sub i32 1, %2
   store i32 %add2.i, ptr %date, align 4, !tbaa !10
   br label %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit
 
 _ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit:  ; preds = %if.then.i, %if.end14
-  %7 = phi i32 [ %add2.i, %if.then.i ], [ %6, %if.end14 ]
+  %3 = phi i32 [ %add2.i, %if.then.i ], [ %2, %if.end14 ]
   %length.0.i = phi i64 [ 11, %if.then.i ], [ 6, %if.end14 ]
-  %cmp5.i = icmp sgt i32 %7, 9999
+  %cmp5.i = icmp sgt i32 %3, 9999
   %add6.i = select i1 %cmp5.i, i64 5, i64 4
-  %cmp8.i = icmp sgt i32 %7, 99999
+  %cmp8.i = icmp sgt i32 %3, 99999
   %conv9.i = zext i1 %cmp8.i to i64
   %add10.i = add nuw nsw i64 %add6.i, %conv9.i
-  %cmp12.i = icmp sgt i32 %7, 999999
+  %cmp12.i = icmp sgt i32 %3, 999999
   %conv13.i = zext i1 %cmp12.i to i64
   %add14.i = add nuw nsw i64 %add10.i, %conv13.i
-  %cmp16.i = icmp sgt i32 %7, 9999999
+  %cmp16.i = icmp sgt i32 %3, 9999999
   %conv17.i = zext i1 %cmp16.i to i64
   %add18.i = add nuw nsw i64 %add14.i, %conv17.i
   %add19.i = add nuw nsw i64 %add18.i, %length.0.i
-  %8 = load i32, ptr %arrayidx24, align 4, !tbaa !10
-  %cmp.i51 = icmp eq i32 %8, 0
+  %4 = load i32, ptr %arrayidx24, align 4, !tbaa !10
+  %cmp.i51 = icmp eq i32 %4, 0
   br i1 %cmp.i51, label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit
   %micro_buffer17.i.i = ptrtoint ptr %micro_buffer to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 6
-  %cmp29.i.i.i = icmp ugt i32 %8, 99
+  %cmp29.i.i.i = icmp ugt i32 %4, 99
   br i1 %cmp29.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.else.i, %while.body.i.i.i
-  %value.addr.031.i.i.i = phi i32 [ %div.i.i.i, %while.body.i.i.i ], [ %8, %if.else.i ]
+  %value.addr.031.i.i.i = phi i32 [ %div.i.i.i, %while.body.i.i.i ], [ %4, %if.else.i ]
   %ptr.addr.030.i.i.i = phi ptr [ %incdec.ptr3.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i, %if.else.i ]
   %rem.i.i.i = urem i32 %value.addr.031.i.i.i, 100
   %mul.i.i.i = shl nuw nsw i32 %rem.i.i.i, 1
@@ -12324,26 +12320,26 @@ while.body.i.i.i:                                 ; preds = %if.else.i, %while.b
   %add.i.i.i = or disjoint i32 %mul.i.i.i, 1
   %idxprom.i.i.i = zext nneg i32 %add.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.i.i
-  %9 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !7
+  %5 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.030.i.i.i, i64 -1
-  store i8 %9, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
+  store i8 %5, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
   %idxprom1.i.i.i = zext nneg i32 %mul.i.i.i to i64
   %arrayidx2.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom1.i.i.i
-  %10 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
+  %6 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.030.i.i.i, i64 -2
-  store i8 %10, ptr %incdec.ptr3.i.i.i, align 1, !tbaa !7
+  store i8 %6, ptr %incdec.ptr3.i.i.i, align 1, !tbaa !7
   %cmp.i.i.i = icmp ugt i32 %value.addr.031.i.i.i, 9999
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !189
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.else.i
   %ptr.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr.i.i, %if.else.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
-  %value.addr.0.lcssa.i.i.i = phi i32 [ %8, %if.else.i ], [ %div.i.i.i, %while.body.i.i.i ]
+  %value.addr.0.lcssa.i.i.i = phi i32 [ %4, %if.else.i ], [ %div.i.i.i, %while.body.i.i.i ]
   %cmp4.i.i.i = icmp samesign ult i32 %value.addr.0.lcssa.i.i.i, 10
   br i1 %cmp4.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
-  %11 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i to i8
-  %conv.i.i.i = or disjoint i8 %11, 48
+  %7 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i to i8
+  %conv.i.i.i = or disjoint i8 %7, 48
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i.i
@@ -12351,17 +12347,17 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i.i
   %add9.i.i.i = or disjoint i32 %mul8.i.i.i, 1
   %idxprom10.i.i.i = zext nneg i32 %add9.i.i.i to i64
   %arrayidx11.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom10.i.i.i
-  %12 = load i8, ptr %arrayidx11.i.i.i, align 1, !tbaa !7
+  %8 = load i8, ptr %arrayidx11.i.i.i, align 1, !tbaa !7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -1
-  store i8 %12, ptr %incdec.ptr12.i.i.i, align 1, !tbaa !7
+  store i8 %8, ptr %incdec.ptr12.i.i.i, align 1, !tbaa !7
   %idxprom13.i.i.i = zext nneg i32 %mul8.i.i.i to i64
   %arrayidx14.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i.i
-  %13 = load i8, ptr %arrayidx14.i.i.i, align 1, !tbaa !7
+  %9 = load i8, ptr %arrayidx14.i.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i.i.i
   %.sink13 = phi i64 [ -2, %if.end.i.i.i ], [ -1, %if.then.i.i.i ]
-  %.sink = phi i8 [ %13, %if.end.i.i.i ], [ %conv.i.i.i, %if.then.i.i.i ]
+  %.sink = phi i8 [ %9, %if.end.i.i.i ], [ %conv.i.i.i, %if.then.i.i.i ]
   %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 %.sink13
   store i8 %.sink, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !7
   %cmp13.i.i = icmp ugt ptr %incdec.ptr15.i.i.i, %micro_buffer
@@ -12369,65 +12365,65 @@ _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i: ; preds = %if.end
 
 while.body.preheader.i.i:                         ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
   %retval.0.i18.i.i = ptrtoint ptr %incdec.ptr15.i.i.i to i64
-  %14 = sub i64 %micro_buffer17.i.i, %retval.0.i18.i.i
-  %scevgep.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %14
-  %15 = sub i64 %retval.0.i18.i.i, %micro_buffer17.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i, i8 48, i64 %15, i1 false), !tbaa !7
+  %10 = sub i64 %micro_buffer17.i.i, %retval.0.i18.i.i
+  %scevgep.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %10
+  %11 = sub i64 %retval.0.i18.i.i, %micro_buffer17.i.i
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i, i8 48, i64 %11, i1 false), !tbaa !7
   br label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.body.preheader.i.i, %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 5
-  %16 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
-  %cmp2.not.i.i = icmp eq i8 %16, 48
+  %12 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
+  %cmp2.not.i.i = icmp eq i8 %12, 48
   br i1 %cmp2.not.i.i, label %if.end.i.i, label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
 
 if.end.i.i:                                       ; preds = %for.cond.preheader.i.i
   %arrayidx.1.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 4
-  %17 = load i8, ptr %arrayidx.1.i.i, align 1, !tbaa !7
-  %cmp2.not.1.i.i = icmp eq i8 %17, 48
+  %13 = load i8, ptr %arrayidx.1.i.i, align 1, !tbaa !7
+  %cmp2.not.1.i.i = icmp eq i8 %13, 48
   br i1 %cmp2.not.1.i.i, label %if.end.1.i.i, label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
 
 if.end.1.i.i:                                     ; preds = %if.end.i.i
   %arrayidx.2.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 3
-  %18 = load i8, ptr %arrayidx.2.i.i, align 1, !tbaa !7
-  %cmp2.not.2.i.i = icmp eq i8 %18, 48
+  %14 = load i8, ptr %arrayidx.2.i.i, align 1, !tbaa !7
+  %cmp2.not.2.i.i = icmp eq i8 %14, 48
   br i1 %cmp2.not.2.i.i, label %if.end.2.i.i, label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
 
 if.end.2.i.i:                                     ; preds = %if.end.1.i.i
   %arrayidx.3.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 2
-  %19 = load i8, ptr %arrayidx.3.i.i, align 1, !tbaa !7
-  %cmp2.not.3.i.i = icmp eq i8 %19, 48
+  %15 = load i8, ptr %arrayidx.3.i.i, align 1, !tbaa !7
+  %cmp2.not.3.i.i = icmp eq i8 %15, 48
   br i1 %cmp2.not.3.i.i, label %if.end.3.i.i, label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
 
 if.end.3.i.i:                                     ; preds = %if.end.2.i.i
   %arrayidx.4.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 1
-  %20 = load i8, ptr %arrayidx.4.i.i, align 1, !tbaa !7
-  %cmp2.not.4.i.i = icmp eq i8 %20, 48
-  %21 = select i1 %cmp2.not.4.i.i, i64 10, i64 11
+  %16 = load i8, ptr %arrayidx.4.i.i, align 1, !tbaa !7
+  %cmp2.not.4.i.i = icmp eq i8 %16, 48
+  %17 = select i1 %cmp2.not.4.i.i, i64 10, i64 11
   br label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
 
 _ZN6duckdb16TimeToStringCast6LengthEPiPc.exit:    ; preds = %if.end.3.i.i, %if.end.2.i.i, %if.end.1.i.i, %if.end.i.i, %for.cond.preheader.i.i, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit
-  %length.0.i52 = phi i64 [ 8, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit ], [ 15, %for.cond.preheader.i.i ], [ 14, %if.end.i.i ], [ 13, %if.end.1.i.i ], [ 12, %if.end.2.i.i ], [ %21, %if.end.3.i.i ]
+  %length.0.i52 = phi i64 [ 8, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit ], [ 15, %for.cond.preheader.i.i ], [ 14, %if.end.i.i ], [ 13, %if.end.1.i.i ], [ 12, %if.end.2.i.i ], [ %17, %if.end.3.i.i ]
   %add = add nuw nsw i64 %add19.i, 1
   %add30 = add nuw nsw i64 %add, %length.0.i52
   %call31 = call { i64, ptr } @_ZN6duckdb12StringVector11EmptyStringERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104) %vector, i64 noundef %add30)
-  %22 = extractvalue { i64, ptr } %call31, 0
-  store i64 %22, ptr %retval, align 8
-  %23 = getelementptr inbounds i8, ptr %retval, i64 8
-  %24 = extractvalue { i64, ptr } %call31, 1
-  store ptr %24, ptr %23, align 8
-  %25 = trunc i64 %22 to i32
-  %cmp.i.i = icmp ult i32 %25, 13
+  %18 = extractvalue { i64, ptr } %call31, 0
+  store i64 %18, ptr %retval, align 8
+  %19 = getelementptr inbounds i8, ptr %retval, i64 8
+  %20 = extractvalue { i64, ptr } %call31, 1
+  store ptr %20, ptr %19, align 8
+  %21 = trunc i64 %18 to i32
+  %cmp.i.i = icmp ult i32 %21, 13
   %inlined.i = getelementptr inbounds i8, ptr %retval, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %24
+  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %20
   %data45.i = ptrtoint ptr %cond.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i, i64 %add18.i
-  %26 = load i32, ptr %date, align 4, !tbaa !10
-  %cmp29.i.i = icmp sgt i32 %26, 99
+  %22 = load i32, ptr %date, align 4, !tbaa !10
+  %cmp29.i.i = icmp sgt i32 %22, 99
   br i1 %cmp29.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit, %while.body.i.i
-  %value.addr.031.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %26, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ]
+  %value.addr.031.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %22, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ]
   %ptr.addr.030.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %add.ptr.i, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ]
   %rem.i.i = urem i32 %value.addr.031.i.i, 100
   %mul.i.i = shl nuw nsw i32 %rem.i.i, 1
@@ -12435,26 +12431,26 @@ while.body.i.i:                                   ; preds = %_ZN6duckdb16TimeToS
   %add.i.i = or disjoint i32 %mul.i.i, 1
   %idxprom.i.i = zext nneg i32 %add.i.i to i64
   %arrayidx.i.i57 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.i
-  %27 = load i8, ptr %arrayidx.i.i57, align 1, !tbaa !7
+  %23 = load i8, ptr %arrayidx.i.i57, align 1, !tbaa !7
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.030.i.i, i64 -1
-  store i8 %27, ptr %incdec.ptr.i.i, align 1, !tbaa !7
+  store i8 %23, ptr %incdec.ptr.i.i, align 1, !tbaa !7
   %idxprom1.i.i = zext nneg i32 %mul.i.i to i64
   %arrayidx2.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom1.i.i
-  %28 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !7
+  %24 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !7
   %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %ptr.addr.030.i.i, i64 -2
-  store i8 %28, ptr %incdec.ptr3.i.i, align 1, !tbaa !7
+  store i8 %24, ptr %incdec.ptr3.i.i, align 1, !tbaa !7
   %cmp.i.i58 = icmp samesign ugt i32 %value.addr.031.i.i, 9999
   br i1 %cmp.i.i58, label %while.body.i.i, label %while.end.i.i, !llvm.loop !190
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
   %ptr.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ], [ %incdec.ptr3.i.i, %while.body.i.i ]
-  %value.addr.0.lcssa.i.i = phi i32 [ %26, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ], [ %div.i.i, %while.body.i.i ]
+  %value.addr.0.lcssa.i.i = phi i32 [ %22, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ], [ %div.i.i, %while.body.i.i ]
   %cmp4.i.i = icmp slt i32 %value.addr.0.lcssa.i.i, 10
   br i1 %cmp4.i.i, label %if.then.i.i, label %if.end.i.i53
 
 if.then.i.i:                                      ; preds = %while.end.i.i
-  %29 = trunc i32 %value.addr.0.lcssa.i.i to i8
-  %conv.i.i = add i8 %29, 48
+  %25 = trunc i32 %value.addr.0.lcssa.i.i to i8
+  %conv.i.i = add i8 %25, 48
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 if.end.i.i53:                                     ; preds = %while.end.i.i
@@ -12462,17 +12458,17 @@ if.end.i.i53:                                     ; preds = %while.end.i.i
   %add9.i.i = or disjoint i32 %mul8.i.i, 1
   %idxprom10.i.i = zext nneg i32 %add9.i.i to i64
   %arrayidx11.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom10.i.i
-  %30 = load i8, ptr %arrayidx11.i.i, align 1, !tbaa !7
+  %26 = load i8, ptr %arrayidx11.i.i, align 1, !tbaa !7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -1
-  store i8 %30, ptr %incdec.ptr12.i.i, align 1, !tbaa !7
+  store i8 %26, ptr %incdec.ptr12.i.i, align 1, !tbaa !7
   %idxprom13.i.i = zext nneg i32 %mul8.i.i to i64
   %arrayidx14.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i
-  %31 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !7
+  %27 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i: ; preds = %if.end.i.i53, %if.then.i.i
   %.sink15 = phi i64 [ -2, %if.end.i.i53 ], [ -1, %if.then.i.i ]
-  %.sink14 = phi i8 [ %31, %if.end.i.i53 ], [ %conv.i.i, %if.then.i.i ]
+  %.sink14 = phi i8 [ %27, %if.end.i.i53 ], [ %conv.i.i, %if.then.i.i ]
   %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 %.sink15
   store i8 %.sink14, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
   %cmp41.i = icmp ugt ptr %incdec.ptr15.i.i, %cond.i
@@ -12480,74 +12476,74 @@ _ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i: ; preds = %if.end.i
 
 while.body.preheader.i:                           ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
   %retval.0.i46.i = ptrtoint ptr %incdec.ptr15.i.i to i64
-  %32 = sub i64 %data45.i, %retval.0.i46.i
-  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %32
-  %33 = sub i64 %retval.0.i46.i, %data45.i
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %33, i1 false), !tbaa !7
+  %28 = sub i64 %data45.i, %retval.0.i46.i
+  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %28
+  %29 = sub i64 %retval.0.i46.i, %data45.i
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %29, i1 false), !tbaa !7
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.body.preheader.i, %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
   store i8 45, ptr %add.ptr.i, align 1, !tbaa !7
-  %34 = load i32, ptr %arrayidx17, align 4, !tbaa !10
-  %cmp5.i54 = icmp slt i32 %34, 10
+  %30 = load i32, ptr %arrayidx17, align 4, !tbaa !10
+  %cmp5.i54 = icmp slt i32 %30, 10
   br i1 %cmp5.i54, label %if.then.i56, label %if.else.i55
 
 if.then.i56:                                      ; preds = %for.cond.preheader.i
   %arrayidx6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   store i8 48, ptr %arrayidx6.i, align 1, !tbaa !7
-  %35 = load i32, ptr %arrayidx17, align 4, !tbaa !10
-  %36 = trunc i32 %35 to i8
-  %conv.i = add i8 %36, 48
+  %31 = load i32, ptr %arrayidx17, align 4, !tbaa !10
+  %32 = trunc i32 %31 to i8
+  %conv.i = add i8 %32, 48
   br label %if.end.i
 
 if.else.i55:                                      ; preds = %for.cond.preheader.i
-  %mul.i = shl nuw nsw i32 %34, 1
+  %mul.i = shl nuw nsw i32 %30, 1
   %idxprom12.i = zext nneg i32 %mul.i to i64
   %arrayidx13.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom12.i
-  %37 = load i8, ptr %arrayidx13.i, align 1, !tbaa !7
+  %33 = load i8, ptr %arrayidx13.i, align 1, !tbaa !7
   %arrayidx14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
-  store i8 %37, ptr %arrayidx14.i, align 1, !tbaa !7
+  store i8 %33, ptr %arrayidx14.i, align 1, !tbaa !7
   %add15.i = or disjoint i32 %mul.i, 1
   %idxprom16.i = zext nneg i32 %add15.i to i64
   %arrayidx17.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom16.i
-  %38 = load i8, ptr %arrayidx17.i, align 1, !tbaa !7
+  %34 = load i8, ptr %arrayidx17.i, align 1, !tbaa !7
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i55, %if.then.i56
-  %.sink.i = phi i8 [ %conv.i, %if.then.i56 ], [ %38, %if.else.i55 ]
-  %39 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
-  store i8 %.sink.i, ptr %39, align 1
+  %.sink.i = phi i8 [ %conv.i, %if.then.i56 ], [ %34, %if.else.i55 ]
+  %35 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
+  store i8 %.sink.i, ptr %35, align 1
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 3
   store i8 45, ptr %add.ptr19.i, align 1, !tbaa !7
-  %40 = load i32, ptr %arrayidx18, align 4, !tbaa !10
-  %cmp5.1.i = icmp slt i32 %40, 10
+  %36 = load i32, ptr %arrayidx18, align 4, !tbaa !10
+  %cmp5.1.i = icmp slt i32 %36, 10
   br i1 %cmp5.1.i, label %if.then.1.i, label %if.else.1.i
 
 if.else.1.i:                                      ; preds = %if.end.i
-  %mul.1.i = shl nuw nsw i32 %40, 1
+  %mul.1.i = shl nuw nsw i32 %36, 1
   %idxprom12.1.i = zext nneg i32 %mul.1.i to i64
   %arrayidx13.1.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom12.1.i
-  %41 = load i8, ptr %arrayidx13.1.i, align 1, !tbaa !7
+  %37 = load i8, ptr %arrayidx13.1.i, align 1, !tbaa !7
   %arrayidx14.1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
-  store i8 %41, ptr %arrayidx14.1.i, align 1, !tbaa !7
+  store i8 %37, ptr %arrayidx14.1.i, align 1, !tbaa !7
   %add15.1.i = or disjoint i32 %mul.1.i, 1
   %idxprom16.1.i = zext nneg i32 %add15.1.i to i64
   %arrayidx17.1.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom16.1.i
-  %42 = load i8, ptr %arrayidx17.1.i, align 1, !tbaa !7
+  %38 = load i8, ptr %arrayidx17.1.i, align 1, !tbaa !7
   br label %if.end.1.i
 
 if.then.1.i:                                      ; preds = %if.end.i
   %arrayidx6.1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   store i8 48, ptr %arrayidx6.1.i, align 1, !tbaa !7
-  %43 = load i32, ptr %arrayidx18, align 4, !tbaa !10
-  %44 = trunc i32 %43 to i8
-  %conv.1.i = add i8 %44, 48
+  %39 = load i32, ptr %arrayidx18, align 4, !tbaa !10
+  %40 = trunc i32 %39 to i8
+  %conv.1.i = add i8 %40, 48
   br label %if.end.1.i
 
 if.end.1.i:                                       ; preds = %if.then.1.i, %if.else.1.i
-  %.sink48.i = phi i8 [ %conv.1.i, %if.then.1.i ], [ %42, %if.else.1.i ]
-  %45 = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  store i8 %.sink48.i, ptr %45, align 1
+  %.sink48.i = phi i8 [ %conv.1.i, %if.then.1.i ], [ %38, %if.else.1.i ]
+  %41 = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
+  store i8 %.sink48.i, ptr %41, align 1
   br i1 %cmp.i50, label %_ZN6duckdb16DateToStringCast6FormatEPcPimb.exit, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end.1.i
@@ -12563,86 +12559,86 @@ _ZN6duckdb16DateToStringCast6FormatEPcPimb.exit:  ; preds = %if.then20.i, %if.en
   store i8 58, ptr %arrayidx.i59, align 1, !tbaa !7
   %arrayidx1.i = getelementptr inbounds i8, ptr %arrayidx36, i64 6
   store i8 58, ptr %arrayidx1.i, align 1, !tbaa !7
-  %46 = load i32, ptr %time, align 16, !tbaa !10
-  %cmp.i.i60 = icmp slt i32 %46, 10
+  %42 = load i32, ptr %time, align 16, !tbaa !10
+  %cmp.i.i60 = icmp slt i32 %42, 10
   br i1 %cmp.i.i60, label %if.then.i.i68, label %if.else.i.i
 
 if.then.i.i68:                                    ; preds = %_ZN6duckdb16DateToStringCast6FormatEPcPimb.exit
   store i8 48, ptr %add.ptr37, align 1, !tbaa !7
-  %47 = trunc i32 %46 to i8
-  %conv.i.i69 = add i8 %47, 48
+  %43 = trunc i32 %42 to i8
+  %conv.i.i69 = add i8 %43, 48
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.i
 
 if.else.i.i:                                      ; preds = %_ZN6duckdb16DateToStringCast6FormatEPcPimb.exit
-  %mul.i.i61 = shl nuw nsw i32 %46, 1
+  %mul.i.i61 = shl nuw nsw i32 %42, 1
   %idxprom.i.i62 = zext nneg i32 %mul.i.i61 to i64
   %arrayidx2.i.i63 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.i62
-  %48 = load i8, ptr %arrayidx2.i.i63, align 1, !tbaa !7
-  store i8 %48, ptr %add.ptr37, align 1, !tbaa !7
+  %44 = load i8, ptr %arrayidx2.i.i63, align 1, !tbaa !7
+  store i8 %44, ptr %add.ptr37, align 1, !tbaa !7
   %add4.i.i = or disjoint i32 %mul.i.i61, 1
   %idxprom5.i.i = zext nneg i32 %add4.i.i to i64
   %arrayidx6.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom5.i.i
-  %49 = load i8, ptr %arrayidx6.i.i, align 1, !tbaa !7
+  %45 = load i8, ptr %arrayidx6.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.i
 
 _ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.i: ; preds = %if.else.i.i, %if.then.i.i68
-  %.sink.i.i = phi i8 [ %conv.i.i69, %if.then.i.i68 ], [ %49, %if.else.i.i ]
-  %50 = getelementptr inbounds i8, ptr %arrayidx36, i64 2
-  store i8 %.sink.i.i, ptr %50, align 1
+  %.sink.i.i = phi i8 [ %conv.i.i69, %if.then.i.i68 ], [ %45, %if.else.i.i ]
+  %46 = getelementptr inbounds i8, ptr %arrayidx36, i64 2
+  store i8 %.sink.i.i, ptr %46, align 1
   %add.ptr.i64 = getelementptr inbounds i8, ptr %arrayidx36, i64 4
-  %51 = load i32, ptr %arrayidx22, align 4, !tbaa !10
-  %cmp.i.1.i = icmp slt i32 %51, 10
+  %47 = load i32, ptr %arrayidx22, align 4, !tbaa !10
+  %cmp.i.1.i = icmp slt i32 %47, 10
   br i1 %cmp.i.1.i, label %if.then.i.1.i, label %if.else.i.1.i
 
 if.else.i.1.i:                                    ; preds = %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.i
-  %mul.i.1.i = shl nuw nsw i32 %51, 1
+  %mul.i.1.i = shl nuw nsw i32 %47, 1
   %idxprom.i.1.i = zext nneg i32 %mul.i.1.i to i64
   %arrayidx2.i.1.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.1.i
-  %52 = load i8, ptr %arrayidx2.i.1.i, align 1, !tbaa !7
-  store i8 %52, ptr %add.ptr.i64, align 1, !tbaa !7
+  %48 = load i8, ptr %arrayidx2.i.1.i, align 1, !tbaa !7
+  store i8 %48, ptr %add.ptr.i64, align 1, !tbaa !7
   %add4.i.1.i = or disjoint i32 %mul.i.1.i, 1
   %idxprom5.i.1.i = zext nneg i32 %add4.i.1.i to i64
   %arrayidx6.i.1.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom5.i.1.i
-  %53 = load i8, ptr %arrayidx6.i.1.i, align 1, !tbaa !7
+  %49 = load i8, ptr %arrayidx6.i.1.i, align 1, !tbaa !7
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.1.i
 
 if.then.i.1.i:                                    ; preds = %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.i
   store i8 48, ptr %add.ptr.i64, align 1, !tbaa !7
-  %54 = trunc i32 %51 to i8
-  %conv.i.1.i = add i8 %54, 48
+  %50 = trunc i32 %47 to i8
+  %conv.i.1.i = add i8 %50, 48
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.1.i
 
 _ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.1.i: ; preds = %if.then.i.1.i, %if.else.i.1.i
-  %.sink.i.1.i = phi i8 [ %conv.i.1.i, %if.then.i.1.i ], [ %53, %if.else.i.1.i ]
-  %55 = getelementptr inbounds i8, ptr %arrayidx36, i64 5
-  store i8 %.sink.i.1.i, ptr %55, align 1
+  %.sink.i.1.i = phi i8 [ %conv.i.1.i, %if.then.i.1.i ], [ %49, %if.else.i.1.i ]
+  %51 = getelementptr inbounds i8, ptr %arrayidx36, i64 5
+  store i8 %.sink.i.1.i, ptr %51, align 1
   %add.ptr.1.i = getelementptr inbounds i8, ptr %arrayidx36, i64 7
-  %56 = load i32, ptr %arrayidx23, align 8, !tbaa !10
-  %cmp.i.2.i = icmp slt i32 %56, 10
+  %52 = load i32, ptr %arrayidx23, align 8, !tbaa !10
+  %cmp.i.2.i = icmp slt i32 %52, 10
   br i1 %cmp.i.2.i, label %if.then.i.2.i, label %if.else.i.2.i
 
 if.else.i.2.i:                                    ; preds = %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.1.i
-  %mul.i.2.i = shl nuw nsw i32 %56, 1
+  %mul.i.2.i = shl nuw nsw i32 %52, 1
   %idxprom.i.2.i = zext nneg i32 %mul.i.2.i to i64
   %arrayidx2.i.2.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.2.i
-  %57 = load i8, ptr %arrayidx2.i.2.i, align 1, !tbaa !7
-  store i8 %57, ptr %add.ptr.1.i, align 1, !tbaa !7
+  %53 = load i8, ptr %arrayidx2.i.2.i, align 1, !tbaa !7
+  store i8 %53, ptr %add.ptr.1.i, align 1, !tbaa !7
   %add4.i.2.i = or disjoint i32 %mul.i.2.i, 1
   %idxprom5.i.2.i = zext nneg i32 %add4.i.2.i to i64
   %arrayidx6.i.2.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom5.i.2.i
-  %58 = load i8, ptr %arrayidx6.i.2.i, align 1, !tbaa !7
+  %54 = load i8, ptr %arrayidx6.i.2.i, align 1, !tbaa !7
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.2.i
 
 if.then.i.2.i:                                    ; preds = %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.1.i
   store i8 48, ptr %add.ptr.1.i, align 1, !tbaa !7
-  %59 = trunc i32 %56 to i8
-  %conv.i.2.i = add i8 %59, 48
+  %55 = trunc i32 %52 to i8
+  %conv.i.2.i = add i8 %55, 48
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.2.i
 
 _ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.2.i: ; preds = %if.then.i.2.i, %if.else.i.2.i
-  %.sink.i.2.i = phi i8 [ %conv.i.2.i, %if.then.i.2.i ], [ %58, %if.else.i.2.i ]
-  %60 = getelementptr inbounds i8, ptr %arrayidx36, i64 8
-  store i8 %.sink.i.2.i, ptr %60, align 1
+  %.sink.i.2.i = phi i8 [ %conv.i.2.i, %if.then.i.2.i ], [ %54, %if.else.i.2.i ]
+  %56 = getelementptr inbounds i8, ptr %arrayidx36, i64 8
+  store i8 %.sink.i.2.i, ptr %56, align 1
   %cmp3.i.not = icmp eq i64 %length.0.i52, 8
   br i1 %cmp3.i.not, label %_ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit, label %if.then.i66
 
@@ -12655,27 +12651,27 @@ if.then.i66:                                      ; preds = %_ZN6duckdb16TimeToS
   br label %_ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit
 
 _ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit: ; preds = %if.then.i66, %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.2.i
-  %61 = load i32, ptr %retval, align 8, !tbaa !7
-  %conv.i.i70 = zext i32 %61 to i64
-  %cmp.i71 = icmp ult i32 %61, 13
+  %57 = load i32, ptr %retval, align 8, !tbaa !7
+  %conv.i.i70 = zext i32 %57 to i64
+  %cmp.i71 = icmp ult i32 %57, 13
   br i1 %cmp.i71, label %for.cond.preheader.i74, label %if.else.i72
 
 for.cond.preheader.i74:                           ; preds = %_ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit
-  %cmp39.not.i = icmp eq i32 %61, 12
+  %cmp39.not.i = icmp eq i32 %57, 12
   br i1 %cmp39.not.i, label %_ZN6duckdb8string_t8FinalizeEv.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i74
-  %62 = getelementptr i8, ptr %retval, i64 %conv.i.i70
-  %scevgep.i75 = getelementptr i8, ptr %62, i64 4
+  %58 = getelementptr i8, ptr %retval, i64 %conv.i.i70
+  %scevgep.i75 = getelementptr i8, ptr %58, i64 4
   %reass.sub = call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i70)
-  %63 = add nuw nsw i64 %reass.sub, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i75, i8 0, i64 %63, i1 false), !tbaa !7
+  %59 = add nuw nsw i64 %reass.sub, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i75, i8 0, i64 %59, i1 false), !tbaa !7
   br label %_ZN6duckdb8string_t8FinalizeEv.exit
 
 if.else.i72:                                      ; preds = %_ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit
-  %64 = load ptr, ptr %23, align 8
-  %65 = load i32, ptr %64, align 1
-  store i32 %65, ptr %inlined.i, align 4
+  %60 = load ptr, ptr %19, align 8
+  %61 = load i32, ptr %60, align 1
+  store i32 %61, ptr %inlined.i, align 4
   br label %_ZN6duckdb8string_t8FinalizeEv.exit
 
 _ZN6duckdb8string_t8FinalizeEv.exit:              ; preds = %if.else.i72, %for.body.lr.ph.i, %for.cond.preheader.i74
@@ -12685,15 +12681,14 @@ _ZN6duckdb8string_t8FinalizeEv.exit:              ; preds = %if.else.i72, %for.b
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %time_entry) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %date_entry) #26
   %.fca.0.load.pre = load i64, ptr %retval, align 8
-  %.fca.1.load.pre = load ptr, ptr %23, align 8
+  %.fca.1.load.pre = load ptr, ptr %19, align 8
+  %62 = insertvalue { i64, ptr } poison, i64 %.fca.0.load.pre, 0
+  %63 = insertvalue { i64, ptr } %62, ptr %.fca.1.load.pre, 1
   br label %return
 
 return:                                           ; preds = %_ZN6duckdb8string_t8FinalizeEv.exit, %if.then10, %if.then
-  %.fca.1.load = phi ptr [ %.fca.1.load.pre, %_ZN6duckdb8string_t8FinalizeEv.exit ], [ %5, %if.then10 ], [ %2, %if.then ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %_ZN6duckdb8string_t8FinalizeEv.exit ], [ %4, %if.then10 ], [ %1, %if.then ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.fca.0.load, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.fca.1.load, 1
-  ret { i64, ptr } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, ptr } [ %63, %_ZN6duckdb8string_t8FinalizeEv.exit ], [ %call11, %if.then10 ], [ %call3, %if.then ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 declare i64 @_ZN6duckdb9Timestamp20FromEpochNanoSecondsEl(i64 noundef) local_unnamed_addr #7
@@ -44900,15 +44895,11 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @_ZN6duckdb4Date4PINFE, align 8, !tbaa !188
   %call3 = tail call { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKc(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef %0)
-  %1 = extractvalue { i64, ptr } %call3, 0
-  %2 = extractvalue { i64, ptr } %call3, 1
   br label %return
 
 if.then10:                                        ; preds = %entry
-  %3 = load ptr, ptr @_ZN6duckdb4Date4NINFE, align 8, !tbaa !188
-  %call11 = tail call { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKc(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef %3)
-  %4 = extractvalue { i64, ptr } %call11, 0
-  %5 = extractvalue { i64, ptr } %call11, 1
+  %1 = load ptr, ptr @_ZN6duckdb4Date4NINFE, align 8, !tbaa !188
+  %call11 = tail call { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKc(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef %1)
   br label %return
 
 if.end14:                                         ; preds = %entry
@@ -44916,48 +44907,48 @@ if.end14:                                         ; preds = %entry
   %arrayidx15 = getelementptr inbounds i8, ptr %date, i64 4
   %arrayidx16 = getelementptr inbounds i8, ptr %date, i64 8
   call void @_ZN6duckdb4Date7ConvertENS_6date_tERiS2_S2_(i32 %input.coerce, ptr noundef nonnull align 4 dereferenceable(4) %date, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx15, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx16)
-  %6 = load i32, ptr %date, align 4, !tbaa !10
-  %cmp.i29 = icmp sgt i32 %6, 0
+  %2 = load i32, ptr %date, align 4, !tbaa !10
+  %cmp.i29 = icmp sgt i32 %2, 0
   br i1 %cmp.i29, label %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %add2.i = sub i32 1, %6
+  %add2.i = sub i32 1, %2
   store i32 %add2.i, ptr %date, align 4, !tbaa !10
   br label %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit
 
 _ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit:  ; preds = %if.then.i, %if.end14
-  %7 = phi i32 [ %add2.i, %if.then.i ], [ %6, %if.end14 ]
+  %3 = phi i32 [ %add2.i, %if.then.i ], [ %2, %if.end14 ]
   %length.0.i = phi i64 [ 11, %if.then.i ], [ 6, %if.end14 ]
-  %cmp5.i = icmp sgt i32 %7, 9999
+  %cmp5.i = icmp sgt i32 %3, 9999
   %add6.i = select i1 %cmp5.i, i64 5, i64 4
-  %cmp8.i = icmp sgt i32 %7, 99999
+  %cmp8.i = icmp sgt i32 %3, 99999
   %conv9.i = zext i1 %cmp8.i to i64
   %add10.i = add nuw nsw i64 %add6.i, %conv9.i
-  %cmp12.i = icmp sgt i32 %7, 999999
+  %cmp12.i = icmp sgt i32 %3, 999999
   %conv13.i = zext i1 %cmp12.i to i64
   %add14.i = add nuw nsw i64 %add10.i, %conv13.i
-  %cmp16.i = icmp sgt i32 %7, 9999999
+  %cmp16.i = icmp sgt i32 %3, 9999999
   %conv17.i = zext i1 %cmp16.i to i64
   %add18.i = add nuw nsw i64 %add14.i, %conv17.i
   %add19.i = add nuw nsw i64 %add18.i, %length.0.i
   %call19 = call { i64, ptr } @_ZN6duckdb12StringVector11EmptyStringERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104) %vector, i64 noundef %add19.i)
-  %8 = extractvalue { i64, ptr } %call19, 0
-  store i64 %8, ptr %retval, align 8
-  %9 = getelementptr inbounds i8, ptr %retval, i64 8
-  %10 = extractvalue { i64, ptr } %call19, 1
-  store ptr %10, ptr %9, align 8
-  %11 = trunc i64 %8 to i32
-  %cmp.i.i = icmp ult i32 %11, 13
+  %4 = extractvalue { i64, ptr } %call19, 0
+  store i64 %4, ptr %retval, align 8
+  %5 = getelementptr inbounds i8, ptr %retval, i64 8
+  %6 = extractvalue { i64, ptr } %call19, 1
+  store ptr %6, ptr %5, align 8
+  %7 = trunc i64 %4 to i32
+  %cmp.i.i = icmp ult i32 %7, 13
   %inlined.i = getelementptr inbounds i8, ptr %retval, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %10
+  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %6
   %data45.i = ptrtoint ptr %cond.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i, i64 %add18.i
-  %12 = load i32, ptr %date, align 4, !tbaa !10
-  %cmp29.i.i = icmp sgt i32 %12, 99
+  %8 = load i32, ptr %date, align 4, !tbaa !10
+  %cmp29.i.i = icmp sgt i32 %8, 99
   br i1 %cmp29.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit, %while.body.i.i
-  %value.addr.031.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit ]
+  %value.addr.031.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %8, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit ]
   %ptr.addr.030.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %add.ptr.i, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit ]
   %rem.i.i = urem i32 %value.addr.031.i.i, 100
   %mul.i.i = shl nuw nsw i32 %rem.i.i, 1
@@ -44965,26 +44956,26 @@ while.body.i.i:                                   ; preds = %_ZN6duckdb16DateToS
   %add.i.i = or disjoint i32 %mul.i.i, 1
   %idxprom.i.i = zext nneg i32 %add.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.i
-  %13 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
+  %9 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.030.i.i, i64 -1
-  store i8 %13, ptr %incdec.ptr.i.i, align 1, !tbaa !7
+  store i8 %9, ptr %incdec.ptr.i.i, align 1, !tbaa !7
   %idxprom1.i.i = zext nneg i32 %mul.i.i to i64
   %arrayidx2.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom1.i.i
-  %14 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !7
+  %10 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !7
   %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %ptr.addr.030.i.i, i64 -2
-  store i8 %14, ptr %incdec.ptr3.i.i, align 1, !tbaa !7
+  store i8 %10, ptr %incdec.ptr3.i.i, align 1, !tbaa !7
   %cmp.i.i32 = icmp samesign ugt i32 %value.addr.031.i.i, 9999
   br i1 %cmp.i.i32, label %while.body.i.i, label %while.end.i.i, !llvm.loop !190
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit
   %ptr.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit ], [ %incdec.ptr3.i.i, %while.body.i.i ]
-  %value.addr.0.lcssa.i.i = phi i32 [ %12, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit ], [ %div.i.i, %while.body.i.i ]
+  %value.addr.0.lcssa.i.i = phi i32 [ %8, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit ], [ %div.i.i, %while.body.i.i ]
   %cmp4.i.i = icmp slt i32 %value.addr.0.lcssa.i.i, 10
   br i1 %cmp4.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
-  %15 = trunc i32 %value.addr.0.lcssa.i.i to i8
-  %conv.i.i = add i8 %15, 48
+  %11 = trunc i32 %value.addr.0.lcssa.i.i to i8
+  %conv.i.i = add i8 %11, 48
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 if.end.i.i:                                       ; preds = %while.end.i.i
@@ -44992,17 +44983,17 @@ if.end.i.i:                                       ; preds = %while.end.i.i
   %add9.i.i = or disjoint i32 %mul8.i.i, 1
   %idxprom10.i.i = zext nneg i32 %add9.i.i to i64
   %arrayidx11.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom10.i.i
-  %16 = load i8, ptr %arrayidx11.i.i, align 1, !tbaa !7
+  %12 = load i8, ptr %arrayidx11.i.i, align 1, !tbaa !7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -1
-  store i8 %16, ptr %incdec.ptr12.i.i, align 1, !tbaa !7
+  store i8 %12, ptr %incdec.ptr12.i.i, align 1, !tbaa !7
   %idxprom13.i.i = zext nneg i32 %mul8.i.i to i64
   %arrayidx14.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i
-  %17 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !7
+  %13 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i: ; preds = %if.end.i.i, %if.then.i.i
   %.sink6 = phi i64 [ -2, %if.end.i.i ], [ -1, %if.then.i.i ]
-  %.sink = phi i8 [ %17, %if.end.i.i ], [ %conv.i.i, %if.then.i.i ]
+  %.sink = phi i8 [ %13, %if.end.i.i ], [ %conv.i.i, %if.then.i.i ]
   %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 %.sink6
   store i8 %.sink, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
   %cmp41.i = icmp ugt ptr %incdec.ptr15.i.i, %cond.i
@@ -45010,74 +45001,74 @@ _ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i: ; preds = %if.end.i
 
 while.body.preheader.i:                           ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
   %retval.0.i46.i = ptrtoint ptr %incdec.ptr15.i.i to i64
-  %18 = sub i64 %data45.i, %retval.0.i46.i
-  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %18
-  %19 = sub i64 %retval.0.i46.i, %data45.i
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %19, i1 false), !tbaa !7
+  %14 = sub i64 %data45.i, %retval.0.i46.i
+  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %14
+  %15 = sub i64 %retval.0.i46.i, %data45.i
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %15, i1 false), !tbaa !7
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.body.preheader.i, %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
   store i8 45, ptr %add.ptr.i, align 1, !tbaa !7
-  %20 = load i32, ptr %arrayidx15, align 4, !tbaa !10
-  %cmp5.i30 = icmp slt i32 %20, 10
+  %16 = load i32, ptr %arrayidx15, align 4, !tbaa !10
+  %cmp5.i30 = icmp slt i32 %16, 10
   br i1 %cmp5.i30, label %if.then.i31, label %if.else.i
 
 if.then.i31:                                      ; preds = %for.cond.preheader.i
   %arrayidx6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   store i8 48, ptr %arrayidx6.i, align 1, !tbaa !7
-  %21 = load i32, ptr %arrayidx15, align 4, !tbaa !10
-  %22 = trunc i32 %21 to i8
-  %conv.i = add i8 %22, 48
+  %17 = load i32, ptr %arrayidx15, align 4, !tbaa !10
+  %18 = trunc i32 %17 to i8
+  %conv.i = add i8 %18, 48
   br label %if.end.i
 
 if.else.i:                                        ; preds = %for.cond.preheader.i
-  %mul.i = shl nuw nsw i32 %20, 1
+  %mul.i = shl nuw nsw i32 %16, 1
   %idxprom12.i = zext nneg i32 %mul.i to i64
   %arrayidx13.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom12.i
-  %23 = load i8, ptr %arrayidx13.i, align 1, !tbaa !7
+  %19 = load i8, ptr %arrayidx13.i, align 1, !tbaa !7
   %arrayidx14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
-  store i8 %23, ptr %arrayidx14.i, align 1, !tbaa !7
+  store i8 %19, ptr %arrayidx14.i, align 1, !tbaa !7
   %add15.i = or disjoint i32 %mul.i, 1
   %idxprom16.i = zext nneg i32 %add15.i to i64
   %arrayidx17.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom16.i
-  %24 = load i8, ptr %arrayidx17.i, align 1, !tbaa !7
+  %20 = load i8, ptr %arrayidx17.i, align 1, !tbaa !7
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i31
-  %.sink.i = phi i8 [ %conv.i, %if.then.i31 ], [ %24, %if.else.i ]
-  %25 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
-  store i8 %.sink.i, ptr %25, align 1
+  %.sink.i = phi i8 [ %conv.i, %if.then.i31 ], [ %20, %if.else.i ]
+  %21 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
+  store i8 %.sink.i, ptr %21, align 1
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 3
   store i8 45, ptr %add.ptr19.i, align 1, !tbaa !7
-  %26 = load i32, ptr %arrayidx16, align 4, !tbaa !10
-  %cmp5.1.i = icmp slt i32 %26, 10
+  %22 = load i32, ptr %arrayidx16, align 4, !tbaa !10
+  %cmp5.1.i = icmp slt i32 %22, 10
   br i1 %cmp5.1.i, label %if.then.1.i, label %if.else.1.i
 
 if.else.1.i:                                      ; preds = %if.end.i
-  %mul.1.i = shl nuw nsw i32 %26, 1
+  %mul.1.i = shl nuw nsw i32 %22, 1
   %idxprom12.1.i = zext nneg i32 %mul.1.i to i64
   %arrayidx13.1.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom12.1.i
-  %27 = load i8, ptr %arrayidx13.1.i, align 1, !tbaa !7
+  %23 = load i8, ptr %arrayidx13.1.i, align 1, !tbaa !7
   %arrayidx14.1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
-  store i8 %27, ptr %arrayidx14.1.i, align 1, !tbaa !7
+  store i8 %23, ptr %arrayidx14.1.i, align 1, !tbaa !7
   %add15.1.i = or disjoint i32 %mul.1.i, 1
   %idxprom16.1.i = zext nneg i32 %add15.1.i to i64
   %arrayidx17.1.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom16.1.i
-  %28 = load i8, ptr %arrayidx17.1.i, align 1, !tbaa !7
+  %24 = load i8, ptr %arrayidx17.1.i, align 1, !tbaa !7
   br label %if.end.1.i
 
 if.then.1.i:                                      ; preds = %if.end.i
   %arrayidx6.1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   store i8 48, ptr %arrayidx6.1.i, align 1, !tbaa !7
-  %29 = load i32, ptr %arrayidx16, align 4, !tbaa !10
-  %30 = trunc i32 %29 to i8
-  %conv.1.i = add i8 %30, 48
+  %25 = load i32, ptr %arrayidx16, align 4, !tbaa !10
+  %26 = trunc i32 %25 to i8
+  %conv.1.i = add i8 %26, 48
   br label %if.end.1.i
 
 if.end.1.i:                                       ; preds = %if.then.1.i, %if.else.1.i
-  %.sink48.i = phi i8 [ %conv.1.i, %if.then.1.i ], [ %28, %if.else.1.i ]
-  %31 = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  store i8 %.sink48.i, ptr %31, align 1
+  %.sink48.i = phi i8 [ %conv.1.i, %if.then.1.i ], [ %24, %if.else.1.i ]
+  %27 = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
+  store i8 %.sink48.i, ptr %27, align 1
   br i1 %cmp.i29, label %_ZN6duckdb16DateToStringCast6FormatEPcPimb.exit, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end.1.i
@@ -45086,41 +45077,40 @@ if.then20.i:                                      ; preds = %if.end.1.i
   br label %_ZN6duckdb16DateToStringCast6FormatEPcPimb.exit
 
 _ZN6duckdb16DateToStringCast6FormatEPcPimb.exit:  ; preds = %if.then20.i, %if.end.1.i
-  %32 = load i32, ptr %retval, align 8, !tbaa !7
-  %conv.i.i33 = zext i32 %32 to i64
-  %cmp.i34 = icmp ult i32 %32, 13
+  %28 = load i32, ptr %retval, align 8, !tbaa !7
+  %conv.i.i33 = zext i32 %28 to i64
+  %cmp.i34 = icmp ult i32 %28, 13
   br i1 %cmp.i34, label %for.cond.preheader.i37, label %if.else.i35
 
 for.cond.preheader.i37:                           ; preds = %_ZN6duckdb16DateToStringCast6FormatEPcPimb.exit
-  %cmp39.not.i = icmp eq i32 %32, 12
+  %cmp39.not.i = icmp eq i32 %28, 12
   br i1 %cmp39.not.i, label %_ZN6duckdb8string_t8FinalizeEv.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i37
-  %33 = getelementptr i8, ptr %retval, i64 %conv.i.i33
-  %scevgep.i38 = getelementptr i8, ptr %33, i64 4
+  %29 = getelementptr i8, ptr %retval, i64 %conv.i.i33
+  %scevgep.i38 = getelementptr i8, ptr %29, i64 4
   %reass.sub = call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i33)
-  %34 = add nuw nsw i64 %reass.sub, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i38, i8 0, i64 %34, i1 false), !tbaa !7
+  %30 = add nuw nsw i64 %reass.sub, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i38, i8 0, i64 %30, i1 false), !tbaa !7
   br label %_ZN6duckdb8string_t8FinalizeEv.exit
 
 if.else.i35:                                      ; preds = %_ZN6duckdb16DateToStringCast6FormatEPcPimb.exit
-  %35 = load ptr, ptr %9, align 8
-  %36 = load i32, ptr %35, align 1
-  store i32 %36, ptr %inlined.i, align 4
+  %31 = load ptr, ptr %5, align 8
+  %32 = load i32, ptr %31, align 1
+  store i32 %32, ptr %inlined.i, align 4
   br label %_ZN6duckdb8string_t8FinalizeEv.exit
 
 _ZN6duckdb8string_t8FinalizeEv.exit:              ; preds = %if.else.i35, %for.body.lr.ph.i, %for.cond.preheader.i37
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %date) #26
   %.fca.0.load.pre = load i64, ptr %retval, align 8
-  %.fca.1.load.pre = load ptr, ptr %9, align 8
+  %.fca.1.load.pre = load ptr, ptr %5, align 8
+  %33 = insertvalue { i64, ptr } poison, i64 %.fca.0.load.pre, 0
+  %34 = insertvalue { i64, ptr } %33, ptr %.fca.1.load.pre, 1
   br label %return
 
 return:                                           ; preds = %_ZN6duckdb8string_t8FinalizeEv.exit, %if.then10, %if.then
-  %.fca.1.load = phi ptr [ %.fca.1.load.pre, %_ZN6duckdb8string_t8FinalizeEv.exit ], [ %5, %if.then10 ], [ %2, %if.then ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %_ZN6duckdb8string_t8FinalizeEv.exit ], [ %4, %if.then10 ], [ %1, %if.then ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.fca.0.load, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.fca.1.load, 1
-  ret { i64, ptr } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, ptr } [ %34, %_ZN6duckdb8string_t8FinalizeEv.exit ], [ %call11, %if.then10 ], [ %call3, %if.then ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 declare { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKc(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) local_unnamed_addr #7
@@ -45877,15 +45867,11 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @_ZN6duckdb4Date4PINFE, align 8, !tbaa !188
   %call3 = tail call { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKc(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef %0)
-  %1 = extractvalue { i64, ptr } %call3, 0
-  %2 = extractvalue { i64, ptr } %call3, 1
   br label %return
 
 if.then10:                                        ; preds = %entry
-  %3 = load ptr, ptr @_ZN6duckdb4Date4NINFE, align 8, !tbaa !188
-  %call11 = tail call { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKc(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef %3)
-  %4 = extractvalue { i64, ptr } %call11, 0
-  %5 = extractvalue { i64, ptr } %call11, 1
+  %1 = load ptr, ptr @_ZN6duckdb4Date4NINFE, align 8, !tbaa !188
+  %call11 = tail call { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKc(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef %1)
   br label %return
 
 if.end14:                                         ; preds = %entry
@@ -45904,42 +45890,42 @@ if.end14:                                         ; preds = %entry
   %arrayidx24 = getelementptr inbounds i8, ptr %time, i64 12
   call void @_ZN6duckdb4Time7ConvertENS_7dtime_tERiS2_S2_S2_(i64 %agg.tmp20.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(4) %time, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx22, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx23, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx24)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %micro_buffer) #26
-  %6 = load i32, ptr %date, align 4, !tbaa !10
-  %cmp.i69 = icmp sgt i32 %6, 0
+  %2 = load i32, ptr %date, align 4, !tbaa !10
+  %cmp.i69 = icmp sgt i32 %2, 0
   br i1 %cmp.i69, label %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %add2.i = sub i32 1, %6
+  %add2.i = sub i32 1, %2
   store i32 %add2.i, ptr %date, align 4, !tbaa !10
   br label %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit
 
 _ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit:  ; preds = %if.then.i, %if.end14
-  %7 = phi i32 [ %add2.i, %if.then.i ], [ %6, %if.end14 ]
+  %3 = phi i32 [ %add2.i, %if.then.i ], [ %2, %if.end14 ]
   %length.0.i = phi i64 [ 11, %if.then.i ], [ 6, %if.end14 ]
-  %cmp5.i = icmp sgt i32 %7, 9999
+  %cmp5.i = icmp sgt i32 %3, 9999
   %add6.i = select i1 %cmp5.i, i64 5, i64 4
-  %cmp8.i = icmp sgt i32 %7, 99999
+  %cmp8.i = icmp sgt i32 %3, 99999
   %conv9.i = zext i1 %cmp8.i to i64
   %add10.i = add nuw nsw i64 %add6.i, %conv9.i
-  %cmp12.i = icmp sgt i32 %7, 999999
+  %cmp12.i = icmp sgt i32 %3, 999999
   %conv13.i = zext i1 %cmp12.i to i64
   %add14.i = add nuw nsw i64 %add10.i, %conv13.i
-  %cmp16.i = icmp sgt i32 %7, 9999999
+  %cmp16.i = icmp sgt i32 %3, 9999999
   %conv17.i = zext i1 %cmp16.i to i64
   %add18.i = add nuw nsw i64 %add14.i, %conv17.i
   %add19.i = add nuw nsw i64 %add18.i, %length.0.i
-  %8 = load i32, ptr %arrayidx24, align 4, !tbaa !10
-  %cmp.i70 = icmp eq i32 %8, 0
+  %4 = load i32, ptr %arrayidx24, align 4, !tbaa !10
+  %cmp.i70 = icmp eq i32 %4, 0
   br i1 %cmp.i70, label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit
   %micro_buffer17.i.i = ptrtoint ptr %micro_buffer to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 6
-  %cmp29.i.i.i = icmp ugt i32 %8, 99
+  %cmp29.i.i.i = icmp ugt i32 %4, 99
   br i1 %cmp29.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.else.i, %while.body.i.i.i
-  %value.addr.031.i.i.i = phi i32 [ %div.i.i.i, %while.body.i.i.i ], [ %8, %if.else.i ]
+  %value.addr.031.i.i.i = phi i32 [ %div.i.i.i, %while.body.i.i.i ], [ %4, %if.else.i ]
   %ptr.addr.030.i.i.i = phi ptr [ %incdec.ptr3.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i, %if.else.i ]
   %rem.i.i.i = urem i32 %value.addr.031.i.i.i, 100
   %mul.i.i.i = shl nuw nsw i32 %rem.i.i.i, 1
@@ -45947,26 +45933,26 @@ while.body.i.i.i:                                 ; preds = %if.else.i, %while.b
   %add.i.i.i = or disjoint i32 %mul.i.i.i, 1
   %idxprom.i.i.i = zext nneg i32 %add.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.i.i
-  %9 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !7
+  %5 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.030.i.i.i, i64 -1
-  store i8 %9, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
+  store i8 %5, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
   %idxprom1.i.i.i = zext nneg i32 %mul.i.i.i to i64
   %arrayidx2.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom1.i.i.i
-  %10 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
+  %6 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.030.i.i.i, i64 -2
-  store i8 %10, ptr %incdec.ptr3.i.i.i, align 1, !tbaa !7
+  store i8 %6, ptr %incdec.ptr3.i.i.i, align 1, !tbaa !7
   %cmp.i.i.i = icmp ugt i32 %value.addr.031.i.i.i, 9999
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !189
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.else.i
   %ptr.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr.i.i, %if.else.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
-  %value.addr.0.lcssa.i.i.i = phi i32 [ %8, %if.else.i ], [ %div.i.i.i, %while.body.i.i.i ]
+  %value.addr.0.lcssa.i.i.i = phi i32 [ %4, %if.else.i ], [ %div.i.i.i, %while.body.i.i.i ]
   %cmp4.i.i.i = icmp samesign ult i32 %value.addr.0.lcssa.i.i.i, 10
   br i1 %cmp4.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
-  %11 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i to i8
-  %conv.i.i.i = or disjoint i8 %11, 48
+  %7 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i to i8
+  %conv.i.i.i = or disjoint i8 %7, 48
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i.i
@@ -45974,17 +45960,17 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i.i
   %add9.i.i.i = or disjoint i32 %mul8.i.i.i, 1
   %idxprom10.i.i.i = zext nneg i32 %add9.i.i.i to i64
   %arrayidx11.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom10.i.i.i
-  %12 = load i8, ptr %arrayidx11.i.i.i, align 1, !tbaa !7
+  %8 = load i8, ptr %arrayidx11.i.i.i, align 1, !tbaa !7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -1
-  store i8 %12, ptr %incdec.ptr12.i.i.i, align 1, !tbaa !7
+  store i8 %8, ptr %incdec.ptr12.i.i.i, align 1, !tbaa !7
   %idxprom13.i.i.i = zext nneg i32 %mul8.i.i.i to i64
   %arrayidx14.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i.i
-  %13 = load i8, ptr %arrayidx14.i.i.i, align 1, !tbaa !7
+  %9 = load i8, ptr %arrayidx14.i.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i.i.i
   %.sink13 = phi i64 [ -2, %if.end.i.i.i ], [ -1, %if.then.i.i.i ]
-  %.sink = phi i8 [ %13, %if.end.i.i.i ], [ %conv.i.i.i, %if.then.i.i.i ]
+  %.sink = phi i8 [ %9, %if.end.i.i.i ], [ %conv.i.i.i, %if.then.i.i.i ]
   %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 %.sink13
   store i8 %.sink, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !7
   %cmp13.i.i = icmp ugt ptr %incdec.ptr15.i.i.i, %micro_buffer
@@ -45992,66 +45978,66 @@ _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i: ; preds = %if.end
 
 while.body.preheader.i.i:                         ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
   %retval.0.i18.i.i = ptrtoint ptr %incdec.ptr15.i.i.i to i64
-  %14 = sub i64 %micro_buffer17.i.i, %retval.0.i18.i.i
-  %scevgep.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %14
-  %15 = sub i64 %retval.0.i18.i.i, %micro_buffer17.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i, i8 48, i64 %15, i1 false), !tbaa !7
+  %10 = sub i64 %micro_buffer17.i.i, %retval.0.i18.i.i
+  %scevgep.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %10
+  %11 = sub i64 %retval.0.i18.i.i, %micro_buffer17.i.i
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i, i8 48, i64 %11, i1 false), !tbaa !7
   br label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.body.preheader.i.i, %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 5
-  %16 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
-  %cmp2.not.i.i = icmp eq i8 %16, 48
+  %12 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
+  %cmp2.not.i.i = icmp eq i8 %12, 48
   br i1 %cmp2.not.i.i, label %if.end.i.i, label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
 
 if.end.i.i:                                       ; preds = %for.cond.preheader.i.i
   %arrayidx.1.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 4
-  %17 = load i8, ptr %arrayidx.1.i.i, align 1, !tbaa !7
-  %cmp2.not.1.i.i = icmp eq i8 %17, 48
+  %13 = load i8, ptr %arrayidx.1.i.i, align 1, !tbaa !7
+  %cmp2.not.1.i.i = icmp eq i8 %13, 48
   br i1 %cmp2.not.1.i.i, label %if.end.1.i.i, label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
 
 if.end.1.i.i:                                     ; preds = %if.end.i.i
   %arrayidx.2.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 3
-  %18 = load i8, ptr %arrayidx.2.i.i, align 1, !tbaa !7
-  %cmp2.not.2.i.i = icmp eq i8 %18, 48
+  %14 = load i8, ptr %arrayidx.2.i.i, align 1, !tbaa !7
+  %cmp2.not.2.i.i = icmp eq i8 %14, 48
   br i1 %cmp2.not.2.i.i, label %if.end.2.i.i, label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
 
 if.end.2.i.i:                                     ; preds = %if.end.1.i.i
   %arrayidx.3.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 2
-  %19 = load i8, ptr %arrayidx.3.i.i, align 1, !tbaa !7
-  %cmp2.not.3.i.i = icmp eq i8 %19, 48
+  %15 = load i8, ptr %arrayidx.3.i.i, align 1, !tbaa !7
+  %cmp2.not.3.i.i = icmp eq i8 %15, 48
   br i1 %cmp2.not.3.i.i, label %if.end.3.i.i, label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
 
 if.end.3.i.i:                                     ; preds = %if.end.2.i.i
   %arrayidx.4.i.i = getelementptr inbounds i8, ptr %micro_buffer, i64 1
-  %20 = load i8, ptr %arrayidx.4.i.i, align 1, !tbaa !7
-  %cmp2.not.4.i.i = icmp eq i8 %20, 48
-  %21 = select i1 %cmp2.not.4.i.i, i64 10, i64 11
+  %16 = load i8, ptr %arrayidx.4.i.i, align 1, !tbaa !7
+  %cmp2.not.4.i.i = icmp eq i8 %16, 48
+  %17 = select i1 %cmp2.not.4.i.i, i64 10, i64 11
   br label %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
 
 _ZN6duckdb16TimeToStringCast6LengthEPiPc.exit:    ; preds = %if.end.3.i.i, %if.end.2.i.i, %if.end.1.i.i, %if.end.i.i, %for.cond.preheader.i.i, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit
-  %length.0.i71 = phi i64 [ 8, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit ], [ 15, %for.cond.preheader.i.i ], [ 14, %if.end.i.i ], [ 13, %if.end.1.i.i ], [ 12, %if.end.2.i.i ], [ %21, %if.end.3.i.i ]
+  %length.0.i71 = phi i64 [ 8, %_ZN6duckdb16DateToStringCast6LengthEPiRmRb.exit ], [ 15, %for.cond.preheader.i.i ], [ 14, %if.end.i.i ], [ 13, %if.end.1.i.i ], [ 12, %if.end.2.i.i ], [ %17, %if.end.3.i.i ]
   %add = add nuw nsw i64 %add19.i, 1
   %add30 = add nuw nsw i64 %length.0.i71, %add
   %add31 = add nuw nsw i64 %add30, 3
   %call32 = call { i64, ptr } @_ZN6duckdb12StringVector11EmptyStringERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104) %vector, i64 noundef %add31)
-  %22 = extractvalue { i64, ptr } %call32, 0
-  store i64 %22, ptr %retval, align 8
-  %23 = getelementptr inbounds i8, ptr %retval, i64 8
-  %24 = extractvalue { i64, ptr } %call32, 1
-  store ptr %24, ptr %23, align 8
-  %25 = trunc i64 %22 to i32
-  %cmp.i.i = icmp ult i32 %25, 13
+  %18 = extractvalue { i64, ptr } %call32, 0
+  store i64 %18, ptr %retval, align 8
+  %19 = getelementptr inbounds i8, ptr %retval, i64 8
+  %20 = extractvalue { i64, ptr } %call32, 1
+  store ptr %20, ptr %19, align 8
+  %21 = trunc i64 %18 to i32
+  %cmp.i.i = icmp ult i32 %21, 13
   %inlined.i = getelementptr inbounds i8, ptr %retval, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %24
+  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %20
   %data45.i = ptrtoint ptr %cond.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i, i64 %add18.i
-  %26 = load i32, ptr %date, align 4, !tbaa !10
-  %cmp29.i.i = icmp sgt i32 %26, 99
+  %22 = load i32, ptr %date, align 4, !tbaa !10
+  %cmp29.i.i = icmp sgt i32 %22, 99
   br i1 %cmp29.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit, %while.body.i.i
-  %value.addr.031.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %26, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ]
+  %value.addr.031.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %22, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ]
   %ptr.addr.030.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %add.ptr.i, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ]
   %rem.i.i = urem i32 %value.addr.031.i.i, 100
   %mul.i.i = shl nuw nsw i32 %rem.i.i, 1
@@ -46059,26 +46045,26 @@ while.body.i.i:                                   ; preds = %_ZN6duckdb16TimeToS
   %add.i.i = or disjoint i32 %mul.i.i, 1
   %idxprom.i.i = zext nneg i32 %add.i.i to i64
   %arrayidx.i.i76 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.i
-  %27 = load i8, ptr %arrayidx.i.i76, align 1, !tbaa !7
+  %23 = load i8, ptr %arrayidx.i.i76, align 1, !tbaa !7
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.030.i.i, i64 -1
-  store i8 %27, ptr %incdec.ptr.i.i, align 1, !tbaa !7
+  store i8 %23, ptr %incdec.ptr.i.i, align 1, !tbaa !7
   %idxprom1.i.i = zext nneg i32 %mul.i.i to i64
   %arrayidx2.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom1.i.i
-  %28 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !7
+  %24 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !7
   %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %ptr.addr.030.i.i, i64 -2
-  store i8 %28, ptr %incdec.ptr3.i.i, align 1, !tbaa !7
+  store i8 %24, ptr %incdec.ptr3.i.i, align 1, !tbaa !7
   %cmp.i.i77 = icmp samesign ugt i32 %value.addr.031.i.i, 9999
   br i1 %cmp.i.i77, label %while.body.i.i, label %while.end.i.i, !llvm.loop !190
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit
   %ptr.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ], [ %incdec.ptr3.i.i, %while.body.i.i ]
-  %value.addr.0.lcssa.i.i = phi i32 [ %26, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ], [ %div.i.i, %while.body.i.i ]
+  %value.addr.0.lcssa.i.i = phi i32 [ %22, %_ZN6duckdb16TimeToStringCast6LengthEPiPc.exit ], [ %div.i.i, %while.body.i.i ]
   %cmp4.i.i = icmp slt i32 %value.addr.0.lcssa.i.i, 10
   br i1 %cmp4.i.i, label %if.then.i.i, label %if.end.i.i72
 
 if.then.i.i:                                      ; preds = %while.end.i.i
-  %29 = trunc i32 %value.addr.0.lcssa.i.i to i8
-  %conv.i.i = add i8 %29, 48
+  %25 = trunc i32 %value.addr.0.lcssa.i.i to i8
+  %conv.i.i = add i8 %25, 48
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 if.end.i.i72:                                     ; preds = %while.end.i.i
@@ -46086,17 +46072,17 @@ if.end.i.i72:                                     ; preds = %while.end.i.i
   %add9.i.i = or disjoint i32 %mul8.i.i, 1
   %idxprom10.i.i = zext nneg i32 %add9.i.i to i64
   %arrayidx11.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom10.i.i
-  %30 = load i8, ptr %arrayidx11.i.i, align 1, !tbaa !7
+  %26 = load i8, ptr %arrayidx11.i.i, align 1, !tbaa !7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -1
-  store i8 %30, ptr %incdec.ptr12.i.i, align 1, !tbaa !7
+  store i8 %26, ptr %incdec.ptr12.i.i, align 1, !tbaa !7
   %idxprom13.i.i = zext nneg i32 %mul8.i.i to i64
   %arrayidx14.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i
-  %31 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !7
+  %27 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i: ; preds = %if.end.i.i72, %if.then.i.i
   %.sink15 = phi i64 [ -2, %if.end.i.i72 ], [ -1, %if.then.i.i ]
-  %.sink14 = phi i8 [ %31, %if.end.i.i72 ], [ %conv.i.i, %if.then.i.i ]
+  %.sink14 = phi i8 [ %27, %if.end.i.i72 ], [ %conv.i.i, %if.then.i.i ]
   %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 %.sink15
   store i8 %.sink14, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
   %cmp41.i = icmp ugt ptr %incdec.ptr15.i.i, %cond.i
@@ -46104,74 +46090,74 @@ _ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i: ; preds = %if.end.i
 
 while.body.preheader.i:                           ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
   %retval.0.i46.i = ptrtoint ptr %incdec.ptr15.i.i to i64
-  %32 = sub i64 %data45.i, %retval.0.i46.i
-  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %32
-  %33 = sub i64 %retval.0.i46.i, %data45.i
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %33, i1 false), !tbaa !7
+  %28 = sub i64 %data45.i, %retval.0.i46.i
+  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %28
+  %29 = sub i64 %retval.0.i46.i, %data45.i
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %29, i1 false), !tbaa !7
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.body.preheader.i, %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
   store i8 45, ptr %add.ptr.i, align 1, !tbaa !7
-  %34 = load i32, ptr %arrayidx17, align 4, !tbaa !10
-  %cmp5.i73 = icmp slt i32 %34, 10
+  %30 = load i32, ptr %arrayidx17, align 4, !tbaa !10
+  %cmp5.i73 = icmp slt i32 %30, 10
   br i1 %cmp5.i73, label %if.then.i75, label %if.else.i74
 
 if.then.i75:                                      ; preds = %for.cond.preheader.i
   %arrayidx6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   store i8 48, ptr %arrayidx6.i, align 1, !tbaa !7
-  %35 = load i32, ptr %arrayidx17, align 4, !tbaa !10
-  %36 = trunc i32 %35 to i8
-  %conv.i = add i8 %36, 48
+  %31 = load i32, ptr %arrayidx17, align 4, !tbaa !10
+  %32 = trunc i32 %31 to i8
+  %conv.i = add i8 %32, 48
   br label %if.end.i
 
 if.else.i74:                                      ; preds = %for.cond.preheader.i
-  %mul.i = shl nuw nsw i32 %34, 1
+  %mul.i = shl nuw nsw i32 %30, 1
   %idxprom12.i = zext nneg i32 %mul.i to i64
   %arrayidx13.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom12.i
-  %37 = load i8, ptr %arrayidx13.i, align 1, !tbaa !7
+  %33 = load i8, ptr %arrayidx13.i, align 1, !tbaa !7
   %arrayidx14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
-  store i8 %37, ptr %arrayidx14.i, align 1, !tbaa !7
+  store i8 %33, ptr %arrayidx14.i, align 1, !tbaa !7
   %add15.i = or disjoint i32 %mul.i, 1
   %idxprom16.i = zext nneg i32 %add15.i to i64
   %arrayidx17.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom16.i
-  %38 = load i8, ptr %arrayidx17.i, align 1, !tbaa !7
+  %34 = load i8, ptr %arrayidx17.i, align 1, !tbaa !7
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i74, %if.then.i75
-  %.sink.i = phi i8 [ %conv.i, %if.then.i75 ], [ %38, %if.else.i74 ]
-  %39 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
-  store i8 %.sink.i, ptr %39, align 1
+  %.sink.i = phi i8 [ %conv.i, %if.then.i75 ], [ %34, %if.else.i74 ]
+  %35 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
+  store i8 %.sink.i, ptr %35, align 1
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 3
   store i8 45, ptr %add.ptr19.i, align 1, !tbaa !7
-  %40 = load i32, ptr %arrayidx18, align 4, !tbaa !10
-  %cmp5.1.i = icmp slt i32 %40, 10
+  %36 = load i32, ptr %arrayidx18, align 4, !tbaa !10
+  %cmp5.1.i = icmp slt i32 %36, 10
   br i1 %cmp5.1.i, label %if.then.1.i, label %if.else.1.i
 
 if.else.1.i:                                      ; preds = %if.end.i
-  %mul.1.i = shl nuw nsw i32 %40, 1
+  %mul.1.i = shl nuw nsw i32 %36, 1
   %idxprom12.1.i = zext nneg i32 %mul.1.i to i64
   %arrayidx13.1.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom12.1.i
-  %41 = load i8, ptr %arrayidx13.1.i, align 1, !tbaa !7
+  %37 = load i8, ptr %arrayidx13.1.i, align 1, !tbaa !7
   %arrayidx14.1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
-  store i8 %41, ptr %arrayidx14.1.i, align 1, !tbaa !7
+  store i8 %37, ptr %arrayidx14.1.i, align 1, !tbaa !7
   %add15.1.i = or disjoint i32 %mul.1.i, 1
   %idxprom16.1.i = zext nneg i32 %add15.1.i to i64
   %arrayidx17.1.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom16.1.i
-  %42 = load i8, ptr %arrayidx17.1.i, align 1, !tbaa !7
+  %38 = load i8, ptr %arrayidx17.1.i, align 1, !tbaa !7
   br label %if.end.1.i
 
 if.then.1.i:                                      ; preds = %if.end.i
   %arrayidx6.1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   store i8 48, ptr %arrayidx6.1.i, align 1, !tbaa !7
-  %43 = load i32, ptr %arrayidx18, align 4, !tbaa !10
-  %44 = trunc i32 %43 to i8
-  %conv.1.i = add i8 %44, 48
+  %39 = load i32, ptr %arrayidx18, align 4, !tbaa !10
+  %40 = trunc i32 %39 to i8
+  %conv.1.i = add i8 %40, 48
   br label %if.end.1.i
 
 if.end.1.i:                                       ; preds = %if.then.1.i, %if.else.1.i
-  %.sink48.i = phi i8 [ %conv.1.i, %if.then.1.i ], [ %42, %if.else.1.i ]
-  %45 = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  store i8 %.sink48.i, ptr %45, align 1
+  %.sink48.i = phi i8 [ %conv.1.i, %if.then.1.i ], [ %38, %if.else.1.i ]
+  %41 = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
+  store i8 %.sink48.i, ptr %41, align 1
   br i1 %cmp.i69, label %_ZN6duckdb16DateToStringCast6FormatEPcPimb.exit, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end.1.i
@@ -46187,86 +46173,86 @@ _ZN6duckdb16DateToStringCast6FormatEPcPimb.exit:  ; preds = %if.then20.i, %if.en
   store i8 58, ptr %arrayidx.i78, align 1, !tbaa !7
   %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr39, i64 5
   store i8 58, ptr %arrayidx1.i, align 1, !tbaa !7
-  %46 = load i32, ptr %time, align 16, !tbaa !10
-  %cmp.i.i79 = icmp slt i32 %46, 10
+  %42 = load i32, ptr %time, align 16, !tbaa !10
+  %cmp.i.i79 = icmp slt i32 %42, 10
   br i1 %cmp.i.i79, label %if.then.i.i87, label %if.else.i.i
 
 if.then.i.i87:                                    ; preds = %_ZN6duckdb16DateToStringCast6FormatEPcPimb.exit
   store i8 48, ptr %add.ptr39, align 1, !tbaa !7
-  %47 = trunc i32 %46 to i8
-  %conv.i.i88 = add i8 %47, 48
+  %43 = trunc i32 %42 to i8
+  %conv.i.i88 = add i8 %43, 48
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.i
 
 if.else.i.i:                                      ; preds = %_ZN6duckdb16DateToStringCast6FormatEPcPimb.exit
-  %mul.i.i80 = shl nuw nsw i32 %46, 1
+  %mul.i.i80 = shl nuw nsw i32 %42, 1
   %idxprom.i.i81 = zext nneg i32 %mul.i.i80 to i64
   %arrayidx2.i.i82 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.i81
-  %48 = load i8, ptr %arrayidx2.i.i82, align 1, !tbaa !7
-  store i8 %48, ptr %add.ptr39, align 1, !tbaa !7
+  %44 = load i8, ptr %arrayidx2.i.i82, align 1, !tbaa !7
+  store i8 %44, ptr %add.ptr39, align 1, !tbaa !7
   %add4.i.i = or disjoint i32 %mul.i.i80, 1
   %idxprom5.i.i = zext nneg i32 %add4.i.i to i64
   %arrayidx6.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom5.i.i
-  %49 = load i8, ptr %arrayidx6.i.i, align 1, !tbaa !7
+  %45 = load i8, ptr %arrayidx6.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.i
 
 _ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.i: ; preds = %if.else.i.i, %if.then.i.i87
-  %.sink.i.i = phi i8 [ %conv.i.i88, %if.then.i.i87 ], [ %49, %if.else.i.i ]
-  %50 = getelementptr inbounds i8, ptr %add.ptr39, i64 1
-  store i8 %.sink.i.i, ptr %50, align 1
+  %.sink.i.i = phi i8 [ %conv.i.i88, %if.then.i.i87 ], [ %45, %if.else.i.i ]
+  %46 = getelementptr inbounds i8, ptr %add.ptr39, i64 1
+  store i8 %.sink.i.i, ptr %46, align 1
   %add.ptr.i83 = getelementptr inbounds i8, ptr %add.ptr39, i64 3
-  %51 = load i32, ptr %arrayidx22, align 4, !tbaa !10
-  %cmp.i.1.i = icmp slt i32 %51, 10
+  %47 = load i32, ptr %arrayidx22, align 4, !tbaa !10
+  %cmp.i.1.i = icmp slt i32 %47, 10
   br i1 %cmp.i.1.i, label %if.then.i.1.i, label %if.else.i.1.i
 
 if.else.i.1.i:                                    ; preds = %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.i
-  %mul.i.1.i = shl nuw nsw i32 %51, 1
+  %mul.i.1.i = shl nuw nsw i32 %47, 1
   %idxprom.i.1.i = zext nneg i32 %mul.i.1.i to i64
   %arrayidx2.i.1.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.1.i
-  %52 = load i8, ptr %arrayidx2.i.1.i, align 1, !tbaa !7
-  store i8 %52, ptr %add.ptr.i83, align 1, !tbaa !7
+  %48 = load i8, ptr %arrayidx2.i.1.i, align 1, !tbaa !7
+  store i8 %48, ptr %add.ptr.i83, align 1, !tbaa !7
   %add4.i.1.i = or disjoint i32 %mul.i.1.i, 1
   %idxprom5.i.1.i = zext nneg i32 %add4.i.1.i to i64
   %arrayidx6.i.1.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom5.i.1.i
-  %53 = load i8, ptr %arrayidx6.i.1.i, align 1, !tbaa !7
+  %49 = load i8, ptr %arrayidx6.i.1.i, align 1, !tbaa !7
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.1.i
 
 if.then.i.1.i:                                    ; preds = %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.i
   store i8 48, ptr %add.ptr.i83, align 1, !tbaa !7
-  %54 = trunc i32 %51 to i8
-  %conv.i.1.i = add i8 %54, 48
+  %50 = trunc i32 %47 to i8
+  %conv.i.1.i = add i8 %50, 48
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.1.i
 
 _ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.1.i: ; preds = %if.then.i.1.i, %if.else.i.1.i
-  %.sink.i.1.i = phi i8 [ %conv.i.1.i, %if.then.i.1.i ], [ %53, %if.else.i.1.i ]
-  %55 = getelementptr inbounds i8, ptr %add.ptr39, i64 4
-  store i8 %.sink.i.1.i, ptr %55, align 1
+  %.sink.i.1.i = phi i8 [ %conv.i.1.i, %if.then.i.1.i ], [ %49, %if.else.i.1.i ]
+  %51 = getelementptr inbounds i8, ptr %add.ptr39, i64 4
+  store i8 %.sink.i.1.i, ptr %51, align 1
   %add.ptr.1.i = getelementptr inbounds i8, ptr %add.ptr39, i64 6
-  %56 = load i32, ptr %arrayidx23, align 8, !tbaa !10
-  %cmp.i.2.i = icmp slt i32 %56, 10
+  %52 = load i32, ptr %arrayidx23, align 8, !tbaa !10
+  %cmp.i.2.i = icmp slt i32 %52, 10
   br i1 %cmp.i.2.i, label %if.then.i.2.i, label %if.else.i.2.i
 
 if.else.i.2.i:                                    ; preds = %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.1.i
-  %mul.i.2.i = shl nuw nsw i32 %56, 1
+  %mul.i.2.i = shl nuw nsw i32 %52, 1
   %idxprom.i.2.i = zext nneg i32 %mul.i.2.i to i64
   %arrayidx2.i.2.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom.i.2.i
-  %57 = load i8, ptr %arrayidx2.i.2.i, align 1, !tbaa !7
-  store i8 %57, ptr %add.ptr.1.i, align 1, !tbaa !7
+  %53 = load i8, ptr %arrayidx2.i.2.i, align 1, !tbaa !7
+  store i8 %53, ptr %add.ptr.1.i, align 1, !tbaa !7
   %add4.i.2.i = or disjoint i32 %mul.i.2.i, 1
   %idxprom5.i.2.i = zext nneg i32 %add4.i.2.i to i64
   %arrayidx6.i.2.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom5.i.2.i
-  %58 = load i8, ptr %arrayidx6.i.2.i, align 1, !tbaa !7
+  %54 = load i8, ptr %arrayidx6.i.2.i, align 1, !tbaa !7
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.2.i
 
 if.then.i.2.i:                                    ; preds = %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.1.i
   store i8 48, ptr %add.ptr.1.i, align 1, !tbaa !7
-  %59 = trunc i32 %56 to i8
-  %conv.i.2.i = add i8 %59, 48
+  %55 = trunc i32 %52 to i8
+  %conv.i.2.i = add i8 %55, 48
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.2.i
 
 _ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.2.i: ; preds = %if.then.i.2.i, %if.else.i.2.i
-  %.sink.i.2.i = phi i8 [ %conv.i.2.i, %if.then.i.2.i ], [ %58, %if.else.i.2.i ]
-  %60 = getelementptr inbounds i8, ptr %add.ptr39, i64 7
-  store i8 %.sink.i.2.i, ptr %60, align 1
+  %.sink.i.2.i = phi i8 [ %conv.i.2.i, %if.then.i.2.i ], [ %54, %if.else.i.2.i ]
+  %56 = getelementptr inbounds i8, ptr %add.ptr39, i64 7
+  store i8 %.sink.i.2.i, ptr %56, align 1
   %cmp3.i.not = icmp eq i64 %length.0.i71, 8
   br i1 %cmp3.i.not, label %_ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit, label %if.then.i85
 
@@ -46285,27 +46271,27 @@ _ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit: ; preds = %if.then.i85, %_ZN6
   store i8 48, ptr %arrayidx46, align 1, !tbaa !7
   %arrayidx48 = getelementptr i8, ptr %arrayidx44, i64 2
   store i8 48, ptr %arrayidx48, align 1, !tbaa !7
-  %61 = load i32, ptr %retval, align 8, !tbaa !7
-  %conv.i.i89 = zext i32 %61 to i64
-  %cmp.i90 = icmp ult i32 %61, 13
+  %57 = load i32, ptr %retval, align 8, !tbaa !7
+  %conv.i.i89 = zext i32 %57 to i64
+  %cmp.i90 = icmp ult i32 %57, 13
   br i1 %cmp.i90, label %for.cond.preheader.i93, label %if.else.i91
 
 for.cond.preheader.i93:                           ; preds = %_ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit
-  %cmp39.not.i = icmp eq i32 %61, 12
+  %cmp39.not.i = icmp eq i32 %57, 12
   br i1 %cmp39.not.i, label %_ZN6duckdb8string_t8FinalizeEv.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i93
-  %62 = getelementptr i8, ptr %retval, i64 %conv.i.i89
-  %scevgep.i94 = getelementptr i8, ptr %62, i64 4
+  %58 = getelementptr i8, ptr %retval, i64 %conv.i.i89
+  %scevgep.i94 = getelementptr i8, ptr %58, i64 4
   %reass.sub = call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i89)
-  %63 = add nuw nsw i64 %reass.sub, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i94, i8 0, i64 %63, i1 false), !tbaa !7
+  %59 = add nuw nsw i64 %reass.sub, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i94, i8 0, i64 %59, i1 false), !tbaa !7
   br label %_ZN6duckdb8string_t8FinalizeEv.exit
 
 if.else.i91:                                      ; preds = %_ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit
-  %64 = load ptr, ptr %23, align 8
-  %65 = load i32, ptr %64, align 1
-  store i32 %65, ptr %inlined.i, align 4
+  %60 = load ptr, ptr %19, align 8
+  %61 = load i32, ptr %60, align 1
+  store i32 %61, ptr %inlined.i, align 4
   br label %_ZN6duckdb8string_t8FinalizeEv.exit
 
 _ZN6duckdb8string_t8FinalizeEv.exit:              ; preds = %if.else.i91, %for.body.lr.ph.i, %for.cond.preheader.i93
@@ -46315,15 +46301,14 @@ _ZN6duckdb8string_t8FinalizeEv.exit:              ; preds = %if.else.i91, %for.b
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %time_entry) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %date_entry) #26
   %.fca.0.load.pre = load i64, ptr %retval, align 8
-  %.fca.1.load.pre = load ptr, ptr %23, align 8
+  %.fca.1.load.pre = load ptr, ptr %19, align 8
+  %62 = insertvalue { i64, ptr } poison, i64 %.fca.0.load.pre, 0
+  %63 = insertvalue { i64, ptr } %62, ptr %.fca.1.load.pre, 1
   br label %return
 
 return:                                           ; preds = %_ZN6duckdb8string_t8FinalizeEv.exit, %if.then10, %if.then
-  %.fca.1.load = phi ptr [ %.fca.1.load.pre, %_ZN6duckdb8string_t8FinalizeEv.exit ], [ %5, %if.then10 ], [ %2, %if.then ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %_ZN6duckdb8string_t8FinalizeEv.exit ], [ %4, %if.then10 ], [ %1, %if.then ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.fca.0.load, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.fca.1.load, 1
-  ret { i64, ptr } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, ptr } [ %63, %_ZN6duckdb8string_t8FinalizeEv.exit ], [ %call11, %if.then10 ], [ %call3, %if.then ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7

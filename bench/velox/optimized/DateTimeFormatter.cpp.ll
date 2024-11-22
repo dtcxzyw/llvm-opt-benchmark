@@ -1271,8 +1271,8 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i: ; preds = %if.else.i.i.i,
   br label %_ZSt12__to_chars_iIiENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 _ZSt12__to_chars_iIiENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %if.then14, %if.then2.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i, %if.then2.i ], [ %result, %if.then14 ], [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ]
-  %sub.ptr.lhs.cast = ptrtoint ptr %retval.sroa.0.0.i to i64
+  %__last.pn.i = phi ptr [ %add.ptr.i, %if.then2.i ], [ %result, %if.then14 ], [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ]
+  %sub.ptr.lhs.cast = ptrtoint ptr %__last.pn.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %result to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   br label %return
@@ -1554,8 +1554,8 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i192: ; preds = %if.else.i.i
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i192, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i178, %if.then2.i236, %_ZSt4fillIPccEvT_S1_RKT0_.exit68, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i111, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97, %if.then2.i155, %_ZSt4fillIPccEvT_S1_RKT0_.exit61
-  %retval.sroa.0.0.i114.pn = phi ptr [ %add.ptr.i156, %if.then2.i155 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit61 ], [ %add.ptr.i29.i113, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i111 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97 ], [ %add.ptr.i237, %if.then2.i236 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit68 ], [ %add.ptr.i29.i194, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i192 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i178 ]
-  %sub.ptr.lhs.cast38 = ptrtoint ptr %retval.sroa.0.0.i114.pn to i64
+  %__last.pn.i114.pn = phi ptr [ %add.ptr.i156, %if.then2.i155 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit61 ], [ %add.ptr.i29.i113, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i111 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97 ], [ %add.ptr.i237, %if.then2.i236 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit68 ], [ %add.ptr.i29.i194, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i192 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i178 ]
+  %sub.ptr.lhs.cast38 = ptrtoint ptr %__last.pn.i114.pn to i64
   %sub.ptr.rhs.cast39 = ptrtoint ptr %result to i64
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast39
   br label %return
@@ -1852,8 +1852,8 @@ return.sink.split.i90:                            ; preds = %if.else.i.i.i88, %i
   br label %return
 
 return:                                           ; preds = %return.sink.split.i90, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76, %if.end17, %return.sink.split.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, %if.then14
-  %retval.sroa.0.0.i94.sink = phi ptr [ %result, %if.then14 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i109.i, %return.sink.split.i ], [ %maxResultEnd, %if.end17 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76 ], [ %add.ptr.i109.i93, %return.sink.split.i90 ]
-  %sub.ptr.lhs.cast38 = ptrtoint ptr %retval.sroa.0.0.i94.sink to i64
+  %__last.pn.i94.sink = phi ptr [ %result, %if.then14 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i109.i, %return.sink.split.i ], [ %maxResultEnd, %if.end17 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76 ], [ %add.ptr.i109.i93, %return.sink.split.i90 ]
+  %sub.ptr.lhs.cast38 = ptrtoint ptr %__last.pn.i94.sink to i64
   %sub.ptr.rhs.cast39 = ptrtoint ptr %result to i64
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast39
   %retval.0 = trunc i64 %sub.ptr.sub40 to i32
@@ -2095,8 +2095,8 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i: ; preds = %if.else.i.i.i,
   br label %_ZSt12__to_chars_iIlENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 _ZSt12__to_chars_iIlENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %if.then14, %if.then2.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i, %if.then2.i ], [ %result, %if.then14 ], [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i ]
-  %sub.ptr.lhs.cast = ptrtoint ptr %retval.sroa.0.0.i to i64
+  %__last.pn.i = phi ptr [ %add.ptr.i, %if.then2.i ], [ %result, %if.then14 ], [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i ]
+  %sub.ptr.lhs.cast = ptrtoint ptr %__last.pn.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %result to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   br label %return
@@ -2368,8 +2368,8 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i190: ; preds = %if.else.i.i
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i190, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i176, %if.then2.i230, %_ZSt4fillIPccEvT_S1_RKT0_.exit68, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i112, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98, %if.then2.i152, %_ZSt4fillIPccEvT_S1_RKT0_.exit61
-  %retval.sroa.0.0.i115.pn = phi ptr [ %add.ptr.i153, %if.then2.i152 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit61 ], [ %add.ptr.i29.i114, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i112 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98 ], [ %add.ptr.i231, %if.then2.i230 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit68 ], [ %add.ptr.i29.i192, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i190 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i176 ]
-  %sub.ptr.lhs.cast38 = ptrtoint ptr %retval.sroa.0.0.i115.pn to i64
+  %__last.pn.i115.pn = phi ptr [ %add.ptr.i153, %if.then2.i152 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit61 ], [ %add.ptr.i29.i114, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i112 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98 ], [ %add.ptr.i231, %if.then2.i230 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit68 ], [ %add.ptr.i29.i192, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i190 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i176 ]
+  %sub.ptr.lhs.cast38 = ptrtoint ptr %__last.pn.i115.pn to i64
   %sub.ptr.rhs.cast39 = ptrtoint ptr %result to i64
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast39
   br label %return

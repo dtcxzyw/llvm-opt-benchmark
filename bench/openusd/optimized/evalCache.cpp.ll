@@ -926,43 +926,44 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__22Ts_EvalQuatern
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %9
+  br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %8, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.3.0.copyload.i = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %9 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.0.copyload.i, 0
+  %10 = insertvalue { <2 x float>, <2 x float> } %9, <2 x float> %.sroa.3.0.copyload.i, 1
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__22Ts_EvalQuaternionCacheINS_7GfQuatfEE9TypedEvalEd.exit
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load double, ptr %10, align 8
-  %12 = fsub double %2, %11
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load double, ptr %13, align 8
-  %15 = fsub double %14, %11
-  %16 = fdiv double %12, %15
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %19 = tail call { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpERKNS_7GfQuatfES2_d(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %18, double noundef %16)
-  %20 = extractvalue { <2 x float>, <2 x float> } %19, 0
-  %21 = extractvalue { <2 x float>, <2 x float> } %19, 1
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load double, ptr %12, align 8
+  %14 = fsub double %2, %13
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load double, ptr %15, align 8
+  %17 = fsub double %16, %13
+  %18 = fdiv double %14, %17
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %21 = tail call { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpERKNS_7GfQuatfES2_d(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %20, double noundef %18)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__22Ts_EvalQuaternionCacheINS_7GfQuatfEE9TypedEvalEd.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__22Ts_EvalQuaternionCacheINS_7GfQuatfEE9TypedEvalEd.exit: ; preds = %7, %9
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload.i, %7 ], [ %20, %9 ]
-  %.sroa.3.0.i = phi <2 x float> [ %.sroa.3.0.copyload.i, %7 ], [ %21, %9 ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfQuatfEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %22, align 8
-  %23 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #13
-  store <2 x float> %.sroa.0.0.i, ptr %23, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
-  store <2 x float> %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store atomic i32 0, ptr %24 seq_cst, align 4
-  store ptr %23, ptr %0, align 8
-  %25 = atomicrmw add ptr %24, i32 1 monotonic, align 4
+_ZNK32pxrInternal_v0_24__pxrReserved__22Ts_EvalQuaternionCacheINS_7GfQuatfEE9TypedEvalEd.exit: ; preds = %7, %11
+  %.fca.1.insert.merged.i = phi { <2 x float>, <2 x float> } [ %10, %7 ], [ %21, %11 ]
+  %22 = extractvalue { <2 x float>, <2 x float> } %.fca.1.insert.merged.i, 0
+  %23 = extractvalue { <2 x float>, <2 x float> } %.fca.1.insert.merged.i, 1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfQuatfEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %24, align 8
+  %25 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #13
+  store <2 x float> %22, ptr %25, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
+  store <2 x float> %23, ptr %.sroa.2.0..sroa_idx, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store atomic i32 0, ptr %26 seq_cst, align 4
+  store ptr %25, ptr %0, align 8
+  %27 = atomicrmw add ptr %26, i32 1 monotonic, align 4
   ret void
 }
 

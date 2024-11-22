@@ -1634,16 +1634,18 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %7, align 8
   %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %8 = insertvalue { i32, i64 } poison, i32 %call3, 0
+  %9 = insertvalue { i32, i64 } %8, i64 undef, 1
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_8JSObjectEEENS0_6HandleIT_EEv.exit
   %argCount_.i = getelementptr inbounds i8, ptr %args, i64 8
-  %8 = load i32, ptr %argCount_.i, align 8
-  %cmp.i.not = icmp eq i32 %8, 0
+  %10 = load i32, ptr %argCount_.i, align 8
+  %cmp.i.not = icmp eq i32 %10, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %retval.sroa.0.0.i8 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %9 = load i64, ptr %retval.sroa.0.0.i8, align 8
-  %shr.i.mask.i = and i64 %9, -281474976710656
+  %11 = load i64, ptr %retval.sroa.0.0.i8, align 8
+  %shr.i.mask.i = and i64 %11, -281474976710656
   %cmp.i9 = icmp eq i64 %shr.i.mask.i, -844424930131968
   br i1 %cmp.i9, label %if.end13, label %if.then10
 
@@ -1655,29 +1657,31 @@ if.then10:                                        ; preds = %if.end
   %rightSize_.i5.i13 = getelementptr inbounds i8, ptr %ref.tmp11, i64 40
   store i64 0, ptr %rightSize_.i5.i13, align 8
   store ptr @.str.14, ptr %ref.tmp11, align 8
-  %10 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
-  store i32 3, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  store i32 3, ptr %12, align 8
   %call12 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11) #14
+  %13 = insertvalue { i32, i64 } poison, i32 %call12, 0
+  %14 = insertvalue { i32, i64 } %13, i64 undef, 1
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %and.i.i18 = and i64 %9, 281474976710655
-  %11 = inttoptr i64 %and.i.i18 to ptr
-  %call19 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 21, ptr noundef %11) #14
+  %and.i.i18 = and i64 %11, 281474976710655
+  %15 = inttoptr i64 %and.i.i18 to ptr
+  %call19 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 21, ptr noundef %15) #14
   br i1 %call19, label %if.end40, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %12 = load i64, ptr %retval.sroa.0.0.i8, align 8
-  %and.i.i19 = and i64 %12, 281474976710655
-  %13 = inttoptr i64 %and.i.i19 to ptr
-  %call26 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 22, ptr noundef %13) #14
+  %16 = load i64, ptr %retval.sroa.0.0.i8, align 8
+  %and.i.i19 = and i64 %16, 281474976710655
+  %17 = inttoptr i64 %and.i.i19 to ptr
+  %call26 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 22, ptr noundef %17) #14
   br i1 %call26, label %if.end40, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
-  %14 = load i64, ptr %retval.sroa.0.0.i8, align 8
-  %and.i.i20 = and i64 %14, 281474976710655
-  %15 = inttoptr i64 %and.i.i20 to ptr
-  %call34 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 19, ptr noundef %15) #14
+  %18 = load i64, ptr %retval.sroa.0.0.i8, align 8
+  %and.i.i20 = and i64 %18, 281474976710655
+  %19 = inttoptr i64 %and.i.i20 to ptr
+  %call34 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 19, ptr noundef %19) #14
   br i1 %call34, label %if.end40, label %if.else36
 
 if.else36:                                        ; preds = %if.else
@@ -1688,24 +1692,21 @@ if.else36:                                        ; preds = %if.else
   %rightSize_.i5.i24 = getelementptr inbounds i8, ptr %ref.tmp37, i64 40
   store i64 0, ptr %rightSize_.i5.i24, align 8
   store ptr @.str.15, ptr %ref.tmp37, align 8
-  %16 = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
-  store i32 3, ptr %16, align 8
+  %20 = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
+  store i32 3, ptr %20, align 8
   %call38 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp37) #14
+  %21 = insertvalue { i32, i64 } poison, i32 %call38, 0
+  %22 = insertvalue { i32, i64 } %21, i64 undef, 1
   br label %return
 
 if.end40:                                         ; preds = %if.else, %if.end13, %lor.lhs.false
   %tryFirst.0 = phi i32 [ 1, %lor.lhs.false ], [ 1, %if.end13 ], [ 2, %if.else ]
   %call44 = tail call { i32, i64 } @_ZN6hermes2vm19ordinaryToPrimitiveENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS0_13PreferredTypeE(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %tryFirst.0) #14
-  %17 = extractvalue { i32, i64 } %call44, 0
-  %18 = extractvalue { i32, i64 } %call44, 1
   br label %return
 
 return:                                           ; preds = %if.end40, %if.else36, %if.then10, %if.then
-  %retval.sroa.0.0 = phi i32 [ %17, %if.end40 ], [ %call38, %if.else36 ], [ %call12, %if.then10 ], [ %call3, %if.then ]
-  %retval.sroa.5.0 = phi i64 [ %18, %if.end40 ], [ undef, %if.else36 ], [ undef, %if.then10 ], [ undef, %if.then ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i32, i64 } [ %call44, %if.end40 ], [ %22, %if.else36 ], [ %14, %if.then10 ], [ %9, %if.then ]
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2170,20 +2171,23 @@ if.then:                                          ; preds = %cond.true.i, %entry
   %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %3, align 8
   %call2 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %4 = insertvalue { i32, i64 } poison, i32 %call2, 0
+  %5 = insertvalue { i32, i64 } %4, i64 undef, 1
   br label %return
 
 if.end:                                           ; preds = %cond.true.i
   %primitiveValue_.i = getelementptr inbounds i8, ptr %2, i64 24
-  %4 = load double, ptr %primitiveValue_.i, align 8
-  %5 = tail call double @llvm.fabs.f64(double %4)
-  %6 = fcmp ueq double %5, 0x7FF0000000000000
-  br i1 %6, label %if.then5, label %if.end11
+  %6 = load double, ptr %primitiveValue_.i, align 8
+  %7 = tail call double @llvm.fabs.f64(double %6)
+  %8 = fcmp ueq double %7, 0x7FF0000000000000
+  br i1 %8, label %if.then5, label %if.end11
 
 if.then5:                                         ; preds = %if.end
   %identifierTable_.i.i = getelementptr inbounds i8, ptr %runtime, i64 9264
   %call.i.i6 = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 319) #14
-  %7 = ptrtoint ptr %call.i.i6 to i64
-  %or.i.i.i = or i64 %7, -844424930131968
+  %9 = ptrtoint ptr %call.i.i6 to i64
+  %or.i.i.i = or i64 %9, -844424930131968
+  %10 = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i, 1
   br label %return
 
 if.end11:                                         ; preds = %if.end
@@ -2193,65 +2197,60 @@ if.end11:                                         ; preds = %if.end
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %8 = load ptr, ptr %arrayidx, align 8
-  call void %8(double noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %str) #14
-  %9 = load ptr, ptr %str, align 8
-  %10 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i.i = zext i32 %10 to i64
+  %11 = load ptr, ptr %arrayidx, align 8
+  call void %11(double noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %str) #14
+  %12 = load ptr, ptr %str, align 8
+  %13 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %conv.i.i = zext i32 %13 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %cmp.i.not.i = icmp ult i32 %10, 65536
+  %cmp.i.not.i = icmp ult i32 %13, 65536
   br i1 %cmp.i.not.i, label %if.then.i, label %if.end.i.i.i.i
 
 if.then.i:                                        ; preds = %if.end11
-  %call3.i = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive13createDynamicERNS0_7RuntimeEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %9, i64 %conv.i.i) #14
+  %call3.i = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive13createDynamicERNS0_7RuntimeEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %12, i64 %conv.i.i) #14
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.end11
-  %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %add.ptr.i.idx.i.i = shl nuw nsw i64 %conv.i.i, 1
   %mul.i.i.i.i.i.i.i = add nuw nsw i64 %add.ptr.i.idx.i.i, 2
   %call5.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #16
   store ptr %call5.i.i.i.i.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !22
-  store i64 %conv.i.i, ptr %11, align 8, !alias.scope !22
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %9, i64 %add.ptr.i.idx.i.i, i1 false)
+  store i64 %conv.i.i, ptr %14, align 8, !alias.scope !22
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %12, i64 %add.ptr.i.idx.i.i, i1 false)
   store i64 %conv.i.i, ptr %_M_string_length.i.i.i, align 8, !alias.scope !22
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #14
-  %12 = load ptr, ptr %ref.tmp.i, align 8
-  %cmp.i.i.i3.i = icmp eq ptr %12, %11
+  %15 = load ptr, ptr %ref.tmp.i, align 8
+  %cmp.i.i.i3.i = icmp eq ptr %15, %14
   br i1 %cmp.i.i.i3.i, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %if.end.i.i.i.i
-  %13 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %13, 8
+  %16 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i.i = icmp ult i64 %16, 8
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i.i.i
-  call void @_ZdlPv(ptr noundef %12) #17
+  call void @_ZdlPv(ptr noundef %15) #17
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
   %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %14 = extractvalue { i32, i64 } %call3.pn.i, 0
-  %15 = extractvalue { i32, i64 } %call3.pn.i, 1
-  %16 = load ptr, ptr %str, align 8
-  %cmp.i.i.i.i = icmp eq ptr %16, %add.ptr.i.i.i.i.i.i
+  %17 = load ptr, ptr %str, align 8
+  %cmp.i.i.i.i = icmp eq ptr %17, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %return, label %if.then.i.i.i7
 
 if.then.i.i.i7:                                   ; preds = %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
-  call void @free(ptr noundef %16) #14
+  call void @free(ptr noundef %17) #14
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i7, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit, %if.then5, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call2, %if.then ], [ 1, %if.then5 ], [ %14, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ], [ %14, %if.then.i.i.i7 ]
-  %retval.sroa.4.0 = phi i64 [ undef, %if.then ], [ %or.i.i.i, %if.then5 ], [ %15, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ], [ %15, %if.then.i.i.i7 ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i32, i64 } [ %5, %if.then ], [ %10, %if.then5 ], [ %call3.pn.i, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ], [ %call3.pn.i, %if.then.i.i.i7 ]
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 declare void @_ZN6hermes2vm22datetimeToLocaleStringEdRN4llvh15SmallVectorImplIDsEE(double noundef, ptr noundef nonnull align 8 dereferenceable(16)) #2

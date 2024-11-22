@@ -869,12 +869,12 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %_ZN4llvm19SmallPtrS
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.sink.split: ; preds = %61, %63
   %.pre.i.i.i = load ptr, ptr %28, align 8
-  %.pre8.i.i.i = load i32, ptr %29, align 4
+  %.pre6.i.i.i = load i32, ptr %29, align 4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.sink.split
   %65 = phi ptr [ %.pre.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.sink.split ], [ %49, %.lr.ph.i.i.i.i ]
-  %66 = phi i32 [ %.pre8.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.sink.split ], [ %52, %.lr.ph.i.i.i.i ]
+  %66 = phi i32 [ %.pre6.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.sink.split ], [ %52, %.lr.ph.i.i.i.i ]
   %67 = getelementptr inbounds i8, ptr %.05.i.i, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not.i.i = icmp eq ptr %68, null

@@ -26064,7 +26064,7 @@ define { double, double } @_ZN22QCPLabelPainterPrivate12getAnchorPosERK7QPointF(
 
 ._crit_edge:                                      ; preds = %119
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 8
-  %.pre65 = load double, ptr %.phi.trans.insert, align 8
+  %.pre67 = load double, ptr %.phi.trans.insert, align 8
   br label %137
 
 133:                                              ; preds = %119
@@ -26082,7 +26082,7 @@ define { double, double } @_ZN22QCPLabelPainterPrivate12getAnchorPosERK7QPointF(
   br label %137
 
 137:                                              ; preds = %._crit_edge, %133
-  %138 = phi double [ %.fca.1.load.i, %133 ], [ %.pre65, %._crit_edge ]
+  %138 = phi double [ %.fca.1.load.i, %133 ], [ %.pre67, %._crit_edge ]
   %139 = phi double [ %.fca.0.load.i, %133 ], [ %.pre, %._crit_edge ]
   %140 = fcmp oeq double %139, 0.000000e+00
   %141 = fcmp oeq double %138, 0.000000e+00
@@ -26166,16 +26166,16 @@ _ZN6QDebuglsEi.exit:                              ; preds = %174, %.noexc44, %11
   br label %178
 
 178:                                              ; preds = %_ZN6QDebuglsEi.exit, %_ZN11QCPVector2D9normalizeEv.exit, %88, %77, %64, %54, %44, %35, %25, %16
-  %.sroa.013.0 = phi double [ %.sroa.013.0.copyload, %_ZN6QDebuglsEi.exit ], [ %157, %_ZN11QCPVector2D9normalizeEv.exit ], [ %97, %88 ], [ %84, %77 ], [ %73, %64 ], [ %60, %54 ], [ %50, %44 ], [ %40, %35 ], [ %31, %25 ], [ %21, %16 ]
-  %.sroa.11.0 = phi double [ %.sroa.11.0.copyload, %_ZN6QDebuglsEi.exit ], [ %159, %_ZN11QCPVector2D9normalizeEv.exit ], [ %100, %88 ], [ %87, %77 ], [ %76, %64 ], [ %63, %54 ], [ %53, %44 ], [ %43, %35 ], [ %34, %25 ], [ %24, %16 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.013.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.11.0, 1
-  ret { double, double } %.fca.1.insert
+  %.sroa.013.0.copyload.pn = phi double [ %.sroa.013.0.copyload, %_ZN6QDebuglsEi.exit ], [ %157, %_ZN11QCPVector2D9normalizeEv.exit ], [ %97, %88 ], [ %84, %77 ], [ %73, %64 ], [ %60, %54 ], [ %50, %44 ], [ %40, %35 ], [ %31, %25 ], [ %21, %16 ]
+  %.sroa.11.0.copyload.pn = phi double [ %.sroa.11.0.copyload, %_ZN6QDebuglsEi.exit ], [ %159, %_ZN11QCPVector2D9normalizeEv.exit ], [ %100, %88 ], [ %87, %77 ], [ %76, %64 ], [ %63, %54 ], [ %53, %44 ], [ %43, %35 ], [ %34, %25 ], [ %24, %16 ]
+  %.pn65 = insertvalue { double, double } poison, double %.sroa.013.0.copyload.pn, 0
+  %.fca.1.insert.merged = insertvalue { double, double } %.pn65, double %.sroa.11.0.copyload.pn, 1
+  ret { double, double } %.fca.1.insert.merged
 
 179:                                              ; preds = %176, %117
-  %.sink66 = phi ptr [ %9, %176 ], [ %5, %117 ]
+  %.sink68 = phi ptr [ %9, %176 ], [ %5, %117 ]
   %.pn = phi { ptr, i32 } [ %177, %176 ], [ %118, %117 ]
-  call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink66) #48
+  call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink68) #48
   resume { ptr, i32 } %.pn
 }
 

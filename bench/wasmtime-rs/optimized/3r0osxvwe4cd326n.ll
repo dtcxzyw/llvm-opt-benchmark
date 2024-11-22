@@ -31966,9 +31966,9 @@ define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..Functio
 43:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !3798
   %44 = and i24 %42, 65536
-  %.not121 = icmp eq i24 %44, 0
+  %.not = icmp eq i24 %44, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  br i1 %.not121, label %45, label %128
+  br i1 %.not, label %45, label %128
 
 45:                                               ; preds = %147, %43
   call void @llvm.experimental.noalias.scope.decl(metadata !3807)
@@ -32163,10 +32163,10 @@ define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..Functio
 
 128:                                              ; preds = %43
   %129 = and i24 %42, 256
-  %.not = icmp eq i24 %129, 0
+  %.not121 = icmp eq i24 %129, 0
   %130 = getelementptr inbounds i8, ptr %2, i64 80
   %131 = load i32, ptr %130, align 8, !range !94
-  br i1 %.not, label %132, label %._crit_edge
+  br i1 %.not121, label %132, label %._crit_edge
 
 132:                                              ; preds = %128
   switch i32 %131, label %._crit_edge [
@@ -32236,7 +32236,7 @@ define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..Functio
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !3815
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !3810
-  br i1 %.not121, label %150, label %156
+  br i1 %.not, label %150, label %156
 
 150:                                              ; preds = %162, %149
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
@@ -45244,24 +45244,24 @@ define hidden void @_ZN8wasmtime7compile12code_builder11CodeBuilder11wasm_binary
   br label %38
 
 19:                                               ; preds = %8
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !6479, !nonnull !9, !noundef !9
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !6479, !noundef !9
+  %.pn1.in.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !6479, !noundef !9
+  %.pn3.in.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !6479, !nonnull !9, !noundef !9
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.pn3.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.i, ptr %.sroa.58.0..sroa_idx, align 8
+  store i64 %.pn1.i, ptr %.sroa.58.0..sroa_idx, align 8
   br label %38
 
 20:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %.sroa.0.0.in.i10 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i11 = load ptr, ptr %.sroa.0.0.in.i10, align 8, !alias.scope !6482, !nonnull !9, !noundef !9
-  %.sroa.5.0.in.i12 = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i13 = load i64, ptr %.sroa.5.0.in.i12, align 8, !alias.scope !6482, !noundef !9
-  call void @_ZN3wat11parse_bytes17hc3810ae16f3f9395E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i11, i64 noundef %.sroa.5.0.i13)
+  %.pn1.in.i10 = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i11 = load i64, ptr %.pn1.in.i10, align 8, !alias.scope !6482, !noundef !9
+  %.pn3.in.i12 = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i13 = load ptr, ptr %.pn3.in.i12, align 8, !alias.scope !6482, !nonnull !9, !noundef !9
+  call void @_ZN3wat11parse_bytes17hc3810ae16f3f9395E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.pn3.i13, i64 noundef %.pn1.i11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6485)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6488)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6490)
@@ -45695,7 +45695,7 @@ define { i64, ptr } @"_ZN8wasmtime7compile7runtime62_$LT$impl$u20$wasmtime..comp
   %5 = load i64, ptr %4, align 8, !range !690, !noundef !9
   %6 = icmp eq i64 %5, 3
   %7 = load ptr, ptr %3, align 8
-  br i1 %6, label %14, label %8
+  br i1 %6, label %12, label %8
 
 8:                                                ; preds = %1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
@@ -45706,20 +45706,16 @@ define { i64, ptr } @"_ZN8wasmtime7compile7runtime62_$LT$impl$u20$wasmtime..comp
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !nonnull !9, !align !125, !noundef !9
   %11 = call { i64, ptr } @_ZN8wasmtime7runtime6module6Module10from_parts17h7152e1c107ca5fa2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(624) %2)
-  %12 = extractvalue { i64, ptr } %11, 0
-  %13 = extractvalue { i64, ptr } %11, 1
-  br label %15
+  br label %14
 
-14:                                               ; preds = %1
+12:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 632, ptr nonnull %3)
-  br label %15
+  %13 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %7, 1
+  br label %14
 
-15:                                               ; preds = %14, %8
-  %.sroa.3.0 = phi ptr [ %7, %14 ], [ %13, %8 ]
-  %.sroa.0.0 = phi i64 [ 1, %14 ], [ %12, %8 ]
-  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %17
+14:                                               ; preds = %12, %8
+  %.merged = phi { i64, ptr } [ %13, %12 ], [ %11, %8 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -45732,7 +45728,7 @@ define { i64, ptr } @"_ZN8wasmtime7compile7runtime62_$LT$impl$u20$wasmtime..comp
   %5 = load i64, ptr %4, align 8, !range !593, !noundef !9
   %6 = icmp eq i64 %5, -9223372036854775807
   %7 = load ptr, ptr %3, align 8
-  br i1 %6, label %14, label %8
+  br i1 %6, label %12, label %8
 
 8:                                                ; preds = %1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
@@ -45743,20 +45739,16 @@ define { i64, ptr } @"_ZN8wasmtime7compile7runtime62_$LT$impl$u20$wasmtime..comp
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !nonnull !9, !align !125, !noundef !9
   %11 = call { i64, ptr } @_ZN8wasmtime7runtime9component9component9Component10from_parts17h6381ff311b993644E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(688) %2)
-  %12 = extractvalue { i64, ptr } %11, 0
-  %13 = extractvalue { i64, ptr } %11, 1
-  br label %15
+  br label %14
 
-14:                                               ; preds = %1
+12:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 696, ptr nonnull %3)
-  br label %15
+  %13 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %7, 1
+  br label %14
 
-15:                                               ; preds = %14, %8
-  %.sroa.3.0 = phi ptr [ %7, %14 ], [ %13, %8 ]
-  %.sroa.0.0 = phi i64 [ 1, %14 ], [ %12, %8 ]
-  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %17
+14:                                               ; preds = %12, %8
+  %.merged = phi { i64, ptr } [ %13, %12 ], [ %11, %8 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

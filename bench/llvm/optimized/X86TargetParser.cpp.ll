@@ -802,7 +802,7 @@ define dso_local void @_ZN4llvm3X8617getFeaturesForCPUENS_9StringRefERNS_15Small
   %.val32.i46.i.i.i = load ptr, ptr %13, align 8
   %bcmp.i.i.i56.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val32.i46.i.i.i, ptr readonly %0, i64 %.8.val.fr.i.i.i)
   %14 = icmp eq i32 %bcmp.i.i.i56.i.i.i.i, 0
-  br i1 %14, label %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit41", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit57.thread5.i.i.i.i"
+  br i1 %14, label %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit39", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit57.thread5.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit57.thread5.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit57.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit.thread2.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit.thread2.i.i.i.i"
   %15 = getelementptr i8, ptr %.02943.i.i.i.i, i64 104
@@ -834,7 +834,7 @@ define dso_local void @_ZN4llvm3X8617getFeaturesForCPUENS_9StringRefERNS_15Small
   %.val38.i1013.i.i.i = load ptr, ptr %20, align 8
   %bcmp.i.i.i64.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val38.i1013.i.i.i, ptr readonly %0, i64 %.8.val.fr.i.i.i)
   %21 = icmp eq i32 %bcmp.i.i.i64.i.i.i.i, 0
-  br i1 %21, label %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit43", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i"
+  br i1 %21, label %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit41", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit61.thread8.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit61.thread8.i.i.i.i"
   %22 = getelementptr inbounds i8, ptr %.02943.i.i.i.i, i64 192
@@ -846,16 +846,16 @@ define dso_local void @_ZN4llvm3X8617getFeaturesForCPUENS_9StringRefERNS_15Small
   %25 = getelementptr inbounds i8, ptr %.02943.i.i.i.i, i64 96
   br label %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit41": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit57.i.i.i.i"
+"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit39": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit57.i.i.i.i"
   %26 = getelementptr inbounds i8, ptr %.02943.i.i.i.i, i64 48
   br label %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit43": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.i.i.i.i"
+"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit41": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.i.i.i.i"
   %27 = getelementptr inbounds i8, ptr %.02943.i.i.i.i, i64 144
   br label %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i", %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit41", %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit43", %4
-  %.028.i.i.i.i = phi ptr [ @_ZL10Processors, %4 ], [ %25, %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %26, %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit41" ], [ %27, %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit43" ], [ %.02943.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit.i.i.i.i" ], [ getelementptr inbounds (i8, ptr @_ZL10Processors, i64 6144), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i" ]
+"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i", %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit39", %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit41", %4
+  %.028.i.i.i.i = phi ptr [ @_ZL10Processors, %4 ], [ %25, %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %26, %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit39" ], [ %27, %"_ZN4llvm7find_ifIRA128_KN12_GLOBAL__N_18ProcInfoEZNS_3X8617getFeaturesForCPUENS_9StringRefERNS_15SmallVectorImplIS7_EEbE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit41" ], [ %.02943.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit.i.i.i.i" ], [ getelementptr inbounds (i8, ptr @_ZL10Processors, i64 6144), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i" ]
   %28 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -908,8 +908,8 @@ _ZN4llvm6BitsetILj123EEaNERKS1_.exit.preheader:   ; preds = %33
   %45 = getelementptr inbounds [2 x i64], ptr %6, i64 0, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, %42
-  %.not25 = icmp eq i64 %47, 0
-  br i1 %.not25, label %.critedge, label %48
+  %.not23 = icmp eq i64 %47, 0
+  br i1 %.not23, label %.critedge, label %48
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds [123 x %"struct.(anonymous namespace)::FeatureInfo"], ptr @_ZL12FeatureInfos, i64 0, i64 %indvars.iv
@@ -918,10 +918,10 @@ _ZN4llvm6BitsetILj123EEaNERKS1_.exit.preheader:   ; preds = %33
   %.val11 = load i64, ptr %50, align 8
   %51 = icmp ne i64 %.val11, 0
   %narrow.i = and i1 %51, %not..i
-  %.sroa.0.0.idx.i = zext i1 %narrow.i to i64
-  %.sroa.0.0.i = getelementptr inbounds i8, ptr %.val10, i64 %.sroa.0.0.idx.i
-  %.sroa.3.0.i = sub i64 %.val11, %.sroa.0.0.idx.i
-  %52 = icmp eq i64 %.val11, %.sroa.0.0.idx.i
+  %.0.val.pn.idx.i = zext i1 %narrow.i to i64
+  %.0.val.pn.i = getelementptr inbounds i8, ptr %.val10, i64 %.0.val.pn.idx.i
+  %.8.val.pn.i = sub i64 %.val11, %.0.val.pn.idx.i
+  %52 = icmp eq i64 %.val11, %.0.val.pn.idx.i
   br i1 %52, label %.critedge, label %53
 
 53:                                               ; preds = %48
@@ -939,9 +939,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %58 = load ptr, ptr %2, align 8
   %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #11
   %60 = getelementptr inbounds %"class.llvm::StringRef", ptr %58, i64 %59
-  store ptr %.sroa.0.0.i, ptr %60, align 1
+  store ptr %.0.val.pn.i, ptr %60, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %60, i64 8
-  store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i, align 1
+  store i64 %.8.val.pn.i, ptr %.sroa.2.0..sroa_idx.i, align 1
   %61 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #11
   %62 = add i64 %61, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %62) #11
@@ -973,10 +973,10 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
   %11 = getelementptr i8, ptr %.02943.i.i.i.i.ptr, i64 8
   %.029.val30.i.i.i.i = load i64, ptr %11, align 8
   %12 = icmp ne i64 %.029.val30.i.i.i.i, 0
-  %.sroa.0.0.idx.i.i.i.i.i.i.i = zext i1 %12 to i64
-  %.sroa.0.0.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.029.val.i.i.i.i, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i
-  %.sroa.3.0.i.i.i.i.i.i.i = sub i64 %.029.val30.i.i.i.i, %.sroa.0.0.idx.i.i.i.i.i.i.i
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %.sroa.3.0.i.i.i.i.i.i.i, %1
+  %.0.val.pn.idx.i.i.i.i.i.i.i = zext i1 %12 to i64
+  %.0.val.pn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.029.val.i.i.i.i, i64 %.0.val.pn.idx.i.i.i.i.i.i.i
+  %.8.val.pn.i.i.i.i.i.i.i = sub i64 %.029.val30.i.i.i.i, %.0.val.pn.idx.i.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %.8.val.pn.i.i.i.i.i.i.i, %1
   br i1 %.not.i.i.i.i.i.i.i, label %13, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.thread2.i.i.i.i"
 
 13:                                               ; preds = %10
@@ -984,7 +984,7 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
   br i1 %14, label %"_ZN4llvm7find_ifIRA123_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread44", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.i.i.i.i": ; preds = %13
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.sroa.0.0.i.i.i.i.i.i.i, ptr readonly %0, i64 %1)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.0.val.pn.i.i.i.i.i.i.i, ptr readonly %0, i64 %1)
   %15 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %15, label %"_ZN4llvm7find_ifIRA123_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread44", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.thread2.i.i.i.i"
 
@@ -995,10 +995,10 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
   %16 = getelementptr i8, ptr %.02943.i.i.i.i.ptr, i64 40
   %.val33.i.i.i.i = load i64, ptr %16, align 8
   %17 = icmp ne i64 %.val33.i.i.i.i, 0
-  %.sroa.0.0.idx.i.i.i54.i.i.i.i = zext i1 %17 to i64
-  %.sroa.0.0.i.i.i55.i.i.i.i = getelementptr inbounds i8, ptr %.val32.i.i.i.i, i64 %.sroa.0.0.idx.i.i.i54.i.i.i.i
-  %.sroa.3.0.i.i.i56.i.i.i.i = sub i64 %.val33.i.i.i.i, %.sroa.0.0.idx.i.i.i54.i.i.i.i
-  %.not.i.i.i57.i.i.i.i = icmp eq i64 %.sroa.3.0.i.i.i56.i.i.i.i, %1
+  %.0.val.pn.idx.i.i.i54.i.i.i.i = zext i1 %17 to i64
+  %.0.val.pn.i.i.i55.i.i.i.i = getelementptr inbounds i8, ptr %.val32.i.i.i.i, i64 %.0.val.pn.idx.i.i.i54.i.i.i.i
+  %.8.val.pn.i.i.i56.i.i.i.i = sub i64 %.val33.i.i.i.i, %.0.val.pn.idx.i.i.i54.i.i.i.i
+  %.not.i.i.i57.i.i.i.i = icmp eq i64 %.8.val.pn.i.i.i56.i.i.i.i, %1
   br i1 %.not.i.i.i57.i.i.i.i, label %18, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.thread5.i.i.i.i"
 
 18:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.thread2.i.i.i.i"
@@ -1006,7 +1006,7 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
   br i1 %19, label %"_ZN4llvm7find_ifIRA123_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread44", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.i.i.i.i": ; preds = %18
-  %bcmp.i.i.i59.i.i.i.i = tail call i32 @bcmp(ptr readonly %.sroa.0.0.i.i.i55.i.i.i.i, ptr readonly %0, i64 %1)
+  %bcmp.i.i.i59.i.i.i.i = tail call i32 @bcmp(ptr readonly %.0.val.pn.i.i.i55.i.i.i.i, ptr readonly %0, i64 %1)
   %20 = icmp eq i32 %bcmp.i.i.i59.i.i.i.i, 0
   br i1 %20, label %"_ZN4llvm7find_ifIRA123_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread44", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.thread5.i.i.i.i"
 
@@ -1017,10 +1017,10 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
   %21 = getelementptr i8, ptr %.02943.i.i.i.i.ptr, i64 72
   %.val36.i.i.i.i = load i64, ptr %21, align 8
   %22 = icmp ne i64 %.val36.i.i.i.i, 0
-  %.sroa.0.0.idx.i.i.i61.i.i.i.i = zext i1 %22 to i64
-  %.sroa.0.0.i.i.i62.i.i.i.i = getelementptr inbounds i8, ptr %.val35.i.i.i.i, i64 %.sroa.0.0.idx.i.i.i61.i.i.i.i
-  %.sroa.3.0.i.i.i63.i.i.i.i = sub i64 %.val36.i.i.i.i, %.sroa.0.0.idx.i.i.i61.i.i.i.i
-  %.not.i.i.i64.i.i.i.i = icmp eq i64 %.sroa.3.0.i.i.i63.i.i.i.i, %1
+  %.0.val.pn.idx.i.i.i61.i.i.i.i = zext i1 %22 to i64
+  %.0.val.pn.i.i.i62.i.i.i.i = getelementptr inbounds i8, ptr %.val35.i.i.i.i, i64 %.0.val.pn.idx.i.i.i61.i.i.i.i
+  %.8.val.pn.i.i.i63.i.i.i.i = sub i64 %.val36.i.i.i.i, %.0.val.pn.idx.i.i.i61.i.i.i.i
+  %.not.i.i.i64.i.i.i.i = icmp eq i64 %.8.val.pn.i.i.i63.i.i.i.i, %1
   br i1 %.not.i.i.i64.i.i.i.i, label %23, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.thread8.i.i.i.i"
 
 23:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.thread5.i.i.i.i"
@@ -1028,7 +1028,7 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
   br i1 %24, label %"_ZN4llvm7find_ifIRA123_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread44", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.i.i.i.i": ; preds = %23
-  %bcmp.i.i.i66.i.i.i.i = tail call i32 @bcmp(ptr readonly %.sroa.0.0.i.i.i62.i.i.i.i, ptr readonly %0, i64 %1)
+  %bcmp.i.i.i66.i.i.i.i = tail call i32 @bcmp(ptr readonly %.0.val.pn.i.i.i62.i.i.i.i, ptr readonly %0, i64 %1)
   %25 = icmp eq i32 %bcmp.i.i.i66.i.i.i.i, 0
   br i1 %25, label %"_ZN4llvm7find_ifIRA123_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread44", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.thread8.i.i.i.i"
 
@@ -1039,10 +1039,10 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
   %26 = getelementptr i8, ptr %.02943.i.i.i.i.ptr, i64 104
   %.val39.i.i.i.i = load i64, ptr %26, align 8
   %27 = icmp ne i64 %.val39.i.i.i.i, 0
-  %.sroa.0.0.idx.i.i.i68.i.i.i.i = zext i1 %27 to i64
-  %.sroa.0.0.i.i.i69.i.i.i.i = getelementptr inbounds i8, ptr %.val38.i.i.i.i, i64 %.sroa.0.0.idx.i.i.i68.i.i.i.i
-  %.sroa.3.0.i.i.i70.i.i.i.i = sub i64 %.val39.i.i.i.i, %.sroa.0.0.idx.i.i.i68.i.i.i.i
-  %.not.i.i.i71.i.i.i.i = icmp eq i64 %.sroa.3.0.i.i.i70.i.i.i.i, %1
+  %.0.val.pn.idx.i.i.i68.i.i.i.i = zext i1 %27 to i64
+  %.0.val.pn.i.i.i69.i.i.i.i = getelementptr inbounds i8, ptr %.val38.i.i.i.i, i64 %.0.val.pn.idx.i.i.i68.i.i.i.i
+  %.8.val.pn.i.i.i70.i.i.i.i = sub i64 %.val39.i.i.i.i, %.0.val.pn.idx.i.i.i68.i.i.i.i
+  %.not.i.i.i71.i.i.i.i = icmp eq i64 %.8.val.pn.i.i.i70.i.i.i.i, %1
   br i1 %.not.i.i.i71.i.i.i.i, label %28, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i"
 
 28:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.thread8.i.i.i.i"
@@ -1050,7 +1050,7 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
   br i1 %29, label %"_ZN4llvm7find_ifIRA123_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i": ; preds = %28
-  %bcmp.i.i.i73.i.i.i.i = tail call i32 @bcmp(ptr readonly %.sroa.0.0.i.i.i69.i.i.i.i, ptr readonly %0, i64 %1)
+  %bcmp.i.i.i73.i.i.i.i = tail call i32 @bcmp(ptr readonly %.0.val.pn.i.i.i69.i.i.i.i, ptr readonly %0, i64 %1)
   %30 = icmp eq i32 %bcmp.i.i.i73.i.i.i.i, 0
   br i1 %30, label %"_ZN4llvm7find_ifIRA123_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i"
 
@@ -1262,11 +1262,11 @@ _ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj123EEEj.exit: ; preds = %96
   br i1 %108, label %.critedge, label %109
 
 109:                                              ; preds = %105
-  %.sroa.3.0.i = add i64 %.val14, -1
+  %.8.val.pn.i = add i64 %.val14, -1
   %.val13 = load ptr, ptr %106, align 16
-  %.sroa.0.0.i = getelementptr inbounds i8, ptr %.val13, i64 1
-  %110 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.sroa.0.0.i, i64 %.sroa.3.0.i) #11
-  %111 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %.sroa.0.0.i, i64 %.sroa.3.0.i, i32 noundef %110)
+  %.0.val.pn.i = getelementptr inbounds i8, ptr %.val13, i64 1
+  %110 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.0.val.pn.i, i64 %.8.val.pn.i) #11
+  %111 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %.0.val.pn.i, i64 %.8.val.pn.i, i32 noundef %110)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %111, 0
   %112 = load ptr, ptr %.fca.0.extract.i, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8

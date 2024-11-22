@@ -11376,7 +11376,8 @@ _ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit: ; preds = %_ZN4llvm24getL
   %44 = icmp eq i32 %.fca.1.extract18, 1
   %spec.select.i = select i1 %44, i32 1, i32 %.fca.1.extract23
   %.0.i.i56 = tail call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract22, i64 %.fca.0.extract17)
-  br label %82
+  %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.0.i.i56, 0
+  br label %83
 
 45:                                               ; preds = %_ZN4llvm24getLoadStoreAddressSpaceEPKNS_5ValueE.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 114
@@ -11428,13 +11429,13 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %_ZNK4llvm4User10get
   %.sroa.9.0.in.in = extractvalue { i64, i32 } %.pn, 1
   %.sroa.9.0.in = icmp eq i32 %.sroa.9.0.in.in, 1
   %.sroa.9.0 = zext i1 %.sroa.9.0.in to i32
-  %.sroa.068.0 = extractvalue { i64, i32 } %.pn, 0
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 113
   %77 = load i8, ptr %76, align 1
   %78 = trunc i8 %77 to i1
-  br i1 %78, label %_ZN4llvm15InstructionCostpLERKS0_.exit61, label %82
+  br i1 %78, label %_ZN4llvm15InstructionCostpLERKS0_.exit61, label %83
 
 _ZN4llvm15InstructionCostpLERKS0_.exit61:         ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit
+  %.sroa.068.0 = extractvalue { i64, i32 } %.pn, 0
   %79 = load ptr, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %80 = tail call { i64, i32 } @_ZNK4llvm19TargetTransformInfo14getShuffleCostENS0_11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENS0_14TargetCostKindEiS3_NS4_IPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(8) %79, i32 noundef 1, ptr noundef %.0.i53, ptr null, i64 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef.195") align 8 %4, ptr noundef null) #19
@@ -11443,14 +11444,14 @@ _ZN4llvm15InstructionCostpLERKS0_.exit61:         ; preds = %_ZN4llvm15Instructi
   %81 = icmp eq i32 %.fca.1.extract, 1
   %spec.select80 = select i1 %81, i32 1, i32 %.sroa.9.0
   %.0.i60 = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.068.0, i64 %.fca.0.extract)
-  br label %82
+  %82 = insertvalue { i64, i32 } poison, i64 %.0.i60, 0
+  br label %83
 
-82:                                               ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit, %_ZN4llvm15InstructionCostpLERKS0_.exit61, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit
-  %.sroa.047.0 = phi i64 [ %.0.i60, %_ZN4llvm15InstructionCostpLERKS0_.exit61 ], [ %.0.i.i56, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit ], [ %.sroa.068.0, %_ZN4llvm15InstructionCostpLERKS0_.exit ]
-  %.sroa.4.0 = phi i32 [ %spec.select80, %_ZN4llvm15InstructionCostpLERKS0_.exit61 ], [ %spec.select.i, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit ], [ %.sroa.9.0, %_ZN4llvm15InstructionCostpLERKS0_.exit ]
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.047.0, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.4.0, 1
-  ret { i64, i32 } %.fca.1.insert
+83:                                               ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit, %_ZN4llvm15InstructionCostpLERKS0_.exit61, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit
+  %.pn82 = phi { i64, i32 } [ %82, %_ZN4llvm15InstructionCostpLERKS0_.exit61 ], [ %.fca.0.insert.i, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit ], [ %.pn, %_ZN4llvm15InstructionCostpLERKS0_.exit ]
+  %spec.select80.pn = phi i32 [ %spec.select80, %_ZN4llvm15InstructionCostpLERKS0_.exit61 ], [ %spec.select.i, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit ], [ %.sroa.9.0, %_ZN4llvm15InstructionCostpLERKS0_.exit ]
+  %.fca.1.insert.merged = insertvalue { i64, i32 } %.pn82, i32 %spec.select80.pn, 1
+  ret { i64, i32 } %.fca.1.insert.merged
 }
 
 declare { i64, i32 } @_ZNK4llvm19TargetTransformInfo25getAddressComputationCostEPNS_4TypeEPNS_15ScalarEvolutionEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

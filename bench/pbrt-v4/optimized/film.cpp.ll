@@ -2163,31 +2163,31 @@ entry:
   %fneg3.i.i = fneg float %agg.tmp.sroa.2.0.copyload
   %3 = fneg <2 x float> %agg.tmp.sroa.0.0.copyload
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %3, float %fneg.i.i, i64 0
-  %retval.sroa.0.0.i = select i1 %cmp.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i, <2 x float> %agg.tmp.sroa.0.0.copyload
-  %retval.sroa.3.0.i = select i1 %cmp.i, float %fneg3.i.i, float %agg.tmp.sroa.2.0.copyload
-  store <2 x float> %retval.sroa.0.0.i, ptr %n, align 4
-  store float %retval.sroa.3.0.i, ptr %z.i.i10, align 4
+  %retval.sroa.0.4.vec.insert.i.pn.i = select i1 %cmp.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i, <2 x float> %agg.tmp.sroa.0.0.copyload
+  %fneg3.i.pn.i = select i1 %cmp.i, float %fneg3.i.i, float %agg.tmp.sroa.2.0.copyload
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.pn.i, ptr %n, align 4
+  store float %fneg3.i.pn.i, ptr %z.i.i10, align 4
   %shading = getelementptr inbounds i8, ptr %si, i64 128
   %agg.tmp14.sroa.0.0.copyload = load <2 x float>, ptr %shading, align 8
   %agg.tmp14.sroa.2.0.n15.sroa_idx = getelementptr inbounds i8, ptr %si, i64 136
   %agg.tmp14.sroa.2.0.copyload = load float, ptr %agg.tmp14.sroa.2.0.n15.sroa_idx, align 8
-  %n.sroa.0.0.vec.extract.i.i19 = extractelement <2 x float> %agg.tmp14.sroa.0.0.copyload, i64 0
-  %n.sroa.0.4.vec.extract.i.i21 = extractelement <2 x float> %agg.tmp14.sroa.0.0.copyload, i64 1
-  %mul.i.i.i23 = fmul float %wo.sroa.3.0.copyload, %agg.tmp14.sroa.2.0.copyload
-  %4 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i21, float %v.sroa.0.4.vec.extract.i.i, float %mul.i.i.i23)
-  %fneg.i.i.i24 = fneg float %mul.i.i.i23
-  %5 = tail call noundef float @llvm.fma.f32(float %agg.tmp14.sroa.2.0.copyload, float %wo.sroa.3.0.copyload, float %fneg.i.i.i24)
-  %add.i.i.i25 = fadd float %4, %5
-  %6 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i19, float %v.sroa.0.0.vec.extract.i.i, float %add.i.i.i25)
-  %cmp.i26 = fcmp olt float %6, 0.000000e+00
-  %fneg.i.i27 = fneg float %n.sroa.0.0.vec.extract.i.i19
-  %fneg3.i.i29 = fneg float %agg.tmp14.sroa.2.0.copyload
+  %n.sroa.0.0.vec.extract.i.i17 = extractelement <2 x float> %agg.tmp14.sroa.0.0.copyload, i64 0
+  %n.sroa.0.4.vec.extract.i.i19 = extractelement <2 x float> %agg.tmp14.sroa.0.0.copyload, i64 1
+  %mul.i.i.i21 = fmul float %wo.sroa.3.0.copyload, %agg.tmp14.sroa.2.0.copyload
+  %4 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i19, float %v.sroa.0.4.vec.extract.i.i, float %mul.i.i.i21)
+  %fneg.i.i.i22 = fneg float %mul.i.i.i21
+  %5 = tail call noundef float @llvm.fma.f32(float %agg.tmp14.sroa.2.0.copyload, float %wo.sroa.3.0.copyload, float %fneg.i.i.i22)
+  %add.i.i.i23 = fadd float %4, %5
+  %6 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i17, float %v.sroa.0.0.vec.extract.i.i, float %add.i.i.i23)
+  %cmp.i24 = fcmp olt float %6, 0.000000e+00
+  %fneg.i.i25 = fneg float %n.sroa.0.0.vec.extract.i.i17
+  %fneg3.i.i27 = fneg float %agg.tmp14.sroa.2.0.copyload
   %7 = fneg <2 x float> %agg.tmp14.sroa.0.0.copyload
-  %retval.sroa.0.4.vec.insert.i.i31 = insertelement <2 x float> %7, float %fneg.i.i27, i64 0
-  %retval.sroa.0.0.i32 = select i1 %cmp.i26, <2 x float> %retval.sroa.0.4.vec.insert.i.i31, <2 x float> %agg.tmp14.sroa.0.0.copyload
-  %retval.sroa.3.0.i33 = select i1 %cmp.i26, float %fneg3.i.i29, float %agg.tmp14.sroa.2.0.copyload
-  store <2 x float> %retval.sroa.0.0.i32, ptr %ns, align 4
-  store float %retval.sroa.3.0.i33, ptr %z.i.i12, align 4
+  %retval.sroa.0.4.vec.insert.i.i29 = insertelement <2 x float> %7, float %fneg.i.i25, i64 0
+  %retval.sroa.0.4.vec.insert.i.pn.i30 = select i1 %cmp.i24, <2 x float> %retval.sroa.0.4.vec.insert.i.i29, <2 x float> %agg.tmp14.sroa.0.0.copyload
+  %fneg3.i.pn.i31 = select i1 %cmp.i24, float %fneg3.i.i27, float %agg.tmp14.sroa.2.0.copyload
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.pn.i30, ptr %ns, align 4
+  store float %fneg3.i.pn.i31, ptr %z.i.i12, align 4
   %uv21 = getelementptr inbounds i8, ptr %si, i64 52
   %8 = load i64, ptr %uv21, align 4
   store i64 %8, ptr %uv, align 4

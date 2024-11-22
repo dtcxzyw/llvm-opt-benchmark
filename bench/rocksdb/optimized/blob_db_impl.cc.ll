@@ -39862,8 +39862,6 @@ if.then:                                          ; preds = %entry
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %3 = load ptr, ptr %vfn, align 8
   %call5 = tail call { ptr, i64 } %3(ptr noundef nonnull align 16 dereferenceable(2544) %0)
-  %4 = extractvalue { ptr, i64 } %call5, 0
-  %5 = extractvalue { ptr, i64 } %call5, 1
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -39871,14 +39869,13 @@ if.end:                                           ; preds = %entry
   %retval.sroa.0.0.copyload = load ptr, ptr %value_, align 8
   %retval.sroa.3.0.value_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 104
   %retval.sroa.3.0.copyload = load i64, ptr %retval.sroa.3.0.value_.sroa_idx, align 8
+  %4 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %retval.sroa.3.0.copyload, 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %if.end ], [ %4, %if.then ]
-  %retval.sroa.3.0 = phi i64 [ %retval.sroa.3.0.copyload, %if.end ], [ %5, %if.then ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %5, %if.end ], [ %call5, %if.then ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1782,8 +1782,8 @@ define dso_local { i64, i32 } @_ZN4llvm15InstCostVisitor18estimateSwitchInstERNS
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr %12, align 8
-  %.not39 = icmp eq i8 %13, 17
-  br i1 %.not39, label %14, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj6EED2Ev.exit
+  %.not38 = icmp eq i8 %13, 17
+  br i1 %.not38, label %14, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj6EED2Ev.exit
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1817,8 +1817,8 @@ define dso_local { i64, i32 } @_ZN4llvm15InstCostVisitor18estimateSwitchInstERNS
   %40 = and i32 %39, 67108863
   %41 = add nsw i32 %40, -1
   %42 = zext i32 %41 to i64
-  %.not4041 = icmp eq i32 %41, 0
-  br i1 %.not4041, label %._crit_edge, label %.lr.ph
+  %.not3940 = icmp eq i32 %41, 0
+  br i1 %.not3940, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1828,13 +1828,13 @@ define dso_local { i64, i32 } @_ZN4llvm15InstCostVisitor18estimateSwitchInstERNS
   br label %47
 
 47:                                               ; preds = %.lr.ph, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
-  %.sroa.2.042 = phi i64 [ 0, %.lr.ph ], [ %96, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread ]
-  %.not.i.i26 = icmp eq i64 %.sroa.2.042, 4294967294
-  %48 = shl nuw i64 %.sroa.2.042, 1
+  %.sroa.2.041 = phi i64 [ 0, %.lr.ph ], [ %96, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread ]
+  %.not.i.i25 = icmp eq i64 %.sroa.2.041, 4294967294
+  %48 = shl nuw i64 %.sroa.2.041, 1
   %49 = add nuw nsw i64 %48, 3
   %50 = load ptr, ptr %4, align 8
   %51 = and i64 %49, 4294967295
-  %52 = select i1 %.not.i.i26, i64 1, i64 %51
+  %52 = select i1 %.not.i.i25, i64 1, i64 %51
   %53 = getelementptr inbounds %"class.llvm::Use", ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.not17 = icmp eq ptr %54, %36
@@ -1849,7 +1849,7 @@ define dso_local { i64, i32 } @_ZN4llvm15InstCostVisitor18estimateSwitchInstERNS
   %59 = load ptr, ptr %44, align 8
   %60 = load i32, ptr %45, align 8
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread35, label %62
+  br i1 %61, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread34, label %62
 
 62:                                               ; preds = %58
   %63 = ptrtoint ptr %54 to i64
@@ -1870,7 +1870,7 @@ define dso_local { i64, i32 } @_ZN4llvm15InstCostVisitor18estimateSwitchInstERNS
   %.01622.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i, %75 ], [ %.01620.i.i.i.i.i, %62 ]
   %.01521.i.i.i.i.i = phi i32 [ %76, %75 ], [ 1, %62 ]
   %74 = icmp eq ptr %73, inttoptr (i64 -4096 to ptr)
-  br i1 %74, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread35, label %75
+  br i1 %74, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread34, label %75
 
 75:                                               ; preds = %.lr.ph.i.i.i.i.i
   %76 = add i32 %.01521.i.i.i.i.i, 1
@@ -1886,14 +1886,14 @@ _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit: ; preds = %
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %69, %62 ], [ %78, %75 ]
   %82 = zext i32 %60 to i64
   %.not.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %82
-  br i1 %.not.i, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread35, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
+  br i1 %.not.i, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread34, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
 
-_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread35: ; preds = %.lr.ph.i.i.i.i.i, %58, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit
+_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread34: ; preds = %.lr.ph.i.i.i.i.i, %58, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit
   %83 = load ptr, ptr %46, align 8
   %84 = call noundef zeroext i1 @_ZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS_10BasicBlockES2_RNS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEE(ptr noundef %83, ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(24) %44)
   br i1 %84, label %85, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
 
-85:                                               ; preds = %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread35
+85:                                               ; preds = %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread34
   %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %87 = add i64 %86, 1
   %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
@@ -1915,10 +1915,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit: ; p
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %95) #16
   br label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
 
-_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread: ; preds = %55, %47, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread35, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit
-  %96 = add nuw nsw i64 %.sroa.2.042, 1
-  %.not40 = icmp eq i64 %96, %42
-  br i1 %.not40, label %._crit_edge, label %47
+_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread: ; preds = %55, %47, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread34, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit
+  %96 = add nuw nsw i64 %.sroa.2.041, 1
+  %.not39 = icmp eq i64 %96, %42
+  br i1 %.not39, label %._crit_edge, label %47
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread, %14
   %97 = call { i64, i32 } @_ZN4llvm15InstCostVisitor19estimateBasicBlocksERNS_15SmallVectorImplIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -1934,10 +1934,10 @@ _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread: ; pr
   br label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj6EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_10BasicBlockELj6EED2Ev.exit: ; preds = %101, %._crit_edge, %10, %2
-  %.sroa.033.0 = phi i64 [ 0, %2 ], [ 0, %10 ], [ %.fca.0.extract, %._crit_edge ], [ %.fca.0.extract, %101 ]
-  %.sroa.434.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ %.fca.1.extract, %._crit_edge ], [ %.fca.1.extract, %101 ]
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.033.0, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.434.0, 1
+  %.sroa.032.0 = phi i64 [ 0, %2 ], [ 0, %10 ], [ %.fca.0.extract, %._crit_edge ], [ %.fca.0.extract, %101 ]
+  %.sroa.433.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ %.fca.1.extract, %._crit_edge ], [ %.fca.1.extract, %101 ]
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.032.0, 0
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.433.0, 1
   ret { i64, i32 } %.fca.1.insert
 }
 

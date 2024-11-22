@@ -310,10 +310,10 @@ define dso_local void @_ZN4llvm15set_thread_nameERKNS_5TwineE(ptr noundef nonnul
   %4 = call { ptr, i64 } @_ZNK4llvm5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
-  %.sroa.0.0.idx.i = call i64 @llvm.usub.sat.i64(i64 %6, i64 15)
-  %.sroa.0.0.i = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.0.idx.i
+  %.sroa.0.0.copyload.pn.idx.i = call i64 @llvm.usub.sat.i64(i64 %6, i64 15)
+  %.sroa.0.0.copyload.pn.i = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.0.copyload.pn.idx.i
   %7 = tail call i64 @pthread_self() #21
-  %8 = call i32 @pthread_setname_np(i64 noundef %7, ptr noundef %.sroa.0.0.i) #18
+  %8 = call i32 @pthread_setname_np(i64 noundef %7, ptr noundef %.sroa.0.0.copyload.pn.i) #18
   %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
   %10 = load ptr, ptr %2, align 8
   %11 = icmp eq ptr %10, %3

@@ -22469,12 +22469,12 @@ _ZNK4llvm19MachineRegisterInfo21use_instr_nodbg_beginENS_8RegisterE.exit: ; pred
 100:                                              ; preds = %._crit_edge.i.i, %82
   %101 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull %79) #27, !noalias !151
   %.pre.i = load ptr, ptr %4, align 8
-  %.pre8.i = load i32, ptr %60, align 4
+  %.pre6.i = load i32, ptr %60, align 4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %100, %96
   %.pre3235 = phi ptr [ %98, %96 ], [ %.pre.i, %100 ], [ %83, %.lr.ph.i.i ]
-  %102 = phi i32 [ %99, %96 ], [ %.pre8.i, %100 ], [ %87, %.lr.ph.i.i ]
+  %102 = phi i32 [ %99, %96 ], [ %.pre6.i, %100 ], [ %87, %.lr.ph.i.i ]
   %103 = load ptr, ptr %58, align 8
   %104 = load i32, ptr %61, align 8
   %105 = sub i32 %102, %104

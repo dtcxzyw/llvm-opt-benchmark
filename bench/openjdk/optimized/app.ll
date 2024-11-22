@@ -288,10 +288,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN3app6launchERKSt9nothrow_tPFvvEP11
 
 28:                                               ; preds = %26, %24
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  %.015 = extractvalue { ptr, i32 } %.pn, 0
-  %.016 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
-  br label %104
+  br label %106
 
 29:                                               ; preds = %23
   call fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr nonnull %7, ptr nonnull %spec.select) #13
@@ -486,14 +484,13 @@ _ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i28: ; preds = %99
 
 _ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29: ; preds = %99, %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i28
   call void @_ZN6Logger11ScopeTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(121) %4) #13
-  br label %104
+  %104 = insertvalue { ptr, i32 } poison, ptr %.2, 0
+  %105 = insertvalue { ptr, i32 } %104, i32 %.218, 1
+  br label %106
 
-104:                                              ; preds = %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29, %28
-  %.117 = phi i32 [ %.218, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29 ], [ %.016, %28 ]
-  %.1 = phi ptr [ %.2, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29 ], [ %.015, %28 ]
-  %105 = insertvalue { ptr, i32 } poison, ptr %.1, 0
-  %106 = insertvalue { ptr, i32 } %105, i32 %.117, 1
-  resume { ptr, i32 } %106
+106:                                              ; preds = %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29, %28
+  %.merged = phi { ptr, i32 } [ %105, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29 ], [ %.pn, %28 ]
+  resume { ptr, i32 } %.merged
 
 107:                                              ; preds = %93, %89, %66, %58
   %108 = landingpad { ptr, i32 }

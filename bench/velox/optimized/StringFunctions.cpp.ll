@@ -14415,13 +14415,13 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i: ; pred
   br label %call7.i.noexc
 
 call7.i.noexc:                                    ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i, %invoke.cont
-  %retval.sroa.0.0.in.i = phi ptr [ %arrayidx.i.i45, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i ], [ %.val10, %invoke.cont ]
-  %retval.sroa.3.0.in.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.i, i64 8
-  %retval.sroa.3.0.i = load ptr, ptr %retval.sroa.3.0.in.i, align 8
-  %retval.sroa.0.0.i = load i64, ptr %retval.sroa.0.0.in.i, align 8
-  store i64 %retval.sroa.0.0.i, ptr %ref.tmp4, align 8
+  %retval.sroa.0.0.copyload.pn.in.i = phi ptr [ %arrayidx.i.i45, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i ], [ %.val10, %invoke.cont ]
+  %retval.sroa.3.0.copyload.pn.in.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.pn.in.i, i64 8
+  %retval.sroa.3.0.copyload.pn.i = load ptr, ptr %retval.sroa.3.0.copyload.pn.in.i, align 8
+  %retval.sroa.0.0.copyload.pn.i = load i64, ptr %retval.sroa.0.0.copyload.pn.in.i, align 8
+  store i64 %retval.sroa.0.0.copyload.pn.i, ptr %ref.tmp4, align 8
   %32 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  store ptr %retval.sroa.3.0.i, ptr %32, align 8
+  store ptr %retval.sroa.3.0.copyload.pn.i, ptr %32, align 8
   store i64 %conv.i.i, ptr %ref.tmp.i, align 8
   %_M_str.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %cond.i.i, ptr %_M_str.i, align 8
@@ -14432,11 +14432,11 @@ call7.i.noexc:                                    ; preds = %_ZNK8facebook5velox
   store i64 %conv.i, ptr %ref.tmp3.i, align 8
   %_M_str.i49 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   store ptr %cond.i, ptr %_M_str.i49, align 8
-  %33 = trunc i64 %retval.sroa.0.0.i to i32
+  %33 = trunc i64 %retval.sroa.0.0.copyload.pn.i to i32
   %cmp.i.i.i50 = icmp ult i32 %33, 13
   %prefix_.i51 = getelementptr inbounds i8, ptr %ref.tmp4, i64 4
-  %cond.i53 = select i1 %cmp.i.i.i50, ptr %prefix_.i51, ptr %retval.sroa.3.0.i
-  %conv.i54 = and i64 %retval.sroa.0.0.i, 4294967295
+  %cond.i53 = select i1 %cmp.i.i.i50, ptr %prefix_.i51, ptr %retval.sroa.3.0.copyload.pn.i
+  %conv.i54 = and i64 %retval.sroa.0.0.copyload.pn.i, 4294967295
   store i64 %conv.i54, ptr %ref.tmp6.i, align 8
   %_M_str.i55 = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   store ptr %cond.i53, ptr %_M_str.i55, align 8
@@ -14882,17 +14882,17 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i: ; pred
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i, %invoke.cont3
-  %retval.sroa.0.0.in.i = phi ptr [ %arrayidx.i.i57, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i ], [ %.val21, %invoke.cont3 ]
-  %retval.sroa.3.0.in.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.i, i64 8
-  %retval.sroa.3.0.i = load ptr, ptr %retval.sroa.3.0.in.i, align 8
-  %retval.sroa.0.0.i = load i64, ptr %retval.sroa.0.0.in.i, align 8
-  store i64 %retval.sroa.0.0.i, ptr %ref.tmp5, align 8
+  %retval.sroa.0.0.copyload.pn.in.i = phi ptr [ %arrayidx.i.i57, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i ], [ %.val21, %invoke.cont3 ]
+  %retval.sroa.3.0.copyload.pn.in.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.pn.in.i, i64 8
+  %retval.sroa.3.0.copyload.pn.i = load ptr, ptr %retval.sroa.3.0.copyload.pn.in.i, align 8
+  %retval.sroa.0.0.copyload.pn.i = load i64, ptr %retval.sroa.0.0.copyload.pn.in.i, align 8
+  store i64 %retval.sroa.0.0.copyload.pn.i, ptr %ref.tmp5, align 8
   %33 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
-  store ptr %retval.sroa.3.0.i, ptr %33, align 8
+  store ptr %retval.sroa.3.0.copyload.pn.i, ptr %33, align 8
   %cmp.i = icmp eq i32 %24, 0
-  %34 = trunc i64 %retval.sroa.0.0.i to i32
+  %34 = trunc i64 %retval.sroa.0.0.copyload.pn.i to i32
   %conv.i60 = and i64 %retval.sroa.0.0.copyload.i.i, 4294967295
-  %conv.i61 = and i64 %retval.sroa.0.0.i, 4294967295
+  %conv.i61 = and i64 %retval.sroa.0.0.copyload.pn.i, 4294967295
   %add.i = add nuw nsw i64 %conv.i61, %conv.i60
   br i1 %cmp.i, label %if.else.i.invoke, label %if.else.i
 
@@ -14928,7 +14928,7 @@ call23.i.noexc:                                   ; preds = %if.else.i.invoke
   store ptr %cond.i74, ptr %_M_str.i76, align 8
   %cmp.i.i.i77 = icmp ult i32 %34, 13
   %prefix_.i78 = getelementptr inbounds i8, ptr %ref.tmp5, i64 4
-  %cond.i80 = select i1 %cmp.i.i.i77, ptr %prefix_.i78, ptr %retval.sroa.3.0.i
+  %cond.i80 = select i1 %cmp.i.i.i77, ptr %prefix_.i78, ptr %retval.sroa.3.0.copyload.pn.i
   store i64 %conv.i61, ptr %ref.tmp22.i, align 8
   %_M_str.i82 = getelementptr inbounds i8, ptr %ref.tmp22.i, i64 8
   store ptr %cond.i80, ptr %_M_str.i82, align 8

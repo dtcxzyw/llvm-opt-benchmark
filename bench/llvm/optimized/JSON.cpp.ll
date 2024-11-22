@@ -5014,7 +5014,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %21, %23
 46:                                               ; preds = %.lr.ph
   %47 = load i64, ptr %3, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %28, i64 %47)
-  %.sroa.0.0.i = load ptr, ptr %2, align 8
+  %.sroa.0.0.copyload.pn.i = load ptr, ptr %2, align 8
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -5026,7 +5026,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %21, %23
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %46
-  %57 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef %.sroa.0.0.i, i64 noundef %..i) #24
+  %57 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef %.sroa.0.0.copyload.pn.i, i64 noundef %..i) #24
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit11
@@ -5036,7 +5036,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %21, %23
   br i1 %.not.i9, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit11, label %59
 
 59:                                               ; preds = %58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %.sroa.0.0.i, i64 %..i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %.sroa.0.0.copyload.pn.i, i64 %..i, i1 false)
   %60 = load ptr, ptr %50, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %..i
   store ptr %61, ptr %50, align 8

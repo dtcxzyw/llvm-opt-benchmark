@@ -34,11 +34,11 @@ define { i64, i64 } @softfloat_subMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   %24 = or i64 %23, %14
   %25 = or i64 %24, %15
   %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %26, label %87
+  br i1 %.not, label %26, label %85
 
 26:                                               ; preds = %22
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  br label %91
+  br label %89
 
 27:                                               ; preds = %20
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %7, i64 1)
@@ -61,7 +61,7 @@ define { i64, i64 } @softfloat_subMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   %36 = load i8, ptr @softfloat_roundingMode, align 1
   %37 = icmp eq i8 %36, 2
   %38 = select i1 %37, i64 -9223372036854775808, i64 0
-  br label %91
+  br label %89
 
 39:                                               ; preds = %18
   %40 = icmp eq i64 %10, 32767
@@ -70,11 +70,11 @@ define { i64, i64 } @softfloat_subMagsF128(i64 noundef %0, i64 noundef %1, i64 n
 41:                                               ; preds = %39
   %42 = or i64 %14, %15
   %.not106 = icmp eq i64 %42, 0
-  br i1 %.not106, label %43, label %87
+  br i1 %.not106, label %43, label %85
 
 43:                                               ; preds = %41
   %44 = select i1 %4, i64 9223090561878065152, i64 -281474976710656
-  br label %91
+  br label %89
 
 45:                                               ; preds = %39
   %.not104 = icmp eq i64 %7, 0
@@ -122,7 +122,7 @@ define { i64, i64 } @softfloat_subMagsF128(i64 noundef %0, i64 noundef %1, i64 n
 64:                                               ; preds = %62
   %65 = or i64 %12, %13
   %.not110 = icmp eq i64 %65, 0
-  br i1 %.not110, label %91, label %87
+  br i1 %.not110, label %89, label %85
 
 66:                                               ; preds = %62
   %.not107 = icmp eq i64 %10, 0
@@ -171,22 +171,24 @@ define { i64, i64 } @softfloat_subMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   %82 = add i64 %.sink, %.neg.i115
   %83 = add nsw i64 %.2, -5
   %84 = tail call { i64, i64 } @softfloat_normRoundPackToF128(i1 noundef zeroext %.0.in, i64 noundef %83, i64 noundef %82, i64 noundef %.pn120) #3
-  %85 = extractvalue { i64, i64 } %84, 0
-  %86 = extractvalue { i64, i64 } %84, 1
-  br label %91
+  br label %92
 
-87:                                               ; preds = %64, %41, %22
-  %88 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #3
-  %89 = extractvalue { i64, i64 } %88, 0
-  %90 = extractvalue { i64, i64 } %88, 1
-  br label %91
+85:                                               ; preds = %64, %41, %22
+  %86 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #3
+  %87 = extractvalue { i64, i64 } %86, 0
+  %88 = extractvalue { i64, i64 } %86, 1
+  br label %89
 
-91:                                               ; preds = %26, %35, %43, %87, %64, %81
-  %.sroa.085.0 = phi i64 [ %85, %81 ], [ %89, %87 ], [ 0, %43 ], [ 0, %26 ], [ 0, %35 ], [ %1, %64 ]
-  %.sroa.386.0 = phi i64 [ %86, %81 ], [ %90, %87 ], [ %44, %43 ], [ 9223231299366420480, %26 ], [ %38, %35 ], [ %0, %64 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.085.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.386.0, 1
-  ret { i64, i64 } %.fca.1.insert
+89:                                               ; preds = %64, %85, %43, %35, %26
+  %.sroa.014.0 = phi i64 [ %87, %85 ], [ 0, %43 ], [ 0, %26 ], [ 0, %35 ], [ %1, %64 ]
+  %.sroa.6.0 = phi i64 [ %88, %85 ], [ %44, %43 ], [ 9223231299366420480, %26 ], [ %38, %35 ], [ %0, %64 ]
+  %90 = insertvalue { i64, i64 } poison, i64 %.sroa.014.0, 0
+  %91 = insertvalue { i64, i64 } %90, i64 %.sroa.6.0, 1
+  br label %92
+
+92:                                               ; preds = %89, %81
+  %.fca.1.insert.merged = phi { i64, i64 } [ %91, %89 ], [ %84, %81 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #1

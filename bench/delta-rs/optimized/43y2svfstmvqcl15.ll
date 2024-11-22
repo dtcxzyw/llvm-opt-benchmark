@@ -104867,11 +104867,11 @@ define void @_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile17object_s
   tail call void @llvm.assume(i1 %37)
   call void @_ZN16percent_encoding13PercentDecode17decode_utf8_lossy17h1132fc7d8fda3048E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, ptr noundef nonnull %34, ptr noundef nonnull %36)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %9, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !nonnull !5, !noundef !5
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !5
-  invoke void @_ZN12object_store4path4Path5parse17hdc44386e439041bbE(ptr noalias nocapture noundef nonnull sret({ i64, [9 x i64] }) align 8 dereferenceable(80) %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !5
+  %.pn3.in.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !nonnull !5, !noundef !5
+  invoke void @_ZN12object_store4path4Path5parse17hdc44386e439041bbE(ptr noalias nocapture noundef nonnull sret({ i64, [9 x i64] }) align 8 dereferenceable(80) %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %38 unwind label %30
 
 38:                                               ; preds = %32
@@ -104923,7 +104923,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile17object_s
           to label %58 unwind label %66
 
 57:                                               ; preds = %38
-  invoke void @"_ZN79_$LT$object_store..path..Path$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17ha710fe3082ee4aa3E"(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } } }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  invoke void @"_ZN79_$LT$object_store..path..Path$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17ha710fe3082ee4aa3E"(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } } }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %43 unwind label %55
 
 58:                                               ; preds = %61, %55

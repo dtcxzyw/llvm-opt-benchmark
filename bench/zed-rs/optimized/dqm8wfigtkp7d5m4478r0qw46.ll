@@ -379,13 +379,13 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN77_$LT$alloc..borrow..Cow$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$T$GT$$GT$6as_ref17h2bbbf2d90824eda3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 {
-  %.sroa.0.0.in = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !8, !noundef !8
-  %.sroa.5.0.in = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8, !noundef !8
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %3
+  %.pn1.in = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1 = load i64, ptr %.pn1.in, align 8, !noundef !8
+  %.pn3.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3 = load ptr, ptr %.pn3.in, align 8, !nonnull !8, !noundef !8
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn3, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -529,21 +529,21 @@ define { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$st
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !alias.scope !88, !noalias !96, !noundef !8
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !97, !noalias !96, !nonnull !8, !noundef !8
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !97, !noalias !96, !noundef !8
-  %14 = tail call noundef i64 @_ZN4core3cmp6min_by17hd382d766f63ddfc9E.llvm.14387802390865567696(i64 noundef %13, i64 noundef %.sroa.5.0.i.i.i), !noalias !98
-  %15 = icmp ugt i64 %14, %.sroa.5.0.i.i.i
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !97, !noalias !96, !noundef !8
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !97, !noalias !96, !nonnull !8, !noundef !8
+  %14 = tail call noundef i64 @_ZN4core3cmp6min_by17hd382d766f63ddfc9E.llvm.14387802390865567696(i64 noundef %13, i64 noundef %.pn1.i.i.i), !noalias !98
+  %15 = icmp ugt i64 %14, %.pn1.i.i.i
   br i1 %15, label %16, label %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i"
 
 16:                                               ; preds = %11
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %14, i64 noundef %.sroa.5.0.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add6b868a5bb81dab16d4cfd651df05a.10.llvm.14387802390865567696) #17, !noalias !99
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %14, i64 noundef %.pn1.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add6b868a5bb81dab16d4cfd651df05a.10.llvm.14387802390865567696) #17, !noalias !99
   unreachable
 
 "_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i": ; preds = %11
-  %17 = sub nuw i64 %.sroa.5.0.i.i.i, %14
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 %14
+  %17 = sub nuw i64 %.pn1.i.i.i, %14
+  %18 = getelementptr inbounds i8, ptr %.pn3.i.i.i, i64 %14
   store ptr %18, ptr %4, align 8, !noalias !91
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %17, ptr %19, align 8, !noalias !91
@@ -609,21 +609,21 @@ define { i64, ptr } @"_ZN84_$LT$http_client..async_body..AsyncBody$u20$as$u20$fu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !alias.scope !102, !noalias !110, !noundef !8
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !111, !noalias !110, !nonnull !8, !noundef !8
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !111, !noalias !110, !noundef !8
-  %14 = tail call noundef i64 @_ZN4core3cmp6min_by17hd382d766f63ddfc9E.llvm.14387802390865567696(i64 noundef %13, i64 noundef %.sroa.5.0.i.i.i), !noalias !112
-  %15 = icmp ugt i64 %14, %.sroa.5.0.i.i.i
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !111, !noalias !110, !noundef !8
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !111, !noalias !110, !nonnull !8, !noundef !8
+  %14 = tail call noundef i64 @_ZN4core3cmp6min_by17hd382d766f63ddfc9E.llvm.14387802390865567696(i64 noundef %13, i64 noundef %.pn1.i.i.i), !noalias !112
+  %15 = icmp ugt i64 %14, %.pn1.i.i.i
   br i1 %15, label %16, label %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i"
 
 16:                                               ; preds = %11
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %14, i64 noundef %.sroa.5.0.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add6b868a5bb81dab16d4cfd651df05a.10.llvm.14387802390865567696) #17, !noalias !113
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %14, i64 noundef %.pn1.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add6b868a5bb81dab16d4cfd651df05a.10.llvm.14387802390865567696) #17, !noalias !113
   unreachable
 
 "_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i": ; preds = %11
-  %17 = sub nuw i64 %.sroa.5.0.i.i.i, %14
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 %14
+  %17 = sub nuw i64 %.pn1.i.i.i, %14
+  %18 = getelementptr inbounds i8, ptr %.pn3.i.i.i, i64 %14
   store ptr %18, ptr %5, align 8, !noalias !105
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %17, ptr %19, align 8, !noalias !105

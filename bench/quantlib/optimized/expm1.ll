@@ -78,21 +78,18 @@ if.then:                                          ; preds = %entry
   %retval.sroa.4.0.copyload.i = load double, ptr %_M_value.imagp.i, align 8, !tbaa !9
   %add.r.i.i = fadd double %retval.sroa.0.0.copyload.i, 1.000000e+00
   %call.i.i = tail call noundef double @carg(double noundef %add.r.i.i, double noundef %retval.sroa.4.0.copyload.i) #5, !tbaa !3
+  %6 = insertvalue { double, double } poison, double %mul, 0
+  %7 = insertvalue { double, double } %6, double %call.i.i, 1
   br label %cleanup
 
 if.else:                                          ; preds = %entry
   %add.r.i.i13 = fadd double %0, 1.000000e+00
   %call.i.i19 = tail call noundef { double, double } @clog(double noundef %add.r.i.i13, double noundef %1) #5
-  %6 = extractvalue { double, double } %call.i.i19, 0
-  %7 = extractvalue { double, double } %call.i.i19, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else, %if.then
-  %retval.sroa.0.0 = phi double [ %mul, %if.then ], [ %6, %if.else ]
-  %retval.sroa.3.0 = phi double [ %call.i.i, %if.then ], [ %7, %if.else ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.3.0, 1
-  ret { double, double } %.fca.1.insert
+  %.fca.1.insert.merged = phi { double, double } [ %7, %if.then ], [ %call.i.i19, %if.else ]
+  ret { double, double } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)

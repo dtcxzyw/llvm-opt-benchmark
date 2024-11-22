@@ -13717,11 +13717,11 @@ define hidden { i64, i64 } @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h7891
   br label %50
 
 50:                                               ; preds = %37, %46
-  %.sroa.3.0 = phi i64 [ %49, %46 ], [ %45, %37 ]
-  %.sroa.0.0 = phi i64 [ %47, %46 ], [ %44, %37 ]
-  %51 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %52 = insertvalue { i64, i64 } %51, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %52
+  %.pn7 = phi i64 [ %47, %46 ], [ %44, %37 ]
+  %.pn5 = phi i64 [ %49, %46 ], [ %45, %37 ]
+  %.pn = insertvalue { i64, i64 } poison, i64 %.pn7, 0
+  %.merged = insertvalue { i64, i64 } %.pn, i64 %.pn5, 1
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -15588,14 +15588,13 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h5c16deee928bf108
   %185 = getelementptr inbounds i8, ptr %13, i64 8
   %186 = load ptr, ptr %185, align 8, !nonnull !4, !align !768, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  %187 = insertvalue { ptr, ptr } poison, ptr %184, 0
+  %188 = insertvalue { ptr, ptr } %187, ptr %186, 1
   br label %"_ZN4core3ptr252drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17h7f1c9d72cd21edbfE.exit"
 
 "_ZN4core3ptr252drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17h7f1c9d72cd21edbfE.exit": ; preds = %183, %199, %192
-  %.sroa.01.0121 = phi ptr [ %29, %199 ], [ %29, %192 ], [ %184, %183 ]
-  %.sroa.3.0119 = phi ptr [ %30, %199 ], [ %30, %192 ], [ %186, %183 ]
-  %187 = insertvalue { ptr, ptr } poison, ptr %.sroa.01.0121, 0
-  %188 = insertvalue { ptr, ptr } %187, ptr %.sroa.3.0119, 1
-  ret { ptr, ptr } %188
+  %.merged = phi { ptr, ptr } [ %80, %199 ], [ %80, %192 ], [ %188, %183 ]
+  ret { ptr, ptr } %.merged
 
 189:                                              ; preds = %93
   %190 = load ptr, ptr %7, align 8, !invariant.load !4

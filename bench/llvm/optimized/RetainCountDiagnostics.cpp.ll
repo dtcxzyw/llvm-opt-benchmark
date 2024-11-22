@@ -3427,16 +3427,11 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %11, %11, %11,
   %40 = load ptr, ptr %39, align 8
   %41 = call { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16EnvironmentEntryERNS0_11SValBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(412) %40) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.fca.0.extract = extractvalue { ptr, i8 } %41, 0
-  %.fca.1.extract = extractvalue { ptr, i8 } %41, 1
   br label %42
 
 42:                                               ; preds = %11, %3, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %25, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
-  %.sroa.08.0 = phi ptr [ %.fca.0.extract, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ null, %25 ], [ null, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ null, %3 ], [ null, %11 ]
-  %.sroa.3.0 = phi i8 [ %.fca.1.extract, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ 1, %25 ], [ 1, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 1, %3 ], [ 1, %11 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.08.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %41, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ { ptr null, i8 1 }, %25 ], [ { ptr null, i8 1 }, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ { ptr null, i8 1 }, %3 ], [ { ptr null, i8 1 }, %11 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 declare noundef ptr @_ZNK5clang4ento4SVal14getAsLocSymbolEb(ptr noundef nonnull align 8 dereferenceable(9), i1 noundef zeroext) local_unnamed_addr #4

@@ -4509,7 +4509,7 @@ define dso_local { i64, ptr } @_ZNK4llvm6object15XCOFFObjectFile19getRelocationS
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(96) %0) #23
   %7 = inttoptr i64 %1 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br i1 %6, label %9, label %22
+  br i1 %6, label %9, label %20
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4522,56 +4522,51 @@ define dso_local { i64, ptr } @_ZNK4llvm6object15XCOFFObjectFile19getRelocationS
   %.0.copyload.i.i.i.i = load i32, ptr %13, align 1
   %14 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i)
   %.not9 = icmp ult i32 %11, %14
-  br i1 %.not9, label %35, label %15
+  br i1 %.not9, label %31, label %15
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = tail call { i64, ptr } %18(ptr noundef nonnull align 8 dereferenceable(96) %0) #23
-  %20 = extractvalue { i64, ptr } %19, 0
-  %21 = extractvalue { i64, ptr } %19, 1
-  br label %42
+  br label %40
 
-22:                                               ; preds = %2
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
-  %.0.copyload.i.i.i10 = load i32, ptr %23, align 1
-  %24 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i10)
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
-  %.0.copyload.i.i.i.i11 = load i32, ptr %26, align 1
-  %27 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i11)
-  %spec.select.i = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %27, i32 0)
-  %.not = icmp ult i32 %24, %spec.select.i
-  br i1 %.not, label %35, label %28
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
+  %.0.copyload.i.i.i10 = load i32, ptr %21, align 1
+  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i10)
+  %23 = load ptr, ptr %8, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
+  %.0.copyload.i.i.i.i11 = load i32, ptr %24, align 1
+  %25 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i11)
+  %spec.select.i = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %25, i32 0)
+  %.not = icmp ult i32 %22, %spec.select.i
+  br i1 %.not, label %31, label %26
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 56
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call { i64, ptr } %31(ptr noundef nonnull align 8 dereferenceable(96) %0) #23
-  %33 = extractvalue { i64, ptr } %32, 0
-  %34 = extractvalue { i64, ptr } %32, 1
-  br label %42
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 56
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call { i64, ptr } %29(ptr noundef nonnull align 8 dereferenceable(96) %0) #23
+  br label %40
 
-35:                                               ; preds = %22, %9
-  %.0 = phi i32 [ %11, %9 ], [ %24, %22 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %37 = load ptr, ptr %36, align 8
-  %38 = ptrtoint ptr %37 to i64
-  %39 = zext i32 %.0 to i64
-  %40 = mul nuw nsw i64 %39, 18
-  %41 = add i64 %40, %38
-  br label %42
+31:                                               ; preds = %20, %9
+  %.0 = phi i32 [ %11, %9 ], [ %22, %20 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %33 = load ptr, ptr %32, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = zext i32 %.0 to i64
+  %36 = mul nuw nsw i64 %35, 18
+  %37 = add i64 %36, %34
+  %38 = insertvalue { i64, ptr } poison, i64 %37, 0
+  %39 = insertvalue { i64, ptr } %38, ptr %0, 1
+  br label %40
 
-42:                                               ; preds = %35, %28, %15
-  %.sroa.020.0 = phi i64 [ %41, %35 ], [ %20, %15 ], [ %33, %28 ]
-  %.sroa.4.0 = phi ptr [ %0, %35 ], [ %21, %15 ], [ %34, %28 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.020.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %.fca.1.insert
+40:                                               ; preds = %31, %26, %15
+  %.fca.1.insert.merged = phi { i64, ptr } [ %39, %31 ], [ %19, %15 ], [ %30, %26 ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable

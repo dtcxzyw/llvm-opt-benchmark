@@ -1573,6 +1573,8 @@ if.then:                                          ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %0, align 8
   %call = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #15
+  %1 = insertvalue { i32, i64 } poison, i32 %call, 0
+  %2 = insertvalue { i32, i64 } %1, i64 undef, 1
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1588,9 +1590,11 @@ if.then5:                                         ; preds = %if.end
   %rightSize_.i5.i9 = getelementptr inbounds i8, ptr %ref.tmp6, i64 40
   store i64 0, ptr %rightSize_.i5.i9, align 8
   store ptr @.str.1, ptr %ref.tmp6, align 8
-  %1 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
-  store i32 3, ptr %1, align 8
+  %3 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  store i32 3, ptr %3, align 8
   %call7 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6) #15
+  %4 = insertvalue { i32, i64 } poison, i32 %call7, 0
+  %5 = insertvalue { i32, i64 } %4, i64 undef, 1
   br label %return
 
 if.end8:                                          ; preds = %if.end
@@ -1600,18 +1604,13 @@ if.end8:                                          ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i64 noundef %conv, i8 noundef signext 0) #15
   %call12 = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIcE6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
-  %2 = extractvalue { i32, i64 } %call12, 0
-  %3 = extractvalue { i32, i64 } %call12, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #15
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then5, %if.then
-  %retval.sroa.4.0 = phi i64 [ undef, %if.then ], [ %3, %if.end8 ], [ undef, %if.then5 ]
-  %retval.sroa.0.0 = phi i32 [ %call, %if.then ], [ %2, %if.end8 ], [ %call7, %if.then5 ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i32, i64 } [ %2, %if.then ], [ %call12, %if.end8 ], [ %5, %if.then5 ]
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2841,16 +2840,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm15StringPrimitive19createEfficientImplIcEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEN4llvh8ArrayRefIT_EEPNSt7__cxx1112basic_stringISC_St11char_traitsISC_ESaISC_EEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1, ptr noundef null)
-  %0 = extractvalue { i32, i64 } %call.i, 0
-  %1 = extractvalue { i32, i64 } %call.i, 1
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %out, i64 16
-  store ptr %2, ptr %out, align 8
+  %0 = getelementptr inbounds i8, ptr %out, i64 16
+  store ptr %0, ptr %out, align 8
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8
-  store i16 0, ptr %2, align 8
+  store i16 0, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sourceStart.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %targetStart.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -2866,11 +2863,11 @@ if.then.i.i.i:                                    ; preds = %if.end
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6resizeEm.exit.i
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6resizeEm.exit.i: ; preds = %if.end, %if.then.i.i.i
-  %3 = phi i64 [ 0, %if.end ], [ %.pre12, %if.then.i.i.i ]
-  %4 = phi ptr [ %2, %if.end ], [ %.pre, %if.then.i.i.i ]
+  %1 = phi i64 [ 0, %if.end ], [ %.pre12, %if.then.i.i.i ]
+  %2 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i.i.i ]
   store ptr %str.coerce0, ptr %sourceStart.i, align 8
-  store ptr %4, ptr %targetStart.i, align 8
-  %add.ptr5.i = getelementptr inbounds i16, ptr %4, i64 %3
+  store ptr %2, ptr %targetStart.i, align 8
+  %add.ptr5.i = getelementptr inbounds i16, ptr %2, i64 %1
   %call6.i = call noundef i32 @_ZN4llvh18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr noundef nonnull %sourceStart.i, ptr noundef %add.ptr, ptr noundef nonnull %targetStart.i, ptr noundef nonnull %add.ptr5.i, i32 noundef 1) #15
   switch i32 %call6.i, label %sw.epilog.i [
     i32 1, label %sw.bb.i
@@ -2915,28 +2912,28 @@ sw.bb15.i:                                        ; preds = %_ZNSt7__cxx1112basi
   br label %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit
 
 sw.epilog.i:                                      ; preds = %sw.bb8.i, %sw.bb.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6resizeEm.exit.i
-  %5 = load ptr, ptr %targetStart.i, align 8
-  %6 = load ptr, ptr %out, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
+  %3 = load ptr, ptr %targetStart.i, align 8
+  %4 = load ptr, ptr %out, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %7 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp.i.i28.i = icmp ult i64 %7, %sub.ptr.div.i
+  %5 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp.i.i28.i = icmp ult i64 %5, %sub.ptr.div.i
   br i1 %cmp.i.i28.i, label %if.then.i.i33.i, label %if.else.i.i29.i
 
 if.then.i.i33.i:                                  ; preds = %sw.epilog.i
-  %sub.i.i34.i = sub nuw i64 %sub.ptr.div.i, %7
+  %sub.i.i34.i = sub nuw i64 %sub.ptr.div.i, %5
   %call2.i.i35.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEmDs(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %sub.i.i34.i, i16 noundef zeroext 0)
   br label %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit.thread
 
 if.else.i.i29.i:                                  ; preds = %sw.epilog.i
-  %cmp3.i.i30.i = icmp ult i64 %sub.ptr.div.i, %7
+  %cmp3.i.i30.i = icmp ult i64 %sub.ptr.div.i, %5
   br i1 %cmp3.i.i30.i, label %if.then4.i.i31.i, label %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit.thread
 
 if.then4.i.i31.i:                                 ; preds = %if.else.i.i29.i
   store i64 %sub.ptr.div.i, ptr %_M_string_length.i.i.i, align 8
-  %arrayidx.i.i.i32.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i
+  %arrayidx.i.i.i32.i = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
   store i16 0, ptr %arrayidx.i.i.i32.i, align 2
   br label %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit.thread
 
@@ -2962,36 +2959,37 @@ _ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1
   br i1 %cmp, label %cleanup, label %if.end8
 
 if.end8:                                          ; preds = %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit.thread, %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit
-  %8 = load ptr, ptr %out, align 8
-  %9 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %call3.i = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive19createEfficientImplIDsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEN4llvh8ArrayRefIT_EEPNSt7__cxx1112basic_stringISC_St11char_traitsISC_ESaISC_EEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %8, i64 %9, ptr noundef nonnull align 8 dereferenceable(32) %out)
-  %10 = extractvalue { i32, i64 } %call3.i, 0
-  %11 = extractvalue { i32, i64 } %call3.i, 1
+  %6 = load ptr, ptr %out, align 8
+  %7 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %call3.i = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive19createEfficientImplIDsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEN4llvh8ArrayRefIT_EEPNSt7__cxx1112basic_stringISC_St11char_traitsISC_ESaISC_EEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %6, i64 %7, ptr noundef nonnull align 8 dereferenceable(32) %out)
+  %8 = extractvalue { i32, i64 } %call3.i, 0
+  %9 = extractvalue { i32, i64 } %call3.i, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit, %if.end8
-  %retval.sroa.0.1 = phi i32 [ %10, %if.end8 ], [ 0, %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ]
-  %retval.sroa.4.1 = phi i64 [ %11, %if.end8 ], [ undef, %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ]
-  %12 = load ptr, ptr %out, align 8
-  %cmp.i.i.i6 = icmp eq ptr %12, %2
+  %retval.sroa.0.1 = phi i32 [ %8, %if.end8 ], [ 0, %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ]
+  %retval.sroa.4.1 = phi i64 [ %9, %if.end8 ], [ undef, %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ]
+  %10 = load ptr, ptr %out, align 8
+  %cmp.i.i.i6 = icmp eq ptr %10, %0
   br i1 %cmp.i.i.i6, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i: ; preds = %cleanup
-  %13 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i8 = icmp ult i64 %13, 8
+  %11 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i8 = icmp ult i64 %11, 8
   call void @llvm.assume(i1 %cmp3.i.i.i8)
+  %12 = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
+  %13 = insertvalue { i32, i64 } %12, i64 %retval.sroa.4.1, 1
   br label %return
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %12) #16
+  call void @_ZdlPv(ptr noundef %10) #16
+  %14 = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
+  %15 = insertvalue { i32, i64 } %14, i64 %retval.sroa.4.1, 1
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i, %if.then
-  %retval.sroa.0.0 = phi i32 [ %0, %if.then ], [ %retval.sroa.0.1, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i ], [ %retval.sroa.0.1, %if.then.i.i ]
-  %retval.sroa.4.0 = phi i64 [ %1, %if.then ], [ %retval.sroa.4.1, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i ], [ %retval.sroa.4.1, %if.then.i.i ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i32, i64 } [ %call.i, %if.then ], [ %13, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i ], [ %15, %if.then.i.i ]
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 declare noundef zeroext i1 @_ZN6hermes10isAllASCIIEPKhS1_(ptr noundef, ptr noundef) local_unnamed_addr #1

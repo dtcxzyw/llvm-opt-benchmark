@@ -14251,25 +14251,25 @@ define hidden { i64, ptr } @"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$
   %3 = tail call { i64, ptr } @"_ZN12futures_lite2io18BufWriter$LT$W$GT$14poll_flush_buf17h9ae697639e00f23bE.llvm.146862654082438089"(ptr noalias noundef nonnull align 8 dereferenceable(152) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %4 = extractvalue { i64, ptr } %3, 0
   %switch = icmp eq i64 %4, 0
-  br i1 %switch, label %5, label %12
+  br i1 %switch, label %5, label %11
 
 5:                                                ; preds = %2
   %6 = extractvalue { i64, ptr } %3, 1
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %12
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
   %9 = tail call { i64, ptr } @"_ZN65_$LT$async_fs..File$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hae4714bb2cbcc336E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  %10 = extractvalue { i64, ptr } %9, 0
-  %11 = extractvalue { i64, ptr } %9, 1
-  br label %12
+  br label %10
 
-12:                                               ; preds = %2, %5, %8
-  %.sroa.4.1 = phi ptr [ %11, %8 ], [ undef, %2 ], [ %6, %5 ]
-  %.sroa.0.1 = phi i64 [ %10, %8 ], [ %4, %2 ], [ 0, %5 ]
-  %13 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %14 = insertvalue { i64, ptr } %13, ptr %.sroa.4.1, 1
-  ret { i64, ptr } %14
+10:                                               ; preds = %11, %8
+  %.merged = phi { i64, ptr } [ %12, %11 ], [ %9, %8 ]
+  ret { i64, ptr } %.merged
+
+11:                                               ; preds = %5, %2
+  %.sroa.4.0 = phi ptr [ undef, %2 ], [ %6, %5 ]
+  %12 = insertvalue { i64, ptr } %3, ptr %.sroa.4.0, 1
+  br label %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14278,25 +14278,25 @@ define hidden { i64, ptr } @"_ZN87_$LT$futures_lite..io..FlushFuture$LT$W$GT$$u2
   %4 = tail call { i64, ptr } @"_ZN12futures_lite2io18BufWriter$LT$W$GT$14poll_flush_buf17h9ae697639e00f23bE.llvm.146862654082438089"(ptr noalias noundef nonnull align 8 dereferenceable(152) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %5 = extractvalue { i64, ptr } %4, 0
   %switch.i = icmp eq i64 %5, 0
-  br i1 %switch.i, label %6, label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17h07d9ef9e94d9d7daE.llvm.146862654082438089.exit"
+  br i1 %switch.i, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = extractvalue { i64, ptr } %4, 1
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17h07d9ef9e94d9d7daE.llvm.146862654082438089.exit"
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = tail call { i64, ptr } @"_ZN65_$LT$async_fs..File$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hae4714bb2cbcc336E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  %11 = extractvalue { i64, ptr } %10, 0
-  %12 = extractvalue { i64, ptr } %10, 1
   br label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17h07d9ef9e94d9d7daE.llvm.146862654082438089.exit"
 
-"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17h07d9ef9e94d9d7daE.llvm.146862654082438089.exit": ; preds = %2, %6, %9
-  %.sroa.4.1.i = phi ptr [ %12, %9 ], [ undef, %2 ], [ %7, %6 ]
-  %.sroa.0.1.i = phi i64 [ %11, %9 ], [ %5, %2 ], [ 0, %6 ]
-  %13 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1.i, 0
-  %14 = insertvalue { i64, ptr } %13, ptr %.sroa.4.1.i, 1
-  ret { i64, ptr } %14
+11:                                               ; preds = %6, %2
+  %.sroa.4.0.i = phi ptr [ undef, %2 ], [ %7, %6 ]
+  %12 = insertvalue { i64, ptr } %4, ptr %.sroa.4.0.i, 1
+  br label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17h07d9ef9e94d9d7daE.llvm.146862654082438089.exit"
+
+"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17h07d9ef9e94d9d7daE.llvm.146862654082438089.exit": ; preds = %9, %11
+  %.merged.i = phi { i64, ptr } [ %12, %11 ], [ %10, %9 ]
+  ret { i64, ptr } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -24524,17 +24524,17 @@ define hidden { i64, ptr } @"_ZN90_$LT$futures_lite..io..WriteAllFuture$LT$W$GT$
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %.promoted = load i64, ptr %5, align 8
-  %.promoted23 = load ptr, ptr %4, align 8
+  %.promoted12 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !4, !align !170
   %7 = getelementptr inbounds i8, ptr %6, i64 120
   %8 = getelementptr inbounds i8, ptr %6, i64 136
   br label %9
 
-9:                                                ; preds = %41, %2
-  %10 = phi ptr [ %42, %41 ], [ %.promoted23, %2 ]
-  %11 = phi i64 [ %43, %41 ], [ %.promoted, %2 ]
+9:                                                ; preds = %47, %2
+  %10 = phi ptr [ %48, %47 ], [ %.promoted12, %2 ]
+  %11 = phi i64 [ %49, %47 ], [ %.promoted, %2 ]
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit.thread", label %13
+  br i1 %12, label %36, label %13
 
 13:                                               ; preds = %9
   %14 = load i64, ptr %8, align 8, !alias.scope !6550, !noalias !6553, !noundef !4
@@ -24547,7 +24547,7 @@ define hidden { i64, ptr } @"_ZN90_$LT$futures_lite..io..WriteAllFuture$LT$W$GT$
   %19 = tail call { i64, ptr } @"_ZN12futures_lite2io18BufWriter$LT$W$GT$14poll_flush_buf17h9ae697639e00f23bE.llvm.146862654082438089"(ptr noalias noundef nonnull align 8 dereferenceable(152) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !6556
   %20 = extractvalue { i64, ptr } %19, 0
   %switch.i = icmp eq i64 %20, 0
-  br i1 %switch.i, label %23, label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit.thread"
+  br i1 %switch.i, label %23, label %30
 
 21:                                               ; preds = %._crit_edge.i, %13
   %22 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %16, %13 ]
@@ -24557,7 +24557,7 @@ define hidden { i64, ptr } @"_ZN90_$LT$futures_lite..io..WriteAllFuture$LT$W$GT$
 23:                                               ; preds = %18
   %24 = extractvalue { i64, ptr } %19, 1
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %._crit_edge.i, label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit.thread"
+  br i1 %25, label %._crit_edge.i, label %30
 
 ._crit_edge.i:                                    ; preds = %23
   %.pre.i = load i64, ptr %7, align 8, !alias.scope !6550, !noalias !6553
@@ -24571,52 +24571,59 @@ define hidden { i64, ptr } @"_ZN90_$LT$futures_lite..io..WriteAllFuture$LT$W$GT$
   %29 = tail call { i64, ptr } @"_ZN65_$LT$async_fs..File$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h7d7cf6fc4ab77d55E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef range(i64 1, 0) %11)
   br label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit"
 
-"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit": ; preds = %26, %28
-  %.pn = phi { i64, ptr } [ %29, %28 ], [ %27, %26 ]
-  %.sroa.0.1.i = extractvalue { i64, ptr } %.pn, 0
-  %.sroa.5.1.i = extractvalue { i64, ptr } %.pn, 1
-  %30 = icmp eq i64 %.sroa.0.1.i, 2
-  br i1 %30, label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit.thread", label %33
+30:                                               ; preds = %23, %18
+  %.sroa.5.0.i = phi ptr [ undef, %18 ], [ %24, %23 ]
+  %.sroa.0.0.i = phi i64 [ 2, %18 ], [ 1, %23 ]
+  %31 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %32 = insertvalue { i64, ptr } %31, ptr %.sroa.5.0.i, 1
+  br label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit"
 
-"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit.thread": ; preds = %23, %18, %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit", %33, %41, %9
-  %.sroa.5.0 = phi ptr [ null, %9 ], [ inttoptr (i64 98784247811 to ptr), %41 ], [ undef, %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit" ], [ %.sroa.5.1.i, %33 ], [ undef, %18 ], [ %24, %23 ]
-  %.sroa.0.0 = phi i64 [ 0, %9 ], [ 0, %41 ], [ 1, %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit" ], [ 0, %33 ], [ 1, %18 ], [ 0, %23 ]
-  %31 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %32 = insertvalue { i64, ptr } %31, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %32
+"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit": ; preds = %26, %28, %30
+  %.merged.i = phi { i64, ptr } [ %32, %30 ], [ %29, %28 ], [ %27, %26 ]
+  %33 = extractvalue { i64, ptr } %.merged.i, 0
+  %34 = extractvalue { i64, ptr } %.merged.i, 1
+  %35 = icmp eq i64 %33, 2
+  br i1 %35, label %36, label %39
 
-33:                                               ; preds = %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit"
-  %34 = ptrtoint ptr %.sroa.5.1.i to i64
-  %switch = icmp eq i64 %.sroa.0.1.i, 0
-  br i1 %switch, label %35, label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit.thread"
+36:                                               ; preds = %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit", %39, %47, %9
+  %.sroa.5.0 = phi ptr [ null, %9 ], [ inttoptr (i64 98784247811 to ptr), %47 ], [ undef, %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit" ], [ %34, %39 ]
+  %.sroa.0.0 = phi i64 [ 0, %9 ], [ 0, %47 ], [ 1, %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit" ], [ 0, %39 ]
+  %37 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %38 = insertvalue { i64, ptr } %37, ptr %.sroa.5.0, 1
+  ret { i64, ptr } %38
 
-35:                                               ; preds = %33
+39:                                               ; preds = %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit"
+  %40 = ptrtoint ptr %34 to i64
+  %switch = icmp eq i64 %33, 0
+  br i1 %switch, label %41, label %36
+
+41:                                               ; preds = %39
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
   store i64 0, ptr %5, align 8
-  %.not = icmp ult i64 %11, %34
-  br i1 %.not, label %36, label %41
+  %.not = icmp ult i64 %11, %40
+  br i1 %.not, label %42, label %47
 
-36:                                               ; preds = %35
+42:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.76e300503c7b52d503bdded17678fcec.75, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %40, align 8
+  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 0, ptr %46, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.76e300503c7b52d503bdded17678fcec.229) #36
   unreachable
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %10, i64 %34
-  %43 = sub nuw i64 %11, %34
-  store ptr %42, ptr %4, align 8
-  store i64 %43, ptr %5, align 8
-  %44 = icmp eq ptr %.sroa.5.1.i, null
-  br i1 %44, label %"_ZN87_$LT$futures_lite..io..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hcc870b6235eded7dE.exit.thread", label %9
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds i8, ptr %10, i64 %40
+  %49 = sub nuw i64 %11, %40
+  store ptr %48, ptr %4, align 8
+  store i64 %49, ptr %5, align 8
+  %50 = icmp eq ptr %34, null
+  br i1 %50, label %36, label %9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -24398,12 +24398,12 @@ _ZN4llvm9StringMapIPNS_2cl6OptionENS_15MallocAllocatorEE5beginEv.exit: ; preds =
   %.pre = load ptr, ptr %.sroa.0.1.i, align 8
   br label %15
 
-_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit: ; preds = %.critedge23
+_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit: ; preds = %.critedge24
   %.not = icmp eq ptr %storemerge.i, %13
   br i1 %.not, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit._crit_edge, label %15, !llvm.loop !349
 
 15:                                               ; preds = %.lr.ph, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit
-  %16 = phi ptr [ %.pre, %.lr.ph ], [ %56, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit ]
+  %16 = phi ptr [ %.pre, %.lr.ph ], [ %57, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit ]
   %.sroa.011.021 = phi ptr [ %.sroa.0.1.i, %.lr.ph ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -24415,7 +24415,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringM
   %24 = icmp ne i16 %22, 1
   %.not5 = or i1 %1, %24
   %or.cond = and i1 %23, %.not5
-  br i1 %or.cond, label %25, label %.critedge23.preheader
+  br i1 %or.cond, label %25, label %.critedge24.preheader
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %5, align 8, !noalias !350
@@ -24434,7 +24434,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringM
   %.025.i.i = phi ptr [ %36, %35 ], [ %27, %29 ]
   %33 = load ptr, ptr %.025.i.i, align 8, !noalias !350
   %34 = icmp eq ptr %33, %18
-  br i1 %34, label %.critedge23.preheader, label %35
+  br i1 %34, label %.critedge24.preheader, label %35
 
 35:                                               ; preds = %.lr.ph.i.i
   %36 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -24450,78 +24450,78 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringM
   %39 = add nuw i32 %30, 1
   store i32 %39, ptr %7, align 4, !noalias !350
   store ptr %18, ptr %32, align 8, !noalias !350
-  br label %42
+  br label %43
 
 _ZN4llvm15SmallPtrSetImplIPNS_2cl6OptionEE6insertES3_.exit: ; preds = %._crit_edge.i.i, %25
   %40 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %18) #25, !noalias !350
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %40, 1
-  %41 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %41, label %42, label %.critedge23.preheader
+  %41 = extractvalue { ptr, i8 } %40, 1
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %.critedge24.preheader
 
-42:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPNS_2cl6OptionEE6insertES3_.exit
-  %43 = load ptr, ptr %.sroa.011.021, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %48 = add i64 %47, 1
-  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %.not.i.i.i = icmp ugt i64 %48, %49
-  br i1 %.not.i.i.i, label %50, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKcPNS_2cl6OptionEELb1EE9push_backES7_.exit
+43:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPNS_2cl6OptionEE6insertES3_.exit
+  %44 = load ptr, ptr %.sroa.011.021, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  %49 = add i64 %48, 1
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  %.not.i.i.i = icmp ugt i64 %49, %50
+  br i1 %.not.i.i.i, label %51, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKcPNS_2cl6OptionEELb1EE9push_backES7_.exit
 
-50:                                               ; preds = %42
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %48, i64 noundef 16) #25
+51:                                               ; preds = %43
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %49, i64 noundef 16) #25
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKcPNS_2cl6OptionEELb1EE9push_backES7_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKcPNS_2cl6OptionEELb1EE9push_backES7_.exit: ; preds = %42, %50
-  %51 = load ptr, ptr %0, align 8
-  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %53 = getelementptr inbounds %"struct.std::pair.259", ptr %51, i64 %52
-  store ptr %44, ptr %53, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %53, i64 8
-  store ptr %46, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %55 = add i64 %54, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %55) #25
-  br label %.critedge23.preheader
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKcPNS_2cl6OptionEELb1EE9push_backES7_.exit: ; preds = %43, %51
+  %52 = load ptr, ptr %0, align 8
+  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  %54 = getelementptr inbounds %"struct.std::pair.259", ptr %52, i64 %53
+  store ptr %45, ptr %54, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %54, i64 8
+  store ptr %47, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  %56 = add i64 %55, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %56) #25
+  br label %.critedge24.preheader
 
-.critedge23.preheader:                            ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_2cl6OptionEE6insertES3_.exit, %15, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKcPNS_2cl6OptionEELb1EE9push_backES7_.exit
-  br label %.critedge23
+.critedge24.preheader:                            ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_2cl6OptionEE6insertES3_.exit, %15, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKcPNS_2cl6OptionEELb1EE9push_backES7_.exit
+  br label %.critedge24
 
-.critedge23:                                      ; preds = %.critedge23.backedge, %.critedge23.preheader
-  %.pn.i = phi ptr [ %.sroa.011.021, %.critedge23.preheader ], [ %storemerge.i, %.critedge23.backedge ]
+.critedge24:                                      ; preds = %.critedge24.backedge, %.critedge24.preheader
+  %.pn.i = phi ptr [ %.sroa.011.021, %.critedge24.preheader ], [ %storemerge.i, %.critedge24.backedge ]
   %storemerge.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
-  %56 = load ptr, ptr %storemerge.i, align 8
-  %magicptr.i.i = ptrtoint ptr %56 to i64
+  %57 = load ptr, ptr %storemerge.i, align 8
+  %magicptr.i.i = ptrtoint ptr %57 to i64
   switch i64 %magicptr.i.i, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit [
-    i64 0, label %.critedge23.backedge
-    i64 -8, label %.critedge23.backedge
+    i64 0, label %.critedge24.backedge
+    i64 -8, label %.critedge24.backedge
   ]
 
-.critedge23.backedge:                             ; preds = %.critedge23, %.critedge23
-  br label %.critedge23, !llvm.loop !63
+.critedge24.backedge:                             ; preds = %.critedge24, %.critedge24
+  br label %.critedge24, !llvm.loop !63
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit, %_ZN4llvm9StringMapIPNS_2cl6OptionENS_15MallocAllocatorEE5beginEv.exit
-  %57 = load ptr, ptr %0, align 8
-  %58 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %59 = icmp slt i64 %58, 2
-  br i1 %59, label %_ZN4llvm14array_pod_sortIPSt4pairIPKcPNS_2cl6OptionEEEEvT_S9_PFiPKNSt15iterator_traitsIS9_E10value_typeESE_E.exit, label %60
+  %58 = load ptr, ptr %0, align 8
+  %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  %60 = icmp slt i64 %59, 2
+  br i1 %60, label %_ZN4llvm14array_pod_sortIPSt4pairIPKcPNS_2cl6OptionEEEEvT_S9_PFiPKNSt15iterator_traitsIS9_E10value_typeESE_E.exit, label %61
 
-60:                                               ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit._crit_edge
-  call void @qsort(ptr noundef %57, i64 noundef %58, i64 noundef 16, ptr noundef nonnull @_ZL14OptNameComparePKSt4pairIPKcPN4llvm2cl6OptionEES8_) #25
+61:                                               ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit._crit_edge
+  call void @qsort(ptr noundef %58, i64 noundef %59, i64 noundef 16, ptr noundef nonnull @_ZL14OptNameComparePKSt4pairIPKcPN4llvm2cl6OptionEES8_) #25
   br label %_ZN4llvm14array_pod_sortIPSt4pairIPKcPNS_2cl6OptionEEEEvT_S9_PFiPKNSt15iterator_traitsIS9_E10value_typeESE_E.exit
 
-_ZN4llvm14array_pod_sortIPSt4pairIPKcPNS_2cl6OptionEEEEvT_S9_PFiPKNSt15iterator_traitsIS9_E10value_typeESE_E.exit: ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit._crit_edge, %60
-  %61 = load ptr, ptr %5, align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = icmp eq ptr %61, %62
-  br i1 %63, label %_ZN4llvm11SmallPtrSetIPNS_2cl6OptionELj32EED2Ev.exit, label %64
+_ZN4llvm14array_pod_sortIPSt4pairIPKcPNS_2cl6OptionEEEEvT_S9_PFiPKNSt15iterator_traitsIS9_E10value_typeESE_E.exit: ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringMapEntryIS4_EEEppEv.exit._crit_edge, %61
+  %62 = load ptr, ptr %5, align 8
+  %63 = load ptr, ptr %3, align 8
+  %64 = icmp eq ptr %62, %63
+  br i1 %64, label %_ZN4llvm11SmallPtrSetIPNS_2cl6OptionELj32EED2Ev.exit, label %65
 
-64:                                               ; preds = %_ZN4llvm14array_pod_sortIPSt4pairIPKcPNS_2cl6OptionEEEEvT_S9_PFiPKNSt15iterator_traitsIS9_E10value_typeESE_E.exit
-  call void @free(ptr noundef %61) #25
+65:                                               ; preds = %_ZN4llvm14array_pod_sortIPSt4pairIPKcPNS_2cl6OptionEEEEvT_S9_PFiPKNSt15iterator_traitsIS9_E10value_typeESE_E.exit
+  call void @free(ptr noundef %62) #25
   br label %_ZN4llvm11SmallPtrSetIPNS_2cl6OptionELj32EED2Ev.exit
 
-_ZN4llvm11SmallPtrSetIPNS_2cl6OptionELj32EED2Ev.exit: ; preds = %_ZN4llvm14array_pod_sortIPSt4pairIPKcPNS_2cl6OptionEEEEvT_S9_PFiPKNSt15iterator_traitsIS9_E10value_typeESE_E.exit, %64
+_ZN4llvm11SmallPtrSetIPNS_2cl6OptionELj32EED2Ev.exit: ; preds = %_ZN4llvm14array_pod_sortIPSt4pairIPKcPNS_2cl6OptionEEEEvT_S9_PFiPKNSt15iterator_traitsIS9_E10value_typeESE_E.exit, %65
   ret void
 }
 

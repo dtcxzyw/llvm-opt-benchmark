@@ -1133,8 +1133,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator20LanguageCompilerRuleERKNSt7
   store ptr null, ptr %16, align 8, !alias.scope !24, !noalias !21
   %17 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 11, ptr %17, align 8, !alias.scope !27, !noalias !21
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !27, !noalias !21
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !27, !noalias !21
   %18 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr null, ptr %18, align 8, !alias.scope !27, !noalias !21
   %19 = getelementptr inbounds i8, ptr %6, i64 48
@@ -1143,15 +1143,15 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator20LanguageCompilerRuleERKNSt7
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
   store i64 %21, ptr %19, align 8, !alias.scope !30, !noalias !21
-  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %22, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !30, !noalias !21
+  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %22, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !30, !noalias !21
   %23 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr %7, ptr %23, align 8, !alias.scope !30, !noalias !21
   %24 = getelementptr inbounds i8, ptr %6, i64 72
   %25 = select i1 %11, i64 9, i64 11
   store i64 %25, ptr %24, align 8, !alias.scope !34, !noalias !21
-  %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds i8, ptr %6, i64 80
-  store ptr %12, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !alias.scope !34, !noalias !21
+  %.sroa.2.0..sroa_idx.i24.i = getelementptr inbounds i8, ptr %6, i64 80
+  store ptr %12, ptr %.sroa.2.0..sroa_idx.i24.i, align 8, !alias.scope !34, !noalias !21
   %26 = getelementptr inbounds i8, ptr %6, i64 88
   store ptr null, ptr %26, align 8, !alias.scope !34, !noalias !21
   %27 = getelementptr inbounds i8, ptr %6, i64 96
@@ -1159,8 +1159,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator20LanguageCompilerRuleERKNSt7
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
   store i64 %29, ptr %27, align 8, !alias.scope !37, !noalias !21
-  %.sroa.2.0..sroa_idx.i36.i = getelementptr inbounds i8, ptr %6, i64 104
-  store ptr %30, ptr %.sroa.2.0..sroa_idx.i36.i, align 8, !alias.scope !37, !noalias !21
+  %.sroa.2.0..sroa_idx.i32.i = getelementptr inbounds i8, ptr %6, i64 104
+  store ptr %30, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !alias.scope !37, !noalias !21
   %31 = getelementptr inbounds i8, ptr %6, i64 112
   store ptr null, ptr %31, align 8, !alias.scope !37, !noalias !21
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %6, i64 5)
@@ -1203,8 +1203,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator29LanguagePreprocessAndScanRu
   store ptr null, ptr %14, align 8, !alias.scope !43, !noalias !40
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 18, ptr %15, align 8, !alias.scope !46, !noalias !40
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr @.str.4, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !46, !noalias !40
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr @.str.4, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !46, !noalias !40
   %16 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %16, align 8, !alias.scope !46, !noalias !40
   %17 = getelementptr inbounds i8, ptr %5, i64 48
@@ -1213,8 +1213,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator29LanguagePreprocessAndScanRu
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
   store i64 %19, ptr %17, align 8, !alias.scope !49, !noalias !40
-  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %20, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !49, !noalias !40
+  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %20, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !49, !noalias !40
   %21 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %7, ptr %21, align 8, !alias.scope !49, !noalias !40
   %22 = getelementptr inbounds i8, ptr %5, i64 72
@@ -1226,8 +1226,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator29LanguagePreprocessAndScanRu
   store ptr %24, ptr %25, align 8, !noalias !40
   store i8 95, ptr %24, align 8, !noalias !40
   store i64 1, ptr %22, align 8, !alias.scope !53, !noalias !40
-  %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr %24, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !alias.scope !53, !noalias !40
+  %.sroa.2.0..sroa_idx.i24.i = getelementptr inbounds i8, ptr %5, i64 80
+  store ptr %24, ptr %.sroa.2.0..sroa_idx.i24.i, align 8, !alias.scope !53, !noalias !40
   %26 = getelementptr inbounds i8, ptr %5, i64 88
   store ptr null, ptr %26, align 8, !alias.scope !53, !noalias !40
   %27 = getelementptr inbounds i8, ptr %5, i64 96
@@ -1235,8 +1235,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator29LanguagePreprocessAndScanRu
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
   store i64 %29, ptr %27, align 8, !alias.scope !56, !noalias !40
-  %.sroa.2.0..sroa_idx.i36.i = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr %30, ptr %.sroa.2.0..sroa_idx.i36.i, align 8, !alias.scope !56, !noalias !40
+  %.sroa.2.0..sroa_idx.i32.i = getelementptr inbounds i8, ptr %5, i64 104
+  store ptr %30, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !alias.scope !56, !noalias !40
   %31 = getelementptr inbounds i8, ptr %5, i64 112
   store ptr null, ptr %31, align 8, !alias.scope !56, !noalias !40
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %5, i64 5)
@@ -1276,8 +1276,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator16LanguageScanRuleERKNSt7__cx
   store ptr null, ptr %14, align 8, !alias.scope !62, !noalias !59
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 7, ptr %15, align 8, !alias.scope !65, !noalias !59
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr @.str.5, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !65, !noalias !59
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr @.str.5, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !65, !noalias !59
   %16 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %16, align 8, !alias.scope !65, !noalias !59
   %17 = getelementptr inbounds i8, ptr %5, i64 48
@@ -1286,8 +1286,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator16LanguageScanRuleERKNSt7__cx
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
   store i64 %19, ptr %17, align 8, !alias.scope !68, !noalias !59
-  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %20, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !68, !noalias !59
+  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %20, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !68, !noalias !59
   %21 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %7, ptr %21, align 8, !alias.scope !68, !noalias !59
   %22 = getelementptr inbounds i8, ptr %5, i64 72
@@ -1299,8 +1299,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator16LanguageScanRuleERKNSt7__cx
   store ptr %24, ptr %25, align 8, !noalias !59
   store i8 95, ptr %24, align 8, !noalias !59
   store i64 1, ptr %22, align 8, !alias.scope !72, !noalias !59
-  %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr %24, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !alias.scope !72, !noalias !59
+  %.sroa.2.0..sroa_idx.i24.i = getelementptr inbounds i8, ptr %5, i64 80
+  store ptr %24, ptr %.sroa.2.0..sroa_idx.i24.i, align 8, !alias.scope !72, !noalias !59
   %26 = getelementptr inbounds i8, ptr %5, i64 88
   store ptr null, ptr %26, align 8, !alias.scope !72, !noalias !59
   %27 = getelementptr inbounds i8, ptr %5, i64 96
@@ -1308,8 +1308,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator16LanguageScanRuleERKNSt7__cx
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
   store i64 %29, ptr %27, align 8, !alias.scope !75, !noalias !59
-  %.sroa.2.0..sroa_idx.i36.i = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr %30, ptr %.sroa.2.0..sroa_idx.i36.i, align 8, !alias.scope !75, !noalias !59
+  %.sroa.2.0..sroa_idx.i32.i = getelementptr inbounds i8, ptr %5, i64 104
+  store ptr %30, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !alias.scope !75, !noalias !59
   %31 = getelementptr inbounds i8, ptr %5, i64 112
   store ptr null, ptr %31, align 8, !alias.scope !75, !noalias !59
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %5, i64 5)
@@ -1361,14 +1361,14 @@ define dso_local noundef zeroext i1 @_ZNK22cmNinjaTargetGenerator18CompileWithDe
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
   store i64 %10, ptr %8, align 8, !alias.scope !84, !noalias !81
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %11, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !84, !noalias !81
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %11, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !84, !noalias !81
   %12 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr null, ptr %12, align 8, !alias.scope !84, !noalias !81
   %13 = getelementptr inbounds i8, ptr %3, i64 48
   store i64 21, ptr %13, align 8, !alias.scope !87, !noalias !81
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !87, !noalias !81
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !87, !noalias !81
   %14 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr null, ptr %14, align 8, !alias.scope !87, !noalias !81
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr nonnull %3, i64 3)
@@ -1410,8 +1410,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator18LanguageDyndepRuleERKNSt7__
   store ptr null, ptr %14, align 8, !alias.scope !93, !noalias !90
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 9, ptr %15, align 8, !alias.scope !96, !noalias !90
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr @.str.10, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !96, !noalias !90
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr @.str.10, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !96, !noalias !90
   %16 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %16, align 8, !alias.scope !96, !noalias !90
   %17 = getelementptr inbounds i8, ptr %5, i64 48
@@ -1420,8 +1420,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator18LanguageDyndepRuleERKNSt7__
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
   store i64 %19, ptr %17, align 8, !alias.scope !99, !noalias !90
-  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %20, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !99, !noalias !90
+  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %20, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !99, !noalias !90
   %21 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %7, ptr %21, align 8, !alias.scope !99, !noalias !90
   %22 = getelementptr inbounds i8, ptr %5, i64 72
@@ -1433,8 +1433,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator18LanguageDyndepRuleERKNSt7__
   store ptr %24, ptr %25, align 8, !noalias !90
   store i8 95, ptr %24, align 8, !noalias !90
   store i64 1, ptr %22, align 8, !alias.scope !103, !noalias !90
-  %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr %24, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !alias.scope !103, !noalias !90
+  %.sroa.2.0..sroa_idx.i24.i = getelementptr inbounds i8, ptr %5, i64 80
+  store ptr %24, ptr %.sroa.2.0..sroa_idx.i24.i, align 8, !alias.scope !103, !noalias !90
   %26 = getelementptr inbounds i8, ptr %5, i64 88
   store ptr null, ptr %26, align 8, !alias.scope !103, !noalias !90
   %27 = getelementptr inbounds i8, ptr %5, i64 96
@@ -1442,8 +1442,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator18LanguageDyndepRuleERKNSt7__
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
   store i64 %29, ptr %27, align 8, !alias.scope !106, !noalias !90
-  %.sroa.2.0..sroa_idx.i36.i = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr %30, ptr %.sroa.2.0..sroa_idx.i36.i, align 8, !alias.scope !106, !noalias !90
+  %.sroa.2.0..sroa_idx.i32.i = getelementptr inbounds i8, ptr %5, i64 104
+  store ptr %30, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !alias.scope !106, !noalias !90
   %31 = getelementptr inbounds i8, ptr %5, i64 112
   store ptr null, ptr %31, align 8, !alias.scope !106, !noalias !90
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %5, i64 5)
@@ -2101,14 +2101,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %217
   %235 = extractvalue { i64, ptr } %234, 0
   %236 = extractvalue { i64, ptr } %234, 1
   store i64 %235, ptr %233, align 8, !alias.scope !115, !noalias !112
-  %.sroa.2.0..sroa_idx.i11.i = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %236, ptr %.sroa.2.0..sroa_idx.i11.i, align 8, !alias.scope !115, !noalias !112
+  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %236, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !alias.scope !115, !noalias !112
   %237 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr null, ptr %237, align 8, !alias.scope !115, !noalias !112
   %238 = getelementptr inbounds i8, ptr %7, i64 48
   store i64 24, ptr %238, align 8, !alias.scope !118, !noalias !112
-  %.sroa.2.0..sroa_idx.i20.i = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr @.str.18, ptr %.sroa.2.0..sroa_idx.i20.i, align 8, !alias.scope !118, !noalias !112
+  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %7, i64 56
+  store ptr @.str.18, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !118, !noalias !112
   %239 = getelementptr inbounds i8, ptr %7, i64 64
   store ptr null, ptr %239, align 8, !alias.scope !118, !noalias !112
   %240 = getelementptr inbounds i8, ptr %7, i64 72
@@ -2116,14 +2116,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %217
   %242 = extractvalue { i64, ptr } %241, 0
   %243 = extractvalue { i64, ptr } %241, 1
   store i64 %242, ptr %240, align 8, !alias.scope !121, !noalias !112
-  %.sroa.2.0..sroa_idx.i29.i = getelementptr inbounds i8, ptr %7, i64 80
-  store ptr %243, ptr %.sroa.2.0..sroa_idx.i29.i, align 8, !alias.scope !121, !noalias !112
+  %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %7, i64 80
+  store ptr %243, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !121, !noalias !112
   %244 = getelementptr inbounds i8, ptr %7, i64 88
   store ptr null, ptr %244, align 8, !alias.scope !121, !noalias !112
   %245 = getelementptr inbounds i8, ptr %7, i64 96
   store i64 24, ptr %245, align 8, !alias.scope !124, !noalias !112
-  %.sroa.2.0..sroa_idx.i38.i = getelementptr inbounds i8, ptr %7, i64 104
-  store ptr @.str.19, ptr %.sroa.2.0..sroa_idx.i38.i, align 8, !alias.scope !124, !noalias !112
+  %.sroa.2.0..sroa_idx.i34.i = getelementptr inbounds i8, ptr %7, i64 104
+  store ptr @.str.19, ptr %.sroa.2.0..sroa_idx.i34.i, align 8, !alias.scope !124, !noalias !112
   %246 = getelementptr inbounds i8, ptr %7, i64 112
   store ptr null, ptr %246, align 8, !alias.scope !124, !noalias !112
   %247 = getelementptr inbounds i8, ptr %7, i64 120
@@ -2131,14 +2131,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %217
   %249 = extractvalue { i64, ptr } %248, 0
   %250 = extractvalue { i64, ptr } %248, 1
   store i64 %249, ptr %247, align 8, !alias.scope !127, !noalias !112
-  %.sroa.2.0..sroa_idx.i47.i = getelementptr inbounds i8, ptr %7, i64 128
-  store ptr %250, ptr %.sroa.2.0..sroa_idx.i47.i, align 8, !alias.scope !127, !noalias !112
+  %.sroa.2.0..sroa_idx.i42.i = getelementptr inbounds i8, ptr %7, i64 128
+  store ptr %250, ptr %.sroa.2.0..sroa_idx.i42.i, align 8, !alias.scope !127, !noalias !112
   %251 = getelementptr inbounds i8, ptr %7, i64 136
   store ptr null, ptr %251, align 8, !alias.scope !127, !noalias !112
   %252 = getelementptr inbounds i8, ptr %7, i64 144
   store i64 53, ptr %252, align 8, !alias.scope !130, !noalias !112
-  %.sroa.2.0..sroa_idx.i56.i = getelementptr inbounds i8, ptr %7, i64 152
-  store ptr @.str.20, ptr %.sroa.2.0..sroa_idx.i56.i, align 8, !alias.scope !130, !noalias !112
+  %.sroa.2.0..sroa_idx.i50.i = getelementptr inbounds i8, ptr %7, i64 152
+  store ptr @.str.20, ptr %.sroa.2.0..sroa_idx.i50.i, align 8, !alias.scope !130, !noalias !112
   %253 = getelementptr inbounds i8, ptr %7, i64 160
   store ptr null, ptr %253, align 8, !alias.scope !130, !noalias !112
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %32, ptr nonnull %7, i64 7)
@@ -2840,8 +2840,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %31
   %43 = extractvalue { i64, ptr } %42, 0
   %44 = extractvalue { i64, ptr } %42, 1
   store i64 %43, ptr %41, align 8, !alias.scope !141, !noalias !138
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %44, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !141, !noalias !138
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %44, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !141, !noalias !138
   %45 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr null, ptr %45, align 8, !alias.scope !141, !noalias !138
   %46 = getelementptr inbounds i8, ptr %7, i64 48
@@ -2853,8 +2853,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %31
   store ptr %48, ptr %49, align 8, !noalias !138
   store i8 34, ptr %48, align 8, !noalias !138
   store i64 1, ptr %46, align 8, !alias.scope !144, !noalias !138
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr %48, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !144, !noalias !138
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %7, i64 56
+  store ptr %48, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !144, !noalias !138
   %50 = getelementptr inbounds i8, ptr %7, i64 64
   store ptr null, ptr %50, align 8, !alias.scope !144, !noalias !138
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr nonnull %7, i64 3)
@@ -2985,8 +2985,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %88 = extractvalue { i64, ptr } %87, 0
   %89 = extractvalue { i64, ptr } %87, 1
   store i64 %88, ptr %86, align 8, !alias.scope !153, !noalias !150
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %89, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !153, !noalias !150
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %89, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !153, !noalias !150
   %90 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %18, ptr %90, align 8, !alias.scope !153, !noalias !150
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr nonnull %6, i64 2)
@@ -3835,8 +3835,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %23
   %36 = extractvalue { i64, ptr } %35, 0
   %37 = extractvalue { i64, ptr } %35, 1
   store i64 %36, ptr %34, align 8, !alias.scope !173, !noalias !172
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %37, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !173, !noalias !172
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %37, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !173, !noalias !172
   %38 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %7, ptr %38, align 8, !alias.scope !173, !noalias !172
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull %4, i64 2)
@@ -3916,8 +3916,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator17GetObjectFilePathEPK12cmSou
   store ptr %17, ptr %18, align 8, !noalias !183
   store i8 47, ptr %17, align 8, !noalias !183
   store i64 1, ptr %15, align 8, !alias.scope !184, !noalias !183
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %17, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !184, !noalias !183
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %17, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !184, !noalias !183
   %19 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %19, align 8, !alias.scope !184, !noalias !183
   %20 = getelementptr inbounds i8, ptr %5, i64 48
@@ -3925,8 +3925,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator17GetObjectFilePathEPK12cmSou
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
   store i64 %22, ptr %20, align 8, !alias.scope !187, !noalias !183
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %23, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !187, !noalias !183
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %23, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !187, !noalias !183
   %24 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr null, ptr %24, align 8, !alias.scope !187, !noalias !183
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %5, i64 3)
@@ -4028,8 +4028,8 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22cmNinjaTargetG
   %36 = extractvalue { i64, ptr } %35, 0
   %37 = extractvalue { i64, ptr } %35, 1
   store i64 %36, ptr %34, align 8, !alias.scope !197, !noalias !194
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %37, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !197, !noalias !194
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %37, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !197, !noalias !194
   %38 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr null, ptr %38, align 8, !alias.scope !197, !noalias !194
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr nonnull %7, i64 2)
@@ -4104,8 +4104,8 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22cmNinjaTargetG
   store ptr %62, ptr %63, align 8, !noalias !206
   store i8 47, ptr %62, align 8, !noalias !206
   store i64 1, ptr %60, align 8, !alias.scope !207, !noalias !206
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %62, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !207, !noalias !206
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %62, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !207, !noalias !206
   %64 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %64, align 8, !alias.scope !207, !noalias !206
   %65 = getelementptr inbounds i8, ptr %5, i64 48
@@ -4113,8 +4113,8 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22cmNinjaTargetG
   %67 = extractvalue { i64, ptr } %66, 0
   %68 = extractvalue { i64, ptr } %66, 1
   store i64 %67, ptr %65, align 8, !alias.scope !210, !noalias !206
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %68, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !210, !noalias !206
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %68, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !210, !noalias !206
   %69 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr null, ptr %69, align 8, !alias.scope !210, !noalias !206
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %5, i64 3)
@@ -4199,8 +4199,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator32GetClangTidyReplacementsFil
   store ptr %29, ptr %30, align 8, !noalias !213
   store i8 47, ptr %29, align 8, !noalias !213
   store i64 1, ptr %27, align 8, !alias.scope !219, !noalias !213
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %29, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !219, !noalias !213
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr %29, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !219, !noalias !213
   %31 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr null, ptr %31, align 8, !alias.scope !219, !noalias !213
   %32 = getelementptr inbounds i8, ptr %8, i64 48
@@ -4208,8 +4208,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator32GetClangTidyReplacementsFil
   %34 = extractvalue { i64, ptr } %33, 0
   %35 = extractvalue { i64, ptr } %33, 1
   store i64 %34, ptr %32, align 8, !alias.scope !222, !noalias !213
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %8, i64 56
-  store ptr %35, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !222, !noalias !213
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %8, i64 56
+  store ptr %35, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !222, !noalias !213
   %36 = getelementptr inbounds i8, ptr %8, i64 64
   store ptr null, ptr %36, align 8, !alias.scope !222, !noalias !213
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr nonnull %8, i64 3)
@@ -4264,8 +4264,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %48
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
   store i64 %61, ptr %59, align 8, !alias.scope !232, !noalias !231
-  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %62, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !alias.scope !232, !noalias !231
+  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %62, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !232, !noalias !231
   %63 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %12, ptr %63, align 8, !alias.scope !232, !noalias !231
   %64 = getelementptr inbounds i8, ptr %6, i64 48
@@ -4274,8 +4274,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %48
   %66 = extractvalue { i64, ptr } %65, 0
   %67 = extractvalue { i64, ptr } %65, 1
   store i64 %66, ptr %64, align 8, !alias.scope !236, !noalias !231
-  %.sroa.2.0..sroa_idx.i19.i = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %67, ptr %.sroa.2.0..sroa_idx.i19.i, align 8, !alias.scope !236, !noalias !231
+  %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %67, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !236, !noalias !231
   %68 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr %13, ptr %68, align 8, !alias.scope !236, !noalias !231
   %69 = getelementptr inbounds i8, ptr %6, i64 72
@@ -4287,8 +4287,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %48
   store ptr %71, ptr %72, align 8, !noalias !231
   store i8 47, ptr %71, align 8, !noalias !231
   store i64 1, ptr %69, align 8, !alias.scope !240, !noalias !231
-  %.sroa.2.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %6, i64 80
-  store ptr %71, ptr %.sroa.2.0..sroa_idx.i28.i, align 8, !alias.scope !240, !noalias !231
+  %.sroa.2.0..sroa_idx.i25.i = getelementptr inbounds i8, ptr %6, i64 80
+  store ptr %71, ptr %.sroa.2.0..sroa_idx.i25.i, align 8, !alias.scope !240, !noalias !231
   %73 = getelementptr inbounds i8, ptr %6, i64 88
   store ptr null, ptr %73, align 8, !alias.scope !240, !noalias !231
   %74 = getelementptr inbounds i8, ptr %6, i64 96
@@ -4296,14 +4296,14 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %48
   %76 = extractvalue { i64, ptr } %75, 0
   %77 = extractvalue { i64, ptr } %75, 1
   store i64 %76, ptr %74, align 8, !alias.scope !243, !noalias !231
-  %.sroa.2.0..sroa_idx.i37.i = getelementptr inbounds i8, ptr %6, i64 104
-  store ptr %77, ptr %.sroa.2.0..sroa_idx.i37.i, align 8, !alias.scope !243, !noalias !231
+  %.sroa.2.0..sroa_idx.i33.i = getelementptr inbounds i8, ptr %6, i64 104
+  store ptr %77, ptr %.sroa.2.0..sroa_idx.i33.i, align 8, !alias.scope !243, !noalias !231
   %78 = getelementptr inbounds i8, ptr %6, i64 112
   store ptr null, ptr %78, align 8, !alias.scope !243, !noalias !231
   %79 = getelementptr inbounds i8, ptr %6, i64 120
   store i64 5, ptr %79, align 8, !alias.scope !246, !noalias !231
-  %.sroa.2.0..sroa_idx.i46.i = getelementptr inbounds i8, ptr %6, i64 128
-  store ptr @.str.27, ptr %.sroa.2.0..sroa_idx.i46.i, align 8, !alias.scope !246, !noalias !231
+  %.sroa.2.0..sroa_idx.i41.i = getelementptr inbounds i8, ptr %6, i64 128
+  store ptr @.str.27, ptr %.sroa.2.0..sroa_idx.i41.i, align 8, !alias.scope !246, !noalias !231
   %80 = getelementptr inbounds i8, ptr %6, i64 136
   store ptr null, ptr %80, align 8, !alias.scope !246, !noalias !231
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr nonnull %6, i64 6)
@@ -4425,8 +4425,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %34
   store ptr %12, ptr %46, align 8, !alias.scope !249, !noalias !255
   %47 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 4, ptr %47, align 8, !alias.scope !256, !noalias !255
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr @.str.31, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !256, !noalias !255
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr @.str.31, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !256, !noalias !255
   %48 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr null, ptr %48, align 8, !alias.scope !256, !noalias !255
   %49 = getelementptr inbounds i8, ptr %7, i64 48
@@ -4434,8 +4434,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %34
   %51 = extractvalue { i64, ptr } %50, 0
   %52 = extractvalue { i64, ptr } %50, 1
   store i64 %51, ptr %49, align 8, !alias.scope !259, !noalias !255
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr %52, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !259, !noalias !255
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %7, i64 56
+  store ptr %52, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !259, !noalias !255
   %53 = getelementptr inbounds i8, ptr %7, i64 64
   store ptr null, ptr %53, align 8, !alias.scope !259, !noalias !255
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr nonnull %7, i64 3)
@@ -4517,8 +4517,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit22: ; preds = %74
   %87 = extractvalue { i64, ptr } %86, 0
   %88 = extractvalue { i64, ptr } %86, 1
   store i64 %87, ptr %85, align 8, !alias.scope !269, !noalias !268
-  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %88, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !269, !noalias !268
+  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %88, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !269, !noalias !268
   %89 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %15, ptr %89, align 8, !alias.scope !269, !noalias !268
   %90 = getelementptr inbounds i8, ptr %5, i64 48
@@ -4530,8 +4530,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit22: ; preds = %74
   store ptr %92, ptr %93, align 8, !noalias !268
   store i8 47, ptr %92, align 8, !noalias !268
   store i64 1, ptr %90, align 8, !alias.scope !273, !noalias !268
-  %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %92, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !273, !noalias !268
+  %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %92, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !alias.scope !273, !noalias !268
   %94 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr null, ptr %94, align 8, !alias.scope !273, !noalias !268
   %95 = getelementptr inbounds i8, ptr %5, i64 72
@@ -4539,8 +4539,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit22: ; preds = %74
   %97 = extractvalue { i64, ptr } %96, 0
   %98 = extractvalue { i64, ptr } %96, 1
   store i64 %97, ptr %95, align 8, !alias.scope !276, !noalias !268
-  %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr %98, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !276, !noalias !268
+  %.sroa.2.0..sroa_idx.i23.i = getelementptr inbounds i8, ptr %5, i64 80
+  store ptr %98, ptr %.sroa.2.0..sroa_idx.i23.i, align 8, !alias.scope !276, !noalias !268
   %99 = getelementptr inbounds i8, ptr %5, i64 88
   store ptr null, ptr %99, align 8, !alias.scope !276, !noalias !268
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr nonnull %5, i64 4)
@@ -4684,8 +4684,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %25
   %38 = extractvalue { i64, ptr } %37, 0
   %39 = extractvalue { i64, ptr } %37, 1
   store i64 %38, ptr %36, align 8, !alias.scope !286, !noalias !285
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %39, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !286, !noalias !285
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %39, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !286, !noalias !285
   %40 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %9, ptr %40, align 8, !alias.scope !286, !noalias !285
   %41 = getelementptr inbounds i8, ptr %5, i64 48
@@ -4697,8 +4697,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %25
   store ptr %43, ptr %44, align 8, !noalias !285
   store i8 47, ptr %43, align 8, !noalias !285
   store i64 1, ptr %41, align 8, !alias.scope !290, !noalias !285
-  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %43, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !290, !noalias !285
+  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %43, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !290, !noalias !285
   %45 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr null, ptr %45, align 8, !alias.scope !290, !noalias !285
   %46 = getelementptr inbounds i8, ptr %5, i64 72
@@ -4706,14 +4706,14 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %25
   %48 = extractvalue { i64, ptr } %47, 0
   %49 = extractvalue { i64, ptr } %47, 1
   store i64 %48, ptr %46, align 8, !alias.scope !293, !noalias !285
-  %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr %49, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !alias.scope !293, !noalias !285
+  %.sroa.2.0..sroa_idx.i24.i = getelementptr inbounds i8, ptr %5, i64 80
+  store ptr %49, ptr %.sroa.2.0..sroa_idx.i24.i, align 8, !alias.scope !293, !noalias !285
   %50 = getelementptr inbounds i8, ptr %5, i64 88
   store ptr null, ptr %50, align 8, !alias.scope !293, !noalias !285
   %51 = getelementptr inbounds i8, ptr %5, i64 96
   store i64 3, ptr %51, align 8, !alias.scope !296, !noalias !285
-  %.sroa.2.0..sroa_idx.i36.i = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr @.str.32, ptr %.sroa.2.0..sroa_idx.i36.i, align 8, !alias.scope !296, !noalias !285
+  %.sroa.2.0..sroa_idx.i32.i = getelementptr inbounds i8, ptr %5, i64 104
+  store ptr @.str.32, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !alias.scope !296, !noalias !285
   %52 = getelementptr inbounds i8, ptr %5, i64 112
   store ptr null, ptr %52, align 8, !alias.scope !296, !noalias !285
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull %5, i64 5)
@@ -4813,8 +4813,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %4
   store ptr %32, ptr %33, align 8, !noalias !299
   store i8 47, ptr %32, align 8, !noalias !299
   store i64 1, ptr %30, align 8, !alias.scope !305, !noalias !299
-  %.sroa.2.0..sroa_idx.i11.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %32, ptr %.sroa.2.0..sroa_idx.i11.i, align 8, !alias.scope !305, !noalias !299
+  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %32, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !alias.scope !305, !noalias !299
   %34 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %34, align 8, !alias.scope !305, !noalias !299
   %35 = getelementptr inbounds i8, ptr %5, i64 48
@@ -4823,8 +4823,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %4
   %37 = extractvalue { i64, ptr } %36, 0
   %38 = extractvalue { i64, ptr } %36, 1
   store i64 %37, ptr %35, align 8, !alias.scope !308, !noalias !299
-  %.sroa.2.0..sroa_idx.i20.i = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %38, ptr %.sroa.2.0..sroa_idx.i20.i, align 8, !alias.scope !308, !noalias !299
+  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %38, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !308, !noalias !299
   %39 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %8, ptr %39, align 8, !alias.scope !308, !noalias !299
   %40 = getelementptr inbounds i8, ptr %5, i64 72
@@ -4833,8 +4833,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %4
   %42 = extractvalue { i64, ptr } %41, 0
   %43 = extractvalue { i64, ptr } %41, 1
   store i64 %42, ptr %40, align 8, !alias.scope !312, !noalias !299
-  %.sroa.2.0..sroa_idx.i29.i = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr %43, ptr %.sroa.2.0..sroa_idx.i29.i, align 8, !alias.scope !312, !noalias !299
+  %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %5, i64 80
+  store ptr %43, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !312, !noalias !299
   %44 = getelementptr inbounds i8, ptr %5, i64 88
   store ptr %9, ptr %44, align 8, !alias.scope !312, !noalias !299
   %45 = getelementptr inbounds i8, ptr %5, i64 96
@@ -4846,8 +4846,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %4
   store ptr %47, ptr %48, align 8, !noalias !299
   store i8 47, ptr %47, align 8, !noalias !299
   store i64 1, ptr %45, align 8, !alias.scope !316, !noalias !299
-  %.sroa.2.0..sroa_idx.i38.i = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr %47, ptr %.sroa.2.0..sroa_idx.i38.i, align 8, !alias.scope !316, !noalias !299
+  %.sroa.2.0..sroa_idx.i34.i = getelementptr inbounds i8, ptr %5, i64 104
+  store ptr %47, ptr %.sroa.2.0..sroa_idx.i34.i, align 8, !alias.scope !316, !noalias !299
   %49 = getelementptr inbounds i8, ptr %5, i64 112
   store ptr null, ptr %49, align 8, !alias.scope !316, !noalias !299
   %50 = getelementptr inbounds i8, ptr %5, i64 120
@@ -4855,14 +4855,14 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %4
   %52 = extractvalue { i64, ptr } %51, 0
   %53 = extractvalue { i64, ptr } %51, 1
   store i64 %52, ptr %50, align 8, !alias.scope !319, !noalias !299
-  %.sroa.2.0..sroa_idx.i47.i = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr %53, ptr %.sroa.2.0..sroa_idx.i47.i, align 8, !alias.scope !319, !noalias !299
+  %.sroa.2.0..sroa_idx.i42.i = getelementptr inbounds i8, ptr %5, i64 128
+  store ptr %53, ptr %.sroa.2.0..sroa_idx.i42.i, align 8, !alias.scope !319, !noalias !299
   %54 = getelementptr inbounds i8, ptr %5, i64 136
   store ptr null, ptr %54, align 8, !alias.scope !319, !noalias !299
   %55 = getelementptr inbounds i8, ptr %5, i64 144
   store i64 15, ptr %55, align 8, !alias.scope !322, !noalias !299
-  %.sroa.2.0..sroa_idx.i56.i = getelementptr inbounds i8, ptr %5, i64 152
-  store ptr @.str.33, ptr %.sroa.2.0..sroa_idx.i56.i, align 8, !alias.scope !322, !noalias !299
+  %.sroa.2.0..sroa_idx.i50.i = getelementptr inbounds i8, ptr %5, i64 152
+  store ptr @.str.33, ptr %.sroa.2.0..sroa_idx.i50.i, align 8, !alias.scope !322, !noalias !299
   %56 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr null, ptr %56, align 8, !alias.scope !322, !noalias !299
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %5, i64 7)
@@ -4974,8 +4974,8 @@ define dso_local void @_ZNK22cmNinjaTargetGenerator17GetTargetFilePathERKNSt7__c
   %26 = extractvalue { i64, ptr } %25, 0
   %27 = extractvalue { i64, ptr } %25, 1
   store i64 %26, ptr %24, align 8, !alias.scope !331, !noalias !325
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %27, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !331, !noalias !325
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %27, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !331, !noalias !325
   %28 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %28, align 8, !alias.scope !331, !noalias !325
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr nonnull %5, i64 2)
@@ -5212,8 +5212,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64: ; 
   store ptr %79, ptr %80, align 8, !noalias !340
   store i8 47, ptr %79, align 8, !noalias !340
   store i64 1, ptr %77, align 8, !alias.scope !341, !noalias !340
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %79, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !341, !noalias !340
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %79, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !341, !noalias !340
   %81 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr null, ptr %81, align 8, !alias.scope !341, !noalias !340
   %82 = getelementptr inbounds i8, ptr %6, i64 48
@@ -5222,8 +5222,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64: ; 
   %84 = extractvalue { i64, ptr } %83, 0
   %85 = extractvalue { i64, ptr } %83, 1
   store i64 %84, ptr %82, align 8, !alias.scope !344, !noalias !340
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %85, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !344, !noalias !340
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %85, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !344, !noalias !340
   %86 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr %18, ptr %86, align 8, !alias.scope !344, !noalias !340
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr nonnull %6, i64 3)
@@ -5869,14 +5869,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %195 = extractvalue { i64, ptr } %194, 0
   %196 = extractvalue { i64, ptr } %194, 1
   store i64 %195, ptr %193, align 8, !alias.scope !358, !noalias !355
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %55, i64 32
-  store ptr %196, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !358, !noalias !355
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %55, i64 32
+  store ptr %196, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !358, !noalias !355
   %197 = getelementptr inbounds i8, ptr %55, i64 40
   store ptr null, ptr %197, align 8, !alias.scope !358, !noalias !355
   %198 = getelementptr inbounds i8, ptr %55, i64 48
   store i64 19, ptr %198, align 8, !alias.scope !361, !noalias !355
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %55, i64 56
-  store ptr @.str.52, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !361, !noalias !355
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %55, i64 56
+  store ptr @.str.52, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !361, !noalias !355
   %199 = getelementptr inbounds i8, ptr %55, i64 64
   store ptr null, ptr %199, align 8, !alias.scope !361, !noalias !355
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %60, ptr nonnull %55, i64 3)
@@ -5942,14 +5942,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %222 = extractvalue { i64, ptr } %221, 0
   %223 = extractvalue { i64, ptr } %221, 1
   store i64 %222, ptr %220, align 8, !alias.scope !370, !noalias !367
-  %.sroa.2.0..sroa_idx.i7.i237 = getelementptr inbounds i8, ptr %54, i64 32
-  store ptr %223, ptr %.sroa.2.0..sroa_idx.i7.i237, align 8, !alias.scope !370, !noalias !367
+  %.sroa.2.0..sroa_idx.i6.i237 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr %223, ptr %.sroa.2.0..sroa_idx.i6.i237, align 8, !alias.scope !370, !noalias !367
   %224 = getelementptr inbounds i8, ptr %54, i64 40
   store ptr null, ptr %224, align 8, !alias.scope !370, !noalias !367
   %225 = getelementptr inbounds i8, ptr %54, i64 48
   store i64 18, ptr %225, align 8, !alias.scope !373, !noalias !367
-  %.sroa.2.0..sroa_idx.i16.i238 = getelementptr inbounds i8, ptr %54, i64 56
-  store ptr @.str.55, ptr %.sroa.2.0..sroa_idx.i16.i238, align 8, !alias.scope !373, !noalias !367
+  %.sroa.2.0..sroa_idx.i14.i238 = getelementptr inbounds i8, ptr %54, i64 56
+  store ptr @.str.55, ptr %.sroa.2.0..sroa_idx.i14.i238, align 8, !alias.scope !373, !noalias !367
   %226 = getelementptr inbounds i8, ptr %54, i64 64
   store ptr null, ptr %226, align 8, !alias.scope !373, !noalias !367
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %61, ptr nonnull %54, i64 3)
@@ -6050,8 +6050,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit246: ;
   store ptr %262, ptr %263, align 8, !noalias !376
   store i8 32, ptr %262, align 8, !noalias !376
   store i64 1, ptr %260, align 8, !alias.scope !382, !noalias !376
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %52, i64 32
-  store ptr %262, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !382, !noalias !376
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %52, i64 32
+  store ptr %262, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !382, !noalias !376
   %264 = getelementptr inbounds i8, ptr %52, i64 40
   store ptr null, ptr %264, align 8, !alias.scope !382, !noalias !376
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %70, ptr nonnull %52, i64 2)
@@ -6135,14 +6135,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit246: ;
   %295 = extractvalue { i64, ptr } %294, 0
   %296 = extractvalue { i64, ptr } %294, 1
   store i64 %295, ptr %293, align 8, !alias.scope !391, !noalias !388
-  %.sroa.2.0..sroa_idx.i7.i250 = getelementptr inbounds i8, ptr %51, i64 32
-  store ptr %296, ptr %.sroa.2.0..sroa_idx.i7.i250, align 8, !alias.scope !391, !noalias !388
+  %.sroa.2.0..sroa_idx.i6.i250 = getelementptr inbounds i8, ptr %51, i64 32
+  store ptr %296, ptr %.sroa.2.0..sroa_idx.i6.i250, align 8, !alias.scope !391, !noalias !388
   %297 = getelementptr inbounds i8, ptr %51, i64 40
   store ptr null, ptr %297, align 8, !alias.scope !391, !noalias !388
   %298 = getelementptr inbounds i8, ptr %51, i64 48
   store i64 23, ptr %298, align 8, !alias.scope !394, !noalias !388
-  %.sroa.2.0..sroa_idx.i16.i251 = getelementptr inbounds i8, ptr %51, i64 56
-  store ptr @.str.57, ptr %.sroa.2.0..sroa_idx.i16.i251, align 8, !alias.scope !394, !noalias !388
+  %.sroa.2.0..sroa_idx.i14.i251 = getelementptr inbounds i8, ptr %51, i64 56
+  store ptr @.str.57, ptr %.sroa.2.0..sroa_idx.i14.i251, align 8, !alias.scope !394, !noalias !388
   %299 = getelementptr inbounds i8, ptr %51, i64 64
   store ptr null, ptr %299, align 8, !alias.scope !394, !noalias !388
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %72, ptr nonnull %51, i64 3)
@@ -6182,14 +6182,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit246: ;
   %311 = extractvalue { i64, ptr } %310, 0
   %312 = extractvalue { i64, ptr } %310, 1
   store i64 %311, ptr %309, align 8, !alias.scope !403, !noalias !400
-  %.sroa.2.0..sroa_idx.i7.i254 = getelementptr inbounds i8, ptr %50, i64 32
-  store ptr %312, ptr %.sroa.2.0..sroa_idx.i7.i254, align 8, !alias.scope !403, !noalias !400
+  %.sroa.2.0..sroa_idx.i6.i254 = getelementptr inbounds i8, ptr %50, i64 32
+  store ptr %312, ptr %.sroa.2.0..sroa_idx.i6.i254, align 8, !alias.scope !403, !noalias !400
   %313 = getelementptr inbounds i8, ptr %50, i64 40
   store ptr null, ptr %313, align 8, !alias.scope !403, !noalias !400
   %314 = getelementptr inbounds i8, ptr %50, i64 48
   store i64 15, ptr %314, align 8, !alias.scope !406, !noalias !400
-  %.sroa.2.0..sroa_idx.i16.i255 = getelementptr inbounds i8, ptr %50, i64 56
-  store ptr @.str.59, ptr %.sroa.2.0..sroa_idx.i16.i255, align 8, !alias.scope !406, !noalias !400
+  %.sroa.2.0..sroa_idx.i14.i255 = getelementptr inbounds i8, ptr %50, i64 56
+  store ptr @.str.59, ptr %.sroa.2.0..sroa_idx.i14.i255, align 8, !alias.scope !406, !noalias !400
   %315 = getelementptr inbounds i8, ptr %50, i64 64
   store ptr null, ptr %315, align 8, !alias.scope !406, !noalias !400
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %77, ptr nonnull %50, i64 3)
@@ -6247,7 +6247,7 @@ _ZN6cmList5clearEv.exit.i:                        ; preds = %_ZSt8_DestroyIPNSt7
   %.sroa.2.0..sroa_idx.i.i260 = getelementptr inbounds i8, ptr %48, i64 8
   %330 = getelementptr inbounds i8, ptr %48, i64 16
   %331 = getelementptr inbounds i8, ptr %48, i64 24
-  %.sroa.2.0..sroa_idx.i6.i261 = getelementptr inbounds i8, ptr %48, i64 32
+  %.sroa.2.0..sroa_idx.i5.i261 = getelementptr inbounds i8, ptr %48, i64 32
   %332 = getelementptr inbounds i8, ptr %48, i64 40
   br label %333
 
@@ -6264,7 +6264,7 @@ _ZN6cmList5clearEv.exit.i:                        ; preds = %_ZSt8_DestroyIPNSt7
   %338 = extractvalue { i64, ptr } %337, 0
   %339 = extractvalue { i64, ptr } %337, 1
   store i64 %338, ptr %331, align 8, !alias.scope !415, !noalias !409
-  store ptr %339, ptr %.sroa.2.0..sroa_idx.i6.i261, align 8, !alias.scope !415, !noalias !409
+  store ptr %339, ptr %.sroa.2.0..sroa_idx.i5.i261, align 8, !alias.scope !415, !noalias !409
   store ptr null, ptr %332, align 8, !alias.scope !415, !noalias !409
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %78, ptr nonnull %48, i64 2)
           to label %340 unwind label %.loopexit.split-lp554.loopexit
@@ -6331,14 +6331,14 @@ _ZN6cmList5clearEv.exit.i:                        ; preds = %_ZSt8_DestroyIPNSt7
   %357 = extractvalue { i64, ptr } %356, 0
   %358 = extractvalue { i64, ptr } %356, 1
   store i64 %357, ptr %355, align 8, !alias.scope !424, !noalias !421
-  %.sroa.2.0..sroa_idx.i7.i264 = getelementptr inbounds i8, ptr %47, i64 32
-  store ptr %358, ptr %.sroa.2.0..sroa_idx.i7.i264, align 8, !alias.scope !424, !noalias !421
+  %.sroa.2.0..sroa_idx.i6.i264 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr %358, ptr %.sroa.2.0..sroa_idx.i6.i264, align 8, !alias.scope !424, !noalias !421
   %359 = getelementptr inbounds i8, ptr %47, i64 40
   store ptr null, ptr %359, align 8, !alias.scope !424, !noalias !421
   %360 = getelementptr inbounds i8, ptr %47, i64 48
   store i64 18, ptr %360, align 8, !alias.scope !427, !noalias !421
-  %.sroa.2.0..sroa_idx.i16.i265 = getelementptr inbounds i8, ptr %47, i64 56
-  store ptr @.str.60, ptr %.sroa.2.0..sroa_idx.i16.i265, align 8, !alias.scope !427, !noalias !421
+  %.sroa.2.0..sroa_idx.i14.i265 = getelementptr inbounds i8, ptr %47, i64 56
+  store ptr @.str.60, ptr %.sroa.2.0..sroa_idx.i14.i265, align 8, !alias.scope !427, !noalias !421
   %361 = getelementptr inbounds i8, ptr %47, i64 64
   store ptr null, ptr %361, align 8, !alias.scope !427, !noalias !421
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %80, ptr nonnull %47, i64 3)
@@ -6396,7 +6396,7 @@ _ZN6cmList5clearEv.exit.i273:                     ; preds = %_ZSt8_DestroyIPNSt7
   %.sroa.2.0..sroa_idx.i.i278 = getelementptr inbounds i8, ptr %45, i64 8
   %376 = getelementptr inbounds i8, ptr %45, i64 16
   %377 = getelementptr inbounds i8, ptr %45, i64 24
-  %.sroa.2.0..sroa_idx.i6.i279 = getelementptr inbounds i8, ptr %45, i64 32
+  %.sroa.2.0..sroa_idx.i5.i279 = getelementptr inbounds i8, ptr %45, i64 32
   %378 = getelementptr inbounds i8, ptr %45, i64 40
   br label %379
 
@@ -6413,7 +6413,7 @@ _ZN6cmList5clearEv.exit.i273:                     ; preds = %_ZSt8_DestroyIPNSt7
   %384 = extractvalue { i64, ptr } %383, 0
   %385 = extractvalue { i64, ptr } %383, 1
   store i64 %384, ptr %377, align 8, !alias.scope !436, !noalias !430
-  store ptr %385, ptr %.sroa.2.0..sroa_idx.i6.i279, align 8, !alias.scope !436, !noalias !430
+  store ptr %385, ptr %.sroa.2.0..sroa_idx.i5.i279, align 8, !alias.scope !436, !noalias !430
   store ptr null, ptr %378, align 8, !alias.scope !436, !noalias !430
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %81, ptr nonnull %45, i64 2)
           to label %386 unwind label %.loopexit553
@@ -6450,56 +6450,56 @@ _ZN6cmList5clearEv.exit.i273:                     ; preds = %_ZSt8_DestroyIPNSt7
   store ptr null, ptr %400, align 8, !alias.scope !442, !noalias !445
   %401 = getelementptr inbounds i8, ptr %44, i64 24
   store i64 30, ptr %401, align 8, !alias.scope !448, !noalias !445
-  %.sroa.2.0..sroa_idx.i25.i.i = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr @.str.201, ptr %.sroa.2.0..sroa_idx.i25.i.i, align 8, !alias.scope !448, !noalias !445
+  %.sroa.2.0..sroa_idx.i24.i.i = getelementptr inbounds i8, ptr %44, i64 32
+  store ptr @.str.201, ptr %.sroa.2.0..sroa_idx.i24.i.i, align 8, !alias.scope !448, !noalias !445
   %402 = getelementptr inbounds i8, ptr %44, i64 40
   store ptr null, ptr %402, align 8, !alias.scope !448, !noalias !445
   %403 = getelementptr inbounds i8, ptr %44, i64 48
   store i64 %395, ptr %403, align 8, !alias.scope !451, !noalias !445
-  %.sroa.2.0..sroa_idx.i35.i.i = getelementptr inbounds i8, ptr %44, i64 56
-  store ptr %396, ptr %.sroa.2.0..sroa_idx.i35.i.i, align 8, !alias.scope !451, !noalias !445
+  %.sroa.2.0..sroa_idx.i33.i.i = getelementptr inbounds i8, ptr %44, i64 56
+  store ptr %396, ptr %.sroa.2.0..sroa_idx.i33.i.i, align 8, !alias.scope !451, !noalias !445
   %404 = getelementptr inbounds i8, ptr %44, i64 64
   store ptr null, ptr %404, align 8, !alias.scope !451, !noalias !445
   %405 = getelementptr inbounds i8, ptr %44, i64 72
   store i64 8, ptr %405, align 8, !alias.scope !454, !noalias !445
-  %.sroa.2.0..sroa_idx.i44.i.i = getelementptr inbounds i8, ptr %44, i64 80
-  store ptr @.str.76, ptr %.sroa.2.0..sroa_idx.i44.i.i, align 8, !alias.scope !454, !noalias !445
+  %.sroa.2.0..sroa_idx.i41.i.i = getelementptr inbounds i8, ptr %44, i64 80
+  store ptr @.str.76, ptr %.sroa.2.0..sroa_idx.i41.i.i, align 8, !alias.scope !454, !noalias !445
   %406 = getelementptr inbounds i8, ptr %44, i64 88
   store ptr null, ptr %406, align 8, !alias.scope !454, !noalias !445
   %407 = getelementptr inbounds i8, ptr %44, i64 96
   store i64 %398, ptr %407, align 8, !alias.scope !457, !noalias !445
-  %.sroa.2.0..sroa_idx.i54.i.i = getelementptr inbounds i8, ptr %44, i64 104
-  store ptr %399, ptr %.sroa.2.0..sroa_idx.i54.i.i, align 8, !alias.scope !457, !noalias !445
+  %.sroa.2.0..sroa_idx.i50.i.i = getelementptr inbounds i8, ptr %44, i64 104
+  store ptr %399, ptr %.sroa.2.0..sroa_idx.i50.i.i, align 8, !alias.scope !457, !noalias !445
   %408 = getelementptr inbounds i8, ptr %44, i64 112
   store ptr null, ptr %408, align 8, !alias.scope !457, !noalias !445
   %409 = getelementptr inbounds i8, ptr %44, i64 120
   store i64 7, ptr %409, align 8, !alias.scope !460, !noalias !445
-  %.sroa.2.0..sroa_idx.i63.i.i = getelementptr inbounds i8, ptr %44, i64 128
-  store ptr @.str.202, ptr %.sroa.2.0..sroa_idx.i63.i.i, align 8, !alias.scope !460, !noalias !445
+  %.sroa.2.0..sroa_idx.i58.i.i = getelementptr inbounds i8, ptr %44, i64 128
+  store ptr @.str.202, ptr %.sroa.2.0..sroa_idx.i58.i.i, align 8, !alias.scope !460, !noalias !445
   %410 = getelementptr inbounds i8, ptr %44, i64 136
   store ptr null, ptr %410, align 8, !alias.scope !460, !noalias !445
   %411 = getelementptr inbounds i8, ptr %44, i64 144
   store i64 4, ptr %411, align 8, !alias.scope !463, !noalias !445
-  %.sroa.2.0..sroa_idx.i73.i.i = getelementptr inbounds i8, ptr %44, i64 152
-  store ptr @.str.41, ptr %.sroa.2.0..sroa_idx.i73.i.i, align 8, !alias.scope !463, !noalias !445
+  %.sroa.2.0..sroa_idx.i67.i.i = getelementptr inbounds i8, ptr %44, i64 152
+  store ptr @.str.41, ptr %.sroa.2.0..sroa_idx.i67.i.i, align 8, !alias.scope !463, !noalias !445
   %412 = getelementptr inbounds i8, ptr %44, i64 160
   store ptr null, ptr %412, align 8, !alias.scope !463, !noalias !445
   %413 = getelementptr inbounds i8, ptr %44, i64 168
   store i64 11, ptr %413, align 8, !alias.scope !466, !noalias !445
-  %.sroa.2.0..sroa_idx.i82.i.i = getelementptr inbounds i8, ptr %44, i64 176
-  store ptr @.str.203, ptr %.sroa.2.0..sroa_idx.i82.i.i, align 8, !alias.scope !466, !noalias !445
+  %.sroa.2.0..sroa_idx.i75.i.i = getelementptr inbounds i8, ptr %44, i64 176
+  store ptr @.str.203, ptr %.sroa.2.0..sroa_idx.i75.i.i, align 8, !alias.scope !466, !noalias !445
   %414 = getelementptr inbounds i8, ptr %44, i64 184
   store ptr null, ptr %414, align 8, !alias.scope !466, !noalias !445
   %415 = getelementptr inbounds i8, ptr %44, i64 192
   store i64 39, ptr %415, align 8, !alias.scope !469, !noalias !445
-  %.sroa.2.0..sroa_idx.i91.i.i = getelementptr inbounds i8, ptr %44, i64 200
-  store ptr @.str.204, ptr %.sroa.2.0..sroa_idx.i91.i.i, align 8, !alias.scope !469, !noalias !445
+  %.sroa.2.0..sroa_idx.i83.i.i = getelementptr inbounds i8, ptr %44, i64 200
+  store ptr @.str.204, ptr %.sroa.2.0..sroa_idx.i83.i.i, align 8, !alias.scope !469, !noalias !445
   %416 = getelementptr inbounds i8, ptr %44, i64 208
   store ptr null, ptr %416, align 8, !alias.scope !469, !noalias !445
   %417 = getelementptr inbounds i8, ptr %44, i64 216
   store i64 25, ptr %417, align 8, !alias.scope !472, !noalias !445
-  %.sroa.2.0..sroa_idx.i101.i.i = getelementptr inbounds i8, ptr %44, i64 224
-  store ptr @.str.61, ptr %.sroa.2.0..sroa_idx.i101.i.i, align 8, !alias.scope !472, !noalias !445
+  %.sroa.2.0..sroa_idx.i92.i.i = getelementptr inbounds i8, ptr %44, i64 224
+  store ptr @.str.61, ptr %.sroa.2.0..sroa_idx.i92.i.i, align 8, !alias.scope !472, !noalias !445
   %418 = getelementptr inbounds i8, ptr %44, i64 232
   store ptr null, ptr %418, align 8, !alias.scope !472, !noalias !445
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %82, ptr nonnull %44, i64 10)
@@ -6589,14 +6589,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %447 = extractvalue { i64, ptr } %446, 0
   %448 = extractvalue { i64, ptr } %446, 1
   store i64 %447, ptr %445, align 8, !alias.scope !481, !noalias !478
-  %.sroa.2.0..sroa_idx.i7.i286 = getelementptr inbounds i8, ptr %43, i64 32
-  store ptr %448, ptr %.sroa.2.0..sroa_idx.i7.i286, align 8, !alias.scope !481, !noalias !478
+  %.sroa.2.0..sroa_idx.i6.i286 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr %448, ptr %.sroa.2.0..sroa_idx.i6.i286, align 8, !alias.scope !481, !noalias !478
   %449 = getelementptr inbounds i8, ptr %43, i64 40
   store ptr null, ptr %449, align 8, !alias.scope !481, !noalias !478
   %450 = getelementptr inbounds i8, ptr %43, i64 48
   store i64 14, ptr %450, align 8, !alias.scope !484, !noalias !478
-  %.sroa.2.0..sroa_idx.i16.i287 = getelementptr inbounds i8, ptr %43, i64 56
-  store ptr @.str.63, ptr %.sroa.2.0..sroa_idx.i16.i287, align 8, !alias.scope !484, !noalias !478
+  %.sroa.2.0..sroa_idx.i14.i287 = getelementptr inbounds i8, ptr %43, i64 56
+  store ptr @.str.63, ptr %.sroa.2.0..sroa_idx.i14.i287, align 8, !alias.scope !484, !noalias !478
   %451 = getelementptr inbounds i8, ptr %43, i64 64
   store ptr null, ptr %451, align 8, !alias.scope !484, !noalias !478
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %85, ptr nonnull %43, i64 3)
@@ -6621,14 +6621,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %459 = extractvalue { i64, ptr } %458, 0
   %460 = extractvalue { i64, ptr } %458, 1
   store i64 %459, ptr %457, align 8, !alias.scope !493, !noalias !490
-  %.sroa.2.0..sroa_idx.i7.i290 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr %460, ptr %.sroa.2.0..sroa_idx.i7.i290, align 8, !alias.scope !493, !noalias !490
+  %.sroa.2.0..sroa_idx.i6.i290 = getelementptr inbounds i8, ptr %42, i64 32
+  store ptr %460, ptr %.sroa.2.0..sroa_idx.i6.i290, align 8, !alias.scope !493, !noalias !490
   %461 = getelementptr inbounds i8, ptr %42, i64 40
   store ptr null, ptr %461, align 8, !alias.scope !493, !noalias !490
   %462 = getelementptr inbounds i8, ptr %42, i64 48
   store i64 13, ptr %462, align 8, !alias.scope !496, !noalias !490
-  %.sroa.2.0..sroa_idx.i16.i291 = getelementptr inbounds i8, ptr %42, i64 56
-  store ptr @.str.65, ptr %.sroa.2.0..sroa_idx.i16.i291, align 8, !alias.scope !496, !noalias !490
+  %.sroa.2.0..sroa_idx.i14.i291 = getelementptr inbounds i8, ptr %42, i64 56
+  store ptr @.str.65, ptr %.sroa.2.0..sroa_idx.i14.i291, align 8, !alias.scope !496, !noalias !490
   %463 = getelementptr inbounds i8, ptr %42, i64 64
   store ptr null, ptr %463, align 8, !alias.scope !496, !noalias !490
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %86, ptr nonnull %42, i64 3)
@@ -6662,14 +6662,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %473 = extractvalue { i64, ptr } %472, 0
   %474 = extractvalue { i64, ptr } %472, 1
   store i64 %473, ptr %471, align 8, !alias.scope !505, !noalias !502
-  %.sroa.2.0..sroa_idx.i7.i294 = getelementptr inbounds i8, ptr %41, i64 32
-  store ptr %474, ptr %.sroa.2.0..sroa_idx.i7.i294, align 8, !alias.scope !505, !noalias !502
+  %.sroa.2.0..sroa_idx.i6.i294 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr %474, ptr %.sroa.2.0..sroa_idx.i6.i294, align 8, !alias.scope !505, !noalias !502
   %475 = getelementptr inbounds i8, ptr %41, i64 40
   store ptr null, ptr %475, align 8, !alias.scope !505, !noalias !502
   %476 = getelementptr inbounds i8, ptr %41, i64 48
   store i64 18, ptr %476, align 8, !alias.scope !508, !noalias !502
-  %.sroa.2.0..sroa_idx.i16.i295 = getelementptr inbounds i8, ptr %41, i64 56
-  store ptr @.str.67, ptr %.sroa.2.0..sroa_idx.i16.i295, align 8, !alias.scope !508, !noalias !502
+  %.sroa.2.0..sroa_idx.i14.i295 = getelementptr inbounds i8, ptr %41, i64 56
+  store ptr @.str.67, ptr %.sroa.2.0..sroa_idx.i14.i295, align 8, !alias.scope !508, !noalias !502
   %477 = getelementptr inbounds i8, ptr %41, i64 64
   store ptr null, ptr %477, align 8, !alias.scope !508, !noalias !502
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %87, ptr nonnull %41, i64 3)
@@ -6753,14 +6753,14 @@ _ZN6cmListD2Ev.exit:                              ; preds = %_ZSt8_DestroyIPNSt7
   %502 = extractvalue { i64, ptr } %501, 0
   %503 = extractvalue { i64, ptr } %501, 1
   store i64 %502, ptr %500, align 8, !alias.scope !517, !noalias !514
-  %.sroa.2.0..sroa_idx.i7.i.i = getelementptr inbounds i8, ptr %39, i64 32
-  store ptr %503, ptr %.sroa.2.0..sroa_idx.i7.i.i, align 8, !alias.scope !517, !noalias !514
+  %.sroa.2.0..sroa_idx.i6.i.i = getelementptr inbounds i8, ptr %39, i64 32
+  store ptr %503, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 8, !alias.scope !517, !noalias !514
   %504 = getelementptr inbounds i8, ptr %39, i64 40
   store ptr null, ptr %504, align 8, !alias.scope !517, !noalias !514
   %505 = getelementptr inbounds i8, ptr %39, i64 48
   store i64 21, ptr %505, align 8, !alias.scope !520, !noalias !514
-  %.sroa.2.0..sroa_idx.i16.i.i = getelementptr inbounds i8, ptr %39, i64 56
-  store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i16.i.i, align 8, !alias.scope !520, !noalias !514
+  %.sroa.2.0..sroa_idx.i14.i.i = getelementptr inbounds i8, ptr %39, i64 56
+  store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i14.i.i, align 8, !alias.scope !520, !noalias !514
   %506 = getelementptr inbounds i8, ptr %39, i64 64
   store ptr null, ptr %506, align 8, !alias.scope !520, !noalias !514
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %40, ptr nonnull %39, i64 3)
@@ -6816,56 +6816,56 @@ _ZN6cmListD2Ev.exit:                              ; preds = %_ZSt8_DestroyIPNSt7
   store ptr null, ptr %523, align 8, !alias.scope !526, !noalias !529
   %524 = getelementptr inbounds i8, ptr %38, i64 24
   store i64 30, ptr %524, align 8, !alias.scope !532, !noalias !529
-  %.sroa.2.0..sroa_idx.i25.i.i303 = getelementptr inbounds i8, ptr %38, i64 32
-  store ptr @.str.201, ptr %.sroa.2.0..sroa_idx.i25.i.i303, align 8, !alias.scope !532, !noalias !529
+  %.sroa.2.0..sroa_idx.i24.i.i303 = getelementptr inbounds i8, ptr %38, i64 32
+  store ptr @.str.201, ptr %.sroa.2.0..sroa_idx.i24.i.i303, align 8, !alias.scope !532, !noalias !529
   %525 = getelementptr inbounds i8, ptr %38, i64 40
   store ptr null, ptr %525, align 8, !alias.scope !532, !noalias !529
   %526 = getelementptr inbounds i8, ptr %38, i64 48
   store i64 %518, ptr %526, align 8, !alias.scope !535, !noalias !529
-  %.sroa.2.0..sroa_idx.i35.i.i304 = getelementptr inbounds i8, ptr %38, i64 56
-  store ptr %519, ptr %.sroa.2.0..sroa_idx.i35.i.i304, align 8, !alias.scope !535, !noalias !529
+  %.sroa.2.0..sroa_idx.i33.i.i304 = getelementptr inbounds i8, ptr %38, i64 56
+  store ptr %519, ptr %.sroa.2.0..sroa_idx.i33.i.i304, align 8, !alias.scope !535, !noalias !529
   %527 = getelementptr inbounds i8, ptr %38, i64 64
   store ptr null, ptr %527, align 8, !alias.scope !535, !noalias !529
   %528 = getelementptr inbounds i8, ptr %38, i64 72
   store i64 8, ptr %528, align 8, !alias.scope !538, !noalias !529
-  %.sroa.2.0..sroa_idx.i44.i.i305 = getelementptr inbounds i8, ptr %38, i64 80
-  store ptr @.str.76, ptr %.sroa.2.0..sroa_idx.i44.i.i305, align 8, !alias.scope !538, !noalias !529
+  %.sroa.2.0..sroa_idx.i41.i.i305 = getelementptr inbounds i8, ptr %38, i64 80
+  store ptr @.str.76, ptr %.sroa.2.0..sroa_idx.i41.i.i305, align 8, !alias.scope !538, !noalias !529
   %529 = getelementptr inbounds i8, ptr %38, i64 88
   store ptr null, ptr %529, align 8, !alias.scope !538, !noalias !529
   %530 = getelementptr inbounds i8, ptr %38, i64 96
   store i64 %521, ptr %530, align 8, !alias.scope !541, !noalias !529
-  %.sroa.2.0..sroa_idx.i54.i.i306 = getelementptr inbounds i8, ptr %38, i64 104
-  store ptr %522, ptr %.sroa.2.0..sroa_idx.i54.i.i306, align 8, !alias.scope !541, !noalias !529
+  %.sroa.2.0..sroa_idx.i50.i.i306 = getelementptr inbounds i8, ptr %38, i64 104
+  store ptr %522, ptr %.sroa.2.0..sroa_idx.i50.i.i306, align 8, !alias.scope !541, !noalias !529
   %531 = getelementptr inbounds i8, ptr %38, i64 112
   store ptr null, ptr %531, align 8, !alias.scope !541, !noalias !529
   %532 = getelementptr inbounds i8, ptr %38, i64 120
   store i64 7, ptr %532, align 8, !alias.scope !544, !noalias !529
-  %.sroa.2.0..sroa_idx.i63.i.i307 = getelementptr inbounds i8, ptr %38, i64 128
-  store ptr @.str.202, ptr %.sroa.2.0..sroa_idx.i63.i.i307, align 8, !alias.scope !544, !noalias !529
+  %.sroa.2.0..sroa_idx.i58.i.i307 = getelementptr inbounds i8, ptr %38, i64 128
+  store ptr @.str.202, ptr %.sroa.2.0..sroa_idx.i58.i.i307, align 8, !alias.scope !544, !noalias !529
   %533 = getelementptr inbounds i8, ptr %38, i64 136
   store ptr null, ptr %533, align 8, !alias.scope !544, !noalias !529
   %534 = getelementptr inbounds i8, ptr %38, i64 144
   store i64 3, ptr %534, align 8, !alias.scope !547, !noalias !529
-  %.sroa.2.0..sroa_idx.i73.i.i308 = getelementptr inbounds i8, ptr %38, i64 152
-  store ptr @.str.40, ptr %.sroa.2.0..sroa_idx.i73.i.i308, align 8, !alias.scope !547, !noalias !529
+  %.sroa.2.0..sroa_idx.i67.i.i308 = getelementptr inbounds i8, ptr %38, i64 152
+  store ptr @.str.40, ptr %.sroa.2.0..sroa_idx.i67.i.i308, align 8, !alias.scope !547, !noalias !529
   %535 = getelementptr inbounds i8, ptr %38, i64 160
   store ptr null, ptr %535, align 8, !alias.scope !547, !noalias !529
   %536 = getelementptr inbounds i8, ptr %38, i64 168
   store i64 11, ptr %536, align 8, !alias.scope !550, !noalias !529
-  %.sroa.2.0..sroa_idx.i82.i.i309 = getelementptr inbounds i8, ptr %38, i64 176
-  store ptr @.str.203, ptr %.sroa.2.0..sroa_idx.i82.i.i309, align 8, !alias.scope !550, !noalias !529
+  %.sroa.2.0..sroa_idx.i75.i.i309 = getelementptr inbounds i8, ptr %38, i64 176
+  store ptr @.str.203, ptr %.sroa.2.0..sroa_idx.i75.i.i309, align 8, !alias.scope !550, !noalias !529
   %537 = getelementptr inbounds i8, ptr %38, i64 184
   store ptr null, ptr %537, align 8, !alias.scope !550, !noalias !529
   %538 = getelementptr inbounds i8, ptr %38, i64 192
   store i64 39, ptr %538, align 8, !alias.scope !553, !noalias !529
-  %.sroa.2.0..sroa_idx.i91.i.i310 = getelementptr inbounds i8, ptr %38, i64 200
-  store ptr @.str.204, ptr %.sroa.2.0..sroa_idx.i91.i.i310, align 8, !alias.scope !553, !noalias !529
+  %.sroa.2.0..sroa_idx.i83.i.i310 = getelementptr inbounds i8, ptr %38, i64 200
+  store ptr @.str.204, ptr %.sroa.2.0..sroa_idx.i83.i.i310, align 8, !alias.scope !553, !noalias !529
   %539 = getelementptr inbounds i8, ptr %38, i64 208
   store ptr null, ptr %539, align 8, !alias.scope !553, !noalias !529
   %540 = getelementptr inbounds i8, ptr %38, i64 216
   store i64 4, ptr %540, align 8, !alias.scope !556, !noalias !529
-  %.sroa.2.0..sroa_idx.i101.i.i311 = getelementptr inbounds i8, ptr %38, i64 224
-  store ptr @.str.41, ptr %.sroa.2.0..sroa_idx.i101.i.i311, align 8, !alias.scope !556, !noalias !529
+  %.sroa.2.0..sroa_idx.i92.i.i311 = getelementptr inbounds i8, ptr %38, i64 224
+  store ptr @.str.41, ptr %.sroa.2.0..sroa_idx.i92.i.i311, align 8, !alias.scope !556, !noalias !529
   %541 = getelementptr inbounds i8, ptr %38, i64 232
   store ptr null, ptr %541, align 8, !alias.scope !556, !noalias !529
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %90, ptr nonnull %38, i64 10)
@@ -6987,14 +6987,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %573 = extractvalue { i64, ptr } %572, 0
   %574 = extractvalue { i64, ptr } %572, 1
   store i64 %573, ptr %571, align 8, !alias.scope !565, !noalias !562
-  %.sroa.2.0..sroa_idx.i7.i335 = getelementptr inbounds i8, ptr %37, i64 32
-  store ptr %574, ptr %.sroa.2.0..sroa_idx.i7.i335, align 8, !alias.scope !565, !noalias !562
+  %.sroa.2.0..sroa_idx.i6.i335 = getelementptr inbounds i8, ptr %37, i64 32
+  store ptr %574, ptr %.sroa.2.0..sroa_idx.i6.i335, align 8, !alias.scope !565, !noalias !562
   %575 = getelementptr inbounds i8, ptr %37, i64 40
   store ptr null, ptr %575, align 8, !alias.scope !565, !noalias !562
   %576 = getelementptr inbounds i8, ptr %37, i64 48
   store i64 40, ptr %576, align 8, !alias.scope !568, !noalias !562
-  %.sroa.2.0..sroa_idx.i16.i336 = getelementptr inbounds i8, ptr %37, i64 56
-  store ptr @.str.69, ptr %.sroa.2.0..sroa_idx.i16.i336, align 8, !alias.scope !568, !noalias !562
+  %.sroa.2.0..sroa_idx.i14.i336 = getelementptr inbounds i8, ptr %37, i64 56
+  store ptr @.str.69, ptr %.sroa.2.0..sroa_idx.i14.i336, align 8, !alias.scope !568, !noalias !562
   %577 = getelementptr inbounds i8, ptr %37, i64 64
   store ptr null, ptr %577, align 8, !alias.scope !568, !noalias !562
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %97, ptr nonnull %37, i64 3)
@@ -7016,14 +7016,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %584 = extractvalue { i64, ptr } %583, 0
   %585 = extractvalue { i64, ptr } %583, 1
   store i64 %584, ptr %582, align 8, !alias.scope !577, !noalias !574
-  %.sroa.2.0..sroa_idx.i7.i339 = getelementptr inbounds i8, ptr %36, i64 32
-  store ptr %585, ptr %.sroa.2.0..sroa_idx.i7.i339, align 8, !alias.scope !577, !noalias !574
+  %.sroa.2.0..sroa_idx.i6.i339 = getelementptr inbounds i8, ptr %36, i64 32
+  store ptr %585, ptr %.sroa.2.0..sroa_idx.i6.i339, align 8, !alias.scope !577, !noalias !574
   %586 = getelementptr inbounds i8, ptr %36, i64 40
   store ptr null, ptr %586, align 8, !alias.scope !577, !noalias !574
   %587 = getelementptr inbounds i8, ptr %36, i64 48
   store i64 21, ptr %587, align 8, !alias.scope !580, !noalias !574
-  %.sroa.2.0..sroa_idx.i16.i340 = getelementptr inbounds i8, ptr %36, i64 56
-  store ptr @.str.71, ptr %.sroa.2.0..sroa_idx.i16.i340, align 8, !alias.scope !580, !noalias !574
+  %.sroa.2.0..sroa_idx.i14.i340 = getelementptr inbounds i8, ptr %36, i64 56
+  store ptr @.str.71, ptr %.sroa.2.0..sroa_idx.i14.i340, align 8, !alias.scope !580, !noalias !574
   %588 = getelementptr inbounds i8, ptr %36, i64 64
   store ptr null, ptr %588, align 8, !alias.scope !580, !noalias !574
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %98, ptr nonnull %36, i64 3)
@@ -7191,8 +7191,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %641 = extractvalue { i64, ptr } %640, 0
   %642 = extractvalue { i64, ptr } %640, 1
   store i64 %641, ptr %639, align 8, !alias.scope !589, !noalias !586
-  %.sroa.2.0..sroa_idx.i6.i354 = getelementptr inbounds i8, ptr %35, i64 32
-  store ptr %642, ptr %.sroa.2.0..sroa_idx.i6.i354, align 8, !alias.scope !589, !noalias !586
+  %.sroa.2.0..sroa_idx.i5.i354 = getelementptr inbounds i8, ptr %35, i64 32
+  store ptr %642, ptr %.sroa.2.0..sroa_idx.i5.i354, align 8, !alias.scope !589, !noalias !586
   %643 = getelementptr inbounds i8, ptr %35, i64 40
   store ptr null, ptr %643, align 8, !alias.scope !589, !noalias !586
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %102, ptr nonnull %35, i64 2)
@@ -7296,8 +7296,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %674 = extractvalue { i64, ptr } %673, 0
   %675 = extractvalue { i64, ptr } %673, 1
   store i64 %674, ptr %672, align 8, !alias.scope !598, !noalias !595
-  %.sroa.2.0..sroa_idx.i7.i370 = getelementptr inbounds i8, ptr %33, i64 32
-  store ptr %675, ptr %.sroa.2.0..sroa_idx.i7.i370, align 8, !alias.scope !598, !noalias !595
+  %.sroa.2.0..sroa_idx.i6.i370 = getelementptr inbounds i8, ptr %33, i64 32
+  store ptr %675, ptr %.sroa.2.0..sroa_idx.i6.i370, align 8, !alias.scope !598, !noalias !595
   %676 = getelementptr inbounds i8, ptr %33, i64 40
   store ptr null, ptr %676, align 8, !alias.scope !598, !noalias !595
   %677 = getelementptr inbounds i8, ptr %33, i64 48
@@ -7309,8 +7309,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store ptr %679, ptr %680, align 8, !noalias !595
   store i8 46, ptr %679, align 8, !noalias !595
   store i64 1, ptr %677, align 8, !alias.scope !601, !noalias !595
-  %.sroa.2.0..sroa_idx.i16.i371 = getelementptr inbounds i8, ptr %33, i64 56
-  store ptr %679, ptr %.sroa.2.0..sroa_idx.i16.i371, align 8, !alias.scope !601, !noalias !595
+  %.sroa.2.0..sroa_idx.i14.i371 = getelementptr inbounds i8, ptr %33, i64 56
+  store ptr %679, ptr %.sroa.2.0..sroa_idx.i14.i371, align 8, !alias.scope !601, !noalias !595
   %681 = getelementptr inbounds i8, ptr %33, i64 64
   store ptr null, ptr %681, align 8, !alias.scope !601, !noalias !595
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %107, ptr nonnull %33, i64 3)
@@ -7332,14 +7332,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %687 = extractvalue { i64, ptr } %686, 0
   %688 = extractvalue { i64, ptr } %686, 1
   store i64 %687, ptr %685, align 8, !alias.scope !610, !noalias !607
-  %.sroa.2.0..sroa_idx.i7.i374 = getelementptr inbounds i8, ptr %32, i64 32
-  store ptr %688, ptr %.sroa.2.0..sroa_idx.i7.i374, align 8, !alias.scope !610, !noalias !607
+  %.sroa.2.0..sroa_idx.i6.i374 = getelementptr inbounds i8, ptr %32, i64 32
+  store ptr %688, ptr %.sroa.2.0..sroa_idx.i6.i374, align 8, !alias.scope !610, !noalias !607
   %689 = getelementptr inbounds i8, ptr %32, i64 40
   store ptr null, ptr %689, align 8, !alias.scope !610, !noalias !607
   %690 = getelementptr inbounds i8, ptr %32, i64 48
   store i64 17, ptr %690, align 8, !alias.scope !613, !noalias !607
-  %.sroa.2.0..sroa_idx.i16.i375 = getelementptr inbounds i8, ptr %32, i64 56
-  store ptr @.str.79, ptr %.sroa.2.0..sroa_idx.i16.i375, align 8, !alias.scope !613, !noalias !607
+  %.sroa.2.0..sroa_idx.i14.i375 = getelementptr inbounds i8, ptr %32, i64 56
+  store ptr @.str.79, ptr %.sroa.2.0..sroa_idx.i14.i375, align 8, !alias.scope !613, !noalias !607
   %691 = getelementptr inbounds i8, ptr %32, i64 64
   store ptr null, ptr %691, align 8, !alias.scope !613, !noalias !607
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %108, ptr nonnull %32, i64 3)
@@ -7455,8 +7455,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit378: ; preds = %692
   %726 = load ptr, ptr %168, align 8, !noalias !616
   %727 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %726) #25, !noalias !616
   store i64 %727, ptr %725, align 8, !alias.scope !622, !noalias !616
-  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr %726, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !alias.scope !622, !noalias !616
+  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %28, i64 32
+  store ptr %726, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !622, !noalias !616
   %728 = getelementptr inbounds i8, ptr %28, i64 40
   store ptr null, ptr %728, align 8, !alias.scope !622, !noalias !616
   %729 = getelementptr inbounds i8, ptr %28, i64 48
@@ -7468,16 +7468,16 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit378: ; preds = %692
   store ptr %731, ptr %732, align 8, !noalias !616
   store i8 32, ptr %731, align 8, !noalias !616
   store i64 1, ptr %729, align 8, !alias.scope !625, !noalias !616
-  %.sroa.2.0..sroa_idx.i19.i = getelementptr inbounds i8, ptr %28, i64 56
-  store ptr %731, ptr %.sroa.2.0..sroa_idx.i19.i, align 8, !alias.scope !625, !noalias !616
+  %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %28, i64 56
+  store ptr %731, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !625, !noalias !616
   %733 = getelementptr inbounds i8, ptr %28, i64 64
   store ptr null, ptr %733, align 8, !alias.scope !625, !noalias !616
   %734 = getelementptr inbounds i8, ptr %28, i64 72
   %735 = load ptr, ptr %169, align 8, !noalias !616
   %736 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %735) #25, !noalias !616
   store i64 %736, ptr %734, align 8, !alias.scope !628, !noalias !616
-  %.sroa.2.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %28, i64 80
-  store ptr %735, ptr %.sroa.2.0..sroa_idx.i28.i, align 8, !alias.scope !628, !noalias !616
+  %.sroa.2.0..sroa_idx.i25.i = getelementptr inbounds i8, ptr %28, i64 80
+  store ptr %735, ptr %.sroa.2.0..sroa_idx.i25.i, align 8, !alias.scope !628, !noalias !616
   %737 = getelementptr inbounds i8, ptr %28, i64 88
   store ptr null, ptr %737, align 8, !alias.scope !628, !noalias !616
   %738 = getelementptr inbounds i8, ptr %28, i64 96
@@ -7489,8 +7489,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit378: ; preds = %692
   store ptr %740, ptr %741, align 8, !noalias !616
   store i8 32, ptr %740, align 8, !noalias !616
   store i64 1, ptr %738, align 8, !alias.scope !631, !noalias !616
-  %.sroa.2.0..sroa_idx.i37.i = getelementptr inbounds i8, ptr %28, i64 104
-  store ptr %740, ptr %.sroa.2.0..sroa_idx.i37.i, align 8, !alias.scope !631, !noalias !616
+  %.sroa.2.0..sroa_idx.i33.i = getelementptr inbounds i8, ptr %28, i64 104
+  store ptr %740, ptr %.sroa.2.0..sroa_idx.i33.i, align 8, !alias.scope !631, !noalias !616
   %742 = getelementptr inbounds i8, ptr %28, i64 112
   store ptr null, ptr %742, align 8, !alias.scope !631, !noalias !616
   %743 = getelementptr inbounds i8, ptr %28, i64 120
@@ -7498,8 +7498,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit378: ; preds = %692
   %745 = extractvalue { i64, ptr } %744, 0
   %746 = extractvalue { i64, ptr } %744, 1
   store i64 %745, ptr %743, align 8, !alias.scope !634, !noalias !616
-  %.sroa.2.0..sroa_idx.i46.i = getelementptr inbounds i8, ptr %28, i64 128
-  store ptr %746, ptr %.sroa.2.0..sroa_idx.i46.i, align 8, !alias.scope !634, !noalias !616
+  %.sroa.2.0..sroa_idx.i41.i = getelementptr inbounds i8, ptr %28, i64 128
+  store ptr %746, ptr %.sroa.2.0..sroa_idx.i41.i, align 8, !alias.scope !634, !noalias !616
   %747 = getelementptr inbounds i8, ptr %28, i64 136
   store ptr null, ptr %747, align 8, !alias.scope !634, !noalias !616
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %111, ptr nonnull %28, i64 6)
@@ -7526,8 +7526,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit378: ; preds = %692
   %756 = extractvalue { i64, ptr } %755, 0
   %757 = extractvalue { i64, ptr } %755, 1
   store i64 %756, ptr %754, align 8, !alias.scope !643, !noalias !637
-  %.sroa.2.0..sroa_idx.i6.i382 = getelementptr inbounds i8, ptr %27, i64 32
-  store ptr %757, ptr %.sroa.2.0..sroa_idx.i6.i382, align 8, !alias.scope !643, !noalias !637
+  %.sroa.2.0..sroa_idx.i5.i382 = getelementptr inbounds i8, ptr %27, i64 32
+  store ptr %757, ptr %.sroa.2.0..sroa_idx.i5.i382, align 8, !alias.scope !643, !noalias !637
   %758 = getelementptr inbounds i8, ptr %27, i64 40
   store ptr null, ptr %758, align 8, !alias.scope !643, !noalias !637
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %112, ptr nonnull %27, i64 2)
@@ -7563,16 +7563,16 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit378: ; preds = %692
   store ptr %770, ptr %771, align 8, !noalias !646
   store i8 32, ptr %770, align 8, !noalias !646
   store i64 1, ptr %768, align 8, !alias.scope !652, !noalias !646
-  %.sroa.2.0..sroa_idx.i7.i386 = getelementptr inbounds i8, ptr %25, i64 32
-  store ptr %770, ptr %.sroa.2.0..sroa_idx.i7.i386, align 8, !alias.scope !652, !noalias !646
+  %.sroa.2.0..sroa_idx.i6.i386 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr %770, ptr %.sroa.2.0..sroa_idx.i6.i386, align 8, !alias.scope !652, !noalias !646
   %772 = getelementptr inbounds i8, ptr %25, i64 40
   store ptr null, ptr %772, align 8, !alias.scope !652, !noalias !646
   %773 = getelementptr inbounds i8, ptr %25, i64 48
   %774 = load ptr, ptr %166, align 8, !noalias !646
   %775 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %774) #25, !noalias !646
   store i64 %775, ptr %773, align 8, !alias.scope !655, !noalias !646
-  %.sroa.2.0..sroa_idx.i16.i387 = getelementptr inbounds i8, ptr %25, i64 56
-  store ptr %774, ptr %.sroa.2.0..sroa_idx.i16.i387, align 8, !alias.scope !655, !noalias !646
+  %.sroa.2.0..sroa_idx.i14.i387 = getelementptr inbounds i8, ptr %25, i64 56
+  store ptr %774, ptr %.sroa.2.0..sroa_idx.i14.i387, align 8, !alias.scope !655, !noalias !646
   %776 = getelementptr inbounds i8, ptr %25, i64 64
   store ptr null, ptr %776, align 8, !alias.scope !655, !noalias !646
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %113, ptr nonnull %25, i64 3)
@@ -7607,8 +7607,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit378: ; preds = %692
   %786 = extractvalue { i64, ptr } %785, 0
   %787 = extractvalue { i64, ptr } %785, 1
   store i64 %786, ptr %784, align 8, !alias.scope !664, !noalias !661
-  %.sroa.2.0..sroa_idx.i6.i390 = getelementptr inbounds i8, ptr %24, i64 32
-  store ptr %787, ptr %.sroa.2.0..sroa_idx.i6.i390, align 8, !alias.scope !664, !noalias !661
+  %.sroa.2.0..sroa_idx.i5.i390 = getelementptr inbounds i8, ptr %24, i64 32
+  store ptr %787, ptr %.sroa.2.0..sroa_idx.i5.i390, align 8, !alias.scope !664, !noalias !661
   %788 = getelementptr inbounds i8, ptr %24, i64 40
   store ptr null, ptr %788, align 8, !alias.scope !664, !noalias !661
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %115, ptr nonnull %24, i64 2)
@@ -7840,14 +7840,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit406: ;
   %853 = extractvalue { i64, ptr } %852, 0
   %854 = extractvalue { i64, ptr } %852, 1
   store i64 %853, ptr %851, align 8, !alias.scope !673, !noalias !670
-  %.sroa.2.0..sroa_idx.i7.i408 = getelementptr inbounds i8, ptr %23, i64 32
-  store ptr %854, ptr %.sroa.2.0..sroa_idx.i7.i408, align 8, !alias.scope !673, !noalias !670
+  %.sroa.2.0..sroa_idx.i6.i408 = getelementptr inbounds i8, ptr %23, i64 32
+  store ptr %854, ptr %.sroa.2.0..sroa_idx.i6.i408, align 8, !alias.scope !673, !noalias !670
   %855 = getelementptr inbounds i8, ptr %23, i64 40
   store ptr null, ptr %855, align 8, !alias.scope !673, !noalias !670
   %856 = getelementptr inbounds i8, ptr %23, i64 48
   store i64 15, ptr %856, align 8, !alias.scope !676, !noalias !670
-  %.sroa.2.0..sroa_idx.i16.i409 = getelementptr inbounds i8, ptr %23, i64 56
-  store ptr @.str.90, ptr %.sroa.2.0..sroa_idx.i16.i409, align 8, !alias.scope !676, !noalias !670
+  %.sroa.2.0..sroa_idx.i14.i409 = getelementptr inbounds i8, ptr %23, i64 56
+  store ptr @.str.90, ptr %.sroa.2.0..sroa_idx.i14.i409, align 8, !alias.scope !676, !noalias !670
   %857 = getelementptr inbounds i8, ptr %23, i64 64
   store ptr null, ptr %857, align 8, !alias.scope !676, !noalias !670
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %127, ptr nonnull %23, i64 3)
@@ -7910,8 +7910,8 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %881 = extractvalue { i64, ptr } %880, 0
   %882 = extractvalue { i64, ptr } %880, 1
   store i64 %881, ptr %879, align 8, !alias.scope !685, !noalias !682
-  %.sroa.2.0..sroa_idx.i6.i413 = getelementptr inbounds i8, ptr %22, i64 32
-  store ptr %882, ptr %.sroa.2.0..sroa_idx.i6.i413, align 8, !alias.scope !685, !noalias !682
+  %.sroa.2.0..sroa_idx.i5.i413 = getelementptr inbounds i8, ptr %22, i64 32
+  store ptr %882, ptr %.sroa.2.0..sroa_idx.i5.i413, align 8, !alias.scope !685, !noalias !682
   %883 = getelementptr inbounds i8, ptr %22, i64 40
   store ptr null, ptr %883, align 8, !alias.scope !685, !noalias !682
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %128, ptr nonnull %22, i64 2)
@@ -7956,8 +7956,8 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %899 = extractvalue { i64, ptr } %898, 0
   %900 = extractvalue { i64, ptr } %898, 1
   store i64 %899, ptr %897, align 8, !alias.scope !694, !noalias !688
-  %.sroa.2.0..sroa_idx.i6.i416 = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr %900, ptr %.sroa.2.0..sroa_idx.i6.i416, align 8, !alias.scope !694, !noalias !688
+  %.sroa.2.0..sroa_idx.i5.i416 = getelementptr inbounds i8, ptr %20, i64 32
+  store ptr %900, ptr %.sroa.2.0..sroa_idx.i5.i416, align 8, !alias.scope !694, !noalias !688
   %901 = getelementptr inbounds i8, ptr %20, i64 40
   store ptr null, ptr %901, align 8, !alias.scope !694, !noalias !688
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %130, ptr nonnull %20, i64 2)
@@ -8025,14 +8025,14 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %920 = extractvalue { i64, ptr } %919, 0
   %921 = extractvalue { i64, ptr } %919, 1
   store i64 %920, ptr %918, align 8, !alias.scope !703, !noalias !700
-  %.sroa.2.0..sroa_idx.i7.i419 = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr %921, ptr %.sroa.2.0..sroa_idx.i7.i419, align 8, !alias.scope !703, !noalias !700
+  %.sroa.2.0..sroa_idx.i6.i419 = getelementptr inbounds i8, ptr %19, i64 32
+  store ptr %921, ptr %.sroa.2.0..sroa_idx.i6.i419, align 8, !alias.scope !703, !noalias !700
   %922 = getelementptr inbounds i8, ptr %19, i64 40
   store ptr null, ptr %922, align 8, !alias.scope !703, !noalias !700
   %923 = getelementptr inbounds i8, ptr %19, i64 48
   store i64 16, ptr %923, align 8, !alias.scope !706, !noalias !700
-  %.sroa.2.0..sroa_idx.i16.i420 = getelementptr inbounds i8, ptr %19, i64 56
-  store ptr @.str.93, ptr %.sroa.2.0..sroa_idx.i16.i420, align 8, !alias.scope !706, !noalias !700
+  %.sroa.2.0..sroa_idx.i14.i420 = getelementptr inbounds i8, ptr %19, i64 56
+  store ptr @.str.93, ptr %.sroa.2.0..sroa_idx.i14.i420, align 8, !alias.scope !706, !noalias !700
   %924 = getelementptr inbounds i8, ptr %19, i64 64
   store ptr null, ptr %924, align 8, !alias.scope !706, !noalias !700
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %132, ptr nonnull %19, i64 3)
@@ -8072,8 +8072,8 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %936 = extractvalue { i64, ptr } %935, 0
   %937 = extractvalue { i64, ptr } %935, 1
   store i64 %936, ptr %934, align 8, !alias.scope !715, !noalias !709
-  %.sroa.2.0..sroa_idx.i6.i423 = getelementptr inbounds i8, ptr %17, i64 32
-  store ptr %937, ptr %.sroa.2.0..sroa_idx.i6.i423, align 8, !alias.scope !715, !noalias !709
+  %.sroa.2.0..sroa_idx.i5.i423 = getelementptr inbounds i8, ptr %17, i64 32
+  store ptr %937, ptr %.sroa.2.0..sroa_idx.i5.i423, align 8, !alias.scope !715, !noalias !709
   %938 = getelementptr inbounds i8, ptr %17, i64 40
   store ptr null, ptr %938, align 8, !alias.scope !715, !noalias !709
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %133, ptr nonnull %17, i64 2)
@@ -8194,14 +8194,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit435: ;
   %976 = extractvalue { i64, ptr } %975, 0
   %977 = extractvalue { i64, ptr } %975, 1
   store i64 %976, ptr %974, align 8, !alias.scope !724, !noalias !718
-  %.sroa.2.0..sroa_idx.i7.i437 = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr %977, ptr %.sroa.2.0..sroa_idx.i7.i437, align 8, !alias.scope !724, !noalias !718
+  %.sroa.2.0..sroa_idx.i6.i437 = getelementptr inbounds i8, ptr %16, i64 32
+  store ptr %977, ptr %.sroa.2.0..sroa_idx.i6.i437, align 8, !alias.scope !724, !noalias !718
   %978 = getelementptr inbounds i8, ptr %16, i64 40
   store ptr null, ptr %978, align 8, !alias.scope !724, !noalias !718
   %979 = getelementptr inbounds i8, ptr %16, i64 48
   store i64 1, ptr %979, align 8, !alias.scope !727, !noalias !718
-  %.sroa.2.0..sroa_idx.i16.i438 = getelementptr inbounds i8, ptr %16, i64 56
-  store ptr @.str.11, ptr %.sroa.2.0..sroa_idx.i16.i438, align 8, !alias.scope !727, !noalias !718
+  %.sroa.2.0..sroa_idx.i14.i438 = getelementptr inbounds i8, ptr %16, i64 56
+  store ptr @.str.11, ptr %.sroa.2.0..sroa_idx.i14.i438, align 8, !alias.scope !727, !noalias !718
   %980 = getelementptr inbounds i8, ptr %16, i64 64
   store ptr null, ptr %980, align 8, !alias.scope !727, !noalias !718
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %139, ptr nonnull %16, i64 3)
@@ -8281,23 +8281,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit435: ;
   %.sroa.2.0..sroa_idx.i.i440 = getelementptr inbounds i8, ptr %15, i64 8
   %998 = getelementptr inbounds i8, ptr %15, i64 16
   %999 = getelementptr inbounds i8, ptr %15, i64 24
-  %.sroa.2.0..sroa_idx.i10.i441 = getelementptr inbounds i8, ptr %15, i64 32
+  %.sroa.2.0..sroa_idx.i9.i441 = getelementptr inbounds i8, ptr %15, i64 32
   %1000 = getelementptr inbounds i8, ptr %15, i64 40
   %1001 = getelementptr inbounds i8, ptr %15, i64 48
-  %.sroa.2.0..sroa_idx.i19.i442 = getelementptr inbounds i8, ptr %15, i64 56
+  %.sroa.2.0..sroa_idx.i17.i442 = getelementptr inbounds i8, ptr %15, i64 56
   %1002 = getelementptr inbounds i8, ptr %15, i64 64
   %.sroa.2.0..sroa_idx.i.i444 = getelementptr inbounds i8, ptr %14, i64 8
   %1003 = getelementptr inbounds i8, ptr %14, i64 16
   %1004 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.2.0..sroa_idx.i10.i448 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sroa.2.0..sroa_idx.i9.i448 = getelementptr inbounds i8, ptr %14, i64 32
   %1005 = getelementptr inbounds i8, ptr %14, i64 40
   %1006 = getelementptr inbounds i8, ptr %14, i64 48
-  %.sroa.2.0..sroa_idx.i19.i449 = getelementptr inbounds i8, ptr %14, i64 56
+  %.sroa.2.0..sroa_idx.i17.i449 = getelementptr inbounds i8, ptr %14, i64 56
   %1007 = getelementptr inbounds i8, ptr %14, i64 64
   %.sroa.2.0..sroa_idx.i.i451 = getelementptr inbounds i8, ptr %13, i64 8
   %1008 = getelementptr inbounds i8, ptr %13, i64 16
   %1009 = getelementptr inbounds i8, ptr %13, i64 24
-  %.sroa.2.0..sroa_idx.i6.i452 = getelementptr inbounds i8, ptr %13, i64 32
+  %.sroa.2.0..sroa_idx.i5.i452 = getelementptr inbounds i8, ptr %13, i64 32
   %1010 = getelementptr inbounds i8, ptr %13, i64 40
   br label %1011
 
@@ -8313,10 +8313,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit435: ;
   store ptr @.str.102, ptr %.sroa.2.0..sroa_idx.i.i440, align 8, !alias.scope !731, !noalias !734
   store ptr null, ptr %998, align 8, !alias.scope !731, !noalias !734
   store i64 %.sroa.0508.0.copyload, ptr %999, align 8, !alias.scope !737, !noalias !734
-  store ptr %.sroa.3.0.copyload, ptr %.sroa.2.0..sroa_idx.i10.i441, align 8, !alias.scope !737, !noalias !734
+  store ptr %.sroa.3.0.copyload, ptr %.sroa.2.0..sroa_idx.i9.i441, align 8, !alias.scope !737, !noalias !734
   store ptr null, ptr %1000, align 8, !alias.scope !737, !noalias !734
   store i64 12, ptr %1001, align 8, !alias.scope !740, !noalias !734
-  store ptr @.str.103, ptr %.sroa.2.0..sroa_idx.i19.i442, align 8, !alias.scope !740, !noalias !734
+  store ptr @.str.103, ptr %.sroa.2.0..sroa_idx.i17.i442, align 8, !alias.scope !740, !noalias !734
   store ptr null, ptr %1002, align 8, !alias.scope !740, !noalias !734
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %140, ptr nonnull %15, i64 3)
           to label %1012 unwind label %.loopexit548
@@ -8328,10 +8328,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit435: ;
   store ptr @.str.104, ptr %.sroa.2.0..sroa_idx.i.i444, align 8, !alias.scope !743, !noalias !746
   store ptr null, ptr %1003, align 8, !alias.scope !743, !noalias !746
   store i64 %.sroa.0508.0.copyload, ptr %1004, align 8, !alias.scope !749, !noalias !746
-  store ptr %.sroa.3.0.copyload, ptr %.sroa.2.0..sroa_idx.i10.i448, align 8, !alias.scope !749, !noalias !746
+  store ptr %.sroa.3.0.copyload, ptr %.sroa.2.0..sroa_idx.i9.i448, align 8, !alias.scope !749, !noalias !746
   store ptr null, ptr %1005, align 8, !alias.scope !749, !noalias !746
   store i64 5, ptr %1006, align 8, !alias.scope !752, !noalias !746
-  store ptr @.str.105, ptr %.sroa.2.0..sroa_idx.i19.i449, align 8, !alias.scope !752, !noalias !746
+  store ptr @.str.105, ptr %.sroa.2.0..sroa_idx.i17.i449, align 8, !alias.scope !752, !noalias !746
   store ptr null, ptr %1007, align 8, !alias.scope !752, !noalias !746
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %141, ptr nonnull %14, i64 3)
           to label %1013 unwind label %1029
@@ -8362,7 +8362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit435: ;
   %1025 = extractvalue { i64, ptr } %1024, 0
   %1026 = extractvalue { i64, ptr } %1024, 1
   store i64 %1025, ptr %1009, align 8, !alias.scope !761, !noalias !755
-  store ptr %1026, ptr %.sroa.2.0..sroa_idx.i6.i452, align 8, !alias.scope !761, !noalias !755
+  store ptr %1026, ptr %.sroa.2.0..sroa_idx.i5.i452, align 8, !alias.scope !761, !noalias !755
   store ptr null, ptr %1010, align 8, !alias.scope !761, !noalias !755
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %142, ptr nonnull %13, i64 2)
           to label %1027 unwind label %1031
@@ -8442,8 +8442,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit458: ;
   %1049 = extractvalue { i64, ptr } %1048, 0
   %1050 = extractvalue { i64, ptr } %1048, 1
   store i64 %1049, ptr %1047, align 8, !alias.scope !770, !noalias !764
-  %.sroa.2.0..sroa_idx.i6.i460 = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr %1050, ptr %.sroa.2.0..sroa_idx.i6.i460, align 8, !alias.scope !770, !noalias !764
+  %.sroa.2.0..sroa_idx.i5.i460 = getelementptr inbounds i8, ptr %12, i64 32
+  store ptr %1050, ptr %.sroa.2.0..sroa_idx.i5.i460, align 8, !alias.scope !770, !noalias !764
   %1051 = getelementptr inbounds i8, ptr %12, i64 40
   store ptr null, ptr %1051, align 8, !alias.scope !770, !noalias !764
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %145, ptr nonnull %12, i64 2)
@@ -8488,14 +8488,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit458: ;
   %1064 = extractvalue { i64, ptr } %1063, 0
   %1065 = extractvalue { i64, ptr } %1063, 1
   store i64 %1064, ptr %1062, align 8, !alias.scope !779, !noalias !776
-  %.sroa.2.0..sroa_idx.i7.i464 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr %1065, ptr %.sroa.2.0..sroa_idx.i7.i464, align 8, !alias.scope !779, !noalias !776
+  %.sroa.2.0..sroa_idx.i6.i464 = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr %1065, ptr %.sroa.2.0..sroa_idx.i6.i464, align 8, !alias.scope !779, !noalias !776
   %1066 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr null, ptr %1066, align 8, !alias.scope !779, !noalias !776
   %1067 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 15, ptr %1067, align 8, !alias.scope !782, !noalias !776
-  %.sroa.2.0..sroa_idx.i16.i465 = getelementptr inbounds i8, ptr %11, i64 56
-  store ptr @.str.107, ptr %.sroa.2.0..sroa_idx.i16.i465, align 8, !alias.scope !782, !noalias !776
+  %.sroa.2.0..sroa_idx.i14.i465 = getelementptr inbounds i8, ptr %11, i64 56
+  store ptr @.str.107, ptr %.sroa.2.0..sroa_idx.i14.i465, align 8, !alias.scope !782, !noalias !776
   %1068 = getelementptr inbounds i8, ptr %11, i64 64
   store ptr null, ptr %1068, align 8, !alias.scope !782, !noalias !776
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %146, ptr nonnull %11, i64 3)
@@ -8588,14 +8588,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit458: ;
   %1097 = extractvalue { i64, ptr } %1096, 0
   %1098 = extractvalue { i64, ptr } %1096, 1
   store i64 %1097, ptr %1095, align 8, !alias.scope !791, !noalias !788
-  %.sroa.2.0..sroa_idx.i7.i471 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %1098, ptr %.sroa.2.0..sroa_idx.i7.i471, align 8, !alias.scope !791, !noalias !788
+  %.sroa.2.0..sroa_idx.i6.i471 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %1098, ptr %.sroa.2.0..sroa_idx.i6.i471, align 8, !alias.scope !791, !noalias !788
   %1099 = getelementptr inbounds i8, ptr %9, i64 40
   store ptr null, ptr %1099, align 8, !alias.scope !791, !noalias !788
   %1100 = getelementptr inbounds i8, ptr %9, i64 48
   store i64 23, ptr %1100, align 8, !alias.scope !794, !noalias !788
-  %.sroa.2.0..sroa_idx.i16.i472 = getelementptr inbounds i8, ptr %9, i64 56
-  store ptr @.str.110, ptr %.sroa.2.0..sroa_idx.i16.i472, align 8, !alias.scope !794, !noalias !788
+  %.sroa.2.0..sroa_idx.i14.i472 = getelementptr inbounds i8, ptr %9, i64 56
+  store ptr @.str.110, ptr %.sroa.2.0..sroa_idx.i14.i472, align 8, !alias.scope !794, !noalias !788
   %1101 = getelementptr inbounds i8, ptr %9, i64 64
   store ptr null, ptr %1101, align 8, !alias.scope !794, !noalias !788
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %148, ptr nonnull %9, i64 3)
@@ -8648,7 +8648,7 @@ _ZN6cmList6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14Exp
   %.sroa.2.0..sroa_idx.i.i478 = getelementptr inbounds i8, ptr %7, i64 8
   %1116 = getelementptr inbounds i8, ptr %7, i64 16
   %1117 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.2.0..sroa_idx.i6.i479 = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.2.0..sroa_idx.i5.i479 = getelementptr inbounds i8, ptr %7, i64 32
   %1118 = getelementptr inbounds i8, ptr %7, i64 40
   br label %1119
 
@@ -8665,7 +8665,7 @@ _ZN6cmList6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14Exp
   %1124 = extractvalue { i64, ptr } %1123, 0
   %1125 = extractvalue { i64, ptr } %1123, 1
   store i64 %1124, ptr %1117, align 8, !alias.scope !803, !noalias !797
-  store ptr %1125, ptr %.sroa.2.0..sroa_idx.i6.i479, align 8, !alias.scope !803, !noalias !797
+  store ptr %1125, ptr %.sroa.2.0..sroa_idx.i5.i479, align 8, !alias.scope !803, !noalias !797
   store ptr null, ptr %1118, align 8, !alias.scope !803, !noalias !797
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %149, ptr nonnull %7, i64 2)
           to label %1126 unwind label %.loopexit
@@ -8705,14 +8705,14 @@ _ZN6cmList6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14Exp
   %1138 = extractvalue { i64, ptr } %1137, 0
   %1139 = extractvalue { i64, ptr } %1137, 1
   store i64 %1138, ptr %1136, align 8, !alias.scope !812, !noalias !809
-  %.sroa.2.0..sroa_idx.i7.i483 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %1139, ptr %.sroa.2.0..sroa_idx.i7.i483, align 8, !alias.scope !812, !noalias !809
+  %.sroa.2.0..sroa_idx.i6.i483 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %1139, ptr %.sroa.2.0..sroa_idx.i6.i483, align 8, !alias.scope !812, !noalias !809
   %1140 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr null, ptr %1140, align 8, !alias.scope !812, !noalias !809
   %1141 = getelementptr inbounds i8, ptr %6, i64 48
   store i64 7, ptr %1141, align 8, !alias.scope !815, !noalias !809
-  %.sroa.2.0..sroa_idx.i16.i484 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr @.str.112, ptr %.sroa.2.0..sroa_idx.i16.i484, align 8, !alias.scope !815, !noalias !809
+  %.sroa.2.0..sroa_idx.i14.i484 = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr @.str.112, ptr %.sroa.2.0..sroa_idx.i14.i484, align 8, !alias.scope !815, !noalias !809
   %1142 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr null, ptr %1142, align 8, !alias.scope !815, !noalias !809
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %152, ptr nonnull %6, i64 3)
@@ -8733,14 +8733,14 @@ _ZN6cmList6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14Exp
   %1148 = extractvalue { i64, ptr } %1147, 0
   %1149 = extractvalue { i64, ptr } %1147, 1
   store i64 %1148, ptr %1146, align 8, !alias.scope !824, !noalias !821
-  %.sroa.2.0..sroa_idx.i7.i487 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %1149, ptr %.sroa.2.0..sroa_idx.i7.i487, align 8, !alias.scope !824, !noalias !821
+  %.sroa.2.0..sroa_idx.i6.i487 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %1149, ptr %.sroa.2.0..sroa_idx.i6.i487, align 8, !alias.scope !824, !noalias !821
   %1150 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %1150, align 8, !alias.scope !824, !noalias !821
   %1151 = getelementptr inbounds i8, ptr %5, i64 48
   store i64 12, ptr %1151, align 8, !alias.scope !827, !noalias !821
-  %.sroa.2.0..sroa_idx.i16.i488 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr @.str.113, ptr %.sroa.2.0..sroa_idx.i16.i488, align 8, !alias.scope !827, !noalias !821
+  %.sroa.2.0..sroa_idx.i14.i488 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr @.str.113, ptr %.sroa.2.0..sroa_idx.i14.i488, align 8, !alias.scope !827, !noalias !821
   %1152 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr null, ptr %1152, align 8, !alias.scope !827, !noalias !821
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %153, ptr nonnull %5, i64 3)
@@ -9090,8 +9090,8 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %78 = getelementptr inbounds i8, ptr %13, i64 24
   %79 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #25, !noalias !830
   store i64 %79, ptr %78, align 8, !alias.scope !836, !noalias !830
-  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %13, i64 32
-  store ptr %64, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !alias.scope !836, !noalias !830
+  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %13, i64 32
+  store ptr %64, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !836, !noalias !830
   %80 = getelementptr inbounds i8, ptr %13, i64 40
   store ptr null, ptr %80, align 8, !alias.scope !836, !noalias !830
   %81 = getelementptr inbounds i8, ptr %13, i64 48
@@ -9103,15 +9103,15 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   store ptr %83, ptr %84, align 8, !noalias !830
   store i8 32, ptr %83, align 8, !noalias !830
   store i64 1, ptr %81, align 8, !alias.scope !839, !noalias !830
-  %.sroa.2.0..sroa_idx.i19.i = getelementptr inbounds i8, ptr %13, i64 56
-  store ptr %83, ptr %.sroa.2.0..sroa_idx.i19.i, align 8, !alias.scope !839, !noalias !830
+  %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %13, i64 56
+  store ptr %83, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !839, !noalias !830
   %85 = getelementptr inbounds i8, ptr %13, i64 64
   store ptr null, ptr %85, align 8, !alias.scope !839, !noalias !830
   %86 = getelementptr inbounds i8, ptr %13, i64 72
   %87 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #25, !noalias !830
   store i64 %87, ptr %86, align 8, !alias.scope !842, !noalias !830
-  %.sroa.2.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %13, i64 80
-  store ptr %67, ptr %.sroa.2.0..sroa_idx.i28.i, align 8, !alias.scope !842, !noalias !830
+  %.sroa.2.0..sroa_idx.i25.i = getelementptr inbounds i8, ptr %13, i64 80
+  store ptr %67, ptr %.sroa.2.0..sroa_idx.i25.i, align 8, !alias.scope !842, !noalias !830
   %88 = getelementptr inbounds i8, ptr %13, i64 88
   store ptr null, ptr %88, align 8, !alias.scope !842, !noalias !830
   %89 = getelementptr inbounds i8, ptr %13, i64 96
@@ -9123,8 +9123,8 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   store ptr %91, ptr %92, align 8, !noalias !830
   store i8 32, ptr %91, align 8, !noalias !830
   store i64 1, ptr %89, align 8, !alias.scope !845, !noalias !830
-  %.sroa.2.0..sroa_idx.i37.i = getelementptr inbounds i8, ptr %13, i64 104
-  store ptr %91, ptr %.sroa.2.0..sroa_idx.i37.i, align 8, !alias.scope !845, !noalias !830
+  %.sroa.2.0..sroa_idx.i33.i = getelementptr inbounds i8, ptr %13, i64 104
+  store ptr %91, ptr %.sroa.2.0..sroa_idx.i33.i, align 8, !alias.scope !845, !noalias !830
   %93 = getelementptr inbounds i8, ptr %13, i64 112
   store ptr null, ptr %93, align 8, !alias.scope !845, !noalias !830
   %94 = getelementptr inbounds i8, ptr %13, i64 120
@@ -9132,8 +9132,8 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %96 = extractvalue { i64, ptr } %95, 0
   %97 = extractvalue { i64, ptr } %95, 1
   store i64 %96, ptr %94, align 8, !alias.scope !848, !noalias !830
-  %.sroa.2.0..sroa_idx.i46.i = getelementptr inbounds i8, ptr %13, i64 128
-  store ptr %97, ptr %.sroa.2.0..sroa_idx.i46.i, align 8, !alias.scope !848, !noalias !830
+  %.sroa.2.0..sroa_idx.i41.i = getelementptr inbounds i8, ptr %13, i64 128
+  store ptr %97, ptr %.sroa.2.0..sroa_idx.i41.i, align 8, !alias.scope !848, !noalias !830
   %98 = getelementptr inbounds i8, ptr %13, i64 136
   store ptr null, ptr %98, align 8, !alias.scope !848, !noalias !830
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr nonnull %13, i64 6)
@@ -9160,8 +9160,8 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %107 = extractvalue { i64, ptr } %106, 0
   %108 = extractvalue { i64, ptr } %106, 1
   store i64 %107, ptr %105, align 8, !alias.scope !857, !noalias !851
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr %108, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !857, !noalias !851
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %12, i64 32
+  store ptr %108, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !857, !noalias !851
   %109 = getelementptr inbounds i8, ptr %12, i64 40
   store ptr null, ptr %109, align 8, !alias.scope !857, !noalias !851
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr nonnull %12, i64 2)
@@ -9292,7 +9292,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_Z8cmStrCatIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA30_KcJS7_RA9_S8_S7_RS5_RA13_S8_SD_EES5_OT_OT0_DpOT1_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(30) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(13) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-_ZZ8cmStrCatIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA30_KcJS7_RA9_S8_S7_RS5_RA13_S8_SD_EES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESP_.exit70:
+_ZZ8cmStrCatIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA30_KcJS7_RA9_S8_S7_RS5_RA13_S8_SD_EES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESP_.exit63:
   %9 = alloca [8 x %"struct.std::pair.982"], align 8
   %10 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %11 = extractvalue { i64, ptr } %10, 0
@@ -9305,8 +9305,8 @@ _ZZ8cmStrCatIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA30_KcJS7_RA
   %14 = getelementptr inbounds i8, ptr %9, i64 24
   %15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   store i64 %15, ptr %14, align 8, !alias.scope !863
-  %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %2, ptr %.sroa.2.0..sroa_idx.i12, align 8, !alias.scope !863
+  %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %2, ptr %.sroa.2.0..sroa_idx.i11, align 8, !alias.scope !863
   %16 = getelementptr inbounds i8, ptr %9, i64 40
   store ptr null, ptr %16, align 8, !alias.scope !863
   %17 = getelementptr inbounds i8, ptr %9, i64 48
@@ -9314,15 +9314,15 @@ _ZZ8cmStrCatIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA30_KcJS7_RA
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
   store i64 %19, ptr %17, align 8, !alias.scope !866
-  %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %9, i64 56
-  store ptr %20, ptr %.sroa.2.0..sroa_idx.i21, align 8, !alias.scope !866
+  %.sroa.2.0..sroa_idx.i19 = getelementptr inbounds i8, ptr %9, i64 56
+  store ptr %20, ptr %.sroa.2.0..sroa_idx.i19, align 8, !alias.scope !866
   %21 = getelementptr inbounds i8, ptr %9, i64 64
   store ptr null, ptr %21, align 8, !alias.scope !866
   %22 = getelementptr inbounds i8, ptr %9, i64 72
   %23 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #25
   store i64 %23, ptr %22, align 8, !alias.scope !869
-  %.sroa.2.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %9, i64 80
-  store ptr %4, ptr %.sroa.2.0..sroa_idx.i30, align 8, !alias.scope !869
+  %.sroa.2.0..sroa_idx.i27 = getelementptr inbounds i8, ptr %9, i64 80
+  store ptr %4, ptr %.sroa.2.0..sroa_idx.i27, align 8, !alias.scope !869
   %24 = getelementptr inbounds i8, ptr %9, i64 88
   store ptr null, ptr %24, align 8, !alias.scope !869
   %25 = getelementptr inbounds i8, ptr %9, i64 96
@@ -9330,8 +9330,8 @@ _ZZ8cmStrCatIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA30_KcJS7_RA
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
   store i64 %27, ptr %25, align 8, !alias.scope !872
-  %.sroa.2.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %9, i64 104
-  store ptr %28, ptr %.sroa.2.0..sroa_idx.i39, align 8, !alias.scope !872
+  %.sroa.2.0..sroa_idx.i35 = getelementptr inbounds i8, ptr %9, i64 104
+  store ptr %28, ptr %.sroa.2.0..sroa_idx.i35, align 8, !alias.scope !872
   %29 = getelementptr inbounds i8, ptr %9, i64 112
   store ptr null, ptr %29, align 8, !alias.scope !872
   %30 = getelementptr inbounds i8, ptr %9, i64 120
@@ -9339,15 +9339,15 @@ _ZZ8cmStrCatIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA30_KcJS7_RA
   %32 = extractvalue { i64, ptr } %31, 0
   %33 = extractvalue { i64, ptr } %31, 1
   store i64 %32, ptr %30, align 8, !alias.scope !875
-  %.sroa.2.0..sroa_idx.i48 = getelementptr inbounds i8, ptr %9, i64 128
-  store ptr %33, ptr %.sroa.2.0..sroa_idx.i48, align 8, !alias.scope !875
+  %.sroa.2.0..sroa_idx.i43 = getelementptr inbounds i8, ptr %9, i64 128
+  store ptr %33, ptr %.sroa.2.0..sroa_idx.i43, align 8, !alias.scope !875
   %34 = getelementptr inbounds i8, ptr %9, i64 136
   store ptr null, ptr %34, align 8, !alias.scope !875
   %35 = getelementptr inbounds i8, ptr %9, i64 144
   %36 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
   store i64 %36, ptr %35, align 8, !alias.scope !878
-  %.sroa.2.0..sroa_idx.i57 = getelementptr inbounds i8, ptr %9, i64 152
-  store ptr %7, ptr %.sroa.2.0..sroa_idx.i57, align 8, !alias.scope !878
+  %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %9, i64 152
+  store ptr %7, ptr %.sroa.2.0..sroa_idx.i51, align 8, !alias.scope !878
   %37 = getelementptr inbounds i8, ptr %9, i64 160
   store ptr null, ptr %37, align 8, !alias.scope !878
   %38 = getelementptr inbounds i8, ptr %9, i64 168
@@ -9355,8 +9355,8 @@ _ZZ8cmStrCatIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA30_KcJS7_RA
   %40 = extractvalue { i64, ptr } %39, 0
   %41 = extractvalue { i64, ptr } %39, 1
   store i64 %40, ptr %38, align 8, !alias.scope !881
-  %.sroa.2.0..sroa_idx.i66 = getelementptr inbounds i8, ptr %9, i64 176
-  store ptr %41, ptr %.sroa.2.0..sroa_idx.i66, align 8, !alias.scope !881
+  %.sroa.2.0..sroa_idx.i59 = getelementptr inbounds i8, ptr %9, i64 176
+  store ptr %41, ptr %.sroa.2.0..sroa_idx.i59, align 8, !alias.scope !881
   %42 = getelementptr inbounds i8, ptr %9, i64 184
   store ptr null, ptr %42, align 8, !alias.scope !881
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %9, i64 8)
@@ -9373,7 +9373,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN13cmSystemTools18Get
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_Z8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcJRKS5_cRPKcRA18_S9_S8_RA4_S9_S8_RA3_S9_EES5_OT_OT0_DpOT1_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(18) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(3) %10) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-_ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcJRKS5_cRPKcRA18_S9_S8_RA4_S9_S8_RA3_S9_EES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESR_.exit90:
+_ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcJRKS5_cRPKcRA18_S9_S8_RA4_S9_S8_RA3_S9_EES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESR_.exit81:
   %11 = alloca [10 x %"struct.std::pair.982"], align 8
   %12 = alloca %class.cmAlphaNum, align 8
   %13 = alloca %class.cmAlphaNum, align 8
@@ -9395,8 +9395,8 @@ _ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcJRKS5_cRPKcRA
   store ptr %21, ptr %22, align 8
   store i8 %19, ptr %21, align 8
   store i64 1, ptr %18, align 8, !alias.scope !887
-  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr %21, ptr %.sroa.2.0..sroa_idx.i14, align 8, !alias.scope !887
+  %.sroa.2.0..sroa_idx.i13 = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr %21, ptr %.sroa.2.0..sroa_idx.i13, align 8, !alias.scope !887
   %23 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr null, ptr %23, align 8, !alias.scope !887
   %24 = getelementptr inbounds i8, ptr %11, i64 48
@@ -9404,8 +9404,8 @@ _ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcJRKS5_cRPKcRA
   %26 = extractvalue { i64, ptr } %25, 0
   %27 = extractvalue { i64, ptr } %25, 1
   store i64 %26, ptr %24, align 8, !alias.scope !890
-  %.sroa.2.0..sroa_idx.i23 = getelementptr inbounds i8, ptr %11, i64 56
-  store ptr %27, ptr %.sroa.2.0..sroa_idx.i23, align 8, !alias.scope !890
+  %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %11, i64 56
+  store ptr %27, ptr %.sroa.2.0..sroa_idx.i21, align 8, !alias.scope !890
   %28 = getelementptr inbounds i8, ptr %11, i64 64
   store ptr null, ptr %28, align 8, !alias.scope !890
   %29 = getelementptr inbounds i8, ptr %11, i64 72
@@ -9418,23 +9418,23 @@ _ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcJRKS5_cRPKcRA
   store ptr %32, ptr %33, align 8
   store i8 %30, ptr %32, align 8
   store i64 1, ptr %29, align 8, !alias.scope !893
-  %.sroa.2.0..sroa_idx.i32 = getelementptr inbounds i8, ptr %11, i64 80
-  store ptr %32, ptr %.sroa.2.0..sroa_idx.i32, align 8, !alias.scope !893
+  %.sroa.2.0..sroa_idx.i29 = getelementptr inbounds i8, ptr %11, i64 80
+  store ptr %32, ptr %.sroa.2.0..sroa_idx.i29, align 8, !alias.scope !893
   %34 = getelementptr inbounds i8, ptr %11, i64 88
   store ptr null, ptr %34, align 8, !alias.scope !893
   %35 = getelementptr inbounds i8, ptr %11, i64 96
   %36 = load ptr, ptr %5, align 8
   %37 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #25
   store i64 %37, ptr %35, align 8, !alias.scope !896
-  %.sroa.2.0..sroa_idx.i41 = getelementptr inbounds i8, ptr %11, i64 104
-  store ptr %36, ptr %.sroa.2.0..sroa_idx.i41, align 8, !alias.scope !896
+  %.sroa.2.0..sroa_idx.i37 = getelementptr inbounds i8, ptr %11, i64 104
+  store ptr %36, ptr %.sroa.2.0..sroa_idx.i37, align 8, !alias.scope !896
   %38 = getelementptr inbounds i8, ptr %11, i64 112
   store ptr null, ptr %38, align 8, !alias.scope !896
   %39 = getelementptr inbounds i8, ptr %11, i64 120
   %40 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
   store i64 %40, ptr %39, align 8, !alias.scope !899
-  %.sroa.2.0..sroa_idx.i50 = getelementptr inbounds i8, ptr %11, i64 128
-  store ptr %6, ptr %.sroa.2.0..sroa_idx.i50, align 8, !alias.scope !899
+  %.sroa.2.0..sroa_idx.i45 = getelementptr inbounds i8, ptr %11, i64 128
+  store ptr %6, ptr %.sroa.2.0..sroa_idx.i45, align 8, !alias.scope !899
   %41 = getelementptr inbounds i8, ptr %11, i64 136
   store ptr null, ptr %41, align 8, !alias.scope !899
   %42 = getelementptr inbounds i8, ptr %11, i64 144
@@ -9442,15 +9442,15 @@ _ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcJRKS5_cRPKcRA
   %44 = extractvalue { i64, ptr } %43, 0
   %45 = extractvalue { i64, ptr } %43, 1
   store i64 %44, ptr %42, align 8, !alias.scope !902
-  %.sroa.2.0..sroa_idx.i59 = getelementptr inbounds i8, ptr %11, i64 152
-  store ptr %45, ptr %.sroa.2.0..sroa_idx.i59, align 8, !alias.scope !902
+  %.sroa.2.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %11, i64 152
+  store ptr %45, ptr %.sroa.2.0..sroa_idx.i53, align 8, !alias.scope !902
   %46 = getelementptr inbounds i8, ptr %11, i64 160
   store ptr null, ptr %46, align 8, !alias.scope !902
   %47 = getelementptr inbounds i8, ptr %11, i64 168
   %48 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
   store i64 %48, ptr %47, align 8, !alias.scope !905
-  %.sroa.2.0..sroa_idx.i68 = getelementptr inbounds i8, ptr %11, i64 176
-  store ptr %8, ptr %.sroa.2.0..sroa_idx.i68, align 8, !alias.scope !905
+  %.sroa.2.0..sroa_idx.i61 = getelementptr inbounds i8, ptr %11, i64 176
+  store ptr %8, ptr %.sroa.2.0..sroa_idx.i61, align 8, !alias.scope !905
   %49 = getelementptr inbounds i8, ptr %11, i64 184
   store ptr null, ptr %49, align 8, !alias.scope !905
   %50 = getelementptr inbounds i8, ptr %11, i64 192
@@ -9458,15 +9458,15 @@ _ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcJRKS5_cRPKcRA
   %52 = extractvalue { i64, ptr } %51, 0
   %53 = extractvalue { i64, ptr } %51, 1
   store i64 %52, ptr %50, align 8, !alias.scope !908
-  %.sroa.2.0..sroa_idx.i77 = getelementptr inbounds i8, ptr %11, i64 200
-  store ptr %53, ptr %.sroa.2.0..sroa_idx.i77, align 8, !alias.scope !908
+  %.sroa.2.0..sroa_idx.i69 = getelementptr inbounds i8, ptr %11, i64 200
+  store ptr %53, ptr %.sroa.2.0..sroa_idx.i69, align 8, !alias.scope !908
   %54 = getelementptr inbounds i8, ptr %11, i64 208
   store ptr null, ptr %54, align 8, !alias.scope !908
   %55 = getelementptr inbounds i8, ptr %11, i64 216
   %56 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   store i64 %56, ptr %55, align 8, !alias.scope !911
-  %.sroa.2.0..sroa_idx.i86 = getelementptr inbounds i8, ptr %11, i64 224
-  store ptr %10, ptr %.sroa.2.0..sroa_idx.i86, align 8, !alias.scope !911
+  %.sroa.2.0..sroa_idx.i77 = getelementptr inbounds i8, ptr %11, i64 224
+  store ptr %10, ptr %.sroa.2.0..sroa_idx.i77, align 8, !alias.scope !911
   %57 = getelementptr inbounds i8, ptr %11, i64 232
   store ptr null, ptr %57, align 8, !alias.scope !911
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %11, i64 10)
@@ -10077,8 +10077,8 @@ _ZNK22cmNinjaTargetGenerator13GetTargetNameB5cxx11Ev.exit: ; preds = %.noexc266
   %246 = extractvalue { i64, ptr } %245, 0
   %247 = extractvalue { i64, ptr } %245, 1
   store i64 %246, ptr %244, align 8, !alias.scope !926, !noalias !923
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr %247, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !926, !noalias !923
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %15, i64 32
+  store ptr %247, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !926, !noalias !923
   %248 = getelementptr inbounds i8, ptr %15, i64 40
   store ptr %29, ptr %248, align 8, !alias.scope !926, !noalias !923
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %28, ptr nonnull %15, i64 2)
@@ -10589,8 +10589,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit300: ; preds = %436
   store ptr %461, ptr %462, align 8, !noalias !935
   store i8 47, ptr %461, align 8, !noalias !935
   store i64 1, ptr %459, align 8, !alias.scope !941, !noalias !935
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %13, i64 32
-  store ptr %461, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !941, !noalias !935
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %13, i64 32
+  store ptr %461, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !941, !noalias !935
   %463 = getelementptr inbounds i8, ptr %13, i64 40
   store ptr null, ptr %463, align 8, !alias.scope !941, !noalias !935
   %464 = getelementptr inbounds i8, ptr %13, i64 48
@@ -10599,8 +10599,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit300: ; preds = %436
   %466 = extractvalue { i64, ptr } %465, 0
   %467 = extractvalue { i64, ptr } %465, 1
   store i64 %466, ptr %464, align 8, !alias.scope !944, !noalias !935
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %13, i64 56
-  store ptr %467, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !944, !noalias !935
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %13, i64 56
+  store ptr %467, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !944, !noalias !935
   %468 = getelementptr inbounds i8, ptr %13, i64 64
   store ptr %39, ptr %468, align 8, !alias.scope !944, !noalias !935
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %38, ptr nonnull %13, i64 3)
@@ -11231,16 +11231,16 @@ _ZNSt6vectorIPK12cmSourceFileSaIS2_EED2Ev.exit387: ; preds = %._crit_edge715, %6
   %.sroa.2.0..sroa_idx.i.i388 = getelementptr inbounds i8, ptr %12, i64 8
   %672 = getelementptr inbounds i8, ptr %12, i64 16
   %673 = getelementptr inbounds i8, ptr %12, i64 24
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %12, i64 32
   %674 = getelementptr inbounds i8, ptr %12, i64 40
   %675 = getelementptr inbounds i8, ptr %12, i64 48
-  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %12, i64 56
+  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %12, i64 56
   %676 = getelementptr inbounds i8, ptr %12, i64 64
   %677 = getelementptr inbounds i8, ptr %12, i64 72
-  %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds i8, ptr %12, i64 80
+  %.sroa.2.0..sroa_idx.i24.i = getelementptr inbounds i8, ptr %12, i64 80
   %678 = getelementptr inbounds i8, ptr %12, i64 88
   %679 = getelementptr inbounds i8, ptr %12, i64 96
-  %.sroa.2.0..sroa_idx.i36.i = getelementptr inbounds i8, ptr %12, i64 104
+  %.sroa.2.0..sroa_idx.i32.i = getelementptr inbounds i8, ptr %12, i64 104
   %680 = getelementptr inbounds i8, ptr %12, i64 112
   br label %681
 
@@ -11307,19 +11307,19 @@ _ZStneIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %704 = extractvalue { i64, ptr } %703, 0
   %705 = extractvalue { i64, ptr } %703, 1
   store i64 %704, ptr %673, align 8, !alias.scope !960, !noalias !957
-  store ptr %705, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !960, !noalias !957
+  store ptr %705, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !960, !noalias !957
   store ptr null, ptr %674, align 8, !alias.scope !960, !noalias !957
   store i64 20, ptr %675, align 8, !alias.scope !963, !noalias !957
-  store ptr @.str.120, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !963, !noalias !957
+  store ptr @.str.120, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !963, !noalias !957
   store ptr null, ptr %676, align 8, !alias.scope !963, !noalias !957
   %706 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %701) #25, !noalias !957
   %707 = extractvalue { i64, ptr } %706, 0
   %708 = extractvalue { i64, ptr } %706, 1
   store i64 %707, ptr %677, align 8, !alias.scope !966, !noalias !957
-  store ptr %708, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !alias.scope !966, !noalias !957
+  store ptr %708, ptr %.sroa.2.0..sroa_idx.i24.i, align 8, !alias.scope !966, !noalias !957
   store ptr null, ptr %678, align 8, !alias.scope !966, !noalias !957
   store i64 74, ptr %679, align 8, !alias.scope !969, !noalias !957
-  store ptr @.str.121, ptr %.sroa.2.0..sroa_idx.i36.i, align 8, !alias.scope !969, !noalias !957
+  store ptr @.str.121, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !alias.scope !969, !noalias !957
   store ptr null, ptr %680, align 8, !alias.scope !969, !noalias !957
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %51, ptr nonnull %12, i64 5)
           to label %709 unwind label %.loopexit616
@@ -11644,25 +11644,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit411: ;
   %802 = getelementptr inbounds i8, ptr %10, i64 8
   %803 = getelementptr inbounds i8, ptr %10, i64 24
   %804 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.2.0..sroa_idx.i11.i = getelementptr inbounds i8, ptr %9, i64 32
+  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %9, i64 32
   %805 = getelementptr inbounds i8, ptr %9, i64 40
   %806 = getelementptr inbounds i8, ptr %9, i64 48
-  %.sroa.2.0..sroa_idx.i20.i = getelementptr inbounds i8, ptr %9, i64 56
+  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %9, i64 56
   %807 = getelementptr inbounds i8, ptr %9, i64 64
   %808 = getelementptr inbounds i8, ptr %9, i64 72
-  %.sroa.2.0..sroa_idx.i29.i = getelementptr inbounds i8, ptr %9, i64 80
+  %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %9, i64 80
   %809 = getelementptr inbounds i8, ptr %9, i64 88
   %810 = getelementptr inbounds i8, ptr %9, i64 96
   %811 = getelementptr inbounds i8, ptr %11, i64 8
   %812 = getelementptr inbounds i8, ptr %11, i64 24
   %813 = getelementptr inbounds i8, ptr %11, i64 16
-  %.sroa.2.0..sroa_idx.i38.i = getelementptr inbounds i8, ptr %9, i64 104
+  %.sroa.2.0..sroa_idx.i34.i = getelementptr inbounds i8, ptr %9, i64 104
   %814 = getelementptr inbounds i8, ptr %9, i64 112
   %815 = getelementptr inbounds i8, ptr %9, i64 120
-  %.sroa.2.0..sroa_idx.i47.i = getelementptr inbounds i8, ptr %9, i64 128
+  %.sroa.2.0..sroa_idx.i42.i = getelementptr inbounds i8, ptr %9, i64 128
   %816 = getelementptr inbounds i8, ptr %9, i64 136
   %817 = getelementptr inbounds i8, ptr %9, i64 144
-  %.sroa.2.0..sroa_idx.i56.i = getelementptr inbounds i8, ptr %9, i64 152
+  %.sroa.2.0..sroa_idx.i50.i = getelementptr inbounds i8, ptr %9, i64 152
   %818 = getelementptr inbounds i8, ptr %9, i64 160
   %819 = getelementptr inbounds i8, ptr %59, i64 96
   %820 = getelementptr inbounds i8, ptr %59, i64 104
@@ -11679,13 +11679,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit411: ;
   %830 = getelementptr inbounds i8, ptr %8, i64 8
   %831 = getelementptr inbounds i8, ptr %8, i64 24
   %832 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %7, i64 32
   %833 = getelementptr inbounds i8, ptr %7, i64 40
   %834 = getelementptr inbounds i8, ptr %7, i64 48
-  %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %7, i64 56
+  %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds i8, ptr %7, i64 56
   %835 = getelementptr inbounds i8, ptr %7, i64 64
   %836 = getelementptr inbounds i8, ptr %7, i64 72
-  %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %7, i64 80
+  %.sroa.2.0..sroa_idx.i23.i = getelementptr inbounds i8, ptr %7, i64 80
   %837 = getelementptr inbounds i8, ptr %7, i64 88
   %838 = getelementptr inbounds i8, ptr %66, i64 24
   %839 = getelementptr inbounds i8, ptr %66, i64 32
@@ -11695,13 +11695,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit411: ;
   %842 = getelementptr inbounds i8, ptr %6, i64 8
   %843 = getelementptr inbounds i8, ptr %6, i64 24
   %844 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.2.0..sroa_idx.i8.i443 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.2.0..sroa_idx.i7.i443 = getelementptr inbounds i8, ptr %5, i64 32
   %845 = getelementptr inbounds i8, ptr %5, i64 40
   %846 = getelementptr inbounds i8, ptr %5, i64 48
-  %.sroa.2.0..sroa_idx.i17.i444 = getelementptr inbounds i8, ptr %5, i64 56
+  %.sroa.2.0..sroa_idx.i15.i444 = getelementptr inbounds i8, ptr %5, i64 56
   %847 = getelementptr inbounds i8, ptr %5, i64 64
   %848 = getelementptr inbounds i8, ptr %5, i64 72
-  %.sroa.2.0..sroa_idx.i26.i445 = getelementptr inbounds i8, ptr %5, i64 80
+  %.sroa.2.0..sroa_idx.i23.i445 = getelementptr inbounds i8, ptr %5, i64 80
   %849 = getelementptr inbounds i8, ptr %5, i64 88
   br label %850
 
@@ -11785,37 +11785,37 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit418: ; preds = %869
   store ptr %803, ptr %804, align 8, !noalias !973
   store i8 47, ptr %803, align 8, !noalias !973
   store i64 1, ptr %801, align 8, !alias.scope !979, !noalias !973
-  store ptr %803, ptr %.sroa.2.0..sroa_idx.i11.i, align 8, !alias.scope !979, !noalias !973
+  store ptr %803, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !alias.scope !979, !noalias !973
   store ptr null, ptr %805, align 8, !alias.scope !979, !noalias !973
   call void @llvm.experimental.noalias.scope.decl(metadata !982)
   %879 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #25, !noalias !985
   %880 = extractvalue { i64, ptr } %879, 0
   %881 = extractvalue { i64, ptr } %879, 1
   store i64 %880, ptr %806, align 8, !alias.scope !982, !noalias !973
-  store ptr %881, ptr %.sroa.2.0..sroa_idx.i20.i, align 8, !alias.scope !982, !noalias !973
+  store ptr %881, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !982, !noalias !973
   store ptr %63, ptr %807, align 8, !alias.scope !982, !noalias !973
   call void @llvm.experimental.noalias.scope.decl(metadata !986)
   %882 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %64) #25, !noalias !989
   %883 = extractvalue { i64, ptr } %882, 0
   %884 = extractvalue { i64, ptr } %882, 1
   store i64 %883, ptr %808, align 8, !alias.scope !986, !noalias !973
-  store ptr %884, ptr %.sroa.2.0..sroa_idx.i29.i, align 8, !alias.scope !986, !noalias !973
+  store ptr %884, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !986, !noalias !973
   store ptr %64, ptr %809, align 8, !alias.scope !986, !noalias !973
   store ptr null, ptr %11, align 8, !noalias !973
   store i64 1, ptr %811, align 8, !noalias !973
   store ptr %812, ptr %813, align 8, !noalias !973
   store i8 47, ptr %812, align 8, !noalias !973
   store i64 1, ptr %810, align 8, !alias.scope !990, !noalias !973
-  store ptr %812, ptr %.sroa.2.0..sroa_idx.i38.i, align 8, !alias.scope !990, !noalias !973
+  store ptr %812, ptr %.sroa.2.0..sroa_idx.i34.i, align 8, !alias.scope !990, !noalias !973
   store ptr null, ptr %814, align 8, !alias.scope !990, !noalias !973
   %885 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %851) #25, !noalias !973
   %886 = extractvalue { i64, ptr } %885, 0
   %887 = extractvalue { i64, ptr } %885, 1
   store i64 %886, ptr %815, align 8, !alias.scope !993, !noalias !973
-  store ptr %887, ptr %.sroa.2.0..sroa_idx.i47.i, align 8, !alias.scope !993, !noalias !973
+  store ptr %887, ptr %.sroa.2.0..sroa_idx.i42.i, align 8, !alias.scope !993, !noalias !973
   store ptr null, ptr %816, align 8, !alias.scope !993, !noalias !973
   store i64 12, ptr %817, align 8, !alias.scope !996, !noalias !973
-  store ptr @.str.122, ptr %.sroa.2.0..sroa_idx.i56.i, align 8, !alias.scope !996, !noalias !973
+  store ptr @.str.122, ptr %.sroa.2.0..sroa_idx.i50.i, align 8, !alias.scope !996, !noalias !973
   store ptr null, ptr %818, align 8, !alias.scope !996, !noalias !973
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %62, ptr nonnull %9, i64 7)
           to label %888 unwind label %917
@@ -12004,16 +12004,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   store ptr %831, ptr %832, align 8, !noalias !999
   store i8 47, ptr %831, align 8, !noalias !999
   store i64 1, ptr %829, align 8, !alias.scope !1005, !noalias !999
-  store ptr %831, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !1005, !noalias !999
+  store ptr %831, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !1005, !noalias !999
   store ptr null, ptr %833, align 8, !alias.scope !1005, !noalias !999
   %942 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %851) #25, !noalias !999
   %943 = extractvalue { i64, ptr } %942, 0
   %944 = extractvalue { i64, ptr } %942, 1
   store i64 %943, ptr %834, align 8, !alias.scope !1008, !noalias !999
-  store ptr %944, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !1008, !noalias !999
+  store ptr %944, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !alias.scope !1008, !noalias !999
   store ptr null, ptr %835, align 8, !alias.scope !1008, !noalias !999
   store i64 12, ptr %836, align 8, !alias.scope !1011, !noalias !999
-  store ptr @.str.122, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !1011, !noalias !999
+  store ptr @.str.122, ptr %.sroa.2.0..sroa_idx.i23.i, align 8, !alias.scope !1011, !noalias !999
   store ptr null, ptr %837, align 8, !alias.scope !1011, !noalias !999
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %67, ptr nonnull %7, i64 4)
           to label %945 unwind label %.loopexit.split-lp.loopexit
@@ -12154,16 +12154,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   store ptr %843, ptr %844, align 8, !noalias !1015
   store i8 47, ptr %843, align 8, !noalias !1015
   store i64 1, ptr %841, align 8, !alias.scope !1021, !noalias !1015
-  store ptr %843, ptr %.sroa.2.0..sroa_idx.i8.i443, align 8, !alias.scope !1021, !noalias !1015
+  store ptr %843, ptr %.sroa.2.0..sroa_idx.i7.i443, align 8, !alias.scope !1021, !noalias !1015
   store ptr null, ptr %845, align 8, !alias.scope !1021, !noalias !1015
   %980 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %851) #25, !noalias !1015
   %981 = extractvalue { i64, ptr } %980, 0
   %982 = extractvalue { i64, ptr } %980, 1
   store i64 %981, ptr %846, align 8, !alias.scope !1024, !noalias !1015
-  store ptr %982, ptr %.sroa.2.0..sroa_idx.i17.i444, align 8, !alias.scope !1024, !noalias !1015
+  store ptr %982, ptr %.sroa.2.0..sroa_idx.i15.i444, align 8, !alias.scope !1024, !noalias !1015
   store ptr null, ptr %847, align 8, !alias.scope !1024, !noalias !1015
   store i64 12, ptr %848, align 8, !alias.scope !1027, !noalias !1015
-  store ptr @.str.122, ptr %.sroa.2.0..sroa_idx.i26.i445, align 8, !alias.scope !1027, !noalias !1015
+  store ptr @.str.122, ptr %.sroa.2.0..sroa_idx.i23.i445, align 8, !alias.scope !1027, !noalias !1015
   store ptr null, ptr %849, align 8, !alias.scope !1027, !noalias !1015
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %68, ptr nonnull %5, i64 4)
           to label %983 unwind label %.loopexit
@@ -13191,8 +13191,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %194
   %208 = extractvalue { i64, ptr } %207, 0
   %209 = extractvalue { i64, ptr } %207, 1
   store i64 %208, ptr %206, align 8, !alias.scope !1039, !noalias !1038
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %34, i64 32
-  store ptr %209, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1039, !noalias !1038
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %34, i64 32
+  store ptr %209, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !1039, !noalias !1038
   %210 = getelementptr inbounds i8, ptr %34, i64 40
   store ptr %40, ptr %210, align 8, !alias.scope !1039, !noalias !1038
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %38, ptr nonnull %34, i64 2)
@@ -13249,8 +13249,8 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   %225 = extractvalue { i64, ptr } %224, 0
   %226 = extractvalue { i64, ptr } %224, 1
   store i64 %225, ptr %223, align 8, !alias.scope !1049, !noalias !1046
-  %.sroa.2.0..sroa_idx.i6.i416 = getelementptr inbounds i8, ptr %33, i64 32
-  store ptr %226, ptr %.sroa.2.0..sroa_idx.i6.i416, align 8, !alias.scope !1049, !noalias !1046
+  %.sroa.2.0..sroa_idx.i5.i416 = getelementptr inbounds i8, ptr %33, i64 32
+  store ptr %226, ptr %.sroa.2.0..sroa_idx.i5.i416, align 8, !alias.scope !1049, !noalias !1046
   %227 = getelementptr inbounds i8, ptr %33, i64 40
   store ptr null, ptr %227, align 8, !alias.scope !1049, !noalias !1046
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %44, ptr nonnull %33, i64 2)
@@ -13269,8 +13269,8 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   store ptr null, ptr %232, align 8, !alias.scope !1055, !noalias !1052
   %233 = getelementptr inbounds i8, ptr %32, i64 24
   store i64 19, ptr %233, align 8, !alias.scope !1058, !noalias !1052
-  %.sroa.2.0..sroa_idx.i6.i419 = getelementptr inbounds i8, ptr %32, i64 32
-  store ptr @.str.52, ptr %.sroa.2.0..sroa_idx.i6.i419, align 8, !alias.scope !1058, !noalias !1052
+  %.sroa.2.0..sroa_idx.i5.i419 = getelementptr inbounds i8, ptr %32, i64 32
+  store ptr @.str.52, ptr %.sroa.2.0..sroa_idx.i5.i419, align 8, !alias.scope !1058, !noalias !1052
   %234 = getelementptr inbounds i8, ptr %32, i64 40
   store ptr null, ptr %234, align 8, !alias.scope !1058, !noalias !1052
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %45, ptr nonnull %32, i64 2)
@@ -13980,14 +13980,14 @@ _ZN6cmListD2Ev.exit:                              ; preds = %443, %_ZSt8_Destroy
   %449 = extractvalue { i64, ptr } %448, 0
   %450 = extractvalue { i64, ptr } %448, 1
   store i64 %449, ptr %447, align 8, !alias.scope !1072, !noalias !1069
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %30, i64 32
-  store ptr %450, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !1072, !noalias !1069
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr %450, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1072, !noalias !1069
   %451 = getelementptr inbounds i8, ptr %30, i64 40
   store ptr null, ptr %451, align 8, !alias.scope !1072, !noalias !1069
   %452 = getelementptr inbounds i8, ptr %30, i64 48
   store i64 15, ptr %452, align 8, !alias.scope !1075, !noalias !1069
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %30, i64 56
-  store ptr @.str.90, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !1075, !noalias !1069
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %30, i64 56
+  store ptr @.str.90, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !1075, !noalias !1069
   %453 = getelementptr inbounds i8, ptr %30, i64 64
   store ptr null, ptr %453, align 8, !alias.scope !1075, !noalias !1069
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %74, ptr nonnull %30, i64 3)
@@ -14027,14 +14027,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %456
   %468 = extractvalue { i64, ptr } %467, 0
   %469 = extractvalue { i64, ptr } %467, 1
   store i64 %468, ptr %466, align 8, !alias.scope !1084, !noalias !1081
-  %.sroa.2.0..sroa_idx.i7.i463 = getelementptr inbounds i8, ptr %29, i64 32
-  store ptr %469, ptr %.sroa.2.0..sroa_idx.i7.i463, align 8, !alias.scope !1084, !noalias !1081
+  %.sroa.2.0..sroa_idx.i6.i463 = getelementptr inbounds i8, ptr %29, i64 32
+  store ptr %469, ptr %.sroa.2.0..sroa_idx.i6.i463, align 8, !alias.scope !1084, !noalias !1081
   %470 = getelementptr inbounds i8, ptr %29, i64 40
   store ptr null, ptr %470, align 8, !alias.scope !1084, !noalias !1081
   %471 = getelementptr inbounds i8, ptr %29, i64 48
   store i64 26, ptr %471, align 8, !alias.scope !1087, !noalias !1081
-  %.sroa.2.0..sroa_idx.i16.i464 = getelementptr inbounds i8, ptr %29, i64 56
-  store ptr @.str.133, ptr %.sroa.2.0..sroa_idx.i16.i464, align 8, !alias.scope !1087, !noalias !1081
+  %.sroa.2.0..sroa_idx.i14.i464 = getelementptr inbounds i8, ptr %29, i64 56
+  store ptr @.str.133, ptr %.sroa.2.0..sroa_idx.i14.i464, align 8, !alias.scope !1087, !noalias !1081
   %472 = getelementptr inbounds i8, ptr %29, i64 64
   store ptr null, ptr %472, align 8, !alias.scope !1087, !noalias !1081
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %75, ptr nonnull %29, i64 3)
@@ -14075,8 +14075,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %456
   store ptr null, ptr %485, align 8, !alias.scope !1093, !noalias !1090
   %486 = getelementptr inbounds i8, ptr %28, i64 24
   store i64 2, ptr %486, align 8, !alias.scope !1096, !noalias !1090
-  %.sroa.2.0..sroa_idx.i6.i467 = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i6.i467, align 8, !alias.scope !1096, !noalias !1090
+  %.sroa.2.0..sroa_idx.i5.i467 = getelementptr inbounds i8, ptr %28, i64 32
+  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i5.i467, align 8, !alias.scope !1096, !noalias !1090
   %487 = getelementptr inbounds i8, ptr %28, i64 40
   store ptr null, ptr %487, align 8, !alias.scope !1096, !noalias !1090
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %77, ptr nonnull %28, i64 2)
@@ -14163,8 +14163,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit473: ;
   store ptr %81, ptr %511, align 8, !alias.scope !1099, !noalias !1105
   %512 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 2, ptr %512, align 8, !alias.scope !1106, !noalias !1105
-  %.sroa.2.0..sroa_idx.i6.i475 = getelementptr inbounds i8, ptr %27, i64 32
-  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i6.i475, align 8, !alias.scope !1106, !noalias !1105
+  %.sroa.2.0..sroa_idx.i5.i475 = getelementptr inbounds i8, ptr %27, i64 32
+  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i5.i475, align 8, !alias.scope !1106, !noalias !1105
   %513 = getelementptr inbounds i8, ptr %27, i64 40
   store ptr null, ptr %513, align 8, !alias.scope !1106, !noalias !1105
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %80, ptr nonnull %27, i64 2)
@@ -14193,8 +14193,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit473: ;
   store ptr %522, ptr %523, align 8, !noalias !1109
   store i8 47, ptr %522, align 8, !noalias !1109
   store i64 1, ptr %520, align 8, !alias.scope !1115, !noalias !1109
-  %.sroa.2.0..sroa_idx.i7.i478 = getelementptr inbounds i8, ptr %25, i64 32
-  store ptr %522, ptr %.sroa.2.0..sroa_idx.i7.i478, align 8, !alias.scope !1115, !noalias !1109
+  %.sroa.2.0..sroa_idx.i6.i478 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr %522, ptr %.sroa.2.0..sroa_idx.i6.i478, align 8, !alias.scope !1115, !noalias !1109
   %524 = getelementptr inbounds i8, ptr %25, i64 40
   store ptr null, ptr %524, align 8, !alias.scope !1115, !noalias !1109
   %525 = getelementptr inbounds i8, ptr %25, i64 48
@@ -14202,8 +14202,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit473: ;
   %527 = extractvalue { i64, ptr } %526, 0
   %528 = extractvalue { i64, ptr } %526, 1
   store i64 %527, ptr %525, align 8, !alias.scope !1118, !noalias !1109
-  %.sroa.2.0..sroa_idx.i16.i479 = getelementptr inbounds i8, ptr %25, i64 56
-  store ptr %528, ptr %.sroa.2.0..sroa_idx.i16.i479, align 8, !alias.scope !1118, !noalias !1109
+  %.sroa.2.0..sroa_idx.i14.i479 = getelementptr inbounds i8, ptr %25, i64 56
+  store ptr %528, ptr %.sroa.2.0..sroa_idx.i14.i479, align 8, !alias.scope !1118, !noalias !1109
   %529 = getelementptr inbounds i8, ptr %25, i64 64
   store ptr null, ptr %529, align 8, !alias.scope !1118, !noalias !1109
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %83, ptr nonnull %25, i64 3)
@@ -15380,14 +15380,14 @@ _ZNK22cmNinjaTargetGenerator25NeedExplicitPreprocessingERKNSt7__cxx1112basic_str
   %883 = extractvalue { i64, ptr } %882, 0
   %884 = extractvalue { i64, ptr } %882, 1
   store i64 %883, ptr %881, align 8, !alias.scope !1136, !noalias !1133
-  %.sroa.2.0..sroa_idx.i7.i583 = getelementptr inbounds i8, ptr %22, i64 32
-  store ptr %884, ptr %.sroa.2.0..sroa_idx.i7.i583, align 8, !alias.scope !1136, !noalias !1133
+  %.sroa.2.0..sroa_idx.i6.i583 = getelementptr inbounds i8, ptr %22, i64 32
+  store ptr %884, ptr %.sroa.2.0..sroa_idx.i6.i583, align 8, !alias.scope !1136, !noalias !1133
   %885 = getelementptr inbounds i8, ptr %22, i64 40
   store ptr null, ptr %885, align 8, !alias.scope !1136, !noalias !1133
   %886 = getelementptr inbounds i8, ptr %22, i64 48
   store i64 18, ptr %886, align 8, !alias.scope !1139, !noalias !1133
-  %.sroa.2.0..sroa_idx.i16.i584 = getelementptr inbounds i8, ptr %22, i64 56
-  store ptr @.str.55, ptr %.sroa.2.0..sroa_idx.i16.i584, align 8, !alias.scope !1139, !noalias !1133
+  %.sroa.2.0..sroa_idx.i14.i584 = getelementptr inbounds i8, ptr %22, i64 56
+  store ptr @.str.55, ptr %.sroa.2.0..sroa_idx.i14.i584, align 8, !alias.scope !1139, !noalias !1133
   %887 = getelementptr inbounds i8, ptr %22, i64 64
   store ptr null, ptr %887, align 8, !alias.scope !1139, !noalias !1133
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %115, ptr nonnull %22, i64 3)
@@ -15545,14 +15545,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit595: ;
   %939 = extractvalue { i64, ptr } %938, 0
   %940 = extractvalue { i64, ptr } %938, 1
   store i64 %939, ptr %937, align 8, !alias.scope !1148, !noalias !1145
-  %.sroa.2.0..sroa_idx.i7.i.i = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr %940, ptr %.sroa.2.0..sroa_idx.i7.i.i, align 8, !alias.scope !1148, !noalias !1145
+  %.sroa.2.0..sroa_idx.i6.i.i = getelementptr inbounds i8, ptr %20, i64 32
+  store ptr %940, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 8, !alias.scope !1148, !noalias !1145
   %941 = getelementptr inbounds i8, ptr %20, i64 40
   store ptr null, ptr %941, align 8, !alias.scope !1148, !noalias !1145
   %942 = getelementptr inbounds i8, ptr %20, i64 48
   store i64 21, ptr %942, align 8, !alias.scope !1151, !noalias !1145
-  %.sroa.2.0..sroa_idx.i16.i.i = getelementptr inbounds i8, ptr %20, i64 56
-  store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i16.i.i, align 8, !alias.scope !1151, !noalias !1145
+  %.sroa.2.0..sroa_idx.i14.i.i = getelementptr inbounds i8, ptr %20, i64 56
+  store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i14.i.i, align 8, !alias.scope !1151, !noalias !1145
   %943 = getelementptr inbounds i8, ptr %20, i64 64
   store ptr null, ptr %943, align 8, !alias.scope !1151, !noalias !1145
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr nonnull %20, i64 3)
@@ -15632,8 +15632,8 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   store ptr null, ptr %967, align 8, !alias.scope !1157, !noalias !1154
   %968 = getelementptr inbounds i8, ptr %19, i64 24
   store i64 6, ptr %968, align 8, !alias.scope !1160, !noalias !1154
-  %.sroa.2.0..sroa_idx.i6.i603 = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr @.str.139, ptr %.sroa.2.0..sroa_idx.i6.i603, align 8, !alias.scope !1160, !noalias !1154
+  %.sroa.2.0..sroa_idx.i5.i603 = getelementptr inbounds i8, ptr %19, i64 32
+  store ptr @.str.139, ptr %.sroa.2.0..sroa_idx.i5.i603, align 8, !alias.scope !1160, !noalias !1154
   %969 = getelementptr inbounds i8, ptr %19, i64 40
   store ptr null, ptr %969, align 8, !alias.scope !1160, !noalias !1154
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %126, ptr nonnull %19, i64 2)
@@ -15667,14 +15667,14 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   %980 = extractvalue { i64, ptr } %979, 0
   %981 = extractvalue { i64, ptr } %979, 1
   store i64 %980, ptr %978, align 8, !alias.scope !1169, !noalias !1166
-  %.sroa.2.0..sroa_idx.i7.i606 = getelementptr inbounds i8, ptr %18, i64 32
-  store ptr %981, ptr %.sroa.2.0..sroa_idx.i7.i606, align 8, !alias.scope !1169, !noalias !1166
+  %.sroa.2.0..sroa_idx.i6.i606 = getelementptr inbounds i8, ptr %18, i64 32
+  store ptr %981, ptr %.sroa.2.0..sroa_idx.i6.i606, align 8, !alias.scope !1169, !noalias !1166
   %982 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr null, ptr %982, align 8, !alias.scope !1169, !noalias !1166
   %983 = getelementptr inbounds i8, ptr %18, i64 48
   store i64 17, ptr %983, align 8, !alias.scope !1172, !noalias !1166
-  %.sroa.2.0..sroa_idx.i16.i607 = getelementptr inbounds i8, ptr %18, i64 56
-  store ptr @.str.140, ptr %.sroa.2.0..sroa_idx.i16.i607, align 8, !alias.scope !1172, !noalias !1166
+  %.sroa.2.0..sroa_idx.i14.i607 = getelementptr inbounds i8, ptr %18, i64 56
+  store ptr @.str.140, ptr %.sroa.2.0..sroa_idx.i14.i607, align 8, !alias.scope !1172, !noalias !1166
   %984 = getelementptr inbounds i8, ptr %18, i64 64
   store ptr null, ptr %984, align 8, !alias.scope !1172, !noalias !1166
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %128, ptr nonnull %18, i64 3)
@@ -15797,8 +15797,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit621: ;
   store ptr %1023, ptr %1024, align 8, !noalias !1175
   store i8 32, ptr %1023, align 8, !noalias !1175
   store i64 1, ptr %1021, align 8, !alias.scope !1181, !noalias !1175
-  %.sroa.2.0..sroa_idx.i7.i623 = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr %1023, ptr %.sroa.2.0..sroa_idx.i7.i623, align 8, !alias.scope !1181, !noalias !1175
+  %.sroa.2.0..sroa_idx.i6.i623 = getelementptr inbounds i8, ptr %16, i64 32
+  store ptr %1023, ptr %.sroa.2.0..sroa_idx.i6.i623, align 8, !alias.scope !1181, !noalias !1175
   %1025 = getelementptr inbounds i8, ptr %16, i64 40
   store ptr null, ptr %1025, align 8, !alias.scope !1181, !noalias !1175
   %1026 = getelementptr inbounds i8, ptr %16, i64 48
@@ -15806,8 +15806,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit621: ;
   %1028 = extractvalue { i64, ptr } %1027, 0
   %1029 = extractvalue { i64, ptr } %1027, 1
   store i64 %1028, ptr %1026, align 8, !alias.scope !1184, !noalias !1175
-  %.sroa.2.0..sroa_idx.i16.i624 = getelementptr inbounds i8, ptr %16, i64 56
-  store ptr %1029, ptr %.sroa.2.0..sroa_idx.i16.i624, align 8, !alias.scope !1184, !noalias !1175
+  %.sroa.2.0..sroa_idx.i14.i624 = getelementptr inbounds i8, ptr %16, i64 56
+  store ptr %1029, ptr %.sroa.2.0..sroa_idx.i14.i624, align 8, !alias.scope !1184, !noalias !1175
   %1030 = getelementptr inbounds i8, ptr %16, i64 64
   store ptr null, ptr %1030, align 8, !alias.scope !1184, !noalias !1175
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %134, ptr nonnull %16, i64 3)
@@ -15970,8 +15970,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store ptr null, ptr %1070, align 8, !alias.scope !1190, !noalias !1187
   %1071 = getelementptr inbounds i8, ptr %15, i64 24
   store i64 4, ptr %1071, align 8, !alias.scope !1193, !noalias !1187
-  %.sroa.2.0..sroa_idx.i6.i635 = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr @.str.141, ptr %.sroa.2.0..sroa_idx.i6.i635, align 8, !alias.scope !1193, !noalias !1187
+  %.sroa.2.0..sroa_idx.i5.i635 = getelementptr inbounds i8, ptr %15, i64 32
+  store ptr @.str.141, ptr %.sroa.2.0..sroa_idx.i5.i635, align 8, !alias.scope !1193, !noalias !1187
   %1072 = getelementptr inbounds i8, ptr %15, i64 40
   store ptr null, ptr %1072, align 8, !alias.scope !1193, !noalias !1187
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %140, ptr nonnull %15, i64 2)
@@ -16108,8 +16108,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit654: ;
   store ptr null, ptr %1115, align 8, !alias.scope !1199, !noalias !1196
   %1116 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 7, ptr %1116, align 8, !alias.scope !1202, !noalias !1196
-  %.sroa.2.0..sroa_idx.i6.i656 = getelementptr inbounds i8, ptr %14, i64 32
-  store ptr @.str.144, ptr %.sroa.2.0..sroa_idx.i6.i656, align 8, !alias.scope !1202, !noalias !1196
+  %.sroa.2.0..sroa_idx.i5.i656 = getelementptr inbounds i8, ptr %14, i64 32
+  store ptr @.str.144, ptr %.sroa.2.0..sroa_idx.i5.i656, align 8, !alias.scope !1202, !noalias !1196
   %1117 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr null, ptr %1117, align 8, !alias.scope !1202, !noalias !1196
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %146, ptr nonnull %14, i64 2)
@@ -16606,8 +16606,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit702: ;
   store ptr null, ptr %1246, align 8, !alias.scope !1208, !noalias !1205
   %1247 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 4, ptr %1247, align 8, !alias.scope !1211, !noalias !1205
-  %.sroa.2.0..sroa_idx.i6.i704 = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr @.str.149, ptr %.sroa.2.0..sroa_idx.i6.i704, align 8, !alias.scope !1211, !noalias !1205
+  %.sroa.2.0..sroa_idx.i5.i704 = getelementptr inbounds i8, ptr %12, i64 32
+  store ptr @.str.149, ptr %.sroa.2.0..sroa_idx.i5.i704, align 8, !alias.scope !1211, !noalias !1205
   %1248 = getelementptr inbounds i8, ptr %12, i64 40
   store ptr null, ptr %1248, align 8, !alias.scope !1211, !noalias !1205
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %161, ptr nonnull %12, i64 2)
@@ -16722,8 +16722,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit716: ;
   store ptr %1284, ptr %1285, align 8, !noalias !1214
   store i8 47, ptr %1284, align 8, !noalias !1214
   store i64 1, ptr %1282, align 8, !alias.scope !1220, !noalias !1214
-  %.sroa.2.0..sroa_idx.i7.i719 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr %1284, ptr %.sroa.2.0..sroa_idx.i7.i719, align 8, !alias.scope !1220, !noalias !1214
+  %.sroa.2.0..sroa_idx.i6.i719 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr %1284, ptr %.sroa.2.0..sroa_idx.i6.i719, align 8, !alias.scope !1220, !noalias !1214
   %1286 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr null, ptr %1286, align 8, !alias.scope !1220, !noalias !1214
   %1287 = getelementptr inbounds i8, ptr %10, i64 48
@@ -16731,8 +16731,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit716: ;
   %1289 = extractvalue { i64, ptr } %1288, 0
   %1290 = extractvalue { i64, ptr } %1288, 1
   store i64 %1289, ptr %1287, align 8, !alias.scope !1223, !noalias !1214
-  %.sroa.2.0..sroa_idx.i16.i720 = getelementptr inbounds i8, ptr %10, i64 56
-  store ptr %1290, ptr %.sroa.2.0..sroa_idx.i16.i720, align 8, !alias.scope !1223, !noalias !1214
+  %.sroa.2.0..sroa_idx.i14.i720 = getelementptr inbounds i8, ptr %10, i64 56
+  store ptr %1290, ptr %.sroa.2.0..sroa_idx.i14.i720, align 8, !alias.scope !1223, !noalias !1214
   %1291 = getelementptr inbounds i8, ptr %10, i64 64
   store ptr null, ptr %1291, align 8, !alias.scope !1223, !noalias !1214
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %169, ptr nonnull %10, i64 3)
@@ -16809,8 +16809,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit716: ;
   store ptr %1314, ptr %1315, align 8, !noalias !1226
   store i8 47, ptr %1314, align 8, !noalias !1226
   store i64 1, ptr %1312, align 8, !alias.scope !1232, !noalias !1226
-  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %1314, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !1232, !noalias !1226
+  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr %1314, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !1232, !noalias !1226
   %1316 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr null, ptr %1316, align 8, !alias.scope !1232, !noalias !1226
   %1317 = getelementptr inbounds i8, ptr %8, i64 48
@@ -16818,8 +16818,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit716: ;
   %1319 = extractvalue { i64, ptr } %1318, 0
   %1320 = extractvalue { i64, ptr } %1318, 1
   store i64 %1319, ptr %1317, align 8, !alias.scope !1235, !noalias !1226
-  %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %8, i64 56
-  store ptr %1320, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !1235, !noalias !1226
+  %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds i8, ptr %8, i64 56
+  store ptr %1320, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !alias.scope !1235, !noalias !1226
   %1321 = getelementptr inbounds i8, ptr %8, i64 64
   store ptr null, ptr %1321, align 8, !alias.scope !1235, !noalias !1226
   %1322 = getelementptr inbounds i8, ptr %8, i64 72
@@ -16827,8 +16827,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit716: ;
   %1324 = extractvalue { i64, ptr } %1323, 0
   %1325 = extractvalue { i64, ptr } %1323, 1
   store i64 %1324, ptr %1322, align 8, !alias.scope !1238, !noalias !1226
-  %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %8, i64 80
-  store ptr %1325, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !1238, !noalias !1226
+  %.sroa.2.0..sroa_idx.i23.i = getelementptr inbounds i8, ptr %8, i64 80
+  store ptr %1325, ptr %.sroa.2.0..sroa_idx.i23.i, align 8, !alias.scope !1238, !noalias !1226
   %1326 = getelementptr inbounds i8, ptr %8, i64 88
   store ptr null, ptr %1326, align 8, !alias.scope !1238, !noalias !1226
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %170, ptr nonnull %8, i64 4)
@@ -17898,8 +17898,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %139
   %152 = extractvalue { i64, ptr } %151, 0
   %153 = extractvalue { i64, ptr } %151, 1
   store i64 %152, ptr %150, align 8, !alias.scope !1250, !noalias !1249
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %23, i64 32
-  store ptr %153, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1250, !noalias !1249
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %23, i64 32
+  store ptr %153, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !1250, !noalias !1249
   %154 = getelementptr inbounds i8, ptr %23, i64 40
   store ptr %29, ptr %154, align 8, !alias.scope !1250, !noalias !1249
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr nonnull %23, i64 2)
@@ -18075,8 +18075,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit258: ;
   store ptr null, ptr %198, align 8, !alias.scope !1257, !noalias !1254
   %199 = getelementptr inbounds i8, ptr %22, i64 24
   store i64 12, ptr %199, align 8, !alias.scope !1260, !noalias !1254
-  %.sroa.2.0..sroa_idx.i6.i260 = getelementptr inbounds i8, ptr %22, i64 32
-  store ptr @.str.165, ptr %.sroa.2.0..sroa_idx.i6.i260, align 8, !alias.scope !1260, !noalias !1254
+  %.sroa.2.0..sroa_idx.i5.i260 = getelementptr inbounds i8, ptr %22, i64 32
+  store ptr @.str.165, ptr %.sroa.2.0..sroa_idx.i5.i260, align 8, !alias.scope !1260, !noalias !1254
   %200 = getelementptr inbounds i8, ptr %22, i64 40
   store ptr null, ptr %200, align 8, !alias.scope !1260, !noalias !1254
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %43, ptr nonnull %22, i64 2)
@@ -18122,8 +18122,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit258: ;
   store ptr %211, ptr %212, align 8, !noalias !1263
   store i8 47, ptr %211, align 8, !noalias !1263
   store i64 1, ptr %209, align 8, !alias.scope !1269, !noalias !1263
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr %211, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !1269, !noalias !1263
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %20, i64 32
+  store ptr %211, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1269, !noalias !1263
   %213 = getelementptr inbounds i8, ptr %20, i64 40
   store ptr null, ptr %213, align 8, !alias.scope !1269, !noalias !1263
   %214 = getelementptr inbounds i8, ptr %20, i64 48
@@ -18131,8 +18131,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit258: ;
   %216 = extractvalue { i64, ptr } %215, 0
   %217 = extractvalue { i64, ptr } %215, 1
   store i64 %216, ptr %214, align 8, !alias.scope !1272, !noalias !1263
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %20, i64 56
-  store ptr %217, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !1272, !noalias !1263
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %20, i64 56
+  store ptr %217, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !1272, !noalias !1263
   %218 = getelementptr inbounds i8, ptr %20, i64 64
   store ptr null, ptr %218, align 8, !alias.scope !1272, !noalias !1263
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %45, ptr nonnull %20, i64 3)
@@ -19254,8 +19254,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit339: ;
   %591 = extractvalue { i64, ptr } %590, 0
   %592 = extractvalue { i64, ptr } %590, 1
   store i64 %591, ptr %589, align 8, !alias.scope !1281, !noalias !1278
-  %.sroa.2.0..sroa_idx.i6.i341 = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr %592, ptr %.sroa.2.0..sroa_idx.i6.i341, align 8, !alias.scope !1281, !noalias !1278
+  %.sroa.2.0..sroa_idx.i5.i341 = getelementptr inbounds i8, ptr %16, i64 32
+  store ptr %592, ptr %.sroa.2.0..sroa_idx.i5.i341, align 8, !alias.scope !1281, !noalias !1278
   %593 = getelementptr inbounds i8, ptr %16, i64 40
   store ptr null, ptr %593, align 8, !alias.scope !1281, !noalias !1278
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %70, ptr nonnull %16, i64 2)
@@ -19365,8 +19365,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit352: ;
   store ptr %626, ptr %627, align 8, !noalias !1284
   store i8 32, ptr %626, align 8, !noalias !1284
   store i64 1, ptr %624, align 8, !alias.scope !1290, !noalias !1284
-  %.sroa.2.0..sroa_idx.i7.i354 = getelementptr inbounds i8, ptr %14, i64 32
-  store ptr %626, ptr %.sroa.2.0..sroa_idx.i7.i354, align 8, !alias.scope !1290, !noalias !1284
+  %.sroa.2.0..sroa_idx.i6.i354 = getelementptr inbounds i8, ptr %14, i64 32
+  store ptr %626, ptr %.sroa.2.0..sroa_idx.i6.i354, align 8, !alias.scope !1290, !noalias !1284
   %628 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr null, ptr %628, align 8, !alias.scope !1290, !noalias !1284
   %629 = getelementptr inbounds i8, ptr %14, i64 48
@@ -19374,8 +19374,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit352: ;
   %631 = extractvalue { i64, ptr } %630, 0
   %632 = extractvalue { i64, ptr } %630, 1
   store i64 %631, ptr %629, align 8, !alias.scope !1293, !noalias !1284
-  %.sroa.2.0..sroa_idx.i16.i355 = getelementptr inbounds i8, ptr %14, i64 56
-  store ptr %632, ptr %.sroa.2.0..sroa_idx.i16.i355, align 8, !alias.scope !1293, !noalias !1284
+  %.sroa.2.0..sroa_idx.i14.i355 = getelementptr inbounds i8, ptr %14, i64 56
+  store ptr %632, ptr %.sroa.2.0..sroa_idx.i14.i355, align 8, !alias.scope !1293, !noalias !1284
   %633 = getelementptr inbounds i8, ptr %14, i64 64
   store ptr null, ptr %633, align 8, !alias.scope !1293, !noalias !1284
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %77, ptr nonnull %14, i64 3)
@@ -19602,8 +19602,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit374: ; preds = %682
   store ptr %693, ptr %694, align 8, !noalias !1296
   store i8 47, ptr %693, align 8, !noalias !1296
   store i64 1, ptr %691, align 8, !alias.scope !1302, !noalias !1296
-  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr %693, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !1302, !noalias !1296
+  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %12, i64 32
+  store ptr %693, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !1302, !noalias !1296
   %695 = getelementptr inbounds i8, ptr %12, i64 40
   store ptr null, ptr %695, align 8, !alias.scope !1302, !noalias !1296
   %696 = getelementptr inbounds i8, ptr %12, i64 48
@@ -19611,8 +19611,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit374: ; preds = %682
   %698 = extractvalue { i64, ptr } %697, 0
   %699 = extractvalue { i64, ptr } %697, 1
   store i64 %698, ptr %696, align 8, !alias.scope !1305, !noalias !1296
-  %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %12, i64 56
-  store ptr %699, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !1305, !noalias !1296
+  %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds i8, ptr %12, i64 56
+  store ptr %699, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !alias.scope !1305, !noalias !1296
   %700 = getelementptr inbounds i8, ptr %12, i64 64
   store ptr null, ptr %700, align 8, !alias.scope !1305, !noalias !1296
   %701 = getelementptr inbounds i8, ptr %12, i64 72
@@ -19621,8 +19621,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit374: ; preds = %682
   %703 = extractvalue { i64, ptr } %702, 0
   %704 = extractvalue { i64, ptr } %702, 1
   store i64 %703, ptr %701, align 8, !alias.scope !1308, !noalias !1296
-  %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %12, i64 80
-  store ptr %704, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !1308, !noalias !1296
+  %.sroa.2.0..sroa_idx.i23.i = getelementptr inbounds i8, ptr %12, i64 80
+  store ptr %704, ptr %.sroa.2.0..sroa_idx.i23.i, align 8, !alias.scope !1308, !noalias !1296
   %705 = getelementptr inbounds i8, ptr %12, i64 88
   store ptr %90, ptr %705, align 8, !alias.scope !1308, !noalias !1296
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %89, ptr nonnull %12, i64 4)
@@ -19657,8 +19657,8 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   store ptr null, ptr %714, align 8, !alias.scope !1315, !noalias !1312
   %715 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 10, ptr %715, align 8, !alias.scope !1318, !noalias !1312
-  %.sroa.2.0..sroa_idx.i6.i381 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr @.str.172, ptr %.sroa.2.0..sroa_idx.i6.i381, align 8, !alias.scope !1318, !noalias !1312
+  %.sroa.2.0..sroa_idx.i5.i381 = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr @.str.172, ptr %.sroa.2.0..sroa_idx.i5.i381, align 8, !alias.scope !1318, !noalias !1312
   %716 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr null, ptr %716, align 8, !alias.scope !1318, !noalias !1312
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %91, ptr nonnull %11, i64 2)
@@ -19706,8 +19706,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit387: ;
   %729 = extractvalue { i64, ptr } %728, 0
   %730 = extractvalue { i64, ptr } %728, 1
   store i64 %729, ptr %727, align 8, !alias.scope !1327, !noalias !1324
-  %.sroa.2.0..sroa_idx.i6.i389 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr %730, ptr %.sroa.2.0..sroa_idx.i6.i389, align 8, !alias.scope !1327, !noalias !1324
+  %.sroa.2.0..sroa_idx.i5.i389 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr %730, ptr %.sroa.2.0..sroa_idx.i5.i389, align 8, !alias.scope !1327, !noalias !1324
   %731 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr null, ptr %731, align 8, !alias.scope !1327, !noalias !1324
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %94, ptr nonnull %10, i64 2)
@@ -20320,7 +20320,7 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit438: ; preds = %891
   %.sroa.2.0..sroa_idx.i.i467 = getelementptr inbounds i8, ptr %8, i64 8
   %899 = getelementptr inbounds i8, ptr %8, i64 16
   %900 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sroa.2.0..sroa_idx.i6.i468 = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.2.0..sroa_idx.i5.i468 = getelementptr inbounds i8, ptr %8, i64 32
   %901 = getelementptr inbounds i8, ptr %8, i64 40
   %.sroa.2.0..sroa_idx.i.i475 = getelementptr inbounds i8, ptr %6, i64 8
   %902 = getelementptr inbounds i8, ptr %6, i64 16
@@ -20328,10 +20328,10 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit438: ; preds = %891
   %904 = getelementptr inbounds i8, ptr %7, i64 8
   %905 = getelementptr inbounds i8, ptr %7, i64 24
   %906 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.2.0..sroa_idx.i7.i476 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.2.0..sroa_idx.i6.i476 = getelementptr inbounds i8, ptr %6, i64 32
   %907 = getelementptr inbounds i8, ptr %6, i64 40
   %908 = getelementptr inbounds i8, ptr %6, i64 48
-  %.sroa.2.0..sroa_idx.i16.i477 = getelementptr inbounds i8, ptr %6, i64 56
+  %.sroa.2.0..sroa_idx.i14.i477 = getelementptr inbounds i8, ptr %6, i64 56
   %909 = getelementptr inbounds i8, ptr %6, i64 64
   %910 = getelementptr inbounds i8, ptr %30, i64 168
   %911 = getelementptr inbounds i8, ptr %30, i64 176
@@ -20512,7 +20512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit466: ;
   store ptr %956, ptr %.sroa.2.0..sroa_idx.i.i467, align 8, !alias.scope !1333, !noalias !1330
   store ptr null, ptr %899, align 8, !alias.scope !1333, !noalias !1330
   store i64 12, ptr %900, align 8, !alias.scope !1336, !noalias !1330
-  store ptr @.str.165, ptr %.sroa.2.0..sroa_idx.i6.i468, align 8, !alias.scope !1336, !noalias !1330
+  store ptr @.str.165, ptr %.sroa.2.0..sroa_idx.i5.i468, align 8, !alias.scope !1336, !noalias !1330
   store ptr null, ptr %901, align 8, !alias.scope !1336, !noalias !1330
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %119, ptr nonnull %8, i64 2)
           to label %957 unwind label %996
@@ -20551,13 +20551,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit466: ;
   store ptr %905, ptr %906, align 8, !noalias !1339
   store i8 47, ptr %905, align 8, !noalias !1339
   store i64 1, ptr %903, align 8, !alias.scope !1345, !noalias !1339
-  store ptr %905, ptr %.sroa.2.0..sroa_idx.i7.i476, align 8, !alias.scope !1345, !noalias !1339
+  store ptr %905, ptr %.sroa.2.0..sroa_idx.i6.i476, align 8, !alias.scope !1345, !noalias !1339
   store ptr null, ptr %907, align 8, !alias.scope !1345, !noalias !1339
   %964 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %116) #25, !noalias !1339
   %965 = extractvalue { i64, ptr } %964, 0
   %966 = extractvalue { i64, ptr } %964, 1
   store i64 %965, ptr %908, align 8, !alias.scope !1348, !noalias !1339
-  store ptr %966, ptr %.sroa.2.0..sroa_idx.i16.i477, align 8, !alias.scope !1348, !noalias !1339
+  store ptr %966, ptr %.sroa.2.0..sroa_idx.i14.i477, align 8, !alias.scope !1348, !noalias !1339
   store ptr null, ptr %909, align 8, !alias.scope !1348, !noalias !1339
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %121, ptr nonnull %6, i64 3)
           to label %967 unwind label %1001
@@ -20982,14 +20982,14 @@ _ZNK22cmNinjaTargetGenerator13GetTargetNameB5cxx11Ev.exit: ; preds = %.noexc
   %115 = extractvalue { i64, ptr } %114, 0
   %116 = extractvalue { i64, ptr } %114, 1
   store i64 %115, ptr %113, align 8, !alias.scope !1363, !noalias !1360
-  %.sroa.2.0..sroa_idx.i11.i = getelementptr inbounds i8, ptr %21, i64 32
-  store ptr %116, ptr %.sroa.2.0..sroa_idx.i11.i, align 8, !alias.scope !1363, !noalias !1360
+  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %21, i64 32
+  store ptr %116, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !alias.scope !1363, !noalias !1360
   %117 = getelementptr inbounds i8, ptr %21, i64 40
   store ptr null, ptr %117, align 8, !alias.scope !1363, !noalias !1360
   %118 = getelementptr inbounds i8, ptr %21, i64 48
   store i64 13, ptr %118, align 8, !alias.scope !1366, !noalias !1360
-  %.sroa.2.0..sroa_idx.i20.i = getelementptr inbounds i8, ptr %21, i64 56
-  store ptr @.str.157, ptr %.sroa.2.0..sroa_idx.i20.i, align 8, !alias.scope !1366, !noalias !1360
+  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %21, i64 56
+  store ptr @.str.157, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !1366, !noalias !1360
   %119 = getelementptr inbounds i8, ptr %21, i64 64
   store ptr null, ptr %119, align 8, !alias.scope !1366, !noalias !1360
   %120 = getelementptr inbounds i8, ptr %21, i64 72
@@ -20998,14 +20998,14 @@ _ZNK22cmNinjaTargetGenerator13GetTargetNameB5cxx11Ev.exit: ; preds = %.noexc
   %122 = extractvalue { i64, ptr } %121, 0
   %123 = extractvalue { i64, ptr } %121, 1
   store i64 %122, ptr %120, align 8, !alias.scope !1369, !noalias !1360
-  %.sroa.2.0..sroa_idx.i29.i = getelementptr inbounds i8, ptr %21, i64 80
-  store ptr %123, ptr %.sroa.2.0..sroa_idx.i29.i, align 8, !alias.scope !1369, !noalias !1360
+  %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %21, i64 80
+  store ptr %123, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !1369, !noalias !1360
   %124 = getelementptr inbounds i8, ptr %21, i64 88
   store ptr %24, ptr %124, align 8, !alias.scope !1369, !noalias !1360
   %125 = getelementptr inbounds i8, ptr %21, i64 96
   store i64 8, ptr %125, align 8, !alias.scope !1373, !noalias !1360
-  %.sroa.2.0..sroa_idx.i38.i = getelementptr inbounds i8, ptr %21, i64 104
-  store ptr @.str.158, ptr %.sroa.2.0..sroa_idx.i38.i, align 8, !alias.scope !1373, !noalias !1360
+  %.sroa.2.0..sroa_idx.i34.i = getelementptr inbounds i8, ptr %21, i64 104
+  store ptr @.str.158, ptr %.sroa.2.0..sroa_idx.i34.i, align 8, !alias.scope !1373, !noalias !1360
   %126 = getelementptr inbounds i8, ptr %21, i64 112
   store ptr null, ptr %126, align 8, !alias.scope !1373, !noalias !1360
   %127 = getelementptr inbounds i8, ptr %21, i64 120
@@ -21013,14 +21013,14 @@ _ZNK22cmNinjaTargetGenerator13GetTargetNameB5cxx11Ev.exit: ; preds = %.noexc
   %129 = extractvalue { i64, ptr } %128, 0
   %130 = extractvalue { i64, ptr } %128, 1
   store i64 %129, ptr %127, align 8, !alias.scope !1376, !noalias !1360
-  %.sroa.2.0..sroa_idx.i47.i = getelementptr inbounds i8, ptr %21, i64 128
-  store ptr %130, ptr %.sroa.2.0..sroa_idx.i47.i, align 8, !alias.scope !1376, !noalias !1360
+  %.sroa.2.0..sroa_idx.i42.i = getelementptr inbounds i8, ptr %21, i64 128
+  store ptr %130, ptr %.sroa.2.0..sroa_idx.i42.i, align 8, !alias.scope !1376, !noalias !1360
   %131 = getelementptr inbounds i8, ptr %21, i64 136
   store ptr null, ptr %131, align 8, !alias.scope !1376, !noalias !1360
   %132 = getelementptr inbounds i8, ptr %21, i64 144
   store i64 76, ptr %132, align 8, !alias.scope !1379, !noalias !1360
-  %.sroa.2.0..sroa_idx.i56.i = getelementptr inbounds i8, ptr %21, i64 152
-  store ptr @.str.159, ptr %.sroa.2.0..sroa_idx.i56.i, align 8, !alias.scope !1379, !noalias !1360
+  %.sroa.2.0..sroa_idx.i50.i = getelementptr inbounds i8, ptr %21, i64 152
+  store ptr @.str.159, ptr %.sroa.2.0..sroa_idx.i50.i, align 8, !alias.scope !1379, !noalias !1360
   %133 = getelementptr inbounds i8, ptr %21, i64 160
   store ptr null, ptr %133, align 8, !alias.scope !1379, !noalias !1360
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr nonnull %21, i64 7)
@@ -21092,8 +21092,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %145
   %159 = extractvalue { i64, ptr } %158, 0
   %160 = extractvalue { i64, ptr } %158, 1
   store i64 %159, ptr %157, align 8, !alias.scope !1389, !noalias !1388
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr %160, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1389, !noalias !1388
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %20, i64 32
+  store ptr %160, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !1389, !noalias !1388
   %161 = getelementptr inbounds i8, ptr %20, i64 40
   store ptr %29, ptr %161, align 8, !alias.scope !1389, !noalias !1388
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr nonnull %20, i64 2)
@@ -21273,14 +21273,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit191: ;
   %212 = extractvalue { i64, ptr } %211, 0
   %213 = extractvalue { i64, ptr } %211, 1
   store i64 %212, ptr %210, align 8, !alias.scope !1399, !noalias !1396
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr %213, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !1399, !noalias !1396
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %19, i64 32
+  store ptr %213, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1399, !noalias !1396
   %214 = getelementptr inbounds i8, ptr %19, i64 40
   store ptr null, ptr %214, align 8, !alias.scope !1399, !noalias !1396
   %215 = getelementptr inbounds i8, ptr %19, i64 48
   store i64 15, ptr %215, align 8, !alias.scope !1402, !noalias !1396
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %19, i64 56
-  store ptr @.str.90, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !1402, !noalias !1396
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %19, i64 56
+  store ptr @.str.90, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !1402, !noalias !1396
   %216 = getelementptr inbounds i8, ptr %19, i64 64
   store ptr null, ptr %216, align 8, !alias.scope !1402, !noalias !1396
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %44, ptr nonnull %19, i64 3)
@@ -21320,14 +21320,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i194: ; preds = %219
   %231 = extractvalue { i64, ptr } %230, 0
   %232 = extractvalue { i64, ptr } %230, 1
   store i64 %231, ptr %229, align 8, !alias.scope !1411, !noalias !1408
-  %.sroa.2.0..sroa_idx.i7.i199 = getelementptr inbounds i8, ptr %18, i64 32
-  store ptr %232, ptr %.sroa.2.0..sroa_idx.i7.i199, align 8, !alias.scope !1411, !noalias !1408
+  %.sroa.2.0..sroa_idx.i6.i199 = getelementptr inbounds i8, ptr %18, i64 32
+  store ptr %232, ptr %.sroa.2.0..sroa_idx.i6.i199, align 8, !alias.scope !1411, !noalias !1408
   %233 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr null, ptr %233, align 8, !alias.scope !1411, !noalias !1408
   %234 = getelementptr inbounds i8, ptr %18, i64 48
   store i64 26, ptr %234, align 8, !alias.scope !1414, !noalias !1408
-  %.sroa.2.0..sroa_idx.i16.i200 = getelementptr inbounds i8, ptr %18, i64 56
-  store ptr @.str.133, ptr %.sroa.2.0..sroa_idx.i16.i200, align 8, !alias.scope !1414, !noalias !1408
+  %.sroa.2.0..sroa_idx.i14.i200 = getelementptr inbounds i8, ptr %18, i64 56
+  store ptr @.str.133, ptr %.sroa.2.0..sroa_idx.i14.i200, align 8, !alias.scope !1414, !noalias !1408
   %235 = getelementptr inbounds i8, ptr %18, i64 64
   store ptr null, ptr %235, align 8, !alias.scope !1414, !noalias !1408
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %45, ptr nonnull %18, i64 3)
@@ -21476,8 +21476,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i194: ; preds = %219
   store ptr null, ptr %280, align 8, !alias.scope !1420, !noalias !1417
   %281 = getelementptr inbounds i8, ptr %17, i64 24
   store i64 2, ptr %281, align 8, !alias.scope !1423, !noalias !1417
-  %.sroa.2.0..sroa_idx.i6.i203 = getelementptr inbounds i8, ptr %17, i64 32
-  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i6.i203, align 8, !alias.scope !1423, !noalias !1417
+  %.sroa.2.0..sroa_idx.i5.i203 = getelementptr inbounds i8, ptr %17, i64 32
+  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i5.i203, align 8, !alias.scope !1423, !noalias !1417
   %282 = getelementptr inbounds i8, ptr %17, i64 40
   store ptr null, ptr %282, align 8, !alias.scope !1423, !noalias !1417
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %47, ptr nonnull %17, i64 2)
@@ -21564,8 +21564,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit209: ;
   store ptr %51, ptr %306, align 8, !alias.scope !1426, !noalias !1432
   %307 = getelementptr inbounds i8, ptr %16, i64 24
   store i64 2, ptr %307, align 8, !alias.scope !1433, !noalias !1432
-  %.sroa.2.0..sroa_idx.i6.i211 = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i6.i211, align 8, !alias.scope !1433, !noalias !1432
+  %.sroa.2.0..sroa_idx.i5.i211 = getelementptr inbounds i8, ptr %16, i64 32
+  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i5.i211, align 8, !alias.scope !1433, !noalias !1432
   %308 = getelementptr inbounds i8, ptr %16, i64 40
   store ptr null, ptr %308, align 8, !alias.scope !1433, !noalias !1432
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %50, ptr nonnull %16, i64 2)
@@ -21594,8 +21594,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit209: ;
   store ptr %317, ptr %318, align 8, !noalias !1436
   store i8 47, ptr %317, align 8, !noalias !1436
   store i64 1, ptr %315, align 8, !alias.scope !1442, !noalias !1436
-  %.sroa.2.0..sroa_idx.i7.i214 = getelementptr inbounds i8, ptr %14, i64 32
-  store ptr %317, ptr %.sroa.2.0..sroa_idx.i7.i214, align 8, !alias.scope !1442, !noalias !1436
+  %.sroa.2.0..sroa_idx.i6.i214 = getelementptr inbounds i8, ptr %14, i64 32
+  store ptr %317, ptr %.sroa.2.0..sroa_idx.i6.i214, align 8, !alias.scope !1442, !noalias !1436
   %319 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr null, ptr %319, align 8, !alias.scope !1442, !noalias !1436
   %320 = getelementptr inbounds i8, ptr %14, i64 48
@@ -21603,8 +21603,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit209: ;
   %322 = extractvalue { i64, ptr } %321, 0
   %323 = extractvalue { i64, ptr } %321, 1
   store i64 %322, ptr %320, align 8, !alias.scope !1445, !noalias !1436
-  %.sroa.2.0..sroa_idx.i16.i215 = getelementptr inbounds i8, ptr %14, i64 56
-  store ptr %323, ptr %.sroa.2.0..sroa_idx.i16.i215, align 8, !alias.scope !1445, !noalias !1436
+  %.sroa.2.0..sroa_idx.i14.i215 = getelementptr inbounds i8, ptr %14, i64 56
+  store ptr %323, ptr %.sroa.2.0..sroa_idx.i14.i215, align 8, !alias.scope !1445, !noalias !1436
   %324 = getelementptr inbounds i8, ptr %14, i64 64
   store ptr null, ptr %324, align 8, !alias.scope !1445, !noalias !1436
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %53, ptr nonnull %14, i64 3)
@@ -22216,14 +22216,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %506 = extractvalue { i64, ptr } %505, 0
   %507 = extractvalue { i64, ptr } %505, 1
   store i64 %506, ptr %504, align 8, !alias.scope !1457, !noalias !1454
-  %.sroa.2.0..sroa_idx.i7.i271 = getelementptr inbounds i8, ptr %13, i64 32
-  store ptr %507, ptr %.sroa.2.0..sroa_idx.i7.i271, align 8, !alias.scope !1457, !noalias !1454
+  %.sroa.2.0..sroa_idx.i6.i271 = getelementptr inbounds i8, ptr %13, i64 32
+  store ptr %507, ptr %.sroa.2.0..sroa_idx.i6.i271, align 8, !alias.scope !1457, !noalias !1454
   %508 = getelementptr inbounds i8, ptr %13, i64 40
   store ptr null, ptr %508, align 8, !alias.scope !1457, !noalias !1454
   %509 = getelementptr inbounds i8, ptr %13, i64 48
   store i64 18, ptr %509, align 8, !alias.scope !1460, !noalias !1454
-  %.sroa.2.0..sroa_idx.i16.i272 = getelementptr inbounds i8, ptr %13, i64 56
-  store ptr @.str.55, ptr %.sroa.2.0..sroa_idx.i16.i272, align 8, !alias.scope !1460, !noalias !1454
+  %.sroa.2.0..sroa_idx.i14.i272 = getelementptr inbounds i8, ptr %13, i64 56
+  store ptr @.str.55, ptr %.sroa.2.0..sroa_idx.i14.i272, align 8, !alias.scope !1460, !noalias !1454
   %510 = getelementptr inbounds i8, ptr %13, i64 64
   store ptr null, ptr %510, align 8, !alias.scope !1460, !noalias !1454
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %76, ptr nonnull %13, i64 3)
@@ -22254,14 +22254,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %521 = extractvalue { i64, ptr } %520, 0
   %522 = extractvalue { i64, ptr } %520, 1
   store i64 %521, ptr %519, align 8, !alias.scope !1469, !noalias !1466
-  %.sroa.2.0..sroa_idx.i7.i.i = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr %522, ptr %.sroa.2.0..sroa_idx.i7.i.i, align 8, !alias.scope !1469, !noalias !1466
+  %.sroa.2.0..sroa_idx.i6.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr %522, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 8, !alias.scope !1469, !noalias !1466
   %523 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr null, ptr %523, align 8, !alias.scope !1469, !noalias !1466
   %524 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 21, ptr %524, align 8, !alias.scope !1472, !noalias !1466
-  %.sroa.2.0..sroa_idx.i16.i.i = getelementptr inbounds i8, ptr %11, i64 56
-  store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i16.i.i, align 8, !alias.scope !1472, !noalias !1466
+  %.sroa.2.0..sroa_idx.i14.i.i = getelementptr inbounds i8, ptr %11, i64 56
+  store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i14.i.i, align 8, !alias.scope !1472, !noalias !1466
   %525 = getelementptr inbounds i8, ptr %11, i64 64
   store ptr null, ptr %525, align 8, !alias.scope !1472, !noalias !1466
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr nonnull %11, i64 3)
@@ -22296,8 +22296,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   store ptr null, ptr %534, align 8, !alias.scope !1478, !noalias !1475
   %535 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 6, ptr %535, align 8, !alias.scope !1481, !noalias !1475
-  %.sroa.2.0..sroa_idx.i6.i278 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr @.str.139, ptr %.sroa.2.0..sroa_idx.i6.i278, align 8, !alias.scope !1481, !noalias !1475
+  %.sroa.2.0..sroa_idx.i5.i278 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr @.str.139, ptr %.sroa.2.0..sroa_idx.i5.i278, align 8, !alias.scope !1481, !noalias !1475
   %536 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr null, ptr %536, align 8, !alias.scope !1481, !noalias !1475
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %78, ptr nonnull %10, i64 2)
@@ -22327,8 +22327,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   store ptr null, ptr %545, align 8, !alias.scope !1487, !noalias !1484
   %546 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 4, ptr %546, align 8, !alias.scope !1490, !noalias !1484
-  %.sroa.2.0..sroa_idx.i6.i281 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr @.str.141, ptr %.sroa.2.0..sroa_idx.i6.i281, align 8, !alias.scope !1490, !noalias !1484
+  %.sroa.2.0..sroa_idx.i5.i281 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr @.str.141, ptr %.sroa.2.0..sroa_idx.i5.i281, align 8, !alias.scope !1490, !noalias !1484
   %547 = getelementptr inbounds i8, ptr %9, i64 40
   store ptr null, ptr %547, align 8, !alias.scope !1490, !noalias !1484
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %81, ptr nonnull %9, i64 2)
@@ -22489,8 +22489,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit300: ;
   store ptr null, ptr %597, align 8, !alias.scope !1496, !noalias !1493
   %598 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 7, ptr %598, align 8, !alias.scope !1499, !noalias !1493
-  %.sroa.2.0..sroa_idx.i6.i302 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr @.str.144, ptr %.sroa.2.0..sroa_idx.i6.i302, align 8, !alias.scope !1499, !noalias !1493
+  %.sroa.2.0..sroa_idx.i5.i302 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr @.str.144, ptr %.sroa.2.0..sroa_idx.i5.i302, align 8, !alias.scope !1499, !noalias !1493
   %599 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr null, ptr %599, align 8, !alias.scope !1499, !noalias !1493
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %87, ptr nonnull %8, i64 2)
@@ -22767,8 +22767,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit332: ;
   store ptr null, ptr %676, align 8, !alias.scope !1505, !noalias !1502
   %677 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 4, ptr %677, align 8, !alias.scope !1508, !noalias !1502
-  %.sroa.2.0..sroa_idx.i6.i334 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr @.str.149, ptr %.sroa.2.0..sroa_idx.i6.i334, align 8, !alias.scope !1508, !noalias !1502
+  %.sroa.2.0..sroa_idx.i5.i334 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr @.str.149, ptr %.sroa.2.0..sroa_idx.i5.i334, align 8, !alias.scope !1508, !noalias !1502
   %678 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr null, ptr %678, align 8, !alias.scope !1508, !noalias !1502
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %98, ptr nonnull %6, i64 2)
@@ -23117,14 +23117,14 @@ define dso_local void @_ZN22cmNinjaTargetGenerator21WriteTargetDependInfoERKNSt7
   %50 = extractvalue { i64, ptr } %49, 0
   %51 = extractvalue { i64, ptr } %49, 1
   store i64 %50, ptr %48, align 8, !alias.scope !1521, !noalias !1518
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %51, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !1521, !noalias !1518
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %51, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1521, !noalias !1518
   %52 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr null, ptr %52, align 8, !alias.scope !1521, !noalias !1518
   %53 = getelementptr inbounds i8, ptr %6, i64 48
   store i64 12, ptr %53, align 8, !alias.scope !1524, !noalias !1518
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr @.str.175, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !1524, !noalias !1518
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr @.str.175, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !1524, !noalias !1518
   %54 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr null, ptr %54, align 8, !alias.scope !1524, !noalias !1518
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr nonnull %6, i64 3)
@@ -23159,14 +23159,14 @@ define dso_local void @_ZN22cmNinjaTargetGenerator21WriteTargetDependInfoERKNSt7
   %66 = extractvalue { i64, ptr } %65, 0
   %67 = extractvalue { i64, ptr } %65, 1
   store i64 %66, ptr %64, align 8, !alias.scope !1533, !noalias !1530
-  %.sroa.2.0..sroa_idx.i7.i65 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %67, ptr %.sroa.2.0..sroa_idx.i7.i65, align 8, !alias.scope !1533, !noalias !1530
+  %.sroa.2.0..sroa_idx.i6.i65 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %67, ptr %.sroa.2.0..sroa_idx.i6.i65, align 8, !alias.scope !1533, !noalias !1530
   %68 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %68, align 8, !alias.scope !1533, !noalias !1530
   %69 = getelementptr inbounds i8, ptr %5, i64 48
   store i64 12, ptr %69, align 8, !alias.scope !1536, !noalias !1530
-  %.sroa.2.0..sroa_idx.i16.i66 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr @.str.177, ptr %.sroa.2.0..sroa_idx.i16.i66, align 8, !alias.scope !1536, !noalias !1530
+  %.sroa.2.0..sroa_idx.i14.i66 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr @.str.177, ptr %.sroa.2.0..sroa_idx.i14.i66, align 8, !alias.scope !1536, !noalias !1530
   %70 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr null, ptr %70, align 8, !alias.scope !1536, !noalias !1530
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr nonnull %5, i64 3)
@@ -23201,14 +23201,14 @@ define dso_local void @_ZN22cmNinjaTargetGenerator21WriteTargetDependInfoERKNSt7
   %82 = extractvalue { i64, ptr } %81, 0
   %83 = extractvalue { i64, ptr } %81, 1
   store i64 %82, ptr %80, align 8, !alias.scope !1545, !noalias !1542
-  %.sroa.2.0..sroa_idx.i7.i69 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %83, ptr %.sroa.2.0..sroa_idx.i7.i69, align 8, !alias.scope !1545, !noalias !1542
+  %.sroa.2.0..sroa_idx.i6.i69 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %83, ptr %.sroa.2.0..sroa_idx.i6.i69, align 8, !alias.scope !1545, !noalias !1542
   %84 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %84, align 8, !alias.scope !1545, !noalias !1542
   %85 = getelementptr inbounds i8, ptr %4, i64 48
   store i64 26, ptr %85, align 8, !alias.scope !1548, !noalias !1542
-  %.sroa.2.0..sroa_idx.i16.i70 = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr @.str.179, ptr %.sroa.2.0..sroa_idx.i16.i70, align 8, !alias.scope !1548, !noalias !1542
+  %.sroa.2.0..sroa_idx.i14.i70 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr @.str.179, ptr %.sroa.2.0..sroa_idx.i14.i70, align 8, !alias.scope !1548, !noalias !1542
   %86 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %86, align 8, !alias.scope !1548, !noalias !1542
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr nonnull %4, i64 3)
@@ -24165,8 +24165,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store ptr %54, ptr %55, align 8, !noalias !1560
   store i8 47, ptr %54, align 8, !noalias !1560
   store i64 1, ptr %52, align 8, !alias.scope !1561, !noalias !1560
-  %.sroa.2.0..sroa_idx.i10.i.i = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %54, ptr %.sroa.2.0..sroa_idx.i10.i.i, align 8, !alias.scope !1561, !noalias !1560
+  %.sroa.2.0..sroa_idx.i9.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %54, ptr %.sroa.2.0..sroa_idx.i9.i.i, align 8, !alias.scope !1561, !noalias !1560
   %56 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr null, ptr %56, align 8, !alias.scope !1561, !noalias !1560
   %57 = getelementptr inbounds i8, ptr %7, i64 48
@@ -24174,8 +24174,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %59 = extractvalue { i64, ptr } %58, 0
   %60 = extractvalue { i64, ptr } %58, 1
   store i64 %59, ptr %57, align 8, !alias.scope !1564, !noalias !1560
-  %.sroa.2.0..sroa_idx.i19.i.i = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr %60, ptr %.sroa.2.0..sroa_idx.i19.i.i, align 8, !alias.scope !1564, !noalias !1560
+  %.sroa.2.0..sroa_idx.i17.i.i = getelementptr inbounds i8, ptr %7, i64 56
+  store ptr %60, ptr %.sroa.2.0..sroa_idx.i17.i.i, align 8, !alias.scope !1564, !noalias !1560
   %61 = getelementptr inbounds i8, ptr %7, i64 64
   store ptr null, ptr %61, align 8, !alias.scope !1564, !noalias !1560
   %62 = getelementptr inbounds i8, ptr %7, i64 72
@@ -24187,8 +24187,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store ptr %64, ptr %65, align 8, !noalias !1560
   store i8 47, ptr %64, align 8, !noalias !1560
   store i64 1, ptr %62, align 8, !alias.scope !1567, !noalias !1560
-  %.sroa.2.0..sroa_idx.i28.i.i = getelementptr inbounds i8, ptr %7, i64 80
-  store ptr %64, ptr %.sroa.2.0..sroa_idx.i28.i.i, align 8, !alias.scope !1567, !noalias !1560
+  %.sroa.2.0..sroa_idx.i25.i.i = getelementptr inbounds i8, ptr %7, i64 80
+  store ptr %64, ptr %.sroa.2.0..sroa_idx.i25.i.i, align 8, !alias.scope !1567, !noalias !1560
   %66 = getelementptr inbounds i8, ptr %7, i64 88
   store ptr null, ptr %66, align 8, !alias.scope !1567, !noalias !1560
   %67 = getelementptr inbounds i8, ptr %7, i64 96
@@ -24196,14 +24196,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %69 = extractvalue { i64, ptr } %68, 0
   %70 = extractvalue { i64, ptr } %68, 1
   store i64 %69, ptr %67, align 8, !alias.scope !1570, !noalias !1560
-  %.sroa.2.0..sroa_idx.i37.i.i = getelementptr inbounds i8, ptr %7, i64 104
-  store ptr %70, ptr %.sroa.2.0..sroa_idx.i37.i.i, align 8, !alias.scope !1570, !noalias !1560
+  %.sroa.2.0..sroa_idx.i33.i.i = getelementptr inbounds i8, ptr %7, i64 104
+  store ptr %70, ptr %.sroa.2.0..sroa_idx.i33.i.i, align 8, !alias.scope !1570, !noalias !1560
   %71 = getelementptr inbounds i8, ptr %7, i64 112
   store ptr null, ptr %71, align 8, !alias.scope !1570, !noalias !1560
   %72 = getelementptr inbounds i8, ptr %7, i64 120
   store i64 10, ptr %72, align 8, !alias.scope !1573, !noalias !1560
-  %.sroa.2.0..sroa_idx.i46.i.i = getelementptr inbounds i8, ptr %7, i64 128
-  store ptr @.str.209, ptr %.sroa.2.0..sroa_idx.i46.i.i, align 8, !alias.scope !1573, !noalias !1560
+  %.sroa.2.0..sroa_idx.i41.i.i = getelementptr inbounds i8, ptr %7, i64 128
+  store ptr @.str.209, ptr %.sroa.2.0..sroa_idx.i41.i.i, align 8, !alias.scope !1573, !noalias !1560
   %73 = getelementptr inbounds i8, ptr %7, i64 136
   store ptr null, ptr %73, align 8, !alias.scope !1573, !noalias !1560
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr nonnull %7, i64 6)
@@ -24282,8 +24282,8 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   store ptr %97, ptr %98, align 8, !noalias !1582
   store i8 47, ptr %97, align 8, !noalias !1582
   store i64 1, ptr %95, align 8, !alias.scope !1583, !noalias !1582
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %97, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !1583, !noalias !1582
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %97, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !1583, !noalias !1582
   %99 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %99, align 8, !alias.scope !1583, !noalias !1582
   %100 = getelementptr inbounds i8, ptr %4, i64 48
@@ -24291,8 +24291,8 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   %102 = extractvalue { i64, ptr } %101, 0
   %103 = extractvalue { i64, ptr } %101, 1
   store i64 %102, ptr %100, align 8, !alias.scope !1586, !noalias !1582
-  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr %103, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !1586, !noalias !1582
+  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %103, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !1586, !noalias !1582
   %104 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %104, align 8, !alias.scope !1586, !noalias !1582
   %105 = getelementptr inbounds i8, ptr %4, i64 72
@@ -24304,14 +24304,14 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   store ptr %107, ptr %108, align 8, !noalias !1582
   store i8 47, ptr %107, align 8, !noalias !1582
   store i64 1, ptr %105, align 8, !alias.scope !1589, !noalias !1582
-  %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds i8, ptr %4, i64 80
-  store ptr %107, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !alias.scope !1589, !noalias !1582
+  %.sroa.2.0..sroa_idx.i24.i = getelementptr inbounds i8, ptr %4, i64 80
+  store ptr %107, ptr %.sroa.2.0..sroa_idx.i24.i, align 8, !alias.scope !1589, !noalias !1582
   %109 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr null, ptr %109, align 8, !alias.scope !1589, !noalias !1582
   %110 = getelementptr inbounds i8, ptr %4, i64 96
   store i64 20, ptr %110, align 8, !alias.scope !1592, !noalias !1582
-  %.sroa.2.0..sroa_idx.i36.i = getelementptr inbounds i8, ptr %4, i64 104
-  store ptr @.str.124, ptr %.sroa.2.0..sroa_idx.i36.i, align 8, !alias.scope !1592, !noalias !1582
+  %.sroa.2.0..sroa_idx.i32.i = getelementptr inbounds i8, ptr %4, i64 104
+  store ptr @.str.124, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !alias.scope !1592, !noalias !1582
   %111 = getelementptr inbounds i8, ptr %4, i64 112
   store ptr null, ptr %111, align 8, !alias.scope !1592, !noalias !1582
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr nonnull %4, i64 5)
@@ -24703,14 +24703,14 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %74
   %100 = extractvalue { i64, ptr } %99, 0
   %101 = extractvalue { i64, ptr } %99, 1
   store i64 %100, ptr %98, align 8, !alias.scope !1601, !noalias !1598
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %25, i64 32
-  store ptr %101, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !1601, !noalias !1598
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr %101, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1601, !noalias !1598
   %102 = getelementptr inbounds i8, ptr %25, i64 40
   store ptr null, ptr %102, align 8, !alias.scope !1601, !noalias !1598
   %103 = getelementptr inbounds i8, ptr %25, i64 48
   store i64 18, ptr %103, align 8, !alias.scope !1604, !noalias !1598
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %25, i64 56
-  store ptr @.str.55, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !1604, !noalias !1598
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %25, i64 56
+  store ptr @.str.55, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !1604, !noalias !1598
   %104 = getelementptr inbounds i8, ptr %25, i64 64
   store ptr null, ptr %104, align 8, !alias.scope !1604, !noalias !1598
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %33, ptr nonnull %25, i64 3)
@@ -24744,14 +24744,14 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %74
   %117 = extractvalue { i64, ptr } %116, 0
   %118 = extractvalue { i64, ptr } %116, 1
   store i64 %117, ptr %115, align 8, !alias.scope !1613, !noalias !1610
-  %.sroa.2.0..sroa_idx.i7.i95 = getelementptr inbounds i8, ptr %24, i64 32
-  store ptr %118, ptr %.sroa.2.0..sroa_idx.i7.i95, align 8, !alias.scope !1613, !noalias !1610
+  %.sroa.2.0..sroa_idx.i6.i95 = getelementptr inbounds i8, ptr %24, i64 32
+  store ptr %118, ptr %.sroa.2.0..sroa_idx.i6.i95, align 8, !alias.scope !1613, !noalias !1610
   %119 = getelementptr inbounds i8, ptr %24, i64 40
   store ptr null, ptr %119, align 8, !alias.scope !1613, !noalias !1610
   %120 = getelementptr inbounds i8, ptr %24, i64 48
   store i64 16, ptr %120, align 8, !alias.scope !1616, !noalias !1610
-  %.sroa.2.0..sroa_idx.i16.i96 = getelementptr inbounds i8, ptr %24, i64 56
-  store ptr @.str.93, ptr %.sroa.2.0..sroa_idx.i16.i96, align 8, !alias.scope !1616, !noalias !1610
+  %.sroa.2.0..sroa_idx.i14.i96 = getelementptr inbounds i8, ptr %24, i64 56
+  store ptr @.str.93, ptr %.sroa.2.0..sroa_idx.i14.i96, align 8, !alias.scope !1616, !noalias !1610
   %121 = getelementptr inbounds i8, ptr %24, i64 64
   store ptr null, ptr %121, align 8, !alias.scope !1616, !noalias !1610
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %36, ptr nonnull %24, i64 3)
@@ -24798,8 +24798,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit102: ;
   store ptr null, ptr %132, align 8, !alias.scope !1622, !noalias !1619
   %133 = getelementptr inbounds i8, ptr %23, i64 24
   store i64 7, ptr %133, align 8, !alias.scope !1625, !noalias !1619
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %23, i64 32
-  store ptr @.str.144, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1625, !noalias !1619
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %23, i64 32
+  store ptr @.str.144, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !1625, !noalias !1619
   %134 = getelementptr inbounds i8, ptr %23, i64 40
   store ptr null, ptr %134, align 8, !alias.scope !1625, !noalias !1619
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr nonnull %23, i64 2)
@@ -24833,8 +24833,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit102: ;
   %143 = extractvalue { i64, ptr } %142, 0
   %144 = extractvalue { i64, ptr } %142, 1
   store i64 %143, ptr %141, align 8, !alias.scope !1634, !noalias !1628
-  %.sroa.2.0..sroa_idx.i6.i106 = getelementptr inbounds i8, ptr %21, i64 32
-  store ptr %144, ptr %.sroa.2.0..sroa_idx.i6.i106, align 8, !alias.scope !1634, !noalias !1628
+  %.sroa.2.0..sroa_idx.i5.i106 = getelementptr inbounds i8, ptr %21, i64 32
+  store ptr %144, ptr %.sroa.2.0..sroa_idx.i5.i106, align 8, !alias.scope !1634, !noalias !1628
   %145 = getelementptr inbounds i8, ptr %21, i64 40
   store ptr null, ptr %145, align 8, !alias.scope !1634, !noalias !1628
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %40, ptr nonnull %21, i64 2)
@@ -25033,14 +25033,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117: ;
   %214 = extractvalue { i64, ptr } %213, 0
   %215 = extractvalue { i64, ptr } %213, 1
   store i64 %214, ptr %212, align 8, !alias.scope !1643, !noalias !1637
-  %.sroa.2.0..sroa_idx.i7.i119 = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr %215, ptr %.sroa.2.0..sroa_idx.i7.i119, align 8, !alias.scope !1643, !noalias !1637
+  %.sroa.2.0..sroa_idx.i6.i119 = getelementptr inbounds i8, ptr %20, i64 32
+  store ptr %215, ptr %.sroa.2.0..sroa_idx.i6.i119, align 8, !alias.scope !1643, !noalias !1637
   %216 = getelementptr inbounds i8, ptr %20, i64 40
   store ptr null, ptr %216, align 8, !alias.scope !1643, !noalias !1637
   %217 = getelementptr inbounds i8, ptr %20, i64 48
   store i64 1, ptr %217, align 8, !alias.scope !1646, !noalias !1637
-  %.sroa.2.0..sroa_idx.i16.i120 = getelementptr inbounds i8, ptr %20, i64 56
-  store ptr @.str.11, ptr %.sroa.2.0..sroa_idx.i16.i120, align 8, !alias.scope !1646, !noalias !1637
+  %.sroa.2.0..sroa_idx.i14.i120 = getelementptr inbounds i8, ptr %20, i64 56
+  store ptr @.str.11, ptr %.sroa.2.0..sroa_idx.i14.i120, align 8, !alias.scope !1646, !noalias !1637
   %218 = getelementptr inbounds i8, ptr %20, i64 64
   store ptr null, ptr %218, align 8, !alias.scope !1646, !noalias !1637
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %46, ptr nonnull %20, i64 3)
@@ -25120,24 +25120,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117: ;
   %.sroa.2.0..sroa_idx.i.i122 = getelementptr inbounds i8, ptr %19, i64 8
   %236 = getelementptr inbounds i8, ptr %19, i64 16
   %237 = getelementptr inbounds i8, ptr %19, i64 24
-  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %19, i64 32
+  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %19, i64 32
   %238 = getelementptr inbounds i8, ptr %19, i64 40
   %239 = getelementptr inbounds i8, ptr %19, i64 48
-  %.sroa.2.0..sroa_idx.i19.i = getelementptr inbounds i8, ptr %19, i64 56
+  %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %19, i64 56
   %240 = getelementptr inbounds i8, ptr %19, i64 64
   %.sroa.2.0..sroa_idx.i.i124 = getelementptr inbounds i8, ptr %18, i64 8
   %241 = getelementptr inbounds i8, ptr %18, i64 16
   %242 = getelementptr inbounds i8, ptr %18, i64 24
-  %.sroa.2.0..sroa_idx.i10.i128 = getelementptr inbounds i8, ptr %18, i64 32
+  %.sroa.2.0..sroa_idx.i9.i128 = getelementptr inbounds i8, ptr %18, i64 32
   %243 = getelementptr inbounds i8, ptr %18, i64 40
   %244 = getelementptr inbounds i8, ptr %18, i64 48
-  %.sroa.2.0..sroa_idx.i19.i129 = getelementptr inbounds i8, ptr %18, i64 56
+  %.sroa.2.0..sroa_idx.i17.i129 = getelementptr inbounds i8, ptr %18, i64 56
   %245 = getelementptr inbounds i8, ptr %18, i64 64
   %246 = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.2.0..sroa_idx.i.i131 = getelementptr inbounds i8, ptr %17, i64 8
   %247 = getelementptr inbounds i8, ptr %17, i64 16
   %248 = getelementptr inbounds i8, ptr %17, i64 24
-  %.sroa.2.0..sroa_idx.i6.i132 = getelementptr inbounds i8, ptr %17, i64 32
+  %.sroa.2.0..sroa_idx.i5.i132 = getelementptr inbounds i8, ptr %17, i64 32
   %249 = getelementptr inbounds i8, ptr %17, i64 40
   br label %250
 
@@ -25153,10 +25153,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117: ;
   store ptr @.str.102, ptr %.sroa.2.0..sroa_idx.i.i122, align 8, !alias.scope !1649, !noalias !1652
   store ptr null, ptr %236, align 8, !alias.scope !1649, !noalias !1652
   store i64 %.sroa.0157.0.copyload, ptr %237, align 8, !alias.scope !1655, !noalias !1652
-  store ptr %.sroa.3.0.copyload, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !alias.scope !1655, !noalias !1652
+  store ptr %.sroa.3.0.copyload, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !1655, !noalias !1652
   store ptr null, ptr %238, align 8, !alias.scope !1655, !noalias !1652
   store i64 12, ptr %239, align 8, !alias.scope !1658, !noalias !1652
-  store ptr @.str.103, ptr %.sroa.2.0..sroa_idx.i19.i, align 8, !alias.scope !1658, !noalias !1652
+  store ptr @.str.103, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !1658, !noalias !1652
   store ptr null, ptr %240, align 8, !alias.scope !1658, !noalias !1652
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %47, ptr nonnull %19, i64 3)
           to label %251 unwind label %.loopexit
@@ -25168,10 +25168,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117: ;
   store ptr @.str.104, ptr %.sroa.2.0..sroa_idx.i.i124, align 8, !alias.scope !1661, !noalias !1664
   store ptr null, ptr %241, align 8, !alias.scope !1661, !noalias !1664
   store i64 %.sroa.0157.0.copyload, ptr %242, align 8, !alias.scope !1667, !noalias !1664
-  store ptr %.sroa.3.0.copyload, ptr %.sroa.2.0..sroa_idx.i10.i128, align 8, !alias.scope !1667, !noalias !1664
+  store ptr %.sroa.3.0.copyload, ptr %.sroa.2.0..sroa_idx.i9.i128, align 8, !alias.scope !1667, !noalias !1664
   store ptr null, ptr %243, align 8, !alias.scope !1667, !noalias !1664
   store i64 5, ptr %244, align 8, !alias.scope !1670, !noalias !1664
-  store ptr @.str.105, ptr %.sroa.2.0..sroa_idx.i19.i129, align 8, !alias.scope !1670, !noalias !1664
+  store ptr @.str.105, ptr %.sroa.2.0..sroa_idx.i17.i129, align 8, !alias.scope !1670, !noalias !1664
   store ptr null, ptr %245, align 8, !alias.scope !1670, !noalias !1664
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %48, ptr nonnull %18, i64 3)
           to label %252 unwind label %268
@@ -25202,7 +25202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117: ;
   %264 = extractvalue { i64, ptr } %263, 0
   %265 = extractvalue { i64, ptr } %263, 1
   store i64 %264, ptr %248, align 8, !alias.scope !1679, !noalias !1673
-  store ptr %265, ptr %.sroa.2.0..sroa_idx.i6.i132, align 8, !alias.scope !1679, !noalias !1673
+  store ptr %265, ptr %.sroa.2.0..sroa_idx.i5.i132, align 8, !alias.scope !1679, !noalias !1673
   store ptr null, ptr %249, align 8, !alias.scope !1679, !noalias !1673
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %49, ptr nonnull %17, i64 2)
           to label %266 unwind label %270
@@ -25282,8 +25282,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit138: ;
   %288 = extractvalue { i64, ptr } %287, 0
   %289 = extractvalue { i64, ptr } %287, 1
   store i64 %288, ptr %286, align 8, !alias.scope !1688, !noalias !1682
-  %.sroa.2.0..sroa_idx.i6.i140 = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr %289, ptr %.sroa.2.0..sroa_idx.i6.i140, align 8, !alias.scope !1688, !noalias !1682
+  %.sroa.2.0..sroa_idx.i5.i140 = getelementptr inbounds i8, ptr %16, i64 32
+  store ptr %289, ptr %.sroa.2.0..sroa_idx.i5.i140, align 8, !alias.scope !1688, !noalias !1682
   %290 = getelementptr inbounds i8, ptr %16, i64 40
   store ptr null, ptr %290, align 8, !alias.scope !1688, !noalias !1682
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %52, ptr nonnull %16, i64 2)
@@ -25329,14 +25329,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit138: ;
   %304 = extractvalue { i64, ptr } %303, 0
   %305 = extractvalue { i64, ptr } %303, 1
   store i64 %304, ptr %302, align 8, !alias.scope !1697, !noalias !1694
-  %.sroa.2.0..sroa_idx.i7.i144 = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr %305, ptr %.sroa.2.0..sroa_idx.i7.i144, align 8, !alias.scope !1697, !noalias !1694
+  %.sroa.2.0..sroa_idx.i6.i144 = getelementptr inbounds i8, ptr %15, i64 32
+  store ptr %305, ptr %.sroa.2.0..sroa_idx.i6.i144, align 8, !alias.scope !1697, !noalias !1694
   %306 = getelementptr inbounds i8, ptr %15, i64 40
   store ptr null, ptr %306, align 8, !alias.scope !1697, !noalias !1694
   %307 = getelementptr inbounds i8, ptr %15, i64 48
   store i64 15, ptr %307, align 8, !alias.scope !1700, !noalias !1694
-  %.sroa.2.0..sroa_idx.i16.i145 = getelementptr inbounds i8, ptr %15, i64 56
-  store ptr @.str.107, ptr %.sroa.2.0..sroa_idx.i16.i145, align 8, !alias.scope !1700, !noalias !1694
+  %.sroa.2.0..sroa_idx.i14.i145 = getelementptr inbounds i8, ptr %15, i64 56
+  store ptr @.str.107, ptr %.sroa.2.0..sroa_idx.i14.i145, align 8, !alias.scope !1700, !noalias !1694
   %308 = getelementptr inbounds i8, ptr %15, i64 64
   store ptr null, ptr %308, align 8, !alias.scope !1700, !noalias !1694
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %53, ptr nonnull %15, i64 3)
@@ -26275,8 +26275,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit155: ;
   store ptr null, ptr %247, align 8, !alias.scope !1706, !noalias !1703
   %248 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 4, ptr %248, align 8, !alias.scope !1709, !noalias !1703
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %13, i64 32
-  store ptr @.str.141, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1709, !noalias !1703
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %13, i64 32
+  store ptr @.str.141, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !1709, !noalias !1703
   %249 = getelementptr inbounds i8, ptr %13, i64 40
   store ptr null, ptr %249, align 8, !alias.scope !1709, !noalias !1703
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %41, ptr nonnull %13, i64 2)
@@ -26324,8 +26324,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit161: ;
   store ptr null, ptr %261, align 8, !alias.scope !1715, !noalias !1712
   %262 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 4, ptr %262, align 8, !alias.scope !1718, !noalias !1712
-  %.sroa.2.0..sroa_idx.i6.i163 = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr @.str.149, ptr %.sroa.2.0..sroa_idx.i6.i163, align 8, !alias.scope !1718, !noalias !1712
+  %.sroa.2.0..sroa_idx.i5.i163 = getelementptr inbounds i8, ptr %12, i64 32
+  store ptr @.str.149, ptr %.sroa.2.0..sroa_idx.i5.i163, align 8, !alias.scope !1718, !noalias !1712
   %263 = getelementptr inbounds i8, ptr %12, i64 40
   store ptr null, ptr %263, align 8, !alias.scope !1718, !noalias !1712
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %44, ptr nonnull %12, i64 2)
@@ -26556,8 +26556,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   store ptr null, ptr %333, align 8, !alias.scope !1724, !noalias !1721
   %334 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 2, ptr %334, align 8, !alias.scope !1727, !noalias !1721
-  %.sroa.2.0..sroa_idx.i6.i186 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i6.i186, align 8, !alias.scope !1727, !noalias !1721
+  %.sroa.2.0..sroa_idx.i5.i186 = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i5.i186, align 8, !alias.scope !1727, !noalias !1721
   %335 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr null, ptr %335, align 8, !alias.scope !1727, !noalias !1721
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %47, ptr nonnull %11, i64 2)
@@ -26959,8 +26959,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store ptr null, ptr %60, align 8, !alias.scope !1736, !noalias !1733
   %61 = getelementptr inbounds i8, ptr %20, i64 24
   store i64 10, ptr %61, align 8, !alias.scope !1739, !noalias !1733
-  %.sroa.2.0..sroa_idx.i6.i.i = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr @.str.209, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 8, !alias.scope !1739, !noalias !1733
+  %.sroa.2.0..sroa_idx.i5.i.i = getelementptr inbounds i8, ptr %20, i64 32
+  store ptr @.str.209, ptr %.sroa.2.0..sroa_idx.i5.i.i, align 8, !alias.scope !1739, !noalias !1733
   %62 = getelementptr inbounds i8, ptr %20, i64 40
   store ptr null, ptr %62, align 8, !alias.scope !1739, !noalias !1733
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %26, ptr nonnull %20, i64 2)
@@ -27043,8 +27043,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   store ptr null, ptr %81, align 8, !alias.scope !1748, !noalias !1745
   %82 = getelementptr inbounds i8, ptr %17, i64 24
   store i64 4, ptr %82, align 8, !alias.scope !1751, !noalias !1745
-  %.sroa.2.0..sroa_idx.i6.i.i32 = getelementptr inbounds i8, ptr %17, i64 32
-  store ptr @.str.217, ptr %.sroa.2.0..sroa_idx.i6.i.i32, align 8, !alias.scope !1751, !noalias !1745
+  %.sroa.2.0..sroa_idx.i5.i.i32 = getelementptr inbounds i8, ptr %17, i64 32
+  store ptr @.str.217, ptr %.sroa.2.0..sroa_idx.i5.i.i32, align 8, !alias.scope !1751, !noalias !1745
   %83 = getelementptr inbounds i8, ptr %17, i64 40
   store ptr null, ptr %83, align 8, !alias.scope !1751, !noalias !1745
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %28, ptr nonnull %17, i64 2)
@@ -27147,8 +27147,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i40: 
   store ptr %14, ptr %109, align 8, !alias.scope !1757, !noalias !1763
   %110 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %110, align 8, !alias.scope !1764, !noalias !1763
-  %.sroa.2.0..sroa_idx.i6.i.i42 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i6.i.i42, align 8, !alias.scope !1764, !noalias !1763
+  %.sroa.2.0..sroa_idx.i5.i.i42 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i5.i.i42, align 8, !alias.scope !1764, !noalias !1763
   %111 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr null, ptr %111, align 8, !alias.scope !1764, !noalias !1763
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr nonnull %7, i64 2)
@@ -27176,8 +27176,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i40: 
   store ptr %119, ptr %120, align 8, !noalias !1767
   store i8 47, ptr %119, align 8, !noalias !1767
   store i64 1, ptr %117, align 8, !alias.scope !1773, !noalias !1767
-  %.sroa.2.0..sroa_idx.i7.i.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %119, ptr %.sroa.2.0..sroa_idx.i7.i.i, align 8, !alias.scope !1773, !noalias !1767
+  %.sroa.2.0..sroa_idx.i6.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %119, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 8, !alias.scope !1773, !noalias !1767
   %121 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %121, align 8, !alias.scope !1773, !noalias !1767
   %122 = getelementptr inbounds i8, ptr %5, i64 48
@@ -27185,8 +27185,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i40: 
   %124 = extractvalue { i64, ptr } %123, 0
   %125 = extractvalue { i64, ptr } %123, 1
   store i64 %124, ptr %122, align 8, !alias.scope !1776, !noalias !1767
-  %.sroa.2.0..sroa_idx.i16.i.i = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %125, ptr %.sroa.2.0..sroa_idx.i16.i.i, align 8, !alias.scope !1776, !noalias !1767
+  %.sroa.2.0..sroa_idx.i14.i.i = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %125, ptr %.sroa.2.0..sroa_idx.i14.i.i, align 8, !alias.scope !1776, !noalias !1767
   %126 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr null, ptr %126, align 8, !alias.scope !1776, !noalias !1767
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr nonnull %5, i64 3)
@@ -27270,8 +27270,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i40: 
   store ptr null, ptr %153, align 8, !alias.scope !1782, !noalias !1779
   %154 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 2, ptr %154, align 8, !alias.scope !1785, !noalias !1779
-  %.sroa.2.0..sroa_idx.i6.i24.i = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i6.i24.i, align 8, !alias.scope !1785, !noalias !1779
+  %.sroa.2.0..sroa_idx.i5.i24.i = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr @.str.134, ptr %.sroa.2.0..sroa_idx.i5.i24.i, align 8, !alias.scope !1785, !noalias !1779
   %155 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %155, align 8, !alias.scope !1785, !noalias !1779
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr nonnull %4, i64 2)
@@ -29133,8 +29133,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %49
   store ptr %65, ptr %66, align 8, !noalias !1797
   store i8 47, ptr %65, align 8, !noalias !1797
   store i64 1, ptr %63, align 8, !alias.scope !1803, !noalias !1797
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %65, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !1803, !noalias !1797
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %65, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !1803, !noalias !1797
   %67 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %67, align 8, !alias.scope !1803, !noalias !1797
   %68 = getelementptr inbounds i8, ptr %5, i64 48
@@ -29143,8 +29143,8 @@ _ZNK22cmNinjaTargetGenerator18GetGlobalGeneratorEv.exit: ; preds = %49
   %70 = extractvalue { i64, ptr } %69, 0
   %71 = extractvalue { i64, ptr } %69, 1
   store i64 %70, ptr %68, align 8, !alias.scope !1806, !noalias !1797
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %71, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !1806, !noalias !1797
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %71, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !1806, !noalias !1797
   %72 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %11, ptr %72, align 8, !alias.scope !1806, !noalias !1797
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr nonnull %5, i64 3)

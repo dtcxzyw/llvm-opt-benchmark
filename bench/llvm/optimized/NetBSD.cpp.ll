@@ -3311,23 +3311,27 @@ define hidden noundef range(i32 0, 2) i32 @_ZNK5clang6driver10toolchains6NetBSD1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK5clang6driver10toolchains6NetBSD22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(4488) %0) unnamed_addr #0 align 2 {
-_ZN5clang13SanitizerMaskoRERKS0_.exit32:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %2 = load i32, ptr %1, align 8
-  %3 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2168) %0) #11
-  %4 = extractvalue { i64, i64 } %3, 0
-  %5 = extractvalue { i64, i64 } %3, 1
-  %.off = add i32 %2, -37
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load i32, ptr %2, align 8
+  %4 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2168) %0) #11
+  %.off = add i32 %3, -37
   %switch = icmp ult i32 %.off, 2
-  %6 = icmp eq i32 %2, 38
-  %7 = or i64 %5, 256
-  %spec.select.v = select i1 %6, i64 72136758875290687, i64 72066390131081223
-  %spec.select = select i1 %switch, i64 %spec.select.v, i64 0
-  %.sroa.0.0 = or i64 %4, %spec.select
-  %.sroa.18.0 = select i1 %switch, i64 %7, i64 %5
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.18.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  br i1 %switch, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, label %_ZN5clang13SanitizerMaskoRERKS0_.exit32
+
+_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:   ; preds = %1
+  %5 = extractvalue { i64, i64 } %4, 1
+  %6 = extractvalue { i64, i64 } %4, 0
+  %7 = icmp eq i32 %3, 38
+  %8 = or i64 %5, 256
+  %spec.select.v = select i1 %7, i64 72136758875290687, i64 72066390131081223
+  %spec.select = or i64 %6, %spec.select.v
+  %9 = insertvalue { i64, i64 } poison, i64 %spec.select, 0
+  %10 = insertvalue { i64, i64 } %9, i64 %8, 1
+  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit32
+
+_ZN5clang13SanitizerMaskoRERKS0_.exit32:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %1
+  %.fca.1.insert.merged = phi { i64, i64 } [ %4, %1 ], [ %10, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 declare { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2168)) unnamed_addr #1

@@ -17788,16 +17788,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   store i16 %storemerge.lcssa.i.i.i.i.i, ptr %135, align 4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %.val5.pre.pre.i = load i32, ptr %7, align 8
   br label %145
 
 145:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E12insert_valueEmsjOSC_.exit.i.i.i, %109
+  %.val5.pre.i = phi i32 [ %.val5.pre.pre.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E12insert_valueEmsjOSC_.exit.i.i.i ], [ 0, %109 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %147 = load i64, ptr %146, align 8
   %148 = add i64 %147, 1
   store i64 %148, ptr %146, align 8
   %149 = load ptr, ptr %41, align 8
   %150 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %149, i64 %.1.i.i.i
-  %.val5.pre.i = load i32, ptr %7, align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %46, %145

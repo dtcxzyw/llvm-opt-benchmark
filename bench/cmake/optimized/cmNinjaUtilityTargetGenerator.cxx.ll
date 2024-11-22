@@ -385,8 +385,8 @@ define dso_local void @_ZN29cmNinjaUtilityTargetGenerator24WriteUtilBuildStateme
   store ptr null, ptr %77, align 8, !alias.scope !10, !noalias !7
   %78 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 11, ptr %78, align 8, !alias.scope !13, !noalias !7
-  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !alias.scope !13, !noalias !7
+  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !13, !noalias !7
   %79 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %79, align 8, !alias.scope !13, !noalias !7
   %80 = getelementptr inbounds i8, ptr %4, i64 48
@@ -394,14 +394,14 @@ define dso_local void @_ZN29cmNinjaUtilityTargetGenerator24WriteUtilBuildStateme
   %82 = extractvalue { i64, ptr } %81, 0
   %83 = extractvalue { i64, ptr } %81, 1
   store i64 %82, ptr %80, align 8, !alias.scope !16, !noalias !7
-  %.sroa.2.0..sroa_idx.i19.i = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr %83, ptr %.sroa.2.0..sroa_idx.i19.i, align 8, !alias.scope !16, !noalias !7
+  %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %83, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !16, !noalias !7
   %84 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %84, align 8, !alias.scope !16, !noalias !7
   %85 = getelementptr inbounds i8, ptr %4, i64 72
   store i64 1, ptr %85, align 8, !alias.scope !19, !noalias !7
-  %.sroa.2.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %4, i64 80
-  store ptr @.str.1, ptr %.sroa.2.0..sroa_idx.i28.i, align 8, !alias.scope !19, !noalias !7
+  %.sroa.2.0..sroa_idx.i25.i = getelementptr inbounds i8, ptr %4, i64 80
+  store ptr @.str.1, ptr %.sroa.2.0..sroa_idx.i25.i, align 8, !alias.scope !19, !noalias !7
   %86 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr null, ptr %86, align 8, !alias.scope !19, !noalias !7
   %87 = getelementptr inbounds i8, ptr %4, i64 96
@@ -410,14 +410,14 @@ define dso_local void @_ZN29cmNinjaUtilityTargetGenerator24WriteUtilBuildStateme
   %89 = extractvalue { i64, ptr } %88, 0
   %90 = extractvalue { i64, ptr } %88, 1
   store i64 %89, ptr %87, align 8, !alias.scope !22, !noalias !7
-  %.sroa.2.0..sroa_idx.i37.i = getelementptr inbounds i8, ptr %4, i64 104
-  store ptr %90, ptr %.sroa.2.0..sroa_idx.i37.i, align 8, !alias.scope !22, !noalias !7
+  %.sroa.2.0..sroa_idx.i33.i = getelementptr inbounds i8, ptr %4, i64 104
+  store ptr %90, ptr %.sroa.2.0..sroa_idx.i33.i, align 8, !alias.scope !22, !noalias !7
   %91 = getelementptr inbounds i8, ptr %4, i64 112
   store ptr %8, ptr %91, align 8, !alias.scope !22, !noalias !7
   %92 = getelementptr inbounds i8, ptr %4, i64 120
   store i64 5, ptr %92, align 8, !alias.scope !26, !noalias !7
-  %.sroa.2.0..sroa_idx.i46.i = getelementptr inbounds i8, ptr %4, i64 128
-  store ptr @.str.2, ptr %.sroa.2.0..sroa_idx.i46.i, align 8, !alias.scope !26, !noalias !7
+  %.sroa.2.0..sroa_idx.i41.i = getelementptr inbounds i8, ptr %4, i64 128
+  store ptr @.str.2, ptr %.sroa.2.0..sroa_idx.i41.i, align 8, !alias.scope !26, !noalias !7
   %93 = getelementptr inbounds i8, ptr %4, i64 136
   store ptr null, ptr %93, align 8, !alias.scope !26, !noalias !7
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull %4, i64 6)

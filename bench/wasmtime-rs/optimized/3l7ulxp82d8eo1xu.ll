@@ -53,36 +53,36 @@ define hidden { ptr, i64 } @_ZN22cranelift_codegen_meta4cdsl8operands7Operand3do
 6:                                                ; preds = %1
   %7 = load i64, ptr %0, align 8, !range !4, !noundef !3
   %8 = icmp eq i64 %7, 4
-  br i1 %8, label %12, label %18
+  br i1 %8, label %10, label %16
 
-9:                                                ; preds = %_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3doc17h478920b9630bdf1fE.exit, %12, %4
-  %.sroa.4.0.in = phi ptr [ %5, %4 ], [ %17, %12 ], [ %22, %_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3doc17h478920b9630bdf1fE.exit ]
-  %.sroa.0.0 = phi ptr [ %3, %4 ], [ %16, %12 ], [ %20, %_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3doc17h478920b9630bdf1fE.exit ]
-  %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !3
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %11
+9:                                                ; preds = %_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3doc17h478920b9630bdf1fE.exit, %10, %4
+  %.pn6 = phi ptr [ %3, %4 ], [ %14, %10 ], [ %18, %_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3doc17h478920b9630bdf1fE.exit ]
+  %.pn4.in = phi ptr [ %5, %4 ], [ %15, %10 ], [ %20, %_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3doc17h478920b9630bdf1fE.exit ]
+  %.pn4 = load i64, ptr %.pn4.in, align 8, !noundef !3
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn6, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn4, 1
+  ret { ptr, i64 } %.merged
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = tail call align 8 ptr @"_ZN90_$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0af796e260893af0E"(ptr nonnull align 8 %13)
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
-  %17 = getelementptr inbounds i8, ptr %14, i64 40
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = tail call align 8 ptr @"_ZN90_$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0af796e260893af0E"(ptr nonnull align 8 %11)
+  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
+  %15 = getelementptr inbounds i8, ptr %12, i64 40
   br label %9
 
-18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
-  %20 = load ptr, ptr %19, align 8, !noundef !3
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %21, label %_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3doc17h478920b9630bdf1fE.exit
+16:                                               ; preds = %6
+  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = load ptr, ptr %17, align 8, !noundef !3
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %19, label %_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3doc17h478920b9630bdf1fE.exit
 
-21:                                               ; preds = %18
+19:                                               ; preds = %16
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.6f6dac06ba3173d8a747ae854c80cc29.0, i64 40, ptr nonnull align 8 @anon.6f6dac06ba3173d8a747ae854c80cc29.2) #7
   unreachable
 
-_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3doc17h478920b9630bdf1fE.exit: ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3doc17h478920b9630bdf1fE.exit: ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %0, i64 96
   br label %9
 }
 

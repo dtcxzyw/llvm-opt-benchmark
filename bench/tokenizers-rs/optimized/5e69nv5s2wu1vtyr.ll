@@ -23089,11 +23089,11 @@ define hidden void @"_ZN205_$LT$tokenizers..pre_tokenizers..split.._..$LT$impl$u
 55:                                               ; preds = %6, %9, %13, %17, %21, %25, %32, %35, %39, %43, %47, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN5serde9__private6string15from_utf8_lossy17h5f75813fbb13712aE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !4125, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !4125, !noundef !4
-  %56 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h85773563d7f1d2f8E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i, ptr noalias noundef nonnull readonly align 8 @anon.8c2de1b056c663478123bda9320f36f9.170.llvm.12244614425474959946, i64 noundef 2)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !4125, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !4125, !nonnull !4, !noundef !4
+  %56 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h85773563d7f1d2f8E(ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i, ptr noalias noundef nonnull readonly align 8 @anon.8c2de1b056c663478123bda9320f36f9.170.llvm.12244614425474959946, i64 noundef 2)
           to label %57 unwind label %53
 
 57:                                               ; preds = %55
@@ -23337,11 +23337,11 @@ define hidden noundef align 8 ptr @"_ZN321_$LT$$LT$tokenizers..pre_tokenizers..s
 28:                                               ; preds = %2, %6, %9, %13, %17, %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN5serde9__private6string15from_utf8_lossy17h5f75813fbb13712aE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !4168, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !4168, !noundef !4
-  %29 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h85773563d7f1d2f8E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i, ptr noalias noundef nonnull readonly align 8 @anon.8c2de1b056c663478123bda9320f36f9.176.llvm.12244614425474959946, i64 noundef 1)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !4168, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !4168, !nonnull !4, !noundef !4
+  %29 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h85773563d7f1d2f8E(ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i, ptr noalias noundef nonnull readonly align 8 @anon.8c2de1b056c663478123bda9320f36f9.176.llvm.12244614425474959946, i64 noundef 1)
           to label %30 unwind label %26
 
 30:                                               ; preds = %28
@@ -23821,11 +23821,11 @@ define hidden noundef align 8 ptr @"_ZN261_$LT$tokenizers..pre_tokenizers..unico
 64:                                               ; preds = %2, %6, %9, %13, %17, %21, %25, %29, %33, %37, %41, %45, %49, %53, %57
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN5serde9__private6string15from_utf8_lossy17h5f75813fbb13712aE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !4223, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !4223, !noundef !4
-  %65 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h85773563d7f1d2f8E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i, ptr noalias noundef nonnull readonly align 8 @anon.8c2de1b056c663478123bda9320f36f9.183.llvm.12244614425474959946, i64 noundef 1)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !4223, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !4223, !nonnull !4, !noundef !4
+  %65 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h85773563d7f1d2f8E(ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i, ptr noalias noundef nonnull readonly align 8 @anon.8c2de1b056c663478123bda9320f36f9.183.llvm.12244614425474959946, i64 noundef 1)
           to label %66 unwind label %62
 
 66:                                               ; preds = %64
@@ -25522,11 +25522,11 @@ define hidden void @"_ZN215_$LT$tokenizers..tokenizer..normalizer.._..$LT$impl$u
 242:                                              ; preds = %6, %9, %13, %17, %21, %25, %29, %36, %39, %43, %47, %51, %55, %59, %63, %69, %72, %76, %80, %84, %88, %92, %96, %100, %104, %108, %112, %116, %120, %124, %128, %132, %136, %142, %145, %149, %153, %157, %161, %165, %169, %173, %177, %181, %185, %189, %193, %199, %202, %206, %210, %214, %218, %222, %226, %230, %234, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN5serde9__private6string15from_utf8_lossy17h5f75813fbb13712aE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !4378, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !4378, !noundef !4
-  %243 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h85773563d7f1d2f8E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i, ptr noalias noundef nonnull readonly align 8 @anon.8c2de1b056c663478123bda9320f36f9.191.llvm.12244614425474959946, i64 noundef 5)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !4378, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !4378, !nonnull !4, !noundef !4
+  %243 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h85773563d7f1d2f8E(ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i, ptr noalias noundef nonnull readonly align 8 @anon.8c2de1b056c663478123bda9320f36f9.191.llvm.12244614425474959946, i64 noundef 5)
           to label %244 unwind label %240
 
 244:                                              ; preds = %242

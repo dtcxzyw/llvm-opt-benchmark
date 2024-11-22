@@ -4381,26 +4381,26 @@ define hidden { i64, ptr } @"_ZN87_$LT$futures_lite..io..FlushFuture$LT$W$GT$$u2
   %4 = tail call { i64, ptr } @"_ZN12futures_util2io10buf_writer18BufWriter$LT$W$GT$9flush_buf17h546957374fc1e7e6E.llvm.14501564587069862407"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %5 = extractvalue { i64, ptr } %4, 0
   %switch.i = icmp eq i64 %5, 0
-  br i1 %switch.i, label %6, label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hfcd1e0368e4e12d7E.llvm.14501564587069862407.exit"
+  br i1 %switch.i, label %6, label %12
 
 6:                                                ; preds = %2
   %7 = extractvalue { i64, ptr } %4, 1
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hfcd1e0368e4e12d7E.llvm.14501564587069862407.exit"
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %3, i64 24
   %11 = tail call { i64, ptr } @"_ZN76_$LT$async_process..ChildStdin$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hed732da5b649a963E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  %12 = extractvalue { i64, ptr } %11, 0
-  %13 = extractvalue { i64, ptr } %11, 1
   br label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hfcd1e0368e4e12d7E.llvm.14501564587069862407.exit"
 
-"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hfcd1e0368e4e12d7E.llvm.14501564587069862407.exit": ; preds = %2, %6, %9
-  %.sroa.4.1.i = phi ptr [ %13, %9 ], [ undef, %2 ], [ %7, %6 ]
-  %.sroa.0.1.i = phi i64 [ %12, %9 ], [ %5, %2 ], [ 0, %6 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1.i, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.4.1.i, 1
-  ret { i64, ptr } %15
+12:                                               ; preds = %6, %2
+  %.sroa.4.0.i = phi ptr [ undef, %2 ], [ %7, %6 ]
+  %13 = insertvalue { i64, ptr } %4, ptr %.sroa.4.0.i, 1
+  br label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hfcd1e0368e4e12d7E.llvm.14501564587069862407.exit"
+
+"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hfcd1e0368e4e12d7E.llvm.14501564587069862407.exit": ; preds = %9, %12
+  %.merged.i = phi { i64, ptr } [ %13, %12 ], [ %11, %9 ]
+  ret { i64, ptr } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4963,18 +4963,18 @@ define hidden { i64, ptr } @"_ZN90_$LT$futures_lite..io..WriteAllFuture$LT$W$GT$
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %.promoted = load i64, ptr %5, align 8
-  %.promoted31 = load ptr, ptr %4, align 8
+  %.promoted12 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !4, !align !5
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = getelementptr inbounds i8, ptr %6, i64 24
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   br label %10
 
-10:                                               ; preds = %50, %2
-  %11 = phi ptr [ %52, %50 ], [ %.promoted31, %2 ]
-  %12 = phi i64 [ %53, %50 ], [ %.promoted, %2 ]
+10:                                               ; preds = %58, %2
+  %11 = phi ptr [ %59, %58 ], [ %.promoted12, %2 ]
+  %12 = phi i64 [ %60, %58 ], [ %.promoted, %2 ]
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16", label %14
+  br i1 %13, label %47, label %14
 
 14:                                               ; preds = %10
   %15 = load i64, ptr %7, align 8, !alias.scope !754, !noalias !757, !noundef !4
@@ -4987,17 +4987,17 @@ define hidden { i64, ptr } @"_ZN90_$LT$futures_lite..io..WriteAllFuture$LT$W$GT$
   %20 = tail call { i64, ptr } @"_ZN12futures_util2io10buf_writer18BufWriter$LT$W$GT$9flush_buf17h546957374fc1e7e6E.llvm.14501564587069862407"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !760
   %21 = extractvalue { i64, ptr } %20, 0
   %switch.i = icmp eq i64 %21, 0
-  br i1 %switch.i, label %24, label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16"
+  br i1 %switch.i, label %24, label %41
 
 22:                                               ; preds = %._crit_edge.i, %14
   %23 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %17, %14 ]
   %.not.i = icmp ult i64 %12, %23
-  br i1 %.not.i, label %27, label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit"
+  br i1 %.not.i, label %27, label %39
 
 24:                                               ; preds = %19
   %25 = extractvalue { i64, ptr } %20, 1
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %._crit_edge.i, label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16"
+  br i1 %26, label %._crit_edge.i, label %41
 
 ._crit_edge.i:                                    ; preds = %24
   %.pre.i = load i64, ptr %6, align 8, !alias.scope !754, !noalias !757
@@ -5007,14 +5007,14 @@ define hidden { i64, ptr } @"_ZN90_$LT$futures_lite..io..WriteAllFuture$LT$W$GT$
   %28 = load i64, ptr %7, align 8, !alias.scope !761, !noalias !757, !noundef !4
   %29 = sub i64 %23, %28
   %30 = icmp ugt i64 %12, %29
-  br i1 %30, label %31, label %.thread
+  br i1 %30, label %31, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h2dc4b3f9d3d5f898E.exit.i"
 
 31:                                               ; preds = %27
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h58dfdc11409efce5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %28, i64 noundef range(i64 1, 0) %12), !noalias !760
   %.pre.i.i = load i64, ptr %7, align 8, !alias.scope !761, !noalias !757
-  br label %.thread
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h2dc4b3f9d3d5f898E.exit.i"
 
-.thread:                                          ; preds = %31, %27
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h2dc4b3f9d3d5f898E.exit.i": ; preds = %31, %27
   %32 = phi i64 [ %.pre.i.i, %31 ], [ %28, %27 ]
   %33 = load ptr, ptr %9, align 8, !alias.scope !761, !noalias !757, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
@@ -5023,57 +5023,66 @@ define hidden { i64, ptr } @"_ZN90_$LT$futures_lite..io..WriteAllFuture$LT$W$GT$
   %36 = add i64 %35, %12
   store i64 %36, ptr %7, align 8, !alias.scope !761, !noalias !757
   %37 = inttoptr i64 %12 to ptr
-  br label %50
+  %38 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %37, 1
+  br label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit"
 
-"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit": ; preds = %22
-  %38 = tail call { i64, ptr } @"_ZN76_$LT$async_process..ChildStdin$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hdd4cbf81c7cc0e30E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef range(i64 1, 0) %12)
-  %39 = extractvalue { i64, ptr } %38, 0
-  %40 = extractvalue { i64, ptr } %38, 1
-  switch i64 %39, label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16" [
-    i64 2, label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16.loopexit"
-    i64 0, label %43
-  ]
+39:                                               ; preds = %22
+  %40 = tail call { i64, ptr } @"_ZN76_$LT$async_process..ChildStdin$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hdd4cbf81c7cc0e30E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef range(i64 1, 0) %12)
+  br label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit"
 
-"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16.loopexit": ; preds = %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit"
-  br label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16"
+41:                                               ; preds = %24, %19
+  %.sroa.5.0.i = phi ptr [ undef, %19 ], [ %25, %24 ]
+  %.sroa.0.0.i = phi i64 [ 2, %19 ], [ 1, %24 ]
+  %42 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %43 = insertvalue { i64, ptr } %42, ptr %.sroa.5.0.i, 1
+  br label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit"
 
-"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16": ; preds = %24, %19, %50, %10, %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit", %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16.loopexit"
-  %.sroa.5.0 = phi ptr [ %40, %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit" ], [ %25, %24 ], [ undef, %19 ], [ inttoptr (i64 98784247811 to ptr), %50 ], [ null, %10 ], [ undef, %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16.loopexit" ]
-  %.sroa.0.0 = phi i64 [ 0, %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit" ], [ 0, %24 ], [ 1, %19 ], [ 0, %50 ], [ 0, %10 ], [ 1, %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16.loopexit" ]
-  %41 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %42 = insertvalue { i64, ptr } %41, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %42
+"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h2dc4b3f9d3d5f898E.exit.i", %39, %41
+  %.merged.i = phi { i64, ptr } [ %43, %41 ], [ %40, %39 ], [ %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h2dc4b3f9d3d5f898E.exit.i" ]
+  %44 = extractvalue { i64, ptr } %.merged.i, 0
+  %45 = extractvalue { i64, ptr } %.merged.i, 1
+  %46 = icmp eq i64 %44, 2
+  br i1 %46, label %47, label %50
 
-43:                                               ; preds = %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit"
-  %44 = ptrtoint ptr %40 to i64
+47:                                               ; preds = %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit", %50, %58, %10
+  %.sroa.5.0 = phi ptr [ null, %10 ], [ inttoptr (i64 98784247811 to ptr), %58 ], [ undef, %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit" ], [ %45, %50 ]
+  %.sroa.0.0 = phi i64 [ 0, %10 ], [ 0, %58 ], [ 1, %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit" ], [ 0, %50 ]
+  %48 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %49 = insertvalue { i64, ptr } %48, ptr %.sroa.5.0, 1
+  ret { i64, ptr } %49
+
+50:                                               ; preds = %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit"
+  %51 = ptrtoint ptr %45 to i64
+  %switch = icmp eq i64 %44, 0
+  br i1 %switch, label %52, label %47
+
+52:                                               ; preds = %50
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
   store i64 0, ptr %5, align 8
-  %.not = icmp ult i64 %12, %44
-  br i1 %.not, label %45, label %50
+  %.not = icmp ult i64 %12, %51
+  br i1 %.not, label %53, label %58
 
-45:                                               ; preds = %43
+53:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b74aed4b86fc7ae1e70ec26ccc7330e5.42.llvm.14501564587069862407, ptr %3, align 8
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %49, align 8
+  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 0, ptr %57, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b74aed4b86fc7ae1e70ec26ccc7330e5.101) #37
   unreachable
 
-50:                                               ; preds = %.thread, %43
-  %.sroa.5.1.i142229 = phi ptr [ %37, %.thread ], [ %40, %43 ]
-  %51 = phi i64 [ %12, %.thread ], [ %44, %43 ]
-  %52 = getelementptr inbounds i8, ptr %11, i64 %51
-  %53 = sub nuw i64 %12, %51
-  store ptr %52, ptr %4, align 8
-  store i64 %53, ptr %5, align 8
-  %54 = icmp eq ptr %.sroa.5.1.i142229, null
-  br i1 %54, label %"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h6a2f5ba5aa817cf5E.exit.thread16", label %10
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds i8, ptr %11, i64 %51
+  %60 = sub nuw i64 %12, %51
+  store ptr %59, ptr %4, align 8
+  store i64 %60, ptr %5, align 8
+  %61 = icmp eq ptr %45, null
+  br i1 %61, label %47, label %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5491,26 +5500,26 @@ define hidden { i64, ptr } @"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$L
   %3 = tail call { i64, ptr } @"_ZN12futures_util2io10buf_writer18BufWriter$LT$W$GT$9flush_buf17h546957374fc1e7e6E.llvm.14501564587069862407"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %4 = extractvalue { i64, ptr } %3, 0
   %switch = icmp eq i64 %4, 0
-  br i1 %switch, label %5, label %13
+  br i1 %switch, label %5, label %12
 
 5:                                                ; preds = %2
   %6 = extractvalue { i64, ptr } %3, 1
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = tail call { i64, ptr } @"_ZN76_$LT$async_process..ChildStdin$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hed732da5b649a963E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  %11 = extractvalue { i64, ptr } %10, 0
-  %12 = extractvalue { i64, ptr } %10, 1
-  br label %13
+  br label %11
 
-13:                                               ; preds = %2, %5, %8
-  %.sroa.4.1 = phi ptr [ %12, %8 ], [ undef, %2 ], [ %6, %5 ]
-  %.sroa.0.1 = phi i64 [ %11, %8 ], [ %4, %2 ], [ 0, %5 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.4.1, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %12, %8
+  %.merged = phi { i64, ptr } [ %13, %12 ], [ %10, %8 ]
+  ret { i64, ptr } %.merged
+
+12:                                               ; preds = %5, %2
+  %.sroa.4.0 = phi ptr [ undef, %2 ], [ %6, %5 ]
+  %13 = insertvalue { i64, ptr } %3, ptr %.sroa.4.0, 1
+  br label %11
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable

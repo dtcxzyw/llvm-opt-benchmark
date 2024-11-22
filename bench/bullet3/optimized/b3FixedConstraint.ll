@@ -524,18 +524,18 @@ if.end.i.i:                                       ; preds = %if.end115
   br label %_ZNK12b3Quaternion7nearestERKS_.exit.i
 
 _ZNK12b3Quaternion7nearestERKS_.exit.i:           ; preds = %if.end115, %if.end.i.i
-  %retval.sroa.0.0.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i28.i.i, %if.end.i.i ], [ %retval.sroa.0.4.vec.insert.i127, %if.end115 ]
-  %retval.sroa.3.0.i.i = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30.i.i, %if.end.i.i ], [ %retval.sroa.3.12.vec.insert.i129, %if.end115 ]
+  %retval.sroa.0.0.copyload.pn.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i28.i.i, %if.end.i.i ], [ %retval.sroa.0.4.vec.insert.i127, %if.end115 ]
+  %retval.sroa.3.0.copyload.pn.i.i = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30.i.i, %if.end.i.i ], [ %retval.sroa.3.12.vec.insert.i129, %if.end115 ]
   %fneg.i.i = fneg float %114
   %fneg4.i.i = fneg float %115
   %fneg7.i.i = fneg float %116
-  %orn1.sroa.3.12.vec.extract.i = extractelement <2 x float> %retval.sroa.3.0.i.i, i64 1
-  %orn1.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.i.i, i64 0
+  %orn1.sroa.3.12.vec.extract.i = extractelement <2 x float> %retval.sroa.3.0.copyload.pn.i.i, i64 1
+  %orn1.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.pn.i.i, i64 0
   %mul4.i.i133 = fmul float %117, %orn1.sroa.0.0.vec.extract.i
   %124 = tail call float @llvm.fmuladd.f32(float %orn1.sroa.3.12.vec.extract.i, float %fneg.i.i, float %mul4.i.i133)
-  %orn1.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.i.i, i64 1
+  %orn1.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.pn.i.i, i64 1
   %125 = tail call float @llvm.fmuladd.f32(float %orn1.sroa.0.4.vec.extract.i, float %fneg7.i.i, float %124)
-  %orn1.sroa.3.8.vec.extract.i = extractelement <2 x float> %retval.sroa.3.0.i.i, i64 0
+  %orn1.sroa.3.8.vec.extract.i = extractelement <2 x float> %retval.sroa.3.0.copyload.pn.i.i, i64 0
   %126 = tail call float @llvm.fmuladd.f32(float %orn1.sroa.3.8.vec.extract.i, float %115, float %125)
   %mul14.i.i134 = fmul float %117, %orn1.sroa.0.4.vec.extract.i
   %127 = tail call float @llvm.fmuladd.f32(float %orn1.sroa.3.12.vec.extract.i, float %fneg4.i.i, float %mul14.i.i134)
@@ -572,11 +572,11 @@ if.else.i:                                        ; preds = %_ZNK12b3Quaternion7
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i
   %mul.i.i.i = fmul float %126, %div.i.i
   %mul3.i.i.i = fmul float %129, %div.i.i
-  %mul5.i.i23.i = fmul float %132, %div.i.i
+  %mul5.i.i21.i = fmul float %132, %div.i.i
   br label %_ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit
 
 _ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit: ; preds = %if.then.i, %if.else.i
-  %138 = phi float [ 0.000000e+00, %if.then.i ], [ %mul5.i.i23.i, %if.else.i ]
+  %138 = phi float [ 0.000000e+00, %if.then.i ], [ %mul5.i.i21.i, %if.else.i ]
   %139 = phi float [ 0.000000e+00, %if.then.i ], [ %mul3.i.i.i, %if.else.i ]
   %140 = phi float [ 1.000000e+00, %if.then.i ], [ %mul.i.i.i, %if.else.i ]
   %fneg = fmul float %call.i.i.i, -2.000000e+00

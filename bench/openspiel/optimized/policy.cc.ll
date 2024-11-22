@@ -1724,65 +1724,66 @@ define linkonce_odr void @_ZNK4absl7debian216strings_internal8SplitterINS1_13Max
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %18 = load i32, ptr %17, align 4, !alias.scope !36
   %19 = icmp eq i32 %15, %18
-  br i1 %19, label %20, label %22
+  br i1 %19, label %20, label %24
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
+  %22 = insertvalue { ptr, i64 } poison, ptr %21, 0
+  %23 = insertvalue { ptr, i64 } %22, i64 0, 1
   br label %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i.i.i
 
-22:                                               ; preds = %13
-  %23 = call { ptr, i64 } @_ZNK4absl7debian26ByChar4FindENS0_11string_viewEm(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr nonnull %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i, i64 noundef 0)
-  %24 = extractvalue { ptr, i64 } %23, 0
-  %25 = extractvalue { ptr, i64 } %23, 1
+24:                                               ; preds = %13
+  %25 = call { ptr, i64 } @_ZNK4absl7debian26ByChar4FindENS0_11string_viewEm(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr nonnull %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i, i64 noundef 0)
   br label %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i.i.i
 
-_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i.i.i: ; preds = %22, %20
-  %.sroa.02.0.i.i.i.i = phi ptr [ %21, %20 ], [ %24, %22 ]
-  %.sroa.33.0.i.i.i.i = phi i64 [ 0, %20 ], [ %25, %22 ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
-  %27 = icmp eq ptr %.sroa.02.0.i.i.i.i, %26
-  br i1 %27, label %28, label %29
+_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i.i.i: ; preds = %24, %20
+  %.fca.1.insert.merged.i.i.i.i = phi { ptr, i64 } [ %23, %20 ], [ %25, %24 ]
+  %26 = extractvalue { ptr, i64 } %.fca.1.insert.merged.i.i.i.i, 0
+  %27 = extractvalue { ptr, i64 } %.fca.1.insert.merged.i.i.i.i, 1
+  %28 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
+  %29 = icmp eq ptr %26, %28
+  br i1 %29, label %30, label %31
 
-28:                                               ; preds = %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i.i.i
+30:                                               ; preds = %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i.i.i
   store i32 1, ptr %7, align 8, !alias.scope !36
-  br label %29
+  br label %31
 
-29:                                               ; preds = %28, %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i.i.i
-  %30 = load i64, ptr %5, align 8, !alias.scope !36
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %30
-  %32 = icmp ugt i64 %30, %.sroa.2.0.copyload.i.i.i
-  br i1 %32, label %33, label %34
+31:                                               ; preds = %30, %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i.i.i
+  %32 = load i64, ptr %5, align 8, !alias.scope !36
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %32
+  %34 = icmp ugt i64 %32, %.sroa.2.0.copyload.i.i.i
+  br i1 %34, label %35, label %36
 
-33:                                               ; preds = %29
+35:                                               ; preds = %31
   call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.52) #23
   unreachable
 
-34:                                               ; preds = %29
-  %35 = ptrtoint ptr %.sroa.02.0.i.i.i.i to i64
-  %36 = ptrtoint ptr %31 to i64
-  %37 = sub i64 %35, %36
-  %38 = sub nuw i64 %.sroa.2.0.copyload.i.i.i, %30
-  %39 = call noundef i64 @llvm.umin.i64(i64 %37, i64 %38)
-  %40 = icmp sgt i64 %39, -1
-  br i1 %40, label %_ZNK4absl7debian216strings_internal8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEE5beginEv.exit, label %41
+36:                                               ; preds = %31
+  %37 = ptrtoint ptr %26 to i64
+  %38 = ptrtoint ptr %33 to i64
+  %39 = sub i64 %37, %38
+  %40 = sub nuw i64 %.sroa.2.0.copyload.i.i.i, %32
+  %41 = call noundef i64 @llvm.umin.i64(i64 %39, i64 %40)
+  %42 = icmp sgt i64 %41, -1
+  br i1 %42, label %_ZNK4absl7debian216strings_internal8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEE5beginEv.exit, label %43
 
-41:                                               ; preds = %34
+43:                                               ; preds = %36
   call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian216strings_internal8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEE5beginEv.exit: ; preds = %34
-  store ptr %31, ptr %8, align 8, !alias.scope !36
+_ZNK4absl7debian216strings_internal8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEE5beginEv.exit: ; preds = %36
+  store ptr %33, ptr %8, align 8, !alias.scope !36
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %39, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !alias.scope !36
-  %42 = add i64 %30, %.sroa.33.0.i.i.i.i
-  %43 = add i64 %42, %39
+  store i64 %41, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !alias.scope !36
+  %44 = add i64 %32, %27
+  %45 = add i64 %44, %41
   %.pr = load i32, ptr %7, align 8
   %.sroa.2.0.copyload.i.i.i2.pre = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !39
-  store i64 %43, ptr %5, align 8, !alias.scope !36
-  %44 = icmp ne i32 %.pr, 2
-  %45 = icmp ne i64 %43, %.sroa.2.0.copyload.i.i.i2.pre
-  %.not3.i = select i1 %44, i1 true, i1 %45
-  br i1 %.not3.i, label %46, label %.thread
+  store i64 %45, ptr %5, align 8, !alias.scope !36
+  %46 = icmp ne i32 %.pr, 2
+  %47 = icmp ne i64 %45, %.sroa.2.0.copyload.i.i.i2.pre
+  %.not3.i = select i1 %46, i1 true, i1 %47
+  br i1 %.not3.i, label %48, label %.thread
 
 _ZNK4absl7debian216strings_internal8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEE5beginEv.exit.thread: ; preds = %2
   store i32 2, ptr %7, align 8, !alias.scope !36
@@ -1794,117 +1795,118 @@ _ZNK4absl7debian216strings_internal8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEEN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
   br label %_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit
 
-46:                                               ; preds = %_ZNK4absl7debian216strings_internal8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEE5beginEv.exit
+48:                                               ; preds = %_ZNK4absl7debian216strings_internal8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEE5beginEv.exit
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  %47 = icmp eq i32 %.pr, 1
-  br i1 %47, label %48, label %49
+  %49 = icmp eq i32 %.pr, 1
+  br i1 %49, label %50, label %51
 
-48:                                               ; preds = %46
+50:                                               ; preds = %48
   store i32 2, ptr %7, align 8
   br label %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %9, align 8
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %50, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %50, i64 8
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %9, align 8
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %52, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %52, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %52 = load i32, ptr %51, align 8
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %51, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %52, %55
-  br i1 %56, label %57, label %59
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %54 = load i32, ptr %53, align 8
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %53, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %54, %57
+  br i1 %58, label %59, label %63
 
-57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
+59:                                               ; preds = %51
+  %60 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
+  %61 = insertvalue { ptr, i64 } poison, ptr %60, 0
+  %62 = insertvalue { ptr, i64 } %61, i64 0, 1
   br label %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i
 
-59:                                               ; preds = %49
-  %60 = call { ptr, i64 } @_ZNK4absl7debian26ByChar4FindENS0_11string_viewEm(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i64 noundef %43)
-  %61 = extractvalue { ptr, i64 } %60, 0
-  %62 = extractvalue { ptr, i64 } %60, 1
+63:                                               ; preds = %51
+  %64 = call { ptr, i64 } @_ZNK4absl7debian26ByChar4FindENS0_11string_viewEm(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i64 noundef %45)
   br label %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i
 
-_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i: ; preds = %59, %57
-  %.sroa.02.0.i.i = phi ptr [ %58, %57 ], [ %61, %59 ]
-  %.sroa.33.0.i.i = phi i64 [ 0, %57 ], [ %62, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
-  %64 = icmp eq ptr %.sroa.02.0.i.i, %63
-  br i1 %64, label %65, label %66
+_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i: ; preds = %63, %59
+  %.fca.1.insert.merged.i.i = phi { ptr, i64 } [ %62, %59 ], [ %64, %63 ]
+  %65 = extractvalue { ptr, i64 } %.fca.1.insert.merged.i.i, 0
+  %66 = extractvalue { ptr, i64 } %.fca.1.insert.merged.i.i, 1
+  %67 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
+  %68 = icmp eq ptr %65, %67
+  br i1 %68, label %69, label %70
 
-65:                                               ; preds = %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i
+69:                                               ; preds = %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i
   store i32 1, ptr %7, align 8
-  br label %66
+  br label %70
 
-66:                                               ; preds = %65, %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i
-  %67 = load i64, ptr %5, align 8
-  %68 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %67
-  %69 = icmp ugt i64 %67, %.sroa.2.0.copyload.i.i
-  br i1 %69, label %70, label %71
+70:                                               ; preds = %69, %_ZN4absl7debian216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindENS0_11string_viewEm.exit.i
+  %71 = load i64, ptr %5, align 8
+  %72 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %71
+  %73 = icmp ugt i64 %71, %.sroa.2.0.copyload.i.i
+  br i1 %73, label %74, label %75
 
-70:                                               ; preds = %66
+74:                                               ; preds = %70
   call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.52) #23
   unreachable
 
-71:                                               ; preds = %66
-  %72 = ptrtoint ptr %.sroa.02.0.i.i to i64
-  %73 = ptrtoint ptr %68 to i64
-  %74 = sub i64 %72, %73
-  %75 = sub nuw i64 %.sroa.2.0.copyload.i.i, %67
-  %76 = call noundef i64 @llvm.umin.i64(i64 %74, i64 %75)
-  %77 = icmp sgt i64 %76, -1
-  br i1 %77, label %_ZNK4absl7debian211string_view6substrEmm.exit.i, label %78
+75:                                               ; preds = %70
+  %76 = ptrtoint ptr %65 to i64
+  %77 = ptrtoint ptr %72 to i64
+  %78 = sub i64 %76, %77
+  %79 = sub nuw i64 %.sroa.2.0.copyload.i.i, %71
+  %80 = call noundef i64 @llvm.umin.i64(i64 %78, i64 %79)
+  %81 = icmp sgt i64 %80, -1
+  br i1 %81, label %_ZNK4absl7debian211string_view6substrEmm.exit.i, label %82
 
-78:                                               ; preds = %71
+82:                                               ; preds = %75
   call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian211string_view6substrEmm.exit.i:  ; preds = %71
-  store ptr %68, ptr %8, align 8
-  store i64 %76, ptr %.sroa.3.0..sroa_idx, align 8
-  %79 = add i64 %67, %.sroa.33.0.i.i
-  %80 = add i64 %79, %76
-  store i64 %80, ptr %5, align 8
+_ZNK4absl7debian211string_view6substrEmm.exit.i:  ; preds = %75
+  store ptr %72, ptr %8, align 8
+  store i64 %80, ptr %.sroa.3.0..sroa_idx, align 8
+  %83 = add i64 %71, %66
+  %84 = add i64 %83, %80
+  store i64 %84, ptr %5, align 8
   %.sroa.2.0.copyload.i.i.i4.pre = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !40
   %.pre = load i32, ptr %7, align 8
-  %81 = icmp ne i32 %.pre, 2
+  %85 = icmp ne i32 %.pre, 2
   br label %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit, !llvm.loop !43
 
-_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit: ; preds = %48, %_ZNK4absl7debian211string_view6substrEmm.exit.i
-  %82 = phi i64 [ %43, %48 ], [ %80, %_ZNK4absl7debian211string_view6substrEmm.exit.i ]
-  %83 = phi i1 [ false, %48 ], [ %81, %_ZNK4absl7debian211string_view6substrEmm.exit.i ]
-  %.sroa.2.0.copyload.i.i.i4 = phi i64 [ %.sroa.2.0.copyload.i.i.i2.pre, %48 ], [ %.sroa.2.0.copyload.i.i.i4.pre, %_ZNK4absl7debian211string_view6substrEmm.exit.i ]
-  %84 = icmp ne i64 %82, %.sroa.2.0.copyload.i.i.i4
-  %.not3.i5 = select i1 %83, i1 true, i1 %84
-  br i1 %.not3.i5, label %85, label %86
+_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit: ; preds = %50, %_ZNK4absl7debian211string_view6substrEmm.exit.i
+  %86 = phi i64 [ %45, %50 ], [ %84, %_ZNK4absl7debian211string_view6substrEmm.exit.i ]
+  %87 = phi i1 [ false, %50 ], [ %85, %_ZNK4absl7debian211string_view6substrEmm.exit.i ]
+  %.sroa.2.0.copyload.i.i.i4 = phi i64 [ %.sroa.2.0.copyload.i.i.i2.pre, %50 ], [ %.sroa.2.0.copyload.i.i.i4.pre, %_ZNK4absl7debian211string_view6substrEmm.exit.i ]
+  %88 = icmp ne i64 %86, %.sroa.2.0.copyload.i.i.i4
+  %.not3.i5 = select i1 %87, i1 true, i1 %88
+  br i1 %.not3.i5, label %89, label %90
 
-85:                                               ; preds = %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit
+89:                                               ; preds = %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  br label %86
+  br label %90
 
-86:                                               ; preds = %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit, %85
+90:                                               ; preds = %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit, %89
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26, !noalias !44
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %31, i64 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %87 unwind label %88
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %33, i64 noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %91 unwind label %92
 
-87:                                               ; preds = %86
+91:                                               ; preds = %90
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
   br label %_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit
 
-88:                                               ; preds = %86
-  %89 = landingpad { ptr, i32 }
+92:                                               ; preds = %90
+  %93 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  resume { ptr, i32 } %89
+  resume { ptr, i32 } %93
 
-_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit: ; preds = %.thread, %87
+_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit: ; preds = %.thread, %91
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
   ret void
 }

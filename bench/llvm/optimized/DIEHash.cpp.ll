@@ -231,24 +231,24 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %_ZN4llvm7DIEHash10a
   br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
-  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.08.i, align 8
-  %49 = and i64 %.0.copyload.i.i.i.i.i.i8.i, 4
-  %.not.i.i.i9.i = icmp ne i64 %49, 0
-  %50 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
+  %.0.copyload.i.i.i.i.i.i6.i = load i64, ptr %.sroa.01.08.i, align 8
+  %49 = and i64 %.0.copyload.i.i.i.i.i.i6.i, 4
+  %.not.i.i.i7.i = icmp ne i64 %49, 0
+  %50 = and i64 %.0.copyload.i.i.i.i.i.i6.i, -8
   %.not13.i = icmp eq i64 %50, 0
-  %.not.i14 = or i1 %.not.i.i.i9.i, %.not13.i
+  %.not.i14 = or i1 %.not.i.i.i7.i, %.not13.i
   br i1 %.not.i14, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
 
 _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %45, %47
-  %.sroa.0.0.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.0.0.copyload.i.i.i, %47 ]
-  %.sroa.3.0.in.i.i.i = phi ptr [ %44, %45 ], [ %.sroa.3.0..sroa_idx.i.i.i, %47 ]
-  %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8
-  %51 = icmp eq i64 %.sroa.3.0.i.i.i, 0
+  %.pn4.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.0.0.copyload.i.i.i, %47 ]
+  %.pn.in.i.i.i = phi ptr [ %44, %45 ], [ %.sroa.3.0..sroa_idx.i.i.i, %47 ]
+  %.pn.i.i.i = load i64, ptr %.pn.in.i.i.i, align 8
+  %51 = icmp eq i64 %.pn.i.i.i, 0
   br i1 %51, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %52
 
 52:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i) #9
+  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.pn4.i.i.i, i64 %.pn.i.i.i) #9
   store i8 0, ptr %3, align 1
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %3, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -5668,23 +5668,23 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %15
   br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
-  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.08.i, align 8
-  %31 = and i64 %.0.copyload.i.i.i.i.i.i8.i, 4
-  %.not.i.i.i9.i = icmp ne i64 %31, 0
-  %32 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
+  %.0.copyload.i.i.i.i.i.i6.i = load i64, ptr %.sroa.01.08.i, align 8
+  %31 = and i64 %.0.copyload.i.i.i.i.i.i6.i, 4
+  %.not.i.i.i7.i = icmp ne i64 %31, 0
+  %32 = and i64 %.0.copyload.i.i.i.i.i.i6.i, -8
   %.not13.i = icmp eq i64 %32, 0
-  %.not.i = or i1 %.not.i.i.i9.i, %.not13.i
+  %.not.i = or i1 %.not.i.i.i7.i, %.not13.i
   br i1 %.not.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
 
 _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %27, %29
-  %.sroa.0.0.i.i.i = phi ptr [ %28, %27 ], [ %.sroa.0.0.copyload.i.i.i, %29 ]
-  %.sroa.3.0.in.i.i.i = phi ptr [ %26, %27 ], [ %.sroa.3.0..sroa_idx.i.i.i, %29 ]
-  %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8
-  %33 = icmp eq i64 %.sroa.3.0.i.i.i, 0
+  %.pn4.i.i.i = phi ptr [ %28, %27 ], [ %.sroa.0.0.copyload.i.i.i, %29 ]
+  %.pn.in.i.i.i = phi ptr [ %26, %27 ], [ %.sroa.3.0..sroa_idx.i.i.i, %29 ]
+  %.pn.i.i.i = load i64, ptr %.pn.in.i.i.i, align 8
+  %33 = icmp eq i64 %.pn.i.i.i, 0
   br i1 %33, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %34
 
 34:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
-  tail call void @_ZN4llvm7DIEHash24hashShallowTypeReferenceENS_5dwarf9AttributeERKNS_3DIEENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i)
+  tail call void @_ZN4llvm7DIEHash24hashShallowTypeReferenceENS_5dwarf9AttributeERKNS_3DIEENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.pn4.i.i.i, i64 %.pn.i.i.i)
   br label %87
 
 _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread:  ; preds = %select.unfold.i, %15, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, %4
@@ -5871,13 +5871,13 @@ _ZN4llvm7DIEHash10addULEB128Em.exit16:            ; preds = %11
 _ZNK4llvm3DIE8childrenEv.exit:                    ; preds = %_ZN4llvm7DIEHash10addULEB128Em.exit16
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %16, align 8
   %17 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %.not34 = icmp eq i64 %17, 0
-  br i1 %.not34, label %select.unfold._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i64 %17, 0
+  br i1 %.not33, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm3DIE8childrenEv.exit, %select.unfold
-  %.sroa.024.035.in = phi i64 [ %56, %select.unfold ], [ %17, %_ZNK4llvm3DIE8childrenEv.exit ]
-  %.sroa.024.035 = inttoptr i64 %.sroa.024.035.in to ptr
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.024.035, i64 28
+  %.sroa.023.034.in = phi i64 [ %56, %select.unfold ], [ %17, %_ZNK4llvm3DIE8childrenEv.exit ]
+  %.sroa.023.034 = inttoptr i64 %.sroa.023.034.in to ptr
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.023.034, i64 28
   %19 = load i16, ptr %18, align 4
   %20 = call noundef zeroext i1 @_ZN4llvm5dwarf6isTypeENS0_3TagE(i16 noundef zeroext %19)
   br i1 %20, label %29, label %21
@@ -5888,14 +5888,14 @@ _ZNK4llvm3DIE8childrenEv.exit:                    ; preds = %_ZN4llvm7DIEHash10a
   br i1 %23, label %24, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread
 
 24:                                               ; preds = %21
-  %25 = call noundef ptr @_ZNK4llvm3DIE9getParentEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.024.035) #9
+  %25 = call noundef ptr @_ZNK4llvm3DIE9getParentEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.023.034) #9
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %27 = load i16, ptr %26, align 4
   %28 = call noundef zeroext i1 @_ZN4llvm5dwarf6isTypeENS0_3TagE(i16 noundef zeroext %27)
   br i1 %28, label %29, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread
 
 29:                                               ; preds = %24, %.lr.ph
-  %30 = getelementptr i8, ptr %.sroa.024.035, i64 8
+  %30 = getelementptr i8, ptr %.sroa.023.034, i64 8
   %.val = load ptr, ptr %30, align 8
   %.not.i.i.i.i = icmp eq ptr %.val, null
   br i1 %.not.i.i.i.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %_ZNK4llvm12DIEValueList6valuesEv.exit.i
@@ -5934,19 +5934,19 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %29
   br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
-  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.08.i, align 8
-  %45 = and i64 %.0.copyload.i.i.i.i.i.i8.i, 4
-  %.not.i.i.i9.i = icmp ne i64 %45, 0
-  %46 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
+  %.0.copyload.i.i.i.i.i.i6.i = load i64, ptr %.sroa.01.08.i, align 8
+  %45 = and i64 %.0.copyload.i.i.i.i.i.i6.i, 4
+  %.not.i.i.i7.i = icmp ne i64 %45, 0
+  %46 = and i64 %.0.copyload.i.i.i.i.i.i6.i, -8
   %.not13.i = icmp eq i64 %46, 0
-  %.not.i18 = or i1 %.not.i.i.i9.i, %.not13.i
+  %.not.i18 = or i1 %.not.i.i.i7.i, %.not13.i
   br i1 %.not.i18, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
 
 _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %41, %43
-  %.sroa.0.0.i.i.i19 = phi ptr [ %42, %41 ], [ %.sroa.0.0.copyload.i.i.i, %43 ]
-  %.sroa.3.0.in.i.i.i = phi ptr [ %40, %41 ], [ %.sroa.3.0..sroa_idx.i.i.i, %43 ]
-  %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8
-  %47 = icmp eq i64 %.sroa.3.0.i.i.i, 0
+  %.pn4.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.0.0.copyload.i.i.i, %43 ]
+  %.pn.in.i.i.i = phi ptr [ %40, %41 ], [ %.sroa.3.0..sroa_idx.i.i.i, %43 ]
+  %.pn.i.i.i = load i64, ptr %.pn.in.i.i.i, align 8
+  %47 = icmp eq i64 %.pn.i.i.i, 0
   br i1 %47, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %48
 
 48:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
@@ -5974,23 +5974,23 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %41, %43
 _ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit: ; preds = %51
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.sroa.0.0.i.i.i19, i64 %.sroa.3.0.i.i.i) #9
+  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.pn4.i.i.i, i64 %.pn.i.i.i) #9
   store i8 0, ptr %2, align 1
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %2, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %select.unfold
 
 _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread:  ; preds = %select.unfold.i, %29, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, %24, %21
-  call void @_ZN4llvm7DIEHash11computeHashERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.024.035)
+  call void @_ZN4llvm7DIEHash11computeHashERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.023.034)
   br label %select.unfold
 
 select.unfold:                                    ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, %_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit
-  %.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.024.035, align 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.023.034, align 8
   %55 = and i64 %.0.copyload.i.i.i.i.i, 4
   %.not.i.i = icmp ne i64 %55, 0
   %56 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not40 = icmp eq i64 %56, 0
-  %.not = or i1 %.not.i.i, %.not40
+  %.not39 = icmp eq i64 %56, 0
+  %.not = or i1 %.not.i.i, %.not39
   br i1 %.not, label %select.unfold._crit_edge, label %.lr.ph
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %_ZN4llvm7DIEHash10addULEB128Em.exit16, %_ZNK4llvm3DIE8childrenEv.exit
@@ -6184,23 +6184,23 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %13
   br label %_ZNK4llvm9DIEString9getStringEv.exit.i
 
 _ZNK4llvm9DIEString9getStringEv.exit.i:           ; preds = %36, %34
-  %.sroa.0.0.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.0.0.copyload.i.i.i, %36 ]
-  %.sroa.3.0.in.i.i.i = phi ptr [ %33, %34 ], [ %.sroa.3.0..sroa_idx.i.i.i, %36 ]
-  %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8
+  %.pn4.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.0.0.copyload.i.i.i, %36 ]
+  %.pn.in.i.i.i = phi ptr [ %33, %34 ], [ %.sroa.3.0..sroa_idx.i.i.i, %36 ]
+  %.pn.i.i.i = load i64, ptr %.pn.in.i.i.i, align 8
   br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
-  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.08.i, align 8
-  %38 = and i64 %.0.copyload.i.i.i.i.i.i8.i, 4
-  %.not.i.i.i9.i = icmp ne i64 %38, 0
-  %39 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
+  %.0.copyload.i.i.i.i.i.i6.i = load i64, ptr %.sroa.01.08.i, align 8
+  %38 = and i64 %.0.copyload.i.i.i.i.i.i6.i, 4
+  %.not.i.i.i7.i = icmp ne i64 %38, 0
+  %39 = and i64 %.0.copyload.i.i.i.i.i.i6.i, -8
   %.not13.i = icmp eq i64 %39, 0
-  %.not.i = or i1 %.not.i.i.i9.i, %.not13.i
+  %.not.i = or i1 %.not.i.i.i7.i, %.not13.i
   br i1 %.not.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %.lr.ph.i
 
 _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %select.unfold.i, %13, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZNK4llvm9DIEString9getStringEv.exit.i
-  %.sroa.05.0.i = phi ptr [ %.sroa.0.0.i.i.i, %_ZNK4llvm9DIEString9getStringEv.exit.i ], [ @.str, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ @.str, %13 ], [ @.str, %select.unfold.i ]
-  %.sroa.3.0.i = phi i64 [ %.sroa.3.0.i.i.i, %_ZNK4llvm9DIEString9getStringEv.exit.i ], [ 0, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ 0, %13 ], [ 0, %select.unfold.i ]
+  %.sroa.05.0.i = phi ptr [ %.pn4.i.i.i, %_ZNK4llvm9DIEString9getStringEv.exit.i ], [ @.str, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ @.str, %13 ], [ @.str, %select.unfold.i ]
+  %.sroa.3.0.i = phi i64 [ %.pn.i.i.i, %_ZNK4llvm9DIEString9getStringEv.exit.i ], [ 0, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ 0, %13 ], [ 0, %select.unfold.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 83, ptr %5, align 1
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #9
@@ -6549,11 +6549,11 @@ _ZN4llvm7DIEHash10addULEB128Em.exit52:            ; preds = %63
   br label %_ZNK4llvm9DIEString9getStringEv.exit
 
 _ZNK4llvm9DIEString9getStringEv.exit:             ; preds = %72, %74
-  %.sroa.0.0.i.i = phi ptr [ %73, %72 ], [ %.sroa.0.0.copyload.i.i, %74 ]
-  %.sroa.3.0.in.i.i = phi ptr [ %71, %72 ], [ %.sroa.3.0..sroa_idx.i.i, %74 ]
-  %.sroa.3.0.i.i = load i64, ptr %.sroa.3.0.in.i.i, align 8
+  %.pn4.i.i = phi ptr [ %73, %72 ], [ %.sroa.0.0.copyload.i.i, %74 ]
+  %.pn.in.i.i = phi ptr [ %71, %72 ], [ %.sroa.3.0..sroa_idx.i.i, %74 ]
+  %.pn.i.i = load i64, ptr %.pn.in.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
-  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i) #9
+  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.pn4.i.i, i64 %.pn.i.i) #9
   store i8 0, ptr %13, align 1
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %13, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
@@ -6690,33 +6690,33 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %_ZN4llvm7DIEHash10a
   br label %116
 
 116:                                              ; preds = %116, %108
-  %.0.i95 = phi i64 [ %115, %108 ], [ %119, %116 ]
-  %117 = trunc i64 %.0.i95 to i8
+  %.0.i93 = phi i64 [ %115, %108 ], [ %119, %116 ]
+  %117 = trunc i64 %.0.i93 to i8
   %118 = and i8 %117, 127
-  %119 = lshr i64 %.0.i95, 7
-  %.not.i96 = icmp samesign ult i64 %.0.i95, 128
-  %masksel.i97 = select i1 %.not.i96, i8 0, i8 -128
-  %storemerge.i98 = or disjoint i8 %118, %masksel.i97
-  store i8 %storemerge.i98, ptr %4, align 1
+  %119 = lshr i64 %.0.i93, 7
+  %.not.i94 = icmp samesign ult i64 %.0.i93, 128
+  %masksel.i95 = select i1 %.not.i94, i8 0, i8 -128
+  %storemerge.i96 = or disjoint i8 %118, %masksel.i95
+  store i8 %storemerge.i96, ptr %4, align 1
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %4, i64 1) #9
-  br i1 %.not.i96, label %_ZN4llvm7DIEHash10addULEB128Em.exit99, label %116, !llvm.loop !4
+  br i1 %.not.i94, label %_ZN4llvm7DIEHash10addULEB128Em.exit97, label %116, !llvm.loop !4
 
-_ZN4llvm7DIEHash10addULEB128Em.exit99:            ; preds = %116
+_ZN4llvm7DIEHash10addULEB128Em.exit97:            ; preds = %116
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %120 = load ptr, ptr %89, align 8
   %121 = load ptr, ptr %120, align 8
-  %.not.i.i.i100 = icmp eq ptr %121, null
-  br i1 %.not.i.i.i100, label %_ZNK4llvm12DIEValueList6valuesEv.exit105, label %122
+  %.not.i.i.i98 = icmp eq ptr %121, null
+  br i1 %.not.i.i.i98, label %_ZNK4llvm12DIEValueList6valuesEv.exit103, label %122
 
-122:                                              ; preds = %_ZN4llvm7DIEHash10addULEB128Em.exit99
-  %.0.copyload.i.i.i.i.i.i101 = load i64, ptr %121, align 8
-  %123 = and i64 %.0.copyload.i.i.i.i.i.i101, -8
+122:                                              ; preds = %_ZN4llvm7DIEHash10addULEB128Em.exit97
+  %.0.copyload.i.i.i.i.i.i99 = load i64, ptr %121, align 8
+  %123 = and i64 %.0.copyload.i.i.i.i.i.i99, -8
   %124 = inttoptr i64 %123 to ptr
-  br label %_ZNK4llvm12DIEValueList6valuesEv.exit105
+  br label %_ZNK4llvm12DIEValueList6valuesEv.exit103
 
-_ZNK4llvm12DIEValueList6valuesEv.exit105:         ; preds = %_ZN4llvm7DIEHash10addULEB128Em.exit99, %122
-  %.sroa.0.0.i.i.i102 = phi ptr [ %124, %122 ], [ null, %_ZN4llvm7DIEHash10addULEB128Em.exit99 ]
-  store ptr %.sroa.0.0.i.i.i102, ptr %26, align 8
+_ZNK4llvm12DIEValueList6valuesEv.exit103:         ; preds = %_ZN4llvm7DIEHash10addULEB128Em.exit97, %122
+  %.sroa.0.0.i.i.i100 = phi ptr [ %124, %122 ], [ null, %_ZN4llvm7DIEHash10addULEB128Em.exit97 ]
+  store ptr %.sroa.0.0.i.i.i100, ptr %26, align 8
   %125 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr null, ptr %125, align 8
   call void @_ZN4llvm7DIEHash13hashBlockDataERKNS_14iterator_rangeINS_12DIEValueList20const_value_iteratorEEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %26)
@@ -6726,7 +6726,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit105:         ; preds = %_ZN4llvm7DIEHash10a
   call void @_ZN4llvm7DIEHash11hashLocListERKNS_10DIELocListE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(8) %89)
   br label %127
 
-127:                                              ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit, %126, %_ZNK4llvm12DIEValueList6valuesEv.exit105, %_ZN4llvm7DIEHash10addSLEB128El.exit, %_ZN4llvm7DIEHash10addULEB128Em.exit42, %_ZN4llvm7DIEHash10addULEB128Em.exit67, %_ZNK4llvm9DIEString9getStringEv.exit, %30, %3
+127:                                              ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit, %126, %_ZNK4llvm12DIEValueList6valuesEv.exit103, %_ZN4llvm7DIEHash10addSLEB128El.exit, %_ZN4llvm7DIEHash10addULEB128Em.exit42, %_ZN4llvm7DIEHash10addULEB128Em.exit67, %_ZNK4llvm9DIEString9getStringEv.exit, %30, %3
   ret void
 }
 

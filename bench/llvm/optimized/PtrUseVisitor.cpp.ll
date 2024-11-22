@@ -71,54 +71,54 @@ define dso_local void @_ZN4llvm6detail17PtrUseVisitorBase12enqueueUsersERNS_5Val
   %29 = add nuw i32 %20, 1
   store i32 %29, ptr %7, align 4, !noalias !4
   store ptr %.sroa.08.016, ptr %22, align 8, !noalias !4
-  br label %32
+  br label %33
 
 _ZN4llvm15SmallPtrSetImplIPNS_3UseEE6insertES2_.exit: ; preds = %._crit_edge.i.i, %15
   %30 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull %.sroa.08.016) #4, !noalias !4
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %30, 1
-  %31 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %31, label %32, label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit
+  %31 = extractvalue { ptr, i8 } %30, 1
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit
 
-32:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPNS_3UseEE6insertES2_.exit
-  %33 = load i8, ptr %9, align 8
-  %34 = trunc i8 %33 to i1
-  %35 = ptrtoint ptr %.sroa.08.016 to i64
-  %36 = and i64 %35, -5
-  %37 = select i1 %34, i64 4, i64 0
-  %38 = or disjoint i64 %37, %36
-  store i64 %38, ptr %3, align 8
-  %39 = load i32, ptr %13, align 8
-  store i32 %39, ptr %12, align 8
-  %40 = icmp ult i32 %39, 65
-  br i1 %40, label %41, label %43
+33:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPNS_3UseEE6insertES2_.exit
+  %34 = load i8, ptr %9, align 8
+  %35 = trunc i8 %34 to i1
+  %36 = ptrtoint ptr %.sroa.08.016 to i64
+  %37 = and i64 %36, -5
+  %38 = select i1 %35, i64 4, i64 0
+  %39 = or disjoint i64 %38, %37
+  store i64 %39, ptr %3, align 8
+  %40 = load i32, ptr %13, align 8
+  store i32 %40, ptr %12, align 8
+  %41 = icmp ult i32 %40, 65
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %32
-  %42 = load i64, ptr %11, align 8
-  store i64 %42, ptr %10, align 8
+42:                                               ; preds = %33
+  %43 = load i64, ptr %11, align 8
+  store i64 %43, ptr %10, align 8
   br label %_ZN4llvm5APIntC2ERKS0_.exit
 
-43:                                               ; preds = %32
+44:                                               ; preds = %33
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %11) #4
   br label %_ZN4llvm5APIntC2ERKS0_.exit
 
-_ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %41, %43
+_ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %42, %44
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %44 = load i32, ptr %12, align 8
-  %45 = icmp ugt i32 %44, 64
-  br i1 %45, label %46, label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit
+  %45 = load i32, ptr %12, align 8
+  %46 = icmp ugt i32 %45, 64
+  br i1 %46, label %47, label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit
 
-46:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  %47 = load ptr, ptr %10, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit, label %49
+47:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
+  %48 = load ptr, ptr %10, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit, label %50
 
-49:                                               ; preds = %46
-  call void @_ZdaPv(ptr noundef nonnull %47) #5
+50:                                               ; preds = %47
+  call void @_ZdaPv(ptr noundef nonnull %48) #5
   br label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit
 
-_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit: ; preds = %.lr.ph.i.i, %49, %46, %_ZN4llvm5APIntC2ERKS0_.exit, %_ZN4llvm15SmallPtrSetImplIPNS_3UseEE6insertES2_.exit
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.08.016, i64 8
-  %.sroa.08.0 = load ptr, ptr %50, align 8
+_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit: ; preds = %.lr.ph.i.i, %50, %47, %_ZN4llvm5APIntC2ERKS0_.exit, %_ZN4llvm15SmallPtrSetImplIPNS_3UseEE6insertES2_.exit
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.08.016, i64 8
+  %.sroa.08.0 = load ptr, ptr %51, align 8
   %.not = icmp eq ptr %.sroa.08.0, null
   br i1 %.not, label %._crit_edge, label %15
 

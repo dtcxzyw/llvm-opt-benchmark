@@ -2548,11 +2548,11 @@ if.end:                                           ; preds = %if.else18, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit, %if.end
-  %retval.sroa.0.0 = phi double [ %sub.r.i.i, %if.end ], [ %retval.sroa.0.0.i, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit ], [ %2, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread ]
-  %retval.sroa.4.0 = phi double [ %sub.i.i.i, %if.end ], [ %retval.sroa.4.0.i, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit ], [ %3, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
-  ret { double, double } %.fca.1.insert
+  %sub.r.i.i.pn = phi double [ %sub.r.i.i, %if.end ], [ %retval.sroa.0.0.i, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit ], [ %2, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread ]
+  %sub.i.i.i.pn = phi double [ %sub.i.i.i, %if.end ], [ %retval.sroa.4.0.i, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit ], [ %3, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread ]
+  %.fca.0.insert.i37.pn = insertvalue { double, double } poison, double %sub.r.i.i.pn, 0
+  %.fca.1.insert.merged = insertvalue { double, double } %.fca.0.insert.i37.pn, double %sub.i.i.i.pn, 1
+  ret { double, double } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

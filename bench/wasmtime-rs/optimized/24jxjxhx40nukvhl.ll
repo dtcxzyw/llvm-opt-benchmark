@@ -1019,14 +1019,14 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
 10:                                               ; preds = %4
   %11 = icmp eq i128 %1, 73676889782529201616355281012274205276
   %..i.i.i = zext i1 %11 to i64
+  %12 = insertvalue { i64, ptr } poison, i64 %..i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit": ; preds = %10, %6, %8, %4, %4, %2
-  %.sroa.3.0 = phi ptr [ %0, %2 ], [ %0, %10 ], [ %5, %4 ], [ %5, %4 ], [ %9, %8 ], [ %7, %6 ]
-  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %..i.i.i, %10 ], [ 1, %4 ], [ 1, %4 ], [ 1, %8 ], [ 1, %6 ]
-  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %13
+"_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit": ; preds = %2, %10, %6, %8, %4, %4
+  %.pn = phi { i64, ptr } [ %12, %10 ], [ { i64 1, ptr poison }, %6 ], [ { i64 1, ptr poison }, %8 ], [ { i64 1, ptr poison }, %4 ], [ { i64 1, ptr poison }, %4 ], [ { i64 1, ptr poison }, %2 ]
+  %.pn8 = phi ptr [ %0, %10 ], [ %7, %6 ], [ %9, %8 ], [ %5, %4 ], [ %5, %4 ], [ %0, %2 ]
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn8, 1
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -1061,14 +1061,14 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
 12:                                               ; preds = %6
   %13 = icmp eq i128 %1, 73676889782529201616355281012274205276
   %..i.i.i.i.i.i = zext i1 %13 to i64
+  %14 = insertvalue { i64, ptr } poison, i64 %..i.i.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0841812d9856124cE.llvm.14686358490642834259.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h0841812d9856124cE.llvm.14686358490642834259.exit": ; preds = %12, %10, %8, %6, %6, %3, %2, %2
-  %.sroa.3.0 = phi ptr [ %0, %2 ], [ %4, %3 ], [ %4, %12 ], [ %7, %6 ], [ %7, %6 ], [ %11, %10 ], [ %9, %8 ], [ %0, %2 ]
-  %.sroa.0.0 = phi i64 [ 1, %2 ], [ 1, %3 ], [ %..i.i.i.i.i.i, %12 ], [ 1, %6 ], [ 1, %6 ], [ 1, %10 ], [ 1, %8 ], [ 1, %2 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %15
+"_ZN4core6option15Option$LT$T$GT$7or_else17h0841812d9856124cE.llvm.14686358490642834259.exit": ; preds = %2, %12, %10, %8, %6, %6, %3, %2
+  %.pn = phi { i64, ptr } [ %14, %12 ], [ { i64 1, ptr poison }, %8 ], [ { i64 1, ptr poison }, %10 ], [ { i64 1, ptr poison }, %6 ], [ { i64 1, ptr poison }, %6 ], [ { i64 1, ptr poison }, %3 ], [ { i64 1, ptr poison }, %2 ], [ { i64 1, ptr poison }, %2 ]
+  %.pn5 = phi ptr [ %4, %12 ], [ %9, %8 ], [ %11, %10 ], [ %7, %6 ], [ %7, %6 ], [ %4, %3 ], [ %0, %2 ], [ %0, %2 ]
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn5, 1
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1099,14 +1099,14 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
 13:                                               ; preds = %7
   %14 = icmp eq i128 %5, 73676889782529201616355281012274205276
   %..i.i.i.i = zext i1 %14 to i64
+  %15 = insertvalue { i64, ptr } poison, i64 %..i.i.i.i, 0
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hda61e9d9ba0791f0E.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hda61e9d9ba0791f0E.exit": ; preds = %2, %7, %7, %9, %11, %13
-  %.sroa.3.0.i = phi ptr [ %4, %2 ], [ %4, %13 ], [ %8, %7 ], [ %8, %7 ], [ %12, %11 ], [ %10, %9 ]
-  %.sroa.0.0.i = phi i64 [ 1, %2 ], [ %..i.i.i.i, %13 ], [ 1, %7 ], [ 1, %7 ], [ 1, %11 ], [ 1, %9 ]
-  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %16
+  %.pn.i = phi { i64, ptr } [ %15, %13 ], [ { i64 1, ptr poison }, %9 ], [ { i64 1, ptr poison }, %11 ], [ { i64 1, ptr poison }, %7 ], [ { i64 1, ptr poison }, %7 ], [ { i64 1, ptr poison }, %2 ]
+  %.pn8.i = phi ptr [ %4, %13 ], [ %10, %9 ], [ %12, %11 ], [ %8, %7 ], [ %8, %7 ], [ %4, %2 ]
+  %.merged.i = insertvalue { i64, ptr } %.pn.i, ptr %.pn8.i, 1
+  ret { i64, ptr } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3482,14 +3482,14 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h0841812d
 16:                                               ; preds = %10
   %17 = icmp eq i128 %8, 73676889782529201616355281012274205276
   %..i.i.i.i.i = zext i1 %17 to i64
+  %18 = insertvalue { i64, ptr } poison, i64 %..i.i.i.i.i, 0
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit": ; preds = %16, %14, %12, %10, %10, %5, %4
-  %.sroa.33.0 = phi ptr [ %1, %4 ], [ %7, %5 ], [ %7, %16 ], [ %11, %10 ], [ %11, %10 ], [ %15, %14 ], [ %13, %12 ]
-  %.sroa.02.0 = phi i64 [ 1, %4 ], [ 1, %5 ], [ %..i.i.i.i.i, %16 ], [ 1, %10 ], [ 1, %10 ], [ 1, %14 ], [ 1, %12 ]
-  %18 = insertvalue { i64, ptr } poison, i64 %.sroa.02.0, 0
-  %19 = insertvalue { i64, ptr } %18, ptr %.sroa.33.0, 1
-  ret { i64, ptr } %19
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit": ; preds = %4, %16, %14, %12, %10, %10, %5
+  %.pn = phi { i64, ptr } [ %18, %16 ], [ { i64 1, ptr poison }, %12 ], [ { i64 1, ptr poison }, %14 ], [ { i64 1, ptr poison }, %10 ], [ { i64 1, ptr poison }, %10 ], [ { i64 1, ptr poison }, %5 ], [ { i64 1, ptr poison }, %4 ]
+  %.pn5 = phi ptr [ %7, %16 ], [ %13, %12 ], [ %15, %14 ], [ %11, %10 ], [ %11, %10 ], [ %7, %5 ], [ %1, %4 ]
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn5, 1
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

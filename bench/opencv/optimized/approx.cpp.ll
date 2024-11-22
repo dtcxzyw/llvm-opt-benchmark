@@ -3724,7 +3724,7 @@ _ZN2cv10AutoBufferINS_6Point_IiEELm136EED2Ev.exit: ; preds = %251, %_ZN2cv10Auto
   store i64 136, ptr %34, align 8
   br label %_ZN2cv10AutoBufferINS_5RangeELm136EED2Ev.exit182
 
-_ZN2cv10AutoBufferINS_5RangeELm136EED2Ev.exit182: ; preds = %257, %252
+_ZN2cv10AutoBufferINS_5RangeELm136EED2Ev.exit182: ; preds = %252, %257
   %258 = load ptr, ptr %7, align 8
   %.not.i.i183 = icmp eq ptr %258, %scevgep.i
   %259 = icmp eq ptr %258, null

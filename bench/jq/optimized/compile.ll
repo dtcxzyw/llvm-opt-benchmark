@@ -1173,21 +1173,24 @@ block_free.exit11:                                ; preds = %.lr.ph16, %block_fr
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @block_take_imports(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = tail call { i64, ptr } @jv_array() #17
-  %3 = extractvalue { i64, ptr } %2, 0
-  %4 = extractvalue { i64, ptr } %2, 1
-  %5 = load ptr, ptr %0, align 8
-  %.not14 = icmp eq ptr %5, null
-  br i1 %.not14, label %.critedge, label %.lr.ph
+  %3 = load ptr, ptr %0, align 8
+  %.not14 = icmp eq ptr %3, null
+  br i1 %.not14, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %1, %27
-  %6 = phi ptr [ %28, %27 ], [ %5, %1 ]
-  %.sroa.4.016 = phi ptr [ %.sroa.4.1, %27 ], [ %4, %1 ]
-  %.sroa.011.015 = phi i64 [ %.sroa.011.1, %27 ], [ %3, %1 ]
+.lr.ph.preheader:                                 ; preds = %1
+  %4 = extractvalue { i64, ptr } %2, 1
+  %5 = extractvalue { i64, ptr } %2, 0
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
+  %6 = phi ptr [ %28, %27 ], [ %3, %.lr.ph.preheader ]
+  %.sroa.4.016 = phi ptr [ %.sroa.4.1, %27 ], [ %4, %.lr.ph.preheader ]
+  %.sroa.011.015 = phi i64 [ %.sroa.011.1, %27 ], [ %5, %.lr.ph.preheader ]
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %.off = add i32 %8, -37
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %.critedge2, label %.critedge
+  br i1 %switch, label %.critedge2, label %.critedge.loopexit
 
 .critedge2:                                       ; preds = %.lr.ph
   %9 = load ptr, ptr %6, align 8
@@ -1230,14 +1233,18 @@ block_take.exit:                                  ; preds = %10, %13
   tail call fastcc void @inst_free(ptr noundef nonnull %6)
   %28 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !14
 
-.critedge:                                        ; preds = %27, %.lr.ph, %1
-  %.sroa.011.0.lcssa = phi i64 [ %3, %1 ], [ %.sroa.011.015, %.lr.ph ], [ %.sroa.011.1, %27 ]
-  %.sroa.4.0.lcssa = phi ptr [ %4, %1 ], [ %.sroa.4.016, %.lr.ph ], [ %.sroa.4.1, %27 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.011.0.lcssa, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.0.lcssa, 1
-  ret { i64, ptr } %.fca.1.insert
+.critedge.loopexit:                               ; preds = %.lr.ph, %27
+  %.sroa.011.0.lcssa.ph = phi i64 [ %.sroa.011.1, %27 ], [ %.sroa.011.015, %.lr.ph ]
+  %.sroa.4.0.lcssa.ph = phi ptr [ %.sroa.4.1, %27 ], [ %.sroa.4.016, %.lr.ph ]
+  %29 = insertvalue { i64, ptr } poison, i64 %.sroa.011.0.lcssa.ph, 0
+  %30 = insertvalue { i64, ptr } %29, ptr %.sroa.4.0.lcssa.ph, 1
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %1
+  %.fca.1.insert.merged = phi { i64, ptr } [ %2, %1 ], [ %30, %.critedge.loopexit ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 declare { i64, ptr } @jv_array() local_unnamed_addr #3

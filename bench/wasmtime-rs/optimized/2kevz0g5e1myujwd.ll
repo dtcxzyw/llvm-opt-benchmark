@@ -13247,10 +13247,10 @@ common.resume.i:                                  ; preds = %134, %.thread21.i.i
 
 71:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb06b14f8da13fcaE.exit.i.i", %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %58, i64 104
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !3533, !noalias !3524, !noundef !4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %58, i64 104
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !3533, !noalias !3524, !noundef !4
   %72 = getelementptr inbounds i8, ptr %58, i64 136
-  store i64 %.sroa.5.0.i.i, ptr %72, align 8, !alias.scope !3517, !noalias !3524
+  store i64 %.pn1.i.i, ptr %72, align 8, !alias.scope !3517, !noalias !3524
   %73 = getelementptr inbounds i8, ptr %58, i64 144
   store i64 %51, ptr %73, align 8, !alias.scope !3517, !noalias !3524
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)

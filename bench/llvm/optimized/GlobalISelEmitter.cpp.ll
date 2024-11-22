@@ -5262,11 +5262,11 @@ _ZNSt6vectorIN4llvm2gi11RuleMatcherESaIS2_EE9push_backEOS2_.exit: ; preds = %154
 1585:                                             ; preds = %._crit_edge.i.i.i, %.lr.ph.i60
   %1586 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %23, ptr noundef %1571) #26, !noalias !325
   %.pre.i.i = load ptr, ptr %23, align 8
-  %.pre8.i.i = load i32, ptr %568, align 4, !noalias !325
+  %.pre6.i.i = load i32, ptr %568, align 4, !noalias !325
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %.lr.ph.i.i.i, %1585, %1581
-  %1587 = phi i32 [ %1584, %1581 ], [ %.pre8.i.i, %1585 ], [ %1568, %.lr.ph.i.i.i ]
+  %1587 = phi i32 [ %1584, %1581 ], [ %.pre6.i.i, %1585 ], [ %1568, %.lr.ph.i.i.i ]
   %1588 = phi ptr [ %1583, %1581 ], [ %.pre.i.i, %1585 ], [ %1569, %.lr.ph.i.i.i ]
   %1589 = load ptr, ptr %566, align 8
   %1590 = load i32, ptr %567, align 8, !noalias !325

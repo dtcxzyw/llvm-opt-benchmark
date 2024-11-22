@@ -2477,12 +2477,12 @@ _RNCNCNvMNtCseG2FYMysgNb_3wax7captureNtB6_9OwnedText3get00B8_.exit.i: ; preds = 
   %125 = getelementptr inbounds i8, ptr %99, i64 %96
   br label %_RNvMNtCseG2FYMysgNb_3wax7captureNtB2_9OwnedText3get.exit
 
-_RNvMNtCseG2FYMysgNb_3wax7captureNtB2_9OwnedText3get.exit: ; preds = %_RNCNCNvMNtCseG2FYMysgNb_3wax7captureNtB6_9OwnedText3get00B8_.exit.i, %66, %61, %56, %5, %45, %39, %50, %18, %_RNvMs6_NtNtCsgrIngBG6lgl_14regex_automata4util8capturesNtB5_14GroupInfoInner9group_len.exit.i.i, %16, %123
-  %.sroa.4.0 = phi i64 [ %124, %123 ], [ undef, %16 ], [ undef, %_RNvMs6_NtNtCsgrIngBG6lgl_14regex_automata4util8capturesNtB5_14GroupInfoInner9group_len.exit.i.i ], [ undef, %18 ], [ undef, %50 ], [ undef, %39 ], [ undef, %45 ], [ undef, %5 ], [ %60, %56 ], [ undef, %61 ], [ %94, %_RNCNCNvMNtCseG2FYMysgNb_3wax7captureNtB6_9OwnedText3get00B8_.exit.i ], [ undef, %66 ]
-  %.sroa.0.0 = phi ptr [ %125, %123 ], [ null, %16 ], [ null, %_RNvMs6_NtNtCsgrIngBG6lgl_14regex_automata4util8capturesNtB5_14GroupInfoInner9group_len.exit.i.i ], [ null, %18 ], [ null, %50 ], [ null, %39 ], [ null, %45 ], [ null, %5 ], [ %58, %56 ], [ null, %61 ], [ %93, %_RNCNCNvMNtCseG2FYMysgNb_3wax7captureNtB6_9OwnedText3get00B8_.exit.i ], [ null, %66 ]
-  %126 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %127 = insertvalue { ptr, i64 } %126, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %127
+_RNvMNtCseG2FYMysgNb_3wax7captureNtB2_9OwnedText3get.exit: ; preds = %123, %16, %_RNvMs6_NtNtCsgrIngBG6lgl_14regex_automata4util8capturesNtB5_14GroupInfoInner9group_len.exit.i.i, %18, %50, %39, %45, %5, %_RNCNCNvMNtCseG2FYMysgNb_3wax7captureNtB6_9OwnedText3get00B8_.exit.i, %66, %61, %56
+  %.sroa.0.0.i.pn = phi ptr [ %58, %56 ], [ null, %61 ], [ %93, %_RNCNCNvMNtCseG2FYMysgNb_3wax7captureNtB6_9OwnedText3get00B8_.exit.i ], [ null, %66 ], [ %125, %123 ], [ null, %16 ], [ null, %_RNvMs6_NtNtCsgrIngBG6lgl_14regex_automata4util8capturesNtB5_14GroupInfoInner9group_len.exit.i.i ], [ null, %18 ], [ null, %50 ], [ null, %39 ], [ null, %45 ], [ null, %5 ]
+  %.sroa.5.0.i.pn = phi i64 [ %60, %56 ], [ undef, %61 ], [ %94, %_RNCNCNvMNtCseG2FYMysgNb_3wax7captureNtB6_9OwnedText3get00B8_.exit.i ], [ undef, %66 ], [ %124, %123 ], [ undef, %16 ], [ undef, %_RNvMs6_NtNtCsgrIngBG6lgl_14regex_automata4util8capturesNtB5_14GroupInfoInner9group_len.exit.i.i ], [ undef, %18 ], [ undef, %50 ], [ undef, %39 ], [ undef, %45 ], [ undef, %5 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.sroa.5.0.i.pn, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

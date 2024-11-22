@@ -877,14 +877,14 @@ define hidden void @_ZN2cv12cpu_baseline21findScaleSpaceExtremaEiiiiiiidddRKSt6v
   br label %439
 
 439:                                              ; preds = %402, %282
-  %.sroa.3.0.i.i.i.i = phi float [ %438, %402 ], [ 0.000000e+00, %282 ]
-  %.sroa.05.0.i.i.i.i = phi <2 x float> [ %.sroa.0254.4.vec.insert.i.i, %402 ], [ zeroinitializer, %282 ]
-  %440 = fneg float %.sroa.3.0.i.i.i.i
-  %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.05.0.i.i.i.i, i64 1
+  %.fca.1.extract.i.i.i = phi float [ %438, %402 ], [ 0.000000e+00, %282 ]
+  %.fca.0.extract.i.i.i = phi <2 x float> [ %.sroa.0254.4.vec.insert.i.i, %402 ], [ zeroinitializer, %282 ]
+  %440 = fneg float %.fca.1.extract.i.i.i
+  %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.fca.0.extract.i.i.i, i64 1
   %441 = fneg float %.sroa.0.4.vec.extract.i.i
-  %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.05.0.i.i.i.i, i64 0
+  %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.fca.0.extract.i.i.i, i64 0
   %442 = fneg float %.sroa.0.0.vec.extract.i.i
-  %443 = call float @llvm.fabs.f32(float %.sroa.3.0.i.i.i.i)
+  %443 = call float @llvm.fabs.f32(float %.fca.1.extract.i.i.i)
   %444 = fcmp olt float %443, 5.000000e-01
   %445 = call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i.i)
   %446 = fcmp olt float %445, 5.000000e-01
@@ -1004,7 +1004,7 @@ _ZNK2cv4MatxIfLi3ELi1EE3dotERKS1_.exit.i.i:       ; preds = %486
 
 519:                                              ; preds = %513
   %520 = sitofp i32 %.0299.i to float
-  %521 = fsub float %520, %.sroa.3.0.i.i.i.i
+  %521 = fsub float %520, %.fca.1.extract.i.i.i
   %522 = fdiv float %521, %59
   %exp2f.i207.i = invoke float @exp2f(float %522)
           to label %exp2f.i.noexc.i unwind label %.loopexit.split-lp.loopexit.i

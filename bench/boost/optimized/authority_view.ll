@@ -881,13 +881,13 @@ define { ptr, i64 } @_ZNK5boost4urls14authority_view4portEv(ptr noundef nonnull 
   %3 = tail call { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr noundef nonnull align 8 dereferenceable(171) %2, i32 noundef 3) #28
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
-  %6 = icmp ne i64 %5, 0
-  %.sroa.0.0.idx = zext i1 %6 to i64
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.0.idx
-  %.sroa.3.0 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 1)
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %6 = icmp eq i64 %5, 0
+  %7 = add i64 %5, -1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %8, 0
+  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %7, 1
+  %.fca.1.insert.merged = select i1 %6, { ptr, i64 } %3, { ptr, i64 } %.fca.1.insert.i
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -931,12 +931,12 @@ define noundef i32 @_ZNK5boost4urls14authority_view7compareERKS1_(ptr noundef no
   %.neg = sext i1 %11 to i32
   %12 = add nsw i32 %.neg, %8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %73
+  br i1 %.not, label %13, label %77
 
 13:                                               ; preds = %2
   %14 = tail call noundef i64 @_ZNK5boost4urls6detail8url_impl3lenEi(ptr noundef nonnull align 8 dereferenceable(171) %5, i32 noundef 1) #28
-  %.not93 = icmp eq i64 %14, 0
-  br i1 %.not93, label %51, label %15
+  %.not88 = icmp eq i64 %14, 0
+  br i1 %.not88, label %51, label %15
 
 15:                                               ; preds = %13
   %16 = tail call { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr noundef nonnull align 8 dereferenceable(171) %5, i32 noundef 0) #28, !noalias !78
@@ -947,7 +947,7 @@ define noundef i32 @_ZNK5boost4urls14authority_view7compareERKS1_(ptr noundef no
   %21 = extractvalue { ptr, i64 } %19, 1
   %22 = tail call noundef i32 @_ZN5boost4urls6detail15compare_encodedENS_4core17basic_string_viewIcEES4_(ptr %17, i64 %18, ptr %20, i64 %21) #28
   %.not43 = icmp eq i32 %22, 0
-  br i1 %.not43, label %23, label %73
+  br i1 %.not43, label %23, label %77
 
 23:                                               ; preds = %15
   %24 = tail call noundef i64 @_ZNK5boost4urls6detail8url_impl3lenEi(ptr noundef nonnull align 8 dereferenceable(171) %5, i32 noundef 1) #28
@@ -958,7 +958,7 @@ define noundef i32 @_ZNK5boost4urls14authority_view7compareERKS1_(ptr noundef no
   %.neg44 = sext i1 %28 to i32
   %29 = add nsw i32 %.neg44, %26
   %.not45 = icmp eq i32 %29, 0
-  br i1 %.not45, label %30, label %73
+  br i1 %.not45, label %30, label %77
 
 30:                                               ; preds = %23
   %31 = tail call noundef i64 @_ZNK5boost4urls6detail8url_impl3lenEi(ptr noundef nonnull align 8 dereferenceable(171) %5, i32 noundef 1) #28
@@ -984,8 +984,8 @@ define noundef i32 @_ZNK5boost4urls14authority_view7compareERKS1_(ptr noundef no
   br label %_ZNK5boost4urls14authority_view16encoded_passwordEv.exit
 
 _ZNK5boost4urls14authority_view16encoded_passwordEv.exit: ; preds = %33, %37, %39
-  %.sroa.587.0 = phi i64 [ %41, %39 ], [ 0, %37 ], [ %36, %33 ]
-  %.sroa.086.0 = phi ptr [ %40, %39 ], [ %38, %37 ], [ %35, %33 ]
+  %.sroa.582.0 = phi i64 [ %41, %39 ], [ 0, %37 ], [ %36, %33 ]
+  %.sroa.081.0 = phi ptr [ %40, %39 ], [ %38, %37 ], [ %35, %33 ]
   %42 = tail call { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr noundef nonnull align 8 dereferenceable(171) %9, i32 noundef 1) #28, !noalias !87
   %43 = extractvalue { ptr, i64 } %42, 0
   %44 = extractvalue { ptr, i64 } %42, 1
@@ -1006,9 +1006,9 @@ _ZNK5boost4urls14authority_view16encoded_passwordEv.exit: ; preds = %33, %37, %3
 _ZNK5boost4urls14authority_view16encoded_passwordEv.exit62: ; preds = %_ZNK5boost4urls14authority_view16encoded_passwordEv.exit, %45, %47
   %.sroa.5.0 = phi i64 [ %49, %47 ], [ 0, %45 ], [ %44, %_ZNK5boost4urls14authority_view16encoded_passwordEv.exit ]
   %.sroa.0.0 = phi ptr [ %48, %47 ], [ %46, %45 ], [ %43, %_ZNK5boost4urls14authority_view16encoded_passwordEv.exit ]
-  %50 = tail call noundef i32 @_ZN5boost4urls6detail15compare_encodedENS_4core17basic_string_viewIcEES4_(ptr %.sroa.086.0, i64 %.sroa.587.0, ptr %.sroa.0.0, i64 %.sroa.5.0) #28
+  %50 = tail call noundef i32 @_ZN5boost4urls6detail15compare_encodedENS_4core17basic_string_viewIcEES4_(ptr %.sroa.081.0, i64 %.sroa.582.0, ptr %.sroa.0.0, i64 %.sroa.5.0) #28
   %.not46 = icmp eq i32 %50, 0
-  br i1 %.not46, label %51, label %73
+  br i1 %.not46, label %51, label %77
 
 51:                                               ; preds = %30, %_ZNK5boost4urls14authority_view16encoded_passwordEv.exit62, %13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #28
@@ -1025,7 +1025,7 @@ _ZNK5boost4urls14authority_view16encoded_passwordEv.exit62: ; preds = %_ZNK5boos
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
   %.not47 = icmp eq i32 %52, 0
-  br i1 %.not47, label %53, label %73
+  br i1 %.not47, label %53, label %77
 
 53:                                               ; preds = %51
   %54 = call noundef i64 @_ZNK5boost4urls6detail8url_impl3lenEi(ptr noundef nonnull align 8 dereferenceable(171) %5, i32 noundef 3) #28
@@ -1036,37 +1036,37 @@ _ZNK5boost4urls14authority_view16encoded_passwordEv.exit62: ; preds = %_ZNK5boos
   %.neg48 = sext i1 %58 to i32
   %59 = add nsw i32 %.neg48, %56
   %.not49 = icmp eq i32 %59, 0
-  br i1 %.not49, label %60, label %73
+  br i1 %.not49, label %60, label %77
 
 60:                                               ; preds = %53
   %61 = call noundef i64 @_ZNK5boost4urls6detail8url_impl3lenEi(ptr noundef nonnull align 8 dereferenceable(171) %5, i32 noundef 3) #28
-  %.not94 = icmp eq i64 %61, 0
-  br i1 %.not94, label %72, label %62
+  %.not89 = icmp eq i64 %61, 0
+  br i1 %.not89, label %76, label %62
 
 62:                                               ; preds = %60
   %63 = call { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr noundef nonnull align 8 dereferenceable(171) %5, i32 noundef 3) #28
   %64 = extractvalue { ptr, i64 } %63, 0
   %65 = extractvalue { ptr, i64 } %63, 1
   %66 = icmp ne i64 %65, 0
-  %.sroa.0.0.idx.i = zext i1 %66 to i64
-  %.sroa.0.0.i78 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.idx.i
-  %.sroa.3.0.i = call i64 @llvm.usub.sat.i64(i64 %65, i64 1)
-  %67 = call { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr noundef nonnull align 8 dereferenceable(171) %9, i32 noundef 3) #28
-  %68 = extractvalue { ptr, i64 } %67, 0
-  %69 = extractvalue { ptr, i64 } %67, 1
-  %70 = icmp ne i64 %69, 0
-  %.sroa.0.0.idx.i81 = zext i1 %70 to i64
-  %.sroa.0.0.i82 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.0.idx.i81
-  %.sroa.3.0.i83 = call i64 @llvm.usub.sat.i64(i64 %69, i64 1)
-  %71 = call noundef i32 @_ZN5boost4urls6detail7compareENS_4core17basic_string_viewIcEES4_(ptr %.sroa.0.0.i78, i64 %.sroa.3.0.i, ptr %.sroa.0.0.i82, i64 %.sroa.3.0.i83) #28
-  %.not50 = icmp eq i32 %71, 0
-  br i1 %.not50, label %72, label %73
+  %.idx = zext i1 %66 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx
+  %68 = call i64 @llvm.usub.sat.i64(i64 %65, i64 1)
+  %69 = call { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr noundef nonnull align 8 dereferenceable(171) %9, i32 noundef 3) #28
+  %70 = extractvalue { ptr, i64 } %69, 0
+  %71 = extractvalue { ptr, i64 } %69, 1
+  %72 = icmp ne i64 %71, 0
+  %.idx90 = zext i1 %72 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx90
+  %74 = call i64 @llvm.usub.sat.i64(i64 %71, i64 1)
+  %75 = call noundef i32 @_ZN5boost4urls6detail7compareENS_4core17basic_string_viewIcEES4_(ptr %67, i64 %68, ptr %73, i64 %74) #28
+  %.not50 = icmp eq i32 %75, 0
+  br i1 %.not50, label %76, label %77
 
-72:                                               ; preds = %62, %60
-  br label %73
+76:                                               ; preds = %62, %60
+  br label %77
 
-73:                                               ; preds = %62, %53, %51, %_ZNK5boost4urls14authority_view16encoded_passwordEv.exit62, %23, %15, %2, %72
-  %.0 = phi i32 [ 0, %72 ], [ %12, %2 ], [ %22, %15 ], [ %29, %23 ], [ %50, %_ZNK5boost4urls14authority_view16encoded_passwordEv.exit62 ], [ %52, %51 ], [ %59, %53 ], [ %71, %62 ]
+77:                                               ; preds = %62, %53, %51, %_ZNK5boost4urls14authority_view16encoded_passwordEv.exit62, %23, %15, %2, %76
+  %.0 = phi i32 [ 0, %76 ], [ %12, %2 ], [ %22, %15 ], [ %29, %23 ], [ %50, %_ZNK5boost4urls14authority_view16encoded_passwordEv.exit62 ], [ %52, %51 ], [ %59, %53 ], [ %75, %62 ]
   ret i32 %.0
 }
 

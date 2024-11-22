@@ -8319,7 +8319,7 @@ define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8Dfg
   %49 = getelementptr inbounds %"struct.std::pair.130", ptr %47, i64 %.01620.i.i11
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %2
-  br i1 %51, label %58, label %52
+  br i1 %51, label %60, label %52
 
 52:                                               ; preds = %48
   %53 = icmp eq ptr %50, %41
@@ -8333,290 +8333,293 @@ define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8Dfg
 
 _ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread: ; preds = %52, %54, %33, %39
   %57 = load ptr, ptr %34, align 8
-  br label %195
+  %58 = insertvalue { ptr, ptr } poison, ptr %57, 0
+  %59 = insertvalue { ptr, ptr } %58, ptr null, 1
+  br label %208
 
-58:                                               ; preds = %48
-  %59 = getelementptr inbounds i8, ptr %49, i64 8
-  %60 = load ptr, ptr %34, align 8
-  %61 = load ptr, ptr %59, align 8
-  br label %195
+60:                                               ; preds = %48
+  %61 = getelementptr inbounds i8, ptr %49, i64 8
+  %62 = load ptr, ptr %34, align 8
+  %63 = load ptr, ptr %61, align 8
+  %64 = insertvalue { ptr, ptr } poison, ptr %62, 0
+  %65 = insertvalue { ptr, ptr } %64, ptr %63, 1
+  br label %208
 
 .loopexit:                                        ; preds = %28, %30, %3, %11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %62 = getelementptr inbounds i8, ptr %2, i64 8
-  %63 = load i32, ptr %62, align 8
-  %64 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprGroupEE5valueE, align 4
-  %65 = icmp ne i32 %63, %64
+  %66 = getelementptr inbounds i8, ptr %2, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprGroupEE5valueE, align 4
+  %69 = icmp ne i32 %67, %68
   %.not.i1586 = icmp eq ptr %2, null
-  %.not.i15 = or i1 %.not.i1586, %65
-  br i1 %.not.i15, label %70, label %66
-
-66:                                               ; preds = %.loopexit
-  %67 = getelementptr inbounds i8, ptr %2, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %68)
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+  %.not.i15 = or i1 %.not.i1586, %69
+  br i1 %.not.i15, label %74, label %70
 
 70:                                               ; preds = %.loopexit
-  %71 = load i32, ptr @_ZN4Luau7AstRttiINS_18AstExprConstantNilEE5valueE, align 4
-  %72 = icmp ne i32 %63, %71
-  %.not50.i = or i1 %.not.i1586, %72
-  br i1 %.not50.i, label %77, label %73
-
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %0, i64 280
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40) %75, i1 noundef zeroext false)
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
-
-77:                                               ; preds = %70
-  %78 = load i32, ptr @_ZN4Luau7AstRttiINS_19AstExprConstantBoolEE5valueE, align 4
-  %79 = icmp ne i32 %63, %78
-  %.not51.i = or i1 %.not.i1586, %79
-  br i1 %.not51.i, label %84, label %80
-
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %0, i64 280
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40) %82, i1 noundef zeroext false)
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
-
-84:                                               ; preds = %77
-  %85 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantNumberEE5valueE, align 4
-  %86 = icmp ne i32 %63, %85
-  %.not52.i = or i1 %.not.i1586, %86
-  br i1 %.not52.i, label %91, label %87
-
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %0, i64 280
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40) %89, i1 noundef zeroext false)
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
-
-91:                                               ; preds = %84
-  %92 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantStringEE5valueE, align 4
-  %93 = icmp ne i32 %63, %92
-  %.not53.i = or i1 %.not.i1586, %93
-  br i1 %.not53.i, label %98, label %94
-
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %0, i64 280
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40) %96, i1 noundef zeroext false)
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
-
-98:                                               ; preds = %91
-  %99 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprLocalEE5valueE, align 4
-  %100 = icmp ne i32 %63, %99
-  %.not54.i = or i1 %.not.i1586, %100
-  br i1 %.not54.i, label %103, label %101
-
-101:                                              ; preds = %98
-  %102 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprLocalE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  %71 = getelementptr inbounds i8, ptr %2, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %72)
   br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
 
-103:                                              ; preds = %98
-  %104 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4
-  %105 = icmp ne i32 %63, %104
-  %.not55.i = or i1 %.not.i1586, %105
-  br i1 %.not55.i, label %108, label %106
+74:                                               ; preds = %.loopexit
+  %75 = load i32, ptr @_ZN4Luau7AstRttiINS_18AstExprConstantNilEE5valueE, align 4
+  %76 = icmp ne i32 %67, %75
+  %.not50.i = or i1 %.not.i1586, %76
+  br i1 %.not50.i, label %83, label %77
 
-106:                                              ; preds = %103
-  %107 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprGlobalE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds i8, ptr %0, i64 280
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40) %79, i1 noundef zeroext false)
+  %81 = insertvalue { ptr, ptr } poison, ptr %80, 0
+  %82 = insertvalue { ptr, ptr } %81, ptr null, 1
   br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
 
-108:                                              ; preds = %103
-  %109 = load i32, ptr @_ZN4Luau7AstRttiINS_14AstExprVarargsEE5valueE, align 4
-  %110 = icmp ne i32 %63, %109
-  %.not56.i = or i1 %.not.i1586, %110
-  br i1 %.not56.i, label %115, label %111
+83:                                               ; preds = %74
+  %84 = load i32, ptr @_ZN4Luau7AstRttiINS_19AstExprConstantBoolEE5valueE, align 4
+  %85 = icmp ne i32 %67, %84
+  %.not51.i = or i1 %.not.i1586, %85
+  br i1 %.not51.i, label %92, label %86
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %0, i64 280
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40) %113, i1 noundef zeroext false)
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds i8, ptr %0, i64 280
+  %88 = load ptr, ptr %87, align 8
+  %89 = tail call ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40) %88, i1 noundef zeroext false)
+  %90 = insertvalue { ptr, ptr } poison, ptr %89, 0
+  %91 = insertvalue { ptr, ptr } %90, ptr null, 1
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
 
-115:                                              ; preds = %108
-  %116 = load i32, ptr @_ZN4Luau7AstRttiINS_11AstExprCallEE5valueE, align 4
-  %117 = icmp ne i32 %63, %116
-  %.not57.i = or i1 %.not.i1586, %117
-  br i1 %.not57.i, label %121, label %118
+92:                                               ; preds = %83
+  %93 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantNumberEE5valueE, align 4
+  %94 = icmp ne i32 %67, %93
+  %.not52.i = or i1 %.not.i1586, %94
+  br i1 %.not52.i, label %101, label %95
+
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds i8, ptr %0, i64 280
+  %97 = load ptr, ptr %96, align 8
+  %98 = tail call ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40) %97, i1 noundef zeroext false)
+  %99 = insertvalue { ptr, ptr } poison, ptr %98, 0
+  %100 = insertvalue { ptr, ptr } %99, ptr null, 1
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+
+101:                                              ; preds = %92
+  %102 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantStringEE5valueE, align 4
+  %103 = icmp ne i32 %67, %102
+  %.not53.i = or i1 %.not.i1586, %103
+  br i1 %.not53.i, label %110, label %104
+
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds i8, ptr %0, i64 280
+  %106 = load ptr, ptr %105, align 8
+  %107 = tail call ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40) %106, i1 noundef zeroext false)
+  %108 = insertvalue { ptr, ptr } poison, ptr %107, 0
+  %109 = insertvalue { ptr, ptr } %108, ptr null, 1
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+
+110:                                              ; preds = %101
+  %111 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprLocalEE5valueE, align 4
+  %112 = icmp ne i32 %67, %111
+  %.not54.i = or i1 %.not.i1586, %112
+  br i1 %.not54.i, label %115, label %113
+
+113:                                              ; preds = %110
+  %114 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprLocalE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+
+115:                                              ; preds = %110
+  %116 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4
+  %117 = icmp ne i32 %67, %116
+  %.not55.i = or i1 %.not.i1586, %117
+  br i1 %.not55.i, label %120, label %118
 
 118:                                              ; preds = %115
-  %119 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_11AstExprCallE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
-  %120 = extractvalue { ptr, ptr } %119, 0
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
-
-121:                                              ; preds = %115
-  %122 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexNameEE5valueE, align 4
-  %123 = icmp ne i32 %63, %122
-  %.not58.i = or i1 %.not.i1586, %123
-  br i1 %.not58.i, label %126, label %124
-
-124:                                              ; preds = %121
-  %125 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_16AstExprIndexNameE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  %119 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprGlobalE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
   br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
 
-126:                                              ; preds = %121
-  %127 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexExprEE5valueE, align 4
-  %128 = icmp ne i32 %63, %127
-  %.not59.i = or i1 %.not.i1586, %128
-  br i1 %.not59.i, label %131, label %129
+120:                                              ; preds = %115
+  %121 = load i32, ptr @_ZN4Luau7AstRttiINS_14AstExprVarargsEE5valueE, align 4
+  %122 = icmp ne i32 %67, %121
+  %.not56.i = or i1 %.not.i1586, %122
+  br i1 %.not56.i, label %129, label %123
 
-129:                                              ; preds = %126
-  %130 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_16AstExprIndexExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds i8, ptr %0, i64 280
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40) %125, i1 noundef zeroext false)
+  %127 = insertvalue { ptr, ptr } poison, ptr %126, 0
+  %128 = insertvalue { ptr, ptr } %127, ptr null, 1
   br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
 
-131:                                              ; preds = %126
-  %132 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstExprFunctionEE5valueE, align 4
-  %133 = icmp ne i32 %63, %132
-  %.not60.i = or i1 %.not.i1586, %133
-  br i1 %.not60.i, label %137, label %134
+129:                                              ; preds = %120
+  %130 = load i32, ptr @_ZN4Luau7AstRttiINS_11AstExprCallEE5valueE, align 4
+  %131 = icmp ne i32 %67, %130
+  %.not57.i = or i1 %.not.i1586, %131
+  br i1 %.not57.i, label %135, label %132
 
-134:                                              ; preds = %131
-  %135 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_15AstExprFunctionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
-  %136 = extractvalue { ptr, ptr } %135, 0
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
-
-137:                                              ; preds = %131
-  %138 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprTableEE5valueE, align 4
-  %139 = icmp ne i32 %63, %138
-  %.not61.i = or i1 %.not.i1586, %139
-  br i1 %.not61.i, label %143, label %140
-
-140:                                              ; preds = %137
-  %141 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprTableE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
-  %142 = extractvalue { ptr, ptr } %141, 0
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
-
-143:                                              ; preds = %137
-  %144 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprUnaryEE5valueE, align 4
-  %145 = icmp ne i32 %63, %144
-  %.not62.i = or i1 %.not.i1586, %145
-  br i1 %.not62.i, label %149, label %146
-
-146:                                              ; preds = %143
-  %147 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprUnaryE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
-  %148 = extractvalue { ptr, ptr } %147, 0
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
-
-149:                                              ; preds = %143
-  %150 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprBinaryEE5valueE, align 4
-  %151 = icmp ne i32 %63, %150
-  %.not63.i = or i1 %.not.i1586, %151
-  br i1 %.not63.i, label %155, label %152
-
-152:                                              ; preds = %149
-  %153 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprBinaryE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
-  %154 = extractvalue { ptr, ptr } %153, 0
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
-
-155:                                              ; preds = %149
-  %156 = load i32, ptr @_ZN4Luau7AstRttiINS_20AstExprTypeAssertionEE5valueE, align 4
-  %157 = icmp ne i32 %63, %156
-  %.not64.i = or i1 %.not.i1586, %157
-  br i1 %.not64.i, label %160, label %158
-
-158:                                              ; preds = %155
-  %159 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_20AstExprTypeAssertionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+132:                                              ; preds = %129
+  %133 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_11AstExprCallE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  %134 = insertvalue { ptr, ptr } %133, ptr null, 1
   br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
 
-160:                                              ; preds = %155
-  %161 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprIfElseEE5valueE, align 4
-  %162 = icmp ne i32 %63, %161
-  %.not65.i = or i1 %.not.i1586, %162
-  br i1 %.not65.i, label %166, label %163
+135:                                              ; preds = %129
+  %136 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexNameEE5valueE, align 4
+  %137 = icmp ne i32 %67, %136
+  %.not58.i = or i1 %.not.i1586, %137
+  br i1 %.not58.i, label %140, label %138
 
-163:                                              ; preds = %160
-  %164 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprIfElseE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
-  %165 = extractvalue { ptr, ptr } %164, 0
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
+138:                                              ; preds = %135
+  %139 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_16AstExprIndexNameE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
 
-166:                                              ; preds = %160
-  %167 = load i32, ptr @_ZN4Luau7AstRttiINS_19AstExprInterpStringEE5valueE, align 4
-  %168 = icmp ne i32 %63, %167
-  %.not66.i = or i1 %.not.i1586, %168
-  br i1 %.not66.i, label %172, label %169
+140:                                              ; preds = %135
+  %141 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexExprEE5valueE, align 4
+  %142 = icmp ne i32 %67, %141
+  %.not59.i = or i1 %.not.i1586, %142
+  br i1 %.not59.i, label %145, label %143
 
-169:                                              ; preds = %166
-  %170 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_19AstExprInterpStringE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
-  %171 = extractvalue { ptr, ptr } %170, 0
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
+143:                                              ; preds = %140
+  %144 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_16AstExprIndexExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
 
-172:                                              ; preds = %166
-  %173 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprErrorEE5valueE, align 4
-  %174 = icmp ne i32 %63, %173
-  %.not67.i = or i1 %.not.i1586, %174
-  br i1 %.not67.i, label %178, label %175
+145:                                              ; preds = %140
+  %146 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstExprFunctionEE5valueE, align 4
+  %147 = icmp ne i32 %67, %146
+  %.not60.i = or i1 %.not.i1586, %147
+  br i1 %.not60.i, label %151, label %148
 
-175:                                              ; preds = %172
-  %176 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprErrorE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
-  %177 = extractvalue { ptr, ptr } %176, 0
-  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread"
+148:                                              ; preds = %145
+  %149 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_15AstExprFunctionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  %150 = insertvalue { ptr, ptr } %149, ptr null, 1
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
 
-178:                                              ; preds = %172
-  %179 = getelementptr inbounds i8, ptr %0, i64 296
-  %180 = load ptr, ptr %179, align 8
+151:                                              ; preds = %145
+  %152 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprTableEE5valueE, align 4
+  %153 = icmp ne i32 %67, %152
+  %.not61.i = or i1 %.not.i1586, %153
+  br i1 %.not61.i, label %157, label %154
+
+154:                                              ; preds = %151
+  %155 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprTableE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  %156 = insertvalue { ptr, ptr } %155, ptr null, 1
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+
+157:                                              ; preds = %151
+  %158 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprUnaryEE5valueE, align 4
+  %159 = icmp ne i32 %67, %158
+  %.not62.i = or i1 %.not.i1586, %159
+  br i1 %.not62.i, label %163, label %160
+
+160:                                              ; preds = %157
+  %161 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprUnaryE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  %162 = insertvalue { ptr, ptr } %161, ptr null, 1
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+
+163:                                              ; preds = %157
+  %164 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprBinaryEE5valueE, align 4
+  %165 = icmp ne i32 %67, %164
+  %.not63.i = or i1 %.not.i1586, %165
+  br i1 %.not63.i, label %169, label %166
+
+166:                                              ; preds = %163
+  %167 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprBinaryE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  %168 = insertvalue { ptr, ptr } %167, ptr null, 1
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+
+169:                                              ; preds = %163
+  %170 = load i32, ptr @_ZN4Luau7AstRttiINS_20AstExprTypeAssertionEE5valueE, align 4
+  %171 = icmp ne i32 %67, %170
+  %.not64.i = or i1 %.not.i1586, %171
+  br i1 %.not64.i, label %174, label %172
+
+172:                                              ; preds = %169
+  %173 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_20AstExprTypeAssertionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+
+174:                                              ; preds = %169
+  %175 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprIfElseEE5valueE, align 4
+  %176 = icmp ne i32 %67, %175
+  %.not65.i = or i1 %.not.i1586, %176
+  br i1 %.not65.i, label %180, label %177
+
+177:                                              ; preds = %174
+  %178 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprIfElseE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  %179 = insertvalue { ptr, ptr } %178, ptr null, 1
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+
+180:                                              ; preds = %174
+  %181 = load i32, ptr @_ZN4Luau7AstRttiINS_19AstExprInterpStringEE5valueE, align 4
+  %182 = icmp ne i32 %67, %181
+  %.not66.i = or i1 %.not.i1586, %182
+  br i1 %.not66.i, label %186, label %183
+
+183:                                              ; preds = %180
+  %184 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_19AstExprInterpStringE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  %185 = insertvalue { ptr, ptr } %184, ptr null, 1
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+
+186:                                              ; preds = %180
+  %187 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprErrorEE5valueE, align 4
+  %188 = icmp ne i32 %67, %187
+  %.not67.i = or i1 %.not.i1586, %188
+  br i1 %.not67.i, label %192, label %189
+
+189:                                              ; preds = %186
+  %190 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprErrorE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2)
+  %191 = insertvalue { ptr, ptr } %190, ptr null, 1
+  br label %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+
+192:                                              ; preds = %186
+  %193 = getelementptr inbounds i8, ptr %0, i64 296
+  %194 = load ptr, ptr %193, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.55, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %181 unwind label %183
+          to label %195 unwind label %197
 
-181:                                              ; preds = %178
-  invoke void @_ZNK4Luau21InternalErrorReporter3iceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %180, ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-          to label %182 unwind label %185
+195:                                              ; preds = %192
+  invoke void @_ZNK4Luau21InternalErrorReporter3iceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %194, ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+          to label %196 unwind label %199
 
-182:                                              ; preds = %181
+196:                                              ; preds = %195
   unreachable
 
-183:                                              ; preds = %178
-  %184 = landingpad { ptr, i32 }
+197:                                              ; preds = %192
+  %198 = landingpad { ptr, i32 }
           cleanup
-  br label %187
+  br label %201
 
-185:                                              ; preds = %181
-  %186 = landingpad { ptr, i32 }
+199:                                              ; preds = %195
+  %200 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  br label %187
+  br label %201
 
-187:                                              ; preds = %185, %183
-  %.pn.i = phi { ptr, i32 } [ %186, %185 ], [ %184, %183 ]
+201:                                              ; preds = %199, %197
+  %.pn.i = phi { ptr, i32 } [ %200, %199 ], [ %198, %197 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn.i
 
-"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread": ; preds = %73, %80, %87, %94, %111, %118, %134, %140, %146, %152, %163, %169, %175
-  %.sroa.0.0.i.ph = phi ptr [ %177, %175 ], [ %171, %169 ], [ %165, %163 ], [ %154, %152 ], [ %148, %146 ], [ %142, %140 ], [ %136, %134 ], [ %120, %118 ], [ %114, %111 ], [ %97, %94 ], [ %90, %87 ], [ %83, %80 ], [ %76, %73 ]
+"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit": ; preds = %70, %77, %86, %95, %104, %113, %118, %123, %132, %138, %143, %148, %154, %160, %166, %172, %177, %183, %189
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %73, %70 ], [ %82, %77 ], [ %91, %86 ], [ %100, %95 ], [ %109, %104 ], [ %114, %113 ], [ %119, %118 ], [ %128, %123 ], [ %134, %132 ], [ %139, %138 ], [ %144, %143 ], [ %150, %148 ], [ %156, %154 ], [ %162, %160 ], [ %168, %166 ], [ %173, %172 ], [ %179, %177 ], [ %185, %183 ], [ %191, %189 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %188 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr %.sroa.0.0.i.ph, ptr %188, align 8
-  br label %195
+  %202 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %203 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  %204 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  store ptr %202, ptr %204, align 8
+  %.not7 = icmp eq ptr %203, null
+  br i1 %.not7, label %208, label %205
 
-"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit": ; preds = %66, %101, %106, %124, %129, %158
-  %.sink117 = phi { ptr, ptr } [ %69, %66 ], [ %102, %101 ], [ %107, %106 ], [ %125, %124 ], [ %130, %129 ], [ %159, %158 ]
-  %189 = extractvalue { ptr, ptr } %.sink117, 0
-  %190 = extractvalue { ptr, ptr } %.sink117, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %191 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr %189, ptr %191, align 8
-  %.not7 = icmp eq ptr %190, null
-  br i1 %.not7, label %195, label %192
+205:                                              ; preds = %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
+  %206 = getelementptr inbounds i8, ptr %0, i64 240
+  %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %206, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  store ptr %203, ptr %207, align 8
+  br label %208
 
-192:                                              ; preds = %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit"
-  %193 = getelementptr inbounds i8, ptr %0, i64 240
-  %194 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %193, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr %190, ptr %194, align 8
-  br label %195
-
-195:                                              ; preds = %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread", %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit", %192, %58, %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread
-  %.sroa.067.0 = phi ptr [ %60, %58 ], [ %57, %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread ], [ %189, %192 ], [ %189, %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit" ], [ %.sroa.0.0.i.ph, %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread" ]
-  %.sroa.368.0 = phi ptr [ %61, %58 ], [ null, %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread ], [ %190, %192 ], [ null, %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit" ], [ null, %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit.thread" ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.067.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.368.0, 1
-  ret { ptr, ptr } %.fca.1.insert
+208:                                              ; preds = %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit", %205, %60, %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread
+  %.fca.1.insert.merged = phi { ptr, ptr } [ %65, %60 ], [ %59, %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread ], [ %.fca.1.insert.merged.i, %205 ], [ %.fca.1.insert.merged.i, %"_ZZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprEENK3$_0clEv.exit" ]
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 declare noundef zeroext i1 @_ZN4Luau13doesCallErrorEPKNS_11AstExprCallE(ptr noundef) local_unnamed_addr #6

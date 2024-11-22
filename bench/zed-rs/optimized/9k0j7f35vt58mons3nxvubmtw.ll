@@ -35,7 +35,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17hffcf474b30d0ad20E(ptr
 9:                                                ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
 "_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h537dbdf951494492E.exit": ; preds = %3
   %11 = extractvalue { i64, ptr } %8, 0
@@ -53,7 +53,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17hffcf474b30d0ad20E(ptr
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hcd0e7a0726fb9b72E"(i64 %11, ptr %12) #19
-          to label %27 unwind label %25
+          to label %26 unwind label %24
 
 20:                                               ; preds = %"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h537dbdf951494492E.exit"
   %21 = load i64, ptr %4, align 8, !range !5, !noundef !4
@@ -62,21 +62,19 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17hffcf474b30d0ad20E(ptr
   %22 = load i64, ptr %5, align 8
   %trunc13 = trunc nuw i64 %11 to i1
   %.sroa.4.1 = select i1 %trunc13, ptr %12, ptr @anon.abc5958ecb543d3232d5f4291e576c66.2
+  %23 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.4.1, 1
   %.sroa.7.0 = select i1 %trunc, i64 %6, i64 %22
-  %.sroa.4.0 = select i1 %trunc, ptr %.sroa.4.1, ptr %12
-  %.sroa.0.0 = select i1 %trunc, i64 1, i64 %11
+  %.merged = select i1 %trunc, { i64, ptr } %23, { i64, ptr } %8
   store i64 %.sroa.7.0, ptr %5, align 8
-  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %24
+  ret { i64, ptr } %.merged
 
-25:                                               ; preds = %18
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %18
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #20
   unreachable
 
-27:                                               ; preds = %9, %18
+26:                                               ; preds = %9, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %10, %9 ]
   store i64 %6, ptr %5, align 8
   resume { ptr, i32 } %.pn
@@ -644,9 +642,9 @@ define hidden { i64, ptr } @_ZN3std2io21default_read_vectored17h4c9f588ee260e85b
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h2c5617b35c984237E.llvm.15947672843193833052.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h2c5617b35c984237E.llvm.15947672843193833052.exit": ; preds = %5, %12
-  %.sroa.3.0.i = phi i64 [ %11, %12 ], [ 0, %5 ]
-  %.sroa.02.0.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
-  %14 = tail call { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$std..io..Read$GT$4read17h7aa9c4e0aa4203f7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.sroa.02.0.i, i64 noundef %.sroa.3.0.i)
+  %.pn7.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn5.i = phi i64 [ %11, %12 ], [ 0, %5 ]
+  %14 = tail call { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$std..io..Read$GT$4read17h7aa9c4e0aa4203f7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.pn7.i, i64 noundef %.pn5.i)
   ret { i64, ptr } %14
 }
 
@@ -943,11 +941,11 @@ define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17h2c5617b35
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.3.0 = phi i64 [ %8, %5 ], [ %2, %3 ]
-  %.sroa.02.0 = phi ptr [ %6, %5 ], [ %1, %3 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %11
+  %.pn7 = phi ptr [ %6, %5 ], [ %1, %3 ]
+  %.pn5 = phi i64 [ %8, %5 ], [ %2, %3 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn7, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn5, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

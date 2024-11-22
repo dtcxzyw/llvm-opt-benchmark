@@ -55701,87 +55701,72 @@ define internal fastcc { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_para
   %narrow = select i1 %5, i32 %4, i32 1
   switch i32 %narrow, label %6 [
     i32 0, label %7
-    i32 1, label %11
-    i32 2, label %12
-    i32 3, label %16
-    i32 4, label %20
-    i32 5, label %24
-    i32 6, label %28
-    i32 7, label %30
+    i32 1, label %9
+    i32 2, label %10
+    i32 3, label %12
+    i32 4, label %14
+    i32 5, label %16
+    i32 6, label %18
+    i32 7, label %22
   ]
 
-6:                                                ; preds = %11, %3
+6:                                                ; preds = %9, %3
   unreachable
 
 7:                                                ; preds = %3
   %8 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17ha2af2fe925eea385E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
-  %9 = extractvalue { i32, ptr } %8, 0
-  %10 = extractvalue { i32, ptr } %8, 1
-  br label %32
+  br label %26
 
-11:                                               ; preds = %3
+9:                                                ; preds = %3
   switch i32 %.sroa.09.0.extract.trunc, label %6 [
-    i32 0, label %35
-    i32 1, label %39
-    i32 2, label %43
+    i32 0, label %27
+    i32 1, label %29
+    i32 2, label %31
   ]
 
+10:                                               ; preds = %3
+  %11 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17hf64701f10a090fb4E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
+  br label %26
+
 12:                                               ; preds = %3
-  %13 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17hf64701f10a090fb4E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
-  %14 = extractvalue { i32, ptr } %13, 0
-  %15 = extractvalue { i32, ptr } %13, 1
-  br label %32
+  %13 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17h72efa4784a88db50E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
+  br label %26
+
+14:                                               ; preds = %3
+  %15 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17hddc93f59d0e9cf12E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
+  br label %26
 
 16:                                               ; preds = %3
-  %17 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17h72efa4784a88db50E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
-  %18 = extractvalue { i32, ptr } %17, 0
-  %19 = extractvalue { i32, ptr } %17, 1
-  br label %32
+  %17 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17h08e94c8550699f59E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
+  br label %26
 
-20:                                               ; preds = %3
-  %21 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17hddc93f59d0e9cf12E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
-  %22 = extractvalue { i32, ptr } %21, 0
-  %23 = extractvalue { i32, ptr } %21, 1
-  br label %32
+18:                                               ; preds = %3
+  %19 = tail call noundef i32 @"_ZN74_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$vfs..FileId$GT$$GT$4from17h3b1d757002614e88E"(i32 noundef 937550)
+  %20 = insertvalue { i32, ptr } poison, i32 %19, 0
+  %21 = insertvalue { i32, ptr } %20, ptr null, 1
+  br label %26
 
-24:                                               ; preds = %3
-  %25 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17h08e94c8550699f59E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
-  %26 = extractvalue { i32, ptr } %25, 0
-  %27 = extractvalue { i32, ptr } %25, 1
-  br label %32
+22:                                               ; preds = %3
+  %23 = tail call noundef i32 @"_ZN74_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$vfs..FileId$GT$$GT$4from17h3b1d757002614e88E"(i32 noundef 937550)
+  %24 = insertvalue { i32, ptr } poison, i32 %23, 0
+  %25 = insertvalue { i32, ptr } %24, ptr null, 1
+  br label %26
 
-28:                                               ; preds = %3
-  %29 = tail call noundef i32 @"_ZN74_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$vfs..FileId$GT$$GT$4from17h3b1d757002614e88E"(i32 noundef 937550)
-  br label %32
+26:                                               ; preds = %31, %29, %27, %22, %18, %16, %14, %12, %10, %7
+  %.merged = phi { i32, ptr } [ %25, %22 ], [ %21, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %8, %7 ]
+  ret { i32, ptr } %.merged
 
-30:                                               ; preds = %3
-  %31 = tail call noundef i32 @"_ZN74_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$vfs..FileId$GT$$GT$4from17h3b1d757002614e88E"(i32 noundef 937550)
-  br label %32
+27:                                               ; preds = %9
+  %28 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17hf608322b017bb68eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
+  br label %26
 
-32:                                               ; preds = %43, %39, %35, %30, %28, %24, %20, %16, %12, %7
-  %.sroa.010.0 = phi i32 [ %31, %30 ], [ %29, %28 ], [ %26, %24 ], [ %22, %20 ], [ %18, %16 ], [ %14, %12 ], [ %45, %43 ], [ %41, %39 ], [ %37, %35 ], [ %9, %7 ]
-  %.sroa.11.0 = phi ptr [ null, %30 ], [ null, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %10, %7 ]
-  %33 = insertvalue { i32, ptr } poison, i32 %.sroa.010.0, 0
-  %34 = insertvalue { i32, ptr } %33, ptr %.sroa.11.0, 1
-  ret { i32, ptr } %34
+29:                                               ; preds = %9
+  %30 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17hc4384a82c2805df4E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
+  br label %26
 
-35:                                               ; preds = %11
-  %36 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17hf608322b017bb68eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
-  %37 = extractvalue { i32, ptr } %36, 0
-  %38 = extractvalue { i32, ptr } %36, 1
-  br label %32
-
-39:                                               ; preds = %11
-  %40 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17hc4384a82c2805df4E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
-  %41 = extractvalue { i32, ptr } %40, 0
-  %42 = extractvalue { i32, ptr } %40, 1
-  br label %32
-
-43:                                               ; preds = %11
-  %44 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17h7047edf094b081efE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
-  %45 = extractvalue { i32, ptr } %44, 0
-  %46 = extractvalue { i32, ptr } %44, 1
-  br label %32
+31:                                               ; preds = %9
+  %32 = tail call { i32, ptr } @_ZN7hir_def12GenericDefId21file_id_and_params_of30file_id_and_params_of_item_loc17h7047edf094b081efE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.extract.trunc)
+  br label %26
 }
 
 ; Function Attrs: nonlazybind uwtable

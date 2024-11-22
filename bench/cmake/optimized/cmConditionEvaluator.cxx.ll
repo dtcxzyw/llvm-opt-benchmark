@@ -2867,8 +2867,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124looksLikeSpecialVa
   store ptr %15, ptr %16, align 8, !noalias !38
   store i8 123, ptr %15, align 8, !noalias !38
   store i64 1, ptr %13, align 8, !alias.scope !41, !noalias !38
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %15, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !41, !noalias !38
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %15, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !41, !noalias !38
   %17 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %17, align 8, !alias.scope !41, !noalias !38
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull %5, i64 2)

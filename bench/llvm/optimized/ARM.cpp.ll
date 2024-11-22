@@ -5790,8 +5790,6 @@ define hidden { ptr, i64 } @_ZNK5clang7targets13ARMTargetInfo10getCPUAttrEv(ptr 
 
 5:                                                ; preds = %switch.hole_check, %1
   %6 = tail call { ptr, i64 } @_ZN4llvm3ARM10getCPUAttrENS0_8ArchKindE(i32 noundef %3) #24
-  %7 = extractvalue { ptr, i64 } %6, 0
-  %8 = extractvalue { ptr, i64 } %6, 1
   br label %11
 
 switch.hole_check:                                ; preds = %1
@@ -5800,20 +5798,19 @@ switch.hole_check:                                ; preds = %1
   br i1 %switch.lobit, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [30 x i64], ptr @switch.table._ZNK5clang7targets13ARMTargetInfo10getCPUAttrEv, i64 0, i64 %9
+  %7 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [30 x i64], ptr @switch.table._ZNK5clang7targets13ARMTargetInfo10getCPUAttrEv, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
-  %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds [30 x ptr], ptr @switch.table._ZNK5clang7targets13ARMTargetInfo10getCPUAttrEv.3, i64 0, i64 %10
+  %8 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep1 = getelementptr inbounds [30 x ptr], ptr @switch.table._ZNK5clang7targets13ARMTargetInfo10getCPUAttrEv.3, i64 0, i64 %8
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
+  %9 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
+  %10 = insertvalue { ptr, i64 } %9, i64 %switch.load, 1
   br label %11
 
 11:                                               ; preds = %switch.lookup, %5
-  %.sroa.29.0 = phi i64 [ %8, %5 ], [ %switch.load, %switch.lookup ]
-  %.sroa.0.0 = phi ptr [ %7, %5 ], [ %switch.load2, %switch.lookup ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.29.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %6, %5 ], [ %10, %switch.lookup ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

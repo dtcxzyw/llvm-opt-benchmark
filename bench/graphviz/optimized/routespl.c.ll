@@ -1769,8 +1769,8 @@ find_shortest_cycle_with_edge.exit.i:             ; preds = %cycle_contains_edge
 nodes_delete.exit.i.i.i:                          ; preds = %121, %.lr.ph.i.i26.i
   tail call void @free(ptr noundef %120) #21
   %124 = add nuw i64 %.07.i.i.i, 1
-  %exitcond49.not.i = icmp eq i64 %124, %.val20.i
-  br i1 %exitcond49.not.i, label %cycles_free.exit.i, label %.lr.ph.i.i26.i
+  %exitcond51.not.i = icmp eq i64 %124, %.val20.i
+  br i1 %exitcond51.not.i, label %cycles_free.exit.i, label %.lr.ph.i.i26.i
 
 cycles_free.exit.i:                               ; preds = %nodes_delete.exit.i.i.i, %find_all_cycles.exit.i
   tail call void @free(ptr noundef %.val19.i) #21
@@ -1797,22 +1797,22 @@ cycles_free.exit.i:                               ; preds = %nodes_delete.exit.i
   br label %.lr.ph.i.i29.i
 
 138:                                              ; preds = %138, %.lr.ph.i
-  %.040.i = phi i64 [ 0, %.lr.ph.i ], [ %150, %138 ]
-  %.01639.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %149, %138 ]
-  %.sroa.6.038.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %148, %138 ]
-  %.sroa.0.037.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %145, %138 ]
-  %139 = getelementptr inbounds ptr, ptr %.val18.i, i64 %.040.i
+  %.042.i = phi i64 [ 0, %.lr.ph.i ], [ %150, %138 ]
+  %.01641.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %149, %138 ]
+  %.sroa.6.040.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %148, %138 ]
+  %.sroa.0.039.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %145, %138 ]
+  %139 = getelementptr inbounds ptr, ptr %.val18.i, i64 %.042.i
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 32
   %144 = load double, ptr %143, align 8
-  %145 = fadd double %.sroa.0.037.i, %144
+  %145 = fadd double %.sroa.0.039.i, %144
   %146 = getelementptr inbounds i8, ptr %142, i64 40
   %147 = load double, ptr %146, align 8
-  %148 = fadd double %.sroa.6.038.i, %147
-  %149 = fadd double %.01639.i, 1.000000e+00
-  %150 = add nuw i64 %.040.i, 1
+  %148 = fadd double %.sroa.6.040.i, %147
+  %149 = fadd double %.01641.i, 1.000000e+00
+  %150 = add nuw i64 %.042.i, 1
   %exitcond.not.i = icmp eq i64 %150, %.val.i
   br i1 %exitcond.not.i, label %.lr.ph.i.i29.preheader.i, label %138
 
@@ -1833,8 +1833,8 @@ cycles_free.exit.i:                               ; preds = %nodes_delete.exit.i
 nodes_delete.exit.i.i32.i:                        ; preds = %153, %.lr.ph.i.i29.i
   tail call void @free(ptr noundef %152) #21
   %156 = add nuw i64 %.07.i.i30.i, 1
-  %exitcond48.not.i = icmp eq i64 %156, %.val20.i
-  br i1 %exitcond48.not.i, label %cycles_free.exit33.i, label %.lr.ph.i.i29.i
+  %exitcond50.not.i = icmp eq i64 %156, %.val20.i
+  br i1 %exitcond50.not.i, label %cycles_free.exit33.i, label %.lr.ph.i.i29.i
 
 cycles_free.exit33.i:                             ; preds = %nodes_delete.exit.i.i32.i
   tail call void @free(ptr noundef nonnull %.val19.i) #21
@@ -1843,8 +1843,8 @@ cycles_free.exit33.i:                             ; preds = %nodes_delete.exit.i
   br label %get_cycle_centroid.exit
 
 get_cycle_centroid.exit:                          ; preds = %cycles_free.exit.i, %cycles_free.exit33.i
-  %.sroa.015.0.i = phi double [ %131, %cycles_free.exit.i ], [ %157, %cycles_free.exit33.i ]
-  %.sroa.3.0.i = phi double [ %137, %cycles_free.exit.i ], [ %158, %cycles_free.exit33.i ]
+  %.pn36.i = phi double [ %131, %cycles_free.exit.i ], [ %157, %cycles_free.exit33.i ]
+  %.pn.i = phi double [ %137, %cycles_free.exit.i ], [ %158, %cycles_free.exit33.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %159 = load double, ptr %7, align 16
   %160 = load double, ptr %.sroa.251.0..sroa_idx, align 8
@@ -1854,8 +1854,8 @@ get_cycle_centroid.exit:                          ; preds = %cycles_free.exit.i,
   %164 = fmul double %163, 5.000000e-01
   %165 = fadd double %160, %162
   %166 = fmul double %165, 5.000000e-01
-  %167 = fsub double %.sroa.015.0.i, %164
-  %168 = fsub double %.sroa.3.0.i, %166
+  %167 = fsub double %.pn36.i, %164
+  %168 = fsub double %.pn.i, %166
   %169 = tail call double @hypot(double noundef %167, double noundef %168) #21
   %170 = fcmp oeq double %169, 0.000000e+00
   br i1 %170, label %bend.exit, label %171
@@ -1890,7 +1890,7 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
   %190 = load ptr, ptr %189, align 8
   call void @clip_and_install(ptr noundef nonnull %12, ptr noundef %190, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %4) #21
   call void @addEdgeLabels(ptr noundef nonnull %12) #21
-  br label %.loopexit98
+  br label %.loopexit96
 
 191:                                              ; preds = %54
   %192 = fsub double %37, %51
@@ -1944,7 +1944,7 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
   %.sroa.068.0 = phi double [ 0.000000e+00, %197 ], [ %224, %198 ]
   %.sroa.4.0 = phi double [ 0.000000e+00, %197 ], [ %226, %198 ]
   %228 = icmp sgt i32 %2, 0
-  br i1 %228, label %.lr.ph, label %.loopexit98
+  br i1 %228, label %.lr.ph, label %.loopexit96
 
 .lr.ph:                                           ; preds = %227
   %229 = icmp eq i32 %3, 6
@@ -1972,23 +1972,23 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
   %247 = getelementptr inbounds i8, ptr %246, i64 56
   %248 = load ptr, ptr %247, align 8
   %249 = icmp eq ptr %248, %23
-  br i1 %249, label %.preheader.preheader, label %.preheader96
+  br i1 %249, label %.preheader.preheader, label %.preheader94
 
 .preheader.preheader:                             ; preds = %239
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef nonnull align 16 dereferenceable(64) %7, i64 64, i1 false)
   br label %.loopexit
 
-.preheader96:                                     ; preds = %239, %.preheader96
-  %.086104 = phi i64 [ %253, %.preheader96 ], [ 0, %239 ]
-  %250 = sub nuw nsw i64 3, %.086104
+.preheader94:                                     ; preds = %239, %.preheader94
+  %.086102 = phi i64 [ %253, %.preheader94 ], [ 0, %239 ]
+  %250 = sub nuw nsw i64 3, %.086102
   %251 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 %250
-  %252 = getelementptr inbounds [4 x %struct.pointf_s], ptr %7, i64 0, i64 %.086104
+  %252 = getelementptr inbounds [4 x %struct.pointf_s], ptr %7, i64 0, i64 %.086102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %251, ptr noundef nonnull align 16 dereferenceable(16) %252, i64 16, i1 false)
-  %253 = add nuw nsw i64 %.086104, 1
+  %253 = add nuw nsw i64 %.086102, 1
   %exitcond.not = icmp eq i64 %253, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader96
+  br i1 %exitcond.not, label %.loopexit, label %.preheader94
 
-.loopexit:                                        ; preds = %.preheader96, %.preheader.preheader
+.loopexit:                                        ; preds = %.preheader94, %.preheader.preheader
   br i1 %229, label %254, label %264
 
 254:                                              ; preds = %.loopexit
@@ -2034,10 +2034,10 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
   store double %278, ptr %39, align 16
   store double %279, ptr %238, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond114.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond114.not, label %.loopexit98, label %239
+  %exitcond112.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond112.not, label %.loopexit96, label %239
 
-.loopexit98:                                      ; preds = %271, %227, %bend.exit
+.loopexit96:                                      ; preds = %271, %227, %bend.exit
   ret void
 }
 

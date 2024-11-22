@@ -8377,11 +8377,11 @@ define void @"_ZN91_$LT$actix_web..redirect..Redirect$u20$as$u20$actix_web..resp
   store ptr null, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   %22 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %1, i64 32
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !1117, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %1, i64 40
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !1117, !noundef !4
-  invoke void @_ZN4http6header5value11HeaderValue16try_from_generic17hc558a62304874136E(ptr noalias nocapture noundef nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %1, i64 40
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !1117, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %1, i64 32
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !1117, !nonnull !4, !noundef !4
+  invoke void @_ZN4http6header5value11HeaderValue16try_from_generic17hc558a62304874136E(ptr noalias nocapture noundef nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %23 unwind label %18
 
 23:                                               ; preds = %20

@@ -9198,7 +9198,7 @@ declare void @_ZNK5clang4ento23PathDiagnosticCallPiece16getCallExitEventEv(ptr d
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %_ZN4llvm11raw_ostreamlsEPKc.exit53, label %6
+  br i1 %5, label %_ZN4llvm11raw_ostreamlsEPKc.exit51, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -9303,8 +9303,8 @@ _ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit40: ; preds = %_ZN4llvm11raw_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit
-  %.057 = phi ptr [ %61, %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit ], [ %2, %.lr.ph.preheader ]
-  %.sroa.010.0.copyload = load i64, ptr %.057, align 4
+  %.055 = phi ptr [ %61, %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit ], [ %2, %.lr.ph.preheader ]
+  %.sroa.010.0.copyload = load i64, ptr %.055, align 4
   %.sroa.018.0.extract.trunc.i = trunc i64 %.sroa.010.0.copyload to i32
   %.sroa.219.0.extract.shift.i = lshr i64 %.sroa.010.0.copyload, 32
   %.sroa.219.0.extract.trunc.i = trunc nuw i64 %.sroa.219.0.extract.shift.i to i32
@@ -9332,37 +9332,37 @@ _ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit40: ; preds = %_ZN4llvm11raw_
   br label %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit
 
 _ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit: ; preds = %.lr.ph, %57
-  %.sroa.08.0.i = phi i64 [ %.sroa.010.0.i.i, %57 ], [ %.sroa.0.0.insert.insert.i, %.lr.ph ]
-  %.sroa.39.0.i = phi i8 [ 0, %57 ], [ %55, %.lr.ph ]
+  %.sroa.010.0.i.pn.i = phi i64 [ %.sroa.010.0.i.i, %57 ], [ %.sroa.0.0.insert.insert.i, %.lr.ph ]
+  %.pn.i = phi i8 [ 0, %57 ], [ %55, %.lr.ph ]
   %60 = load ptr, ptr %0, align 8
-  tail call void @_ZN5clang6markup9EmitRangeERN4llvm11raw_ostreamERKNS_13SourceManagerENS_15CharSourceRangeERKNS1_8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS9_vEENS1_6detail12DenseMapPairIS9_jEEEEj(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %49, i64 %.sroa.08.0.i, i8 %.sroa.39.0.i, ptr noundef nonnull align 8 dereferenceable(20) %60, i32 noundef 7)
-  %61 = getelementptr inbounds i8, ptr %.057, i64 8
+  tail call void @_ZN5clang6markup9EmitRangeERN4llvm11raw_ostreamERKNS_13SourceManagerENS_15CharSourceRangeERKNS1_8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS9_vEENS1_6detail12DenseMapPairIS9_jEEEEj(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %49, i64 %.sroa.010.0.i.pn.i, i8 %.pn.i, ptr noundef nonnull align 8 dereferenceable(20) %60, i32 noundef 7)
+  %61 = getelementptr inbounds i8, ptr %.055, i64 8
   %.not = icmp eq ptr %61, %52
   br i1 %.not, label %.preheader, label %.lr.ph
 
-.preheader:                                       ; preds = %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit, %_ZN4llvm11raw_ostreamlsEc.exit.i48
-  %.04.i46 = phi i32 [ %68, %_ZN4llvm11raw_ostreamlsEc.exit.i48 ], [ 0, %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit ]
+.preheader:                                       ; preds = %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit, %_ZN4llvm11raw_ostreamlsEc.exit.i46
+  %.04.i44 = phi i32 [ %68, %_ZN4llvm11raw_ostreamlsEc.exit.i46 ], [ 0, %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit ]
   %62 = load ptr, ptr %7, align 8
   %63 = load ptr, ptr %8, align 8
-  %.not.i.i47 = icmp ult ptr %62, %63
-  br i1 %.not.i.i47, label %66, label %64
+  %.not.i.i45 = icmp ult ptr %62, %63
+  br i1 %.not.i.i45, label %66, label %64
 
 64:                                               ; preds = %.preheader
   %65 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 32) #18
-  br label %_ZN4llvm11raw_ostreamlsEc.exit.i48
+  br label %_ZN4llvm11raw_ostreamlsEc.exit.i46
 
 66:                                               ; preds = %.preheader
   %67 = getelementptr inbounds i8, ptr %62, i64 1
   store ptr %67, ptr %7, align 8
   store i8 32, ptr %62, align 1
-  br label %_ZN4llvm11raw_ostreamlsEc.exit.i48
+  br label %_ZN4llvm11raw_ostreamlsEc.exit.i46
 
-_ZN4llvm11raw_ostreamlsEc.exit.i48:               ; preds = %66, %64
-  %68 = add nuw nsw i32 %.04.i46, 1
-  %exitcond.not.i49 = icmp eq i32 %68, 5
-  br i1 %exitcond.not.i49, label %_ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit50, label %.preheader, !llvm.loop !17
+_ZN4llvm11raw_ostreamlsEc.exit.i46:               ; preds = %66, %64
+  %68 = add nuw nsw i32 %.04.i44, 1
+  %exitcond.not.i47 = icmp eq i32 %68, 5
+  br i1 %exitcond.not.i47, label %_ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit48, label %.preheader, !llvm.loop !17
 
-_ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit50: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i48
+_ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit48: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i46
   %69 = load ptr, ptr %8, align 8
   %70 = load ptr, ptr %7, align 8
   %71 = ptrtoint ptr %69 to i64
@@ -9371,18 +9371,18 @@ _ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit50: ; preds = %_ZN4llvm11raw_
   %74 = icmp ult i64 %73, 9
   br i1 %74, label %75, label %77
 
-75:                                               ; preds = %_ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit50
+75:                                               ; preds = %_ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit48
   %76 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.50, i64 noundef 9) #18
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit53
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit51
 
-77:                                               ; preds = %_ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit50
+77:                                               ; preds = %_ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %70, ptr noundef nonnull align 1 dereferenceable(9) @.str.50, i64 9, i1 false)
   %78 = load ptr, ptr %7, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 9
   store ptr %79, ptr %7, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit53
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit51
 
-_ZN4llvm11raw_ostreamlsEPKc.exit53:               ; preds = %77, %75, %4
+_ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %77, %75, %4
   ret void
 }
 
@@ -9789,10 +9789,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit62:               ; preds = %85, %87
   br label %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit
 
 _ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit62, %91
-  %.sroa.08.0.i = phi i64 [ %.sroa.010.0.i.i, %91 ], [ %.sroa.06.0.copyload, %_ZN4llvm11raw_ostreamlsEPKc.exit62 ]
-  %.sroa.39.0.i = phi i8 [ 0, %91 ], [ %.sroa.27.0.copyload, %_ZN4llvm11raw_ostreamlsEPKc.exit62 ]
+  %.sroa.010.0.i.pn.i = phi i64 [ %.sroa.010.0.i.i, %91 ], [ %.sroa.06.0.copyload, %_ZN4llvm11raw_ostreamlsEPKc.exit62 ]
+  %.pn.i = phi i8 [ 0, %91 ], [ %.sroa.27.0.copyload, %_ZN4llvm11raw_ostreamlsEPKc.exit62 ]
   %94 = load ptr, ptr %0, align 8
-  tail call void @_ZN5clang6markup9EmitRangeERN4llvm11raw_ostreamERKNS_13SourceManagerENS_15CharSourceRangeERKNS1_8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS9_vEENS1_6detail12DenseMapPairIS9_jEEEEj(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %10, i64 %.sroa.08.0.i, i8 %.sroa.39.0.i, ptr noundef nonnull align 8 dereferenceable(20) %94, i32 noundef 7)
+  tail call void @_ZN5clang6markup9EmitRangeERN4llvm11raw_ostreamERKNS_13SourceManagerENS_15CharSourceRangeERKNS1_8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS9_vEENS1_6detail12DenseMapPairIS9_jEEEEj(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %10, i64 %.sroa.010.0.i.pn.i, i8 %.pn.i, ptr noundef nonnull align 8 dereferenceable(20) %94, i32 noundef 7)
   br label %95
 
 95:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i65, %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit

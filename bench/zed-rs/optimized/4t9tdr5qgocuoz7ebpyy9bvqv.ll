@@ -5696,11 +5696,11 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   %26 = load i64, ptr %25, align 8, !noundef !10
   %27 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %24, i64 %26
   %.not.i14 = icmp eq i64 %26, 0
-  br i1 %.not.i14, label %.loopexit44.thread, label %.lr.ph.i
+  br i1 %.not.i14, label %.loopexit46.thread, label %.lr.ph.i
 
-.loopexit44.thread:                               ; preds = %22
+.loopexit46.thread:                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  br label %.loopexit43
+  br label %.loopexit45
 
 .lr.ph.i:                                         ; preds = %22, %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17h03ecc5e2ea73c89fE.exit.backedge.i"
   %28 = phi ptr [ %29, %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17h03ecc5e2ea73c89fE.exit.backedge.i" ], [ %24, %22 ]
@@ -5719,10 +5719,10 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
 
 "_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17h03ecc5e2ea73c89fE.exit.backedge.i": ; preds = %31, %.lr.ph.i
   %.not10.i = icmp eq ptr %29, %27
-  br i1 %.not10.i, label %.loopexit44, label %.lr.ph.i
+  br i1 %.not10.i, label %.loopexit46, label %.lr.ph.i
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %262
-  %.pn = phi { ptr, i32 } [ %263, %262 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit36, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit40, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %263, %262 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit38, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit42, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17ha390d48295c32834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #30
           to label %277 unwind label %275
 
@@ -5732,25 +5732,25 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %237
-  %lpad.loopexit36 = landingpad { ptr, i32 }
+  %lpad.loopexit38 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %45
-  %lpad.loopexit40 = landingpad { ptr, i32 }
+  %lpad.loopexit42 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %70, %.loopexit43, %264
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %70, %.loopexit45, %264
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 34:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  br label %.loopexit43
+  br label %.loopexit45
 
-.loopexit44:                                      ; preds = %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17h03ecc5e2ea73c89fE.exit.backedge.i"
+.loopexit46:                                      ; preds = %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17h03ecc5e2ea73c89fE.exit.backedge.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %35 = getelementptr inbounds i8, ptr %9, i64 8
   %36 = getelementptr inbounds i8, ptr %9, i64 26
@@ -5764,8 +5764,8 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   %44 = getelementptr inbounds i8, ptr %9, i64 32
   br label %45
 
-45:                                               ; preds = %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i", %.loopexit44
-  %46 = phi ptr [ %24, %.loopexit44 ], [ %47, %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i" ]
+45:                                               ; preds = %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i", %.loopexit46
+  %46 = phi ptr [ %24, %.loopexit46 ], [ %47, %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i" ]
   %47 = getelementptr inbounds i8, ptr %46, i64 24
   %48 = getelementptr i8, ptr %46, i64 8
   %.val.i.i.i = load ptr, ptr %48, align 8, !noalias !894, !nonnull !10, !noundef !10
@@ -6131,8 +6131,8 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   br label %.invoke
 
 231:                                              ; preds = %223
-  %reass.sub130 = sub i64 %193, %.fr49.i.i.i.i
-  %232 = add i64 %reass.sub130, 1
+  %reass.sub132 = sub i64 %193, %.fr49.i.i.i.i
+  %232 = add i64 %reass.sub132, 1
   %233 = add i64 %232, %.sroa.04.0.i.i.i.i.i.i
   br label %204
 
@@ -6222,7 +6222,7 @@ default.unreachable:                              ; preds = %.noexc23
 "_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i": ; preds = %.sink.split.i.i.i.i.i.i, %204, %185, %127, %109, %.preheader.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9), !noalias !899
   %251 = icmp eq ptr %47, %27
-  br i1 %251, label %.loopexit43, label %45
+  br i1 %251, label %.loopexit45, label %45
 
 252:                                              ; preds = %248, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hbd74ea260e9b1ffbE.llvm.13937131299884592799.exit.i.i.i.i.i"
   %.sroa.0.014.i.i.i.i.i = phi i64 [ %.sroa.0.011.i.i.i.i.i, %248 ], [ %.sroa.0.0.i.i.i.i.i, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hbd74ea260e9b1ffbE.llvm.13937131299884592799.exit.i.i.i.i.i" ]
@@ -6231,14 +6231,14 @@ default.unreachable:                              ; preds = %.noexc23
   %254 = sub nuw i64 %253, %.sroa.0.014.i.i.i.i.i
   %255 = getelementptr inbounds i8, ptr %234, i64 %.sroa.0.014.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !943
-  br label %.loopexit43
+  br label %.loopexit45
 
-.loopexit43:                                      ; preds = %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i", %252, %34, %.loopexit44.thread
-  %.sroa.02.0.i.sink = phi ptr [ inttoptr (i64 1 to ptr), %.loopexit44.thread ], [ @anon.dc2fcfba4294ec83610fd12715f7a8d2.89, %34 ], [ %255, %252 ], [ inttoptr (i64 1 to ptr), %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i" ]
-  %.sroa.33.0.i.sink = phi i64 [ 0, %.loopexit44.thread ], [ 2, %34 ], [ %254, %252 ], [ 0, %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i" ]
-  store ptr %.sroa.02.0.i.sink, ptr %13, align 8
+.loopexit45:                                      ; preds = %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i", %252, %34, %.loopexit46.thread
+  %.sroa.0.0.i.i.pn.i.sink = phi ptr [ inttoptr (i64 1 to ptr), %.loopexit46.thread ], [ %255, %252 ], [ @anon.dc2fcfba4294ec83610fd12715f7a8d2.89, %34 ], [ inttoptr (i64 1 to ptr), %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i" ]
+  %.sroa.3.0.i.i.pn.i.sink = phi i64 [ 0, %.loopexit46.thread ], [ %254, %252 ], [ 2, %34 ], [ 0, %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i" ]
+  store ptr %.sroa.0.0.i.i.pn.i.sink, ptr %13, align 8
   %256 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 %.sroa.33.0.i.sink, ptr %256, align 8
+  store i64 %.sroa.3.0.i.i.pn.i.sink, ptr %256, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr %13, ptr %10, align 8
@@ -6257,7 +6257,7 @@ default.unreachable:                              ; preds = %.noexc23
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
           to label %257 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-257:                                              ; preds = %.loopexit43
+257:                                              ; preds = %.loopexit45
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !965
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)

@@ -344,14 +344,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %83 = extractvalue { i64, ptr } %82, 0
   %84 = extractvalue { i64, ptr } %82, 1
   store i64 %83, ptr %81, align 8, !alias.scope !11, !noalias !8
-  %.sroa.2.0..sroa_idx.i11.i = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %84, ptr %.sroa.2.0..sroa_idx.i11.i, align 8, !alias.scope !11, !noalias !8
+  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %84, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !alias.scope !11, !noalias !8
   %85 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr null, ptr %85, align 8, !alias.scope !11, !noalias !8
   %86 = getelementptr inbounds i8, ptr %3, i64 48
   store i64 44, ptr %86, align 8, !alias.scope !14, !noalias !8
-  %.sroa.2.0..sroa_idx.i20.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr @.str.5, ptr %.sroa.2.0..sroa_idx.i20.i, align 8, !alias.scope !14, !noalias !8
+  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr @.str.5, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !alias.scope !14, !noalias !8
   %87 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr null, ptr %87, align 8, !alias.scope !14, !noalias !8
   %88 = getelementptr inbounds i8, ptr %3, i64 72
@@ -359,14 +359,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %90 = extractvalue { i64, ptr } %89, 0
   %91 = extractvalue { i64, ptr } %89, 1
   store i64 %90, ptr %88, align 8, !alias.scope !17, !noalias !8
-  %.sroa.2.0..sroa_idx.i29.i = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr %91, ptr %.sroa.2.0..sroa_idx.i29.i, align 8, !alias.scope !17, !noalias !8
+  %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %91, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !17, !noalias !8
   %92 = getelementptr inbounds i8, ptr %3, i64 88
   store ptr null, ptr %92, align 8, !alias.scope !17, !noalias !8
   %93 = getelementptr inbounds i8, ptr %3, i64 96
   store i64 7, ptr %93, align 8, !alias.scope !20, !noalias !8
-  %.sroa.2.0..sroa_idx.i38.i = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr @.str.6, ptr %.sroa.2.0..sroa_idx.i38.i, align 8, !alias.scope !20, !noalias !8
+  %.sroa.2.0..sroa_idx.i34.i = getelementptr inbounds i8, ptr %3, i64 104
+  store ptr @.str.6, ptr %.sroa.2.0..sroa_idx.i34.i, align 8, !alias.scope !20, !noalias !8
   %94 = getelementptr inbounds i8, ptr %3, i64 112
   store ptr null, ptr %94, align 8, !alias.scope !20, !noalias !8
   %95 = getelementptr inbounds i8, ptr %3, i64 120
@@ -374,14 +374,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %97 = extractvalue { i64, ptr } %96, 0
   %98 = extractvalue { i64, ptr } %96, 1
   store i64 %97, ptr %95, align 8, !alias.scope !23, !noalias !8
-  %.sroa.2.0..sroa_idx.i47.i = getelementptr inbounds i8, ptr %3, i64 128
-  store ptr %98, ptr %.sroa.2.0..sroa_idx.i47.i, align 8, !alias.scope !23, !noalias !8
+  %.sroa.2.0..sroa_idx.i42.i = getelementptr inbounds i8, ptr %3, i64 128
+  store ptr %98, ptr %.sroa.2.0..sroa_idx.i42.i, align 8, !alias.scope !23, !noalias !8
   %99 = getelementptr inbounds i8, ptr %3, i64 136
   store ptr null, ptr %99, align 8, !alias.scope !23, !noalias !8
   %100 = getelementptr inbounds i8, ptr %3, i64 144
   store i64 14, ptr %100, align 8, !alias.scope !26, !noalias !8
-  %.sroa.2.0..sroa_idx.i56.i = getelementptr inbounds i8, ptr %3, i64 152
-  store ptr @.str.7, ptr %.sroa.2.0..sroa_idx.i56.i, align 8, !alias.scope !26, !noalias !8
+  %.sroa.2.0..sroa_idx.i50.i = getelementptr inbounds i8, ptr %3, i64 152
+  store ptr @.str.7, ptr %.sroa.2.0..sroa_idx.i50.i, align 8, !alias.scope !26, !noalias !8
   %101 = getelementptr inbounds i8, ptr %3, i64 160
   store ptr null, ptr %101, align 8, !alias.scope !26, !noalias !8
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr nonnull %3, i64 7)

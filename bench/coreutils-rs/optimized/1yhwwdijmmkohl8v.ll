@@ -157,56 +157,57 @@ define hidden void @_ZN3nix3sys4stat4stat17h65713b418b680c3fE(ptr noalias nocapt
   call void @_ZN4core3ffi5c_str4CStr19from_bytes_with_nul17hf3534ae7c662e3b1E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %10), !noalias !29
   %11 = load i64, ptr %4, align 8, !range !37, !noalias !29, !noundef !5
   %trunc.i.i = trunc nuw i64 %11 to i1
-  br i1 %trunc.i.i, label %20, label %16
+  br i1 %trunc.i.i, label %18, label %14
 
 12:                                               ; preds = %3
   %13 = call { i32, i32 } @_ZN3nix24with_nix_path_allocating17h1d5aad3a22630dcaE.llvm.12047156520955009226(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(144) %6)
-  %14 = extractvalue { i32, i32 } %13, 0
-  %15 = extractvalue { i32, i32 } %13, 1
   br label %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h4d4b0597550ece14E.exit"
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !29, !nonnull !5, !align !6, !noundef !5
-  %19 = call noundef i32 @stat(ptr noundef nonnull readonly align 1 %18, ptr noundef nonnull align 8 dereferenceable(144) %6)
-  br label %20
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = load ptr, ptr %15, align 8, !noalias !29, !nonnull !5, !align !6, !noundef !5
+  %17 = call noundef i32 @stat(ptr noundef nonnull readonly align 1 %16, ptr noundef nonnull align 8 dereferenceable(144) %6)
+  br label %18
 
-20:                                               ; preds = %16, %8
-  %.sroa.4.0.i.i = phi i32 [ %19, %16 ], [ 22, %8 ]
-  %.sroa.0.0.i.i = phi i32 [ 0, %16 ], [ 1, %8 ]
+18:                                               ; preds = %14, %8
+  %.sroa.4.0.i.i = phi i32 [ %17, %14 ], [ 22, %8 ]
+  %.sroa.0.0.i.i = phi i32 [ 0, %14 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5), !noalias !29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !29
+  %19 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i.i, 0
+  %20 = insertvalue { i32, i32 } %19, i32 %.sroa.4.0.i.i, 1
   br label %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h4d4b0597550ece14E.exit"
 
-"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h4d4b0597550ece14E.exit": ; preds = %12, %20
-  %.sroa.4.1.i.i = phi i32 [ %15, %12 ], [ %.sroa.4.0.i.i, %20 ]
-  %.sroa.0.1.i.i = phi i32 [ %14, %12 ], [ %.sroa.0.0.i.i, %20 ]
-  %switch = icmp eq i32 %.sroa.0.1.i.i, 0
-  br i1 %switch, label %21, label %28
+"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h4d4b0597550ece14E.exit": ; preds = %12, %18
+  %.merged.i.i = phi { i32, i32 } [ %13, %12 ], [ %20, %18 ]
+  %21 = extractvalue { i32, i32 } %.merged.i.i, 0
+  %22 = extractvalue { i32, i32 } %.merged.i.i, 1
+  %switch = icmp eq i32 %21, 0
+  br i1 %switch, label %23, label %30
 
-21:                                               ; preds = %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h4d4b0597550ece14E.exit"
-  %22 = icmp eq i32 %.sroa.4.1.i.i, -1
-  br i1 %22, label %25, label %23
+23:                                               ; preds = %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h4d4b0597550ece14E.exit"
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %27, label %25
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %24, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
-  br label %27
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
+  br label %29
 
-25:                                               ; preds = %21
-  %26 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !38
-  br label %28
+27:                                               ; preds = %23
+  %28 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !38
+  br label %30
 
-27:                                               ; preds = %28, %23
-  %.sink = phi i32 [ 1, %28 ], [ 0, %23 ]
+29:                                               ; preds = %30, %25
+  %.sink = phi i32 [ 1, %30 ], [ 0, %25 ]
   store i32 %.sink, ptr %0, align 8
   ret void
 
-28:                                               ; preds = %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h4d4b0597550ece14E.exit", %25
-  %.sink18 = phi i32 [ %26, %25 ], [ %.sroa.4.1.i.i, %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h4d4b0597550ece14E.exit" ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink18, ptr %29, align 4
-  br label %27
+30:                                               ; preds = %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h4d4b0597550ece14E.exit", %27
+  %.sink18 = phi i32 [ %28, %27 ], [ %22, %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h4d4b0597550ece14E.exit" ]
+  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink18, ptr %31, align 4
+  br label %29
 }
 
 ; Function Attrs: inlinehint nofree nounwind nonlazybind uwtable
@@ -233,56 +234,57 @@ define hidden void @_ZN3nix3sys4stat5lstat17h9c154b61826da654E(ptr noalias nocap
   call void @_ZN4core3ffi5c_str4CStr19from_bytes_with_nul17hf3534ae7c662e3b1E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %10), !noalias !39
   %11 = load i64, ptr %4, align 8, !range !37, !noalias !39, !noundef !5
   %trunc.i.i = trunc nuw i64 %11 to i1
-  br i1 %trunc.i.i, label %20, label %16
+  br i1 %trunc.i.i, label %18, label %14
 
 12:                                               ; preds = %3
   %13 = call { i32, i32 } @_ZN3nix24with_nix_path_allocating17h58dad7c564506420E.llvm.12047156520955009226(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(144) %6)
-  %14 = extractvalue { i32, i32 } %13, 0
-  %15 = extractvalue { i32, i32 } %13, 1
   br label %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3b53f0d3819c115aE.exit"
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !39, !nonnull !5, !align !6, !noundef !5
-  %19 = call noundef i32 @lstat(ptr noundef nonnull readonly align 1 %18, ptr noundef nonnull align 8 dereferenceable(144) %6)
-  br label %20
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = load ptr, ptr %15, align 8, !noalias !39, !nonnull !5, !align !6, !noundef !5
+  %17 = call noundef i32 @lstat(ptr noundef nonnull readonly align 1 %16, ptr noundef nonnull align 8 dereferenceable(144) %6)
+  br label %18
 
-20:                                               ; preds = %16, %8
-  %.sroa.4.0.i.i = phi i32 [ %19, %16 ], [ 22, %8 ]
-  %.sroa.0.0.i.i = phi i32 [ 0, %16 ], [ 1, %8 ]
+18:                                               ; preds = %14, %8
+  %.sroa.4.0.i.i = phi i32 [ %17, %14 ], [ 22, %8 ]
+  %.sroa.0.0.i.i = phi i32 [ 0, %14 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5), !noalias !39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !39
+  %19 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i.i, 0
+  %20 = insertvalue { i32, i32 } %19, i32 %.sroa.4.0.i.i, 1
   br label %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3b53f0d3819c115aE.exit"
 
-"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3b53f0d3819c115aE.exit": ; preds = %12, %20
-  %.sroa.4.1.i.i = phi i32 [ %15, %12 ], [ %.sroa.4.0.i.i, %20 ]
-  %.sroa.0.1.i.i = phi i32 [ %14, %12 ], [ %.sroa.0.0.i.i, %20 ]
-  %switch = icmp eq i32 %.sroa.0.1.i.i, 0
-  br i1 %switch, label %21, label %28
+"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3b53f0d3819c115aE.exit": ; preds = %12, %18
+  %.merged.i.i = phi { i32, i32 } [ %13, %12 ], [ %20, %18 ]
+  %21 = extractvalue { i32, i32 } %.merged.i.i, 0
+  %22 = extractvalue { i32, i32 } %.merged.i.i, 1
+  %switch = icmp eq i32 %21, 0
+  br i1 %switch, label %23, label %30
 
-21:                                               ; preds = %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3b53f0d3819c115aE.exit"
-  %22 = icmp eq i32 %.sroa.4.1.i.i, -1
-  br i1 %22, label %25, label %23
+23:                                               ; preds = %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3b53f0d3819c115aE.exit"
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %27, label %25
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %24, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
-  br label %27
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
+  br label %29
 
-25:                                               ; preds = %21
-  %26 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !38
-  br label %28
+27:                                               ; preds = %23
+  %28 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !38
+  br label %30
 
-27:                                               ; preds = %28, %23
-  %.sink = phi i32 [ 1, %28 ], [ 0, %23 ]
+29:                                               ; preds = %30, %25
+  %.sink = phi i32 [ 1, %30 ], [ 0, %25 ]
   store i32 %.sink, ptr %0, align 8
   ret void
 
-28:                                               ; preds = %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3b53f0d3819c115aE.exit", %25
-  %.sink18 = phi i32 [ %26, %25 ], [ %.sroa.4.1.i.i, %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3b53f0d3819c115aE.exit" ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink18, ptr %29, align 4
-  br label %27
+30:                                               ; preds = %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3b53f0d3819c115aE.exit", %27
+  %.sink18 = phi i32 [ %28, %27 ], [ %22, %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3b53f0d3819c115aE.exit" ]
+  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink18, ptr %31, align 4
+  br label %29
 }
 
 ; Function Attrs: inlinehint nofree nounwind nonlazybind uwtable
@@ -507,22 +509,26 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..0.1.sroa_idx.i.i, align 8, !alias.scope !80
   store i64 0, ptr %1, align 8, !alias.scope !80
   %4 = icmp eq i64 %.sroa.02.0.copyload.i.i, 1
-  br i1 %4, label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h442f7743ad39ea23E.exit", label %5
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
   %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE(), !noalias !80
-  %7 = extractvalue { i64, i64 } %6, 0
-  %8 = extractvalue { i64, i64 } %6, 1
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h442f7743ad39ea23E.exit"
 
-"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h442f7743ad39ea23E.exit": ; preds = %3, %5
-  %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
-  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
+7:                                                ; preds = %3
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i.i, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.6.0.copyload.i.i, 1
+  br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h442f7743ad39ea23E.exit"
+
+"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h442f7743ad39ea23E.exit": ; preds = %5, %7
+  %.merged.i.i = phi { i64, i64 } [ %9, %7 ], [ %6, %5 ]
+  %10 = extractvalue { i64, i64 } %.merged.i.i, 0
+  %11 = extractvalue { i64, i64 } %.merged.i.i, 1
   store i64 1, ptr %0, align 8, !noalias !74
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !74
+  store i64 %10, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !74
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !74
+  store i64 %11, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !74
   ret ptr %.sroa.2.0..sroa_idx.i
 }
 
@@ -531,7 +537,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   %3 = load i64, ptr %0, align 8, !range !37, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc, label %12, label %5
+  br i1 %trunc, label %15, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
@@ -548,24 +554,28 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..0.1.sroa_idx.i.i.i, align 8, !alias.scope !90
   store i64 0, ptr %1, align 8, !alias.scope !90
   %7 = icmp eq i64 %.sroa.02.0.copyload.i.i.i, 1
-  br i1 %7, label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h91a08223207f243fE.llvm.12047156520955009226.exit", label %8
+  br i1 %7, label %10, label %8
 
 8:                                                ; preds = %6, %5
   %9 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE(), !noalias !90
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h91a08223207f243fE.llvm.12047156520955009226.exit"
 
-"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h91a08223207f243fE.llvm.12047156520955009226.exit": ; preds = %6, %8
-  %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
-  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
-  store i64 1, ptr %0, align 8, !noalias !91
-  store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !91
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !91
-  br label %12
+10:                                               ; preds = %6
+  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i.i.i, 0
+  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.6.0.copyload.i.i.i, 1
+  br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h91a08223207f243fE.llvm.12047156520955009226.exit"
 
-12:                                               ; preds = %2, %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h91a08223207f243fE.llvm.12047156520955009226.exit"
+"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h91a08223207f243fE.llvm.12047156520955009226.exit": ; preds = %8, %10
+  %.merged.i.i.i = phi { i64, i64 } [ %12, %10 ], [ %9, %8 ]
+  %13 = extractvalue { i64, i64 } %.merged.i.i.i, 0
+  %14 = extractvalue { i64, i64 } %.merged.i.i.i, 1
+  store i64 1, ptr %0, align 8, !noalias !91
+  store i64 %13, ptr %4, align 8, !noalias !91
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %14, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !91
+  br label %15
+
+15:                                               ; preds = %2, %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h91a08223207f243fE.llvm.12047156520955009226.exit"
   ret ptr %4
 }
 
@@ -784,33 +794,30 @@ define hidden { i32, i32 } @"_ZN45_$LT$$u5b$u8$u5d$$u20$as$u20$nix..NixPath$GT$1
   call void @_ZN4core3ffi5c_str4CStr19from_bytes_with_nul17hf3534ae7c662e3b1E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %9)
   %10 = load i64, ptr %4, align 8, !range !37, !noundef !5
   %trunc = trunc nuw i64 %10 to i1
-  br i1 %trunc, label %19, label %15
+  br i1 %trunc, label %17, label %13
 
 11:                                               ; preds = %3
   %12 = tail call { i32, i32 } @_ZN3nix24with_nix_path_allocating17h1d5aad3a22630dcaE.llvm.12047156520955009226(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %2)
-  %13 = extractvalue { i32, i32 } %12, 0
-  %14 = extractvalue { i32, i32 } %12, 1
   br label %20
 
-15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !5, !align !6, !noundef !5
-  %18 = call noundef i32 @stat(ptr noundef nonnull readonly align 1 %17, ptr noundef nonnull align 8 dereferenceable(144) %2)
-  br label %19
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = load ptr, ptr %14, align 8, !nonnull !5, !align !6, !noundef !5
+  %16 = call noundef i32 @stat(ptr noundef nonnull readonly align 1 %15, ptr noundef nonnull align 8 dereferenceable(144) %2)
+  br label %17
 
-19:                                               ; preds = %7, %15
-  %.sroa.4.0 = phi i32 [ %18, %15 ], [ 22, %7 ]
-  %.sroa.0.0 = phi i32 [ 0, %15 ], [ 1, %7 ]
+17:                                               ; preds = %7, %13
+  %.sroa.4.0 = phi i32 [ %16, %13 ], [ 22, %7 ]
+  %.sroa.0.0 = phi i32 [ 0, %13 ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  %18 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %19 = insertvalue { i32, i32 } %18, i32 %.sroa.4.0, 1
   br label %20
 
-20:                                               ; preds = %19, %11
-  %.sroa.4.1 = phi i32 [ %14, %11 ], [ %.sroa.4.0, %19 ]
-  %.sroa.0.1 = phi i32 [ %13, %11 ], [ %.sroa.0.0, %19 ]
-  %21 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
-  %22 = insertvalue { i32, i32 } %21, i32 %.sroa.4.1, 1
-  ret { i32, i32 } %22
+20:                                               ; preds = %17, %11
+  %.merged = phi { i32, i32 } [ %12, %11 ], [ %19, %17 ]
+  ret { i32, i32 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -830,33 +837,30 @@ define hidden { i32, i32 } @"_ZN45_$LT$$u5b$u8$u5d$$u20$as$u20$nix..NixPath$GT$1
   call void @_ZN4core3ffi5c_str4CStr19from_bytes_with_nul17hf3534ae7c662e3b1E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %9)
   %10 = load i64, ptr %4, align 8, !range !37, !noundef !5
   %trunc = trunc nuw i64 %10 to i1
-  br i1 %trunc, label %19, label %15
+  br i1 %trunc, label %17, label %13
 
 11:                                               ; preds = %3
   %12 = tail call { i32, i32 } @_ZN3nix24with_nix_path_allocating17h58dad7c564506420E.llvm.12047156520955009226(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %2)
-  %13 = extractvalue { i32, i32 } %12, 0
-  %14 = extractvalue { i32, i32 } %12, 1
   br label %20
 
-15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !5, !align !6, !noundef !5
-  %18 = call noundef i32 @lstat(ptr noundef nonnull readonly align 1 %17, ptr noundef nonnull align 8 dereferenceable(144) %2)
-  br label %19
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = load ptr, ptr %14, align 8, !nonnull !5, !align !6, !noundef !5
+  %16 = call noundef i32 @lstat(ptr noundef nonnull readonly align 1 %15, ptr noundef nonnull align 8 dereferenceable(144) %2)
+  br label %17
 
-19:                                               ; preds = %7, %15
-  %.sroa.4.0 = phi i32 [ %18, %15 ], [ 22, %7 ]
-  %.sroa.0.0 = phi i32 [ 0, %15 ], [ 1, %7 ]
+17:                                               ; preds = %7, %13
+  %.sroa.4.0 = phi i32 [ %16, %13 ], [ 22, %7 ]
+  %.sroa.0.0 = phi i32 [ 0, %13 ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  %18 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %19 = insertvalue { i32, i32 } %18, i32 %.sroa.4.0, 1
   br label %20
 
-20:                                               ; preds = %19, %11
-  %.sroa.4.1 = phi i32 [ %14, %11 ], [ %.sroa.4.0, %19 ]
-  %.sroa.0.1 = phi i32 [ %13, %11 ], [ %.sroa.0.0, %19 ]
-  %21 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
-  %22 = insertvalue { i32, i32 } %21, i32 %.sroa.4.1, 1
-  ret { i32, i32 } %22
+20:                                               ; preds = %17, %11
+  %.merged = phi { i32, i32 } [ %12, %11 ], [ %19, %17 ]
+  ret { i32, i32 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

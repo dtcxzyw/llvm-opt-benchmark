@@ -1335,30 +1335,30 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
 375:                                              ; preds = %250
   %376 = add i64 %1, -1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @__const._Z18XXH3_hashLong_128bPKhmS0_m.acc, i64 64, i1 false)
-  %.not437 = icmp ult i64 %376, 1024
-  br i1 %.not437, label %._crit_edge, label %.lr.ph.preheader
+  %.not438 = icmp ult i64 %376, 1024
+  br i1 %.not438, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %375
   %377 = lshr i64 %376, 10
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %412
-  %.0363430 = phi i64 [ %413, %412 ], [ 0, %.lr.ph.preheader ]
-  %378 = shl nuw i64 %.0363430, 10
+  %.0363431 = phi i64 [ %413, %412 ], [ 0, %.lr.ph.preheader ]
+  %378 = shl nuw i64 %.0363431, 10
   %379 = getelementptr inbounds i8, ptr %0, i64 %378
   br label %380
 
 380:                                              ; preds = %.lr.ph, %401
-  %.0362428 = phi i64 [ 0, %.lr.ph ], [ %402, %401 ]
-  %381 = shl nuw nsw i64 %.0362428, 6
+  %.0362429 = phi i64 [ 0, %.lr.ph ], [ %402, %401 ]
+  %381 = shl nuw nsw i64 %.0362429, 6
   %382 = getelementptr inbounds i8, ptr %379, i64 %381
-  %383 = shl nuw nsw i64 %.0362428, 3
+  %383 = shl nuw nsw i64 %.0362429, 3
   %384 = getelementptr inbounds i8, ptr @_ZL7kSecret, i64 %383
   br label %385
 
 385:                                              ; preds = %380, %385
-  %.0358427 = phi i64 [ 0, %380 ], [ %400, %385 ]
-  %386 = shl nuw nsw i64 %.0358427, 3
+  %.0358428 = phi i64 [ 0, %380 ], [ %400, %385 ]
+  %386 = shl nuw nsw i64 %.0358428, 3
   %387 = getelementptr inbounds i8, ptr %382, i64 %386
   call void @llvm.assume(i1 true) [ "align"(ptr %387, i64 1) ]
   %.0.copyload.i.i.i.i.i.i405 = load i64, ptr %387, align 1
@@ -1366,7 +1366,7 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   call void @llvm.assume(i1 true) [ "align"(ptr %388, i64 1) ]
   %.0.copyload.i.i.i.i.i.i406 = load i64, ptr %388, align 8
   %389 = xor i64 %.0.copyload.i.i.i.i.i.i406, %.0.copyload.i.i.i.i.i.i405
-  %390 = xor i64 %.0358427, 1
+  %390 = xor i64 %.0358428, 1
   %391 = getelementptr inbounds i64, ptr %3, i64 %390
   %392 = load i64, ptr %391, align 8
   %393 = add i64 %392, %.0.copyload.i.i.i.i.i.i405
@@ -1374,25 +1374,25 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   %394 = and i64 %389, 4294967295
   %395 = lshr i64 %389, 32
   %396 = mul nuw i64 %394, %395
-  %397 = getelementptr inbounds i64, ptr %3, i64 %.0358427
+  %397 = getelementptr inbounds i64, ptr %3, i64 %.0358428
   %398 = load i64, ptr %397, align 8
   %399 = add i64 %398, %396
   store i64 %399, ptr %397, align 8
-  %400 = add nuw nsw i64 %.0358427, 1
+  %400 = add nuw nsw i64 %.0358428, 1
   %exitcond.not = icmp eq i64 %400, 8
   br i1 %exitcond.not, label %401, label %385, !llvm.loop !10
 
 401:                                              ; preds = %385
-  %402 = add nuw nsw i64 %.0362428, 1
-  %exitcond444.not = icmp eq i64 %402, 16
-  br i1 %exitcond444.not, label %.preheader, label %380, !llvm.loop !11
+  %402 = add nuw nsw i64 %.0362429, 1
+  %exitcond445.not = icmp eq i64 %402, 16
+  br i1 %exitcond445.not, label %.preheader, label %380, !llvm.loop !11
 
 .preheader:                                       ; preds = %401, %.preheader
-  %.0360429 = phi i64 [ %411, %.preheader ], [ 0, %401 ]
-  %403 = getelementptr inbounds i64, ptr %3, i64 %.0360429
+  %.0360430 = phi i64 [ %411, %.preheader ], [ 0, %401 ]
+  %403 = getelementptr inbounds i64, ptr %3, i64 %.0360430
   %404 = load i64, ptr %403, align 8
   %405 = lshr i64 %404, 47
-  %406 = shl nuw nsw i64 %.0360429, 3
+  %406 = shl nuw nsw i64 %.0360430, 3
   %407 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 128), i64 %406
   call void @llvm.assume(i1 true) [ "align"(ptr %407, i64 1) ]
   %.0.copyload.i.i.i.i.i.i407 = load i64, ptr %407, align 8
@@ -1400,34 +1400,34 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   %409 = xor i64 %408, %404
   %410 = mul i64 %409, 2654435761
   store i64 %410, ptr %403, align 8
-  %411 = add nuw nsw i64 %.0360429, 1
-  %exitcond445.not = icmp eq i64 %411, 8
-  br i1 %exitcond445.not, label %412, label %.preheader, !llvm.loop !12
+  %411 = add nuw nsw i64 %.0360430, 1
+  %exitcond446.not = icmp eq i64 %411, 8
+  br i1 %exitcond446.not, label %412, label %.preheader, !llvm.loop !12
 
 412:                                              ; preds = %.preheader
-  %413 = add nuw nsw i64 %.0363430, 1
-  %exitcond446.not = icmp eq i64 %413, %377
-  br i1 %exitcond446.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  %413 = add nuw nsw i64 %.0363431, 1
+  %exitcond447.not = icmp eq i64 %413, %377
+  br i1 %exitcond447.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %412, %375
   %414 = and i64 %376, -1024
   %415 = lshr i64 %376, 6
   %416 = and i64 %415, 15
   %417 = getelementptr inbounds i8, ptr %0, i64 %414
-  %.not438 = icmp eq i64 %416, 0
-  br i1 %.not438, label %._crit_edge435, label %.lr.ph434
+  %.not439 = icmp eq i64 %416, 0
+  br i1 %.not439, label %._crit_edge436, label %.lr.ph435
 
-.lr.ph434:                                        ; preds = %._crit_edge, %438
-  %.0361432 = phi i64 [ %439, %438 ], [ 0, %._crit_edge ]
-  %418 = shl nuw i64 %.0361432, 6
+.lr.ph435:                                        ; preds = %._crit_edge, %438
+  %.0361433 = phi i64 [ %439, %438 ], [ 0, %._crit_edge ]
+  %418 = shl nuw i64 %.0361433, 6
   %419 = getelementptr inbounds i8, ptr %417, i64 %418
-  %420 = shl nuw nsw i64 %.0361432, 3
+  %420 = shl nuw nsw i64 %.0361433, 3
   %421 = getelementptr inbounds i8, ptr @_ZL7kSecret, i64 %420
   br label %422
 
-422:                                              ; preds = %.lr.ph434, %422
-  %.0359431 = phi i64 [ 0, %.lr.ph434 ], [ %437, %422 ]
-  %423 = shl nuw nsw i64 %.0359431, 3
+422:                                              ; preds = %.lr.ph435, %422
+  %.0359432 = phi i64 [ 0, %.lr.ph435 ], [ %437, %422 ]
+  %423 = shl nuw nsw i64 %.0359432, 3
   %424 = getelementptr inbounds i8, ptr %419, i64 %423
   call void @llvm.assume(i1 true) [ "align"(ptr %424, i64 1) ]
   %.0.copyload.i.i.i.i.i.i408 = load i64, ptr %424, align 1
@@ -1435,7 +1435,7 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   call void @llvm.assume(i1 true) [ "align"(ptr %425, i64 1) ]
   %.0.copyload.i.i.i.i.i.i409 = load i64, ptr %425, align 8
   %426 = xor i64 %.0.copyload.i.i.i.i.i.i409, %.0.copyload.i.i.i.i.i.i408
-  %427 = xor i64 %.0359431, 1
+  %427 = xor i64 %.0359432, 1
   %428 = getelementptr inbounds i64, ptr %3, i64 %427
   %429 = load i64, ptr %428, align 8
   %430 = add i64 %429, %.0.copyload.i.i.i.i.i.i408
@@ -1443,27 +1443,27 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   %431 = and i64 %426, 4294967295
   %432 = lshr i64 %426, 32
   %433 = mul nuw i64 %431, %432
-  %434 = getelementptr inbounds i64, ptr %3, i64 %.0359431
+  %434 = getelementptr inbounds i64, ptr %3, i64 %.0359432
   %435 = load i64, ptr %434, align 8
   %436 = add i64 %435, %433
   store i64 %436, ptr %434, align 8
-  %437 = add nuw nsw i64 %.0359431, 1
-  %exitcond447.not = icmp eq i64 %437, 8
-  br i1 %exitcond447.not, label %438, label %422, !llvm.loop !10
+  %437 = add nuw nsw i64 %.0359432, 1
+  %exitcond448.not = icmp eq i64 %437, 8
+  br i1 %exitcond448.not, label %438, label %422, !llvm.loop !10
 
 438:                                              ; preds = %422
-  %439 = add nuw nsw i64 %.0361432, 1
-  %exitcond448.not = icmp eq i64 %439, %416
-  br i1 %exitcond448.not, label %._crit_edge435, label %.lr.ph434, !llvm.loop !11
+  %439 = add nuw nsw i64 %.0361433, 1
+  %exitcond449.not = icmp eq i64 %439, %416
+  br i1 %exitcond449.not, label %._crit_edge436, label %.lr.ph435, !llvm.loop !11
 
-._crit_edge435:                                   ; preds = %438, %._crit_edge
+._crit_edge436:                                   ; preds = %438, %._crit_edge
   %440 = getelementptr inbounds i8, ptr %0, i64 %1
   %441 = getelementptr inbounds i8, ptr %440, i64 -64
   br label %442
 
-442:                                              ; preds = %._crit_edge435, %442
-  %.0436 = phi i64 [ 0, %._crit_edge435 ], [ %457, %442 ]
-  %443 = shl nuw nsw i64 %.0436, 3
+442:                                              ; preds = %._crit_edge436, %442
+  %.0437 = phi i64 [ 0, %._crit_edge436 ], [ %457, %442 ]
+  %443 = shl nuw nsw i64 %.0437, 3
   %444 = getelementptr inbounds i8, ptr %441, i64 %443
   call void @llvm.assume(i1 true) [ "align"(ptr %444, i64 1) ]
   %.0.copyload.i.i.i.i.i.i410 = load i64, ptr %444, align 1
@@ -1471,7 +1471,7 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   call void @llvm.assume(i1 true) [ "align"(ptr %445, i64 1) ]
   %.0.copyload.i.i.i.i.i.i411 = load i64, ptr %445, align 1
   %446 = xor i64 %.0.copyload.i.i.i.i.i.i411, %.0.copyload.i.i.i.i.i.i410
-  %447 = xor i64 %.0436, 1
+  %447 = xor i64 %.0437, 1
   %448 = getelementptr inbounds i64, ptr %3, i64 %447
   %449 = load i64, ptr %448, align 8
   %450 = add i64 %449, %.0.copyload.i.i.i.i.i.i410
@@ -1479,13 +1479,13 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   %451 = and i64 %446, 4294967295
   %452 = lshr i64 %446, 32
   %453 = mul nuw i64 %451, %452
-  %454 = getelementptr inbounds i64, ptr %3, i64 %.0436
+  %454 = getelementptr inbounds i64, ptr %3, i64 %.0437
   %455 = load i64, ptr %454, align 8
   %456 = add i64 %455, %453
   store i64 %456, ptr %454, align 8
-  %457 = add nuw nsw i64 %.0436, 1
-  %exitcond449.not = icmp eq i64 %457, 8
-  br i1 %exitcond449.not, label %458, label %442, !llvm.loop !10
+  %457 = add nuw nsw i64 %.0437, 1
+  %exitcond450.not = icmp eq i64 %457, 8
+  br i1 %exitcond450.not, label %458, label %442, !llvm.loop !10
 
 458:                                              ; preds = %442
   %459 = mul i64 %1, -7046029288634856825
@@ -1564,11 +1564,11 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit421:               ; preds = %481
   br label %502
 
 502:                                              ; preds = %7, %46, %77, %113, %_ZL14XXH3_mergeAccsPKmPKhm.exit421, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit, %206
-  %.sroa.5.0 = phi i64 [ %249, %206 ], [ %374, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit ], [ %501, %_ZL14XXH3_mergeAccsPKmPKhm.exit421 ], [ %43, %7 ], [ %75, %46 ], [ %112, %77 ], [ -7374073936536430376, %113 ]
-  %.sroa.0.0 = phi i64 [ %243, %206 ], [ %368, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit ], [ %496, %_ZL14XXH3_mergeAccsPKmPKhm.exit421 ], [ %38, %7 ], [ %70, %46 ], [ %106, %77 ], [ 6918025063187695999, %113 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %.sroa.035.0.pn = phi i64 [ %243, %206 ], [ %368, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit ], [ %496, %_ZL14XXH3_mergeAccsPKmPKhm.exit421 ], [ %38, %7 ], [ %70, %46 ], [ %106, %77 ], [ 6918025063187695999, %113 ]
+  %.sroa.536.0.pn = phi i64 [ %249, %206 ], [ %374, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit ], [ %501, %_ZL14XXH3_mergeAccsPKmPKhm.exit421 ], [ %43, %7 ], [ %75, %46 ], [ %112, %77 ], [ -7374073936536430376, %113 ]
+  %.pn = insertvalue { i64, i64 } poison, i64 %.sroa.035.0.pn, 0
+  %.fca.1.insert.merged = insertvalue { i64, i64 } %.pn, i64 %.sroa.536.0.pn, 1
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

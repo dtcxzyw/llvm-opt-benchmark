@@ -524,12 +524,12 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview25ContinuationRecordBuilder19cre
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %4
-  %.sroa.015.0.extract.trunc = trunc i40 %3 to i32
-  %.sroa.0.0.idx.i = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 8)
-  %.sroa.0.0.i = getelementptr inbounds i8, ptr %10, i64 %.sroa.0.0.idx.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 4
+  %.sroa.013.0.extract.trunc = trunc i40 %3 to i32
+  %.sroa.0.0.copyload.pn.idx.i = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 8)
+  %.sroa.0.0.copyload.pn.i = getelementptr inbounds i8, ptr %10, i64 %.sroa.0.0.copyload.pn.idx.i
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pn.i, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 1) ]
-  store i32 %.sroa.015.0.extract.trunc, ptr %15, align 1
+  store i32 %.sroa.013.0.extract.trunc, ptr %15, align 1
   br label %16
 
 16:                                               ; preds = %14, %4
@@ -625,9 +625,9 @@ _ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE7reserveEm.ex
   br i1 %.not.i731, label %_ZN4llvm8codeview25ContinuationRecordBuilder19createSegmentRecordEjjSt8optionalINS0_9TypeIndexEE.exit, label %44
 
 44:                                               ; preds = %31
-  %.sroa.0.0.idx.i.i = call i64 @llvm.usub.sat.i64(i64 %40, i64 8)
-  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %41, i64 %.sroa.0.0.idx.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 4
+  %.sroa.0.0.copyload.pn.idx.i.i = call i64 @llvm.usub.sat.i64(i64 %40, i64 8)
+  %.sroa.0.0.copyload.pn.i.i = getelementptr inbounds i8, ptr %41, i64 %.sroa.0.0.copyload.pn.idx.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pn.i.i, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
   store i32 %.sroa.018.030, ptr %45, align 1
   br label %_ZN4llvm8codeview25ContinuationRecordBuilder19createSegmentRecordEjjSt8optionalINS0_9TypeIndexEE.exit

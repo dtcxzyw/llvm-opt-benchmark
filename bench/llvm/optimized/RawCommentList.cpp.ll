@@ -1970,8 +1970,8 @@ _ZNK5clang10RawComment14getRawTextSlowERKNS_13SourceManagerE.exit.i: ; preds = %
   br label %_ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit
 
 _ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit: ; preds = %12, %_ZNK5clang10RawComment14getRawTextSlowERKNS_13SourceManagerE.exit.i
-  %.sroa.3.0.i = phi i64 [ %.sroa.3.0.copyload.i, %12 ], [ %.sroa.6.0.i.i, %_ZNK5clang10RawComment14getRawTextSlowERKNS_13SourceManagerE.exit.i ]
-  %30 = icmp eq i64 %.sroa.3.0.i, 0
+  %.sroa.3.0.copyload.pn.i = phi i64 [ %.sroa.3.0.copyload.i, %12 ], [ %.sroa.6.0.i.i, %_ZNK5clang10RawComment14getRawTextSlowERKNS_13SourceManagerE.exit.i ]
+  %30 = icmp eq i64 %.sroa.3.0.copyload.pn.i, 0
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %_ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit
@@ -2118,9 +2118,9 @@ _ZNK5clang10RawComment14getRawTextSlowERKNS_13SourceManagerE.exit.i: ; preds = %
   br label %_ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit
 
 _ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit: ; preds = %16, %_ZNK5clang10RawComment14getRawTextSlowERKNS_13SourceManagerE.exit.i
-  %.sroa.02.0.i = phi ptr [ %.sroa.02.0.copyload.i, %16 ], [ %.sroa.017.0.i.i, %_ZNK5clang10RawComment14getRawTextSlowERKNS_13SourceManagerE.exit.i ]
-  %.sroa.3.0.i = phi i64 [ %.sroa.3.0.copyload.i, %16 ], [ %.sroa.6.0.i.i, %_ZNK5clang10RawComment14getRawTextSlowERKNS_13SourceManagerE.exit.i ]
-  %35 = icmp eq i64 %.sroa.3.0.i, 0
+  %.sroa.02.0.copyload.pn.i = phi ptr [ %.sroa.02.0.copyload.i, %16 ], [ %.sroa.017.0.i.i, %_ZNK5clang10RawComment14getRawTextSlowERKNS_13SourceManagerE.exit.i ]
+  %.sroa.3.0.copyload.pn.i = phi i64 [ %.sroa.3.0.copyload.i, %16 ], [ %.sroa.6.0.i.i, %_ZNK5clang10RawComment14getRawTextSlowERKNS_13SourceManagerE.exit.i ]
+  %35 = icmp eq i64 %.sroa.3.0.copyload.pn.i, 0
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %_ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit
@@ -2142,8 +2142,8 @@ _ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit: ; preds = %16, %_
   call void @_ZN5clang8comments13CommandTraitsC1ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERKNS_14CommentOptionsE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(25) %7) #17
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
-  %43 = getelementptr inbounds i8, ptr %.sroa.02.0.i, i64 %.sroa.3.0.i
-  call void @_ZN5clang8comments5LexerC1ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERNS_17DiagnosticsEngineERKNS0_13CommandTraitsENS_14SourceLocationEPKcSE_b(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(1304) %3, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 %.sroa.0.0.extract.trunc, ptr noundef %.sroa.02.0.i, ptr noundef nonnull %43, i1 noundef zeroext false) #17
+  %43 = getelementptr inbounds i8, ptr %.sroa.02.0.copyload.pn.i, i64 %.sroa.3.0.copyload.pn.i
+  call void @_ZN5clang8comments5LexerC1ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERNS_17DiagnosticsEngineERKNS0_13CommandTraitsENS_14SourceLocationEPKcSE_b(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(1304) %3, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 %.sroa.0.0.extract.trunc, ptr noundef %.sroa.02.0.copyload.pn.i, ptr noundef nonnull %43, i1 noundef zeroext false) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 4

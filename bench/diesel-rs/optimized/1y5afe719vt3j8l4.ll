@@ -377,37 +377,37 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br i1 %8, label %"_ZN88_$LT$diesel..pg..metadata_lookup..PgMetadataCacheKey$u20$as$u20$core..cmp..PartialEq$GT$2eq17h21bc92d20418f36bE.llvm.14353223230655729770.exit", label %13
 
 11:                                               ; preds = %13
-  %.sroa.0.0.in.i9.i = getelementptr inbounds i8, ptr %1, i64 32
-  %.sroa.0.0.i10.i = load ptr, ptr %.sroa.0.0.in.i9.i, align 8, !alias.scope !73, !noalias !67, !nonnull !10, !noundef !10
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !76, !noalias !70, !nonnull !10, !noundef !10
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i10.i, i64 %.sroa.5.0.i.i), !alias.scope !79, !noalias !83
+  %.pn3.in.i11.i = getelementptr inbounds i8, ptr %1, i64 32
+  %.pn3.i12.i = load ptr, ptr %.pn3.in.i11.i, align 8, !alias.scope !73, !noalias !67, !nonnull !10, !noundef !10
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !76, !noalias !70, !nonnull !10, !noundef !10
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i.i, ptr nonnull readonly align 1 %.pn3.i12.i, i64 %.pn1.i.i), !alias.scope !79, !noalias !83
   %12 = icmp eq i32 %bcmp.i.i, 0
   br i1 %12, label %14, label %"_ZN88_$LT$diesel..pg..metadata_lookup..PgMetadataCacheKey$u20$as$u20$core..cmp..PartialEq$GT$2eq17h21bc92d20418f36bE.llvm.14353223230655729770.exit"
 
 13:                                               ; preds = %10
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !76, !noalias !70, !noundef !10
-  %.sroa.5.0.in.i11.i = getelementptr inbounds i8, ptr %1, i64 40
-  %.sroa.5.0.i12.i = load i64, ptr %.sroa.5.0.in.i11.i, align 8, !alias.scope !73, !noalias !67, !noundef !10
-  %.not.i.i = icmp eq i64 %.sroa.5.0.i.i, %.sroa.5.0.i12.i
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !76, !noalias !70, !noundef !10
+  %.pn1.in.i9.i = getelementptr inbounds i8, ptr %1, i64 40
+  %.pn1.i10.i = load i64, ptr %.pn1.in.i9.i, align 8, !alias.scope !73, !noalias !67, !noundef !10
+  %.not.i.i = icmp eq i64 %.pn1.i.i, %.pn1.i10.i
   br i1 %.not.i.i, label %11, label %"_ZN88_$LT$diesel..pg..metadata_lookup..PgMetadataCacheKey$u20$as$u20$core..cmp..PartialEq$GT$2eq17h21bc92d20418f36bE.llvm.14353223230655729770.exit"
 
 14:                                               ; preds = %11, %9
-  %.sroa.5.0.in.i15.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i16.i = load i64, ptr %.sroa.5.0.in.i15.i, align 8, !alias.scope !84, !noalias !70, !noundef !10
-  %.sroa.5.0.in.i19.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i20.i = load i64, ptr %.sroa.5.0.in.i19.i, align 8, !alias.scope !87, !noalias !67, !noundef !10
-  %.not.i21.i = icmp eq i64 %.sroa.5.0.i16.i, %.sroa.5.0.i20.i
-  br i1 %.not.i21.i, label %15, label %"_ZN88_$LT$diesel..pg..metadata_lookup..PgMetadataCacheKey$u20$as$u20$core..cmp..PartialEq$GT$2eq17h21bc92d20418f36bE.llvm.14353223230655729770.exit"
+  %.pn1.in.i15.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i16.i = load i64, ptr %.pn1.in.i15.i, align 8, !alias.scope !84, !noalias !70, !noundef !10
+  %.pn1.in.i21.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i22.i = load i64, ptr %.pn1.in.i21.i, align 8, !alias.scope !87, !noalias !67, !noundef !10
+  %.not.i27.i = icmp eq i64 %.pn1.i16.i, %.pn1.i22.i
+  br i1 %.not.i27.i, label %15, label %"_ZN88_$LT$diesel..pg..metadata_lookup..PgMetadataCacheKey$u20$as$u20$core..cmp..PartialEq$GT$2eq17h21bc92d20418f36bE.llvm.14353223230655729770.exit"
 
 15:                                               ; preds = %14
-  %.sroa.0.0.in.i17.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i18.i = load ptr, ptr %.sroa.0.0.in.i17.i, align 8, !alias.scope !87, !noalias !67, !nonnull !10, !noundef !10
-  %.sroa.0.0.in.i13.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i14.i = load ptr, ptr %.sroa.0.0.in.i13.i, align 8, !alias.scope !84, !noalias !70, !nonnull !10, !noundef !10
-  %bcmp.i23.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i14.i, ptr nonnull readonly align 1 %.sroa.0.0.i18.i, i64 %.sroa.5.0.i16.i), !alias.scope !90, !noalias !83
-  %16 = icmp eq i32 %bcmp.i23.i, 0
+  %.pn3.in.i23.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i24.i = load ptr, ptr %.pn3.in.i23.i, align 8, !alias.scope !87, !noalias !67, !nonnull !10, !noundef !10
+  %.pn3.in.i17.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i18.i = load ptr, ptr %.pn3.in.i17.i, align 8, !alias.scope !84, !noalias !70, !nonnull !10, !noundef !10
+  %bcmp.i29.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i18.i, ptr nonnull readonly align 1 %.pn3.i24.i, i64 %.pn1.i16.i), !alias.scope !90, !noalias !83
+  %16 = icmp eq i32 %bcmp.i29.i, 0
   br label %"_ZN88_$LT$diesel..pg..metadata_lookup..PgMetadataCacheKey$u20$as$u20$core..cmp..PartialEq$GT$2eq17h21bc92d20418f36bE.llvm.14353223230655729770.exit"
 
 "_ZN88_$LT$diesel..pg..metadata_lookup..PgMetadataCacheKey$u20$as$u20$core..cmp..PartialEq$GT$2eq17h21bc92d20418f36bE.llvm.14353223230655729770.exit": ; preds = %9, %10, %11, %13, %14, %15
@@ -557,13 +557,13 @@ define hidden void @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN6diesel10type_impls10primitives104_$LT$impl$u20$diesel..expression..AsExpression$LT$ST$GT$$u20$for$u20$$RF$alloc..borrow..Cow$LT$T$GT$$GT$13as_expression17h74981a470c53b7dfE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #9 {
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !106, !nonnull !10, !noundef !10
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !106, !noundef !10
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %3
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !106, !noundef !10
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !106, !nonnull !10, !noundef !10
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn1.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -935,15 +935,15 @@ define hidden void @_ZN6diesel2pg15metadata_lookup11lookup_type17h51636844cfc394
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8, !range !72, !alias.scope !169, !noundef !10
   %13 = icmp eq i64 %12, -9223372036854775807
-  %.sroa.0.0.in.i.i.i53 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.5.0.in.i.i.i55 = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.in.i.i.i53 = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn3.in.i.i.i55 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %13, label %27, label %14
 
 14:                                               ; preds = %3
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 40
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !169
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 32
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !169, !nonnull !10
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !169, !nonnull !10
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %1, i64 40
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !169
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   tail call void @"_ZN6diesel2pg15metadata_lookup165_$LT$impl$u20$diesel..query_source..joins..JoinTo$LT$diesel..pg..metadata_lookup..pg_namespace..table$GT$$u20$for$u20$diesel..pg..metadata_lookup..pg_type..table$GT$11join_target17h9fa44ad93b865134E"()
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
@@ -952,9 +952,9 @@ define hidden void @_ZN6diesel2pg15metadata_lookup11lookup_type17h51636844cfc394
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @"_ZN102_$LT$diesel..pg..metadata_lookup..pg_namespace..table$u20$as$u20$diesel..query_source..QuerySource$GT$11from_clause17h0c6d280d04557fddE"(ptr noalias noundef nonnull readonly align 1 %4)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i53, align 8, !alias.scope !172, !nonnull !10, !noundef !10
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i55, align 8, !alias.scope !172, !noundef !10
-  %15 = call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i)
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i53, align 8, !alias.scope !172, !noundef !10
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i55, align 8, !alias.scope !172, !nonnull !10, !noundef !10
+  %15 = call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i)
   %16 = extractvalue { ptr, i64 } %15, 0
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
@@ -963,9 +963,9 @@ define hidden void @_ZN6diesel2pg15metadata_lookup11lookup_type17h51636844cfc394
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
   call void @llvm.experimental.noalias.scope.decl(metadata !182)
   %19 = call noundef i64 @"_ZN6diesel10type_impls10primitives13foreign_impls1_99_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..BigInt$GT$$u20$for$u20$i64$GT$13as_expression17h319f5a958ddd30bfE"(i64 noundef 1), !noalias !184
-  store ptr %.sroa.0.0.i.i.i, ptr %6, align 8, !alias.scope !184
+  store ptr %.pn3.i.i.i, ptr %6, align 8, !alias.scope !184
   %.sroa.457.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.sroa.5.0.i.i.i, ptr %.sroa.457.0..sroa_idx, align 8, !alias.scope !184
+  store i64 %.pn1.i.i.i, ptr %.sroa.457.0..sroa_idx, align 8, !alias.scope !184
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %16, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !184
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
@@ -995,17 +995,17 @@ define hidden void @_ZN6diesel2pg15metadata_lookup11lookup_type17h51636844cfc394
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %.sroa.0.0.i.i.i54 = load ptr, ptr %.sroa.0.0.in.i.i.i53, align 8, !alias.scope !196, !noalias !201, !nonnull !10, !noundef !10
-  %.sroa.5.0.i.i.i56 = load i64, ptr %.sroa.5.0.in.i.i.i55, align 8, !alias.scope !196, !noalias !201, !noundef !10
+  %.pn1.i.i.i54 = load i64, ptr %.pn1.in.i.i.i53, align 8, !alias.scope !196, !noalias !201, !noundef !10
+  %.pn3.i.i.i56 = load ptr, ptr %.pn3.in.i.i.i55, align 8, !alias.scope !196, !noalias !201, !nonnull !10, !noundef !10
   store i64 %29, ptr %7, align 8, !alias.scope !201, !noalias !194
   %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %30, ptr %.sroa.063.sroa.4.0..sroa_idx, align 8, !alias.scope !201, !noalias !194
   %.sroa.063.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   store i64 12, ptr %.sroa.063.sroa.5.0..sroa_idx, align 8, !alias.scope !201, !noalias !194
   %32 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr %.sroa.0.0.i.i.i54, ptr %32, align 8, !alias.scope !189, !noalias !202
+  store ptr %.pn3.i.i.i56, ptr %32, align 8, !alias.scope !189, !noalias !202
   %33 = getelementptr inbounds i8, ptr %7, i64 32
-  store i64 %.sroa.5.0.i.i.i56, ptr %33, align 8, !alias.scope !189, !noalias !202
+  store i64 %.pn1.i.i.i54, ptr %33, align 8, !alias.scope !189, !noalias !202
   %34 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb3d33828d4e4f39aE"(i64 noundef 15, i1 noundef zeroext false)
           to label %"_ZN6diesel10expression11sql_literal34UncheckedBind$LT$Query$C$Value$GT$3sql17h9a6374c15350904bE.exit" unwind label %35, !noalias !203
 
@@ -1135,13 +1135,13 @@ define hidden void @_ZN6diesel2pg15metadata_lookup15PgMetadataCache10store_type1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7d8fb90424c92271E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #9 {
-  %.sroa.0.0.in = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !10, !noundef !10
-  %.sroa.5.0.in = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8, !noundef !10
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %3
+  %.pn1.in = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1 = load i64, ptr %.pn1.in, align 8, !noundef !10
+  %.pn3.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3 = load ptr, ptr %.pn3.in, align 8, !nonnull !10, !noundef !10
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn3, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1314,37 +1314,37 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$diesel..pg..metadata_lookup..PgMeta
   br i1 %8, label %.critedge, label %13
 
 11:                                               ; preds = %13
-  %.sroa.0.0.in.i9 = getelementptr inbounds i8, ptr %1, i64 32
-  %.sroa.0.0.i10 = load ptr, ptr %.sroa.0.0.in.i9, align 8, !alias.scope !251, !nonnull !10, !noundef !10
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !254, !nonnull !10, !noundef !10
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %.sroa.0.0.i10, i64 %.sroa.5.0.i), !alias.scope !257
+  %.pn3.in.i11 = getelementptr inbounds i8, ptr %1, i64 32
+  %.pn3.i12 = load ptr, ptr %.pn3.in.i11, align 8, !alias.scope !251, !nonnull !10, !noundef !10
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !254, !nonnull !10, !noundef !10
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i, ptr nonnull readonly align 1 %.pn3.i12, i64 %.pn1.i), !alias.scope !257
   %12 = icmp eq i32 %bcmp.i, 0
   br i1 %12, label %14, label %.critedge
 
 13:                                               ; preds = %10
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !254, !noundef !10
-  %.sroa.5.0.in.i11 = getelementptr inbounds i8, ptr %1, i64 40
-  %.sroa.5.0.i12 = load i64, ptr %.sroa.5.0.in.i11, align 8, !alias.scope !251, !noundef !10
-  %.not.i = icmp eq i64 %.sroa.5.0.i, %.sroa.5.0.i12
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !254, !noundef !10
+  %.pn1.in.i9 = getelementptr inbounds i8, ptr %1, i64 40
+  %.pn1.i10 = load i64, ptr %.pn1.in.i9, align 8, !alias.scope !251, !noundef !10
+  %.not.i = icmp eq i64 %.pn1.i, %.pn1.i10
   br i1 %.not.i, label %11, label %.critedge
 
 14:                                               ; preds = %9, %11
-  %.sroa.5.0.in.i15 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i16 = load i64, ptr %.sroa.5.0.in.i15, align 8, !alias.scope !261, !noundef !10
-  %.sroa.5.0.in.i19 = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i20 = load i64, ptr %.sroa.5.0.in.i19, align 8, !alias.scope !264, !noundef !10
-  %.not.i21 = icmp eq i64 %.sroa.5.0.i16, %.sroa.5.0.i20
-  br i1 %.not.i21, label %15, label %.critedge
+  %.pn1.in.i15 = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i16 = load i64, ptr %.pn1.in.i15, align 8, !alias.scope !261, !noundef !10
+  %.pn1.in.i21 = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i22 = load i64, ptr %.pn1.in.i21, align 8, !alias.scope !264, !noundef !10
+  %.not.i27 = icmp eq i64 %.pn1.i16, %.pn1.i22
+  br i1 %.not.i27, label %15, label %.critedge
 
 15:                                               ; preds = %14
-  %.sroa.0.0.in.i17 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i18 = load ptr, ptr %.sroa.0.0.in.i17, align 8, !alias.scope !264, !nonnull !10, !noundef !10
-  %.sroa.0.0.in.i13 = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i14 = load ptr, ptr %.sroa.0.0.in.i13, align 8, !alias.scope !261, !nonnull !10, !noundef !10
-  %bcmp.i23 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i14, ptr nonnull readonly align 1 %.sroa.0.0.i18, i64 %.sroa.5.0.i16), !alias.scope !267
-  %16 = icmp eq i32 %bcmp.i23, 0
+  %.pn3.in.i23 = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i24 = load ptr, ptr %.pn3.in.i23, align 8, !alias.scope !264, !nonnull !10, !noundef !10
+  %.pn3.in.i17 = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i18 = load ptr, ptr %.pn3.in.i17, align 8, !alias.scope !261, !nonnull !10, !noundef !10
+  %bcmp.i29 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i18, ptr nonnull readonly align 1 %.pn3.i24, i64 %.pn1.i16), !alias.scope !267
+  %16 = icmp eq i32 %bcmp.i29, 0
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %14, %13, %9, %11, %10

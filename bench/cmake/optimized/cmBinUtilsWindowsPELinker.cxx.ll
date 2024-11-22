@@ -960,10 +960,10 @@ define dso_local noundef zeroext i1 @_ZN25cmBinUtilsWindowsPELinker17ResolveDepe
   %21 = getelementptr inbounds i8, ptr %7, i64 8
   %22 = getelementptr inbounds i8, ptr %7, i64 24
   %23 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %6, i64 32
   %24 = getelementptr inbounds i8, ptr %6, i64 40
   %25 = getelementptr inbounds i8, ptr %6, i64 48
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %6, i64 56
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %6, i64 56
   %26 = getelementptr inbounds i8, ptr %6, i64 64
   br label %29
 
@@ -987,13 +987,13 @@ define dso_local noundef zeroext i1 @_ZN25cmBinUtilsWindowsPELinker17ResolveDepe
   store ptr %22, ptr %23, align 8, !noalias !15
   store i8 47, ptr %22, align 8, !noalias !15
   store i64 1, ptr %20, align 8, !alias.scope !21, !noalias !15
-  store ptr %22, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !21, !noalias !15
+  store ptr %22, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !21, !noalias !15
   store ptr null, ptr %24, align 8, !alias.scope !21, !noalias !15
   %33 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14, !noalias !15
   %34 = extractvalue { i64, ptr } %33, 0
   %35 = extractvalue { i64, ptr } %33, 1
   store i64 %34, ptr %25, align 8, !alias.scope !24, !noalias !15
-  store ptr %35, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !24, !noalias !15
+  store ptr %35, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !24, !noalias !15
   store ptr null, ptr %26, align 8, !alias.scope !24, !noalias !15
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr nonnull %6, i64 3)
           to label %36 unwind label %.loopexit

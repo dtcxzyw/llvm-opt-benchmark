@@ -145586,10 +145586,10 @@ default.unreachable119:                           ; preds = %3
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he9051d552d6da052E.llvm.10723454985916948783.exit"
 
 32:                                               ; preds = %17
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %1, i64 72
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !40721, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %1, i64 80
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !40721, !noundef !4
+  %.pn1.in.i = getelementptr inbounds i8, ptr %1, i64 80
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !40721, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %1, i64 72
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !40721, !nonnull !4, !noundef !4
   %33 = getelementptr inbounds i8, ptr %1, i64 24
   %.val23 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
   %34 = getelementptr i8, ptr %1, i64 32
@@ -145602,7 +145602,7 @@ default.unreachable119:                           ; preds = %3
   %40 = getelementptr i8, ptr %39, i64 16
   %41 = getelementptr inbounds i8, ptr %.val24, i64 192
   %42 = load ptr, ptr %41, align 8, !invariant.load !4, !nonnull !4
-  %43 = invoke { ptr, ptr } %42(ptr noundef align 1 %40, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %43 = invoke { ptr, ptr } %42(ptr noundef align 1 %40, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %46 unwind label %44
 
 44:                                               ; preds = %32

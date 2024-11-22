@@ -147,14 +147,11 @@ _ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit: ;
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef nonnull align 8 dereferenceable(152) ptr %24(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   %26 = tail call { ptr, i8 } @_ZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderE(ptr noundef nonnull align 8 dereferenceable(152) %25, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(412) %2) #13
-  %.fca.1.extract = extractvalue { ptr, i8 } %26, 1
   br label %27
 
 27:                                               ; preds = %20, %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit
-  %.pn = phi { ptr, i8 } [ %26, %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit ], [ %21, %20 ]
-  %.sroa.315.0 = phi i8 [ %.fca.1.extract, %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit ], [ %.fca.1.extract2, %20 ]
-  %.fca.1.insert = insertvalue { ptr, i8 } %.pn, i8 %.sroa.315.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %26, %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit ], [ %21, %20 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 declare noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext) local_unnamed_addr #1
@@ -426,6 +423,8 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %17
 _ZNK5clang17ConstantArrayType7getSizeEv.exit:     ; preds = %30, %32, %40, %48
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueERKN4llvm5APIntEb(ptr noundef nonnull align 8 dereferenceable(144) %49, ptr noundef nonnull align 8 dereferenceable(12) %3, i1 noundef zeroext false) #13
+  %.fca.0.insert.i = insertvalue { ptr, i8 } poison, ptr %50, 0
+  %.fca.1.insert.i = insertvalue { ptr, i8 } %.fca.0.insert.i, i8 6, 1
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = icmp ugt i32 %52, 64
@@ -441,11 +440,8 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit:     ; preds = %30, %32, %40, %48
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %9, %17, %57, %54, %_ZNK5clang17ConstantArrayType7getSizeEv.exit, %2
-  %.sroa.011.0 = phi ptr [ null, %2 ], [ %50, %_ZNK5clang17ConstantArrayType7getSizeEv.exit ], [ %50, %54 ], [ %50, %57 ], [ null, %17 ], [ null, %9 ]
-  %.sroa.4.0 = phi i8 [ 1, %2 ], [ 6, %_ZNK5clang17ConstantArrayType7getSizeEv.exit ], [ 6, %54 ], [ 6, %57 ], [ 1, %17 ], [ 1, %9 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.011.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i8 } [ { ptr null, i8 1 }, %2 ], [ %.fca.1.insert.i, %_ZNK5clang17ConstantArrayType7getSizeEv.exit ], [ %.fca.1.insert.i, %54 ], [ %.fca.1.insert.i, %57 ], [ { ptr null, i8 1 }, %17 ], [ { ptr null, i8 1 }, %9 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -522,8 +518,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit37: ; pre
   store i8 6, ptr %.sroa.215.0..sroa_idx, align 8
   %.sroa.0.0.copyload.i38 = load i64, ptr %31, align 8
   %39 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder9evalBinOpEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS_18BinaryOperatorKindENS0_4SValES8_NS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(412) %13, ptr noundef nonnull %6, i32 noundef 6, ptr %.fca.0.extract447, i8 %.fca.1.extract548, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %7, i64 %.sroa.0.0.copyload.i38) #13
-  %.fca.0.extract = extractvalue { ptr, i8 } %39, 0
-  %.fca.1.extract = extractvalue { ptr, i8 } %39, 1
   %40 = load ptr, ptr %6, align 8
   %.not.i.i39 = icmp eq ptr %40, null
   br i1 %.not.i.i39, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40, label %41
@@ -533,11 +527,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit37: ; pre
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40: ; preds = %41, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit37, %15, %3
-  %.sroa.026.0 = phi ptr [ null, %3 ], [ null, %15 ], [ %.fca.0.extract, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit37 ], [ %.fca.0.extract, %41 ]
-  %.sroa.5.0 = phi i8 [ 1, %3 ], [ 1, %15 ], [ %.fca.1.extract, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit37 ], [ %.fca.1.extract, %41 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.026.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i8 } [ { ptr null, i8 1 }, %3 ], [ { ptr null, i8 1 }, %15 ], [ %39, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit37 ], [ %39, %41 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 declare noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #1
@@ -613,8 +604,6 @@ _ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE.exit: ; preds 
 
 37:                                               ; preds = %_ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE.exit
   %38 = call fastcc { ptr, i8 } @_ZN5clang4entoL28getConstantArrayElementCountERNS0_11SValBuilderEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(412) %17, ptr noundef %11)
-  %.fca.0.extract12 = extractvalue { ptr, i8 } %38, 0
-  %.fca.1.extract13 = extractvalue { ptr, i8 } %38, 1
   br label %53
 
 39:                                               ; preds = %_ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE.exit
@@ -673,6 +662,8 @@ _ZN5clang4entoL22getDynamicElementCountEN4llvm18IntrusiveRefCntPtrIKNS0_12Progra
   %.fca.0.extract1.i = extractvalue { ptr, i8 } %48, 0
   %.sroa.3.0.i.sroa.speculated.i = call i8 @llvm.umax.i8(i8 %.fca.1.extract2.i, i8 1)
   %.sroa.0.0.i.sroa.speculated.i = select i1 %.not.i.i.i.not.i, ptr null, ptr %.fca.0.extract1.i
+  %.fca.0.insert.i.i29 = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0.i.sroa.speculated.i, 0
+  %.fca.1.insert.i.i30 = insertvalue { ptr, i8 } %.fca.0.insert.i.i29, i8 %.sroa.3.0.i.sroa.speculated.i, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %51 = load ptr, ptr %9, align 8
@@ -688,11 +679,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33: ; preds =
   br label %53
 
 53:                                               ; preds = %4, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33, %37
-  %.sroa.025.0 = phi ptr [ %.fca.0.extract12, %37 ], [ %.sroa.0.0.i.sroa.speculated.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ], [ null, %4 ]
-  %.sroa.4.0 = phi i8 [ %.fca.1.extract13, %37 ], [ %.sroa.3.0.i.sroa.speculated.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ], [ 1, %4 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.025.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %38, %37 ], [ %.fca.1.insert.i.i30, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ], [ { ptr null, i8 1 }, %4 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

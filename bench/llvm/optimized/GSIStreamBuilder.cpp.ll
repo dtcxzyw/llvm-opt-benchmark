@@ -3437,7 +3437,7 @@ define linkonce_odr hidden void @_ZN4llvm16BinaryItemStreamINS_8codeview8CVRecor
   %8 = load ptr, ptr %7, align 8, !noalias !56
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(56) %1) #23, !noalias !56
   %.not.i = icmp ult i64 %2, %9
-  br i1 %.not.i, label %10, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i15
+  br i1 %.not.i, label %10, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3518,13 +3518,13 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZN4llvm5ErrorD2Ev.
   store i64 %3, ptr %.sroa.2.0..sroa_idx, align 8
   br label %_ZN4llvm8ExpectedIjED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i15: ; preds = %5
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i13: ; preds = %5
   %52 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24, !noalias !68
   tail call void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) %52, i32 noundef 1) #23, !noalias !68
   br label %_ZN4llvm8ExpectedIjED2Ev.exit
 
-_ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %_ZN4llvm12BinaryStream18checkOffsetForReadEmm.exit.thread, %_ZN4llvm12ErrorSuccessD2Ev.exit, %50, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i15
-  %.sink = phi ptr [ %46, %_ZN4llvm12BinaryStream18checkOffsetForReadEmm.exit.thread ], [ null, %_ZN4llvm12ErrorSuccessD2Ev.exit ], [ %51, %50 ], [ %52, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i15 ]
+_ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %_ZN4llvm12BinaryStream18checkOffsetForReadEmm.exit.thread, %_ZN4llvm12ErrorSuccessD2Ev.exit, %50, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i13
+  %.sink = phi ptr [ %46, %_ZN4llvm12BinaryStream18checkOffsetForReadEmm.exit.thread ], [ null, %_ZN4llvm12ErrorSuccessD2Ev.exit ], [ %51, %50 ], [ %52, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i13 ]
   store ptr %.sink, ptr %0, align 8
   ret void
 }

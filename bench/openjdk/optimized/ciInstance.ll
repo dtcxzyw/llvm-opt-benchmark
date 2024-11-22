@@ -279,217 +279,212 @@ define hidden { i8, i64 } @_ZN10ciInstance16field_value_implE9BasicTypei(ptr nou
   %4 = tail call { i8, i64 } @_ZN8ciObject26check_constant_value_cacheEi9BasicType(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %2, i8 noundef zeroext %1) #5
   %5 = extractvalue { i8, i64 } %4, 0
   %.not = icmp eq i8 %5, 99
-  br i1 %.not, label %7, label %._crit_edge
+  br i1 %.not, label %6, label %._crit_edge
 
-._crit_edge:                                      ; preds = %3
-  %6 = extractvalue { i8, i64 } %4, 1
-  br label %114
+6:                                                ; preds = %3
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i8, ptr @UseSystemMemoryBarrier, align 1
+  %10 = trunc i8 %9 to i1
+  %11 = getelementptr inbounds i8, ptr %8, i64 1092
+  store volatile i32 6, ptr %11, align 4
+  br i1 %10, label %13, label %12
 
-7:                                                ; preds = %3
-  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i8, ptr @UseSystemMemoryBarrier, align 1
-  %11 = trunc i8 %10 to i1
-  %12 = getelementptr inbounds i8, ptr %9, i64 1092
-  store volatile i32 6, ptr %12, align 4
-  br i1 %11, label %14, label %13
-
-13:                                               ; preds = %7
+12:                                               ; preds = %6
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
-  br label %14
+  br label %13
 
-14:                                               ; preds = %13, %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1096
-  %16 = load volatile i64, ptr %15, align 8
+13:                                               ; preds = %12, %6
+  %14 = getelementptr inbounds i8, ptr %8, i64 1096
+  %15 = load volatile i64, ptr %14, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
-  %17 = and i64 %16, 1
-  %.not.i.i.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %18
+  %16 = and i64 %15, 1
+  %.not.i.i.i.i = icmp eq i64 %16, 0
+  br i1 %.not.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %17
 
-18:                                               ; preds = %14
-  tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext false) #5
+17:                                               ; preds = %13
+  tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext false) #5
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
-_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %18, %14
-  %19 = getelementptr inbounds i8, ptr %9, i64 1088
-  %20 = load volatile i32, ptr %19, align 8
-  %21 = and i32 %20, 12
-  %.not.i.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i.i, label %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, label %22
+_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %17, %13
+  %18 = getelementptr inbounds i8, ptr %8, i64 1088
+  %19 = load volatile i32, ptr %18, align 8
+  %20 = and i32 %19, 12
+  %.not.i.i.i = icmp eq i32 %20, 0
+  br i1 %.not.i.i.i, label %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, label %21
 
-22:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
-  tail call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %9) #5
+21:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
+  tail call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %8) #5
   br label %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
 
-_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %22
-  store volatile i32 6, ptr %12, align 4
-  %23 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #5
-  switch i8 %1, label %91 [
-    i8 8, label %24
-    i8 5, label %31
-    i8 9, label %38
-    i8 4, label %45
-    i8 10, label %52
-    i8 6, label %58
-    i8 7, label %64
-    i8 11, label %70
-    i8 12, label %76
-    i8 13, label %76
+_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %21
+  store volatile i32 6, ptr %11, align 4
+  %22 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #5
+  switch i8 %1, label %90 [
+    i8 8, label %23
+    i8 5, label %30
+    i8 9, label %37
+    i8 4, label %44
+    i8 10, label %51
+    i8 6, label %57
+    i8 7, label %63
+    i8 11, label %69
+    i8 12, label %75
+    i8 13, label %75
   ]
 
-24:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %25 = ptrtoint ptr %23 to i64
-  %26 = sext i32 %2 to i64
-  %27 = add nsw i64 %25, %26
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load i8, ptr %28, align 1
-  %30 = sext i8 %29 to i32
-  br label %94
+23:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sext i32 %2 to i64
+  %26 = add nsw i64 %24, %25
+  %27 = inttoptr i64 %26 to ptr
+  %28 = load i8, ptr %27, align 1
+  %29 = sext i8 %28 to i32
+  br label %93
 
-31:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %32 = ptrtoint ptr %23 to i64
-  %33 = sext i32 %2 to i64
-  %34 = add nsw i64 %32, %33
-  %35 = inttoptr i64 %34 to ptr
-  %36 = load i16, ptr %35, align 2
-  %37 = zext i16 %36 to i32
-  br label %94
+30:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %31 = ptrtoint ptr %22 to i64
+  %32 = sext i32 %2 to i64
+  %33 = add nsw i64 %31, %32
+  %34 = inttoptr i64 %33 to ptr
+  %35 = load i16, ptr %34, align 2
+  %36 = zext i16 %35 to i32
+  br label %93
 
-38:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %39 = ptrtoint ptr %23 to i64
-  %40 = sext i32 %2 to i64
-  %41 = add nsw i64 %39, %40
-  %42 = inttoptr i64 %41 to ptr
-  %43 = load i16, ptr %42, align 2
-  %44 = sext i16 %43 to i32
-  br label %94
+37:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %38 = ptrtoint ptr %22 to i64
+  %39 = sext i32 %2 to i64
+  %40 = add nsw i64 %38, %39
+  %41 = inttoptr i64 %40 to ptr
+  %42 = load i16, ptr %41, align 2
+  %43 = sext i16 %42 to i32
+  br label %93
 
-45:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %46 = ptrtoint ptr %23 to i64
-  %47 = sext i32 %2 to i64
-  %48 = add nsw i64 %46, %47
-  %49 = inttoptr i64 %48 to ptr
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i32
-  br label %94
+44:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %45 = ptrtoint ptr %22 to i64
+  %46 = sext i32 %2 to i64
+  %47 = add nsw i64 %45, %46
+  %48 = inttoptr i64 %47 to ptr
+  %49 = load i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  br label %93
 
-52:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %53 = ptrtoint ptr %23 to i64
-  %54 = sext i32 %2 to i64
-  %55 = add nsw i64 %53, %54
-  %56 = inttoptr i64 %55 to ptr
-  %57 = load i32, ptr %56, align 4
-  br label %94
+51:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %52 = ptrtoint ptr %22 to i64
+  %53 = sext i32 %2 to i64
+  %54 = add nsw i64 %52, %53
+  %55 = inttoptr i64 %54 to ptr
+  %56 = load i32, ptr %55, align 4
+  br label %93
 
-58:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %59 = ptrtoint ptr %23 to i64
-  %60 = sext i32 %2 to i64
-  %61 = add nsw i64 %59, %60
-  %62 = inttoptr i64 %61 to ptr
-  %63 = load i32, ptr %62, align 4
-  br label %94
+57:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %58 = ptrtoint ptr %22 to i64
+  %59 = sext i32 %2 to i64
+  %60 = add nsw i64 %58, %59
+  %61 = inttoptr i64 %60 to ptr
+  %62 = load i32, ptr %61, align 4
+  br label %93
 
-64:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %65 = ptrtoint ptr %23 to i64
-  %66 = sext i32 %2 to i64
-  %67 = add nsw i64 %65, %66
-  %68 = inttoptr i64 %67 to ptr
-  %69 = load i64, ptr %68, align 8
-  %.sroa.24.sroa.0.0.extract.trunc83 = trunc i64 %69 to i32
-  %.sroa.24.sroa.13.0.extract.shift90 = and i64 %69, -4294967296
-  br label %94
+63:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %64 = ptrtoint ptr %22 to i64
+  %65 = sext i32 %2 to i64
+  %66 = add nsw i64 %64, %65
+  %67 = inttoptr i64 %66 to ptr
+  %68 = load i64, ptr %67, align 8
+  %.sroa.24.sroa.0.0.extract.trunc83 = trunc i64 %68 to i32
+  %.sroa.24.sroa.13.0.extract.shift90 = and i64 %68, -4294967296
+  br label %93
 
-70:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %71 = ptrtoint ptr %23 to i64
-  %72 = sext i32 %2 to i64
-  %73 = add nsw i64 %71, %72
-  %74 = inttoptr i64 %73 to ptr
-  %75 = load i64, ptr %74, align 8
-  %.sroa.243.sroa.0.0.extract.trunc = trunc i64 %75 to i32
-  %.sroa.243.sroa.2.0.extract.shift = and i64 %75, -4294967296
-  br label %94
+69:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %70 = ptrtoint ptr %22 to i64
+  %71 = sext i32 %2 to i64
+  %72 = add nsw i64 %70, %71
+  %73 = inttoptr i64 %72 to ptr
+  %74 = load i64, ptr %73, align 8
+  %.sroa.243.sroa.0.0.extract.trunc = trunc i64 %74 to i32
+  %.sroa.243.sroa.2.0.extract.shift = and i64 %74, -4294967296
+  br label %93
 
-76:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %77 = sext i32 %2 to i64
-  %78 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %79 = tail call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %77) #5
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %_ZN5ciEnv10get_objectEP7oopDesc.exit
+75:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %76 = sext i32 %2 to i64
+  %77 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %78 = tail call noundef ptr %77(ptr noundef nonnull align 8 dereferenceable(16) %22, i64 noundef %76) #5
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %_ZN5ciEnv10get_objectEP7oopDesc.exit
 
-81:                                               ; preds = %76
-  %82 = tail call noundef ptr @_ZN12ciNullObject4makeEv() #5
-  %83 = ptrtoint ptr %82 to i64
-  %.sroa.24.sroa.0.0.extract.trunc82 = trunc i64 %83 to i32
-  %.sroa.24.sroa.13.0.extract.shift88 = and i64 %83, -4294967296
-  br label %94
+80:                                               ; preds = %75
+  %81 = tail call noundef ptr @_ZN12ciNullObject4makeEv() #5
+  %82 = ptrtoint ptr %81 to i64
+  %.sroa.24.sroa.0.0.extract.trunc82 = trunc i64 %82 to i32
+  %.sroa.24.sroa.13.0.extract.shift88 = and i64 %82, -4294967296
+  br label %93
 
-_ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %76
-  %84 = load ptr, ptr %8, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1808
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 56
-  %88 = load ptr, ptr %87, align 8
-  %89 = tail call noundef ptr @_ZN15ciObjectFactory3getEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(652) %88, ptr noundef nonnull %79) #5
-  %90 = ptrtoint ptr %89 to i64
-  %.sroa.24.sroa.0.0.extract.trunc = trunc i64 %90 to i32
-  %.sroa.24.sroa.13.0.extract.shift = and i64 %90, -4294967296
-  br label %94
+_ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %75
+  %83 = load ptr, ptr %7, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 1808
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 56
+  %87 = load ptr, ptr %86, align 8
+  %88 = tail call noundef ptr @_ZN15ciObjectFactory3getEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(652) %87, ptr noundef nonnull %78) #5
+  %89 = ptrtoint ptr %88 to i64
+  %.sroa.24.sroa.0.0.extract.trunc = trunc i64 %89 to i32
+  %.sroa.24.sroa.13.0.extract.shift = and i64 %89, -4294967296
+  br label %93
 
-91:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %92 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %92, align 1
-  %93 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %1) #5
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 98, ptr noundef nonnull @.str.4, ptr noundef %93) #6
+90:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %91 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %91, align 1
+  %92 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %1) #5
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 98, ptr noundef nonnull @.str.4, ptr noundef %92) #6
   unreachable
 
-94:                                               ; preds = %81, %_ZN5ciEnv10get_objectEP7oopDesc.exit, %70, %64, %58, %52, %45, %38, %31, %24
-  %.sroa.24.sroa.0.1 = phi i32 [ %.sroa.24.sroa.0.0.extract.trunc82, %81 ], [ %.sroa.24.sroa.0.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.243.sroa.0.0.extract.trunc, %70 ], [ %.sroa.24.sroa.0.0.extract.trunc83, %64 ], [ %63, %58 ], [ %57, %52 ], [ %51, %45 ], [ %44, %38 ], [ %37, %31 ], [ %30, %24 ]
-  %.sroa.24.sroa.13.1 = phi i64 [ %.sroa.24.sroa.13.0.extract.shift88, %81 ], [ %.sroa.24.sroa.13.0.extract.shift, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.243.sroa.2.0.extract.shift, %70 ], [ %.sroa.24.sroa.13.0.extract.shift90, %64 ], [ 0, %58 ], [ 0, %52 ], [ 0, %45 ], [ 0, %38 ], [ 0, %31 ], [ 0, %24 ]
+93:                                               ; preds = %80, %_ZN5ciEnv10get_objectEP7oopDesc.exit, %69, %63, %57, %51, %44, %37, %30, %23
+  %.sroa.24.sroa.0.1 = phi i32 [ %.sroa.24.sroa.0.0.extract.trunc82, %80 ], [ %.sroa.24.sroa.0.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.243.sroa.0.0.extract.trunc, %69 ], [ %.sroa.24.sroa.0.0.extract.trunc83, %63 ], [ %62, %57 ], [ %56, %51 ], [ %50, %44 ], [ %43, %37 ], [ %36, %30 ], [ %29, %23 ]
+  %.sroa.24.sroa.13.1 = phi i64 [ %.sroa.24.sroa.13.0.extract.shift88, %80 ], [ %.sroa.24.sroa.13.0.extract.shift, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.243.sroa.2.0.extract.shift, %69 ], [ %.sroa.24.sroa.13.0.extract.shift90, %63 ], [ 0, %57 ], [ 0, %51 ], [ 0, %44 ], [ 0, %37 ], [ 0, %30 ], [ 0, %23 ]
   %.sroa.24.sroa.0.0.insert.ext = zext i32 %.sroa.24.sroa.0.1 to i64
   %.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %.sroa.24.sroa.13.1, %.sroa.24.sroa.0.0.insert.ext
   tail call void @_ZN8ciObject27add_to_constant_value_cacheEi10ciConstant(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %2, i8 %1, i64 %.sroa.24.sroa.0.0.insert.insert) #5
-  %95 = getelementptr inbounds i8, ptr %9, i64 408
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %94 = getelementptr inbounds i8, ptr %8, i64 408
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %98, align 8
-  %.not.i.i = icmp eq ptr %99, null
-  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %100
+  %.not.i.i = icmp eq ptr %98, null
+  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %99
 
-100:                                              ; preds = %94
-  tail call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %96) #5
-  %.pre.i.i = load ptr, ptr %97, align 8
+99:                                               ; preds = %93
+  tail call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %95) #5
+  %.pre.i.i = load ptr, ptr %96, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %94, %100
-  %101 = phi ptr [ %98, %94 ], [ %.pre.i.i, %100 ]
-  %102 = getelementptr inbounds i8, ptr %96, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 24
-  store ptr %101, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %96, i64 24
-  %106 = load ptr, ptr %105, align 8
-  %107 = load ptr, ptr %102, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 32
-  store ptr %106, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %96, i64 32
-  %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr %102, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 40
-  store ptr %110, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %9, i64 928
-  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %113) #5
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %93, %99
+  %100 = phi ptr [ %97, %93 ], [ %.pre.i.i, %99 ]
+  %101 = getelementptr inbounds i8, ptr %95, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  store ptr %100, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %95, i64 24
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %101, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 32
+  store ptr %105, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %95, i64 32
+  %109 = load ptr, ptr %108, align 8
+  %110 = load ptr, ptr %101, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 40
+  store ptr %109, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %8, i64 928
+  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %112) #5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
-  store volatile i32 4, ptr %12, align 4
-  br label %114
+  store volatile i32 4, ptr %11, align 4
+  %113 = insertvalue { i8, i64 } poison, i8 %1, 0
+  %114 = insertvalue { i8, i64 } %113, i64 %.sroa.24.sroa.0.0.insert.insert, 1
+  br label %._crit_edge
 
-114:                                              ; preds = %._crit_edge, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.sroa.24.sroa.0.0.insert.insert86.pre-phi = phi i64 [ %6, %._crit_edge ], [ %.sroa.24.sroa.0.0.insert.insert, %_ZN17HandleMarkCleanerD2Ev.exit ]
-  %.sroa.072.0 = phi i8 [ %5, %._crit_edge ], [ %1, %_ZN17HandleMarkCleanerD2Ev.exit ]
-  %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.072.0, 0
-  %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.24.sroa.0.0.insert.insert86.pre-phi, 1
-  ret { i8, i64 } %.fca.1.insert
+._crit_edge:                                      ; preds = %3, %_ZN17HandleMarkCleanerD2Ev.exit
+  %.fca.1.insert.merged = phi { i8, i64 } [ %114, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %4, %3 ]
+  ret { i8, i64 } %.fca.1.insert.merged
 }
 
 declare { i8, i64 } @_ZN8ciObject26check_constant_value_cacheEi9BasicType(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i8 noundef zeroext) local_unnamed_addr #1

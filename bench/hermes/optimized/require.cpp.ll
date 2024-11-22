@@ -557,20 +557,17 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %_ZNK6hermes2vm6Doma
   %rightSize_.i25.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 40
   store i64 %conv.i9, ptr %rightSize_.i25.i.i, align 8, !alias.scope !7
   %call23 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp20) #8
+  %20 = insertvalue { i32, i64 } poison, i32 %call23, 0
+  %21 = insertvalue { i32, i64 } %20, i64 undef, 1
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm6Domain18getCJSModuleOffsetERNS0_7RuntimeEj.exit
   %call33 = tail call { i32, i64 } @_ZN6hermes2vm14runRequireCallERNS0_7RuntimeENS0_6HandleINS0_14RequireContextEEENS3_INS0_6DomainEEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, ptr nonnull %retval.0.i.i.i.i.i.i.i, i32 noundef %mul.i)
-  %20 = extractvalue { i32, i64 } %call33, 0
-  %21 = extractvalue { i32, i64 } %call33, 1
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
-  %retval.sroa.0.0 = phi i32 [ %20, %if.end ], [ %call23, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ]
-  %retval.sroa.3.0 = phi i64 [ %21, %if.end ], [ undef, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i32, i64 } [ %call33, %if.end ], [ %21, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ]
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 declare noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2

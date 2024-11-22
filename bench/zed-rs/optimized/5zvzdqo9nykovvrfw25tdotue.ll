@@ -7114,7 +7114,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6fb23886750ec473E.llvm.1
   br label %951
 
 951:                                              ; preds = %950, %.noexc236
-  %.sroa.0.0.i232 = phi i64 [ %.val.i, %950 ], [ %949, %.noexc236 ]
+  %.val.pn.i = phi i64 [ %.val.i, %950 ], [ %949, %.noexc236 ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %69)
   invoke fastcc void @"_ZN53_$LT$text..Fragment$u20$as$u20$core..clone..Clone$GT$5clone17hd9e845c4229b46f7E"(ptr noalias nocapture noundef align 8 dereferenceable(152) %69, ptr noalias noundef readonly align 8 dereferenceable(152) %939)
           to label %952 unwind label %.critedge145.thread531.loopexit
@@ -7144,7 +7144,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6fb23886750ec473E.llvm.1
   br i1 %.sroa.041.2, label %.thread575, label %.critedge145.thread
 
 952:                                              ; preds = %951
-  %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %893, i64 %.sroa.0.0.i232)
+  %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %893, i64 %.val.pn.i)
   %953 = getelementptr inbounds i8, ptr %939, i64 144
   %954 = load i8, ptr %953, align 8, !range !1221, !noundef !15
   %955 = trunc nuw i8 %954 to i1
@@ -7302,7 +7302,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6fb23886750ec473E.llvm.1
 1012:                                             ; preds = %.thread588, %956, %1062
   %.sroa.041.2 = phi i1 [ false, %1062 ], [ true, %956 ], [ true, %.thread588 ]
   %.sroa.023.4 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %1062 ], [ %.sroa.023.3892, %956 ], [ %.sroa.023.3892, %.thread588 ]
-  %.not104 = icmp ugt i64 %.sroa.0.0.i232, %893
+  %.not104 = icmp ugt i64 %.val.pn.i, %893
   br i1 %.not104, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17hae1505953f17080cE.exit", label %1063
 
 .thread590:                                       ; preds = %.thread588, %1044
@@ -13279,8 +13279,8 @@ define internal fastcc i64 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h50e6
   br label %43
 
 43:                                               ; preds = %36, %42
-  %.sroa.0.0 = phi i64 [ %.val, %42 ], [ %41, %36 ]
-  ret i64 %.sroa.0.0
+  %.val.pn = phi i64 [ %.val, %42 ], [ %41, %36 ]
+  ret i64 %.val.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

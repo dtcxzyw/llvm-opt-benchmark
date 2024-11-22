@@ -10140,63 +10140,63 @@ _ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1
   br label %_ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit
 
 _ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit: ; preds = %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit.thread14
-  %.not44.i = icmp eq i64 %2, 1
-  br i1 %.not44.i, label %_ZN12_GLOBAL__N_114SegmentBuilder14combineRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit, label %.lr.ph.preheader.i
+  %.not48.i = icmp eq i64 %2, 1
+  br i1 %.not48.i, label %_ZN12_GLOBAL__N_114SegmentBuilder14combineRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit
-  %.043.i = getelementptr inbounds i8, ptr %1, i64 80
+  %.047.i = getelementptr inbounds i8, ptr %1, i64 80
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %77, %.lr.ph.preheader.i
-  %.047.i = phi ptr [ %.0.i, %77 ], [ %.043.i, %.lr.ph.preheader.i ]
-  %.pn46.i = phi ptr [ %.047.i, %77 ], [ %1, %.lr.ph.preheader.i ]
-  %.02345.i = phi ptr [ %.1.i, %77 ], [ %1, %.lr.ph.preheader.i ]
-  %40 = getelementptr inbounds nuw i8, ptr %.02345.i, i64 36
+  %.051.i = phi ptr [ %.0.i, %77 ], [ %.047.i, %.lr.ph.preheader.i ]
+  %.pn50.i = phi ptr [ %.051.i, %77 ], [ %1, %.lr.ph.preheader.i ]
+  %.02349.i = phi ptr [ %.1.i, %77 ], [ %1, %.lr.ph.preheader.i ]
+  %40 = getelementptr inbounds nuw i8, ptr %.02349.i, i64 36
   %41 = load i64, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %.pn46.i, i64 116
+  %42 = getelementptr inbounds i8, ptr %.pn50.i, i64 116
   %43 = load i64, ptr %42, align 4
   %.not3.i.not.i = icmp eq i64 %41, %43
   br i1 %.not3.i.not.i, label %44, label %.critedge.i
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds nuw i8, ptr %.02345.i, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %.02349.i, i64 44
   %46 = load i64, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.pn46.i, i64 124
+  %47 = getelementptr inbounds i8, ptr %.pn50.i, i64 124
   %48 = load i64, ptr %47, align 4
   %.not3.i29.not.i = icmp eq i64 %46, %48
   br i1 %.not3.i29.not.i, label %51, label %.critedge.i
 
 .critedge.i:                                      ; preds = %44, %.lr.ph.i
-  %49 = getelementptr inbounds i8, ptr %.02345.i, i64 80
-  %.not28.i = icmp eq ptr %.02345.i, %.pn46.i
+  %49 = getelementptr inbounds i8, ptr %.02349.i, i64 80
+  %.not28.i = icmp eq ptr %.02349.i, %.pn50.i
   br i1 %.not28.i, label %77, label %50
 
 50:                                               ; preds = %.critedge.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %49, ptr noundef nonnull align 8 dereferenceable(74) %.047.i, i64 74, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %49, ptr noundef nonnull align 8 dereferenceable(74) %.051.i, i64 74, i1 false)
   br label %77
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %.pn46.i, i64 132
+  %52 = getelementptr inbounds i8, ptr %.pn50.i, i64 132
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %.02345.i, i64 52
+  %54 = getelementptr inbounds nuw i8, ptr %.02349.i, i64 52
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %53, %55
   br i1 %56, label %57, label %77
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %.pn46.i, i64 153
+  %58 = getelementptr inbounds i8, ptr %.pn50.i, i64 153
   %59 = load i8, ptr %58, align 1
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %.02345.i, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %.02349.i, i64 56
   %63 = load i64, ptr %62, align 8
   %.not27.i = icmp eq i64 %63, 0
   br i1 %.not27.i, label %64, label %69
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %.pn46.i, i64 136
+  %65 = getelementptr inbounds i8, ptr %.pn50.i, i64 136
   %66 = load i64, ptr %65, align 8
   %67 = icmp ne i64 %66, 0
   %68 = zext i1 %67 to i64
@@ -10208,17 +10208,17 @@ _ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1
   br label %77
 
 71:                                               ; preds = %57
-  %72 = getelementptr inbounds i8, ptr %.pn46.i, i64 136
+  %72 = getelementptr inbounds i8, ptr %.pn50.i, i64 136
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %.02345.i, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %.02349.i, i64 56
   %75 = load i64, ptr %74, align 8
   %76 = add i64 %75, %73
   store i64 %76, ptr %74, align 8
   br label %77
 
 77:                                               ; preds = %71, %69, %51, %50, %.critedge.i
-  %.1.i = phi ptr [ %49, %50 ], [ %49, %.critedge.i ], [ %.02345.i, %69 ], [ %.02345.i, %71 ], [ %.02345.i, %51 ]
-  %.0.i = getelementptr inbounds i8, ptr %.047.i, i64 80
+  %.1.i = phi ptr [ %49, %50 ], [ %49, %.critedge.i ], [ %.02349.i, %69 ], [ %.02349.i, %71 ], [ %.02349.i, %51 ]
+  %.0.i = getelementptr inbounds i8, ptr %.051.i, i64 80
   %.not.i = icmp eq ptr %.0.i, %8
   br i1 %.not.i, label %_ZN12_GLOBAL__N_114SegmentBuilder14combineRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit, label %.lr.ph.i, !llvm.loop !298
 

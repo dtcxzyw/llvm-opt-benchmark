@@ -389,8 +389,8 @@ define dso_local noundef zeroext i1 @_ZN20cmParseMumpsCoverage12LoadPackagesERKN
   store ptr null, ptr %11, align 8, !alias.scope !10, !noalias !7
   %12 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 4, ptr %12, align 8, !alias.scope !13, !noalias !7
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr @.str.8, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !13, !noalias !7
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr @.str.8, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !13, !noalias !7
   %13 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr null, ptr %13, align 8, !alias.scope !13, !noalias !7
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull %3, i64 2)

@@ -5480,7 +5480,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h598ba2498a710c75E(ptr
 9:                                                ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
 "_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17hfe5b7dc4891b6b10E.exit": ; preds = %3
   %11 = extractvalue { i64, ptr } %8, 0
@@ -5498,7 +5498,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h598ba2498a710c75E(ptr
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hd06ef61df27573c2E"(i64 %11, ptr %12) #49
-          to label %27 unwind label %25
+          to label %26 unwind label %24
 
 20:                                               ; preds = %"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17hfe5b7dc4891b6b10E.exit"
   %21 = load i64, ptr %4, align 8, !range !301, !noundef !4
@@ -5507,21 +5507,19 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h598ba2498a710c75E(ptr
   %22 = load i64, ptr %5, align 8
   %trunc13 = trunc nuw i64 %11 to i1
   %.sroa.4.1 = select i1 %trunc13, ptr %12, ptr @anon.8a58ca14b8540b50fa38bce56da43586.71
+  %23 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.4.1, 1
   %.sroa.7.0 = select i1 %trunc, i64 %6, i64 %22
-  %.sroa.4.0 = select i1 %trunc, ptr %.sroa.4.1, ptr %12
-  %.sroa.0.0 = select i1 %trunc, i64 1, i64 %11
+  %.merged = select i1 %trunc, { i64, ptr } %23, { i64, ptr } %8
   store i64 %.sroa.7.0, ptr %5, align 8
-  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %24
+  ret { i64, ptr } %.merged
 
-25:                                               ; preds = %18
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %18
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
   unreachable
 
-27:                                               ; preds = %9, %18
+26:                                               ; preds = %9, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %10, %9 ]
   store i64 %6, ptr %5, align 8
   resume { ptr, i32 } %.pn
@@ -5541,7 +5539,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h7a11044f8cf55f75E(ptr
 9:                                                ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
 "_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h34b7aafc3ab74d84E.exit": ; preds = %3
   %11 = extractvalue { i64, ptr } %8, 0
@@ -5559,7 +5557,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h7a11044f8cf55f75E(ptr
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hd06ef61df27573c2E"(i64 %11, ptr %12) #49
-          to label %27 unwind label %25
+          to label %26 unwind label %24
 
 20:                                               ; preds = %"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h34b7aafc3ab74d84E.exit"
   %21 = load i64, ptr %4, align 8, !range !301, !noundef !4
@@ -5568,21 +5566,19 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h7a11044f8cf55f75E(ptr
   %22 = load i64, ptr %5, align 8
   %trunc13 = trunc nuw i64 %11 to i1
   %.sroa.4.1 = select i1 %trunc13, ptr %12, ptr @anon.8a58ca14b8540b50fa38bce56da43586.71
+  %23 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.4.1, 1
   %.sroa.7.0 = select i1 %trunc, i64 %6, i64 %22
-  %.sroa.4.0 = select i1 %trunc, ptr %.sroa.4.1, ptr %12
-  %.sroa.0.0 = select i1 %trunc, i64 1, i64 %11
+  %.merged = select i1 %trunc, { i64, ptr } %23, { i64, ptr } %8
   store i64 %.sroa.7.0, ptr %5, align 8
-  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %24
+  ret { i64, ptr } %.merged
 
-25:                                               ; preds = %18
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %18
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
   unreachable
 
-27:                                               ; preds = %9, %18
+26:                                               ; preds = %9, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %10, %9 ]
   store i64 %6, ptr %5, align 8
   resume { ptr, i32 } %.pn
@@ -5602,7 +5598,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h823e25d55c1177e7E(ptr
 9:                                                ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
 "_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h53e2525f8c72c63aE.exit": ; preds = %3
   %11 = extractvalue { i64, ptr } %8, 0
@@ -5620,7 +5616,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h823e25d55c1177e7E(ptr
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hd06ef61df27573c2E"(i64 %11, ptr %12) #49
-          to label %27 unwind label %25
+          to label %26 unwind label %24
 
 20:                                               ; preds = %"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h53e2525f8c72c63aE.exit"
   %21 = load i64, ptr %4, align 8, !range !301, !noundef !4
@@ -5629,21 +5625,19 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h823e25d55c1177e7E(ptr
   %22 = load i64, ptr %5, align 8
   %trunc13 = trunc nuw i64 %11 to i1
   %.sroa.4.1 = select i1 %trunc13, ptr %12, ptr @anon.8a58ca14b8540b50fa38bce56da43586.71
+  %23 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.4.1, 1
   %.sroa.7.0 = select i1 %trunc, i64 %6, i64 %22
-  %.sroa.4.0 = select i1 %trunc, ptr %.sroa.4.1, ptr %12
-  %.sroa.0.0 = select i1 %trunc, i64 1, i64 %11
+  %.merged = select i1 %trunc, { i64, ptr } %23, { i64, ptr } %8
   store i64 %.sroa.7.0, ptr %5, align 8
-  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %24
+  ret { i64, ptr } %.merged
 
-25:                                               ; preds = %18
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %18
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
   unreachable
 
-27:                                               ; preds = %9, %18
+26:                                               ; preds = %9, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %10, %9 ]
   store i64 %6, ptr %5, align 8
   resume { ptr, i32 } %.pn
@@ -5663,7 +5657,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h9172c2627438e140E(ptr
 9:                                                ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
 "_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h01160b7d7aad5f7aE.exit": ; preds = %3
   %11 = extractvalue { i64, ptr } %8, 0
@@ -5681,7 +5675,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h9172c2627438e140E(ptr
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hd06ef61df27573c2E"(i64 %11, ptr %12) #49
-          to label %27 unwind label %25
+          to label %26 unwind label %24
 
 20:                                               ; preds = %"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h01160b7d7aad5f7aE.exit"
   %21 = load i64, ptr %4, align 8, !range !301, !noundef !4
@@ -5690,21 +5684,19 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17h9172c2627438e140E(ptr
   %22 = load i64, ptr %5, align 8
   %trunc13 = trunc nuw i64 %11 to i1
   %.sroa.4.1 = select i1 %trunc13, ptr %12, ptr @anon.8a58ca14b8540b50fa38bce56da43586.71
+  %23 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.4.1, 1
   %.sroa.7.0 = select i1 %trunc, i64 %6, i64 %22
-  %.sroa.4.0 = select i1 %trunc, ptr %.sroa.4.1, ptr %12
-  %.sroa.0.0 = select i1 %trunc, i64 1, i64 %11
+  %.merged = select i1 %trunc, { i64, ptr } %23, { i64, ptr } %8
   store i64 %.sroa.7.0, ptr %5, align 8
-  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %24
+  ret { i64, ptr } %.merged
 
-25:                                               ; preds = %18
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %18
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
   unreachable
 
-27:                                               ; preds = %9, %18
+26:                                               ; preds = %9, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %10, %9 ]
   store i64 %6, ptr %5, align 8
   resume { ptr, i32 } %.pn
@@ -9245,9 +9237,9 @@ define hidden { i64, ptr } @_ZN3std2io21default_read_vectored17h312c3552ece4a9dd
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he8350bbaf9595cbeE.llvm.3233214882447289910.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he8350bbaf9595cbeE.llvm.3233214882447289910.exit": ; preds = %5, %12
-  %.sroa.3.0.i = phi i64 [ %11, %12 ], [ 0, %5 ]
-  %.sroa.02.0.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
-  %14 = tail call { i64, ptr } @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17he0914637c53cf48eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.sroa.02.0.i, i64 noundef %.sroa.3.0.i)
+  %.pn7.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn5.i = phi i64 [ %11, %12 ], [ 0, %5 ]
+  %14 = tail call { i64, ptr } @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17he0914637c53cf48eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.pn7.i, i64 noundef %.pn5.i)
   ret { i64, ptr } %14
 }
 
@@ -9273,10 +9265,10 @@ define hidden { i64, ptr } @_ZN3std2io21default_read_vectored17h8bb185e4816f9dd0
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5f827b3d0cae8a38E.llvm.3233214882447289910.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h5f827b3d0cae8a38E.llvm.3233214882447289910.exit": ; preds = %5, %12
-  %.sroa.3.0.i = phi i64 [ %11, %12 ], [ 0, %5 ]
-  %.sroa.02.0.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn7.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn5.i = phi i64 [ %11, %12 ], [ 0, %5 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = tail call { i64, ptr } @_ZN6flate23zio4read17h35bd501219bef888E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 1 %.sroa.02.0.i, i64 noundef %.sroa.3.0.i)
+  %15 = tail call { i64, ptr } @_ZN6flate23zio4read17h35bd501219bef888E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 1 %.pn7.i, i64 noundef %.pn5.i)
   ret { i64, ptr } %15
 }
 
@@ -9302,8 +9294,8 @@ define hidden { i64, ptr } @_ZN3std2io21default_read_vectored17h97bcb3bbc648b5dd
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he277c7f9d3e12008E.llvm.3233214882447289910.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he277c7f9d3e12008E.llvm.3233214882447289910.exit": ; preds = %5, %12
-  %.sroa.3.0.i = phi i64 [ %11, %12 ], [ 0, %5 ]
-  %.sroa.02.0.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn7.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn5.i = phi i64 [ %11, %12 ], [ 0, %5 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2357)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2360)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2362)
@@ -9319,17 +9311,17 @@ define hidden { i64, ptr } @_ZN3std2io21default_read_vectored17h97bcb3bbc648b5dd
   %19 = sub nuw i64 %18, %.sroa.0.0.sroa.speculated.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %16, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2377)
-  %.sroa.0.0.sroa.speculated.i.i6.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.3.0.i, i64 %19)
+  %.sroa.0.0.sroa.speculated.i.i6.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.pn5.i, i64 %19)
   %21 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i, 1
   br i1 %21, label %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59b2a21229ed7044E.exit.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59b2a21229ed7044E.exit.i.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he277c7f9d3e12008E.llvm.3233214882447289910.exit"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.02.0.i, ptr nonnull readonly align 1 %20, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i, i1 false), !alias.scope !2380, !noalias !2384
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pn7.i, ptr nonnull readonly align 1 %20, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i, i1 false), !alias.scope !2380, !noalias !2384
   br label %"_ZN3std2io4Read13read_vectored28_$u7b$$u7b$closure$u7d$$u7d$17h8d94006b5eea994eE.llvm.3233214882447289910.exit"
 
 22:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he277c7f9d3e12008E.llvm.3233214882447289910.exit"
   %23 = load i8, ptr %20, align 1, !noalias !2387, !noundef !4
-  store i8 %23, ptr %.sroa.02.0.i, align 1, !alias.scope !2388, !noalias !2389
+  store i8 %23, ptr %.pn7.i, align 1, !alias.scope !2388, !noalias !2389
   br label %"_ZN3std2io4Read13read_vectored28_$u7b$$u7b$closure$u7d$$u7d$17h8d94006b5eea994eE.llvm.3233214882447289910.exit"
 
 "_ZN3std2io4Read13read_vectored28_$u7b$$u7b$closure$u7d$$u7d$17h8d94006b5eea994eE.llvm.3233214882447289910.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59b2a21229ed7044E.exit.i.i.i.i", %22
@@ -9362,9 +9354,9 @@ define hidden { i64, ptr } @_ZN3std2io21default_read_vectored17hdabd5cba640c3909
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h96e590bd45c3db5eE.llvm.3233214882447289910.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h96e590bd45c3db5eE.llvm.3233214882447289910.exit": ; preds = %5, %12
-  %.sroa.3.0.i = phi i64 [ %11, %12 ], [ 0, %5 ]
-  %.sroa.02.0.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
-  %14 = tail call { i64, ptr } @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h6eea69d550332116E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %.sroa.02.0.i, i64 noundef %.sroa.3.0.i)
+  %.pn7.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn5.i = phi i64 [ %11, %12 ], [ 0, %5 ]
+  %14 = tail call { i64, ptr } @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h6eea69d550332116E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %.pn7.i, i64 noundef %.pn5.i)
   ret { i64, ptr } %14
 }
 
@@ -10797,13 +10789,11 @@ _ZN3std2io16append_to_string17h29c245a279030628E.exit: ; preds = %"_ZN3std2io22d
   %22 = load i64, ptr %4, align 8, !alias.scope !2776, !noalias !2779
   %trunc13.i = trunc nuw i64 %9 to i1
   %.sroa.4.1.i = select i1 %trunc13.i, ptr %10, ptr @anon.8a58ca14b8540b50fa38bce56da43586.71
+  %23 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.4.1.i, 1
   %.sroa.7.0.i = select i1 %trunc.i, i64 %5, i64 %22
-  %.sroa.4.0.i = select i1 %trunc.i, ptr %.sroa.4.1.i, ptr %10
-  %.sroa.0.0.i = select i1 %trunc.i, i64 1, i64 %9
+  %.merged.i = select i1 %trunc.i, { i64, ptr } %23, { i64, ptr } %6
   store i64 %.sroa.7.0.i, ptr %4, align 8, !alias.scope !2776, !noalias !2779
-  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
-  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.4.0.i, 1
-  ret { i64, ptr } %24
+  ret { i64, ptr } %.merged.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -14271,11 +14261,11 @@ define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17h5f827b3d0
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.3.0 = phi i64 [ %8, %5 ], [ %2, %3 ]
-  %.sroa.02.0 = phi ptr [ %6, %5 ], [ %1, %3 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %11
+  %.pn7 = phi ptr [ %6, %5 ], [ %1, %3 ]
+  %.pn5 = phi i64 [ %8, %5 ], [ %2, %3 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn7, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn5, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -14290,11 +14280,11 @@ define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17h96e590bd4
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.3.0 = phi i64 [ %8, %5 ], [ %2, %3 ]
-  %.sroa.02.0 = phi ptr [ %6, %5 ], [ %1, %3 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %11
+  %.pn7 = phi ptr [ %6, %5 ], [ %1, %3 ]
+  %.pn5 = phi i64 [ %8, %5 ], [ %2, %3 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn7, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn5, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -14309,11 +14299,11 @@ define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17he277c7f9d
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.3.0 = phi i64 [ %8, %5 ], [ %2, %3 ]
-  %.sroa.02.0 = phi ptr [ %6, %5 ], [ %1, %3 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %11
+  %.pn7 = phi ptr [ %6, %5 ], [ %1, %3 ]
+  %.pn5 = phi i64 [ %8, %5 ], [ %2, %3 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn7, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn5, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -14328,11 +14318,11 @@ define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17he8350bbaf
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.3.0 = phi i64 [ %8, %5 ], [ %2, %3 ]
-  %.sroa.02.0 = phi ptr [ %6, %5 ], [ %1, %3 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %11
+  %.pn7 = phi ptr [ %6, %5 ], [ %1, %3 ]
+  %.pn5 = phi i64 [ %8, %5 ], [ %2, %3 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn7, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn5, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

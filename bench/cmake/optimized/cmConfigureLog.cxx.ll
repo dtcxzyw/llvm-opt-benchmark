@@ -1423,8 +1423,8 @@ define dso_local void @_ZN14cmConfigureLog10EnsureInitEv(ptr noundef nonnull ali
   store ptr null, ptr %11, align 8, !alias.scope !22, !noalias !19
   %12 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 23, ptr %12, align 8, !alias.scope !25, !noalias !19
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr @.str.5, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !25, !noalias !19
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr @.str.5, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !25, !noalias !19
   %13 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr null, ptr %13, align 8, !alias.scope !25, !noalias !19
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr nonnull %2, i64 2)

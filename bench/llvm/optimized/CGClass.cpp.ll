@@ -10898,8 +10898,8 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %50
 
-50:                                               ; preds = %.lr.ph, %.critedge61
-  %.059 = phi ptr [ %.0.i.i.i, %.lr.ph ], [ %127, %.critedge61 ]
+50:                                               ; preds = %.lr.ph, %.critedge62
+  %.059 = phi ptr [ %.0.i.i.i, %.lr.ph ], [ %128, %.critedge62 ]
   %51 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %52 = load ptr, ptr %51, align 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %52, align 8
@@ -10948,14 +10948,14 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit: ; preds = %_ZNK5clang16CXXBase
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 20
   %81 = load i32, ptr %80, align 4
   %.not54 = icmp eq i32 %81, 0
-  br i1 %.not54, label %.critedge61, label %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread
+  br i1 %.not54, label %.critedge62, label %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread
 
 _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread: ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit
   %82 = getelementptr inbounds nuw i8, ptr %.059, i64 12
   %83 = load i8, ptr %82, align 4
   %84 = and i8 %83, 1
   %.not55 = icmp eq i8 %84, 0
-  br i1 %.not55, label %108, label %85
+  br i1 %.not55, label %109, label %85
 
 85:                                               ; preds = %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread
   %86 = load ptr, ptr %46, align 8, !noalias !95
@@ -10974,7 +10974,7 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread: ; preds = %_ZNK5clang16
   %.025.i.i = phi ptr [ %96, %95 ], [ %87, %89 ]
   %93 = load ptr, ptr %.025.i.i, align 8, !noalias !95
   %94 = icmp eq ptr %93, %67
-  br i1 %94, label %.critedge61, label %95
+  br i1 %94, label %.critedge62, label %95
 
 95:                                               ; preds = %.lr.ph.i.i
   %96 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -10990,57 +10990,57 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread: ; preds = %_ZNK5clang16
   %99 = add nuw i32 %90, 1
   store i32 %99, ptr %47, align 4, !noalias !95
   store ptr %67, ptr %92, align 8, !noalias !95
-  br label %102
+  br label %103
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit: ; preds = %._crit_edge.i.i, %85
   %100 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef nonnull %67) #13, !noalias !95
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %100, 1
-  %101 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %101, label %102, label %.critedge61
+  %101 = extractvalue { ptr, i8 } %100, 1
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %.critedge62
 
-102:                                              ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit
-  %103 = load ptr, ptr %49, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 144
-  %105 = load ptr, ptr %104, align 8
-  %106 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %105, ptr noundef %6) #13
-  %107 = call i64 @_ZNK5clang15ASTRecordLayout19getVBaseClassOffsetEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(80) %106, ptr noundef nonnull %67)
-  br label %123
+103:                                              ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit
+  %104 = load ptr, ptr %49, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 144
+  %106 = load ptr, ptr %105, align 8
+  %107 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %106, ptr noundef %6) #13
+  %108 = call i64 @_ZNK5clang15ASTRecordLayout19getVBaseClassOffsetEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull %67)
+  br label %124
 
-108:                                              ; preds = %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread
-  %109 = load ptr, ptr %49, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 144
-  %111 = load ptr, ptr %110, align 8
-  %112 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %111, ptr noundef nonnull %1) #13
-  %113 = call i64 @_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(80) %112, ptr noundef nonnull %67)
-  %114 = add nsw i64 %113, %2
-  %115 = call i64 @_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(80) %112, ptr noundef nonnull %67)
-  %116 = add nsw i64 %115, %4
-  %117 = getelementptr inbounds nuw i8, ptr %112, i64 72
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 48
-  %.0.copyload.i.i.i.i = load i64, ptr %119, align 8
-  %120 = and i64 %.0.copyload.i.i.i.i, -8
-  %121 = inttoptr i64 %120 to ptr
-  %122 = icmp eq ptr %67, %121
-  br label %123
+109:                                              ; preds = %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread
+  %110 = load ptr, ptr %49, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 144
+  %112 = load ptr, ptr %111, align 8
+  %113 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %112, ptr noundef nonnull %1) #13
+  %114 = call i64 @_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(80) %113, ptr noundef nonnull %67)
+  %115 = add nsw i64 %114, %2
+  %116 = call i64 @_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(80) %113, ptr noundef nonnull %67)
+  %117 = add nsw i64 %116, %4
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 72
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 48
+  %.0.copyload.i.i.i.i = load i64, ptr %120, align 8
+  %121 = and i64 %.0.copyload.i.i.i.i, -8
+  %122 = inttoptr i64 %121 to ptr
+  %123 = icmp eq ptr %67, %122
+  br label %124
 
-123:                                              ; preds = %108, %102
-  %.sroa.046.0 = phi i64 [ 0, %102 ], [ %116, %108 ]
-  %.sroa.047.0 = phi i64 [ %107, %102 ], [ %114, %108 ]
-  %.039 = phi i1 [ false, %102 ], [ %122, %108 ]
-  %124 = load i8, ptr %82, align 4
-  %125 = and i8 %124, 1
-  %.not56 = icmp eq i8 %125, 0
-  %126 = select i1 %.not56, ptr %3, ptr %67
-  call void @_ZN5clang7CodeGen15CodeGenFunction17getVTablePointersENS_13BaseSubobjectEPKNS_13CXXRecordDeclENS_9CharUnitsEbS5_RN4llvm11SmallPtrSetIS5_Lj4EEERNS7_11SmallVectorINS1_4VPtrELj4EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %67, i64 %.sroa.047.0, ptr noundef %126, i64 %.sroa.046.0, i1 noundef zeroext %.039, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(176) %8)
-  br label %.critedge61
+124:                                              ; preds = %109, %103
+  %.sroa.046.0 = phi i64 [ 0, %103 ], [ %117, %109 ]
+  %.sroa.047.0 = phi i64 [ %108, %103 ], [ %115, %109 ]
+  %.039 = phi i1 [ false, %103 ], [ %123, %109 ]
+  %125 = load i8, ptr %82, align 4
+  %126 = and i8 %125, 1
+  %.not56 = icmp eq i8 %126, 0
+  %127 = select i1 %.not56, ptr %3, ptr %67
+  call void @_ZN5clang7CodeGen15CodeGenFunction17getVTablePointersENS_13BaseSubobjectEPKNS_13CXXRecordDeclENS_9CharUnitsEbS5_RN4llvm11SmallPtrSetIS5_Lj4EEERNS7_11SmallVectorINS1_4VPtrELj4EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %67, i64 %.sroa.047.0, ptr noundef %127, i64 %.sroa.046.0, i1 noundef zeroext %.039, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(176) %8)
+  br label %.critedge62
 
-.critedge61:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit, %123
-  %127 = getelementptr inbounds i8, ptr %.059, i64 24
-  %.not = icmp eq ptr %127, %45
+.critedge62:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit, %124
+  %128 = getelementptr inbounds i8, ptr %.059, i64 24
+  %.not = icmp eq ptr %128, %45
   br i1 %.not, label %._crit_edge, label %50
 
-._crit_edge:                                      ; preds = %.critedge61, %_ZNK5clang13CXXRecordDecl5basesEv.exit
+._crit_edge:                                      ; preds = %.critedge62, %_ZNK5clang13CXXRecordDecl5basesEv.exit
   ret void
 }
 

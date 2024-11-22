@@ -19443,7 +19443,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h1c7a5b09804e546aE.exit.i.i: ; pr
   br label %2096
 
 2096:                                             ; preds = %2095, %.noexc255
-  %.sroa.0.0.i251 = phi i64 [ %.val.i, %2095 ], [ %2094, %.noexc255 ]
+  %.val.pn.i = phi i64 [ %.val.i, %2095 ], [ %2094, %.noexc255 ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %147)
   call void @llvm.experimental.noalias.scope.decl(metadata !5284)
   call void @llvm.experimental.noalias.scope.decl(metadata !5287)
@@ -20113,7 +20113,7 @@ _ZN8smallvec10deallocate17hfe4d9b9b21f6d370E.exit.i407: ; preds = %2298
   store i32 %2323, ptr %.sroa.4.0..sroa_idx.i258, align 8, !alias.scope !5284, !noalias !5287
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23), !noalias !5289
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24), !noalias !5289
-  %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %2030, i64 %.sroa.0.0.i251)
+  %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %2030, i64 %.val.pn.i)
   %2324 = load i8, ptr %2201, align 8, !range !30, !noundef !11
   %2325 = trunc nuw i8 %2324 to i1
   br i1 %2325, label %2328, label %.thread736
@@ -20259,7 +20259,7 @@ _ZN8smallvec10deallocate17hfe4d9b9b21f6d370E.exit.i407: ; preds = %2298
 2379:                                             ; preds = %.thread736, %2326, %2428
   %.sroa.041.2 = phi i1 [ false, %2428 ], [ true, %2326 ], [ true, %.thread736 ]
   %.sroa.023.4 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %2428 ], [ %.sroa.023.31271, %2326 ], [ %.sroa.023.31271, %.thread736 ]
-  %.not104 = icmp ugt i64 %.sroa.0.0.i251, %2030
+  %.not104 = icmp ugt i64 %.val.pn.i, %2030
   br i1 %.not104, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h664759b9ed6be43eE.exit", label %2429
 
 .thread738:                                       ; preds = %.thread736, %2410
@@ -37748,8 +37748,8 @@ define internal fastcc i64 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17hefff
   br label %43
 
 43:                                               ; preds = %36, %42
-  %.sroa.0.0 = phi i64 [ %.val, %42 ], [ %41, %36 ]
-  ret i64 %.sroa.0.0
+  %.val.pn = phi i64 [ %.val, %42 ], [ %41, %36 ]
+  ret i64 %.val.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

@@ -7088,7 +7088,7 @@ _ZL22pj_tinshift_destructorP8PJconstsi.exit:      ; preds = %9, %_ZN12_GLOBAL__N
   call void @_ZN5osgeo4proj11FileManager18open_resource_fileEP6pj_ctxPKcPcm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.48") align 8 %2, ptr noundef %17, ptr noundef nonnull %.sroa.0.0..sroa.0.0..cast, ptr noundef null, i64 noundef 0)
   %18 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %19, label %31
+  br i1 %.not.i, label %19, label %29
 
 19:                                               ; preds = %16
   invoke void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.70, ptr noundef nonnull %.sroa.0.0..sroa.0.0..cast)
@@ -7102,328 +7102,316 @@ _ZL22pj_tinshift_destructorP8PJconstsi.exit:      ; preds = %9, %_ZN12_GLOBAL__N
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %22, align 8
-  %.not.i.i.i51 = icmp eq ptr %25, null
-  br i1 %.not.i.i.i51, label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i53, label %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i52
+  %.not.i.i.i52 = icmp eq ptr %25, null
+  br i1 %.not.i.i.i52, label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i54, label %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i53
 
-_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i52: ; preds = %24
+_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i53: ; preds = %24
   call void @_ZN8TINShift9EvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %25) #23
   call void @_ZdlPv(ptr noundef nonnull %25) #29
-  br label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i53
+  br label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i54
 
-_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i53:     ; preds = %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i52, %24
+_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i54:     ; preds = %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i53, %24
   call void @_ZdlPv(ptr noundef nonnull %22) #29
   br label %26
 
-26:                                               ; preds = %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i53, %20
+26:                                               ; preds = %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i54, %20
   store ptr null, ptr %21, align 8
   br label %.invoke
 
-27:                                               ; preds = %.invoke, %53, %44, %36, %31, %19
+27:                                               ; preds = %.invoke, %51, %42, %34, %29, %19
   %28 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  %30 = extractvalue { ptr, i32 } %28, 1
-  br label %139
+  br label %131
 
-31:                                               ; preds = %16
-  %32 = load ptr, ptr %18, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
-  %34 = load ptr, ptr %33, align 8
-  %35 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(73) %18, i64 noundef 0, i32 noundef 2)
-          to label %36 unwind label %27
+29:                                               ; preds = %16
+  %30 = load ptr, ptr %18, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %32 = load ptr, ptr %31, align 8
+  %33 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(73) %18, i64 noundef 0, i32 noundef 2)
+          to label %34 unwind label %27
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %2, align 8
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %2, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 40
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 40
-  %40 = load ptr, ptr %39, align 8
-  %41 = invoke noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(73) %37)
-          to label %42 unwind label %27
+  %39 = invoke noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(73) %35)
+          to label %40 unwind label %27
 
-42:                                               ; preds = %36
-  %43 = icmp ugt i64 %41, 104857600
-  br i1 %43, label %44, label %53
+40:                                               ; preds = %34
+  %41 = icmp ugt i64 %39, 104857600
+  br i1 %41, label %42, label %51
 
-44:                                               ; preds = %42
+42:                                               ; preds = %40
   invoke void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.71, ptr noundef nonnull %.sroa.0.0..sroa.0.0..cast)
-          to label %45 unwind label %27
+          to label %43 unwind label %27
 
-45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %51, label %49
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds i8, ptr %0, i64 88
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %49, label %47
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %47, align 8
-  %.not.i.i.i56 = icmp eq ptr %50, null
-  br i1 %.not.i.i.i56, label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i58, label %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i57
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %45, align 8
+  %.not.i.i.i57 = icmp eq ptr %48, null
+  br i1 %.not.i.i.i57, label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i59, label %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i58
 
-_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i57: ; preds = %49
-  call void @_ZN8TINShift9EvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %50) #23
-  call void @_ZdlPv(ptr noundef nonnull %50) #29
-  br label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i58
+_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i58: ; preds = %47
+  call void @_ZN8TINShift9EvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %48) #23
+  call void @_ZdlPv(ptr noundef nonnull %48) #29
+  br label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i59
 
-_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i58:     ; preds = %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i57, %49
-  call void @_ZdlPv(ptr noundef nonnull %47) #29
-  br label %51
+_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i59:     ; preds = %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i58, %47
+  call void @_ZdlPv(ptr noundef nonnull %45) #29
+  br label %49
 
-51:                                               ; preds = %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i58, %45
-  store ptr null, ptr %46, align 8
+49:                                               ; preds = %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i59, %43
+  store ptr null, ptr %44, align 8
   br label %.invoke
 
-.invoke:                                          ; preds = %26, %51
-  %52 = invoke noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
-          to label %_ZL22pj_tinshift_destructorP8PJconstsi.exit55 unwind label %27
+.invoke:                                          ; preds = %26, %49
+  %50 = invoke noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
+          to label %_ZL22pj_tinshift_destructorP8PJconstsi.exit56 unwind label %27
 
-53:                                               ; preds = %42
-  %54 = load ptr, ptr %2, align 8
+51:                                               ; preds = %40
+  %52 = load ptr, ptr %2, align 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 32
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
-  %57 = load ptr, ptr %56, align 8
-  %58 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(73) %54, i64 noundef 0, i32 noundef 0)
-          to label %59 unwind label %27
+  %56 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(73) %52, i64 noundef 0, i32 noundef 0)
+          to label %57 unwind label %27
 
-59:                                               ; preds = %53
+57:                                               ; preds = %51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %41)
-          to label %79 unwind label %60
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %39)
+          to label %73 unwind label %58
 
-60:                                               ; preds = %59
-  %61 = landingpad { ptr, i32 }
+58:                                               ; preds = %57
+  %59 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9bad_alloc
-  %62 = extractvalue { ptr, i32 } %61, 0
-  %63 = extractvalue { ptr, i32 } %61, 1
-  %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #23
-  %65 = icmp eq i32 %63, %64
-  br i1 %65, label %66, label %134
+  %60 = extractvalue { ptr, i32 } %59, 1
+  %61 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #23
+  %62 = icmp eq i32 %60, %61
+  br i1 %62, label %63, label %126
 
-66:                                               ; preds = %60
-  %67 = call ptr @__cxa_begin_catch(ptr %62) #23
+63:                                               ; preds = %58
+  %64 = extractvalue { ptr, i32 } %59, 0
+  %65 = call ptr @__cxa_begin_catch(ptr %64) #23
   invoke void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.72, ptr noundef nonnull %.sroa.0.0..sroa.0.0..cast)
-          to label %68 unwind label %71
+          to label %66 unwind label %69
+
+66:                                               ; preds = %63
+  %67 = invoke noundef ptr @_ZL22pj_tinshift_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
+          to label %68 unwind label %69
 
 68:                                               ; preds = %66
-  %69 = invoke noundef ptr @_ZL22pj_tinshift_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
-          to label %70 unwind label %71
-
-70:                                               ; preds = %68
   invoke void @__cxa_end_catch()
-          to label %_ZL22pj_tinshift_destructorP8PJconstsi.exit67 unwind label %75
+          to label %_ZL22pj_tinshift_destructorP8PJconstsi.exit68 unwind label %71
 
-71:                                               ; preds = %68, %66
+69:                                               ; preds = %66, %63
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %126 unwind label %136
+
+71:                                               ; preds = %91, %123, %93, %84, %76, %73, %68
   %72 = landingpad { ptr, i32 }
           cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  %74 = extractvalue { ptr, i32 } %72, 1
-  invoke void @__cxa_end_catch()
-          to label %134 unwind label %146
+  br label %126
 
-75:                                               ; preds = %97, %129, %99, %90, %82, %79, %70
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  %78 = extractvalue { ptr, i32 } %76, 1
-  br label %134
+73:                                               ; preds = %57
+  %74 = load ptr, ptr %2, align 8
+  %75 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0)
+          to label %76 unwind label %71
 
-79:                                               ; preds = %59
-  %80 = load ptr, ptr %2, align 8
-  %81 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0)
-          to label %82 unwind label %75
+76:                                               ; preds = %73
+  %77 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
+  %78 = load ptr, ptr %74, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = invoke noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(73) %74, ptr noundef nonnull %75, i64 noundef %77)
+          to label %82 unwind label %71
 
-82:                                               ; preds = %79
+82:                                               ; preds = %76
   %83 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %84 = load ptr, ptr %80, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = invoke noundef i64 %86(ptr noundef nonnull align 8 dereferenceable(73) %80, ptr noundef nonnull %81, i64 noundef %83)
-          to label %88 unwind label %75
+  %.not49 = icmp eq i64 %81, %83
+  br i1 %.not49, label %93, label %84
 
-88:                                               ; preds = %82
-  %89 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %.not49 = icmp eq i64 %87, %89
-  br i1 %.not49, label %99, label %90
-
-90:                                               ; preds = %88
+84:                                               ; preds = %82
   invoke void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.73, ptr noundef nonnull %.sroa.0.0..sroa.0.0..cast)
-          to label %91 unwind label %75
+          to label %85 unwind label %71
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %0, i64 88
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %97, label %95
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds i8, ptr %0, i64 88
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %91, label %89
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr %93, align 8
-  %.not.i.i.i62 = icmp eq ptr %96, null
-  br i1 %.not.i.i.i62, label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i64, label %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i63
+89:                                               ; preds = %85
+  %90 = load ptr, ptr %87, align 8
+  %.not.i.i.i63 = icmp eq ptr %90, null
+  br i1 %.not.i.i.i63, label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i65, label %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i64
 
-_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i63: ; preds = %95
-  call void @_ZN8TINShift9EvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %96) #23
-  call void @_ZdlPv(ptr noundef nonnull %96) #29
-  br label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i64
+_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i64: ; preds = %89
+  call void @_ZN8TINShift9EvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %90) #23
+  call void @_ZdlPv(ptr noundef nonnull %90) #29
+  br label %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i65
 
-_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i64:     ; preds = %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i63, %95
-  call void @_ZdlPv(ptr noundef nonnull %93) #29
-  br label %97
+_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i65:     ; preds = %_ZNKSt14default_deleteIN8TINShift9EvaluatorEEclEPS1_.exit.i.i.i64, %89
+  call void @_ZdlPv(ptr noundef nonnull %87) #29
+  br label %91
 
-97:                                               ; preds = %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i64, %91
-  store ptr null, ptr %92, align 8
-  %98 = invoke noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
-          to label %_ZL22pj_tinshift_destructorP8PJconstsi.exit67 unwind label %75
+91:                                               ; preds = %_ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i65, %85
+  store ptr null, ptr %86, align 8
+  %92 = invoke noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
+          to label %_ZL22pj_tinshift_destructorP8PJconstsi.exit68 unwind label %71
 
-99:                                               ; preds = %88
-  %100 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %101 unwind label %75
+93:                                               ; preds = %82
+  %94 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+          to label %95 unwind label %71
 
-101:                                              ; preds = %99
-  store ptr null, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %100, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr @_ZL22pj_tinshift_destructorP8PJconstsi, ptr %103, align 8
-  %104 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
-          to label %105 unwind label %114
+95:                                               ; preds = %93
+  store ptr null, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %94, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr @_ZL22pj_tinshift_destructorP8PJconstsi, ptr %97, align 8
+  %98 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
+          to label %99 unwind label %108
 
-105:                                              ; preds = %101
+99:                                               ; preds = %95
   invoke void @_ZN8TINShift12TINShiftFile5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %106 unwind label %116
+          to label %100 unwind label %110
 
-106:                                              ; preds = %105
-  %107 = load i64, ptr %4, align 8
-  store i64 %107, ptr %104, align 8
+100:                                              ; preds = %99
+  %101 = load i64, ptr %4, align 8
+  store i64 %101, ptr %98, align 8
   store ptr null, ptr %4, align 8
-  %108 = getelementptr inbounds i8, ptr %104, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %108, i8 0, i64 40, i1 false)
-  %109 = load ptr, ptr %100, align 8
-  store ptr %104, ptr %100, align 8
-  %.not.i.i = icmp eq ptr %109, null
+  %102 = getelementptr inbounds i8, ptr %98, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %102, i8 0, i64 40, i1 false)
+  %103 = load ptr, ptr %94, align 8
+  store ptr %98, ptr %94, align 8
+  %.not.i.i = icmp eq ptr %103, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN8TINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN8TINShift9EvaluatorESt14default_deleteIS1_EE5resetEPS1_.exit
 
-_ZNSt10unique_ptrIN8TINShift9EvaluatorESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %106
-  call void @_ZN8TINShift9EvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %109) #23
-  call void @_ZdlPv(ptr noundef nonnull %109) #29
+_ZNSt10unique_ptrIN8TINShift9EvaluatorESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %100
+  call void @_ZN8TINShift9EvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %103) #23
+  call void @_ZdlPv(ptr noundef nonnull %103) #29
   %.pre = load ptr, ptr %4, align 8
-  %.not.i68 = icmp eq ptr %.pre, null
-  br i1 %.not.i68, label %_ZNSt10unique_ptrIN8TINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8TINShift12TINShiftFileEEclEPS1_.exit.i
+  %.not.i69 = icmp eq ptr %.pre, null
+  br i1 %.not.i69, label %_ZNSt10unique_ptrIN8TINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8TINShift12TINShiftFileEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8TINShift12TINShiftFileEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN8TINShift9EvaluatorESt14default_deleteIS1_EE5resetEPS1_.exit
   call void @_ZN8TINShift12TINShiftFileD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %.pre) #23
   call void @_ZdlPv(ptr noundef nonnull %.pre) #29
   br label %_ZNSt10unique_ptrIN8TINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN8TINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %106, %_ZNSt10unique_ptrIN8TINShift9EvaluatorESt14default_deleteIS1_EE5resetEPS1_.exit, %_ZNKSt14default_deleteIN8TINShift12TINShiftFileEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN8TINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %100, %_ZNSt10unique_ptrIN8TINShift9EvaluatorESt14default_deleteIS1_EE5resetEPS1_.exit, %_ZNKSt14default_deleteIN8TINShift12TINShiftFileEEclEPS1_.exit.i
   store ptr null, ptr %4, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 136
-  store ptr @_ZL19tinshift_forward_4dR8PJ_COORDP8PJconsts, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr @_ZL19tinshift_reverse_4dR8PJ_COORDP8PJconsts, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 380
-  store i32 0, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %0, i64 384
-  store i32 0, ptr %113, align 8
-  br label %_ZL22pj_tinshift_destructorP8PJconstsi.exit67
+  %104 = getelementptr inbounds i8, ptr %0, i64 136
+  store ptr @_ZL19tinshift_forward_4dR8PJ_COORDP8PJconsts, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %0, i64 144
+  store ptr @_ZL19tinshift_reverse_4dR8PJ_COORDP8PJconsts, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 380
+  store i32 0, ptr %106, align 4
+  %107 = getelementptr inbounds i8, ptr %0, i64 384
+  store i32 0, ptr %107, align 8
+  br label %_ZL22pj_tinshift_destructorP8PJconstsi.exit68
 
-114:                                              ; preds = %101
-  %115 = landingpad { ptr, i32 }
+108:                                              ; preds = %95
+  %109 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %118
+  br label %112
 
-116:                                              ; preds = %105
-  %117 = landingpad { ptr, i32 }
+110:                                              ; preds = %99
+  %111 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZdlPv(ptr noundef nonnull %104) #29
-  br label %118
+  call void @_ZdlPv(ptr noundef nonnull %98) #29
+  br label %112
 
-118:                                              ; preds = %116, %114
-  %.pn = phi { ptr, i32 } [ %117, %116 ], [ %115, %114 ]
-  %.242 = extractvalue { ptr, i32 } %.pn, 0
+112:                                              ; preds = %110, %108
+  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ]
   %.245 = extractvalue { ptr, i32 } %.pn, 1
-  %119 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %120 = icmp eq i32 %.245, %119
-  br i1 %120, label %121, label %134
+  %113 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
+  %114 = icmp eq i32 %.245, %113
+  br i1 %114, label %115, label %126
 
-121:                                              ; preds = %118
-  %122 = call ptr @__cxa_begin_catch(ptr %.242) #23
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 16
-  %125 = load ptr, ptr %124, align 8
-  %126 = call noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(8) %122) #23
-  invoke void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.74, ptr noundef %126)
-          to label %127 unwind label %130
+115:                                              ; preds = %112
+  %.242 = extractvalue { ptr, i32 } %.pn, 0
+  %116 = call ptr @__cxa_begin_catch(ptr %.242) #23
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %119 = load ptr, ptr %118, align 8
+  %120 = call noundef ptr %119(ptr noundef nonnull align 8 dereferenceable(8) %116) #23
+  invoke void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.74, ptr noundef %120)
+          to label %121 unwind label %124
 
-127:                                              ; preds = %121
-  %128 = invoke noundef ptr @_ZL22pj_tinshift_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
-          to label %129 unwind label %130
+121:                                              ; preds = %115
+  %122 = invoke noundef ptr @_ZL22pj_tinshift_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
+          to label %123 unwind label %124
 
-129:                                              ; preds = %127
+123:                                              ; preds = %121
   invoke void @__cxa_end_catch()
-          to label %_ZL22pj_tinshift_destructorP8PJconstsi.exit67 unwind label %75
+          to label %_ZL22pj_tinshift_destructorP8PJconstsi.exit68 unwind label %71
 
-130:                                              ; preds = %127, %121
-  %131 = landingpad { ptr, i32 }
+124:                                              ; preds = %121, %115
+  %125 = landingpad { ptr, i32 }
           cleanup
-  %132 = extractvalue { ptr, i32 } %131, 0
-  %133 = extractvalue { ptr, i32 } %131, 1
   invoke void @__cxa_end_catch()
-          to label %134 unwind label %146
+          to label %126 unwind label %136
 
-_ZL22pj_tinshift_destructorP8PJconstsi.exit67:    ; preds = %97, %129, %70, %_ZNSt10unique_ptrIN8TINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exit
-  %.2 = phi ptr [ %0, %_ZNSt10unique_ptrIN8TINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exit ], [ %128, %129 ], [ %69, %70 ], [ %98, %97 ]
+_ZL22pj_tinshift_destructorP8PJconstsi.exit68:    ; preds = %91, %123, %68, %_ZNSt10unique_ptrIN8TINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exit
+  %.2 = phi ptr [ %0, %_ZNSt10unique_ptrIN8TINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exit ], [ %122, %123 ], [ %67, %68 ], [ %92, %91 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  br label %_ZL22pj_tinshift_destructorP8PJconstsi.exit55
+  br label %_ZL22pj_tinshift_destructorP8PJconstsi.exit56
 
-134:                                              ; preds = %130, %71, %118, %75, %60
-  %.144 = phi i32 [ %78, %75 ], [ %133, %130 ], [ %.245, %118 ], [ %74, %71 ], [ %63, %60 ]
-  %.141 = phi ptr [ %77, %75 ], [ %132, %130 ], [ %.242, %118 ], [ %73, %71 ], [ %62, %60 ]
+126:                                              ; preds = %124, %69, %112, %71, %58
+  %.merged51 = phi { ptr, i32 } [ %72, %71 ], [ %125, %124 ], [ %.pn, %112 ], [ %70, %69 ], [ %59, %58 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  br label %139
+  br label %131
 
-_ZL22pj_tinshift_destructorP8PJconstsi.exit55:    ; preds = %.invoke, %_ZL22pj_tinshift_destructorP8PJconstsi.exit67
-  %.1 = phi ptr [ %.2, %_ZL22pj_tinshift_destructorP8PJconstsi.exit67 ], [ %52, %.invoke ]
-  %135 = load ptr, ptr %2, align 8
-  %.not.i69 = icmp eq ptr %135, null
-  br i1 %.not.i69, label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i
+_ZL22pj_tinshift_destructorP8PJconstsi.exit56:    ; preds = %.invoke, %_ZL22pj_tinshift_destructorP8PJconstsi.exit68
+  %.1 = phi ptr [ %.2, %_ZL22pj_tinshift_destructorP8PJconstsi.exit68 ], [ %50, %.invoke ]
+  %127 = load ptr, ptr %2, align 8
+  %.not.i70 = icmp eq ptr %127, null
+  br i1 %.not.i70, label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i: ; preds = %_ZL22pj_tinshift_destructorP8PJconstsi.exit55
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 8
-  %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull align 8 dereferenceable(73) %135) #23
+_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i: ; preds = %_ZL22pj_tinshift_destructorP8PJconstsi.exit56
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = load ptr, ptr %129, align 8
+  call void %130(ptr noundef nonnull align 8 dereferenceable(73) %127) #23
   br label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit
 
-139:                                              ; preds = %134, %27
-  %.043 = phi i32 [ %30, %27 ], [ %.144, %134 ]
-  %.040 = phi ptr [ %29, %27 ], [ %.141, %134 ]
-  %140 = load ptr, ptr %2, align 8
-  %.not.i70 = icmp eq ptr %140, null
-  br i1 %.not.i70, label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit72, label %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i71
+131:                                              ; preds = %126, %27
+  %.merged = phi { ptr, i32 } [ %28, %27 ], [ %.merged51, %126 ]
+  %132 = load ptr, ptr %2, align 8
+  %.not.i71 = icmp eq ptr %132, null
+  br i1 %.not.i71, label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit73, label %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i72
 
-_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i71: ; preds = %139
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
-  %143 = load ptr, ptr %142, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(73) %140) #23
-  br label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit72
+_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i72: ; preds = %131
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %133, i64 8
+  %135 = load ptr, ptr %134, align 8
+  call void %135(ptr noundef nonnull align 8 dereferenceable(73) %132) #23
+  br label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit73
 
-_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit72: ; preds = %139, %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i71
-  %144 = insertvalue { ptr, i32 } poison, ptr %.040, 0
-  %145 = insertvalue { ptr, i32 } %144, i32 %.043, 1
-  resume { ptr, i32 } %145
+_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit73: ; preds = %131, %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i72
+  resume { ptr, i32 } %.merged
 
-_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i, %_ZL22pj_tinshift_destructorP8PJconstsi.exit55, %_ZL22pj_tinshift_destructorP8PJconstsi.exit
-  %.0 = phi ptr [ %15, %_ZL22pj_tinshift_destructorP8PJconstsi.exit ], [ %.1, %_ZL22pj_tinshift_destructorP8PJconstsi.exit55 ], [ %.1, %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i ]
+_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i, %_ZL22pj_tinshift_destructorP8PJconstsi.exit56, %_ZL22pj_tinshift_destructorP8PJconstsi.exit
+  %.0 = phi ptr [ %15, %_ZL22pj_tinshift_destructorP8PJconstsi.exit ], [ %.1, %_ZL22pj_tinshift_destructorP8PJconstsi.exit56 ], [ %.1, %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i ]
   ret ptr %.0
 
-146:                                              ; preds = %130, %71
-  %147 = landingpad { ptr, i32 }
+136:                                              ; preds = %124, %69
+  %137 = landingpad { ptr, i32 }
           catch ptr null
-  %148 = extractvalue { ptr, i32 } %147, 0
-  call void @__clang_call_terminate(ptr %148) #26
+  %138 = extractvalue { ptr, i32 } %137, 0
+  call void @__clang_call_terminate(ptr %138) #26
   unreachable
 }
 

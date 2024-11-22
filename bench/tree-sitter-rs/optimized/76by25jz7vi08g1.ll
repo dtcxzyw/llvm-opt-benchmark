@@ -55618,11 +55618,11 @@ define internal fastcc void @"_ZN215_$LT$tree_sitter_cli..generate..parse_gramma
 440:                                              ; preds = %6, %8, %12, %16, %20, %24, %28, %32, %39, %43, %47, %53, %57, %61, %67, %71, %75, %81, %83, %86, %90, %94, %98, %102, %106, %110, %116, %120, %124, %130, %134, %138, %142, %148, %152, %156, %160, %166, %168, %172, %176, %180, %184, %188, %192, %198, %202, %206, %210, %214, %220, %223, %227, %233, %236, %240, %244, %248, %252, %256, %260, %264, %268, %272, %276, %282, %285, %289, %293, %297, %301, %305, %309, %313, %319, %322, %326, %330, %334, %338, %342, %346, %350, %354, %360, %363, %367, %371, %377, %380, %384, %388, %392, %396, %400, %404, %408, %412, %416, %420, %424, %428, %432, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN5serde9__private6string15from_utf8_lossy17h5b576412364a7066E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !11089, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !11089, !noundef !4
-  %441 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h3854b94aa2d7b2daE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i, ptr noalias noundef nonnull readonly align 8 @anon.63c56c029849d52f8e59e08c8a58f399.222, i64 noundef 16)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !11089, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !11089, !nonnull !4, !noundef !4
+  %441 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h3854b94aa2d7b2daE(ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i, ptr noalias noundef nonnull readonly align 8 @anon.63c56c029849d52f8e59e08c8a58f399.222, i64 noundef 16)
           to label %442 unwind label %438
 
 442:                                              ; preds = %440
@@ -55646,7 +55646,7 @@ define internal fastcc void @"_ZN215_$LT$tree_sitter_cli..generate..parse_gramma
   %450 = load ptr, ptr %4, align 8, !noalias !11095, !nonnull !4, !noundef !4
   %451 = getelementptr inbounds i8, ptr %4, i64 16
   %452 = load i64, ptr %451, align 8, !noalias !11095, !noundef !4
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i, ptr noundef nonnull %450, i64 noundef %448, i64 noundef %452)
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i, ptr noundef nonnull %450, i64 noundef %448, i64 noundef %452)
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i": ; preds = %449, %446

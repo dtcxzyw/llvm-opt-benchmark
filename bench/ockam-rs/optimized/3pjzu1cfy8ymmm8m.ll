@@ -995,10 +995,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %13, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %15, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %16 = insertvalue { ptr, ptr } poison, ptr %13, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %15, 1
-  ret { ptr, ptr } %17
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1101,10 +1101,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %13, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %15, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %16 = insertvalue { ptr, ptr } poison, ptr %13, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %15, 1
-  ret { ptr, ptr } %17
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1207,10 +1207,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %13, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %15, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %16 = insertvalue { ptr, ptr } poison, ptr %13, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %15, 1
-  ret { ptr, ptr } %17
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1302,10 +1302,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %13, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %15, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %16 = insertvalue { ptr, ptr } poison, ptr %13, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %15, 1
-  ret { ptr, ptr } %17
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

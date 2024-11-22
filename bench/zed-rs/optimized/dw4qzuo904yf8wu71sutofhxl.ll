@@ -20495,9 +20495,9 @@ define hidden { i64, ptr } @_ZN3std2io4Read13read_vectored17h455760e55727e9ebE(p
   br label %_ZN3std2io21default_read_vectored17h312c3552ece4a9ddE.exit
 
 _ZN3std2io21default_read_vectored17h312c3552ece4a9ddE.exit: ; preds = %5, %12
-  %.sroa.3.0.i.i = phi i64 [ %11, %12 ], [ 0, %5 ]
-  %.sroa.02.0.i.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
-  %14 = tail call { i64, ptr } @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17he0914637c53cf48eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.sroa.02.0.i.i, i64 noundef %.sroa.3.0.i.i)
+  %.pn7.i.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn5.i.i = phi i64 [ %11, %12 ], [ 0, %5 ]
+  %14 = tail call { i64, ptr } @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17he0914637c53cf48eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.pn7.i.i, i64 noundef %.pn5.i.i)
   ret { i64, ptr } %14
 }
 
@@ -20526,8 +20526,8 @@ define hidden { i64, ptr } @_ZN3std2io4Read13read_vectored17hc206734c66c37839E(p
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he277c7f9d3e12008E.llvm.3233214882447289910.exit.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he277c7f9d3e12008E.llvm.3233214882447289910.exit.i": ; preds = %6, %13
-  %.sroa.3.0.i.i = phi i64 [ %12, %13 ], [ 0, %6 ]
-  %.sroa.02.0.i.i = phi ptr [ %14, %13 ], [ inttoptr (i64 1 to ptr), %6 ]
+  %.pn7.i.i = phi ptr [ %14, %13 ], [ inttoptr (i64 1 to ptr), %6 ]
+  %.pn5.i.i = phi i64 [ %12, %13 ], [ 0, %6 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3871)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3874)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3877)
@@ -20543,7 +20543,7 @@ define hidden { i64, ptr } @_ZN3std2io4Read13read_vectored17hc206734c66c37839E(p
   store ptr %21, ptr %4, align 8, !noalias !3880
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %20, ptr %22, align 8, !noalias !3880
-  %23 = call { i64, ptr } @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h727e9d27c6a7f356E.llvm.3233214882447289910"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %.sroa.02.0.i.i, i64 noundef %.sroa.3.0.i.i), !noalias !3884
+  %23 = call { i64, ptr } @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h727e9d27c6a7f356E.llvm.3233214882447289910"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %.pn7.i.i, i64 noundef %.pn5.i.i), !noalias !3884
   %24 = extractvalue { i64, ptr } %23, 0
   %switch.i.i.i.i = icmp eq i64 %24, 0
   br i1 %switch.i.i.i.i, label %25, label %29
@@ -20586,9 +20586,9 @@ define hidden { i64, ptr } @_ZN3std2io4Read13read_vectored17hd21de1289353522dE(p
   br label %_ZN3std2io21default_read_vectored17hdabd5cba640c3909E.exit
 
 _ZN3std2io21default_read_vectored17hdabd5cba640c3909E.exit: ; preds = %5, %12
-  %.sroa.3.0.i.i = phi i64 [ %11, %12 ], [ 0, %5 ]
-  %.sroa.02.0.i.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
-  %14 = tail call { i64, ptr } @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h6eea69d550332116E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %.sroa.02.0.i.i, i64 noundef %.sroa.3.0.i.i)
+  %.pn7.i.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn5.i.i = phi i64 [ %11, %12 ], [ 0, %5 ]
+  %14 = tail call { i64, ptr } @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h6eea69d550332116E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %.pn7.i.i, i64 noundef %.pn5.i.i)
   ret { i64, ptr } %14
 }
 

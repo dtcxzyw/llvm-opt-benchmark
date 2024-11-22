@@ -5780,8 +5780,8 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorINS_27VPBlockDeepTraversal
   %.pre = load ptr, ptr %4, align 8
   br label %8
 
-8:                                                ; preds = %76, %1
-  %9 = phi ptr [ %78, %76 ], [ %.pre, %1 ]
+8:                                                ; preds = %77, %1
+  %9 = phi ptr [ %79, %77 ], [ %.pre, %1 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 -32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 -24
@@ -5801,16 +5801,16 @@ _ZNSt8optionalIN4llvm23VPAllSuccessorsIteratorIPNS0_11VPBlockBaseEEEE7emplaceIJS
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.not11.i.i = icmp eq ptr %11, null
   %19 = getelementptr inbounds i8, ptr %9, i64 -16
-  br label %.critedge33
+  br label %.critedge36
 
-.critedge33:                                      ; preds = %.critedge33.backedge, %17
+.critedge36:                                      ; preds = %.critedge36.backedge, %17
   %20 = load i8, ptr %18, align 8, !noalias !84
   %21 = icmp ne i8 %20, 0
   %.not.i.i = or i1 %.not11.i.i, %21
   br i1 %.not.i.i, label %.lr.ph.i.i.i, label %_ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9child_endES3_.exit
 
-.lr.ph.i.i.i:                                     ; preds = %.critedge33, %25
-  %.05.i.i.i = phi ptr [ %27, %25 ], [ %11, %.critedge33 ]
+.lr.ph.i.i.i:                                     ; preds = %.critedge36, %25
+  %.05.i.i.i = phi ptr [ %27, %25 ], [ %11, %.critedge36 ]
   %22 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 80
   %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #14, !noalias !84
   %24 = icmp eq i64 %23, 0
@@ -5827,14 +5827,14 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exi
   %29 = and i64 %28, 4294967295
   br label %_ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9child_endES3_.exit
 
-_ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9child_endES3_.exit: ; preds = %25, %.critedge33, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i
-  %.sink.i.i = phi i64 [ 1, %.critedge33 ], [ %29, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i ], [ 0, %25 ]
+_ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9child_endES3_.exit: ; preds = %25, %.critedge36, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i
+  %.sink.i.i = phi i64 [ 1, %.critedge36 ], [ %29, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i ], [ 0, %25 ]
   %30 = load ptr, ptr %12, align 8
   %31 = icmp ne ptr %30, %11
   %32 = load i64, ptr %19, align 8
   %33 = icmp ne i64 %32, %.sink.i.i
   %.not3.i = select i1 %31, i1 true, i1 %33
-  br i1 %.not3.i, label %34, label %76
+  br i1 %.not3.i, label %34, label %77
 
 34:                                               ; preds = %_ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9child_endES3_.exit
   %35 = add i64 %32, 1
@@ -5892,12 +5892,12 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit: ; preds = %42, %
   %.025.i.i.i = phi ptr [ %63, %62 ], [ %54, %56 ]
   %60 = load ptr, ptr %.025.i.i.i, align 8, !noalias !94
   %61 = icmp eq ptr %60, %.0.i.i
-  br i1 %61, label %.critedge33.backedge, label %62, !llvm.loop !99
+  br i1 %61, label %.critedge36.backedge, label %62
 
 62:                                               ; preds = %.lr.ph.i.i.i11
   %63 = getelementptr inbounds i8, ptr %.025.i.i.i, i64 8
   %.not.i.i.i12 = icmp eq ptr %63, %59
-  br i1 %.not.i.i.i12, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i11, !llvm.loop !100
+  br i1 %.not.i.i.i12, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i11, !llvm.loop !99
 
 ._crit_edge.i.i.i:                                ; preds = %62, %56
   %64 = load i32, ptr %7, align 8, !noalias !94
@@ -5912,45 +5912,45 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit: ; preds = %42, %
 
 _ZN4llvm23df_iterator_default_setIPNS_11VPBlockBaseELj8EE6insertES2_.exit: ; preds = %._crit_edge.i.i.i, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit
   %67 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %.0.i.i) #14, !noalias !94
-  %.fca.1.extract.i.i.i = extractvalue { ptr, i8 } %67, 1
-  %68 = trunc i8 %.fca.1.extract.i.i.i to i1
-  br i1 %68, label %.loopexit, label %.critedge33.backedge
+  %68 = extractvalue { ptr, i8 } %67, 1
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %.loopexit, label %.critedge36.backedge
 
-.critedge33.backedge:                             ; preds = %.lr.ph.i.i.i11, %_ZN4llvm23df_iterator_default_setIPNS_11VPBlockBaseELj8EE6insertES2_.exit
-  br label %.critedge33, !llvm.loop !99
+.critedge36.backedge:                             ; preds = %.lr.ph.i.i.i11, %_ZN4llvm23df_iterator_default_setIPNS_11VPBlockBaseELj8EE6insertES2_.exit
+  br label %.critedge36, !llvm.loop !100
 
 .loopexit:                                        ; preds = %_ZN4llvm23df_iterator_default_setIPNS_11VPBlockBaseELj8EE6insertES2_.exit, %.critedge
   store ptr %.0.i.i, ptr %2, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i8 0, ptr %69, align 8
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %72 = load ptr, ptr %71, align 8
-  %.not.i.i13 = icmp eq ptr %70, %72
-  br i1 %.not.i.i13, label %75, label %_ZNSt16allocator_traitsISaISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i8 0, ptr %70, align 8
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %73 = load ptr, ptr %72, align 8
+  %.not.i.i13 = icmp eq ptr %71, %73
+  br i1 %.not.i.i13, label %76, label %_ZNSt16allocator_traitsISaISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i: ; preds = %.loopexit
-  store ptr %.0.i.i, ptr %70, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store i8 0, ptr %73, align 8
+  store ptr %.0.i.i, ptr %71, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  store i8 0, ptr %74, align 8
   %.pre30 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds i8, ptr %.pre30, i64 32
-  store ptr %74, ptr %4, align 8
+  %75 = getelementptr inbounds i8, ptr %.pre30, i64 32
+  store ptr %75, ptr %4, align 8
   br label %_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE9push_backEOS8_.exit
 
-75:                                               ; preds = %.loopexit
-  call void @_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %70, ptr noundef nonnull align 8 dereferenceable(32) %2)
+76:                                               ; preds = %.loopexit
+  call void @_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %71, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE9push_backEOS8_.exit
 
-76:                                               ; preds = %_ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9child_endES3_.exit
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 -32
-  store ptr %78, ptr %4, align 8
-  %79 = load ptr, ptr %3, align 8
-  %80 = icmp eq ptr %79, %78
-  br i1 %80, label %_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE9push_backEOS8_.exit, label %8, !llvm.loop !101
+77:                                               ; preds = %_ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9child_endES3_.exit
+  %78 = load ptr, ptr %4, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 -32
+  store ptr %79, ptr %4, align 8
+  %80 = load ptr, ptr %3, align 8
+  %81 = icmp eq ptr %80, %79
+  br i1 %81, label %_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE9push_backEOS8_.exit, label %8, !llvm.loop !101
 
-_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE9push_backEOS8_.exit: ; preds = %76, %75, %_ZNSt16allocator_traitsISaISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i
+_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE9push_backEOS8_.exit: ; preds = %77, %76, %_ZNSt16allocator_traitsISaISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i
   ret void
 }
 

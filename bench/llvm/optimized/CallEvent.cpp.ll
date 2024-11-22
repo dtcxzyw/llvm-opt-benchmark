@@ -1833,16 +1833,11 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento9CallEvent10getArgSValEj(ptr nounde
   %17 = load ptr, ptr %16, align 8
   %18 = call { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16EnvironmentEntryERNS0_11SValBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(412) %17) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %.fca.0.extract = extractvalue { ptr, i8 } %18, 0
-  %.fca.1.extract = extractvalue { ptr, i8 } %18, 1
   br label %19
 
 19:                                               ; preds = %2, %8
-  %.sroa.03.0 = phi ptr [ %.fca.0.extract, %8 ], [ null, %2 ]
-  %.sroa.3.0 = phi i8 [ %.fca.1.extract, %8 ], [ 1, %2 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.03.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %18, %8 ], [ { ptr null, i8 1 }, %2 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1893,16 +1888,11 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento9CallEvent14getReturnValueEv(ptr no
   %16 = load ptr, ptr %15, align 8
   %17 = call { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16EnvironmentEntryERNS0_11SValBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(412) %16) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %.fca.0.extract = extractvalue { ptr, i8 } %17, 0
-  %.fca.1.extract = extractvalue { ptr, i8 } %17, 1
   br label %18
 
 18:                                               ; preds = %1, %7
-  %.sroa.03.0 = phi ptr [ %.fca.0.extract, %7 ], [ null, %1 ]
-  %.sroa.3.0 = phi i8 [ %.fca.1.extract, %7 ], [ 0, %1 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.03.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %17, %7 ], [ zeroinitializer, %1 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3197,7 +3187,7 @@ define internal fastcc void @_ZL28addParameterValuesToBindingsPKN5clang17StackFr
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.sroa.059.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.056.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.4.16..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
   %31 = zext i32 %17 to i64
@@ -3205,15 +3195,15 @@ define internal fastcc void @_ZL28addParameterValuesToBindingsPKN5clang17StackFr
 
 32:                                               ; preds = %.lr.ph, %173
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %173 ]
-  %.04979 = phi ptr [ %4, %.lr.ph ], [ %174, %173 ]
+  %.04976 = phi ptr [ %4, %.lr.ph ], [ %174, %173 ]
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %.not = icmp eq i32 %36, 7
-  br i1 %.not, label %._crit_edge91, label %37
+  br i1 %.not, label %._crit_edge88, label %37
 
-._crit_edge91:                                    ; preds = %32
+._crit_edge88:                                    ; preds = %32
   %.pre = trunc nuw i64 %indvars.iv to i32
   br label %54
 
@@ -3261,8 +3251,8 @@ _ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit: ; preds = %_ZN4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br i1 %53, label %173, label %54
 
-54:                                               ; preds = %._crit_edge91, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge91 ], [ %41, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit ]
+54:                                               ; preds = %._crit_edge88, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge88 ], [ %41, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit ]
   %55 = load ptr, ptr %3, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 88
   %57 = load ptr, ptr %56, align 8
@@ -3338,20 +3328,19 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i: ; p
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %.sroa.0.0.copyload.i26.i = load i64, ptr %104, align 8
   %105 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder8evalCastENS0_4SValENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(412) %2, ptr %.fca.0.extract19, i8 %.fca.1.extract20, i64 %.sroa.0.0.copyload.i.i, i64 %.sroa.0.0.copyload.i26.i) #18
-  %.fca.0.extract.i = extractvalue { ptr, i8 } %105, 0
-  %.fca.1.extract.i = extractvalue { ptr, i8 } %105, 1
   br label %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit
 
-_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit: ; preds = %64, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i, %80, %84, %88, %94
-  %.sroa.024.0.i = phi ptr [ %.fca.0.extract.i, %94 ], [ %.fca.0.extract19, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i ], [ %.fca.0.extract19, %84 ], [ %.fca.0.extract19, %80 ], [ null, %88 ], [ %.fca.0.extract19, %64 ]
-  %.sroa.5.0.i = phi i8 [ %.fca.1.extract.i, %94 ], [ %.fca.1.extract20, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i ], [ %.fca.1.extract20, %84 ], [ %.fca.1.extract20, %80 ], [ 1, %88 ], [ %.fca.1.extract20, %64 ]
+_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit: ; preds = %80, %84, %64, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i, %88, %94
+  %.fca.1.insert.merged.i = phi { ptr, i8 } [ %105, %94 ], [ { ptr null, i8 1 }, %88 ], [ %58, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i ], [ %58, %64 ], [ %58, %84 ], [ %58, %80 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  %.fca.0.extract10 = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 0
+  %.fca.1.extract11 = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 1
   %106 = load ptr, ptr %3, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 64
   %108 = load ptr, ptr %107, align 8
   %109 = call noundef ptr %108(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %110 = call noundef ptr @_ZN5clang4ento16MemRegionManager17getParamVarRegionEPKNS_4ExprEjPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef %109, i32 noundef %.pre-phi, ptr noundef %0) #18
-  %111 = load ptr, ptr %.04979, align 8
+  %111 = load ptr, ptr %.04976, align 8
   %112 = getelementptr i8, ptr %62, i64 8
   %.val = load i64, ptr %112, align 8
   %113 = getelementptr i8, ptr %111, i64 48
@@ -3368,8 +3357,8 @@ _ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBu
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 256
-  %.not.i.i.i54 = icmp eq i32 %122, 0
-  br i1 %.not.i.i.i54, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit, label %123
+  %.not.i.i.i52 = icmp eq i32 %122, 0
+  br i1 %.not.i.i.i52, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit, label %123
 
 123:                                              ; preds = %118
   %124 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %119) #18
@@ -3412,8 +3401,8 @@ _ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBu
 _ZL18isTransparentUnionN5clang8QualTypeE.exit.i:  ; preds = %.lr.ph.i4.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %125, %.lr.ph.i4.i.i.i.i.i.i ]
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %127, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i.i, %.lr.ph.i4.i.i.i.i.i.i ]
-  %.not.i57 = icmp eq ptr %.sroa.07.0.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i
-  br i1 %.not.i57, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit, label %142
+  %.not.i54 = icmp eq ptr %.sroa.07.0.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i
+  br i1 %.not.i54, label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit, label %142
 
 142:                                              ; preds = %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i
   %143 = and i64 %.val, -16
@@ -3477,25 +3466,25 @@ _ZL18isTransparentUnionN5clang8QualTypeE.exit38.i: ; preds = %.lr.ph.i4.i.i.i.i.
 
 _ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i: ; preds = %169, %162, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i, %164, %147, %142
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  store ptr %.sroa.024.0.i, ptr %7, align 8
-  store i8 %.sroa.5.0.i, ptr %28, align 8
+  store ptr %.fca.0.extract10, ptr %7, align 8
+  store i8 %.fca.1.extract11, ptr %28, align 8
   %171 = call ptr @_ZN4llvm20ImmutableListFactoryIN5clang4ento4SValEE6concatIRS3_EENS_13ImmutableListIS3_EEOT_S8_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(9) %7, ptr null)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %172 = call noundef ptr @_ZN5clang4ento17BasicValueFactory18getCompoundValDataENS_8QualTypeEN4llvm13ImmutableListINS0_4SValEEE(ptr noundef nonnull align 8 dereferenceable(144) %27, i64 %.val50, ptr %171) #18
   br label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit
 
 _ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit: ; preds = %140, %133, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit, %118, %135, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i
-  %.sroa.023.0.i = phi ptr [ %172, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i ], [ %.sroa.024.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i ], [ %.sroa.024.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.sroa.024.0.i, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.sroa.024.0.i, %118 ], [ %.sroa.024.0.i, %135 ], [ %.sroa.024.0.i, %133 ], [ %.sroa.024.0.i, %140 ]
-  %.sroa.324.0.i = phi i8 [ 5, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i ], [ %.sroa.5.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i ], [ %.sroa.5.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.sroa.5.0.i, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.sroa.5.0.i, %118 ], [ %.sroa.5.0.i, %135 ], [ %.sroa.5.0.i, %133 ], [ %.sroa.5.0.i, %140 ]
+  %.pn12.i = phi ptr [ %172, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i ], [ %.fca.0.extract10, %135 ], [ %.fca.0.extract10, %118 ], [ %.fca.0.extract10, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.fca.0.extract10, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i ], [ %.fca.0.extract10, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.fca.0.extract10, %133 ], [ %.fca.0.extract10, %140 ]
+  %.pn10.i = phi i8 [ 5, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.thread.i ], [ %.fca.1.extract11, %135 ], [ %.fca.1.extract11, %118 ], [ %.fca.1.extract11, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.fca.1.extract11, %_ZL18isTransparentUnionN5clang8QualTypeE.exit38.i ], [ %.fca.1.extract11, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.fca.1.extract11, %133 ], [ %.fca.1.extract11, %140 ]
   store ptr %110, ptr %12, align 8
-  store i8 4, ptr %.sroa.059.sroa.2.0..sroa_idx, align 8
-  store ptr %.sroa.023.0.i, ptr %30, align 8
-  store i8 %.sroa.324.0.i, ptr %.sroa.4.16..sroa_idx, align 8
+  store i8 4, ptr %.sroa.056.sroa.2.0..sroa_idx, align 8
+  store ptr %.pn12.i, ptr %30, align 8
+  store i8 %.pn10.i, ptr %.sroa.4.16..sroa_idx, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang4ento4SValES4_ELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %12)
   br label %173
 
 173:                                              ; preds = %54, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit, %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit
-  %174 = getelementptr inbounds i8, ptr %.04979, i64 8
+  %174 = getelementptr inbounds i8, ptr %.04976, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %175 = icmp ne ptr %174, %18
   %176 = icmp samesign ult i64 %indvars.iv.next, %31
@@ -4015,16 +4004,18 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento15CXXInstanceCall13getCXXThisValEv(
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %31, align 8
   %32 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder8evalCastENS0_4SValENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(412) %27, ptr %.sroa.03.0.copyload, i8 %.sroa.24.0.copyload, i64 %.sroa.0.0.copyload.i, i64 %30) #18
-  %.fca.0.extract = extractvalue { ptr, i8 } %32, 0
-  %.fca.1.extract = extractvalue { ptr, i8 } %32, 1
-  br label %.thread
+  br label %35
 
-.thread:                                          ; preds = %1, %8, %21
-  %.sroa.015.0 = phi ptr [ %.fca.0.extract, %21 ], [ %.fca.0.extract7, %8 ], [ null, %1 ]
-  %.sroa.316.0 = phi i8 [ %.fca.1.extract, %21 ], [ %.fca.1.extract8, %8 ], [ 1, %1 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.015.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.316.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+.thread:                                          ; preds = %1, %8
+  %.fca.1.extract8.sink21 = phi i8 [ %.fca.1.extract8, %8 ], [ 1, %1 ]
+  %.sroa.015.0.copyload20 = phi ptr [ %.fca.0.extract7, %8 ], [ null, %1 ]
+  %33 = insertvalue { ptr, i8 } poison, ptr %.sroa.015.0.copyload20, 0
+  %34 = insertvalue { ptr, i8 } %33, i8 %.fca.1.extract8.sink21, 1
+  br label %35
+
+35:                                               ; preds = %.thread, %21
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %32, %21 ], [ %34, %.thread ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 declare i64 @_ZNK5clang4ento4SVal7getTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #1
@@ -5049,8 +5040,6 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i: ; preds = %52
   %71 = load ptr, ptr %70, align 8
   %72 = call { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16EnvironmentEntryERNS0_11SValBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(412) %71) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %.fca.0.extract1.i = extractvalue { ptr, i8 } %72, 0
-  %.fca.1.extract2.i = extractvalue { ptr, i8 } %72, 1
   br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
 
 _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i: ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i, %52
@@ -5058,13 +5047,12 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i: ; preds = %_ZN
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = tail call { ptr, i8 } @_ZNK5clang4ento12ProgramState11getSelfSValEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef %75) #18
-  %.fca.0.extract.i = extractvalue { ptr, i8 } %76, 0
-  %.fca.1.extract.i = extractvalue { ptr, i8 } %76, 1
   br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
 
 _ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %42, %63, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i
-  %.sroa.07.0.i = phi ptr [ %.fca.0.extract1.i, %63 ], [ %.fca.0.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ null, %42 ]
-  %.sroa.4.0.i = phi i8 [ %.fca.1.extract2.i, %63 ], [ %.fca.1.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ 1, %42 ]
+  %.fca.1.insert.merged.i = phi { ptr, i8 } [ %72, %63 ], [ %76, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ { ptr null, i8 1 }, %42 ]
+  %.fca.0.extract11 = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 0
+  %.fca.1.extract12 = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 1
   %77 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 96
@@ -5072,7 +5060,7 @@ _ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %42, %63, %_Z
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 80
   %83 = load ptr, ptr %82, align 8
-  %84 = call { ptr, i8 } %83(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull %41, ptr %.sroa.07.0.i, i8 %.sroa.4.0.i) #18
+  %84 = call { ptr, i8 } %83(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull %41, ptr %.fca.0.extract11, i8 %.fca.1.extract12) #18
   %.fca.0.extract7 = extractvalue { ptr, i8 } %84, 0
   %.fca.1.extract8 = extractvalue { ptr, i8 } %84, 1
   store ptr %.fca.0.extract7, ptr %6, align 8
@@ -5102,7 +5090,7 @@ _ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread: ; preds = %2
   %95 = load i32, ptr %94, align 8
   %96 = and i32 %95, 16580608
   %spec.select.i.i.i31 = icmp eq i32 %96, 65536
-  br i1 %spec.select.i.i.i31, label %97, label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43
+  br i1 %spec.select.i.i.i31, label %97, label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36
 
 97:                                               ; preds = %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread
   %98 = load ptr, ptr %0, align 8
@@ -5113,15 +5101,15 @@ _ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread: ; preds = %2
   %103 = load i32, ptr %102, align 8
   %104 = and i32 %103, 16711680
   %105 = icmp eq i32 %104, 65536
-  br i1 %105, label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i39, label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i36
+  br i1 %105, label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i34, label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i33
 
-_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i39: ; preds = %97
+_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i34: ; preds = %97
   %106 = getelementptr inbounds i8, ptr %101, i64 40
   %107 = load ptr, ptr %106, align 8
-  %.not.i40 = icmp eq ptr %107, null
-  br i1 %.not.i40, label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i36, label %108
+  %.not.i35 = icmp eq ptr %107, null
+  br i1 %.not.i35, label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i33, label %108
 
-108:                                              ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i39
+108:                                              ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i34
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5135,40 +5123,37 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i39: ; preds = %97
   %117 = load ptr, ptr %116, align 8
   %118 = call { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16EnvironmentEntryERNS0_11SValBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(412) %117) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.fca.0.extract1.i41 = extractvalue { ptr, i8 } %118, 0
-  %.fca.1.extract2.i42 = extractvalue { ptr, i8 } %118, 1
-  br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43
+  br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36
 
-_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i36: ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i39, %97
+_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i33: ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i34, %97
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %122 = load ptr, ptr %121, align 8
   %123 = tail call { ptr, i8 } @_ZNK5clang4ento12ProgramState11getSelfSValEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(48) %120, ptr noundef %122) #18
-  %.fca.0.extract.i37 = extractvalue { ptr, i8 } %123, 0
-  %.fca.1.extract.i38 = extractvalue { ptr, i8 } %123, 1
-  br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43
+  br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36
 
-_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43: ; preds = %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread, %108, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i36
-  %.sroa.07.0.i32 = phi ptr [ %.fca.0.extract1.i41, %108 ], [ %.fca.0.extract.i37, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i36 ], [ null, %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread ]
-  %.sroa.4.0.i33 = phi i8 [ %.fca.1.extract2.i42, %108 ], [ %.fca.1.extract.i38, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i36 ], [ 1, %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread ]
+_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36: ; preds = %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread, %108, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i33
+  %.fca.1.insert.merged.i32 = phi { ptr, i8 } [ %118, %108 ], [ %123, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i33 ], [ { ptr null, i8 1 }, %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread ]
+  %.fca.0.extract = extractvalue { ptr, i8 } %.fca.1.insert.merged.i32, 0
+  %.fca.1.extract = extractvalue { ptr, i8 } %.fca.1.insert.merged.i32, 1
   %124 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %125 = add i64 %124, 1
   %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
-  %.not.i.i.i44 = icmp ugt i64 %125, %126
-  br i1 %.not.i.i.i44, label %.sink.split.sink.split, label %.sink.split
+  %.not.i.i.i37 = icmp ugt i64 %125, %126
+  br i1 %.not.i.i.i37, label %.sink.split.sink.split, label %.sink.split
 
-.sink.split.sink.split:                           ; preds = %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43, %86
-  %.sink53 = phi i64 [ %88, %86 ], [ %125, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43 ]
-  %.sroa.03.0.copyload.sink.ph = phi ptr [ %.sroa.03.0.copyload, %86 ], [ %.sroa.07.0.i32, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43 ]
-  %.sroa.24.0.copyload.sink.ph = phi i8 [ %.sroa.24.0.copyload, %86 ], [ %.sroa.4.0.i33, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43 ]
+.sink.split.sink.split:                           ; preds = %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36, %86
+  %.sink46 = phi i64 [ %88, %86 ], [ %125, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36 ]
+  %.sroa.03.0.copyload.sink.ph = phi ptr [ %.sroa.03.0.copyload, %86 ], [ %.fca.0.extract, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36 ]
+  %.sroa.24.0.copyload.sink.ph = phi i8 [ %.sroa.24.0.copyload, %86 ], [ %.fca.1.extract, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36 ]
   %127 = getelementptr inbounds i8, ptr %1, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %127, i64 noundef %.sink53, i64 noundef 16) #18
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %127, i64 noundef %.sink46, i64 noundef 16) #18
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43, %86
-  %.sroa.03.0.copyload.sink = phi ptr [ %.sroa.03.0.copyload, %86 ], [ %.sroa.07.0.i32, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43 ], [ %.sroa.03.0.copyload.sink.ph, %.sink.split.sink.split ]
-  %.sroa.24.0.copyload.sink = phi i8 [ %.sroa.24.0.copyload, %86 ], [ %.sroa.4.0.i33, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit43 ], [ %.sroa.24.0.copyload.sink.ph, %.sink.split.sink.split ]
+.sink.split:                                      ; preds = %.sink.split.sink.split, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36, %86
+  %.sroa.03.0.copyload.sink = phi ptr [ %.sroa.03.0.copyload, %86 ], [ %.fca.0.extract, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36 ], [ %.sroa.03.0.copyload.sink.ph, %.sink.split.sink.split ]
+  %.sroa.24.0.copyload.sink = phi i8 [ %.sroa.24.0.copyload, %86 ], [ %.fca.1.extract, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit36 ], [ %.sroa.24.0.copyload.sink.ph, %.sink.split.sink.split ]
   %128 = load ptr, ptr %1, align 8
   %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %130 = getelementptr inbounds %"class.clang::ento::SVal", ptr %128, i64 %129
@@ -5291,8 +5276,6 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %10
   %30 = load ptr, ptr %29, align 8
   %31 = call { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16EnvironmentEntryERNS0_11SValBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(412) %30) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %.fca.0.extract1 = extractvalue { ptr, i8 } %31, 0
-  %.fca.1.extract2 = extractvalue { ptr, i8 } %31, 1
   br label %37
 
 _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %10, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit
@@ -5301,16 +5284,11 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %10, %
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call { ptr, i8 } @_ZNK5clang4ento12ProgramState11getSelfSValEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef %35) #18
-  %.fca.0.extract = extractvalue { ptr, i8 } %36, 0
-  %.fca.1.extract = extractvalue { ptr, i8 } %36, 1
   br label %37
 
 37:                                               ; preds = %1, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread, %21
-  %.sroa.07.0 = phi ptr [ %.fca.0.extract1, %21 ], [ %.fca.0.extract, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread ], [ null, %1 ]
-  %.sroa.4.0 = phi i8 [ %.fca.1.extract2, %21 ], [ %.fca.1.extract, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread ], [ 1, %1 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.07.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %31, %21 ], [ %36, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread ], [ { ptr null, i8 1 }, %1 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 declare { ptr, i8 } @_ZNK5clang4ento12ProgramState11getSelfSValEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #1
@@ -5716,8 +5694,6 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i: ; preds = %46
   %66 = load ptr, ptr %65, align 8
   %67 = call { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16EnvironmentEntryERNS0_11SValBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(412) %66) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %.fca.0.extract1.i = extractvalue { ptr, i8 } %67, 0
-  %.fca.1.extract2.i = extractvalue { ptr, i8 } %67, 1
   br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
 
 _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i: ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i, %46
@@ -5726,16 +5702,15 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i: ; preds = %_ZN
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = tail call { ptr, i8 } @_ZNK5clang4ento12ProgramState11getSelfSValEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(48) %69, ptr noundef %71) #18
-  %.fca.0.extract.i = extractvalue { ptr, i8 } %72, 0
-  %.fca.1.extract.i = extractvalue { ptr, i8 } %72, 1
   br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
 
 _ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %_ZNK5clang15ObjCMessageExpr12getSuperTypeEv.exit.thread, %57, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i
-  %.sroa.07.0.i = phi ptr [ %.fca.0.extract1.i, %57 ], [ %.fca.0.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ null, %_ZNK5clang15ObjCMessageExpr12getSuperTypeEv.exit.thread ]
-  %.sroa.4.0.i = phi i8 [ %.fca.1.extract2.i, %57 ], [ %.fca.1.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ 1, %_ZNK5clang15ObjCMessageExpr12getSuperTypeEv.exit.thread ]
-  store ptr %.sroa.07.0.i, ptr %8, align 8
+  %.fca.1.insert.merged.i = phi { ptr, i8 } [ %67, %57 ], [ %72, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ { ptr null, i8 1 }, %_ZNK5clang15ObjCMessageExpr12getSuperTypeEv.exit.thread ]
+  %.fca.0.extract29 = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 0
+  %.fca.1.extract30 = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 1
+  store ptr %.fca.0.extract29, ptr %8, align 8
   %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.i, ptr %.sroa.232.0..sroa_idx, align 8
+  store i8 %.fca.1.extract30, ptr %.sroa.232.0..sroa_idx, align 8
   %73 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #18
   %.not63 = icmp eq ptr %73, null
   br i1 %.not63, label %74, label %75
@@ -6371,7 +6346,7 @@ define dso_local void @_ZNK5clang4ento14ObjCMethodCall28getInitialStackFrameCont
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 16580608
   %spec.select.i.i.i = icmp eq i32 %27, 65536
-  br i1 %spec.select.i.i.i, label %28, label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit.thread
+  br i1 %spec.select.i.i.i, label %28, label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
 
 28:                                               ; preds = %3
   %29 = load ptr, ptr %0, align 8
@@ -6412,14 +6387,14 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i: ; preds = %_ZN
   %52 = tail call { ptr, i8 } @_ZNK5clang4ento12ProgramState11getSelfSValEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef %51) #18
   br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
 
-_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %39, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i
-  %.pn = phi { ptr, i8 } [ %48, %39 ], [ %52, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ]
-  %.sroa.4.0.i = extractvalue { ptr, i8 } %.pn, 1
-  %53 = icmp eq i8 %.sroa.4.0.i, 1
-  br i1 %53, label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit.thread, label %54
+_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %3, %39, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i
+  %.fca.1.insert.merged.i = phi { ptr, i8 } [ %48, %39 ], [ %52, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ { ptr null, i8 1 }, %3 ]
+  %.fca.1.extract5 = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 1
+  %53 = icmp eq i8 %.fca.1.extract5, 1
+  br i1 %53, label %60, label %54
 
 54:                                               ; preds = %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
-  %.sroa.07.0.i = extractvalue { ptr, i8 } %.pn, 0
+  %.fca.0.extract4 = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 0
   %55 = load ptr, ptr %6, align 8
   %56 = call noundef ptr @_ZNK5clang19AnalysisDeclContext11getSelfDeclEv(ptr noundef nonnull align 8 dereferenceable(248) %55) #18
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 232
@@ -6428,13 +6403,13 @@ _ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %39, %_ZNK5cl
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store i8 4, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %.sroa.07.0.i, ptr %59, align 8
+  store ptr %.fca.0.extract4, ptr %59, align 8
   %.sroa.2.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  store i8 %.sroa.4.0.i, ptr %.sroa.2.sroa.2.0..sroa_idx, align 8
+  store i8 %.fca.1.extract5, ptr %.sroa.2.sroa.2.0..sroa_idx, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang4ento4SValES4_ELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit.thread
+  br label %60
 
-_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit.thread: ; preds = %3, %54, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
+60:                                               ; preds = %54, %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
   ret void
 }
 

@@ -1475,7 +1475,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN147_$LT$gpui..executor..Task$LT$cor
   %9 = alloca [48 x i8], align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   %11 = load i8, ptr %10, align 8, !range !269, !noundef !30
-  switch i8 %11, label %default.unreachable86 [
+  switch i8 %11, label %default.unreachable79 [
     i8 0, label %12
     i8 1, label %17
     i8 2, label %18
@@ -1488,7 +1488,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN147_$LT$gpui..executor..Task$LT$cor
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !270, !noalias !273
   br label %129
 
-default.unreachable86:                            ; preds = %2
+default.unreachable79:                            ; preds = %2
   unreachable
 
 12:                                               ; preds = %2
@@ -1521,9 +1521,9 @@ default.unreachable86:                            ; preds = %2
   %25 = load ptr, ptr %23, align 8, !alias.scope !276, !noalias !279
   store i64 0, ptr %20, align 8, !alias.scope !276, !noalias !279
   %switch.i = icmp eq i64 %21, 0
-  br i1 %switch.i, label %33, label %.thread83
+  br i1 %switch.i, label %33, label %.thread
 
-.thread83:                                        ; preds = %24
+.thread:                                          ; preds = %24
   %26 = getelementptr inbounds i8, ptr %0, i64 115
   store i8 1, ptr %26, align 1
   %27 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1567,13 +1567,13 @@ default.unreachable86:                            ; preds = %2
 
 36:                                               ; preds = %.noexc
   %37 = extractvalue { i64, ptr } %29, 1
-  %.pr = load i64, ptr %20, align 8, !alias.scope !281
+  %.pr83 = load i64, ptr %20, align 8, !alias.scope !281
   %38 = getelementptr inbounds i8, ptr %0, i64 115
   store i8 1, ptr %38, align 1
   %39 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %37, ptr %39, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
-  switch i64 %.pr, label %40 [
+  switch i64 %.pr83, label %40 [
     i64 2, label %44
     i64 0, label %59
   ]
@@ -1581,7 +1581,7 @@ default.unreachable86:                            ; preds = %2
 40:                                               ; preds = %36
   %41 = load ptr, ptr %23, align 8, !alias.scope !284, !noundef !30
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %59, label %43
+  br i1 %42, label %thread-pre-split, label %43
 
 43:                                               ; preds = %40
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %23)
@@ -1636,19 +1636,19 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
           cleanup
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17ha649a7163debd120E.llvm.15098402384545254406.exit75"
 
-thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h455150206791467eE.exit.i", %43
-  %.pr85 = load ptr, ptr %39, align 8
+thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h455150206791467eE.exit.i", %40, %43
+  %.pr = load ptr, ptr %39, align 8
   br label %59
 
-59:                                               ; preds = %thread-pre-split, %.thread83, %36, %40
-  %60 = phi ptr [ %.pr85, %thread-pre-split ], [ %25, %.thread83 ], [ %37, %36 ], [ %37, %40 ]
-  %61 = phi ptr [ %39, %thread-pre-split ], [ %27, %.thread83 ], [ %39, %36 ], [ %39, %40 ]
-  %62 = phi ptr [ %38, %thread-pre-split ], [ %26, %.thread83 ], [ %38, %36 ], [ %38, %40 ]
-  %.not.not = icmp eq ptr %60, null
+59:                                               ; preds = %.thread, %thread-pre-split, %36
+  %60 = phi ptr [ %39, %thread-pre-split ], [ %39, %36 ], [ %27, %.thread ]
+  %61 = phi ptr [ %38, %thread-pre-split ], [ %38, %36 ], [ %26, %.thread ]
+  %62 = phi ptr [ %.pr, %thread-pre-split ], [ %37, %36 ], [ %25, %.thread ]
+  %.not.not = icmp eq ptr %62, null
   br i1 %.not.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbd17540db5bdbee3E.exit", label %70
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbd17540db5bdbee3E.exit": ; preds = %59
-  store i8 0, ptr %62, align 1
+  store i8 0, ptr %61, align 1
   %63 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @"_ZN4core3ptr62drop_in_place$LT$gpui..app..async_context..AsyncAppContext$GT$17hb61076db423380f5E.llvm.5515369594646907350"(ptr noalias noundef nonnull align 8 dereferenceable(64) %63)
           to label %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17ha858f478f9ae3369E.exit" unwind label %106
@@ -1665,7 +1665,7 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr103dro
           to label %91 unwind label %89
 
 70:                                               ; preds = %59
-  store ptr %61, ptr %20, align 8
+  store ptr %60, ptr %20, align 8
   %71 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %72 = icmp ult i64 %71, 6
   call void @llvm.assume(i1 %72)
@@ -9864,12 +9864,12 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT
   unreachable
 
 20:                                               ; preds = %10, %17
-  %.sroa.3.0.i.ph = phi ptr [ %18, %17 ], [ %11, %10 ]
-  %21 = icmp eq ptr %.sroa.3.0.i.ph, null
+  %.sroa.3.0.i.pn.i.ph = phi ptr [ %18, %17 ], [ %11, %10 ]
+  %21 = icmp eq ptr %.sroa.3.0.i.pn.i.ph, null
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %20
-  call void @_ZN4util21log_error_with_caller17he0a86ca0c9502442E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.ph, i64 noundef %5)
+  call void @_ZN4util21log_error_with_caller17he0a86ca0c9502442E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.pn.i.ph, i64 noundef %5)
   br label %23
 
 23:                                               ; preds = %20, %22
@@ -9921,17 +9921,17 @@ define hidden { i64, i64 } @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$
   unreachable
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbddbcfb9385d8225E.exit": ; preds = %10, %17
-  %.sroa.3.0.i = phi ptr [ %11, %10 ], [ %18, %17 ]
-  %.sroa.0.0.i = phi i64 [ %7, %10 ], [ %15, %17 ]
-  %switch = icmp eq i64 %.sroa.0.0.i, 1
+  %.sroa.0.0.i.pn.i = phi i64 [ %15, %17 ], [ %7, %10 ]
+  %.sroa.3.0.i.pn.i = phi ptr [ %18, %17 ], [ %11, %10 ]
+  %switch = icmp eq i64 %.sroa.0.0.i.pn.i, 1
   br i1 %switch, label %22, label %20
 
 20:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbddbcfb9385d8225E.exit"
-  %21 = ptrtoint ptr %.sroa.3.0.i to i64
+  %21 = ptrtoint ptr %.sroa.3.0.i.pn.i to i64
   br label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbddbcfb9385d8225E.exit.thread"
 
 22:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbddbcfb9385d8225E.exit"
-  call void @_ZN4util21log_error_with_caller17he0a86ca0c9502442E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i, i64 noundef %5)
+  call void @_ZN4util21log_error_with_caller17he0a86ca0c9502442E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.pn.i, i64 noundef %5)
   br label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbddbcfb9385d8225E.exit.thread"
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbddbcfb9385d8225E.exit.thread": ; preds = %13, %20, %22

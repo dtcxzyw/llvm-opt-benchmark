@@ -1035,10 +1035,10 @@ define dso_local noundef zeroext i1 @_Z21hasNoRepeatedElementsN4llvm13ImmutableL
   %.not12 = icmp eq ptr %0, null
   br i1 %.not12, label %_ZN4llvm11SmallPtrSetIN5clang8QualTypeELj16EED2Ev.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %44
-  %8 = phi ptr [ %42, %44 ], [ %3, %1 ]
-  %9 = phi ptr [ %43, %44 ], [ %3, %1 ]
-  %.sroa.07.013 = phi ptr [ %46, %44 ], [ %0, %1 ]
+.lr.ph:                                           ; preds = %1, %45
+  %8 = phi ptr [ %43, %45 ], [ %3, %1 ]
+  %9 = phi ptr [ %44, %45 ], [ %3, %1 ]
+  %.sroa.07.013 = phi ptr [ %47, %45 ], [ %0, %1 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1102,33 +1102,33 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %19
 
 39:                                               ; preds = %._crit_edge.i.i, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
   %40 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %24) #13, !noalias !4
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %40, 1
   %.pre.i = load ptr, ptr %2, align 8
-  %41 = trunc i8 %.fca.1.extract.i.i to i1
+  %41 = extractvalue { ptr, i8 } %40, 1
+  %42 = trunc i8 %41 to i1
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %39, %36
-  %42 = phi ptr [ %38, %36 ], [ %.pre.i, %39 ], [ %22, %.lr.ph.i.i ]
-  %.sroa.4.0.i.i = phi i1 [ true, %36 ], [ %41, %39 ], [ false, %.lr.ph.i.i ]
-  %43 = load ptr, ptr %4, align 8
-  br i1 %.sroa.4.0.i.i, label %44, label %._crit_edge
+  %43 = phi ptr [ %38, %36 ], [ %.pre.i, %39 ], [ %22, %.lr.ph.i.i ]
+  %.fca.1.insert.merged.i.i = phi i1 [ true, %36 ], [ %42, %39 ], [ false, %.lr.ph.i.i ]
+  %44 = load ptr, ptr %4, align 8
+  br i1 %.fca.1.insert.merged.i.i, label %45, label %._crit_edge
 
-44:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %.not = icmp eq ptr %46, null
+45:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %.not = icmp eq ptr %47, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %44
-  %47 = icmp eq ptr %43, %42
-  br i1 %47, label %_ZN4llvm11SmallPtrSetIN5clang8QualTypeELj16EED2Ev.exit, label %48
+._crit_edge:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %45
+  %48 = icmp eq ptr %44, %43
+  br i1 %48, label %_ZN4llvm11SmallPtrSetIN5clang8QualTypeELj16EED2Ev.exit, label %49
 
-48:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef %43) #13
+49:                                               ; preds = %._crit_edge
+  call void @free(ptr noundef %44) #13
   br label %_ZN4llvm11SmallPtrSetIN5clang8QualTypeELj16EED2Ev.exit
 
-_ZN4llvm11SmallPtrSetIN5clang8QualTypeELj16EED2Ev.exit: ; preds = %1, %._crit_edge, %48
-  %.not.lcssa19 = phi i1 [ %.sroa.4.0.i.i, %._crit_edge ], [ %.sroa.4.0.i.i, %48 ], [ true, %1 ]
+_ZN4llvm11SmallPtrSetIN5clang8QualTypeELj16EED2Ev.exit: ; preds = %1, %._crit_edge, %49
+  %.not.lcssa19 = phi i1 [ %.fca.1.insert.merged.i.i, %._crit_edge ], [ %.fca.1.insert.merged.i.i, %49 ], [ true, %1 ]
   ret i1 %.not.lcssa19
 }
 

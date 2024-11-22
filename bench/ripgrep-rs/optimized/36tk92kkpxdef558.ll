@@ -1235,14 +1235,14 @@ define void @_ZN8grep_cli6escape11unescape_os17h58094757b499c25bE(ptr noalias no
   %6 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h82c18ef499c748cdE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !152, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !152, !noundef !4
+  %.pn1.in.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !152, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !152, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !155
-  %7 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.sroa.5.0.i
+  %7 = getelementptr inbounds i8, ptr %.pn3.i, i64 %.pn1.i
   %8 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %.sroa.0.0.i, ptr %8, align 8, !noalias !159
+  store ptr %.pn3.i, ptr %8, align 8, !noalias !159
   %9 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %7, ptr %9, align 8, !noalias !159
   store i8 0, ptr %5, align 8, !noalias !159

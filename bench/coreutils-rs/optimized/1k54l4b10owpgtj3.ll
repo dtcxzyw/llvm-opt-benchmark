@@ -161,11 +161,11 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h58822d045fea5086E.exit.i.i.
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h046d42f032a9f475E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h046d42f032a9f475E.exit": ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17hc43e2992a0ef65a4E.exit, %19, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60f8ecfe50d76039E.exit.i.i"
-  %.sroa.33.0.i = phi i64 [ 2, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc43e2992a0ef65a4E.exit ], [ %.sroa.3.0.i.i.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60f8ecfe50d76039E.exit.i.i" ], [ undef, %19 ]
-  %.sroa.02.0.i = phi ptr [ @anon.cb8572d123d5c3094929b79a058ca0fb.2.llvm.2691049182606577699, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc43e2992a0ef65a4E.exit ], [ %.sroa.0.0.i.i.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60f8ecfe50d76039E.exit.i.i" ], [ null, %19 ]
-  %45 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.i, 0
-  %46 = insertvalue { ptr, i64 } %45, i64 %.sroa.33.0.i, 1
-  ret { ptr, i64 } %46
+  %.sroa.0.0.i.pn.i = phi ptr [ %.sroa.0.0.i.i.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60f8ecfe50d76039E.exit.i.i" ], [ null, %19 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.2.llvm.2691049182606577699, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc43e2992a0ef65a4E.exit ]
+  %.sroa.3.0.i.pn.i = phi i64 [ %.sroa.3.0.i.i.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60f8ecfe50d76039E.exit.i.i" ], [ undef, %19 ], [ 2, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc43e2992a0ef65a4E.exit ]
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.sroa.3.0.i.pn.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable

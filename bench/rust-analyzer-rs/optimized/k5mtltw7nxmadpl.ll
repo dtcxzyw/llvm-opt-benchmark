@@ -15282,11 +15282,11 @@ define hidden void @"_ZN192_$LT$project_model..project_json.._..$LT$impl$u20$ser
 34:                                               ; preds = %3, %7, %10, %14, %17, %20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN5serde9__private6string15from_utf8_lossy17hcc6c96a6c6ec2145E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !2854, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !2854, !noundef !4
-  %35 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h6012e8aec31b8028E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i, ptr noalias noundef nonnull readonly align 8 @anon.91380dbf7fcc3cee666491d632c78d8e.51.llvm.3663151438746104753, i64 noundef 4)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !2854, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !2854, !nonnull !4, !noundef !4
+  %35 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17h6012e8aec31b8028E(ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i, ptr noalias noundef nonnull readonly align 8 @anon.91380dbf7fcc3cee666491d632c78d8e.51.llvm.3663151438746104753, i64 noundef 4)
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
@@ -72251,9 +72251,9 @@ default.unreachable:                              ; preds = %62
   br label %.noexc
 
 .noexc:                                           ; preds = %77, %72, %66
-  %.sroa.4.0.i = phi i64 [ %79, %77 ], [ %76, %72 ], [ %70, %66 ]
-  %.sroa.0.0.i = phi ptr [ %80, %77 ], [ %74, %72 ], [ %71, %66 ]
-  %81 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h70ac88092bee57adE"(i64 noundef %.sroa.4.0.i, i1 noundef zeroext false)
+  %.pn5.i = phi ptr [ %80, %77 ], [ %74, %72 ], [ %71, %66 ]
+  %.pn3.i = phi i64 [ %79, %77 ], [ %76, %72 ], [ %70, %66 ]
+  %81 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h70ac88092bee57adE"(i64 noundef %.pn3.i, i1 noundef zeroext false)
           to label %103 unwind label %101
 
 82:                                               ; preds = %40
@@ -72331,12 +72331,12 @@ _ZN10serde_json5value8to_value17h3ddabc974e25c372E.exit: ; preds = %85, %88, %92
   %105 = extractvalue { i64, ptr } %81, 1
   %106 = icmp ne ptr %105, null
   call void @llvm.assume(i1 %106)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %105, ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.4.0.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %105, ptr nonnull align 1 %.pn5.i, i64 %.pn3.i, i1 false)
   store i64 %104, ptr %7, align 8, !alias.scope !11905, !noalias !11908
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %105, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !11905, !noalias !11908
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
-  store i64 %.sroa.4.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !11905, !noalias !11908
+  store i64 %.pn3.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !11905, !noalias !11908
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %107 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h70ac88092bee57adE"(i64 noundef 26, i1 noundef zeroext false)
           to label %111 unwind label %109

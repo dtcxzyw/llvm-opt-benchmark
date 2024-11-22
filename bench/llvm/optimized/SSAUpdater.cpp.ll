@@ -1972,8 +1972,8 @@ define linkonce_odr hidden void @_ZN4llvm20DbgVariableIntrinsic15setKillLocation
   %.not13 = icmp eq i64 %9, %11
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %.critedge16
-  %.sroa.09.014 = phi i64 [ %storemerge.i, %.critedge16 ], [ %9, %1 ]
+.lr.ph:                                           ; preds = %1, %.critedge17
+  %.sroa.09.014 = phi i64 [ %storemerge.i, %.critedge17 ], [ %9, %1 ]
   %12 = and i64 %.sroa.09.014, 4
   %13 = icmp eq i64 %12, 0
   %14 = and i64 %.sroa.09.014, -8
@@ -2004,7 +2004,7 @@ _ZN4llvm20location_op_iteratordeEv.exit:          ; preds = %.lr.ph, %16
   %.025.i.i = phi ptr [ %31, %30 ], [ %22, %24 ]
   %28 = load ptr, ptr %.025.i.i, align 8, !noalias !25
   %29 = icmp eq ptr %28, %20
-  br i1 %29, label %.critedge16, label %30
+  br i1 %29, label %.critedge17, label %30
 
 30:                                               ; preds = %.lr.ph.i.i
   %31 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -2020,40 +2020,40 @@ _ZN4llvm20location_op_iteratordeEv.exit:          ; preds = %.lr.ph, %16
   %34 = add nuw i32 %25, 1
   store i32 %34, ptr %7, align 4, !noalias !25
   store ptr %20, ptr %27, align 8, !noalias !25
-  br label %37
+  br label %38
 
 _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %._crit_edge.i.i, %_ZN4llvm20location_op_iteratordeEv.exit
   %35 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %20) #14, !noalias !25
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %35, 1
-  %36 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %36, label %37, label %.critedge16
+  %36 = extractvalue { ptr, i8 } %35, 1
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %.critedge17
 
-37:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
-  %38 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %39) #14
-  call void @_ZN4llvm20DbgVariableIntrinsic25replaceVariableLocationOpEPNS_5ValueES2_b(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %20, ptr noundef %40, i1 noundef zeroext false) #14
-  br label %.critedge16
+38:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %40) #14
+  call void @_ZN4llvm20DbgVariableIntrinsic25replaceVariableLocationOpEPNS_5ValueES2_b(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %20, ptr noundef %41, i1 noundef zeroext false) #14
+  br label %.critedge17
 
-.critedge16:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit, %37
-  %41 = and i64 %.sroa.09.014, -4
-  %42 = add nuw i64 %41, 8
-  %43 = add nuw i64 %14, 136
-  %storemerge.i = select i1 %13, i64 %43, i64 %42
+.critedge17:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit, %38
+  %42 = and i64 %.sroa.09.014, -4
+  %43 = add nuw i64 %42, 8
+  %44 = add nuw i64 %14, 136
+  %storemerge.i = select i1 %13, i64 %44, i64 %43
   %.not = icmp eq i64 %storemerge.i, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.critedge16, %1
-  %44 = load ptr, ptr %5, align 8
-  %45 = load ptr, ptr %2, align 8
-  %46 = icmp eq ptr %44, %45
-  br i1 %46, label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit, label %47
+._crit_edge:                                      ; preds = %.critedge17, %1
+  %45 = load ptr, ptr %5, align 8
+  %46 = load ptr, ptr %2, align 8
+  %47 = icmp eq ptr %45, %46
+  br i1 %47, label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit, label %48
 
-47:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef %44) #14
+48:                                               ; preds = %._crit_edge
+  call void @free(ptr noundef %45) #14
   br label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit
 
-_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit:  ; preds = %._crit_edge, %47
+_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit:  ; preds = %._crit_edge, %48
   ret void
 }
 

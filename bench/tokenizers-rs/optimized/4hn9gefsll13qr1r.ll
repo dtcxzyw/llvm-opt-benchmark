@@ -1427,11 +1427,11 @@ define hidden { i64, i64 } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWh
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcdb415980e5f4438E.llvm.14172520758739148588.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcdb415980e5f4438E.llvm.14172520758739148588.exit": ; preds = %4, %10
-  %.sroa.4.0.i = phi i64 [ %2, %4 ], [ %17, %10 ]
-  %.sroa.0.0.i = phi i64 [ %1, %4 ], [ %15, %10 ]
-  %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %19 = insertvalue { i64, i64 } %18, i64 %.sroa.4.0.i, 1
-  ret { i64, i64 } %19
+  %.pn5.i = phi i64 [ %1, %4 ], [ %15, %10 ]
+  %.pn3.i = phi i64 [ %2, %4 ], [ %17, %10 ]
+  %.pn.i = insertvalue { i64, i64 } poison, i64 %.pn5.i, 0
+  %.merged.i = insertvalue { i64, i64 } %.pn.i, i64 %.pn3.i, 1
+  ret { i64, i64 } %.merged.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1465,11 +1465,11 @@ define hidden { i64, i64 } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWh
   br label %18
 
 18:                                               ; preds = %10, %4
-  %.sroa.4.0 = phi i64 [ %2, %4 ], [ %17, %10 ]
-  %.sroa.0.0 = phi i64 [ %1, %4 ], [ %15, %10 ]
-  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %20
+  %.pn5 = phi i64 [ %1, %4 ], [ %15, %10 ]
+  %.pn3 = phi i64 [ %2, %4 ], [ %17, %10 ]
+  %.pn = insertvalue { i64, i64 } poison, i64 %.pn5, 0
+  %.merged = insertvalue { i64, i64 } %.pn, i64 %.pn3, 1
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3673,8 +3673,8 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %22 = load i64, ptr %21, align 8, !alias.scope !1088, !noalias !1085
   %23 = add i64 %20, %.val.i
   %24 = add i64 %22, %.val.i
-  %.sroa.3.0.i.i = select i1 %trunc.i.i, i64 %24, i64 %11
-  %.sroa.0.0.i.i = select i1 %trunc.i.i, i64 %23, i64 %9
+  %.pn3.i.i = select i1 %trunc.i.i, i64 %23, i64 %9
+  %.pn1.i.i = select i1 %trunc.i.i, i64 %24, i64 %11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1085
   %25 = getelementptr inbounds i8, ptr %1, i64 88
   %26 = load ptr, ptr %25, align 8, !alias.scope !1081, !noalias !1087, !nonnull !14, !align !254, !noundef !14
@@ -3684,7 +3684,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 
 29:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1085
-  invoke void @_ZN10tokenizers9tokenizer13pre_tokenizer26BytesToCharOffsetConverter7convert17ha873a3a8d590115fE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %26, i64 noundef %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
+  invoke void @_ZN10tokenizers9tokenizer13pre_tokenizer26BytesToCharOffsetConverter7convert17ha873a3a8d590115fE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %26, i64 noundef %.pn3.i.i, i64 noundef %.pn1.i.i)
           to label %30 unwind label %14, !noalias !1087
 
 30:                                               ; preds = %29
@@ -3694,8 +3694,8 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %33 = load i64, ptr %32, align 8, !noalias !1085
   %34 = getelementptr inbounds i8, ptr %4, i64 16
   %35 = load i64, ptr %34, align 8, !noalias !1085
-  %.sroa.03.1.i = select i1 %trunc.i, i64 %33, i64 %.sroa.0.0.i.i
-  %.sroa.45.1.i = select i1 %trunc.i, i64 %35, i64 %.sroa.3.0.i.i
+  %.sroa.03.1.i = select i1 %trunc.i, i64 %33, i64 %.pn3.i.i
+  %.sroa.45.1.i = select i1 %trunc.i, i64 %35, i64 %.pn1.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1085
   br label %"_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString13into_encoding28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d6b2915095460cbE.llvm.14172520758739148588.exit"
 
@@ -3709,8 +3709,8 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   resume { ptr, i32 } %15
 
 "_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString13into_encoding28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d6b2915095460cbE.llvm.14172520758739148588.exit": ; preds = %16, %30
-  %.sroa.03.0.i = phi i64 [ %.sroa.0.0.i.i, %16 ], [ %.sroa.03.1.i, %30 ]
-  %.sroa.45.0.i = phi i64 [ %.sroa.3.0.i.i, %16 ], [ %.sroa.45.1.i, %30 ]
+  %.sroa.03.0.i = phi i64 [ %.pn3.i.i, %16 ], [ %.sroa.03.1.i, %30 ]
+  %.sroa.45.0.i = phi i64 [ %.pn1.i.i, %16 ], [ %.sroa.45.1.i, %30 ]
   %39 = getelementptr inbounds i8, ptr %7, i64 40
   %40 = load i32, ptr %39, align 8, !alias.scope !1083, !noalias !1086, !noundef !14
   %41 = getelementptr inbounds i8, ptr %1, i64 80
@@ -27972,8 +27972,8 @@ define hidden void @"_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedStrin
   %21 = load i64, ptr %20, align 8, !alias.scope !4872
   %22 = add i64 %19, %.val
   %23 = add i64 %21, %.val
-  %.sroa.3.0.i = select i1 %trunc.i, i64 %23, i64 %10
-  %.sroa.0.0.i = select i1 %trunc.i, i64 %22, i64 %8
+  %.pn3.i = select i1 %trunc.i, i64 %22, i64 %8
+  %.pn1.i = select i1 %trunc.i, i64 %23, i64 %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %24 = getelementptr inbounds i8, ptr %1, i64 88
   %25 = load ptr, ptr %24, align 8, !nonnull !14, !align !254, !noundef !14
@@ -27983,12 +27983,12 @@ define hidden void @"_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedStrin
 
 28:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  invoke void @_ZN10tokenizers9tokenizer13pre_tokenizer26BytesToCharOffsetConverter7convert17ha873a3a8d590115fE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %25, i64 noundef %.sroa.0.0.i, i64 noundef %.sroa.3.0.i)
+  invoke void @_ZN10tokenizers9tokenizer13pre_tokenizer26BytesToCharOffsetConverter7convert17ha873a3a8d590115fE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %25, i64 noundef %.pn3.i, i64 noundef %.pn1.i)
           to label %47 unwind label %13
 
 29:                                               ; preds = %15, %47
-  %.sroa.03.0 = phi i64 [ %.sroa.0.0.i, %15 ], [ %.sroa.03.1, %47 ]
-  %.sroa.45.0 = phi i64 [ %.sroa.3.0.i, %15 ], [ %.sroa.45.1, %47 ]
+  %.sroa.03.0 = phi i64 [ %.pn3.i, %15 ], [ %.sroa.03.1, %47 ]
+  %.sroa.45.0 = phi i64 [ %.pn1.i, %15 ], [ %.sroa.45.1, %47 ]
   %30 = getelementptr inbounds i8, ptr %2, i64 40
   %31 = load i32, ptr %30, align 8, !noundef !14
   %32 = getelementptr inbounds i8, ptr %1, i64 80
@@ -28024,8 +28024,8 @@ define hidden void @"_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedStrin
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 16
   %52 = load i64, ptr %51, align 8
-  %.sroa.03.1 = select i1 %trunc, i64 %50, i64 %.sroa.0.0.i
-  %.sroa.45.1 = select i1 %trunc, i64 %52, i64 %.sroa.3.0.i
+  %.sroa.03.1 = select i1 %trunc, i64 %50, i64 %.pn3.i
+  %.sroa.45.1 = select i1 %trunc, i64 %52, i64 %.pn1.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %29
 

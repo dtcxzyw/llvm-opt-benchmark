@@ -1811,8 +1811,8 @@ define dso_local void @_ZN18cmInstallGenerator8AddTweakERSo23cmScriptGeneratorIn
   %31 = extractvalue { i64, ptr } %30, 0
   %32 = extractvalue { i64, ptr } %30, 1
   store i64 %31, ptr %29, align 8, !alias.scope !15, !noalias !9
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %32, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !15, !noalias !9
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr %32, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !15, !noalias !9
   %33 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr null, ptr %33, align 8, !alias.scope !15, !noalias !9
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr nonnull %8, i64 2)
@@ -1910,7 +1910,7 @@ _ZlsRSo23cmScriptGeneratorIndent.exit:            ; preds = %.noexc41, %49
   %.sroa.2.0..sroa_idx.i.i47 = getelementptr inbounds i8, ptr %7, i64 8
   %59 = getelementptr inbounds i8, ptr %7, i64 16
   %60 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.2.0..sroa_idx.i6.i48 = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.2.0..sroa_idx.i5.i48 = getelementptr inbounds i8, ptr %7, i64 32
   %61 = getelementptr inbounds i8, ptr %7, i64 40
   br label %62
 
@@ -1944,7 +1944,7 @@ _ZlsRSo23cmScriptGeneratorIndent.exit46:          ; preds = %.noexc45, %62
   %71 = extractvalue { i64, ptr } %70, 0
   %72 = extractvalue { i64, ptr } %70, 1
   store i64 %71, ptr %60, align 8, !alias.scope !24, !noalias !18
-  store ptr %72, ptr %.sroa.2.0..sroa_idx.i6.i48, align 8, !alias.scope !24, !noalias !18
+  store ptr %72, ptr %.sroa.2.0..sroa_idx.i5.i48, align 8, !alias.scope !24, !noalias !18
   store ptr null, ptr %61, align 8, !alias.scope !24, !noalias !18
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr nonnull %7, i64 2)
           to label %73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit

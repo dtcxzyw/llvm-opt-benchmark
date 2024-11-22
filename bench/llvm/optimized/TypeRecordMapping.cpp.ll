@@ -5202,10 +5202,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit75:                ; preds = %37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %59 = load i64, ptr %38, align 8
   %..i60 = call i64 @llvm.umin.i64(i64 %58, i64 %59)
-  %.sroa.0.0.i = load ptr, ptr %2, align 8
+  %.sroa.0.0.copyload.pn.i = load ptr, ptr %2, align 8
   %60 = load ptr, ptr %10, align 8
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  store ptr %.sroa.0.0.i, ptr %15, align 8, !alias.scope !232
+  store ptr %.sroa.0.0.copyload.pn.i, ptr %15, align 8, !alias.scope !232
   %.sroa.23.0..sroa_idx.i.i.i73 = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %..i60, ptr %.sroa.23.0..sroa_idx.i.i.i73, align 8, !alias.scope !232
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 16

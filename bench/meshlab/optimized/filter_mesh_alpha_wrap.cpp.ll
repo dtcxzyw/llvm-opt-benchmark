@@ -70674,10 +70674,10 @@ define linkonce_odr noundef i32 @_ZNK4CGAL18Filtered_predicateINS_13Alpha_wraps_
   %62 = insertelement <2 x double> poison, double %61, i64 0
   %63 = insertelement <2 x double> %62, double %60, i64 1
   store <2 x double> %53, ptr %17, align 16, !alias.scope !1430
-  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %17, i64 16
-  store <2 x double> %58, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i40, align 16, !alias.scope !1430
-  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i41 = getelementptr inbounds i8, ptr %17, i64 32
-  store <2 x double> %63, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i41, align 16, !alias.scope !1430
+  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i41 = getelementptr inbounds i8, ptr %17, i64 16
+  store <2 x double> %58, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i41, align 16, !alias.scope !1430
+  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i42 = getelementptr inbounds i8, ptr %17, i64 32
+  store <2 x double> %63, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i42, align 16, !alias.scope !1430
   call void @llvm.experimental.noalias.scope.decl(metadata !1433)
   %64 = load double, ptr %3, align 8, !noalias !1433
   %65 = fneg double %64
@@ -70694,10 +70694,10 @@ define linkonce_odr noundef i32 @_ZNK4CGAL18Filtered_predicateINS_13Alpha_wraps_
   %76 = insertelement <2 x double> poison, double %75, i64 0
   %77 = insertelement <2 x double> %76, double %74, i64 1
   store <2 x double> %67, ptr %18, align 16, !alias.scope !1433
-  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i42 = getelementptr inbounds i8, ptr %18, i64 16
-  store <2 x double> %72, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i42, align 16, !alias.scope !1433
-  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i43 = getelementptr inbounds i8, ptr %18, i64 32
-  store <2 x double> %77, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i43, align 16, !alias.scope !1433
+  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i43 = getelementptr inbounds i8, ptr %18, i64 16
+  store <2 x double> %72, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i43, align 16, !alias.scope !1433
+  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i44 = getelementptr inbounds i8, ptr %18, i64 32
+  store <2 x double> %77, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i44, align 16, !alias.scope !1433
   call void @llvm.experimental.noalias.scope.decl(metadata !1436)
   %78 = load double, ptr %4, align 8, !noalias !1436
   %79 = fneg double %78
@@ -70714,10 +70714,10 @@ define linkonce_odr noundef i32 @_ZNK4CGAL18Filtered_predicateINS_13Alpha_wraps_
   %90 = insertelement <2 x double> poison, double %89, i64 0
   %91 = insertelement <2 x double> %90, double %88, i64 1
   store <2 x double> %81, ptr %19, align 16, !alias.scope !1436
-  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i44 = getelementptr inbounds i8, ptr %19, i64 16
-  store <2 x double> %86, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i44, align 16, !alias.scope !1436
-  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i45 = getelementptr inbounds i8, ptr %19, i64 32
-  store <2 x double> %91, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i45, align 16, !alias.scope !1436
+  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i45 = getelementptr inbounds i8, ptr %19, i64 16
+  store <2 x double> %86, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i45, align 16, !alias.scope !1436
+  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i46 = getelementptr inbounds i8, ptr %19, i64 32
+  store <2 x double> %91, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i46, align 16, !alias.scope !1436
   call void @llvm.experimental.noalias.scope.decl(metadata !1439)
   %92 = load double, ptr %5, align 8, !noalias !1439
   %93 = fneg double %92
@@ -70734,10 +70734,10 @@ define linkonce_odr noundef i32 @_ZNK4CGAL18Filtered_predicateINS_13Alpha_wraps_
   %104 = insertelement <2 x double> poison, double %103, i64 0
   %105 = insertelement <2 x double> %104, double %102, i64 1
   store <2 x double> %95, ptr %20, align 16, !alias.scope !1439
-  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i46 = getelementptr inbounds i8, ptr %20, i64 16
-  store <2 x double> %100, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i46, align 16, !alias.scope !1439
-  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i47 = getelementptr inbounds i8, ptr %20, i64 32
-  store <2 x double> %105, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i47, align 16, !alias.scope !1439
+  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i47 = getelementptr inbounds i8, ptr %20, i64 16
+  store <2 x double> %100, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i47, align 16, !alias.scope !1439
+  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i48 = getelementptr inbounds i8, ptr %20, i64 32
+  store <2 x double> %105, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i48, align 16, !alias.scope !1439
   call void @llvm.experimental.noalias.scope.decl(metadata !1442)
   %106 = load double, ptr %6, align 8, !noalias !1442
   %107 = fneg double %106
@@ -70754,10 +70754,10 @@ define linkonce_odr noundef i32 @_ZNK4CGAL18Filtered_predicateINS_13Alpha_wraps_
   %118 = insertelement <2 x double> poison, double %117, i64 0
   %119 = insertelement <2 x double> %118, double %116, i64 1
   store <2 x double> %109, ptr %21, align 16, !alias.scope !1442
-  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i48 = getelementptr inbounds i8, ptr %21, i64 16
-  store <2 x double> %114, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i48, align 16, !alias.scope !1442
-  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i49 = getelementptr inbounds i8, ptr %21, i64 32
-  store <2 x double> %119, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i49, align 16, !alias.scope !1442
+  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i49 = getelementptr inbounds i8, ptr %21, i64 16
+  store <2 x double> %114, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i49, align 16, !alias.scope !1442
+  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i50 = getelementptr inbounds i8, ptr %21, i64 32
+  store <2 x double> %119, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i50, align 16, !alias.scope !1442
   call void @llvm.experimental.noalias.scope.decl(metadata !1445)
   %120 = load double, ptr %7, align 8, !noalias !1445
   %121 = fneg double %120
@@ -70774,10 +70774,10 @@ define linkonce_odr noundef i32 @_ZNK4CGAL18Filtered_predicateINS_13Alpha_wraps_
   %132 = insertelement <2 x double> poison, double %131, i64 0
   %133 = insertelement <2 x double> %132, double %130, i64 1
   store <2 x double> %123, ptr %22, align 16, !alias.scope !1445
-  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i50 = getelementptr inbounds i8, ptr %22, i64 16
-  store <2 x double> %128, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i50, align 16, !alias.scope !1445
-  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %22, i64 32
-  store <2 x double> %133, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i51, align 16, !alias.scope !1445
+  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %22, i64 16
+  store <2 x double> %128, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i51, align 16, !alias.scope !1445
+  %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i52 = getelementptr inbounds i8, ptr %22, i64 32
+  store <2 x double> %133, ptr %.sroa.0.i.i.i.i.sroa.5.0..sroa_idx.i52, align 16, !alias.scope !1445
   %134 = invoke noundef i32 @_ZNK4CGAL13Alpha_wraps_38internal27Orientation_of_circumcenterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS6_EESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 16 dereferenceable(48) %16, ptr noundef nonnull align 16 dereferenceable(48) %17, ptr noundef nonnull align 16 dereferenceable(48) %18, ptr noundef nonnull align 16 dereferenceable(48) %19, ptr noundef nonnull align 16 dereferenceable(48) %20, ptr noundef nonnull align 16 dereferenceable(48) %21, ptr noundef nonnull align 16 dereferenceable(48) %22)
           to label %143 unwind label %135
 
@@ -70785,20 +70785,20 @@ define linkonce_odr noundef i32 @_ZNK4CGAL18Filtered_predicateINS_13Alpha_wraps_
   %136 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN4CGAL30Uncertain_conversion_exceptionE
-  %137 = extractvalue { ptr, i32 } %136, 0
-  %138 = extractvalue { ptr, i32 } %136, 1
-  %139 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE) #23
-  %140 = icmp eq i32 %138, %139
-  br i1 %140, label %141, label %252
+  %137 = extractvalue { ptr, i32 } %136, 1
+  %138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE) #23
+  %139 = icmp eq i32 %137, %138
+  br i1 %139, label %140, label %250
 
-141:                                              ; preds = %135
-  %142 = call ptr @__cxa_begin_catch(ptr %137) #23
+140:                                              ; preds = %135
+  %141 = extractvalue { ptr, i32 } %136, 0
+  %142 = call ptr @__cxa_begin_catch(ptr %141) #23
   invoke void @__cxa_end_catch()
           to label %143 unwind label %248
 
-143:                                              ; preds = %8, %141
-  %switch = phi i1 [ true, %141 ], [ false, %8 ]
-  %.0 = phi i32 [ undef, %141 ], [ %134, %8 ]
+143:                                              ; preds = %8, %140
+  %switch = phi i1 [ true, %140 ], [ false, %8 ]
+  %.0 = phi i32 [ undef, %140 ], [ %134, %8 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %11)
@@ -70809,37 +70809,37 @@ define linkonce_odr noundef i32 @_ZNK4CGAL18Filtered_predicateINS_13Alpha_wraps_
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  br i1 %switch, label %147, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit81
+  br i1 %switch, label %147, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit82
 
 147:                                              ; preds = %143
   %148 = getelementptr inbounds i8, ptr %0, i64 4
   call void @_ZNK4CGAL19Cartesian_converterINS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_16Simple_cartesianIN5boost14multiprecision6numberINSA_8backends12gmp_rationalELNSA_26expression_template_optionE1EEEEENS_12NT_converterIdSF_EEEclERKNS_7Point_3IS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %23, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   invoke void @_ZNK4CGAL19Cartesian_converterINS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_16Simple_cartesianIN5boost14multiprecision6numberINSA_8backends12gmp_rationalELNSA_26expression_template_optionE1EEEEENS_12NT_converterIdSF_EEEclERKNS_7Point_3IS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %24, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %149 unwind label %256
+          to label %149 unwind label %254
 
 149:                                              ; preds = %147
   invoke void @_ZNK4CGAL19Cartesian_converterINS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_16Simple_cartesianIN5boost14multiprecision6numberINSA_8backends12gmp_rationalELNSA_26expression_template_optionE1EEEEENS_12NT_converterIdSF_EEEclERKNS_7Point_3IS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %25, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %150 unwind label %258
+          to label %150 unwind label %256
 
 150:                                              ; preds = %149
   invoke void @_ZNK4CGAL19Cartesian_converterINS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_16Simple_cartesianIN5boost14multiprecision6numberINSA_8backends12gmp_rationalELNSA_26expression_template_optionE1EEEEENS_12NT_converterIdSF_EEEclERKNS_7Point_3IS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %26, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %151 unwind label %260
+          to label %151 unwind label %258
 
 151:                                              ; preds = %150
   invoke void @_ZNK4CGAL19Cartesian_converterINS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_16Simple_cartesianIN5boost14multiprecision6numberINSA_8backends12gmp_rationalELNSA_26expression_template_optionE1EEEEENS_12NT_converterIdSF_EEEclERKNS_7Point_3IS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %27, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %152 unwind label %262
+          to label %152 unwind label %260
 
 152:                                              ; preds = %151
   invoke void @_ZNK4CGAL19Cartesian_converterINS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_16Simple_cartesianIN5boost14multiprecision6numberINSA_8backends12gmp_rationalELNSA_26expression_template_optionE1EEEEENS_12NT_converterIdSF_EEEclERKNS_7Point_3IS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %28, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %153 unwind label %264
+          to label %153 unwind label %262
 
 153:                                              ; preds = %152
   invoke void @_ZNK4CGAL19Cartesian_converterINS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_16Simple_cartesianIN5boost14multiprecision6numberINSA_8backends12gmp_rationalELNSA_26expression_template_optionE1EEEEENS_12NT_converterIdSF_EEEclERKNS_7Point_3IS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %29, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %154 unwind label %266
+          to label %154 unwind label %264
 
 154:                                              ; preds = %153
   %155 = invoke noundef i32 @_ZNK4CGAL13Alpha_wraps_38internal27Orientation_of_circumcenterINS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends12gmp_rationalELNS5_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISB_EESG_SG_SG_SG_SG_SG_(ptr noundef nonnull align 1 dereferenceable(1) %148, ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(96) %26, ptr noundef nonnull align 8 dereferenceable(96) %27, ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(96) %29)
-          to label %156 unwind label %268
+          to label %156 unwind label %266
 
 156:                                              ; preds = %154
   %157 = getelementptr inbounds i8, ptr %29, i64 96
@@ -70876,21 +70876,21 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   %170 = getelementptr inbounds i8, ptr %28, i64 96
   br label %171
 
-171:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i55, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit
-  %172 = phi ptr [ %170, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit ], [ %173, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i55 ]
+171:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i56, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit
+  %172 = phi ptr [ %170, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit ], [ %173, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i56 ]
   %173 = getelementptr inbounds i8, ptr %172, i64 -32
   %174 = getelementptr inbounds i8, ptr %172, i64 -24
   %175 = load ptr, ptr %174, align 8
-  %.not.i.i.i.i.i.i.i52 = icmp eq ptr %175, null
+  %.not.i.i.i.i.i.i.i53 = icmp eq ptr %175, null
   %176 = getelementptr inbounds i8, ptr %172, i64 -8
   %177 = load ptr, ptr %176, align 8
-  %.not1.i.i.i.i.i.i.i53 = icmp eq ptr %177, null
-  %or.cond.i.i.i.i.i.i.i54 = select i1 %.not.i.i.i.i.i.i.i52, i1 %.not1.i.i.i.i.i.i.i53, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i54, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i55, label %178
+  %.not1.i.i.i.i.i.i.i54 = icmp eq ptr %177, null
+  %or.cond.i.i.i.i.i.i.i55 = select i1 %.not.i.i.i.i.i.i.i53, i1 %.not1.i.i.i.i.i.i.i54, i1 false
+  br i1 %or.cond.i.i.i.i.i.i.i55, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i56, label %178
 
 178:                                              ; preds = %171
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %173)
-          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i55 unwind label %179
+          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i56 unwind label %179
 
 179:                                              ; preds = %178
   %180 = landingpad { ptr, i32 }
@@ -70899,29 +70899,29 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   call void @__clang_call_terminate(ptr %181) #40
   unreachable
 
-_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i55: ; preds = %178, %171
+_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i56: ; preds = %178, %171
   %182 = icmp eq ptr %173, %28
-  br i1 %182, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit56, label %171
+  br i1 %182, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit57, label %171
 
-_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit56: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i55
+_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit57: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i56
   %183 = getelementptr inbounds i8, ptr %27, i64 96
   br label %184
 
-184:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i60, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit56
-  %185 = phi ptr [ %183, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit56 ], [ %186, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i60 ]
+184:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i61, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit57
+  %185 = phi ptr [ %183, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit57 ], [ %186, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i61 ]
   %186 = getelementptr inbounds i8, ptr %185, i64 -32
   %187 = getelementptr inbounds i8, ptr %185, i64 -24
   %188 = load ptr, ptr %187, align 8
-  %.not.i.i.i.i.i.i.i57 = icmp eq ptr %188, null
+  %.not.i.i.i.i.i.i.i58 = icmp eq ptr %188, null
   %189 = getelementptr inbounds i8, ptr %185, i64 -8
   %190 = load ptr, ptr %189, align 8
-  %.not1.i.i.i.i.i.i.i58 = icmp eq ptr %190, null
-  %or.cond.i.i.i.i.i.i.i59 = select i1 %.not.i.i.i.i.i.i.i57, i1 %.not1.i.i.i.i.i.i.i58, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i59, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i60, label %191
+  %.not1.i.i.i.i.i.i.i59 = icmp eq ptr %190, null
+  %or.cond.i.i.i.i.i.i.i60 = select i1 %.not.i.i.i.i.i.i.i58, i1 %.not1.i.i.i.i.i.i.i59, i1 false
+  br i1 %or.cond.i.i.i.i.i.i.i60, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i61, label %191
 
 191:                                              ; preds = %184
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %186)
-          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i60 unwind label %192
+          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i61 unwind label %192
 
 192:                                              ; preds = %191
   %193 = landingpad { ptr, i32 }
@@ -70930,29 +70930,29 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   call void @__clang_call_terminate(ptr %194) #40
   unreachable
 
-_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i60: ; preds = %191, %184
+_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i61: ; preds = %191, %184
   %195 = icmp eq ptr %186, %27
-  br i1 %195, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit61, label %184
+  br i1 %195, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit62, label %184
 
-_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit61: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i60
+_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit62: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i61
   %196 = getelementptr inbounds i8, ptr %26, i64 96
   br label %197
 
-197:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i65, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit61
-  %198 = phi ptr [ %196, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit61 ], [ %199, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i65 ]
+197:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i66, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit62
+  %198 = phi ptr [ %196, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit62 ], [ %199, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i66 ]
   %199 = getelementptr inbounds i8, ptr %198, i64 -32
   %200 = getelementptr inbounds i8, ptr %198, i64 -24
   %201 = load ptr, ptr %200, align 8
-  %.not.i.i.i.i.i.i.i62 = icmp eq ptr %201, null
+  %.not.i.i.i.i.i.i.i63 = icmp eq ptr %201, null
   %202 = getelementptr inbounds i8, ptr %198, i64 -8
   %203 = load ptr, ptr %202, align 8
-  %.not1.i.i.i.i.i.i.i63 = icmp eq ptr %203, null
-  %or.cond.i.i.i.i.i.i.i64 = select i1 %.not.i.i.i.i.i.i.i62, i1 %.not1.i.i.i.i.i.i.i63, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i64, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i65, label %204
+  %.not1.i.i.i.i.i.i.i64 = icmp eq ptr %203, null
+  %or.cond.i.i.i.i.i.i.i65 = select i1 %.not.i.i.i.i.i.i.i63, i1 %.not1.i.i.i.i.i.i.i64, i1 false
+  br i1 %or.cond.i.i.i.i.i.i.i65, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i66, label %204
 
 204:                                              ; preds = %197
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %199)
-          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i65 unwind label %205
+          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i66 unwind label %205
 
 205:                                              ; preds = %204
   %206 = landingpad { ptr, i32 }
@@ -70961,29 +70961,29 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   call void @__clang_call_terminate(ptr %207) #40
   unreachable
 
-_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i65: ; preds = %204, %197
+_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i66: ; preds = %204, %197
   %208 = icmp eq ptr %199, %26
-  br i1 %208, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit66, label %197
+  br i1 %208, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit67, label %197
 
-_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit66: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i65
+_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit67: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i66
   %209 = getelementptr inbounds i8, ptr %25, i64 96
   br label %210
 
-210:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i70, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit66
-  %211 = phi ptr [ %209, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit66 ], [ %212, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i70 ]
+210:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i71, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit67
+  %211 = phi ptr [ %209, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit67 ], [ %212, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i71 ]
   %212 = getelementptr inbounds i8, ptr %211, i64 -32
   %213 = getelementptr inbounds i8, ptr %211, i64 -24
   %214 = load ptr, ptr %213, align 8
-  %.not.i.i.i.i.i.i.i67 = icmp eq ptr %214, null
+  %.not.i.i.i.i.i.i.i68 = icmp eq ptr %214, null
   %215 = getelementptr inbounds i8, ptr %211, i64 -8
   %216 = load ptr, ptr %215, align 8
-  %.not1.i.i.i.i.i.i.i68 = icmp eq ptr %216, null
-  %or.cond.i.i.i.i.i.i.i69 = select i1 %.not.i.i.i.i.i.i.i67, i1 %.not1.i.i.i.i.i.i.i68, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i69, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i70, label %217
+  %.not1.i.i.i.i.i.i.i69 = icmp eq ptr %216, null
+  %or.cond.i.i.i.i.i.i.i70 = select i1 %.not.i.i.i.i.i.i.i68, i1 %.not1.i.i.i.i.i.i.i69, i1 false
+  br i1 %or.cond.i.i.i.i.i.i.i70, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i71, label %217
 
 217:                                              ; preds = %210
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %212)
-          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i70 unwind label %218
+          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i71 unwind label %218
 
 218:                                              ; preds = %217
   %219 = landingpad { ptr, i32 }
@@ -70992,29 +70992,29 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   call void @__clang_call_terminate(ptr %220) #40
   unreachable
 
-_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i70: ; preds = %217, %210
+_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i71: ; preds = %217, %210
   %221 = icmp eq ptr %212, %25
-  br i1 %221, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit71, label %210
+  br i1 %221, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit72, label %210
 
-_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit71: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i70
+_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit72: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i71
   %222 = getelementptr inbounds i8, ptr %24, i64 96
   br label %223
 
-223:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i75, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit71
-  %224 = phi ptr [ %222, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit71 ], [ %225, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i75 ]
+223:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i76, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit72
+  %224 = phi ptr [ %222, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit72 ], [ %225, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i76 ]
   %225 = getelementptr inbounds i8, ptr %224, i64 -32
   %226 = getelementptr inbounds i8, ptr %224, i64 -24
   %227 = load ptr, ptr %226, align 8
-  %.not.i.i.i.i.i.i.i72 = icmp eq ptr %227, null
+  %.not.i.i.i.i.i.i.i73 = icmp eq ptr %227, null
   %228 = getelementptr inbounds i8, ptr %224, i64 -8
   %229 = load ptr, ptr %228, align 8
-  %.not1.i.i.i.i.i.i.i73 = icmp eq ptr %229, null
-  %or.cond.i.i.i.i.i.i.i74 = select i1 %.not.i.i.i.i.i.i.i72, i1 %.not1.i.i.i.i.i.i.i73, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i74, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i75, label %230
+  %.not1.i.i.i.i.i.i.i74 = icmp eq ptr %229, null
+  %or.cond.i.i.i.i.i.i.i75 = select i1 %.not.i.i.i.i.i.i.i73, i1 %.not1.i.i.i.i.i.i.i74, i1 false
+  br i1 %or.cond.i.i.i.i.i.i.i75, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i76, label %230
 
 230:                                              ; preds = %223
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %225)
-          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i75 unwind label %231
+          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i76 unwind label %231
 
 231:                                              ; preds = %230
   %232 = landingpad { ptr, i32 }
@@ -71023,29 +71023,29 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   call void @__clang_call_terminate(ptr %233) #40
   unreachable
 
-_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i75: ; preds = %230, %223
+_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i76: ; preds = %230, %223
   %234 = icmp eq ptr %225, %24
-  br i1 %234, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit76, label %223
+  br i1 %234, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit77, label %223
 
-_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit76: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i75
+_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit77: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i76
   %235 = getelementptr inbounds i8, ptr %23, i64 96
   br label %236
 
-236:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i80, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit76
-  %237 = phi ptr [ %235, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit76 ], [ %238, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i80 ]
+236:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i81, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit77
+  %237 = phi ptr [ %235, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit77 ], [ %238, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i81 ]
   %238 = getelementptr inbounds i8, ptr %237, i64 -32
   %239 = getelementptr inbounds i8, ptr %237, i64 -24
   %240 = load ptr, ptr %239, align 8
-  %.not.i.i.i.i.i.i.i77 = icmp eq ptr %240, null
+  %.not.i.i.i.i.i.i.i78 = icmp eq ptr %240, null
   %241 = getelementptr inbounds i8, ptr %237, i64 -8
   %242 = load ptr, ptr %241, align 8
-  %.not1.i.i.i.i.i.i.i78 = icmp eq ptr %242, null
-  %or.cond.i.i.i.i.i.i.i79 = select i1 %.not.i.i.i.i.i.i.i77, i1 %.not1.i.i.i.i.i.i.i78, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i79, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i80, label %243
+  %.not1.i.i.i.i.i.i.i79 = icmp eq ptr %242, null
+  %or.cond.i.i.i.i.i.i.i80 = select i1 %.not.i.i.i.i.i.i.i78, i1 %.not1.i.i.i.i.i.i.i79, i1 false
+  br i1 %or.cond.i.i.i.i.i.i.i80, label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i81, label %243
 
 243:                                              ; preds = %236
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %238)
-          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i80 unwind label %244
+          to label %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i81 unwind label %244
 
 244:                                              ; preds = %243
   %245 = landingpad { ptr, i32 }
@@ -71054,110 +71054,102 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   call void @__clang_call_terminate(ptr %246) #40
   unreachable
 
-_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i80: ; preds = %243, %236
+_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i81: ; preds = %243, %236
   %247 = icmp eq ptr %238, %23
-  br i1 %247, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit81, label %236
+  br i1 %247, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit82, label %236
 
-248:                                              ; preds = %141
+248:                                              ; preds = %140
   %249 = landingpad { ptr, i32 }
           cleanup
-  %250 = extractvalue { ptr, i32 } %249, 0
-  %251 = extractvalue { ptr, i32 } %249, 1
-  br label %252
+  br label %250
 
-252:                                              ; preds = %248, %135
-  %.025 = phi ptr [ %250, %248 ], [ %137, %135 ]
-  %.023 = phi i32 [ %251, %248 ], [ %138, %135 ]
+250:                                              ; preds = %248, %135
+  %.merged40 = phi { ptr, i32 } [ %249, %248 ], [ %136, %135 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %9)
-  %253 = load i32, ptr %9, align 4
-  %254 = and i32 %253, -24577
-  %255 = or disjoint i32 %254, %31
-  store i32 %255, ptr %10, align 4
+  %251 = load i32, ptr %9, align 4
+  %252 = and i32 %251, -24577
+  %253 = or disjoint i32 %252, %31
+  store i32 %253, ptr %10, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %276
+  br label %274
 
-256:                                              ; preds = %147
+254:                                              ; preds = %147
+  %255 = landingpad { ptr, i32 }
+          cleanup
+  br label %273
+
+256:                                              ; preds = %149
   %257 = landingpad { ptr, i32 }
           cleanup
-  br label %275
+  br label %272
 
-258:                                              ; preds = %149
+258:                                              ; preds = %150
   %259 = landingpad { ptr, i32 }
           cleanup
-  br label %274
+  br label %271
 
-260:                                              ; preds = %150
+260:                                              ; preds = %151
   %261 = landingpad { ptr, i32 }
           cleanup
-  br label %273
+  br label %270
 
-262:                                              ; preds = %151
+262:                                              ; preds = %152
   %263 = landingpad { ptr, i32 }
           cleanup
-  br label %272
+  br label %269
 
-264:                                              ; preds = %152
+264:                                              ; preds = %153
   %265 = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %268
 
-266:                                              ; preds = %153
+266:                                              ; preds = %154
   %267 = landingpad { ptr, i32 }
           cleanup
-  br label %270
-
-268:                                              ; preds = %154
-  %269 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #23
+  br label %268
+
+268:                                              ; preds = %266, %264
+  %.pn = phi { ptr, i32 } [ %267, %266 ], [ %265, %264 ]
+  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #23
+  br label %269
+
+269:                                              ; preds = %268, %262
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %268 ], [ %263, %262 ]
+  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #23
   br label %270
 
-270:                                              ; preds = %268, %266
-  %.pn = phi { ptr, i32 } [ %269, %268 ], [ %267, %266 ]
-  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #23
+270:                                              ; preds = %269, %260
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %269 ], [ %261, %260 ]
+  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #23
   br label %271
 
-271:                                              ; preds = %270, %264
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %270 ], [ %265, %264 ]
-  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #23
+271:                                              ; preds = %270, %258
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %270 ], [ %259, %258 ]
+  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #23
   br label %272
 
-272:                                              ; preds = %271, %262
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %271 ], [ %263, %262 ]
-  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #23
+272:                                              ; preds = %271, %256
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %271 ], [ %257, %256 ]
+  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #23
   br label %273
 
-273:                                              ; preds = %272, %260
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %272 ], [ %261, %260 ]
-  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #23
+273:                                              ; preds = %272, %254
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %272 ], [ %255, %254 ]
+  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #23
   br label %274
 
-274:                                              ; preds = %273, %258
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %273 ], [ %259, %258 ]
-  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #23
-  br label %275
-
-275:                                              ; preds = %274, %256
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %274 ], [ %257, %256 ]
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn, 1
-  %.227 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn, 0
-  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #23
-  br label %276
-
-_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit81: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i80, %143
-  %.1 = phi i32 [ %.0, %143 ], [ %155, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i80 ]
+_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit82: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i81, %143
+  %.1 = phi i32 [ %.0, %143 ], [ %155, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i81 ]
   ret i32 %.1
 
-276:                                              ; preds = %275, %252
-  %.126 = phi ptr [ %.227, %275 ], [ %.025, %252 ]
-  %.124 = phi i32 [ %.2, %275 ], [ %.023, %252 ]
-  %277 = insertvalue { ptr, i32 } poison, ptr %.126, 0
-  %278 = insertvalue { ptr, i32 } %277, i32 %.124, 1
-  resume { ptr, i32 } %278
+274:                                              ; preds = %273, %250
+  %.merged = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %273 ], [ %.merged40, %250 ]
+  resume { ptr, i32 } %.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -146231,13 +146223,13 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
 
 37:                                               ; preds = %35, %33
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
-  %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.013 = extractvalue { ptr, i32 } %.pn, 1
   %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE) #23
   %39 = icmp eq i32 %.013, %38
-  br i1 %39, label %40, label %129
+  br i1 %39, label %40, label %127
 
 40:                                               ; preds = %37
+  %.0 = extractvalue { ptr, i32 } %.pn, 0
   %41 = call ptr @__cxa_begin_catch(ptr %.0) #23
   invoke void @__cxa_end_catch()
           to label %42 unwind label %125
@@ -146268,8 +146260,8 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
           to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %54
 
 _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %42
-  %.not.i.i.i.i20 = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i.i20, label %56, label %52
+  %.not.i.i.i.i21 = icmp eq i32 %51, 0
+  br i1 %.not.i.i.i.i21, label %56, label %52
 
 52:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %51) #43
@@ -146302,13 +146294,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %42
   store ptr %13, ptr %49, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %50, align 8
   %61 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21 unwind label %64
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22 unwind label %64
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21:        ; preds = %56
-  %.not.i.i.i.i22 = icmp eq i32 %61, 0
-  br i1 %.not.i.i.i.i22, label %66, label %62
+_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22:        ; preds = %56
+  %.not.i.i.i.i23 = icmp eq i32 %61, 0
+  br i1 %.not.i.i.i.i23, label %66, label %62
 
-62:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21
+62:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
   invoke void @_ZSt20__throw_system_errori(i32 noundef %61) #43
           to label %63 unwind label %64
 
@@ -146322,13 +146314,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21:        ; preds = %56
   store ptr null, ptr %50, align 8
   br label %.body
 
-66:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21
+66:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
   store ptr null, ptr %49, align 8
   store ptr null, ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %67 = getelementptr inbounds i8, ptr %59, i64 64
   %68 = load atomic i64, ptr %67 monotonic, align 8
-  %.0.i.i.i.i.i23 = inttoptr i64 %68 to ptr
+  %.0.i.i.i.i.i24 = inttoptr i64 %68 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %69 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -146339,13 +146331,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21:        ; preds = %56
   store ptr %11, ptr %49, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %50, align 8
   %71 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %70, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27 unwind label %74
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28 unwind label %74
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27:        ; preds = %66
-  %.not.i.i.i.i28 = icmp eq i32 %71, 0
-  br i1 %.not.i.i.i.i28, label %76, label %72
+_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28:        ; preds = %66
+  %.not.i.i.i.i29 = icmp eq i32 %71, 0
+  br i1 %.not.i.i.i.i29, label %76, label %72
 
-72:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27
+72:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
   invoke void @_ZSt20__throw_system_errori(i32 noundef %71) #43
           to label %73 unwind label %74
 
@@ -146359,21 +146351,21 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27:        ; preds = %66
   store ptr null, ptr %50, align 8
   br label %.body
 
-76:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27
+76:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
   store ptr null, ptr %49, align 8
   store ptr null, ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %77 = getelementptr inbounds i8, ptr %69, i64 64
   %78 = load atomic i64, ptr %77 monotonic, align 8
-  %.0.i.i.i.i.i29 = inttoptr i64 %78 to ptr
+  %.0.i.i.i.i.i30 = inttoptr i64 %78 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  invoke void @_ZNK4CGAL23CartesianKernelFunctors24Construct_circumcenter_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISA_EESF_SF_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %22, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i29)
-          to label %79 unwind label %133
+  invoke void @_ZNK4CGAL23CartesianKernelFunctors24Construct_circumcenter_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISA_EESF_SF_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %22, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i30)
+          to label %79 unwind label %131
 
 79:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10), !noalias !2479
   %80 = invoke { double, double } @_ZNK4CGAL12RET_boost_mpIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEN4mpl_4int_ILi2EEEE11To_intervalclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(96) %22)
-          to label %.noexc unwind label %135
+          to label %.noexc unwind label %133
 
 .noexc:                                           ; preds = %79
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !2479
@@ -146385,16 +146377,16 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27:        ; preds = %66
   %86 = getelementptr inbounds i8, ptr %22, i64 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9), !noalias !2479
   %87 = invoke { double, double } @_ZNK4CGAL12RET_boost_mpIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEN4mpl_4int_ILi2EEEE11To_intervalclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(32) %86)
-          to label %.noexc33 unwind label %135
+          to label %.noexc34 unwind label %133
 
-.noexc33:                                         ; preds = %.noexc
+.noexc34:                                         ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !2479
   %88 = getelementptr inbounds i8, ptr %22, i64 64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !2479
   %89 = invoke { double, double } @_ZNK4CGAL12RET_boost_mpIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEN4mpl_4int_ILi2EEEE11To_intervalclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(32) %88)
-          to label %.noexc34 unwind label %135
+          to label %.noexc35 unwind label %133
 
-.noexc34:                                         ; preds = %.noexc33
+.noexc35:                                         ; preds = %.noexc34
   %90 = extractvalue { double, double } %87, 0
   %91 = fneg double %90
   %92 = insertelement <2 x double> poison, double %91, i64 0
@@ -146416,10 +146408,10 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27:        ; preds = %66
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 48
   store <2 x double> %99, ptr %.sroa.3.0..sroa_idx.i, align 16
   %102 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #42
-          to label %.noexc35 unwind label %135
+          to label %.noexc36 unwind label %133
 
-.noexc35:                                         ; preds = %.noexc34, %.noexc35
-  %103 = phi i64 [ %108, %.noexc35 ], [ 0, %.noexc34 ]
+.noexc36:                                         ; preds = %.noexc35, %.noexc36
+  %103 = phi i64 [ %108, %.noexc36 ], [ 0, %.noexc35 ]
   %104 = getelementptr inbounds %"class.boost::multiprecision::number", ptr %102, i64 %103
   %105 = getelementptr inbounds [3 x %"class.boost::multiprecision::number"], ptr %22, i64 0, i64 %103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false)
@@ -146429,9 +146421,9 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27:        ; preds = %66
   store ptr null, ptr %107, align 8
   %108 = add nuw nsw i64 %103, 1
   %109 = icmp eq i64 %108, 3
-  br i1 %109, label %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit39, label %.noexc35
+  br i1 %109, label %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit40, label %.noexc36
 
-_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit39: ; preds = %.noexc35
+_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit40: ; preds = %.noexc36
   %110 = getelementptr inbounds i8, ptr %46, i64 64
   store ptr %102, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %46, i64 72
@@ -146441,8 +146433,8 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
   %112 = getelementptr inbounds i8, ptr %22, i64 96
   br label %113
 
-113:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit39
-  %114 = phi ptr [ %112, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit39 ], [ %115, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i ]
+113:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit40
+  %114 = phi ptr [ %112, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit40 ], [ %115, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i ]
   %115 = getelementptr inbounds i8, ptr %114, i64 -32
   %116 = getelementptr inbounds i8, ptr %114, i64 -24
   %117 = load ptr, ptr %116, align 8
@@ -146471,52 +146463,44 @@ _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_t
 125:                                              ; preds = %40
   %126 = landingpad { ptr, i32 }
           cleanup
-  %127 = extractvalue { ptr, i32 } %126, 0
-  %128 = extractvalue { ptr, i32 } %126, 1
-  br label %129
+  br label %127
 
-129:                                              ; preds = %125, %37
-  %.114 = phi i32 [ %128, %125 ], [ %.013, %37 ]
-  %.1 = phi ptr [ %127, %125 ], [ %.0, %37 ]
+127:                                              ; preds = %125, %37
+  %.merged20 = phi { ptr, i32 } [ %126, %125 ], [ %.pn, %37 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %6)
-  %130 = load i32, ptr %6, align 4
-  %131 = and i32 %130, -24577
-  %132 = or disjoint i32 %131, %24
-  store i32 %132, ptr %7, align 4
+  %128 = load i32, ptr %6, align 4
+  %129 = and i32 %128, -24577
+  %130 = or disjoint i32 %129, %24
+  store i32 %130, ptr %7, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %137
+  br label %135
 
-133:                                              ; preds = %76
-  %134 = landingpad { ptr, i32 }
+131:                                              ; preds = %76
+  %132 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-135:                                              ; preds = %.noexc34, %.noexc33, %.noexc, %79
-  %136 = landingpad { ptr, i32 }
+133:                                              ; preds = %.noexc35, %.noexc34, %.noexc, %79
+  %134 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #23
   br label %.body
 
-.body:                                            ; preds = %54, %133, %74, %64, %135
-  %.pn18 = phi { ptr, i32 } [ %136, %135 ], [ %55, %54 ], [ %65, %64 ], [ %134, %133 ], [ %75, %74 ]
-  %.3 = extractvalue { ptr, i32 } %.pn18, 0
-  %.316 = extractvalue { ptr, i32 } %.pn18, 1
+.body:                                            ; preds = %54, %131, %74, %64, %133
+  %.pn18 = phi { ptr, i32 } [ %134, %133 ], [ %55, %54 ], [ %65, %64 ], [ %132, %131 ], [ %75, %74 ]
   call void @_ZdlPv(ptr noundef nonnull %46) #39
-  br label %137
+  br label %135
 
 _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit
   ret void
 
-137:                                              ; preds = %.body, %129
-  %.215 = phi i32 [ %.316, %.body ], [ %.114, %129 ]
-  %.2 = phi ptr [ %.3, %.body ], [ %.1, %129 ]
-  %138 = insertvalue { ptr, i32 } poison, ptr %.2, 0
-  %139 = insertvalue { ptr, i32 } %138, i32 %.215, 1
-  resume { ptr, i32 } %139
+135:                                              ; preds = %.body, %127
+  %.merged = phi { ptr, i32 } [ %.pn18, %.body ], [ %.merged20, %127 ]
+  resume { ptr, i32 } %.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -151464,19 +151448,19 @@ _ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %90
+  br label %86
 
 38:                                               ; preds = %3
   %39 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN4CGAL30Uncertain_conversion_exceptionE
-  %.0 = extractvalue { ptr, i32 } %39, 0
   %.08 = extractvalue { ptr, i32 } %39, 1
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE) #23
   %41 = icmp eq i32 %.08, %40
-  br i1 %41, label %42, label %82
+  br i1 %41, label %42, label %80
 
 42:                                               ; preds = %38
+  %.0 = extractvalue { ptr, i32 } %39, 0
   %43 = call ptr @__cxa_begin_catch(ptr %.0) #23
   invoke void @__cxa_end_catch()
           to label %44 unwind label %78
@@ -151534,7 +151518,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %61 = invoke { double, double } @_ZNK4CGAL12RET_boost_mpIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEN4mpl_4int_ILi2EEEE11To_intervalclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i.i)
-          to label %.noexc unwind label %86
+          to label %.noexc unwind label %84
 
 .noexc:                                           ; preds = %58
   %62 = extractvalue { double, double } %61, 0
@@ -151548,13 +151532,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   %68 = insertelement <2 x double> %67, double %63, i64 1
   store <2 x double> %68, ptr %65, align 16
   %69 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #42
-          to label %.noexc12 unwind label %86
+          to label %.noexc13 unwind label %84
 
-.noexc12:                                         ; preds = %.noexc
+.noexc13:                                         ; preds = %.noexc
   invoke void @__gmpq_init(ptr noundef nonnull align 8 dereferenceable(32) %69)
           to label %.noexc.i.i unwind label %73
 
-.noexc.i.i:                                       ; preds = %.noexc12
+.noexc.i.i:                                       ; preds = %.noexc13
   %70 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i = icmp eq ptr %71, null
@@ -151564,7 +151548,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   invoke void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i.i)
           to label %75 unwind label %73
 
-73:                                               ; preds = %72, %.noexc12
+73:                                               ; preds = %72, %.noexc13
   %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %69) #39
@@ -151578,51 +151562,43 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEEE, i64 16), ptr %48, align 16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store ptr %48, ptr %0, align 8
-  br label %90
+  br label %86
 
 78:                                               ; preds = %42
   %79 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  %81 = extractvalue { ptr, i32 } %79, 1
-  br label %82
+  br label %80
 
-82:                                               ; preds = %78, %38
-  %.19 = phi i32 [ %81, %78 ], [ %.08, %38 ]
-  %.1 = phi ptr [ %80, %78 ], [ %.0, %38 ]
+80:                                               ; preds = %78, %38
+  %.merged12 = phi { ptr, i32 } [ %79, %78 ], [ %39, %38 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %4)
-  %83 = load i32, ptr %4, align 4
-  %84 = and i32 %83, -24577
-  %85 = or disjoint i32 %84, %15
-  store i32 %85, ptr %5, align 4
+  %81 = load i32, ptr %4, align 4
+  %82 = and i32 %81, -24577
+  %83 = or disjoint i32 %82, %15
+  store i32 %83, ptr %5, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %91
+  br label %87
 
-86:                                               ; preds = %.noexc, %58
-  %87 = landingpad { ptr, i32 }
+84:                                               ; preds = %.noexc, %58
+  %85 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %86, %73, %56
-  %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %87, %86 ], [ %74, %73 ]
-  %88 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %89 = extractvalue { ptr, i32 } %eh.lpad-body, 1
+.body:                                            ; preds = %84, %73, %56
+  %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %85, %84 ], [ %74, %73 ]
   call void @_ZdlPv(ptr noundef nonnull %48) #39
-  br label %91
+  br label %87
 
-90:                                               ; preds = %_ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_x_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEC2IJRKSL_EEERKSE_RKSG_DpOT_.exit, %75
+86:                                               ; preds = %_ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_x_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEC2IJRKSL_EEERKSE_RKSG_DpOT_.exit, %75
   ret void
 
-91:                                               ; preds = %.body, %82
-  %.210 = phi i32 [ %89, %.body ], [ %.19, %82 ]
-  %.2 = phi ptr [ %88, %.body ], [ %.1, %82 ]
-  %92 = insertvalue { ptr, i32 } poison, ptr %.2, 0
-  %93 = insertvalue { ptr, i32 } %92, i32 %.210, 1
-  resume { ptr, i32 } %93
+87:                                               ; preds = %.body, %80
+  %.merged = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.merged12, %80 ]
+  resume { ptr, i32 } %.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -152157,19 +152133,19 @@ _ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %91
+  br label %87
 
 38:                                               ; preds = %3
   %39 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN4CGAL30Uncertain_conversion_exceptionE
-  %.0 = extractvalue { ptr, i32 } %39, 0
   %.08 = extractvalue { ptr, i32 } %39, 1
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE) #23
   %41 = icmp eq i32 %.08, %40
-  br i1 %41, label %42, label %83
+  br i1 %41, label %42, label %81
 
 42:                                               ; preds = %38
+  %.0 = extractvalue { ptr, i32 } %39, 0
   %43 = call ptr @__cxa_begin_catch(ptr %.0) #23
   invoke void @__cxa_end_catch()
           to label %44 unwind label %79
@@ -152228,7 +152204,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   %61 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %62 = invoke { double, double } @_ZNK4CGAL12RET_boost_mpIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEN4mpl_4int_ILi2EEEE11To_intervalclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(32) %61)
-          to label %.noexc unwind label %87
+          to label %.noexc unwind label %85
 
 .noexc:                                           ; preds = %58
   %63 = extractvalue { double, double } %62, 0
@@ -152242,13 +152218,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   %69 = insertelement <2 x double> %68, double %64, i64 1
   store <2 x double> %69, ptr %66, align 16
   %70 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #42
-          to label %.noexc12 unwind label %87
+          to label %.noexc13 unwind label %85
 
-.noexc12:                                         ; preds = %.noexc
+.noexc13:                                         ; preds = %.noexc
   invoke void @__gmpq_init(ptr noundef nonnull align 8 dereferenceable(32) %70)
           to label %.noexc.i.i unwind label %74
 
-.noexc.i.i:                                       ; preds = %.noexc12
+.noexc.i.i:                                       ; preds = %.noexc13
   %71 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 40
   %72 = load ptr, ptr %71, align 8
   %.not.i.i.i = icmp eq ptr %72, null
@@ -152258,7 +152234,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   invoke void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %61)
           to label %76 unwind label %74
 
-74:                                               ; preds = %73, %.noexc12
+74:                                               ; preds = %73, %.noexc13
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %70) #39
@@ -152272,51 +152248,43 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEEE, i64 16), ptr %48, align 16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store ptr %48, ptr %0, align 8
-  br label %91
+  br label %87
 
 79:                                               ; preds = %42
   %80 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  %82 = extractvalue { ptr, i32 } %80, 1
-  br label %83
+  br label %81
 
-83:                                               ; preds = %79, %38
-  %.19 = phi i32 [ %82, %79 ], [ %.08, %38 ]
-  %.1 = phi ptr [ %81, %79 ], [ %.0, %38 ]
+81:                                               ; preds = %79, %38
+  %.merged12 = phi { ptr, i32 } [ %80, %79 ], [ %39, %38 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %4)
-  %84 = load i32, ptr %4, align 4
-  %85 = and i32 %84, -24577
-  %86 = or disjoint i32 %85, %15
-  store i32 %86, ptr %5, align 4
+  %82 = load i32, ptr %4, align 4
+  %83 = and i32 %82, -24577
+  %84 = or disjoint i32 %83, %15
+  store i32 %84, ptr %5, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %92
+  br label %88
 
-87:                                               ; preds = %.noexc, %58
-  %88 = landingpad { ptr, i32 }
+85:                                               ; preds = %.noexc, %58
+  %86 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %87, %74, %56
-  %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %88, %87 ], [ %75, %74 ]
-  %89 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %90 = extractvalue { ptr, i32 } %eh.lpad-body, 1
+.body:                                            ; preds = %85, %74, %56
+  %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %86, %85 ], [ %75, %74 ]
   call void @_ZdlPv(ptr noundef nonnull %48) #39
-  br label %92
+  br label %88
 
-91:                                               ; preds = %_ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_y_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEC2IJRKSL_EEERKSE_RKSG_DpOT_.exit, %76
+87:                                               ; preds = %_ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_y_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEC2IJRKSL_EEERKSE_RKSG_DpOT_.exit, %76
   ret void
 
-92:                                               ; preds = %.body, %83
-  %.210 = phi i32 [ %90, %.body ], [ %.19, %83 ]
-  %.2 = phi ptr [ %89, %.body ], [ %.1, %83 ]
-  %93 = insertvalue { ptr, i32 } poison, ptr %.2, 0
-  %94 = insertvalue { ptr, i32 } %93, i32 %.210, 1
-  resume { ptr, i32 } %94
+88:                                               ; preds = %.body, %81
+  %.merged = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.merged12, %81 ]
+  resume { ptr, i32 } %.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -152636,19 +152604,19 @@ _ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %91
+  br label %87
 
 38:                                               ; preds = %3
   %39 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN4CGAL30Uncertain_conversion_exceptionE
-  %.0 = extractvalue { ptr, i32 } %39, 0
   %.08 = extractvalue { ptr, i32 } %39, 1
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE) #23
   %41 = icmp eq i32 %.08, %40
-  br i1 %41, label %42, label %83
+  br i1 %41, label %42, label %81
 
 42:                                               ; preds = %38
+  %.0 = extractvalue { ptr, i32 } %39, 0
   %43 = call ptr @__cxa_begin_catch(ptr %.0) #23
   invoke void @__cxa_end_catch()
           to label %44 unwind label %79
@@ -152707,7 +152675,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   %61 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %62 = invoke { double, double } @_ZNK4CGAL12RET_boost_mpIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEN4mpl_4int_ILi2EEEE11To_intervalclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(32) %61)
-          to label %.noexc unwind label %87
+          to label %.noexc unwind label %85
 
 .noexc:                                           ; preds = %58
   %63 = extractvalue { double, double } %62, 0
@@ -152721,13 +152689,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   %69 = insertelement <2 x double> %68, double %64, i64 1
   store <2 x double> %69, ptr %66, align 16
   %70 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #42
-          to label %.noexc12 unwind label %87
+          to label %.noexc13 unwind label %85
 
-.noexc12:                                         ; preds = %.noexc
+.noexc13:                                         ; preds = %.noexc
   invoke void @__gmpq_init(ptr noundef nonnull align 8 dereferenceable(32) %70)
           to label %.noexc.i.i unwind label %74
 
-.noexc.i.i:                                       ; preds = %.noexc12
+.noexc.i.i:                                       ; preds = %.noexc13
   %71 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 72
   %72 = load ptr, ptr %71, align 8
   %.not.i.i.i = icmp eq ptr %72, null
@@ -152737,7 +152705,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   invoke void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %61)
           to label %76 unwind label %74
 
-74:                                               ; preds = %73, %.noexc12
+74:                                               ; preds = %73, %.noexc13
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %70) #39
@@ -152751,51 +152719,43 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEEE, i64 16), ptr %48, align 16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store ptr %48, ptr %0, align 8
-  br label %91
+  br label %87
 
 79:                                               ; preds = %42
   %80 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  %82 = extractvalue { ptr, i32 } %80, 1
-  br label %83
+  br label %81
 
-83:                                               ; preds = %79, %38
-  %.19 = phi i32 [ %82, %79 ], [ %.08, %38 ]
-  %.1 = phi ptr [ %81, %79 ], [ %.0, %38 ]
+81:                                               ; preds = %79, %38
+  %.merged12 = phi { ptr, i32 } [ %80, %79 ], [ %39, %38 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %4)
-  %84 = load i32, ptr %4, align 4
-  %85 = and i32 %84, -24577
-  %86 = or disjoint i32 %85, %15
-  store i32 %86, ptr %5, align 4
+  %82 = load i32, ptr %4, align 4
+  %83 = and i32 %82, -24577
+  %84 = or disjoint i32 %83, %15
+  store i32 %84, ptr %5, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %92
+  br label %88
 
-87:                                               ; preds = %.noexc, %58
-  %88 = landingpad { ptr, i32 }
+85:                                               ; preds = %.noexc, %58
+  %86 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %87, %74, %56
-  %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %88, %87 ], [ %75, %74 ]
-  %89 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %90 = extractvalue { ptr, i32 } %eh.lpad-body, 1
+.body:                                            ; preds = %85, %74, %56
+  %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %86, %85 ], [ %75, %74 ]
   call void @_ZdlPv(ptr noundef nonnull %48) #39
-  br label %92
+  br label %88
 
-91:                                               ; preds = %_ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_z_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEC2IJRKSL_EEERKSE_RKSG_DpOT_.exit, %76
+87:                                               ; preds = %_ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_z_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEC2IJRKSL_EEERKSE_RKSG_DpOT_.exit, %76
   ret void
 
-92:                                               ; preds = %.body, %83
-  %.210 = phi i32 [ %90, %.body ], [ %.19, %83 ]
-  %.2 = phi ptr [ %89, %.body ], [ %.1, %83 ]
-  %93 = insertvalue { ptr, i32 } poison, ptr %.2, 0
-  %94 = insertvalue { ptr, i32 } %93, i32 %.210, 1
-  resume { ptr, i32 } %94
+88:                                               ; preds = %.body, %81
+  %.merged = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.merged12, %81 ]
+  resume { ptr, i32 } %.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -157147,13 +157107,13 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
   %69 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN4CGAL30Uncertain_conversion_exceptionE
-  %.0 = extractvalue { ptr, i32 } %69, 0
   %.014 = extractvalue { ptr, i32 } %69, 1
   %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE) #23
   %71 = icmp eq i32 %.014, %70
-  br i1 %71, label %72, label %149
+  br i1 %71, label %72, label %147
 
 72:                                               ; preds = %68
+  %.0 = extractvalue { ptr, i32 } %69, 0
   %73 = call ptr @__cxa_begin_catch(ptr %.0) #23
   invoke void @__cxa_end_catch()
           to label %74 unwind label %145
@@ -157184,8 +157144,8 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
           to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %86
 
 _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %74
-  %.not.i.i.i.i21 = icmp eq i32 %83, 0
-  br i1 %.not.i.i.i.i21, label %88, label %84
+  %.not.i.i.i.i22 = icmp eq i32 %83, 0
+  br i1 %.not.i.i.i.i22, label %88, label %84
 
 84:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %83) #43
@@ -157218,13 +157178,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %74
   store ptr %12, ptr %81, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %82, align 8
   %93 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %92, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22 unwind label %96
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23 unwind label %96
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22:        ; preds = %88
-  %.not.i.i.i.i23 = icmp eq i32 %93, 0
-  br i1 %.not.i.i.i.i23, label %98, label %94
+_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23:        ; preds = %88
+  %.not.i.i.i.i24 = icmp eq i32 %93, 0
+  br i1 %.not.i.i.i.i24, label %98, label %94
 
-94:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
+94:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23
   invoke void @_ZSt20__throw_system_errori(i32 noundef %93) #43
           to label %95 unwind label %96
 
@@ -157238,13 +157198,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22:        ; preds = %88
   store ptr null, ptr %82, align 8
   br label %.body
 
-98:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
+98:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23
   store ptr null, ptr %81, align 8
   store ptr null, ptr %82, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %99 = getelementptr inbounds i8, ptr %91, i64 32
   %100 = load atomic i64, ptr %99 monotonic, align 8
-  %.0.i.i.i.i.i24 = inttoptr i64 %100 to ptr
+  %.0.i.i.i.i.i25 = inttoptr i64 %100 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %101 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -157255,13 +157215,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22:        ; preds = %88
   store ptr %10, ptr %81, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %82, align 8
   %103 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %102, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28 unwind label %106
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29 unwind label %106
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28:        ; preds = %98
-  %.not.i.i.i.i29 = icmp eq i32 %103, 0
-  br i1 %.not.i.i.i.i29, label %108, label %104
+_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29:        ; preds = %98
+  %.not.i.i.i.i30 = icmp eq i32 %103, 0
+  br i1 %.not.i.i.i.i30, label %108, label %104
 
-104:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
+104:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29
   invoke void @_ZSt20__throw_system_errori(i32 noundef %103) #43
           to label %105 unwind label %106
 
@@ -157275,17 +157235,17 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28:        ; preds = %98
   store ptr null, ptr %82, align 8
   br label %.body
 
-108:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
+108:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29
   store ptr null, ptr %81, align 8
   store ptr null, ptr %82, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %109 = getelementptr inbounds i8, ptr %101, i64 32
   %110 = load atomic i64, ptr %109 monotonic, align 8
-  %.0.i.i.i.i.i30 = inttoptr i64 %110 to ptr
+  %.0.i.i.i.i.i31 = inttoptr i64 %110 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9), !noalias !2626
-  invoke void @_ZN4CGAL10make_arrayIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEJS7_S7_EEESt5arrayIT_XplLi1EsZT0_EERKS9_DpRKT0_(ptr dead_on_unwind nonnull writable sret(%"struct.std::array.609") align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i.i30)
-          to label %.noexc unwind label %153
+  invoke void @_ZN4CGAL10make_arrayIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEJS7_S7_EEESt5arrayIT_XplLi1EsZT0_EERKS9_DpRKT0_(ptr dead_on_unwind nonnull writable sret(%"struct.std::array.609") align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i.i25, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i.i31)
+          to label %.noexc unwind label %151
 
 .noexc:                                           ; preds = %108, %.noexc
   %111 = phi i64 [ %116, %.noexc ], [ 0, %108 ]
@@ -157334,15 +157294,15 @@ _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_t
 131:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9), !noalias !2626
   invoke void @_ZN4CGAL10Lazy_rep_0INS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEEC2INS_7PointC3ISE_EEEEOT_(ptr noundef nonnull align 16 dereferenceable(80) %78, ptr noundef nonnull align 8 dereferenceable(96) %21)
-          to label %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit37 unwind label %155
+          to label %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit38 unwind label %153
 
-_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit37: ; preds = %131
+_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit38: ; preds = %131
   store ptr %78, ptr %0, align 8
   %132 = getelementptr inbounds i8, ptr %21, i64 96
   br label %133
 
-133:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit37
-  %134 = phi ptr [ %132, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit37 ], [ %135, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i ]
+133:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit38
+  %134 = phi ptr [ %132, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit38 ], [ %135, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i ]
   %135 = getelementptr inbounds i8, ptr %134, i64 -32
   %136 = getelementptr inbounds i8, ptr %134, i64 -24
   %137 = load ptr, ptr %136, align 8
@@ -157371,52 +157331,44 @@ _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_t
 145:                                              ; preds = %72
   %146 = landingpad { ptr, i32 }
           cleanup
-  %147 = extractvalue { ptr, i32 } %146, 0
-  %148 = extractvalue { ptr, i32 } %146, 1
-  br label %149
+  br label %147
 
-149:                                              ; preds = %145, %68
-  %.115 = phi i32 [ %148, %145 ], [ %.014, %68 ]
-  %.1 = phi ptr [ %147, %145 ], [ %.0, %68 ]
+147:                                              ; preds = %145, %68
+  %.merged21 = phi { ptr, i32 } [ %146, %145 ], [ %69, %68 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %7)
-  %150 = load i32, ptr %7, align 4
-  %151 = and i32 %150, -24577
-  %152 = or disjoint i32 %151, %23
-  store i32 %152, ptr %8, align 4
+  %148 = load i32, ptr %7, align 4
+  %149 = and i32 %148, -24577
+  %150 = or disjoint i32 %149, %23
+  store i32 %150, ptr %8, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %157
+  br label %155
 
-153:                                              ; preds = %108
-  %154 = landingpad { ptr, i32 }
+151:                                              ; preds = %108
+  %152 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-155:                                              ; preds = %131
-  %156 = landingpad { ptr, i32 }
+153:                                              ; preds = %131
+  %154 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #23
   br label %.body
 
-.body:                                            ; preds = %86, %153, %106, %96, %155
-  %.pn19 = phi { ptr, i32 } [ %156, %155 ], [ %87, %86 ], [ %97, %96 ], [ %154, %153 ], [ %107, %106 ]
-  %.3 = extractvalue { ptr, i32 } %.pn19, 0
-  %.317 = extractvalue { ptr, i32 } %.pn19, 1
+.body:                                            ; preds = %86, %151, %106, %96, %153
+  %.pn19 = phi { ptr, i32 } [ %154, %153 ], [ %87, %86 ], [ %97, %96 ], [ %152, %151 ], [ %107, %106 ]
   call void @_ZdlPv(ptr noundef nonnull %78) #39
-  br label %157
+  br label %155
 
 _ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit
   ret void
 
-157:                                              ; preds = %.body, %149
-  %.216 = phi i32 [ %.317, %.body ], [ %.115, %149 ]
-  %.2 = phi ptr [ %.3, %.body ], [ %.1, %149 ]
-  %158 = insertvalue { ptr, i32 } poison, ptr %.2, 0
-  %159 = insertvalue { ptr, i32 } %158, i32 %.216, 1
-  resume { ptr, i32 } %159
+155:                                              ; preds = %.body, %147
+  %.merged = phi { ptr, i32 } [ %.pn19, %.body ], [ %.merged21, %147 ]
+  resume { ptr, i32 } %.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -158808,13 +158760,13 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
 
 40:                                               ; preds = %38, %36
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
-  %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.015 = extractvalue { ptr, i32 } %.pn, 1
   %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE) #23
   %42 = icmp eq i32 %.015, %41
-  br i1 %42, label %43, label %142
+  br i1 %42, label %43, label %140
 
 43:                                               ; preds = %40
+  %.0 = extractvalue { ptr, i32 } %.pn, 0
   %44 = call ptr @__cxa_begin_catch(ptr %.0) #23
   invoke void @__cxa_end_catch()
           to label %45 unwind label %138
@@ -158845,8 +158797,8 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
           to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %57
 
 _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %45
-  %.not.i.i.i.i22 = icmp eq i32 %54, 0
-  br i1 %.not.i.i.i.i22, label %59, label %55
+  %.not.i.i.i.i23 = icmp eq i32 %54, 0
+  br i1 %.not.i.i.i.i23, label %59, label %55
 
 55:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %54) #43
@@ -158879,13 +158831,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %45
   store ptr %16, ptr %52, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %53, align 8
   %64 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %63, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23 unwind label %67
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i24 unwind label %67
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23:        ; preds = %59
-  %.not.i.i.i.i24 = icmp eq i32 %64, 0
-  br i1 %.not.i.i.i.i24, label %69, label %65
+_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i24:        ; preds = %59
+  %.not.i.i.i.i25 = icmp eq i32 %64, 0
+  br i1 %.not.i.i.i.i25, label %69, label %65
 
-65:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23
+65:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i24
   invoke void @_ZSt20__throw_system_errori(i32 noundef %64) #43
           to label %66 unwind label %67
 
@@ -158899,13 +158851,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23:        ; preds = %59
   store ptr null, ptr %53, align 8
   br label %.body
 
-69:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23
+69:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i24
   store ptr null, ptr %52, align 8
   store ptr null, ptr %53, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %70 = getelementptr inbounds i8, ptr %62, i64 64
   %71 = load atomic i64, ptr %70 monotonic, align 8
-  %.0.i.i.i.i.i25 = inttoptr i64 %71 to ptr
+  %.0.i.i.i.i.i26 = inttoptr i64 %71 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   %72 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
@@ -158916,13 +158868,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23:        ; preds = %59
   store ptr %14, ptr %52, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %53, align 8
   %74 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %73, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29 unwind label %77
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i30 unwind label %77
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29:        ; preds = %69
-  %.not.i.i.i.i30 = icmp eq i32 %74, 0
-  br i1 %.not.i.i.i.i30, label %79, label %75
+_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i30:        ; preds = %69
+  %.not.i.i.i.i31 = icmp eq i32 %74, 0
+  br i1 %.not.i.i.i.i31, label %79, label %75
 
-75:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29
+75:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i30
   invoke void @_ZSt20__throw_system_errori(i32 noundef %74) #43
           to label %76 unwind label %77
 
@@ -158936,13 +158888,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29:        ; preds = %69
   store ptr null, ptr %53, align 8
   br label %.body
 
-79:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29
+79:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i30
   store ptr null, ptr %52, align 8
   store ptr null, ptr %53, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %80 = getelementptr inbounds i8, ptr %72, i64 64
   %81 = load atomic i64, ptr %80 monotonic, align 8
-  %.0.i.i.i.i.i31 = inttoptr i64 %81 to ptr
+  %.0.i.i.i.i.i32 = inttoptr i64 %81 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   %82 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -158953,13 +158905,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29:        ; preds = %69
   store ptr %12, ptr %52, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %53, align 8
   %84 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %83, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35 unwind label %87
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i36 unwind label %87
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35:        ; preds = %79
-  %.not.i.i.i.i36 = icmp eq i32 %84, 0
-  br i1 %.not.i.i.i.i36, label %89, label %85
+_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i36:        ; preds = %79
+  %.not.i.i.i.i37 = icmp eq i32 %84, 0
+  br i1 %.not.i.i.i.i37, label %89, label %85
 
-85:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35
+85:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i36
   invoke void @_ZSt20__throw_system_errori(i32 noundef %84) #43
           to label %86 unwind label %87
 
@@ -158973,21 +158925,21 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35:        ; preds = %79
   store ptr null, ptr %53, align 8
   br label %.body
 
-89:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35
+89:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i36
   store ptr null, ptr %52, align 8
   store ptr null, ptr %53, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %90 = getelementptr inbounds i8, ptr %82, i64 64
   %91 = load atomic i64, ptr %90 monotonic, align 8
-  %.0.i.i.i.i.i37 = inttoptr i64 %91 to ptr
+  %.0.i.i.i.i.i38 = inttoptr i64 %91 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  invoke void @_ZNK4CGAL23CartesianKernelFunctors24Construct_circumcenter_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISA_EESF_SF_SF_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %25, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i25, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i31, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i37)
-          to label %92 unwind label %146
+  invoke void @_ZNK4CGAL23CartesianKernelFunctors24Construct_circumcenter_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISA_EESF_SF_SF_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.623") align 8 %25, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i26, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i32, ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i.i.i38)
+          to label %92 unwind label %144
 
 92:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11), !noalias !2638
   %93 = invoke { double, double } @_ZNK4CGAL12RET_boost_mpIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEN4mpl_4int_ILi2EEEE11To_intervalclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(96) %25)
-          to label %.noexc unwind label %148
+          to label %.noexc unwind label %146
 
 .noexc:                                           ; preds = %92
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !2638
@@ -158999,16 +158951,16 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35:        ; preds = %79
   %99 = getelementptr inbounds i8, ptr %25, i64 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10), !noalias !2638
   %100 = invoke { double, double } @_ZNK4CGAL12RET_boost_mpIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEN4mpl_4int_ILi2EEEE11To_intervalclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(32) %99)
-          to label %.noexc41 unwind label %148
+          to label %.noexc42 unwind label %146
 
-.noexc41:                                         ; preds = %.noexc
+.noexc42:                                         ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !2638
   %101 = getelementptr inbounds i8, ptr %25, i64 64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9), !noalias !2638
   %102 = invoke { double, double } @_ZNK4CGAL12RET_boost_mpIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEN4mpl_4int_ILi2EEEE11To_intervalclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(32) %101)
-          to label %.noexc42 unwind label %148
+          to label %.noexc43 unwind label %146
 
-.noexc42:                                         ; preds = %.noexc41
+.noexc43:                                         ; preds = %.noexc42
   %103 = extractvalue { double, double } %100, 0
   %104 = fneg double %103
   %105 = insertelement <2 x double> poison, double %104, i64 0
@@ -159030,10 +158982,10 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35:        ; preds = %79
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %49, i64 48
   store <2 x double> %112, ptr %.sroa.3.0..sroa_idx.i, align 16
   %115 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #42
-          to label %.noexc43 unwind label %148
+          to label %.noexc44 unwind label %146
 
-.noexc43:                                         ; preds = %.noexc42, %.noexc43
-  %116 = phi i64 [ %121, %.noexc43 ], [ 0, %.noexc42 ]
+.noexc44:                                         ; preds = %.noexc43, %.noexc44
+  %116 = phi i64 [ %121, %.noexc44 ], [ 0, %.noexc43 ]
   %117 = getelementptr inbounds %"class.boost::multiprecision::number", ptr %115, i64 %116
   %118 = getelementptr inbounds [3 x %"class.boost::multiprecision::number"], ptr %25, i64 0, i64 %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %118, i64 32, i1 false)
@@ -159043,9 +158995,9 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35:        ; preds = %79
   store ptr null, ptr %120, align 8
   %121 = add nuw nsw i64 %116, 1
   %122 = icmp eq i64 %121, 3
-  br i1 %122, label %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit47, label %.noexc43
+  br i1 %122, label %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit48, label %.noexc44
 
-_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit47: ; preds = %.noexc43
+_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit48: ; preds = %.noexc44
   %123 = getelementptr inbounds i8, ptr %49, i64 64
   store ptr %115, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %49, i64 72
@@ -159055,8 +159007,8 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
   %125 = getelementptr inbounds i8, ptr %25, i64 96
   br label %126
 
-126:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit47
-  %127 = phi ptr [ %125, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit47 ], [ %128, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i ]
+126:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit48
+  %127 = phi ptr [ %125, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit48 ], [ %128, %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i ]
   %128 = getelementptr inbounds i8, ptr %127, i64 -32
   %129 = getelementptr inbounds i8, ptr %127, i64 -24
   %130 = load ptr, ptr %129, align 8
@@ -159085,52 +159037,44 @@ _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_t
 138:                                              ; preds = %43
   %139 = landingpad { ptr, i32 }
           cleanup
-  %140 = extractvalue { ptr, i32 } %139, 0
-  %141 = extractvalue { ptr, i32 } %139, 1
-  br label %142
+  br label %140
 
-142:                                              ; preds = %138, %40
-  %.116 = phi i32 [ %141, %138 ], [ %.015, %40 ]
-  %.1 = phi ptr [ %140, %138 ], [ %.0, %40 ]
+140:                                              ; preds = %138, %40
+  %.merged22 = phi { ptr, i32 } [ %139, %138 ], [ %.pn, %40 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %7)
-  %143 = load i32, ptr %7, align 4
-  %144 = and i32 %143, -24577
-  %145 = or disjoint i32 %144, %27
-  store i32 %145, ptr %8, align 4
+  %141 = load i32, ptr %7, align 4
+  %142 = and i32 %141, -24577
+  %143 = or disjoint i32 %142, %27
+  store i32 %143, ptr %8, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %150
+  br label %148
 
-146:                                              ; preds = %89
-  %147 = landingpad { ptr, i32 }
+144:                                              ; preds = %89
+  %145 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-148:                                              ; preds = %.noexc42, %.noexc41, %.noexc, %92
-  %149 = landingpad { ptr, i32 }
+146:                                              ; preds = %.noexc43, %.noexc42, %.noexc, %92
+  %147 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #23
   br label %.body
 
-.body:                                            ; preds = %57, %77, %87, %146, %67, %148
-  %.pn20 = phi { ptr, i32 } [ %149, %148 ], [ %58, %57 ], [ %68, %67 ], [ %78, %77 ], [ %147, %146 ], [ %88, %87 ]
-  %.3 = extractvalue { ptr, i32 } %.pn20, 0
-  %.318 = extractvalue { ptr, i32 } %.pn20, 1
+.body:                                            ; preds = %57, %77, %87, %144, %67, %146
+  %.pn20 = phi { ptr, i32 } [ %147, %146 ], [ %58, %57 ], [ %68, %67 ], [ %78, %77 ], [ %145, %144 ], [ %88, %87 ]
   call void @_ZdlPv(ptr noundef nonnull %49) #39
-  br label %150
+  br label %148
 
 _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i, %_ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev.exit
   ret void
 
-150:                                              ; preds = %.body, %142
-  %.217 = phi i32 [ %.318, %.body ], [ %.116, %142 ]
-  %.2 = phi ptr [ %.3, %.body ], [ %.1, %142 ]
-  %151 = insertvalue { ptr, i32 } poison, ptr %.2, 0
-  %152 = insertvalue { ptr, i32 } %151, i32 %.217, 1
-  resume { ptr, i32 } %152
+148:                                              ; preds = %.body, %140
+  %.merged = phi { ptr, i32 } [ %.pn20, %.body ], [ %.merged22, %140 ]
+  resume { ptr, i32 } %.merged
 }
 
 ; Function Attrs: mustprogress uwtable

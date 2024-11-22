@@ -7743,7 +7743,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17hf788d66a0fb343dcE.llvm.1
   br label %944
 
 944:                                              ; preds = %943, %.noexc237
-  %.sroa.0.0.i233 = phi i64 [ %.val.i, %943 ], [ %942, %.noexc237 ]
+  %.val.pn.i = phi i64 [ %.val.i, %943 ], [ %942, %.noexc237 ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %69)
   invoke void @"_ZN53_$LT$text..Fragment$u20$as$u20$core..clone..Clone$GT$5clone17hd9e845c4229b46f7E.llvm.15391037627377539542"(ptr noalias nocapture noundef nonnull sret([152 x i8]) align 8 dereferenceable(152) %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %932)
           to label %945 unwind label %.critedge145.thread531.loopexit
@@ -7773,7 +7773,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17hf788d66a0fb343dcE.llvm.1
   br i1 %.sroa.041.2, label %.thread575, label %.critedge145.thread
 
 945:                                              ; preds = %944
-  %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %886, i64 %.sroa.0.0.i233)
+  %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %886, i64 %.val.pn.i)
   %946 = getelementptr inbounds i8, ptr %932, i64 144
   %947 = load i8, ptr %946, align 8, !range !849, !noundef !4
   %948 = trunc nuw i8 %947 to i1
@@ -7931,7 +7931,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17hf788d66a0fb343dcE.llvm.1
 1005:                                             ; preds = %.thread588, %949, %1054
   %.sroa.041.2 = phi i1 [ false, %1054 ], [ true, %949 ], [ true, %.thread588 ]
   %.sroa.023.4 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %1054 ], [ %.sroa.023.3891, %949 ], [ %.sroa.023.3891, %.thread588 ]
-  %.not104 = icmp ugt i64 %.sroa.0.0.i233, %886
+  %.not104 = icmp ugt i64 %.val.pn.i, %886
   br i1 %.not104, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17hf2c208aae71f60beE.exit", label %1055
 
 .thread590:                                       ; preds = %.thread588, %1036
@@ -15732,8 +15732,8 @@ define internal fastcc i64 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h1f94
   br label %43
 
 43:                                               ; preds = %36, %42
-  %.sroa.0.0 = phi i64 [ %.val, %42 ], [ %41, %36 ]
-  ret i64 %.sroa.0.0
+  %.val.pn = phi i64 [ %.val, %42 ], [ %41, %36 ]
+  ret i64 %.val.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

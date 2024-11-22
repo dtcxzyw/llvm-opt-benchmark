@@ -20918,19 +20918,19 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread104: ; preds = %_ZNK4llvm9String
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %64
   %66 = load i64, ptr %42, align 8
   %..i = call i64 @llvm.umin.i64(i64 %65, i64 %66)
-  %.sroa.0.0.i = load ptr, ptr %8, align 8
+  %.sroa.0.0.copyload.pn.i = load ptr, ptr %8, align 8
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i8 5, ptr %67, align 8, !alias.scope !95
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 3, ptr %68, align 1, !alias.scope !95
-  store ptr %.sroa.0.0.i, ptr %14, align 8, !alias.scope !95
+  store ptr %.sroa.0.0.copyload.pn.i, ptr %14, align 8, !alias.scope !95
   %69 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %..i, ptr %69, align 8, !alias.scope !95
   %70 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @.str.107, ptr %70, align 8, !alias.scope !95
   %71 = add i64 %65, 5
   %.sroa.speculated5.i.i = call i64 @llvm.umin.i64(i64 %66, i64 %71)
-  %72 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.sroa.speculated5.i.i
+  %72 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.pn.i, i64 %.sroa.speculated5.i.i
   %73 = sub i64 %66, %.sroa.speculated5.i.i
   store ptr %14, ptr %13, align 8, !alias.scope !98
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -21319,19 +21319,19 @@ _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread: ; preds = %213
 226:                                              ; preds = %221
   %227 = load i64, ptr %223, align 8
   %..i39 = call i64 @llvm.umin.i64(i64 %225, i64 %227)
-  %.sroa.0.0.i40 = load ptr, ptr %37, align 8
+  %.sroa.0.0.copyload.pn.i40 = load ptr, ptr %37, align 8
   %228 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i8 5, ptr %228, align 8, !alias.scope !106
   %229 = getelementptr inbounds nuw i8, ptr %40, i64 33
   store i8 3, ptr %229, align 1, !alias.scope !106
-  store ptr %.sroa.0.0.i40, ptr %40, align 8, !alias.scope !106
+  store ptr %.sroa.0.0.copyload.pn.i40, ptr %40, align 8, !alias.scope !106
   %230 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %..i39, ptr %230, align 8, !alias.scope !106
   %231 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr @.str.130, ptr %231, align 8, !alias.scope !106
   %232 = add i64 %225, 8
   %.sroa.speculated5.i.i43 = call i64 @llvm.umin.i64(i64 %227, i64 %232)
-  %233 = getelementptr inbounds i8, ptr %.sroa.0.0.i40, i64 %.sroa.speculated5.i.i43
+  %233 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.pn.i40, i64 %.sroa.speculated5.i.i43
   %234 = sub i64 %227, %.sroa.speculated5.i.i43
   %235 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store i8 5, ptr %235, align 8

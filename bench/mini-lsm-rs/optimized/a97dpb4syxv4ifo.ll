@@ -598,66 +598,64 @@ default.unreachable8:                             ; preds = %3
   fence acquire
   %68 = load atomic i64, ptr %64 monotonic, align 8
   %69 = icmp eq i64 %68, %65
-  br i1 %69, label %73, label %70
+  br i1 %69, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, label %70
 
 70:                                               ; preds = %66, %57
   %71 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
   %72 = icmp eq i64 %71, 1
   br i1 %72, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-73:                                               ; preds = %66
-  %74 = extractvalue { i64, i32 } %67, 1
-  %75 = extractvalue { i64, i32 } %67, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-
 .lr.ph.i.i:                                       ; preds = %70, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %70 ]
-  %76 = icmp samesign ult i32 %.07.i.i, 7
-  br i1 %76, label %.preheader.i.i.i, label %77
+  %73 = icmp samesign ult i32 %.07.i.i, 7
+  br i1 %73, label %.preheader.i.i.i, label %74
 
-77:                                               ; preds = %.lr.ph.i.i
+74:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %77
-  %78 = icmp samesign ult i32 %.07.i.i, 11
-  %79 = zext i1 %78 to i32
-  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %79
-  %80 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
-  %81 = icmp eq i64 %80, 1
-  br i1 %81, label %.lr.ph.i.i, label %._crit_edge.i.i
+.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %74
+  %75 = icmp samesign ult i32 %.07.i.i, 11
+  %76 = zext i1 %75 to i32
+  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %76
+  %77 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
+  %78 = icmp eq i64 %77, 1
+  br i1 %78, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader.i.i.i
-  %.sroa.01.08.i.i.i = phi i32 [ %82, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %82 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
+  %.sroa.01.08.i.i.i = phi i32 [ %79, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
+  %79 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i.i = lshr i32 %82, %.07.i.i
-  %83 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
-  br i1 %83, label %.preheader.i.i.i, label %.thread.i.i.i
+  %.sroa.01.0.highbits.i.i.i = lshr i32 %79, %.07.i.i
+  %80 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
+  br i1 %80, label %.preheader.i.i.i, label %.thread.i.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.thread.i.i.i, %70
-  %.lcssa.i.i = phi i64 [ %71, %70 ], [ %80, %.thread.i.i.i ]
+  %.lcssa.i.i = phi i64 [ %71, %70 ], [ %77, %.thread.i.i.i ]
   fence release
-  %84 = load i64, ptr %60, align 8, !noundef !5
-  %85 = getelementptr inbounds i8, ptr %59, i64 24
-  %86 = load i32, ptr %85, align 8, !range !17, !noundef !5
+  %81 = load i64, ptr %60, align 8, !noundef !5
+  %82 = getelementptr inbounds i8, ptr %59, i64 24
+  %83 = load i32, ptr %82, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i.i, ptr %64 release, align 8
+  %84 = insertvalue { i64, i32 } poison, i64 %81, 0
+  %85 = insertvalue { i64, i32 } %84, i32 %83, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %73
-  %.sroa.3.0.i.i = phi i32 [ %74, %73 ], [ %86, %._crit_edge.i.i ]
-  %.sroa.0.0.i.i = phi i64 [ %75, %73 ], [ %84, %._crit_edge.i.i ]
-  %87 = icmp slt i64 %.fca.0.extract.i2, %.sroa.0.0.i.i
-  br i1 %87, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17ha9836cdc5b38325aE.exit", label %88
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %66
+  %.merged.i.i = phi { i64, i32 } [ %85, %._crit_edge.i.i ], [ %67, %66 ]
+  %.fca.0.extract1.i = extractvalue { i64, i32 } %.merged.i.i, 0
+  %86 = icmp slt i64 %.fca.0.extract.i2, %.fca.0.extract1.i
+  br i1 %86, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17ha9836cdc5b38325aE.exit", label %87
 
-88:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-  %89 = icmp ne i64 %.fca.0.extract.i2, %.sroa.0.0.i.i
-  %90 = icmp uge i32 %.fca.1.extract.i3, %.sroa.3.0.i.i
-  %spec.select.i.not = select i1 %89, i1 true, i1 %90
+87:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
+  %.fca.1.extract3.i = extractvalue { i64, i32 } %.merged.i.i, 1
+  %88 = icmp ne i64 %.fca.0.extract.i2, %.fca.0.extract1.i
+  %89 = icmp uge i32 %.fca.1.extract.i3, %.fca.1.extract3.i
+  %spec.select.i.not = select i1 %88, i1 true, i1 %89
   br label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17ha9836cdc5b38325aE.exit"
 
-"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17ha9836cdc5b38325aE.exit": ; preds = %88, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %45, %39, %31, %23, %18, %6, %3, %35
-  %.0.shrunk = phi i1 [ %38, %35 ], [ false, %3 ], [ %22, %18 ], [ true, %6 ], [ %34, %31 ], [ true, %23 ], [ %56, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %39 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %45 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %88 ]
+"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17ha9836cdc5b38325aE.exit": ; preds = %87, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %45, %39, %31, %23, %18, %6, %3, %35
+  %.0.shrunk = phi i1 [ %38, %35 ], [ false, %3 ], [ %22, %18 ], [ true, %6 ], [ %34, %31 ], [ true, %23 ], [ %56, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %39 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %45 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %87 ]
   ret i1 %.0.shrunk
 }
 
@@ -777,66 +775,64 @@ default.unreachable8:                             ; preds = %3
   fence acquire
   %68 = load atomic i64, ptr %64 monotonic, align 8
   %69 = icmp eq i64 %68, %65
-  br i1 %69, label %73, label %70
+  br i1 %69, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, label %70
 
 70:                                               ; preds = %66, %57
   %71 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
   %72 = icmp eq i64 %71, 1
   br i1 %72, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-73:                                               ; preds = %66
-  %74 = extractvalue { i64, i32 } %67, 1
-  %75 = extractvalue { i64, i32 } %67, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-
 .lr.ph.i.i:                                       ; preds = %70, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %70 ]
-  %76 = icmp samesign ult i32 %.07.i.i, 7
-  br i1 %76, label %.preheader.i.i.i, label %77
+  %73 = icmp samesign ult i32 %.07.i.i, 7
+  br i1 %73, label %.preheader.i.i.i, label %74
 
-77:                                               ; preds = %.lr.ph.i.i
+74:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %77
-  %78 = icmp samesign ult i32 %.07.i.i, 11
-  %79 = zext i1 %78 to i32
-  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %79
-  %80 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
-  %81 = icmp eq i64 %80, 1
-  br i1 %81, label %.lr.ph.i.i, label %._crit_edge.i.i
+.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %74
+  %75 = icmp samesign ult i32 %.07.i.i, 11
+  %76 = zext i1 %75 to i32
+  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %76
+  %77 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
+  %78 = icmp eq i64 %77, 1
+  br i1 %78, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader.i.i.i
-  %.sroa.01.08.i.i.i = phi i32 [ %82, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %82 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
+  %.sroa.01.08.i.i.i = phi i32 [ %79, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
+  %79 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i.i = lshr i32 %82, %.07.i.i
-  %83 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
-  br i1 %83, label %.preheader.i.i.i, label %.thread.i.i.i
+  %.sroa.01.0.highbits.i.i.i = lshr i32 %79, %.07.i.i
+  %80 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
+  br i1 %80, label %.preheader.i.i.i, label %.thread.i.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.thread.i.i.i, %70
-  %.lcssa.i.i = phi i64 [ %71, %70 ], [ %80, %.thread.i.i.i ]
+  %.lcssa.i.i = phi i64 [ %71, %70 ], [ %77, %.thread.i.i.i ]
   fence release
-  %84 = load i64, ptr %60, align 8, !noundef !5
-  %85 = getelementptr inbounds i8, ptr %59, i64 24
-  %86 = load i32, ptr %85, align 8, !range !17, !noundef !5
+  %81 = load i64, ptr %60, align 8, !noundef !5
+  %82 = getelementptr inbounds i8, ptr %59, i64 24
+  %83 = load i32, ptr %82, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i.i, ptr %64 release, align 8
+  %84 = insertvalue { i64, i32 } poison, i64 %81, 0
+  %85 = insertvalue { i64, i32 } %84, i32 %83, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %73
-  %.sroa.3.0.i.i = phi i32 [ %74, %73 ], [ %86, %._crit_edge.i.i ]
-  %.sroa.0.0.i.i = phi i64 [ %75, %73 ], [ %84, %._crit_edge.i.i ]
-  %87 = icmp slt i64 %.fca.0.extract.i2, %.sroa.0.0.i.i
-  br i1 %87, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17hcf47e3d57986cbc8E.exit", label %88
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %66
+  %.merged.i.i = phi { i64, i32 } [ %85, %._crit_edge.i.i ], [ %67, %66 ]
+  %.fca.0.extract1.i = extractvalue { i64, i32 } %.merged.i.i, 0
+  %86 = icmp slt i64 %.fca.0.extract.i2, %.fca.0.extract1.i
+  br i1 %86, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17hcf47e3d57986cbc8E.exit", label %87
 
-88:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-  %89 = icmp ne i64 %.fca.0.extract.i2, %.sroa.0.0.i.i
-  %90 = icmp uge i32 %.fca.1.extract.i3, %.sroa.3.0.i.i
-  %spec.select.i.not = select i1 %89, i1 true, i1 %90
+87:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
+  %.fca.1.extract3.i = extractvalue { i64, i32 } %.merged.i.i, 1
+  %88 = icmp ne i64 %.fca.0.extract.i2, %.fca.0.extract1.i
+  %89 = icmp uge i32 %.fca.1.extract.i3, %.fca.1.extract3.i
+  %spec.select.i.not = select i1 %88, i1 true, i1 %89
   br label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17hcf47e3d57986cbc8E.exit"
 
-"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17hcf47e3d57986cbc8E.exit": ; preds = %88, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %45, %39, %31, %23, %18, %6, %3, %35
-  %.0.shrunk = phi i1 [ %38, %35 ], [ false, %3 ], [ %22, %18 ], [ true, %6 ], [ %34, %31 ], [ true, %23 ], [ %56, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %39 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %45 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %88 ]
+"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17hcf47e3d57986cbc8E.exit": ; preds = %87, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %45, %39, %31, %23, %18, %6, %3, %35
+  %.0.shrunk = phi i1 [ %38, %35 ], [ false, %3 ], [ %22, %18 ], [ true, %6 ], [ %34, %31 ], [ true, %23 ], [ %56, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %39 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %45 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %87 ]
   ret i1 %.0.shrunk
 }
 
@@ -1226,12 +1222,12 @@ default.unreachable2:                             ; preds = %2
 define hidden { i64, i32 } @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8deadline17h3026fb5d91b03c38E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
   switch i64 %2, label %default.unreachable1 [
-    i64 0, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-    i64 1, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-    i64 2, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+    i64 0, label %39
+    i64 1, label %39
+    i64 2, label %39
     i64 3, label %3
     i64 4, label %9
-    i64 5, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+    i64 5, label %39
   ]
 
 default.unreachable1:                             ; preds = %1
@@ -1243,7 +1239,7 @@ default.unreachable1:                             ; preds = %1
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load atomic i8, ptr %6 monotonic, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %40, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+  br i1 %8, label %42, label %39
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1261,77 +1257,80 @@ default.unreachable1:                             ; preds = %1
   fence acquire
   %19 = load atomic i64, ptr %15 monotonic, align 8
   %20 = icmp eq i64 %19, %16
-  br i1 %20, label %24, label %21
+  br i1 %20, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit, label %21
 
 21:                                               ; preds = %17, %9
   %22 = atomicrmw xchg ptr %15, i64 1 acquire, align 8
   %23 = icmp eq i64 %22, 1
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
-24:                                               ; preds = %17
-  %25 = extractvalue { i64, i32 } %18, 1
-  %26 = extractvalue { i64, i32 } %18, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-
 .lr.ph.i:                                         ; preds = %21, %.thread.i.i
   %.07.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %21 ]
-  %27 = icmp samesign ult i32 %.07.i, 7
-  br i1 %27, label %.preheader.i.i, label %28
+  %24 = icmp samesign ult i32 %.07.i, 7
+  br i1 %24, label %.preheader.i.i, label %25
 
-28:                                               ; preds = %.lr.ph.i
+25:                                               ; preds = %.lr.ph.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.preheader.i.i, %28
-  %29 = icmp samesign ult i32 %.07.i, 11
-  %30 = zext i1 %29 to i32
-  %spec.select.i = add nuw nsw i32 %.07.i, %30
-  %31 = atomicrmw xchg ptr %15, i64 1 acquire, align 8
-  %32 = icmp eq i64 %31, 1
-  br i1 %32, label %.lr.ph.i, label %._crit_edge.i
+.thread.i.i:                                      ; preds = %.preheader.i.i, %25
+  %26 = icmp samesign ult i32 %.07.i, 11
+  %27 = zext i1 %26 to i32
+  %spec.select.i = add nuw nsw i32 %.07.i, %27
+  %28 = atomicrmw xchg ptr %15, i64 1 acquire, align 8
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i, %.preheader.i.i
-  %.sroa.01.08.i.i = phi i32 [ %33, %.preheader.i.i ], [ 0, %.lr.ph.i ]
-  %33 = add nuw nsw i32 %.sroa.01.08.i.i, 1
+  %.sroa.01.08.i.i = phi i32 [ %30, %.preheader.i.i ], [ 0, %.lr.ph.i ]
+  %30 = add nuw nsw i32 %.sroa.01.08.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i = lshr i32 %33, %.07.i
-  %34 = icmp eq i32 %.sroa.01.0.highbits.i.i, 0
-  br i1 %34, label %.preheader.i.i, label %.thread.i.i
+  %.sroa.01.0.highbits.i.i = lshr i32 %30, %.07.i
+  %31 = icmp eq i32 %.sroa.01.0.highbits.i.i, 0
+  br i1 %31, label %.preheader.i.i, label %.thread.i.i
 
 ._crit_edge.i:                                    ; preds = %.thread.i.i, %21
-  %.lcssa.i = phi i64 [ %22, %21 ], [ %31, %.thread.i.i ]
+  %.lcssa.i = phi i64 [ %22, %21 ], [ %28, %.thread.i.i ]
   fence release
-  %35 = load i64, ptr %12, align 8, !noundef !5
-  %36 = getelementptr inbounds i8, ptr %11, i64 24
-  %37 = load i32, ptr %36, align 8, !range !17, !noundef !5
+  %32 = load i64, ptr %12, align 8, !noundef !5
+  %33 = getelementptr inbounds i8, ptr %11, i64 24
+  %34 = load i32, ptr %33, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i, ptr %15 release, align 8
+  %35 = insertvalue { i64, i32 } poison, i64 %32, 0
+  %36 = insertvalue { i64, i32 } %35, i32 %34, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit: ; preds = %._crit_edge.i, %24, %3, %1, %1, %1, %1, %40
-  %.sroa.3.0 = phi i32 [ %44, %40 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %3 ], [ %25, %24 ], [ %37, %._crit_edge.i ]
-  %.sroa.0.0 = phi i64 [ %42, %40 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %3 ], [ %26, %24 ], [ %35, %._crit_edge.i ]
-  %38 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
-  %39 = insertvalue { i64, i32 } %38, i32 %.sroa.3.0, 1
-  ret { i64, i32 } %39
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit: ; preds = %17, %._crit_edge.i
+  %.merged.i = phi { i64, i32 } [ %36, %._crit_edge.i ], [ %18, %17 ]
+  %37 = extractvalue { i64, i32 } %.merged.i, 0
+  %38 = extractvalue { i64, i32 } %.merged.i, 1
+  br label %39
 
-40:                                               ; preds = %3
-  %41 = getelementptr inbounds i8, ptr %5, i64 16
-  %42 = load i64, ptr %41, align 8, !noundef !5
-  %43 = getelementptr inbounds i8, ptr %5, i64 24
-  %44 = load i32, ptr %43, align 8, !range !17, !noundef !5
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+39:                                               ; preds = %3, %1, %1, %1, %1, %42, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+  %.sroa.3.0 = phi i32 [ %38, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit ], [ %46, %42 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %3 ]
+  %.sroa.0.0 = phi i64 [ %37, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit ], [ %44, %42 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %3 ]
+  %40 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
+  %41 = insertvalue { i64, i32 } %40, i32 %.sroa.3.0, 1
+  ret { i64, i32 } %41
+
+42:                                               ; preds = %3
+  %43 = getelementptr inbounds i8, ptr %5, i64 16
+  %44 = load i64, ptr %43, align 8, !noundef !5
+  %45 = getelementptr inbounds i8, ptr %5, i64 24
+  %46 = load i32, ptr %45, align 8, !range !17, !noundef !5
+  br label %39
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i32 } @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8deadline17h9a04ae93b4a08427E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
   switch i64 %2, label %default.unreachable1 [
-    i64 0, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-    i64 1, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-    i64 2, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+    i64 0, label %39
+    i64 1, label %39
+    i64 2, label %39
     i64 3, label %3
     i64 4, label %9
-    i64 5, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+    i64 5, label %39
   ]
 
 default.unreachable1:                             ; preds = %1
@@ -1343,7 +1342,7 @@ default.unreachable1:                             ; preds = %1
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load atomic i8, ptr %6 monotonic, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %40, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+  br i1 %8, label %42, label %39
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1361,65 +1360,68 @@ default.unreachable1:                             ; preds = %1
   fence acquire
   %19 = load atomic i64, ptr %15 monotonic, align 8
   %20 = icmp eq i64 %19, %16
-  br i1 %20, label %24, label %21
+  br i1 %20, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit, label %21
 
 21:                                               ; preds = %17, %9
   %22 = atomicrmw xchg ptr %15, i64 1 acquire, align 8
   %23 = icmp eq i64 %22, 1
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
-24:                                               ; preds = %17
-  %25 = extractvalue { i64, i32 } %18, 1
-  %26 = extractvalue { i64, i32 } %18, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-
 .lr.ph.i:                                         ; preds = %21, %.thread.i.i
   %.07.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %21 ]
-  %27 = icmp samesign ult i32 %.07.i, 7
-  br i1 %27, label %.preheader.i.i, label %28
+  %24 = icmp samesign ult i32 %.07.i, 7
+  br i1 %24, label %.preheader.i.i, label %25
 
-28:                                               ; preds = %.lr.ph.i
+25:                                               ; preds = %.lr.ph.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.preheader.i.i, %28
-  %29 = icmp samesign ult i32 %.07.i, 11
-  %30 = zext i1 %29 to i32
-  %spec.select.i = add nuw nsw i32 %.07.i, %30
-  %31 = atomicrmw xchg ptr %15, i64 1 acquire, align 8
-  %32 = icmp eq i64 %31, 1
-  br i1 %32, label %.lr.ph.i, label %._crit_edge.i
+.thread.i.i:                                      ; preds = %.preheader.i.i, %25
+  %26 = icmp samesign ult i32 %.07.i, 11
+  %27 = zext i1 %26 to i32
+  %spec.select.i = add nuw nsw i32 %.07.i, %27
+  %28 = atomicrmw xchg ptr %15, i64 1 acquire, align 8
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i, %.preheader.i.i
-  %.sroa.01.08.i.i = phi i32 [ %33, %.preheader.i.i ], [ 0, %.lr.ph.i ]
-  %33 = add nuw nsw i32 %.sroa.01.08.i.i, 1
+  %.sroa.01.08.i.i = phi i32 [ %30, %.preheader.i.i ], [ 0, %.lr.ph.i ]
+  %30 = add nuw nsw i32 %.sroa.01.08.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i = lshr i32 %33, %.07.i
-  %34 = icmp eq i32 %.sroa.01.0.highbits.i.i, 0
-  br i1 %34, label %.preheader.i.i, label %.thread.i.i
+  %.sroa.01.0.highbits.i.i = lshr i32 %30, %.07.i
+  %31 = icmp eq i32 %.sroa.01.0.highbits.i.i, 0
+  br i1 %31, label %.preheader.i.i, label %.thread.i.i
 
 ._crit_edge.i:                                    ; preds = %.thread.i.i, %21
-  %.lcssa.i = phi i64 [ %22, %21 ], [ %31, %.thread.i.i ]
+  %.lcssa.i = phi i64 [ %22, %21 ], [ %28, %.thread.i.i ]
   fence release
-  %35 = load i64, ptr %12, align 8, !noundef !5
-  %36 = getelementptr inbounds i8, ptr %11, i64 24
-  %37 = load i32, ptr %36, align 8, !range !17, !noundef !5
+  %32 = load i64, ptr %12, align 8, !noundef !5
+  %33 = getelementptr inbounds i8, ptr %11, i64 24
+  %34 = load i32, ptr %33, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i, ptr %15 release, align 8
+  %35 = insertvalue { i64, i32 } poison, i64 %32, 0
+  %36 = insertvalue { i64, i32 } %35, i32 %34, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit: ; preds = %._crit_edge.i, %24, %3, %1, %1, %1, %1, %40
-  %.sroa.3.0 = phi i32 [ %44, %40 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %3 ], [ %25, %24 ], [ %37, %._crit_edge.i ]
-  %.sroa.0.0 = phi i64 [ %42, %40 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %3 ], [ %26, %24 ], [ %35, %._crit_edge.i ]
-  %38 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
-  %39 = insertvalue { i64, i32 } %38, i32 %.sroa.3.0, 1
-  ret { i64, i32 } %39
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit: ; preds = %17, %._crit_edge.i
+  %.merged.i = phi { i64, i32 } [ %36, %._crit_edge.i ], [ %18, %17 ]
+  %37 = extractvalue { i64, i32 } %.merged.i, 0
+  %38 = extractvalue { i64, i32 } %.merged.i, 1
+  br label %39
 
-40:                                               ; preds = %3
-  %41 = getelementptr inbounds i8, ptr %5, i64 16
-  %42 = load i64, ptr %41, align 8, !noundef !5
-  %43 = getelementptr inbounds i8, ptr %5, i64 24
-  %44 = load i32, ptr %43, align 8, !range !17, !noundef !5
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+39:                                               ; preds = %3, %1, %1, %1, %1, %42, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+  %.sroa.3.0 = phi i32 [ %38, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit ], [ %46, %42 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %3 ]
+  %.sroa.0.0 = phi i64 [ %37, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit ], [ %44, %42 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %3 ]
+  %40 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
+  %41 = insertvalue { i64, i32 } %40, i32 %.sroa.3.0, 1
+  ret { i64, i32 } %41
+
+42:                                               ; preds = %3
+  %43 = getelementptr inbounds i8, ptr %5, i64 16
+  %44 = load i64, ptr %43, align 8, !noundef !5
+  %45 = getelementptr inbounds i8, ptr %5, i64 24
+  %46 = load i32, ptr %45, align 8, !range !17, !noundef !5
+  br label %39
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1534,66 +1536,64 @@ default.unreachable8:                             ; preds = %1
   fence acquire
   %64 = load atomic i64, ptr %60 monotonic, align 8
   %65 = icmp eq i64 %64, %61
-  br i1 %65, label %69, label %66
+  br i1 %65, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, label %66
 
 66:                                               ; preds = %62, %53
   %67 = atomicrmw xchg ptr %60, i64 1 acquire, align 8
   %68 = icmp eq i64 %67, 1
   br i1 %68, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-69:                                               ; preds = %62
-  %70 = extractvalue { i64, i32 } %63, 1
-  %71 = extractvalue { i64, i32 } %63, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-
 .lr.ph.i.i:                                       ; preds = %66, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %66 ]
-  %72 = icmp samesign ult i32 %.07.i.i, 7
-  br i1 %72, label %.preheader.i.i.i, label %73
+  %69 = icmp samesign ult i32 %.07.i.i, 7
+  br i1 %69, label %.preheader.i.i.i, label %70
 
-73:                                               ; preds = %.lr.ph.i.i
+70:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %73
-  %74 = icmp samesign ult i32 %.07.i.i, 11
-  %75 = zext i1 %74 to i32
-  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %75
-  %76 = atomicrmw xchg ptr %60, i64 1 acquire, align 8
-  %77 = icmp eq i64 %76, 1
-  br i1 %77, label %.lr.ph.i.i, label %._crit_edge.i.i
+.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %70
+  %71 = icmp samesign ult i32 %.07.i.i, 11
+  %72 = zext i1 %71 to i32
+  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %72
+  %73 = atomicrmw xchg ptr %60, i64 1 acquire, align 8
+  %74 = icmp eq i64 %73, 1
+  br i1 %74, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader.i.i.i
-  %.sroa.01.08.i.i.i = phi i32 [ %78, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %78 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
+  %.sroa.01.08.i.i.i = phi i32 [ %75, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
+  %75 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i.i = lshr i32 %78, %.07.i.i
-  %79 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
-  br i1 %79, label %.preheader.i.i.i, label %.thread.i.i.i
+  %.sroa.01.0.highbits.i.i.i = lshr i32 %75, %.07.i.i
+  %76 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
+  br i1 %76, label %.preheader.i.i.i, label %.thread.i.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.thread.i.i.i, %66
-  %.lcssa.i.i = phi i64 [ %67, %66 ], [ %76, %.thread.i.i.i ]
+  %.lcssa.i.i = phi i64 [ %67, %66 ], [ %73, %.thread.i.i.i ]
   fence release
-  %80 = load i64, ptr %56, align 8, !noundef !5
-  %81 = getelementptr inbounds i8, ptr %55, i64 24
-  %82 = load i32, ptr %81, align 8, !range !17, !noundef !5
+  %77 = load i64, ptr %56, align 8, !noundef !5
+  %78 = getelementptr inbounds i8, ptr %55, i64 24
+  %79 = load i32, ptr %78, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i.i, ptr %60 release, align 8
+  %80 = insertvalue { i64, i32 } poison, i64 %77, 0
+  %81 = insertvalue { i64, i32 } %80, i32 %79, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %69
-  %.sroa.3.0.i.i = phi i32 [ %70, %69 ], [ %82, %._crit_edge.i.i ]
-  %.sroa.0.0.i.i = phi i64 [ %71, %69 ], [ %80, %._crit_edge.i.i ]
-  %83 = icmp slt i64 %.fca.0.extract.i3, %.sroa.0.0.i.i
-  br i1 %83, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h8a278dca886c93acE.exit", label %84
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %62
+  %.merged.i.i = phi { i64, i32 } [ %81, %._crit_edge.i.i ], [ %63, %62 ]
+  %.fca.0.extract1.i = extractvalue { i64, i32 } %.merged.i.i, 0
+  %82 = icmp slt i64 %.fca.0.extract.i3, %.fca.0.extract1.i
+  br i1 %82, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h8a278dca886c93acE.exit", label %83
 
-84:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-  %85 = icmp ne i64 %.fca.0.extract.i3, %.sroa.0.0.i.i
-  %86 = icmp uge i32 %.fca.1.extract.i4, %.sroa.3.0.i.i
-  %spec.select.i.not = select i1 %85, i1 true, i1 %86
+83:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
+  %.fca.1.extract3.i = extractvalue { i64, i32 } %.merged.i.i, 1
+  %84 = icmp ne i64 %.fca.0.extract.i3, %.fca.0.extract1.i
+  %85 = icmp uge i32 %.fca.1.extract.i4, %.fca.1.extract3.i
+  %spec.select.i.not = select i1 %84, i1 true, i1 %85
   br label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h8a278dca886c93acE.exit"
 
-"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h8a278dca886c93acE.exit": ; preds = %84, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %41, %35, %27, %20, %15, %4, %1, %31
-  %.0.shrunk = phi i1 [ %34, %31 ], [ false, %1 ], [ %19, %15 ], [ true, %4 ], [ %30, %27 ], [ true, %20 ], [ %52, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %35 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %41 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %84 ]
+"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h8a278dca886c93acE.exit": ; preds = %83, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %41, %35, %27, %20, %15, %4, %1, %31
+  %.0.shrunk = phi i1 [ %34, %31 ], [ false, %1 ], [ %19, %15 ], [ true, %4 ], [ %30, %27 ], [ true, %20 ], [ %52, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %35 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %41 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %83 ]
   ret i1 %.0.shrunk
 }
 
@@ -1709,66 +1709,64 @@ default.unreachable8:                             ; preds = %1
   fence acquire
   %64 = load atomic i64, ptr %60 monotonic, align 8
   %65 = icmp eq i64 %64, %61
-  br i1 %65, label %69, label %66
+  br i1 %65, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, label %66
 
 66:                                               ; preds = %62, %53
   %67 = atomicrmw xchg ptr %60, i64 1 acquire, align 8
   %68 = icmp eq i64 %67, 1
   br i1 %68, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-69:                                               ; preds = %62
-  %70 = extractvalue { i64, i32 } %63, 1
-  %71 = extractvalue { i64, i32 } %63, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-
 .lr.ph.i.i:                                       ; preds = %66, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %66 ]
-  %72 = icmp samesign ult i32 %.07.i.i, 7
-  br i1 %72, label %.preheader.i.i.i, label %73
+  %69 = icmp samesign ult i32 %.07.i.i, 7
+  br i1 %69, label %.preheader.i.i.i, label %70
 
-73:                                               ; preds = %.lr.ph.i.i
+70:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %73
-  %74 = icmp samesign ult i32 %.07.i.i, 11
-  %75 = zext i1 %74 to i32
-  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %75
-  %76 = atomicrmw xchg ptr %60, i64 1 acquire, align 8
-  %77 = icmp eq i64 %76, 1
-  br i1 %77, label %.lr.ph.i.i, label %._crit_edge.i.i
+.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %70
+  %71 = icmp samesign ult i32 %.07.i.i, 11
+  %72 = zext i1 %71 to i32
+  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %72
+  %73 = atomicrmw xchg ptr %60, i64 1 acquire, align 8
+  %74 = icmp eq i64 %73, 1
+  br i1 %74, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader.i.i.i
-  %.sroa.01.08.i.i.i = phi i32 [ %78, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %78 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
+  %.sroa.01.08.i.i.i = phi i32 [ %75, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
+  %75 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i.i = lshr i32 %78, %.07.i.i
-  %79 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
-  br i1 %79, label %.preheader.i.i.i, label %.thread.i.i.i
+  %.sroa.01.0.highbits.i.i.i = lshr i32 %75, %.07.i.i
+  %76 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
+  br i1 %76, label %.preheader.i.i.i, label %.thread.i.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.thread.i.i.i, %66
-  %.lcssa.i.i = phi i64 [ %67, %66 ], [ %76, %.thread.i.i.i ]
+  %.lcssa.i.i = phi i64 [ %67, %66 ], [ %73, %.thread.i.i.i ]
   fence release
-  %80 = load i64, ptr %56, align 8, !noundef !5
-  %81 = getelementptr inbounds i8, ptr %55, i64 24
-  %82 = load i32, ptr %81, align 8, !range !17, !noundef !5
+  %77 = load i64, ptr %56, align 8, !noundef !5
+  %78 = getelementptr inbounds i8, ptr %55, i64 24
+  %79 = load i32, ptr %78, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i.i, ptr %60 release, align 8
+  %80 = insertvalue { i64, i32 } poison, i64 %77, 0
+  %81 = insertvalue { i64, i32 } %80, i32 %79, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %69
-  %.sroa.3.0.i.i = phi i32 [ %70, %69 ], [ %82, %._crit_edge.i.i ]
-  %.sroa.0.0.i.i = phi i64 [ %71, %69 ], [ %80, %._crit_edge.i.i ]
-  %83 = icmp slt i64 %.fca.0.extract.i3, %.sroa.0.0.i.i
-  br i1 %83, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17ha6c68c0bf7346b91E.exit", label %84
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %62
+  %.merged.i.i = phi { i64, i32 } [ %81, %._crit_edge.i.i ], [ %63, %62 ]
+  %.fca.0.extract1.i = extractvalue { i64, i32 } %.merged.i.i, 0
+  %82 = icmp slt i64 %.fca.0.extract.i3, %.fca.0.extract1.i
+  br i1 %82, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17ha6c68c0bf7346b91E.exit", label %83
 
-84:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-  %85 = icmp ne i64 %.fca.0.extract.i3, %.sroa.0.0.i.i
-  %86 = icmp uge i32 %.fca.1.extract.i4, %.sroa.3.0.i.i
-  %spec.select.i.not = select i1 %85, i1 true, i1 %86
+83:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
+  %.fca.1.extract3.i = extractvalue { i64, i32 } %.merged.i.i, 1
+  %84 = icmp ne i64 %.fca.0.extract.i3, %.fca.0.extract1.i
+  %85 = icmp uge i32 %.fca.1.extract.i4, %.fca.1.extract3.i
+  %spec.select.i.not = select i1 %84, i1 true, i1 %85
   br label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17ha6c68c0bf7346b91E.exit"
 
-"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17ha6c68c0bf7346b91E.exit": ; preds = %84, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %41, %35, %27, %20, %15, %4, %1, %31
-  %.0.shrunk = phi i1 [ %34, %31 ], [ false, %1 ], [ %19, %15 ], [ true, %4 ], [ %30, %27 ], [ true, %20 ], [ %52, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %35 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %41 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %84 ]
+"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17ha6c68c0bf7346b91E.exit": ; preds = %83, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %41, %35, %27, %20, %15, %4, %1, %31
+  %.0.shrunk = phi i1 [ %34, %31 ], [ false, %1 ], [ %19, %15 ], [ true, %4 ], [ %30, %27 ], [ true, %20 ], [ %52, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %35 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %41 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %83 ]
   ret i1 %.0.shrunk
 }
 
@@ -1888,66 +1886,64 @@ default.unreachable8:                             ; preds = %3
   fence acquire
   %68 = load atomic i64, ptr %64 monotonic, align 8
   %69 = icmp eq i64 %68, %65
-  br i1 %69, label %73, label %70
+  br i1 %69, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, label %70
 
 70:                                               ; preds = %66, %57
   %71 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
   %72 = icmp eq i64 %71, 1
   br i1 %72, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-73:                                               ; preds = %66
-  %74 = extractvalue { i64, i32 } %67, 1
-  %75 = extractvalue { i64, i32 } %67, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-
 .lr.ph.i.i:                                       ; preds = %70, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %70 ]
-  %76 = icmp samesign ult i32 %.07.i.i, 7
-  br i1 %76, label %.preheader.i.i.i, label %77
+  %73 = icmp samesign ult i32 %.07.i.i, 7
+  br i1 %73, label %.preheader.i.i.i, label %74
 
-77:                                               ; preds = %.lr.ph.i.i
+74:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %77
-  %78 = icmp samesign ult i32 %.07.i.i, 11
-  %79 = zext i1 %78 to i32
-  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %79
-  %80 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
-  %81 = icmp eq i64 %80, 1
-  br i1 %81, label %.lr.ph.i.i, label %._crit_edge.i.i
+.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %74
+  %75 = icmp samesign ult i32 %.07.i.i, 11
+  %76 = zext i1 %75 to i32
+  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %76
+  %77 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
+  %78 = icmp eq i64 %77, 1
+  br i1 %78, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader.i.i.i
-  %.sroa.01.08.i.i.i = phi i32 [ %82, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %82 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
+  %.sroa.01.08.i.i.i = phi i32 [ %79, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
+  %79 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i.i = lshr i32 %82, %.07.i.i
-  %83 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
-  br i1 %83, label %.preheader.i.i.i, label %.thread.i.i.i
+  %.sroa.01.0.highbits.i.i.i = lshr i32 %79, %.07.i.i
+  %80 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
+  br i1 %80, label %.preheader.i.i.i, label %.thread.i.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.thread.i.i.i, %70
-  %.lcssa.i.i = phi i64 [ %71, %70 ], [ %80, %.thread.i.i.i ]
+  %.lcssa.i.i = phi i64 [ %71, %70 ], [ %77, %.thread.i.i.i ]
   fence release
-  %84 = load i64, ptr %60, align 8, !noundef !5
-  %85 = getelementptr inbounds i8, ptr %59, i64 24
-  %86 = load i32, ptr %85, align 8, !range !17, !noundef !5
+  %81 = load i64, ptr %60, align 8, !noundef !5
+  %82 = getelementptr inbounds i8, ptr %59, i64 24
+  %83 = load i32, ptr %82, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i.i, ptr %64 release, align 8
+  %84 = insertvalue { i64, i32 } poison, i64 %81, 0
+  %85 = insertvalue { i64, i32 } %84, i32 %83, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %73
-  %.sroa.3.0.i.i = phi i32 [ %74, %73 ], [ %86, %._crit_edge.i.i ]
-  %.sroa.0.0.i.i = phi i64 [ %75, %73 ], [ %84, %._crit_edge.i.i ]
-  %87 = icmp slt i64 %.fca.0.extract.i2, %.sroa.0.0.i.i
-  br i1 %87, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h489bfde784f1c238E.exit", label %88
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %66
+  %.merged.i.i = phi { i64, i32 } [ %85, %._crit_edge.i.i ], [ %67, %66 ]
+  %.fca.0.extract1.i = extractvalue { i64, i32 } %.merged.i.i, 0
+  %86 = icmp slt i64 %.fca.0.extract.i2, %.fca.0.extract1.i
+  br i1 %86, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h489bfde784f1c238E.exit", label %87
 
-88:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-  %89 = icmp ne i64 %.fca.0.extract.i2, %.sroa.0.0.i.i
-  %90 = icmp uge i32 %.fca.1.extract.i3, %.sroa.3.0.i.i
-  %spec.select.i.not = select i1 %89, i1 true, i1 %90
+87:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
+  %.fca.1.extract3.i = extractvalue { i64, i32 } %.merged.i.i, 1
+  %88 = icmp ne i64 %.fca.0.extract.i2, %.fca.0.extract1.i
+  %89 = icmp uge i32 %.fca.1.extract.i3, %.fca.1.extract3.i
+  %spec.select.i.not = select i1 %88, i1 true, i1 %89
   br label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h489bfde784f1c238E.exit"
 
-"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h489bfde784f1c238E.exit": ; preds = %88, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %45, %39, %31, %23, %18, %6, %3, %35
-  %.0.shrunk = phi i1 [ %38, %35 ], [ false, %3 ], [ %22, %18 ], [ true, %6 ], [ %34, %31 ], [ true, %23 ], [ %56, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %39 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %45 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %88 ]
+"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h489bfde784f1c238E.exit": ; preds = %87, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %45, %39, %31, %23, %18, %6, %3, %35
+  %.0.shrunk = phi i1 [ %38, %35 ], [ false, %3 ], [ %22, %18 ], [ true, %6 ], [ %34, %31 ], [ true, %23 ], [ %56, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %39 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %45 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %87 ]
   ret i1 %.0.shrunk
 }
 
@@ -2067,66 +2063,64 @@ default.unreachable8:                             ; preds = %3
   fence acquire
   %68 = load atomic i64, ptr %64 monotonic, align 8
   %69 = icmp eq i64 %68, %65
-  br i1 %69, label %73, label %70
+  br i1 %69, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, label %70
 
 70:                                               ; preds = %66, %57
   %71 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
   %72 = icmp eq i64 %71, 1
   br i1 %72, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-73:                                               ; preds = %66
-  %74 = extractvalue { i64, i32 } %67, 1
-  %75 = extractvalue { i64, i32 } %67, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-
 .lr.ph.i.i:                                       ; preds = %70, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %70 ]
-  %76 = icmp samesign ult i32 %.07.i.i, 7
-  br i1 %76, label %.preheader.i.i.i, label %77
+  %73 = icmp samesign ult i32 %.07.i.i, 7
+  br i1 %73, label %.preheader.i.i.i, label %74
 
-77:                                               ; preds = %.lr.ph.i.i
+74:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %77
-  %78 = icmp samesign ult i32 %.07.i.i, 11
-  %79 = zext i1 %78 to i32
-  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %79
-  %80 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
-  %81 = icmp eq i64 %80, 1
-  br i1 %81, label %.lr.ph.i.i, label %._crit_edge.i.i
+.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %74
+  %75 = icmp samesign ult i32 %.07.i.i, 11
+  %76 = zext i1 %75 to i32
+  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %76
+  %77 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
+  %78 = icmp eq i64 %77, 1
+  br i1 %78, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader.i.i.i
-  %.sroa.01.08.i.i.i = phi i32 [ %82, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %82 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
+  %.sroa.01.08.i.i.i = phi i32 [ %79, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
+  %79 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i.i = lshr i32 %82, %.07.i.i
-  %83 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
-  br i1 %83, label %.preheader.i.i.i, label %.thread.i.i.i
+  %.sroa.01.0.highbits.i.i.i = lshr i32 %79, %.07.i.i
+  %80 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
+  br i1 %80, label %.preheader.i.i.i, label %.thread.i.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.thread.i.i.i, %70
-  %.lcssa.i.i = phi i64 [ %71, %70 ], [ %80, %.thread.i.i.i ]
+  %.lcssa.i.i = phi i64 [ %71, %70 ], [ %77, %.thread.i.i.i ]
   fence release
-  %84 = load i64, ptr %60, align 8, !noundef !5
-  %85 = getelementptr inbounds i8, ptr %59, i64 24
-  %86 = load i32, ptr %85, align 8, !range !17, !noundef !5
+  %81 = load i64, ptr %60, align 8, !noundef !5
+  %82 = getelementptr inbounds i8, ptr %59, i64 24
+  %83 = load i32, ptr %82, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i.i, ptr %64 release, align 8
+  %84 = insertvalue { i64, i32 } poison, i64 %81, 0
+  %85 = insertvalue { i64, i32 } %84, i32 %83, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %73
-  %.sroa.3.0.i.i = phi i32 [ %74, %73 ], [ %86, %._crit_edge.i.i ]
-  %.sroa.0.0.i.i = phi i64 [ %75, %73 ], [ %84, %._crit_edge.i.i ]
-  %87 = icmp slt i64 %.fca.0.extract.i2, %.sroa.0.0.i.i
-  br i1 %87, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h6521934c37a86f20E.exit", label %88
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %66
+  %.merged.i.i = phi { i64, i32 } [ %85, %._crit_edge.i.i ], [ %67, %66 ]
+  %.fca.0.extract1.i = extractvalue { i64, i32 } %.merged.i.i, 0
+  %86 = icmp slt i64 %.fca.0.extract.i2, %.fca.0.extract1.i
+  br i1 %86, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h6521934c37a86f20E.exit", label %87
 
-88:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-  %89 = icmp ne i64 %.fca.0.extract.i2, %.sroa.0.0.i.i
-  %90 = icmp uge i32 %.fca.1.extract.i3, %.sroa.3.0.i.i
-  %spec.select.i.not = select i1 %89, i1 true, i1 %90
+87:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
+  %.fca.1.extract3.i = extractvalue { i64, i32 } %.merged.i.i, 1
+  %88 = icmp ne i64 %.fca.0.extract.i2, %.fca.0.extract1.i
+  %89 = icmp uge i32 %.fca.1.extract.i3, %.fca.1.extract3.i
+  %spec.select.i.not = select i1 %88, i1 true, i1 %89
   br label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h6521934c37a86f20E.exit"
 
-"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h6521934c37a86f20E.exit": ; preds = %88, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %45, %39, %31, %23, %18, %6, %3, %35
-  %.0.shrunk = phi i1 [ %38, %35 ], [ false, %3 ], [ %22, %18 ], [ true, %6 ], [ %34, %31 ], [ true, %23 ], [ %56, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %39 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %45 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %88 ]
+"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h6521934c37a86f20E.exit": ; preds = %87, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i", %45, %39, %31, %23, %18, %6, %3, %35
+  %.0.shrunk = phi i1 [ %38, %35 ], [ false, %3 ], [ %22, %18 ], [ true, %6 ], [ %34, %31 ], [ true, %23 ], [ %56, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread7.i" ], [ false, %39 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.i" ], [ false, %45 ], [ false, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i ], [ %spec.select.i.not, %87 ]
   ret i1 %.0.shrunk
 }
 
@@ -2151,51 +2145,45 @@ define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_loa
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %.lr.ph, label %._crit_edge
 
-13:                                               ; preds = %6
-  %14 = extractvalue { i64, i32 } %7, 1
-  %15 = extractvalue { i64, i32 } %7, 0
-  br label %16
-
-16:                                               ; preds = %._crit_edge, %13
-  %.sroa.3.0 = phi i32 [ %14, %13 ], [ %29, %._crit_edge ]
-  %.sroa.0.0 = phi i64 [ %15, %13 ], [ %27, %._crit_edge ]
-  %17 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
-  %18 = insertvalue { i64, i32 } %17, i32 %.sroa.3.0, 1
-  ret { i64, i32 } %18
+13:                                               ; preds = %6, %._crit_edge
+  %.merged = phi { i64, i32 } [ %26, %._crit_edge ], [ %7, %6 ]
+  ret { i64, i32 } %.merged
 
 .lr.ph:                                           ; preds = %10, %.thread.i
   %.07 = phi i32 [ %spec.select, %.thread.i ], [ 0, %10 ]
-  %19 = icmp samesign ult i32 %.07, 7
-  br i1 %19, label %.preheader.i, label %20
+  %14 = icmp samesign ult i32 %.07, 7
+  br i1 %14, label %.preheader.i, label %15
 
-20:                                               ; preds = %.lr.ph
+15:                                               ; preds = %.lr.ph
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.preheader.i, %20
-  %21 = icmp samesign ult i32 %.07, 11
-  %22 = zext i1 %21 to i32
-  %spec.select = add nuw nsw i32 %.07, %22
-  %23 = atomicrmw xchg ptr %4, i64 1 acquire, align 8
-  %24 = icmp eq i64 %23, 1
-  br i1 %24, label %.lr.ph, label %._crit_edge
+.thread.i:                                        ; preds = %.preheader.i, %15
+  %16 = icmp samesign ult i32 %.07, 11
+  %17 = zext i1 %16 to i32
+  %spec.select = add nuw nsw i32 %.07, %17
+  %18 = atomicrmw xchg ptr %4, i64 1 acquire, align 8
+  %19 = icmp eq i64 %18, 1
+  br i1 %19, label %.lr.ph, label %._crit_edge
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
-  %.sroa.01.08.i = phi i32 [ %25, %.preheader.i ], [ 0, %.lr.ph ]
-  %25 = add nuw nsw i32 %.sroa.01.08.i, 1
+  %.sroa.01.08.i = phi i32 [ %20, %.preheader.i ], [ 0, %.lr.ph ]
+  %20 = add nuw nsw i32 %.sroa.01.08.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i = lshr i32 %25, %.07
-  %26 = icmp eq i32 %.sroa.01.0.highbits.i, 0
-  br i1 %26, label %.preheader.i, label %.thread.i
+  %.sroa.01.0.highbits.i = lshr i32 %20, %.07
+  %21 = icmp eq i32 %.sroa.01.0.highbits.i, 0
+  br i1 %21, label %.preheader.i, label %.thread.i
 
 ._crit_edge:                                      ; preds = %.thread.i, %10
-  %.lcssa = phi i64 [ %11, %10 ], [ %23, %.thread.i ]
+  %.lcssa = phi i64 [ %11, %10 ], [ %18, %.thread.i ]
   fence release
-  %27 = load i64, ptr %0, align 8, !noundef !5
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i32, ptr %28, align 8, !range !17, !noundef !5
+  %22 = load i64, ptr %0, align 8, !noundef !5
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load i32, ptr %23, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa, ptr %4 release, align 8
-  br label %16
+  %25 = insertvalue { i64, i32 } poison, i64 %22, 0
+  %26 = insertvalue { i64, i32 } %25, i32 %24, 1
+  br label %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -3514,62 +3502,60 @@ _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.7682
   fence acquire
   %88 = load atomic i64, ptr %84 monotonic, align 8
   %89 = icmp eq i64 %88, %85
-  br i1 %89, label %93, label %90
+  br i1 %89, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, label %90
 
 90:                                               ; preds = %86, %77
   %91 = atomicrmw xchg ptr %84, i64 1 acquire, align 8
   %92 = icmp eq i64 %91, 1
   br i1 %92, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-93:                                               ; preds = %86
-  %94 = extractvalue { i64, i32 } %87, 1
-  %95 = extractvalue { i64, i32 } %87, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-
 .lr.ph.i.i:                                       ; preds = %90, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %90 ]
-  %96 = icmp samesign ult i32 %.07.i.i, 7
-  br i1 %96, label %.preheader.i.i.i, label %97
+  %93 = icmp samesign ult i32 %.07.i.i, 7
+  br i1 %93, label %.preheader.i.i.i, label %94
 
-97:                                               ; preds = %.lr.ph.i.i
+94:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %97
-  %98 = icmp samesign ult i32 %.07.i.i, 11
-  %99 = zext i1 %98 to i32
-  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %99
-  %100 = atomicrmw xchg ptr %84, i64 1 acquire, align 8
-  %101 = icmp eq i64 %100, 1
-  br i1 %101, label %.lr.ph.i.i, label %._crit_edge.i.i
+.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %94
+  %95 = icmp samesign ult i32 %.07.i.i, 11
+  %96 = zext i1 %95 to i32
+  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %96
+  %97 = atomicrmw xchg ptr %84, i64 1 acquire, align 8
+  %98 = icmp eq i64 %97, 1
+  br i1 %98, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader.i.i.i
-  %.sroa.01.08.i.i.i = phi i32 [ %102, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %102 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
+  %.sroa.01.08.i.i.i = phi i32 [ %99, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
+  %99 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i.i = lshr i32 %102, %.07.i.i
-  %103 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
-  br i1 %103, label %.preheader.i.i.i, label %.thread.i.i.i
+  %.sroa.01.0.highbits.i.i.i = lshr i32 %99, %.07.i.i
+  %100 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
+  br i1 %100, label %.preheader.i.i.i, label %.thread.i.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.thread.i.i.i, %90
-  %.lcssa.i.i = phi i64 [ %91, %90 ], [ %100, %.thread.i.i.i ]
+  %.lcssa.i.i = phi i64 [ %91, %90 ], [ %97, %.thread.i.i.i ]
   fence release
-  %104 = load i64, ptr %80, align 8, !noundef !5
-  %105 = getelementptr inbounds i8, ptr %79, i64 24
-  %106 = load i32, ptr %105, align 8, !range !17, !noundef !5
+  %101 = load i64, ptr %80, align 8, !noundef !5
+  %102 = getelementptr inbounds i8, ptr %79, i64 24
+  %103 = load i32, ptr %102, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i.i, ptr %84 release, align 8
+  %104 = insertvalue { i64, i32 } poison, i64 %101, 0
+  %105 = insertvalue { i64, i32 } %104, i32 %103, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %93
-  %.sroa.3.0.i.i = phi i32 [ %94, %93 ], [ %106, %._crit_edge.i.i ]
-  %.sroa.0.0.i.i = phi i64 [ %95, %93 ], [ %104, %._crit_edge.i.i ]
-  %107 = icmp slt i64 %.fca.0.extract.i4, %.sroa.0.0.i.i
-  br i1 %107, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit.thread, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %86
+  %.merged.i.i = phi { i64, i32 } [ %105, %._crit_edge.i.i ], [ %87, %86 ]
+  %.fca.0.extract1.i = extractvalue { i64, i32 } %.merged.i.i, 0
+  %106 = icmp slt i64 %.fca.0.extract.i4, %.fca.0.extract1.i
+  br i1 %106, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit.thread, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit
 
 _ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit: ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-  %108 = icmp eq i64 %.fca.0.extract.i4, %.sroa.0.0.i.i
-  %109 = icmp ult i32 %.fca.1.extract.i5, %.sroa.3.0.i.i
-  %spec.select.i6 = select i1 %108, i1 %109, i1 false
+  %.fca.1.extract3.i = extractvalue { i64, i32 } %.merged.i.i, 1
+  %107 = icmp eq i64 %.fca.0.extract.i4, %.fca.0.extract1.i
+  %108 = icmp ult i32 %.fca.1.extract.i5, %.fca.1.extract3.i
+  %spec.select.i6 = select i1 %107, i1 %108, i1 false
   %cond.fr10 = freeze i1 %spec.select.i6
   br i1 %cond.fr10, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit.thread, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hf4d043c81ca69945E.exit"
 
@@ -3733,62 +3719,60 @@ _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.7682
   fence acquire
   %88 = load atomic i64, ptr %84 monotonic, align 8
   %89 = icmp eq i64 %88, %85
-  br i1 %89, label %93, label %90
+  br i1 %89, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i, label %90
 
 90:                                               ; preds = %86, %77
   %91 = atomicrmw xchg ptr %84, i64 1 acquire, align 8
   %92 = icmp eq i64 %91, 1
   br i1 %92, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-93:                                               ; preds = %86
-  %94 = extractvalue { i64, i32 } %87, 1
-  %95 = extractvalue { i64, i32 } %87, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-
 .lr.ph.i.i:                                       ; preds = %90, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %90 ]
-  %96 = icmp samesign ult i32 %.07.i.i, 7
-  br i1 %96, label %.preheader.i.i.i, label %97
+  %93 = icmp samesign ult i32 %.07.i.i, 7
+  br i1 %93, label %.preheader.i.i.i, label %94
 
-97:                                               ; preds = %.lr.ph.i.i
+94:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %97
-  %98 = icmp samesign ult i32 %.07.i.i, 11
-  %99 = zext i1 %98 to i32
-  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %99
-  %100 = atomicrmw xchg ptr %84, i64 1 acquire, align 8
-  %101 = icmp eq i64 %100, 1
-  br i1 %101, label %.lr.ph.i.i, label %._crit_edge.i.i
+.thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %94
+  %95 = icmp samesign ult i32 %.07.i.i, 11
+  %96 = zext i1 %95 to i32
+  %spec.select.i.i = add nuw nsw i32 %.07.i.i, %96
+  %97 = atomicrmw xchg ptr %84, i64 1 acquire, align 8
+  %98 = icmp eq i64 %97, 1
+  br i1 %98, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader.i.i.i
-  %.sroa.01.08.i.i.i = phi i32 [ %102, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %102 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
+  %.sroa.01.08.i.i.i = phi i32 [ %99, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
+  %99 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i.i = lshr i32 %102, %.07.i.i
-  %103 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
-  br i1 %103, label %.preheader.i.i.i, label %.thread.i.i.i
+  %.sroa.01.0.highbits.i.i.i = lshr i32 %99, %.07.i.i
+  %100 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
+  br i1 %100, label %.preheader.i.i.i, label %.thread.i.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.thread.i.i.i, %90
-  %.lcssa.i.i = phi i64 [ %91, %90 ], [ %100, %.thread.i.i.i ]
+  %.lcssa.i.i = phi i64 [ %91, %90 ], [ %97, %.thread.i.i.i ]
   fence release
-  %104 = load i64, ptr %80, align 8, !noundef !5
-  %105 = getelementptr inbounds i8, ptr %79, i64 24
-  %106 = load i32, ptr %105, align 8, !range !17, !noundef !5
+  %101 = load i64, ptr %80, align 8, !noundef !5
+  %102 = getelementptr inbounds i8, ptr %79, i64 24
+  %103 = load i32, ptr %102, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i.i, ptr %84 release, align 8
+  %104 = insertvalue { i64, i32 } poison, i64 %101, 0
+  %105 = insertvalue { i64, i32 } %104, i32 %103, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %93
-  %.sroa.3.0.i.i = phi i32 [ %94, %93 ], [ %106, %._crit_edge.i.i ]
-  %.sroa.0.0.i.i = phi i64 [ %95, %93 ], [ %104, %._crit_edge.i.i ]
-  %107 = icmp slt i64 %.fca.0.extract.i4, %.sroa.0.0.i.i
-  br i1 %107, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit.thread, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i: ; preds = %._crit_edge.i.i, %86
+  %.merged.i.i = phi { i64, i32 } [ %105, %._crit_edge.i.i ], [ %87, %86 ]
+  %.fca.0.extract1.i = extractvalue { i64, i32 } %.merged.i.i, 0
+  %106 = icmp slt i64 %.fca.0.extract.i4, %.fca.0.extract1.i
+  br i1 %106, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit.thread, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit
 
 _ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit: ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit.i
-  %108 = icmp eq i64 %.fca.0.extract.i4, %.sroa.0.0.i.i
-  %109 = icmp ult i32 %.fca.1.extract.i5, %.sroa.3.0.i.i
-  %spec.select.i6 = select i1 %108, i1 %109, i1 false
+  %.fca.1.extract3.i = extractvalue { i64, i32 } %.merged.i.i, 1
+  %107 = icmp eq i64 %.fca.0.extract.i4, %.fca.0.extract1.i
+  %108 = icmp ult i32 %.fca.1.extract.i5, %.fca.1.extract3.i
+  %spec.select.i6 = select i1 %107, i1 %108, i1 false
   %cond.fr10 = freeze i1 %spec.select.i6
   br i1 %cond.fr10, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.7682092217504716512.exit.thread, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17he89ce310ef763385E.exit"
 
@@ -4650,66 +4634,64 @@ define hidden noundef zeroext i1 @_ZN17crossbeam_channel7flavors4tick7Channel8is
   fence acquire
   %9 = load atomic i64, ptr %5 monotonic, align 8
   %10 = icmp eq i64 %9, %6
-  br i1 %10, label %14, label %11
+  br i1 %10, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit, label %11
 
 11:                                               ; preds = %7, %1
   %12 = atomicrmw xchg ptr %5, i64 1 acquire, align 8
   %13 = icmp eq i64 %12, 1
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
-14:                                               ; preds = %7
-  %15 = extractvalue { i64, i32 } %8, 1
-  %16 = extractvalue { i64, i32 } %8, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-
 .lr.ph.i:                                         ; preds = %11, %.thread.i.i
   %.07.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %11 ]
-  %17 = icmp samesign ult i32 %.07.i, 7
-  br i1 %17, label %.preheader.i.i, label %18
+  %14 = icmp samesign ult i32 %.07.i, 7
+  br i1 %14, label %.preheader.i.i, label %15
 
-18:                                               ; preds = %.lr.ph.i
+15:                                               ; preds = %.lr.ph.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.preheader.i.i, %18
-  %19 = icmp samesign ult i32 %.07.i, 11
-  %20 = zext i1 %19 to i32
-  %spec.select.i = add nuw nsw i32 %.07.i, %20
-  %21 = atomicrmw xchg ptr %5, i64 1 acquire, align 8
-  %22 = icmp eq i64 %21, 1
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i
+.thread.i.i:                                      ; preds = %.preheader.i.i, %15
+  %16 = icmp samesign ult i32 %.07.i, 11
+  %17 = zext i1 %16 to i32
+  %spec.select.i = add nuw nsw i32 %.07.i, %17
+  %18 = atomicrmw xchg ptr %5, i64 1 acquire, align 8
+  %19 = icmp eq i64 %18, 1
+  br i1 %19, label %.lr.ph.i, label %._crit_edge.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i, %.preheader.i.i
-  %.sroa.01.08.i.i = phi i32 [ %23, %.preheader.i.i ], [ 0, %.lr.ph.i ]
-  %23 = add nuw nsw i32 %.sroa.01.08.i.i, 1
+  %.sroa.01.08.i.i = phi i32 [ %20, %.preheader.i.i ], [ 0, %.lr.ph.i ]
+  %20 = add nuw nsw i32 %.sroa.01.08.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i = lshr i32 %23, %.07.i
-  %24 = icmp eq i32 %.sroa.01.0.highbits.i.i, 0
-  br i1 %24, label %.preheader.i.i, label %.thread.i.i
+  %.sroa.01.0.highbits.i.i = lshr i32 %20, %.07.i
+  %21 = icmp eq i32 %.sroa.01.0.highbits.i.i, 0
+  br i1 %21, label %.preheader.i.i, label %.thread.i.i
 
 ._crit_edge.i:                                    ; preds = %.thread.i.i, %11
-  %.lcssa.i = phi i64 [ %12, %11 ], [ %21, %.thread.i.i ]
+  %.lcssa.i = phi i64 [ %12, %11 ], [ %18, %.thread.i.i ]
   fence release
-  %25 = load i64, ptr %0, align 8, !noundef !5
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load i32, ptr %26, align 8, !range !17, !noundef !5
+  %22 = load i64, ptr %0, align 8, !noundef !5
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load i32, ptr %23, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i, ptr %5 release, align 8
+  %25 = insertvalue { i64, i32 } poison, i64 %22, 0
+  %26 = insertvalue { i64, i32 } %25, i32 %24, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit: ; preds = %14, %._crit_edge.i
-  %.sroa.3.0.i = phi i32 [ %15, %14 ], [ %27, %._crit_edge.i ]
-  %.sroa.0.0.i = phi i64 [ %16, %14 ], [ %25, %._crit_edge.i ]
-  %28 = icmp slt i64 %.fca.0.extract, %.sroa.0.0.i
-  br i1 %28, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit", label %29
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit: ; preds = %7, %._crit_edge.i
+  %.merged.i = phi { i64, i32 } [ %26, %._crit_edge.i ], [ %8, %7 ]
+  %.fca.0.extract1 = extractvalue { i64, i32 } %.merged.i, 0
+  %27 = icmp slt i64 %.fca.0.extract, %.fca.0.extract1
+  br i1 %27, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit", label %28
 
-29:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-  %30 = icmp eq i64 %.fca.0.extract, %.sroa.0.0.i
-  %31 = icmp ult i32 %.fca.1.extract, %.sroa.3.0.i
-  %spec.select = select i1 %30, i1 %31, i1 false
+28:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+  %.fca.1.extract3 = extractvalue { i64, i32 } %.merged.i, 1
+  %29 = icmp eq i64 %.fca.0.extract, %.fca.0.extract1
+  %30 = icmp ult i32 %.fca.1.extract, %.fca.1.extract3
+  %spec.select = select i1 %29, i1 %30, i1 false
   br label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit"
 
-"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit": ; preds = %29, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-  %.0.i = phi i1 [ true, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit ], [ %spec.select, %29 ]
+"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit": ; preds = %28, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+  %.0.i = phi i1 [ true, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit ], [ %spec.select, %28 ]
   ret i1 %.0.i
 }
 
@@ -4723,7 +4705,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd16
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   br label %9
 
-9:                                                ; preds = %55, %2
+9:                                                ; preds = %54, %2
   %10 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hcaf082b521a24e93E()
   %.fca.0.extract = extractvalue { i64, i32 } %10, 0
   %.fca.1.extract = extractvalue { i64, i32 } %10, 1
@@ -4736,128 +4718,126 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd16
   fence acquire
   %14 = load atomic i64, ptr %5 monotonic, align 8
   %15 = icmp eq i64 %14, %11
-  br i1 %15, label %19, label %16
+  br i1 %15, label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit, label %16
 
 16:                                               ; preds = %12, %9
   %17 = atomicrmw xchg ptr %5, i64 1 acquire, align 8
   %18 = icmp eq i64 %17, 1
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i
 
-19:                                               ; preds = %12
-  %20 = extractvalue { i64, i32 } %13, 1
-  %21 = extractvalue { i64, i32 } %13, 0
-  br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-
 .lr.ph.i:                                         ; preds = %16, %.thread.i.i
   %.07.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %16 ]
-  %22 = icmp samesign ult i32 %.07.i, 7
-  br i1 %22, label %.preheader.i.i, label %23
+  %19 = icmp samesign ult i32 %.07.i, 7
+  br i1 %19, label %.preheader.i.i, label %20
 
-23:                                               ; preds = %.lr.ph.i
+20:                                               ; preds = %.lr.ph.i
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.preheader.i.i, %23
-  %24 = icmp samesign ult i32 %.07.i, 11
-  %25 = zext i1 %24 to i32
-  %spec.select.i = add nuw nsw i32 %.07.i, %25
-  %26 = atomicrmw xchg ptr %5, i64 1 acquire, align 8
-  %27 = icmp eq i64 %26, 1
-  br i1 %27, label %.lr.ph.i, label %._crit_edge.i
+.thread.i.i:                                      ; preds = %.preheader.i.i, %20
+  %21 = icmp samesign ult i32 %.07.i, 11
+  %22 = zext i1 %21 to i32
+  %spec.select.i = add nuw nsw i32 %.07.i, %22
+  %23 = atomicrmw xchg ptr %5, i64 1 acquire, align 8
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i, %.preheader.i.i
-  %.sroa.01.08.i.i = phi i32 [ %28, %.preheader.i.i ], [ 0, %.lr.ph.i ]
-  %28 = add nuw nsw i32 %.sroa.01.08.i.i, 1
+  %.sroa.01.08.i.i = phi i32 [ %25, %.preheader.i.i ], [ 0, %.lr.ph.i ]
+  %25 = add nuw nsw i32 %.sroa.01.08.i.i, 1
   tail call void @llvm.x86.sse2.pause() #15
-  %.sroa.01.0.highbits.i.i = lshr i32 %28, %.07.i
-  %29 = icmp eq i32 %.sroa.01.0.highbits.i.i, 0
-  br i1 %29, label %.preheader.i.i, label %.thread.i.i
+  %.sroa.01.0.highbits.i.i = lshr i32 %25, %.07.i
+  %26 = icmp eq i32 %.sroa.01.0.highbits.i.i, 0
+  br i1 %26, label %.preheader.i.i, label %.thread.i.i
 
 ._crit_edge.i:                                    ; preds = %.thread.i.i, %16
-  %.lcssa.i = phi i64 [ %17, %16 ], [ %26, %.thread.i.i ]
+  %.lcssa.i = phi i64 [ %17, %16 ], [ %23, %.thread.i.i ]
   fence release
-  %30 = load i64, ptr %1, align 8, !noundef !5
-  %31 = load i32, ptr %6, align 8, !range !17, !noundef !5
+  %27 = load i64, ptr %1, align 8, !noundef !5
+  %28 = load i32, ptr %6, align 8, !range !17, !noundef !5
   store atomic i64 %.lcssa.i, ptr %5 release, align 8
+  %29 = insertvalue { i64, i32 } poison, i64 %27, 0
+  %30 = insertvalue { i64, i32 } %29, i32 %28, 1
   br label %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
 
-_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit: ; preds = %19, %._crit_edge.i
-  %.sroa.3.0.i = phi i32 [ %20, %19 ], [ %31, %._crit_edge.i ]
-  %.sroa.0.0.i = phi i64 [ %21, %19 ], [ %30, %._crit_edge.i ]
-  %32 = icmp slt i64 %.fca.0.extract, %.sroa.0.0.i
-  br i1 %32, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread", label %33
+_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit: ; preds = %12, %._crit_edge.i
+  %.merged.i = phi { i64, i32 } [ %30, %._crit_edge.i ], [ %13, %12 ]
+  %.fca.0.extract1 = extractvalue { i64, i32 } %.merged.i, 0
+  %.fca.1.extract3 = extractvalue { i64, i32 } %.merged.i, 1
+  %31 = icmp slt i64 %.fca.0.extract, %.fca.0.extract1
+  br i1 %31, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread", label %32
 
-33:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
-  %34 = icmp eq i64 %.fca.0.extract, %.sroa.0.0.i
-  %35 = icmp ult i32 %.fca.1.extract, %.sroa.3.0.i
-  %or.cond = select i1 %34, i1 %35, i1 false
+32:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+  %33 = icmp eq i64 %.fca.0.extract, %.fca.0.extract1
+  %34 = icmp ult i32 %.fca.1.extract, %.fca.1.extract3
+  %or.cond = select i1 %33, i1 %34, i1 false
   br i1 %or.cond, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread", label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread26"
 
-"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread26": ; preds = %33
-  %36 = load i64, ptr %7, align 8, !noundef !5
-  %37 = load i32, ptr %8, align 8, !range !17, !noundef !5
-  %38 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h2a42bf111200b79cE"(i64 noundef %.fca.0.extract, i32 noundef %.fca.1.extract, i64 noundef %36, i32 noundef %37)
-  %39 = atomicrmw xchg ptr %5, i64 1 acquire, align 8, !noalias !407
-  %40 = icmp eq i64 %39, 1
-  br i1 %40, label %.lr.ph.i10, label %._crit_edge.i8
+"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread26": ; preds = %32
+  %35 = load i64, ptr %7, align 8, !noundef !5
+  %36 = load i32, ptr %8, align 8, !range !17, !noundef !5
+  %37 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h2a42bf111200b79cE"(i64 noundef %.fca.0.extract, i32 noundef %.fca.1.extract, i64 noundef %35, i32 noundef %36)
+  %38 = atomicrmw xchg ptr %5, i64 1 acquire, align 8, !noalias !407
+  %39 = icmp eq i64 %38, 1
+  br i1 %39, label %.lr.ph.i10, label %._crit_edge.i8
 
 .lr.ph.i10:                                       ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread26", %.thread.i.i11
   %.015.i = phi i32 [ %spec.select.i12, %.thread.i.i11 ], [ 0, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread26" ]
-  %41 = icmp samesign ult i32 %.015.i, 7
-  br i1 %41, label %.preheader.i.i13, label %42
+  %40 = icmp samesign ult i32 %.015.i, 7
+  br i1 %40, label %.preheader.i.i13, label %41
 
-42:                                               ; preds = %.lr.ph.i10
+41:                                               ; preds = %.lr.ph.i10
   tail call void @_ZN3std6thread9yield_now17h7997a258d0252531E(), !noalias !407
   br label %.thread.i.i11
 
-.thread.i.i11:                                    ; preds = %.preheader.i.i13, %42
-  %43 = icmp samesign ult i32 %.015.i, 11
-  %44 = zext i1 %43 to i32
-  %spec.select.i12 = add nuw nsw i32 %.015.i, %44
-  %45 = atomicrmw xchg ptr %5, i64 1 acquire, align 8, !noalias !407
-  %46 = icmp eq i64 %45, 1
-  br i1 %46, label %.lr.ph.i10, label %._crit_edge.i8
+.thread.i.i11:                                    ; preds = %.preheader.i.i13, %41
+  %42 = icmp samesign ult i32 %.015.i, 11
+  %43 = zext i1 %42 to i32
+  %spec.select.i12 = add nuw nsw i32 %.015.i, %43
+  %44 = atomicrmw xchg ptr %5, i64 1 acquire, align 8, !noalias !407
+  %45 = icmp eq i64 %44, 1
+  br i1 %45, label %.lr.ph.i10, label %._crit_edge.i8
 
 .preheader.i.i13:                                 ; preds = %.lr.ph.i10, %.preheader.i.i13
-  %.sroa.01.08.i.i14 = phi i32 [ %47, %.preheader.i.i13 ], [ 0, %.lr.ph.i10 ]
-  %47 = add nuw nsw i32 %.sroa.01.08.i.i14, 1
+  %.sroa.01.08.i.i14 = phi i32 [ %46, %.preheader.i.i13 ], [ 0, %.lr.ph.i10 ]
+  %46 = add nuw nsw i32 %.sroa.01.08.i.i14, 1
   tail call void @llvm.x86.sse2.pause() #15, !noalias !407
-  %.sroa.01.0.highbits.i.i15 = lshr i32 %47, %.015.i
-  %48 = icmp eq i32 %.sroa.01.0.highbits.i.i15, 0
-  br i1 %48, label %.preheader.i.i13, label %.thread.i.i11
+  %.sroa.01.0.highbits.i.i15 = lshr i32 %46, %.015.i
+  %47 = icmp eq i32 %.sroa.01.0.highbits.i.i15, 0
+  br i1 %47, label %.preheader.i.i13, label %.thread.i.i11
 
 ._crit_edge.i8:                                   ; preds = %.thread.i.i11, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread26"
-  %.lcssa.i9 = phi i64 [ %39, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread26" ], [ %45, %.thread.i.i11 ]
+  %.lcssa.i9 = phi i64 [ %38, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread26" ], [ %44, %.thread.i.i11 ]
   fence release
   %.val.i = load i64, ptr %1, align 8, !noalias !407, !noundef !5
   %.val5.i = load i32, ptr %6, align 8, !noalias !407
-  %49 = icmp eq i64 %.val.i, %.sroa.0.0.i
-  %50 = icmp eq i32 %.val5.i, %.sroa.3.0.i
-  %.0.i.i = select i1 %49, i1 %50, i1 false
-  br i1 %.0.i.i, label %51, label %55
+  %48 = icmp eq i64 %.val.i, %.fca.0.extract1
+  %49 = icmp eq i32 %.val5.i, %.fca.1.extract3
+  %.0.i.i = select i1 %48, i1 %49, i1 false
+  br i1 %.0.i.i, label %50, label %54
 
-"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread": ; preds = %33, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
+"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread": ; preds = %32, %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512.exit
   store i8 0, ptr %0, align 8
-  br label %56
+  br label %55
 
-51:                                               ; preds = %._crit_edge.i8
-  %52 = extractvalue { i64, i32 } %38, 0
-  %53 = extractvalue { i64, i32 } %38, 1
-  store i64 %52, ptr %1, align 8, !alias.scope !410, !noalias !413
-  store i32 %53, ptr %6, align 8, !alias.scope !410, !noalias !413
-  %54 = add i64 %.lcssa.i9, 2
-  store atomic i64 %54, ptr %5 release, align 8, !noalias !415
-  store i64 %.sroa.0.0.i, ptr %0, align 8
-  br label %56
+50:                                               ; preds = %._crit_edge.i8
+  %51 = extractvalue { i64, i32 } %37, 0
+  %52 = extractvalue { i64, i32 } %37, 1
+  store i64 %51, ptr %1, align 8, !alias.scope !410, !noalias !413
+  store i32 %52, ptr %6, align 8, !alias.scope !410, !noalias !413
+  %53 = add i64 %.lcssa.i9, 2
+  store atomic i64 %53, ptr %5 release, align 8, !noalias !415
+  store i64 %.fca.0.extract1, ptr %0, align 8
+  br label %55
 
-55:                                               ; preds = %._crit_edge.i8
+54:                                               ; preds = %._crit_edge.i8
   store atomic i64 %.lcssa.i9, ptr %5 release, align 8, !noalias !407
   br label %9
 
-56:                                               ; preds = %51, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread"
-  %.sroa.3.0.i.lcssa45.sink = phi i32 [ %.sroa.3.0.i, %51 ], [ 1000000000, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread" ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.3.0.i.lcssa45.sink, ptr %57, align 8
+55:                                               ; preds = %50, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread"
+  %.fca.1.extract3.lcssa44.sink = phi i32 [ %.fca.1.extract3, %50 ], [ 1000000000, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread" ]
+  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.fca.1.extract3.lcssa44.sink, ptr %56, align 8
   ret void
 }
 

@@ -814,8 +814,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %10 = ptrtoint ptr %0 to i64
   %11 = sub nuw i64 %9, %10
   %12 = lshr exact i64 %11, 3
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   %15 = getelementptr inbounds i8, ptr %2, i64 16
@@ -841,9 +841,9 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
           to label %.noexc unwind label %38
 
 .noexc:                                           ; preds = %19
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !351, !noalias !348, !nonnull !4, !noundef !4
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !351, !noalias !348, !noundef !4
-  %23 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he9495f3af284e241E"(i64 noundef %.sroa.5.0.i.i.i, i1 noundef zeroext false)
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !351, !noalias !348, !noundef !4
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !351, !noalias !348, !nonnull !4, !noundef !4
+  %23 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he9495f3af284e241E"(i64 noundef %.pn1.i.i.i, i1 noundef zeroext false)
           to label %26 unwind label %24, !noalias !348
 
 24:                                               ; preds = %.noexc
@@ -856,7 +856,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %27 = extractvalue { i64, ptr } %23, 1
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 %.sroa.5.0.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %.pn3.i.i.i, i64 %.pn1.i.i.i, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !354)
   %29 = load i64, ptr %5, align 8, !range !145, !alias.scope !354, !noalias !348, !noundef !4
   %30 = icmp eq i64 %29, -9223372036854775808
@@ -875,7 +875,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 33:                                               ; preds = %.noexc21
   %34 = load ptr, ptr %4, align 8, !noalias !357, !nonnull !4, !noundef !4
   %35 = load i64, ptr %14, align 8, !noalias !357, !noundef !4
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.12279157293026222448"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i.i.i, ptr noundef nonnull %34, i64 noundef %32, i64 noundef %35)
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.12279157293026222448"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i.i.i, ptr noundef nonnull %34, i64 noundef %32, i64 noundef %35)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h22a7f5941fdcd6dcE.exit.i.i.i" unwind label %38
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h22a7f5941fdcd6dcE.exit.i.i.i": ; preds = %33, %.noexc21
@@ -905,7 +905,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %27, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !372
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 16
-  store i64 %.sroa.5.0.i.i.i, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !noalias !372
+  store i64 %.pn1.i.i.i, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !noalias !372
   %45 = add i64 %43, 1
   store i64 %45, ptr %16, align 8, !alias.scope !372, !noalias !373
   %46 = add nuw i64 %.0, 1

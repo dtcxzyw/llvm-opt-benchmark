@@ -5035,15 +5035,15 @@ define void @_ZN17meilisearch_types8settings8settings17hc0ce79a0308274beE(ptr de
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %76)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  %.sroa.0.0.i = load ptr, ptr %.sroa.3196.0..sroa_idx, align 8, !alias.scope !654, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %78, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !654, !noundef !4
+  %.pn1.in.i = getelementptr inbounds i8, ptr %78, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !654, !noundef !4
+  %.pn3.i = load ptr, ptr %.sroa.3196.0..sroa_idx, align 8, !alias.scope !654, !nonnull !4, !noundef !4
   %294 = getelementptr inbounds i8, ptr %78, i64 24
   store ptr %294, ptr %23, align 8
   %295 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %.sroa.0.0.i, ptr %295, align 8
+  store ptr %.pn3.i, ptr %295, align 8
   %296 = getelementptr inbounds i8, ptr %23, i64 16
-  store i64 %.sroa.5.0.i, ptr %296, align 8
+  store i64 %.pn1.i, ptr %296, align 8
   store i64 2, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)

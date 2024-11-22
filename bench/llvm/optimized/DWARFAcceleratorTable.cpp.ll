@@ -5066,25 +5066,21 @@ define dso_local { i64, i8 } @_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUInde
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 1, ptr %18, align 8, !alias.scope !265
   %19 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #27
-  %20 = extractvalue { i64, i8 } %19, 0
-  %21 = extractvalue { i64, i8 } %19, 1
-  br label %27
+  br label %26
 
 .loopexit:                                        ; preds = %14, %1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, 1
-  %spec.select2 = zext i1 %26 to i8
-  br label %27
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 36
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp eq i32 %23, 1
+  %spec.select2 = zext i1 %24 to i8
+  %25 = insertvalue { i64, i8 } { i64 0, i8 poison }, i8 %spec.select2, 1
+  br label %26
 
-27:                                               ; preds = %.loopexit, %17
-  %.sroa.0.0 = phi i64 [ %20, %17 ], [ 0, %.loopexit ]
-  %.sroa.3.0 = phi i8 [ %21, %17 ], [ %spec.select2, %.loopexit ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
-  ret { i64, i8 } %.fca.1.insert
+26:                                               ; preds = %.loopexit, %17
+  %.fca.1.insert.merged = phi { i64, i8 } [ %19, %17 ], [ %25, %.loopexit ]
+  ret { i64, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5143,28 +5139,28 @@ define dso_local { i64, i8 } @_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv(ptr
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 1, ptr %28, align 8, !alias.scope !291
   %29 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #27
-  %30 = extractvalue { i64, i8 } %29, 0
-  %31 = extractvalue { i64, i8 } %29, 1
   br label %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit
 
 .loopexit.i:                                      ; preds = %24, %.loopexit3
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 36
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, 1
-  %spec.select2.i = zext i1 %36 to i8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, 1
+  %spec.select2.i = zext i1 %34 to i8
+  %35 = insertvalue { i64, i8 } { i64 0, i8 poison }, i8 %spec.select2.i, 1
   br label %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit
 
 _ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit: ; preds = %27, %.loopexit.i
-  %.sroa.0.0.i = phi i64 [ %30, %27 ], [ 0, %.loopexit.i ]
-  %.sroa.3.0.i = phi i8 [ %31, %27 ], [ %spec.select2.i, %.loopexit.i ]
+  %.fca.1.insert.merged.i = phi { i64, i8 } [ %29, %27 ], [ %35, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  %36 = extractvalue { i64, i8 } %.fca.1.insert.merged.i, 0
+  %37 = extractvalue { i64, i8 } %.fca.1.insert.merged.i, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit
-  %.sroa.01.0 = phi i64 [ %.sroa.0.0.i, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit ], [ undef, %.lr.ph.i ]
-  %.sroa.2.0 = phi i8 [ %.sroa.3.0.i, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit ], [ 0, %.lr.ph.i ]
+  %.sroa.01.0 = phi i64 [ %36, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit ], [ undef, %.lr.ph.i ]
+  %.sroa.2.0 = phi i8 [ %37, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit ], [ 0, %.lr.ph.i ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.01.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -5207,7 +5203,7 @@ define dso_local { i64, i8 } @_ZNK4llvm15DWARFDebugNames5Entry11getCUOffsetEv(pt
   %21 = load ptr, ptr %20, align 8, !noalias !325
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(160) %7) #27, !noalias !325
   %.not12.i.i.i = icmp eq ptr %18, %21
-  br i1 %.not12.i.i.i, label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit, label %.lr.ph.i.i.i
+  br i1 %.not12.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.loopexit3.i, %25
   %.sroa.4.014.i.i.i = phi ptr [ %26, %25 ], [ %18, %.loopexit3.i ]
@@ -5220,62 +5216,66 @@ define dso_local { i64, i8 } @_ZNK4llvm15DWARFDebugNames5Entry11getCUOffsetEv(pt
   %26 = getelementptr inbounds i8, ptr %.sroa.4.014.i.i.i, i64 8
   %27 = getelementptr inbounds i8, ptr %.sroa.04.013.i.i.i, i64 48
   %.not.i.i.i = icmp eq ptr %26, %21
-  br i1 %.not.i.i.i, label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 28:                                               ; preds = %.lr.ph.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.04.013.i.i.i, i64 48, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 1, ptr %29, align 8, !alias.scope !317
   %30 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #27
-  %31 = extractvalue { i64, i8 } %30, 0
-  %32 = extractvalue { i64, i8 } %30, 1
-  %33 = trunc i8 %32 to i1
+  br label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit
+
+.loopexit.i.i:                                    ; preds = %25, %.loopexit3.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, 1
+  %spec.select2.i.i = zext i1 %35 to i8
+  %36 = insertvalue { i64, i8 } { i64 0, i8 poison }, i8 %spec.select2.i.i, 1
+  br label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit
+
+_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit: ; preds = %28, %.loopexit.i.i
+  %.fca.1.insert.merged.i.i = phi { i64, i8 } [ %30, %28 ], [ %36, %.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  br i1 %33, label %39, label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread
+  %37 = extractvalue { i64, i8 } %.fca.1.insert.merged.i.i, 0
+  %38 = extractvalue { i64, i8 } %.fca.1.insert.merged.i.i, 1
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread
 
-_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit: ; preds = %25, %.loopexit3.i
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 1
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  br i1 %38, label %39, label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread
+40:                                               ; preds = %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 36
+  %44 = load i32, ptr %43, align 4
+  %45 = zext i32 %44 to i64
+  %.not = icmp ult i64 %37, %45
+  br i1 %.not, label %46, label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread
 
-39:                                               ; preds = %28, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit
-  %.sroa.0.0.i.i9 = phi i64 [ %31, %28 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 36
-  %43 = load i32, ptr %42, align 4
-  %44 = zext i32 %43 to i64
-  %.not = icmp ult i64 %.sroa.0.0.i.i9, %44
-  br i1 %.not, label %45, label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread
-
-45:                                               ; preds = %39
-  %46 = trunc i64 %.sroa.0.0.i.i9 to i32
+46:                                               ; preds = %40
+  %47 = trunc i64 %37 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %48 = load i8, ptr %47, align 8
-  %switch.i.i = icmp eq i8 %48, 0
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %49 = load i8, ptr %48, align 8
+  %switch.i.i = icmp eq i8 %49, 0
   %..i.i = select i1 %switch.i.i, i32 4, i32 8
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 112
-  %50 = load i64, ptr %49, align 8
-  %51 = select i1 %switch.i.i, i32 2, i32 3
-  %52 = shl i32 %46, %51
-  %53 = zext i32 %52 to i64
-  %54 = add i64 %50, %53
-  store i64 %54, ptr %2, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %41, i64 96
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %57, i32 noundef %..i.i, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #27
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 112
+  %51 = load i64, ptr %50, align 8
+  %52 = select i1 %switch.i.i, i32 2, i32 3
+  %53 = shl i32 %47, %52
+  %54 = zext i32 %53 to i64
+  %55 = add i64 %51, %54
+  store i64 %55, ptr %2, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 96
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %58, i32 noundef %..i.i, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread
 
-_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread: ; preds = %.lr.ph.i.i, %28, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit, %39, %45
-  %.sroa.02.0 = phi i64 [ %58, %45 ], [ undef, %39 ], [ undef, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit ], [ undef, %28 ], [ undef, %.lr.ph.i.i ]
-  %.sroa.2.0 = phi i8 [ 1, %45 ], [ 0, %39 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit ], [ 0, %28 ], [ 0, %.lr.ph.i.i ]
+_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread: ; preds = %.lr.ph.i.i, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit, %40, %46
+  %.sroa.02.0 = phi i64 [ %59, %46 ], [ undef, %40 ], [ undef, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit ], [ undef, %.lr.ph.i.i ]
+  %.sroa.2.0 = phi i8 [ 1, %46 ], [ 0, %40 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit ], [ 0, %.lr.ph.i.i ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.02.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -5318,7 +5318,7 @@ define dso_local { i64, i8 } @_ZNK4llvm15DWARFDebugNames5Entry18getRelatedCUOffs
   %11 = load ptr, ptr %10, align 8, !noalias !338
   %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(160) %7) #27, !noalias !338
   %.not12.i.i = icmp eq ptr %8, %11
-  br i1 %.not12.i.i, label %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit, label %.lr.ph.i.i
+  br i1 %.not12.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %15
   %.sroa.4.014.i.i = phi ptr [ %16, %15 ], [ %8, %1 ]
@@ -5331,62 +5331,66 @@ define dso_local { i64, i8 } @_ZNK4llvm15DWARFDebugNames5Entry18getRelatedCUOffs
   %16 = getelementptr inbounds i8, ptr %.sroa.4.014.i.i, i64 8
   %17 = getelementptr inbounds i8, ptr %.sroa.04.013.i.i, i64 48
   %.not.i.i = icmp eq ptr %16, %11
-  br i1 %.not.i.i, label %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 18:                                               ; preds = %.lr.ph.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.04.013.i.i, i64 48, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 1, ptr %19, align 8, !alias.scope !330
   %20 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #27
-  %21 = extractvalue { i64, i8 } %20, 0
-  %22 = extractvalue { i64, i8 } %20, 1
-  %23 = trunc i8 %22 to i1
+  br label %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit
+
+.loopexit.i:                                      ; preds = %15, %1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp eq i32 %24, 1
+  %spec.select2.i = zext i1 %25 to i8
+  %26 = insertvalue { i64, i8 } { i64 0, i8 poison }, i8 %spec.select2.i, 1
+  br label %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit
+
+_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit: ; preds = %18, %.loopexit.i
+  %.fca.1.insert.merged.i = phi { i64, i8 } [ %20, %18 ], [ %26, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  br i1 %23, label %29, label %49
+  %27 = extractvalue { i64, i8 } %.fca.1.insert.merged.i, 0
+  %28 = extractvalue { i64, i8 } %.fca.1.insert.merged.i, 1
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %50
 
-_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit: ; preds = %15, %1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 36
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, 1
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  br i1 %28, label %29, label %49
+30:                                               ; preds = %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
+  %34 = load i32, ptr %33, align 4
+  %35 = zext i32 %34 to i64
+  %.not = icmp ult i64 %27, %35
+  br i1 %.not, label %36, label %50
 
-29:                                               ; preds = %18, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit
-  %.sroa.0.0.i5 = phi i64 [ %21, %18 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
-  %33 = load i32, ptr %32, align 4
-  %34 = zext i32 %33 to i64
-  %.not = icmp ult i64 %.sroa.0.0.i5, %34
-  br i1 %.not, label %35, label %49
-
-35:                                               ; preds = %29
-  %36 = trunc i64 %.sroa.0.0.i5 to i32
+36:                                               ; preds = %30
+  %37 = trunc i64 %27 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %38 = load i8, ptr %37, align 8
-  %switch.i.i = icmp eq i8 %38, 0
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %39 = load i8, ptr %38, align 8
+  %switch.i.i = icmp eq i8 %39, 0
   %..i.i = select i1 %switch.i.i, i32 4, i32 8
-  %39 = getelementptr inbounds nuw i8, ptr %31, i64 112
-  %40 = load i64, ptr %39, align 8
-  %41 = select i1 %switch.i.i, i32 2, i32 3
-  %42 = shl i32 %36, %41
-  %43 = zext i32 %42 to i64
-  %44 = add i64 %40, %43
-  store i64 %44, ptr %2, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %31, i64 96
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %47, i32 noundef %..i.i, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #27
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 112
+  %41 = load i64, ptr %40, align 8
+  %42 = select i1 %switch.i.i, i32 2, i32 3
+  %43 = shl i32 %37, %42
+  %44 = zext i32 %43 to i64
+  %45 = add i64 %41, %44
+  store i64 %45, ptr %2, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 96
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %48, i32 noundef %..i.i, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %49
+  br label %50
 
-49:                                               ; preds = %18, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit, %29, %35
-  %.sroa.02.0 = phi i64 [ %48, %35 ], [ undef, %29 ], [ undef, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit ], [ undef, %18 ]
-  %.sroa.2.0 = phi i8 [ 1, %35 ], [ 0, %29 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit ], [ 0, %18 ]
+50:                                               ; preds = %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit, %30, %36
+  %.sroa.02.0 = phi i64 [ %49, %36 ], [ undef, %30 ], [ undef, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit ]
+  %.sroa.2.0 = phi i8 [ 1, %36 ], [ 0, %30 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.02.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert

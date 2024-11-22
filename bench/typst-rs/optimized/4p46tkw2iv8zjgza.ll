@@ -3753,8 +3753,8 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
           to label %398 unwind label %.loopexit.split-lp
 
 "_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17hf7ee3e4288505973E.exit.i": ; preds = %131, %127
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !993, !noalias !933, !nonnull !4, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %2, i64 32
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !993, !noalias !933, !nonnull !4, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !996)
   %135 = getelementptr inbounds i8, ptr %1, i64 8
   %136 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3781,7 +3781,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %138, %"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17hf7ee3e4288505973E.exit.i" ]
   %145 = icmp ule i64 %137, %.pre-phi.i.i.i
   call void @llvm.assume(i1 %145)
-  invoke void @_ZN3gif7encoder10lzw_encode17h2bdf4e1df65a748cE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.val12.i, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
+  invoke void @_ZN3gif7encoder10lzw_encode17h2bdf4e1df65a748cE(ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.val12.i, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
           to label %.noexc57 unwind label %.loopexit.split-lp
 
 .noexc57:                                         ; preds = %144

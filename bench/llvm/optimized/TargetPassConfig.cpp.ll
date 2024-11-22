@@ -3179,11 +3179,11 @@ define internal fastcc { ptr, i8 } @_ZL12overridePassPKvN4llvm18IdentifyingPassP
   br label %87
 
 87:                                               ; preds = %81, %84, %78, %72, %66, %60, %54, %48, %42, %36, %30, %24, %18, %12, %6
-  %.sroa.0108.0 = phi ptr [ %spec.select1.i, %6 ], [ %spec.select1.i111, %12 ], [ %spec.select1.i115, %18 ], [ %spec.select1.i119, %24 ], [ %spec.select1.i123, %30 ], [ %spec.select1.i127, %36 ], [ %spec.select1.i131, %42 ], [ %spec.select1.i135, %48 ], [ %spec.select1.i139, %54 ], [ %spec.select1.i143, %60 ], [ %spec.select1.i147, %66 ], [ %spec.select1.i151, %72 ], [ %spec.select1.i155, %78 ], [ %spec.select1.i159, %84 ], [ %1, %81 ]
-  %.sroa.16109.0 = phi i8 [ %spec.select.i, %6 ], [ %spec.select.i110, %12 ], [ %spec.select.i114, %18 ], [ %spec.select.i118, %24 ], [ %spec.select.i122, %30 ], [ %spec.select.i126, %36 ], [ %spec.select.i130, %42 ], [ %spec.select.i134, %48 ], [ %spec.select.i138, %54 ], [ %spec.select.i142, %60 ], [ %spec.select.i146, %66 ], [ %spec.select.i150, %72 ], [ %spec.select.i154, %78 ], [ %spec.select.i158, %84 ], [ %2, %81 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0108.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.16109.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %spec.select1.i.pn = phi ptr [ %spec.select1.i, %6 ], [ %spec.select1.i111, %12 ], [ %spec.select1.i115, %18 ], [ %spec.select1.i119, %24 ], [ %spec.select1.i123, %30 ], [ %spec.select1.i127, %36 ], [ %spec.select1.i131, %42 ], [ %spec.select1.i135, %48 ], [ %spec.select1.i139, %54 ], [ %spec.select1.i143, %60 ], [ %spec.select1.i147, %66 ], [ %spec.select1.i151, %72 ], [ %spec.select1.i155, %78 ], [ %spec.select1.i159, %84 ], [ %1, %81 ]
+  %spec.select.i.pn = phi i8 [ %spec.select.i, %6 ], [ %spec.select.i110, %12 ], [ %spec.select.i114, %18 ], [ %spec.select.i118, %24 ], [ %spec.select.i122, %30 ], [ %spec.select.i126, %36 ], [ %spec.select.i130, %42 ], [ %spec.select.i134, %48 ], [ %spec.select.i138, %54 ], [ %spec.select.i142, %60 ], [ %spec.select.i146, %66 ], [ %spec.select.i150, %72 ], [ %spec.select.i154, %78 ], [ %spec.select.i158, %84 ], [ %2, %81 ]
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %spec.select1.i.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %spec.select.i.pn, 1
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

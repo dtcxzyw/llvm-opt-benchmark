@@ -1034,8 +1034,8 @@ define dso_local void @_ZN10cmCTestCVS17ComputeBranchFlagERKNSt7__cxx1112basic_s
   store ptr null, ptr %48, align 8, !alias.scope !7, !noalias !10
   %49 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %46, ptr %49, align 8, !alias.scope !13, !noalias !10
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %47, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !13, !noalias !10
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %47, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !13, !noalias !10
   %50 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %50, align 8, !alias.scope !13, !noalias !10
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %4, i64 2)

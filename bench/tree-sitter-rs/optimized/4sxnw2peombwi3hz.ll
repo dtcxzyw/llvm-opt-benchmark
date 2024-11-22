@@ -73562,15 +73562,15 @@ common.resume:                                    ; preds = %29, %.body
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i.i1.i.i.i31": ; preds = %.body33
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.0.i, i64 noundef %120, i64 noundef 1) #27, !noalias !31097
+  call void @__rust_dealloc(ptr noundef nonnull %.pn3.i, i64 noundef %120, i64 noundef 1) #27, !noalias !31097
   br label %.body
 
 121:                                              ; preds = %117
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !nonnull !17, !noundef !17
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !31106, !noundef !17
-  %122 = invoke noundef ptr @_ZN10webbrowser4open17hbb3a2b718f044b86E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %10, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !31106, !noundef !17
+  %.pn3.in.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !nonnull !17, !noundef !17
+  %122 = invoke noundef ptr @_ZN10webbrowser4open17hbb3a2b718f044b86E(ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %123 unwind label %118
 
 123:                                              ; preds = %121
@@ -73607,7 +73607,7 @@ common.resume:                                    ; preds = %29, %.body
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i.i1.i.i.i35": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0d45dc82bcfe44a5E.exit"
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.0.i, i64 noundef %131, i64 noundef 1) #27, !noalias !31112
+  call void @__rust_dealloc(ptr noundef nonnull %.pn3.i, i64 noundef %131, i64 noundef 1) #27, !noalias !31112
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h6d134f570d4be8a7E.llvm.15559585470061597875.exit36"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h6d134f570d4be8a7E.llvm.15559585470061597875.exit36": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0d45dc82bcfe44a5E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0d45dc82bcfe44a5E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i.i1.i.i.i35"

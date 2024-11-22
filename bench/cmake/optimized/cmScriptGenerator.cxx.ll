@@ -195,8 +195,8 @@ define dso_local void @_ZN17cmScriptGenerator16CreateConfigTestERKNSt7__cxx1112b
   store ptr null, ptr %9, align 8, !alias.scope !10, !noalias !7
   %10 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 12, ptr %10, align 8, !alias.scope !13, !noalias !7
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !13, !noalias !7
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !13, !noalias !7
   %11 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %11, align 8, !alias.scope !13, !noalias !7
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %4, i64 2)
@@ -297,8 +297,8 @@ define dso_local void @_ZN17cmScriptGenerator16CreateConfigTestERKSt6vectorINSt7
   store ptr null, ptr %9, align 8, !alias.scope !20, !noalias !17
   %10 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 12, ptr %10, align 8, !alias.scope !23, !noalias !17
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !23, !noalias !17
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !23, !noalias !17
   %11 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %11, align 8, !alias.scope !23, !noalias !17
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %4, i64 2)
@@ -393,7 +393,7 @@ define dso_local void @_ZN17cmScriptGenerator30GenerateScriptActionsPerConfigERS
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 16
   %14 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.2.0..sroa_idx.i6.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.2.0..sroa_idx.i5.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %15 = getelementptr inbounds i8, ptr %4, i64 40
   %16 = icmp sgt i32 %.fr47, 0
   %17 = add nsw i32 %.fr47, 2
@@ -414,7 +414,7 @@ define dso_local void @_ZN17cmScriptGenerator30GenerateScriptActionsPerConfigERS
   store ptr %22, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !32, !noalias !29
   store ptr null, ptr %13, align 8, !alias.scope !32, !noalias !29
   store i64 12, ptr %14, align 8, !alias.scope !35, !noalias !29
-  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 8, !alias.scope !35, !noalias !29
+  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i5.i.i, align 8, !alias.scope !35, !noalias !29
   store ptr null, ptr %15, align 8, !alias.scope !35, !noalias !29
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull %4, i64 2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !26
@@ -504,7 +504,7 @@ _ZlsRSo23cmScriptGeneratorIndent.exit.loopexit.us: ; preds = %.noexc.us
   store ptr %49, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !32, !noalias !29
   store ptr null, ptr %13, align 8, !alias.scope !32, !noalias !29
   store i64 12, ptr %14, align 8, !alias.scope !35, !noalias !29
-  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 8, !alias.scope !35, !noalias !29
+  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i5.i.i, align 8, !alias.scope !35, !noalias !29
   store ptr null, ptr %15, align 8, !alias.scope !35, !noalias !29
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull %4, i64 2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !26

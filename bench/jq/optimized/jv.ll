@@ -3475,22 +3475,21 @@ jvp_object_rehash.exit.i:                         ; preds = %60, %jvp_object_new
   %62 = tail call fastcc ptr @jvp_object_add_slot(i64 %.sroa.0.0.insert.insert.i24.i.i, ptr nonnull %29, i64 %2, ptr %3, ptr noundef nonnull %61)
   %63 = getelementptr inbounds i8, ptr %62, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  %64 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.insert.insert.i24.i.i, 0
+  %65 = insertvalue { i64, ptr } %64, ptr %29, 1
   br label %jvp_object_write.exit
 
 jvp_object_write.exit:                            ; preds = %12, %15, %18, %jvp_object_rehash.exit.i
-  %.sroa.9.0 = phi ptr [ %29, %jvp_object_rehash.exit.i ], [ %9, %18 ], [ %9, %15 ], [ %9, %12 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.insert.insert.i24.i.i, %jvp_object_rehash.exit.i ], [ %8, %18 ], [ %8, %15 ], [ %8, %12 ]
   %.pn.i = phi ptr [ %62, %jvp_object_rehash.exit.i ], [ %17, %18 ], [ %11, %15 ], [ %11, %12 ]
+  %.fca.1.insert.merged = phi { i64, ptr } [ %65, %jvp_object_rehash.exit.i ], [ %7, %18 ], [ %7, %15 ], [ %7, %12 ]
   %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %64 = load i64, ptr %.0.i, align 8
-  %65 = getelementptr inbounds i8, ptr %.pn.i, i64 32
-  %66 = load ptr, ptr %65, align 8
-  tail call void @jv_free(i64 %64, ptr %66)
+  %66 = load i64, ptr %.0.i, align 8
+  %67 = getelementptr inbounds i8, ptr %.pn.i, i64 32
+  %68 = load ptr, ptr %67, align 8
+  tail call void @jv_free(i64 %66, ptr %68)
   store i64 %4, ptr %.0.i, align 8
-  store ptr %5, ptr %65, align 8
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %.fca.1.insert
+  store ptr %5, ptr %67, align 8
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5287,8 +5286,8 @@ jv_copy.exit42:                                   ; preds = %jv_copy.exit, %54
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %57, %jvp_object_new.exit.thread
-  %.sroa.0.0.insert.insert.i55.in = and i64 %0, -4294967296
-  %.sroa.0.0.insert.insert.i55 = or disjoint i64 %.sroa.0.0.insert.insert.i55.in, 135
+  %.sroa.0.0.insert.insert.i58.in = and i64 %0, -4294967296
+  %.sroa.0.0.insert.insert.i58 = or disjoint i64 %.sroa.0.0.insert.insert.i58.in, 135
   %58 = getelementptr inbounds i8, ptr %1, i64 8
   %59 = getelementptr inbounds [0 x %struct.object_slot], ptr %58, i64 0, i64 %4
   %60 = getelementptr inbounds i8, ptr %11, i64 8
@@ -5343,12 +5342,12 @@ jvp_string_free.exit.i:                           ; preds = %74, %69
   tail call void @jv_mem_free(ptr noundef nonnull %1) #25
   br label %jvp_object_free.exit
 
-jvp_object_free.exit:                             ; preds = %._crit_edge.i46, %._crit_edge, %2
-  %.sroa.024.0 = phi i64 [ %0, %2 ], [ %.sroa.0.0.insert.insert.i55, %._crit_edge ], [ %.sroa.0.0.insert.insert.i55, %._crit_edge.i46 ]
-  %.sroa.8.0 = phi ptr [ %1, %2 ], [ %11, %._crit_edge ], [ %11, %._crit_edge.i46 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.024.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.8.0, 1
-  ret { i64, ptr } %.fca.1.insert
+jvp_object_free.exit:                             ; preds = %2, %._crit_edge.i46, %._crit_edge
+  %.pn53 = phi i64 [ %.sroa.0.0.insert.insert.i58, %._crit_edge ], [ %.sroa.0.0.insert.insert.i58, %._crit_edge.i46 ], [ %0, %2 ]
+  %.pn51 = phi ptr [ %11, %._crit_edge ], [ %11, %._crit_edge.i46 ], [ %1, %2 ]
+  %.pn = insertvalue { i64, ptr } poison, i64 %.pn53, 0
+  %.fca.1.insert.merged = insertvalue { i64, ptr } %.pn, ptr %.pn51, 1
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

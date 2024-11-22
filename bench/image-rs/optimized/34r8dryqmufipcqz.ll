@@ -19610,8 +19610,8 @@ default.unreachable:                              ; preds = %2
   br i1 %switch.i.not.i.i.i, label %select.unfold, label %36
 
 select.unfold:                                    ; preds = %27, %.thread
-  %.sroa.0.0.i561.ph = phi i32 [ %16, %.thread ], [ %29, %27 ]
-  %.sroa.4.0.i560.ph = phi i32 [ %19, %.thread ], [ %31, %27 ]
+  %.pn1.i563.ph = phi i32 [ %19, %.thread ], [ %31, %27 ]
+  %.pn3.i562.ph = phi i32 [ %16, %.thread ], [ %29, %27 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %9, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
@@ -19622,8 +19622,8 @@ select.unfold:                                    ; preds = %27, %.thread
   br i1 %35, label %41, label %58
 
 36:                                               ; preds = %20, %27
-  %.sroa.0.0.i561 = phi i32 [ %29, %27 ], [ %23, %20 ]
-  %.sroa.4.0.i560 = phi i32 [ %31, %27 ], [ %26, %20 ]
+  %.pn1.i563 = phi i32 [ %31, %27 ], [ %26, %20 ]
+  %.pn3.i562 = phi i32 [ %29, %27 ], [ %23, %20 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %6, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
@@ -19635,8 +19635,8 @@ select.unfold:                                    ; preds = %27, %.thread
 
 39:                                               ; preds = %81, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit", %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread", %60, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit", %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread"
   %.sroa.25.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload342, %60 ], [ -9223372036854775808, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ -9223372036854775808, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ %.sroa.0346.0.copyload347, %81 ], [ -9223372036854775808, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ -9223372036854775808, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
-  %.sroa.25.sroa.15.1 = phi i32 [ %.sroa.0.0.i561.ph, %60 ], [ %.sroa.0.0.i561.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ %.sroa.0.0.i561.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ %.sroa.0.0.i561, %81 ], [ %.sroa.0.0.i561, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ %.sroa.0.0.i561, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
-  %.sroa.25.sroa.16.1 = phi i32 [ %.sroa.4.0.i560.ph, %60 ], [ %.sroa.4.0.i560.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ %.sroa.4.0.i560.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ %.sroa.4.0.i560, %81 ], [ %.sroa.4.0.i560, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ %.sroa.4.0.i560, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
+  %.sroa.25.sroa.15.1 = phi i32 [ %.pn3.i562.ph, %60 ], [ %.pn3.i562.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ %.pn3.i562.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ %.pn3.i562, %81 ], [ %.pn3.i562, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ %.pn3.i562, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
+  %.sroa.25.sroa.16.1 = phi i32 [ %.pn1.i563.ph, %60 ], [ %.pn1.i563.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ %.pn1.i563.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ %.pn1.i563, %81 ], [ %.pn1.i563, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ %.pn1.i563, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
   %40 = phi i1 [ false, %60 ], [ true, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ true, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ false, %81 ], [ true, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ true, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
   %.sroa.0.1 = phi i64 [ 2, %60 ], [ 10, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ 10, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ 3, %81 ], [ 10, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ 10, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
   %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -19653,7 +19653,7 @@ select.unfold:                                    ; preds = %27, %.thread
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4954)
   %43 = getelementptr inbounds i8, ptr %8, i64 16
   %44 = load i64, ptr %43, align 8, !alias.scope !4956, !noalias !4951, !noundef !19
-  %45 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17hdae259f51c32bc3bE.llvm.1814251078191383949"(i32 noundef %.sroa.0.0.i561.ph, i32 noundef %.sroa.4.0.i560.ph)
+  %45 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17hdae259f51c32bc3bE.llvm.1814251078191383949"(i32 noundef %.pn3.i562.ph, i32 noundef %.pn1.i563.ph)
           to label %48 unwind label %46, !noalias !4959
 
 46:                                               ; preds = %41
@@ -19731,7 +19731,7 @@ select.unfold:                                    ; preds = %27, %.thread
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4970)
   %64 = getelementptr inbounds i8, ptr %5, i64 16
   %65 = load i64, ptr %64, align 8, !alias.scope !4972, !noalias !4967, !noundef !19
-  %66 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h231d5d236b471c19E.llvm.1814251078191383949"(i32 noundef %.sroa.0.0.i561, i32 noundef %.sroa.4.0.i560)
+  %66 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h231d5d236b471c19E.llvm.1814251078191383949"(i32 noundef %.pn3.i562, i32 noundef %.pn1.i563)
           to label %69 unwind label %67, !noalias !4975
 
 67:                                               ; preds = %62
@@ -22170,8 +22170,8 @@ default.unreachable:                              ; preds = %2
   br i1 %switch.i.not.i.i.i, label %select.unfold, label %36
 
 select.unfold:                                    ; preds = %27, %.thread
-  %.sroa.0.0.i560.ph = phi i32 [ %16, %.thread ], [ %29, %27 ]
-  %.sroa.4.0.i559.ph = phi i32 [ %19, %.thread ], [ %31, %27 ]
+  %.pn1.i562.ph = phi i32 [ %19, %.thread ], [ %31, %27 ]
+  %.pn3.i561.ph = phi i32 [ %16, %.thread ], [ %29, %27 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %9, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 184, i1 false)
@@ -22182,8 +22182,8 @@ select.unfold:                                    ; preds = %27, %.thread
   br i1 %35, label %41, label %58
 
 36:                                               ; preds = %20, %27
-  %.sroa.0.0.i560 = phi i32 [ %29, %27 ], [ %23, %20 ]
-  %.sroa.4.0.i559 = phi i32 [ %31, %27 ], [ %26, %20 ]
+  %.pn1.i562 = phi i32 [ %31, %27 ], [ %26, %20 ]
+  %.pn3.i561 = phi i32 [ %29, %27 ], [ %23, %20 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 184, i1 false)
@@ -22195,8 +22195,8 @@ select.unfold:                                    ; preds = %27, %.thread
 
 39:                                               ; preds = %81, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit", %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread", %60, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit", %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread"
   %.sroa.25.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload341, %60 ], [ -9223372036854775808, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ -9223372036854775808, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ %.sroa.0345.0.copyload346, %81 ], [ -9223372036854775808, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ -9223372036854775808, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
-  %.sroa.25.sroa.15.1 = phi i32 [ %.sroa.0.0.i560.ph, %60 ], [ %.sroa.0.0.i560.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ %.sroa.0.0.i560.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ %.sroa.0.0.i560, %81 ], [ %.sroa.0.0.i560, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ %.sroa.0.0.i560, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
-  %.sroa.25.sroa.16.1 = phi i32 [ %.sroa.4.0.i559.ph, %60 ], [ %.sroa.4.0.i559.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ %.sroa.4.0.i559.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ %.sroa.4.0.i559, %81 ], [ %.sroa.4.0.i559, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ %.sroa.4.0.i559, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
+  %.sroa.25.sroa.15.1 = phi i32 [ %.pn3.i561.ph, %60 ], [ %.pn3.i561.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ %.pn3.i561.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ %.pn3.i561, %81 ], [ %.pn3.i561, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ %.pn3.i561, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
+  %.sroa.25.sroa.16.1 = phi i32 [ %.pn1.i562.ph, %60 ], [ %.pn1.i562.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ %.pn1.i562.ph, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ %.pn1.i562, %81 ], [ %.pn1.i562, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ %.pn1.i562, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
   %40 = phi i1 [ false, %60 ], [ true, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ true, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ false, %81 ], [ true, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ true, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
   %.sroa.0.1 = phi i64 [ 2, %60 ], [ 10, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit" ], [ 10, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h0acb06da65adb065E.exit.thread" ], [ 3, %81 ], [ 10, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit" ], [ 10, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread" ]
   %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -22213,7 +22213,7 @@ select.unfold:                                    ; preds = %27, %.thread
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5367)
   %43 = getelementptr inbounds i8, ptr %8, i64 16
   %44 = load i64, ptr %43, align 8, !alias.scope !5369, !noalias !5364, !noundef !19
-  %45 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17hdae259f51c32bc3bE.llvm.1814251078191383949"(i32 noundef %.sroa.0.0.i560.ph, i32 noundef %.sroa.4.0.i559.ph)
+  %45 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17hdae259f51c32bc3bE.llvm.1814251078191383949"(i32 noundef %.pn3.i561.ph, i32 noundef %.pn1.i562.ph)
           to label %48 unwind label %46, !noalias !5372
 
 46:                                               ; preds = %41
@@ -22291,7 +22291,7 @@ select.unfold:                                    ; preds = %27, %.thread
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5383)
   %64 = getelementptr inbounds i8, ptr %5, i64 16
   %65 = load i64, ptr %64, align 8, !alias.scope !5385, !noalias !5380, !noundef !19
-  %66 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h231d5d236b471c19E.llvm.1814251078191383949"(i32 noundef %.sroa.0.0.i560, i32 noundef %.sroa.4.0.i559)
+  %66 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h231d5d236b471c19E.llvm.1814251078191383949"(i32 noundef %.pn3.i561, i32 noundef %.pn1.i562)
           to label %69 unwind label %67, !noalias !5388
 
 67:                                               ; preds = %62

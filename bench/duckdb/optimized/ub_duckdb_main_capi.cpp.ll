@@ -36028,35 +36028,28 @@ invoke.cont.i:                                    ; preds = %sw.bb31
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %call2.i = invoke { i64, i64 } @_ZN6duckdb17FetchDefaultValue9OperationINS_10interval_tEEET_v()
-          to label %invoke.cont1.i unwind label %lpad.i
-
-invoke.cont1.i:                                   ; preds = %if.then.i
-  %2 = extractvalue { i64, i64 } %call2.i, 0
-  %3 = extractvalue { i64, i64 } %call2.i, 1
-  br label %_ZN6duckdb23TryCastDecimalCInternalINS_10interval_tEEET_P13duckdb_resultmm.exit
+          to label %_ZN6duckdb23TryCastDecimalCInternalINS_10interval_tEEET_P13duckdb_resultmm.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then.i, %sw.bb31
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #34
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = call ptr @__cxa_begin_catch(ptr %3) #34
   %call5.i = invoke { i64, i64 } @_ZN6duckdb17FetchDefaultValue9OperationINS_10interval_tEEET_v()
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %lpad.i
-  %7 = extractvalue { i64, i64 } %call5.i, 0
-  %8 = extractvalue { i64, i64 } %call5.i, 1
   call void @__cxa_end_catch()
   br label %_ZN6duckdb23TryCastDecimalCInternalINS_10interval_tEEET_P13duckdb_resultmm.exit
 
 lpad3.i:                                          ; preds = %lpad.i
-  %9 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont6.i unwind label %terminate.lpad.i
 
 common.resume:                                    ; preds = %lpad5.i, %invoke.cont6.i
-  %common.resume.op = phi { ptr, i32 } [ %9, %invoke.cont6.i ], [ %15, %lpad5.i ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %invoke.cont6.i ], [ %13, %lpad5.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont6.i:                                   ; preds = %lpad3.i
@@ -36067,21 +36060,20 @@ try.cont.i:                                       ; preds = %invoke.cont.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %result_value.i, align 8, !tbaa.struct !645
   %retval.sroa.4.0.result_value.sroa_idx.i = getelementptr inbounds i8, ptr %result_value.i, i64 8
   %retval.sroa.4.0.copyload.i = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx.i, align 8, !tbaa !11
+  %6 = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.copyload.i, 0
+  %7 = insertvalue { i64, i64 } %6, i64 %retval.sroa.4.0.copyload.i, 1
   br label %_ZN6duckdb23TryCastDecimalCInternalINS_10interval_tEEET_P13duckdb_resultmm.exit
 
 terminate.lpad.i:                                 ; preds = %lpad3.i
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #35
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #35
   unreachable
 
-_ZN6duckdb23TryCastDecimalCInternalINS_10interval_tEEET_P13duckdb_resultmm.exit: ; preds = %try.cont.i, %invoke.cont4.i, %invoke.cont1.i
-  %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.copyload.i, %try.cont.i ], [ %2, %invoke.cont1.i ], [ %7, %invoke.cont4.i ]
-  %retval.sroa.4.0.i = phi i64 [ %retval.sroa.4.0.copyload.i, %try.cont.i ], [ %3, %invoke.cont1.i ], [ %8, %invoke.cont4.i ]
+_ZN6duckdb23TryCastDecimalCInternalINS_10interval_tEEET_P13duckdb_resultmm.exit: ; preds = %if.then.i, %try.cont.i, %invoke.cont4.i
+  %.fca.1.insert.i.merged = phi { i64, i64 } [ %7, %try.cont.i ], [ %call5.i, %invoke.cont4.i ], [ %call2.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value.i) #34
-  %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.i, 0
-  %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %retval.sroa.4.0.i, 1
   br label %return
 
 sw.bb33:                                          ; preds = %if.end
@@ -36097,10 +36089,10 @@ sw.bb37:                                          ; preds = %if.end
           to label %return unwind label %lpad.i101
 
 lpad.i101:                                        ; preds = %sw.bb37
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #34
+  %11 = extractvalue { ptr, i32 } %10, 0
+  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #34
   %call7.i = invoke { i64, i64 } @_ZN6duckdb17FetchDefaultValue9OperationINS_10interval_tEEET_v()
           to label %invoke.cont6.i103 unwind label %lpad5.i
 
@@ -36109,16 +36101,16 @@ invoke.cont6.i103:                                ; preds = %lpad.i101
   br label %return
 
 lpad5.i:                                          ; preds = %lpad.i101
-  %15 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i102
 
 terminate.lpad.i102:                              ; preds = %lpad5.i
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #35
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #35
   unreachable
 
 sw.default:                                       ; preds = %if.end
@@ -36126,7 +36118,7 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %sw.default, %invoke.cont6.i103, %sw.bb37, %sw.bb35, %sw.bb33, %_ZN6duckdb23TryCastDecimalCInternalINS_10interval_tEEET_P13duckdb_resultmm.exit, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb, %if.then
-  %call39.pn = phi { i64, i64 } [ %call39, %sw.default ], [ %call36, %sw.bb35 ], [ %call34, %sw.bb33 ], [ %.fca.1.insert.i, %_ZN6duckdb23TryCastDecimalCInternalINS_10interval_tEEET_P13duckdb_resultmm.exit ], [ %call30, %sw.bb29 ], [ %call28, %sw.bb27 ], [ %call26, %sw.bb25 ], [ %call24, %sw.bb23 ], [ %call22, %sw.bb21 ], [ %call20, %sw.bb19 ], [ %call18, %sw.bb17 ], [ %call16, %sw.bb15 ], [ %call14, %sw.bb13 ], [ %call12, %sw.bb11 ], [ %call10, %sw.bb9 ], [ %call8, %sw.bb7 ], [ %call6, %sw.bb5 ], [ %call4, %sw.bb3 ], [ %call2, %sw.bb ], [ %call1, %if.then ], [ %call7.i, %invoke.cont6.i103 ], [ %call4.i, %sw.bb37 ]
+  %call39.pn = phi { i64, i64 } [ %call39, %sw.default ], [ %call36, %sw.bb35 ], [ %call34, %sw.bb33 ], [ %.fca.1.insert.i.merged, %_ZN6duckdb23TryCastDecimalCInternalINS_10interval_tEEET_P13duckdb_resultmm.exit ], [ %call30, %sw.bb29 ], [ %call28, %sw.bb27 ], [ %call26, %sw.bb25 ], [ %call24, %sw.bb23 ], [ %call22, %sw.bb21 ], [ %call20, %sw.bb19 ], [ %call18, %sw.bb17 ], [ %call16, %sw.bb15 ], [ %call14, %sw.bb13 ], [ %call12, %sw.bb11 ], [ %call10, %sw.bb9 ], [ %call8, %sw.bb7 ], [ %call6, %sw.bb5 ], [ %call4, %sw.bb3 ], [ %call2, %sw.bb ], [ %call1, %if.then ], [ %call7.i, %invoke.cont6.i103 ], [ %call4.i, %sw.bb37 ]
   ret { i64, i64 } %call39.pn
 }
 
@@ -36253,56 +36245,48 @@ invoke.cont.i:                                    ; preds = %sw.bb31
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %call2.i = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont1.i unwind label %lpad.i
-
-invoke.cont1.i:                                   ; preds = %if.then.i
-  %2 = extractvalue { ptr, i64 } %call2.i, 0
-  %3 = extractvalue { ptr, i64 } %call2.i, 1
-  br label %_ZN6duckdb23TryCastDecimalCInternalI13duckdb_stringEET_P13duckdb_resultmm.exit
+          to label %_ZN6duckdb23TryCastDecimalCInternalI13duckdb_stringEET_P13duckdb_resultmm.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then.i, %sw.bb31
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #34
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = call ptr @__cxa_begin_catch(ptr %3) #34
   %call5.i = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %lpad.i
-  %7 = extractvalue { ptr, i64 } %call5.i, 0
-  %8 = extractvalue { ptr, i64 } %call5.i, 1
   call void @__cxa_end_catch()
   br label %_ZN6duckdb23TryCastDecimalCInternalI13duckdb_stringEET_P13duckdb_resultmm.exit
 
 lpad3.i:                                          ; preds = %lpad.i
-  %9 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont6.i unwind label %terminate.lpad.i
 
 invoke.cont6.i:                                   ; preds = %lpad3.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value.i) #34
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %5
 
 try.cont.i:                                       ; preds = %invoke.cont.i
   %retval.sroa.0.0.copyload.i = load ptr, ptr %result_value.i, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx.i = getelementptr inbounds i8, ptr %result_value.i, i64 8
   %retval.sroa.4.0.copyload.i = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx.i, align 8, !tbaa !11
+  %6 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload.i, 0
+  %7 = insertvalue { ptr, i64 } %6, i64 %retval.sroa.4.0.copyload.i, 1
   br label %_ZN6duckdb23TryCastDecimalCInternalI13duckdb_stringEET_P13duckdb_resultmm.exit
 
 terminate.lpad.i:                                 ; preds = %lpad3.i
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #35
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #35
   unreachable
 
-_ZN6duckdb23TryCastDecimalCInternalI13duckdb_stringEET_P13duckdb_resultmm.exit: ; preds = %try.cont.i, %invoke.cont4.i, %invoke.cont1.i
-  %retval.sroa.0.0.i = phi ptr [ %retval.sroa.0.0.copyload.i, %try.cont.i ], [ %2, %invoke.cont1.i ], [ %7, %invoke.cont4.i ]
-  %retval.sroa.4.0.i = phi i64 [ %retval.sroa.4.0.copyload.i, %try.cont.i ], [ %3, %invoke.cont1.i ], [ %8, %invoke.cont4.i ]
+_ZN6duckdb23TryCastDecimalCInternalI13duckdb_stringEET_P13duckdb_resultmm.exit: ; preds = %if.then.i, %try.cont.i, %invoke.cont4.i
+  %.fca.1.insert.i.merged = phi { ptr, i64 } [ %7, %try.cont.i ], [ %call5.i, %invoke.cont4.i ], [ %call2.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value.i) #34
-  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.i, 0
-  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %retval.sroa.4.0.i, 1
   br label %return
 
 sw.bb33:                                          ; preds = %if.end
@@ -36322,7 +36306,7 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb37, %sw.bb35, %sw.bb33, %_ZN6duckdb23TryCastDecimalCInternalI13duckdb_stringEET_P13duckdb_resultmm.exit, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb, %if.then
-  %call39.pn = phi { ptr, i64 } [ %call39, %sw.default ], [ %call38, %sw.bb37 ], [ %call36, %sw.bb35 ], [ %call34, %sw.bb33 ], [ %.fca.1.insert.i, %_ZN6duckdb23TryCastDecimalCInternalI13duckdb_stringEET_P13duckdb_resultmm.exit ], [ %call30, %sw.bb29 ], [ %call28, %sw.bb27 ], [ %call26, %sw.bb25 ], [ %call24, %sw.bb23 ], [ %call22, %sw.bb21 ], [ %call20, %sw.bb19 ], [ %call18, %sw.bb17 ], [ %call16, %sw.bb15 ], [ %call14, %sw.bb13 ], [ %call12, %sw.bb11 ], [ %call10, %sw.bb9 ], [ %call8, %sw.bb7 ], [ %call6, %sw.bb5 ], [ %call4, %sw.bb3 ], [ %call2, %sw.bb ], [ %call1, %if.then ]
+  %call39.pn = phi { ptr, i64 } [ %call39, %sw.default ], [ %call38, %sw.bb37 ], [ %call36, %sw.bb35 ], [ %call34, %sw.bb33 ], [ %.fca.1.insert.i.merged, %_ZN6duckdb23TryCastDecimalCInternalI13duckdb_stringEET_P13duckdb_resultmm.exit ], [ %call30, %sw.bb29 ], [ %call28, %sw.bb27 ], [ %call26, %sw.bb25 ], [ %call24, %sw.bb23 ], [ %call22, %sw.bb21 ], [ %call20, %sw.bb19 ], [ %call18, %sw.bb17 ], [ %call16, %sw.bb15 ], [ %call14, %sw.bb13 ], [ %call12, %sw.bb11 ], [ %call10, %sw.bb9 ], [ %call8, %sw.bb7 ], [ %call6, %sw.bb5 ], [ %call4, %sw.bb3 ], [ %call2, %sw.bb ], [ %call1, %if.then ]
   ret { ptr, i64 } %call39.pn
 }
 
@@ -36342,8 +36326,6 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-  %0 = extractvalue { ptr, i64 } %call1, 0
-  %1 = extractvalue { ptr, i64 } %call1, 1
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -36352,15 +36334,15 @@ if.end:                                           ; preds = %entry
 
 duckdb_column_count.exit.i:                       ; preds = %if.end
   %internal_data.i.i = getelementptr inbounds i8, ptr %result, i64 40
-  %2 = load ptr, ptr %internal_data.i.i, align 8, !tbaa !102
-  %call.i.i = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_11QueryResultESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %0 = load ptr, ptr %internal_data.i.i, align 8, !tbaa !102
+  %call.i.i = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_11QueryResultESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call2.i.i = tail call noundef i64 @_ZN6duckdb15BaseQueryResult11ColumnCountEv(ptr noundef nonnull align 8 dereferenceable(232) %call.i.i)
   %cmp.not.i = icmp ugt i64 %call2.i.i, %col
   br i1 %cmp.not.i, label %duckdb_column_type.exit, label %if.then3
 
 duckdb_column_type.exit:                          ; preds = %duckdb_column_count.exit.i
-  %3 = load ptr, ptr %internal_data.i.i, align 8, !tbaa !102
-  %call2.i = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_11QueryResultESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %1 = load ptr, ptr %internal_data.i.i, align 8, !tbaa !102
+  %call2.i = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_11QueryResultESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %types.i = getelementptr inbounds i8, ptr %call2.i, i64 88
   %call3.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb6vectorINS_11LogicalTypeELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %types.i, i64 noundef %col)
   %call4.i = tail call noundef i32 @_ZN6duckdb17ConvertCPPTypeToCERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %call3.i), !range !240
@@ -36369,26 +36351,23 @@ duckdb_column_type.exit:                          ; preds = %duckdb_column_count
 
 if.then3:                                         ; preds = %duckdb_column_type.exit, %duckdb_column_count.exit.i, %if.end
   %call4 = tail call { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-  %4 = extractvalue { ptr, i64 } %call4, 0
-  %5 = extractvalue { ptr, i64 } %call4, 1
   br label %return
 
 if.end5:                                          ; preds = %duckdb_column_type.exit
   %__deprecated_columns.i.i = getelementptr inbounds i8, ptr %result, i64 24
-  %6 = load ptr, ptr %__deprecated_columns.i.i, align 8, !tbaa !498
-  %arrayidx.i.i = getelementptr inbounds %struct.duckdb_column, ptr %6, i64 %col
-  %7 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !348
-  %arrayidx1.i.i = getelementptr inbounds ptr, ptr %7, i64 %row
-  %8 = load ptr, ptr %arrayidx1.i.i, align 8, !tbaa !3
-  %call8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #38
+  %2 = load ptr, ptr %__deprecated_columns.i.i, align 8, !tbaa !498
+  %arrayidx.i.i = getelementptr inbounds %struct.duckdb_column, ptr %2, i64 %col
+  %3 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !348
+  %arrayidx1.i.i = getelementptr inbounds ptr, ptr %3, i64 %row
+  %4 = load ptr, ptr %arrayidx1.i.i, align 8, !tbaa !3
+  %call8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #38
+  %5 = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %6 = insertvalue { ptr, i64 } %5, i64 %call8, 1
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then3, %if.then
-  %retval.sroa.0.0 = phi ptr [ %4, %if.then3 ], [ %8, %if.end5 ], [ %0, %if.then ]
-  %retval.sroa.5.0 = phi i64 [ %5, %if.then3 ], [ %call8, %if.end5 ], [ %1, %if.then ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %call4, %if.then3 ], [ %6, %if.end5 ], [ %call1, %if.then ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 declare { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v() local_unnamed_addr #11
@@ -36416,20 +36395,17 @@ if.then:                                          ; preds = %land.lhs.true
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.pointer.addr.0..sroa_idx.i.i, align 8, !tbaa !11
   %call2 = tail call noalias ptr @malloc(i64 noundef %retval.sroa.2.0.copyload.i.i) #39
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2, ptr align 1 %retval.sroa.0.0.copyload.i.i, i64 %retval.sroa.2.0.copyload.i.i, i1 false)
+  %3 = insertvalue { ptr, i64 } poison, ptr %call2, 0
+  %4 = insertvalue { ptr, i64 } %3, i64 %retval.sroa.2.0.copyload.i.i, 1
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call8 = tail call { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI11duckdb_blobEET_v()
-  %3 = extractvalue { ptr, i64 } %call8, 0
-  %4 = extractvalue { ptr, i64 } %call8, 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi ptr [ %call2, %if.then ], [ %3, %if.end ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.2.0.copyload.i.i, %if.then ], [ %4, %if.end ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %4, %if.then ], [ %call8, %if.end ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 declare { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI11duckdb_blobEET_v() local_unnamed_addr #11
@@ -57886,56 +57862,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { i64, i64 } @_ZN6duckdb17FetchDefaultValue9OperationINS_10interval_tEEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %2 = extractvalue { i64, i64 } %call4, 0
-  %3 = extractvalue { i64, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #34
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = call ptr @__cxa_begin_catch(ptr %3) #34
   %call7 = invoke { i64, i64 } @_ZN6duckdb17FetchDefaultValue9OperationINS_10interval_tEEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %7 = extractvalue { i64, i64 } %call7, 0
-  %8 = extractvalue { i64, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %9 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %5
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load i64, ptr %result_value, align 8, !tbaa.struct !645
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %6 = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.copyload, 0
+  %7 = insertvalue { i64, i64 } %6, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi i64 [ %2, %invoke.cont3 ], [ %7, %invoke.cont6 ], [ %retval.sroa.0.0.copyload, %try.cont ]
-  %retval.sroa.4.0 = phi i64 [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ], [ %retval.sroa.4.0.copyload, %try.cont ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { i64, i64 } [ %call7, %invoke.cont6 ], [ %7, %try.cont ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  ret { i64, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #35
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #35
   unreachable
 }
 
@@ -57958,56 +57926,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { i64, i64 } @_ZN6duckdb17FetchDefaultValue9OperationINS_10interval_tEEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { i64, i64 } %call4, 0
-  %4 = extractvalue { i64, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { i64, i64 } @_ZN6duckdb17FetchDefaultValue9OperationINS_10interval_tEEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { i64, i64 } %call7, 0
-  %9 = extractvalue { i64, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load i64, ptr %result_value, align 8, !tbaa.struct !645
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { i64, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { i64, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  ret { i64, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -58411,56 +58371,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -58483,56 +58435,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -58555,56 +58499,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -58627,56 +58563,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -58699,56 +58627,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -58771,56 +58691,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -58843,56 +58755,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -58915,56 +58819,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -58987,56 +58883,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -59059,56 +58947,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -59131,56 +59011,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %3 = extractvalue { ptr, i64 } %call4, 0
-  %4 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #34
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %8 = extractvalue { ptr, i64 } %call7, 0
-  %9 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %7 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %8, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 }
 
@@ -59203,56 +59075,48 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont2
   %call5 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont4 unwind label %lpad
-
-invoke.cont4:                                     ; preds = %if.then
-  %2 = extractvalue { ptr, i64 } %call5, 0
-  %3 = extractvalue { ptr, i64 } %call5, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #34
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = call ptr @__cxa_begin_catch(ptr %3) #34
   %call8 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %lpad
-  %7 = extractvalue { ptr, i64 } %call8, 0
-  %8 = extractvalue { ptr, i64 } %call8, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad6:                                            ; preds = %lpad
-  %9 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %lpad6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %5
 
 try.cont:                                         ; preds = %invoke.cont2
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %6 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %7 = insertvalue { ptr, i64 } %6, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont7, %invoke.cont4
-  %retval.sroa.0.0 = phi ptr [ %2, %invoke.cont4 ], [ %7, %invoke.cont7 ], [ %retval.sroa.0.0.copyload, %try.cont ]
-  %retval.sroa.4.0 = phi i64 [ %3, %invoke.cont4 ], [ %8, %invoke.cont7 ], [ %retval.sroa.4.0.copyload, %try.cont ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont7
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %call8, %invoke.cont7 ], [ %7, %try.cont ], [ %call5, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad6
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #35
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #35
   unreachable
 }
 
@@ -59275,56 +59139,48 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont2
   %call5 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont4 unwind label %lpad
-
-invoke.cont4:                                     ; preds = %if.then
-  %2 = extractvalue { ptr, i64 } %call5, 0
-  %3 = extractvalue { ptr, i64 } %call5, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #34
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = call ptr @__cxa_begin_catch(ptr %3) #34
   %call8 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %lpad
-  %7 = extractvalue { ptr, i64 } %call8, 0
-  %8 = extractvalue { ptr, i64 } %call8, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad6:                                            ; preds = %lpad
-  %9 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %lpad6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %5
 
 try.cont:                                         ; preds = %invoke.cont2
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %6 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %7 = insertvalue { ptr, i64 } %6, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont7, %invoke.cont4
-  %retval.sroa.0.0 = phi ptr [ %2, %invoke.cont4 ], [ %7, %invoke.cont7 ], [ %retval.sroa.0.0.copyload, %try.cont ]
-  %retval.sroa.4.0 = phi i64 [ %3, %invoke.cont4 ], [ %8, %invoke.cont7 ], [ %retval.sroa.4.0.copyload, %try.cont ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont7
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %call8, %invoke.cont7 ], [ %7, %try.cont ], [ %call5, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad6
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #35
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #35
   unreachable
 }
 
@@ -59347,56 +59203,48 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont2
   %call5 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont4 unwind label %lpad
-
-invoke.cont4:                                     ; preds = %if.then
-  %2 = extractvalue { ptr, i64 } %call5, 0
-  %3 = extractvalue { ptr, i64 } %call5, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #34
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = call ptr @__cxa_begin_catch(ptr %3) #34
   %call8 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %lpad
-  %7 = extractvalue { ptr, i64 } %call8, 0
-  %8 = extractvalue { ptr, i64 } %call8, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad6:                                            ; preds = %lpad
-  %9 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %lpad6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %5
 
 try.cont:                                         ; preds = %invoke.cont2
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %6 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %7 = insertvalue { ptr, i64 } %6, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont7, %invoke.cont4
-  %retval.sroa.0.0 = phi ptr [ %2, %invoke.cont4 ], [ %7, %invoke.cont7 ], [ %retval.sroa.0.0.copyload, %try.cont ]
-  %retval.sroa.4.0 = phi i64 [ %3, %invoke.cont4 ], [ %8, %invoke.cont7 ], [ %retval.sroa.4.0.copyload, %try.cont ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont7
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %call8, %invoke.cont7 ], [ %7, %try.cont ], [ %call5, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad6
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #35
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #35
   unreachable
 }
 
@@ -59421,56 +59269,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %2 = extractvalue { ptr, i64 } %call4, 0
-  %3 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #34
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = call ptr @__cxa_begin_catch(ptr %3) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %7 = extractvalue { ptr, i64 } %call7, 0
-  %8 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %9 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %5
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %6 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %7 = insertvalue { ptr, i64 } %6, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %2, %invoke.cont3 ], [ %7, %invoke.cont6 ], [ %retval.sroa.0.0.copyload, %try.cont ]
-  %retval.sroa.4.0 = phi i64 [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ], [ %retval.sroa.4.0.copyload, %try.cont ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %call7, %invoke.cont6 ], [ %7, %try.cont ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #35
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #35
   unreachable
 }
 
@@ -59495,56 +59335,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %2 = extractvalue { ptr, i64 } %call4, 0
-  %3 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #34
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = call ptr @__cxa_begin_catch(ptr %3) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %7 = extractvalue { ptr, i64 } %call7, 0
-  %8 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %9 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %5
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %6 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %7 = insertvalue { ptr, i64 } %6, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %2, %invoke.cont3 ], [ %7, %invoke.cont6 ], [ %retval.sroa.0.0.copyload, %try.cont ]
-  %retval.sroa.4.0 = phi i64 [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ], [ %retval.sroa.4.0.copyload, %try.cont ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %call7, %invoke.cont6 ], [ %7, %try.cont ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #35
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #35
   unreachable
 }
 
@@ -59599,56 +59431,48 @@ invoke.cont1:                                     ; preds = %_ZN6duckdb8string_t
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %4 = extractvalue { ptr, i64 } %call4, 0
-  %5 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %_ZN6duckdb8string_tC2EPKc.exit.i
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = call ptr @__cxa_begin_catch(ptr %7) #34
+  %5 = extractvalue { ptr, i32 } %4, 0
+  %6 = call ptr @__cxa_begin_catch(ptr %5) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %9 = extractvalue { ptr, i64 } %call7, 0
-  %10 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %11 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %7
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %8 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %9 = insertvalue { ptr, i64 } %8, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %try.cont ], [ %4, %invoke.cont3 ], [ %9, %invoke.cont6 ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %try.cont ], [ %5, %invoke.cont3 ], [ %10, %invoke.cont6 ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %9, %try.cont ], [ %call7, %invoke.cont6 ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #35
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #35
   unreachable
 }
 
@@ -59673,56 +59497,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont1
   %call4 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %if.then
-  %2 = extractvalue { ptr, i64 } %call4, 0
-  %3 = extractvalue { ptr, i64 } %call4, 1
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #34
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = call ptr @__cxa_begin_catch(ptr %3) #34
   %call7 = invoke { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v()
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %lpad
-  %7 = extractvalue { ptr, i64 } %call7, 0
-  %8 = extractvalue { ptr, i64 } %call7, 1
   call void @__cxa_end_catch()
   br label %cleanup
 
 lpad5:                                            ; preds = %lpad
-  %9 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %lpad5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %5
 
 try.cont:                                         ; preds = %invoke.cont1
   %retval.sroa.0.0.copyload = load ptr, ptr %result_value, align 8, !tbaa !3
   %retval.sroa.4.0.result_value.sroa_idx = getelementptr inbounds i8, ptr %result_value, i64 8
   %retval.sroa.4.0.copyload = load i64, ptr %retval.sroa.4.0.result_value.sroa_idx, align 8, !tbaa !11
+  %6 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %7 = insertvalue { ptr, i64 } %6, i64 %retval.sroa.4.0.copyload, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %try.cont, %invoke.cont6, %invoke.cont3
-  %retval.sroa.0.0 = phi ptr [ %2, %invoke.cont3 ], [ %7, %invoke.cont6 ], [ %retval.sroa.0.0.copyload, %try.cont ]
-  %retval.sroa.4.0 = phi i64 [ %3, %invoke.cont3 ], [ %8, %invoke.cont6 ], [ %retval.sroa.4.0.copyload, %try.cont ]
+cleanup:                                          ; preds = %if.then, %try.cont, %invoke.cont6
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %call7, %invoke.cont6 ], [ %7, %try.cont ], [ %call4, %if.then ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_value) #34
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #35
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #35
   unreachable
 }
 

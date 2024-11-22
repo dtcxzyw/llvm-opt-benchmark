@@ -26,20 +26,20 @@ define { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 16
   %14 = load ptr, ptr %13, align 8
-  br i1 %10, label %15, label %19
+  br i1 %10, label %15, label %17
 
 15:                                               ; preds = %4
   %16 = call { ptr, ptr } @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h65e5a46498e41e8dE"(ptr %12, ptr %14)
-  %17 = extractvalue { ptr, ptr } %16, 0
-  %18 = extractvalue { ptr, ptr } %16, 1
-  br label %19
+  br label %20
 
-19:                                               ; preds = %4, %15
-  %.sroa.3.0 = phi ptr [ %18, %15 ], [ %14, %4 ]
-  %.sroa.0.0 = phi ptr [ %17, %15 ], [ %12, %4 ]
-  %20 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %21
+17:                                               ; preds = %4
+  %18 = insertvalue { ptr, ptr } poison, ptr %12, 0
+  %19 = insertvalue { ptr, ptr } %18, ptr %14, 1
+  br label %20
+
+20:                                               ; preds = %15, %17
+  %.merged = phi { ptr, ptr } [ %16, %15 ], [ %19, %17 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -237,10 +237,10 @@ define i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecInPlaceCol
   br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h09f6ebfd317e6d2dE.exit"
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h09f6ebfd317e6d2dE.exit": ; preds = %3, %12
-  %.sroa.3.0.i = phi ptr [ %16, %12 ], [ %11, %3 ]
+  %.merged.i = phi ptr [ %16, %12 ], [ %11, %3 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %17 = call i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17h9971de6e44f2ee00E"(ptr %.sroa.3.0.i, ptr %1)
+  %17 = call i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17h9971de6e44f2ee00E"(ptr %.merged.i, ptr %1)
   ret i64 %17
 }
 

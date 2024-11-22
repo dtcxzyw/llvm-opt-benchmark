@@ -4130,12 +4130,12 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %28, %36, %37
   %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   %41 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   %42 = getelementptr inbounds i8, ptr %40, i64 %41
-  %.not14.i = icmp eq i64 %41, 0
-  br i1 %.not14.i, label %_ZN12_GLOBAL__N_117getSphinxOptionIDEN4llvm9StringRefE.exit, label %.lr.ph.i
+  %.not15.i = icmp eq i64 %41, 0
+  br i1 %.not15.i, label %_ZN12_GLOBAL__N_117getSphinxOptionIDEN4llvm9StringRefE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %50
-  %.015.i = phi ptr [ %51, %50 ], [ %40, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %43 = load i8, ptr %.015.i, align 1
+  %.016.i = phi ptr [ %51, %50 ], [ %40, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %43 = load i8, ptr %.016.i, align 1
   %44 = sext i8 %43 to i32
   %45 = call i32 @isalnum(i32 noundef %44) #22
   %.not6.i = icmp ne i32 %45, 0
@@ -4144,22 +4144,22 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %28, %36, %37
   br i1 %or.cond.i, label %50, label %46
 
 46:                                               ; preds = %.lr.ph.i
-  %47 = ptrtoint ptr %.015.i to i64
+  %47 = ptrtoint ptr %.016.i to i64
   %48 = ptrtoint ptr %40 to i64
   %49 = sub i64 %47, %48
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %41, i64 %49)
   br label %_ZN12_GLOBAL__N_117getSphinxOptionIDEN4llvm9StringRefE.exit
 
 50:                                               ; preds = %.lr.ph.i
-  %51 = getelementptr inbounds i8, ptr %.015.i, i64 1
+  %51 = getelementptr inbounds i8, ptr %.016.i, i64 1
   %.not.i = icmp eq ptr %51, %42
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117getSphinxOptionIDEN4llvm9StringRefE.exit, label %.lr.ph.i, !llvm.loop !73
 
 _ZN12_GLOBAL__N_117getSphinxOptionIDEN4llvm9StringRefE.exit: ; preds = %50, %_ZN4llvmplERKNS_5TwineES2_.exit, %46
-  %.sroa.3.0.i = phi i64 [ %.sroa.speculated.i.i, %46 ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %41, %50 ]
+  %.sroa.speculated.i.pn.i = phi i64 [ %.sroa.speculated.i.i, %46 ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %41, %50 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %52 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.3.0.i, ptr %40) #19
+  %52 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.speculated.i.pn.i, ptr %40) #19
   %53 = extractvalue { i64, ptr } %52, 0
   %54 = extractvalue { i64, ptr } %52, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %53, ptr %54) #19

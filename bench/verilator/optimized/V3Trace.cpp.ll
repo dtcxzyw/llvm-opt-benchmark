@@ -5689,176 +5689,257 @@ define linkonce_odr dso_local void @_ZN12TraceVisitor13graphSimplifyEb(ptr nound
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit, label %7
 
-.lr.ph:                                           ; preds = %3, %14
-  %.sink223 = phi ptr [ %8, %14 ], [ %6, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.sink223, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %.not156 = icmp eq ptr %8, null
-  %9 = select i1 %.not156, ptr %.sink223, ptr %8
-  tail call void @llvm.prefetch.p0(ptr nonnull %9, i32 1, i32 3, i32 1)
-  %10 = load ptr, ptr %.sink223, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(80) %.sink223, i64 noundef ptrtoint (ptr @_ZZN14TraceVarVertex11rttiClassIdEvE15aStaticVariable to i64))
-  br i1 %12, label %13, label %14
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = insertvalue { ptr, ptr } poison, ptr %6, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
+  br label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
 
-13:                                               ; preds = %.lr.ph
-  tail call void @_ZN13V3GraphVertex12rerouteEdgesEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %.sink223, ptr noundef nonnull %4)
-  tail call void @_ZN13V3GraphVertex12unlinkDeleteEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %.sink223, ptr noundef nonnull %4)
-  br label %14
+_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit: ; preds = %3, %7
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %11, %7 ], [ zeroinitializer, %3 ]
+  %12 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not180 = icmp eq ptr %12, null
+  br i1 %.not180, label %._crit_edge, label %.lr.ph.preheader
 
-14:                                               ; preds = %.lr.ph, %13
-  br i1 %.not156, label %._crit_edge, label %.lr.ph
+.lr.ph.preheader:                                 ; preds = %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
+  %13 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  br label %.lr.ph
 
-._crit_edge:                                      ; preds = %14, %3
+.lr.ph:                                           ; preds = %20, %.lr.ph.preheader
+  %.sroa.0103.0182 = phi ptr [ %.sroa.7108.0181, %20 ], [ %12, %.lr.ph.preheader ]
+  %.sroa.7108.0181 = phi ptr [ %22, %20 ], [ %13, %.lr.ph.preheader ]
+  %.not156 = icmp eq ptr %.sroa.7108.0181, null
+  %14 = select i1 %.not156, ptr %.sroa.0103.0182, ptr %.sroa.7108.0181
+  tail call void @llvm.prefetch.p0(ptr nonnull %14, i32 1, i32 3, i32 1)
+  %15 = load ptr, ptr %.sroa.0103.0182, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0103.0182, i64 noundef ptrtoint (ptr @_ZZN14TraceVarVertex11rttiClassIdEvE15aStaticVariable to i64))
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %.lr.ph
+  tail call void @_ZN13V3GraphVertex12rerouteEdgesEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0103.0182, ptr noundef nonnull %4)
+  tail call void @_ZN13V3GraphVertex12unlinkDeleteEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0103.0182, ptr noundef nonnull %4)
+  br label %19
+
+19:                                               ; preds = %.lr.ph, %18
+  br i1 %.not156, label %._crit_edge, label %20
+
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds i8, ptr %.sroa.7108.0181, i64 8
+  %22 = load ptr, ptr %21, align 8
+  br label %.lr.ph
+
+._crit_edge:                                      ; preds = %19, %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
   tail call void @_ZN7V3Graph23removeRedundantEdgesMaxEPFbPK11V3GraphEdgeE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @_ZN11V3GraphEdge16followAlwaysTrueEPKS_)
-  %15 = load ptr, ptr %5, align 8
-  %.not.i159 = icmp eq ptr %15, null
-  br i1 %.not.i159, label %.loopexit, label %.lr.ph192
+  %23 = load ptr, ptr %5, align 8
+  %.not.i159 = icmp eq ptr %23, null
+  br i1 %.not.i159, label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit161, label %24
 
-.lr.ph192:                                        ; preds = %._crit_edge, %23
-  %.sink224 = phi ptr [ %17, %23 ], [ %15, %._crit_edge ]
-  %16 = getelementptr inbounds i8, ptr %.sink224, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %.not154 = icmp eq ptr %17, null
-  %18 = select i1 %.not154, ptr %.sink224, ptr %17
-  tail call void @llvm.prefetch.p0(ptr nonnull %18, i32 1, i32 3, i32 1)
-  %19 = load ptr, ptr %.sink224, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(80) %.sink224, i64 noundef ptrtoint (ptr @_ZZN16TraceCFuncVertex11rttiClassIdEvE15aStaticVariable to i64))
-  br i1 %21, label %22, label %23
+24:                                               ; preds = %._crit_edge
+  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = insertvalue { ptr, ptr } poison, ptr %23, 0
+  %28 = insertvalue { ptr, ptr } %27, ptr %26, 1
+  br label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit161
 
-22:                                               ; preds = %.lr.ph192
-  tail call void @_ZN13V3GraphVertex12rerouteEdgesEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %.sink224, ptr noundef nonnull %4)
-  tail call void @_ZN13V3GraphVertex12unlinkDeleteEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %.sink224, ptr noundef nonnull %4)
-  br label %23
+_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit161: ; preds = %._crit_edge, %24
+  %.fca.1.insert.merged.i160 = phi { ptr, ptr } [ %28, %24 ], [ zeroinitializer, %._crit_edge ]
+  %29 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i160, 0
+  %.not140183 = icmp eq ptr %29, null
+  br i1 %.not140183, label %.loopexit, label %.lr.ph186.preheader
 
-23:                                               ; preds = %.lr.ph192, %22
-  br i1 %.not154, label %.loopexit, label %.lr.ph192
+.lr.ph186.preheader:                              ; preds = %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit161
+  %30 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i160, 1
+  br label %.lr.ph186
 
-.loopexit:                                        ; preds = %23, %._crit_edge, %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @_ZN7V3Graph23removeRedundantEdgesMaxEPFbPK11V3GraphEdgeE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull @_ZN11V3GraphEdge16followAlwaysTrueEPKS_)
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
-  %.sroa.0130.0197 = load ptr, ptr %25, align 8
-  %.not141198 = icmp eq ptr %.sroa.0130.0197, null
-  br i1 %.not141198, label %._crit_edge207, label %.lr.ph201
+.lr.ph186:                                        ; preds = %37, %.lr.ph186.preheader
+  %.sroa.7117.0185 = phi ptr [ %39, %37 ], [ %30, %.lr.ph186.preheader ]
+  %.sroa.0112.0184 = phi ptr [ %.sroa.7117.0185, %37 ], [ %29, %.lr.ph186.preheader ]
+  %.not154 = icmp eq ptr %.sroa.7117.0185, null
+  %31 = select i1 %.not154, ptr %.sroa.0112.0184, ptr %.sroa.7117.0185
+  tail call void @llvm.prefetch.p0(ptr nonnull %31, i32 1, i32 3, i32 1)
+  %32 = load ptr, ptr %.sroa.0112.0184, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0112.0184, i64 noundef ptrtoint (ptr @_ZZN16TraceCFuncVertex11rttiClassIdEvE15aStaticVariable to i64))
+  br i1 %34, label %35, label %36
 
-.lr.ph201:                                        ; preds = %.loopexit, %.thread
-  %.sroa.0130.0199 = phi ptr [ %.sroa.0130.0, %.thread ], [ %.sroa.0130.0197, %.loopexit ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.0130.0199, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %.not146 = icmp eq ptr %27, null
-  %28 = select i1 %.not146, ptr %.sroa.0130.0199, ptr %27
-  tail call void @llvm.prefetch.p0(ptr nonnull %28, i32 1, i32 3, i32 1)
-  %29 = load ptr, ptr %.sroa.0130.0199, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0130.0199, i64 noundef ptrtoint (ptr @_ZZN16TraceTraceVertex11rttiClassIdEvE15aStaticVariable to i64))
-  br i1 %31, label %32, label %.thread
+35:                                               ; preds = %.lr.ph186
+  tail call void @_ZN13V3GraphVertex12rerouteEdgesEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0112.0184, ptr noundef nonnull %4)
+  tail call void @_ZN13V3GraphVertex12unlinkDeleteEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0112.0184, ptr noundef nonnull %4)
+  br label %36
 
-32:                                               ; preds = %.lr.ph201
-  %33 = getelementptr inbounds i8, ptr %.sroa.0130.0199, i64 40
-  br label %34
+36:                                               ; preds = %.lr.ph186, %35
+  br i1 %.not154, label %.loopexit, label %37
 
-34:                                               ; preds = %_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit, %32
-  %.sroa.097.0.in = phi ptr [ %33, %32 ], [ %36, %_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit ]
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds i8, ptr %.sroa.7117.0185, i64 8
+  %39 = load ptr, ptr %38, align 8
+  br label %.lr.ph186
+
+.loopexit:                                        ; preds = %36, %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit161, %2
+  %40 = getelementptr inbounds i8, ptr %0, i64 96
+  tail call void @_ZN7V3Graph23removeRedundantEdgesMaxEPFbPK11V3GraphEdgeE(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull @_ZN11V3GraphEdge16followAlwaysTrueEPKS_)
+  %41 = getelementptr inbounds i8, ptr %0, i64 104
+  %.sroa.0130.0191 = load ptr, ptr %41, align 8
+  %.not141192 = icmp eq ptr %.sroa.0130.0191, null
+  br i1 %.not141192, label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit168, label %.lr.ph195
+
+.lr.ph195:                                        ; preds = %.loopexit, %.thread
+  %.sroa.0130.0193 = phi ptr [ %.sroa.0130.0, %.thread ], [ %.sroa.0130.0191, %.loopexit ]
+  %42 = getelementptr inbounds i8, ptr %.sroa.0130.0193, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %.not146 = icmp eq ptr %43, null
+  %44 = select i1 %.not146, ptr %.sroa.0130.0193, ptr %43
+  tail call void @llvm.prefetch.p0(ptr nonnull %44, i32 1, i32 3, i32 1)
+  %45 = load ptr, ptr %.sroa.0130.0193, align 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0130.0193, i64 noundef ptrtoint (ptr @_ZZN16TraceTraceVertex11rttiClassIdEvE15aStaticVariable to i64))
+  br i1 %47, label %48, label %.thread
+
+48:                                               ; preds = %.lr.ph195
+  %49 = getelementptr inbounds i8, ptr %.sroa.0130.0193, i64 40
+  br label %50
+
+50:                                               ; preds = %_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit, %48
+  %.sroa.097.0.in = phi ptr [ %49, %48 ], [ %52, %_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit ]
   %.sroa.097.0 = load ptr, ptr %.sroa.097.0.in, align 8
   %.not148 = icmp eq ptr %.sroa.097.0, null
-  br i1 %.not148, label %.thread, label %35
+  br i1 %.not148, label %.thread, label %51
 
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.097.0, i64 24
-  %37 = load ptr, ptr %36, align 8
-  %.not149 = icmp eq ptr %37, null
-  %38 = select i1 %.not149, ptr %.sroa.097.0, ptr %37
-  tail call void @llvm.prefetch.p0(ptr nonnull %38, i32 1, i32 3, i32 1)
-  %39 = getelementptr inbounds i8, ptr %.sroa.097.0, i64 40
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(80) %40, i64 noundef ptrtoint (ptr @_ZZN19TraceActivityVertex11rttiClassIdEvE15aStaticVariable to i64))
-  br i1 %43, label %_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit, label %44
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds i8, ptr %.sroa.097.0, i64 24
+  %53 = load ptr, ptr %52, align 8
+  %.not149 = icmp eq ptr %53, null
+  %54 = select i1 %.not149, ptr %.sroa.097.0, ptr %53
+  tail call void @llvm.prefetch.p0(ptr nonnull %54, i32 1, i32 3, i32 1)
+  %55 = getelementptr inbounds i8, ptr %.sroa.097.0, i64 40
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(80) %56, i64 noundef ptrtoint (ptr @_ZZN19TraceActivityVertex11rttiClassIdEvE15aStaticVariable to i64))
+  br i1 %59, label %_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit, label %60
 
-44:                                               ; preds = %35
-  %45 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.460, i32 noundef 258, i1 noundef zeroext true)
-  %46 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull @.str.461)
-  tail call void @_ZNK13V3GraphVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %40, ptr noundef nonnull align 8 dereferenceable(112) %47)
+60:                                               ; preds = %51
+  %61 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.460, i32 noundef 258, i1 noundef zeroext true)
+  %62 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str.461)
+  tail call void @_ZNK13V3GraphVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %56, ptr noundef nonnull align 8 dereferenceable(112) %63)
   br label %_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit
 
-_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit: ; preds = %35, %44
-  %48 = getelementptr inbounds i8, ptr %40, i64 88
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %49, 2147483646
-  br i1 %50, label %51, label %34
+_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit: ; preds = %51, %60
+  %64 = getelementptr inbounds i8, ptr %56, i64 88
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp eq i32 %65, 2147483646
+  br i1 %66, label %67, label %50
 
-51:                                               ; preds = %_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit
-  %52 = load ptr, ptr %33, align 8
-  %.not.i166 = icmp eq ptr %52, null
-  br i1 %.not.i166, label %.thread, label %.lr.ph196
+67:                                               ; preds = %_ZN13V3GraphVertex2asIK19TraceActivityVertexEEPT_v.exit
+  %68 = load ptr, ptr %49, align 8
+  %.not.i164 = icmp eq ptr %68, null
+  br i1 %.not.i164, label %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E15UnlinkableProxy5beginEv.exit, label %69
 
-.lr.ph196:                                        ; preds = %51, %57
-  %.sink225 = phi ptr [ %54, %57 ], [ %52, %51 ]
-  %53 = getelementptr inbounds i8, ptr %.sink225, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %.not152 = icmp eq ptr %54, null
-  %55 = select i1 %.not152, ptr %.sink225, ptr %54
-  tail call void @llvm.prefetch.p0(ptr nonnull %55, i32 1, i32 3, i32 1)
-  %.not153 = icmp eq ptr %.sink225, %.sroa.097.0
-  br i1 %.not153, label %57, label %56
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %68, i64 24
+  %71 = load ptr, ptr %70, align 8
+  %72 = insertvalue { ptr, ptr } poison, ptr %68, 0
+  %73 = insertvalue { ptr, ptr } %72, ptr %71, 1
+  br label %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E15UnlinkableProxy5beginEv.exit
 
-56:                                               ; preds = %.lr.ph196
-  tail call void @_ZN11V3GraphEdge12unlinkDeleteEv(ptr noundef nonnull align 8 dereferenceable(72) %.sink225)
-  br label %57
+_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E15UnlinkableProxy5beginEv.exit: ; preds = %67, %69
+  %.fca.1.insert.merged.i165 = phi { ptr, ptr } [ %73, %69 ], [ zeroinitializer, %67 ]
+  %74 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i165, 0
+  %.not151187 = icmp eq ptr %74, null
+  br i1 %.not151187, label %.thread, label %.lr.ph190.preheader
 
-57:                                               ; preds = %.lr.ph196, %56
-  br i1 %.not152, label %.thread, label %.lr.ph196
+.lr.ph190.preheader:                              ; preds = %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E15UnlinkableProxy5beginEv.exit
+  %75 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i165, 1
+  br label %.lr.ph190
 
-.thread:                                          ; preds = %34, %57, %51, %.lr.ph201
-  %.sroa.0130.0 = load ptr, ptr %26, align 8
+.lr.ph190:                                        ; preds = %79, %.lr.ph190.preheader
+  %.sroa.0.0189 = phi ptr [ %.sroa.7.0188, %79 ], [ %74, %.lr.ph190.preheader ]
+  %.sroa.7.0188 = phi ptr [ %81, %79 ], [ %75, %.lr.ph190.preheader ]
+  %.not152 = icmp eq ptr %.sroa.7.0188, null
+  %76 = select i1 %.not152, ptr %.sroa.0.0189, ptr %.sroa.7.0188
+  tail call void @llvm.prefetch.p0(ptr nonnull %76, i32 1, i32 3, i32 1)
+  %.not153 = icmp eq ptr %.sroa.0.0189, %.sroa.097.0
+  br i1 %.not153, label %78, label %77
+
+77:                                               ; preds = %.lr.ph190
+  tail call void @_ZN11V3GraphEdge12unlinkDeleteEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0189)
+  br label %78
+
+78:                                               ; preds = %.lr.ph190, %77
+  br i1 %.not152, label %.thread, label %79
+
+79:                                               ; preds = %78
+  %80 = getelementptr inbounds i8, ptr %.sroa.7.0188, i64 24
+  %81 = load ptr, ptr %80, align 8
+  br label %.lr.ph190
+
+.thread:                                          ; preds = %50, %78, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E15UnlinkableProxy5beginEv.exit, %.lr.ph195
+  %.sroa.0130.0 = load ptr, ptr %42, align 8
   %.not141 = icmp eq ptr %.sroa.0130.0, null
-  br i1 %.not141, label %._crit_edge202, label %.lr.ph201
+  br i1 %.not141, label %._crit_edge196, label %.lr.ph195
 
-._crit_edge202:                                   ; preds = %.thread
-  %.pre = load ptr, ptr %25, align 8
-  %.not.i170 = icmp eq ptr %.pre, null
-  br i1 %.not.i170, label %._crit_edge207, label %.lr.ph206
+._crit_edge196:                                   ; preds = %.thread
+  %.pre = load ptr, ptr %41, align 8
+  %.not.i166 = icmp eq ptr %.pre, null
+  br i1 %.not.i166, label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit168, label %82
 
-.lr.ph206:                                        ; preds = %._crit_edge202
-  %58 = getelementptr inbounds i8, ptr %0, i64 120
-  br label %59
+82:                                               ; preds = %._crit_edge196
+  %83 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = insertvalue { ptr, ptr } poison, ptr %.pre, 0
+  %86 = insertvalue { ptr, ptr } %85, ptr %84, 1
+  br label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit168
 
-59:                                               ; preds = %69, %.lr.ph206
-  %.sroa.0121.0204 = phi ptr [ %.pre, %.lr.ph206 ], [ %.sroa.7126.0205, %69 ]
-  %.sroa.7126.0205.in = getelementptr inbounds i8, ptr %.sroa.0121.0204, i64 8
-  %.sroa.7126.0205 = load ptr, ptr %.sroa.7126.0205.in, align 8
-  %.not143 = icmp eq ptr %.sroa.7126.0205, null
-  %60 = select i1 %.not143, ptr %.sroa.0121.0204, ptr %.sroa.7126.0205
-  tail call void @llvm.prefetch.p0(ptr nonnull %60, i32 1, i32 3, i32 1)
-  %61 = load ptr, ptr %.sroa.0121.0204, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0121.0204, i64 noundef ptrtoint (ptr @_ZZN19TraceActivityVertex11rttiClassIdEvE15aStaticVariable to i64))
-  %..i175 = select i1 %63, ptr %.sroa.0121.0204, ptr null
-  %64 = load ptr, ptr %58, align 8
-  %.not145 = icmp ne ptr %..i175, %64
-  %or.cond.not = select i1 %63, i1 %.not145, i1 false
-  br i1 %or.cond.not, label %65, label %69
+_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit168: ; preds = %.loopexit, %._crit_edge196, %82
+  %.fca.1.insert.merged.i167 = phi { ptr, ptr } [ %86, %82 ], [ zeroinitializer, %._crit_edge196 ], [ zeroinitializer, %.loopexit ]
+  %87 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i167, 0
+  %.not142197 = icmp eq ptr %87, null
+  br i1 %.not142197, label %._crit_edge201, label %.lr.ph200
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %..i175, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %.not.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i, label %68, label %69
+.lr.ph200:                                        ; preds = %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit168
+  %88 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i167, 1
+  %89 = getelementptr inbounds i8, ptr %0, i64 120
+  br label %90
 
-68:                                               ; preds = %65
-  tail call void @_ZN13V3GraphVertex12unlinkDeleteEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %..i175, ptr noundef nonnull %24)
-  br label %69
+90:                                               ; preds = %101, %.lr.ph200
+  %.sroa.7126.0199 = phi ptr [ %88, %.lr.ph200 ], [ %103, %101 ]
+  %.sroa.0121.0198 = phi ptr [ %87, %.lr.ph200 ], [ %.sroa.7126.0199, %101 ]
+  %.not143 = icmp eq ptr %.sroa.7126.0199, null
+  %91 = select i1 %.not143, ptr %.sroa.0121.0198, ptr %.sroa.7126.0199
+  tail call void @llvm.prefetch.p0(ptr nonnull %91, i32 1, i32 3, i32 1)
+  %92 = load ptr, ptr %.sroa.0121.0198, align 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = tail call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0121.0198, i64 noundef ptrtoint (ptr @_ZZN19TraceActivityVertex11rttiClassIdEvE15aStaticVariable to i64))
+  %..i169 = select i1 %94, ptr %.sroa.0121.0198, ptr null
+  %95 = load ptr, ptr %89, align 8
+  %.not145 = icmp ne ptr %..i169, %95
+  %or.cond.not = select i1 %94, i1 %.not145, i1 false
+  br i1 %or.cond.not, label %96, label %100
 
-69:                                               ; preds = %59, %68, %65
-  br i1 %.not143, label %._crit_edge207, label %59
+96:                                               ; preds = %90
+  %97 = getelementptr inbounds i8, ptr %..i169, i64 24
+  %98 = load ptr, ptr %97, align 8
+  %.not.i.i = icmp eq ptr %98, null
+  br i1 %.not.i.i, label %99, label %100
 
-._crit_edge207:                                   ; preds = %69, %.loopexit, %._crit_edge202
+99:                                               ; preds = %96
+  tail call void @_ZN13V3GraphVertex12unlinkDeleteEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %..i169, ptr noundef nonnull %40)
+  br label %100
+
+100:                                              ; preds = %90, %99, %96
+  br i1 %.not143, label %._crit_edge201, label %101
+
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds i8, ptr %.sroa.7126.0199, i64 8
+  %103 = load ptr, ptr %102, align 8
+  br label %90
+
+._crit_edge201:                                   ; preds = %100, %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit168
   ret void
 }
 

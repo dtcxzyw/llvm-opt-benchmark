@@ -12535,11 +12535,11 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %cmp.i = icmp eq ptr %__first1.coerce0, %__last1.coerce0
-  br i1 %cmp.i, label %return, label %lor.lhs.false
+  br i1 %cmp.i, label %if.then, label %lor.lhs.false
 
 _ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit: ; preds = %entry
   %cmp5.i = icmp eq ptr %__first1.coerce1, %__last1.coerce1
-  br i1 %cmp5.i, label %return, label %lor.lhs.false
+  br i1 %cmp5.i, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then.i, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit
   %tobool.not.i12 = icmp eq ptr %__first2.coerce0, null
@@ -12548,13 +12548,18 @@ lor.lhs.false:                                    ; preds = %if.then.i, %_ZNK6he
 if.then.i13:                                      ; preds = %lor.lhs.false
   %0 = load ptr, ptr %__last2, align 8
   %cmp.i14 = icmp eq ptr %__first2.coerce0, %0
-  br i1 %cmp.i14, label %return, label %if.then.i26
+  br i1 %cmp.i14, label %if.then, label %if.then.i26
 
 _ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit20: ; preds = %lor.lhs.false
   %char16Ptr_4.i18 = getelementptr inbounds i8, ptr %__last2, i64 8
   %1 = load ptr, ptr %char16Ptr_4.i18, align 8
   %cmp5.i19 = icmp eq ptr %__first2.coerce1, %1
-  br i1 %cmp5.i19, label %return, label %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit33
+  br i1 %cmp5.i19, label %if.then, label %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit33
+
+if.then:                                          ; preds = %if.then.i13, %if.then.i, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit20, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit
+  %2 = insertvalue { ptr, ptr } poison, ptr %__first1.coerce0, 0
+  %3 = insertvalue { ptr, ptr } %2, ptr %__first1.coerce1, 1
+  br label %return
 
 if.then.i26:                                      ; preds = %if.then.i13
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first2.coerce0, i64 1
@@ -12568,8 +12573,6 @@ _ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit33: ; preds = %_ZNK6herme
 
 if.then4:                                         ; preds = %if.then.i26, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit33
   %call.i = tail call { ptr, ptr } @_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr %__first1.coerce0, ptr %__first1.coerce1, ptr %__last1.coerce0, ptr %__last1.coerce1, ptr %__first2.coerce0, ptr %__first2.coerce1)
-  %2 = extractvalue { ptr, ptr } %call.i, 0
-  %3 = extractvalue { ptr, ptr } %call.i, 1
   br label %return
 
 if.end11:                                         ; preds = %if.then.i26, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit33
@@ -12589,72 +12592,79 @@ for.cond:                                         ; preds = %while.end, %if.end1
 
 if.then.i38:                                      ; preds = %for.cond
   %cmp.i39 = icmp eq ptr %4, %__last1.coerce0
-  %incdec.ptr.i48 = getelementptr inbounds i8, ptr %4, i64 1
-  %cmp.i56 = icmp eq ptr %incdec.ptr.i48, %__last1.coerce0
-  %or.cond = select i1 %cmp.i39, i1 true, i1 %cmp.i56
-  br i1 %or.cond, label %return, label %while.cond.preheader
+  br i1 %cmp.i39, label %if.then21, label %if.then.i55
 
 _ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit45: ; preds = %for.cond
   %cmp5.i44 = icmp eq ptr %5, %__last1.coerce1
-  %incdec.ptr3.i52 = getelementptr inbounds i8, ptr %5, i64 2
-  %cmp5.i61 = icmp eq ptr %incdec.ptr3.i52, %__last1.coerce1
-  %or.cond163 = select i1 %cmp5.i44, i1 true, i1 %cmp5.i61
-  br i1 %or.cond163, label %return, label %while.cond.preheader
+  br i1 %cmp5.i44, label %if.then21, label %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit62
 
-while.cond.preheader:                             ; preds = %if.then.i38, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit45
-  %__current.sroa.9.0.ph = phi ptr [ %incdec.ptr3.i52, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit45 ], [ %5, %if.then.i38 ]
-  %__current.sroa.0.0.ph = phi ptr [ null, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit45 ], [ %incdec.ptr.i48, %if.then.i38 ]
-  %6 = load ptr, ptr %__last2, align 8
-  %7 = load ptr, ptr %char16Ptr_4.i78, align 8
+if.then21:                                        ; preds = %if.then.i38, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit45
+  %6 = insertvalue { ptr, ptr } poison, ptr %__last1.coerce0, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr %__last1.coerce1, 1
+  br label %return
+
+if.then.i55:                                      ; preds = %if.then.i38
+  %incdec.ptr.i48 = getelementptr inbounds i8, ptr %4, i64 1
+  %cmp.i56 = icmp eq ptr %incdec.ptr.i48, %__last1.coerce0
+  br i1 %cmp.i56, label %if.then25, label %while.cond.preheader
+
+while.cond.preheader:                             ; preds = %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit62, %if.then.i55
+  %__current.sroa.9.0.ph = phi ptr [ %5, %if.then.i55 ], [ %incdec.ptr3.i52, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit62 ]
+  %__current.sroa.0.0.ph = phi ptr [ %incdec.ptr.i48, %if.then.i55 ], [ null, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit62 ]
+  %8 = load ptr, ptr %__last2, align 8
+  %9 = load ptr, ptr %char16Ptr_4.i78, align 8
   br label %while.cond.outer
 
-while.cond.outer:                                 ; preds = %while.cond.preheader, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97
-  %__current.sroa.9.0.ph164 = phi ptr [ %__current.sroa.9.0.ph, %while.cond.preheader ], [ %incdec.ptr3.i87, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97 ]
-  %__current.sroa.0.0.ph165 = phi ptr [ %__current.sroa.0.0.ph, %while.cond.preheader ], [ null, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97 ]
-  %__p.sroa.5.0.ph = phi ptr [ %__p1.sroa.5.0133137, %while.cond.preheader ], [ %__p.sroa.5.1151155, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97 ]
-  %__p.sroa.0.0.ph = phi ptr [ %__p1.sroa.0.0134136, %while.cond.preheader ], [ %__p.sroa.0.1152154, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97 ]
-  br label %while.cond
+_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit62: ; preds = %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit45
+  %incdec.ptr3.i52 = getelementptr inbounds i8, ptr %5, i64 2
+  %cmp5.i61 = icmp eq ptr %incdec.ptr3.i52, %__last1.coerce1
+  br i1 %cmp5.i61, label %if.then25, label %while.cond.preheader
+
+if.then25:                                        ; preds = %if.then.i55, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit62
+  %10 = insertvalue { ptr, ptr } poison, ptr %__last1.coerce0, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %__last1.coerce1, 1
+  br label %return
 
 while.cond:                                       ; preds = %while.cond.outer, %if.then.i90
-  %__current.sroa.0.0 = phi ptr [ %incdec.ptr.i83, %if.then.i90 ], [ %__current.sroa.0.0.ph165, %while.cond.outer ]
+  %__current.sroa.0.0 = phi ptr [ %incdec.ptr.i83, %if.then.i90 ], [ %__current.sroa.0.0.ph164, %while.cond.outer ]
   %__p.sroa.5.0 = phi ptr [ %__p.sroa.5.1151155, %if.then.i90 ], [ %__p.sroa.5.0.ph, %while.cond.outer ]
   %__p.sroa.0.0 = phi ptr [ %__p.sroa.0.1152154, %if.then.i90 ], [ %__p.sroa.0.0.ph, %while.cond.outer ]
   %tobool.not.i.i = icmp eq ptr %__current.sroa.0.0, null
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %while.cond
-  %8 = load i8, ptr %__current.sroa.0.0, align 1
-  %9 = sext i8 %8 to i16
+  %12 = load i8, ptr %__current.sroa.0.0, align 1
+  %13 = sext i8 %12 to i16
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i
 
 cond.false.i.i:                                   ; preds = %while.cond
-  %10 = load i16, ptr %__current.sroa.9.0.ph164, align 2
+  %14 = load i16, ptr %__current.sroa.9.0.ph163, align 2
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i: ; preds = %cond.false.i.i, %cond.true.i.i
-  %cond.i.i = phi i16 [ %9, %cond.true.i.i ], [ %10, %cond.false.i.i ]
+  %cond.i.i = phi i16 [ %13, %cond.true.i.i ], [ %14, %cond.false.i.i ]
   %tobool.not.i1.i = icmp eq ptr %__p.sroa.0.0, null
   br i1 %tobool.not.i1.i, label %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclIN6hermes2vm10StringView14const_iteratorES6_EEbT_T0_.exit, label %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclIN6hermes2vm10StringView14const_iteratorES6_EEbT_T0_.exit.thread
 
 _ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclIN6hermes2vm10StringView14const_iteratorES6_EEbT_T0_.exit: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i
-  %11 = load i16, ptr %__p.sroa.5.0, align 2
-  %cmp.i63 = icmp eq i16 %cond.i.i, %11
+  %15 = load i16, ptr %__p.sroa.5.0, align 2
+  %cmp.i63 = icmp eq i16 %cond.i.i, %15
   br i1 %cmp.i63, label %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit80, label %while.end
 
 _ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclIN6hermes2vm10StringView14const_iteratorES6_EEbT_T0_.exit.thread: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i
-  %12 = load i8, ptr %__p.sroa.0.0, align 1
-  %13 = sext i8 %12 to i16
-  %cmp.i63146 = icmp eq i16 %cond.i.i, %13
+  %16 = load i8, ptr %__p.sroa.0.0, align 1
+  %17 = sext i8 %16 to i16
+  %cmp.i63146 = icmp eq i16 %cond.i.i, %17
   br i1 %cmp.i63146, label %if.then.i73, label %while.end
 
 if.then.i73:                                      ; preds = %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclIN6hermes2vm10StringView14const_iteratorES6_EEbT_T0_.exit.thread
   %incdec.ptr.i66 = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 1
-  %cmp.i74 = icmp eq ptr %incdec.ptr.i66, %6
+  %cmp.i74 = icmp eq ptr %incdec.ptr.i66, %8
   br i1 %cmp.i74, label %return, label %if.end33
 
 _ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit80: ; preds = %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclIN6hermes2vm10StringView14const_iteratorES6_EEbT_T0_.exit
   %incdec.ptr3.i70 = getelementptr inbounds i8, ptr %__p.sroa.5.0, i64 2
-  %cmp5.i79 = icmp eq ptr %incdec.ptr3.i70, %7
+  %cmp5.i79 = icmp eq ptr %incdec.ptr3.i70, %9
   br i1 %cmp5.i79, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.then.i73, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit80
@@ -12665,12 +12675,24 @@ if.end33:                                         ; preds = %if.then.i73, %_ZNK6
 if.then.i90:                                      ; preds = %if.end33
   %incdec.ptr.i83 = getelementptr inbounds i8, ptr %__current.sroa.0.0, i64 1
   %cmp.i91 = icmp eq ptr %incdec.ptr.i83, %__last1.coerce0
-  br i1 %cmp.i91, label %return, label %while.cond, !llvm.loop !164
+  br i1 %cmp.i91, label %if.then36, label %while.cond, !llvm.loop !164
 
 _ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97: ; preds = %if.end33
-  %incdec.ptr3.i87 = getelementptr inbounds i8, ptr %__current.sroa.9.0.ph164, i64 2
+  %incdec.ptr3.i87 = getelementptr inbounds i8, ptr %__current.sroa.9.0.ph163, i64 2
   %cmp5.i96 = icmp eq ptr %incdec.ptr3.i87, %__last1.coerce1
-  br i1 %cmp5.i96, label %return, label %while.cond.outer, !llvm.loop !164
+  br i1 %cmp5.i96, label %if.then36, label %while.cond.outer, !llvm.loop !164
+
+while.cond.outer:                                 ; preds = %while.cond.preheader, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97
+  %__current.sroa.9.0.ph163 = phi ptr [ %__current.sroa.9.0.ph, %while.cond.preheader ], [ %incdec.ptr3.i87, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97 ]
+  %__current.sroa.0.0.ph164 = phi ptr [ %__current.sroa.0.0.ph, %while.cond.preheader ], [ null, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97 ]
+  %__p.sroa.5.0.ph = phi ptr [ %__p1.sroa.5.0133137, %while.cond.preheader ], [ %__p.sroa.5.1151155, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97 ]
+  %__p.sroa.0.0.ph = phi ptr [ %__p1.sroa.0.0134136, %while.cond.preheader ], [ %__p.sroa.0.1152154, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97 ]
+  br label %while.cond
+
+if.then36:                                        ; preds = %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97, %if.then.i90
+  %18 = insertvalue { ptr, ptr } poison, ptr %__last1.coerce0, 0
+  %19 = insertvalue { ptr, ptr } %18, ptr %__last1.coerce1, 1
+  br label %return
 
 while.end:                                        ; preds = %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclIN6hermes2vm10StringView14const_iteratorES6_EEbT_T0_.exit.thread, %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclIN6hermes2vm10StringView14const_iteratorES6_EEbT_T0_.exit
   %incdec.ptr.i100 = getelementptr inbounds i8, ptr %4, i64 1
@@ -12679,12 +12701,9 @@ while.end:                                        ; preds = %_ZNK9__gnu_cxx5__op
   %__first1.sroa.12.1 = getelementptr inbounds i8, ptr %5, i64 %__first1.sroa.12.1.idx
   br label %for.cond, !llvm.loop !165
 
-return:                                           ; preds = %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit45, %if.then.i38, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97, %if.then.i90, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit80, %if.then.i73, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit20, %if.then.i, %if.then.i13, %if.then4
-  %retval.sroa.0.0 = phi ptr [ %2, %if.then4 ], [ %__first1.coerce0, %if.then.i13 ], [ %__first1.coerce0, %if.then.i ], [ %__first1.coerce0, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit20 ], [ null, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit ], [ %4, %if.then.i73 ], [ %4, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit80 ], [ %__last1.coerce0, %if.then.i90 ], [ %__last1.coerce0, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97 ], [ %__last1.coerce0, %if.then.i38 ], [ %__last1.coerce0, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit45 ]
-  %retval.sroa.7.0 = phi ptr [ %3, %if.then4 ], [ %__first1.coerce1, %if.then.i13 ], [ %__first1.coerce1, %if.then.i ], [ %__first1.coerce1, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit20 ], [ %__first1.coerce1, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit ], [ %5, %if.then.i73 ], [ %5, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit80 ], [ %__last1.coerce1, %if.then.i90 ], [ %__last1.coerce1, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit97 ], [ %__last1.coerce1, %if.then.i38 ], [ %__last1.coerce1, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit45 ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.7.0, 1
-  ret { ptr, ptr } %.fca.1.insert
+return:                                           ; preds = %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit80, %if.then.i73, %if.then36, %if.then25, %if.then21, %if.then4, %if.then
+  %.fca.1.insert.merged = phi { ptr, ptr } [ %3, %if.then ], [ %call.i, %if.then4 ], [ %7, %if.then21 ], [ %11, %if.then25 ], [ %19, %if.then36 ], [ %call.i36, %if.then.i73 ], [ %call.i36, %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit80 ]
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

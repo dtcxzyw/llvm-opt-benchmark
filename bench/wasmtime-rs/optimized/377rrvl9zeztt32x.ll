@@ -783,54 +783,56 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
   %23 = load i64, ptr %21, align 8, !range !240, !alias.scope !303, !noalias !306, !noundef !10
   %24 = icmp eq i64 %23, -9223372036854775808
-  br i1 %24, label %25, label %30
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %21, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !303, !noalias !306, !nonnull !10, !align !140, !noundef !10
   %28 = getelementptr inbounds i8, ptr %21, i64 16
   %29 = load i64, ptr %28, align 8, !alias.scope !303, !noalias !306, !noundef !10
+  %30 = insertvalue { ptr, i64 } poison, ptr %27, 0
+  %31 = insertvalue { ptr, i64 } %30, i64 %29, 1
   br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i.i"
 
-30:                                               ; preds = %19
-  %31 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !307
-  %32 = extractvalue { ptr, i64 } %31, 0
-  %33 = extractvalue { ptr, i64 } %31, 1
+32:                                               ; preds = %19
+  %33 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !307
   br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i.i"
 
-"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i.i": ; preds = %30, %25
-  %.sroa.5.0.i.i.i.i.i.i.i.i.i = phi i64 [ %29, %25 ], [ %33, %30 ]
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi ptr [ %27, %25 ], [ %32, %30 ]
-  %34 = load i64, ptr %22, align 8, !range !240, !alias.scope !308, !noalias !311, !noundef !10
-  %35 = icmp eq i64 %34, -9223372036854775808
-  br i1 %35, label %36, label %41
+"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i.i": ; preds = %32, %25
+  %.merged.i.i.i.i.i.i.i.i.i = phi { ptr, i64 } [ %31, %25 ], [ %33, %32 ]
+  %34 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i.i.i.i, 0
+  %35 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i.i.i.i, 1
+  %36 = load i64, ptr %22, align 8, !range !240, !alias.scope !308, !noalias !311, !noundef !10
+  %37 = icmp eq i64 %36, -9223372036854775808
+  br i1 %37, label %38, label %45
 
-36:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i.i"
-  %37 = getelementptr inbounds i8, ptr %22, i64 8
-  %38 = load ptr, ptr %37, align 8, !alias.scope !308, !noalias !311, !nonnull !10, !align !140, !noundef !10
-  %39 = getelementptr inbounds i8, ptr %22, i64 16
-  %40 = load i64, ptr %39, align 8, !alias.scope !308, !noalias !311, !noundef !10
-  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i.i"
+38:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i.i"
+  %39 = getelementptr inbounds i8, ptr %22, i64 8
+  %40 = load ptr, ptr %39, align 8, !alias.scope !308, !noalias !311, !nonnull !10, !align !140, !noundef !10
+  %41 = getelementptr inbounds i8, ptr %22, i64 16
+  %42 = load i64, ptr %41, align 8, !alias.scope !308, !noalias !311, !noundef !10
+  %43 = insertvalue { ptr, i64 } poison, ptr %40, 0
+  %44 = insertvalue { ptr, i64 } %43, i64 %42, 1
+  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i.i"
 
-41:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i.i"
-  %42 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22), !noalias !312
-  %43 = extractvalue { ptr, i64 } %42, 0
-  %44 = extractvalue { ptr, i64 } %42, 1
-  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i.i"
+45:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i.i"
+  %46 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22), !noalias !312
+  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i.i"
 
-"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i.i": ; preds = %41, %36
-  %.sroa.5.0.i1.i.i.i.i.i.i.i.i = phi i64 [ %40, %36 ], [ %44, %41 ]
-  %.sroa.0.0.i2.i.i.i.i.i.i.i.i = phi ptr [ %38, %36 ], [ %43, %41 ]
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i.i.i.i.i.i.i, %.sroa.5.0.i1.i.i.i.i.i.i.i.i
+"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i.i": ; preds = %45, %38
+  %.merged.i1.i.i.i.i.i.i.i.i = phi { ptr, i64 } [ %44, %38 ], [ %46, %45 ]
+  %47 = extractvalue { ptr, i64 } %.merged.i1.i.i.i.i.i.i.i.i, 1
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %35, %47
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hc499b0c710ba0a0bE.exit
 
-_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i.i: ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i.i"
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i2.i.i.i.i.i.i.i.i, i64 %.sroa.5.0.i.i.i.i.i.i.i.i.i), !alias.scope !313
+_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i.i: ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i.i"
+  %48 = extractvalue { ptr, i64 } %.merged.i1.i.i.i.i.i.i.i.i, 0
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %34, ptr nonnull readonly align 1 %48, i64 %35), !alias.scope !313
   %.not10.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not10.i.i.i.i.i.i, label %.preheader.split.i.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hc499b0c710ba0a0bE.exit
 
-_ZN4core3ops8function6FnOnce9call_once17hc499b0c710ba0a0bE.exit: ; preds = %.preheader.split.i.i.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i.i, %2, %14
-  %.0.i.i.i.i = phi i1 [ false, %2 ], [ false, %14 ], [ %exitcond.not.i.i.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i.i ], [ %exitcond.not.i.i.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i.i" ], [ %exitcond.not.i.i.i.i.i.i, %.preheader.split.i.i.i.i.i.i ]
+_ZN4core3ops8function6FnOnce9call_once17hc499b0c710ba0a0bE.exit: ; preds = %.preheader.split.i.i.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i.i, %2, %14
+  %.0.i.i.i.i = phi i1 [ false, %2 ], [ false, %14 ], [ %exitcond.not.i.i.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i.i ], [ %exitcond.not.i.i.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i.i" ], [ %exitcond.not.i.i.i.i.i.i, %.preheader.split.i.i.i.i.i.i ]
   ret i1 %.0.i.i.i.i
 }
 
@@ -10962,9 +10964,9 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha736
   %.val3.i.i.i = load i64, ptr %12, align 8
   br label %13
 
-13:                                               ; preds = %59, %3
-  %.sroa.9.0.i = phi i64 [ 0, %3 ], [ %60, %59 ]
-  %.pn.i = phi i64 [ %1, %3 ], [ %61, %59 ]
+13:                                               ; preds = %63, %3
+  %.sroa.9.0.i = phi i64 [ 0, %3 ], [ %64, %63 ]
+  %.pn.i = phi i64 [ %1, %3 ], [ %65, %63 ]
   %.sroa.01.0.i = and i64 %.pn.i, %7
   %14 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i
   %.0.copyload.i34 = load <16 x i8>, ptr %14, align 1, !noalias !2925
@@ -10977,7 +10979,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha736
   %17 = icmp eq <16 x i8> %.0.copyload.i34, splat (i8 -1)
   %18 = bitcast <16 x i1> %17 to i16
   %.not.i = icmp eq i16 %18, 0
-  br i1 %.not.i, label %59, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.10165051650595261532.exit.thread
+  br i1 %.not.i, label %63, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.10165051650595261532.exit.thread
 
 .lr.ph:                                           ; preds = %13, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6a3a576c92fa785cE.llvm.10165051650595261532.exit"
   %.02338 = phi i16 [ %22, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6a3a576c92fa785cE.llvm.10165051650595261532.exit" ], [ %16, %13 ]
@@ -11021,59 +11023,61 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha736
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2953), !noalias !2931
   %37 = load i64, ptr %35, align 8, !range !240, !alias.scope !2955, !noalias !2958, !noundef !10
   %38 = icmp eq i64 %37, -9223372036854775808
-  br i1 %38, label %39, label %44
+  br i1 %38, label %39, label %46
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds i8, ptr %35, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !2955, !noalias !2958, !nonnull !10, !align !140, !noundef !10
   %42 = getelementptr inbounds i8, ptr %35, i64 16
   %43 = load i64, ptr %42, align 8, !alias.scope !2955, !noalias !2958, !noundef !10
+  %44 = insertvalue { ptr, i64 } poison, ptr %41, 0
+  %45 = insertvalue { ptr, i64 } %44, i64 %43, 1
   br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i"
 
-44:                                               ; preds = %33
-  %45 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35), !noalias !2959
-  %46 = extractvalue { ptr, i64 } %45, 0
-  %47 = extractvalue { ptr, i64 } %45, 1
+46:                                               ; preds = %33
+  %47 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35), !noalias !2959
   br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i"
 
-"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i": ; preds = %44, %39
-  %.sroa.5.0.i.i.i.i.i.i.i.i = phi i64 [ %43, %39 ], [ %47, %44 ]
-  %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ %41, %39 ], [ %46, %44 ]
-  %48 = load i64, ptr %36, align 8, !range !240, !alias.scope !2960, !noalias !2963, !noundef !10
-  %49 = icmp eq i64 %48, -9223372036854775808
-  br i1 %49, label %50, label %55
+"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i": ; preds = %46, %39
+  %.merged.i.i.i.i.i.i.i.i = phi { ptr, i64 } [ %45, %39 ], [ %47, %46 ]
+  %48 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i.i.i, 0
+  %49 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i.i.i, 1
+  %50 = load i64, ptr %36, align 8, !range !240, !alias.scope !2960, !noalias !2963, !noundef !10
+  %51 = icmp eq i64 %50, -9223372036854775808
+  br i1 %51, label %52, label %59
 
-50:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i"
-  %51 = getelementptr inbounds i8, ptr %36, i64 8
-  %52 = load ptr, ptr %51, align 8, !alias.scope !2960, !noalias !2963, !nonnull !10, !align !140, !noundef !10
-  %53 = getelementptr inbounds i8, ptr %36, i64 16
-  %54 = load i64, ptr %53, align 8, !alias.scope !2960, !noalias !2963, !noundef !10
-  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i"
+52:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i"
+  %53 = getelementptr inbounds i8, ptr %36, i64 8
+  %54 = load ptr, ptr %53, align 8, !alias.scope !2960, !noalias !2963, !nonnull !10, !align !140, !noundef !10
+  %55 = getelementptr inbounds i8, ptr %36, i64 16
+  %56 = load i64, ptr %55, align 8, !alias.scope !2960, !noalias !2963, !noundef !10
+  %57 = insertvalue { ptr, i64 } poison, ptr %54, 0
+  %58 = insertvalue { ptr, i64 } %57, i64 %56, 1
+  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i"
 
-55:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i"
-  %56 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36), !noalias !2964
-  %57 = extractvalue { ptr, i64 } %56, 0
-  %58 = extractvalue { ptr, i64 } %56, 1
-  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i"
+59:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i.i"
+  %60 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36), !noalias !2964
+  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i"
 
-"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i": ; preds = %55, %50
-  %.sroa.5.0.i1.i.i.i.i.i.i.i = phi i64 [ %54, %50 ], [ %58, %55 ]
-  %.sroa.0.0.i2.i.i.i.i.i.i.i = phi ptr [ %52, %50 ], [ %57, %55 ]
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i.i.i.i.i.i, %.sroa.5.0.i1.i.i.i.i.i.i.i
+"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i": ; preds = %59, %52
+  %.merged.i1.i.i.i.i.i.i.i = phi { ptr, i64 } [ %58, %52 ], [ %60, %59 ]
+  %61 = extractvalue { ptr, i64 } %.merged.i1.i.i.i.i.i.i.i, 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %49, %61
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6a3a576c92fa785cE.llvm.10165051650595261532.exit"
 
-_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i: ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i"
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i2.i.i.i.i.i.i.i, i64 %.sroa.5.0.i.i.i.i.i.i.i.i), !alias.scope !2965, !noalias !2931
+_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i: ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i"
+  %62 = extractvalue { ptr, i64 } %.merged.i1.i.i.i.i.i.i.i, 0
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %48, ptr nonnull readonly align 1 %62, i64 %49), !alias.scope !2965, !noalias !2931
   %.not10.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not10.i.i.i.i.i, label %.preheader.split.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6a3a576c92fa785cE.llvm.10165051650595261532.exit"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6a3a576c92fa785cE.llvm.10165051650595261532.exit": ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i, %.lr.ph, %30
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6a3a576c92fa785cE.llvm.10165051650595261532.exit": ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i, %.lr.ph, %30
   %.not.i4 = icmp eq i16 %22, 0
   br i1 %.not.i4, label %._crit_edge, label %.lr.ph
 
-59:                                               ; preds = %._crit_edge
-  %60 = add i64 %.sroa.9.0.i, 16
-  %61 = add i64 %.sroa.01.0.i, %60
+63:                                               ; preds = %._crit_edge
+  %64 = add i64 %.sroa.9.0.i, 16
+  %65 = add i64 %.sroa.01.0.i, %64
   br label %13
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.10165051650595261532.exit.thread: ; preds = %._crit_edge, %.preheader.split.i.i.i.i.i
@@ -12372,54 +12376,56 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3201)
   %23 = load i64, ptr %21, align 8, !range !240, !alias.scope !3203, !noalias !3206, !noundef !10
   %24 = icmp eq i64 %23, -9223372036854775808
-  br i1 %24, label %25, label %30
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %21, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !3203, !noalias !3206, !nonnull !10, !align !140, !noundef !10
   %28 = getelementptr inbounds i8, ptr %21, i64 16
   %29 = load i64, ptr %28, align 8, !alias.scope !3203, !noalias !3206, !noundef !10
+  %30 = insertvalue { ptr, i64 } poison, ptr %27, 0
+  %31 = insertvalue { ptr, i64 } %30, i64 %29, 1
   br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i"
 
-30:                                               ; preds = %19
-  %31 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !3207
-  %32 = extractvalue { ptr, i64 } %31, 0
-  %33 = extractvalue { ptr, i64 } %31, 1
+32:                                               ; preds = %19
+  %33 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !3207
   br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i"
 
-"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i": ; preds = %30, %25
-  %.sroa.5.0.i.i.i.i.i.i.i = phi i64 [ %29, %25 ], [ %33, %30 ]
-  %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %27, %25 ], [ %32, %30 ]
-  %34 = load i64, ptr %22, align 8, !range !240, !alias.scope !3208, !noalias !3211, !noundef !10
-  %35 = icmp eq i64 %34, -9223372036854775808
-  br i1 %35, label %36, label %41
+"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i": ; preds = %32, %25
+  %.merged.i.i.i.i.i.i.i = phi { ptr, i64 } [ %31, %25 ], [ %33, %32 ]
+  %34 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i.i, 0
+  %35 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i.i, 1
+  %36 = load i64, ptr %22, align 8, !range !240, !alias.scope !3208, !noalias !3211, !noundef !10
+  %37 = icmp eq i64 %36, -9223372036854775808
+  br i1 %37, label %38, label %45
 
-36:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i"
-  %37 = getelementptr inbounds i8, ptr %22, i64 8
-  %38 = load ptr, ptr %37, align 8, !alias.scope !3208, !noalias !3211, !nonnull !10, !align !140, !noundef !10
-  %39 = getelementptr inbounds i8, ptr %22, i64 16
-  %40 = load i64, ptr %39, align 8, !alias.scope !3208, !noalias !3211, !noundef !10
-  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i"
+38:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i"
+  %39 = getelementptr inbounds i8, ptr %22, i64 8
+  %40 = load ptr, ptr %39, align 8, !alias.scope !3208, !noalias !3211, !nonnull !10, !align !140, !noundef !10
+  %41 = getelementptr inbounds i8, ptr %22, i64 16
+  %42 = load i64, ptr %41, align 8, !alias.scope !3208, !noalias !3211, !noundef !10
+  %43 = insertvalue { ptr, i64 } poison, ptr %40, 0
+  %44 = insertvalue { ptr, i64 } %43, i64 %42, 1
+  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i"
 
-41:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i"
-  %42 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22), !noalias !3212
-  %43 = extractvalue { ptr, i64 } %42, 0
-  %44 = extractvalue { ptr, i64 } %42, 1
-  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i"
+45:                                               ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit.i.i.i.i.i.i"
+  %46 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17haa050f7481b4dcf3E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22), !noalias !3212
+  br label %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i"
 
-"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i": ; preds = %41, %36
-  %.sroa.5.0.i1.i.i.i.i.i.i = phi i64 [ %40, %36 ], [ %44, %41 ]
-  %.sroa.0.0.i2.i.i.i.i.i.i = phi ptr [ %38, %36 ], [ %43, %41 ]
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i.i.i.i.i, %.sroa.5.0.i1.i.i.i.i.i.i
+"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i": ; preds = %45, %38
+  %.merged.i1.i.i.i.i.i.i = phi { ptr, i64 } [ %44, %38 ], [ %46, %45 ]
+  %47 = extractvalue { ptr, i64 } %.merged.i1.i.i.i.i.i.i, 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %35, %47
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit"
 
-_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i: ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i"
-  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i2.i.i.i.i.i.i, i64 %.sroa.5.0.i.i.i.i.i.i.i), !alias.scope !3213
+_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i: ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i"
+  %48 = extractvalue { ptr, i64 } %.merged.i1.i.i.i.i.i.i, 0
+  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %34, ptr nonnull readonly align 1 %48, i64 %35), !alias.scope !3213
   %.not10.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %.not10.i.i.i.i, label %.preheader.split.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit": ; preds = %.preheader.split.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i, %2, %14
-  %.0.i.i = phi i1 [ false, %2 ], [ false, %14 ], [ %exitcond.not.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i ], [ %exitcond.not.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit3.i.i.i.i.i.i" ], [ %exitcond.not.i.i.i.i, %.preheader.split.i.i.i.i ]
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit": ; preds = %.preheader.split.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i, %2, %14
+  %.0.i.i = phi i1 [ false, %2 ], [ false, %14 ], [ %exitcond.not.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i ], [ %exitcond.not.i.i.i.i, %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i" ], [ %exitcond.not.i.i.i.i, %.preheader.split.i.i.i.i ]
   ret i1 %.0.i.i
 }
 

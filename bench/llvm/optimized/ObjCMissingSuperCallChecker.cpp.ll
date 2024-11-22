@@ -2005,8 +2005,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_120ObjCSuperCallChecker13fillSelec
   %11 = load ptr, ptr %.fca.0.extract.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = getelementptr inbounds %"struct.(anonymous namespace)::SelectorDescriptor", ptr %2, i64 %3
-  %.not22 = icmp eq i64 %3, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq i64 %3, 0
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 17296
@@ -2017,9 +2017,9 @@ define internal fastcc void @_ZNK12_GLOBAL__N_120ObjCSuperCallChecker13fillSelec
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZN4llvm15SmallPtrSetImplIN5clang8SelectorEE6insertES2_.exit
-  %.023 = phi ptr [ %2, %.lr.ph ], [ %45, %_ZN4llvm15SmallPtrSetImplIN5clang8SelectorEE6insertES2_.exit ]
-  %.sroa.02.0.copyload = load ptr, ptr %.023, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.023, i64 8
+  %.024 = phi ptr [ %2, %.lr.ph ], [ %45, %_ZN4llvm15SmallPtrSetImplIN5clang8SelectorEE6insertES2_.exit ]
+  %.sroa.02.0.copyload = load ptr, ptr %.024, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.024, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %20 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %.sroa.02.0.copyload, null
@@ -2075,7 +2075,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %19, %21
   br label %_ZN4llvm15SmallPtrSetImplIN5clang8SelectorEE6insertES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIN5clang8SelectorEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %41, %43
-  %45 = getelementptr inbounds i8, ptr %.023, i64 16
+  %45 = getelementptr inbounds i8, ptr %.024, i64 16
   %.not = icmp eq ptr %45, %13
   br i1 %.not, label %._crit_edge, label %19
 

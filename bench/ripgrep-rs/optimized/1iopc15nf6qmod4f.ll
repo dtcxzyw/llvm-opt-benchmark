@@ -332,10 +332,10 @@ define void @_ZN8grep_cli7pattern15pattern_from_os17hfdb218031bf42c68E(ptr noali
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !52
   call void @_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h82c18ef499c748cdE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !56
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !57, !noalias !52, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !57, !noalias !52, !noundef !4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !57, !noalias !52, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !57, !noalias !52, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !63
   %14 = getelementptr inbounds i8, ptr %5, i64 40
@@ -358,9 +358,9 @@ define void @_ZN8grep_cli7pattern15pattern_from_os17hfdb218031bf42c68E(ptr noali
           to label %52 unwind label %50, !noalias !56
 
 .lr.ph.split.split.i.i.i:                         ; preds = %33, %13
-  %.sroa.7.049.i.i.i = phi i64 [ %34, %33 ], [ %.sroa.5.0.i.i, %13 ]
+  %.sroa.7.049.i.i.i = phi i64 [ %34, %33 ], [ %.pn1.i.i, %13 ]
   %16 = phi i64 [ %31, %33 ], [ 0, %13 ]
-  %.sroa.0.050.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %16
+  %.sroa.0.050.i.i.i = getelementptr inbounds i8, ptr %.pn3.i.i, i64 %16
   %17 = icmp ult i64 %.sroa.7.049.i.i.i, 16
   br i1 %17, label %20, label %18
 
@@ -402,17 +402,17 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i.i: ; preds = %2
   %30 = add i64 %16, 1
   %31 = add i64 %30, %.sroa.6.0.i.i.i
   %.not.i.i.i = icmp ult i64 %31, 3
-  %32 = icmp ugt i64 %31, %.sroa.5.0.i.i
+  %32 = icmp ugt i64 %31, %.pn1.i.i
   %or.cond.i.i.i = or i1 %.not.i.i.i, %32
   br i1 %or.cond.i.i.i, label %33, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit.i.i.i"
 
 33:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit.i.i.i", %29
-  %34 = sub nuw i64 %.sroa.5.0.i.i, %31
+  %34 = sub nuw i64 %.pn1.i.i, %31
   br i1 %32, label %38, label %.lr.ph.split.split.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit.i.i.i": ; preds = %29
   %35 = add i64 %31, -3
-  %36 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %35
+  %36 = getelementptr inbounds i8, ptr %.pn3.i.i, i64 %35
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %36, ptr noundef nonnull readonly align 1 dereferenceable(3) %14, i64 3), !alias.scope !76, !noalias !80
   %37 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %37, label %39, label %33
@@ -441,7 +441,7 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i.i: ; preds = %2
   %46 = load ptr, ptr %4, align 8, !noalias !84, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds i8, ptr %4, i64 16
   %48 = load i64, ptr %47, align 8, !noalias !84, !noundef !4
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.1231196827938639477"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i.i, ptr noundef nonnull %46, i64 noundef %44, i64 noundef %48), !noalias !56
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.1231196827938639477"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i.i, ptr noundef nonnull %46, i64 noundef %44, i64 noundef %48), !noalias !56
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hddc366daa5184e92E.exit.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hddc366daa5184e92E.exit.i.i": ; preds = %45, %42

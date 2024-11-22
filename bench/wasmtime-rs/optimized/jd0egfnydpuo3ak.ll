@@ -3756,9 +3756,9 @@ define hidden void @_ZN3std2io4Read13read_vectored17h6b5a03b88a7fe2e0E(ptr noali
   br label %_ZN3std2io21default_read_vectored17h1e7f3f9e60530f72E.exit
 
 _ZN3std2io21default_read_vectored17h1e7f3f9e60530f72E.exit: ; preds = %8, %13
-  %.sroa.0.0.i.i = phi i1 [ %15, %13 ], [ true, %8 ]
+  %.pn6.i.i = phi i1 [ %15, %13 ], [ true, %8 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1119
-  call void @llvm.assume(i1 %.sroa.0.0.i.i)
+  call void @llvm.assume(i1 %.pn6.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !1131, !noalias !1136
   ret void
 }

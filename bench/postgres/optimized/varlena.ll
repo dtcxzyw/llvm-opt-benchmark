@@ -225,7 +225,7 @@ define dso_local void @text_to_cstring_buffer(ptr noundef %0, ptr nocapture noun
   %14 = icmp eq i8 %10, 18
   %15 = select i1 %14, i64 16, i64 0
   %16 = select i1 %or.cond, i64 8, i64 %15
-  br label %28
+  br label %29
 
 17:                                               ; preds = %3
   %18 = and i32 %6, 1
@@ -236,57 +236,60 @@ define dso_local void @text_to_cstring_buffer(ptr noundef %0, ptr nocapture noun
   %20 = lshr i32 %6, 1
   %21 = zext nneg i32 %20 to i64
   %22 = add nsw i64 %21, -1
-  br label %28
+  br label %29
 
 23:                                               ; preds = %17
   %24 = load i32, ptr %4, align 4
   %25 = lshr i32 %24, 2
   %26 = add nsw i32 %25, -4
   %27 = zext i32 %26 to i64
-  br label %28
+  %28 = trunc i32 %24 to i8
+  br label %29
 
-28:                                               ; preds = %19, %23, %8
-  %29 = phi i64 [ %16, %8 ], [ %22, %19 ], [ %27, %23 ]
+29:                                               ; preds = %19, %23, %8
+  %30 = phi i8 [ 1, %8 ], [ %5, %19 ], [ %28, %23 ]
+  %31 = phi i64 [ %16, %8 ], [ %22, %19 ], [ %27, %23 ]
   %.not33 = icmp eq i64 %2, 0
-  br i1 %.not33, label %44, label %30
+  br i1 %.not33, label %46, label %32
 
-30:                                               ; preds = %28
-  %31 = add i64 %2, -1
-  %.not34 = icmp ult i64 %31, %29
-  br i1 %.not34, label %32, label %39
+32:                                               ; preds = %29
+  %33 = add i64 %2, -1
+  %.not34 = icmp ult i64 %33, %31
+  br i1 %.not34, label %34, label %41
 
-32:                                               ; preds = %30
-  %33 = and i8 %5, 1
-  %.not35 = icmp eq i8 %33, 0
+34:                                               ; preds = %32
+  %35 = and i8 %5, 1
+  %.not35 = icmp eq i8 %35, 0
   %.v = select i1 %.not35, i64 4, i64 1
-  %34 = getelementptr inbounds i8, ptr %4, i64 %.v
-  %35 = trunc i64 %29 to i32
-  %36 = trunc i64 %31 to i32
-  %37 = tail call i32 @pg_mbcliplen(ptr noundef nonnull %34, i32 noundef %35, i32 noundef %36) #19
-  %38 = sext i32 %37 to i64
-  br label %39
+  %36 = getelementptr inbounds i8, ptr %4, i64 %.v
+  %37 = trunc i64 %31 to i32
+  %38 = trunc i64 %33 to i32
+  %39 = tail call i32 @pg_mbcliplen(ptr noundef nonnull %36, i32 noundef %37, i32 noundef %38) #19
+  %40 = sext i32 %39 to i64
+  %.pre = load i8, ptr %4, align 1
+  br label %41
 
-39:                                               ; preds = %30, %32
-  %.0 = phi i64 [ %38, %32 ], [ %29, %30 ]
-  %40 = load i8, ptr %4, align 1
-  %41 = and i8 %40, 1
-  %.not36 = icmp eq i8 %41, 0
+41:                                               ; preds = %32, %34
+  %42 = phi i8 [ %.pre, %34 ], [ %30, %32 ]
+  %.0 = phi i64 [ %40, %34 ], [ %31, %32 ]
+  %43 = and i8 %42, 1
+  %.not36 = icmp eq i8 %43, 0
   %.v37 = select i1 %.not36, i64 4, i64 1
-  %42 = getelementptr inbounds i8, ptr %4, i64 %.v37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %42, i64 %.0, i1 false)
-  %43 = getelementptr i8, ptr %1, i64 %.0
-  store i8 0, ptr %43, align 1
-  br label %44
-
-44:                                               ; preds = %39, %28
-  %.not38 = icmp eq ptr %4, %0
-  br i1 %.not38, label %46, label %45
-
-45:                                               ; preds = %44
-  tail call void @pfree(ptr noundef nonnull %4) #19
+  %44 = getelementptr inbounds i8, ptr %4, i64 %.v37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %44, i64 %.0, i1 false)
+  %45 = getelementptr i8, ptr %1, i64 %.0
+  store i8 0, ptr %45, align 1
   br label %46
 
-46:                                               ; preds = %45, %44
+46:                                               ; preds = %41, %29
+  %.not38 = icmp eq ptr %4, %0
+  br i1 %.not38, label %48, label %47
+
+47:                                               ; preds = %46
+  tail call void @pfree(ptr noundef nonnull %4) #19
+  br label %48
+
+48:                                               ; preds = %47, %46
   ret void
 }
 

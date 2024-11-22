@@ -19701,9 +19701,9 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread.i:  ; preds = %_ZNK4llvm9StringRef
   br label %"_ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_1clEN4llvm9StringRefE.exit"
 
 "_ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_1clEN4llvm9StringRefE.exit": ; preds = %144, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i
-  %.sroa.0.0.i = phi ptr [ %153, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i ], [ %145, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ %145, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %145, %144 ]
-  %.sroa.3.0.i = phi i64 [ %152, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i ], [ %146, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ %146, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %146, %144 ]
-  switch i64 %.sroa.3.0.i, label %_ZN4llvmeqENS_9StringRefES0_.exit118.thread196 [
+  %.pn12.i = phi ptr [ %153, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i ], [ %145, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ %145, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %145, %144 ]
+  %.sroa.speculated.i.pn.i = phi i64 [ %152, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i ], [ %146, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ %146, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %146, %144 ]
+  switch i64 %.sroa.speculated.i.pn.i, label %_ZN4llvmeqENS_9StringRefES0_.exit118.thread196 [
     i64 5, label %_ZN4llvmeqENS_9StringRefES0_.exit
     i64 13, label %_ZN4llvmeqENS_9StringRefES0_.exit60
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit79
@@ -19711,7 +19711,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread.i:  ; preds = %_ZNK4llvm9StringRef
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %"_ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_1clEN4llvm9StringRefE.exit"
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.0.0.i, ptr noundef nonnull dereferenceable(5) @.str.31, i64 5)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.pn12.i, ptr noundef nonnull dereferenceable(5) @.str.31, i64 5)
   %154 = icmp eq i32 %bcmp.i, 0
   br i1 %154, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit118.thread196
 
@@ -19763,7 +19763,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 _ZNK5clang12Preprocessor4DiagERKNS_5TokenEj.exit: ; preds = %.lr.ph.i.i.i.i.i, %157
   %173 = getelementptr inbounds nuw i8, ptr %158, i64 912
   store i32 0, ptr %173, align 8, !noalias !772
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %18, ptr %.sroa.0.0.i, i64 5)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %18, ptr %.pn12.i, i64 5)
   %174 = load i8, ptr %100, align 8
   %175 = trunc i8 %174 to i1
   br i1 %175, label %176, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
@@ -19842,7 +19842,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang19Streamin
   br label %.critedge56
 
 _ZN4llvmeqENS_9StringRefES0_.exit60:              ; preds = %"_ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_1clEN4llvm9StringRefE.exit"
-  %bcmp.i59 = call i32 @bcmp(ptr %.sroa.0.0.i, ptr nonnull @.str.32, i64 %.sroa.3.0.i)
+  %bcmp.i59 = call i32 @bcmp(ptr %.pn12.i, ptr nonnull @.str.32, i64 %.sroa.speculated.i.pn.i)
   %205 = icmp eq i32 %bcmp.i59, 0
   br i1 %205, label %_ZN4llvmeqENS_9StringRefES0_.exit60.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit118.thread196
 
@@ -19894,7 +19894,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit60.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 _ZNK5clang12Preprocessor4DiagERKNS_5TokenEj.exit66: ; preds = %.lr.ph.i.i.i.i.i63, %208
   %224 = getelementptr inbounds nuw i8, ptr %209, i64 912
   store i32 0, ptr %224, align 8, !noalias !779
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %19, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %19, ptr %.pn12.i, i64 %.sroa.speculated.i.pn.i)
   %225 = load i8, ptr %96, align 8
   %226 = trunc i8 %225 to i1
   br i1 %226, label %227, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i70
@@ -19973,7 +19973,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit75:          ; preds = %_ZN5clang19Streamin
   br label %.critedge56
 
 _ZN4llvmeqENS_9StringRefES0_.exit79:              ; preds = %"_ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_1clEN4llvm9StringRefE.exit"
-  %bcmp.i78 = call i32 @bcmp(ptr %.sroa.0.0.i, ptr nonnull @.str.33, i64 %.sroa.3.0.i)
+  %bcmp.i78 = call i32 @bcmp(ptr %.pn12.i, ptr nonnull @.str.33, i64 %.sroa.speculated.i.pn.i)
   %256 = icmp eq i32 %bcmp.i78, 0
   br i1 %256, label %_ZN4llvmeqENS_9StringRefES0_.exit79.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit98
 
@@ -20025,7 +20025,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit79.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 _ZNK5clang12Preprocessor4DiagERKNS_5TokenEj.exit85: ; preds = %.lr.ph.i.i.i.i.i82, %259
   %275 = getelementptr inbounds nuw i8, ptr %260, i64 912
   store i32 0, ptr %275, align 8, !noalias !786
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %20, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %20, ptr %.pn12.i, i64 %.sroa.speculated.i.pn.i)
   %276 = load i8, ptr %87, align 8
   %277 = trunc i8 %276 to i1
   br i1 %277, label %278, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i89
@@ -20148,7 +20148,7 @@ _ZN4llvm11SmallVectorIN5clang5TokenELj4EED2Ev.exit: ; preds = %_ZN5clang22PPEmbe
   br i1 %297, label %.critedge56, label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit98:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit79
-  %bcmp.i97 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0.0.i, ptr noundef nonnull dereferenceable(6) @.str.34, i64 6)
+  %bcmp.i97 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.pn12.i, ptr noundef nonnull dereferenceable(6) @.str.34, i64 6)
   %321 = icmp eq i32 %bcmp.i97, 0
   br i1 %321, label %_ZN4llvmeqENS_9StringRefES0_.exit98.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit118.thread196
 
@@ -20200,7 +20200,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit98.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 _ZNK5clang12Preprocessor4DiagERKNS_5TokenEj.exit104: ; preds = %.lr.ph.i.i.i.i.i101, %324
   %340 = getelementptr inbounds nuw i8, ptr %325, i64 912
   store i32 0, ptr %340, align 8, !noalias !793
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %23, ptr %.sroa.0.0.i, i64 6)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %23, ptr %.pn12.i, i64 6)
   %341 = load i8, ptr %78, align 8
   %342 = trunc i8 %341 to i1
   br i1 %342, label %343, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i108
@@ -20323,7 +20323,7 @@ _ZN4llvm11SmallVectorIN5clang5TokenELj4EED2Ev.exit114: ; preds = %_ZN5clang22PPE
   br i1 %362, label %.critedge56, label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit118:             ; preds = %"_ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_1clEN4llvm9StringRefE.exit"
-  %bcmp.i117 = call i32 @bcmp(ptr %.sroa.0.0.i, ptr nonnull @.str.35, i64 %.sroa.3.0.i)
+  %bcmp.i117 = call i32 @bcmp(ptr %.pn12.i, ptr nonnull @.str.35, i64 %.sroa.speculated.i.pn.i)
   %386 = icmp eq i32 %bcmp.i117, 0
   br i1 %386, label %_ZN4llvmeqENS_9StringRefES0_.exit118.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit118.thread196
 
@@ -20375,7 +20375,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit118.thread:      ; preds = %_ZN4llvmeqENS_9Stri
 _ZNK5clang12Preprocessor4DiagERKNS_5TokenEj.exit124: ; preds = %.lr.ph.i.i.i.i.i121, %389
   %405 = getelementptr inbounds nuw i8, ptr %390, i64 912
   store i32 0, ptr %405, align 8, !noalias !800
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %26, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %26, ptr %.pn12.i, i64 %.sroa.speculated.i.pn.i)
   %406 = load i8, ptr %68, align 8
   %407 = trunc i8 %406 to i1
   br i1 %407, label %408, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i128
@@ -20556,7 +20556,7 @@ _ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit: ; preds = %462, %_ZNK5clang19
   %476 = zext i8 %474 to i64
   %477 = getelementptr inbounds [10 x i64], ptr %473, i64 0, i64 %476
   store i64 1, ptr %477, align 8
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %30, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %30, ptr %.pn12.i, i64 %.sroa.speculated.i.pn.i)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %30) #18
   store i8 0, ptr %71, align 8
   br label %.loopexit

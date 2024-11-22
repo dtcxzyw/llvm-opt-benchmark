@@ -297,11 +297,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120AArch64BranchTargets20run
 52:                                               ; preds = %._crit_edge.i.i, %.lr.ph
   %53 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef %38) #11, !noalias !4
   %.pre.i = load ptr, ptr %8, align 8
-  %.pre8.i = load i32, ptr %18, align 4, !noalias !4
+  %.pre6.i = load i32, ptr %18, align 4, !noalias !4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %52, %48
-  %54 = phi i32 [ %51, %48 ], [ %.pre8.i, %52 ], [ %35, %.lr.ph.i.i ]
+  %54 = phi i32 [ %51, %48 ], [ %.pre6.i, %52 ], [ %35, %.lr.ph.i.i ]
   %55 = phi ptr [ %50, %48 ], [ %.pre.i, %52 ], [ %36, %.lr.ph.i.i ]
   %56 = load ptr, ptr %16, align 8
   %57 = load i32, ptr %17, align 8, !noalias !4

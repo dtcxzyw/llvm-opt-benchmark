@@ -7364,8 +7364,8 @@ define hidden void @_ZN8async_io6driver8block_on17h67858d16997b3feeE(ptr dead_on
   %140 = getelementptr inbounds i8, ptr %15, i64 16
   %141 = getelementptr inbounds i8, ptr %15, i64 24
   %142 = getelementptr inbounds i8, ptr %15, i64 32
-  %.sroa.0.0.in.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 200
-  %.sroa.5.0.in.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 208
+  %.pn1.in.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 208
+  %.pn3.in.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 200
   %143 = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.023.sroa.0.88..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.023.sroa.0.i.i.i, i64 88
   %.sroa.833.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %14, i64 72
@@ -8050,9 +8050,9 @@ _ZN3log13__private_api3log17h87c8e06c9368ea7bE.exit.i.i.i: ; preds = %341
   br label %352
 
 347:                                              ; preds = %331
-  %.sroa.0.0.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i, align 8, !alias.scope !1763, !noalias !1753, !nonnull !4, !noundef !4
-  %.sroa.5.0.i.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.i, align 8, !alias.scope !1763, !noalias !1753, !noundef !4
-  invoke void @"_ZN5sqlez22thread_safe_connection29ThreadSafeConnection$LT$M$GT$7builder17h0dcb3a07fbbd36b6E"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.5.0.i.i.i.i, i1 noundef zeroext true)
+  %.pn1.i.i.i.i = load i64, ptr %.pn1.in.i.i.i.i, align 8, !alias.scope !1763, !noalias !1753, !noundef !4
+  %.pn3.i.i.i.i = load ptr, ptr %.pn3.in.i.i.i.i, align 8, !alias.scope !1763, !noalias !1753, !nonnull !4, !noundef !4
+  invoke void @"_ZN5sqlez22thread_safe_connection29ThreadSafeConnection$LT$M$GT$7builder17h0dcb3a07fbbd36b6E"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i.i, i64 noundef %.pn1.i.i.i.i, i1 noundef zeroext true)
           to label %350 unwind label %348, !noalias !1757
 
 348:                                              ; preds = %347

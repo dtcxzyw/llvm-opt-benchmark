@@ -4180,21 +4180,21 @@ define dso_local { ptr, i64 } @_ZN5clang5Lexer21getIndentationForLineENS_14Sourc
 
 5:                                                ; preds = %2
   %6 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %0)
-  %.sroa.012.0.extract.trunc = trunc i64 %6 to i32
+  %.sroa.010.0.extract.trunc = trunc i64 %6 to i32
   %.sroa.3.0.extract.shift = lshr i64 %6, 32
-  %7 = icmp eq i32 %.sroa.012.0.extract.trunc, 0
+  %7 = icmp eq i32 %.sroa.010.0.extract.trunc, 0
   br i1 %7, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread, label %8
 
 8:                                                ; preds = %5
   store i8 0, ptr %3, align 1
-  %9 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.012.0.extract.trunc, ptr noundef nonnull %3) #24
+  %9 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.010.0.extract.trunc, ptr noundef nonnull %3) #24
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
   %12 = load i8, ptr %3, align 1
   %13 = trunc i8 %12 to i1
   %.not.i = icmp ule i64 %11, %.sroa.3.0.extract.shift
-  %or.cond38.not = select i1 %13, i1 true, i1 %.not.i
-  br i1 %or.cond38.not, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread, label %14
+  %or.cond36.not = select i1 %13, i1 true, i1 %.not.i
+  br i1 %or.cond36.not, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %10, i64 %.sroa.3.0.extract.shift
@@ -4231,7 +4231,7 @@ define dso_local { ptr, i64 } @_ZN5clang5Lexer21getIndentationForLineENS_14Sourc
 29:                                               ; preds = %26, %23
   %30 = getelementptr inbounds i8, ptr %.019.i, i64 -2
   %31 = icmp ult ptr %30, %10
-  br i1 %31, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread33, label %.thread.i.i.preheader
+  br i1 %31, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread31, label %.thread.i.i.preheader
 
 .thread.i.i.preheader:                            ; preds = %29, %26, %23, %21
   %.0.pn.i.i.ph = phi ptr [ %.019.i, %21 ], [ %.019.i, %23 ], [ %22, %29 ], [ %.019.i, %26 ]
@@ -4254,9 +4254,9 @@ define dso_local { ptr, i64 } @_ZN5clang5Lexer21getIndentationForLineENS_14Sourc
 
 _ZN5clang5Lexer16isNewLineEscapedEPKcS2_.exit.i:  ; preds = %33, %.thread.i.i
   %38 = icmp eq i8 %.pre.i.i, 92
-  br i1 %38, label %40, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread33
+  br i1 %38, label %40, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread31
 
-_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread33: ; preds = %29, %_ZN5clang5Lexer16isNewLineEscapedEPKcS2_.exit.i
+_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread31: ; preds = %29, %_ZN5clang5Lexer16isNewLineEscapedEPKcS2_.exit.i
   %39 = getelementptr inbounds i8, ptr %.019.i, i64 1
   br label %42
 
@@ -4270,9 +4270,9 @@ _ZL19findBeginningOfLineN4llvm9StringRefEj.exit:  ; preds = %40, %14
   %.not = icmp eq ptr %.011.i, null
   br i1 %.not, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread, label %42
 
-42:                                               ; preds = %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread33, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit
-  %.011.i36 = phi ptr [ %39, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread33 ], [ %.011.i, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit ]
-  %43 = ptrtoint ptr %.011.i36 to i64
+42:                                               ; preds = %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread31, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit
+  %.011.i34 = phi ptr [ %39, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread31 ], [ %.011.i, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit ]
+  %43 = ptrtoint ptr %.011.i34 to i64
   %44 = ptrtoint ptr %10 to i64
   %45 = sub i64 %43, %44
   %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %11, i64 %45)
@@ -4288,13 +4288,13 @@ _ZL19findBeginningOfLineN4llvm9StringRefEj.exit:  ; preds = %40, %14
 51:                                               ; preds = %42
   %52 = load i64, ptr %48, align 8
   %..i = call i64 @llvm.umin.i64(i64 %49, i64 %52)
-  %.sroa.0.0.i = load ptr, ptr %4, align 8
+  %.sroa.0.0.copyload.pn.i = load ptr, ptr %4, align 8
   br label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread
 
 _ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread: ; preds = %42, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit, %8, %5, %2, %51
   %.sroa.11.0 = phi i64 [ %..i, %51 ], [ 0, %2 ], [ 0, %5 ], [ 0, %8 ], [ 0, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit ], [ 0, %42 ]
-  %.sroa.016.0 = phi ptr [ %.sroa.0.0.i, %51 ], [ null, %2 ], [ null, %5 ], [ null, %8 ], [ null, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit ], [ @.str.1, %42 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.016.0, 0
+  %.sroa.014.0 = phi ptr [ %.sroa.0.0.copyload.pn.i, %51 ], [ null, %2 ], [ null, %5 ], [ null, %8 ], [ null, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit ], [ @.str.1, %42 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.014.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.11.0, 1
   ret { ptr, i64 } %.fca.1.insert
 }
@@ -9660,11 +9660,11 @@ define dso_local void @_ZN5clang5Lexer24codeCompleteIncludedFileEPKcS2_b(ptr noc
 18:                                               ; preds = %4
   %19 = load i64, ptr %9, align 8
   %..i = call i64 @llvm.umin.i64(i64 %16, i64 %19)
-  %.sroa.0.0.i = load ptr, ptr %5, align 8
+  %.sroa.0.0.copyload.pn.i = load ptr, ptr %5, align 8
   br label %20
 
 20:                                               ; preds = %4, %18
-  %.sroa.035.0 = phi ptr [ %.sroa.0.0.i, %18 ], [ @.str.1, %4 ]
+  %.sroa.035.0 = phi ptr [ %.sroa.0.0.copyload.pn.i, %18 ], [ @.str.1, %4 ]
   %.sroa.3.0 = phi i64 [ %..i, %18 ], [ 0, %4 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 %16
   %22 = getelementptr inbounds i8, ptr %21, i64 1

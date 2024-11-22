@@ -9350,14 +9350,14 @@ define dso_local void @_ZN4llvm3omp27deconstructOpenMPKernelNameB5cxx11ENS_9Stri
   %9 = alloca %"class.llvm::StringRef", align 8
   %10 = alloca %"class.std::allocator", align 1
   %.not.i = icmp ult i64 %2, 17
-  br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread31, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+  br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread29, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %1, ptr noundef nonnull dereferenceable(17) @.str.236, i64 17)
   %11 = icmp eq i32 %bcmp.i, 0
-  br i1 %11, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread31
+  br i1 %11, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread29
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread31: ; preds = %4, %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread29: ; preds = %4, %_ZNK4llvm9StringRef11starts_withES0_.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
@@ -9374,7 +9374,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   br label %17
 
 17:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit
-  %.035 = phi i32 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %32, %_ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit ]
+  %.033 = phi i32 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %32, %_ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit ]
   %18 = phi i64 [ %16, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %31, %_ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit ]
   %19 = phi ptr [ %15, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %30, %_ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit ]
   %20 = icmp eq i64 %18, 0
@@ -9402,12 +9402,12 @@ _ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit: ; preds = %24, %1
   %.sroa.speculated5.i.i10 = tail call i64 @llvm.umin.i64(i64 %18, i64 %.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %19, i64 %.sroa.speculated5.i.i10
   %29 = icmp ugt i64 %18, %.0.i.i.i
-  %.sroa.speculated5.i.i13.neg43 = sext i1 %29 to i64
+  %.sroa.speculated5.i.i13.neg41 = sext i1 %29 to i64
   %.sroa.speculated5.i.i13 = zext i1 %29 to i64
   %30 = getelementptr inbounds i8, ptr %28, i64 %.sroa.speculated5.i.i13
   %.neg = sub i64 %18, %.sroa.speculated5.i.i10
-  %31 = add i64 %.neg, %.sroa.speculated5.i.i13.neg43
-  %32 = add nuw nsw i32 %.035, 1
+  %31 = add i64 %.neg, %.sroa.speculated5.i.i13.neg41
+  %32 = add nuw nsw i32 %.033, 1
   %exitcond.not = icmp eq i32 %32, 3
   br i1 %exitcond.not, label %33, label %17, !llvm.loop !44
 
@@ -9467,11 +9467,11 @@ _ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit: ; preds = %24, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %57 = load i64, ptr %34, align 8
   %..i = call i64 @llvm.umin.i64(i64 %35, i64 %57)
-  %.sroa.0.0.i = load ptr, ptr %7, align 8
-  call void @_ZN4llvm8demangleB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %..i, ptr %.sroa.0.0.i) #11
+  %.sroa.0.0.copyload.pn.i = load ptr, ptr %7, align 8
+  call void @_ZN4llvm8demangleB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %..i, ptr %.sroa.0.0.copyload.pn.i) #11
   br label %58
 
-58:                                               ; preds = %55, %51, %37, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread31
+58:                                               ; preds = %55, %51, %37, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread29
   ret void
 }
 

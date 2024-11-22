@@ -80954,11 +80954,11 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.then15.i, %if.end52.i, %while.end.i, %sw.bb2, %sw.default, %sw.bb8, %sw.bb
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload1, %sw.default ], [ %retval.sroa.0.0.copyload, %sw.bb8 ], [ %agg.tmp.sroa.0.0.copyload, %sw.bb ], [ %agg.tmp5.sroa.0.0.copyload, %if.end52.i ], [ null, %sw.bb2 ], [ null, %while.end.i ], [ null, %if.then15.i ]
-  %retval.sroa.5.0 = phi i64 [ %retval.sroa.5.0.copyload2, %sw.default ], [ %retval.sroa.5.0.copyload, %sw.bb8 ], [ %agg.tmp.sroa.2.0.copyload, %sw.bb ], [ %retval.sroa.3.8.insert.ext.i.i.i, %if.end52.i ], [ 0, %sw.bb2 ], [ 0, %while.end.i ], [ 0, %if.then15.i ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %retval.sroa.0.0.copyload1.pn = phi ptr [ %retval.sroa.0.0.copyload1, %sw.default ], [ %retval.sroa.0.0.copyload, %sw.bb8 ], [ %agg.tmp.sroa.0.0.copyload, %sw.bb ], [ %agg.tmp5.sroa.0.0.copyload, %if.end52.i ], [ null, %sw.bb2 ], [ null, %while.end.i ], [ null, %if.then15.i ]
+  %retval.sroa.5.0.copyload2.pn = phi i64 [ %retval.sroa.5.0.copyload2, %sw.default ], [ %retval.sroa.5.0.copyload, %sw.bb8 ], [ %agg.tmp.sroa.2.0.copyload, %sw.bb ], [ %retval.sroa.3.8.insert.ext.i.i.i, %if.end52.i ], [ 0, %sw.bb2 ], [ 0, %while.end.i ], [ 0, %if.then15.i ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload1.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i64 } %.pn, i64 %retval.sroa.5.0.copyload2.pn, 1
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -2491,11 +2491,11 @@ define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17h475857d87
   br label %8
 
 8:                                                ; preds = %3, %5
-  %.sroa.3.0 = phi i64 [ %.val5, %5 ], [ %2, %3 ]
-  %.sroa.02.0 = phi ptr [ %.val, %5 ], [ %1, %3 ]
-  %9 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %10 = insertvalue { ptr, i64 } %9, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %10
+  %.pn8 = phi ptr [ %.val, %5 ], [ %1, %3 ]
+  %.pn6 = phi i64 [ %.val5, %5 ], [ %2, %3 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn8, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn6, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -15057,10 +15057,10 @@ define hidden { ptr, ptr } @_ZN6editor6Editor16highlighted_rows17h78d19174f1cc2e
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h475857d879b068caE.llvm.307468510663036300.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h475857d879b068caE.llvm.307468510663036300.exit": ; preds = %._crit_edge.i.i, %1, %33
-  %.sroa.3.0.i = phi i64 [ %.val5.i, %33 ], [ 0, %1 ], [ 0, %._crit_edge.i.i ]
-  %.sroa.02.0.i = phi ptr [ %.val.i, %33 ], [ inttoptr (i64 8 to ptr), %1 ], [ inttoptr (i64 8 to ptr), %._crit_edge.i.i ]
-  %36 = getelementptr inbounds { { float, float, float, float }, i64, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i8, [7 x i8] }, ptr %.sroa.02.0.i, i64 %.sroa.3.0.i
-  %37 = insertvalue { ptr, ptr } poison, ptr %.sroa.02.0.i, 0
+  %.pn8.i = phi ptr [ %.val.i, %33 ], [ inttoptr (i64 8 to ptr), %1 ], [ inttoptr (i64 8 to ptr), %._crit_edge.i.i ]
+  %.pn6.i = phi i64 [ %.val5.i, %33 ], [ 0, %1 ], [ 0, %._crit_edge.i.i ]
+  %36 = getelementptr inbounds { { float, float, float, float }, i64, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i8, [7 x i8] }, ptr %.pn8.i, i64 %.pn6.i
+  %37 = insertvalue { ptr, ptr } poison, ptr %.pn8.i, 0
   %38 = insertvalue { ptr, ptr } %37, ptr %36, 1
   ret { ptr, ptr } %38
 }

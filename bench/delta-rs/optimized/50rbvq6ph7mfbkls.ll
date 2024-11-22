@@ -5352,14 +5352,14 @@ select.unfold1055.i:                              ; preds = %1407, %.noexc367.i,
   %1533 = getelementptr inbounds i8, ptr %0, i64 248
   store i8 0, ptr %1533, align 8, !alias.scope !654, !noalias !588
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8), !noalias !657
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i1095, align 8, !alias.scope !686, !noalias !588, !nonnull !5, !noundef !5
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i1096, align 8, !alias.scope !686, !noalias !588, !noundef !5
-  %1534 = getelementptr inbounds { { ptr, i64 } }, ptr %.sroa.0.0.i.i.i, i64 %.sroa.5.0.i.i.i
+  %.pn1.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i1096, align 8, !alias.scope !686, !noalias !588, !noundef !5
+  %.pn3.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i1095, align 8, !alias.scope !686, !noalias !588, !nonnull !5, !noundef !5
+  %1534 = getelementptr inbounds { { ptr, i64 } }, ptr %.pn3.i.i.i, i64 %.pn1.i.i.i
   %1535 = getelementptr inbounds i8, ptr %0, i64 256
-  store ptr %.sroa.0.0.i.i.i, ptr %1535, align 8, !noalias !588
+  store ptr %.pn3.i.i.i, ptr %1535, align 8, !noalias !588
   %1536 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %1534, ptr %1536, align 8, !noalias !588
-  %1537 = icmp eq i64 %.sroa.5.0.i.i.i, 0
+  %1537 = icmp eq i64 %.pn1.i.i.i, 0
   br i1 %1537, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1531
@@ -5481,7 +5481,7 @@ select.unfold1055.i:                              ; preds = %1407, %.noexc367.i,
   unreachable
 
 1577:                                             ; preds = %.backedge.i, %.lr.ph.i
-  %1578 = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph.i ], [ %1951, %.backedge.i ]
+  %1578 = phi ptr [ %.pn3.i.i.i, %.lr.ph.i ], [ %1951, %.backedge.i ]
   %1579 = getelementptr inbounds i8, ptr %1578, i64 16
   store ptr %1579, ptr %1535, align 8, !alias.scope !691, !noalias !588
   %1580 = load ptr, ptr %1578, align 8, !noalias !600, !nonnull !5, !align !8, !noundef !5

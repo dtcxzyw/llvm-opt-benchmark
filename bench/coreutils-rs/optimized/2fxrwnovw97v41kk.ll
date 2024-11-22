@@ -1654,8 +1654,8 @@ define void @_ZN5uu_du2du17h0d5f2f12fdf6b866E(ptr noalias nocapture noundef writ
   %79 = icmp eq i64 %.val150, 0
   %80 = getelementptr inbounds i8, ptr %47, i64 72
   %81 = getelementptr inbounds i8, ptr %47, i64 80
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %46, i64 8
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %46, i64 16
+  %.pn1.in.i = getelementptr inbounds i8, ptr %46, i64 16
+  %.pn3.in.i = getelementptr inbounds i8, ptr %46, i64 8
   %82 = getelementptr inbounds i8, ptr %12, i64 8
   %83 = getelementptr inbounds i8, ptr %12, i64 16
   %84 = getelementptr inbounds i8, ptr %27, i64 8
@@ -2250,9 +2250,9 @@ define void @_ZN5uu_du2du17h0d5f2f12fdf6b866E(ptr noalias nocapture noundef writ
           to label %.thread214 unwind label %343
 
 287:                                              ; preds = %.lr.ph
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !427, !nonnull !5, !noundef !5
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !427, !noundef !5
-  %288 = invoke noundef zeroext i1 @_ZN4glob7Pattern7matches17he40eb659ef08ae74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.0208.0303, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !427, !noundef !5
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !427, !nonnull !5, !noundef !5
+  %288 = invoke noundef zeroext i1 @_ZN4glob7Pattern7matches17he40eb659ef08ae74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.0208.0303, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %289 unwind label %285
 
 289:                                              ; preds = %287

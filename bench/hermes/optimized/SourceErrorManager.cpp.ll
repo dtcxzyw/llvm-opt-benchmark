@@ -1180,28 +1180,25 @@ _ZNK6hermes15StringSetVectorixB5cxx11Em.exit:     ; preds = %if.then.i.i.i.i.i, 
   %storemerge.i.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i.i, %cond.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %storemerge.i.i.i.i.i) #24
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %storemerge.i.i.i.i.i) #24
+  %4 = insertvalue { ptr, i64 } poison, ptr %call.i, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %call2.i, 1
   br label %return
 
 if.else:                                          ; preds = %entry
   %sub.i = add nsw i32 %bufId, -1
   %conv.i = zext i32 %sub.i to i64
-  %4 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::SourceMgr::SrcBuffer", ptr %4, i64 %conv.i
-  %5 = load ptr, ptr %add.ptr.i.i, align 8
-  %vtable = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %this, align 8
+  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::SourceMgr::SrcBuffer", ptr %6, i64 %conv.i
+  %7 = load ptr, ptr %add.ptr.i.i, align 8
+  %vtable = load ptr, ptr %7, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %6 = load ptr, ptr %vfn, align 8
-  %call5 = tail call { ptr, i64 } %6(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
-  %7 = extractvalue { ptr, i64 } %call5, 0
-  %8 = extractvalue { ptr, i64 } %call5, 1
+  %8 = load ptr, ptr %vfn, align 8
+  %call5 = tail call { ptr, i64 } %8(ptr noundef nonnull align 8 dereferenceable(24) %7) #24
   br label %return
 
 return:                                           ; preds = %if.else, %_ZNK6hermes15StringSetVectorixB5cxx11Em.exit
-  %retval.sroa.3.0 = phi i64 [ %call2.i, %_ZNK6hermes15StringSetVectorixB5cxx11Em.exit ], [ %8, %if.else ]
-  %retval.sroa.0.0 = phi ptr [ %call.i, %_ZNK6hermes15StringSetVectorixB5cxx11Em.exit ], [ %7, %if.else ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %5, %_ZNK6hermes15StringSetVectorixB5cxx11Em.exit ], [ %call5, %if.else ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1373,6 +1370,8 @@ if.then:                                          ; preds = %_ZNK4llvh12DenseMap
   %second = getelementptr inbounds i8, ptr %cond.sink.i.ph.pn.i, i64 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %second) #24
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %second) #24
+  %5 = insertvalue { ptr, i64 } poison, ptr %call.i, 0
+  %6 = insertvalue { ptr, i64 } %5, i64 %call2.i, 1
   br label %return
 
 if.end:                                           ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit
@@ -1383,13 +1382,13 @@ if.then.i9:                                       ; preds = %if.end
   %and.i.i = and i32 %bufId, 2147483647
   %conv.i = zext nneg i32 %and.i.i to i64
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
-  %5 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !21
+  %7 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !21
   %_M_first3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %6 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8, !noalias !21
+  %8 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8, !noalias !21
   %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
-  %7 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8, !noalias !21
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %6 to i64
+  %9 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8, !noalias !21
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 5
   %add.i.i.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i.i.i, %conv.i
@@ -1401,7 +1400,7 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %if.then.i9
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %conv.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 %conv.i
   br label %_ZNK6hermes15StringSetVectorixB5cxx11Em.exit.i
 
 cond.true.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -1414,39 +1413,36 @@ cond.false.i.i.i.i.i.i:                           ; preds = %if.then.i9
 
 cond.end.i.i.i.i.i.i:                             ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = phi i64 [ %div911.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %sub10.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ]
-  %add.ptr11.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %cond.i.i.i.i.i.i
-  %8 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !21
+  %add.ptr11.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %cond.i.i.i.i.i.i
+  %10 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !21
   %mul.i.i.i.i.i.i = shl nsw i64 %cond.i.i.i.i.i.i, 4
   %sub14.i.i.i.i.i.i = sub nsw i64 %add.i.i.i.i.i.i, %mul.i.i.i.i.i.i
-  %add.ptr15.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 %sub14.i.i.i.i.i.i
+  %add.ptr15.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i64 %sub14.i.i.i.i.i.i
   br label %_ZNK6hermes15StringSetVectorixB5cxx11Em.exit.i
 
 _ZNK6hermes15StringSetVectorixB5cxx11Em.exit.i:   ; preds = %cond.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %storemerge.i.i.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %storemerge.i.i.i.i.i.i) #24
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %storemerge.i.i.i.i.i.i) #24
+  %11 = insertvalue { ptr, i64 } poison, ptr %call.i.i, 0
+  %12 = insertvalue { ptr, i64 } %11, i64 %call2.i.i, 1
   br label %return
 
 if.else.i:                                        ; preds = %if.end
   %sub.i.i7 = add nsw i32 %bufId, -1
   %conv.i.i = zext i32 %sub.i.i7 to i64
-  %9 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i8 = getelementptr inbounds %"struct.llvh::SourceMgr::SrcBuffer", ptr %9, i64 %conv.i.i
-  %10 = load ptr, ptr %add.ptr.i.i.i8, align 8
-  %vtable.i = load ptr, ptr %10, align 8
+  %13 = load ptr, ptr %this, align 8
+  %add.ptr.i.i.i8 = getelementptr inbounds %"struct.llvh::SourceMgr::SrcBuffer", ptr %13, i64 %conv.i.i
+  %14 = load ptr, ptr %add.ptr.i.i.i8, align 8
+  %vtable.i = load ptr, ptr %14, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %11 = load ptr, ptr %vfn.i, align 8
-  %call5.i = tail call { ptr, i64 } %11(ptr noundef nonnull align 8 dereferenceable(24) %10) #24
-  %12 = extractvalue { ptr, i64 } %call5.i, 0
-  %13 = extractvalue { ptr, i64 } %call5.i, 1
+  %15 = load ptr, ptr %vfn.i, align 8
+  %call5.i = tail call { ptr, i64 } %15(ptr noundef nonnull align 8 dereferenceable(24) %14) #24
   br label %return
 
 return:                                           ; preds = %if.else.i, %_ZNK6hermes15StringSetVectorixB5cxx11Em.exit.i, %if.then
-  %retval.sroa.3.0 = phi i64 [ %call2.i, %if.then ], [ %call2.i.i, %_ZNK6hermes15StringSetVectorixB5cxx11Em.exit.i ], [ %13, %if.else.i ]
-  %retval.sroa.0.0 = phi ptr [ %call.i, %if.then ], [ %call.i.i, %_ZNK6hermes15StringSetVectorixB5cxx11Em.exit.i ], [ %12, %if.else.i ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %6, %if.then ], [ %12, %_ZNK6hermes15StringSetVectorixB5cxx11Em.exit.i ], [ %call5.i, %if.else.i ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

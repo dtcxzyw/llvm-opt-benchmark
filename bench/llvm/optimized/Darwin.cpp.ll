@@ -9435,17 +9435,17 @@ _ZL21getXcodeDeveloperPathN4llvm9StringRefE.exit: ; preds = %_ZN4llvm9StringRefC
   %13 = add i64 %11, 23
   %14 = load i64, ptr %10, align 8
   %..i.i = call i64 @llvm.umin.i64(i64 %13, i64 %14)
-  %.sroa.0.0.i.i = load ptr, ptr %1, align 8
+  %.sroa.0.0.copyload.pn.i.i = load ptr, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   %15 = icmp eq i64 %..i.i, 0
   br i1 %15, label %37, label %16
 
 16:                                               ; preds = %_ZL21getXcodeDeveloperPathN4llvm9StringRefE.exit
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %..i.i
+  %17 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.pn.i.i, i64 %..i.i
   %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %.0.val) #20
   %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   store i64 0, ptr %19, align 8
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %.0.val, ptr noundef %.sroa.0.0.i.i, ptr noundef nonnull %17)
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %.0.val, ptr noundef %.sroa.0.0.copyload.pn.i.i, ptr noundef nonnull %17)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 33
   store i8 1, ptr %21, align 1

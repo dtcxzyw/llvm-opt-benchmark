@@ -67,19 +67,19 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
   store i32 -1, ptr %11, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #16
   %12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 1)
-          to label %13 unwind label %92
+          to label %13 unwind label %90
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN12cimg_library4CImgIfE6assignEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 1, i32 noundef %1, i32 noundef 1, i32 noundef 6)
-          to label %17 unwind label %96
+          to label %17 unwind label %92
 
 17:                                               ; preds = %13
   %18 = mul i32 %1, 6
   %19 = zext i32 %18 to i64
   %20 = icmp eq i32 %18, 0
-  br i1 %20, label %.loopexit14, label %21
+  br i1 %20, label %.loopexit15, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %15, i64 24
@@ -131,14 +131,14 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
 56:                                               ; preds = %35
   %57 = getelementptr i8, ptr %23, i64 %34
   %58 = icmp eq i64 %33, %19
-  br i1 %58, label %.loopexit14, label %59
+  br i1 %58, label %.loopexit15, label %59
 
 59:                                               ; preds = %56, %25, %21
   %60 = phi ptr [ %23, %25 ], [ %23, %21 ], [ %57, %56 ]
   %61 = phi i64 [ 0, %25 ], [ 0, %21 ], [ %33, %56 ]
   %62 = and i64 %19, 6
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %.loopexit15, label %.preheader
+  br i1 %63, label %.loopexit16, label %.preheader
 
 .preheader:                                       ; preds = %59, %.preheader
   %64 = phi ptr [ %70, %.preheader ], [ %60, %59 ]
@@ -152,16 +152,16 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
   %71 = add nuw nsw i64 %65, 1
   %72 = add nuw nsw i64 %66, 1
   %73 = icmp eq i64 %72, %62
-  br i1 %73, label %.loopexit15, label %.preheader, !llvm.loop !35
+  br i1 %73, label %.loopexit16, label %.preheader, !llvm.loop !35
 
-.loopexit15:                                      ; preds = %.preheader, %59
+.loopexit16:                                      ; preds = %.preheader, %59
   %74 = phi ptr [ %60, %59 ], [ %70, %.preheader ]
   %75 = phi i64 [ %61, %59 ], [ %71, %.preheader ]
   %76 = sub nsw i64 %61, %19
   %77 = icmp ugt i64 %76, -8
-  br i1 %77, label %.loopexit14, label %78
+  br i1 %77, label %.loopexit15, label %78
 
-78:                                               ; preds = %.loopexit15
+78:                                               ; preds = %.loopexit16
   %79 = getelementptr i8, ptr %0, i64 1
   %80 = getelementptr i8, ptr %0, i64 2
   %81 = getelementptr i8, ptr %0, i64 3
@@ -169,323 +169,297 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
   %83 = getelementptr i8, ptr %0, i64 5
   %84 = getelementptr i8, ptr %0, i64 6
   %85 = getelementptr i8, ptr %0, i64 7
-  br label %104
+  br label %96
 
-.loopexit14:                                      ; preds = %104, %.loopexit15, %56, %17
+.loopexit15:                                      ; preds = %96, %.loopexit16, %56, %17
   %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 512, ptr noundef nonnull @.str, i32 noundef %2, i32 noundef %2, i32 noundef %2) #16
   %87 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef null)
-          to label %164 unwind label %141
+          to label %152 unwind label %133
 
 88:                                               ; preds = %5
   %89 = landingpad { ptr, i32 }
           cleanup
-  %90 = extractvalue { ptr, i32 } %89, 0
-  %91 = extractvalue { ptr, i32 } %89, 1
-  br label %260
+  br label %240
 
-92:                                               ; preds = %10
+90:                                               ; preds = %10
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  br label %239
+
+92:                                               ; preds = %13
   %93 = landingpad { ptr, i32 }
           cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  %95 = extractvalue { ptr, i32 } %93, 1
-  br label %257
+  br label %239
 
-96:                                               ; preds = %13
-  %97 = landingpad { ptr, i32 }
+94:                                               ; preds = %155
+  %95 = landingpad { ptr, i32 }
           cleanup
-  %98 = extractvalue { ptr, i32 } %97, 0
-  %99 = extractvalue { ptr, i32 } %97, 1
-  br label %257
+  br label %239
 
-100:                                              ; preds = %167
-  %101 = landingpad { ptr, i32 }
-          cleanup
-  %102 = extractvalue { ptr, i32 } %101, 0
-  %103 = extractvalue { ptr, i32 } %101, 1
-  br label %257
-
-104:                                              ; preds = %104, %78
-  %105 = phi ptr [ %74, %78 ], [ %138, %104 ]
-  %106 = phi i64 [ %75, %78 ], [ %139, %104 ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 %106
+96:                                               ; preds = %96, %78
+  %97 = phi ptr [ %74, %78 ], [ %130, %96 ]
+  %98 = phi i64 [ %75, %78 ], [ %131, %96 ]
+  %99 = getelementptr inbounds i8, ptr %0, i64 %98
+  %100 = load i8, ptr %99, align 1, !tbaa !24
+  %101 = uitofp i8 %100 to float
+  %102 = getelementptr inbounds i8, ptr %97, i64 4
+  store float %101, ptr %97, align 4, !tbaa !28
+  %103 = getelementptr i8, ptr %79, i64 %98
+  %104 = load i8, ptr %103, align 1, !tbaa !24
+  %105 = uitofp i8 %104 to float
+  %106 = getelementptr inbounds i8, ptr %97, i64 8
+  store float %105, ptr %102, align 4, !tbaa !28
+  %107 = getelementptr i8, ptr %80, i64 %98
   %108 = load i8, ptr %107, align 1, !tbaa !24
   %109 = uitofp i8 %108 to float
-  %110 = getelementptr inbounds i8, ptr %105, i64 4
-  store float %109, ptr %105, align 4, !tbaa !28
-  %111 = getelementptr i8, ptr %79, i64 %106
+  %110 = getelementptr inbounds i8, ptr %97, i64 12
+  store float %109, ptr %106, align 4, !tbaa !28
+  %111 = getelementptr i8, ptr %81, i64 %98
   %112 = load i8, ptr %111, align 1, !tbaa !24
   %113 = uitofp i8 %112 to float
-  %114 = getelementptr inbounds i8, ptr %105, i64 8
+  %114 = getelementptr inbounds i8, ptr %97, i64 16
   store float %113, ptr %110, align 4, !tbaa !28
-  %115 = getelementptr i8, ptr %80, i64 %106
+  %115 = getelementptr i8, ptr %82, i64 %98
   %116 = load i8, ptr %115, align 1, !tbaa !24
   %117 = uitofp i8 %116 to float
-  %118 = getelementptr inbounds i8, ptr %105, i64 12
+  %118 = getelementptr inbounds i8, ptr %97, i64 20
   store float %117, ptr %114, align 4, !tbaa !28
-  %119 = getelementptr i8, ptr %81, i64 %106
+  %119 = getelementptr i8, ptr %83, i64 %98
   %120 = load i8, ptr %119, align 1, !tbaa !24
   %121 = uitofp i8 %120 to float
-  %122 = getelementptr inbounds i8, ptr %105, i64 16
+  %122 = getelementptr inbounds i8, ptr %97, i64 24
   store float %121, ptr %118, align 4, !tbaa !28
-  %123 = getelementptr i8, ptr %82, i64 %106
+  %123 = getelementptr i8, ptr %84, i64 %98
   %124 = load i8, ptr %123, align 1, !tbaa !24
   %125 = uitofp i8 %124 to float
-  %126 = getelementptr inbounds i8, ptr %105, i64 20
+  %126 = getelementptr inbounds i8, ptr %97, i64 28
   store float %125, ptr %122, align 4, !tbaa !28
-  %127 = getelementptr i8, ptr %83, i64 %106
+  %127 = getelementptr i8, ptr %85, i64 %98
   %128 = load i8, ptr %127, align 1, !tbaa !24
   %129 = uitofp i8 %128 to float
-  %130 = getelementptr inbounds i8, ptr %105, i64 24
+  %130 = getelementptr inbounds i8, ptr %97, i64 32
   store float %129, ptr %126, align 4, !tbaa !28
-  %131 = getelementptr i8, ptr %84, i64 %106
-  %132 = load i8, ptr %131, align 1, !tbaa !24
-  %133 = uitofp i8 %132 to float
-  %134 = getelementptr inbounds i8, ptr %105, i64 28
-  store float %133, ptr %130, align 4, !tbaa !28
-  %135 = getelementptr i8, ptr %85, i64 %106
-  %136 = load i8, ptr %135, align 1, !tbaa !24
-  %137 = uitofp i8 %136 to float
-  %138 = getelementptr inbounds i8, ptr %105, i64 32
-  store float %137, ptr %134, align 4, !tbaa !28
-  %139 = add nuw nsw i64 %106, 8
-  %140 = icmp eq i64 %139, %19
-  br i1 %140, label %.loopexit14, label %104, !llvm.loop !37
+  %131 = add nuw nsw i64 %98, 8
+  %132 = icmp eq i64 %131, %19
+  br i1 %132, label %.loopexit15, label %96, !llvm.loop !37
 
-141:                                              ; preds = %.loopexit14
-  %142 = landingpad { ptr, i32 }
+133:                                              ; preds = %.loopexit15
+  %134 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI14gmic_exception
-  %143 = extractvalue { ptr, i32 } %142, 0
-  %144 = extractvalue { ptr, i32 } %142, 1
-  %145 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14gmic_exception) #16
-  %146 = icmp eq i32 %144, %145
-  br i1 %146, label %147, label %257
+  %135 = extractvalue { ptr, i32 } %134, 1
+  %136 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14gmic_exception) #16
+  %137 = icmp eq i32 %135, %136
+  br i1 %137, label %138, label %239
 
-147:                                              ; preds = %141
-  %148 = call ptr @__cxa_begin_catch(ptr %143) #16
-  %149 = getelementptr inbounds i8, ptr %148, i64 56
-  %150 = load ptr, ptr %149, align 8, !tbaa !38
-  %151 = icmp eq ptr %150, null
-  %152 = select i1 %151, ptr @.str.8, ptr %150
-  %153 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %152)
-  %154 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
-          to label %155 unwind label %156
+138:                                              ; preds = %133
+  %139 = extractvalue { ptr, i32 } %134, 0
+  %140 = call ptr @__cxa_begin_catch(ptr %139) #16
+  %141 = getelementptr inbounds i8, ptr %140, i64 56
+  %142 = load ptr, ptr %141, align 8, !tbaa !38
+  %143 = icmp eq ptr %142, null
+  %144 = select i1 %143, ptr @.str.8, ptr %142
+  %145 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %144)
+  %146 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
+          to label %147 unwind label %148
 
-155:                                              ; preds = %147
+147:                                              ; preds = %138
   invoke void @__cxa_end_catch()
-          to label %207 unwind label %158
+          to label %191 unwind label %150
 
-156:                                              ; preds = %147
-  %157 = landingpad { ptr, i32 }
+148:                                              ; preds = %138
+  %149 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %160 unwind label %265
+          to label %239 unwind label %241
 
-158:                                              ; preds = %155
-  %159 = landingpad { ptr, i32 }
+150:                                              ; preds = %147
+  %151 = landingpad { ptr, i32 }
           cleanup
-  br label %160
+  br label %239
 
-160:                                              ; preds = %158, %156
-  %161 = phi { ptr, i32 } [ %159, %158 ], [ %157, %156 ]
-  %162 = extractvalue { ptr, i32 } %161, 0
-  %163 = extractvalue { ptr, i32 } %161, 1
-  br label %257
+152:                                              ; preds = %.loopexit15
+  %153 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 512, ptr noundef nonnull @.str.2, ptr noundef %4) #16
+  %154 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef null)
+          to label %161 unwind label %155
 
-164:                                              ; preds = %.loopexit14
-  %165 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 512, ptr noundef nonnull @.str.2, ptr noundef %4) #16
-  %166 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef null)
-          to label %173 unwind label %167
-
-167:                                              ; preds = %164
-  %168 = landingpad { ptr, i32 }
+155:                                              ; preds = %152
+  %156 = landingpad { ptr, i32 }
           catch ptr null
-  %169 = extractvalue { ptr, i32 } %168, 0
-  %170 = call ptr @__cxa_begin_catch(ptr %169) #16
-  %171 = load ptr, ptr @stderr, align 8, !tbaa !40
-  %172 = call i64 @fwrite(ptr nonnull @.str.3, i64 69, i64 1, ptr %171) #17
+  %157 = extractvalue { ptr, i32 } %156, 0
+  %158 = call ptr @__cxa_begin_catch(ptr %157) #16
+  %159 = load ptr, ptr @stderr, align 8, !tbaa !40
+  %160 = call i64 @fwrite(ptr nonnull @.str.3, i64 69, i64 1, ptr %159) #17
   invoke void @__cxa_end_catch()
-          to label %173 unwind label %100
+          to label %161 unwind label %94
 
-173:                                              ; preds = %167, %164
-  %174 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %8, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef null)
-          to label %198 unwind label %175
+161:                                              ; preds = %155, %152
+  %162 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %8, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null, ptr noundef null)
+          to label %182 unwind label %163
 
-175:                                              ; preds = %173
-  %176 = landingpad { ptr, i32 }
+163:                                              ; preds = %161
+  %164 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI14gmic_exception
-  %177 = extractvalue { ptr, i32 } %176, 0
-  %178 = extractvalue { ptr, i32 } %176, 1
-  %179 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14gmic_exception) #16
-  %180 = icmp eq i32 %178, %179
-  br i1 %180, label %181, label %257
+  %165 = extractvalue { ptr, i32 } %164, 1
+  %166 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14gmic_exception) #16
+  %167 = icmp eq i32 %165, %166
+  br i1 %167, label %168, label %239
 
-181:                                              ; preds = %175
-  %182 = call ptr @__cxa_begin_catch(ptr %177) #16
-  %183 = getelementptr inbounds i8, ptr %182, i64 56
-  %184 = load ptr, ptr %183, align 8, !tbaa !38
-  %185 = icmp eq ptr %184, null
-  %186 = select i1 %185, ptr @.str.8, ptr %184
-  %187 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %186)
-  %188 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
-          to label %189 unwind label %190
+168:                                              ; preds = %163
+  %169 = extractvalue { ptr, i32 } %164, 0
+  %170 = call ptr @__cxa_begin_catch(ptr %169) #16
+  %171 = getelementptr inbounds i8, ptr %170, i64 56
+  %172 = load ptr, ptr %171, align 8, !tbaa !38
+  %173 = icmp eq ptr %172, null
+  %174 = select i1 %173, ptr @.str.8, ptr %172
+  %175 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %174)
+  %176 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
+          to label %177 unwind label %178
 
-189:                                              ; preds = %181
+177:                                              ; preds = %168
   invoke void @__cxa_end_catch()
-          to label %207 unwind label %192
+          to label %191 unwind label %180
 
-190:                                              ; preds = %181
-  %191 = landingpad { ptr, i32 }
+178:                                              ; preds = %168
+  %179 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %194 unwind label %265
+          to label %239 unwind label %241
 
-192:                                              ; preds = %189
-  %193 = landingpad { ptr, i32 }
+180:                                              ; preds = %177
+  %181 = landingpad { ptr, i32 }
           cleanup
-  br label %194
+  br label %239
 
-194:                                              ; preds = %192, %190
-  %195 = phi { ptr, i32 } [ %193, %192 ], [ %191, %190 ]
-  %196 = extractvalue { ptr, i32 } %195, 0
-  %197 = extractvalue { ptr, i32 } %195, 1
-  br label %257
+182:                                              ; preds = %161
+  %183 = load ptr, ptr %14, align 8, !tbaa !20
+  %184 = load <4 x i32>, ptr %183, align 8, !tbaa !41
+  %185 = call i32 @llvm.vector.reduce.mul.v4i32(<4 x i32> %184)
+  %186 = zext i32 %185 to i64
+  %187 = getelementptr inbounds i8, ptr %183, i64 24
+  %188 = load ptr, ptr %187, align 8, !tbaa !22
+  %189 = shl nuw nsw i64 %186, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %188, i64 %189, i1 false)
+  %190 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
+          to label %191 unwind label %237
 
-198:                                              ; preds = %173
-  %199 = load ptr, ptr %14, align 8, !tbaa !20
-  %200 = load <4 x i32>, ptr %199, align 8, !tbaa !41
-  %201 = call i32 @llvm.vector.reduce.mul.v4i32(<4 x i32> %200)
-  %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds i8, ptr %199, i64 24
-  %204 = load ptr, ptr %203, align 8, !tbaa !22
-  %205 = shl nuw nsw i64 %202, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %204, i64 %205, i1 false)
-  %206 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
-          to label %207 unwind label %253
-
-207:                                              ; preds = %198, %189, %155
+191:                                              ; preds = %182, %177, %147
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #16
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %8) #16
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %8) #16
-  %208 = getelementptr inbounds i8, ptr %7, i64 8
-  %209 = load ptr, ptr %208, align 8, !tbaa !42
+  %192 = getelementptr inbounds i8, ptr %7, i64 8
+  %193 = load ptr, ptr %192, align 8, !tbaa !42
+  %194 = icmp eq ptr %193, null
+  br i1 %194, label %214, label %195
+
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds i8, ptr %193, i64 -8
+  %197 = load i64, ptr %196, align 8
+  %198 = icmp eq i64 %197, 0
+  br i1 %198, label %.loopexit14, label %199
+
+199:                                              ; preds = %195
+  %200 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %193, i64 %197
+  br label %201
+
+201:                                              ; preds = %212, %199
+  %202 = phi ptr [ %203, %212 ], [ %200, %199 ]
+  %203 = getelementptr inbounds i8, ptr %202, i64 -32
+  %204 = getelementptr inbounds i8, ptr %202, i64 -16
+  %205 = load i8, ptr %204, align 8, !tbaa !43, !range !44, !noundef !45
+  %206 = icmp eq i8 %205, 0
+  br i1 %206, label %207, label %212
+
+207:                                              ; preds = %201
+  %208 = getelementptr inbounds i8, ptr %202, i64 -8
+  %209 = load ptr, ptr %208, align 8, !tbaa !46
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %230, label %211
+  br i1 %210, label %212, label %211
 
 211:                                              ; preds = %207
-  %212 = getelementptr inbounds i8, ptr %209, i64 -8
-  %213 = load i64, ptr %212, align 8
-  %214 = icmp eq i64 %213, 0
-  br i1 %214, label %.loopexit13, label %215
+  call void @_ZdaPv(ptr noundef nonnull %209) #18
+  br label %212
 
-215:                                              ; preds = %211
-  %216 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %209, i64 %213
-  br label %217
+212:                                              ; preds = %211, %207, %201
+  %213 = icmp eq ptr %203, %193
+  br i1 %213, label %.loopexit14, label %201
 
-217:                                              ; preds = %228, %215
-  %218 = phi ptr [ %219, %228 ], [ %216, %215 ]
-  %219 = getelementptr inbounds i8, ptr %218, i64 -32
-  %220 = getelementptr inbounds i8, ptr %218, i64 -16
-  %221 = load i8, ptr %220, align 8, !tbaa !43, !range !44, !noundef !45
-  %222 = icmp eq i8 %221, 0
-  br i1 %222, label %223, label %228
+.loopexit14:                                      ; preds = %212, %195
+  call void @_ZdaPv(ptr noundef nonnull %196) #18
+  br label %214
 
-223:                                              ; preds = %217
-  %224 = getelementptr inbounds i8, ptr %218, i64 -8
-  %225 = load ptr, ptr %224, align 8, !tbaa !46
-  %226 = icmp eq ptr %225, null
-  br i1 %226, label %228, label %227
-
-227:                                              ; preds = %223
-  call void @_ZdaPv(ptr noundef nonnull %225) #18
-  br label %228
-
-228:                                              ; preds = %227, %223, %217
-  %229 = icmp eq ptr %219, %209
-  br i1 %229, label %.loopexit13, label %217
-
-.loopexit13:                                      ; preds = %228, %211
-  call void @_ZdaPv(ptr noundef nonnull %212) #18
-  br label %230
-
-230:                                              ; preds = %.loopexit13, %207
+214:                                              ; preds = %.loopexit14, %191
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
-  %231 = load ptr, ptr %14, align 8, !tbaa !20
+  %215 = load ptr, ptr %14, align 8, !tbaa !20
+  %216 = icmp eq ptr %215, null
+  br i1 %216, label %236, label %217
+
+217:                                              ; preds = %214
+  %218 = getelementptr inbounds i8, ptr %215, i64 -8
+  %219 = load i64, ptr %218, align 8
+  %220 = icmp eq i64 %219, 0
+  br i1 %220, label %.loopexit, label %221
+
+221:                                              ; preds = %217
+  %222 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %215, i64 %219
+  br label %223
+
+223:                                              ; preds = %234, %221
+  %224 = phi ptr [ %225, %234 ], [ %222, %221 ]
+  %225 = getelementptr inbounds i8, ptr %224, i64 -32
+  %226 = getelementptr inbounds i8, ptr %224, i64 -16
+  %227 = load i8, ptr %226, align 8, !tbaa !47, !range !44, !noundef !45
+  %228 = icmp eq i8 %227, 0
+  br i1 %228, label %229, label %234
+
+229:                                              ; preds = %223
+  %230 = getelementptr inbounds i8, ptr %224, i64 -8
+  %231 = load ptr, ptr %230, align 8, !tbaa !22
   %232 = icmp eq ptr %231, null
-  br i1 %232, label %252, label %233
+  br i1 %232, label %234, label %233
 
-233:                                              ; preds = %230
-  %234 = getelementptr inbounds i8, ptr %231, i64 -8
-  %235 = load i64, ptr %234, align 8
-  %236 = icmp eq i64 %235, 0
-  br i1 %236, label %.loopexit, label %237
+233:                                              ; preds = %229
+  call void @_ZdaPv(ptr noundef nonnull %231) #18
+  br label %234
 
-237:                                              ; preds = %233
-  %238 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %231, i64 %235
-  br label %239
+234:                                              ; preds = %233, %229, %223
+  %235 = icmp eq ptr %225, %215
+  br i1 %235, label %.loopexit, label %223
 
-239:                                              ; preds = %250, %237
-  %240 = phi ptr [ %241, %250 ], [ %238, %237 ]
-  %241 = getelementptr inbounds i8, ptr %240, i64 -32
-  %242 = getelementptr inbounds i8, ptr %240, i64 -16
-  %243 = load i8, ptr %242, align 8, !tbaa !47, !range !44, !noundef !45
-  %244 = icmp eq i8 %243, 0
-  br i1 %244, label %245, label %250
+.loopexit:                                        ; preds = %234, %217
+  call void @_ZdaPv(ptr noundef nonnull %218) #18
+  br label %236
 
-245:                                              ; preds = %239
-  %246 = getelementptr inbounds i8, ptr %240, i64 -8
-  %247 = load ptr, ptr %246, align 8, !tbaa !22
-  %248 = icmp eq ptr %247, null
-  br i1 %248, label %250, label %249
-
-249:                                              ; preds = %245
-  call void @_ZdaPv(ptr noundef nonnull %247) #18
-  br label %250
-
-250:                                              ; preds = %249, %245, %239
-  %251 = icmp eq ptr %241, %231
-  br i1 %251, label %.loopexit, label %239
-
-.loopexit:                                        ; preds = %250, %233
-  call void @_ZdaPv(ptr noundef nonnull %234) #18
-  br label %252
-
-252:                                              ; preds = %.loopexit, %230
+236:                                              ; preds = %.loopexit, %214
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   ret void
 
-253:                                              ; preds = %198
-  %254 = landingpad { ptr, i32 }
+237:                                              ; preds = %182
+  %238 = landingpad { ptr, i32 }
           cleanup
-  %255 = extractvalue { ptr, i32 } %254, 0
-  %256 = extractvalue { ptr, i32 } %254, 1
-  br label %257
+  br label %239
 
-257:                                              ; preds = %253, %194, %175, %160, %141, %100, %96, %92
-  %258 = phi i32 [ %95, %92 ], [ %99, %96 ], [ %256, %253 ], [ %197, %194 ], [ %178, %175 ], [ %103, %100 ], [ %163, %160 ], [ %144, %141 ]
-  %259 = phi ptr [ %94, %92 ], [ %98, %96 ], [ %255, %253 ], [ %196, %194 ], [ %177, %175 ], [ %102, %100 ], [ %162, %160 ], [ %143, %141 ]
+239:                                              ; preds = %178, %180, %148, %150, %237, %163, %133, %94, %92, %90
+  %.merged13 = phi { ptr, i32 } [ %91, %90 ], [ %93, %92 ], [ %238, %237 ], [ %164, %163 ], [ %95, %94 ], [ %134, %133 ], [ %151, %150 ], [ %149, %148 ], [ %181, %180 ], [ %179, %178 ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #16
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %8) #16
-  br label %260
+  br label %240
 
-260:                                              ; preds = %257, %88
-  %261 = phi i32 [ %258, %257 ], [ %91, %88 ]
-  %262 = phi ptr [ %259, %257 ], [ %90, %88 ]
+240:                                              ; preds = %239, %88
+  %.merged = phi { ptr, i32 } [ %.merged13, %239 ], [ %89, %88 ]
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %8) #16
   call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
-  %263 = insertvalue { ptr, i32 } poison, ptr %262, 0
-  %264 = insertvalue { ptr, i32 } %263, i32 %261, 1
-  resume { ptr, i32 } %264
+  resume { ptr, i32 } %.merged
 
-265:                                              ; preds = %190, %156
-  %266 = landingpad { ptr, i32 }
+241:                                              ; preds = %178, %148
+  %242 = landingpad { ptr, i32 }
           catch ptr null
-  %267 = extractvalue { ptr, i32 } %266, 0
-  call void @__clang_call_terminate(ptr %267) #19
+  %243 = extractvalue { ptr, i32 } %242, 0
+  call void @__clang_call_terminate(ptr %243) #19
   unreachable
 }
 
@@ -645,299 +619,275 @@ define hidden i32 @lut3d_get_cached_clut(ptr nocapture noundef writeonly %0, i32
   store i32 -1, ptr %9, align 8, !tbaa !6
   %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 512, ptr noundef nonnull @.str.5, ptr noundef %2) #16
   %11 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, ptr noundef null)
-          to label %30 unwind label %16
+          to label %24 unwind label %14
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  %15 = extractvalue { ptr, i32 } %13, 1
-  br label %169
+  br label %151
 
-16:                                               ; preds = %8
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %8
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #16
-  %20 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-          to label %21 unwind label %22
+  %16 = extractvalue { ptr, i32 } %15, 0
+  %17 = call ptr @__cxa_begin_catch(ptr %16) #16
+  %18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
+          to label %19 unwind label %20
 
-21:                                               ; preds = %16
+19:                                               ; preds = %14
   invoke void @__cxa_end_catch()
-          to label %118 unwind label %26
+          to label %102 unwind label %22
 
-22:                                               ; preds = %16
+20:                                               ; preds = %14
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %150 unwind label %152
+
+22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  %25 = extractvalue { ptr, i32 } %23, 1
-  invoke void @__cxa_end_catch()
-          to label %166 unwind label %174
+  br label %150
 
-26:                                               ; preds = %21
-  %27 = landingpad { ptr, i32 }
+24:                                               ; preds = %8
+  %25 = mul i32 %1, 3
+  %26 = mul i32 %25, %1
+  %27 = mul i32 %26, %1
+  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !20
+  %30 = load i32, ptr %29, align 8, !tbaa !48
+  %31 = getelementptr inbounds i8, ptr %29, i64 4
+  %32 = load i32, ptr %31, align 4, !tbaa !49
+  %33 = mul i32 %32, %30
+  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %35 = load i32, ptr %34, align 8, !tbaa !50
+  %36 = mul i32 %33, %35
+  %37 = getelementptr inbounds i8, ptr %29, i64 12
+  %38 = load i32, ptr %37, align 4, !tbaa !51
+  %39 = mul i32 %36, %38
+  %40 = icmp ult i32 %27, %39
+  br i1 %40, label %41, label %69
+
+41:                                               ; preds = %24
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 512, ptr noundef nonnull @.str.6, i32 noundef %1, i32 noundef %1, i32 noundef %1) #16
+  %43 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, ptr noundef null)
+          to label %65 unwind label %46
+
+44:                                               ; preds = %95
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  %29 = extractvalue { ptr, i32 } %27, 1
-  br label %166
+  br label %150
 
-30:                                               ; preds = %8
-  %31 = mul i32 %1, 3
-  %32 = mul i32 %31, %1
-  %33 = mul i32 %32, %1
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !20
-  %36 = load i32, ptr %35, align 8, !tbaa !48
-  %37 = getelementptr inbounds i8, ptr %35, i64 4
-  %38 = load i32, ptr %37, align 4, !tbaa !49
-  %39 = mul i32 %38, %36
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !50
-  %42 = mul i32 %39, %41
-  %43 = getelementptr inbounds i8, ptr %35, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !51
-  %45 = mul i32 %42, %44
-  %46 = icmp ult i32 %33, %45
-  br i1 %46, label %47, label %81
-
-47:                                               ; preds = %30
-  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 512, ptr noundef nonnull @.str.6, i32 noundef %1, i32 noundef %1, i32 noundef %1) #16
-  %49 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, ptr noundef null)
-          to label %77 unwind label %54
-
-50:                                               ; preds = %111
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  %53 = extractvalue { ptr, i32 } %51, 1
-  br label %166
-
-54:                                               ; preds = %47
-  %55 = landingpad { ptr, i32 }
+46:                                               ; preds = %41
+  %47 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI14gmic_exception
-  %56 = extractvalue { ptr, i32 } %55, 0
-  %57 = extractvalue { ptr, i32 } %55, 1
-  %58 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14gmic_exception) #16
-  %59 = icmp eq i32 %57, %58
-  br i1 %59, label %60, label %166
+  %48 = extractvalue { ptr, i32 } %47, 1
+  %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14gmic_exception) #16
+  %50 = icmp eq i32 %48, %49
+  br i1 %50, label %51, label %150
 
-60:                                               ; preds = %54
-  %61 = call ptr @__cxa_begin_catch(ptr %56) #16
-  %62 = getelementptr inbounds i8, ptr %61, i64 56
-  %63 = load ptr, ptr %62, align 8, !tbaa !38
-  %64 = icmp eq ptr %63, null
-  %65 = select i1 %64, ptr @.str.8, ptr %63
-  %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %65)
-  %67 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-          to label %68 unwind label %69
+51:                                               ; preds = %46
+  %52 = extractvalue { ptr, i32 } %47, 0
+  %53 = call ptr @__cxa_begin_catch(ptr %52) #16
+  %54 = getelementptr inbounds i8, ptr %53, i64 56
+  %55 = load ptr, ptr %54, align 8, !tbaa !38
+  %56 = icmp eq ptr %55, null
+  %57 = select i1 %56, ptr @.str.8, ptr %55
+  %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %57)
+  %59 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
+          to label %60 unwind label %61
 
-68:                                               ; preds = %60
+60:                                               ; preds = %51
   invoke void @__cxa_end_catch()
-          to label %118 unwind label %71
+          to label %102 unwind label %63
 
-69:                                               ; preds = %60
-  %70 = landingpad { ptr, i32 }
+61:                                               ; preds = %51
+  %62 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %73 unwind label %174
+          to label %150 unwind label %152
 
-71:                                               ; preds = %68
-  %72 = landingpad { ptr, i32 }
+63:                                               ; preds = %60
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %150
 
-73:                                               ; preds = %71, %69
-  %74 = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ]
-  %75 = extractvalue { ptr, i32 } %74, 0
-  %76 = extractvalue { ptr, i32 } %74, 1
-  br label %166
+65:                                               ; preds = %41
+  %66 = load ptr, ptr %28, align 8, !tbaa !20
+  %67 = load <4 x i32>, ptr %66, align 8, !tbaa !41
+  %68 = call i32 @llvm.vector.reduce.mul.v4i32(<4 x i32> %67)
+  br label %72
 
-77:                                               ; preds = %47
-  %78 = load ptr, ptr %34, align 8, !tbaa !20
-  %79 = load <4 x i32>, ptr %78, align 8, !tbaa !41
-  %80 = call i32 @llvm.vector.reduce.mul.v4i32(<4 x i32> %79)
-  br label %84
+69:                                               ; preds = %24
+  %70 = icmp ugt i32 %27, %39
+  %71 = select i1 %70, i32 %30, i32 %1
+  br label %72
 
-81:                                               ; preds = %30
-  %82 = icmp ugt i32 %33, %45
-  %83 = select i1 %82, i32 %36, i32 %1
-  br label %84
+72:                                               ; preds = %69, %65
+  %73 = phi i32 [ %1, %65 ], [ %71, %69 ]
+  %74 = phi i32 [ %68, %65 ], [ %39, %69 ]
+  %75 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, ptr noundef null)
+          to label %95 unwind label %76
 
-84:                                               ; preds = %81, %77
-  %85 = phi i32 [ %1, %77 ], [ %83, %81 ]
-  %86 = phi i32 [ %80, %77 ], [ %45, %81 ]
-  %87 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, ptr noundef null)
-          to label %111 unwind label %88
-
-88:                                               ; preds = %84
-  %89 = landingpad { ptr, i32 }
+76:                                               ; preds = %72
+  %77 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI14gmic_exception
-  %90 = extractvalue { ptr, i32 } %89, 0
-  %91 = extractvalue { ptr, i32 } %89, 1
-  %92 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14gmic_exception) #16
-  %93 = icmp eq i32 %91, %92
-  br i1 %93, label %94, label %166
+  %78 = extractvalue { ptr, i32 } %77, 1
+  %79 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14gmic_exception) #16
+  %80 = icmp eq i32 %78, %79
+  br i1 %80, label %81, label %150
 
-94:                                               ; preds = %88
-  %95 = call ptr @__cxa_begin_catch(ptr %90) #16
-  %96 = getelementptr inbounds i8, ptr %95, i64 56
-  %97 = load ptr, ptr %96, align 8, !tbaa !38
-  %98 = icmp eq ptr %97, null
-  %99 = select i1 %98, ptr @.str.8, ptr %97
-  %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %99)
+81:                                               ; preds = %76
+  %82 = extractvalue { ptr, i32 } %77, 0
+  %83 = call ptr @__cxa_begin_catch(ptr %82) #16
+  %84 = getelementptr inbounds i8, ptr %83, i64 56
+  %85 = load ptr, ptr %84, align 8, !tbaa !38
+  %86 = icmp eq ptr %85, null
+  %87 = select i1 %86, ptr @.str.8, ptr %85
+  %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %87)
+  %89 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
+          to label %90 unwind label %91
+
+90:                                               ; preds = %81
+  invoke void @__cxa_end_catch()
+          to label %102 unwind label %93
+
+91:                                               ; preds = %81
+  %92 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %150 unwind label %152
+
+93:                                               ; preds = %90
+  %94 = landingpad { ptr, i32 }
+          cleanup
+  br label %150
+
+95:                                               ; preds = %72
+  %96 = zext i32 %74 to i64
+  %97 = load ptr, ptr %28, align 8, !tbaa !20
+  %98 = getelementptr inbounds i8, ptr %97, i64 24
+  %99 = load ptr, ptr %98, align 8, !tbaa !22
+  %100 = shl nuw nsw i64 %96, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %99, i64 %100, i1 false)
   %101 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-          to label %102 unwind label %103
+          to label %102 unwind label %44
 
-102:                                              ; preds = %94
-  invoke void @__cxa_end_catch()
-          to label %118 unwind label %105
-
-103:                                              ; preds = %94
-  %104 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %107 unwind label %174
-
-105:                                              ; preds = %102
-  %106 = landingpad { ptr, i32 }
-          cleanup
-  br label %107
-
-107:                                              ; preds = %105, %103
-  %108 = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
-  %109 = extractvalue { ptr, i32 } %108, 0
-  %110 = extractvalue { ptr, i32 } %108, 1
-  br label %166
-
-111:                                              ; preds = %84
-  %112 = zext i32 %86 to i64
-  %113 = load ptr, ptr %34, align 8, !tbaa !20
-  %114 = getelementptr inbounds i8, ptr %113, i64 24
-  %115 = load ptr, ptr %114, align 8, !tbaa !22
-  %116 = shl nuw nsw i64 %112, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %115, i64 %116, i1 false)
-  %117 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-          to label %118 unwind label %50
-
-118:                                              ; preds = %111, %102, %68, %21
-  %119 = phi i32 [ 0, %21 ], [ 0, %68 ], [ 0, %102 ], [ %85, %111 ]
+102:                                              ; preds = %95, %90, %60, %19
+  %103 = phi i32 [ 0, %19 ], [ 0, %60 ], [ 0, %90 ], [ %73, %95 ]
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %7) #16
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #16
-  %120 = getelementptr inbounds i8, ptr %5, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !42
+  %104 = getelementptr inbounds i8, ptr %5, i64 8
+  %105 = load ptr, ptr %104, align 8, !tbaa !42
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %126, label %107
+
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds i8, ptr %105, i64 -8
+  %109 = load i64, ptr %108, align 8
+  %110 = icmp eq i64 %109, 0
+  br i1 %110, label %.loopexit13, label %111
+
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %105, i64 %109
+  br label %113
+
+113:                                              ; preds = %124, %111
+  %114 = phi ptr [ %115, %124 ], [ %112, %111 ]
+  %115 = getelementptr inbounds i8, ptr %114, i64 -32
+  %116 = getelementptr inbounds i8, ptr %114, i64 -16
+  %117 = load i8, ptr %116, align 8, !tbaa !43, !range !44, !noundef !45
+  %118 = icmp eq i8 %117, 0
+  br i1 %118, label %119, label %124
+
+119:                                              ; preds = %113
+  %120 = getelementptr inbounds i8, ptr %114, i64 -8
+  %121 = load ptr, ptr %120, align 8, !tbaa !46
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %142, label %123
+  br i1 %122, label %124, label %123
 
-123:                                              ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %121, i64 -8
-  %125 = load i64, ptr %124, align 8
-  %126 = icmp eq i64 %125, 0
-  br i1 %126, label %.loopexit12, label %127
+123:                                              ; preds = %119
+  call void @_ZdaPv(ptr noundef nonnull %121) #18
+  br label %124
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %121, i64 %125
-  br label %129
+124:                                              ; preds = %123, %119, %113
+  %125 = icmp eq ptr %115, %105
+  br i1 %125, label %.loopexit13, label %113
 
-129:                                              ; preds = %140, %127
-  %130 = phi ptr [ %131, %140 ], [ %128, %127 ]
-  %131 = getelementptr inbounds i8, ptr %130, i64 -32
-  %132 = getelementptr inbounds i8, ptr %130, i64 -16
-  %133 = load i8, ptr %132, align 8, !tbaa !43, !range !44, !noundef !45
-  %134 = icmp eq i8 %133, 0
-  br i1 %134, label %135, label %140
+.loopexit13:                                      ; preds = %124, %107
+  call void @_ZdaPv(ptr noundef nonnull %108) #18
+  br label %126
 
-135:                                              ; preds = %129
-  %136 = getelementptr inbounds i8, ptr %130, i64 -8
-  %137 = load ptr, ptr %136, align 8, !tbaa !46
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %140, label %139
-
-139:                                              ; preds = %135
-  call void @_ZdaPv(ptr noundef nonnull %137) #18
-  br label %140
-
-140:                                              ; preds = %139, %135, %129
-  %141 = icmp eq ptr %131, %121
-  br i1 %141, label %.loopexit12, label %129
-
-.loopexit12:                                      ; preds = %140, %123
-  call void @_ZdaPv(ptr noundef nonnull %124) #18
-  br label %142
-
-142:                                              ; preds = %.loopexit12, %118
+126:                                              ; preds = %.loopexit13, %102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %143 = getelementptr inbounds i8, ptr %4, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !20
+  %127 = getelementptr inbounds i8, ptr %4, i64 8
+  %128 = load ptr, ptr %127, align 8, !tbaa !20
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %149, label %130
+
+130:                                              ; preds = %126
+  %131 = getelementptr inbounds i8, ptr %128, i64 -8
+  %132 = load i64, ptr %131, align 8
+  %133 = icmp eq i64 %132, 0
+  br i1 %133, label %.loopexit, label %134
+
+134:                                              ; preds = %130
+  %135 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %128, i64 %132
+  br label %136
+
+136:                                              ; preds = %147, %134
+  %137 = phi ptr [ %138, %147 ], [ %135, %134 ]
+  %138 = getelementptr inbounds i8, ptr %137, i64 -32
+  %139 = getelementptr inbounds i8, ptr %137, i64 -16
+  %140 = load i8, ptr %139, align 8, !tbaa !47, !range !44, !noundef !45
+  %141 = icmp eq i8 %140, 0
+  br i1 %141, label %142, label %147
+
+142:                                              ; preds = %136
+  %143 = getelementptr inbounds i8, ptr %137, i64 -8
+  %144 = load ptr, ptr %143, align 8, !tbaa !22
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %165, label %146
+  br i1 %145, label %147, label %146
 
 146:                                              ; preds = %142
-  %147 = getelementptr inbounds i8, ptr %144, i64 -8
-  %148 = load i64, ptr %147, align 8
-  %149 = icmp eq i64 %148, 0
-  br i1 %149, label %.loopexit, label %150
+  call void @_ZdaPv(ptr noundef nonnull %144) #18
+  br label %147
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %144, i64 %148
-  br label %152
+147:                                              ; preds = %146, %142, %136
+  %148 = icmp eq ptr %138, %128
+  br i1 %148, label %.loopexit, label %136
 
-152:                                              ; preds = %163, %150
-  %153 = phi ptr [ %154, %163 ], [ %151, %150 ]
-  %154 = getelementptr inbounds i8, ptr %153, i64 -32
-  %155 = getelementptr inbounds i8, ptr %153, i64 -16
-  %156 = load i8, ptr %155, align 8, !tbaa !47, !range !44, !noundef !45
-  %157 = icmp eq i8 %156, 0
-  br i1 %157, label %158, label %163
+.loopexit:                                        ; preds = %147, %130
+  call void @_ZdaPv(ptr noundef nonnull %131) #18
+  br label %149
 
-158:                                              ; preds = %152
-  %159 = getelementptr inbounds i8, ptr %153, i64 -8
-  %160 = load ptr, ptr %159, align 8, !tbaa !22
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %163, label %162
-
-162:                                              ; preds = %158
-  call void @_ZdaPv(ptr noundef nonnull %160) #18
-  br label %163
-
-163:                                              ; preds = %162, %158, %152
-  %164 = icmp eq ptr %154, %144
-  br i1 %164, label %.loopexit, label %152
-
-.loopexit:                                        ; preds = %163, %146
-  call void @_ZdaPv(ptr noundef nonnull %147) #18
-  br label %165
-
-165:                                              ; preds = %.loopexit, %142
+149:                                              ; preds = %.loopexit, %126
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
-  ret i32 %119
+  ret i32 %103
 
-166:                                              ; preds = %107, %88, %73, %54, %50, %26, %22
-  %167 = phi i32 [ %29, %26 ], [ %25, %22 ], [ %53, %50 ], [ %110, %107 ], [ %91, %88 ], [ %76, %73 ], [ %57, %54 ]
-  %168 = phi ptr [ %28, %26 ], [ %24, %22 ], [ %52, %50 ], [ %109, %107 ], [ %90, %88 ], [ %75, %73 ], [ %56, %54 ]
+150:                                              ; preds = %91, %93, %61, %63, %76, %46, %44, %22, %20
+  %.merged12 = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %45, %44 ], [ %77, %76 ], [ %47, %46 ], [ %64, %63 ], [ %62, %61 ], [ %94, %93 ], [ %92, %91 ]
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %7) #16
-  br label %169
+  br label %151
 
-169:                                              ; preds = %166, %12
-  %170 = phi i32 [ %167, %166 ], [ %15, %12 ]
-  %171 = phi ptr [ %168, %166 ], [ %14, %12 ]
+151:                                              ; preds = %150, %12
+  %.merged = phi { ptr, i32 } [ %.merged12, %150 ], [ %13, %12 ]
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #16
   call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
-  %172 = insertvalue { ptr, i32 } poison, ptr %171, 0
-  %173 = insertvalue { ptr, i32 } %172, i32 %170, 1
-  resume { ptr, i32 } %173
+  resume { ptr, i32 } %.merged
 
-174:                                              ; preds = %103, %69, %22
-  %175 = landingpad { ptr, i32 }
+152:                                              ; preds = %91, %61, %20
+  %153 = landingpad { ptr, i32 }
           catch ptr null
-  %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #19
+  %154 = extractvalue { ptr, i32 } %153, 0
+  call void @__clang_call_terminate(ptr %154) #19
   unreachable
 }
 
@@ -961,594 +911,576 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   store i32 -1, ptr %13, align 8, !tbaa !6
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 512, ptr noundef nonnull @.str.5, ptr noundef %2) #16
   %15 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %11, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, ptr noundef null)
-          to label %45 unwind label %20
+          to label %39 unwind label %18
 
 16:                                               ; preds = %7
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  %19 = extractvalue { ptr, i32 } %17, 1
-  br label %383
+  br label %371
 
-20:                                               ; preds = %12
-  %21 = landingpad { ptr, i32 }
+18:                                               ; preds = %12
+  %19 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI14gmic_exception
-  %22 = extractvalue { ptr, i32 } %21, 0
-  %23 = extractvalue { ptr, i32 } %21, 1
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14gmic_exception) #16
-  %25 = icmp eq i32 %23, %24
-  br i1 %25, label %26, label %380
+  %20 = extractvalue { ptr, i32 } %19, 1
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14gmic_exception) #16
+  %22 = icmp eq i32 %20, %21
+  br i1 %22, label %23, label %370
 
-26:                                               ; preds = %20
-  %27 = call ptr @__cxa_begin_catch(ptr %22) #16
-  %28 = getelementptr inbounds i8, ptr %27, i64 56
-  %29 = load ptr, ptr %28, align 8, !tbaa !38
-  %30 = icmp eq ptr %29, null
-  %31 = select i1 %30, ptr @.str.8, ptr %29
-  %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %31)
+23:                                               ; preds = %18
+  %24 = extractvalue { ptr, i32 } %19, 0
+  %25 = call ptr @__cxa_begin_catch(ptr %24) #16
+  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  %27 = load ptr, ptr %26, align 8, !tbaa !38
+  %28 = icmp eq ptr %27, null
+  %29 = select i1 %28, ptr @.str.8, ptr %27
+  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %29)
   store i32 0, ptr %3, align 4, !tbaa !41
-  %33 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
-          to label %34 unwind label %37
+  %31 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
+          to label %32 unwind label %35
 
-34:                                               ; preds = %26
-  %35 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIcE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 0)
-          to label %36 unwind label %37
+32:                                               ; preds = %23
+  %33 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIcE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 0)
+          to label %34 unwind label %35
 
-36:                                               ; preds = %34
+34:                                               ; preds = %32
   invoke void @__cxa_end_catch()
-          to label %332 unwind label %39
+          to label %322 unwind label %37
 
-37:                                               ; preds = %34, %26
+35:                                               ; preds = %32, %23
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %370 unwind label %372
+
+37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__cxa_end_catch()
-          to label %41 unwind label %388
+  br label %370
 
-39:                                               ; preds = %36
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  br label %41
+39:                                               ; preds = %12
+  %40 = load i8, ptr %5, align 1, !tbaa !24
+  %41 = icmp eq i8 %40, 0
+  %42 = load i32, ptr %9, align 8, !tbaa !52
+  %43 = icmp eq i32 %42, 0
+  %44 = select i1 %41, i1 true, i1 %43
+  br i1 %44, label %.loopexit25, label %45
 
-41:                                               ; preds = %39, %37
-  %42 = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
-  %43 = extractvalue { ptr, i32 } %42, 0
-  %44 = extractvalue { ptr, i32 } %42, 1
-  br label %380
+45:                                               ; preds = %39
+  %46 = getelementptr inbounds i8, ptr %9, i64 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !42
+  %48 = zext i32 %42 to i64
+  br label %49
 
-45:                                               ; preds = %12
-  %46 = load i8, ptr %5, align 1, !tbaa !24
-  %47 = icmp eq i8 %46, 0
-  %48 = load i32, ptr %9, align 8, !tbaa !52
-  %49 = icmp eq i32 %48, 0
-  %50 = select i1 %47, i1 true, i1 %49
-  br i1 %50, label %.loopexit24, label %51
+49:                                               ; preds = %55, %45
+  %50 = phi i64 [ 0, %45 ], [ %56, %55 ]
+  %51 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %47, i64 %50, i32 5
+  %52 = load ptr, ptr %51, align 8, !tbaa !46
+  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %5) #20
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %58, label %55
 
-51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %9, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !42
-  %54 = zext i32 %48 to i64
-  br label %55
+55:                                               ; preds = %49
+  %56 = add nuw nsw i64 %50, 1
+  %57 = icmp eq i64 %56, %48
+  br i1 %57, label %.loopexit25, label %49, !llvm.loop !53
 
-55:                                               ; preds = %61, %51
-  %56 = phi i64 [ 0, %51 ], [ %62, %61 ]
-  %57 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %53, i64 %56, i32 5
-  %58 = load ptr, ptr %57, align 8, !tbaa !46
-  %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %5) #20
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %64, label %61
+58:                                               ; preds = %49
+  %59 = trunc i64 %50 to i32
+  br label %.loopexit25
 
-61:                                               ; preds = %55
-  %62 = add nuw nsw i64 %56, 1
-  %63 = icmp eq i64 %62, %54
-  br i1 %63, label %.loopexit24, label %55, !llvm.loop !53
+.loopexit25:                                      ; preds = %55, %58, %39
+  %60 = phi i32 [ 0, %39 ], [ 1, %58 ], [ 0, %55 ]
+  %61 = phi i32 [ 0, %39 ], [ %59, %58 ], [ 0, %55 ]
+  store i32 %42, ptr %3, align 4, !tbaa !41
+  %62 = icmp eq i32 %6, 0
+  br i1 %62, label %63, label %.loopexit24
 
-64:                                               ; preds = %55
-  %65 = trunc i64 %56 to i32
-  br label %.loopexit24
-
-.loopexit24:                                      ; preds = %61, %64, %45
-  %66 = phi i32 [ 0, %45 ], [ 1, %64 ], [ 0, %61 ]
-  %67 = phi i32 [ 0, %45 ], [ %65, %64 ], [ 0, %61 ]
-  store i32 %48, ptr %3, align 4, !tbaa !41
-  %68 = icmp eq i32 %6, 0
-  br i1 %68, label %69, label %.loopexit23
-
-69:                                               ; preds = %.loopexit24
+63:                                               ; preds = %.loopexit25
   invoke void @lut3d_clear_lutname_list(ptr noundef %4)
-          to label %70 unwind label %75
+          to label %64 unwind label %69
 
-70:                                               ; preds = %69
-  %71 = load i32, ptr %9, align 8, !tbaa !52
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %.loopexit23, label %73
+64:                                               ; preds = %63
+  %65 = load i32, ptr %9, align 8, !tbaa !52
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %.loopexit24, label %67
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %9, i64 8
-  br label %77
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds i8, ptr %9, i64 8
+  br label %71
 
-75:                                               ; preds = %69
-  %76 = landingpad { ptr, i32 }
+69:                                               ; preds = %63
+  %70 = landingpad { ptr, i32 }
           cleanup
-  br label %328
+  br label %370
 
-77:                                               ; preds = %82, %73
-  %78 = phi i64 [ 0, %73 ], [ %83, %82 ]
-  %79 = load ptr, ptr %74, align 8, !tbaa !42
-  %80 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %79, i64 %78, i32 5
-  %81 = load ptr, ptr %80, align 8, !tbaa !46
-  invoke void @lut3d_add_lutname_to_list(ptr noundef %4, ptr noundef %81)
-          to label %82 unwind label %87
+71:                                               ; preds = %76, %67
+  %72 = phi i64 [ 0, %67 ], [ %77, %76 ]
+  %73 = load ptr, ptr %68, align 8, !tbaa !42
+  %74 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %73, i64 %72, i32 5
+  %75 = load ptr, ptr %74, align 8, !tbaa !46
+  invoke void @lut3d_add_lutname_to_list(ptr noundef %4, ptr noundef %75)
+          to label %76 unwind label %81
 
-82:                                               ; preds = %77
-  %83 = add nuw nsw i64 %78, 1
-  %84 = load i32, ptr %9, align 8, !tbaa !52
-  %85 = zext i32 %84 to i64
-  %86 = icmp samesign ult i64 %83, %85
-  br i1 %86, label %77, label %.loopexit23, !llvm.loop !54
+76:                                               ; preds = %71
+  %77 = add nuw nsw i64 %72, 1
+  %78 = load i32, ptr %9, align 8, !tbaa !52
+  %79 = zext i32 %78 to i64
+  %80 = icmp samesign ult i64 %77, %79
+  br i1 %80, label %71, label %.loopexit24, !llvm.loop !54
 
-87:                                               ; preds = %77
-  %88 = landingpad { ptr, i32 }
+81:                                               ; preds = %71
+  %82 = landingpad { ptr, i32 }
           cleanup
-  br label %328
+  br label %370
 
-.loopexit23:                                      ; preds = %82, %70, %.loopexit24
-  %89 = getelementptr inbounds i8, ptr %8, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !20
-  %91 = zext i32 %67 to i64
-  %92 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %90, i64 %91, i32 1
-  %93 = load i32, ptr %92, align 4, !tbaa !49
-  store i32 %93, ptr %0, align 4, !tbaa !41
-  %94 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %90, i64 %91
-  %95 = load i32, ptr %94, align 8, !tbaa !48
+.loopexit24:                                      ; preds = %76, %64, %.loopexit25
+  %83 = getelementptr inbounds i8, ptr %8, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !20
+  %85 = zext i32 %61 to i64
+  %86 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %84, i64 %85, i32 1
+  %87 = load i32, ptr %86, align 4, !tbaa !49
+  store i32 %87, ptr %0, align 4, !tbaa !41
+  %88 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %84, i64 %85
+  %89 = load i32, ptr %88, align 8, !tbaa !48
+  %90 = icmp eq i32 %89, 1
+  %91 = icmp ult i32 %87, 2049
+  %92 = select i1 %90, i1 %91, i1 false
+  br i1 %92, label %93, label %286
+
+93:                                               ; preds = %.loopexit24
+  %94 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %84, i64 %85, i32 2
+  %95 = load i32, ptr %94, align 8, !tbaa !50
   %96 = icmp eq i32 %95, 1
-  %97 = icmp ult i32 %93, 2049
-  %98 = select i1 %96, i1 %97, i1 false
-  br i1 %98, label %99, label %292
+  br i1 %96, label %97, label %286
 
-99:                                               ; preds = %.loopexit23
-  %100 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %90, i64 %91, i32 2
-  %101 = load i32, ptr %100, align 8, !tbaa !50
-  %102 = icmp eq i32 %101, 1
-  br i1 %102, label %103, label %292
-
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %90, i64 %91, i32 3
-  %105 = load i32, ptr %104, align 4, !tbaa !51
-  switch i32 %105, label %292 [
-    i32 6, label %106
-    i32 4, label %169
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %84, i64 %85, i32 3
+  %99 = load i32, ptr %98, align 4, !tbaa !51
+  switch i32 %99, label %286 [
+    i32 6, label %100
+    i32 4, label %163
   ]
 
-106:                                              ; preds = %103
-  %107 = icmp eq i32 %93, 0
-  br i1 %107, label %.loopexit15, label %108
+100:                                              ; preds = %97
+  %101 = icmp eq i32 %87, 0
+  br i1 %101, label %.loopexit16, label %102
 
-108:                                              ; preds = %106
-  %109 = mul nuw nsw i32 %93, 6
-  %110 = getelementptr inbounds i8, ptr %94, i64 24
-  %111 = zext nneg i32 %109 to i64
-  %112 = and i64 %111, 6
-  %113 = icmp eq i32 %93, 1
-  br i1 %113, label %.loopexit16, label %114
+102:                                              ; preds = %100
+  %103 = mul nuw nsw i32 %87, 6
+  %104 = getelementptr inbounds i8, ptr %88, i64 24
+  %105 = zext nneg i32 %103 to i64
+  %106 = and i64 %105, 6
+  %107 = icmp eq i32 %87, 1
+  br i1 %107, label %.loopexit17, label %108
 
-114:                                              ; preds = %108
-  %115 = and i64 %111, 32760
-  br label %118
+108:                                              ; preds = %102
+  %109 = and i64 %105, 32760
+  br label %112
 
-116:                                              ; preds = %326, %.loopexit15
-  %117 = landingpad { ptr, i32 }
+110:                                              ; preds = %320, %.loopexit16
+  %111 = landingpad { ptr, i32 }
           cleanup
-  br label %328
+  br label %370
 
-118:                                              ; preds = %118, %114
-  %119 = phi i64 [ 0, %114 ], [ %167, %118 ]
-  %120 = load ptr, ptr %110, align 8, !tbaa !22
+112:                                              ; preds = %112, %108
+  %113 = phi i64 [ 0, %108 ], [ %161, %112 ]
+  %114 = load ptr, ptr %104, align 8, !tbaa !22
+  %115 = getelementptr inbounds float, ptr %114, i64 %113
+  %116 = load float, ptr %115, align 4, !tbaa !28
+  %117 = fptoui float %116 to i8
+  %118 = getelementptr inbounds i8, ptr %1, i64 %113
+  store i8 %117, ptr %118, align 1, !tbaa !24
+  %119 = or disjoint i64 %113, 1
+  %120 = load ptr, ptr %104, align 8, !tbaa !22
   %121 = getelementptr inbounds float, ptr %120, i64 %119
   %122 = load float, ptr %121, align 4, !tbaa !28
   %123 = fptoui float %122 to i8
   %124 = getelementptr inbounds i8, ptr %1, i64 %119
   store i8 %123, ptr %124, align 1, !tbaa !24
-  %125 = or disjoint i64 %119, 1
-  %126 = load ptr, ptr %110, align 8, !tbaa !22
+  %125 = or disjoint i64 %113, 2
+  %126 = load ptr, ptr %104, align 8, !tbaa !22
   %127 = getelementptr inbounds float, ptr %126, i64 %125
   %128 = load float, ptr %127, align 4, !tbaa !28
   %129 = fptoui float %128 to i8
   %130 = getelementptr inbounds i8, ptr %1, i64 %125
   store i8 %129, ptr %130, align 1, !tbaa !24
-  %131 = or disjoint i64 %119, 2
-  %132 = load ptr, ptr %110, align 8, !tbaa !22
+  %131 = or disjoint i64 %113, 3
+  %132 = load ptr, ptr %104, align 8, !tbaa !22
   %133 = getelementptr inbounds float, ptr %132, i64 %131
   %134 = load float, ptr %133, align 4, !tbaa !28
   %135 = fptoui float %134 to i8
   %136 = getelementptr inbounds i8, ptr %1, i64 %131
   store i8 %135, ptr %136, align 1, !tbaa !24
-  %137 = or disjoint i64 %119, 3
-  %138 = load ptr, ptr %110, align 8, !tbaa !22
+  %137 = or disjoint i64 %113, 4
+  %138 = load ptr, ptr %104, align 8, !tbaa !22
   %139 = getelementptr inbounds float, ptr %138, i64 %137
   %140 = load float, ptr %139, align 4, !tbaa !28
   %141 = fptoui float %140 to i8
   %142 = getelementptr inbounds i8, ptr %1, i64 %137
   store i8 %141, ptr %142, align 1, !tbaa !24
-  %143 = or disjoint i64 %119, 4
-  %144 = load ptr, ptr %110, align 8, !tbaa !22
+  %143 = or disjoint i64 %113, 5
+  %144 = load ptr, ptr %104, align 8, !tbaa !22
   %145 = getelementptr inbounds float, ptr %144, i64 %143
   %146 = load float, ptr %145, align 4, !tbaa !28
   %147 = fptoui float %146 to i8
   %148 = getelementptr inbounds i8, ptr %1, i64 %143
   store i8 %147, ptr %148, align 1, !tbaa !24
-  %149 = or disjoint i64 %119, 5
-  %150 = load ptr, ptr %110, align 8, !tbaa !22
+  %149 = or disjoint i64 %113, 6
+  %150 = load ptr, ptr %104, align 8, !tbaa !22
   %151 = getelementptr inbounds float, ptr %150, i64 %149
   %152 = load float, ptr %151, align 4, !tbaa !28
   %153 = fptoui float %152 to i8
   %154 = getelementptr inbounds i8, ptr %1, i64 %149
   store i8 %153, ptr %154, align 1, !tbaa !24
-  %155 = or disjoint i64 %119, 6
-  %156 = load ptr, ptr %110, align 8, !tbaa !22
+  %155 = or disjoint i64 %113, 7
+  %156 = load ptr, ptr %104, align 8, !tbaa !22
   %157 = getelementptr inbounds float, ptr %156, i64 %155
   %158 = load float, ptr %157, align 4, !tbaa !28
   %159 = fptoui float %158 to i8
   %160 = getelementptr inbounds i8, ptr %1, i64 %155
   store i8 %159, ptr %160, align 1, !tbaa !24
-  %161 = or disjoint i64 %119, 7
-  %162 = load ptr, ptr %110, align 8, !tbaa !22
-  %163 = getelementptr inbounds float, ptr %162, i64 %161
-  %164 = load float, ptr %163, align 4, !tbaa !28
-  %165 = fptoui float %164 to i8
-  %166 = getelementptr inbounds i8, ptr %1, i64 %161
-  store i8 %165, ptr %166, align 1, !tbaa !24
-  %167 = add nuw i64 %119, 8
-  %168 = icmp eq i64 %167, %115
-  br i1 %168, label %.loopexit16, label %118, !llvm.loop !55
+  %161 = add nuw i64 %113, 8
+  %162 = icmp eq i64 %161, %109
+  br i1 %162, label %.loopexit17, label %112, !llvm.loop !55
 
-169:                                              ; preds = %103
-  %170 = icmp eq i32 %93, 0
-  br i1 %170, label %.loopexit15, label %171
+163:                                              ; preds = %97
+  %164 = icmp eq i32 %87, 0
+  br i1 %164, label %.loopexit16, label %165
 
-171:                                              ; preds = %169
-  %172 = mul nuw nsw i32 %93, 3
-  %173 = getelementptr inbounds i8, ptr %94, i64 24
-  %174 = zext nneg i32 %172 to i64
-  %175 = and i64 %174, 7
-  %176 = icmp samesign ult i32 %93, 3
-  br i1 %176, label %.loopexit22, label %177
+165:                                              ; preds = %163
+  %166 = mul nuw nsw i32 %87, 3
+  %167 = getelementptr inbounds i8, ptr %88, i64 24
+  %168 = zext nneg i32 %166 to i64
+  %169 = and i64 %168, 7
+  %170 = icmp samesign ult i32 %87, 3
+  br i1 %170, label %.loopexit23, label %171
 
-177:                                              ; preds = %171
-  %178 = and i64 %174, 16376
-  br label %202
+171:                                              ; preds = %165
+  %172 = and i64 %168, 16376
+  br label %196
 
-.loopexit22:                                      ; preds = %202, %171
-  %179 = phi i64 [ 0, %171 ], [ %178, %202 ]
-  %180 = icmp eq i64 %175, 0
-  br i1 %180, label %.loopexit21, label %.preheader20
+.loopexit23:                                      ; preds = %196, %165
+  %173 = phi i64 [ 0, %165 ], [ %172, %196 ]
+  %174 = icmp eq i64 %169, 0
+  br i1 %174, label %.loopexit22, label %.preheader21
 
-.preheader20:                                     ; preds = %.loopexit22, %.preheader20
-  %181 = phi i64 [ %188, %.preheader20 ], [ %179, %.loopexit22 ]
-  %182 = phi i64 [ %189, %.preheader20 ], [ 0, %.loopexit22 ]
-  %183 = load ptr, ptr %173, align 8, !tbaa !22
-  %184 = getelementptr inbounds float, ptr %183, i64 %181
-  %185 = load float, ptr %184, align 4, !tbaa !28
-  %186 = fptoui float %185 to i8
-  %187 = getelementptr inbounds i8, ptr %1, i64 %181
-  store i8 %186, ptr %187, align 1, !tbaa !24
-  %188 = add nuw nsw i64 %181, 1
-  %189 = add nuw nsw i64 %182, 1
-  %190 = icmp eq i64 %189, %175
-  br i1 %190, label %.loopexit21, label %.preheader20, !llvm.loop !56
+.preheader21:                                     ; preds = %.loopexit23, %.preheader21
+  %175 = phi i64 [ %182, %.preheader21 ], [ %173, %.loopexit23 ]
+  %176 = phi i64 [ %183, %.preheader21 ], [ 0, %.loopexit23 ]
+  %177 = load ptr, ptr %167, align 8, !tbaa !22
+  %178 = getelementptr inbounds float, ptr %177, i64 %175
+  %179 = load float, ptr %178, align 4, !tbaa !28
+  %180 = fptoui float %179 to i8
+  %181 = getelementptr inbounds i8, ptr %1, i64 %175
+  store i8 %180, ptr %181, align 1, !tbaa !24
+  %182 = add nuw nsw i64 %175, 1
+  %183 = add nuw nsw i64 %176, 1
+  %184 = icmp eq i64 %183, %169
+  br i1 %184, label %.loopexit22, label %.preheader21, !llvm.loop !56
 
-.loopexit21:                                      ; preds = %.preheader20, %.loopexit22
-  %191 = mul nuw nsw i32 %93, 5
-  %192 = shl nuw nsw i32 %93, 2
-  %193 = zext nneg i32 %191 to i64
-  %194 = zext nneg i32 %192 to i64
-  %195 = zext nneg i32 %93 to i64
-  %196 = getelementptr i8, ptr %1, i64 %193
-  %197 = getelementptr i8, ptr %1, i64 %194
-  %198 = and i64 %195, 3
-  %199 = icmp ult i32 %93, 4
-  br i1 %199, label %.loopexit19, label %200
+.loopexit22:                                      ; preds = %.preheader21, %.loopexit23
+  %185 = mul nuw nsw i32 %87, 5
+  %186 = shl nuw nsw i32 %87, 2
+  %187 = zext nneg i32 %185 to i64
+  %188 = zext nneg i32 %186 to i64
+  %189 = zext nneg i32 %87 to i64
+  %190 = getelementptr i8, ptr %1, i64 %187
+  %191 = getelementptr i8, ptr %1, i64 %188
+  %192 = and i64 %189, 3
+  %193 = icmp ult i32 %87, 4
+  br i1 %193, label %.loopexit20, label %194
 
-200:                                              ; preds = %.loopexit21
-  %201 = and i64 %195, 4092
-  br label %253
+194:                                              ; preds = %.loopexit22
+  %195 = and i64 %189, 4092
+  br label %247
 
-202:                                              ; preds = %202, %177
-  %203 = phi i64 [ 0, %177 ], [ %251, %202 ]
-  %204 = load ptr, ptr %173, align 8, !tbaa !22
+196:                                              ; preds = %196, %171
+  %197 = phi i64 [ 0, %171 ], [ %245, %196 ]
+  %198 = load ptr, ptr %167, align 8, !tbaa !22
+  %199 = getelementptr inbounds float, ptr %198, i64 %197
+  %200 = load float, ptr %199, align 4, !tbaa !28
+  %201 = fptoui float %200 to i8
+  %202 = getelementptr inbounds i8, ptr %1, i64 %197
+  store i8 %201, ptr %202, align 1, !tbaa !24
+  %203 = or disjoint i64 %197, 1
+  %204 = load ptr, ptr %167, align 8, !tbaa !22
   %205 = getelementptr inbounds float, ptr %204, i64 %203
   %206 = load float, ptr %205, align 4, !tbaa !28
   %207 = fptoui float %206 to i8
   %208 = getelementptr inbounds i8, ptr %1, i64 %203
   store i8 %207, ptr %208, align 1, !tbaa !24
-  %209 = or disjoint i64 %203, 1
-  %210 = load ptr, ptr %173, align 8, !tbaa !22
+  %209 = or disjoint i64 %197, 2
+  %210 = load ptr, ptr %167, align 8, !tbaa !22
   %211 = getelementptr inbounds float, ptr %210, i64 %209
   %212 = load float, ptr %211, align 4, !tbaa !28
   %213 = fptoui float %212 to i8
   %214 = getelementptr inbounds i8, ptr %1, i64 %209
   store i8 %213, ptr %214, align 1, !tbaa !24
-  %215 = or disjoint i64 %203, 2
-  %216 = load ptr, ptr %173, align 8, !tbaa !22
+  %215 = or disjoint i64 %197, 3
+  %216 = load ptr, ptr %167, align 8, !tbaa !22
   %217 = getelementptr inbounds float, ptr %216, i64 %215
   %218 = load float, ptr %217, align 4, !tbaa !28
   %219 = fptoui float %218 to i8
   %220 = getelementptr inbounds i8, ptr %1, i64 %215
   store i8 %219, ptr %220, align 1, !tbaa !24
-  %221 = or disjoint i64 %203, 3
-  %222 = load ptr, ptr %173, align 8, !tbaa !22
+  %221 = or disjoint i64 %197, 4
+  %222 = load ptr, ptr %167, align 8, !tbaa !22
   %223 = getelementptr inbounds float, ptr %222, i64 %221
   %224 = load float, ptr %223, align 4, !tbaa !28
   %225 = fptoui float %224 to i8
   %226 = getelementptr inbounds i8, ptr %1, i64 %221
   store i8 %225, ptr %226, align 1, !tbaa !24
-  %227 = or disjoint i64 %203, 4
-  %228 = load ptr, ptr %173, align 8, !tbaa !22
+  %227 = or disjoint i64 %197, 5
+  %228 = load ptr, ptr %167, align 8, !tbaa !22
   %229 = getelementptr inbounds float, ptr %228, i64 %227
   %230 = load float, ptr %229, align 4, !tbaa !28
   %231 = fptoui float %230 to i8
   %232 = getelementptr inbounds i8, ptr %1, i64 %227
   store i8 %231, ptr %232, align 1, !tbaa !24
-  %233 = or disjoint i64 %203, 5
-  %234 = load ptr, ptr %173, align 8, !tbaa !22
+  %233 = or disjoint i64 %197, 6
+  %234 = load ptr, ptr %167, align 8, !tbaa !22
   %235 = getelementptr inbounds float, ptr %234, i64 %233
   %236 = load float, ptr %235, align 4, !tbaa !28
   %237 = fptoui float %236 to i8
   %238 = getelementptr inbounds i8, ptr %1, i64 %233
   store i8 %237, ptr %238, align 1, !tbaa !24
-  %239 = or disjoint i64 %203, 6
-  %240 = load ptr, ptr %173, align 8, !tbaa !22
+  %239 = or disjoint i64 %197, 7
+  %240 = load ptr, ptr %167, align 8, !tbaa !22
   %241 = getelementptr inbounds float, ptr %240, i64 %239
   %242 = load float, ptr %241, align 4, !tbaa !28
   %243 = fptoui float %242 to i8
   %244 = getelementptr inbounds i8, ptr %1, i64 %239
   store i8 %243, ptr %244, align 1, !tbaa !24
-  %245 = or disjoint i64 %203, 7
-  %246 = load ptr, ptr %173, align 8, !tbaa !22
-  %247 = getelementptr inbounds float, ptr %246, i64 %245
-  %248 = load float, ptr %247, align 4, !tbaa !28
-  %249 = fptoui float %248 to i8
-  %250 = getelementptr inbounds i8, ptr %1, i64 %245
-  store i8 %249, ptr %250, align 1, !tbaa !24
-  %251 = add nuw nsw i64 %203, 8
-  %252 = icmp eq i64 %251, %178
-  br i1 %252, label %.loopexit22, label %202, !llvm.loop !57
+  %245 = add nuw nsw i64 %197, 8
+  %246 = icmp eq i64 %245, %172
+  br i1 %246, label %.loopexit23, label %196, !llvm.loop !57
 
-253:                                              ; preds = %253, %200
-  %254 = phi i64 [ 0, %200 ], [ %290, %253 ]
-  %255 = load ptr, ptr %173, align 8, !tbaa !22
-  %256 = add nuw nsw i64 %254, %174
-  %257 = getelementptr inbounds float, ptr %255, i64 %256
-  %258 = load float, ptr %257, align 4, !tbaa !28
-  %259 = fptoui float %258 to i8
-  %260 = getelementptr i8, ptr %196, i64 %254
-  store i8 %259, ptr %260, align 1, !tbaa !24
-  %261 = getelementptr i8, ptr %197, i64 %254
-  store i8 %259, ptr %261, align 1, !tbaa !24
-  %262 = getelementptr inbounds i8, ptr %1, i64 %256
-  store i8 %259, ptr %262, align 1, !tbaa !24
-  %263 = or disjoint i64 %254, 1
-  %264 = load ptr, ptr %173, align 8, !tbaa !22
-  %265 = add nuw nsw i64 %263, %174
-  %266 = getelementptr inbounds float, ptr %264, i64 %265
-  %267 = load float, ptr %266, align 4, !tbaa !28
-  %268 = fptoui float %267 to i8
-  %269 = getelementptr i8, ptr %196, i64 %263
-  store i8 %268, ptr %269, align 1, !tbaa !24
-  %270 = getelementptr i8, ptr %197, i64 %263
-  store i8 %268, ptr %270, align 1, !tbaa !24
-  %271 = getelementptr inbounds i8, ptr %1, i64 %265
-  store i8 %268, ptr %271, align 1, !tbaa !24
-  %272 = or disjoint i64 %254, 2
-  %273 = load ptr, ptr %173, align 8, !tbaa !22
-  %274 = add nuw nsw i64 %272, %174
-  %275 = getelementptr inbounds float, ptr %273, i64 %274
-  %276 = load float, ptr %275, align 4, !tbaa !28
-  %277 = fptoui float %276 to i8
-  %278 = getelementptr i8, ptr %196, i64 %272
-  store i8 %277, ptr %278, align 1, !tbaa !24
-  %279 = getelementptr i8, ptr %197, i64 %272
-  store i8 %277, ptr %279, align 1, !tbaa !24
-  %280 = getelementptr inbounds i8, ptr %1, i64 %274
-  store i8 %277, ptr %280, align 1, !tbaa !24
-  %281 = or disjoint i64 %254, 3
-  %282 = load ptr, ptr %173, align 8, !tbaa !22
-  %283 = add nuw nsw i64 %281, %174
-  %284 = getelementptr inbounds float, ptr %282, i64 %283
-  %285 = load float, ptr %284, align 4, !tbaa !28
-  %286 = fptoui float %285 to i8
-  %287 = getelementptr i8, ptr %196, i64 %281
-  store i8 %286, ptr %287, align 1, !tbaa !24
-  %288 = getelementptr i8, ptr %197, i64 %281
-  store i8 %286, ptr %288, align 1, !tbaa !24
-  %289 = getelementptr inbounds i8, ptr %1, i64 %283
-  store i8 %286, ptr %289, align 1, !tbaa !24
-  %290 = add nuw i64 %254, 4
-  %291 = icmp eq i64 %290, %201
-  br i1 %291, label %.loopexit19, label %253, !llvm.loop !58
+247:                                              ; preds = %247, %194
+  %248 = phi i64 [ 0, %194 ], [ %284, %247 ]
+  %249 = load ptr, ptr %167, align 8, !tbaa !22
+  %250 = add nuw nsw i64 %248, %168
+  %251 = getelementptr inbounds float, ptr %249, i64 %250
+  %252 = load float, ptr %251, align 4, !tbaa !28
+  %253 = fptoui float %252 to i8
+  %254 = getelementptr i8, ptr %190, i64 %248
+  store i8 %253, ptr %254, align 1, !tbaa !24
+  %255 = getelementptr i8, ptr %191, i64 %248
+  store i8 %253, ptr %255, align 1, !tbaa !24
+  %256 = getelementptr inbounds i8, ptr %1, i64 %250
+  store i8 %253, ptr %256, align 1, !tbaa !24
+  %257 = or disjoint i64 %248, 1
+  %258 = load ptr, ptr %167, align 8, !tbaa !22
+  %259 = add nuw nsw i64 %257, %168
+  %260 = getelementptr inbounds float, ptr %258, i64 %259
+  %261 = load float, ptr %260, align 4, !tbaa !28
+  %262 = fptoui float %261 to i8
+  %263 = getelementptr i8, ptr %190, i64 %257
+  store i8 %262, ptr %263, align 1, !tbaa !24
+  %264 = getelementptr i8, ptr %191, i64 %257
+  store i8 %262, ptr %264, align 1, !tbaa !24
+  %265 = getelementptr inbounds i8, ptr %1, i64 %259
+  store i8 %262, ptr %265, align 1, !tbaa !24
+  %266 = or disjoint i64 %248, 2
+  %267 = load ptr, ptr %167, align 8, !tbaa !22
+  %268 = add nuw nsw i64 %266, %168
+  %269 = getelementptr inbounds float, ptr %267, i64 %268
+  %270 = load float, ptr %269, align 4, !tbaa !28
+  %271 = fptoui float %270 to i8
+  %272 = getelementptr i8, ptr %190, i64 %266
+  store i8 %271, ptr %272, align 1, !tbaa !24
+  %273 = getelementptr i8, ptr %191, i64 %266
+  store i8 %271, ptr %273, align 1, !tbaa !24
+  %274 = getelementptr inbounds i8, ptr %1, i64 %268
+  store i8 %271, ptr %274, align 1, !tbaa !24
+  %275 = or disjoint i64 %248, 3
+  %276 = load ptr, ptr %167, align 8, !tbaa !22
+  %277 = add nuw nsw i64 %275, %168
+  %278 = getelementptr inbounds float, ptr %276, i64 %277
+  %279 = load float, ptr %278, align 4, !tbaa !28
+  %280 = fptoui float %279 to i8
+  %281 = getelementptr i8, ptr %190, i64 %275
+  store i8 %280, ptr %281, align 1, !tbaa !24
+  %282 = getelementptr i8, ptr %191, i64 %275
+  store i8 %280, ptr %282, align 1, !tbaa !24
+  %283 = getelementptr inbounds i8, ptr %1, i64 %277
+  store i8 %280, ptr %283, align 1, !tbaa !24
+  %284 = add nuw i64 %248, 4
+  %285 = icmp eq i64 %284, %195
+  br i1 %285, label %.loopexit20, label %247, !llvm.loop !58
 
-292:                                              ; preds = %103, %99, %.loopexit23
-  %293 = getelementptr inbounds i8, ptr %9, i64 8
-  %294 = load ptr, ptr %293, align 8, !tbaa !42
-  %295 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %294, i64 %91, i32 5
-  %296 = load ptr, ptr %295, align 8, !tbaa !46
-  %297 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %67, ptr noundef %296)
-  br label %.loopexit15
+286:                                              ; preds = %97, %93, %.loopexit24
+  %287 = getelementptr inbounds i8, ptr %9, i64 8
+  %288 = load ptr, ptr %287, align 8, !tbaa !42
+  %289 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %288, i64 %85, i32 5
+  %290 = load ptr, ptr %289, align 8, !tbaa !46
+  %291 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %61, ptr noundef %290)
+  br label %.loopexit16
 
-.loopexit16:                                      ; preds = %118, %108
-  %298 = phi i64 [ 0, %108 ], [ %115, %118 ]
-  %299 = icmp eq i64 %112, 0
-  br i1 %299, label %.loopexit15, label %.preheader
+.loopexit17:                                      ; preds = %112, %102
+  %292 = phi i64 [ 0, %102 ], [ %109, %112 ]
+  %293 = icmp eq i64 %106, 0
+  br i1 %293, label %.loopexit16, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit16, %.preheader
-  %300 = phi i64 [ %307, %.preheader ], [ %298, %.loopexit16 ]
-  %301 = phi i64 [ %308, %.preheader ], [ 0, %.loopexit16 ]
-  %302 = load ptr, ptr %110, align 8, !tbaa !22
-  %303 = getelementptr inbounds float, ptr %302, i64 %300
-  %304 = load float, ptr %303, align 4, !tbaa !28
-  %305 = fptoui float %304 to i8
-  %306 = getelementptr inbounds i8, ptr %1, i64 %300
-  store i8 %305, ptr %306, align 1, !tbaa !24
-  %307 = add nuw nsw i64 %300, 1
-  %308 = add nuw nsw i64 %301, 1
-  %309 = icmp eq i64 %308, %112
-  br i1 %309, label %.loopexit15, label %.preheader, !llvm.loop !59
+.preheader:                                       ; preds = %.loopexit17, %.preheader
+  %294 = phi i64 [ %301, %.preheader ], [ %292, %.loopexit17 ]
+  %295 = phi i64 [ %302, %.preheader ], [ 0, %.loopexit17 ]
+  %296 = load ptr, ptr %104, align 8, !tbaa !22
+  %297 = getelementptr inbounds float, ptr %296, i64 %294
+  %298 = load float, ptr %297, align 4, !tbaa !28
+  %299 = fptoui float %298 to i8
+  %300 = getelementptr inbounds i8, ptr %1, i64 %294
+  store i8 %299, ptr %300, align 1, !tbaa !24
+  %301 = add nuw nsw i64 %294, 1
+  %302 = add nuw nsw i64 %295, 1
+  %303 = icmp eq i64 %302, %106
+  br i1 %303, label %.loopexit16, label %.preheader, !llvm.loop !59
 
-.loopexit19:                                      ; preds = %253, %.loopexit21
-  %310 = phi i64 [ 0, %.loopexit21 ], [ %201, %253 ]
-  %311 = icmp eq i64 %198, 0
-  br i1 %311, label %.loopexit15, label %.preheader17
+.loopexit20:                                      ; preds = %247, %.loopexit22
+  %304 = phi i64 [ 0, %.loopexit22 ], [ %195, %247 ]
+  %305 = icmp eq i64 %192, 0
+  br i1 %305, label %.loopexit16, label %.preheader18
 
-.preheader17:                                     ; preds = %.loopexit19, %.preheader17
-  %312 = phi i64 [ %322, %.preheader17 ], [ %310, %.loopexit19 ]
-  %313 = phi i64 [ %323, %.preheader17 ], [ 0, %.loopexit19 ]
-  %314 = load ptr, ptr %173, align 8, !tbaa !22
-  %315 = add nuw nsw i64 %312, %174
-  %316 = getelementptr inbounds float, ptr %314, i64 %315
-  %317 = load float, ptr %316, align 4, !tbaa !28
-  %318 = fptoui float %317 to i8
-  %319 = getelementptr i8, ptr %196, i64 %312
-  store i8 %318, ptr %319, align 1, !tbaa !24
-  %320 = getelementptr i8, ptr %197, i64 %312
-  store i8 %318, ptr %320, align 1, !tbaa !24
-  %321 = getelementptr inbounds i8, ptr %1, i64 %315
-  store i8 %318, ptr %321, align 1, !tbaa !24
-  %322 = add nuw nsw i64 %312, 1
-  %323 = add nuw nsw i64 %313, 1
-  %324 = icmp eq i64 %323, %198
-  br i1 %324, label %.loopexit15, label %.preheader17, !llvm.loop !60
+.preheader18:                                     ; preds = %.loopexit20, %.preheader18
+  %306 = phi i64 [ %316, %.preheader18 ], [ %304, %.loopexit20 ]
+  %307 = phi i64 [ %317, %.preheader18 ], [ 0, %.loopexit20 ]
+  %308 = load ptr, ptr %167, align 8, !tbaa !22
+  %309 = add nuw nsw i64 %306, %168
+  %310 = getelementptr inbounds float, ptr %308, i64 %309
+  %311 = load float, ptr %310, align 4, !tbaa !28
+  %312 = fptoui float %311 to i8
+  %313 = getelementptr i8, ptr %190, i64 %306
+  store i8 %312, ptr %313, align 1, !tbaa !24
+  %314 = getelementptr i8, ptr %191, i64 %306
+  store i8 %312, ptr %314, align 1, !tbaa !24
+  %315 = getelementptr inbounds i8, ptr %1, i64 %309
+  store i8 %312, ptr %315, align 1, !tbaa !24
+  %316 = add nuw nsw i64 %306, 1
+  %317 = add nuw nsw i64 %307, 1
+  %318 = icmp eq i64 %317, %192
+  br i1 %318, label %.loopexit16, label %.preheader18, !llvm.loop !60
 
-.loopexit15:                                      ; preds = %.preheader17, %.preheader, %.loopexit19, %.loopexit16, %292, %169, %106
-  %325 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
-          to label %326 unwind label %116
+.loopexit16:                                      ; preds = %.preheader18, %.preheader, %.loopexit20, %.loopexit17, %286, %163, %100
+  %319 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
+          to label %320 unwind label %110
 
-326:                                              ; preds = %.loopexit15
-  %327 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIcE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 0)
-          to label %332 unwind label %116
+320:                                              ; preds = %.loopexit16
+  %321 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIcE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 0)
+          to label %322 unwind label %110
 
-328:                                              ; preds = %116, %87, %75
-  %329 = phi { ptr, i32 } [ %117, %116 ], [ %88, %87 ], [ %76, %75 ]
-  %330 = extractvalue { ptr, i32 } %329, 0
-  %331 = extractvalue { ptr, i32 } %329, 1
-  br label %380
-
-332:                                              ; preds = %326, %36
-  %333 = phi i32 [ 0, %36 ], [ %66, %326 ]
+322:                                              ; preds = %320, %34
+  %323 = phi i32 [ 0, %34 ], [ %60, %320 ]
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %11) #16
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #16
-  %334 = getelementptr inbounds i8, ptr %9, i64 8
-  %335 = load ptr, ptr %334, align 8, !tbaa !42
-  %336 = icmp eq ptr %335, null
-  br i1 %336, label %356, label %337
+  %324 = getelementptr inbounds i8, ptr %9, i64 8
+  %325 = load ptr, ptr %324, align 8, !tbaa !42
+  %326 = icmp eq ptr %325, null
+  br i1 %326, label %346, label %327
 
-337:                                              ; preds = %332
-  %338 = getelementptr inbounds i8, ptr %335, i64 -8
-  %339 = load i64, ptr %338, align 8
-  %340 = icmp eq i64 %339, 0
-  br i1 %340, label %.loopexit14, label %341
+327:                                              ; preds = %322
+  %328 = getelementptr inbounds i8, ptr %325, i64 -8
+  %329 = load i64, ptr %328, align 8
+  %330 = icmp eq i64 %329, 0
+  br i1 %330, label %.loopexit15, label %331
 
-341:                                              ; preds = %337
-  %342 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %335, i64 %339
-  br label %343
+331:                                              ; preds = %327
+  %332 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %325, i64 %329
+  br label %333
 
-343:                                              ; preds = %354, %341
-  %344 = phi ptr [ %345, %354 ], [ %342, %341 ]
-  %345 = getelementptr inbounds i8, ptr %344, i64 -32
-  %346 = getelementptr inbounds i8, ptr %344, i64 -16
-  %347 = load i8, ptr %346, align 8, !tbaa !43, !range !44, !noundef !45
-  %348 = icmp eq i8 %347, 0
-  br i1 %348, label %349, label %354
+333:                                              ; preds = %344, %331
+  %334 = phi ptr [ %335, %344 ], [ %332, %331 ]
+  %335 = getelementptr inbounds i8, ptr %334, i64 -32
+  %336 = getelementptr inbounds i8, ptr %334, i64 -16
+  %337 = load i8, ptr %336, align 8, !tbaa !43, !range !44, !noundef !45
+  %338 = icmp eq i8 %337, 0
+  br i1 %338, label %339, label %344
 
-349:                                              ; preds = %343
-  %350 = getelementptr inbounds i8, ptr %344, i64 -8
-  %351 = load ptr, ptr %350, align 8, !tbaa !46
-  %352 = icmp eq ptr %351, null
-  br i1 %352, label %354, label %353
+339:                                              ; preds = %333
+  %340 = getelementptr inbounds i8, ptr %334, i64 -8
+  %341 = load ptr, ptr %340, align 8, !tbaa !46
+  %342 = icmp eq ptr %341, null
+  br i1 %342, label %344, label %343
 
-353:                                              ; preds = %349
-  call void @_ZdaPv(ptr noundef nonnull %351) #18
-  br label %354
+343:                                              ; preds = %339
+  call void @_ZdaPv(ptr noundef nonnull %341) #18
+  br label %344
 
-354:                                              ; preds = %353, %349, %343
-  %355 = icmp eq ptr %345, %335
-  br i1 %355, label %.loopexit14, label %343
+344:                                              ; preds = %343, %339, %333
+  %345 = icmp eq ptr %335, %325
+  br i1 %345, label %.loopexit15, label %333
 
-.loopexit14:                                      ; preds = %354, %337
-  call void @_ZdaPv(ptr noundef nonnull %338) #18
+.loopexit15:                                      ; preds = %344, %327
+  call void @_ZdaPv(ptr noundef nonnull %328) #18
+  br label %346
+
+346:                                              ; preds = %.loopexit15, %322
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
+  %347 = getelementptr inbounds i8, ptr %8, i64 8
+  %348 = load ptr, ptr %347, align 8, !tbaa !20
+  %349 = icmp eq ptr %348, null
+  br i1 %349, label %369, label %350
+
+350:                                              ; preds = %346
+  %351 = getelementptr inbounds i8, ptr %348, i64 -8
+  %352 = load i64, ptr %351, align 8
+  %353 = icmp eq i64 %352, 0
+  br i1 %353, label %.loopexit, label %354
+
+354:                                              ; preds = %350
+  %355 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %348, i64 %352
   br label %356
 
-356:                                              ; preds = %.loopexit14, %332
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
-  %357 = getelementptr inbounds i8, ptr %8, i64 8
-  %358 = load ptr, ptr %357, align 8, !tbaa !20
-  %359 = icmp eq ptr %358, null
-  br i1 %359, label %379, label %360
+356:                                              ; preds = %367, %354
+  %357 = phi ptr [ %358, %367 ], [ %355, %354 ]
+  %358 = getelementptr inbounds i8, ptr %357, i64 -32
+  %359 = getelementptr inbounds i8, ptr %357, i64 -16
+  %360 = load i8, ptr %359, align 8, !tbaa !47, !range !44, !noundef !45
+  %361 = icmp eq i8 %360, 0
+  br i1 %361, label %362, label %367
 
-360:                                              ; preds = %356
-  %361 = getelementptr inbounds i8, ptr %358, i64 -8
-  %362 = load i64, ptr %361, align 8
-  %363 = icmp eq i64 %362, 0
-  br i1 %363, label %.loopexit, label %364
+362:                                              ; preds = %356
+  %363 = getelementptr inbounds i8, ptr %357, i64 -8
+  %364 = load ptr, ptr %363, align 8, !tbaa !22
+  %365 = icmp eq ptr %364, null
+  br i1 %365, label %367, label %366
 
-364:                                              ; preds = %360
-  %365 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %358, i64 %362
-  br label %366
+366:                                              ; preds = %362
+  call void @_ZdaPv(ptr noundef nonnull %364) #18
+  br label %367
 
-366:                                              ; preds = %377, %364
-  %367 = phi ptr [ %368, %377 ], [ %365, %364 ]
-  %368 = getelementptr inbounds i8, ptr %367, i64 -32
-  %369 = getelementptr inbounds i8, ptr %367, i64 -16
-  %370 = load i8, ptr %369, align 8, !tbaa !47, !range !44, !noundef !45
-  %371 = icmp eq i8 %370, 0
-  br i1 %371, label %372, label %377
+367:                                              ; preds = %366, %362, %356
+  %368 = icmp eq ptr %358, %348
+  br i1 %368, label %.loopexit, label %356
 
-372:                                              ; preds = %366
-  %373 = getelementptr inbounds i8, ptr %367, i64 -8
-  %374 = load ptr, ptr %373, align 8, !tbaa !22
-  %375 = icmp eq ptr %374, null
-  br i1 %375, label %377, label %376
+.loopexit:                                        ; preds = %367, %350
+  call void @_ZdaPv(ptr noundef nonnull %351) #18
+  br label %369
 
-376:                                              ; preds = %372
-  call void @_ZdaPv(ptr noundef nonnull %374) #18
-  br label %377
-
-377:                                              ; preds = %376, %372, %366
-  %378 = icmp eq ptr %368, %358
-  br i1 %378, label %.loopexit, label %366
-
-.loopexit:                                        ; preds = %377, %360
-  call void @_ZdaPv(ptr noundef nonnull %361) #18
-  br label %379
-
-379:                                              ; preds = %.loopexit, %356
+369:                                              ; preds = %.loopexit, %346
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
-  ret i32 %333
+  ret i32 %323
 
-380:                                              ; preds = %328, %41, %20
-  %381 = phi i32 [ %331, %328 ], [ %44, %41 ], [ %23, %20 ]
-  %382 = phi ptr [ %330, %328 ], [ %43, %41 ], [ %22, %20 ]
+370:                                              ; preds = %69, %81, %110, %35, %37, %18
+  %.merged14 = phi { ptr, i32 } [ %19, %18 ], [ %38, %37 ], [ %36, %35 ], [ %111, %110 ], [ %82, %81 ], [ %70, %69 ]
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %11) #16
-  br label %383
+  br label %371
 
-383:                                              ; preds = %380, %16
-  %384 = phi i32 [ %381, %380 ], [ %19, %16 ]
-  %385 = phi ptr [ %382, %380 ], [ %18, %16 ]
+371:                                              ; preds = %370, %16
+  %.merged = phi { ptr, i32 } [ %.merged14, %370 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #16
   call void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
   call void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
-  %386 = insertvalue { ptr, i32 } poison, ptr %385, 0
-  %387 = insertvalue { ptr, i32 } %386, i32 %384, 1
-  resume { ptr, i32 } %387
+  resume { ptr, i32 } %.merged
 
-388:                                              ; preds = %37
-  %389 = landingpad { ptr, i32 }
+372:                                              ; preds = %35
+  %373 = landingpad { ptr, i32 }
           catch ptr null
-  %390 = extractvalue { ptr, i32 } %389, 0
-  call void @__clang_call_terminate(ptr %390) #19
+  %374 = extractvalue { ptr, i32 } %373, 0
+  call void @__clang_call_terminate(ptr %374) #19
   unreachable
 }
 

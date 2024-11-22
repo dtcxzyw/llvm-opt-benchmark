@@ -137,16 +137,16 @@ define void @_ZN6uu_pwd12logical_path17h32c6f387717b4209E(ptr noalias nocapture 
           to label %.noexc8 unwind label %127
 
 .noexc8:                                          ; preds = %.lr.ph.i.i
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !38, !noalias !37, !nonnull !5, !noundef !5
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !38, !noalias !37, !noundef !5
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !38, !noalias !37, !noundef !5
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !38, !noalias !37, !nonnull !5, !noundef !5
+  %26 = getelementptr inbounds i8, ptr %.pn3.i.i, i64 %.pn1.i.i
   br label %27
 
 27:                                               ; preds = %.critedge.backedge.i.i, %.noexc8
   %28 = phi i64 [ 0, %.noexc8 ], [ %76, %.critedge.backedge.i.i ]
-  %29 = phi ptr [ %.sroa.0.0.i.i, %.noexc8 ], [ %77, %.critedge.backedge.i.i ]
+  %29 = phi ptr [ %.pn3.i.i, %.noexc8 ], [ %77, %.critedge.backedge.i.i ]
   %.pre.i.i.i1718.i.i = phi i64 [ 0, %.noexc8 ], [ %.pre.i.i.i16.i.i, %.critedge.backedge.i.i ]
   br label %30
 
@@ -224,9 +224,9 @@ select.unfold.i.i:                                ; preds = %"_ZN97_$LT$core..st
   %77 = phi ptr [ %.sink13.i.i.i.i.i.i, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %63, %61 ], [ %26, %30 ]
   %.pre.i.i.i16.i.i = phi i64 [ %75, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %.pre.i.i.i1718.i.i, %61 ], [ %.pre.i.i.i1718.i.i, %30 ]
   %78 = phi i1 [ false, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ true, %61 ], [ true, %30 ]
-  %.pn25.i.i = phi i64 [ %31, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %.sroa.5.0.i.i, %61 ], [ %.sroa.5.0.i.i, %30 ]
+  %.pn25.i.i = phi i64 [ %31, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %.pn1.i.i, %61 ], [ %.pn1.i.i, %30 ]
   %.sroa.4.0.i.i.ph.i.i = sub i64 %.pn25.i.i, %.pre.i.i.i1718.i.i
-  %.sroa.0.0.i.i.ph.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.pre.i.i.i1718.i.i
+  %.sroa.0.0.i.i.ph.i.i = getelementptr inbounds i8, ptr %.pn3.i.i, i64 %.pre.i.i.i1718.i.i
   switch i64 %.sroa.4.0.i.i.ph.i.i, label %.critedge.backedge.i.i [
     i64 1, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h0462692abe0194adE.exit.i.i"
     i64 2, label %79
@@ -266,7 +266,7 @@ select.unfold.i.i:                                ; preds = %"_ZN97_$LT$core..st
   %89 = load ptr, ptr %8, align 8, !noalias !71, !nonnull !5, !noundef !5
   %90 = getelementptr inbounds i8, ptr %8, i64 16
   %91 = load i64, ptr %90, align 8, !noalias !71, !noundef !5
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12980515390465169443"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i.i, ptr noundef nonnull %89, i64 noundef %87, i64 noundef %91)
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12980515390465169443"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i.i, ptr noundef nonnull %89, i64 noundef %87, i64 noundef %91)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4bae22f7cd789d98E.exit.i.i" unwind label %127
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4bae22f7cd789d98E.exit.i.i": ; preds = %88, %.noexc9
@@ -327,7 +327,7 @@ select.unfold.i.i:                                ; preds = %"_ZN97_$LT$core..st
   %105 = load ptr, ptr %5, align 8, !noalias !102, !nonnull !5, !noundef !5
   %106 = getelementptr inbounds i8, ptr %5, i64 16
   %107 = load i64, ptr %106, align 8, !noalias !102, !noundef !5
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12980515390465169443"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i.i, ptr noundef nonnull %105, i64 noundef %103, i64 noundef %107)
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12980515390465169443"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i.i, ptr noundef nonnull %105, i64 noundef %103, i64 noundef %107)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4bae22f7cd789d98E.exit.i26.i" unwind label %127
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4bae22f7cd789d98E.exit.i26.i": ; preds = %104, %.noexc12

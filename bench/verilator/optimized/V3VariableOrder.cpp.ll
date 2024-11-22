@@ -5341,10 +5341,10 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   br label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i
 
 _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i: ; preds = %33, %8
-  %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i, %33 ], [ %12, %8 ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i32 [ %39, %33 ], [ %14, %8 ]
-  %40 = icmp ne ptr %10, %.sroa.0.0.i.i.i.i.i.i.i.i
-  %41 = icmp ne i32 %.sroa.3.0.i.i.i.i.i.i.i.i, 0
+  %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i, %33 ], [ %12, %8 ]
+  %.pn.i.i.i.i.i.i.i.i = phi i32 [ %39, %33 ], [ %14, %8 ]
+  %40 = icmp ne ptr %10, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i
+  %41 = icmp ne i32 %.pn.i.i.i.i.i.i.i.i, 0
   %.not3.i54.i.i.i.i.i.i.i = or i1 %40, %41
   br i1 %.not3.i54.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit
 
@@ -5383,8 +5383,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i: ; preds = %52
   %.sroa.8.1.i.i.i.i.i.i.i = select i1 %58, i32 0, i32 %57
   %.sroa.0.1.idx.i.i.i.i.i.i.i = select i1 %58, i64 8, i64 0
   %.sroa.0.1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.058.i.i.i.i.i.i.i, i64 %.sroa.0.1.idx.i.i.i.i.i.i.i
-  %59 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i
-  %60 = icmp ne i32 %spec.select.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i.i.i.i.i.i
+  %59 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i
+  %60 = icmp ne i32 %spec.select.i.i.i.i.i.i.i, %.pn.i.i.i.i.i.i.i.i
   %.not3.i.i.i.i.i.i.i.i = or i1 %60, %59
   br i1 %.not3.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit, !llvm.loop !44
 
@@ -5706,10 +5706,10 @@ _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_ite
   %34 = icmp slt i64 %16, %33
   %35 = getelementptr inbounds i64, ptr %23, i64 %17
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 %storemerge.idx.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i = select i1 %34, ptr %storemerge.i.i.i.i.i.i.i.i.i.i.i.i, ptr %25
-  %.sroa.3.0.i.i.i.i.i.i.i.i.i = select i1 %34, i32 %21, i32 %27
-  %36 = icmp ne ptr %23, %.sroa.0.0.i.i.i.i.i.i.i.i.i
-  %37 = icmp ne i32 %.sroa.3.0.i.i.i.i.i.i.i.i.i, 0
+  %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i.i = select i1 %34, ptr %storemerge.i.i.i.i.i.i.i.i.i.i.i.i, ptr %25
+  %.pn.i.i.i.i.i.i.i.i.i = select i1 %34, i32 %21, i32 %27
+  %36 = icmp ne ptr %23, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i.i
+  %37 = icmp ne i32 %.pn.i.i.i.i.i.i.i.i.i, 0
   %.not3.i54.i.i.i.i.i.i.i.i = or i1 %36, %37
   br i1 %.not3.i54.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit.i
 
@@ -5748,8 +5748,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i: ; preds = %48
   %.sroa.8.1.i.i.i.i.i.i.i.i = select i1 %54, i32 0, i32 %53
   %.sroa.0.1.idx.i.i.i.i.i.i.i.i = select i1 %54, i64 8, i64 0
   %.sroa.0.1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.058.i.i.i.i.i.i.i.i, i64 %.sroa.0.1.idx.i.i.i.i.i.i.i.i
-  %55 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i.i
-  %56 = icmp ne i32 %spec.select.i.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i.i.i.i.i.i.i
+  %55 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i.i, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i.i
+  %56 = icmp ne i32 %spec.select.i.i.i.i.i.i.i.i, %.pn.i.i.i.i.i.i.i.i.i
   %.not3.i.i.i.i.i.i.i.i.i = or i1 %56, %55
   br i1 %.not3.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit.i, !llvm.loop !44
 
@@ -5830,10 +5830,10 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIKSt6vectorIbSaIbEESt4
   br label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i
 
 _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i: ; preds = %36, %9
-  %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i, %36 ], [ %15, %9 ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i32 [ %42, %36 ], [ %17, %9 ]
-  %43 = icmp ne ptr %13, %.sroa.0.0.i.i.i.i.i.i.i.i
-  %44 = icmp ne i32 %.sroa.3.0.i.i.i.i.i.i.i.i, 0
+  %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i, %36 ], [ %15, %9 ]
+  %.pn.i.i.i.i.i.i.i.i = phi i32 [ %42, %36 ], [ %17, %9 ]
+  %43 = icmp ne ptr %13, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i
+  %44 = icmp ne i32 %.pn.i.i.i.i.i.i.i.i, 0
   %.not3.i54.i.i.i.i.i.i.i = or i1 %43, %44
   br i1 %.not3.i54.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit
 
@@ -5872,8 +5872,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i: ; preds = %55
   %.sroa.8.1.i.i.i.i.i.i.i = select i1 %61, i32 0, i32 %60
   %.sroa.0.1.idx.i.i.i.i.i.i.i = select i1 %61, i64 8, i64 0
   %.sroa.0.1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.058.i.i.i.i.i.i.i, i64 %.sroa.0.1.idx.i.i.i.i.i.i.i
-  %62 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i
-  %63 = icmp ne i32 %spec.select.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i.i.i.i.i.i
+  %62 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i
+  %63 = icmp ne i32 %spec.select.i.i.i.i.i.i.i, %.pn.i.i.i.i.i.i.i.i
   %.not3.i.i.i.i.i.i.i.i = or i1 %63, %62
   br i1 %.not3.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit, !llvm.loop !44
 
@@ -5930,10 +5930,10 @@ _ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit.thread140: ; preds = %55, %_ZNKSt
   br label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i10
 
 _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i10: ; preds = %94, %69
-  %.sroa.0.0.i.i.i.i.i.i.i.i11 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i35, %94 ], [ %73, %69 ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i12 = phi i32 [ %100, %94 ], [ %75, %69 ]
-  %101 = icmp ne ptr %71, %.sroa.0.0.i.i.i.i.i.i.i.i11
-  %102 = icmp ne i32 %.sroa.3.0.i.i.i.i.i.i.i.i12, 0
+  %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i11 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i35, %94 ], [ %73, %69 ]
+  %.pn.i.i.i.i.i.i.i.i12 = phi i32 [ %100, %94 ], [ %75, %69 ]
+  %101 = icmp ne ptr %71, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i11
+  %102 = icmp ne i32 %.pn.i.i.i.i.i.i.i.i12, 0
   %.not3.i54.i.i.i.i.i.i.i13 = or i1 %101, %102
   br i1 %.not3.i54.i.i.i.i.i.i.i13, label %.lr.ph.i.i.i.i.i.i.i19, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit36
 
@@ -5972,8 +5972,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i26: ; preds = %113
   %.sroa.8.1.i.i.i.i.i.i.i30 = select i1 %119, i32 0, i32 %118
   %.sroa.0.1.idx.i.i.i.i.i.i.i31 = select i1 %119, i64 8, i64 0
   %.sroa.0.1.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %.sroa.0.058.i.i.i.i.i.i.i20, i64 %.sroa.0.1.idx.i.i.i.i.i.i.i31
-  %120 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i29, %.sroa.0.0.i.i.i.i.i.i.i.i11
-  %121 = icmp ne i32 %spec.select.i.i.i.i.i.i.i27, %.sroa.3.0.i.i.i.i.i.i.i.i12
+  %120 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i29, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i11
+  %121 = icmp ne i32 %spec.select.i.i.i.i.i.i.i27, %.pn.i.i.i.i.i.i.i.i12
   %.not3.i.i.i.i.i.i.i.i33 = or i1 %121, %120
   br i1 %.not3.i.i.i.i.i.i.i.i33, label %.lr.ph.i.i.i.i.i.i.i19, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit36, !llvm.loop !44
 
@@ -6020,10 +6020,10 @@ _ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit36.thread: ; preds = %.lr.ph.i.i.i
   br label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i37
 
 _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i37: ; preds = %142, %127
-  %.sroa.0.0.i.i.i.i.i.i.i.i38 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i62, %142 ], [ %132, %127 ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i39 = phi i32 [ %148, %142 ], [ %134, %127 ]
-  %149 = icmp ne ptr %130, %.sroa.0.0.i.i.i.i.i.i.i.i38
-  %150 = icmp ne i32 %.sroa.3.0.i.i.i.i.i.i.i.i39, 0
+  %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i38 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i62, %142 ], [ %132, %127 ]
+  %.pn.i.i.i.i.i.i.i.i39 = phi i32 [ %148, %142 ], [ %134, %127 ]
+  %149 = icmp ne ptr %130, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i38
+  %150 = icmp ne i32 %.pn.i.i.i.i.i.i.i.i39, 0
   %.not3.i54.i.i.i.i.i.i.i40 = or i1 %149, %150
   br i1 %.not3.i54.i.i.i.i.i.i.i40, label %.lr.ph.i.i.i.i.i.i.i46, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit63
 
@@ -6062,8 +6062,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i53: ; preds = %161
   %.sroa.8.1.i.i.i.i.i.i.i57 = select i1 %167, i32 0, i32 %166
   %.sroa.0.1.idx.i.i.i.i.i.i.i58 = select i1 %167, i64 8, i64 0
   %.sroa.0.1.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %.sroa.0.058.i.i.i.i.i.i.i47, i64 %.sroa.0.1.idx.i.i.i.i.i.i.i58
-  %168 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i56, %.sroa.0.0.i.i.i.i.i.i.i.i38
-  %169 = icmp ne i32 %spec.select.i.i.i.i.i.i.i54, %.sroa.3.0.i.i.i.i.i.i.i.i39
+  %168 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i56, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i38
+  %169 = icmp ne i32 %spec.select.i.i.i.i.i.i.i54, %.pn.i.i.i.i.i.i.i.i39
   %.not3.i.i.i.i.i.i.i.i60 = or i1 %169, %168
   br i1 %.not3.i.i.i.i.i.i.i.i60, label %.lr.ph.i.i.i.i.i.i.i46, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit63, !llvm.loop !44
 
@@ -6105,10 +6105,10 @@ _ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit36.thread143: ; preds = %113, %_ZN
   br label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i64
 
 _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i64: ; preds = %179, %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit36.thread143
-  %.sroa.0.0.i.i.i.i.i.i.i.i65 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i89, %179 ], [ %78, %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit36.thread143 ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i66 = phi i32 [ %185, %179 ], [ %80, %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit36.thread143 ]
-  %186 = icmp ne ptr %76, %.sroa.0.0.i.i.i.i.i.i.i.i65
-  %187 = icmp ne i32 %.sroa.3.0.i.i.i.i.i.i.i.i66, 0
+  %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i65 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i89, %179 ], [ %78, %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit36.thread143 ]
+  %.pn.i.i.i.i.i.i.i.i66 = phi i32 [ %185, %179 ], [ %80, %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit36.thread143 ]
+  %186 = icmp ne ptr %76, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i65
+  %187 = icmp ne i32 %.pn.i.i.i.i.i.i.i.i66, 0
   %.not3.i54.i.i.i.i.i.i.i67 = or i1 %186, %187
   br i1 %.not3.i54.i.i.i.i.i.i.i67, label %.lr.ph.i.i.i.i.i.i.i73, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit90
 
@@ -6147,8 +6147,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i80: ; preds = %198
   %.sroa.8.1.i.i.i.i.i.i.i84 = select i1 %204, i32 0, i32 %203
   %.sroa.0.1.idx.i.i.i.i.i.i.i85 = select i1 %204, i64 8, i64 0
   %.sroa.0.1.i.i.i.i.i.i.i86 = getelementptr inbounds i8, ptr %.sroa.0.058.i.i.i.i.i.i.i74, i64 %.sroa.0.1.idx.i.i.i.i.i.i.i85
-  %205 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i83, %.sroa.0.0.i.i.i.i.i.i.i.i65
-  %206 = icmp ne i32 %spec.select.i.i.i.i.i.i.i81, %.sroa.3.0.i.i.i.i.i.i.i.i66
+  %205 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i83, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i65
+  %206 = icmp ne i32 %spec.select.i.i.i.i.i.i.i81, %.pn.i.i.i.i.i.i.i.i66
   %.not3.i.i.i.i.i.i.i.i87 = or i1 %206, %205
   br i1 %.not3.i.i.i.i.i.i.i.i87, label %.lr.ph.i.i.i.i.i.i.i73, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit90, !llvm.loop !44
 
@@ -6195,10 +6195,10 @@ _ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit90.thread: ; preds = %.lr.ph.i.i.i
   br label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i91
 
 _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i91: ; preds = %227, %212
-  %.sroa.0.0.i.i.i.i.i.i.i.i92 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i116, %227 ], [ %73, %212 ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i93 = phi i32 [ %233, %227 ], [ %75, %212 ]
-  %234 = icmp ne ptr %71, %.sroa.0.0.i.i.i.i.i.i.i.i92
-  %235 = icmp ne i32 %.sroa.3.0.i.i.i.i.i.i.i.i93, 0
+  %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i92 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i116, %227 ], [ %73, %212 ]
+  %.pn.i.i.i.i.i.i.i.i93 = phi i32 [ %233, %227 ], [ %75, %212 ]
+  %234 = icmp ne ptr %71, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i92
+  %235 = icmp ne i32 %.pn.i.i.i.i.i.i.i.i93, 0
   %.not3.i54.i.i.i.i.i.i.i94 = or i1 %234, %235
   br i1 %.not3.i54.i.i.i.i.i.i.i94, label %.lr.ph.i.i.i.i.i.i.i100, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit117
 
@@ -6237,8 +6237,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i107: ; preds = %246
   %.sroa.8.1.i.i.i.i.i.i.i111 = select i1 %252, i32 0, i32 %251
   %.sroa.0.1.idx.i.i.i.i.i.i.i112 = select i1 %252, i64 8, i64 0
   %.sroa.0.1.i.i.i.i.i.i.i113 = getelementptr inbounds i8, ptr %.sroa.0.058.i.i.i.i.i.i.i101, i64 %.sroa.0.1.idx.i.i.i.i.i.i.i112
-  %253 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i110, %.sroa.0.0.i.i.i.i.i.i.i.i92
-  %254 = icmp ne i32 %spec.select.i.i.i.i.i.i.i108, %.sroa.3.0.i.i.i.i.i.i.i.i93
+  %253 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i110, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i92
+  %254 = icmp ne i32 %spec.select.i.i.i.i.i.i.i108, %.pn.i.i.i.i.i.i.i.i93
   %.not3.i.i.i.i.i.i.i.i114 = or i1 %254, %253
   br i1 %.not3.i.i.i.i.i.i.i.i114, label %.lr.ph.i.i.i.i.i.i.i100, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit117, !llvm.loop !44
 
@@ -6497,10 +6497,10 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIKSt6vectorIbSaIbEESt4
   br label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i
 
 _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i: ; preds = %30, %16
-  %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i, %30 ], [ %7, %16 ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i32 [ %36, %30 ], [ %9, %16 ]
-  %37 = icmp ne ptr %5, %.sroa.0.0.i.i.i.i.i.i.i.i
-  %38 = icmp ne i32 %.sroa.3.0.i.i.i.i.i.i.i.i, 0
+  %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i, %30 ], [ %7, %16 ]
+  %.pn.i.i.i.i.i.i.i.i = phi i32 [ %36, %30 ], [ %9, %16 ]
+  %37 = icmp ne ptr %5, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i
+  %38 = icmp ne i32 %.pn.i.i.i.i.i.i.i.i, 0
   %.not3.i54.i.i.i.i.i.i.i = or i1 %37, %38
   br i1 %.not3.i54.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit
 
@@ -6539,8 +6539,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i: ; preds = %49
   %.sroa.8.1.i.i.i.i.i.i.i = select i1 %55, i32 0, i32 %54
   %.sroa.0.1.idx.i.i.i.i.i.i.i = select i1 %55, i64 8, i64 0
   %.sroa.0.1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.058.i.i.i.i.i.i.i, i64 %.sroa.0.1.idx.i.i.i.i.i.i.i
-  %56 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i
-  %57 = icmp ne i32 %spec.select.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i.i.i.i.i.i
+  %56 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i
+  %57 = icmp ne i32 %spec.select.i.i.i.i.i.i.i, %.pn.i.i.i.i.i.i.i.i
   %.not3.i.i.i.i.i.i.i.i = or i1 %57, %56
   br i1 %.not3.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit, !llvm.loop !44
 
@@ -6618,10 +6618,10 @@ _ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit.thread: ; preds = %.lr.ph.i.i.i.i
   br label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i5
 
 _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i5: ; preds = %91, %66
-  %.sroa.0.0.i.i.i.i.i.i.i.i6 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i30, %91 ], [ %70, %66 ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i7 = phi i32 [ %97, %91 ], [ %72, %66 ]
-  %98 = icmp ne ptr %68, %.sroa.0.0.i.i.i.i.i.i.i.i6
-  %99 = icmp ne i32 %.sroa.3.0.i.i.i.i.i.i.i.i7, 0
+  %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i6 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i30, %91 ], [ %70, %66 ]
+  %.pn.i.i.i.i.i.i.i.i7 = phi i32 [ %97, %91 ], [ %72, %66 ]
+  %98 = icmp ne ptr %68, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i6
+  %99 = icmp ne i32 %.pn.i.i.i.i.i.i.i.i7, 0
   %.not3.i54.i.i.i.i.i.i.i8 = or i1 %98, %99
   br i1 %.not3.i54.i.i.i.i.i.i.i8, label %.lr.ph.i.i.i.i.i.i.i14, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit31
 
@@ -6660,8 +6660,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i21: ; preds = %110
   %.sroa.8.1.i.i.i.i.i.i.i25 = select i1 %116, i32 0, i32 %115
   %.sroa.0.1.idx.i.i.i.i.i.i.i26 = select i1 %116, i64 8, i64 0
   %.sroa.0.1.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %.sroa.0.058.i.i.i.i.i.i.i15, i64 %.sroa.0.1.idx.i.i.i.i.i.i.i26
-  %117 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i24, %.sroa.0.0.i.i.i.i.i.i.i.i6
-  %118 = icmp ne i32 %spec.select.i.i.i.i.i.i.i22, %.sroa.3.0.i.i.i.i.i.i.i.i7
+  %117 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i24, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i6
+  %118 = icmp ne i32 %spec.select.i.i.i.i.i.i.i22, %.pn.i.i.i.i.i.i.i.i7
   %.not3.i.i.i.i.i.i.i.i28 = or i1 %118, %117
   br i1 %.not3.i.i.i.i.i.i.i.i28, label %.lr.ph.i.i.i.i.i.i.i14, label %_ZNKSt4lessIKSt6vectorIbSaIbEEEclERS3_S5_.exit31, !llvm.loop !44
 
@@ -6735,10 +6735,10 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIKSt6vectorIbSaIbEESt4pairIS3_S
   br label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i
 
 _ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1ISt19_Bit_const_iteratorS3_EET_S4_S4_T0_S5_.exit.i.i.i.i.i.i.i: ; preds = %33, %7
-  %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i, %33 ], [ %12, %7 ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i32 [ %39, %33 ], [ %14, %7 ]
-  %40 = icmp ne ptr %10, %.sroa.0.0.i.i.i.i.i.i.i.i
-  %41 = icmp ne i32 %.sroa.3.0.i.i.i.i.i.i.i.i, 0
+  %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i.i.i, %33 ], [ %12, %7 ]
+  %.pn.i.i.i.i.i.i.i.i = phi i32 [ %39, %33 ], [ %14, %7 ]
+  %40 = icmp ne ptr %10, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i
+  %41 = icmp ne i32 %.pn.i.i.i.i.i.i.i.i, 0
   %.not3.i54.i.i.i.i.i.i.i = or i1 %40, %41
   br i1 %.not3.i54.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i
 
@@ -6777,8 +6777,8 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i: ; preds = %52
   %.sroa.8.1.i.i.i.i.i.i.i = select i1 %58, i32 0, i32 %57
   %.sroa.0.1.idx.i.i.i.i.i.i.i = select i1 %58, i64 8, i64 0
   %.sroa.0.1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.058.i.i.i.i.i.i.i, i64 %.sroa.0.1.idx.i.i.i.i.i.i.i
-  %59 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i
-  %60 = icmp ne i32 %spec.select.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i.i.i.i.i.i
+  %59 = icmp ne ptr %spec.select51.i.i.i.i.i.i.i, %storemerge.i.i.i.pn.i.i.i.i.i.i.i.i
+  %60 = icmp ne i32 %spec.select.i.i.i.i.i.i.i, %.pn.i.i.i.i.i.i.i.i
   %.not3.i.i.i.i.i.i.i.i = or i1 %60, %59
   br i1 %.not3.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i, !llvm.loop !44
 

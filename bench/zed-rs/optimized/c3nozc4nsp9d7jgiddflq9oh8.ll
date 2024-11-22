@@ -318,24 +318,24 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
 
 23:                                               ; preds = %16
   %24 = tail call { i64, ptr } @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5cdafdd23a95d3c1E.llvm.6482399857099888620"(ptr noundef nonnull %17, ptr noundef nonnull %10, i64 noundef %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %20, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %11, i64 noundef %18), !noalias !50
-  %25 = extractvalue { i64, ptr } %24, 0
-  %26 = extractvalue { i64, ptr } %24, 1
-  %27 = icmp ne ptr %26, null
-  tail call void @llvm.assume(i1 %27)
+  %25 = extractvalue { i64, ptr } %24, 1
+  %26 = icmp ne ptr %25, null
+  tail call void @llvm.assume(i1 %26)
+  %27 = extractvalue { i64, ptr } %24, 0
   %28 = load i64, ptr %8, align 8, !alias.scope !31, !noalias !32, !noundef !11
-  %29 = icmp ult i64 %25, %28
+  %29 = icmp ult i64 %27, %28
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %23
   %31 = load ptr, ptr %6, align 8, !alias.scope !31, !noalias !32, !nonnull !11, !noundef !11
-  %32 = getelementptr inbounds [0 x { { i64, [21 x i64] }, { { ptr, { { ptr, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, i8, [7 x i8] }, { { i32, [1 x i32], [16 x { [2 x i64] }] }, ptr, {}, i8, i8, [6 x i8] } }, i8, [7 x i8] } } }], ptr %31, i64 0, i64 %25
+  %32 = getelementptr inbounds [0 x { { i64, [21 x i64] }, { { ptr, { { ptr, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, i8, [7 x i8] }, { { i32, [1 x i32], [16 x { [2 x i64] }] }, ptr, {}, i8, i8, [6 x i8] } }, i8, [7 x i8] } } }], ptr %31, i64 0, i64 %27
   %.sroa.025.0.copyload.i.i = load i64, ptr %32, align 8, !noalias !32
   store i64 -9223372036854775807, ptr %32, align 8, !noalias !32
   %33 = icmp eq i64 %.sroa.025.0.copyload.i.i, -9223372036854775807
   br i1 %33, label %35, label %90
 
 34:                                               ; preds = %23
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %25, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d4541af8f859f7f56cebd59c331d2734.148) #47, !noalias !32
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %27, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d4541af8f859f7f56cebd59c331d2734.148) #47, !noalias !32
   unreachable
 
 35:                                               ; preds = %30
@@ -2881,10 +2881,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %10, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %12, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %13 = insertvalue { ptr, ptr } poison, ptr %10, 0
-  %14 = insertvalue { ptr, ptr } %13, ptr %12, 1
-  ret { ptr, ptr } %14
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2900,10 +2900,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
+  %.pn = insertvalue { ptr, ptr } poison, ptr %10, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %12, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %13 = insertvalue { ptr, ptr } poison, ptr %10, 0
-  %14 = insertvalue { ptr, ptr } %13, ptr %12, 1
-  ret { ptr, ptr } %14
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

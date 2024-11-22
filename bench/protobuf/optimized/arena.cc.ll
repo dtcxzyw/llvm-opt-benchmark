@@ -200,35 +200,35 @@ if.end18.i:                                       ; preds = %while.end.i
 
 _ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit: ; preds = %if.then16.i, %if.end18.i
   %.sroa.speculated.i20 = phi i64 [ %.sroa.speculated.i21, %if.then16.i ], [ %.sroa.speculated.i, %if.end18.i ]
-  %retval.sroa.0.0.i = phi ptr [ %call.i7.i, %if.then16.i ], [ %call20.i, %if.end18.i ]
+  %call.i7.pn.i = phi ptr [ %call.i7.i, %if.then16.i ], [ %call20.i, %if.end18.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp10.i)
-  %size3.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.sroa.0.0.i, i8 0, i64 16, i1 false)
+  %size3.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i7.pn.i, i8 0, i64 16, i1 false)
   store i64 %.sroa.speculated.i20, ptr %size3.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 24
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 120
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 24
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 120
   store ptr %add.ptr.i.i.i, ptr %add.ptr.i.i, align 8
-  %limit_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 32
+  %limit_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 32
   %and.i.i.i = and i64 %.sroa.speculated.i20, -8
-  %add.ptr.i.i.i.i3 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 %and.i.i.i
+  %add.ptr.i.i.i.i3 = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 %and.i.i.i
   store ptr %add.ptr.i.i.i.i3, ptr %limit_.i.i, align 8
-  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 40
+  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 40
   store ptr %add.ptr.i.i.i, ptr %prefetch_ptr_.i.i, align 8
-  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 48
+  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 48
   store ptr %add.ptr.i.i.i.i3, ptr %prefetch_limit_.i.i, align 8
-  %string_block_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 56
-  %head_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 72
+  %string_block_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 56
+  %head_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %string_block_.i.i, i8 0, i64 16, i1 false)
-  store ptr %retval.sroa.0.0.i, ptr %head_.i.i, align 8
-  %space_used_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 80
+  store ptr %call.i7.pn.i, ptr %head_.i.i, align 8
+  %space_used_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 80
   store i64 0, ptr %space_used_.i.i, align 8
-  %space_allocated_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 88
+  %space_allocated_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 88
   store i64 %.sroa.speculated.i20, ptr %space_allocated_.i.i, align 8
-  %parent_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 96
+  %parent_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 96
   store ptr %this, ptr %parent_.i.i, align 8
-  %cached_block_length_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 104
+  %cached_block_length_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 104
   store i8 0, ptr %cached_block_length_.i.i, align 8
-  %cached_blocks_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 112
+  %cached_blocks_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 112
   store ptr null, ptr %cached_blocks_.i.i, align 8
   tail call void @_ZN6google8protobuf8internal15ThreadSafeArena14AddSerialArenaEPvPNS1_11SerialArenaE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %0, ptr noundef nonnull %add.ptr.i.i)
   br label %return
@@ -2294,10 +2294,10 @@ if.end18:                                         ; preds = %while.end
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then16
-  %retval.sroa.0.0 = phi ptr [ %call.i7, %if.then16 ], [ %call20, %if.end18 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.speculated, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %call.i7.pn = phi ptr [ %call.i7, %if.then16 ], [ %call20, %if.end18 ]
+  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %call.i7.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %.sroa.speculated, 1
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

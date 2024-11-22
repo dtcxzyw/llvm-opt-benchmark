@@ -20496,8 +20496,8 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h4f113b36bf89d9baE.exit.thread.i.i.i
   br label %63
 
 63:                                               ; preds = %62, %_ZN4core4iter6traits8iterator8Iterator3nth17h4f113b36bf89d9baE.exit.thread.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heb6e82186a167a9eE.exit.thread.sink.split.i.i.i.i", %17, %2
-  %.sroa.4.0.i.i = phi ptr [ %27, %62 ], [ %8, %2 ], [ %.sroa.8.016.ph.i.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heb6e82186a167a9eE.exit.thread.sink.split.i.i.i.i" ], [ %8, %17 ], [ %8, %_ZN4core4iter6traits8iterator8Iterator3nth17h4f113b36bf89d9baE.exit.thread.i.i.i ]
-  %64 = ptrtoint ptr %.sroa.4.0.i.i to i64
+  %.pn8.i.i = phi ptr [ %27, %62 ], [ %8, %2 ], [ %.sroa.8.016.ph.i.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heb6e82186a167a9eE.exit.thread.sink.split.i.i.i.i" ], [ %8, %17 ], [ %8, %_ZN4core4iter6traits8iterator8Iterator3nth17h4f113b36bf89d9baE.exit.thread.i.i.i ]
+  %64 = ptrtoint ptr %.pn8.i.i to i64
   %65 = ptrtoint ptr %8 to i64
   %66 = sub nuw i64 %64, %65
   %67 = udiv exact i64 %66, 80

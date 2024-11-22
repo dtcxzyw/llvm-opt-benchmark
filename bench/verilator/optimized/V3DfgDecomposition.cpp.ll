@@ -186,6 +186,8 @@ $_ZNSt17_Function_handlerIFvR9DfgVertexEZN23ExtractCyclicComponents14visitMergeS
 
 $_ZN23ExtractCyclicComponents8fixEdgesER12DfgVertexVar = comdat any
 
+$_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph = comdat any
+
 $_ZN23ExtractCyclicComponents12moveVerticesI12DfgVertexVarEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E = comdat any
 
 $_ZN23ExtractCyclicComponents12moveVerticesI8DfgConstEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E = comdat any
@@ -1672,151 +1674,169 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define linkonce_odr dso_local void @_ZN19SplitIntoComponents12moveVerticesI12DfgVertexVarEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit, label %4
 
-.lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %5
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
 
-5:                                                ; preds = %60, %.lr.ph
-  %.sroa.0.030 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.029, %60 ]
-  %.sroa.7.029.in = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  %.sroa.7.029 = load ptr, ptr %.sroa.7.029.in, align 8
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit: ; preds = %2, %4
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %8, %4 ], [ zeroinitializer, %2 ]
+  %9 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not28 = icmp eq ptr %9, null
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
+  %10 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  br label %12
+
+12:                                               ; preds = %68, %.lr.ph
+  %.sroa.0.030 = phi ptr [ %9, %.lr.ph ], [ %.sroa.7.029, %68 ]
+  %.sroa.7.029 = phi ptr [ %10, %.lr.ph ], [ %70, %68 ]
   %.not23 = icmp eq ptr %.sroa.7.029, null
-  %6 = select i1 %.not23, ptr %.sroa.0.030, ptr %.sroa.7.029
-  tail call void @llvm.prefetch.p0(ptr nonnull %6, i32 1, i32 3, i32 1)
-  %7 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 64
-  %8 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 48
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
-  %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 60
-  %13 = load i32, ptr %12, align 4
-  %.not.i25 = icmp eq i32 %13, %11
+  %13 = select i1 %.not23, ptr %.sroa.0.030, ptr %.sroa.7.029
+  tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 64
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 48
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 60
+  %20 = load i32, ptr %19, align 4
+  %.not.i25 = icmp eq i32 %20, %18
   br i1 %.not.i25, label %_ZN9DfgVertex4userImEERT_v.exit, label %_ZN9DfgVertex4userImEERT_v.exit.thread
 
-_ZN9DfgVertex4userImEERT_v.exit.thread:           ; preds = %5
-  store i32 %11, ptr %12, align 4
-  store i64 0, ptr %7, align 8
-  br label %58
+_ZN9DfgVertex4userImEERT_v.exit.thread:           ; preds = %12
+  store i32 %18, ptr %19, align 4
+  store i64 0, ptr %14, align 8
+  br label %65
 
-_ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
-  %.pr = load i64, ptr %7, align 8
+_ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %12
+  %.pr = load i64, ptr %14, align 8
   %.not24 = icmp eq i64 %.pr, 0
-  br i1 %.not24, label %58, label %14
+  br i1 %.not24, label %65, label %21
 
-14:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit
-  %15 = load ptr, ptr %0, align 8
-  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030)
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr %"class.std::unique_ptr", ptr %16, i64 %.pr
-  %18 = getelementptr i8, ptr %17, i64 -8
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, 1
-  store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 56
-  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %23, align 8
+21:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit
+  %22 = load ptr, ptr %0, align 8
+  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %22, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030)
+  %23 = load ptr, ptr %11, align 8
+  %24 = getelementptr %"class.std::unique_ptr", ptr %23, i64 %.pr
+  %25 = getelementptr i8, ptr %24, i64 -8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %27, align 8
+  %30 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 56
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %30, align 8
   %.not.i26 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i26, label %24, label %35
+  br i1 %.not.i26, label %31, label %42
 
-24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %28, ptr %29, align 8
-  %.not.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i, label %32, label %30
+31:                                               ; preds = %21
+  %32 = getelementptr inbounds i8, ptr %26, i64 16
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %26, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %35, ptr %36, align 8
+  %.not.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i, label %39, label %37
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %.sroa.0.030, ptr %31, align 8
-  br label %32
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %.sroa.0.030, ptr %38, align 8
+  br label %39
 
-32:                                               ; preds = %30, %24
-  store ptr %.sroa.0.030, ptr %27, align 8
-  %33 = load ptr, ptr %25, align 8
-  %.not8.i.i = icmp eq ptr %33, null
-  br i1 %.not8.i.i, label %34, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+39:                                               ; preds = %37, %31
+  store ptr %.sroa.0.030, ptr %34, align 8
+  %40 = load ptr, ptr %32, align 8
+  %.not8.i.i = icmp eq ptr %40, null
+  br i1 %.not8.i.i, label %41, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-34:                                               ; preds = %32
-  store ptr %.sroa.0.030, ptr %25, align 8
+41:                                               ; preds = %39
+  store ptr %.sroa.0.030, ptr %32, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-35:                                               ; preds = %14
-  %36 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %36, 152
-  br i1 %spec.select.i.i.i.not.i, label %37, label %47
+42:                                               ; preds = %21
+  %43 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %43, 152
+  br i1 %spec.select.i.i.i.not.i, label %44, label %54
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %19, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %40, ptr %41, align 8
-  %.not.i14.i = icmp eq ptr %40, null
-  br i1 %.not.i14.i, label %44, label %42
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %26, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %47, ptr %48, align 8
+  %.not.i14.i = icmp eq ptr %47, null
+  br i1 %.not.i14.i, label %51, label %49
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %.sroa.0.030, ptr %43, align 8
-  br label %44
-
-44:                                               ; preds = %42, %37
-  store ptr %.sroa.0.030, ptr %39, align 8
-  %45 = load ptr, ptr %19, align 8
-  %.not8.i15.i = icmp eq ptr %45, null
-  br i1 %.not8.i15.i, label %46, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-46:                                               ; preds = %44
-  store ptr %.sroa.0.030, ptr %19, align 8
-  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-47:                                               ; preds = %35
-  %48 = getelementptr inbounds i8, ptr %19, i64 32
-  %49 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %19, i64 40
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %51, ptr %52, align 8
-  %.not.i16.i = icmp eq ptr %51, null
-  br i1 %.not.i16.i, label %55, label %53
-
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
-  store ptr %.sroa.0.030, ptr %54, align 8
-  br label %55
-
-55:                                               ; preds = %53, %47
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %.sroa.0.030, ptr %50, align 8
-  %56 = load ptr, ptr %48, align 8
-  %.not8.i17.i = icmp eq ptr %56, null
-  br i1 %.not8.i17.i, label %57, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br label %51
 
-57:                                               ; preds = %55
-  store ptr %.sroa.0.030, ptr %48, align 8
+51:                                               ; preds = %49, %44
+  store ptr %.sroa.0.030, ptr %46, align 8
+  %52 = load ptr, ptr %26, align 8
+  %.not8.i15.i = icmp eq ptr %52, null
+  br i1 %.not8.i15.i, label %53, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+53:                                               ; preds = %51
+  store ptr %.sroa.0.030, ptr %26, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %34, %44, %46, %55, %57
-  store i32 0, ptr %12, align 4
-  store ptr %19, ptr %8, align 8
-  br label %60
+54:                                               ; preds = %42
+  %55 = getelementptr inbounds i8, ptr %26, i64 32
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %26, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %58, ptr %59, align 8
+  %.not.i16.i = icmp eq ptr %58, null
+  br i1 %.not.i16.i, label %62, label %60
 
-58:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
-  %59 = load ptr, ptr %0, align 8
-  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %59)
-  br label %60
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  store ptr %.sroa.0.030, ptr %61, align 8
+  br label %62
 
-60:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %58
-  br i1 %.not23, label %._crit_edge, label %5
+62:                                               ; preds = %60, %54
+  store ptr %.sroa.0.030, ptr %57, align 8
+  %63 = load ptr, ptr %55, align 8
+  %.not8.i17.i = icmp eq ptr %63, null
+  br i1 %.not8.i17.i, label %64, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-._crit_edge:                                      ; preds = %60, %2
+64:                                               ; preds = %62
+  store ptr %.sroa.0.030, ptr %55, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %39, %41, %51, %53, %62, %64
+  store i32 0, ptr %19, align 4
+  store ptr %26, ptr %15, align 8
+  br label %67
+
+65:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
+  %66 = load ptr, ptr %0, align 8
+  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %66)
+  br label %67
+
+67:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %65
+  br i1 %.not23, label %._crit_edge, label %68
+
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds i8, ptr %.sroa.7.029, i64 8
+  %70 = load ptr, ptr %69, align 8
+  br label %12
+
+._crit_edge:                                      ; preds = %67, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
   ret void
 }
 
@@ -1824,151 +1844,169 @@ _ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %34, %44, %46, 
 define linkonce_odr dso_local void @_ZN19SplitIntoComponents12moveVerticesI8DfgConstEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit, label %4
 
-.lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %5
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
 
-5:                                                ; preds = %60, %.lr.ph
-  %.sroa.0.030 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.029, %60 ]
-  %.sroa.7.029.in = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  %.sroa.7.029 = load ptr, ptr %.sroa.7.029.in, align 8
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit: ; preds = %2, %4
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %8, %4 ], [ zeroinitializer, %2 ]
+  %9 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not28 = icmp eq ptr %9, null
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
+  %10 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  br label %12
+
+12:                                               ; preds = %68, %.lr.ph
+  %.sroa.0.030 = phi ptr [ %9, %.lr.ph ], [ %.sroa.7.029, %68 ]
+  %.sroa.7.029 = phi ptr [ %10, %.lr.ph ], [ %70, %68 ]
   %.not23 = icmp eq ptr %.sroa.7.029, null
-  %6 = select i1 %.not23, ptr %.sroa.0.030, ptr %.sroa.7.029
-  tail call void @llvm.prefetch.p0(ptr nonnull %6, i32 1, i32 3, i32 1)
-  %7 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 64
-  %8 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 48
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
-  %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 60
-  %13 = load i32, ptr %12, align 4
-  %.not.i25 = icmp eq i32 %13, %11
+  %13 = select i1 %.not23, ptr %.sroa.0.030, ptr %.sroa.7.029
+  tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 64
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 48
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 60
+  %20 = load i32, ptr %19, align 4
+  %.not.i25 = icmp eq i32 %20, %18
   br i1 %.not.i25, label %_ZN9DfgVertex4userImEERT_v.exit, label %_ZN9DfgVertex4userImEERT_v.exit.thread
 
-_ZN9DfgVertex4userImEERT_v.exit.thread:           ; preds = %5
-  store i32 %11, ptr %12, align 4
-  store i64 0, ptr %7, align 8
-  br label %58
+_ZN9DfgVertex4userImEERT_v.exit.thread:           ; preds = %12
+  store i32 %18, ptr %19, align 4
+  store i64 0, ptr %14, align 8
+  br label %65
 
-_ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
-  %.pr = load i64, ptr %7, align 8
+_ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %12
+  %.pr = load i64, ptr %14, align 8
   %.not24 = icmp eq i64 %.pr, 0
-  br i1 %.not24, label %58, label %14
+  br i1 %.not24, label %65, label %21
 
-14:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit
-  %15 = load ptr, ptr %0, align 8
-  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030)
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr %"class.std::unique_ptr", ptr %16, i64 %.pr
-  %18 = getelementptr i8, ptr %17, i64 -8
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, 1
-  store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 56
-  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %23, align 8
+21:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit
+  %22 = load ptr, ptr %0, align 8
+  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %22, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030)
+  %23 = load ptr, ptr %11, align 8
+  %24 = getelementptr %"class.std::unique_ptr", ptr %23, i64 %.pr
+  %25 = getelementptr i8, ptr %24, i64 -8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %27, align 8
+  %30 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 56
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %30, align 8
   %.not.i26 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i26, label %24, label %35
+  br i1 %.not.i26, label %31, label %42
 
-24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %28, ptr %29, align 8
-  %.not.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i, label %32, label %30
+31:                                               ; preds = %21
+  %32 = getelementptr inbounds i8, ptr %26, i64 16
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %26, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %35, ptr %36, align 8
+  %.not.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i, label %39, label %37
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %.sroa.0.030, ptr %31, align 8
-  br label %32
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %.sroa.0.030, ptr %38, align 8
+  br label %39
 
-32:                                               ; preds = %30, %24
-  store ptr %.sroa.0.030, ptr %27, align 8
-  %33 = load ptr, ptr %25, align 8
-  %.not8.i.i = icmp eq ptr %33, null
-  br i1 %.not8.i.i, label %34, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+39:                                               ; preds = %37, %31
+  store ptr %.sroa.0.030, ptr %34, align 8
+  %40 = load ptr, ptr %32, align 8
+  %.not8.i.i = icmp eq ptr %40, null
+  br i1 %.not8.i.i, label %41, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-34:                                               ; preds = %32
-  store ptr %.sroa.0.030, ptr %25, align 8
+41:                                               ; preds = %39
+  store ptr %.sroa.0.030, ptr %32, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-35:                                               ; preds = %14
-  %36 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %36, 152
-  br i1 %spec.select.i.i.i.not.i, label %37, label %47
+42:                                               ; preds = %21
+  %43 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %43, 152
+  br i1 %spec.select.i.i.i.not.i, label %44, label %54
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %19, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %40, ptr %41, align 8
-  %.not.i14.i = icmp eq ptr %40, null
-  br i1 %.not.i14.i, label %44, label %42
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %26, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %47, ptr %48, align 8
+  %.not.i14.i = icmp eq ptr %47, null
+  br i1 %.not.i14.i, label %51, label %49
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %.sroa.0.030, ptr %43, align 8
-  br label %44
-
-44:                                               ; preds = %42, %37
-  store ptr %.sroa.0.030, ptr %39, align 8
-  %45 = load ptr, ptr %19, align 8
-  %.not8.i15.i = icmp eq ptr %45, null
-  br i1 %.not8.i15.i, label %46, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-46:                                               ; preds = %44
-  store ptr %.sroa.0.030, ptr %19, align 8
-  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-47:                                               ; preds = %35
-  %48 = getelementptr inbounds i8, ptr %19, i64 32
-  %49 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %19, i64 40
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %51, ptr %52, align 8
-  %.not.i16.i = icmp eq ptr %51, null
-  br i1 %.not.i16.i, label %55, label %53
-
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
-  store ptr %.sroa.0.030, ptr %54, align 8
-  br label %55
-
-55:                                               ; preds = %53, %47
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %.sroa.0.030, ptr %50, align 8
-  %56 = load ptr, ptr %48, align 8
-  %.not8.i17.i = icmp eq ptr %56, null
-  br i1 %.not8.i17.i, label %57, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br label %51
 
-57:                                               ; preds = %55
-  store ptr %.sroa.0.030, ptr %48, align 8
+51:                                               ; preds = %49, %44
+  store ptr %.sroa.0.030, ptr %46, align 8
+  %52 = load ptr, ptr %26, align 8
+  %.not8.i15.i = icmp eq ptr %52, null
+  br i1 %.not8.i15.i, label %53, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+53:                                               ; preds = %51
+  store ptr %.sroa.0.030, ptr %26, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %34, %44, %46, %55, %57
-  store i32 0, ptr %12, align 4
-  store ptr %19, ptr %8, align 8
-  br label %60
+54:                                               ; preds = %42
+  %55 = getelementptr inbounds i8, ptr %26, i64 32
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %26, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %58, ptr %59, align 8
+  %.not.i16.i = icmp eq ptr %58, null
+  br i1 %.not.i16.i, label %62, label %60
 
-58:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
-  %59 = load ptr, ptr %0, align 8
-  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %59)
-  br label %60
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  store ptr %.sroa.0.030, ptr %61, align 8
+  br label %62
 
-60:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %58
-  br i1 %.not23, label %._crit_edge, label %5
+62:                                               ; preds = %60, %54
+  store ptr %.sroa.0.030, ptr %57, align 8
+  %63 = load ptr, ptr %55, align 8
+  %.not8.i17.i = icmp eq ptr %63, null
+  br i1 %.not8.i17.i, label %64, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-._crit_edge:                                      ; preds = %60, %2
+64:                                               ; preds = %62
+  store ptr %.sroa.0.030, ptr %55, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %39, %41, %51, %53, %62, %64
+  store i32 0, ptr %19, align 4
+  store ptr %26, ptr %15, align 8
+  br label %67
+
+65:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
+  %66 = load ptr, ptr %0, align 8
+  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %66)
+  br label %67
+
+67:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %65
+  br i1 %.not23, label %._crit_edge, label %68
+
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds i8, ptr %.sroa.7.029, i64 8
+  %70 = load ptr, ptr %69, align 8
+  br label %12
+
+._crit_edge:                                      ; preds = %67, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
   ret void
 }
 
@@ -1976,151 +2014,169 @@ _ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %34, %44, %46, 
 define linkonce_odr dso_local void @_ZN19SplitIntoComponents12moveVerticesI9DfgVertexEEvR6V3ListIS1_XadL_ZNS1_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit, label %4
 
-.lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %5
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
 
-5:                                                ; preds = %60, %.lr.ph
-  %.sroa.0.030 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.029, %60 ]
-  %.sroa.7.029.in = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  %.sroa.7.029 = load ptr, ptr %.sroa.7.029.in, align 8
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit: ; preds = %2, %4
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %8, %4 ], [ zeroinitializer, %2 ]
+  %9 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not28 = icmp eq ptr %9, null
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
+  %10 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  br label %12
+
+12:                                               ; preds = %68, %.lr.ph
+  %.sroa.0.030 = phi ptr [ %9, %.lr.ph ], [ %.sroa.7.029, %68 ]
+  %.sroa.7.029 = phi ptr [ %10, %.lr.ph ], [ %70, %68 ]
   %.not23 = icmp eq ptr %.sroa.7.029, null
-  %6 = select i1 %.not23, ptr %.sroa.0.030, ptr %.sroa.7.029
-  tail call void @llvm.prefetch.p0(ptr nonnull %6, i32 1, i32 3, i32 1)
-  %7 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 64
-  %8 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 48
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
-  %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 60
-  %13 = load i32, ptr %12, align 4
-  %.not.i25 = icmp eq i32 %13, %11
+  %13 = select i1 %.not23, ptr %.sroa.0.030, ptr %.sroa.7.029
+  tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 64
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 48
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 60
+  %20 = load i32, ptr %19, align 4
+  %.not.i25 = icmp eq i32 %20, %18
   br i1 %.not.i25, label %_ZN9DfgVertex4userImEERT_v.exit, label %_ZN9DfgVertex4userImEERT_v.exit.thread
 
-_ZN9DfgVertex4userImEERT_v.exit.thread:           ; preds = %5
-  store i32 %11, ptr %12, align 4
-  store i64 0, ptr %7, align 8
-  br label %58
+_ZN9DfgVertex4userImEERT_v.exit.thread:           ; preds = %12
+  store i32 %18, ptr %19, align 4
+  store i64 0, ptr %14, align 8
+  br label %65
 
-_ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %5
-  %.pr = load i64, ptr %7, align 8
+_ZN9DfgVertex4userImEERT_v.exit:                  ; preds = %12
+  %.pr = load i64, ptr %14, align 8
   %.not24 = icmp eq i64 %.pr, 0
-  br i1 %.not24, label %58, label %14
+  br i1 %.not24, label %65, label %21
 
-14:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit
-  %15 = load ptr, ptr %0, align 8
-  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030)
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr %"class.std::unique_ptr", ptr %16, i64 %.pr
-  %18 = getelementptr i8, ptr %17, i64 -8
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, 1
-  store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 56
-  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %23, align 8
+21:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit
+  %22 = load ptr, ptr %0, align 8
+  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %22, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030)
+  %23 = load ptr, ptr %11, align 8
+  %24 = getelementptr %"class.std::unique_ptr", ptr %23, i64 %.pr
+  %25 = getelementptr i8, ptr %24, i64 -8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %27, align 8
+  %30 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 56
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %30, align 8
   %.not.i26 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i26, label %24, label %35
+  br i1 %.not.i26, label %31, label %42
 
-24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %28, ptr %29, align 8
-  %.not.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i, label %32, label %30
+31:                                               ; preds = %21
+  %32 = getelementptr inbounds i8, ptr %26, i64 16
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %26, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %35, ptr %36, align 8
+  %.not.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i, label %39, label %37
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %.sroa.0.030, ptr %31, align 8
-  br label %32
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %.sroa.0.030, ptr %38, align 8
+  br label %39
 
-32:                                               ; preds = %30, %24
-  store ptr %.sroa.0.030, ptr %27, align 8
-  %33 = load ptr, ptr %25, align 8
-  %.not8.i.i = icmp eq ptr %33, null
-  br i1 %.not8.i.i, label %34, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+39:                                               ; preds = %37, %31
+  store ptr %.sroa.0.030, ptr %34, align 8
+  %40 = load ptr, ptr %32, align 8
+  %.not8.i.i = icmp eq ptr %40, null
+  br i1 %.not8.i.i, label %41, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-34:                                               ; preds = %32
-  store ptr %.sroa.0.030, ptr %25, align 8
+41:                                               ; preds = %39
+  store ptr %.sroa.0.030, ptr %32, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-35:                                               ; preds = %14
-  %36 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %36, 152
-  br i1 %spec.select.i.i.i.not.i, label %37, label %47
+42:                                               ; preds = %21
+  %43 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %43, 152
+  br i1 %spec.select.i.i.i.not.i, label %44, label %54
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %19, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %40, ptr %41, align 8
-  %.not.i14.i = icmp eq ptr %40, null
-  br i1 %.not.i14.i, label %44, label %42
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %26, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %47, ptr %48, align 8
+  %.not.i14.i = icmp eq ptr %47, null
+  br i1 %.not.i14.i, label %51, label %49
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %.sroa.0.030, ptr %43, align 8
-  br label %44
-
-44:                                               ; preds = %42, %37
-  store ptr %.sroa.0.030, ptr %39, align 8
-  %45 = load ptr, ptr %19, align 8
-  %.not8.i15.i = icmp eq ptr %45, null
-  br i1 %.not8.i15.i, label %46, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-46:                                               ; preds = %44
-  store ptr %.sroa.0.030, ptr %19, align 8
-  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-47:                                               ; preds = %35
-  %48 = getelementptr inbounds i8, ptr %19, i64 32
-  %49 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
-  store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %19, i64 40
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
-  store ptr %51, ptr %52, align 8
-  %.not.i16.i = icmp eq ptr %51, null
-  br i1 %.not.i16.i, label %55, label %53
-
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
-  store ptr %.sroa.0.030, ptr %54, align 8
-  br label %55
-
-55:                                               ; preds = %53, %47
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %.sroa.0.030, ptr %50, align 8
-  %56 = load ptr, ptr %48, align 8
-  %.not8.i17.i = icmp eq ptr %56, null
-  br i1 %.not8.i17.i, label %57, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br label %51
 
-57:                                               ; preds = %55
-  store ptr %.sroa.0.030, ptr %48, align 8
+51:                                               ; preds = %49, %44
+  store ptr %.sroa.0.030, ptr %46, align 8
+  %52 = load ptr, ptr %26, align 8
+  %.not8.i15.i = icmp eq ptr %52, null
+  br i1 %.not8.i15.i, label %53, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+53:                                               ; preds = %51
+  store ptr %.sroa.0.030, ptr %26, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %32, %34, %44, %46, %55, %57
-  store i32 0, ptr %12, align 4
-  store ptr %19, ptr %8, align 8
-  br label %60
+54:                                               ; preds = %42
+  %55 = getelementptr inbounds i8, ptr %26, i64 32
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  store ptr null, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %26, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
+  store ptr %58, ptr %59, align 8
+  %.not.i16.i = icmp eq ptr %58, null
+  br i1 %.not.i16.i, label %62, label %60
 
-58:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
-  %59 = load ptr, ptr %0, align 8
-  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %59)
-  br label %60
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  store ptr %.sroa.0.030, ptr %61, align 8
+  br label %62
 
-60:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %58
-  br i1 %.not23, label %._crit_edge, label %5
+62:                                               ; preds = %60, %54
+  store ptr %.sroa.0.030, ptr %57, align 8
+  %63 = load ptr, ptr %55, align 8
+  %.not8.i17.i = icmp eq ptr %63, null
+  br i1 %.not8.i17.i, label %64, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-._crit_edge:                                      ; preds = %60, %2
+64:                                               ; preds = %62
+  store ptr %.sroa.0.030, ptr %55, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %39, %41, %51, %53, %62, %64
+  store i32 0, ptr %19, align 4
+  store ptr %26, ptr %15, align 8
+  br label %67
+
+65:                                               ; preds = %_ZN9DfgVertex4userImEERT_v.exit.thread, %_ZN9DfgVertex4userImEERT_v.exit
+  %66 = load ptr, ptr %0, align 8
+  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(104) %66)
+  br label %67
+
+67:                                               ; preds = %_ZN8DfgGraph9addVertexER9DfgVertex.exit, %65
+  br i1 %.not23, label %._crit_edge, label %68
+
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds i8, ptr %.sroa.7.029, i64 8
+  %70 = load ptr, ptr %69, align 8
+  br label %12
+
+._crit_edge:                                      ; preds = %67, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
   ret void
 }
 
@@ -3352,17 +3408,17 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents17extractCompone
   %9 = load i64, ptr %8, align 8
   tail call void @_ZNSt6vectorISt10unique_ptrI8DfgGraphSt14default_deleteIS1_EESaIS4_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %9)
   %10 = load i64, ptr %8, align 8
-  %.not87 = icmp eq i64 %10, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph
+  %.not78 = icmp eq i64 %10, 0
+  br i1 %.not78, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrI8DfgGraphSt14default_deleteIS0_EE5resetEPS0_.exit
-  %storemerge75 = phi i64 [ 0, %.lr.ph ], [ %28, %_ZNSt10unique_ptrI8DfgGraphSt14default_deleteIS0_EE5resetEPS0_.exit ]
+  %storemerge65 = phi i64 [ 0, %.lr.ph ], [ %28, %_ZNSt10unique_ptrI8DfgGraphSt14default_deleteIS0_EE5resetEPS0_.exit ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %"class.std::unique_ptr", ptr %13, i64 %storemerge75
+  %14 = getelementptr inbounds %"class.std::unique_ptr", ptr %13, i64 %storemerge65
   %15 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 64
@@ -3372,7 +3428,7 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents17extractCompone
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %12
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %storemerge75)
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %storemerge65)
           to label %20 unwind label %21, !noalias !39
 
 20:                                               ; preds = %.noexc
@@ -3410,7 +3466,7 @@ _ZNKSt14default_deleteI8DfgGraphEclEPS0_.exit.i.i: ; preds = %26
 _ZNSt10unique_ptrI8DfgGraphSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %26, %_ZNKSt14default_deleteI8DfgGraphEclEPS0_.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
-  %28 = add nuw i64 %storemerge75, 1
+  %28 = add nuw i64 %storemerge65, 1
   %29 = load i64, ptr %8, align 8
   %30 = icmp ult i64 %28, %29
   br i1 %30, label %12, label %._crit_edge, !llvm.loop !42
@@ -3436,8 +3492,8 @@ _ZNSt10unique_ptrI8DfgGraphSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   br label %.body
 
-common.resume:                                    ; preds = %144, %147, %122, %125, %.body
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %123, %125 ], [ %123, %122 ], [ %145, %147 ], [ %145, %144 ]
+common.resume:                                    ; preds = %92, %95, %70, %73, %.body
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %71, %73 ], [ %71, %70 ], [ %93, %95 ], [ %93, %92 ]
   resume { ptr, i32 } %common.resume.op
 
 .body:                                            ; preds = %31, %21, %37
@@ -3469,283 +3525,169 @@ common.resume:                                    ; preds = %144, %147, %122, %1
 
 47:                                               ; preds = %42, %41
   %48 = load ptr, ptr %0, align 8
-  %49 = load ptr, ptr %48, align 8
-  %.not.i.i40 = icmp eq ptr %49, null
-  br i1 %.not.i.i40, label %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %47, %74
-  %.sink47.i = phi ptr [ %51, %74 ], [ %49, %47 ]
-  %50 = getelementptr inbounds i8, ptr %.sink47.i, i64 8
+  call void @_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(104) %48)
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 176
   %51 = load ptr, ptr %50, align 8
-  %.not32.i = icmp eq ptr %51, null
-  %52 = select i1 %.not32.i, ptr %.sink47.i, ptr %51
-  call void @llvm.prefetch.p0(ptr nonnull %52, i32 1, i32 3, i32 1)
-  %53 = getelementptr inbounds i8, ptr %.sink47.i, i64 56
-  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %53, align 8
-  switch i16 %.sroa.0.0.copyload.i.i.i.i.i, label %74 [
-    i16 153, label %54
-    i16 152, label %64
-  ]
+  %.not5666 = icmp eq ptr %49, %51
+  br i1 %.not5666, label %._crit_edge70, label %.lr.ph69
 
-54:                                               ; preds = %.lr.ph.i
-  call void @_ZN12DfgVarPacked11packSourcesEv(ptr noundef nonnull align 8 dereferenceable(128) %.sink47.i)
-  %55 = getelementptr inbounds i8, ptr %.sink47.i, i64 24
-  %56 = load ptr, ptr %55, align 8
-  %.not39.i = icmp eq ptr %56, null
-  br i1 %.not39.i, label %57, label %74
+.lr.ph69:                                         ; preds = %47, %.lr.ph69
+  %.sroa.052.067 = phi ptr [ %53, %.lr.ph69 ], [ %49, %47 ]
+  %52 = load ptr, ptr %.sroa.052.067, align 8
+  call void @_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(104) %52)
+  %53 = getelementptr inbounds i8, ptr %.sroa.052.067, i64 8
+  %.not56 = icmp eq ptr %53, %51
+  br i1 %.not56, label %._crit_edge70, label %.lr.ph69
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %.sink47.i, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
-  %60 = load ptr, ptr %59, align 8
-  %61 = call { ptr, i64 } %60(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i)
-  %62 = extractvalue { ptr, i64 } %61, 1
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %.sink.split.i, label %74
+._crit_edge70:                                    ; preds = %.lr.ph69, %47
+  %54 = getelementptr inbounds i8, ptr %0, i64 128
+  %55 = load i8, ptr %54, align 8
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %.loopexit59
 
-64:                                               ; preds = %.lr.ph.i
-  call void @_ZN11DfgVarArray11packSourcesEv(ptr noundef nonnull align 8 dereferenceable(128) %.sink47.i)
-  %65 = getelementptr inbounds i8, ptr %.sink47.i, i64 24
-  %66 = load ptr, ptr %65, align 8
-  %.not42.i = icmp eq ptr %66, null
-  br i1 %.not42.i, label %67, label %74
-
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %.sink47.i, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
-  %70 = load ptr, ptr %69, align 8
-  %71 = call { ptr, i64 } %70(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i)
-  %72 = extractvalue { ptr, i64 } %71, 1
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %.sink.split.i, label %74
-
-.sink.split.i:                                    ; preds = %67, %57
-  call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i, ptr noundef nonnull align 8 dereferenceable(104) %48)
-  br label %74
-
-74:                                               ; preds = %.sink.split.i, %67, %64, %57, %54, %.lr.ph.i
-  br i1 %.not32.i, label %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit, label %.lr.ph.i
-
-_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit: ; preds = %74, %47
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 176
-  %77 = load ptr, ptr %76, align 8
-  %.not6676 = icmp eq ptr %75, %77
-  br i1 %.not6676, label %._crit_edge79, label %.lr.ph78
-
-.lr.ph78:                                         ; preds = %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49
-  %.sroa.062.077 = phi ptr [ %105, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49 ], [ %75, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit ]
-  %78 = load ptr, ptr %.sroa.062.077, align 8
-  %79 = load ptr, ptr %78, align 8
-  %.not.i.i41 = icmp eq ptr %79, null
-  br i1 %.not.i.i41, label %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49, label %.lr.ph.i42
-
-.lr.ph.i42:                                       ; preds = %.lr.ph78, %104
-  %.sink47.i43 = phi ptr [ %81, %104 ], [ %79, %.lr.ph78 ]
-  %80 = getelementptr inbounds i8, ptr %.sink47.i43, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %.not32.i44 = icmp eq ptr %81, null
-  %82 = select i1 %.not32.i44, ptr %.sink47.i43, ptr %81
-  call void @llvm.prefetch.p0(ptr nonnull %82, i32 1, i32 3, i32 1)
-  %83 = getelementptr inbounds i8, ptr %.sink47.i43, i64 56
-  %.sroa.0.0.copyload.i.i.i.i.i45 = load i16, ptr %83, align 8
-  switch i16 %.sroa.0.0.copyload.i.i.i.i.i45, label %104 [
-    i16 153, label %84
-    i16 152, label %94
-  ]
-
-84:                                               ; preds = %.lr.ph.i42
-  call void @_ZN12DfgVarPacked11packSourcesEv(ptr noundef nonnull align 8 dereferenceable(128) %.sink47.i43)
-  %85 = getelementptr inbounds i8, ptr %.sink47.i43, i64 24
-  %86 = load ptr, ptr %85, align 8
-  %.not39.i48 = icmp eq ptr %86, null
-  br i1 %.not39.i48, label %87, label %104
-
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %.sink47.i43, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 48
-  %90 = load ptr, ptr %89, align 8
-  %91 = call { ptr, i64 } %90(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i43)
-  %92 = extractvalue { ptr, i64 } %91, 1
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %.sink.split.i47, label %104
-
-94:                                               ; preds = %.lr.ph.i42
-  call void @_ZN11DfgVarArray11packSourcesEv(ptr noundef nonnull align 8 dereferenceable(128) %.sink47.i43)
-  %95 = getelementptr inbounds i8, ptr %.sink47.i43, i64 24
-  %96 = load ptr, ptr %95, align 8
-  %.not42.i46 = icmp eq ptr %96, null
-  br i1 %.not42.i46, label %97, label %104
-
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %.sink47.i43, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 48
-  %100 = load ptr, ptr %99, align 8
-  %101 = call { ptr, i64 } %100(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i43)
-  %102 = extractvalue { ptr, i64 } %101, 1
-  %103 = icmp eq i64 %102, 0
-  br i1 %103, label %.sink.split.i47, label %104
-
-.sink.split.i47:                                  ; preds = %97, %87
-  call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sink47.i43, ptr noundef nonnull align 8 dereferenceable(104) %78)
-  br label %104
-
-104:                                              ; preds = %.sink.split.i47, %97, %94, %87, %84, %.lr.ph.i42
-  br i1 %.not32.i44, label %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49, label %.lr.ph.i42
-
-_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49: ; preds = %104, %.lr.ph78
-  %105 = getelementptr inbounds i8, ptr %.sroa.062.077, i64 8
-  %.not66 = icmp eq ptr %105, %77
-  br i1 %.not66, label %._crit_edge79, label %.lr.ph78
-
-._crit_edge79:                                    ; preds = %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit49, %_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph.exit
-  %106 = getelementptr inbounds i8, ptr %0, i64 128
-  %107 = load i8, ptr %106, align 8
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %.loopexit69
-
-109:                                              ; preds = %._crit_edge79
-  %110 = load ptr, ptr %0, align 8
+57:                                               ; preds = %._crit_edge70
+  %58 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %111 = getelementptr inbounds i8, ptr %3, i64 16
-  %112 = getelementptr inbounds i8, ptr %3, i64 24
-  %113 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %113, align 8
-  %114 = ptrtoint ptr %0 to i64
-  store i64 %114, ptr %3, align 8
-  store ptr @_ZNSt17_Function_handlerIFvR9DfgVertexEZNK23ExtractCyclicComponents10checkEdgesER8DfgGraphEUlS1_E_E9_M_invokeERKSt9_Any_dataS1_, ptr %112, align 8
-  store ptr @_ZNSt17_Function_handlerIFvR9DfgVertexEZNK23ExtractCyclicComponents10checkEdgesER8DfgGraphEUlS1_E_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %111, align 8
-  invoke void @_ZN8DfgGraph13forEachVertexESt8functionIFvR9DfgVertexEE(ptr noundef nonnull align 8 dereferenceable(104) %110, ptr noundef nonnull %3)
-          to label %115 unwind label %122
+  %59 = getelementptr inbounds i8, ptr %3, i64 16
+  %60 = getelementptr inbounds i8, ptr %3, i64 24
+  %61 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %61, align 8
+  %62 = ptrtoint ptr %0 to i64
+  store i64 %62, ptr %3, align 8
+  store ptr @_ZNSt17_Function_handlerIFvR9DfgVertexEZNK23ExtractCyclicComponents10checkEdgesER8DfgGraphEUlS1_E_E9_M_invokeERKSt9_Any_dataS1_, ptr %60, align 8
+  store ptr @_ZNSt17_Function_handlerIFvR9DfgVertexEZNK23ExtractCyclicComponents10checkEdgesER8DfgGraphEUlS1_E_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %59, align 8
+  invoke void @_ZN8DfgGraph13forEachVertexESt8functionIFvR9DfgVertexEE(ptr noundef nonnull align 8 dereferenceable(104) %58, ptr noundef nonnull %3)
+          to label %63 unwind label %70
 
-115:                                              ; preds = %109
-  %116 = load ptr, ptr %111, align 8
-  %.not.i.i.i = icmp eq ptr %116, null
-  br i1 %.not.i.i.i, label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit, label %117
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %59, align 8
+  %.not.i.i.i = icmp eq ptr %64, null
+  br i1 %.not.i.i.i, label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit, label %65
 
-117:                                              ; preds = %115
-  %118 = invoke noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit unwind label %119
+65:                                               ; preds = %63
+  %66 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit unwind label %67
 
-119:                                              ; preds = %117
-  %120 = landingpad { ptr, i32 }
+67:                                               ; preds = %65
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #25
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #25
   unreachable
 
-122:                                              ; preds = %109
-  %123 = landingpad { ptr, i32 }
+70:                                               ; preds = %57
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %124 = load ptr, ptr %111, align 8
-  %.not.i.i3.i = icmp eq ptr %124, null
-  br i1 %.not.i.i3.i, label %common.resume, label %125
+  %72 = load ptr, ptr %59, align 8
+  %.not.i.i3.i = icmp eq ptr %72, null
+  br i1 %.not.i.i3.i, label %common.resume, label %73
 
-125:                                              ; preds = %122
-  %126 = invoke noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %common.resume unwind label %127
+73:                                               ; preds = %70
+  %74 = invoke noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %common.resume unwind label %75
 
-127:                                              ; preds = %125
-  %128 = landingpad { ptr, i32 }
+75:                                               ; preds = %73
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #25
+  %77 = extractvalue { ptr, i32 } %76, 0
+  call void @__clang_call_terminate(ptr %77) #25
   unreachable
 
-_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit: ; preds = %115, %117
+_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit: ; preds = %63, %65
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %130 = load ptr, ptr %7, align 8
-  %131 = load ptr, ptr %76, align 8
-  %.not6780 = icmp eq ptr %130, %131
-  br i1 %.not6780, label %.loopexit69, label %.lr.ph82
+  %78 = load ptr, ptr %7, align 8
+  %79 = load ptr, ptr %50, align 8
+  %.not5771 = icmp eq ptr %78, %79
+  br i1 %.not5771, label %.loopexit59, label %.lr.ph73
 
-.lr.ph82:                                         ; preds = %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit
-  %132 = getelementptr inbounds i8, ptr %2, i64 16
-  %133 = getelementptr inbounds i8, ptr %2, i64 24
-  %134 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %135
+.lr.ph73:                                         ; preds = %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit
+  %80 = getelementptr inbounds i8, ptr %2, i64 16
+  %81 = getelementptr inbounds i8, ptr %2, i64 24
+  %82 = getelementptr inbounds i8, ptr %2, i64 8
+  br label %83
 
-135:                                              ; preds = %.lr.ph82, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53
-  %.sroa.058.081 = phi ptr [ %130, %.lr.ph82 ], [ %152, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53 ]
-  %136 = load ptr, ptr %.sroa.058.081, align 8
+83:                                               ; preds = %.lr.ph73, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit43
+  %.sroa.048.072 = phi ptr [ %78, %.lr.ph73 ], [ %100, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit43 ]
+  %84 = load ptr, ptr %.sroa.048.072, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  store i64 0, ptr %134, align 8
-  store i64 %114, ptr %2, align 8
-  store ptr @_ZNSt17_Function_handlerIFvR9DfgVertexEZNK23ExtractCyclicComponents10checkEdgesER8DfgGraphEUlS1_E_E9_M_invokeERKSt9_Any_dataS1_, ptr %133, align 8
-  store ptr @_ZNSt17_Function_handlerIFvR9DfgVertexEZNK23ExtractCyclicComponents10checkEdgesER8DfgGraphEUlS1_E_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %132, align 8
-  invoke void @_ZN8DfgGraph13forEachVertexESt8functionIFvR9DfgVertexEE(ptr noundef nonnull align 8 dereferenceable(104) %136, ptr noundef nonnull %2)
-          to label %137 unwind label %144
+  store i64 0, ptr %82, align 8
+  store i64 %62, ptr %2, align 8
+  store ptr @_ZNSt17_Function_handlerIFvR9DfgVertexEZNK23ExtractCyclicComponents10checkEdgesER8DfgGraphEUlS1_E_E9_M_invokeERKSt9_Any_dataS1_, ptr %81, align 8
+  store ptr @_ZNSt17_Function_handlerIFvR9DfgVertexEZNK23ExtractCyclicComponents10checkEdgesER8DfgGraphEUlS1_E_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %80, align 8
+  invoke void @_ZN8DfgGraph13forEachVertexESt8functionIFvR9DfgVertexEE(ptr noundef nonnull align 8 dereferenceable(104) %84, ptr noundef nonnull %2)
+          to label %85 unwind label %92
 
-137:                                              ; preds = %135
-  %138 = load ptr, ptr %132, align 8
-  %.not.i.i.i52 = icmp eq ptr %138, null
-  br i1 %.not.i.i.i52, label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53, label %139
+85:                                               ; preds = %83
+  %86 = load ptr, ptr %80, align 8
+  %.not.i.i.i42 = icmp eq ptr %86, null
+  br i1 %.not.i.i.i42, label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit43, label %87
 
-139:                                              ; preds = %137
-  %140 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
-          to label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53 unwind label %141
+87:                                               ; preds = %85
+  %88 = invoke noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
+          to label %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit43 unwind label %89
 
-141:                                              ; preds = %139
-  %142 = landingpad { ptr, i32 }
+89:                                               ; preds = %87
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %143 = extractvalue { ptr, i32 } %142, 0
-  call void @__clang_call_terminate(ptr %143) #25
+  %91 = extractvalue { ptr, i32 } %90, 0
+  call void @__clang_call_terminate(ptr %91) #25
   unreachable
 
-144:                                              ; preds = %135
-  %145 = landingpad { ptr, i32 }
+92:                                               ; preds = %83
+  %93 = landingpad { ptr, i32 }
           cleanup
-  %146 = load ptr, ptr %132, align 8
-  %.not.i.i3.i50 = icmp eq ptr %146, null
-  br i1 %.not.i.i3.i50, label %common.resume, label %147
+  %94 = load ptr, ptr %80, align 8
+  %.not.i.i3.i40 = icmp eq ptr %94, null
+  br i1 %.not.i.i3.i40, label %common.resume, label %95
 
-147:                                              ; preds = %144
-  %148 = invoke noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
-          to label %common.resume unwind label %149
+95:                                               ; preds = %92
+  %96 = invoke noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
+          to label %common.resume unwind label %97
 
-149:                                              ; preds = %147
-  %150 = landingpad { ptr, i32 }
+97:                                               ; preds = %95
+  %98 = landingpad { ptr, i32 }
           catch ptr null
-  %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #25
+  %99 = extractvalue { ptr, i32 } %98, 0
+  call void @__clang_call_terminate(ptr %99) #25
   unreachable
 
-_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53: ; preds = %137, %139
+_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit43: ; preds = %85, %87
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  %152 = getelementptr inbounds i8, ptr %.sroa.058.081, i64 8
-  %.not67 = icmp eq ptr %152, %131
-  br i1 %.not67, label %.loopexit69, label %135
+  %100 = getelementptr inbounds i8, ptr %.sroa.048.072, i64 8
+  %.not57 = icmp eq ptr %100, %79
+  br i1 %.not57, label %.loopexit59, label %83
 
-.loopexit69:                                      ; preds = %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit53, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit, %._crit_edge79
-  %153 = load ptr, ptr %0, align 8
-  call void @_ZN23ExtractCyclicComponents12moveVerticesI12DfgVertexVarEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %153)
-  %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 16
-  call void @_ZN23ExtractCyclicComponents12moveVerticesI8DfgConstEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %155)
-  %156 = load ptr, ptr %0, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 32
-  call void @_ZN23ExtractCyclicComponents12moveVerticesI9DfgVertexEEvR6V3ListIS1_XadL_ZNS1_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %157)
-  %158 = load i8, ptr %106, align 8
-  %159 = trunc i8 %158 to i1
-  br i1 %159, label %160, label %.loopexit
+.loopexit59:                                      ; preds = %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit43, %_ZNK23ExtractCyclicComponents10checkEdgesER8DfgGraph.exit, %._crit_edge70
+  %101 = load ptr, ptr %0, align 8
+  call void @_ZN23ExtractCyclicComponents12moveVerticesI12DfgVertexVarEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %101)
+  %102 = load ptr, ptr %0, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  call void @_ZN23ExtractCyclicComponents12moveVerticesI8DfgConstEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %103)
+  %104 = load ptr, ptr %0, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 32
+  call void @_ZN23ExtractCyclicComponents12moveVerticesI9DfgVertexEEvR6V3ListIS1_XadL_ZNS1_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %105)
+  %106 = load i8, ptr %54, align 8
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %108, label %.loopexit
 
-160:                                              ; preds = %.loopexit69
-  %161 = load ptr, ptr %0, align 8
-  call void @_ZNK23ExtractCyclicComponents10checkGraphER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(104) %161)
-  %162 = load ptr, ptr %7, align 8
-  %163 = load ptr, ptr %76, align 8
-  %.not6883 = icmp eq ptr %162, %163
-  br i1 %.not6883, label %.loopexit, label %.lr.ph86
+108:                                              ; preds = %.loopexit59
+  %109 = load ptr, ptr %0, align 8
+  call void @_ZNK23ExtractCyclicComponents10checkGraphER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(104) %109)
+  %110 = load ptr, ptr %7, align 8
+  %111 = load ptr, ptr %50, align 8
+  %.not5874 = icmp eq ptr %110, %111
+  br i1 %.not5874, label %.loopexit, label %.lr.ph77
 
-.lr.ph86:                                         ; preds = %160, %.lr.ph86
-  %.sroa.054.084 = phi ptr [ %165, %.lr.ph86 ], [ %162, %160 ]
-  %164 = load ptr, ptr %.sroa.054.084, align 8
-  call void @_ZNK23ExtractCyclicComponents10checkGraphER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(104) %164)
-  %165 = getelementptr inbounds i8, ptr %.sroa.054.084, i64 8
-  %.not68 = icmp eq ptr %165, %163
-  br i1 %.not68, label %.loopexit, label %.lr.ph86
+.lr.ph77:                                         ; preds = %108, %.lr.ph77
+  %.sroa.044.075 = phi ptr [ %113, %.lr.ph77 ], [ %110, %108 ]
+  %112 = load ptr, ptr %.sroa.044.075, align 8
+  call void @_ZNK23ExtractCyclicComponents10checkGraphER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(104) %112)
+  %113 = getelementptr inbounds i8, ptr %.sroa.044.075, i64 8
+  %.not58 = icmp eq ptr %113, %111
+  br i1 %.not58, label %.loopexit, label %.lr.ph77
 
-.loopexit:                                        ; preds = %.lr.ph86, %160, %.loopexit69
+.loopexit:                                        ; preds = %.lr.ph77, %108, %.loopexit59
   ret void
 }
 
@@ -5368,138 +5310,240 @@ _ZNSt8functionIFvR12DfgVarPackedR9DfgVertexmEED2Ev.exit10: ; preds = %44, %41, %
 }
 
 ; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents11packSourcesER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #3 comdat align 2 {
+  %2 = load ptr, ptr %0, align 8
+  %.not.i = icmp eq ptr %2, null
+  br i1 %.not.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit, label %3
+
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
+
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit: ; preds = %1, %3
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %7, %3 ], [ zeroinitializer, %1 ]
+  %8 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not43 = icmp eq ptr %8, null
+  br i1 %.not43, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
+  %9 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %33, %.lr.ph.preheader
+  %.sroa.0.045 = phi ptr [ %.sroa.7.044, %33 ], [ %8, %.lr.ph.preheader ]
+  %.sroa.7.044 = phi ptr [ %35, %33 ], [ %9, %.lr.ph.preheader ]
+  %.not32 = icmp eq ptr %.sroa.7.044, null
+  %10 = select i1 %.not32, ptr %.sroa.0.045, ptr %.sroa.7.044
+  tail call void @llvm.prefetch.p0(ptr nonnull %10, i32 1, i32 3, i32 1)
+  %11 = getelementptr inbounds i8, ptr %.sroa.0.045, i64 56
+  %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %11, align 8
+  switch i16 %.sroa.0.0.copyload.i.i.i.i, label %32 [
+    i16 153, label %12
+    i16 152, label %22
+  ]
+
+12:                                               ; preds = %.lr.ph
+  tail call void @_ZN12DfgVarPacked11packSourcesEv(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.045)
+  %13 = getelementptr inbounds i8, ptr %.sroa.0.045, i64 24
+  %14 = load ptr, ptr %13, align 8
+  %.not39 = icmp eq ptr %14, null
+  br i1 %.not39, label %15, label %32
+
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %.sroa.0.045, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call { ptr, i64 } %18(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.045)
+  %20 = extractvalue { ptr, i64 } %19, 1
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %.sink.split, label %32
+
+22:                                               ; preds = %.lr.ph
+  tail call void @_ZN11DfgVarArray11packSourcesEv(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.045)
+  %23 = getelementptr inbounds i8, ptr %.sroa.0.045, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %.not42 = icmp eq ptr %24, null
+  br i1 %.not42, label %25, label %32
+
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %.sroa.0.045, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call { ptr, i64 } %28(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.045)
+  %30 = extractvalue { ptr, i64 } %29, 1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %.sink.split, label %32
+
+.sink.split:                                      ; preds = %25, %15
+  tail call void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.045, ptr noundef nonnull align 8 dereferenceable(104) %0)
+  br label %32
+
+32:                                               ; preds = %.sink.split, %.lr.ph, %22, %25, %12, %15
+  br i1 %.not32, label %._crit_edge, label %33
+
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds i8, ptr %.sroa.7.044, i64 8
+  %35 = load ptr, ptr %34, align 8
+  br label %.lr.ph
+
+._crit_edge:                                      ; preds = %32, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI12DfgVertexVarEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit, label %4
 
-.lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
-  br label %5
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
 
-5:                                                ; preds = %57, %.lr.ph
-  %.sroa.0.028 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.027, %57 ]
-  %.sroa.7.027.in = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  %.sroa.7.027 = load ptr, ptr %.sroa.7.027.in, align 8
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit: ; preds = %2, %4
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %8, %4 ], [ zeroinitializer, %2 ]
+  %9 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not26 = icmp eq ptr %9, null
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
+  %10 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 168
+  br label %12
+
+12:                                               ; preds = %65, %.lr.ph
+  %.sroa.0.028 = phi ptr [ %9, %.lr.ph ], [ %.sroa.7.027, %65 ]
+  %.sroa.7.027 = phi ptr [ %10, %.lr.ph ], [ %67, %65 ]
   %.not23 = icmp eq ptr %.sroa.7.027, null
-  %6 = select i1 %.not23, ptr %.sroa.0.028, ptr %.sroa.7.027
-  tail call void @llvm.prefetch.p0(ptr nonnull %6, i32 1, i32 3, i32 1)
-  %7 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 64
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8
-  %.not24 = icmp eq i64 %10, 0
-  br i1 %.not24, label %57, label %11
+  %13 = select i1 %.not23, ptr %.sroa.0.028, ptr %.sroa.7.027
+  tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 64
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load i64, ptr %16, align 8
+  %.not24 = icmp eq i64 %17, 0
+  br i1 %.not24, label %64, label %18
 
-11:                                               ; preds = %5
-  %12 = load ptr, ptr %0, align 8
-  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.028)
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr %"class.std::unique_ptr", ptr %13, i64 %10
-  %15 = getelementptr i8, ptr %14, i64 -8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
-  %18 = load i64, ptr %17, align 8
-  %19 = add i64 %18, 1
-  store i64 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 56
-  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %20, align 8
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %0, align 8
+  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %19, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.028)
+  %20 = load ptr, ptr %11, align 8
+  %21 = getelementptr %"class.std::unique_ptr", ptr %20, i64 %17
+  %22 = getelementptr i8, ptr %21, i64 -8
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %25 = load i64, ptr %24, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 56
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %27, align 8
   %.not.i25 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i25, label %21, label %32
+  br i1 %.not.i25, label %28, label %39
 
-21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %16, i64 16
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %16, i64 24
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %25, ptr %26, align 8
-  %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %29, label %27
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds i8, ptr %23, i64 16
+  %30 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %23, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %32, ptr %33, align 8
+  %.not.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i, label %36, label %34
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %.sroa.0.028, ptr %28, align 8
-  br label %29
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  store ptr %.sroa.0.028, ptr %35, align 8
+  br label %36
 
-29:                                               ; preds = %27, %21
-  store ptr %.sroa.0.028, ptr %24, align 8
-  %30 = load ptr, ptr %22, align 8
-  %.not8.i.i = icmp eq ptr %30, null
-  br i1 %.not8.i.i, label %31, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+36:                                               ; preds = %34, %28
+  store ptr %.sroa.0.028, ptr %31, align 8
+  %37 = load ptr, ptr %29, align 8
+  %.not8.i.i = icmp eq ptr %37, null
+  br i1 %.not8.i.i, label %38, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-31:                                               ; preds = %29
-  store ptr %.sroa.0.028, ptr %22, align 8
+38:                                               ; preds = %36
+  store ptr %.sroa.0.028, ptr %29, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-32:                                               ; preds = %11
-  %33 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %33, 152
-  br i1 %spec.select.i.i.i.not.i, label %34, label %44
+39:                                               ; preds = %18
+  %40 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %40, 152
+  br i1 %spec.select.i.i.i.not.i, label %41, label %51
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %16, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %37, ptr %38, align 8
-  %.not.i14.i = icmp eq ptr %37, null
-  br i1 %.not.i14.i, label %41, label %39
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %23, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %44, ptr %45, align 8
+  %.not.i14.i = icmp eq ptr %44, null
+  br i1 %.not.i14.i, label %48, label %46
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %.sroa.0.028, ptr %40, align 8
-  br label %41
-
-41:                                               ; preds = %39, %34
-  store ptr %.sroa.0.028, ptr %36, align 8
-  %42 = load ptr, ptr %16, align 8
-  %.not8.i15.i = icmp eq ptr %42, null
-  br i1 %.not8.i15.i, label %43, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-43:                                               ; preds = %41
-  store ptr %.sroa.0.028, ptr %16, align 8
-  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %16, i64 32
-  %46 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %16, i64 40
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %48, ptr %49, align 8
-  %.not.i16.i = icmp eq ptr %48, null
-  br i1 %.not.i16.i, label %52, label %50
-
-50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
-  store ptr %.sroa.0.028, ptr %51, align 8
-  br label %52
-
-52:                                               ; preds = %50, %44
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %.sroa.0.028, ptr %47, align 8
-  %53 = load ptr, ptr %45, align 8
-  %.not8.i17.i = icmp eq ptr %53, null
-  br i1 %.not8.i17.i, label %54, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br label %48
 
-54:                                               ; preds = %52
-  store ptr %.sroa.0.028, ptr %45, align 8
+48:                                               ; preds = %46, %41
+  store ptr %.sroa.0.028, ptr %43, align 8
+  %49 = load ptr, ptr %23, align 8
+  %.not8.i15.i = icmp eq ptr %49, null
+  br i1 %.not8.i15.i, label %50, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+50:                                               ; preds = %48
+  store ptr %.sroa.0.028, ptr %23, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %31, %41, %43, %52, %54
-  %55 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
-  store i32 0, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
-  store ptr %16, ptr %56, align 8
-  br label %57
+51:                                               ; preds = %39
+  %52 = getelementptr inbounds i8, ptr %23, i64 32
+  %53 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %23, i64 40
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %55, ptr %56, align 8
+  %.not.i16.i = icmp eq ptr %55, null
+  br i1 %.not.i16.i, label %59, label %57
 
-57:                                               ; preds = %5, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-  br i1 %.not23, label %._crit_edge, label %5
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  store ptr %.sroa.0.028, ptr %58, align 8
+  br label %59
 
-._crit_edge:                                      ; preds = %57, %2
+59:                                               ; preds = %57, %51
+  store ptr %.sroa.0.028, ptr %54, align 8
+  %60 = load ptr, ptr %52, align 8
+  %.not8.i17.i = icmp eq ptr %60, null
+  br i1 %.not8.i17.i, label %61, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+61:                                               ; preds = %59
+  store ptr %.sroa.0.028, ptr %52, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %36, %38, %48, %50, %59, %61
+  %62 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
+  store i32 0, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
+  store ptr %23, ptr %63, align 8
+  br label %64
+
+64:                                               ; preds = %12, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br i1 %.not23, label %._crit_edge, label %65
+
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds i8, ptr %.sroa.7.027, i64 8
+  %67 = load ptr, ptr %66, align 8
+  br label %12
+
+._crit_edge:                                      ; preds = %64, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
   ret void
 }
 
@@ -5507,135 +5551,153 @@ _ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %31, %41, %43, 
 define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI8DfgConstEEvR6V3ListI9DfgVertexXadL_ZNS3_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit, label %4
 
-.lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
-  br label %5
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
 
-5:                                                ; preds = %57, %.lr.ph
-  %.sroa.0.028 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.027, %57 ]
-  %.sroa.7.027.in = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  %.sroa.7.027 = load ptr, ptr %.sroa.7.027.in, align 8
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit: ; preds = %2, %4
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %8, %4 ], [ zeroinitializer, %2 ]
+  %9 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not26 = icmp eq ptr %9, null
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
+  %10 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 168
+  br label %12
+
+12:                                               ; preds = %65, %.lr.ph
+  %.sroa.0.028 = phi ptr [ %9, %.lr.ph ], [ %.sroa.7.027, %65 ]
+  %.sroa.7.027 = phi ptr [ %10, %.lr.ph ], [ %67, %65 ]
   %.not23 = icmp eq ptr %.sroa.7.027, null
-  %6 = select i1 %.not23, ptr %.sroa.0.028, ptr %.sroa.7.027
-  tail call void @llvm.prefetch.p0(ptr nonnull %6, i32 1, i32 3, i32 1)
-  %7 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 64
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8
-  %.not24 = icmp eq i64 %10, 0
-  br i1 %.not24, label %57, label %11
+  %13 = select i1 %.not23, ptr %.sroa.0.028, ptr %.sroa.7.027
+  tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 64
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load i64, ptr %16, align 8
+  %.not24 = icmp eq i64 %17, 0
+  br i1 %.not24, label %64, label %18
 
-11:                                               ; preds = %5
-  %12 = load ptr, ptr %0, align 8
-  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.028)
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr %"class.std::unique_ptr", ptr %13, i64 %10
-  %15 = getelementptr i8, ptr %14, i64 -8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
-  %18 = load i64, ptr %17, align 8
-  %19 = add i64 %18, 1
-  store i64 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 56
-  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %20, align 8
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %0, align 8
+  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %19, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.028)
+  %20 = load ptr, ptr %11, align 8
+  %21 = getelementptr %"class.std::unique_ptr", ptr %20, i64 %17
+  %22 = getelementptr i8, ptr %21, i64 -8
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %25 = load i64, ptr %24, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 56
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %27, align 8
   %.not.i25 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i25, label %21, label %32
+  br i1 %.not.i25, label %28, label %39
 
-21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %16, i64 16
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %16, i64 24
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %25, ptr %26, align 8
-  %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %29, label %27
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds i8, ptr %23, i64 16
+  %30 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %23, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %32, ptr %33, align 8
+  %.not.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i, label %36, label %34
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %.sroa.0.028, ptr %28, align 8
-  br label %29
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  store ptr %.sroa.0.028, ptr %35, align 8
+  br label %36
 
-29:                                               ; preds = %27, %21
-  store ptr %.sroa.0.028, ptr %24, align 8
-  %30 = load ptr, ptr %22, align 8
-  %.not8.i.i = icmp eq ptr %30, null
-  br i1 %.not8.i.i, label %31, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+36:                                               ; preds = %34, %28
+  store ptr %.sroa.0.028, ptr %31, align 8
+  %37 = load ptr, ptr %29, align 8
+  %.not8.i.i = icmp eq ptr %37, null
+  br i1 %.not8.i.i, label %38, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-31:                                               ; preds = %29
-  store ptr %.sroa.0.028, ptr %22, align 8
+38:                                               ; preds = %36
+  store ptr %.sroa.0.028, ptr %29, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-32:                                               ; preds = %11
-  %33 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %33, 152
-  br i1 %spec.select.i.i.i.not.i, label %34, label %44
+39:                                               ; preds = %18
+  %40 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %40, 152
+  br i1 %spec.select.i.i.i.not.i, label %41, label %51
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %16, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %37, ptr %38, align 8
-  %.not.i14.i = icmp eq ptr %37, null
-  br i1 %.not.i14.i, label %41, label %39
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %23, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %44, ptr %45, align 8
+  %.not.i14.i = icmp eq ptr %44, null
+  br i1 %.not.i14.i, label %48, label %46
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %.sroa.0.028, ptr %40, align 8
-  br label %41
-
-41:                                               ; preds = %39, %34
-  store ptr %.sroa.0.028, ptr %36, align 8
-  %42 = load ptr, ptr %16, align 8
-  %.not8.i15.i = icmp eq ptr %42, null
-  br i1 %.not8.i15.i, label %43, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-43:                                               ; preds = %41
-  store ptr %.sroa.0.028, ptr %16, align 8
-  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %16, i64 32
-  %46 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %16, i64 40
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %48, ptr %49, align 8
-  %.not.i16.i = icmp eq ptr %48, null
-  br i1 %.not.i16.i, label %52, label %50
-
-50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
-  store ptr %.sroa.0.028, ptr %51, align 8
-  br label %52
-
-52:                                               ; preds = %50, %44
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %.sroa.0.028, ptr %47, align 8
-  %53 = load ptr, ptr %45, align 8
-  %.not8.i17.i = icmp eq ptr %53, null
-  br i1 %.not8.i17.i, label %54, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br label %48
 
-54:                                               ; preds = %52
-  store ptr %.sroa.0.028, ptr %45, align 8
+48:                                               ; preds = %46, %41
+  store ptr %.sroa.0.028, ptr %43, align 8
+  %49 = load ptr, ptr %23, align 8
+  %.not8.i15.i = icmp eq ptr %49, null
+  br i1 %.not8.i15.i, label %50, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+50:                                               ; preds = %48
+  store ptr %.sroa.0.028, ptr %23, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %31, %41, %43, %52, %54
-  %55 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
-  store i32 0, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
-  store ptr %16, ptr %56, align 8
-  br label %57
+51:                                               ; preds = %39
+  %52 = getelementptr inbounds i8, ptr %23, i64 32
+  %53 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %23, i64 40
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %55, ptr %56, align 8
+  %.not.i16.i = icmp eq ptr %55, null
+  br i1 %.not.i16.i, label %59, label %57
 
-57:                                               ; preds = %5, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-  br i1 %.not23, label %._crit_edge, label %5
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  store ptr %.sroa.0.028, ptr %58, align 8
+  br label %59
 
-._crit_edge:                                      ; preds = %57, %2
+59:                                               ; preds = %57, %51
+  store ptr %.sroa.0.028, ptr %54, align 8
+  %60 = load ptr, ptr %52, align 8
+  %.not8.i17.i = icmp eq ptr %60, null
+  br i1 %.not8.i17.i, label %61, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+61:                                               ; preds = %59
+  store ptr %.sroa.0.028, ptr %52, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %36, %38, %48, %50, %59, %61
+  %62 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
+  store i32 0, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
+  store ptr %23, ptr %63, align 8
+  br label %64
+
+64:                                               ; preds = %12, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br i1 %.not23, label %._crit_edge, label %65
+
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds i8, ptr %.sroa.7.027, i64 8
+  %67 = load ptr, ptr %66, align 8
+  br label %12
+
+._crit_edge:                                      ; preds = %64, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
   ret void
 }
 
@@ -5643,135 +5705,153 @@ _ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %31, %41, %43, 
 define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents12moveVerticesI9DfgVertexEEvR6V3ListIS1_XadL_ZNS1_5linksEvEET_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit, label %4
 
-.lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
-  br label %5
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
 
-5:                                                ; preds = %57, %.lr.ph
-  %.sroa.0.028 = phi ptr [ %3, %.lr.ph ], [ %.sroa.7.027, %57 ]
-  %.sroa.7.027.in = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  %.sroa.7.027 = load ptr, ptr %.sroa.7.027.in, align 8
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit: ; preds = %2, %4
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %8, %4 ], [ zeroinitializer, %2 ]
+  %9 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not26 = icmp eq ptr %9, null
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
+  %10 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 168
+  br label %12
+
+12:                                               ; preds = %65, %.lr.ph
+  %.sroa.0.028 = phi ptr [ %9, %.lr.ph ], [ %.sroa.7.027, %65 ]
+  %.sroa.7.027 = phi ptr [ %10, %.lr.ph ], [ %67, %65 ]
   %.not23 = icmp eq ptr %.sroa.7.027, null
-  %6 = select i1 %.not23, ptr %.sroa.0.028, ptr %.sroa.7.027
-  tail call void @llvm.prefetch.p0(ptr nonnull %6, i32 1, i32 3, i32 1)
-  %7 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 64
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8
-  %.not24 = icmp eq i64 %10, 0
-  br i1 %.not24, label %57, label %11
+  %13 = select i1 %.not23, ptr %.sroa.0.028, ptr %.sroa.7.027
+  tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 64
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load i64, ptr %16, align 8
+  %.not24 = icmp eq i64 %17, 0
+  br i1 %.not24, label %64, label %18
 
-11:                                               ; preds = %5
-  %12 = load ptr, ptr %0, align 8
-  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.028)
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr %"class.std::unique_ptr", ptr %13, i64 %10
-  %15 = getelementptr i8, ptr %14, i64 -8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
-  %18 = load i64, ptr %17, align 8
-  %19 = add i64 %18, 1
-  store i64 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 56
-  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %20, align 8
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %0, align 8
+  tail call void @_ZN8DfgGraph12removeVertexER9DfgVertex(ptr noundef nonnull align 8 dereferenceable(104) %19, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.028)
+  %20 = load ptr, ptr %11, align 8
+  %21 = getelementptr %"class.std::unique_ptr", ptr %20, i64 %17
+  %22 = getelementptr i8, ptr %21, i64 -8
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %25 = load i64, ptr %24, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 56
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %27, align 8
   %.not.i25 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i25, label %21, label %32
+  br i1 %.not.i25, label %28, label %39
 
-21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %16, i64 16
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %16, i64 24
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %25, ptr %26, align 8
-  %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %29, label %27
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds i8, ptr %23, i64 16
+  %30 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %23, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %32, ptr %33, align 8
+  %.not.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i, label %36, label %34
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %.sroa.0.028, ptr %28, align 8
-  br label %29
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  store ptr %.sroa.0.028, ptr %35, align 8
+  br label %36
 
-29:                                               ; preds = %27, %21
-  store ptr %.sroa.0.028, ptr %24, align 8
-  %30 = load ptr, ptr %22, align 8
-  %.not8.i.i = icmp eq ptr %30, null
-  br i1 %.not8.i.i, label %31, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+36:                                               ; preds = %34, %28
+  store ptr %.sroa.0.028, ptr %31, align 8
+  %37 = load ptr, ptr %29, align 8
+  %.not8.i.i = icmp eq ptr %37, null
+  br i1 %.not8.i.i, label %38, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-31:                                               ; preds = %29
-  store ptr %.sroa.0.028, ptr %22, align 8
+38:                                               ; preds = %36
+  store ptr %.sroa.0.028, ptr %29, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-32:                                               ; preds = %11
-  %33 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
-  %spec.select.i.i.i.not.i = icmp eq i16 %33, 152
-  br i1 %spec.select.i.i.i.not.i, label %34, label %44
+39:                                               ; preds = %18
+  %40 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
+  %spec.select.i.i.i.not.i = icmp eq i16 %40, 152
+  br i1 %spec.select.i.i.i.not.i, label %41, label %51
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %16, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %37, ptr %38, align 8
-  %.not.i14.i = icmp eq ptr %37, null
-  br i1 %.not.i14.i, label %41, label %39
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %23, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %44, ptr %45, align 8
+  %.not.i14.i = icmp eq ptr %44, null
+  br i1 %.not.i14.i, label %48, label %46
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %.sroa.0.028, ptr %40, align 8
-  br label %41
-
-41:                                               ; preds = %39, %34
-  store ptr %.sroa.0.028, ptr %36, align 8
-  %42 = load ptr, ptr %16, align 8
-  %.not8.i15.i = icmp eq ptr %42, null
-  br i1 %.not8.i15.i, label %43, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-43:                                               ; preds = %41
-  store ptr %.sroa.0.028, ptr %16, align 8
-  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-
-44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %16, i64 32
-  %46 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
-  store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %16, i64 40
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
-  store ptr %48, ptr %49, align 8
-  %.not.i16.i = icmp eq ptr %48, null
-  br i1 %.not.i16.i, label %52, label %50
-
-50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
-  store ptr %.sroa.0.028, ptr %51, align 8
-  br label %52
-
-52:                                               ; preds = %50, %44
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %.sroa.0.028, ptr %47, align 8
-  %53 = load ptr, ptr %45, align 8
-  %.not8.i17.i = icmp eq ptr %53, null
-  br i1 %.not8.i17.i, label %54, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br label %48
 
-54:                                               ; preds = %52
-  store ptr %.sroa.0.028, ptr %45, align 8
+48:                                               ; preds = %46, %41
+  store ptr %.sroa.0.028, ptr %43, align 8
+  %49 = load ptr, ptr %23, align 8
+  %.not8.i15.i = icmp eq ptr %49, null
+  br i1 %.not8.i15.i, label %50, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+50:                                               ; preds = %48
+  store ptr %.sroa.0.028, ptr %23, align 8
   br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
 
-_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %29, %31, %41, %43, %52, %54
-  %55 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
-  store i32 0, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
-  store ptr %16, ptr %56, align 8
-  br label %57
+51:                                               ; preds = %39
+  %52 = getelementptr inbounds i8, ptr %23, i64 32
+  %53 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 8
+  store ptr null, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %23, i64 40
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 16
+  store ptr %55, ptr %56, align 8
+  %.not.i16.i = icmp eq ptr %55, null
+  br i1 %.not.i16.i, label %59, label %57
 
-57:                                               ; preds = %5, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
-  br i1 %.not23, label %._crit_edge, label %5
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  store ptr %.sroa.0.028, ptr %58, align 8
+  br label %59
 
-._crit_edge:                                      ; preds = %57, %2
+59:                                               ; preds = %57, %51
+  store ptr %.sroa.0.028, ptr %54, align 8
+  %60 = load ptr, ptr %52, align 8
+  %.not8.i17.i = icmp eq ptr %60, null
+  br i1 %.not8.i17.i, label %61, label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+61:                                               ; preds = %59
+  store ptr %.sroa.0.028, ptr %52, align 8
+  br label %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+
+_ZN8DfgGraph9addVertexER9DfgVertex.exit:          ; preds = %36, %38, %48, %50, %59, %61
+  %62 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 60
+  store i32 0, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 48
+  store ptr %23, ptr %63, align 8
+  br label %64
+
+64:                                               ; preds = %12, %_ZN8DfgGraph9addVertexER9DfgVertex.exit
+  br i1 %.not23, label %._crit_edge, label %65
+
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds i8, ptr %.sroa.7.027, i64 8
+  %67 = load ptr, ptr %66, align 8
+  br label %12
+
+._crit_edge:                                      ; preds = %64, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
   ret void
 }
 
@@ -9293,123 +9373,159 @@ _ZNSt14_Function_base13_Base_managerIZN11DfgVarArray11packSourcesEvEUlR7DfgEdgem
 define linkonce_odr dso_local void @_ZN8DfgGraph13forEachVertexESt8functionIFvR9DfgVertexEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit, label %4
 
-.lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.754.079.in95 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.754.07996 = load ptr, ptr %.sroa.754.079.in95, align 8
-  %.not6297 = icmp eq ptr %.sroa.754.07996, null
-  %6 = select i1 %.not6297, ptr %3, ptr %.sroa.754.07996
-  tail call void @llvm.prefetch.p0(ptr nonnull %6, i32 1, i32 3, i32 1)
-  %7 = load ptr, ptr %4, align 8
-  %.not.i.i98 = icmp eq ptr %7, null
-  br i1 %.not.i.i98, label %._crit_edge102, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
 
-8:                                                ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
-  %.sroa.754.079.in = getelementptr inbounds i8, ptr %.sroa.754.079100, i64 8
-  %.sroa.754.079 = load ptr, ptr %.sroa.754.079.in, align 8
-  %.not62 = icmp eq ptr %.sroa.754.079, null
-  %9 = select i1 %.not62, ptr %.sroa.754.079100, ptr %.sroa.754.079
-  tail call void @llvm.prefetch.p0(ptr nonnull %9, i32 1, i32 3, i32 1)
-  %10 = load ptr, ptr %4, align 8
-  %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %._crit_edge102, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit: ; preds = %2, %4
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %8, %4 ], [ zeroinitializer, %2 ]
+  %9 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not73 = icmp eq ptr %9, null
+  br i1 %.not73, label %._crit_edge, label %.lr.ph
 
-._crit_edge102:                                   ; preds = %8, %.lr.ph
+.lr.ph:                                           ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
+  %10 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %.not6288 = icmp eq ptr %10, null
+  %13 = select i1 %.not6288, ptr %9, ptr %10
+  tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
+  %14 = load ptr, ptr %11, align 8
+  %.not.i.i89 = icmp eq ptr %14, null
+  br i1 %.not.i.i89, label %._crit_edge93, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
+
+._crit_edge93:                                    ; preds = %16, %.lr.ph
   tail call void @_ZSt25__throw_bad_function_callv() #24
   unreachable
 
-_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit:       ; preds = %.lr.ph, %8
-  %.not62101 = phi i1 [ %.not62, %8 ], [ %.not6297, %.lr.ph ]
-  %.sroa.754.079100 = phi ptr [ %.sroa.754.079, %8 ], [ %.sroa.754.07996, %.lr.ph ]
-  %.sroa.049.07899 = phi ptr [ %.sroa.754.079100, %8 ], [ %3, %.lr.ph ]
-  %11 = load ptr, ptr %5, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.049.07899)
-  br i1 %.not62101, label %._crit_edge, label %8
+_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit:       ; preds = %.lr.ph, %16
+  %.not6292 = phi i1 [ %.not62, %16 ], [ %.not6288, %.lr.ph ]
+  %.sroa.049.07491 = phi ptr [ %.sroa.754.07590, %16 ], [ %9, %.lr.ph ]
+  %.sroa.754.07590 = phi ptr [ %18, %16 ], [ %10, %.lr.ph ]
+  %15 = load ptr, ptr %12, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.049.07491)
+  br i1 %.not6292, label %._crit_edge, label %16
 
-._crit_edge:                                      ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8
-  %.not.i63 = icmp eq ptr %13, null
-  br i1 %.not.i63, label %._crit_edge84, label %.lr.ph83
-
-.lr.ph83:                                         ; preds = %._crit_edge
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.745.081.in103 = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.745.081104 = load ptr, ptr %.sroa.745.081.in103, align 8
-  %.not61105 = icmp eq ptr %.sroa.745.081104, null
-  %16 = select i1 %.not61105, ptr %13, ptr %.sroa.745.081104
-  tail call void @llvm.prefetch.p0(ptr nonnull %16, i32 1, i32 3, i32 1)
-  %17 = load ptr, ptr %14, align 8
-  %.not.i.i67106 = icmp eq ptr %17, null
-  br i1 %.not.i.i67106, label %._crit_edge110, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit68
-
-18:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit68
-  %.sroa.745.081.in = getelementptr inbounds i8, ptr %.sroa.745.081108, i64 8
-  %.sroa.745.081 = load ptr, ptr %.sroa.745.081.in, align 8
-  %.not61 = icmp eq ptr %.sroa.745.081, null
-  %19 = select i1 %.not61, ptr %.sroa.745.081108, ptr %.sroa.745.081
+16:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
+  %17 = getelementptr inbounds i8, ptr %.sroa.754.07590, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %.not62 = icmp eq ptr %18, null
+  %19 = select i1 %.not62, ptr %.sroa.754.07590, ptr %18
   tail call void @llvm.prefetch.p0(ptr nonnull %19, i32 1, i32 3, i32 1)
-  %20 = load ptr, ptr %14, align 8
-  %.not.i.i67 = icmp eq ptr %20, null
-  br i1 %.not.i.i67, label %._crit_edge110, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit68
+  %20 = load ptr, ptr %11, align 8
+  %.not.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i, label %._crit_edge93, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
 
-._crit_edge110:                                   ; preds = %18, %.lr.ph83
+._crit_edge:                                      ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %.not.i63 = icmp eq ptr %22, null
+  br i1 %.not.i63, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit, label %23
+
+23:                                               ; preds = %._crit_edge
+  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = insertvalue { ptr, ptr } poison, ptr %22, 0
+  %27 = insertvalue { ptr, ptr } %26, ptr %25, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
+
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit: ; preds = %._crit_edge, %23
+  %.fca.1.insert.merged.i64 = phi { ptr, ptr } [ %27, %23 ], [ zeroinitializer, %._crit_edge ]
+  %28 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i64, 0
+  %.not5876 = icmp eq ptr %28, null
+  br i1 %.not5876, label %._crit_edge80, label %.lr.ph79
+
+.lr.ph79:                                         ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
+  %29 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i64, 1
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %.not6194 = icmp eq ptr %29, null
+  %32 = select i1 %.not6194, ptr %28, ptr %29
+  tail call void @llvm.prefetch.p0(ptr nonnull %32, i32 1, i32 3, i32 1)
+  %33 = load ptr, ptr %30, align 8
+  %.not.i.i6595 = icmp eq ptr %33, null
+  br i1 %.not.i.i6595, label %._crit_edge99, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit66
+
+._crit_edge99:                                    ; preds = %35, %.lr.ph79
   tail call void @_ZSt25__throw_bad_function_callv() #24
   unreachable
 
-_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit68:     ; preds = %.lr.ph83, %18
-  %.not61109 = phi i1 [ %.not61, %18 ], [ %.not61105, %.lr.ph83 ]
-  %.sroa.745.081108 = phi ptr [ %.sroa.745.081, %18 ], [ %.sroa.745.081104, %.lr.ph83 ]
-  %.sroa.040.082107 = phi ptr [ %.sroa.745.081108, %18 ], [ %13, %.lr.ph83 ]
-  %21 = load ptr, ptr %15, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.040.082107)
-  br i1 %.not61109, label %._crit_edge84, label %18
+_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit66:     ; preds = %.lr.ph79, %35
+  %.not6198 = phi i1 [ %.not61, %35 ], [ %.not6194, %.lr.ph79 ]
+  %.sroa.745.07797 = phi ptr [ %37, %35 ], [ %29, %.lr.ph79 ]
+  %.sroa.040.07896 = phi ptr [ %.sroa.745.07797, %35 ], [ %28, %.lr.ph79 ]
+  %34 = load ptr, ptr %31, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.040.07896)
+  br i1 %.not6198, label %._crit_edge80, label %35
 
-._crit_edge84:                                    ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit68, %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %.not.i69 = icmp eq ptr %23, null
-  br i1 %.not.i69, label %._crit_edge89, label %.lr.ph88
+35:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit66
+  %36 = getelementptr inbounds i8, ptr %.sroa.745.07797, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not61 = icmp eq ptr %37, null
+  %38 = select i1 %.not61, ptr %.sroa.745.07797, ptr %37
+  tail call void @llvm.prefetch.p0(ptr nonnull %38, i32 1, i32 3, i32 1)
+  %39 = load ptr, ptr %30, align 8
+  %.not.i.i65 = icmp eq ptr %39, null
+  br i1 %.not.i.i65, label %._crit_edge99, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit66
 
-.lr.ph88:                                         ; preds = %._crit_edge84
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.7.086.in111 = getelementptr inbounds i8, ptr %23, i64 8
-  %.sroa.7.086112 = load ptr, ptr %.sroa.7.086.in111, align 8
-  %.not60113 = icmp eq ptr %.sroa.7.086112, null
-  %26 = select i1 %.not60113, ptr %23, ptr %.sroa.7.086112
-  tail call void @llvm.prefetch.p0(ptr nonnull %26, i32 1, i32 3, i32 1)
-  %27 = load ptr, ptr %24, align 8
-  %.not.i.i73114 = icmp eq ptr %27, null
-  br i1 %.not.i.i73114, label %._crit_edge118, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit74
+._crit_edge80:                                    ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit66, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
+  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = load ptr, ptr %40, align 8
+  %.not.i67 = icmp eq ptr %41, null
+  br i1 %.not.i67, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit, label %42
 
-28:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit74
-  %.sroa.7.086.in = getelementptr inbounds i8, ptr %.sroa.7.086116, i64 8
-  %.sroa.7.086 = load ptr, ptr %.sroa.7.086.in, align 8
-  %.not60 = icmp eq ptr %.sroa.7.086, null
-  %29 = select i1 %.not60, ptr %.sroa.7.086116, ptr %.sroa.7.086
-  tail call void @llvm.prefetch.p0(ptr nonnull %29, i32 1, i32 3, i32 1)
-  %30 = load ptr, ptr %24, align 8
-  %.not.i.i73 = icmp eq ptr %30, null
-  br i1 %.not.i.i73, label %._crit_edge118, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit74
+42:                                               ; preds = %._crit_edge80
+  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = insertvalue { ptr, ptr } poison, ptr %41, 0
+  %46 = insertvalue { ptr, ptr } %45, ptr %44, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
 
-._crit_edge118:                                   ; preds = %28, %.lr.ph88
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit: ; preds = %._crit_edge80, %42
+  %.fca.1.insert.merged.i68 = phi { ptr, ptr } [ %46, %42 ], [ zeroinitializer, %._crit_edge80 ]
+  %47 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i68, 0
+  %.not5981 = icmp eq ptr %47, null
+  br i1 %.not5981, label %._crit_edge85, label %.lr.ph84
+
+.lr.ph84:                                         ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
+  %48 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i68, 1
+  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %.not60100 = icmp eq ptr %48, null
+  %51 = select i1 %.not60100, ptr %47, ptr %48
+  tail call void @llvm.prefetch.p0(ptr nonnull %51, i32 1, i32 3, i32 1)
+  %52 = load ptr, ptr %49, align 8
+  %.not.i.i69101 = icmp eq ptr %52, null
+  br i1 %.not.i.i69101, label %._crit_edge105, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit70
+
+._crit_edge105:                                   ; preds = %54, %.lr.ph84
   tail call void @_ZSt25__throw_bad_function_callv() #24
   unreachable
 
-_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit74:     ; preds = %.lr.ph88, %28
-  %.not60117 = phi i1 [ %.not60, %28 ], [ %.not60113, %.lr.ph88 ]
-  %.sroa.7.086116 = phi ptr [ %.sroa.7.086, %28 ], [ %.sroa.7.086112, %.lr.ph88 ]
-  %.sroa.0.087115 = phi ptr [ %.sroa.7.086116, %28 ], [ %23, %.lr.ph88 ]
-  %31 = load ptr, ptr %25, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.087115)
-  br i1 %.not60117, label %._crit_edge89, label %28
+_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit70:     ; preds = %.lr.ph84, %54
+  %.not60104 = phi i1 [ %.not60, %54 ], [ %.not60100, %.lr.ph84 ]
+  %.sroa.7.082103 = phi ptr [ %56, %54 ], [ %48, %.lr.ph84 ]
+  %.sroa.0.083102 = phi ptr [ %.sroa.7.082103, %54 ], [ %47, %.lr.ph84 ]
+  %53 = load ptr, ptr %50, align 8
+  tail call void %53(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.083102)
+  br i1 %.not60104, label %._crit_edge85, label %54
 
-._crit_edge89:                                    ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit74, %._crit_edge84
+54:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit70
+  %55 = getelementptr inbounds i8, ptr %.sroa.7.082103, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %.not60 = icmp eq ptr %56, null
+  %57 = select i1 %.not60, ptr %.sroa.7.082103, ptr %56
+  tail call void @llvm.prefetch.p0(ptr nonnull %57, i32 1, i32 3, i32 1)
+  %58 = load ptr, ptr %49, align 8
+  %.not.i.i69 = icmp eq ptr %58, null
+  br i1 %.not.i.i69, label %._crit_edge105, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit70
+
+._crit_edge85:                                    ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit70, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
   ret void
 }
 

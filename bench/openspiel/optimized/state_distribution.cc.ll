@@ -2431,15 +2431,15 @@ _ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_
 751:                                              ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4lessIS9_ESaISt4pairIKS9_lEELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EERKT_.exit.i.i, %.lr.ph.i.i.i.i._crit_edge
   %.pre-phi = phi i32 [ %.pre1125, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4lessIS9_ESaISt4pairIKS9_lEELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EERKT_.exit.i.i ], [ %750, %.lr.ph.i.i.i.i._crit_edge ]
   %752 = phi ptr [ %.pre1122, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4lessIS9_ESaISt4pairIKS9_lEELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EERKT_.exit.i.i ], [ %747, %.lr.ph.i.i.i.i._crit_edge ]
-  %.sroa.02.0.i.i.i = phi ptr [ %.sroa.02.013.lcssa.sink.i.ph.i.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4lessIS9_ESaISt4pairIKS9_lEELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EERKT_.exit.i.i ], [ %747, %.lr.ph.i.i.i.i._crit_edge ]
-  %.sroa.33.0.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.le.i7.i.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4lessIS9_ESaISt4pairIKS9_lEELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EERKT_.exit.i.i ], [ %750, %.lr.ph.i.i.i.i._crit_edge ]
-  %.not.i215 = icmp ne ptr %.sroa.02.0.i.i.i, %752
-  %753 = icmp ne i32 %.sroa.33.0.i.i.i, %.pre-phi
+  %.pn6.i.i.i = phi ptr [ %.sroa.02.013.lcssa.sink.i.ph.i.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4lessIS9_ESaISt4pairIKS9_lEELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EERKT_.exit.i.i ], [ %747, %.lr.ph.i.i.i.i._crit_edge ]
+  %.pn4.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.le.i7.i.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4lessIS9_ESaISt4pairIKS9_lEELi256ELb0EEEE13internal_findIS9_EENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EERKT_.exit.i.i ], [ %750, %.lr.ph.i.i.i.i._crit_edge ]
+  %.not.i215 = icmp ne ptr %.pn6.i.i.i, %752
+  %753 = icmp ne i32 %.pn4.i.i.i, %.pre-phi
   %754 = select i1 %.not.i215, i1 true, i1 %753
   br i1 %754, label %755, label %.critedge
 
 755:                                              ; preds = %751
-  %.not.i.i216 = icmp eq ptr %.sroa.02.0.i.i.i, null
+  %.not.i.i216 = icmp eq ptr %.pn6.i.i.i, null
   br i1 %.not.i.i216, label %756, label %757
 
 756:                                              ; preds = %755
@@ -2447,7 +2447,7 @@ _ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_
   unreachable
 
 757:                                              ; preds = %755
-  %.not1.i.i = icmp slt i32 %.sroa.33.0.i.i.i, 0
+  %.not1.i.i = icmp slt i32 %.pn4.i.i.i, 0
   br i1 %.not1.i.i, label %758, label %759
 
 758:                                              ; preds = %757
@@ -2455,10 +2455,10 @@ _ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_
   unreachable
 
 759:                                              ; preds = %757
-  %760 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i.i, i64 10
+  %760 = getelementptr inbounds i8, ptr %.pn6.i.i.i, i64 10
   %761 = load i8, ptr %760, align 1
   %762 = zext i8 %761 to i32
-  %763 = icmp samesign ult i32 %.sroa.33.0.i.i.i, %762
+  %763 = icmp samesign ult i32 %.pn4.i.i.i, %762
   br i1 %763, label %765, label %764
 
 764:                                              ; preds = %759
@@ -2466,9 +2466,9 @@ _ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_
   unreachable
 
 765:                                              ; preds = %759
-  %766 = zext nneg i32 %.sroa.33.0.i.i.i to i64
+  %766 = zext nneg i32 %.pn4.i.i.i to i64
   %.idx = mul nuw nsw i64 %766, 40
-  %767 = getelementptr i8, ptr %.sroa.02.0.i.i.i, i64 48
+  %767 = getelementptr i8, ptr %.pn6.i.i.i, i64 48
   %768 = getelementptr i8, ptr %767, i64 %.idx
   %769 = load i64, ptr %768, align 8
   %.not76 = icmp eq i64 %769, 0

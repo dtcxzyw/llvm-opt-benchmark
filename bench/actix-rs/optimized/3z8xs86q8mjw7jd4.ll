@@ -919,7 +919,7 @@ define { ptr, ptr } @_ZN15actix_multipart4form4text10TextConfig9map_error17hb2fe
   %4 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %5 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %21, label %6
+  br i1 %.not, label %23, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -940,58 +940,59 @@ define { ptr, ptr } @_ZN15actix_multipart4form4text10TextConfig9map_error17hb2fe
   %19 = extractvalue { ptr, ptr } %18, 0
   %20 = extractvalue { ptr, ptr } %18, 1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  br label %34
+  %21 = icmp ne ptr %19, null
+  %22 = icmp ne ptr %20, null
+  br label %38
 
-21:                                               ; preds = %3
-  %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !172
-  %23 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #18, !noalias !172
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit"
+23:                                               ; preds = %3
+  %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !172
+  %25 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #18, !noalias !172
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit"
 
-25:                                               ; preds = %21
+27:                                               ; preds = %23
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 40) #19
-          to label %.noexc unwind label %26
+          to label %.noexc unwind label %28
 
-.noexc:                                           ; preds = %25
+.noexc:                                           ; preds = %27
   unreachable
 
-26:                                               ; preds = %25
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %27
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %28 = load i64, ptr %2, align 8, !range !44, !alias.scope !175, !noundef !4
-  %29 = add i64 %28, 9223372036854775804
-  %30 = icmp ugt i64 %29, 2
-  %cond1.i = icmp eq i64 %29, 1
-  %cond.i = or i1 %30, %cond1.i
-  br i1 %cond.i, label %31, label %"_ZN4core3ptr59drop_in_place$LT$actix_multipart..form..text..TextError$GT$17h4e6b60a93c3e3eeeE.exit"
+  %30 = load i64, ptr %2, align 8, !range !44, !alias.scope !175, !noundef !4
+  %31 = add i64 %30, 9223372036854775804
+  %32 = icmp ugt i64 %31, 2
+  %cond1.i = icmp eq i64 %31, 1
+  %cond.i = or i1 %32, %cond1.i
+  br i1 %cond.i, label %33, label %"_ZN4core3ptr59drop_in_place$LT$actix_multipart..form..text..TextError$GT$17h4e6b60a93c3e3eeeE.exit"
 
-31:                                               ; preds = %26
+33:                                               ; preds = %28
   invoke void @"_ZN4core3ptr46drop_in_place$LT$serde_plain..error..Error$GT$17h69b7813d61c189c1E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2)
-          to label %"_ZN4core3ptr59drop_in_place$LT$actix_multipart..form..text..TextError$GT$17h4e6b60a93c3e3eeeE.exit" unwind label %32
+          to label %"_ZN4core3ptr59drop_in_place$LT$actix_multipart..form..text..TextError$GT$17h4e6b60a93c3e3eeeE.exit" unwind label %34
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %33
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #21
   unreachable
 
-"_ZN4core3ptr59drop_in_place$LT$actix_multipart..form..text..TextError$GT$17h4e6b60a93c3e3eeeE.exit": ; preds = %26, %31
-  resume { ptr, i32 } %27
+"_ZN4core3ptr59drop_in_place$LT$actix_multipart..form..text..TextError$GT$17h4e6b60a93c3e3eeeE.exit": ; preds = %28, %33
+  resume { ptr, i32 } %29
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit": ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  br label %34
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit": ; preds = %23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %36 = insertvalue { ptr, ptr } poison, ptr %25, 0
+  %37 = insertvalue { ptr, ptr } %36, ptr @anon.f756f0e7123b03624cceb0e3cdb83315.32, 1
+  br label %38
 
-34:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit", %6
-  %.sroa.3.0 = phi ptr [ %20, %6 ], [ @anon.f756f0e7123b03624cceb0e3cdb83315.32, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit" ]
-  %.sroa.0.0 = phi ptr [ %19, %6 ], [ %23, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit" ]
-  %35 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %35)
-  %36 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %36)
-  %37 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %38 = insertvalue { ptr, ptr } %37, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %38
+38:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit", %6
+  %.sroa.3.0 = phi i1 [ %22, %6 ], [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit" ]
+  %.sroa.0.0 = phi i1 [ %21, %6 ], [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit" ]
+  %.merged = phi { ptr, ptr } [ %18, %6 ], [ %37, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha46cb8b59559a365E.exit" ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

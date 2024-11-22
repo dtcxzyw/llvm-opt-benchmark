@@ -9176,8 +9176,8 @@ land.lhs.true.i.i.i:                              ; preds = %_ZN7testing15Assert
   %91 = trunc i64 %90 to i16
   %92 = lshr i64 %retval.sroa.0.0.copyload.i281, 8
   %93 = trunc i64 %92 to i16
-  %or.cond638 = icmp eq i16 %91, %93
-  br i1 %or.cond638, label %if.else.i283, label %if.then.i282
+  %or.cond639 = icmp eq i16 %91, %93
+  br i1 %or.cond639, label %if.else.i283, label %if.then.i282
 
 if.then.i282:                                     ; preds = %land.lhs.true.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit280
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar159)
@@ -9745,8 +9745,8 @@ land.lhs.true.i.i.i428:                           ; preds = %_ZN7testing15Assert
   %159 = trunc i64 %158 to i16
   %160 = lshr i64 %retval.sroa.0.0.copyload.i425, 8
   %161 = trunc i64 %160 to i16
-  %or.cond639 = icmp eq i16 %159, %161
-  br i1 %or.cond639, label %if.then.i.i434, label %if.end.i.i427
+  %or.cond640 = icmp eq i16 %159, %161
+  br i1 %or.cond640, label %if.then.i.i434, label %if.end.i.i427
 
 if.then.i.i434:                                   ; preds = %land.lhs.true.i.i.i428
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar280)
@@ -10172,15 +10172,16 @@ _ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseI
   %gen.sroa.7.5 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i38.i, %if.then.i.i.i53.i ], [ %gen.sroa.7.4, %if.end28.i.i.i.i ]
   %retval.0.i.i.i49.i = phi i8 [ %and713.i.i.i.i, %if.then.i.i.i53.i ], [ %conv1.i35.i.i.i.i, %if.end28.i.i.i.i ]
   %add.i.i51.i = add i8 %retval.0.i.i.i49.i, %spec.select.i
+  %.pre622 = load i8, ptr %after, align 8
   br label %invoke.cont331
 
 invoke.cont331:                                   ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i, %_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_.exit.i
+  %206 = phi i8 [ %190, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i ], [ %.pre622, %_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_.exit.i ]
   %gen.sroa.0.6 = phi i64 [ %gen.sroa.0.3, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i ], [ %gen.sroa.0.5, %_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_.exit.i ]
   %gen.sroa.7.6 = phi i64 [ %gen.sroa.7.3, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i ], [ %gen.sroa.7.5, %_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_.exit.i ]
   %retval.0.i = phi i8 [ 0, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i ], [ %add.i.i51.i, %_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_.exit.i ]
   %add.i.i494 = add i8 %retval.0.i, %190
   store i8 %add.i.i494, ptr %sample, align 1
-  %206 = load i8, ptr %after, align 8
   store i8 %206, ptr %ref.tmp334, align 1
   %cmp.not.i496 = icmp slt i8 %add.i.i494, %206
   br i1 %cmp.not.i496, label %if.else.i498, label %if.then.i497
@@ -28342,8 +28343,8 @@ land.lhs.true.i.i.i:                              ; preds = %_ZN7testing15Assert
   %91 = trunc i64 %90 to i16
   %92 = lshr i64 %retval.sroa.0.0.copyload.i281, 8
   %93 = trunc i64 %92 to i16
-  %or.cond638 = icmp eq i16 %91, %93
-  br i1 %or.cond638, label %if.else.i283, label %if.then.i282
+  %or.cond639 = icmp eq i16 %91, %93
+  br i1 %or.cond639, label %if.else.i283, label %if.then.i282
 
 if.then.i282:                                     ; preds = %land.lhs.true.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit280
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar159)
@@ -28911,8 +28912,8 @@ land.lhs.true.i.i.i428:                           ; preds = %_ZN7testing15Assert
   %159 = trunc i64 %158 to i16
   %160 = lshr i64 %retval.sroa.0.0.copyload.i425, 8
   %161 = trunc i64 %160 to i16
-  %or.cond639 = icmp eq i16 %159, %161
-  br i1 %or.cond639, label %if.then.i.i434, label %if.end.i.i427
+  %or.cond640 = icmp eq i16 %159, %161
+  br i1 %or.cond640, label %if.then.i.i434, label %if.end.i.i427
 
 if.then.i.i434:                                   ; preds = %land.lhs.true.i.i.i428
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar280)
@@ -29338,15 +29339,16 @@ _ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseI
   %gen.sroa.7.5 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i38.i, %if.then.i.i.i53.i ], [ %gen.sroa.7.4, %if.end28.i.i.i.i ]
   %retval.0.i.i.i49.i = phi i8 [ %and713.i.i.i.i, %if.then.i.i.i53.i ], [ %conv1.i35.i.i.i.i, %if.end28.i.i.i.i ]
   %add.i.i51.i = add i8 %retval.0.i.i.i49.i, %spec.select.i
+  %.pre622 = load i8, ptr %after, align 8
   br label %invoke.cont331
 
 invoke.cont331:                                   ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i, %_ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_.exit.i
+  %206 = phi i8 [ %190, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i ], [ %.pre622, %_ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_.exit.i ]
   %gen.sroa.0.6 = phi i64 [ %gen.sroa.0.3, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i ], [ %gen.sroa.0.5, %_ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_.exit.i ]
   %gen.sroa.7.6 = phi i64 [ %gen.sroa.7.3, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i ], [ %gen.sroa.7.5, %_ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_.exit.i ]
   %retval.0.i = phi i8 [ 0, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i ], [ %add.i.i51.i, %_ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_.exit.i ]
   %add.i.i494 = add i8 %retval.0.i, %190
   store i8 %add.i.i494, ptr %sample, align 1
-  %206 = load i8, ptr %after, align 8
   store i8 %206, ptr %ref.tmp334, align 1
   %cmp.not.i496 = icmp ult i8 %add.i.i494, %206
   br i1 %cmp.not.i496, label %if.else.i498, label %if.then.i497

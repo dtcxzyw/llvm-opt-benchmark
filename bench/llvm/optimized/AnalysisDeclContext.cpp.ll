@@ -6413,11 +6413,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals16Visit
   %6 = icmp ult i32 %5, -7
   %.not2 = icmp eq ptr %.16.val, null
   %.not = or i1 %.not2, %6
-  br i1 %.not, label %.critedge5, label %7
+  br i1 %.not, label %.critedge6, label %7
 
 7:                                                ; preds = %1
   %8 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %.16.val)
-  br i1 %8, label %.critedge5, label %9
+  br i1 %8, label %.critedge6, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6439,7 +6439,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals16Visit
   %.025.i.i = phi ptr [ %23, %22 ], [ %13, %15 ]
   %20 = load ptr, ptr %.025.i.i, align 8, !noalias !27
   %21 = icmp eq ptr %20, %.16.val
-  br i1 %21, label %.critedge5, label %22
+  br i1 %21, label %.critedge6, label %22
 
 22:                                               ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -6456,94 +6456,94 @@ define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals16Visit
   %27 = add nuw i32 %17, 1
   store i32 %27, ptr %16, align 4, !noalias !27
   store ptr %.16.val, ptr %19, align 8, !noalias !27
-  br label %30
+  br label %31
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit: ; preds = %._crit_edge.i.i, %9
   %28 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %.16.val) #22, !noalias !27
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %28, 1
-  %29 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %29, label %30, label %.critedge5
+  %29 = extractvalue { ptr, i8 } %28, 1
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %.critedge6
 
-30:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ult ptr %33, %35
-  br i1 %36, label %_ZN5clang10BumpVectorIPKNS_7VarDeclEE9push_backERKS3_RNS_17BumpVectorContextE.exit, label %37
+31:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit
+  %32 = load ptr, ptr %0, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ult ptr %34, %36
+  br i1 %37, label %_ZN5clang10BumpVectorIPKNS_7VarDeclEE9push_backERKS3_RNS_17BumpVectorContextE.exit, label %38
 
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %31, align 8
-  %41 = ptrtoint ptr %35 to i64
-  %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = ptrtoint ptr %33 to i64
-  %45 = sub i64 %44, %42
-  %46 = ashr exact i64 %43, 2
-  %spec.select.i.i2 = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %39, align 8
-  %47 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %48 = inttoptr i64 %47 to ptr
-  %49 = shl i64 %spec.select.i.i2, 3
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 80
-  %51 = load i64, ptr %50, align 8
-  %52 = add i64 %49, %51
-  store i64 %52, ptr %50, align 8
-  %53 = load ptr, ptr %48, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = add i64 %54, 7
-  %56 = and i64 %55, -8
-  %57 = add i64 %56, %49
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = ptrtoint ptr %59 to i64
-  %.not.i.i.i.i.i.i = icmp ugt i64 %57, %60
-  %.not14.i.i.i.i.i.i = icmp eq ptr %53, null
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %32, align 8
+  %42 = ptrtoint ptr %36 to i64
+  %43 = ptrtoint ptr %41 to i64
+  %44 = sub i64 %42, %43
+  %45 = ptrtoint ptr %34 to i64
+  %46 = sub i64 %45, %43
+  %47 = ashr exact i64 %44, 2
+  %spec.select.i.i2 = tail call i64 @llvm.umax.i64(i64 %47, i64 1)
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %40, align 8
+  %48 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %49 = inttoptr i64 %48 to ptr
+  %50 = shl i64 %spec.select.i.i2, 3
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 80
+  %52 = load i64, ptr %51, align 8
+  %53 = add i64 %50, %52
+  store i64 %53, ptr %51, align 8
+  %54 = load ptr, ptr %49, align 8
+  %55 = ptrtoint ptr %54 to i64
+  %56 = add i64 %55, 7
+  %57 = and i64 %56, -8
+  %58 = add i64 %57, %50
+  %59 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = ptrtoint ptr %60 to i64
+  %.not.i.i.i.i.i.i = icmp ugt i64 %58, %61
+  %.not14.i.i.i.i.i.i = icmp eq ptr %54, null
   %or.cond.i.i.i.i.i.i = or i1 %.not14.i.i.i.i.i.i, %.not.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, label %61
+  br i1 %or.cond.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, label %62
 
-61:                                               ; preds = %37
-  %62 = inttoptr i64 %57 to ptr
-  store ptr %62, ptr %48, align 8
-  %63 = inttoptr i64 %56 to ptr
+62:                                               ; preds = %38
+  %63 = inttoptr i64 %58 to ptr
+  store ptr %63, ptr %49, align 8
+  %64 = inttoptr i64 %57 to ptr
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIPKN5clang7VarDeclEEEPT_m.exit.i.i
 
-.critedge.i.i.i.i.i.i:                            ; preds = %37
-  %64 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %48, i64 noundef %49, i64 noundef %49, i8 3)
+.critedge.i.i.i.i.i.i:                            ; preds = %38
+  %65 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %49, i64 noundef %50, i64 noundef %50, i8 3)
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIPKN5clang7VarDeclEEEPT_m.exit.i.i
 
-_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIPKN5clang7VarDeclEEEPT_m.exit.i.i: ; preds = %.critedge.i.i.i.i.i.i, %61
-  %.0.i.i.i.i.i.i = phi ptr [ %63, %61 ], [ %64, %.critedge.i.i.i.i.i.i ]
-  %65 = load ptr, ptr %31, align 8
+_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIPKN5clang7VarDeclEEEPT_m.exit.i.i: ; preds = %.critedge.i.i.i.i.i.i, %62
+  %.0.i.i.i.i.i.i = phi ptr [ %64, %62 ], [ %65, %.critedge.i.i.i.i.i.i ]
   %66 = load ptr, ptr %32, align 8
-  %.not.i.i3 = icmp eq ptr %65, %66
-  br i1 %.not.i.i3, label %_ZN5clang10BumpVectorIPKNS_7VarDeclEE4growERNS_17BumpVectorContextEm.exit.i, label %67
+  %67 = load ptr, ptr %33, align 8
+  %.not.i.i3 = icmp eq ptr %66, %67
+  br i1 %.not.i.i3, label %_ZN5clang10BumpVectorIPKNS_7VarDeclEE4growERNS_17BumpVectorContextEm.exit.i, label %68
 
-67:                                               ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIPKN5clang7VarDeclEEEPT_m.exit.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i.i, ptr align 8 %65, i64 %45, i1 false)
+68:                                               ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIPKN5clang7VarDeclEEEPT_m.exit.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i.i, ptr align 8 %66, i64 %46, i1 false)
   br label %_ZN5clang10BumpVectorIPKNS_7VarDeclEE4growERNS_17BumpVectorContextEm.exit.i
 
-_ZN5clang10BumpVectorIPKNS_7VarDeclEE4growERNS_17BumpVectorContextEm.exit.i: ; preds = %67, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIPKN5clang7VarDeclEEEPT_m.exit.i.i
-  %68 = ashr exact i64 %45, 3
-  store ptr %.0.i.i.i.i.i.i, ptr %31, align 8
-  %69 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i, i64 %68
-  store ptr %69, ptr %32, align 8
-  %70 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i, i64 %spec.select.i.i2
-  store ptr %70, ptr %34, align 8
+_ZN5clang10BumpVectorIPKNS_7VarDeclEE4growERNS_17BumpVectorContextEm.exit.i: ; preds = %68, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIPKN5clang7VarDeclEEEPT_m.exit.i.i
+  %69 = ashr exact i64 %46, 3
+  store ptr %.0.i.i.i.i.i.i, ptr %32, align 8
+  %70 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i, i64 %69
+  store ptr %70, ptr %33, align 8
+  %71 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i, i64 %spec.select.i.i2
+  store ptr %71, ptr %35, align 8
   br label %_ZN5clang10BumpVectorIPKNS_7VarDeclEE9push_backERKS3_RNS_17BumpVectorContextE.exit
 
-_ZN5clang10BumpVectorIPKNS_7VarDeclEE9push_backERKS3_RNS_17BumpVectorContextE.exit: ; preds = %30, %_ZN5clang10BumpVectorIPKNS_7VarDeclEE4growERNS_17BumpVectorContextEm.exit.i
-  %71 = phi ptr [ %33, %30 ], [ %69, %_ZN5clang10BumpVectorIPKNS_7VarDeclEE4growERNS_17BumpVectorContextEm.exit.i ]
-  store ptr %.16.val, ptr %71, align 8
-  %72 = load ptr, ptr %32, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
-  store ptr %73, ptr %32, align 8
-  br label %.critedge5
+_ZN5clang10BumpVectorIPKNS_7VarDeclEE9push_backERKS3_RNS_17BumpVectorContextE.exit: ; preds = %31, %_ZN5clang10BumpVectorIPKNS_7VarDeclEE4growERNS_17BumpVectorContextEm.exit.i
+  %72 = phi ptr [ %34, %31 ], [ %70, %_ZN5clang10BumpVectorIPKNS_7VarDeclEE4growERNS_17BumpVectorContextEm.exit.i ]
+  store ptr %.16.val, ptr %72, align 8
+  %73 = load ptr, ptr %33, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  store ptr %74, ptr %33, align 8
+  br label %.critedge6
 
-.critedge5:                                       ; preds = %.lr.ph.i.i, %7, %_ZN5clang10BumpVectorIPKNS_7VarDeclEE9push_backERKS3_RNS_17BumpVectorContextE.exit, %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit, %1
+.critedge6:                                       ; preds = %.lr.ph.i.i, %7, %_ZN5clang10BumpVectorIPKNS_7VarDeclEE9push_backERKS3_RNS_17BumpVectorContextE.exit, %_ZN4llvm15SmallPtrSetImplIPKN5clang7VarDeclEE6insertES4_.exit, %1
   ret void
 }
 

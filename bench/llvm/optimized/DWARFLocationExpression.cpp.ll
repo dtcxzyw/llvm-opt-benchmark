@@ -240,13 +240,13 @@ define linkonce_odr hidden void @_ZN4llvm15format_providerINS_14iterator_rangeIP
   br label %13
 
 12:                                               ; preds = %13
-  %.0.add.i = add nuw nsw i64 %.0.idx44.i, 8
+  %.0.add.i = add nuw nsw i64 %.0.idx47.i, 8
   %.not38.i = icmp eq i64 %.0.add.i, 24
   br i1 %.not38.i, label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit, label %13
 
 13:                                               ; preds = %12, %.preheader.i
-  %.0.idx44.i = phi i64 [ 0, %.preheader.i ], [ %.0.add.i, %12 ]
-  %.0.ptr.i = getelementptr inbounds i8, ptr @constinit, i64 %.0.idx44.i
+  %.0.idx47.i = phi i64 [ 0, %.preheader.i ], [ %.0.add.i, %12 ]
+  %.0.ptr.i = getelementptr inbounds i8, ptr @constinit, i64 %.0.idx47.i
   %14 = load ptr, ptr %.0.ptr.i, align 8
   %15 = load i8, ptr %14, align 1
   %.not39.i = icmp eq i8 %11, %15
@@ -282,8 +282,8 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.i:     ; preds = %_ZNSt11char_traitsI
 _ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit: ; preds = %12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i, %24
   %.sroa.024.0 = phi ptr [ %8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %8, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ], [ %30, %24 ], [ %8, %12 ]
   %.sroa.7.0 = phi i64 [ %9, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %9, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ], [ %31, %24 ], [ %9, %12 ]
-  %.sroa.036.0.i = phi ptr [ @.str.2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ @.str.2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ], [ %27, %24 ], [ @.str.2, %12 ]
-  %.sroa.7.0.i = phi i64 [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ], [ %28, %24 ], [ 2, %12 ]
+  %.pn46.i = phi ptr [ @.str.2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ @.str.2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ], [ %27, %24 ], [ @.str.2, %12 ]
+  %.pn44.i = phi i64 [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ], [ %28, %24 ], [ 2, %12 ]
   %32 = icmp eq i64 %.sroa.7.0, 0
   br i1 %32, label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit17, label %thread-pre-split
 
@@ -293,8 +293,8 @@ thread-pre-split:                                 ; preds = %_ZN4llvm15format_pr
 
 _ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39: ; preds = %5, %thread-pre-split
   %33 = phi i8 [ %.pr, %thread-pre-split ], [ %6, %5 ]
-  %.sroa.7.0.i47 = phi i64 [ %.sroa.7.0.i, %thread-pre-split ], [ 2, %5 ]
-  %.sroa.036.0.i46 = phi ptr [ %.sroa.036.0.i, %thread-pre-split ], [ @.str.2, %5 ]
+  %.pn44.i47 = phi i64 [ %.pn44.i, %thread-pre-split ], [ 2, %5 ]
+  %.pn46.i46 = phi ptr [ %.pn46.i, %thread-pre-split ], [ @.str.2, %5 ]
   %.sroa.7.045 = phi i64 [ %.sroa.7.0, %thread-pre-split ], [ %2, %5 ]
   %.sroa.024.044 = phi ptr [ %.sroa.024.0, %thread-pre-split ], [ %1, %5 ]
   %.not.i1 = icmp eq i8 %33, 64
@@ -311,13 +311,13 @@ _ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9Str
   br label %40
 
 39:                                               ; preds = %40
-  %.0.add.i10 = add nuw nsw i64 %.0.idx44.i7, 8
+  %.0.add.i10 = add nuw nsw i64 %.0.idx47.i7, 8
   %.not38.i11 = icmp eq i64 %.0.add.i10, 24
   br i1 %.not38.i11, label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit17, label %40
 
 40:                                               ; preds = %39, %.preheader.i6
-  %.0.idx44.i7 = phi i64 [ 0, %.preheader.i6 ], [ %.0.add.i10, %39 ]
-  %.0.ptr.i8 = getelementptr inbounds i8, ptr @constinit, i64 %.0.idx44.i7
+  %.0.idx47.i7 = phi i64 [ 0, %.preheader.i6 ], [ %.0.add.i10, %39 ]
+  %.0.ptr.i8 = getelementptr inbounds i8, ptr @constinit, i64 %.0.idx47.i7
   %41 = load ptr, ptr %.0.ptr.i8, align 8
   %42 = load i8, ptr %41, align 1
   %.not39.i9 = icmp eq i8 %38, %42
@@ -347,17 +347,17 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.i14:   ; preds = %_ZNSt11char_traitsI
   br label %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit17
 
 _ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit17: ; preds = %39, %7, %3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39, %34, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i14, %51
-  %.sroa.7.0.i38 = phi i64 [ %.sroa.7.0.i47, %51 ], [ %.sroa.7.0.i, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ %.sroa.7.0.i47, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ %.sroa.7.0.i47, %34 ], [ %.sroa.7.0.i47, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i14 ], [ %.sroa.7.0.i47, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ 2, %3 ], [ 2, %7 ], [ %.sroa.7.0.i47, %39 ]
-  %.sroa.036.0.i37 = phi ptr [ %.sroa.036.0.i46, %51 ], [ %.sroa.036.0.i, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ %.sroa.036.0.i46, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ %.sroa.036.0.i46, %34 ], [ %.sroa.036.0.i46, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i14 ], [ %.sroa.036.0.i46, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ @.str.2, %3 ], [ @.str.2, %7 ], [ %.sroa.036.0.i46, %39 ]
-  %.sroa.036.0.i2 = phi ptr [ %54, %51 ], [ @.str.3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ @.str.3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ @.str.3, %34 ], [ @.str.3, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i14 ], [ @.str.3, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ @.str.3, %3 ], [ @.str.3, %7 ], [ @.str.3, %39 ]
-  %.sroa.7.0.i3 = phi i64 [ %55, %51 ], [ 0, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ 0, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ 0, %34 ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i14 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ 0, %3 ], [ 0, %7 ], [ 0, %39 ]
-  store ptr %.sroa.036.0.i37, ptr %0, align 8
+  %.pn44.i38 = phi i64 [ %.pn44.i47, %51 ], [ %.pn44.i, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ %.pn44.i47, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ %.pn44.i47, %34 ], [ %.pn44.i47, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ %.pn44.i47, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i14 ], [ 2, %3 ], [ 2, %7 ], [ %.pn44.i47, %39 ]
+  %.pn46.i37 = phi ptr [ %.pn46.i46, %51 ], [ %.pn46.i, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ %.pn46.i46, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ %.pn46.i46, %34 ], [ %.pn46.i46, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ %.pn46.i46, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i14 ], [ @.str.2, %3 ], [ @.str.2, %7 ], [ %.pn46.i46, %39 ]
+  %.pn46.i2 = phi ptr [ %54, %51 ], [ @.str.3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ @.str.3, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ @.str.3, %34 ], [ @.str.3, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ @.str.3, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i14 ], [ @.str.3, %3 ], [ @.str.3, %7 ], [ @.str.3, %39 ]
+  %.pn44.i3 = phi i64 [ %55, %51 ], [ 0, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit ], [ 0, %_ZN4llvm15format_providerINS_14iterator_rangeIPKhEEvE16consumeOneOptionERNS_9StringRefEcS6_.exit.thread39 ], [ 0, %34 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i12 ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i14 ], [ 0, %3 ], [ 0, %7 ], [ 0, %39 ]
+  store ptr %.pn46.i37, ptr %0, align 8
   %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.7.0.i38, ptr %.sroa.223.0..sroa_idx, align 8
+  store i64 %.pn44.i38, ptr %.sroa.223.0..sroa_idx, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.036.0.i2, ptr %56, align 8
+  store ptr %.pn46.i2, ptr %56, align 8
   %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.7.0.i3, ptr %.sroa.219.0..sroa_idx, align 8
+  store i64 %.pn44.i3, ptr %.sroa.219.0..sroa_idx, align 8
   ret void
 }
 

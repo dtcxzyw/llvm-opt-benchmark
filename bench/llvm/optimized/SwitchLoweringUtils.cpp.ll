@@ -1446,12 +1446,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabili
 378:                                              ; preds = %._crit_edge.i.i133, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabilityENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_EixERKS3_.exit128
   %379 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %16, ptr noundef %360) #20, !noalias !28
   %.pre.i129 = load ptr, ptr %16, align 8
-  %.pre8.i = load i32, ptr %290, align 4
+  %.pre6.i = load i32, ptr %290, align 4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i131, %378, %374
   %380 = phi ptr [ %376, %374 ], [ %.pre.i129, %378 ], [ %362, %.lr.ph.i.i131 ]
-  %381 = phi i32 [ %377, %374 ], [ %.pre8.i, %378 ], [ %365, %.lr.ph.i.i131 ]
+  %381 = phi i32 [ %377, %374 ], [ %.pre6.i, %378 ], [ %365, %.lr.ph.i.i131 ]
   %382 = load ptr, ptr %288, align 8
   %383 = load i32, ptr %289, align 8
   br label %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit

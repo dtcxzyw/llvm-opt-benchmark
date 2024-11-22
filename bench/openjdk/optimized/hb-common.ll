@@ -5017,11 +5017,11 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK2OT9glyf_impl5Glyph12trim_paddingEv
   br label %_ZNK2OT9glyf_impl11SimpleGlyph12trim_paddingEv.exit
 
 _ZNK2OT9glyf_impl11SimpleGlyph12trim_paddingEv.exit: ; preds = %49, %67, %66, %5, %74, %73, %4
-  %.sroa.03.0 = phi ptr [ %.sroa.03.0.copyload4, %74 ], [ %.sroa.03.0.copyload, %73 ], [ %.sroa.01.0.copyload, %4 ], [ %.sroa.0.0.copyload, %67 ], [ null, %5 ], [ null, %66 ], [ null, %49 ]
-  %.sroa.5.0 = phi i64 [ %.sroa.5.0.copyload6, %74 ], [ %.sroa.5.0.copyload, %73 ], [ %.sroa.22.0.copyload, %4 ], [ %.sroa.3.8.insert.ext.i.i.i, %67 ], [ 0, %5 ], [ 0, %66 ], [ 0, %49 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.03.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.sroa.03.0.copyload4.pn = phi ptr [ %.sroa.03.0.copyload4, %74 ], [ %.sroa.03.0.copyload, %73 ], [ %.sroa.01.0.copyload, %4 ], [ %.sroa.0.0.copyload, %67 ], [ null, %5 ], [ null, %66 ], [ null, %49 ]
+  %.sroa.5.0.copyload6.pn = phi i64 [ %.sroa.5.0.copyload6, %74 ], [ %.sroa.5.0.copyload, %73 ], [ %.sroa.22.0.copyload, %4 ], [ %.sroa.3.8.insert.ext.i.i.i, %67 ], [ 0, %5 ], [ 0, %66 ], [ 0, %49 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.03.0.copyload4.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i64 } %.pn, i64 %.sroa.5.0.copyload6.pn, 1
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

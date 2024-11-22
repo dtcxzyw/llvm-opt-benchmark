@@ -226,8 +226,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h93a0045f44
   %17 = getelementptr inbounds i8, ptr %15, i64 8
   %18 = getelementptr inbounds i8, ptr %11, i64 8
   %19 = getelementptr inbounds i8, ptr %11, i64 16
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %20 = getelementptr inbounds i8, ptr %7, i64 8
   %21 = getelementptr inbounds i8, ptr %7, i64 16
   %22 = getelementptr inbounds i8, ptr %5, i64 8
@@ -291,13 +291,13 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h93a0045f44
           to label %.body.i.i unwind label %81, !noalias !71
 
 46:                                               ; preds = %41
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !74, !noalias !73, !noundef !9
-  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i, 0
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !74, !noalias !73, !noundef !9
+  %.not.i.i.i = icmp eq i64 %.pn1.i.i.i, 0
   br i1 %.not.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h01a8aa3373815d7cE.exit.thread.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h01a8aa3373815d7cE.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h01a8aa3373815d7cE.exit.i.i": ; preds = %46
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !74, !noalias !73, !nonnull !9, !noundef !9
-  %rhsc.i.i = load i8, ptr %.sroa.0.0.i.i.i, align 1, !noalias !71
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !74, !noalias !73, !nonnull !9, !noundef !9
+  %rhsc.i.i = load i8, ptr %.pn3.i.i.i, align 1, !noalias !71
   %47 = icmp eq i8 %rhsc.i.i, 46
   br i1 %47, label %55, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h01a8aa3373815d7cE.exit.thread.i.i"
 
@@ -320,7 +320,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h93a0045f44
 52:                                               ; preds = %.noexc.i.i
   %53 = load ptr, ptr %8, align 8, !noalias !80, !nonnull !9, !noundef !9
   %54 = load i64, ptr %26, align 8, !noalias !80, !noundef !9
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10063921922768059169"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i.i.i, ptr noundef nonnull %53, i64 noundef %51, i64 noundef %54)
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10063921922768059169"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i.i.i, ptr noundef nonnull %53, i64 noundef %51, i64 noundef %54)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E.exit.i.i.i" unwind label %44, !noalias !71
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E.exit.i.i.i": ; preds = %52, %.noexc.i.i
@@ -346,7 +346,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h93a0045f44
 60:                                               ; preds = %.noexc12.i.i
   %61 = load ptr, ptr %7, align 8, !noalias !92, !nonnull !9, !noundef !9
   %62 = load i64, ptr %21, align 8, !noalias !92, !noundef !9
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10063921922768059169"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i.i.i, ptr noundef nonnull %61, i64 noundef %59, i64 noundef %62)
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10063921922768059169"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i.i.i, ptr noundef nonnull %61, i64 noundef %59, i64 noundef %62)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E.exit.i11.i.i" unwind label %44, !noalias !71
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E.exit.i11.i.i": ; preds = %60, %.noexc12.i.i

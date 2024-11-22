@@ -1867,9 +1867,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i13:             ; preds = %49, %47
   br label %_ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit.i
 
 _ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit.i: ; preds = %58, %56
-  %.sroa.0.0.i.i = phi ptr [ %57, %56 ], [ %.sroa.0.0.copyload.i.i, %58 ]
-  %.sroa.3.0.in.i.i = phi ptr [ %55, %56 ], [ %.sroa.3.0..sroa_idx.i.i, %58 ]
-  %.sroa.3.0.i.i = load i64, ptr %.sroa.3.0.in.i.i, align 8
+  %.pn4.i.i = phi ptr [ %57, %56 ], [ %.sroa.0.0.copyload.i.i, %58 ]
+  %.pn.in.i.i = phi ptr [ %55, %56 ], [ %.sroa.3.0..sroa_idx.i.i, %58 ]
+  %.pn.i.i = load i64, ptr %.pn.in.i.i, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i14, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i14, i64 32
@@ -1877,21 +1877,21 @@ _ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit.i: ; preds = %58, %56
   %64 = ptrtoint ptr %61 to i64
   %65 = ptrtoint ptr %63 to i64
   %66 = sub i64 %64, %65
-  %67 = icmp ugt i64 %.sroa.3.0.i.i, %66
+  %67 = icmp ugt i64 %.pn.i.i, %66
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %_ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit.i
-  %69 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i14, ptr noundef %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i) #19
+  %69 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i14, ptr noundef %.pn4.i.i, i64 noundef %.pn.i.i) #19
   br label %_ZNK4llvm9DIEString5printERNS_11raw_ostreamE.exit
 
 70:                                               ; preds = %_ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit.i
-  %.not.i.i = icmp eq i64 %.sroa.3.0.i.i, 0
+  %.not.i.i = icmp eq i64 %.pn.i.i, 0
   br i1 %.not.i.i, label %_ZNK4llvm9DIEString5printERNS_11raw_ostreamE.exit, label %71
 
 71:                                               ; preds = %70
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %63, ptr align 1 %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %63, ptr align 1 %.pn4.i.i, i64 %.pn.i.i, i1 false)
   %72 = load ptr, ptr %62, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 %.sroa.3.0.i.i
+  %73 = getelementptr inbounds i8, ptr %72, i64 %.pn.i.i
   store ptr %73, ptr %62, align 8
   br label %_ZNK4llvm9DIEString5printERNS_11raw_ostreamE.exit
 
@@ -3958,9 +3958,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   br label %_ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit
 
 _ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit: ; preds = %20, %22
-  %.sroa.0.0.i = phi ptr [ %21, %20 ], [ %.sroa.0.0.copyload.i, %22 ]
-  %.sroa.3.0.in.i = phi ptr [ %19, %20 ], [ %.sroa.3.0..sroa_idx.i, %22 ]
-  %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8
+  %.pn4.i = phi ptr [ %21, %20 ], [ %.sroa.0.0.copyload.i, %22 ]
+  %.pn.in.i = phi ptr [ %19, %20 ], [ %.sroa.3.0..sroa_idx.i, %22 ]
+  %.pn.i = load i64, ptr %.pn.in.i, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
@@ -3968,21 +3968,21 @@ _ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit: ; preds = %20, %22
   %28 = ptrtoint ptr %25 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
-  %31 = icmp ugt i64 %.sroa.3.0.i, %30
+  %31 = icmp ugt i64 %.pn.i, %30
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %_ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit
-  %33 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %.sroa.0.0.i, i64 noundef %.sroa.3.0.i) #19
+  %33 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %.pn4.i, i64 noundef %.pn.i) #19
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 34:                                               ; preds = %_ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit
-  %.not.i = icmp eq i64 %.sroa.3.0.i, 0
+  %.not.i = icmp eq i64 %.pn.i, 0
   br i1 %.not.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %35
 
 35:                                               ; preds = %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %.sroa.0.0.i, i64 %.sroa.3.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %.pn4.i, i64 %.pn.i, i1 false)
   %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 %.sroa.3.0.i
+  %37 = getelementptr inbounds i8, ptr %36, i64 %.pn.i
   store ptr %37, ptr %26, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 

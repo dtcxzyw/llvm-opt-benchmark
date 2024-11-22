@@ -2340,8 +2340,8 @@ define hidden void @_ZN8async_io6driver8block_on17h2ca629ec6925e64dE(ptr dead_on
   %143 = getelementptr inbounds i8, ptr %15, i64 24
   %144 = getelementptr inbounds i8, ptr %15, i64 32
   %145 = getelementptr inbounds i8, ptr %51, i64 192
-  %.sroa.0.0.in.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 200
-  %.sroa.5.0.in.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 208
+  %.pn1.in.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 208
+  %.pn3.in.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 200
   %146 = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.024.sroa.0.88..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.024.sroa.0.i.i.i, i64 88
   %.sroa.834.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %14, i64 72
@@ -2883,9 +2883,9 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   br label %332
 
 327:                                              ; preds = %311
-  %.sroa.0.0.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i, align 8, !alias.scope !653, !noalias !643, !nonnull !5, !noundef !5
-  %.sroa.5.0.i.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.i, align 8, !alias.scope !653, !noalias !643, !noundef !5
-  invoke void @"_ZN5sqlez22thread_safe_connection29ThreadSafeConnection$LT$M$GT$7builder17h4a71b86d00b39e5aE"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.5.0.i.i.i.i, i1 noundef zeroext true)
+  %.pn1.i.i.i.i = load i64, ptr %.pn1.in.i.i.i.i, align 8, !alias.scope !653, !noalias !643, !noundef !5
+  %.pn3.i.i.i.i = load ptr, ptr %.pn3.in.i.i.i.i, align 8, !alias.scope !653, !noalias !643, !nonnull !5, !noundef !5
+  invoke void @"_ZN5sqlez22thread_safe_connection29ThreadSafeConnection$LT$M$GT$7builder17h4a71b86d00b39e5aE"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i.i, i64 noundef %.pn1.i.i.i.i, i1 noundef zeroext true)
           to label %330 unwind label %328, !noalias !647
 
 328:                                              ; preds = %327
@@ -3005,7 +3005,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
 354:                                              ; preds = %.noexc20.i.i.i
   %355 = load ptr, ptr %11, align 8, !noalias !679, !nonnull !5, !noundef !5
   %356 = load i64, ptr %150, align 8, !noalias !679, !noundef !5
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.1085812539054361779"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i.i.i.i, ptr noundef nonnull %355, i64 noundef %352, i64 noundef %356)
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.1085812539054361779"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i.i.i.i, ptr noundef nonnull %355, i64 noundef %352, i64 noundef %356)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h45e00c62b67af4b6E.exit.i.i.i.i" unwind label %357, !noalias !665
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h45e00c62b67af4b6E.exit.i.i.i.i": ; preds = %354, %.noexc20.i.i.i
@@ -4459,8 +4459,8 @@ define hidden void @_ZN8async_io6driver8block_on17hf16c9ba6f04d0cd6E(ptr dead_on
   %143 = getelementptr inbounds i8, ptr %15, i64 24
   %144 = getelementptr inbounds i8, ptr %15, i64 32
   %145 = getelementptr inbounds i8, ptr %51, i64 192
-  %.sroa.0.0.in.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 200
-  %.sroa.5.0.in.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 208
+  %.pn1.in.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 208
+  %.pn3.in.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 200
   %146 = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.024.sroa.0.88..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.024.sroa.0.i.i.i, i64 88
   %.sroa.834.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %14, i64 72
@@ -5002,9 +5002,9 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   br label %332
 
 327:                                              ; preds = %311
-  %.sroa.0.0.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i, align 8, !alias.scope !978, !noalias !968, !nonnull !5, !noundef !5
-  %.sroa.5.0.i.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.i, align 8, !alias.scope !978, !noalias !968, !noundef !5
-  invoke void @"_ZN5sqlez22thread_safe_connection29ThreadSafeConnection$LT$M$GT$7builder17h1c1e65042fdf6389E"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.5.0.i.i.i.i, i1 noundef zeroext true)
+  %.pn1.i.i.i.i = load i64, ptr %.pn1.in.i.i.i.i, align 8, !alias.scope !978, !noalias !968, !noundef !5
+  %.pn3.i.i.i.i = load ptr, ptr %.pn3.in.i.i.i.i, align 8, !alias.scope !978, !noalias !968, !nonnull !5, !noundef !5
+  invoke void @"_ZN5sqlez22thread_safe_connection29ThreadSafeConnection$LT$M$GT$7builder17h1c1e65042fdf6389E"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i.i, i64 noundef %.pn1.i.i.i.i, i1 noundef zeroext true)
           to label %330 unwind label %328, !noalias !972
 
 328:                                              ; preds = %327
@@ -5124,7 +5124,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
 354:                                              ; preds = %.noexc20.i.i.i
   %355 = load ptr, ptr %11, align 8, !noalias !1004, !nonnull !5, !noundef !5
   %356 = load i64, ptr %150, align 8, !noalias !1004, !noundef !5
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.1085812539054361779"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i.i.i.i, ptr noundef nonnull %355, i64 noundef %352, i64 noundef %356)
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.1085812539054361779"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i.i.i.i, ptr noundef nonnull %355, i64 noundef %352, i64 noundef %356)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h45e00c62b67af4b6E.exit.i.i.i.i" unwind label %357, !noalias !990
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h45e00c62b67af4b6E.exit.i.i.i.i": ; preds = %354, %.noexc20.i.i.i

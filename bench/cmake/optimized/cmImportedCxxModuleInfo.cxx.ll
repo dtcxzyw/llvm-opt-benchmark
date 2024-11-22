@@ -640,8 +640,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE21ImportedCxxModul
   store ptr %9, ptr %62, align 8, !alias.scope !9, !noalias !15
   %63 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 4, ptr %63, align 8, !alias.scope !16, !noalias !15
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !16, !noalias !15
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !16, !noalias !15
   %64 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %64, align 8, !alias.scope !16, !noalias !15
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr nonnull %5, i64 2)
@@ -701,8 +701,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE21ImportedCxxModul
   store ptr %12, ptr %84, align 8, !alias.scope !19, !noalias !25
   %85 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 4, ptr %85, align 8, !alias.scope !26, !noalias !25
-  %.sroa.2.0..sroa_idx.i6.i34 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i6.i34, align 8, !alias.scope !26, !noalias !25
+  %.sroa.2.0..sroa_idx.i5.i34 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr @.str, ptr %.sroa.2.0..sroa_idx.i5.i34, align 8, !alias.scope !26, !noalias !25
   %86 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %86, align 8, !alias.scope !26, !noalias !25
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr nonnull %4, i64 2)

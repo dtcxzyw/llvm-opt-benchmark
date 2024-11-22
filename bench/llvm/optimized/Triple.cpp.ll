@@ -5776,16 +5776,15 @@ define dso_local { i64, i64 } @_ZNK4llvm6Triple17getWatchOSVersionEv(ptr noundef
 define dso_local { i64, i64 } @_ZNK4llvm6Triple19getDriverKitVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = extractvalue { i64, i64 } %2, 0
-  %4 = extractvalue { i64, i64 } %2, 1
-  %5 = and i64 %3, 4294967295
-  %6 = icmp eq i64 %5, 0
+  %4 = and i64 %3, 4294967295
+  %5 = icmp eq i64 %4, 0
+  %6 = extractvalue { i64, i64 } %2, 1
   %7 = or i64 %3, -9223372036854775789
-  %8 = or i64 %4, -9223372034707292160
-  %.sroa.0.0 = select i1 %6, i64 %7, i64 %3
-  %.sroa.3.0 = select i1 %6, i64 %8, i64 %4
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %8 = or i64 %6, -9223372034707292160
+  %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %7, 0
+  %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %8, 1
+  %.fca.1.insert.merged = select i1 %5, { i64, i64 } %.fca.1.insert.i, { i64, i64 } %2
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

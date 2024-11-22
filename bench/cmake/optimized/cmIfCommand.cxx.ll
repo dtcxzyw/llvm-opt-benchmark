@@ -280,7 +280,7 @@ define dso_local noundef zeroext i1 @_ZN19cmIfFunctionBlocker6ReplayESt6vectorI1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %62 = getelementptr inbounds i8, ptr %4, i64 16
   %63 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %4, i64 32
   %64 = getelementptr inbounds i8, ptr %4, i64 40
   %65 = getelementptr inbounds i8, ptr %22, i64 16
   %66 = getelementptr inbounds i8, ptr %20, i64 8
@@ -976,7 +976,7 @@ _ZN19cmListFileBacktraceD2Ev.exit130:             ; preds = %306, %324, %337, %_
   %351 = extractvalue { i64, ptr } %350, 0
   %352 = extractvalue { i64, ptr } %350, 1
   store i64 %351, ptr %63, align 8, !alias.scope !14, !noalias !13
-  store ptr %352, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !14, !noalias !13
+  store ptr %352, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !14, !noalias !13
   store ptr null, ptr %64, align 8, !alias.scope !14, !noalias !13
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr nonnull %4, i64 2)
           to label %353 unwind label %405
@@ -2175,8 +2175,8 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %16, %35, %48, %_ZNS
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
   store i64 %61, ptr %59, align 8, !alias.scope !26, !noalias !23
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %62, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !26, !noalias !23
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %62, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !26, !noalias !23
   %63 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %10, ptr %63, align 8, !alias.scope !26, !noalias !23
   %64 = getelementptr inbounds i8, ptr %3, i64 48
@@ -2184,8 +2184,8 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %16, %35, %48, %_ZNS
   %66 = extractvalue { i64, ptr } %65, 0
   %67 = extractvalue { i64, ptr } %65, 1
   store i64 %66, ptr %64, align 8, !alias.scope !30, !noalias !23
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr %67, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !30, !noalias !23
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr %67, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !30, !noalias !23
   %68 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr null, ptr %68, align 8, !alias.scope !30, !noalias !23
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr nonnull %3, i64 3)

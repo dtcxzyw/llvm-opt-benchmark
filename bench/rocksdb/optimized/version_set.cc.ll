@@ -25298,56 +25298,59 @@ if.end.i:                                         ; preds = %for.cond.i.i.i.i.i,
   %retval.sroa.0.0.copyload.i = load i32, ptr %second.i, align 8
   %retval.sroa.31.0.second.sroa_idx.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 24
   %retval.sroa.31.0.copyload.i = load i64, ptr %retval.sroa.31.0.second.sroa_idx.i, align 8
+  %25 = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.copyload.i, 0
+  %26 = insertvalue { i32, i64 } %25, i64 %retval.sroa.31.0.copyload.i, 1
   br label %_ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit
 
 _ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit: ; preds = %if.end3.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i, %if.end.i
-  %retval.sroa.0.0.i = phi i32 [ %retval.sroa.0.0.copyload.i, %if.end.i ], [ -1, %if.end15.i.i.i ], [ -1, %for.cond.i.i.i ], [ -1, %lor.lhs.false.i.i.i.i.i ], [ -1, %if.end3.i.i.i.i.i ]
-  %retval.sroa.31.0.i = phi i64 [ %retval.sroa.31.0.copyload.i, %if.end.i ], [ 0, %if.end15.i.i.i ], [ 0, %for.cond.i.i.i ], [ 0, %lor.lhs.false.i.i.i.i.i ], [ 0, %if.end3.i.i.i.i.i ]
-  %25 = load ptr, ptr %files_, align 8
-  %idxprom = sext i32 %retval.sroa.0.0.i to i64
-  %arrayidx = getelementptr inbounds %"class.std::vector.297", ptr %25, i64 %idxprom
-  %26 = load ptr, ptr %arrayidx, align 8
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %retval.sroa.31.0.i
-  %27 = load ptr, ptr %add.ptr.i30, align 8
-  %being_compacted = getelementptr inbounds i8, ptr %27, i64 180
-  %28 = load i8, ptr %being_compacted, align 4
-  %tobool65 = trunc i8 %28 to i1
+  %.fca.1.insert.merged.i = phi { i32, i64 } [ %26, %if.end.i ], [ { i32 -1, i64 0 }, %if.end15.i.i.i ], [ { i32 -1, i64 0 }, %for.cond.i.i.i ], [ { i32 -1, i64 0 }, %lor.lhs.false.i.i.i.i.i ], [ { i32 -1, i64 0 }, %if.end3.i.i.i.i.i ]
+  %27 = extractvalue { i32, i64 } %.fca.1.insert.merged.i, 0
+  %28 = extractvalue { i32, i64 } %.fca.1.insert.merged.i, 1
+  %29 = load ptr, ptr %files_, align 8
+  %idxprom = sext i32 %27 to i64
+  %arrayidx = getelementptr inbounds %"class.std::vector.297", ptr %29, i64 %idxprom
+  %30 = load ptr, ptr %arrayidx, align 8
+  %add.ptr.i30 = getelementptr inbounds ptr, ptr %30, i64 %28
+  %31 = load ptr, ptr %add.ptr.i30, align 8
+  %being_compacted = getelementptr inbounds i8, ptr %31, i64 180
+  %32 = load i8, ptr %being_compacted, align 4
+  %tobool65 = trunc i8 %32 to i1
   br i1 %tobool65, label %for.inc69, label %if.end67
 
 if.end67:                                         ; preds = %_ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit
-  %29 = load i64, ptr %files_marked_for_forced_blob_gc_, align 16
-  %cmp.i31 = icmp ult i64 %29, 8
+  %33 = load i64, ptr %files_marked_for_forced_blob_gc_, align 16
+  %cmp.i31 = icmp ult i64 %33, 8
   br i1 %cmp.i31, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end67
-  %30 = load ptr, ptr %values_.i, align 8
-  %inc.i = add nuw nsw i64 %29, 1
+  %34 = load ptr, ptr %values_.i, align 8
+  %inc.i = add nuw nsw i64 %33, 1
   store i64 %inc.i, ptr %files_marked_for_forced_blob_gc_, align 16
-  %arrayidx.i = getelementptr inbounds %"struct.std::pair.603", ptr %30, i64 %29
-  store i32 %retval.sroa.0.0.i, ptr %arrayidx.i, align 8
+  %arrayidx.i = getelementptr inbounds %"struct.std::pair.603", ptr %34, i64 %33
+  store i32 %27, ptr %arrayidx.i, align 8
   %second.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  store ptr %27, ptr %second.i.i, align 8
+  store ptr %31, ptr %second.i.i, align 8
   br label %for.inc69
 
 if.else.i:                                        ; preds = %if.end67
-  %31 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %32 = load ptr, ptr %_M_end_of_storage.i, align 16
-  %cmp.not.i = icmp eq ptr %31, %32
+  %35 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %36 = load ptr, ptr %_M_end_of_storage.i, align 16
+  %cmp.not.i = icmp eq ptr %35, %36
   br i1 %cmp.not.i, label %if.else.i37, label %if.then.i35
 
 if.then.i35:                                      ; preds = %if.else.i
-  store i32 %retval.sroa.0.0.i, ptr %31, align 8
-  %second.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
-  store ptr %27, ptr %second.i.i.i.i, align 8
-  %33 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %33, i64 16
+  store i32 %27, ptr %35, align 8
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %31, ptr %second.i.i.i.i, align 8
+  %37 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %37, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i, align 8
   br label %for.inc69
 
 if.else.i37:                                      ; preds = %if.else.i
-  %34 = load ptr, ptr %vect_.i, align 16
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %34 to i64
+  %38 = load ptr, ptr %vect_.i, align 16
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %35 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i, label %if.then.i.i.i40, label %_ZNKSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE12_M_check_lenEmPKc.exit.i.i
@@ -25361,8 +25364,8 @@ _ZNKSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE12_M_check_lenEmPKc.exi
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %35 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %35
+  %39 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %39
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -25374,29 +25377,29 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorISt4pa
 invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_ZNKSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.603", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
-  store i32 %retval.sroa.0.0.i, ptr %add.ptr.i.i, align 8
+  store i32 %27, ptr %add.ptr.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store ptr %27, ptr %second.i.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %34, %31
+  store ptr %31, ptr %second.i.i.i.i.i, align 8
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %38, %35
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
-  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %34, %invoke.cont.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %38, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !257
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i38 = icmp eq ptr %incdec.ptr.i.i.i.i.i, %31
+  %cmp.not.i.i.i.i.i38 = icmp eq ptr %incdec.ptr.i.i.i.i.i, %35
   br i1 %cmp.not.i.i.i.i.i38, label %_ZNSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !217
 
 _ZNSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
-  %tobool.not.i.i.i39 = icmp eq ptr %34, null
+  %tobool.not.i.i.i39 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i39, label %_ZNSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE17_M_realloc_insertIJRKiRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i27.i.i
 
 if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %34) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %38) #34
   br label %_ZNSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE17_M_realloc_insertIJRKiRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE17_M_realloc_insertIJRKiRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i27.i.i, %_ZNSt6vectorISt4pairIiPN7rocksdb12FileMetaDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i
@@ -28477,7 +28480,7 @@ for.cond.i.i.i:                                   ; preds = %land.rhs, %for.body
   %retval.sroa.0.0.in.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %_M_before_begin.i.i.i.i.i, %land.rhs ]
   %retval.sroa.0.0.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i, null
-  br i1 %cmp.i.not.i.i.i, label %for.inc, label %for.body.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %_ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 8
@@ -28492,7 +28495,7 @@ if.end15.i.i.i:                                   ; preds = %land.rhs
   %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %rem.i.i.i.i.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i.i.i.i, label %for.inc, label %if.end.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %_ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end15.i.i.i
   %10 = load ptr, ptr %9, align 8
@@ -28509,14 +28512,14 @@ if.end3.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i, %
   %__p.010.i.i.i.i.i = phi ptr [ %12, %for.cond.i.i.i.i.i ], [ %10, %if.end.i.i.i.i.i ]
   %12 = load ptr, ptr %__p.010.i.i.i.i.i, align 8
   %tobool5.not.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool5.not.i.i.i.i.i, label %for.inc, label %lor.lhs.false.i.i.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i, label %_ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   %add.ptr7.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %add.ptr7.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i.i = urem i64 %13, %7
   %cmp.not.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %for.inc, !llvm.loop !222
+  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %_ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit, !llvm.loop !222
 
 if.end.i:                                         ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
   %retval.sroa.0.1.i.i.i = phi ptr [ %10, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %12, %for.cond.i.i.i.i.i ]
@@ -28524,26 +28527,34 @@ if.end.i:                                         ; preds = %for.cond.i.i.i.i.i,
   %retval.sroa.0.0.copyload.i = load i32, ptr %second.i, align 8
   %retval.sroa.31.0.second.sroa_idx.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 24
   %retval.sroa.31.0.copyload.i = load i64, ptr %retval.sroa.31.0.second.sroa_idx.i, align 8
-  %14 = icmp ne i32 %retval.sroa.0.0.copyload.i, -1
-  %15 = icmp ne i64 %retval.sroa.31.0.copyload.i, 0
-  %16 = select i1 %14, i1 true, i1 %15
-  br i1 %16, label %if.then, label %for.inc
+  %14 = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.copyload.i, 0
+  %15 = insertvalue { i32, i64 } %14, i64 %retval.sroa.31.0.copyload.i, 1
+  br label %_ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit
 
-if.then:                                          ; preds = %if.end.i
+_ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit: ; preds = %if.end3.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i, %if.end.i
+  %.fca.1.insert.merged.i = phi { i32, i64 } [ %15, %if.end.i ], [ { i32 -1, i64 0 }, %if.end15.i.i.i ], [ { i32 -1, i64 0 }, %for.cond.i.i.i ], [ { i32 -1, i64 0 }, %lor.lhs.false.i.i.i.i.i ], [ { i32 -1, i64 0 }, %if.end3.i.i.i.i.i ]
+  %16 = extractvalue { i32, i64 } %.fca.1.insert.merged.i, 0
+  %17 = extractvalue { i32, i64 } %.fca.1.insert.merged.i, 1
+  %cmp.i.i = icmp ne i32 %16, -1
+  %cmp4.i.i = icmp ne i64 %17, 0
+  %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
+  br i1 %.not.i, label %if.then, label %for.inc
+
+if.then:                                          ; preds = %_ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit
   store i8 1, ptr %only_delete_metadata, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i, %if.end.i, %if.then, %for.body
+for.inc:                                          ; preds = %_ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit, %if.then, %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 64
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %entry
-  %17 = load ptr, ptr %blob_delete_candidates, align 8
+  %18 = load ptr, ptr %blob_delete_candidates, align 8
   %_M_finish.i7 = getelementptr inbounds i8, ptr %blob_delete_candidates, i64 8
-  %18 = load ptr, ptr %_M_finish.i7, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %17 to i64
+  %19 = load ptr, ptr %_M_finish.i7, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, 40
   %shr.i.i.i.i = ashr i64 %sub.ptr.div.i.i.i.i.i, 2
@@ -28551,36 +28562,36 @@ for.end:                                          ; preds = %for.inc, %entry
   br i1 %cmp42.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %for.end.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %for.end
-  %19 = getelementptr inbounds i8, ptr %this, i64 2840
-  %20 = getelementptr inbounds i8, ptr %this, i64 2848
+  %20 = getelementptr inbounds i8, ptr %this, i64 2840
+  %21 = getelementptr inbounds i8, ptr %this, i64 2848
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end23.i.i.i.i, %for.body.lr.ph.i.i.i.i
   %__trip_count.044.i.i.i.i = phi i64 [ %shr.i.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %dec.i.i.i.i, %if.end23.i.i.i.i ]
-  %__first.sroa.0.043.i.i.i.i = phi ptr [ %17, %for.body.lr.ph.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i, %if.end23.i.i.i.i ]
-  %__pred.val14.val.i.i.i.i = load ptr, ptr %19, align 8, !noalias !286
-  %__pred.val14.val15.i.i.i.i = load ptr, ptr %20, align 16, !noalias !286
+  %__first.sroa.0.043.i.i.i.i = phi ptr [ %18, %for.body.lr.ph.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i, %if.end23.i.i.i.i ]
+  %__pred.val14.val.i.i.i.i = load ptr, ptr %20, align 8, !noalias !286
+  %__pred.val14.val15.i.i.i.i = load ptr, ptr %21, align 16, !noalias !286
   %call5.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7rocksdb7Version15RemoveLiveFilesERSt6vectorINS2_16ObsoleteFileInfoESaIS5_EERS4_INS2_20ObsoleteBlobFileInfoESaIS9_EEE3$_0EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %__pred.val14.val.i.i.i.i, ptr %__pred.val14.val15.i.i.i.i, ptr %__first.sroa.0.043.i.i.i.i)
   br i1 %call5.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.043.i.i.i.i, i64 40
-  %__pred.val13.val.i.i.i.i = load ptr, ptr %19, align 8, !noalias !286
-  %__pred.val13.val16.i.i.i.i = load ptr, ptr %20, align 16, !noalias !286
+  %__pred.val13.val.i.i.i.i = load ptr, ptr %20, align 8, !noalias !286
+  %__pred.val13.val16.i.i.i.i = load ptr, ptr %21, align 16, !noalias !286
   %call9.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7rocksdb7Version15RemoveLiveFilesERSt6vectorINS2_16ObsoleteFileInfoESaIS5_EERS4_INS2_20ObsoleteBlobFileInfoESaIS9_EEE3$_0EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %__pred.val13.val.i.i.i.i, ptr %__pred.val13.val16.i.i.i.i, ptr nonnull %incdec.ptr.i.i.i.i.i)
   br i1 %call9.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i", label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %incdec.ptr.i22.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.043.i.i.i.i, i64 80
-  %__pred.val12.val.i.i.i.i = load ptr, ptr %19, align 8, !noalias !286
-  %__pred.val12.val17.i.i.i.i = load ptr, ptr %20, align 16, !noalias !286
+  %__pred.val12.val.i.i.i.i = load ptr, ptr %20, align 8, !noalias !286
+  %__pred.val12.val17.i.i.i.i = load ptr, ptr %21, align 16, !noalias !286
   %call15.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7rocksdb7Version15RemoveLiveFilesERSt6vectorINS2_16ObsoleteFileInfoESaIS5_EERS4_INS2_20ObsoleteBlobFileInfoESaIS9_EEE3$_0EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %__pred.val12.val.i.i.i.i, ptr %__pred.val12.val17.i.i.i.i, ptr nonnull %incdec.ptr.i22.i.i.i.i)
   br i1 %call15.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i", label %if.end17.i.i.i.i
 
 if.end17.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i
   %incdec.ptr.i23.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.043.i.i.i.i, i64 120
-  %__pred.val11.val.i.i.i.i = load ptr, ptr %19, align 8, !noalias !286
-  %__pred.val11.val18.i.i.i.i = load ptr, ptr %20, align 16, !noalias !286
+  %__pred.val11.val.i.i.i.i = load ptr, ptr %20, align 8, !noalias !286
+  %__pred.val11.val18.i.i.i.i = load ptr, ptr %21, align 16, !noalias !286
   %call21.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7rocksdb7Version15RemoveLiveFilesERSt6vectorINS2_16ObsoleteFileInfoESaIS5_EERS4_INS2_20ObsoleteBlobFileInfoESaIS9_EEE3$_0EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %__pred.val11.val.i.i.i.i, ptr %__pred.val11.val18.i.i.i.i, ptr nonnull %incdec.ptr.i23.i.i.i.i)
   br i1 %call21.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i", label %if.end23.i.i.i.i
 
@@ -28597,7 +28608,7 @@ for.end.loopexit.i.i.i.i:                         ; preds = %if.end23.i.i.i.i
 
 for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.i.i.i, %for.end
   %sub.ptr.sub.i27.pre-phi.i.i.i.i = phi i64 [ %.pre45.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %sub.ptr.sub.i.i.i.i.i, %for.end ]
-  %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %17, %for.end ]
+  %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %18, %for.end ]
   %sub.ptr.div.i28.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i27.pre-phi.i.i.i.i, 40
   switch i64 %sub.ptr.div.i28.i.i.i.i, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEEZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISA_EERS7_E3$_0ET_SG_SG_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i
@@ -28606,10 +28617,10 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %this, i64 2840
-  %__pred.val10.val.i.i.i.i = load ptr, ptr %21, align 8, !noalias !286
-  %22 = getelementptr inbounds i8, ptr %this, i64 2848
-  %__pred.val10.val19.i.i.i.i = load ptr, ptr %22, align 16, !noalias !286
+  %22 = getelementptr inbounds i8, ptr %this, i64 2840
+  %__pred.val10.val.i.i.i.i = load ptr, ptr %22, align 8, !noalias !286
+  %23 = getelementptr inbounds i8, ptr %this, i64 2848
+  %__pred.val10.val19.i.i.i.i = load ptr, ptr %23, align 16, !noalias !286
   %call28.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7rocksdb7Version15RemoveLiveFilesERSt6vectorINS2_16ObsoleteFileInfoESaIS5_EERS4_INS2_20ObsoleteBlobFileInfoESaIS9_EEE3$_0EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %__pred.val10.val.i.i.i.i, ptr %__pred.val10.val19.i.i.i.i, ptr %__first.sroa.0.0.lcssa.i.i.i.i)
   br i1 %call28.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i", label %if.end30.i.i.i.i
 
@@ -28619,10 +28630,10 @@ if.end30.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
 
 sw.bb32.i.i.i.i:                                  ; preds = %if.end30.i.i.i.i, %for.end.i.i.i.i
   %__first.sroa.0.1.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i29.i.i.i.i, %if.end30.i.i.i.i ]
-  %23 = getelementptr inbounds i8, ptr %this, i64 2840
-  %__pred.val9.val.i.i.i.i = load ptr, ptr %23, align 8, !noalias !286
-  %24 = getelementptr inbounds i8, ptr %this, i64 2848
-  %__pred.val9.val20.i.i.i.i = load ptr, ptr %24, align 16, !noalias !286
+  %24 = getelementptr inbounds i8, ptr %this, i64 2840
+  %__pred.val9.val.i.i.i.i = load ptr, ptr %24, align 8, !noalias !286
+  %25 = getelementptr inbounds i8, ptr %this, i64 2848
+  %__pred.val9.val20.i.i.i.i = load ptr, ptr %25, align 16, !noalias !286
   %call35.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7rocksdb7Version15RemoveLiveFilesERSt6vectorINS2_16ObsoleteFileInfoESaIS5_EERS4_INS2_20ObsoleteBlobFileInfoESaIS9_EEE3$_0EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %__pred.val9.val.i.i.i.i, ptr %__pred.val9.val20.i.i.i.i, ptr %__first.sroa.0.1.i.i.i.i)
   br i1 %call35.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i", label %if.end37.i.i.i.i
 
@@ -28632,41 +28643,41 @@ if.end37.i.i.i.i:                                 ; preds = %sw.bb32.i.i.i.i
 
 sw.bb39.i.i.i.i:                                  ; preds = %if.end37.i.i.i.i, %for.end.i.i.i.i
   %__first.sroa.0.2.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i30.i.i.i.i, %if.end37.i.i.i.i ]
-  %25 = getelementptr inbounds i8, ptr %this, i64 2840
-  %__pred.val.val.i.i.i.i = load ptr, ptr %25, align 8, !noalias !286
-  %26 = getelementptr inbounds i8, ptr %this, i64 2848
-  %__pred.val.val21.i.i.i.i = load ptr, ptr %26, align 16, !noalias !286
+  %26 = getelementptr inbounds i8, ptr %this, i64 2840
+  %__pred.val.val.i.i.i.i = load ptr, ptr %26, align 8, !noalias !286
+  %27 = getelementptr inbounds i8, ptr %this, i64 2848
+  %__pred.val.val21.i.i.i.i = load ptr, ptr %27, align 16, !noalias !286
   %call42.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7rocksdb7Version15RemoveLiveFilesERSt6vectorINS2_16ObsoleteFileInfoESaIS5_EERS4_INS2_20ObsoleteBlobFileInfoESaIS9_EEE3$_0EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %__pred.val.val.i.i.i.i, ptr %__pred.val.val21.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i)
-  %spec.select.i.i.i.i = select i1 %call42.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i, ptr %18
+  %spec.select.i.i.i.i = select i1 %call42.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i, ptr %19
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i": ; preds = %if.end17.i.i.i.i, %if.end11.i.i.i.i, %if.end.i.i.i.i, %for.body.i.i.i.i, %sw.bb39.i.i.i.i, %sw.bb32.i.i.i.i, %sw.bb.i.i.i.i
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb32.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb39.i.i.i.i ], [ %incdec.ptr.i23.i.i.i.i, %if.end17.i.i.i.i ], [ %incdec.ptr.i22.i.i.i.i, %if.end11.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i ], [ %__first.sroa.0.043.i.i.i.i, %for.body.i.i.i.i ]
-  %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %18
+  %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %19
   br i1 %cmp.i.i.i, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEEZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISA_EERS7_E3$_0ET_SG_SG_T0_.exit", label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i"
   %__first.sroa.0.016.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, i64 40
-  %cmp.i2.not17.i.i = icmp eq ptr %__first.sroa.0.016.i.i, %18
+  %cmp.i2.not17.i.i = icmp eq ptr %__first.sroa.0.016.i.i, %19
   br i1 %cmp.i2.not17.i.i, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEEZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISA_EERS7_E3$_0ET_SG_SG_T0_.exit", label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %27 = getelementptr inbounds i8, ptr %this, i64 2840
-  %28 = getelementptr inbounds i8, ptr %this, i64 2848
+  %28 = getelementptr inbounds i8, ptr %this, i64 2840
+  %29 = getelementptr inbounds i8, ptr %this, i64 2848
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %__first.sroa.0.020.i.i = phi ptr [ %__first.sroa.0.016.i.i, %for.body.lr.ph.i.i ], [ %__first.sroa.0.0.i.i, %for.inc.i.i ]
   %retval.sroa.0.119.i.i = phi ptr [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %for.body.lr.ph.i.i ], [ %retval.sroa.0.2.i.i, %for.inc.i.i ]
   %retval.sroa.0.0.in.sroa.speculated.i.i.pn18.i.i = phi ptr [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %for.body.lr.ph.i.i ], [ %__first.sroa.0.020.i.i, %for.inc.i.i ]
-  %__pred.val.val.i.i = load ptr, ptr %27, align 8, !noalias !290
-  %__pred.val.val1.i.i = load ptr, ptr %28, align 16, !noalias !290
+  %__pred.val.val.i.i = load ptr, ptr %28, align 8, !noalias !290
+  %__pred.val.val1.i.i = load ptr, ptr %29, align 16, !noalias !290
   %call16.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7rocksdb7Version15RemoveLiveFilesERSt6vectorINS2_16ObsoleteFileInfoESaIS5_EERS4_INS2_20ObsoleteBlobFileInfoESaIS9_EEE3$_0EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %__pred.val.val.i.i, ptr %__pred.val.val1.i.i, ptr nonnull %__first.sroa.0.020.i.i)
   br i1 %call16.i.i, label %for.inc.i.i, label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %for.body.i.i
-  %29 = load i64, ptr %__first.sroa.0.020.i.i, align 8
-  store i64 %29, ptr %retval.sroa.0.119.i.i, align 8
+  %30 = load i64, ptr %__first.sroa.0.020.i.i, align 8
+  store i64 %30, ptr %retval.sroa.0.119.i.i, align 8
   %path_.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.119.i.i, i64 8
   %path_3.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.pn18.i.i, i64 48
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %path_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %path_3.i.i.i) #36
@@ -28676,21 +28687,21 @@ if.then17.i.i:                                    ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.then17.i.i, %for.body.i.i
   %retval.sroa.0.2.i.i = phi ptr [ %retval.sroa.0.119.i.i, %for.body.i.i ], [ %incdec.ptr.i3.i.i, %if.then17.i.i ]
   %__first.sroa.0.0.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.020.i.i, i64 40
-  %cmp.i2.not.i.i = icmp eq ptr %__first.sroa.0.0.i.i, %18
+  %cmp.i2.not.i.i = icmp eq ptr %__first.sroa.0.0.i.i, %19
   br i1 %cmp.i2.not.i.i, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEEZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISA_EERS7_E3$_0ET_SG_SG_T0_.exit", label %for.body.i.i, !llvm.loop !293
 
 "_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEEZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISA_EERS7_E3$_0ET_SG_SG_T0_.exit": ; preds = %for.inc.i.i, %for.end.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i", %for.cond.preheader.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %18, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i" ], [ %18, %for.end.i.i.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %for.cond.preheader.i.i ], [ %retval.sroa.0.2.i.i, %for.inc.i.i ]
-  %30 = load ptr, ptr %_M_finish.i7, align 8
-  %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, %30
+  %retval.sroa.0.0.i.i = phi ptr [ %19, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISC_EERS7_E3$_0EEET_SJ_SJ_T0_.exit.i.i" ], [ %19, %for.end.i.i.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %for.cond.preheader.i.i ], [ %retval.sroa.0.2.i.i, %for.inc.i.i ]
+  %31 = load ptr, ptr %_M_finish.i7, align 8
+  %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, %31
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN7rocksdb20ObsoleteBlobFileInfoESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb20ObsoleteBlobFileInfoESt6vectorIS3_SaIS3_EEEEZNKS2_7Version15RemoveLiveFilesERS5_INS2_16ObsoleteFileInfoESaISA_EERS7_E3$_0ET_SG_SG_T0_.exit"
-  %31 = load ptr, ptr %blob_delete_candidates, align 8
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %31 to i64
+  %32 = load ptr, ptr %blob_delete_candidates, align 8
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %32 to i64
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %31, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %32, i64 %sub.ptr.sub.i.i
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i, %for.body.i.i.i.i.i.i
@@ -28698,7 +28709,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i, %for.bo
   %path_.i.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_.i.i.i.i.i.i5.i.i) #36
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 40
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %30
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %31
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !294
 
 invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i.i.i.i
@@ -59737,13 +59748,13 @@ if.then18:                                        ; preds = %if.then15
   br label %if.end30
 
 if.else19:                                        ; preds = %if.then15
-  %retval.sroa.0.0.in.i = getelementptr inbounds i8, ptr %this, i64 176
-  %retval.sroa.3.0.in.i = getelementptr inbounds i8, ptr %this, i64 184
-  %retval.sroa.3.0.i = load i64, ptr %retval.sroa.3.0.in.i, align 8
-  %retval.sroa.0.0.i = load ptr, ptr %retval.sroa.0.0.in.i, align 8
-  store ptr %retval.sroa.0.0.i, ptr %result, align 8
+  %retval.sroa.0.0.copyload.pn.in.i = getelementptr inbounds i8, ptr %this, i64 176
+  %retval.sroa.3.0.copyload.pn.in.i = getelementptr inbounds i8, ptr %this, i64 184
+  %retval.sroa.3.0.copyload.pn.i = load i64, ptr %retval.sroa.3.0.copyload.pn.in.i, align 8
+  %retval.sroa.0.0.copyload.pn.i = load ptr, ptr %retval.sroa.0.0.copyload.pn.in.i, align 8
+  store ptr %retval.sroa.0.0.copyload.pn.i, ptr %result, align 8
   %ref.tmp.sroa.2.0.key21.sroa_idx = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 %retval.sroa.3.0.i, ptr %ref.tmp.sroa.2.0.key21.sroa_idx, align 8
+  store i64 %retval.sroa.3.0.copyload.pn.i, ptr %ref.tmp.sroa.2.0.key21.sroa_idx, align 8
   %bound_check_result.i = getelementptr inbounds i8, ptr %this, i64 192
   %17 = load i8, ptr %bound_check_result.i, align 8
   %bound_check_result24 = getelementptr inbounds i8, ptr %result, i64 16
@@ -59873,15 +59884,15 @@ entry:
   %to_return_sentinel_ = getelementptr inbounds i8, ptr %this, i64 267
   %0 = load i8, ptr %to_return_sentinel_, align 1
   %tobool = trunc i8 %0 to i1
-  %retval.sroa.0.0.in.v = select i1 %tobool, i64 232, i64 176
-  %retval.sroa.0.0.in = getelementptr inbounds i8, ptr %this, i64 %retval.sroa.0.0.in.v
-  %retval.sroa.3.0.in.v = select i1 %tobool, i64 240, i64 184
-  %retval.sroa.3.0.in = getelementptr inbounds i8, ptr %this, i64 %retval.sroa.3.0.in.v
-  %retval.sroa.3.0 = load i64, ptr %retval.sroa.3.0.in, align 8
-  %retval.sroa.0.0 = load ptr, ptr %retval.sroa.0.0.in, align 8
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %retval.sroa.0.0.copyload.pn.in.v = select i1 %tobool, i64 232, i64 176
+  %retval.sroa.0.0.copyload.pn.in = getelementptr inbounds i8, ptr %this, i64 %retval.sroa.0.0.copyload.pn.in.v
+  %retval.sroa.3.0.copyload.pn.in.v = select i1 %tobool, i64 240, i64 184
+  %retval.sroa.3.0.copyload.pn.in = getelementptr inbounds i8, ptr %this, i64 %retval.sroa.3.0.copyload.pn.in.v
+  %retval.sroa.3.0.copyload.pn = load i64, ptr %retval.sroa.3.0.copyload.pn.in, align 8
+  %retval.sroa.0.0.copyload.pn = load ptr, ptr %retval.sroa.0.0.copyload.pn.in, align 8
+  %.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i64 } %.pn, i64 %retval.sroa.3.0.copyload.pn, 1
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

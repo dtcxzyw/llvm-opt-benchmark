@@ -1735,7 +1735,7 @@ define linkonce_odr dso_local void @_ZN20GraphRemoveRedundant13vertexIterateEP13
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.057.069 = load ptr, ptr %3, align 8
   %.not70 = icmp eq ptr %.sroa.057.069, null
-  br i1 %.not70, label %._crit_edge76, label %.lr.ph
+  br i1 %.not70, label %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E15UnlinkableProxy5beginEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.057.071 = phi ptr [ %.sroa.057.0, %.lr.ph ], [ %.sroa.057.069, %2 ]
@@ -1755,112 +1755,130 @@ define linkonce_odr dso_local void @_ZN20GraphRemoveRedundant13vertexIterateEP13
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %._crit_edge76, label %.lr.ph75
+  br i1 %.not.i, label %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E15UnlinkableProxy5beginEv.exit, label %10
 
-.lr.ph75:                                         ; preds = %._crit_edge
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %12
+10:                                               ; preds = %._crit_edge
+  %11 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = insertvalue { ptr, ptr } poison, ptr %.pre, 0
+  %14 = insertvalue { ptr, ptr } %13, ptr %12, 1
+  br label %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E15UnlinkableProxy5beginEv.exit
 
-12:                                               ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread, %.lr.ph75
-  %.sroa.0.074 = phi ptr [ %.pre, %.lr.ph75 ], [ %.sroa.7.073, %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread ]
-  %.sroa.7.073.in = getelementptr inbounds i8, ptr %.sroa.0.074, i64 8
-  %.sroa.7.073 = load ptr, ptr %.sroa.7.073.in, align 8
+_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E15UnlinkableProxy5beginEv.exit: ; preds = %2, %._crit_edge, %10
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %14, %10 ], [ zeroinitializer, %._crit_edge ], [ zeroinitializer, %2 ]
+  %15 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not6472 = icmp eq ptr %15, null
+  br i1 %.not6472, label %._crit_edge76, label %.lr.ph75
+
+.lr.ph75:                                         ; preds = %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E15UnlinkableProxy5beginEv.exit
+  %16 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %19
+
+19:                                               ; preds = %65, %.lr.ph75
+  %.sroa.0.074 = phi ptr [ %15, %.lr.ph75 ], [ %.sroa.7.073, %65 ]
+  %.sroa.7.073 = phi ptr [ %16, %.lr.ph75 ], [ %67, %65 ]
   %.not65 = icmp eq ptr %.sroa.7.073, null
-  %13 = select i1 %.not65, ptr %.sroa.0.074, ptr %.sroa.7.073
-  tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.074, i64 56
-  %15 = load i32, ptr %14, align 8
-  %.not.i68 = icmp eq i32 %15, 0
+  %20 = select i1 %.not65, ptr %.sroa.0.074, ptr %.sroa.7.073
+  tail call void @llvm.prefetch.p0(ptr nonnull %20, i32 1, i32 3, i32 1)
+  %21 = getelementptr inbounds i8, ptr %.sroa.0.074, i64 56
+  %22 = load i32, ptr %21, align 8
+  %.not.i68 = icmp eq i32 %22, 0
   br i1 %.not.i68, label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread, label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit
 
-_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit: ; preds = %12
-  %16 = load ptr, ptr %10, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull %.sroa.0.074)
-  br i1 %17, label %18, label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
+_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit: ; preds = %19
+  %23 = load ptr, ptr %17, align 8
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull %.sroa.0.074)
+  br i1 %24, label %25, label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
 
-18:                                               ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.074, i64 48
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 72
-  %22 = load ptr, ptr %21, align 8
-  %.not66 = icmp eq ptr %22, null
-  br i1 %.not66, label %23, label %24
+25:                                               ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit
+  %26 = getelementptr inbounds i8, ptr %.sroa.0.074, i64 48
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 72
+  %29 = load ptr, ptr %28, align 8
+  %.not66 = icmp eq ptr %29, null
+  br i1 %.not66, label %30, label %31
 
-23:                                               ; preds = %18
-  store ptr %.sroa.0.074, ptr %21, align 8
+30:                                               ; preds = %25
+  store ptr %.sroa.0.074, ptr %28, align 8
   br label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %22, i64 60
-  %26 = load i8, ptr %25, align 4
-  %27 = trunc i8 %26 to i1
-  %28 = getelementptr inbounds i8, ptr %.sroa.0.074, i64 60
-  %29 = load i8, ptr %28, align 4
-  %30 = trunc i8 %29 to i1
-  br i1 %27, label %31, label %32
-
-31:                                               ; preds = %24
-  br i1 %30, label %.thread, label %49
-
-32:                                               ; preds = %24
-  br i1 %30, label %.critedge, label %.thread
-
-.thread:                                          ; preds = %31, %32
-  %33 = load i8, ptr %11, align 8
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %29, i64 60
+  %33 = load i8, ptr %32, align 4
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %.critedge, label %35
+  %35 = getelementptr inbounds i8, ptr %.sroa.0.074, i64 60
+  %36 = load i8, ptr %35, align 4
+  %37 = trunc i8 %36 to i1
+  br i1 %34, label %38, label %39
 
-35:                                               ; preds = %.thread
-  %36 = getelementptr inbounds i8, ptr %22, i64 56
-  %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr %14, align 8
-  %39 = icmp slt i32 %37, %38
-  br i1 %39, label %40, label %.critedge
+38:                                               ; preds = %31
+  br i1 %37, label %.thread, label %56
 
-40:                                               ; preds = %35
-  store i32 %38, ptr %36, align 8
+39:                                               ; preds = %31
+  br i1 %37, label %.critedge, label %.thread
+
+.thread:                                          ; preds = %38, %39
+  %40 = load i8, ptr %18, align 8
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %.critedge, label %42
+
+42:                                               ; preds = %.thread
+  %43 = getelementptr inbounds i8, ptr %29, i64 56
+  %44 = load i32, ptr %43, align 8
+  %45 = load i32, ptr %21, align 8
+  %46 = icmp slt i32 %44, %45
+  br i1 %46, label %47, label %.critedge
+
+47:                                               ; preds = %42
+  store i32 %45, ptr %43, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %32, %35, %40, %.thread
-  %41 = load i8, ptr %11, align 8
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %48
+.critedge:                                        ; preds = %39, %42, %47, %.thread
+  %48 = load i8, ptr %18, align 8
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %55
 
-43:                                               ; preds = %.critedge
-  %44 = getelementptr inbounds i8, ptr %22, i64 56
-  %45 = load i32, ptr %44, align 8
-  %46 = load i32, ptr %14, align 8
-  %47 = add nsw i32 %46, %45
-  store i32 %47, ptr %44, align 8
-  br label %48
+50:                                               ; preds = %.critedge
+  %51 = getelementptr inbounds i8, ptr %29, i64 56
+  %52 = load i32, ptr %51, align 8
+  %53 = load i32, ptr %21, align 8
+  %54 = add nsw i32 %53, %52
+  store i32 %54, ptr %51, align 8
+  br label %55
 
-48:                                               ; preds = %43, %.critedge
+55:                                               ; preds = %50, %.critedge
   tail call void @_ZN11V3GraphEdge12unlinkDeleteEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.074)
   br label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
 
-49:                                               ; preds = %31
-  %50 = load i8, ptr %11, align 8
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %57
+56:                                               ; preds = %38
+  %57 = load i8, ptr %18, align 8
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %64
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %22, i64 56
-  %54 = load i32, ptr %53, align 8
-  %55 = load i32, ptr %14, align 8
-  %56 = add nsw i32 %55, %54
-  store i32 %56, ptr %14, align 8
-  br label %57
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds i8, ptr %29, i64 56
+  %61 = load i32, ptr %60, align 8
+  %62 = load i32, ptr %21, align 8
+  %63 = add nsw i32 %62, %61
+  store i32 %63, ptr %21, align 8
+  br label %64
 
-57:                                               ; preds = %52, %49
-  tail call void @_ZN11V3GraphEdge12unlinkDeleteEv(ptr noundef nonnull align 8 dereferenceable(72) %22)
-  store ptr %.sroa.0.074, ptr %21, align 8
+64:                                               ; preds = %59, %56
+  tail call void @_ZN11V3GraphEdge12unlinkDeleteEv(ptr noundef nonnull align 8 dereferenceable(72) %29)
+  store ptr %.sroa.0.074, ptr %28, align 8
   br label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
 
-_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread: ; preds = %12, %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit, %48, %57, %23
-  br i1 %.not65, label %._crit_edge76, label %12
+_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread: ; preds = %19, %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit, %55, %64, %30
+  br i1 %.not65, label %._crit_edge76, label %65
 
-._crit_edge76:                                    ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread, %2, %._crit_edge
+65:                                               ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
+  %66 = getelementptr inbounds i8, ptr %.sroa.7.073, i64 8
+  %67 = load ptr, ptr %66, align 8
+  br label %19
+
+._crit_edge76:                                    ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E15UnlinkableProxy5beginEv.exit
   ret void
 }
 

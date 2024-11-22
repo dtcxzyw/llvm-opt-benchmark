@@ -1258,33 +1258,30 @@ define dso_local { i64, i8 } @_ZNK4llvm20DbgVariableIntrinsic21getFragmentSizeIn
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %26
+  br i1 %23, label %24, label %28
 
 24:                                               ; preds = %1
   %25 = load i64, ptr %2, align 8
+  %26 = insertvalue { i64, i8 } poison, i64 %25, 0
+  %27 = insertvalue { i64, i8 } %26, i8 1, 1
   br label %39
 
-26:                                               ; preds = %1
-  %27 = load i32, ptr %3, align 4
-  %28 = and i32 %27, 134217727
-  %29 = zext nneg i32 %28 to i64
-  %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+28:                                               ; preds = %1
+  %29 = load i32, ptr %3, align 4
+  %30 = and i32 %29, 134217727
+  %31 = zext nneg i32 %30 to i64
+  %32 = sub nsw i64 0, %31
+  %33 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %32
+  %34 = getelementptr inbounds i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = call { i64, i8 } @_ZNK4llvm10DIVariable13getSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(20) %35) #17
-  %37 = extractvalue { i64, i8 } %36, 0
-  %38 = extractvalue { i64, i8 } %36, 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %38 = call { i64, i8 } @_ZNK4llvm10DIVariable13getSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(20) %37) #17
   br label %39
 
-39:                                               ; preds = %26, %24
-  %.sroa.3.0 = phi i8 [ 1, %24 ], [ %38, %26 ]
-  %.sroa.0.0 = phi i64 [ %25, %24 ], [ %37, %26 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
-  ret { i64, i8 } %.fca.1.insert
+39:                                               ; preds = %28, %24
+  %.fca.1.insert.merged = phi { i64, i8 } [ %27, %24 ], [ %38, %28 ]
+  ret { i64, i8 } %.fca.1.insert.merged
 }
 
 declare { i64, i8 } @_ZNK4llvm10DIVariable13getSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #2

@@ -8370,11 +8370,11 @@ define hidden { i64, i64 } @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h066d
   br label %51
 
 51:                                               ; preds = %36, %47
-  %.sroa.3.0 = phi i64 [ %50, %47 ], [ %46, %36 ]
-  %.sroa.0.0 = phi i64 [ %48, %47 ], [ %43, %36 ]
-  %52 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %53 = insertvalue { i64, i64 } %52, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %53
+  %.pn9 = phi i64 [ %48, %47 ], [ %43, %36 ]
+  %.pn7 = phi i64 [ %50, %47 ], [ %46, %36 ]
+  %.pn = insertvalue { i64, i64 } poison, i64 %.pn9, 0
+  %.merged = insertvalue { i64, i64 } %.pn, i64 %.pn7, 1
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

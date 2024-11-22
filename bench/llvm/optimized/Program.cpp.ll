@@ -1745,60 +1745,61 @@ define dso_local { i32, ptr } @_ZN4llvm3sys21writeFileWithEncodingENS_9StringRef
   call void @_ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3) #21
   %10 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %12, label %11
+  br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %5
   %.sroa.411.0.copyload = load ptr, ptr %8, align 8
-  br label %32
+  %12 = insertvalue { i32, ptr } poison, i32 %10, 0
+  br label %34
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = icmp ugt i64 %3, %19
-  br i1 %20, label %21, label %23
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %18 = ptrtoint ptr %15 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = icmp ugt i64 %3, %20
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %12
-  %22 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %2, i64 noundef %3) #21
+22:                                               ; preds = %13
+  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %2, i64 noundef %3) #21
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
-23:                                               ; preds = %12
+24:                                               ; preds = %13
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %24
+  br i1 %.not.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %25
 
-24:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %2, i64 %3, i1 false)
-  %25 = load ptr, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 %3
-  store ptr %26, ptr %15, align 8
+25:                                               ; preds = %24
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %2, i64 %3, i1 false)
+  %26 = load ptr, ptr %16, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 %3
+  store ptr %27, ptr %16, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %21, %23, %24
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %28 = load i32, ptr %27, align 8
-  %.not14 = icmp eq i32 %28, 0
-  br i1 %.not14, label %31, label %29
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %22, %24, %25
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %29 = load i32, ptr %28, align 8
+  %.not14 = icmp eq i32 %29, 0
+  br i1 %.not14, label %32, label %30
 
-29:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #22
-  br label %32
+30:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
+  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #22
+  br label %34
 
-31:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
+32:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
   %.sroa.07.0.copyload8 = load i32, ptr %6, align 8
   %.sroa.411.0.copyload13 = load ptr, ptr %8, align 8
-  br label %32
+  %33 = insertvalue { i32, ptr } poison, i32 %.sroa.07.0.copyload8, 0
+  br label %34
 
-32:                                               ; preds = %31, %29, %11
-  %.sroa.07.0 = phi i32 [ %10, %11 ], [ 5, %29 ], [ %.sroa.07.0.copyload8, %31 ]
-  %.sroa.411.0 = phi ptr [ %.sroa.411.0.copyload, %11 ], [ %30, %29 ], [ %.sroa.411.0.copyload13, %31 ]
+34:                                               ; preds = %32, %30, %11
+  %.pn = phi { i32, ptr } [ %12, %11 ], [ { i32 5, ptr poison }, %30 ], [ %33, %32 ]
+  %.sroa.411.0.copyload.pn = phi ptr [ %.sroa.411.0.copyload, %11 ], [ %31, %30 ], [ %.sroa.411.0.copyload13, %32 ]
+  %.fca.1.insert.merged = insertvalue { i32, ptr } %.pn, ptr %.sroa.411.0.copyload.pn, 1
   call void @_ZN4llvm14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #21
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.07.0, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.411.0, 1
-  ret { i32, ptr } %.fca.1.insert
+  ret { i32, ptr } %.fca.1.insert.merged
 }
 
 declare void @_ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(96), ptr, i64, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #2

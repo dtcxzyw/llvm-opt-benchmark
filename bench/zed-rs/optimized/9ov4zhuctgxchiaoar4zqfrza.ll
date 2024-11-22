@@ -1523,10 +1523,10 @@ define hidden { i64, ptr } @_ZN3std2io4Read13read_vectored17h63a56b445182da4fE(p
   br label %_ZN3std2io21default_read_vectored17h8bb185e4816f9dd0E.exit
 
 _ZN3std2io21default_read_vectored17h8bb185e4816f9dd0E.exit: ; preds = %5, %12
-  %.sroa.3.0.i.i = phi i64 [ %11, %12 ], [ 0, %5 ]
-  %.sroa.02.0.i.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn7.i.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.pn5.i.i = phi i64 [ %11, %12 ], [ 0, %5 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = tail call { i64, ptr } @_ZN6flate23zio4read17h35bd501219bef888E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 1 %.sroa.02.0.i.i, i64 noundef %.sroa.3.0.i.i)
+  %15 = tail call { i64, ptr } @_ZN6flate23zio4read17h35bd501219bef888E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 1 %.pn7.i.i, i64 noundef %.pn5.i.i)
   ret { i64, ptr } %15
 }
 

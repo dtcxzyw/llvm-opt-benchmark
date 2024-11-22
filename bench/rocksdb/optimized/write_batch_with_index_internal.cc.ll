@@ -1501,29 +1501,26 @@ cond.true:                                        ; preds = %entry
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call { ptr, i64 } %2(ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %3 = extractvalue { ptr, i64 } %call2, 0
-  %4 = extractvalue { ptr, i64 } %call2, 1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   %delta_iterator_ = getelementptr inbounds i8, ptr %this, i64 80
-  %5 = load ptr, ptr %delta_iterator_, align 8
-  %vtable4 = load ptr, ptr %5, align 8
+  %3 = load ptr, ptr %delta_iterator_, align 8
+  %vtable4 = load ptr, ptr %3, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 72
-  %6 = load ptr, ptr %vfn5, align 8
-  call void %6(ptr nonnull sret(%"struct.rocksdb::WriteEntry") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(65) %5)
+  %4 = load ptr, ptr %vfn5, align 8
+  call void %4(ptr nonnull sret(%"struct.rocksdb::WriteEntry") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(65) %3)
   %key = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %retval.sroa.0.0.copyload = load ptr, ptr %key, align 8
   %retval.sroa.3.0.key.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %retval.sroa.3.0.copyload = load i64, ptr %retval.sroa.3.0.key.sroa_idx, align 8
+  %5 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %6 = insertvalue { ptr, i64 } %5, i64 %retval.sroa.3.0.copyload, 1
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %retval.sroa.0.0 = phi ptr [ %3, %cond.true ], [ %retval.sroa.0.0.copyload, %cond.false ]
-  %retval.sroa.3.0 = phi i64 [ %4, %cond.true ], [ %retval.sroa.3.0.copyload, %cond.false ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %call2, %cond.true ], [ %6, %cond.false ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

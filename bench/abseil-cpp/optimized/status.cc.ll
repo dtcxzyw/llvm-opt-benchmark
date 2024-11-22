@@ -1569,26 +1569,30 @@ entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i = and i64 %0, 1
   %cmp.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %_ZNK4absl6Status7messageEv.exit, label %cond.false.i
+  br i1 %cmp.i.not.i, label %cond.true.i, label %cond.false.i
 
-cond.false.i:                                     ; preds = %entry
-  %and.i1.i = and i64 %0, 2
-  br label %cond.end
-
-_ZNK4absl6Status7messageEv.exit:                  ; preds = %entry
+cond.true.i:                                      ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %message_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %call5.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message_.i.i) #13
-  %2 = extractvalue { i64, ptr } %call5.i, 0
-  %3 = extractvalue { i64, ptr } %call5.i, 1
-  br label %cond.end
+  br label %_ZNK4absl6Status7messageEv.exit
 
-cond.end:                                         ; preds = %_ZNK4absl6Status7messageEv.exit, %cond.false.i
-  %.sink14 = phi i64 [ %2, %_ZNK4absl6Status7messageEv.exit ], [ %and.i1.i, %cond.false.i ]
-  %.sink = phi ptr [ %3, %_ZNK4absl6Status7messageEv.exit ], [ @_ZN4absl6Status16kMovedFromStringE, %cond.false.i ]
-  %cmp.i = icmp eq i64 %.sink14, 0
-  %spec.select13 = select i1 %cmp.i, ptr @.str.17, ptr %.sink
-  ret ptr %spec.select13
+cond.false.i:                                     ; preds = %entry
+  %and.i1.i = and i64 %0, 2
+  %cmp.i2.not.i = icmp eq i64 %and.i1.i, 0
+  %spec.select.i = select i1 %cmp.i2.not.i, i64 0, i64 27
+  %spec.select3.i = select i1 %cmp.i2.not.i, ptr null, ptr @_ZN4absl6Status16kMovedFromStringE
+  %2 = insertvalue { i64, ptr } poison, i64 %spec.select.i, 0
+  %3 = insertvalue { i64, ptr } %2, ptr %spec.select3.i, 1
+  br label %_ZNK4absl6Status7messageEv.exit
+
+_ZNK4absl6Status7messageEv.exit:                  ; preds = %cond.true.i, %cond.false.i
+  %.fca.1.insert.merged.i = phi { i64, ptr } [ %call5.i, %cond.true.i ], [ %3, %cond.false.i ]
+  %4 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 0
+  %5 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 1
+  %cmp.i = icmp eq i64 %4, 0
+  %spec.select = select i1 %cmp.i, ptr @.str.17, ptr %5
+  ret ptr %spec.select
 }
 
 ; Function Attrs: nounwind

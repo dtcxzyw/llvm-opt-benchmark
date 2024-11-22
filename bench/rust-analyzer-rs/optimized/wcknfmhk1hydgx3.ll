@@ -10763,11 +10763,11 @@ define internal fastcc { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$7or_else17
   br label %14
 
 14:                                               ; preds = %3, %"_ZN11ide_assists8handlers25replace_method_eager_lazy25replace_with_eager_method28_$u7b$$u7b$closure$u7d$$u7d$17h9f0f52175fffec58E.exit"
-  %.sroa.33.0 = phi i64 [ %13, %"_ZN11ide_assists8handlers25replace_method_eager_lazy25replace_with_eager_method28_$u7b$$u7b$closure$u7d$$u7d$17h9f0f52175fffec58E.exit" ], [ %1, %3 ]
-  %.sroa.02.0 = phi ptr [ %12, %"_ZN11ide_assists8handlers25replace_method_eager_lazy25replace_with_eager_method28_$u7b$$u7b$closure$u7d$$u7d$17h9f0f52175fffec58E.exit" ], [ %0, %3 ]
-  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.33.0, 1
-  ret { ptr, i64 } %16
+  %.pn7 = phi ptr [ %12, %"_ZN11ide_assists8handlers25replace_method_eager_lazy25replace_with_eager_method28_$u7b$$u7b$closure$u7d$$u7d$17h9f0f52175fffec58E.exit" ], [ %0, %3 ]
+  %.pn5 = phi i64 [ %13, %"_ZN11ide_assists8handlers25replace_method_eager_lazy25replace_with_eager_method28_$u7b$$u7b$closure$u7d$$u7d$17h9f0f52175fffec58E.exit" ], [ %1, %3 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn7, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn5, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

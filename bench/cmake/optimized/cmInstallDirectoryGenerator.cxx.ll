@@ -945,10 +945,10 @@ define dso_local void @_ZN27cmInstallDirectoryGenerator23GenerateScriptForConfig
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   %16 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %5, i64 32
   %17 = getelementptr inbounds i8, ptr %5, i64 40
   %18 = getelementptr inbounds i8, ptr %5, i64 48
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %5, i64 56
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %5, i64 56
   %19 = getelementptr inbounds i8, ptr %5, i64 64
   br label %20
 
@@ -973,13 +973,13 @@ define dso_local void @_ZN27cmInstallDirectoryGenerator23GenerateScriptForConfig
   store ptr %28, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !12, !noalias !9
   store ptr null, ptr %15, align 8, !alias.scope !12, !noalias !9
   store i64 1, ptr %16, align 8, !alias.scope !15, !noalias !9
-  store ptr @.str.1, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !alias.scope !15, !noalias !9
+  store ptr @.str.1, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !15, !noalias !9
   store ptr null, ptr %17, align 8, !alias.scope !15, !noalias !9
   %29 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.016) #14, !noalias !9
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
   store i64 %30, ptr %18, align 8, !alias.scope !18, !noalias !9
-  store ptr %31, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !18, !noalias !9
+  store ptr %31, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !alias.scope !18, !noalias !9
   store ptr null, ptr %19, align 8, !alias.scope !18, !noalias !9
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull %5, i64 3)
           to label %32 unwind label %.loopexit

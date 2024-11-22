@@ -418,18 +418,16 @@ __rust_try.llvm.2530427196549672958.exit:         ; preds = %5
   call void @llvm.assume(i1 %13)
   %14 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %14)
-  br label %16
+  br label %17
 
 15:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !44
-  br label %16
+  %16 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %1, 1
+  br label %17
 
-16:                                               ; preds = %__rust_try.llvm.2530427196549672958.exit, %15
-  %.sroa.6.08 = phi ptr [ %1, %15 ], [ %12, %__rust_try.llvm.2530427196549672958.exit ]
-  %17 = phi ptr [ null, %15 ], [ %11, %__rust_try.llvm.2530427196549672958.exit ]
-  %18 = insertvalue { ptr, ptr } poison, ptr %17, 0
-  %19 = insertvalue { ptr, ptr } %18, ptr %.sroa.6.08, 1
-  ret { ptr, ptr } %19
+17:                                               ; preds = %__rust_try.llvm.2530427196549672958.exit, %15
+  %.merged = phi { ptr, ptr } [ %16, %15 ], [ %8, %__rust_try.llvm.2530427196549672958.exit ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -605,18 +603,16 @@ __rust_try.llvm.2530427196549672958.exit:         ; preds = %5
   call void @llvm.assume(i1 %13)
   %14 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %14)
-  br label %16
+  br label %17
 
 15:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !84
-  br label %16
+  %16 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %1, 1
+  br label %17
 
-16:                                               ; preds = %__rust_try.llvm.2530427196549672958.exit, %15
-  %.sroa.6.08 = phi ptr [ %1, %15 ], [ %12, %__rust_try.llvm.2530427196549672958.exit ]
-  %17 = phi ptr [ null, %15 ], [ %11, %__rust_try.llvm.2530427196549672958.exit ]
-  %18 = insertvalue { ptr, ptr } poison, ptr %17, 0
-  %19 = insertvalue { ptr, ptr } %18, ptr %.sroa.6.08, 1
-  ret { ptr, ptr } %19
+17:                                               ; preds = %__rust_try.llvm.2530427196549672958.exit, %15
+  %.merged = phi { ptr, ptr } [ %16, %15 ], [ %8, %__rust_try.llvm.2530427196549672958.exit ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

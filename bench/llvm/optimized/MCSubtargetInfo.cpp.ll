@@ -1065,13 +1065,13 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo13ToggleFeatureENS_9StringRefE(p
   br label %_ZN4llvm17SubtargetFeatures9StripFlagENS_9StringRefE.exit
 
 _ZN4llvm17SubtargetFeatures9StripFlagENS_9StringRefE.exit: ; preds = %4, %6
-  %.sroa.01.0.i = phi ptr [ %8, %6 ], [ %2, %4 ]
-  %.sroa.3.0.i = phi i64 [ %9, %6 ], [ %3, %4 ]
+  %.pn4.i = phi ptr [ %8, %6 ], [ %2, %4 ]
+  %.pn.i = phi i64 [ %9, %6 ], [ %3, %4 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.sroa.05.0.copyload = load ptr, ptr %10, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 136
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %11 = tail call fastcc noundef ptr @_ZL4FindIN4llvm18SubtargetFeatureKVEEPKT_NS0_9StringRefENS0_8ArrayRefIS2_EE(ptr %.sroa.01.0.i, i64 %.sroa.3.0.i, ptr %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload)
+  %11 = tail call fastcc noundef ptr @_ZL4FindIN4llvm18SubtargetFeatureKVEEPKT_NS0_9StringRefENS0_8ArrayRefIS2_EE(ptr %.pn4.i, i64 %.pn.i, ptr %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %31, label %12
 
@@ -1325,9 +1325,9 @@ define internal fastcc void @_ZL16ApplyFeatureFlagRN4llvm13FeatureBitsetENS_9Str
   br label %_ZN4llvm17SubtargetFeatures9StripFlagENS_9StringRefE.exit
 
 _ZN4llvm17SubtargetFeatures9StripFlagENS_9StringRefE.exit: ; preds = %5, %7
-  %.sroa.01.0.i = phi ptr [ %9, %7 ], [ %1, %5 ]
-  %.sroa.3.0.i = phi i64 [ %10, %7 ], [ %2, %5 ]
-  %11 = tail call fastcc noundef ptr @_ZL4FindIN4llvm18SubtargetFeatureKVEEPKT_NS0_9StringRefENS0_8ArrayRefIS2_EE(ptr %.sroa.01.0.i, i64 %.sroa.3.0.i, ptr %3, i64 %4)
+  %.pn4.i = phi ptr [ %9, %7 ], [ %1, %5 ]
+  %.pn.i = phi i64 [ %10, %7 ], [ %2, %5 ]
+  %11 = tail call fastcc noundef ptr @_ZL4FindIN4llvm18SubtargetFeatureKVEEPKT_NS0_9StringRefENS0_8ArrayRefIS2_EE(ptr %.pn4.i, i64 %.pn.i, ptr %3, i64 %4)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %34, label %12
 

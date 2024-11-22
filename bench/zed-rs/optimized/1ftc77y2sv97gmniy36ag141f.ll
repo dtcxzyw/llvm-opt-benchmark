@@ -11431,23 +11431,23 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17ha861af1d70299a3aE.exit.thread.
 
 537:                                              ; preds = %531, %.thread788.us.i
   %538 = phi i64 [ %525, %.thread788.us.i ], [ %534, %531 ]
-  %.sroa.33.0.i.i.i792.us.i = phi ptr [ %521, %.thread788.us.i ], [ %533, %531 ]
+  %.pn6.i.i.i792.us.i = phi ptr [ %521, %.thread788.us.i ], [ %533, %531 ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %36), !noalias !1565
   %539 = invoke noundef align 8 dereferenceable(104) ptr @"_ZN76_$LT$language..buffer..BufferSnapshot$u20$as$u20$core..ops..deref..Deref$GT$5deref17ha0e77dc05ab79c69E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %.sroa.4.0.copyload)
           to label %540 unwind label %.loopexit917.split.us.i, !noalias !1569
 
 540:                                              ; preds = %537
-  %541 = getelementptr inbounds i8, ptr %.sroa.33.0.i.i.i792.us.i, i64 160
+  %541 = getelementptr inbounds i8, ptr %.pn6.i.i.i792.us.i, i64 160
   %542 = invoke { i32, i32 } @"_ZN55_$LT$rope..point..Point$u20$as$u20$text..FromAnchor$GT$11from_anchor17h3fdd848388bd85ecE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %541, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %539)
           to label %.noexc431.us.i unwind label %.loopexit917.split.us.i, !noalias !1569
 
 .noexc431.us.i:                                   ; preds = %540
-  %543 = getelementptr inbounds i8, ptr %.sroa.33.0.i.i.i792.us.i, i64 192
+  %543 = getelementptr inbounds i8, ptr %.pn6.i.i.i792.us.i, i64 192
   %544 = invoke { i32, i32 } @"_ZN55_$LT$rope..point..Point$u20$as$u20$text..FromAnchor$GT$11from_anchor17h3fdd848388bd85ecE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %543, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %539)
           to label %.noexc432.us.i unwind label %.loopexit917.split.us.i, !noalias !1569
 
 .noexc432.us.i:                                   ; preds = %.noexc431.us.i
-  invoke void @"_ZN67_$LT$language..buffer..Diagnostic$u20$as$u20$core..clone..Clone$GT$5clone17h77de8ac6d0015aefE.llvm.6980375837518793860"(ptr noalias nocapture noundef nonnull sret([160 x i8]) align 8 dereferenceable(176) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %.sroa.33.0.i.i.i792.us.i)
+  invoke void @"_ZN67_$LT$language..buffer..Diagnostic$u20$as$u20$core..clone..Clone$GT$5clone17h77de8ac6d0015aefE.llvm.6980375837518793860"(ptr noalias nocapture noundef nonnull sret([160 x i8]) align 8 dereferenceable(176) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %.pn6.i.i.i792.us.i)
           to label %545 unwind label %.loopexit917.split.us.i, !noalias !1569
 
 .thread2553.i:                                    ; preds = %531
@@ -11713,23 +11713,23 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17ha861af1d70299a3aE.exit.thread.
 
 633:                                              ; preds = %589, %.thread788.i
   %634 = phi i64 [ %571, %.thread788.i ], [ %592, %589 ]
-  %.sroa.33.0.i.i.i792.i = phi ptr [ %567, %.thread788.i ], [ %591, %589 ]
+  %.pn6.i.i.i792.i = phi ptr [ %567, %.thread788.i ], [ %591, %589 ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %36), !noalias !1565
   %635 = invoke noundef align 8 dereferenceable(104) ptr @"_ZN76_$LT$language..buffer..BufferSnapshot$u20$as$u20$core..ops..deref..Deref$GT$5deref17ha0e77dc05ab79c69E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %.sroa.4.0.copyload)
           to label %636 unwind label %.loopexit917.split.i, !noalias !1569
 
 636:                                              ; preds = %633
-  %637 = getelementptr inbounds i8, ptr %.sroa.33.0.i.i.i792.i, i64 160
+  %637 = getelementptr inbounds i8, ptr %.pn6.i.i.i792.i, i64 160
   %638 = invoke { i32, i32 } @"_ZN55_$LT$rope..point..Point$u20$as$u20$text..FromAnchor$GT$11from_anchor17h3fdd848388bd85ecE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %637, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %635)
           to label %.noexc431.i unwind label %.loopexit917.split.i, !noalias !1569
 
 .noexc431.i:                                      ; preds = %636
-  %639 = getelementptr inbounds i8, ptr %.sroa.33.0.i.i.i792.i, i64 192
+  %639 = getelementptr inbounds i8, ptr %.pn6.i.i.i792.i, i64 192
   %640 = invoke { i32, i32 } @"_ZN55_$LT$rope..point..Point$u20$as$u20$text..FromAnchor$GT$11from_anchor17h3fdd848388bd85ecE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %639, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %635)
           to label %.noexc432.i unwind label %.loopexit917.split.i, !noalias !1569
 
 .noexc432.i:                                      ; preds = %.noexc431.i
-  invoke void @"_ZN67_$LT$language..buffer..Diagnostic$u20$as$u20$core..clone..Clone$GT$5clone17h77de8ac6d0015aefE.llvm.6980375837518793860"(ptr noalias nocapture noundef nonnull sret([160 x i8]) align 8 dereferenceable(176) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %.sroa.33.0.i.i.i792.i)
+  invoke void @"_ZN67_$LT$language..buffer..Diagnostic$u20$as$u20$core..clone..Clone$GT$5clone17h77de8ac6d0015aefE.llvm.6980375837518793860"(ptr noalias nocapture noundef nonnull sret([160 x i8]) align 8 dereferenceable(176) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %.pn6.i.i.i792.i)
           to label %641 unwind label %.loopexit917.split.i, !noalias !1569
 
 641:                                              ; preds = %.noexc432.i
@@ -25560,12 +25560,12 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT
   unreachable
 
 20:                                               ; preds = %10, %17
-  %.sroa.3.0.i.ph = phi ptr [ %18, %17 ], [ %11, %10 ]
-  %21 = icmp eq ptr %.sroa.3.0.i.ph, null
+  %.sroa.3.0.i.pn.i.ph = phi ptr [ %18, %17 ], [ %11, %10 ]
+  %21 = icmp eq ptr %.sroa.3.0.i.pn.i.ph, null
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %20
-  call void @_ZN4util21log_error_with_caller17h7ee4916e5e7dbbe2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.ph, i64 noundef %5)
+  call void @_ZN4util21log_error_with_caller17h7ee4916e5e7dbbe2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.pn.i.ph, i64 noundef %5)
   br label %23
 
 23:                                               ; preds = %20, %22

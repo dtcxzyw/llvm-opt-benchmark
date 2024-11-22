@@ -59,98 +59,89 @@ define { i64, ptr } @load_module_meta(ptr noundef %0, i64 %1, ptr %2) local_unna
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = tail call i32 @jv_get_kind(i64 %18, ptr %19) #11
-  %.not54 = icmp eq i32 %20, 0
-  br i1 %.not54, label %79, label %21
+  %.not55 = icmp eq i32 %20, 0
+  br i1 %.not55, label %75, label %21
 
 21:                                               ; preds = %3
   %22 = tail call { i64, ptr } @jv_null() #11
-  %23 = extractvalue { i64, ptr } %22, 0
-  %24 = extractvalue { i64, ptr } %22, 1
-  %25 = tail call ptr @jv_string_value(i64 %18, ptr %19) #11
-  %26 = tail call { i64, ptr } @jv_load_file(ptr noundef %25, i32 noundef 1) #11
-  %27 = extractvalue { i64, ptr } %26, 0
-  %28 = extractvalue { i64, ptr } %26, 1
-  %29 = tail call i32 @jv_get_kind(i64 %27, ptr %28) #11
-  %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %78, label %30
+  %23 = tail call ptr @jv_string_value(i64 %18, ptr %19) #11
+  %24 = tail call { i64, ptr } @jv_load_file(ptr noundef %23, i32 noundef 1) #11
+  %25 = extractvalue { i64, ptr } %24, 0
+  %26 = extractvalue { i64, ptr } %24, 1
+  %27 = tail call i32 @jv_get_kind(i64 %25, ptr %26) #11
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %74, label %28
 
-30:                                               ; preds = %21
-  %31 = tail call ptr @jv_string_value(i64 %18, ptr %19) #11
-  %32 = tail call ptr @jv_string_value(i64 %27, ptr %28) #11
-  %33 = tail call { i64, ptr } @jv_copy(i64 %27, ptr %28) #11
-  %34 = extractvalue { i64, ptr } %33, 0
-  %35 = extractvalue { i64, ptr } %33, 1
-  %36 = tail call i32 @jv_string_length_bytes(i64 %34, ptr %35) #11
-  %37 = tail call ptr @locfile_init(ptr noundef %0, ptr noundef %31, ptr noundef %32, i32 noundef %36) #11
-  %38 = call i32 @jq_parse_library(ptr noundef %37, ptr noundef nonnull %4) #11
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %74
+28:                                               ; preds = %21
+  %29 = tail call ptr @jv_string_value(i64 %18, ptr %19) #11
+  %30 = tail call ptr @jv_string_value(i64 %25, ptr %26) #11
+  %31 = tail call { i64, ptr } @jv_copy(i64 %25, ptr %26) #11
+  %32 = extractvalue { i64, ptr } %31, 0
+  %33 = extractvalue { i64, ptr } %31, 1
+  %34 = tail call i32 @jv_string_length_bytes(i64 %32, ptr %33) #11
+  %35 = tail call ptr @locfile_init(ptr noundef %0, ptr noundef %29, ptr noundef %30, i32 noundef %34) #11
+  %36 = call i32 @jq_parse_library(ptr noundef %35, ptr noundef nonnull %4) #11
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %70
 
-40:                                               ; preds = %30
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = call { i64, ptr } @block_module_meta(ptr %41, ptr %43) #11
-  %45 = extractvalue { i64, ptr } %44, 0
-  %46 = extractvalue { i64, ptr } %44, 1
-  %47 = call i32 @jv_get_kind(i64 %45, ptr %46) #11
-  %48 = icmp eq i32 %47, 1
-  br i1 %48, label %49, label %53
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = call { i64, ptr } @block_module_meta(ptr %39, ptr %41) #11
+  %43 = extractvalue { i64, ptr } %42, 0
+  %44 = extractvalue { i64, ptr } %42, 1
+  %45 = call i32 @jv_get_kind(i64 %43, ptr %44) #11
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %47, label %51
 
-49:                                               ; preds = %40
-  %50 = call { i64, ptr } @jv_object() #11
-  %51 = extractvalue { i64, ptr } %50, 0
-  %52 = extractvalue { i64, ptr } %50, 1
-  br label %53
+47:                                               ; preds = %38
+  %48 = call { i64, ptr } @jv_object() #11
+  %49 = extractvalue { i64, ptr } %48, 0
+  %50 = extractvalue { i64, ptr } %48, 1
+  br label %51
 
-53:                                               ; preds = %49, %40
-  %.sroa.042.3 = phi i64 [ %51, %49 ], [ %45, %40 ]
-  %.sroa.10.3 = phi ptr [ %52, %49 ], [ %46, %40 ]
-  %54 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.1) #11
-  %55 = extractvalue { i64, ptr } %54, 0
-  %56 = extractvalue { i64, ptr } %54, 1
-  %57 = call { i64, ptr } @block_take_imports(ptr noundef nonnull %4) #11
-  %58 = extractvalue { i64, ptr } %57, 0
-  %59 = extractvalue { i64, ptr } %57, 1
-  %60 = call { i64, ptr } @jv_object_set(i64 %.sroa.042.3, ptr %.sroa.10.3, i64 %55, ptr %56, i64 %58, ptr %59) #11
-  %61 = extractvalue { i64, ptr } %60, 0
-  %62 = extractvalue { i64, ptr } %60, 1
-  %63 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.2) #11
-  %64 = extractvalue { i64, ptr } %63, 0
-  %65 = extractvalue { i64, ptr } %63, 1
-  %66 = load ptr, ptr %4, align 8
-  %67 = load ptr, ptr %42, align 8
-  %68 = call { i64, ptr } @block_list_funcs(ptr %66, ptr %67, i32 noundef 0) #11
-  %69 = extractvalue { i64, ptr } %68, 0
-  %70 = extractvalue { i64, ptr } %68, 1
-  %71 = call { i64, ptr } @jv_object_set(i64 %61, ptr %62, i64 %64, ptr %65, i64 %69, ptr %70) #11
-  %72 = extractvalue { i64, ptr } %71, 0
-  %73 = extractvalue { i64, ptr } %71, 1
+51:                                               ; preds = %47, %38
+  %.sroa.042.3 = phi i64 [ %49, %47 ], [ %43, %38 ]
+  %.sroa.10.3 = phi ptr [ %50, %47 ], [ %44, %38 ]
+  %52 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.1) #11
+  %53 = extractvalue { i64, ptr } %52, 0
+  %54 = extractvalue { i64, ptr } %52, 1
+  %55 = call { i64, ptr } @block_take_imports(ptr noundef nonnull %4) #11
+  %56 = extractvalue { i64, ptr } %55, 0
+  %57 = extractvalue { i64, ptr } %55, 1
+  %58 = call { i64, ptr } @jv_object_set(i64 %.sroa.042.3, ptr %.sroa.10.3, i64 %53, ptr %54, i64 %56, ptr %57) #11
+  %59 = extractvalue { i64, ptr } %58, 0
+  %60 = extractvalue { i64, ptr } %58, 1
+  %61 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.2) #11
+  %62 = extractvalue { i64, ptr } %61, 0
+  %63 = extractvalue { i64, ptr } %61, 1
+  %64 = load ptr, ptr %4, align 8
+  %65 = load ptr, ptr %40, align 8
+  %66 = call { i64, ptr } @block_list_funcs(ptr %64, ptr %65, i32 noundef 0) #11
+  %67 = extractvalue { i64, ptr } %66, 0
+  %68 = extractvalue { i64, ptr } %66, 1
+  %69 = call { i64, ptr } @jv_object_set(i64 %59, ptr %60, i64 %62, ptr %63, i64 %67, ptr %68) #11
+  br label %70
+
+70:                                               ; preds = %51, %28
+  %.merged49 = phi { i64, ptr } [ %69, %51 ], [ %22, %28 ]
+  call void @locfile_free(ptr noundef %35) #11
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds i8, ptr %4, i64 8
+  %73 = load ptr, ptr %72, align 8
+  call void @block_free(ptr %71, ptr %73) #11
   br label %74
 
-74:                                               ; preds = %53, %30
-  %.sroa.042.2 = phi i64 [ %72, %53 ], [ %23, %30 ]
-  %.sroa.10.2 = phi ptr [ %73, %53 ], [ %24, %30 ]
-  call void @locfile_free(ptr noundef %37) #11
-  %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds i8, ptr %4, i64 8
-  %77 = load ptr, ptr %76, align 8
-  call void @block_free(ptr %75, ptr %77) #11
-  br label %78
-
-78:                                               ; preds = %74, %21
-  %.sroa.042.1 = phi i64 [ %.sroa.042.2, %74 ], [ %23, %21 ]
-  %.sroa.10.1 = phi ptr [ %.sroa.10.2, %74 ], [ %24, %21 ]
+74:                                               ; preds = %70, %21
+  %.merged = phi { i64, ptr } [ %.merged49, %70 ], [ %22, %21 ]
   call void @jv_free(i64 %18, ptr %19) #11
-  call void @jv_free(i64 %27, ptr %28) #11
-  br label %79
+  call void @jv_free(i64 %25, ptr %26) #11
+  br label %75
 
-79:                                               ; preds = %3, %78
-  %.sroa.042.0 = phi i64 [ %.sroa.042.1, %78 ], [ %18, %3 ]
-  %.sroa.10.0 = phi ptr [ %.sroa.10.1, %78 ], [ %19, %3 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.042.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.10.0, 1
-  ret { i64, ptr } %.fca.1.insert
+75:                                               ; preds = %3, %74
+  %.fca.1.insert.merged = phi { i64, ptr } [ %.merged, %74 ], [ %17, %3 ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nounwind uwtable
@@ -158,36 +149,36 @@ define internal fastcc { i64, ptr } @find_lib(i64 %0, ptr %1, i64 %2, ptr %3, pt
   %6 = alloca %struct.stat, align 8
   %7 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #11
   %.not27 = icmp eq i32 %7, 0
-  br i1 %.not27, label %8, label %9
+  br i1 %.not27, label %8, label %11
 
 8:                                                ; preds = %5
   tail call void @jv_free(i64 %2, ptr %3) #11
   tail call void @jv_free(i64 %.0.val, ptr %.8.val) #11
   tail call void @jv_free(i64 %.0.val1, ptr %.8.val3) #11
-  br label %208
+  %9 = insertvalue { i64, ptr } poison, i64 %0, 0
+  %10 = insertvalue { i64, ptr } %9, ptr %1, 1
+  br label %204
 
-9:                                                ; preds = %5
-  %10 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #11
-  %.not142 = icmp eq i32 %10, 5
-  br i1 %.not142, label %18, label %11
+11:                                               ; preds = %5
+  %12 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #11
+  %.not142 = icmp eq i32 %12, 5
+  br i1 %.not142, label %18, label %13
 
-11:                                               ; preds = %9
+13:                                               ; preds = %11
   tail call void @jv_free(i64 %0, ptr %1) #11
   tail call void @jv_free(i64 %2, ptr %3) #11
   tail call void @jv_free(i64 %.0.val, ptr %.8.val) #11
   tail call void @jv_free(i64 %.0.val1, ptr %.8.val3) #11
-  %12 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8) #11
-  %13 = extractvalue { i64, ptr } %12, 0
-  %14 = extractvalue { i64, ptr } %12, 1
-  %15 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %13, ptr %14) #11
-  %16 = extractvalue { i64, ptr } %15, 0
-  %17 = extractvalue { i64, ptr } %15, 1
-  br label %208
+  %14 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8) #11
+  %15 = extractvalue { i64, ptr } %14, 0
+  %16 = extractvalue { i64, ptr } %14, 1
+  %17 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %15, ptr %16) #11
+  br label %204
 
-18:                                               ; preds = %9
+18:                                               ; preds = %11
   %19 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #11
   %.not143 = icmp eq i32 %19, 6
-  br i1 %.not143, label %27, label %20
+  br i1 %.not143, label %25, label %20
 
 20:                                               ; preds = %18
   tail call void @jv_free(i64 %0, ptr %1) #11
@@ -198,346 +189,340 @@ define internal fastcc { i64, ptr } @find_lib(i64 %0, ptr %1, i64 %2, ptr %3, pt
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
   %24 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %22, ptr %23) #11
-  %25 = extractvalue { i64, ptr } %24, 0
-  %26 = extractvalue { i64, ptr } %24, 1
-  br label %208
+  br label %204
 
-27:                                               ; preds = %18
-  %28 = tail call { i64, ptr } @jv_array() #11
-  %29 = extractvalue { i64, ptr } %28, 0
-  %30 = extractvalue { i64, ptr } %28, 1
-  %31 = tail call { i64, ptr } @jv_null() #11
-  %32 = extractvalue { i64, ptr } %31, 0
-  %33 = extractvalue { i64, ptr } %31, 1
-  %34 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #11
-  %35 = extractvalue { i64, ptr } %34, 0
-  %36 = extractvalue { i64, ptr } %34, 1
-  %37 = tail call i32 @jv_array_length(i64 %35, ptr %36) #11
-  %.not727.i = icmp sgt i32 %37, 0
+25:                                               ; preds = %18
+  %26 = tail call { i64, ptr } @jv_array() #11
+  %27 = extractvalue { i64, ptr } %26, 0
+  %28 = extractvalue { i64, ptr } %26, 1
+  %29 = tail call { i64, ptr } @jv_null() #11
+  %30 = extractvalue { i64, ptr } %29, 0
+  %31 = extractvalue { i64, ptr } %29, 1
+  %32 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #11
+  %33 = extractvalue { i64, ptr } %32, 0
+  %34 = extractvalue { i64, ptr } %32, 1
+  %35 = tail call i32 @jv_array_length(i64 %33, ptr %34) #11
+  %.not727.i = icmp sgt i32 %35, 0
   br i1 %.not727.i, label %.lr.ph.i, label %build_lib_search_chain.exit
 
-.lr.ph.i:                                         ; preds = %27, %101
-  %.sroa.4.112.i = phi ptr [ %.sroa.4.2.i, %101 ], [ %30, %27 ]
-  %.sroa.055.111.i = phi i64 [ %.sroa.055.2.i, %101 ], [ %29, %27 ]
-  %.sroa.3.110.i = phi ptr [ %.sroa.3.2.i, %101 ], [ %33, %27 ]
-  %.sroa.053.19.i = phi i64 [ %.sroa.053.2.i, %101 ], [ %32, %27 ]
-  %.18.i = phi i32 [ %102, %101 ], [ 0, %27 ]
-  %38 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #11
-  %39 = extractvalue { i64, ptr } %38, 0
-  %40 = extractvalue { i64, ptr } %38, 1
-  %41 = tail call { i64, ptr } @jv_array_get(i64 %39, ptr %40, i32 noundef %.18.i) #11
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = extractvalue { i64, ptr } %41, 1
-  %44 = tail call i32 @jv_get_kind(i64 %42, ptr %43) #11
-  %.not73.i = icmp eq i32 %44, 5
-  br i1 %.not73.i, label %46, label %45
+.lr.ph.i:                                         ; preds = %25, %99
+  %.sroa.4.112.i = phi ptr [ %.sroa.4.2.i, %99 ], [ %28, %25 ]
+  %.sroa.055.111.i = phi i64 [ %.sroa.055.2.i, %99 ], [ %27, %25 ]
+  %.sroa.3.110.i = phi ptr [ %.sroa.3.2.i, %99 ], [ %31, %25 ]
+  %.sroa.053.19.i = phi i64 [ %.sroa.053.2.i, %99 ], [ %30, %25 ]
+  %.18.i = phi i32 [ %100, %99 ], [ 0, %25 ]
+  %36 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #11
+  %37 = extractvalue { i64, ptr } %36, 0
+  %38 = extractvalue { i64, ptr } %36, 1
+  %39 = tail call { i64, ptr } @jv_array_get(i64 %37, ptr %38, i32 noundef %.18.i) #11
+  %40 = extractvalue { i64, ptr } %39, 0
+  %41 = extractvalue { i64, ptr } %39, 1
+  %42 = tail call i32 @jv_get_kind(i64 %40, ptr %41) #11
+  %.not73.i = icmp eq i32 %42, 5
+  br i1 %.not73.i, label %44, label %43
 
-45:                                               ; preds = %.lr.ph.i
-  tail call void @jv_free(i64 %42, ptr %43) #11
-  br label %101
+43:                                               ; preds = %.lr.ph.i
+  tail call void @jv_free(i64 %40, ptr %41) #11
+  br label %99
 
-46:                                               ; preds = %.lr.ph.i
-  %47 = tail call { i64, ptr } @expand_path(i64 %42, ptr %43) #11
-  %48 = extractvalue { i64, ptr } %47, 0
-  %49 = extractvalue { i64, ptr } %47, 1
-  %50 = tail call i32 @jv_get_kind(i64 %48, ptr %49) #11
-  %.not5.i = icmp eq i32 %50, 0
-  br i1 %.not5.i, label %51, label %sub_0.i
+44:                                               ; preds = %.lr.ph.i
+  %45 = tail call { i64, ptr } @expand_path(i64 %40, ptr %41) #11
+  %46 = extractvalue { i64, ptr } %45, 0
+  %47 = extractvalue { i64, ptr } %45, 1
+  %48 = tail call i32 @jv_get_kind(i64 %46, ptr %47) #11
+  %.not5.i = icmp eq i32 %48, 0
+  br i1 %.not5.i, label %49, label %sub_0.i
 
-51:                                               ; preds = %46
-  %52 = tail call { i64, ptr } @jv_null() #11
-  br label %101
+49:                                               ; preds = %44
+  %50 = tail call { i64, ptr } @jv_null() #11
+  br label %99
 
-sub_0.i:                                          ; preds = %46
-  %53 = tail call ptr @jv_string_value(i64 %48, ptr %49) #11
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = sub nsw i32 46, %55
-  %.not.i = icmp eq i8 %54, 46
+sub_0.i:                                          ; preds = %44
+  %51 = tail call ptr @jv_string_value(i64 %46, ptr %47) #11
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  %54 = sub nsw i32 46, %53
+  %.not.i = icmp eq i8 %52, 46
   br i1 %.not.i, label %sub_1.i, label %.tail.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %57 = getelementptr inbounds i8, ptr %53, i64 1
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = sub nsw i32 0, %59
+  %55 = getelementptr inbounds i8, ptr %51, i64 1
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i32
+  %58 = sub nsw i32 0, %57
   br label %.tail.i
 
 .tail.i:                                          ; preds = %sub_1.i, %sub_0.i
-  %61 = phi i32 [ %56, %sub_0.i ], [ %60, %sub_1.i ]
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %67
+  %59 = phi i32 [ %54, %sub_0.i ], [ %58, %sub_1.i ]
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %65
 
-63:                                               ; preds = %.tail.i
-  %64 = tail call { i64, ptr } @jv_copy(i64 %48, ptr %49) #11
-  %65 = extractvalue { i64, ptr } %64, 0
-  %66 = extractvalue { i64, ptr } %64, 1
-  br label %97
+61:                                               ; preds = %.tail.i
+  %62 = tail call { i64, ptr } @jv_copy(i64 %46, ptr %47) #11
+  %63 = extractvalue { i64, ptr } %62, 0
+  %64 = extractvalue { i64, ptr } %62, 1
+  br label %95
 
-67:                                               ; preds = %.tail.i
-  %68 = tail call ptr @jv_string_value(i64 %48, ptr %49) #11
-  %69 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.16, ptr noundef nonnull dereferenceable(1) %68, i64 noundef 8) #12
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %78
+65:                                               ; preds = %.tail.i
+  %66 = tail call ptr @jv_string_value(i64 %46, ptr %47) #11
+  %67 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.16, ptr noundef nonnull dereferenceable(1) %66, i64 noundef 8) #12
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %76
 
-71:                                               ; preds = %67
-  %72 = tail call ptr @jv_string_value(i64 %.0.val, ptr %.8.val) #11
-  %73 = tail call ptr @jv_string_value(i64 %48, ptr %49) #11
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
-  %75 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.17, ptr noundef %72, ptr noundef nonnull %74) #11
-  %76 = extractvalue { i64, ptr } %75, 0
-  %77 = extractvalue { i64, ptr } %75, 1
-  br label %97
+69:                                               ; preds = %65
+  %70 = tail call ptr @jv_string_value(i64 %.0.val, ptr %.8.val) #11
+  %71 = tail call ptr @jv_string_value(i64 %46, ptr %47) #11
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %73 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.17, ptr noundef %70, ptr noundef nonnull %72) #11
+  %74 = extractvalue { i64, ptr } %73, 0
+  %75 = extractvalue { i64, ptr } %73, 1
+  br label %95
 
-78:                                               ; preds = %67
-  %79 = tail call i32 @jv_get_kind(i64 %.0.val1, ptr %.8.val3) #11
-  %80 = icmp eq i32 %79, 5
-  br i1 %80, label %81, label %93
+76:                                               ; preds = %65
+  %77 = tail call i32 @jv_get_kind(i64 %.0.val1, ptr %.8.val3) #11
+  %78 = icmp eq i32 %77, 5
+  br i1 %78, label %79, label %91
 
-81:                                               ; preds = %78
-  %82 = tail call { i64, ptr } @jv_copy(i64 %48, ptr %49) #11
-  %83 = extractvalue { i64, ptr } %82, 0
-  %84 = extractvalue { i64, ptr } %82, 1
-  %85 = tail call ptr @jv_string_value(i64 %83, ptr %84) #11
-  %86 = load i8, ptr %85, align 1
-  %.not6.i = icmp eq i8 %86, 47
-  tail call void @jv_free(i64 %83, ptr %84) #11
-  br i1 %.not6.i, label %93, label %87
+79:                                               ; preds = %76
+  %80 = tail call { i64, ptr } @jv_copy(i64 %46, ptr %47) #11
+  %81 = extractvalue { i64, ptr } %80, 0
+  %82 = extractvalue { i64, ptr } %80, 1
+  %83 = tail call ptr @jv_string_value(i64 %81, ptr %82) #11
+  %84 = load i8, ptr %83, align 1
+  %.not6.i = icmp eq i8 %84, 47
+  tail call void @jv_free(i64 %81, ptr %82) #11
+  br i1 %.not6.i, label %91, label %85
 
-87:                                               ; preds = %81
-  %88 = tail call ptr @jv_string_value(i64 %.0.val1, ptr %.8.val3) #11
-  %89 = tail call ptr @jv_string_value(i64 %48, ptr %49) #11
-  %90 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.17, ptr noundef %88, ptr noundef %89) #11
-  %91 = extractvalue { i64, ptr } %90, 0
-  %92 = extractvalue { i64, ptr } %90, 1
-  br label %97
+85:                                               ; preds = %79
+  %86 = tail call ptr @jv_string_value(i64 %.0.val1, ptr %.8.val3) #11
+  %87 = tail call ptr @jv_string_value(i64 %46, ptr %47) #11
+  %88 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.17, ptr noundef %86, ptr noundef %87) #11
+  %89 = extractvalue { i64, ptr } %88, 0
+  %90 = extractvalue { i64, ptr } %88, 1
+  br label %95
 
-93:                                               ; preds = %81, %78
-  %94 = tail call { i64, ptr } @jv_invalid() #11
-  %95 = extractvalue { i64, ptr } %94, 0
-  %96 = extractvalue { i64, ptr } %94, 1
-  br label %97
+91:                                               ; preds = %79, %76
+  %92 = tail call { i64, ptr } @jv_invalid() #11
+  %93 = extractvalue { i64, ptr } %92, 0
+  %94 = extractvalue { i64, ptr } %92, 1
+  br label %95
 
-97:                                               ; preds = %93, %87, %71, %63
-  %.sroa.023.4.i = phi i64 [ %48, %63 ], [ %48, %71 ], [ %48, %87 ], [ %95, %93 ]
-  %.sroa.17.4.i = phi ptr [ %49, %63 ], [ %49, %71 ], [ %49, %87 ], [ %96, %93 ]
-  %.sroa.054.0.i = phi i64 [ %65, %63 ], [ %76, %71 ], [ %91, %87 ], [ %48, %93 ]
-  %.sroa.5.0.i = phi ptr [ %66, %63 ], [ %77, %71 ], [ %92, %87 ], [ %49, %93 ]
-  %98 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.055.111.i, ptr %.sroa.4.112.i, i64 %.sroa.054.0.i, ptr %.sroa.5.0.i) #11
-  %99 = extractvalue { i64, ptr } %98, 0
-  %100 = extractvalue { i64, ptr } %98, 1
+95:                                               ; preds = %91, %85, %69, %61
+  %.sroa.023.4.i = phi i64 [ %46, %61 ], [ %46, %69 ], [ %46, %85 ], [ %93, %91 ]
+  %.sroa.17.4.i = phi ptr [ %47, %61 ], [ %47, %69 ], [ %47, %85 ], [ %94, %91 ]
+  %.sroa.054.0.i = phi i64 [ %63, %61 ], [ %74, %69 ], [ %89, %85 ], [ %46, %91 ]
+  %.sroa.5.0.i = phi ptr [ %64, %61 ], [ %75, %69 ], [ %90, %85 ], [ %47, %91 ]
+  %96 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.055.111.i, ptr %.sroa.4.112.i, i64 %.sroa.054.0.i, ptr %.sroa.5.0.i) #11
+  %97 = extractvalue { i64, ptr } %96, 0
+  %98 = extractvalue { i64, ptr } %96, 1
   tail call void @jv_free(i64 %.sroa.023.4.i, ptr %.sroa.17.4.i) #11
-  br label %101
+  br label %99
 
-101:                                              ; preds = %97, %51, %45
-  %.sroa.053.2.i = phi i64 [ %.sroa.053.19.i, %45 ], [ %.sroa.053.19.i, %97 ], [ %48, %51 ]
-  %.sroa.3.2.i = phi ptr [ %.sroa.3.110.i, %45 ], [ %.sroa.3.110.i, %97 ], [ %49, %51 ]
-  %.sroa.055.2.i = phi i64 [ %.sroa.055.111.i, %45 ], [ %99, %97 ], [ %.sroa.055.111.i, %51 ]
-  %.sroa.4.2.i = phi ptr [ %.sroa.4.112.i, %45 ], [ %100, %97 ], [ %.sroa.4.112.i, %51 ]
-  %102 = add nuw nsw i32 %.18.i, 1
-  %exitcond.not.i = icmp eq i32 %102, %37
+99:                                               ; preds = %95, %49, %43
+  %.sroa.053.2.i = phi i64 [ %.sroa.053.19.i, %43 ], [ %.sroa.053.19.i, %95 ], [ %46, %49 ]
+  %.sroa.3.2.i = phi ptr [ %.sroa.3.110.i, %43 ], [ %.sroa.3.110.i, %95 ], [ %47, %49 ]
+  %.sroa.055.2.i = phi i64 [ %.sroa.055.111.i, %43 ], [ %97, %95 ], [ %.sroa.055.111.i, %49 ]
+  %.sroa.4.2.i = phi ptr [ %.sroa.4.112.i, %43 ], [ %98, %95 ], [ %.sroa.4.112.i, %49 ]
+  %100 = add nuw nsw i32 %.18.i, 1
+  %exitcond.not.i = icmp eq i32 %100, %35
   br i1 %exitcond.not.i, label %build_lib_search_chain.exit, label %.lr.ph.i, !llvm.loop !4
 
-build_lib_search_chain.exit:                      ; preds = %101, %27
-  %.sroa.053.0.lcssa.i = phi i64 [ %32, %27 ], [ %.sroa.053.2.i, %101 ]
-  %.sroa.3.0.lcssa.i = phi ptr [ %33, %27 ], [ %.sroa.3.2.i, %101 ]
-  %.sroa.055.0.lcssa.i = phi i64 [ %29, %27 ], [ %.sroa.055.2.i, %101 ]
-  %.sroa.4.0.lcssa.i = phi ptr [ %30, %27 ], [ %.sroa.4.2.i, %101 ]
+build_lib_search_chain.exit:                      ; preds = %99, %25
+  %.sroa.053.0.lcssa.i = phi i64 [ %30, %25 ], [ %.sroa.053.2.i, %99 ]
+  %.sroa.3.0.lcssa.i = phi ptr [ %31, %25 ], [ %.sroa.3.2.i, %99 ]
+  %.sroa.055.0.lcssa.i = phi i64 [ %27, %25 ], [ %.sroa.055.2.i, %99 ]
+  %.sroa.4.0.lcssa.i = phi ptr [ %28, %25 ], [ %.sroa.4.2.i, %99 ]
   tail call void @jv_free(i64 %.0.val, ptr %.8.val) #11
   tail call void @jv_free(i64 %.0.val1, ptr %.8.val3) #11
   tail call void @jv_free(i64 %2, ptr %3) #11
-  %103 = tail call { i64, ptr } @jv_array() #11
-  %104 = extractvalue { i64, ptr } %103, 0
-  %105 = extractvalue { i64, ptr } %103, 1
-  %106 = tail call { i64, ptr } @jv_array_append(i64 %104, ptr %105, i64 %.sroa.055.0.lcssa.i, ptr %.sroa.4.0.lcssa.i) #11
-  %107 = extractvalue { i64, ptr } %106, 0
-  %108 = extractvalue { i64, ptr } %106, 1
-  %109 = tail call { i64, ptr } @jv_array_append(i64 %107, ptr %108, i64 %.sroa.053.0.lcssa.i, ptr %.sroa.3.0.lcssa.i) #11
-  %110 = extractvalue { i64, ptr } %109, 0
-  %111 = extractvalue { i64, ptr } %109, 1
-  %112 = tail call { i64, ptr } @jv_copy(i64 %110, ptr %111) #11
-  %113 = extractvalue { i64, ptr } %112, 0
-  %114 = extractvalue { i64, ptr } %112, 1
-  %115 = tail call { i64, ptr } @jv_array_get(i64 %113, ptr %114, i32 noundef 1) #11
-  %116 = extractvalue { i64, ptr } %115, 0
-  %117 = extractvalue { i64, ptr } %115, 1
-  %118 = tail call { i64, ptr } @jv_array_get(i64 %110, ptr %111, i32 noundef 0) #11
-  %119 = extractvalue { i64, ptr } %118, 0
-  %120 = extractvalue { i64, ptr } %118, 1
-  %121 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #11
-  %122 = extractvalue { i64, ptr } %121, 0
-  %123 = extractvalue { i64, ptr } %121, 1
-  %124 = tail call ptr @jv_string_value(i64 %122, ptr %123) #11
-  %125 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %124, i32 noundef 47) #12
-  %.not.i151 = icmp eq ptr %125, null
-  br i1 %.not.i151, label %jv_basename.exit, label %126
+  %101 = tail call { i64, ptr } @jv_array() #11
+  %102 = extractvalue { i64, ptr } %101, 0
+  %103 = extractvalue { i64, ptr } %101, 1
+  %104 = tail call { i64, ptr } @jv_array_append(i64 %102, ptr %103, i64 %.sroa.055.0.lcssa.i, ptr %.sroa.4.0.lcssa.i) #11
+  %105 = extractvalue { i64, ptr } %104, 0
+  %106 = extractvalue { i64, ptr } %104, 1
+  %107 = tail call { i64, ptr } @jv_array_append(i64 %105, ptr %106, i64 %.sroa.053.0.lcssa.i, ptr %.sroa.3.0.lcssa.i) #11
+  %108 = extractvalue { i64, ptr } %107, 0
+  %109 = extractvalue { i64, ptr } %107, 1
+  %110 = tail call { i64, ptr } @jv_copy(i64 %108, ptr %109) #11
+  %111 = extractvalue { i64, ptr } %110, 0
+  %112 = extractvalue { i64, ptr } %110, 1
+  %113 = tail call { i64, ptr } @jv_array_get(i64 %111, ptr %112, i32 noundef 1) #11
+  %114 = extractvalue { i64, ptr } %113, 0
+  %115 = extractvalue { i64, ptr } %113, 1
+  %116 = tail call { i64, ptr } @jv_array_get(i64 %108, ptr %109, i32 noundef 0) #11
+  %117 = extractvalue { i64, ptr } %116, 0
+  %118 = extractvalue { i64, ptr } %116, 1
+  %119 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #11
+  %120 = extractvalue { i64, ptr } %119, 0
+  %121 = extractvalue { i64, ptr } %119, 1
+  %122 = tail call ptr @jv_string_value(i64 %120, ptr %121) #11
+  %123 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %122, i32 noundef 47) #12
+  %.not.i151 = icmp eq ptr %123, null
+  br i1 %.not.i151, label %jv_basename.exit, label %124
 
-126:                                              ; preds = %build_lib_search_chain.exit
-  %127 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.18, ptr noundef nonnull %125) #11
-  %128 = extractvalue { i64, ptr } %127, 0
-  %129 = extractvalue { i64, ptr } %127, 1
-  tail call void @jv_free(i64 %122, ptr %123) #11
+124:                                              ; preds = %build_lib_search_chain.exit
+  %125 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.18, ptr noundef nonnull %123) #11
+  tail call void @jv_free(i64 %120, ptr %121) #11
+  %.pre42 = extractvalue { i64, ptr } %125, 0
+  %.pre43 = extractvalue { i64, ptr } %125, 1
   br label %jv_basename.exit
 
-jv_basename.exit:                                 ; preds = %build_lib_search_chain.exit, %126
-  %.sroa.05.0.i = phi i64 [ %128, %126 ], [ %122, %build_lib_search_chain.exit ]
-  %.sroa.3.0.i = phi ptr [ %129, %126 ], [ %123, %build_lib_search_chain.exit ]
-  %130 = tail call { i64, ptr } @jv_copy(i64 %119, ptr %120) #11
-  %131 = extractvalue { i64, ptr } %130, 0
-  %132 = extractvalue { i64, ptr } %130, 1
-  %133 = tail call i32 @jv_array_length(i64 %131, ptr %132) #11
-  %.not14834 = icmp sgt i32 %133, 0
+jv_basename.exit:                                 ; preds = %build_lib_search_chain.exit, %124
+  %.pre-phi44 = phi ptr [ %121, %build_lib_search_chain.exit ], [ %.pre43, %124 ]
+  %.pre-phi = phi i64 [ %120, %build_lib_search_chain.exit ], [ %.pre42, %124 ]
+  %126 = tail call { i64, ptr } @jv_copy(i64 %117, ptr %118) #11
+  %127 = extractvalue { i64, ptr } %126, 0
+  %128 = extractvalue { i64, ptr } %126, 1
+  %129 = tail call i32 @jv_array_length(i64 %127, ptr %128) #11
+  %.not14834 = icmp sgt i32 %129, 0
   br i1 %.not14834, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %jv_basename.exit, %191
-  %.113835 = phi i32 [ %192, %191 ], [ 0, %jv_basename.exit ]
-  %134 = tail call { i64, ptr } @jv_copy(i64 %119, ptr %120) #11
-  %135 = extractvalue { i64, ptr } %134, 0
-  %136 = extractvalue { i64, ptr } %134, 1
-  %137 = tail call { i64, ptr } @jv_array_get(i64 %135, ptr %136, i32 noundef %.113835) #11
-  %138 = extractvalue { i64, ptr } %137, 0
-  %139 = extractvalue { i64, ptr } %137, 1
-  %140 = tail call i32 @jv_get_kind(i64 %138, ptr %139) #11
-  %141 = icmp eq i32 %140, 1
-  br i1 %141, label %142, label %143
+.lr.ph:                                           ; preds = %jv_basename.exit, %187
+  %.113835 = phi i32 [ %188, %187 ], [ 0, %jv_basename.exit ]
+  %130 = tail call { i64, ptr } @jv_copy(i64 %117, ptr %118) #11
+  %131 = extractvalue { i64, ptr } %130, 0
+  %132 = extractvalue { i64, ptr } %130, 1
+  %133 = tail call { i64, ptr } @jv_array_get(i64 %131, ptr %132, i32 noundef %.113835) #11
+  %134 = extractvalue { i64, ptr } %133, 0
+  %135 = extractvalue { i64, ptr } %133, 1
+  %136 = tail call i32 @jv_get_kind(i64 %134, ptr %135) #11
+  %137 = icmp eq i32 %136, 1
+  br i1 %137, label %138, label %139
 
-142:                                              ; preds = %.lr.ph
-  tail call void @jv_free(i64 %138, ptr %139) #11
+138:                                              ; preds = %.lr.ph
+  tail call void @jv_free(i64 %134, ptr %135) #11
   br label %.loopexit
 
-143:                                              ; preds = %.lr.ph
-  %144 = tail call i32 @jv_get_kind(i64 %138, ptr %139) #11
-  %.not149 = icmp eq i32 %144, 5
-  br i1 %.not149, label %145, label %191
+139:                                              ; preds = %.lr.ph
+  %140 = tail call i32 @jv_get_kind(i64 %134, ptr %135) #11
+  %.not149 = icmp eq i32 %140, 5
+  br i1 %.not149, label %141, label %187
 
-145:                                              ; preds = %143
-  %146 = tail call ptr @jv_string_value(i64 %138, ptr %139) #11
-  %strcmpload = load i8, ptr %146, align 1
-  %147 = icmp eq i8 %strcmpload, 0
-  br i1 %147, label %191, label %148
+141:                                              ; preds = %139
+  %142 = tail call ptr @jv_string_value(i64 %134, ptr %135) #11
+  %strcmpload = load i8, ptr %142, align 1
+  %143 = icmp eq i8 %strcmpload, 0
+  br i1 %143, label %187, label %144
 
-148:                                              ; preds = %145
-  %149 = tail call ptr @jv_string_value(i64 %138, ptr %139) #11
-  %150 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
-  %151 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.10, ptr noundef %149, ptr noundef %150, ptr noundef %4) #11
-  %152 = extractvalue { i64, ptr } %151, 0
-  %153 = extractvalue { i64, ptr } %151, 1
-  %154 = tail call { i64, ptr } @jq_realpath(i64 %152, ptr %153) #11
-  %155 = extractvalue { i64, ptr } %154, 0
-  %156 = extractvalue { i64, ptr } %154, 1
-  %157 = tail call ptr @jv_string_value(i64 %155, ptr %156) #11
-  %158 = call i32 @stat(ptr noundef %157, ptr noundef nonnull %6) #11
-  %159 = icmp eq i32 %158, -1
-  br i1 %159, label %160, label %.thread17
+144:                                              ; preds = %141
+  %145 = tail call ptr @jv_string_value(i64 %134, ptr %135) #11
+  %146 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
+  %147 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.10, ptr noundef %145, ptr noundef %146, ptr noundef %4) #11
+  %148 = extractvalue { i64, ptr } %147, 0
+  %149 = extractvalue { i64, ptr } %147, 1
+  %150 = tail call { i64, ptr } @jq_realpath(i64 %148, ptr %149) #11
+  %151 = extractvalue { i64, ptr } %150, 0
+  %152 = extractvalue { i64, ptr } %150, 1
+  %153 = tail call ptr @jv_string_value(i64 %151, ptr %152) #11
+  %154 = call i32 @stat(ptr noundef %153, ptr noundef nonnull %6) #11
+  %155 = icmp eq i32 %154, -1
+  br i1 %155, label %156, label %.thread17
 
-160:                                              ; preds = %148
-  %161 = tail call ptr @__errno_location() #13
-  %162 = load i32, ptr %161, align 4
-  %163 = icmp eq i32 %162, 2
-  br i1 %163, label %164, label %.thread21
+156:                                              ; preds = %144
+  %157 = tail call ptr @__errno_location() #13
+  %158 = load i32, ptr %157, align 4
+  %159 = icmp eq i32 %158, 2
+  br i1 %159, label %160, label %.thread21
 
-164:                                              ; preds = %160
-  tail call void @jv_free(i64 %155, ptr %156) #11
-  %165 = tail call ptr @jv_string_value(i64 %138, ptr %139) #11
-  %166 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
-  %167 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.11, ptr noundef %165, ptr noundef %166, ptr noundef nonnull @.str.12, ptr noundef %4) #11
-  %168 = extractvalue { i64, ptr } %167, 0
-  %169 = extractvalue { i64, ptr } %167, 1
-  %170 = tail call { i64, ptr } @jq_realpath(i64 %168, ptr %169) #11
-  %171 = extractvalue { i64, ptr } %170, 0
-  %172 = extractvalue { i64, ptr } %170, 1
-  %173 = tail call ptr @jv_string_value(i64 %171, ptr %172) #11
-  %174 = call i32 @stat(ptr noundef %173, ptr noundef nonnull %6) #11
-  %175 = icmp eq i32 %174, -1
-  br i1 %175, label %.thread11, label %.thread17
+160:                                              ; preds = %156
+  tail call void @jv_free(i64 %151, ptr %152) #11
+  %161 = tail call ptr @jv_string_value(i64 %134, ptr %135) #11
+  %162 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
+  %163 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.11, ptr noundef %161, ptr noundef %162, ptr noundef nonnull @.str.12, ptr noundef %4) #11
+  %164 = extractvalue { i64, ptr } %163, 0
+  %165 = extractvalue { i64, ptr } %163, 1
+  %166 = tail call { i64, ptr } @jq_realpath(i64 %164, ptr %165) #11
+  %167 = extractvalue { i64, ptr } %166, 0
+  %168 = extractvalue { i64, ptr } %166, 1
+  %169 = tail call ptr @jv_string_value(i64 %167, ptr %168) #11
+  %170 = call i32 @stat(ptr noundef %169, ptr noundef nonnull %6) #11
+  %171 = icmp eq i32 %170, -1
+  br i1 %171, label %.thread11, label %.thread17
 
-.thread11:                                        ; preds = %164
-  %.pre = load i32, ptr %161, align 4
-  %176 = icmp eq i32 %.pre, 2
-  br i1 %176, label %177, label %.thread21
+.thread11:                                        ; preds = %160
+  %.pre = load i32, ptr %157, align 4
+  %172 = icmp eq i32 %.pre, 2
+  br i1 %172, label %173, label %.thread21
 
-177:                                              ; preds = %.thread11
-  tail call void @jv_free(i64 %171, ptr %172) #11
-  %178 = tail call ptr @jv_string_value(i64 %138, ptr %139) #11
-  %179 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
-  %180 = tail call ptr @jv_string_value(i64 %.sroa.05.0.i, ptr %.sroa.3.0.i) #11
-  %181 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.11, ptr noundef %178, ptr noundef %179, ptr noundef %180, ptr noundef %4) #11
-  %182 = extractvalue { i64, ptr } %181, 0
-  %183 = extractvalue { i64, ptr } %181, 1
-  %184 = tail call { i64, ptr } @jq_realpath(i64 %182, ptr %183) #11
-  %185 = extractvalue { i64, ptr } %184, 0
-  %186 = extractvalue { i64, ptr } %184, 1
-  %187 = tail call ptr @jv_string_value(i64 %185, ptr %186) #11
-  %188 = call i32 @stat(ptr noundef %187, ptr noundef nonnull %6) #11
+173:                                              ; preds = %.thread11
+  tail call void @jv_free(i64 %167, ptr %168) #11
+  %174 = tail call ptr @jv_string_value(i64 %134, ptr %135) #11
+  %175 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
+  %176 = tail call ptr @jv_string_value(i64 %.pre-phi, ptr %.pre-phi44) #11
+  %177 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.11, ptr noundef %174, ptr noundef %175, ptr noundef %176, ptr noundef %4) #11
+  %178 = extractvalue { i64, ptr } %177, 0
+  %179 = extractvalue { i64, ptr } %177, 1
+  %180 = tail call { i64, ptr } @jq_realpath(i64 %178, ptr %179) #11
+  %181 = extractvalue { i64, ptr } %180, 0
+  %182 = extractvalue { i64, ptr } %180, 1
+  %183 = tail call ptr @jv_string_value(i64 %181, ptr %182) #11
+  %184 = call i32 @stat(ptr noundef %183, ptr noundef nonnull %6) #11
   br label %.thread17
 
-.thread17:                                        ; preds = %148, %177, %164
-  %.1 = phi i32 [ %188, %177 ], [ %174, %164 ], [ %158, %148 ]
-  %.sroa.0125.2 = phi i64 [ %185, %177 ], [ %171, %164 ], [ %155, %148 ]
-  %.sroa.15.2 = phi ptr [ %186, %177 ], [ %172, %164 ], [ %156, %148 ]
-  %189 = icmp eq i32 %.1, 0
-  br i1 %189, label %190, label %.thread21
+.thread17:                                        ; preds = %144, %173, %160
+  %.1 = phi i32 [ %184, %173 ], [ %170, %160 ], [ %154, %144 ]
+  %.sroa.0125.2 = phi i64 [ %181, %173 ], [ %167, %160 ], [ %151, %144 ]
+  %.sroa.15.2 = phi ptr [ %182, %173 ], [ %168, %160 ], [ %152, %144 ]
+  %.merged = phi { i64, ptr } [ %180, %173 ], [ %166, %160 ], [ %150, %144 ]
+  %185 = icmp eq i32 %.1, 0
+  br i1 %185, label %186, label %.thread21
 
-190:                                              ; preds = %.thread17
-  tail call void @jv_free(i64 %116, ptr %117) #11
+186:                                              ; preds = %.thread17
+  tail call void @jv_free(i64 %114, ptr %115) #11
   tail call void @jv_free(i64 %0, ptr %1) #11
-  tail call void @jv_free(i64 %119, ptr %120) #11
-  tail call void @jv_free(i64 %.sroa.05.0.i, ptr %.sroa.3.0.i) #11
-  tail call void @jv_free(i64 %138, ptr %139) #11
-  br label %208
+  tail call void @jv_free(i64 %117, ptr %118) #11
+  tail call void @jv_free(i64 %.pre-phi, ptr %.pre-phi44) #11
+  tail call void @jv_free(i64 %134, ptr %135) #11
+  br label %204
 
-.thread21:                                        ; preds = %160, %.thread11, %.thread17
-  %.sroa.15.226 = phi ptr [ %.sroa.15.2, %.thread17 ], [ %172, %.thread11 ], [ %156, %160 ]
-  %.sroa.0125.225 = phi i64 [ %.sroa.0125.2, %.thread17 ], [ %171, %.thread11 ], [ %155, %160 ]
+.thread21:                                        ; preds = %156, %.thread11, %.thread17
+  %.sroa.15.226 = phi ptr [ %.sroa.15.2, %.thread17 ], [ %168, %.thread11 ], [ %152, %156 ]
+  %.sroa.0125.225 = phi i64 [ %.sroa.0125.2, %.thread17 ], [ %167, %.thread11 ], [ %151, %156 ]
   tail call void @jv_free(i64 %.sroa.0125.225, ptr %.sroa.15.226) #11
-  br label %191
+  br label %187
 
-191:                                              ; preds = %143, %145, %.thread21
-  tail call void @jv_free(i64 %138, ptr %139) #11
-  %192 = add nuw nsw i32 %.113835, 1
-  %exitcond.not = icmp eq i32 %192, %133
+187:                                              ; preds = %139, %141, %.thread21
+  tail call void @jv_free(i64 %134, ptr %135) #11
+  %188 = add nuw nsw i32 %.113835, 1
+  %exitcond.not = icmp eq i32 %188, %129
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %191, %jv_basename.exit, %142
-  %193 = tail call i32 @jv_get_kind(i64 %116, ptr %117) #11
-  %.not = icmp eq i32 %193, 0
-  br i1 %.not, label %194, label %201
+.loopexit:                                        ; preds = %187, %jv_basename.exit, %138
+  %189 = tail call i32 @jv_get_kind(i64 %114, ptr %115) #11
+  %.not = icmp eq i32 %189, 0
+  br i1 %.not, label %190, label %197
 
-194:                                              ; preds = %.loopexit
-  %195 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %116, ptr %117) #11
-  %196 = extractvalue { i64, ptr } %195, 0
-  %197 = extractvalue { i64, ptr } %195, 1
+190:                                              ; preds = %.loopexit
+  %191 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %114, ptr %115) #11
+  %192 = extractvalue { i64, ptr } %191, 0
+  %193 = extractvalue { i64, ptr } %191, 1
+  %194 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
+  %195 = tail call ptr @jv_string_value(i64 %192, ptr %193) #11
+  %196 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.13, ptr noundef %194, ptr noundef %195) #11
+  br label %200
+
+197:                                              ; preds = %.loopexit
   %198 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
-  %199 = tail call ptr @jv_string_value(i64 %196, ptr %197) #11
-  %200 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.13, ptr noundef %198, ptr noundef %199) #11
-  br label %204
+  %199 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.14, ptr noundef %198) #11
+  br label %200
 
-201:                                              ; preds = %.loopexit
-  %202 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
-  %203 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.14, ptr noundef %202) #11
-  br label %204
-
-204:                                              ; preds = %201, %194
-  %.sink51 = phi { i64, ptr } [ %203, %201 ], [ %200, %194 ]
-  %.sroa.059.0 = phi i64 [ %116, %201 ], [ %196, %194 ]
-  %.sroa.7.0 = phi ptr [ %117, %201 ], [ %197, %194 ]
-  %205 = extractvalue { i64, ptr } %.sink51, 0
-  %206 = extractvalue { i64, ptr } %.sink51, 1
-  %207 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %205, ptr %206) #11
-  %.sroa.15.3 = extractvalue { i64, ptr } %207, 1
-  %.sroa.0125.3 = extractvalue { i64, ptr } %207, 0
+200:                                              ; preds = %197, %190
+  %.sink54 = phi { i64, ptr } [ %199, %197 ], [ %196, %190 ]
+  %.sroa.059.0 = phi i64 [ %114, %197 ], [ %192, %190 ]
+  %.sroa.7.0 = phi ptr [ %115, %197 ], [ %193, %190 ]
+  %201 = extractvalue { i64, ptr } %.sink54, 0
+  %202 = extractvalue { i64, ptr } %.sink54, 1
+  %203 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %201, ptr %202) #11
   tail call void @jv_free(i64 %.sroa.059.0, ptr %.sroa.7.0) #11
   tail call void @jv_free(i64 %0, ptr %1) #11
-  tail call void @jv_free(i64 %119, ptr %120) #11
-  tail call void @jv_free(i64 %.sroa.05.0.i, ptr %.sroa.3.0.i) #11
-  br label %208
+  tail call void @jv_free(i64 %117, ptr %118) #11
+  tail call void @jv_free(i64 %.pre-phi, ptr %.pre-phi44) #11
+  br label %204
 
-208:                                              ; preds = %204, %190, %20, %11, %8
-  %.sroa.0125.0 = phi i64 [ %16, %11 ], [ %25, %20 ], [ %.sroa.0125.2, %190 ], [ %.sroa.0125.3, %204 ], [ %0, %8 ]
-  %.sroa.15.0 = phi ptr [ %17, %11 ], [ %26, %20 ], [ %.sroa.15.2, %190 ], [ %.sroa.15.3, %204 ], [ %1, %8 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0125.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.15.0, 1
-  ret { i64, ptr } %.fca.1.insert
+204:                                              ; preds = %200, %186, %20, %13, %8
+  %.fca.1.insert.merged = phi { i64, ptr } [ %17, %13 ], [ %24, %20 ], [ %.merged, %186 ], [ %203, %200 ], [ %10, %8 ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nounwind uwtable
@@ -552,113 +537,106 @@ define internal fastcc { i64, ptr } @validate_relpath(i64 %0, ptr %1) unnamed_ad
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %9 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %7, ptr %8) #11
-  %10 = extractvalue { i64, ptr } %9, 0
-  %11 = extractvalue { i64, ptr } %9, 1
   tail call void @jv_free(i64 %0, ptr %1) #11
-  br label %67
+  br label %63
 
 .preheader:                                       ; preds = %2
-  %12 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #11
-  %13 = extractvalue { i64, ptr } %12, 0
-  %14 = extractvalue { i64, ptr } %12, 1
-  %15 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.20) #11
-  %16 = extractvalue { i64, ptr } %15, 0
-  %17 = extractvalue { i64, ptr } %15, 1
-  %18 = tail call { i64, ptr } @jv_string_split(i64 %13, ptr %14, i64 %16, ptr %17) #11
-  %19 = extractvalue { i64, ptr } %18, 0
-  %20 = extractvalue { i64, ptr } %18, 1
-  %21 = tail call { i64, ptr } @jv_copy(i64 %19, ptr %20) #11
-  %22 = extractvalue { i64, ptr } %21, 0
-  %23 = extractvalue { i64, ptr } %21, 1
-  %24 = tail call i32 @jv_array_length(i64 %22, ptr %23) #11
-  %.not6476 = icmp sgt i32 %24, 0
+  %10 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #11
+  %11 = extractvalue { i64, ptr } %10, 0
+  %12 = extractvalue { i64, ptr } %10, 1
+  %13 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.20) #11
+  %14 = extractvalue { i64, ptr } %13, 0
+  %15 = extractvalue { i64, ptr } %13, 1
+  %16 = tail call { i64, ptr } @jv_string_split(i64 %11, ptr %12, i64 %14, ptr %15) #11
+  %17 = extractvalue { i64, ptr } %16, 0
+  %18 = extractvalue { i64, ptr } %16, 1
+  %19 = tail call { i64, ptr } @jv_copy(i64 %17, ptr %18) #11
+  %20 = extractvalue { i64, ptr } %19, 0
+  %21 = extractvalue { i64, ptr } %19, 1
+  %22 = tail call i32 @jv_array_length(i64 %20, ptr %21) #11
+  %.not6476 = icmp sgt i32 %22, 0
   br i1 %.not6476, label %sub_0, label %.loopexit
 
-sub_0:                                            ; preds = %.preheader, %65
-  %.177 = phi i32 [ %66, %65 ], [ 0, %.preheader ]
-  %25 = tail call { i64, ptr } @jv_copy(i64 %19, ptr %20) #11
-  %26 = extractvalue { i64, ptr } %25, 0
-  %27 = extractvalue { i64, ptr } %25, 1
-  %28 = tail call { i64, ptr } @jv_array_get(i64 %26, ptr %27, i32 noundef %.177) #11
-  %29 = extractvalue { i64, ptr } %28, 0
-  %30 = extractvalue { i64, ptr } %28, 1
-  %31 = tail call ptr @jv_string_value(i64 %29, ptr %30) #11
-  %32 = load i8, ptr %31, align 1
-  %.not79 = icmp eq i8 %32, 46
+sub_0:                                            ; preds = %.preheader, %59
+  %.177 = phi i32 [ %60, %59 ], [ 0, %.preheader ]
+  %23 = tail call { i64, ptr } @jv_copy(i64 %17, ptr %18) #11
+  %24 = extractvalue { i64, ptr } %23, 0
+  %25 = extractvalue { i64, ptr } %23, 1
+  %26 = tail call { i64, ptr } @jv_array_get(i64 %24, ptr %25, i32 noundef %.177) #11
+  %27 = extractvalue { i64, ptr } %26, 0
+  %28 = extractvalue { i64, ptr } %26, 1
+  %29 = tail call ptr @jv_string_value(i64 %27, ptr %28) #11
+  %30 = load i8, ptr %29, align 1
+  %.not79 = icmp eq i8 %30, 46
   br i1 %.not79, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %33 = getelementptr inbounds i8, ptr %31, i64 1
-  %34 = load i8, ptr %33, align 1
-  %.not80 = icmp eq i8 %34, 46
+  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %32 = load i8, ptr %31, align 1
+  %.not80 = icmp eq i8 %32, 46
   br i1 %.not80, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %35 = getelementptr inbounds i8, ptr %31, i64 2
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %38, label %.tail.thread
+  %33 = getelementptr inbounds i8, ptr %29, i64 2
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %36, label %.tail.thread
 
-38:                                               ; preds = %.tail
-  tail call void @jv_free(i64 %29, ptr %30) #11
-  tail call void @jv_free(i64 %19, ptr %20) #11
-  %39 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.22, ptr noundef %3) #11
-  %40 = extractvalue { i64, ptr } %39, 0
-  %41 = extractvalue { i64, ptr } %39, 1
-  %42 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %40, ptr %41) #11
-  %43 = extractvalue { i64, ptr } %42, 0
-  %44 = extractvalue { i64, ptr } %42, 1
+36:                                               ; preds = %.tail
+  tail call void @jv_free(i64 %27, ptr %28) #11
+  tail call void @jv_free(i64 %17, ptr %18) #11
+  %37 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.22, ptr noundef %3) #11
+  %38 = extractvalue { i64, ptr } %37, 0
+  %39 = extractvalue { i64, ptr } %37, 1
+  %40 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %38, ptr %39) #11
   tail call void @jv_free(i64 %0, ptr %1) #11
-  br label %67
+  br label %63
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   %.not81 = icmp eq i32 %.177, 0
-  br i1 %.not81, label %65, label %45
+  br i1 %.not81, label %59, label %41
 
-45:                                               ; preds = %.tail.thread
-  %46 = tail call { i64, ptr } @jv_copy(i64 %29, ptr %30) #11
-  %47 = extractvalue { i64, ptr } %46, 0
-  %48 = extractvalue { i64, ptr } %46, 1
-  %49 = tail call { i64, ptr } @jv_copy(i64 %19, ptr %20) #11
+41:                                               ; preds = %.tail.thread
+  %42 = tail call { i64, ptr } @jv_copy(i64 %27, ptr %28) #11
+  %43 = extractvalue { i64, ptr } %42, 0
+  %44 = extractvalue { i64, ptr } %42, 1
+  %45 = tail call { i64, ptr } @jv_copy(i64 %17, ptr %18) #11
+  %46 = extractvalue { i64, ptr } %45, 0
+  %47 = extractvalue { i64, ptr } %45, 1
+  %48 = add nsw i32 %.177, -1
+  %49 = tail call { i64, ptr } @jv_array_get(i64 %46, ptr %47, i32 noundef %48) #11
   %50 = extractvalue { i64, ptr } %49, 0
   %51 = extractvalue { i64, ptr } %49, 1
-  %52 = add nsw i32 %.177, -1
-  %53 = tail call { i64, ptr } @jv_array_get(i64 %50, ptr %51, i32 noundef %52) #11
-  %54 = extractvalue { i64, ptr } %53, 0
-  %55 = extractvalue { i64, ptr } %53, 1
-  %56 = tail call i32 @jv_equal(i64 %47, ptr %48, i64 %54, ptr %55) #11
-  %.not66 = icmp eq i32 %56, 0
-  br i1 %.not66, label %65, label %57
+  %52 = tail call i32 @jv_equal(i64 %43, ptr %44, i64 %50, ptr %51) #11
+  %.not66 = icmp eq i32 %52, 0
+  br i1 %.not66, label %59, label %53
 
-57:                                               ; preds = %45
-  tail call void @jv_free(i64 %29, ptr %30) #11
-  tail call void @jv_free(i64 %19, ptr %20) #11
-  %58 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
-  %59 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.23, ptr noundef %58) #11
-  %60 = extractvalue { i64, ptr } %59, 0
-  %61 = extractvalue { i64, ptr } %59, 1
-  %62 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %60, ptr %61) #11
-  %63 = extractvalue { i64, ptr } %62, 0
-  %64 = extractvalue { i64, ptr } %62, 1
+53:                                               ; preds = %41
+  tail call void @jv_free(i64 %27, ptr %28) #11
+  tail call void @jv_free(i64 %17, ptr %18) #11
+  %54 = tail call ptr @jv_string_value(i64 %0, ptr %1) #11
+  %55 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.23, ptr noundef %54) #11
+  %56 = extractvalue { i64, ptr } %55, 0
+  %57 = extractvalue { i64, ptr } %55, 1
+  %58 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %56, ptr %57) #11
   tail call void @jv_free(i64 %0, ptr %1) #11
-  br label %67
+  br label %63
 
-65:                                               ; preds = %45, %.tail.thread
-  tail call void @jv_free(i64 %29, ptr %30) #11
-  %66 = add nuw nsw i32 %.177, 1
-  %exitcond.not = icmp eq i32 %66, %24
+59:                                               ; preds = %41, %.tail.thread
+  tail call void @jv_free(i64 %27, ptr %28) #11
+  %60 = add nuw nsw i32 %.177, 1
+  %exitcond.not = icmp eq i32 %60, %22
   br i1 %exitcond.not, label %.loopexit, label %sub_0, !llvm.loop !7
 
-.loopexit:                                        ; preds = %65, %.preheader
-  tail call void @jv_free(i64 %19, ptr %20) #11
-  br label %67
+.loopexit:                                        ; preds = %59, %.preheader
+  tail call void @jv_free(i64 %17, ptr %18) #11
+  %61 = insertvalue { i64, ptr } poison, i64 %0, 0
+  %62 = insertvalue { i64, ptr } %61, ptr %1, 1
+  br label %63
 
-67:                                               ; preds = %.loopexit, %57, %38, %5
-  %.sroa.060.0 = phi i64 [ %10, %5 ], [ %63, %57 ], [ %43, %38 ], [ %0, %.loopexit ]
-  %.sroa.5.0 = phi ptr [ %11, %5 ], [ %64, %57 ], [ %44, %38 ], [ %1, %.loopexit ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.060.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %.fca.1.insert
+63:                                               ; preds = %.loopexit, %53, %36, %5
+  %.fca.1.insert.merged = phi { i64, ptr } [ %9, %5 ], [ %58, %53 ], [ %40, %36 ], [ %62, %.loopexit ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 declare { i64, ptr } @jq_get_lib_dirs(ptr noundef) local_unnamed_addr #1
@@ -940,8 +918,8 @@ define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2,
   %.0152.ph197 = phi i32 [ %16, %.lr.ph.lr.ph ], [ %23, %.outer ]
   br label %22
 
-22:                                               ; preds = %.lr.ph, %131
-  %.0152189 = phi i32 [ %.0152.ph197, %.lr.ph ], [ %23, %131 ]
+22:                                               ; preds = %.lr.ph, %129
+  %.0152189 = phi i32 [ %.0152.ph197, %.lr.ph ], [ %23, %129 ]
   %23 = add nsw i32 %.0152189, -1
   %24 = tail call { i64, ptr } @jv_copy(i64 %11, ptr %12) #11
   %25 = extractvalue { i64, ptr } %24, 0
@@ -1021,7 +999,7 @@ define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2,
   %92 = extractvalue { i64, ptr } %90, 1
   %93 = tail call i32 @jv_get_kind(i64 %91, ptr %92) #11
   %.not18.i = icmp eq i32 %93, 0
-  br i1 %.not18.i, label %94, label %110
+  br i1 %.not18.i, label %94, label %108
 
 94:                                               ; preds = %86
   tail call void @jv_free(i64 %91, ptr %92) #11
@@ -1038,163 +1016,160 @@ define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2,
   %105 = extractvalue { i64, ptr } %104, 0
   %106 = extractvalue { i64, ptr } %104, 1
   %107 = tail call { i64, ptr } @jv_array_concat(i64 %102, ptr %103, i64 %105, ptr %106) #11
-  %108 = extractvalue { i64, ptr } %107, 0
-  %109 = extractvalue { i64, ptr } %107, 1
   br label %default_search.exit
 
-110:                                              ; preds = %86
-  %111 = tail call i32 @jv_get_kind(i64 %91, ptr %92) #11
-  %.not17.i = icmp eq i32 %111, 6
-  br i1 %.not17.i, label %default_search.exit, label %112
+108:                                              ; preds = %86
+  %109 = tail call i32 @jv_get_kind(i64 %91, ptr %92) #11
+  %.not17.i = icmp eq i32 %109, 6
+  br i1 %.not17.i, label %default_search.exit, label %110
 
-112:                                              ; preds = %110
-  %113 = tail call { i64, ptr } @jv_array() #11
-  %114 = extractvalue { i64, ptr } %113, 0
-  %115 = extractvalue { i64, ptr } %113, 1
-  %116 = tail call { i64, ptr } @jv_array_append(i64 %114, ptr %115, i64 %91, ptr %92) #11
-  %117 = extractvalue { i64, ptr } %116, 0
-  %118 = extractvalue { i64, ptr } %116, 1
+110:                                              ; preds = %108
+  %111 = tail call { i64, ptr } @jv_array() #11
+  %112 = extractvalue { i64, ptr } %111, 0
+  %113 = extractvalue { i64, ptr } %111, 1
+  %114 = tail call { i64, ptr } @jv_array_append(i64 %112, ptr %113, i64 %91, ptr %92) #11
   br label %default_search.exit
 
-default_search.exit:                              ; preds = %94, %110, %112
-  %.sroa.016.0.i = phi i64 [ %117, %112 ], [ %108, %94 ], [ %91, %110 ]
-  %.sroa.4.0.i = phi ptr [ %118, %112 ], [ %109, %94 ], [ %92, %110 ]
-  %119 = select i1 %40, ptr @.str.28, ptr @.str
-  %120 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #11
-  %121 = extractvalue { i64, ptr } %120, 0
-  %122 = extractvalue { i64, ptr } %120, 1
-  %123 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #11
-  %124 = extractvalue { i64, ptr } %123, 0
-  %125 = extractvalue { i64, ptr } %123, 1
-  %126 = tail call fastcc { i64, ptr } @find_lib(i64 %71, ptr %72, i64 %.sroa.016.0.i, ptr %.sroa.4.0.i, ptr noundef nonnull %119, i64 %121, ptr %122, i64 %124, ptr %125)
-  %127 = extractvalue { i64, ptr } %126, 0
-  %128 = extractvalue { i64, ptr } %126, 1
-  %129 = tail call i32 @jv_get_kind(i64 %127, ptr %128) #11
-  %.not167 = icmp eq i32 %129, 0
-  br i1 %.not167, label %130, label %141
+default_search.exit:                              ; preds = %108, %94, %110
+  %.fca.1.insert.merged.i = phi { i64, ptr } [ %114, %110 ], [ %107, %94 ], [ %90, %108 ]
+  %115 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 0
+  %116 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 1
+  %117 = select i1 %40, ptr @.str.28, ptr @.str
+  %118 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #11
+  %119 = extractvalue { i64, ptr } %118, 0
+  %120 = extractvalue { i64, ptr } %118, 1
+  %121 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #11
+  %122 = extractvalue { i64, ptr } %121, 0
+  %123 = extractvalue { i64, ptr } %121, 1
+  %124 = tail call fastcc { i64, ptr } @find_lib(i64 %71, ptr %72, i64 %115, ptr %116, ptr noundef nonnull %117, i64 %119, ptr %120, i64 %122, ptr %123)
+  %125 = extractvalue { i64, ptr } %124, 0
+  %126 = extractvalue { i64, ptr } %124, 1
+  %127 = tail call i32 @jv_get_kind(i64 %125, ptr %126) #11
+  %.not167 = icmp eq i32 %127, 0
+  br i1 %.not167, label %128, label %139
 
-130:                                              ; preds = %default_search.exit
+128:                                              ; preds = %default_search.exit
   tail call void @jv_free(i64 %80, ptr %81) #11
-  br i1 %.not161, label %131, label %133
+  br i1 %.not161, label %129, label %131
 
-131:                                              ; preds = %130
-  tail call void @jv_free(i64 %127, ptr %128) #11
-  %132 = icmp samesign ugt i32 %.0152189, 1
-  br i1 %132, label %22, label %.outer._crit_edge, !llvm.loop !9
+129:                                              ; preds = %128
+  tail call void @jv_free(i64 %125, ptr %126) #11
+  %130 = icmp samesign ugt i32 %.0152189, 1
+  br i1 %130, label %22, label %.outer._crit_edge, !llvm.loop !9
 
-133:                                              ; preds = %130
-  %134 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %127, ptr %128) #11
-  %135 = extractvalue { i64, ptr } %134, 0
-  %136 = extractvalue { i64, ptr } %134, 1
-  %137 = tail call ptr @jv_string_value(i64 %135, ptr %136) #11
-  %138 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.29, ptr noundef %137) #11
-  %139 = extractvalue { i64, ptr } %138, 0
-  %140 = extractvalue { i64, ptr } %138, 1
-  tail call void @jq_report_error(ptr noundef %0, i64 %139, ptr %140) #11
-  tail call void @jv_free(i64 %135, ptr %136) #11
+131:                                              ; preds = %128
+  %132 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %125, ptr %126) #11
+  %133 = extractvalue { i64, ptr } %132, 0
+  %134 = extractvalue { i64, ptr } %132, 1
+  %135 = tail call ptr @jv_string_value(i64 %133, ptr %134) #11
+  %136 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.29, ptr noundef %135) #11
+  %137 = extractvalue { i64, ptr } %136, 0
+  %138 = extractvalue { i64, ptr } %136, 1
+  tail call void @jq_report_error(ptr noundef %0, i64 %137, ptr %138) #11
+  tail call void @jv_free(i64 %133, ptr %134) #11
   tail call void @jv_free(i64 %11, ptr %12) #11
   tail call void @jv_free(i64 %1, ptr %2) #11
   tail call void @jv_free(i64 %3, ptr %4) #11
-  br label %190
+  br label %188
 
-141:                                              ; preds = %default_search.exit
-  %142 = zext i1 %40 to i32
-  %143 = icmp eq i32 %50, 3
-  %spec.select.le = zext i1 %143 to i32
+139:                                              ; preds = %default_search.exit
+  %140 = zext i1 %40 to i32
+  %141 = icmp eq i32 %50, 3
+  %spec.select.le = zext i1 %141 to i32
   %.0155.le = zext i1 %.not161 to i32
-  br i1 %40, label %145, label %.preheader
+  br i1 %40, label %143, label %.preheader
 
-.preheader:                                       ; preds = %141
-  %144 = load i64, ptr %18, align 8
-  %.not = icmp eq i64 %144, 0
+.preheader:                                       ; preds = %139
+  %142 = load i64, ptr %18, align 8
+  %.not = icmp eq i64 %142, 0
   br i1 %.not, label %._crit_edge193.thread, label %.lr.ph192
 
-145:                                              ; preds = %141
-  %146 = call fastcc i32 @load_library(ptr noundef %0, i64 %127, ptr %128, i32 noundef %142, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef %8, ptr noundef %6)
-  %147 = add nsw i32 %146, %.0150.ph198
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %149, label %.outer
+143:                                              ; preds = %139
+  %144 = call fastcc i32 @load_library(ptr noundef %0, i64 %125, ptr %126, i32 noundef %140, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef %8, ptr noundef %6)
+  %145 = add nsw i32 %144, %.0150.ph198
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %147, label %.outer
 
-149:                                              ; preds = %145
-  %150 = load ptr, ptr %8, align 8
-  %151 = load ptr, ptr %21, align 8
-  %152 = tail call { ptr, ptr } @block_bind_library(ptr %150, ptr %151, ptr %.sroa.0110.0.ph199, ptr %.sroa.9.0.ph200, i32 noundef 128, ptr noundef %.0153) #11
-  %153 = extractvalue { ptr, ptr } %152, 0
-  %154 = extractvalue { ptr, ptr } %152, 1
-  %155 = tail call { ptr, ptr } @block_bind_library(ptr %150, ptr %151, ptr %153, ptr %154, i32 noundef 128, ptr noundef null) #11
-  %156 = extractvalue { ptr, ptr } %155, 0
-  %157 = extractvalue { ptr, ptr } %155, 1
+147:                                              ; preds = %143
+  %148 = load ptr, ptr %8, align 8
+  %149 = load ptr, ptr %21, align 8
+  %150 = tail call { ptr, ptr } @block_bind_library(ptr %148, ptr %149, ptr %.sroa.0110.0.ph199, ptr %.sroa.9.0.ph200, i32 noundef 128, ptr noundef %.0153) #11
+  %151 = extractvalue { ptr, ptr } %150, 0
+  %152 = extractvalue { ptr, ptr } %150, 1
+  %153 = tail call { ptr, ptr } @block_bind_library(ptr %148, ptr %149, ptr %151, ptr %152, i32 noundef 128, ptr noundef null) #11
+  %154 = extractvalue { ptr, ptr } %153, 0
+  %155 = extractvalue { ptr, ptr } %153, 1
   br label %.outer
 
-.lr.ph192:                                        ; preds = %.preheader, %164
-  %.0151191 = phi i64 [ %165, %164 ], [ 0, %.preheader ]
-  %158 = load ptr, ptr %6, align 8
-  %159 = getelementptr inbounds ptr, ptr %158, i64 %.0151191
-  %160 = load ptr, ptr %159, align 8
-  %161 = tail call ptr @jv_string_value(i64 %127, ptr %128) #11
-  %162 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(1) %161) #12
-  %163 = icmp eq i32 %162, 0
+.lr.ph192:                                        ; preds = %.preheader, %162
+  %.0151191 = phi i64 [ %163, %162 ], [ 0, %.preheader ]
+  %156 = load ptr, ptr %6, align 8
+  %157 = getelementptr inbounds ptr, ptr %156, i64 %.0151191
+  %158 = load ptr, ptr %157, align 8
+  %159 = tail call ptr @jv_string_value(i64 %125, ptr %126) #11
+  %160 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) %159) #12
+  %161 = icmp eq i32 %160, 0
   %.pre.pre = load i64, ptr %18, align 8
-  br i1 %163, label %._crit_edge193, label %164
+  br i1 %161, label %._crit_edge193, label %162
 
-164:                                              ; preds = %.lr.ph192
-  %165 = add nuw i64 %.0151191, 1
-  %166 = icmp ult i64 %165, %.pre.pre
-  br i1 %166, label %.lr.ph192, label %._crit_edge193, !llvm.loop !10
+162:                                              ; preds = %.lr.ph192
+  %163 = add nuw i64 %.0151191, 1
+  %164 = icmp ult i64 %163, %.pre.pre
+  br i1 %164, label %.lr.ph192, label %._crit_edge193, !llvm.loop !10
 
-._crit_edge193:                                   ; preds = %164, %.lr.ph192
-  %.0151.lcssa = phi i64 [ %165, %164 ], [ %.0151191, %.lr.ph192 ]
-  %167 = icmp ult i64 %.0151.lcssa, %.pre.pre
-  br i1 %167, label %168, label %._crit_edge193.thread
+._crit_edge193:                                   ; preds = %162, %.lr.ph192
+  %.0151.lcssa = phi i64 [ %163, %162 ], [ %.0151191, %.lr.ph192 ]
+  %165 = icmp ult i64 %.0151.lcssa, %.pre.pre
+  br i1 %165, label %166, label %._crit_edge193.thread
 
-168:                                              ; preds = %._crit_edge193
-  tail call void @jv_free(i64 %127, ptr %128) #11
-  %169 = load ptr, ptr %20, align 8
-  %170 = getelementptr inbounds %struct.block, ptr %169, i64 %.0151.lcssa
+166:                                              ; preds = %._crit_edge193
+  tail call void @jv_free(i64 %125, ptr %126) #11
+  %167 = load ptr, ptr %20, align 8
+  %168 = getelementptr inbounds %struct.block, ptr %167, i64 %.0151.lcssa
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds i8, ptr %168, i64 8
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %170, i64 8
-  %173 = load ptr, ptr %172, align 8
-  %174 = tail call { ptr, ptr } @block_bind_library(ptr %171, ptr %173, ptr %.sroa.0110.0.ph199, ptr %.sroa.9.0.ph200, i32 noundef 128, ptr noundef %.0153) #11
-  %175 = extractvalue { ptr, ptr } %174, 0
-  %176 = extractvalue { ptr, ptr } %174, 1
+  %172 = tail call { ptr, ptr } @block_bind_library(ptr %169, ptr %171, ptr %.sroa.0110.0.ph199, ptr %.sroa.9.0.ph200, i32 noundef 128, ptr noundef %.0153) #11
+  %173 = extractvalue { ptr, ptr } %172, 0
+  %174 = extractvalue { ptr, ptr } %172, 1
   br label %.outer
 
 ._crit_edge193.thread:                            ; preds = %.preheader, %._crit_edge193
-  %177 = tail call { ptr, ptr } (...) @gen_noop() #11
-  %178 = extractvalue { ptr, ptr } %177, 0
-  store ptr %178, ptr %9, align 8
-  %179 = extractvalue { ptr, ptr } %177, 1
-  store ptr %179, ptr %19, align 8
-  %180 = call fastcc i32 @load_library(ptr noundef %0, i64 %127, ptr %128, i32 noundef %142, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef %9, ptr noundef %6)
-  %181 = add nsw i32 %180, %.0150.ph198
-  %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %.outer
+  %175 = tail call { ptr, ptr } (...) @gen_noop() #11
+  %176 = extractvalue { ptr, ptr } %175, 0
+  store ptr %176, ptr %9, align 8
+  %177 = extractvalue { ptr, ptr } %175, 1
+  store ptr %177, ptr %19, align 8
+  %178 = call fastcc i32 @load_library(ptr noundef %0, i64 %125, ptr %126, i32 noundef %140, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef %9, ptr noundef %6)
+  %179 = add nsw i32 %178, %.0150.ph198
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %181, label %.outer
 
-183:                                              ; preds = %._crit_edge193.thread
-  %184 = load ptr, ptr %9, align 8
-  %185 = load ptr, ptr %19, align 8
-  %186 = tail call { ptr, ptr } @block_bind_library(ptr %184, ptr %185, ptr %.sroa.0110.0.ph199, ptr %.sroa.9.0.ph200, i32 noundef 128, ptr noundef %.0153) #11
-  %187 = extractvalue { ptr, ptr } %186, 0
-  %188 = extractvalue { ptr, ptr } %186, 1
+181:                                              ; preds = %._crit_edge193.thread
+  %182 = load ptr, ptr %9, align 8
+  %183 = load ptr, ptr %19, align 8
+  %184 = tail call { ptr, ptr } @block_bind_library(ptr %182, ptr %183, ptr %.sroa.0110.0.ph199, ptr %.sroa.9.0.ph200, i32 noundef 128, ptr noundef %.0153) #11
+  %185 = extractvalue { ptr, ptr } %184, 0
+  %186 = extractvalue { ptr, ptr } %184, 1
   br label %.outer
 
-.outer:                                           ; preds = %168, %183, %._crit_edge193.thread, %145, %149
-  %.1 = phi i32 [ 0, %149 ], [ %147, %145 ], [ %.0150.ph198, %168 ], [ 0, %183 ], [ %181, %._crit_edge193.thread ]
-  %.sroa.0110.1 = phi ptr [ %156, %149 ], [ %.sroa.0110.0.ph199, %145 ], [ %175, %168 ], [ %187, %183 ], [ %.sroa.0110.0.ph199, %._crit_edge193.thread ]
-  %.sroa.9.1 = phi ptr [ %157, %149 ], [ %.sroa.9.0.ph200, %145 ], [ %176, %168 ], [ %188, %183 ], [ %.sroa.9.0.ph200, %._crit_edge193.thread ]
+.outer:                                           ; preds = %166, %181, %._crit_edge193.thread, %143, %147
+  %.1 = phi i32 [ 0, %147 ], [ %145, %143 ], [ %.0150.ph198, %166 ], [ 0, %181 ], [ %179, %._crit_edge193.thread ]
+  %.sroa.0110.1 = phi ptr [ %154, %147 ], [ %.sroa.0110.0.ph199, %143 ], [ %173, %166 ], [ %185, %181 ], [ %.sroa.0110.0.ph199, %._crit_edge193.thread ]
+  %.sroa.9.1 = phi ptr [ %155, %147 ], [ %.sroa.9.0.ph200, %143 ], [ %174, %166 ], [ %186, %181 ], [ %.sroa.9.0.ph200, %._crit_edge193.thread ]
   tail call void @jv_free(i64 %80, ptr %81) #11
-  %189 = icmp sgt i32 %.0152189, 1
-  br i1 %189, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !9
+  %187 = icmp sgt i32 %.0152189, 1
+  br i1 %187, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !9
 
-.outer._crit_edge:                                ; preds = %.outer, %131, %7
-  %.0150.ph.lcssa185 = phi i32 [ 0, %7 ], [ %.0150.ph198, %131 ], [ %.1, %.outer ]
+.outer._crit_edge:                                ; preds = %.outer, %129, %7
+  %.0150.ph.lcssa185 = phi i32 [ 0, %7 ], [ %.0150.ph198, %129 ], [ %.1, %.outer ]
   tail call void @jv_free(i64 %3, ptr %4) #11
   tail call void @jv_free(i64 %1, ptr %2) #11
   tail call void @jv_free(i64 %11, ptr %12) #11
-  br label %190
+  br label %188
 
-190:                                              ; preds = %.outer._crit_edge, %133
-  %.0 = phi i32 [ 1, %133 ], [ %.0150.ph.lcssa185, %.outer._crit_edge ]
+188:                                              ; preds = %.outer._crit_edge, %131
+  %.0 = phi i32 [ 1, %131 ], [ %.0150.ph.lcssa185, %.outer._crit_edge ]
   ret i32 %.0
 }
 

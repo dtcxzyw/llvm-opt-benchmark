@@ -1152,13 +1152,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_118WriteFilesArgumentERSoRKSt17basi
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %16 = getelementptr inbounds i8, ptr %5, i64 16
   %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.2.0..sroa_idx.i7.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.2.0..sroa_idx.i6.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %18 = getelementptr inbounds i8, ptr %5, i64 40
   %19 = getelementptr inbounds i8, ptr %5, i64 48
   %20 = getelementptr inbounds i8, ptr %7, i64 8
   %21 = getelementptr inbounds i8, ptr %7, i64 24
   %22 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.2.0..sroa_idx.i16.i.i.i = getelementptr inbounds i8, ptr %5, i64 56
+  %.sroa.2.0..sroa_idx.i14.i.i.i = getelementptr inbounds i8, ptr %5, i64 56
   %23 = getelementptr inbounds i8, ptr %5, i64 64
   %24 = getelementptr inbounds i8, ptr %9, i64 32
   %25 = icmp sgt i32 %3, 0
@@ -1191,14 +1191,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_118WriteFilesArgumentERSoRKSt17basi
   %31 = extractvalue { i64, ptr } %30, 0
   %32 = extractvalue { i64, ptr } %30, 1
   store i64 %31, ptr %17, align 8, !alias.scope !16, !noalias !10
-  store ptr %32, ptr %.sroa.2.0..sroa_idx.i7.i.i.i, align 8, !alias.scope !16, !noalias !10
+  store ptr %32, ptr %.sroa.2.0..sroa_idx.i6.i.i.i, align 8, !alias.scope !16, !noalias !10
   store ptr %8, ptr %18, align 8, !alias.scope !16, !noalias !10
   store ptr null, ptr %7, align 8, !noalias !10
   store i64 1, ptr %20, align 8, !noalias !10
   store ptr %21, ptr %22, align 8, !noalias !10
   store i8 34, ptr %21, align 8, !noalias !10
   store i64 1, ptr %19, align 8, !alias.scope !20, !noalias !10
-  store ptr %21, ptr %.sroa.2.0..sroa_idx.i16.i.i.i, align 8, !alias.scope !20, !noalias !10
+  store ptr %21, ptr %.sroa.2.0..sroa_idx.i14.i.i.i, align 8, !alias.scope !20, !noalias !10
   store ptr null, ptr %23, align 8, !alias.scope !20, !noalias !10
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr nonnull %5, i64 3)
           to label %"_ZZN12_GLOBAL__N_118WriteFilesArgumentERSoRKSt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorISt10unique_ptrIN29cmInstallRuntimeDependencySet4ItemESt14default_deleteISA_EESaISD_EERKNSt7__cxx1112basic_stringIcS3_SaIcEEE23cmScriptGeneratorIndentENK3$_0clB5cxx11ERKSD_.exit.i" unwind label %33

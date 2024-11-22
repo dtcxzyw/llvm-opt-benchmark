@@ -975,7 +975,7 @@ define linkonce_odr noundef ptr @_ZN5mmu_t13refill_icacheEmP14icache_entry_t(ptr
   %13 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, %10
-  br i1 %15, label %16, label %19
+  br i1 %15, label %16, label %21
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %0, i64 32912
@@ -983,253 +983,254 @@ define linkonce_odr noundef ptr @_ZN5mmu_t13refill_icacheEmP14icache_entry_t(ptr
   %.sroa.0.0.copyload.i = load ptr, ptr %18, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload.i, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0.copyload.i, 1
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
-19:                                               ; preds = %9
-  %20 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1)
-  %21 = extractvalue { ptr, i64 } %20, 0
-  %22 = extractvalue { ptr, i64 } %20, 1
+21:                                               ; preds = %9
+  %22 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1)
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
-_ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %16, %19
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %16 ], [ %21, %19 ]
-  %.sroa.3.0.i = phi i64 [ %.sroa.3.0.copyload.i, %16 ], [ %22, %19 ]
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %1
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i64
-  %26 = and i64 %25, 3
-  %.not36 = icmp eq i64 %26, 3
-  br i1 %.not36, label %27, label %.thread56
+_ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %16, %21
+  %.fca.1.insert.merged.i = phi { ptr, i64 } [ %20, %16 ], [ %22, %21 ]
+  %23 = extractvalue { ptr, i64 } %.fca.1.insert.merged.i, 0
+  %24 = extractvalue { ptr, i64 } %.fca.1.insert.merged.i, 1
+  %25 = getelementptr inbounds i8, ptr %23, i64 %1
+  %26 = load i16, ptr %25, align 2
+  %27 = zext i16 %26 to i64
+  %28 = and i64 %27, 3
+  %.not36 = icmp eq i64 %28, 3
+  br i1 %.not36, label %29, label %.thread56
 
-27:                                               ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit
-  %28 = and i64 %25, 31
-  %.not37 = icmp eq i64 %28, 31
-  br i1 %.not37, label %29, label %.thread
+29:                                               ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit
+  %30 = and i64 %27, 31
+  %.not37 = icmp eq i64 %30, 31
+  br i1 %.not37, label %31, label %.thread
 
-29:                                               ; preds = %27
-  %30 = and i64 %25, 63
-  %.not38.not = icmp eq i64 %30, 63
-  %31 = add i64 %1, 2
-  %32 = lshr i64 %31, 12
-  %33 = and i64 %32, 255
-  %34 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %33
-  %35 = load i64, ptr %34, align 8
-  %36 = icmp eq i64 %35, %32
-  br i1 %.not38.not, label %83, label %54
+31:                                               ; preds = %29
+  %32 = and i64 %27, 63
+  %.not38.not = icmp eq i64 %32, 63
+  %33 = add i64 %1, 2
+  %34 = lshr i64 %33, 12
+  %35 = and i64 %34, 255
+  %36 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %35
+  %37 = load i64, ptr %36, align 8
+  %38 = icmp eq i64 %37, %34
+  br i1 %.not38.not, label %85, label %56
 
-.thread:                                          ; preds = %27
-  %37 = add i64 %1, 2
-  %38 = lshr i64 %37, 12
-  %39 = and i64 %38, 255
-  %40 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %39
-  %41 = load i64, ptr %40, align 8
-  %42 = icmp eq i64 %41, %38
-  br i1 %42, label %43, label %46
+.thread:                                          ; preds = %29
+  %39 = add i64 %1, 2
+  %40 = lshr i64 %39, 12
+  %41 = and i64 %40, 255
+  %42 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %41
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp eq i64 %43, %40
+  br i1 %44, label %45, label %48
 
-43:                                               ; preds = %.thread
-  %44 = getelementptr inbounds i8, ptr %0, i64 32912
-  %45 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %44, i64 0, i64 %39
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %45, align 8
+45:                                               ; preds = %.thread
+  %46 = getelementptr inbounds i8, ptr %0, i64 32912
+  %47 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %46, i64 0, i64 %41
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %47, align 8
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit
 
-46:                                               ; preds = %.thread
-  %47 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %37)
-  %48 = extractvalue { ptr, i64 } %47, 0
+48:                                               ; preds = %.thread
+  %49 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %39)
+  %50 = extractvalue { ptr, i64 } %49, 0
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit
 
-_ZN5mmu_t27translate_insn_addr_to_hostEm.exit:    ; preds = %43, %46
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i, %43 ], [ %48, %46 ]
-  %49 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %37
-  %50 = load i16, ptr %49, align 2
-  %51 = zext i16 %50 to i64
-  %52 = shl nuw nsw i64 %51, 16
-  %53 = or disjoint i64 %52, %25
+_ZN5mmu_t27translate_insn_addr_to_hostEm.exit:    ; preds = %45, %48
+  %.fca.1.insert.merged.i.i = phi ptr [ %.sroa.0.0.copyload.i.i, %45 ], [ %50, %48 ]
+  %51 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i.i, i64 %39
+  %52 = load i16, ptr %51, align 2
+  %53 = zext i16 %52 to i64
+  %54 = shl nuw nsw i64 %53, 16
+  %55 = or disjoint i64 %54, %27
   br label %.thread56
 
-54:                                               ; preds = %29
-  br i1 %36, label %55, label %58
+56:                                               ; preds = %31
+  br i1 %38, label %57, label %60
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 32912
-  %57 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %56, i64 0, i64 %33
-  %.sroa.0.0.copyload.i.i40 = load ptr, ptr %57, align 8
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds i8, ptr %0, i64 32912
+  %59 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %58, i64 0, i64 %35
+  %.sroa.0.0.copyload.i.i40 = load ptr, ptr %59, align 8
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41
 
-58:                                               ; preds = %54
-  %59 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %31)
-  %60 = extractvalue { ptr, i64 } %59, 0
+60:                                               ; preds = %56
+  %61 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %33)
+  %62 = extractvalue { ptr, i64 } %61, 0
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41
 
-_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41:  ; preds = %55, %58
-  %.sroa.0.0.i.i39 = phi ptr [ %.sroa.0.0.copyload.i.i40, %55 ], [ %60, %58 ]
-  %61 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i39, i64 %31
-  %62 = load i16, ptr %61, align 2
-  %63 = zext i16 %62 to i64
-  %64 = shl nuw nsw i64 %63, 16
-  %65 = add i64 %1, 4
-  %66 = lshr i64 %65, 12
-  %67 = and i64 %66, 255
-  %68 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %67
-  %69 = load i64, ptr %68, align 8
-  %70 = icmp eq i64 %69, %66
-  br i1 %70, label %71, label %74
+_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41:  ; preds = %57, %60
+  %.fca.1.insert.merged.i.i39 = phi ptr [ %.sroa.0.0.copyload.i.i40, %57 ], [ %62, %60 ]
+  %63 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i.i39, i64 %33
+  %64 = load i16, ptr %63, align 2
+  %65 = zext i16 %64 to i64
+  %66 = shl nuw nsw i64 %65, 16
+  %67 = add i64 %1, 4
+  %68 = lshr i64 %67, 12
+  %69 = and i64 %68, 255
+  %70 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %69
+  %71 = load i64, ptr %70, align 8
+  %72 = icmp eq i64 %71, %68
+  br i1 %72, label %73, label %76
 
-71:                                               ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41
-  %72 = getelementptr inbounds i8, ptr %0, i64 32912
-  %73 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %72, i64 0, i64 %67
-  %.sroa.0.0.copyload.i.i43 = load ptr, ptr %73, align 8
+73:                                               ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41
+  %74 = getelementptr inbounds i8, ptr %0, i64 32912
+  %75 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %74, i64 0, i64 %69
+  %.sroa.0.0.copyload.i.i43 = load ptr, ptr %75, align 8
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44
 
-74:                                               ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41
-  %75 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %65)
-  %76 = extractvalue { ptr, i64 } %75, 0
+76:                                               ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41
+  %77 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %67)
+  %78 = extractvalue { ptr, i64 } %77, 0
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44
 
-_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44:  ; preds = %71, %74
-  %.sroa.0.0.i.i42 = phi ptr [ %.sroa.0.0.copyload.i.i43, %71 ], [ %76, %74 ]
-  %77 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i42, i64 %65
-  %78 = load i16, ptr %77, align 2
-  %79 = zext i16 %78 to i64
-  %80 = shl nuw nsw i64 %79, 32
-  %81 = or disjoint i64 %64, %80
-  %82 = or disjoint i64 %81, %25
+_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44:  ; preds = %73, %76
+  %.fca.1.insert.merged.i.i42 = phi ptr [ %.sroa.0.0.copyload.i.i43, %73 ], [ %78, %76 ]
+  %79 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i.i42, i64 %67
+  %80 = load i16, ptr %79, align 2
+  %81 = zext i16 %80 to i64
+  %82 = shl nuw nsw i64 %81, 32
+  %83 = or disjoint i64 %66, %82
+  %84 = or disjoint i64 %83, %27
   br label %.thread56
 
-83:                                               ; preds = %29
-  br i1 %36, label %84, label %87
+85:                                               ; preds = %31
+  br i1 %38, label %86, label %89
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds i8, ptr %0, i64 32912
-  %86 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %85, i64 0, i64 %33
-  %.sroa.0.0.copyload.i.i46 = load ptr, ptr %86, align 8
+86:                                               ; preds = %85
+  %87 = getelementptr inbounds i8, ptr %0, i64 32912
+  %88 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %87, i64 0, i64 %35
+  %.sroa.0.0.copyload.i.i46 = load ptr, ptr %88, align 8
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47
 
-87:                                               ; preds = %83
-  %88 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %31)
-  %89 = extractvalue { ptr, i64 } %88, 0
+89:                                               ; preds = %85
+  %90 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %33)
+  %91 = extractvalue { ptr, i64 } %90, 0
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47
 
-_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47:  ; preds = %84, %87
-  %.sroa.0.0.i.i45 = phi ptr [ %.sroa.0.0.copyload.i.i46, %84 ], [ %89, %87 ]
-  %90 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i45, i64 %31
-  %91 = load i16, ptr %90, align 2
-  %92 = zext i16 %91 to i64
-  %93 = shl nuw nsw i64 %92, 16
-  %94 = add i64 %1, 4
-  %95 = lshr i64 %94, 12
-  %96 = and i64 %95, 255
-  %97 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %96
-  %98 = load i64, ptr %97, align 8
-  %99 = icmp eq i64 %98, %95
-  br i1 %99, label %100, label %103
+_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47:  ; preds = %86, %89
+  %.fca.1.insert.merged.i.i45 = phi ptr [ %.sroa.0.0.copyload.i.i46, %86 ], [ %91, %89 ]
+  %92 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i.i45, i64 %33
+  %93 = load i16, ptr %92, align 2
+  %94 = zext i16 %93 to i64
+  %95 = shl nuw nsw i64 %94, 16
+  %96 = add i64 %1, 4
+  %97 = lshr i64 %96, 12
+  %98 = and i64 %97, 255
+  %99 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %98
+  %100 = load i64, ptr %99, align 8
+  %101 = icmp eq i64 %100, %97
+  br i1 %101, label %102, label %105
 
-100:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47
-  %101 = getelementptr inbounds i8, ptr %0, i64 32912
-  %102 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %101, i64 0, i64 %96
-  %.sroa.0.0.copyload.i.i49 = load ptr, ptr %102, align 8
+102:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47
+  %103 = getelementptr inbounds i8, ptr %0, i64 32912
+  %104 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %103, i64 0, i64 %98
+  %.sroa.0.0.copyload.i.i49 = load ptr, ptr %104, align 8
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50
 
-103:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47
-  %104 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %94)
-  %105 = extractvalue { ptr, i64 } %104, 0
+105:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47
+  %106 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %96)
+  %107 = extractvalue { ptr, i64 } %106, 0
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50
 
-_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50:  ; preds = %100, %103
-  %.sroa.0.0.i.i48 = phi ptr [ %.sroa.0.0.copyload.i.i49, %100 ], [ %105, %103 ]
-  %106 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i48, i64 %94
-  %107 = load i16, ptr %106, align 2
-  %108 = zext i16 %107 to i64
-  %109 = shl nuw nsw i64 %108, 32
-  %110 = add i64 %1, 6
-  %111 = lshr i64 %110, 12
-  %112 = and i64 %111, 255
-  %113 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %112
-  %114 = load i64, ptr %113, align 8
-  %115 = icmp eq i64 %114, %111
-  br i1 %115, label %116, label %119
+_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50:  ; preds = %102, %105
+  %.fca.1.insert.merged.i.i48 = phi ptr [ %.sroa.0.0.copyload.i.i49, %102 ], [ %107, %105 ]
+  %108 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i.i48, i64 %96
+  %109 = load i16, ptr %108, align 2
+  %110 = zext i16 %109 to i64
+  %111 = shl nuw nsw i64 %110, 32
+  %112 = add i64 %1, 6
+  %113 = lshr i64 %112, 12
+  %114 = and i64 %113, 255
+  %115 = getelementptr inbounds [256 x i64], ptr %11, i64 0, i64 %114
+  %116 = load i64, ptr %115, align 8
+  %117 = icmp eq i64 %116, %113
+  br i1 %117, label %118, label %121
 
-116:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50
-  %117 = getelementptr inbounds i8, ptr %0, i64 32912
-  %118 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %117, i64 0, i64 %112
-  %.sroa.0.0.copyload.i.i52 = load ptr, ptr %118, align 8
+118:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50
+  %119 = getelementptr inbounds i8, ptr %0, i64 32912
+  %120 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %119, i64 0, i64 %114
+  %.sroa.0.0.copyload.i.i52 = load ptr, ptr %120, align 8
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53
 
-119:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50
-  %120 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %110)
-  %121 = extractvalue { ptr, i64 } %120, 0
+121:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50
+  %122 = tail call { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %112)
+  %123 = extractvalue { ptr, i64 } %122, 0
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53
 
-_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53:  ; preds = %116, %119
-  %.sroa.0.0.i.i51 = phi ptr [ %.sroa.0.0.copyload.i.i52, %116 ], [ %121, %119 ]
-  %122 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i51, i64 %110
-  %123 = load i16, ptr %122, align 2
-  %124 = zext i16 %123 to i64
-  %125 = shl nuw i64 %124, 48
-  %126 = or disjoint i64 %93, %109
-  %127 = or disjoint i64 %126, %125
-  %128 = or disjoint i64 %127, %25
+_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53:  ; preds = %118, %121
+  %.fca.1.insert.merged.i.i51 = phi ptr [ %.sroa.0.0.copyload.i.i52, %118 ], [ %123, %121 ]
+  %124 = getelementptr inbounds i8, ptr %.fca.1.insert.merged.i.i51, i64 %112
+  %125 = load i16, ptr %124, align 2
+  %126 = zext i16 %125 to i64
+  %127 = shl nuw i64 %126, 48
+  %128 = or disjoint i64 %95, %111
+  %129 = or disjoint i64 %128, %127
+  %130 = or disjoint i64 %129, %27
   br label %.thread56
 
 .thread56:                                        ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit
-  %129 = phi i64 [ 4, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit ], [ 6, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44 ], [ 8, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53 ], [ 2, %_ZN5mmu_t19translate_insn_addrEm.exit ]
-  %.0 = phi i64 [ %53, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit ], [ %82, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44 ], [ %128, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53 ], [ %25, %_ZN5mmu_t19translate_insn_addrEm.exit ]
-  %130 = getelementptr inbounds i8, ptr %0, i64 80
-  %131 = load ptr, ptr %130, align 8
-  %132 = tail call noundef ptr @_ZN11processor_t11decode_insnE6insn_t(ptr noundef nonnull align 8 dereferenceable(659880) %131, i64 %.0)
+  %131 = phi i64 [ 4, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit ], [ 6, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44 ], [ 8, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53 ], [ 2, %_ZN5mmu_t19translate_insn_addrEm.exit ]
+  %.0 = phi i64 [ %55, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit ], [ %84, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44 ], [ %130, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53 ], [ %27, %_ZN5mmu_t19translate_insn_addrEm.exit ]
+  %132 = getelementptr inbounds i8, ptr %0, i64 80
+  %133 = load ptr, ptr %132, align 8
+  %134 = tail call noundef ptr @_ZN11processor_t11decode_insnE6insn_t(ptr noundef nonnull align 8 dereferenceable(659880) %133, i64 %.0)
   store i64 %1, ptr %2, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 144
-  %134 = add i64 %129, %1
-  %135 = lshr i64 %134, 1
-  %136 = and i64 %135, 1023
-  %137 = getelementptr inbounds [1024 x %struct.icache_entry_t], ptr %133, i64 0, i64 %136
-  %138 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %137, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %132, ptr %139, align 8
+  %135 = getelementptr inbounds i8, ptr %0, i64 144
+  %136 = add i64 %131, %1
+  %137 = lshr i64 %136, 1
+  %138 = and i64 %137, 1023
+  %139 = getelementptr inbounds [1024 x %struct.icache_entry_t], ptr %135, i64 0, i64 %138
+  %140 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %139, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %134, ptr %141, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   store i64 %.0, ptr %.sroa.2.0..sroa_idx, align 8
-  %140 = add i64 %.sroa.3.0.i, %1
-  %141 = add i64 %140, 1
-  %142 = getelementptr inbounds i8, ptr %0, i64 96
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 104
+  %142 = add i64 %24, %1
+  %143 = add i64 %142, 1
+  %144 = getelementptr inbounds i8, ptr %0, i64 96
   %145 = load ptr, ptr %144, align 8
-  %.not.i = icmp eq ptr %143, %145
+  %146 = getelementptr inbounds i8, ptr %0, i64 104
+  %147 = load ptr, ptr %146, align 8
+  %.not.i = icmp eq ptr %145, %147
   br i1 %.not.i, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.i
 
-146:                                              ; preds = %.lr.ph.i
-  %147 = getelementptr inbounds i8, ptr %.sroa.07.010.i, i64 8
-  %.not13.i = icmp eq ptr %147, %145
+148:                                              ; preds = %.lr.ph.i
+  %149 = getelementptr inbounds i8, ptr %.sroa.07.010.i, i64 8
+  %.not13.i = icmp eq ptr %149, %147
   br i1 %.not13.i, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.thread56, %146
-  %.sroa.07.010.i = phi ptr [ %147, %146 ], [ %143, %.thread56 ]
-  %148 = load ptr, ptr %.sroa.07.010.i, align 8
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 16
+.lr.ph.i:                                         ; preds = %.thread56, %148
+  %.sroa.07.010.i = phi ptr [ %149, %148 ], [ %145, %.thread56 ]
+  %150 = load ptr, ptr %.sroa.07.010.i, align 8
   %151 = load ptr, ptr %150, align 8
-  %152 = tail call noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(8) %148, i64 noundef %140, i64 noundef %141, i32 noundef 2)
-  br i1 %152, label %_ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit, label %146
+  %152 = getelementptr inbounds i8, ptr %151, i64 16
+  %153 = load ptr, ptr %152, align 8
+  %154 = tail call noundef zeroext i1 %153(ptr noundef nonnull align 8 dereferenceable(8) %150, i64 noundef %142, i64 noundef %143, i32 noundef 2)
+  br i1 %154, label %_ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit, label %148
 
 _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.lr.ph.i
   store i64 -1, ptr %2, align 8
-  %153 = load ptr, ptr %142, align 8
-  %154 = load ptr, ptr %144, align 8
-  %155 = icmp eq ptr %153, %154
-  br i1 %155, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.i54
+  %155 = load ptr, ptr %144, align 8
+  %156 = load ptr, ptr %146, align 8
+  %157 = icmp eq ptr %155, %156
+  br i1 %157, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %_ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit, %.lr.ph.i54
-  %.sroa.06.09.i = phi ptr [ %160, %.lr.ph.i54 ], [ %153, %_ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit ]
-  %156 = load ptr, ptr %.sroa.06.09.i, align 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 24
+  %.sroa.06.09.i = phi ptr [ %162, %.lr.ph.i54 ], [ %155, %_ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit ]
+  %158 = load ptr, ptr %.sroa.06.09.i, align 8
   %159 = load ptr, ptr %158, align 8
-  tail call void %159(ptr noundef nonnull align 8 dereferenceable(8) %156, i64 noundef %140, i64 noundef %129, i32 noundef 2)
-  %160 = getelementptr inbounds i8, ptr %.sroa.06.09.i, i64 8
-  %161 = icmp eq ptr %160, %154
-  br i1 %161, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.i54
+  %160 = getelementptr inbounds i8, ptr %159, i64 24
+  %161 = load ptr, ptr %160, align 8
+  tail call void %161(ptr noundef nonnull align 8 dereferenceable(8) %158, i64 noundef %142, i64 noundef %131, i32 noundef 2)
+  %162 = getelementptr inbounds i8, ptr %.sroa.06.09.i, i64 8
+  %163 = icmp eq ptr %162, %156
+  br i1 %163, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.i54
 
-_ZN16memtracer_list_t5traceEmm11access_type.exit: ; preds = %146, %.lr.ph.i54, %.thread56, %_ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit
+_ZN16memtracer_list_t5traceEmm11access_type.exit: ; preds = %148, %.lr.ph.i54, %.thread56, %_ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit
   ret ptr %2
 }
 

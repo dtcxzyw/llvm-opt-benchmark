@@ -1709,17 +1709,17 @@ define dso_local { i32, ptr } @_ZN4llvm3vfs17OverlayFileSystem26setCurrentWorkin
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   %6 = getelementptr inbounds %"class.llvm::IntrusiveRefCntPtr", ptr %4, i64 %5
-  %.not13 = icmp eq i64 %5, 0
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not11 = icmp eq i64 %5, 0
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.014, i64 8
+  %8 = getelementptr inbounds i8, ptr %.012, i64 8
   %.not = icmp eq ptr %8, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %7
-  %.014 = phi ptr [ %8, %7 ], [ %4, %2 ]
-  %9 = load ptr, ptr %.014, align 8
+  %.012 = phi ptr [ %8, %7 ], [ %4, %2 ]
+  %9 = load ptr, ptr %.012, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
@@ -1730,18 +1730,12 @@ define dso_local { i32, ptr } @_ZN4llvm3vfs17OverlayFileSystem26setCurrentWorkin
 
 ._crit_edge:                                      ; preds = %7, %2
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #29
-  br label %17
+  %16 = insertvalue { i32, ptr } { i32 0, ptr poison }, ptr %15, 1
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph
-  %16 = extractvalue { i32, ptr } %13, 1
-  br label %17
-
-17:                                               ; preds = %.loopexit, %._crit_edge
-  %.sroa.4.0 = phi ptr [ %15, %._crit_edge ], [ %16, %.loopexit ]
-  %.sroa.0.0 = phi i32 [ 0, %._crit_edge ], [ %14, %.loopexit ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
-  ret { i32, ptr } %.fca.1.insert
+.loopexit:                                        ; preds = %.lr.ph, %._crit_edge
+  %.fca.1.insert.merged = phi { i32, ptr } [ %16, %._crit_edge ], [ %13, %.lr.ph ]
+  ret { i32, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1753,14 +1747,14 @@ define dso_local { i32, ptr } @_ZN4llvm3vfs17OverlayFileSystem7isLocalERKNS_5Twi
   %.not13 = icmp eq i64 %6, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %21
-  %.014 = phi ptr [ %22, %21 ], [ %5, %3 ]
+.lr.ph:                                           ; preds = %3, %19
+  %.014 = phi ptr [ %20, %19 ], [ %5, %3 ]
   %8 = load ptr, ptr %.014, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(34) %1) #27
-  br i1 %12, label %13, label %21
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %.014, align 8
@@ -1768,25 +1762,21 @@ define dso_local { i32, ptr } @_ZN4llvm3vfs17OverlayFileSystem7isLocalERKNS_5Twi
   %16 = getelementptr inbounds i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
   %18 = tail call { i32, ptr } %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #27
-  %19 = extractvalue { i32, ptr } %18, 0
-  %20 = extractvalue { i32, ptr } %18, 1
-  br label %24
+  br label %23
 
-21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.014, i64 8
-  %.not = icmp eq ptr %22, %7
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr inbounds i8, ptr %.014, i64 8
+  %.not = icmp eq ptr %20, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %21, %3
-  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #29
-  br label %24
+._crit_edge:                                      ; preds = %19, %3
+  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #29
+  %22 = insertvalue { i32, ptr } { i32 2, ptr poison }, ptr %21, 1
+  br label %23
 
-24:                                               ; preds = %._crit_edge, %13
-  %.sroa.3.0 = phi ptr [ %23, %._crit_edge ], [ %20, %13 ]
-  %.sroa.0.0 = phi i32 [ 2, %._crit_edge ], [ %19, %13 ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { i32, ptr } %.fca.1.insert
+23:                                               ; preds = %._crit_edge, %13
+  %.fca.1.insert.merged = phi { i32, ptr } [ %22, %._crit_edge ], [ %18, %13 ]
+  ret { i32, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1798,14 +1788,14 @@ define dso_local { i32, ptr } @_ZN4llvm3vfs17OverlayFileSystem11getRealPathERKNS
   %.not13 = icmp eq i64 %6, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %21
-  %.014 = phi ptr [ %22, %21 ], [ %5, %3 ]
+.lr.ph:                                           ; preds = %3, %19
+  %.014 = phi ptr [ %20, %19 ], [ %5, %3 ]
   %8 = load ptr, ptr %.014, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(34) %1) #27
-  br i1 %12, label %13, label %21
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %.014, align 8
@@ -1813,25 +1803,21 @@ define dso_local { i32, ptr } @_ZN4llvm3vfs17OverlayFileSystem11getRealPathERKNS
   %16 = getelementptr inbounds i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = tail call { i32, ptr } %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #27
-  %19 = extractvalue { i32, ptr } %18, 0
-  %20 = extractvalue { i32, ptr } %18, 1
-  br label %24
+  br label %23
 
-21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.014, i64 8
-  %.not = icmp eq ptr %22, %7
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr inbounds i8, ptr %.014, i64 8
+  %.not = icmp eq ptr %20, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %21, %3
-  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #29
-  br label %24
+._crit_edge:                                      ; preds = %19, %3
+  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #29
+  %22 = insertvalue { i32, ptr } { i32 2, ptr poison }, ptr %21, 1
+  br label %23
 
-24:                                               ; preds = %._crit_edge, %13
-  %.sroa.3.0 = phi ptr [ %23, %._crit_edge ], [ %20, %13 ]
-  %.sroa.0.0 = phi i32 [ 2, %._crit_edge ], [ %19, %13 ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { i32, ptr } %.fca.1.insert
+23:                                               ; preds = %._crit_edge, %13
+  %.fca.1.insert.merged = phi { i32, ptr } [ %22, %._crit_edge ], [ %18, %13 ]
+  ret { i32, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

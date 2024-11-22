@@ -339,10 +339,10 @@ define hidden { ptr, ptr } @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT
   resume { ptr, i32 } %eh.lpad-body12.i.i
 
 .loopexit:                                        ; preds = %57, %60, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h785bc2270cf4f4d3E.exit.i.i", %14, %5
-  %.sroa.4.0 = phi ptr [ %2, %5 ], [ %2, %14 ], [ %59, %57 ], [ %.sroa.8.0.i7.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h785bc2270cf4f4d3E.exit.i.i" ], [ %.sink14.i18.i.i, %60 ]
-  %63 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %64 = insertvalue { ptr, ptr } %63, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %64
+  %.pn13 = phi ptr [ %2, %5 ], [ %2, %14 ], [ %59, %57 ], [ %.sroa.8.0.i7.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h785bc2270cf4f4d3E.exit.i.i" ], [ %.sink14.i18.i.i, %60 ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn13, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

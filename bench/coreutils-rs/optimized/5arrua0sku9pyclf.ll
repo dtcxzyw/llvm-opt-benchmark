@@ -141,15 +141,15 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !26
   %10 = load ptr, ptr %1, align 8, !alias.scope !23, !noalias !28, !nonnull !29, !align !30, !noundef !29
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !31, !noalias !26, !nonnull !29, !noundef !29
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !31, !noalias !26, !noundef !29
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !31, !noalias !26, !noundef !29
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !31, !noalias !26, !nonnull !29, !noundef !29
   store i64 1, ptr %5, align 8, !noalias !26
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %.sroa.0.0.i.i, ptr %.sroa.44.0..sroa_idx.i, align 8, !noalias !26
+  store ptr %.pn3.i.i, ptr %.sroa.44.0..sroa_idx.i, align 8, !noalias !26
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %.sroa.5.0.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !26
+  store i64 %.pn1.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !26
   %11 = getelementptr inbounds i8, ptr %5, i64 24
   store i8 1, ptr %11, align 8, !noalias !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !26
@@ -253,15 +253,15 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !53
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !53
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !55, !noalias !58, !nonnull !29, !noundef !29
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !55, !noalias !58, !noundef !29
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !55, !noalias !58, !noundef !29
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !55, !noalias !58, !nonnull !29, !noundef !29
   store i64 1, ptr %4, align 8, !noalias !53
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %.sroa.0.0.i.i, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !53
+  store ptr %.pn3.i.i, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !53
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %.sroa.5.0.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !53
+  store i64 %.pn1.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !53
   %9 = getelementptr inbounds i8, ptr %4, i64 24
   store i8 1, ptr %9, align 8, !noalias !53
   store ptr %4, ptr %5, align 8, !noalias !53
@@ -806,15 +806,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16619943686849403073.exit:
   %4 = alloca [1 x { ptr, ptr }], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !159, !nonnull !29, !noundef !29
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !159, !noundef !29
+  %.pn1.in.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !159, !noundef !29
+  %.pn3.in.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !159, !nonnull !29, !noundef !29
   store i64 1, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %.sroa.0.0.i, ptr %.sroa.42.0..sroa_idx, align 8
+  store ptr %.pn3.i, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.pn1.i, ptr %.sroa.5.0..sroa_idx, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
   store i8 1, ptr %5, align 8
   store ptr %3, ptr %4, align 8
@@ -847,15 +847,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16619943686849403073.exit:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %6 = load ptr, ptr %1, align 8, !nonnull !29, !align !30, !noundef !29
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !175, !nonnull !29, !noundef !29
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !175, !noundef !29
+  %.pn1.in.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !175, !noundef !29
+  %.pn3.in.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !175, !nonnull !29, !noundef !29
   store i64 1, ptr %4, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %.sroa.0.0.i, ptr %.sroa.44.0..sroa_idx, align 8
+  store ptr %.pn3.i, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.pn1.i, ptr %.sroa.5.0..sroa_idx, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store i8 1, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)

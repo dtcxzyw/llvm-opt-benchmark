@@ -1058,13 +1058,13 @@ define { ptr, i64 } @"_ZN63_$LT$wiggle..GuestStrCow$u20$as$u20$core..ops..deref.
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !nonnull !4
-  %.sroa.3.0.in.v = select i1 %3, i64 24, i64 8
-  %.sroa.3.0.in = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.in.v
-  %.sroa.0.0 = select i1 %3, ptr %5, ptr %2
-  %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !4
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %7
+  %.pn6 = select i1 %3, ptr %5, ptr %2
+  %.pn4.in.v = select i1 %3, i64 24, i64 8
+  %.pn4.in = getelementptr inbounds i8, ptr %0, i64 %.pn4.in.v
+  %.pn4 = load i64, ptr %.pn4.in, align 8, !noundef !4
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn6, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn4, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

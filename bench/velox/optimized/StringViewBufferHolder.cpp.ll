@@ -337,20 +337,20 @@ define { i64, ptr } @_ZN8facebook5velox22StringViewBufferHolder18getOwnedStringV
 entry:
   %stringView.sroa.0.0.extract.trunc = trunc i64 %stringView.coerce0 to i32
   %cmp.i.i = icmp ult i32 %stringView.sroa.0.0.extract.trunc, 13
-  br i1 %cmp.i.i, label %return, label %if.end
+  br i1 %cmp.i.i, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %0 = insertvalue { i64, ptr } poison, i64 %stringView.coerce0, 0
+  %1 = insertvalue { i64, ptr } %0, ptr %stringView.coerce1, 1
+  br label %return
 
 if.end:                                           ; preds = %entry
   %call4 = tail call { i64, ptr } @_ZN8facebook5velox22StringViewBufferHolder18getOwnedStringViewEPKci(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %stringView.coerce1, i32 noundef %stringView.sroa.0.0.extract.trunc)
-  %0 = extractvalue { i64, ptr } %call4, 0
-  %1 = extractvalue { i64, ptr } %call4, 1
   br label %return
 
-return:                                           ; preds = %entry, %if.end
-  %retval.sroa.0.0 = phi i64 [ %0, %if.end ], [ %stringView.coerce0, %entry ]
-  %retval.sroa.3.0 = phi ptr [ %1, %if.end ], [ %stringView.coerce1, %entry ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
-  ret { i64, ptr } %.fca.1.insert
+return:                                           ; preds = %if.end, %if.then
+  %.fca.1.insert.merged = phi { i64, ptr } [ %1, %if.then ], [ %call4, %if.end ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)

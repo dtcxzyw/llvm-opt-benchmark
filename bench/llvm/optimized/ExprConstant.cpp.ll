@@ -7781,7 +7781,7 @@ _ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit174: ; preds = %_ZN5clang18Optio
   %spec.select.i.i.i.i.i.i.i.i.i.not248 = xor i1 %spec.select.i.i.i.i.i.i.i.i.i, true
   %brmerge249 = select i1 %397, i1 true, i1 %spec.select.i.i.i.i.i.i.i.i.i.not248
   %not. = xor i1 %397, true
-  br i1 %brmerge249, label %.critedge, label %437
+  br i1 %brmerge249, label %.critedge, label %438
 
 398:                                              ; preds = %330
   %.not.i.i182 = icmp eq ptr %.0.i.i.i.i.i, null
@@ -7822,92 +7822,92 @@ _ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_
   %415 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %416 = load i32, ptr %415, align 8, !noalias !195
   %417 = icmp ult i32 %408, %416
-  br i1 %417, label %.critedge255, label %_ZN4llvm15SmallPtrSetImplIPKN5clang24MaterializeTemporaryExprEE6insertES4_.exit
+  br i1 %417, label %.critedge256, label %_ZN4llvm15SmallPtrSetImplIPKN5clang24MaterializeTemporaryExprEE6insertES4_.exit
 
-.critedge255:                                     ; preds = %._crit_edge.i.i
+.critedge256:                                     ; preds = %._crit_edge.i.i
   %418 = add nuw i32 %408, 1
   store i32 %418, ptr %407, align 4, !noalias !195
   store ptr %.0.i.i.i.i.i, ptr %410, align 8, !noalias !195
-  br label %421
+  br label %422
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang24MaterializeTemporaryExprEE6insertES4_.exit: ; preds = %._crit_edge.i.i, %_ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_.exit
   %419 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull %.0.i.i.i.i.i) #26, !noalias !195
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %419, 1
-  %420 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %420, label %421, label %_ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_.exit.thread
+  %420 = extractvalue { ptr, i8 } %419, 1
+  %421 = trunc i8 %420 to i1
+  br i1 %421, label %422, label %_ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_.exit.thread
 
-421:                                              ; preds = %.critedge255, %_ZN4llvm15SmallPtrSetImplIPKN5clang24MaterializeTemporaryExprEE6insertES4_.exit
+422:                                              ; preds = %.critedge256, %_ZN4llvm15SmallPtrSetImplIPKN5clang24MaterializeTemporaryExprEE6insertES4_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i64 %.val, ptr %7, align 8
-  %422 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.val108, ptr %422, align 8
-  %423 = call i64 @_ZNK5clang7APValue10LValueBase7getTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
+  %423 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.val108, ptr %423, align 8
+  %424 = call i64 @_ZNK5clang7APValue10LValueBase7getTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  store i64 %423, ptr %14, align 8
-  %424 = call noundef i32 @_ZN5clang8QualType20isDestructedTypeImplES0_(i64 %423) #26
-  %.not100 = icmp eq i32 %424, 0
-  br i1 %.not100, label %429, label %425
+  store i64 %424, ptr %14, align 8
+  %425 = call noundef i32 @_ZN5clang8QualType20isDestructedTypeImplES0_(i64 %424) #26
+  %.not100 = icmp eq i32 %425, 0
+  br i1 %.not100, label %430, label %426
 
-425:                                              ; preds = %421
-  %426 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i.i) #29
-  %427 = call ptr @_ZN5clang6interp5State6FFDiagENS_14SourceLocationEjj(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 %426, i32 noundef 2291, i32 noundef 0) #26
-  store ptr %427, ptr %15, align 8
-  %428 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %14)
+426:                                              ; preds = %422
+  %427 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i.i) #29
+  %428 = call ptr @_ZN5clang6interp5State6FFDiagENS_14SourceLocationEjj(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 %427, i32 noundef 2291, i32 noundef 0) #26
+  store ptr %428, ptr %15, align 8
+  %429 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br label %.critedge
 
-429:                                              ; preds = %421
-  %430 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i187 = load i64, ptr %430, align 8
-  %431 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i187, -8
-  %432 = inttoptr i64 %431 to ptr
-  %433 = call noundef ptr @_ZNK5clang29LifetimeExtendedTemporaryDecl16getOrCreateValueEb(ptr noundef nonnull align 8 dereferenceable(72) %432, i1 noundef zeroext false) #26
-  %434 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i.i) #29
-  %435 = call fastcc noundef zeroext i1 @_ZL21CheckEvaluationResult25CheckEvaluationResultKindRN12_GLOBAL__N_18EvalInfoEN5clang14SourceLocationENS3_8QualTypeERKNS3_7APValueENS3_4Expr16ConstantExprKindEPKNS3_9FieldDeclERN4llvm11SmallPtrSetIPKNS3_24MaterializeTemporaryExprELj8EEE(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(920) %0, i32 %434, i64 %423, ptr noundef nonnull align 8 dereferenceable(72) %433, i32 noundef %4, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(96) %5)
-  %436 = select i1 %435, i1 %spec.select.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %436, label %437, label %.critedge
+430:                                              ; preds = %422
+  %431 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i187 = load i64, ptr %431, align 8
+  %432 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i187, -8
+  %433 = inttoptr i64 %432 to ptr
+  %434 = call noundef ptr @_ZNK5clang29LifetimeExtendedTemporaryDecl16getOrCreateValueEb(ptr noundef nonnull align 8 dereferenceable(72) %433, i1 noundef zeroext false) #26
+  %435 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i.i) #29
+  %436 = call fastcc noundef zeroext i1 @_ZL21CheckEvaluationResult25CheckEvaluationResultKindRN12_GLOBAL__N_18EvalInfoEN5clang14SourceLocationENS3_8QualTypeERKNS3_7APValueENS3_4Expr16ConstantExprKindEPKNS3_9FieldDeclERN4llvm11SmallPtrSetIPKNS3_24MaterializeTemporaryExprELj8EEE(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(920) %0, i32 %435, i64 %424, ptr noundef nonnull align 8 dereferenceable(72) %434, i32 noundef %4, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(96) %5)
+  %437 = select i1 %436, i1 %spec.select.i.i.i.i.i.i.i.i.i, i1 false
+  br i1 %437, label %438, label %.critedge
 
 _ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_.exit.thread: ; preds = %.lr.ph.i.i, %398, %399, %_ZN4llvm15SmallPtrSetImplIPKN5clang24MaterializeTemporaryExprEE6insertES4_.exit, %387, %392
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %437, label %.critedge
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %438, label %.critedge
 
-437:                                              ; preds = %396, %429, %_ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_.exit.thread
-  %438 = call noundef zeroext i1 @_ZNK5clang7APValue10LValueBasecvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
-  br i1 %438, label %441, label %439
+438:                                              ; preds = %396, %430, %_ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_.exit.thread
+  %439 = call noundef zeroext i1 @_ZNK5clang7APValue10LValueBasecvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
+  br i1 %439, label %442, label %440
 
-439:                                              ; preds = %437
-  %440 = call ptr @_ZN5clang6interp5State7CCEDiagENS_14SourceLocationEjj(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 %1, i32 noundef 110, i32 noundef 0) #26
+440:                                              ; preds = %438
+  %441 = call ptr @_ZN5clang6interp5State7CCEDiagENS_14SourceLocationEjj(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 %1, i32 noundef 110, i32 noundef 0) #26
   br label %.critedge
 
-441:                                              ; preds = %437
-  %442 = load i32, ptr %31, align 8
-  %443 = and i32 %442, 1
-  %.not107 = icmp eq i32 %443, 0
-  br i1 %.not107, label %444, label %.critedge
+442:                                              ; preds = %438
+  %443 = load i32, ptr %31, align 8
+  %444 = and i32 %443, 1
+  %.not107 = icmp eq i32 %444, 0
+  br i1 %.not107, label %445, label %.critedge
 
-444:                                              ; preds = %441
-  %445 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119SubobjectDesignator15isOnePastTheEndEv(ptr noundef nonnull align 8 dereferenceable(104) %31)
-  br i1 %445, label %446, label %.critedge
+445:                                              ; preds = %442
+  %446 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119SubobjectDesignator15isOnePastTheEndEv(ptr noundef nonnull align 8 dereferenceable(104) %31)
+  br i1 %446, label %447, label %.critedge
 
-446:                                              ; preds = %444
-  %447 = call ptr @_ZN5clang6interp5State6FFDiagENS_14SourceLocationEjj(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 %1, i32 noundef 2260, i32 noundef 1) #26
-  store ptr %447, ptr %16, align 8
-  %448 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %449 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %448) #26
-  %450 = xor i1 %449, true
-  %451 = zext i1 %450 to i8
-  store i8 %451, ptr %17, align 1
-  %452 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 1 dereferenceable(1) %17)
-  %453 = icmp ne ptr %.0.i.i.i.i.i110, null
-  %454 = zext i1 %453 to i8
-  store i8 %454, ptr %18, align 1
-  %455 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %452, ptr noundef nonnull align 1 dereferenceable(1) %18)
-  %456 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5clang18OptionalDiagnosticlsIPKNS_9ValueDeclEEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef nonnull align 8 dereferenceable(8) %12)
+447:                                              ; preds = %445
+  %448 = call ptr @_ZN5clang6interp5State6FFDiagENS_14SourceLocationEjj(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 %1, i32 noundef 2260, i32 noundef 1) #26
+  store ptr %448, ptr %16, align 8
+  %449 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %450 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %449) #26
+  %451 = xor i1 %450, true
+  %452 = zext i1 %451 to i8
+  store i8 %452, ptr %17, align 1
+  %453 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 1 dereferenceable(1) %17)
+  %454 = icmp ne ptr %.0.i.i.i.i.i110, null
+  %455 = zext i1 %454 to i8
+  store i8 %455, ptr %18, align 1
+  %456 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %453, ptr noundef nonnull align 1 dereferenceable(1) %18)
+  %457 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5clang18OptionalDiagnosticlsIPKNS_9ValueDeclEEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %456, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %.sroa.0.0.copyload = load i64, ptr %11, align 8
   %.sroa.2.0.copyload = load ptr, ptr %30, align 8
   call fastcc void @_ZL18NoteLValueLocationRN12_GLOBAL__N_18EvalInfoEN5clang7APValue10LValueBaseE(ptr noundef nonnull align 8 dereferenceable(920) %0, i64 %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload)
   br label %.critedge
 
-.critedge:                                        ; preds = %396, %429, %100, %_ZN5clang18OptionalDiagnosticlsIiEERS0_RKT_.exit.thread, %441, %444, %446, %_ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_.exit.thread, %385, %380, %340, %337, %285, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_9ValueDeclEEEDaPT0_.exit.thread, %_ZN5clang18OptionalDiagnosticlsINS_9FixItHintEEERS0_RKT_.exit, %439, %425, %_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit174, %_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit135
-  %.0 = phi i1 [ false, %_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit135 ], [ false, %_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit174 ], [ true, %439 ], [ false, %425 ], [ false, %_ZN5clang18OptionalDiagnosticlsINS_9FixItHintEEERS0_RKT_.exit ], [ false, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_9ValueDeclEEEDaPT0_.exit.thread ], [ false, %285 ], [ false, %337 ], [ false, %340 ], [ false, %380 ], [ false, %385 ], [ %not., %396 ], [ %435, %429 ], [ true, %_ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_.exit.thread ], [ true, %446 ], [ true, %444 ], [ true, %441 ], [ false, %_ZN5clang18OptionalDiagnosticlsIiEERS0_RKT_.exit.thread ], [ false, %100 ]
+.critedge:                                        ; preds = %396, %430, %100, %_ZN5clang18OptionalDiagnosticlsIiEERS0_RKT_.exit.thread, %442, %445, %447, %_ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_.exit.thread, %385, %380, %340, %337, %285, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_9ValueDeclEEEDaPT0_.exit.thread, %_ZN5clang18OptionalDiagnosticlsINS_9FixItHintEEERS0_RKT_.exit, %440, %426, %_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit174, %_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit135
+  %.0 = phi i1 [ false, %_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit135 ], [ false, %_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit174 ], [ true, %440 ], [ false, %426 ], [ false, %_ZN5clang18OptionalDiagnosticlsINS_9FixItHintEEERS0_RKT_.exit ], [ false, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_9ValueDeclEEEDaPT0_.exit.thread ], [ false, %285 ], [ false, %337 ], [ false, %340 ], [ false, %380 ], [ false, %385 ], [ %not., %396 ], [ %436, %430 ], [ true, %_ZN4llvm16dyn_cast_or_nullIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaPT0_.exit.thread ], [ true, %447 ], [ true, %445 ], [ true, %442 ], [ false, %_ZN5clang18OptionalDiagnosticlsIiEERS0_RKT_.exit.thread ], [ false, %100 ]
   ret i1 %.0
 }
 

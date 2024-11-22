@@ -19248,31 +19248,28 @@ define dso_local { i64, ptr } @_ZNK4llvm6object14WasmObjectFile19getRelocationSy
   %8 = getelementptr inbounds %"struct.llvm::wasm::WasmRelocation", ptr %7, i64 %.sroa.2.0.extract.shift.i
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
-  br i1 %10, label %11, label %18
+  br i1 %10, label %11, label %16
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = tail call { i64, ptr } %14(ptr noundef nonnull align 8 dereferenceable(684) %0) #25
-  %16 = extractvalue { i64, ptr } %15, 0
-  %17 = extractvalue { i64, ptr } %15, 1
   br label %21
 
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %20 = load i32, ptr %19, align 4
-  %.sroa.3.0.insert.ext = zext i32 %20 to i64
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %18 = load i32, ptr %17, align 4
+  %.sroa.3.0.insert.ext = zext i32 %18 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, 1
+  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.06.0.insert.insert, 0
+  %20 = insertvalue { i64, ptr } %19, ptr %0, 1
   br label %21
 
-21:                                               ; preds = %18, %11
-  %.sroa.09.0 = phi i64 [ %16, %11 ], [ %.sroa.06.0.insert.insert, %18 ]
-  %.sroa.310.0 = phi ptr [ %17, %11 ], [ %0, %18 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.09.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.310.0, 1
-  ret { i64, ptr } %.fca.1.insert
+21:                                               ; preds = %16, %11
+  %.fca.1.insert.merged = phi { i64, ptr } [ %15, %11 ], [ %20, %16 ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

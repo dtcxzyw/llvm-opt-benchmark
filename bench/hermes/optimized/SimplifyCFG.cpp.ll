@@ -1027,7 +1027,7 @@ lor.rhs:                                          ; preds = %_ZL22optimizeStatic
   store i32 1, ptr %Size.i.i.i.i.i.i6, align 8
   br label %while.body.i8
 
-while.condthread-pre-splitthread-pre-split.i:     ; preds = %for.body.i.i.i, %_ZN6hermes10successorsEPNS_10BasicBlockE.exit.i, %if.end.i40, %if.end31.i.i.i
+while.condthread-pre-splitthread-pre-split.i:     ; preds = %for.body.i.i.i, %_ZN6hermes10successorsEPNS_10BasicBlockE.exit.i, %if.end.i40, %_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i
   %.pr.pr.i = load i32, ptr %Size.i.i.i.i.i.i6, align 8
   br label %while.condthread-pre-split.i
 
@@ -1048,7 +1048,7 @@ while.body.i8:                                    ; preds = %while.condthread-pr
   %134 = load ptr, ptr %CurArray.i.i.i.i, align 8, !noalias !21
   %135 = load ptr, ptr %visited.i, align 8, !noalias !21
   %cmp.i.i.i.i = icmp eq ptr %134, %135
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i45, label %if.end31.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i45, label %_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i
 
 if.then.i.i.i45:                                  ; preds = %while.body.i8
   %136 = load i32, ptr %NumNonEmpty.i.i.i.i, align 4, !noalias !21
@@ -1085,7 +1085,7 @@ if.then12.i.i.i:                                  ; preds = %for.end.i.i.i
 if.end16.i.i.i:                                   ; preds = %for.end.i.i.i, %if.then.i.i.i45
   %139 = load i32, ptr %CurArraySize.i.i.i.i, align 8, !noalias !21
   %cmp18.i.i.i = icmp ult i32 %136, %139
-  br i1 %cmp18.i.i.i, label %if.then19.i.i.i, label %if.end31.i.i.i
+  br i1 %cmp18.i.i.i, label %if.then19.i.i.i, label %_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i
 
 if.then19.i.i.i:                                  ; preds = %if.end16.i.i.i
   %inc.i.i.i = add nuw i32 %136, 1
@@ -1093,13 +1093,13 @@ if.then19.i.i.i:                                  ; preds = %if.end16.i.i.i
   store ptr %133, ptr %add.ptr.i.i7.i, align 8, !noalias !21
   br label %if.end.i40
 
-if.end31.i.i.i:                                   ; preds = %if.end16.i.i.i, %while.body.i8
+_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i: ; preds = %while.body.i8, %if.end16.i.i.i
   %call32.i.i.i = call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %visited.i, ptr noundef %133) #9, !noalias !21
   %140 = extractvalue { ptr, i8 } %call32.i.i.i, 1
   %141 = trunc i8 %140 to i1
   br i1 %141, label %if.end.i40, label %while.condthread-pre-splitthread-pre-split.i, !llvm.loop !24
 
-if.end.i40:                                       ; preds = %if.end31.i.i.i, %if.then19.i.i.i, %if.then12.i.i.i
+if.end.i40:                                       ; preds = %if.then12.i.i.i, %if.then19.i.i.i, %_ZN4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE6insertES3_.exit.i
   %call.i.i.i41 = call noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80) %133) #9, !noalias !25
   %call.i2.i.i = call noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80) %133) #9, !noalias !25
   %tobool.not.i.i.i.i = icmp eq ptr %call.i2.i.i, null

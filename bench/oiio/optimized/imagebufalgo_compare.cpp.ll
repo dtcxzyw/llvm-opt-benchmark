@@ -28886,7 +28886,7 @@ cond.false.i:                                     ; preds = %land.lhs.true.i, %i
   br label %_ZN18OpenImageIO_v2_6_016roi_intersectionERKNS_3ROIES2_.exit
 
 _ZN18OpenImageIO_v2_6_016roi_intersectionERKNS_3ROIES2_.exit: ; preds = %cond.true.i, %cond.false.i
-  %ref.tmp.sroa.0.0 = phi i32 [ %ref.tmp.sroa.0.0.copyload299, %cond.false.i ], [ %7, %cond.true.i ]
+  %agg.tmp3.sroa.0.0.copyload = phi i32 [ %ref.tmp.sroa.0.0.copyload299, %cond.false.i ], [ %7, %cond.true.i ]
   %agg.tmp3.sroa.2.0.copyload = phi i32 [ %ref.tmp.sroa.3.0.copyload300, %cond.false.i ], [ %10, %cond.true.i ]
   %agg.tmp3.sroa.3.0.copyload = phi i32 [ %ref.tmp.sroa.4.0.copyload301, %cond.false.i ], [ %13, %cond.true.i ]
   %agg.tmp3.sroa.4.0.copyload = phi i32 [ %ref.tmp.sroa.5.0.copyload302, %cond.false.i ], [ %16, %cond.true.i ]
@@ -28894,7 +28894,7 @@ _ZN18OpenImageIO_v2_6_016roi_intersectionERKNS_3ROIES2_.exit: ; preds = %cond.tr
   %agg.tmp3.sroa.6.0.copyload = phi i32 [ %ref.tmp.sroa.7.0.copyload304, %cond.false.i ], [ %22, %cond.true.i ]
   %ref.tmp.sroa.8.0 = phi i32 [ %ref.tmp.sroa.8.0.copyload305, %cond.false.i ], [ %25, %cond.true.i ]
   %ref.tmp.sroa.9.0 = phi i32 [ %ref.tmp.sroa.9.0.copyload306, %cond.false.i ], [ %28, %cond.true.i ]
-  store i32 %ref.tmp.sroa.0.0, ptr %roi, align 8
+  store i32 %agg.tmp3.sroa.0.0.copyload, ptr %roi, align 8
   store i32 %agg.tmp3.sroa.2.0.copyload, ptr %cond-lvalue.i.sroa.gep, align 4
   store i32 %agg.tmp3.sroa.3.0.copyload, ptr %cond-lvalue.i.sroa.gep409, align 8
   store i32 %agg.tmp3.sroa.4.0.copyload, ptr %cond-lvalue.i.sroa.gep412, align 4
@@ -28909,7 +28909,6 @@ invoke.cont2:                                     ; preds = %_ZN18OpenImageIO_v2
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont2
-  %agg.tmp3.sroa.0.0.copyload = load i32, ptr %roi, align 8
   store i32 -2147483648, ptr %agg.result, align 4, !alias.scope !158
   %xend.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %xend.i.i, i8 0, i64 28, i1 false), !alias.scope !158
@@ -29119,11 +29118,11 @@ for.body.lr.ph:                                   ; preds = %invoke.cont18
   %cmp.i.i66.fr = freeze i1 %cmp.i.i66
   %55 = lshr i64 %54, 32
   %56 = trunc nuw i64 %55 to i32
+  %57 = trunc i64 %54 to i32
   br i1 %cmp.i.i66.fr, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %57 = and i64 %54, 4294967295
-  %cmp.i.not.i57.us = icmp eq i64 %57, 2147483648
+  %cmp.i.not.i57.us = icmp eq i32 %57, -2147483648
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
@@ -29192,8 +29191,7 @@ for.body:                                         ; preds = %for.body.lr.ph
   store i64 %54, ptr %agg.tmp2256, align 8
   store i32 %sub, ptr %agg.tmp22.sroa.2.0.agg.tmp2256.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp22.sroa.3.0.agg.tmp2256.sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %cond-lvalue.i.sroa.gep412, i64 20, i1 false)
-  %63 = and i64 %54, 4294967295
-  %cmp.i.not.i57 = icmp eq i64 %63, 2147483648
+  %cmp.i.not.i57 = icmp eq i32 %57, -2147483648
   br i1 %cmp.i.not.i57, label %cond.false.i61, label %cond.true.i58
 
 cond.true.i58:                                    ; preds = %for.body
@@ -29201,8 +29199,8 @@ cond.true.i58:                                    ; preds = %for.body
           to label %call1.i.noexc unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split
 
 call1.i.noexc:                                    ; preds = %cond.true.i58
-  %64 = load i32, ptr %chend.i59, align 4
-  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %call1.i62, i32 %64)
+  %63 = load i32, ptr %chend.i59, align 4
+  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %call1.i62, i32 %63)
   br label %cond.end.i
 
 cond.false.i61:                                   ; preds = %for.body
@@ -29211,8 +29209,8 @@ cond.false.i61:                                   ; preds = %for.body
 
 cond.end.i:                                       ; preds = %cond.false.i61, %call1.i.noexc
   %cond.i = phi i32 [ %.sroa.speculated.i, %call1.i.noexc ], [ %call3.i63, %cond.false.i61 ]
-  %65 = sext i32 %cond.i to i64
-  %conv.i = select i1 %tobool.not.i60, i64 0, i64 %65
+  %64 = sext i32 %cond.i to i64
+  %conv.i = select i1 %tobool.not.i60, i64 0, i64 %64
   %call.i.i64 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp2256, i32 noundef %nthreads)
           to label %invoke.cont24 unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split
 
@@ -29221,17 +29219,17 @@ invoke.cont24:                                    ; preds = %cond.end.i
   br label %for.end
 
 lpad9:                                            ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i
-  %66 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup139
 
 lpad11:                                           ; preds = %invoke.cont10
-  %67 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad17:                                           ; preds = %if.end.i.i.i.i.i.i.i38, %if.then.i.i51
-  %68 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -29275,9 +29273,10 @@ if.then.i.i.i:                                    ; preds = %lpad23
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.inc.us, %invoke.cont24.us, %for.body.i.i.i.i.i.i.us, %invoke.cont24, %invoke.cont18
+  %.pr = phi i32 [ %57, %invoke.cont24 ], [ %agg.tmp3.sroa.0.0.copyload, %invoke.cont18 ], [ %57, %for.body.i.i.i.i.i.i.us ], [ %57, %invoke.cont24.us ], [ %57, %for.inc.us ]
   %ref.tmp.sroa.3.0.roi.sroa_idx.promoted = phi i32 [ %56, %invoke.cont24 ], [ %agg.tmp3.sroa.2.0.copyload, %invoke.cont18 ], [ %56, %for.body.i.i.i.i.i.i.us ], [ %56, %invoke.cont24.us ], [ %56, %for.inc.us ]
-  %69 = phi i32 [ %agg.tmp3.sroa.4.0.copyload, %invoke.cont24 ], [ %agg.tmp3.sroa.4.0.copyload, %invoke.cont18 ], [ %58, %for.body.i.i.i.i.i.i.us ], [ %sub.us, %for.inc.us ], [ %58, %invoke.cont24.us ]
-  %cmp34349 = icmp slt i32 %agg.tmp3.sroa.3.0.copyload, %69
+  %68 = phi i32 [ %agg.tmp3.sroa.4.0.copyload, %invoke.cont24 ], [ %agg.tmp3.sroa.4.0.copyload, %invoke.cont18 ], [ %58, %for.body.i.i.i.i.i.i.us ], [ %sub.us, %for.inc.us ], [ %58, %invoke.cont24.us ]
+  %cmp34349 = icmp slt i32 %agg.tmp3.sroa.3.0.copyload, %68
   br i1 %cmp34349, label %for.body35.lr.ph, label %for.end50
 
 for.body35.lr.ph:                                 ; preds = %for.end
@@ -29302,8 +29301,8 @@ for.body35.us:                                    ; preds = %for.body35.lr.ph, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp4067, ptr noundef nonnull align 8 dereferenceable(12) %roi, i64 12, i1 false)
   store i32 %add.us, ptr %agg.tmp40.sroa.2.0.agg.tmp4067.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40.sroa.3.0.agg.tmp4067.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.sroa.gep415, i64 16, i1 false)
-  %70 = load i32, ptr %agg.tmp4067, align 8
-  %cmp.i.not.i68.us = icmp eq i32 %70, -2147483648
+  %69 = load i32, ptr %agg.tmp4067, align 8
+  %cmp.i.not.i68.us = icmp eq i32 %69, -2147483648
   br i1 %cmp.i.not.i68.us, label %cond.false.i76.us, label %cond.true.i69.us
 
 cond.true.i69.us:                                 ; preds = %for.body35.us
@@ -29311,8 +29310,8 @@ cond.true.i69.us:                                 ; preds = %for.body35.us
           to label %call1.i.noexc77.us unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 call1.i.noexc77.us:                               ; preds = %cond.true.i69.us
-  %71 = load i32, ptr %chend.i70, align 4
-  %.sroa.speculated.i71.us = call i32 @llvm.smin.i32(i32 %call1.i78.us, i32 %71)
+  %70 = load i32, ptr %chend.i70, align 4
+  %.sroa.speculated.i71.us = call i32 @llvm.smin.i32(i32 %call1.i78.us, i32 %70)
   br label %cond.end.i72.us
 
 cond.false.i76.us:                                ; preds = %for.body35.us
@@ -29321,8 +29320,8 @@ cond.false.i76.us:                                ; preds = %for.body35.us
 
 cond.end.i72.us:                                  ; preds = %cond.false.i76.us, %call1.i.noexc77.us
   %cond.i73.us = phi i32 [ %.sroa.speculated.i71.us, %call1.i.noexc77.us ], [ %call3.i80.us, %cond.false.i76.us ]
-  %72 = sext i32 %cond.i73.us to i64
-  %conv.i75.us = select i1 %tobool.not.i74, i64 0, i64 %72
+  %71 = sext i32 %cond.i73.us to i64
+  %conv.i75.us = select i1 %tobool.not.i74, i64 0, i64 %71
   %call.i.i81.us = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i75.us, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp4067, i32 noundef %nthreads)
           to label %invoke.cont41.us unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
@@ -29336,9 +29335,9 @@ lor.lhs.false43.us:                               ; preds = %invoke.cont41.us
 for.body.i.i.i.i.i.i95.us:                        ; preds = %lor.lhs.false43.us, %for.inc.i.i.i.i.i.i99.us
   %__first2.addr.06.i.i.i.i.i.i96.us = phi ptr [ %incdec.ptr2.i.i.i.i.i.i101.us, %for.inc.i.i.i.i.i.i99.us ], [ %zero.sroa.0.0, %lor.lhs.false43.us ]
   %__first1.addr.05.i.i.i.i.i.i97.us = phi ptr [ %incdec.ptr.i.i.i.i.i.i100.us, %for.inc.i.i.i.i.i.i99.us ], [ %color.sroa.0.0, %lor.lhs.false43.us ]
-  %73 = load float, ptr %__first1.addr.05.i.i.i.i.i.i97.us, align 4
-  %74 = load float, ptr %__first2.addr.06.i.i.i.i.i.i96.us, align 4
-  %cmp1.i.i.i.i.i.i98.us = fcmp une float %73, %74
+  %72 = load float, ptr %__first1.addr.05.i.i.i.i.i.i97.us, align 4
+  %73 = load float, ptr %__first2.addr.06.i.i.i.i.i.i96.us, align 4
+  %cmp1.i.i.i.i.i.i98.us = fcmp une float %72, %73
   br i1 %cmp1.i.i.i.i.i.i98.us, label %for.end50, label %for.inc.i.i.i.i.i.i99.us
 
 for.inc.i.i.i.i.i.i99.us:                         ; preds = %for.body.i.i.i.i.i.i95.us
@@ -29349,7 +29348,7 @@ for.inc.i.i.i.i.i.i99.us:                         ; preds = %for.body.i.i.i.i.i.
 
 for.inc48.us:                                     ; preds = %for.inc.i.i.i.i.i.i99.us, %lor.lhs.false43.us
   store i32 %add.us, ptr %cond-lvalue.i.sroa.gep409, align 8
-  %exitcond.not = icmp eq i32 %add.us, %69
+  %exitcond.not = icmp eq i32 %add.us, %68
   br i1 %exitcond.not, label %for.end50, label %for.body35.us, !llvm.loop !166
 
 lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %cond.end.i72.us, %cond.false.i76.us, %cond.true.i69.us
@@ -29363,8 +29362,8 @@ for.body35:                                       ; preds = %for.body35.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp4067, ptr noundef nonnull align 8 dereferenceable(12) %roi, i64 12, i1 false)
   store i32 %add, ptr %agg.tmp40.sroa.2.0.agg.tmp4067.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40.sroa.3.0.agg.tmp4067.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.sroa.gep415, i64 16, i1 false)
-  %75 = load i32, ptr %agg.tmp4067, align 8
-  %cmp.i.not.i68 = icmp eq i32 %75, -2147483648
+  %74 = load i32, ptr %agg.tmp4067, align 8
+  %cmp.i.not.i68 = icmp eq i32 %74, -2147483648
   br i1 %cmp.i.not.i68, label %cond.false.i76, label %cond.true.i69
 
 cond.true.i69:                                    ; preds = %for.body35
@@ -29372,8 +29371,8 @@ cond.true.i69:                                    ; preds = %for.body35
           to label %call1.i.noexc77 unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
 call1.i.noexc77:                                  ; preds = %cond.true.i69
-  %76 = load i32, ptr %chend.i70, align 4
-  %.sroa.speculated.i71 = call i32 @llvm.smin.i32(i32 %call1.i78, i32 %76)
+  %75 = load i32, ptr %chend.i70, align 4
+  %.sroa.speculated.i71 = call i32 @llvm.smin.i32(i32 %call1.i78, i32 %75)
   br label %cond.end.i72
 
 cond.false.i76:                                   ; preds = %for.body35
@@ -29382,8 +29381,8 @@ cond.false.i76:                                   ; preds = %for.body35
 
 cond.end.i72:                                     ; preds = %cond.false.i76, %call1.i.noexc77
   %cond.i73 = phi i32 [ %.sroa.speculated.i71, %call1.i.noexc77 ], [ %call3.i80, %cond.false.i76 ]
-  %77 = sext i32 %cond.i73 to i64
-  %conv.i75 = select i1 %tobool.not.i74, i64 0, i64 %77
+  %76 = sext i32 %cond.i73 to i64
+  %conv.i75 = select i1 %tobool.not.i74, i64 0, i64 %76
   %call.i.i81 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i75, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp4067, i32 noundef %nthreads)
           to label %invoke.cont41 unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
@@ -29392,7 +29391,7 @@ invoke.cont41:                                    ; preds = %cond.end.i72
   br label %for.end50
 
 for.end50:                                        ; preds = %for.inc48.us, %invoke.cont41.us, %for.body.i.i.i.i.i.i95.us, %invoke.cont41, %for.end
-  %cmp52353 = icmp slt i32 %ref.tmp.sroa.0.0, %ref.tmp.sroa.3.0.roi.sroa_idx.promoted
+  %cmp52353 = icmp slt i32 %agg.tmp3.sroa.0.0.copyload, %ref.tmp.sroa.3.0.roi.sroa_idx.promoted
   br i1 %cmp52353, label %for.body53.lr.ph, label %for.end70
 
 for.body53.lr.ph:                                 ; preds = %for.end50
@@ -29423,8 +29422,8 @@ cond.true.i106.us:                                ; preds = %for.body53.us
           to label %call1.i.noexc114.us unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 call1.i.noexc114.us:                              ; preds = %cond.true.i106.us
-  %78 = load i32, ptr %chend.i107, align 4
-  %.sroa.speculated.i108.us = call i32 @llvm.smin.i32(i32 %call1.i115.us, i32 %78)
+  %77 = load i32, ptr %chend.i107, align 4
+  %.sroa.speculated.i108.us = call i32 @llvm.smin.i32(i32 %call1.i115.us, i32 %77)
   br label %cond.end.i109.us
 
 cond.false.i113.us:                               ; preds = %for.body53.us
@@ -29433,8 +29432,8 @@ cond.false.i113.us:                               ; preds = %for.body53.us
 
 cond.end.i109.us:                                 ; preds = %cond.false.i113.us, %call1.i.noexc114.us
   %cond.i110.us = phi i32 [ %.sroa.speculated.i108.us, %call1.i.noexc114.us ], [ %call3.i117.us, %cond.false.i113.us ]
-  %79 = sext i32 %cond.i110.us to i64
-  %conv.i112.us = select i1 %tobool.not.i111, i64 0, i64 %79
+  %78 = sext i32 %cond.i110.us to i64
+  %conv.i112.us = select i1 %tobool.not.i111, i64 0, i64 %78
   %call.i.i118.us = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i112.us, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp59104, i32 noundef %nthreads)
           to label %invoke.cont60.us unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
@@ -29448,9 +29447,9 @@ lor.lhs.false62.us:                               ; preds = %invoke.cont60.us
 for.body.i.i.i.i.i.i132.us:                       ; preds = %lor.lhs.false62.us, %for.inc.i.i.i.i.i.i136.us
   %__first2.addr.06.i.i.i.i.i.i133.us = phi ptr [ %incdec.ptr2.i.i.i.i.i.i138.us, %for.inc.i.i.i.i.i.i136.us ], [ %zero.sroa.0.0, %lor.lhs.false62.us ]
   %__first1.addr.05.i.i.i.i.i.i134.us = phi ptr [ %incdec.ptr.i.i.i.i.i.i137.us, %for.inc.i.i.i.i.i.i136.us ], [ %color.sroa.0.0, %lor.lhs.false62.us ]
-  %80 = load float, ptr %__first1.addr.05.i.i.i.i.i.i134.us, align 4
-  %81 = load float, ptr %__first2.addr.06.i.i.i.i.i.i133.us, align 4
-  %cmp1.i.i.i.i.i.i135.us = fcmp une float %80, %81
+  %79 = load float, ptr %__first1.addr.05.i.i.i.i.i.i134.us, align 4
+  %80 = load float, ptr %__first2.addr.06.i.i.i.i.i.i133.us, align 4
+  %cmp1.i.i.i.i.i.i135.us = fcmp une float %79, %80
   br i1 %cmp1.i.i.i.i.i.i135.us, label %for.end70, label %for.inc.i.i.i.i.i.i136.us
 
 for.inc.i.i.i.i.i.i136.us:                        ; preds = %for.body.i.i.i.i.i.i132.us
@@ -29461,7 +29460,7 @@ for.inc.i.i.i.i.i.i136.us:                        ; preds = %for.body.i.i.i.i.i.
 
 for.inc67.us:                                     ; preds = %for.inc.i.i.i.i.i.i136.us, %lor.lhs.false62.us
   store i32 %sub56.us, ptr %cond-lvalue.i.sroa.gep, align 4
-  %cmp52.us = icmp slt i32 %ref.tmp.sroa.0.0, %sub56.us
+  %cmp52.us = icmp slt i32 %agg.tmp3.sroa.0.0.copyload, %sub56.us
   br i1 %cmp52.us, label %for.body53.us, label %for.end70, !llvm.loop !167
 
 lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %cond.end.i109.us, %cond.false.i113.us, %cond.true.i106.us
@@ -29482,8 +29481,8 @@ cond.true.i106:                                   ; preds = %for.body53
           to label %call1.i.noexc114 unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
 call1.i.noexc114:                                 ; preds = %cond.true.i106
-  %82 = load i32, ptr %chend.i107, align 4
-  %.sroa.speculated.i108 = call i32 @llvm.smin.i32(i32 %call1.i115, i32 %82)
+  %81 = load i32, ptr %chend.i107, align 4
+  %.sroa.speculated.i108 = call i32 @llvm.smin.i32(i32 %call1.i115, i32 %81)
   br label %cond.end.i109
 
 cond.false.i113:                                  ; preds = %for.body53
@@ -29492,8 +29491,8 @@ cond.false.i113:                                  ; preds = %for.body53
 
 cond.end.i109:                                    ; preds = %cond.false.i113, %call1.i.noexc114
   %cond.i110 = phi i32 [ %.sroa.speculated.i108, %call1.i.noexc114 ], [ %call3.i117, %cond.false.i113 ]
-  %83 = sext i32 %cond.i110 to i64
-  %conv.i112 = select i1 %tobool.not.i111, i64 0, i64 %83
+  %82 = sext i32 %cond.i110 to i64
+  %conv.i112 = select i1 %tobool.not.i111, i64 0, i64 %82
   %call.i.i118 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i112, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp59104, i32 noundef %nthreads)
           to label %invoke.cont60 unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
@@ -29502,9 +29501,8 @@ invoke.cont60:                                    ; preds = %cond.end.i109
   br label %for.end70
 
 for.end70:                                        ; preds = %for.inc67.us, %invoke.cont60.us, %for.body.i.i.i.i.i.i132.us, %invoke.cont60, %for.end50
-  %84 = phi i32 [ %ref.tmp.sroa.3.0.roi.sroa_idx.promoted, %for.end50 ], [ %ref.tmp.sroa.3.0.roi.sroa_idx.promoted, %invoke.cont60 ], [ %sub56352354.us, %for.body.i.i.i.i.i.i132.us ], [ %ref.tmp.sroa.0.0, %for.inc67.us ], [ %sub56352354.us, %invoke.cont60.us ]
-  %.pr = load i32, ptr %roi, align 8
-  %cmp74364 = icmp slt i32 %.pr, %84
+  %83 = phi i32 [ %ref.tmp.sroa.3.0.roi.sroa_idx.promoted, %for.end50 ], [ %ref.tmp.sroa.3.0.roi.sroa_idx.promoted, %invoke.cont60 ], [ %sub56352354.us, %for.body.i.i.i.i.i.i132.us ], [ %agg.tmp3.sroa.0.0.copyload, %for.inc67.us ], [ %sub56352354.us, %invoke.cont60.us ]
+  %cmp74364 = icmp slt i32 %.pr, %83
   br i1 %cmp74364, label %for.body75.lr.ph, label %for.end92
 
 for.body75.lr.ph:                                 ; preds = %for.end70
@@ -29537,8 +29535,8 @@ cond.true.i143.us:                                ; preds = %for.body75.us
           to label %call1.i.noexc151.us unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 call1.i.noexc151.us:                              ; preds = %cond.true.i143.us
-  %85 = load i32, ptr %chend.i144, align 4
-  %.sroa.speculated.i145.us = call i32 @llvm.smin.i32(i32 %call1.i152.us, i32 %85)
+  %84 = load i32, ptr %chend.i144, align 4
+  %.sroa.speculated.i145.us = call i32 @llvm.smin.i32(i32 %call1.i152.us, i32 %84)
   br label %cond.end.i146.us
 
 cond.false.i150.us:                               ; preds = %for.body75.us
@@ -29547,8 +29545,8 @@ cond.false.i150.us:                               ; preds = %for.body75.us
 
 cond.end.i146.us:                                 ; preds = %cond.false.i150.us, %call1.i.noexc151.us
   %cond.i147.us = phi i32 [ %.sroa.speculated.i145.us, %call1.i.noexc151.us ], [ %call3.i154.us, %cond.false.i150.us ]
-  %86 = sext i32 %cond.i147.us to i64
-  %conv.i149.us = select i1 %tobool.not.i148, i64 0, i64 %86
+  %85 = sext i32 %cond.i147.us to i64
+  %conv.i149.us = select i1 %tobool.not.i148, i64 0, i64 %85
   %call.i.i155.us = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i149.us, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp81141, i32 noundef %nthreads)
           to label %invoke.cont82.us unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
@@ -29562,9 +29560,9 @@ lor.lhs.false84.us:                               ; preds = %invoke.cont82.us
 for.body.i.i.i.i.i.i169.us:                       ; preds = %lor.lhs.false84.us, %for.inc.i.i.i.i.i.i173.us
   %__first2.addr.06.i.i.i.i.i.i170.us = phi ptr [ %incdec.ptr2.i.i.i.i.i.i175.us, %for.inc.i.i.i.i.i.i173.us ], [ %zero.sroa.0.0, %lor.lhs.false84.us ]
   %__first1.addr.05.i.i.i.i.i.i171.us = phi ptr [ %incdec.ptr.i.i.i.i.i.i174.us, %for.inc.i.i.i.i.i.i173.us ], [ %color.sroa.0.0, %lor.lhs.false84.us ]
-  %87 = load float, ptr %__first1.addr.05.i.i.i.i.i.i171.us, align 4
-  %88 = load float, ptr %__first2.addr.06.i.i.i.i.i.i170.us, align 4
-  %cmp1.i.i.i.i.i.i172.us = fcmp une float %87, %88
+  %86 = load float, ptr %__first1.addr.05.i.i.i.i.i.i171.us, align 4
+  %87 = load float, ptr %__first2.addr.06.i.i.i.i.i.i170.us, align 4
+  %cmp1.i.i.i.i.i.i172.us = fcmp une float %86, %87
   br i1 %cmp1.i.i.i.i.i.i172.us, label %for.end92, label %for.inc.i.i.i.i.i.i173.us
 
 for.inc.i.i.i.i.i.i173.us:                        ; preds = %for.body.i.i.i.i.i.i169.us
@@ -29574,7 +29572,7 @@ for.inc.i.i.i.i.i.i173.us:                        ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i176.us, label %for.inc89.us, label %for.body.i.i.i.i.i.i169.us, !llvm.loop !164
 
 for.inc89.us:                                     ; preds = %for.inc.i.i.i.i.i.i173.us, %lor.lhs.false84.us
-  %exitcond405.not = icmp eq i32 %add78.us, %84
+  %exitcond405.not = icmp eq i32 %add78.us, %83
   br i1 %exitcond405.not, label %for.end92, label %for.body75.us, !llvm.loop !168
 
 lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %cond.end.i146.us, %cond.false.i150.us, %cond.true.i143.us
@@ -29596,8 +29594,8 @@ cond.true.i143:                                   ; preds = %for.body75
           to label %call1.i.noexc151 unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
 call1.i.noexc151:                                 ; preds = %cond.true.i143
-  %89 = load i32, ptr %chend.i144, align 4
-  %.sroa.speculated.i145 = call i32 @llvm.smin.i32(i32 %call1.i152, i32 %89)
+  %88 = load i32, ptr %chend.i144, align 4
+  %.sroa.speculated.i145 = call i32 @llvm.smin.i32(i32 %call1.i152, i32 %88)
   br label %cond.end.i146
 
 cond.false.i150:                                  ; preds = %for.body75
@@ -29606,8 +29604,8 @@ cond.false.i150:                                  ; preds = %for.body75
 
 cond.end.i146:                                    ; preds = %cond.false.i150, %call1.i.noexc151
   %cond.i147 = phi i32 [ %.sroa.speculated.i145, %call1.i.noexc151 ], [ %call3.i154, %cond.false.i150 ]
-  %90 = sext i32 %cond.i147 to i64
-  %conv.i149 = select i1 %tobool.not.i148, i64 0, i64 %90
+  %89 = sext i32 %cond.i147 to i64
+  %conv.i149 = select i1 %tobool.not.i148, i64 0, i64 %89
   %call.i.i155 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i149, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp81141, i32 noundef %nthreads)
           to label %invoke.cont82 unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
@@ -29616,7 +29614,7 @@ invoke.cont82:                                    ; preds = %cond.end.i146
   br label %for.end92
 
 for.end92:                                        ; preds = %for.inc89.us, %invoke.cont82.us, %for.body.i.i.i.i.i.i169.us, %for.end70, %invoke.cont82
-  %storemerge = phi i32 [ %.pr, %for.end70 ], [ %.pr, %invoke.cont82 ], [ %add78361365.us, %for.body.i.i.i.i.i.i169.us ], [ %84, %for.inc89.us ], [ %add78361365.us, %invoke.cont82.us ]
+  %storemerge = phi i32 [ %.pr, %for.end70 ], [ %.pr, %invoke.cont82 ], [ %add78361365.us, %for.body.i.i.i.i.i.i169.us ], [ %83, %for.inc89.us ], [ %add78361365.us, %invoke.cont82.us ]
   store i32 %storemerge, ptr %roi, align 8
   %sub.i = sub nsw i32 %agg.tmp3.sroa.6.0.copyload, %agg.tmp3.sroa.5.0.copyload
   %cmp94 = icmp sgt i32 %sub.i, 1
@@ -29648,8 +29646,8 @@ for.body98.us:                                    ; preds = %for.body98.lr.ph, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp104180, ptr noundef nonnull align 8 dereferenceable(16) %roi, i64 16, i1 false)
   store i32 %sub101.us, ptr %agg.tmp104.sroa.2.0.agg.tmp104180.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %agg.tmp104.sroa.3.0.agg.tmp104180.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %cond-lvalue.i.sroa.gep418, i64 12, i1 false)
-  %91 = load i32, ptr %agg.tmp104180, align 8
-  %cmp.i.not.i181.us = icmp eq i32 %91, -2147483648
+  %90 = load i32, ptr %agg.tmp104180, align 8
+  %cmp.i.not.i181.us = icmp eq i32 %90, -2147483648
   br i1 %cmp.i.not.i181.us, label %cond.false.i189.us, label %cond.true.i182.us
 
 cond.true.i182.us:                                ; preds = %for.body98.us
@@ -29657,8 +29655,8 @@ cond.true.i182.us:                                ; preds = %for.body98.us
           to label %call1.i.noexc190.us unwind label %lpad23.loopexit.split-lp.loopexit.split.us
 
 call1.i.noexc190.us:                              ; preds = %cond.true.i182.us
-  %92 = load i32, ptr %chend.i183, align 4
-  %.sroa.speculated.i184.us = call i32 @llvm.smin.i32(i32 %call1.i191.us, i32 %92)
+  %91 = load i32, ptr %chend.i183, align 4
+  %.sroa.speculated.i184.us = call i32 @llvm.smin.i32(i32 %call1.i191.us, i32 %91)
   br label %cond.end.i185.us
 
 cond.false.i189.us:                               ; preds = %for.body98.us
@@ -29667,8 +29665,8 @@ cond.false.i189.us:                               ; preds = %for.body98.us
 
 cond.end.i185.us:                                 ; preds = %cond.false.i189.us, %call1.i.noexc190.us
   %cond.i186.us = phi i32 [ %.sroa.speculated.i184.us, %call1.i.noexc190.us ], [ %call3.i193.us, %cond.false.i189.us ]
-  %93 = sext i32 %cond.i186.us to i64
-  %conv.i188.us = select i1 %tobool.not.i187, i64 0, i64 %93
+  %92 = sext i32 %cond.i186.us to i64
+  %conv.i188.us = select i1 %tobool.not.i187, i64 0, i64 %92
   %call.i.i194.us = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i188.us, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp104180, i32 noundef %nthreads)
           to label %invoke.cont105.us unwind label %lpad23.loopexit.split-lp.loopexit.split.us
 
@@ -29682,9 +29680,9 @@ lor.lhs.false107.us:                              ; preds = %invoke.cont105.us
 for.body.i.i.i.i.i.i208.us:                       ; preds = %lor.lhs.false107.us, %for.inc.i.i.i.i.i.i212.us
   %__first2.addr.06.i.i.i.i.i.i209.us = phi ptr [ %incdec.ptr2.i.i.i.i.i.i214.us, %for.inc.i.i.i.i.i.i212.us ], [ %zero.sroa.0.0, %lor.lhs.false107.us ]
   %__first1.addr.05.i.i.i.i.i.i210.us = phi ptr [ %incdec.ptr.i.i.i.i.i.i213.us, %for.inc.i.i.i.i.i.i212.us ], [ %color.sroa.0.0, %lor.lhs.false107.us ]
-  %94 = load float, ptr %__first1.addr.05.i.i.i.i.i.i210.us, align 4
-  %95 = load float, ptr %__first2.addr.06.i.i.i.i.i.i209.us, align 4
-  %cmp1.i.i.i.i.i.i211.us = fcmp une float %94, %95
+  %93 = load float, ptr %__first1.addr.05.i.i.i.i.i.i210.us, align 4
+  %94 = load float, ptr %__first2.addr.06.i.i.i.i.i.i209.us, align 4
+  %cmp1.i.i.i.i.i.i211.us = fcmp une float %93, %94
   br i1 %cmp1.i.i.i.i.i.i211.us, label %for.end115, label %for.inc.i.i.i.i.i.i212.us
 
 for.inc.i.i.i.i.i.i212.us:                        ; preds = %for.body.i.i.i.i.i.i208.us
@@ -29709,8 +29707,8 @@ for.body98:                                       ; preds = %for.body98.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp104180, ptr noundef nonnull align 8 dereferenceable(16) %roi, i64 16, i1 false)
   store i32 %sub101, ptr %agg.tmp104.sroa.2.0.agg.tmp104180.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %agg.tmp104.sroa.3.0.agg.tmp104180.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %cond-lvalue.i.sroa.gep418, i64 12, i1 false)
-  %96 = load i32, ptr %agg.tmp104180, align 8
-  %cmp.i.not.i181 = icmp eq i32 %96, -2147483648
+  %95 = load i32, ptr %agg.tmp104180, align 8
+  %cmp.i.not.i181 = icmp eq i32 %95, -2147483648
   br i1 %cmp.i.not.i181, label %cond.false.i189, label %cond.true.i182
 
 cond.true.i182:                                   ; preds = %for.body98
@@ -29718,8 +29716,8 @@ cond.true.i182:                                   ; preds = %for.body98
           to label %call1.i.noexc190 unwind label %lpad23.loopexit.split-lp.loopexit.split
 
 call1.i.noexc190:                                 ; preds = %cond.true.i182
-  %97 = load i32, ptr %chend.i183, align 4
-  %.sroa.speculated.i184 = call i32 @llvm.smin.i32(i32 %call1.i191, i32 %97)
+  %96 = load i32, ptr %chend.i183, align 4
+  %.sroa.speculated.i184 = call i32 @llvm.smin.i32(i32 %call1.i191, i32 %96)
   br label %cond.end.i185
 
 cond.false.i189:                                  ; preds = %for.body98
@@ -29728,8 +29726,8 @@ cond.false.i189:                                  ; preds = %for.body98
 
 cond.end.i185:                                    ; preds = %cond.false.i189, %call1.i.noexc190
   %cond.i186 = phi i32 [ %.sroa.speculated.i184, %call1.i.noexc190 ], [ %call3.i193, %cond.false.i189 ]
-  %98 = sext i32 %cond.i186 to i64
-  %conv.i188 = select i1 %tobool.not.i187, i64 0, i64 %98
+  %97 = sext i32 %cond.i186 to i64
+  %conv.i188 = select i1 %tobool.not.i187, i64 0, i64 %97
   %call.i.i194 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i188, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp104180, i32 noundef %nthreads)
           to label %invoke.cont105 unwind label %lpad23.loopexit.split-lp.loopexit.split
 
@@ -29738,12 +29736,12 @@ invoke.cont105:                                   ; preds = %cond.end.i185
   br label %for.end115
 
 for.end115:                                       ; preds = %for.inc112.us, %invoke.cont105.us, %for.body.i.i.i.i.i.i208.us, %invoke.cont105, %for.cond96.preheader
-  %99 = phi i32 [ %agg.tmp3.sroa.6.0.copyload, %for.cond96.preheader ], [ %agg.tmp3.sroa.6.0.copyload, %invoke.cont105 ], [ %sub101374376.us, %for.body.i.i.i.i.i.i208.us ], [ %agg.tmp3.sroa.5.0.copyload, %for.inc112.us ], [ %sub101374376.us, %invoke.cont105.us ]
-  %cmp119385 = icmp slt i32 %agg.tmp3.sroa.5.0.copyload, %99
+  %98 = phi i32 [ %agg.tmp3.sroa.6.0.copyload, %for.cond96.preheader ], [ %agg.tmp3.sroa.6.0.copyload, %invoke.cont105 ], [ %sub101374376.us, %for.body.i.i.i.i.i.i208.us ], [ %agg.tmp3.sroa.5.0.copyload, %for.inc112.us ], [ %sub101374376.us, %invoke.cont105.us ]
+  %cmp119385 = icmp slt i32 %agg.tmp3.sroa.5.0.copyload, %98
   br i1 %cmp119385, label %for.body120.lr.ph, label %if.end138
 
 for.body120.lr.ph:                                ; preds = %for.end115
-  %100 = load i64, ptr %cond-lvalue.i.sroa.gep421, align 8
+  %99 = load i64, ptr %cond-lvalue.i.sroa.gep421, align 8
   %agg.tmp126.sroa.2.0.agg.tmp126217.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp126217, i64 20
   %agg.tmp126.sroa.3.0.agg.tmp126217.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp126217, i64 24
   %tobool.not.i224 = icmp eq ptr %color.sroa.0.0, null
@@ -29758,8 +29756,8 @@ for.body120.lr.ph:                                ; preds = %for.end115
   br i1 %cmp.i.i241.fr, label %for.body120.us.preheader, label %for.body120
 
 for.body120.us.preheader:                         ; preds = %for.body120.lr.ph
-  %101 = lshr i64 %100, 32
-  %102 = trunc nuw i64 %101 to i32
+  %100 = lshr i64 %99, 32
+  %101 = trunc nuw i64 %100 to i32
   br label %for.body120.us
 
 for.body120.us:                                   ; preds = %for.body120.us.preheader, %for.inc134.us
@@ -29768,9 +29766,9 @@ for.body120.us:                                   ; preds = %for.body120.us.preh
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp126217)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp126217, ptr noundef nonnull align 8 dereferenceable(20) %roi, i64 20, i1 false)
   store i32 %add123.us, ptr %agg.tmp126.sroa.2.0.agg.tmp126217.sroa_idx, align 4
-  store i64 %100, ptr %agg.tmp126.sroa.3.0.agg.tmp126217.sroa_idx, align 8
-  %103 = load i32, ptr %agg.tmp126217, align 8
-  %cmp.i.not.i218.us = icmp eq i32 %103, -2147483648
+  store i64 %99, ptr %agg.tmp126.sroa.3.0.agg.tmp126217.sroa_idx, align 8
+  %102 = load i32, ptr %agg.tmp126217, align 8
+  %cmp.i.not.i218.us = icmp eq i32 %102, -2147483648
   br i1 %cmp.i.not.i218.us, label %cond.false.i226.us, label %cond.true.i219.us
 
 cond.true.i219.us:                                ; preds = %for.body120.us
@@ -29778,7 +29776,7 @@ cond.true.i219.us:                                ; preds = %for.body120.us
           to label %call1.i.noexc227.us unwind label %lpad23.loopexit.split.us
 
 call1.i.noexc227.us:                              ; preds = %cond.true.i219.us
-  %.sroa.speculated.i221.us = call i32 @llvm.smin.i32(i32 %call1.i228.us, i32 %102)
+  %.sroa.speculated.i221.us = call i32 @llvm.smin.i32(i32 %call1.i228.us, i32 %101)
   br label %cond.end.i222.us
 
 cond.false.i226.us:                               ; preds = %for.body120.us
@@ -29787,8 +29785,8 @@ cond.false.i226.us:                               ; preds = %for.body120.us
 
 cond.end.i222.us:                                 ; preds = %cond.false.i226.us, %call1.i.noexc227.us
   %cond.i223.us = phi i32 [ %.sroa.speculated.i221.us, %call1.i.noexc227.us ], [ %call3.i230.us, %cond.false.i226.us ]
-  %104 = sext i32 %cond.i223.us to i64
-  %conv.i225.us = select i1 %tobool.not.i224, i64 0, i64 %104
+  %103 = sext i32 %cond.i223.us to i64
+  %conv.i225.us = select i1 %tobool.not.i224, i64 0, i64 %103
   %call.i.i231.us = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i225.us, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp126217, i32 noundef %nthreads)
           to label %invoke.cont127.us unwind label %lpad23.loopexit.split.us
 
@@ -29802,9 +29800,9 @@ lor.lhs.false129.us:                              ; preds = %invoke.cont127.us
 for.body.i.i.i.i.i.i245.us:                       ; preds = %lor.lhs.false129.us, %for.inc.i.i.i.i.i.i249.us
   %__first2.addr.06.i.i.i.i.i.i246.us = phi ptr [ %incdec.ptr2.i.i.i.i.i.i251.us, %for.inc.i.i.i.i.i.i249.us ], [ %zero.sroa.0.0, %lor.lhs.false129.us ]
   %__first1.addr.05.i.i.i.i.i.i247.us = phi ptr [ %incdec.ptr.i.i.i.i.i.i250.us, %for.inc.i.i.i.i.i.i249.us ], [ %color.sroa.0.0, %lor.lhs.false129.us ]
-  %105 = load float, ptr %__first1.addr.05.i.i.i.i.i.i247.us, align 4
-  %106 = load float, ptr %__first2.addr.06.i.i.i.i.i.i246.us, align 4
-  %cmp1.i.i.i.i.i.i248.us = fcmp une float %105, %106
+  %104 = load float, ptr %__first1.addr.05.i.i.i.i.i.i247.us, align 4
+  %105 = load float, ptr %__first2.addr.06.i.i.i.i.i.i246.us, align 4
+  %cmp1.i.i.i.i.i.i248.us = fcmp une float %104, %105
   br i1 %cmp1.i.i.i.i.i.i248.us, label %if.end138, label %for.inc.i.i.i.i.i.i249.us
 
 for.inc.i.i.i.i.i.i249.us:                        ; preds = %for.body.i.i.i.i.i.i245.us
@@ -29815,7 +29813,7 @@ for.inc.i.i.i.i.i.i249.us:                        ; preds = %for.body.i.i.i.i.i.
 
 for.inc134.us:                                    ; preds = %for.inc.i.i.i.i.i.i249.us, %lor.lhs.false129.us
   store i32 %add123.us, ptr %cond-lvalue.i.sroa.gep415, align 8
-  %exitcond406.not = icmp eq i32 %add123.us, %99
+  %exitcond406.not = icmp eq i32 %add123.us, %98
   br i1 %exitcond406.not, label %if.end138, label %for.body120.us, !llvm.loop !170
 
 lpad23.loopexit.split.us:                         ; preds = %cond.end.i222.us, %cond.false.i226.us, %cond.true.i219.us
@@ -29828,11 +29826,11 @@ for.body120:                                      ; preds = %for.body120.lr.ph
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp126217)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp126217, ptr noundef nonnull align 8 dereferenceable(20) %roi, i64 20, i1 false)
   store i32 %add123, ptr %agg.tmp126.sroa.2.0.agg.tmp126217.sroa_idx, align 4
-  store i64 %100, ptr %agg.tmp126.sroa.3.0.agg.tmp126217.sroa_idx, align 8
-  %107 = load i32, ptr %agg.tmp126217, align 8
-  %cmp.i.not.i218 = icmp eq i32 %107, -2147483648
-  %108 = lshr i64 %100, 32
-  %109 = trunc nuw i64 %108 to i32
+  store i64 %99, ptr %agg.tmp126.sroa.3.0.agg.tmp126217.sroa_idx, align 8
+  %106 = load i32, ptr %agg.tmp126217, align 8
+  %cmp.i.not.i218 = icmp eq i32 %106, -2147483648
+  %107 = lshr i64 %99, 32
+  %108 = trunc nuw i64 %107 to i32
   br i1 %cmp.i.not.i218, label %cond.false.i226, label %cond.true.i219
 
 cond.true.i219:                                   ; preds = %for.body120
@@ -29840,7 +29838,7 @@ cond.true.i219:                                   ; preds = %for.body120
           to label %call1.i.noexc227 unwind label %lpad23.loopexit.split
 
 call1.i.noexc227:                                 ; preds = %cond.true.i219
-  %.sroa.speculated.i221 = call i32 @llvm.smin.i32(i32 %call1.i228, i32 %109)
+  %.sroa.speculated.i221 = call i32 @llvm.smin.i32(i32 %call1.i228, i32 %108)
   br label %cond.end.i222
 
 cond.false.i226:                                  ; preds = %for.body120
@@ -29849,8 +29847,8 @@ cond.false.i226:                                  ; preds = %for.body120
 
 cond.end.i222:                                    ; preds = %cond.false.i226, %call1.i.noexc227
   %cond.i223 = phi i32 [ %.sroa.speculated.i221, %call1.i.noexc227 ], [ %call3.i230, %cond.false.i226 ]
-  %110 = sext i32 %cond.i223 to i64
-  %conv.i225 = select i1 %tobool.not.i224, i64 0, i64 %110
+  %109 = sext i32 %cond.i223 to i64
+  %conv.i225 = select i1 %tobool.not.i224, i64 0, i64 %109
   %call.i.i231 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef 0.000000e+00, ptr nonnull %color.sroa.0.0, i64 %conv.i225, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp126217, i32 noundef %nthreads)
           to label %invoke.cont127 unwind label %lpad23.loopexit.split
 
@@ -29876,7 +29874,7 @@ if.then.i.i.i258:                                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %cleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i.i, %lpad23, %lpad17, %lpad11
-  %.pn = phi { ptr, i32 } [ %68, %lpad17 ], [ %67, %lpad11 ], [ %lpad.phi318, %lpad23 ], [ %lpad.phi318, %if.then.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %67, %lpad17 ], [ %66, %lpad11 ], [ %lpad.phi318, %lpad23 ], [ %lpad.phi318, %if.then.i.i.i ]
   %tobool.not.i.i.i260 = icmp eq ptr %zero.sroa.0.0, null
   br i1 %tobool.not.i.i.i260, label %ehcleanup139, label %if.then.i.i.i261
 
@@ -29889,7 +29887,7 @@ cleanup:                                          ; preds = %for.cond1.for.inc41
   ret void
 
 ehcleanup139:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %if.then.i.i.i261, %ehcleanup, %lpad9
-  %.pn24 = phi { ptr, i32 } [ %66, %lpad9 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i261 ], [ %lpad.loopexit313, %lpad.loopexit ], [ %lpad.loopexit.split-lp314, %lpad.loopexit.split-lp ]
+  %.pn24 = phi { ptr, i32 } [ %65, %lpad9 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i261 ], [ %lpad.loopexit313, %lpad.loopexit ], [ %lpad.loopexit.split-lp314, %lpad.loopexit.split-lp ]
   call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtimer) #24
   br label %common.resume
 }

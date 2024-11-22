@@ -347,18 +347,16 @@ __rust_try.llvm.1834434321281747785.exit:         ; preds = %.body
   call void @llvm.assume(i1 %39)
   %40 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %40)
-  br label %42
+  br label %43
 
 41:                                               ; preds = %24, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %42
+  %42 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %1, 1
+  br label %43
 
-42:                                               ; preds = %__rust_try.llvm.1834434321281747785.exit, %41
-  %.sroa.6.08 = phi ptr [ %1, %41 ], [ %38, %__rust_try.llvm.1834434321281747785.exit ]
-  %43 = phi ptr [ null, %41 ], [ %37, %__rust_try.llvm.1834434321281747785.exit ]
-  %44 = insertvalue { ptr, ptr } poison, ptr %43, 0
-  %45 = insertvalue { ptr, ptr } %44, ptr %.sroa.6.08, 1
-  ret { ptr, ptr } %45
+43:                                               ; preds = %__rust_try.llvm.1834434321281747785.exit, %41
+  %.merged = phi { ptr, ptr } [ %42, %41 ], [ %34, %__rust_try.llvm.1834434321281747785.exit ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

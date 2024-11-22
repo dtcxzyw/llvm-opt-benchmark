@@ -754,20 +754,20 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %43, %_ZNSt10unique_
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %56, i64 range(i64 0, 4294967296) %52)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16, !noalias !24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %.sroa.speculated.i) #16, !noalias !24
-  %.not23.i = icmp eq i64 %.sroa.speculated.i, 0
-  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not21.i = icmp eq i64 %.sroa.speculated.i, 0
+  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %58
 
 58:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit15.i, %.lr.ph.i
-  %.022.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %_ZN4llvm5ErrorD2Ev.exit15.i ]
+  %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %_ZN4llvm5ErrorD2Ev.exit15.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !24
   %59 = load ptr, ptr %49, align 8, !noalias !24
   %60 = getelementptr inbounds i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8, !noalias !24
-  call void %61(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef %.022.i, ptr noundef nonnull align 8 dereferenceable(16) %6) #16, !noalias !24
+  call void %61(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef %.020.i, ptr noundef nonnull align 8 dereferenceable(16) %6) #16, !noalias !24
   %62 = load ptr, ptr %7, align 8, !noalias !24
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit15.i, label %_ZN4llvm5ErrorD2Ev.exit.i
@@ -781,13 +781,13 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %58
   br label %_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit
 
 _ZN4llvm5ErrorD2Ev.exit15.i:                      ; preds = %58
-  %64 = sub i64 %.sroa.speculated.i, %.022.i
+  %64 = sub i64 %.sroa.speculated.i, %.020.i
   %65 = load i64, ptr %57, align 8, !noalias !24
   %..i16.i = call i64 @llvm.umin.i64(i64 %64, i64 %65)
-  %.sroa.0.0.i.i = load ptr, ptr %6, align 8, !noalias !24
+  %.sroa.0.0.copyload.pn.i.i = load ptr, ptr %6, align 8, !noalias !24
   store i64 %..i16.i, ptr %57, align 8, !noalias !24
-  %66 = add i64 %..i16.i, %.022.i
-  %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %.sroa.0.0.i.i, i64 noundef %..i16.i) #16, !noalias !24
+  %66 = add i64 %..i16.i, %.020.i
+  %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %.sroa.0.0.copyload.pn.i.i, i64 noundef %..i16.i) #16, !noalias !24
   %68 = icmp ult i64 %66, %.sroa.speculated.i
   br i1 %68, label %58, label %._crit_edge.i, !llvm.loop !31
 

@@ -25831,8 +25831,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN10ref_vectorI4expr11ast_managerEC2ERS1_jPKPS0_.exit, label %for.body.i.i, !llvm.loop !125
 
-common.resume:                                    ; preds = %eh.resume, %lpad.i36.body, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %15, %lpad.i ], [ %eh.lpad-body, %lpad.i36.body ], [ %lpad.val24.merged, %eh.resume ]
+common.resume:                                    ; preds = %lpad, %ehcleanup, %lpad.i36.body, %lpad.i
+  %common.resume.op = phi { ptr, i32 } [ %15, %lpad.i ], [ %eh.lpad-body, %lpad.i36.body ], [ %.merged, %ehcleanup ], [ %27, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i.i.i.i
@@ -25911,7 +25911,8 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
 lpad:                                             ; preds = %_ZN10ref_vectorI4expr11ast_managerEC2ERS1_jPKPS0_.exit
   %27 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %asms) #32
+  br label %common.resume
 
 if.end7:                                          ; preds = %land.lhs.true, %if.end
   %m_scope_lvl.i.i = getelementptr inbounds i8, ptr %this, i64 10016
@@ -26129,7 +26130,7 @@ lpad10:                                           ; preds = %lpad10.loopexit.spl
   %49 = extractvalue { ptr, i32 } %lpad.phi, 1
   %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3smt16cancel_exceptionE) #32
   %matches = icmp eq i32 %49, %50
-  br i1 %matches, label %catch, label %eh.resume
+  br i1 %matches, label %catch, label %ehcleanup
 
 catch:                                            ; preds = %lpad10
   %51 = extractvalue { ptr, i32 } %lpad.phi, 0
@@ -26140,7 +26141,7 @@ catch:                                            ; preds = %lpad10
 lpad14:                                           ; preds = %invoke.cont16, %try.cont, %catch
   %53 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup
 
 try.cont:                                         ; preds = %invoke.cont12
   %call17 = invoke noundef i32 @_ZN3smt7context6searchEv(ptr noundef nonnull align 8 dereferenceable(11616) %this)
@@ -26260,19 +26261,18 @@ for.body.i77:                                     ; preds = %_ZN6vectorIPN3smt6t
   br i1 %call6.i, label %do.body, label %for.cond.i, !llvm.loop !126
 
 do.end:                                           ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.i, %do.cond, %lor.lhs.false.i, %_ZN6vectorIPN3smt6theoryELb0EjE3endEv.exit.i75, %if.end.i, %for.cond.i
-  %r.1102 = phi i32 [ -1, %for.cond.i ], [ -1, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.i ], [ %r.1, %do.cond ], [ -1, %lor.lhs.false.i ], [ -1, %_ZN6vectorIPN3smt6theoryELb0EjE3endEv.exit.i75 ], [ -1, %if.end.i ]
-  %call21 = call noundef i32 @_ZN3smt7context14check_finalizeE5lbool(ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 noundef %r.1102)
+  %r.1100 = phi i32 [ -1, %for.cond.i ], [ -1, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.i ], [ %r.1, %do.cond ], [ -1, %lor.lhs.false.i ], [ -1, %_ZN6vectorIPN3smt6theoryELb0EjE3endEv.exit.i75 ], [ -1, %if.end.i ]
+  %call21 = call noundef i32 @_ZN3smt7context14check_finalizeE5lbool(ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 noundef %r.1100)
   br label %return
+
+ehcleanup:                                        ; preds = %lpad10, %lpad14
+  %.merged = phi { ptr, i32 } [ %53, %lpad14 ], [ %lpad.phi, %lpad10 ]
+  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %asms8) #32
+  br label %common.resume
 
 return:                                           ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit69, %if.then.i.i.i.i.i, %invoke.cont8.i.i, %invoke.cont5, %entry, %do.end
   %retval.0 = phi i32 [ %call21, %do.end ], [ 0, %entry ], [ %call6, %invoke.cont5 ], [ %call6, %invoke.cont8.i.i ], [ %call6, %if.then.i.i.i.i.i ], [ 0, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit69 ]
   ret i32 %retval.0
-
-eh.resume:                                        ; preds = %lpad10, %lpad14, %lpad
-  %asms8.sink = phi ptr [ %asms, %lpad ], [ %asms8, %lpad14 ], [ %asms8, %lpad10 ]
-  %lpad.val24.merged = phi { ptr, i32 } [ %27, %lpad ], [ %53, %lpad14 ], [ %lpad.phi, %lpad10 ]
-  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %asms8.sink) #32
-  br label %common.resume
 }
 
 ; Function Attrs: mustprogress uwtable

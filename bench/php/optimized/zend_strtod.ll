@@ -1812,6 +1812,7 @@ ratio.exit:                                       ; preds = %698, %703
   br label %783
 
 783:                                              ; preds = %774, %753
+  %.in = phi i64 [ %780, %774 ], [ %746, %753 ]
   %784 = phi i32 [ %782, %774 ], [ %754, %753 ]
   %785 = and i32 %784, 2146435072
   %786 = icmp ne i32 %738, %785
@@ -1825,8 +1826,8 @@ ratio.exit:                                       ; preds = %698, %703
   %.0..0..0..0.138 = load volatile double, ptr %9, align 8
   %790 = fsub double %.0..0..0..0.138, %789
   store volatile double %790, ptr %9, align 8
-  %791 = load i32, ptr %11, align 8
-  %792 = icmp eq i32 %791, 0
+  %791 = and i64 %.in, 4294967295
+  %792 = icmp eq i64 %791, 0
   %793 = and i32 %784, 1048575
   %794 = or i32 %793, %568
   %795 = icmp eq i32 %794, 0
@@ -3557,32 +3558,32 @@ zend_freedtoa.exit:                               ; preds = %19, %18
   %26 = lshr i64 %25, 32
   %27 = trunc nuw i64 %26 to i32
   %.not512 = icmp sgt i64 %25, -1
-  br i1 %.not512, label %30, label %28
+  %28 = trunc i64 %25 to i32
+  br i1 %.not512, label %31, label %29
 
-28:                                               ; preds = %23
-  %29 = and i32 %27, 2147483647
-  store i32 %29, ptr %24, align 4
-  br label %30
+29:                                               ; preds = %23
+  %30 = and i32 %27, 2147483647
+  store i32 %30, ptr %24, align 4
+  br label %31
 
-30:                                               ; preds = %23, %28
-  %31 = phi i32 [ %29, %28 ], [ %27, %23 ]
-  %.sink = phi i8 [ 1, %28 ], [ 0, %23 ]
+31:                                               ; preds = %23, %29
+  %32 = phi i32 [ %30, %29 ], [ %27, %23 ]
+  %.sink = phi i8 [ 1, %29 ], [ 0, %23 ]
   store i8 %.sink, ptr %4, align 1
-  %32 = and i32 %31, 2146435072
-  %33 = icmp eq i32 %32, 2146435072
-  br i1 %33, label %34, label %67
+  %33 = and i32 %32, 2146435072
+  %34 = icmp eq i32 %33, 2146435072
+  br i1 %34, label %35, label %67
 
-34:                                               ; preds = %30
+35:                                               ; preds = %31
   store i32 9999, ptr %3, align 4
-  %35 = load i32, ptr %9, align 8
-  %36 = and i32 %31, 1048575
-  %37 = or i32 %35, %36
+  %36 = and i32 %32, 1048575
+  %37 = or i32 %36, %28
   %or.cond712 = icmp eq i32 %37, 0
   %38 = load ptr, ptr @freelist, align 16
   %.not.i.i.i = icmp eq ptr %38, null
   br i1 %or.cond712, label %39, label %53
 
-39:                                               ; preds = %34
+39:                                               ; preds = %35
   br i1 %.not.i.i.i, label %42, label %40
 
 40:                                               ; preds = %39
@@ -3633,7 +3634,7 @@ rv_alloc.exit.i:                                  ; preds = %45, %40
   %.not9.i = icmp eq ptr %5, null
   br i1 %.not9.i, label %nrv_alloc.exit, label %nrv_alloc.exit.sink.split
 
-53:                                               ; preds = %34
+53:                                               ; preds = %35
   br i1 %.not.i.i.i, label %56, label %54
 
 54:                                               ; preds = %53
@@ -3684,7 +3685,7 @@ rv_alloc.exit.i556:                               ; preds = %59, %54
   %.not9.i563 = icmp eq ptr %5, null
   br i1 %.not9.i563, label %nrv_alloc.exit, label %nrv_alloc.exit.sink.split
 
-67:                                               ; preds = %30
+67:                                               ; preds = %31
   %68 = load double, ptr %9, align 8
   %69 = fcmp une double %68, 0.000000e+00
   br i1 %69, label %84, label %70

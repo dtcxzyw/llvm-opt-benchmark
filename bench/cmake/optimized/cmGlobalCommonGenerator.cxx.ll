@@ -1908,7 +1908,7 @@ define dso_local void @_ZNK23cmGlobalCommonGenerator38RemoveUnknownClangTidyExpo
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %10 = getelementptr inbounds i8, ptr %2, i64 16
   %11 = getelementptr inbounds i8, ptr %2, i64 24
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %2, i64 32
   %12 = getelementptr inbounds i8, ptr %2, i64 40
   %13 = getelementptr inbounds i8, ptr %0, i64 1848
   %14 = getelementptr inbounds i8, ptr %0, i64 1840
@@ -1929,7 +1929,7 @@ define dso_local void @_ZNK23cmGlobalCommonGenerator38RemoveUnknownClangTidyExpo
   store ptr %20, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !19, !noalias !16
   store ptr null, ptr %10, align 8, !alias.scope !19, !noalias !16
   store i64 7, ptr %11, align 8, !alias.scope !22, !noalias !16
-  store ptr @.str.4, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !22, !noalias !16
+  store ptr @.str.4, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !22, !noalias !16
   store ptr null, ptr %12, align 8, !alias.scope !22, !noalias !16
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr nonnull %2, i64 2)
           to label %21 unwind label %.loopexit.split-lp.loopexit.split-lp

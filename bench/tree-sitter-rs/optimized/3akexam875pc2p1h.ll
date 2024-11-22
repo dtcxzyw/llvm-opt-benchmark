@@ -187,9 +187,9 @@ define hidden void @_ZN10libloading2os4unix12with_dlerror17hd0aacdfaae823fa9E.ll
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %5 = load i64, ptr %1, align 8, !range !57, !alias.scope !54, !noundef !16
   %6 = icmp eq i64 %5, 2
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !54
-  %.0.i = select i1 %6, ptr null, ptr %.sroa.0.0.i.i
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !54
+  %.0.i = select i1 %6, ptr null, ptr %.pn3.i.i
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8, !alias.scope !54, !noundef !16
   %9 = invoke noundef ptr @dlopen(ptr noundef %.0.i, i32 noundef %8)
@@ -204,14 +204,14 @@ define hidden void @_ZN10libloading2os4unix12with_dlerror17hd0aacdfaae823fa9E.ll
   ]
 
 11:                                               ; preds = %10
-  %12 = icmp ne ptr %.sroa.0.0.i.i, null
+  %12 = icmp ne ptr %.pn3.i.i, null
   tail call void @llvm.assume(i1 %12)
-  store i8 0, ptr %.sroa.0.0.i.i, align 1, !noalias !58
+  store i8 0, ptr %.pn3.i.i, align 1, !noalias !58
   %13 = icmp eq i64 %.sroa.5.0.copyload.i, 0
   br i1 %13, label %"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdedfa7926f3f5de0E.llvm.6082948530530484711.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6082948530530484711.exit.i.i5.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6082948530530484711.exit.i.i5.i.i.i.i": ; preds = %11
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.copyload.i, i64 noundef 1) #23, !noalias !58
+  tail call void @__rust_dealloc(ptr noundef nonnull %.pn3.i.i, i64 noundef %.sroa.5.0.copyload.i, i64 noundef 1) #23, !noalias !58
   br label %"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdedfa7926f3f5de0E.llvm.6082948530530484711.exit"
 
 14:                                               ; preds = %3
@@ -299,7 +299,7 @@ define hidden void @_ZN10libloading2os4unix7Library4open17hd7cabb4d009a0ea2E(ptr
   %.sroa.6.0..sroa_idx29 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %2, ptr %8, align 8
-  %.sroa.0.0.i.i.i30 = load ptr, ptr %.sroa.6.0..sroa_idx29, align 8, !alias.scope !68, !noalias !73
+  %.pn3.i.i.i30 = load ptr, ptr %.sroa.6.0..sroa_idx29, align 8, !alias.scope !68, !noalias !73
   br label %20
 
 9:                                                ; preds = %3
@@ -329,12 +329,12 @@ define hidden void @_ZN10libloading2os4unix7Library4open17hd7cabb4d009a0ea2E(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %19 = icmp eq i64 %.sroa.011.0.copyload.fr, 2
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !86, !noalias !87
-  %spec.select = select i1 %19, ptr null, ptr %.sroa.0.0.i.i.i
+  %.pn3.i.i.i = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !86, !noalias !87
+  %spec.select = select i1 %19, ptr null, ptr %.pn3.i.i.i
   br label %20
 
 20:                                               ; preds = %17, %.thread
-  %.sroa.0.0.i.i.i34 = phi ptr [ %.sroa.0.0.i.i.i30, %.thread ], [ %.sroa.0.0.i.i.i, %17 ]
+  %.pn3.i.i.i34 = phi ptr [ %.pn3.i.i.i30, %.thread ], [ %.pn3.i.i.i, %17 ]
   %.sroa.0.032 = phi i64 [ 2, %.thread ], [ %.sroa.011.0.copyload.fr, %17 ]
   %21 = phi ptr [ null, %.thread ], [ %spec.select, %17 ]
   %22 = invoke noundef ptr @dlopen(ptr noundef %21, i32 noundef %2)
@@ -349,14 +349,14 @@ define hidden void @_ZN10libloading2os4unix7Library4open17hd7cabb4d009a0ea2E(ptr
   ]
 
 24:                                               ; preds = %23
-  %25 = icmp ne ptr %.sroa.0.0.i.i.i34, null
+  %25 = icmp ne ptr %.pn3.i.i.i34, null
   tail call void @llvm.assume(i1 %25)
-  store i8 0, ptr %.sroa.0.0.i.i.i34, align 1, !noalias !90
+  store i8 0, ptr %.pn3.i.i.i34, align 1, !noalias !90
   %26 = icmp eq i64 %.sroa.5.0.copyload.i.i, 0
   br i1 %26, label %"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdedfa7926f3f5de0E.llvm.6082948530530484711.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6082948530530484711.exit.i.i5.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6082948530530484711.exit.i.i5.i.i.i.i.i": ; preds = %24
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.0.i.i.i34, i64 noundef %.sroa.5.0.copyload.i.i, i64 noundef 1) #23, !noalias !90
+  tail call void @__rust_dealloc(ptr noundef nonnull %.pn3.i.i.i34, i64 noundef %.sroa.5.0.copyload.i.i, i64 noundef 1) #23, !noalias !90
   br label %"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdedfa7926f3f5de0E.llvm.6082948530530484711.exit.i"
 
 27:                                               ; preds = %20
@@ -450,9 +450,9 @@ define hidden void @"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7
 define hidden { i64, ptr } @"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdedfa7926f3f5de0E.llvm.6082948530530484711"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !57, !noundef !16
   %3 = icmp eq i64 %2, 2
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8
-  %.0 = select i1 %3, ptr null, ptr %.sroa.0.0.i
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8
+  %.0 = select i1 %3, ptr null, ptr %.pn3.i
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !noundef !16
   %6 = invoke noundef ptr @dlopen(ptr noundef %.0, i32 noundef %5)
@@ -467,14 +467,14 @@ define hidden { i64, ptr } @"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$cl
   ]
 
 8:                                                ; preds = %7
-  %9 = icmp ne ptr %.sroa.0.0.i, null
+  %9 = icmp ne ptr %.pn3.i, null
   tail call void @llvm.assume(i1 %9)
-  store i8 0, ptr %.sroa.0.0.i, align 1, !noalias !113
+  store i8 0, ptr %.pn3.i, align 1, !noalias !113
   %10 = icmp eq i64 %.sroa.5.0.copyload, 0
   br i1 %10, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$core..ffi..c_str..CStr$GT$$GT$$GT$17h3bc967ee33cd546dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6082948530530484711.exit.i.i5.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6082948530530484711.exit.i.i5.i.i.i": ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.0.i, i64 noundef %.sroa.5.0.copyload, i64 noundef 1) #23, !noalias !113
+  tail call void @__rust_dealloc(ptr noundef nonnull %.pn3.i, i64 noundef %.sroa.5.0.copyload, i64 noundef 1) #23, !noalias !113
   br label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$core..ffi..c_str..CStr$GT$$GT$$GT$17h3bc967ee33cd546dE.exit"
 
 "_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$core..ffi..c_str..CStr$GT$$GT$$GT$17h3bc967ee33cd546dE.exit": ; preds = %7, %7, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6082948530530484711.exit.i.i5.i.i.i", %8

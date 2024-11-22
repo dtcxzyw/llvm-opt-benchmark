@@ -14,7 +14,7 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) local_unnamed_addr #0 {
   %5 = and i64 %4, 32767
   %6 = and i64 %1, 281474976710655
   %7 = icmp eq i64 %5, 32767
-  br i1 %7, label %8, label %15
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
   %9 = or i64 %6, %0
@@ -25,265 +25,282 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) local_unnamed_addr #0 {
   %11 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %1, i64 noundef %0, i64 noundef 0, i64 noundef 0) #3
   %12 = extractvalue { i64, i64 } %11, 0
   %13 = extractvalue { i64, i64 } %11, 1
-  br label %176
+  br label %183
 
 14:                                               ; preds = %8
-  br i1 %.not, label %176, label %175
+  br i1 %.not, label %15, label %182
 
-15:                                               ; preds = %2
-  br i1 %.not, label %19, label %16
+15:                                               ; preds = %14
+  %16 = insertvalue { i64, i64 } poison, i64 %0, 0
+  %17 = insertvalue { i64, i64 } %16, i64 %1, 1
+  br label %186
 
-16:                                               ; preds = %15
-  %17 = or i64 %6, %0
-  %18 = or i64 %17, %5
-  %.not183 = icmp eq i64 %18, 0
-  br i1 %.not183, label %176, label %175
+18:                                               ; preds = %2
+  br i1 %.not, label %25, label %19
 
-19:                                               ; preds = %15
+19:                                               ; preds = %18
+  %20 = or i64 %6, %0
+  %21 = or i64 %20, %5
+  %.not183 = icmp eq i64 %21, 0
+  br i1 %.not183, label %22, label %182
+
+22:                                               ; preds = %19
+  %23 = insertvalue { i64, i64 } poison, i64 %0, 0
+  %24 = insertvalue { i64, i64 } %23, i64 %1, 1
+  br label %186
+
+25:                                               ; preds = %18
   %.not174 = icmp eq i64 %5, 0
-  br i1 %.not174, label %20, label %23
+  br i1 %.not174, label %26, label %32
 
-20:                                               ; preds = %19
-  %21 = or i64 %6, %0
-  %.not175 = icmp eq i64 %21, 0
-  br i1 %.not175, label %176, label %22
+26:                                               ; preds = %25
+  %27 = or i64 %6, %0
+  %.not175 = icmp eq i64 %27, 0
+  br i1 %.not175, label %28, label %31
 
-22:                                               ; preds = %20
+28:                                               ; preds = %26
+  %29 = insertvalue { i64, i64 } poison, i64 %0, 0
+  %30 = insertvalue { i64, i64 } %29, i64 %1, 1
+  br label %186
+
+31:                                               ; preds = %26
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %3, i64 noundef %6, i64 noundef %0) #3
   %.sroa.0126.0.copyload = load i64, ptr %3, align 8
   %.sroa.2127.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.2127.sroa.0.0.copyload = load i64, ptr %.sroa.2127.0..sroa_idx, align 8
   %.sroa.2127.sroa.2.0..sroa.2127.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.2127.sroa.2.0.copyload = load i64, ptr %.sroa.2127.sroa.2.0..sroa.2127.0..sroa_idx.sroa_idx, align 8
-  br label %23
+  br label %32
 
-23:                                               ; preds = %22, %19
-  %.sroa.0129.0 = phi i64 [ %0, %19 ], [ %.sroa.2127.sroa.0.0.copyload, %22 ]
-  %.sroa.8.0 = phi i64 [ %6, %19 ], [ %.sroa.2127.sroa.2.0.copyload, %22 ]
-  %.0 = phi i64 [ %5, %19 ], [ %.sroa.0126.0.copyload, %22 ]
-  %24 = add nsw i64 %.0, -16383
-  %25 = ashr i64 %24, 1
-  %26 = add nsw i64 %25, 16382
-  %27 = and i64 %.0, 1
-  %28 = or i64 %.sroa.8.0, 281474976710656
-  %29 = lshr i64 %28, 17
-  %30 = trunc nuw nsw i64 %27 to i32
-  %31 = trunc i64 %29 to i32
-  %32 = call i32 @softfloat_approxRecipSqrt32_1(i32 noundef %30, i32 noundef %31) #3
-  %33 = zext i32 %32 to i64
-  %34 = mul i64 %29, %33
-  %.not176 = icmp eq i64 %27, 0
-  br i1 %.not176, label %38, label %35
+32:                                               ; preds = %31, %25
+  %.sroa.0129.0 = phi i64 [ %0, %25 ], [ %.sroa.2127.sroa.0.0.copyload, %31 ]
+  %.sroa.8.0 = phi i64 [ %6, %25 ], [ %.sroa.2127.sroa.2.0.copyload, %31 ]
+  %.0 = phi i64 [ %5, %25 ], [ %.sroa.0126.0.copyload, %31 ]
+  %33 = add nsw i64 %.0, -16383
+  %34 = ashr i64 %33, 1
+  %35 = add nsw i64 %34, 16382
+  %36 = and i64 %.0, 1
+  %37 = or i64 %.sroa.8.0, 281474976710656
+  %38 = lshr i64 %37, 17
+  %39 = trunc nuw nsw i64 %36 to i32
+  %40 = trunc i64 %38 to i32
+  %41 = call i32 @softfloat_approxRecipSqrt32_1(i32 noundef %39, i32 noundef %40) #3
+  %42 = zext i32 %41 to i64
+  %43 = mul i64 %38, %42
+  %.not176 = icmp eq i64 %36, 0
+  br i1 %.not176, label %47, label %44
 
-35:                                               ; preds = %23
-  %36 = lshr i64 %34, 33
-  %37 = call i64 @llvm.fshl.i64(i64 %28, i64 %.sroa.0129.0, i64 12)
-  br label %41
+44:                                               ; preds = %32
+  %45 = lshr i64 %43, 33
+  %46 = call i64 @llvm.fshl.i64(i64 %37, i64 %.sroa.0129.0, i64 12)
+  br label %50
 
-38:                                               ; preds = %23
-  %39 = lshr i64 %34, 32
-  %40 = call i64 @llvm.fshl.i64(i64 %28, i64 %.sroa.0129.0, i64 13)
-  br label %41
+47:                                               ; preds = %32
+  %48 = lshr i64 %43, 32
+  %49 = call i64 @llvm.fshl.i64(i64 %37, i64 %.sroa.0129.0, i64 13)
+  br label %50
 
-41:                                               ; preds = %38, %35
-  %.sink = phi i64 [ 13, %38 ], [ 12, %35 ]
-  %.pn227 = phi i64 [ %40, %38 ], [ %37, %35 ]
-  %.0168 = phi i64 [ %39, %38 ], [ %36, %35 ]
-  %42 = shl i64 %.sroa.0129.0, %.sink
-  %43 = mul nuw i64 %.0168, %.0168
-  %44 = sub i64 %.pn227, %43
-  %45 = lshr i64 %44, 2
-  %46 = and i64 %45, 4294967295
-  %47 = mul nuw i64 %46, %33
-  %48 = lshr i64 %47, 32
-  %49 = shl nuw i64 %.0168, 32
-  %50 = shl nuw nsw i64 %48, 3
-  %51 = add i64 %50, %49
-  %52 = call i64 @llvm.fshl.i64(i64 %44, i64 %42, i64 29)
-  %53 = shl i64 %42, 29
-  %54 = add i64 %51, %49
-  %55 = and i64 %50, 4294967288
-  %56 = mul nuw i64 %48, %55
-  %57 = shl i64 %56, 32
-  %58 = lshr i64 %54, 32
-  %59 = mul nuw i64 %58, %48
-  %60 = lshr i64 %56, 32
-  %61 = icmp ult i64 %53, %57
-  %.neg.i251 = sext i1 %61 to i64
-  %62 = add nuw i64 %59, %60
-  %63 = sub i64 %52, %62
-  %64 = add i64 %63, %.neg.i251
-  %.not178252 = icmp sgt i64 %64, -1
+50:                                               ; preds = %47, %44
+  %.sink = phi i64 [ 13, %47 ], [ 12, %44 ]
+  %.pn227 = phi i64 [ %49, %47 ], [ %46, %44 ]
+  %.0168 = phi i64 [ %48, %47 ], [ %45, %44 ]
+  %51 = shl i64 %.sroa.0129.0, %.sink
+  %52 = mul nuw i64 %.0168, %.0168
+  %53 = sub i64 %.pn227, %52
+  %54 = lshr i64 %53, 2
+  %55 = and i64 %54, 4294967295
+  %56 = mul nuw i64 %55, %42
+  %57 = lshr i64 %56, 32
+  %58 = shl nuw i64 %.0168, 32
+  %59 = shl nuw nsw i64 %57, 3
+  %60 = add i64 %59, %58
+  %61 = call i64 @llvm.fshl.i64(i64 %53, i64 %51, i64 29)
+  %62 = shl i64 %51, 29
+  %63 = add i64 %60, %58
+  %64 = and i64 %59, 4294967288
+  %65 = mul nuw i64 %57, %64
+  %66 = shl i64 %65, 32
+  %67 = lshr i64 %63, 32
+  %68 = mul nuw i64 %67, %57
+  %69 = lshr i64 %65, 32
+  %70 = icmp ult i64 %62, %66
+  %.neg.i251 = sext i1 %70 to i64
+  %71 = add nuw i64 %68, %69
+  %72 = sub i64 %61, %71
+  %73 = add i64 %72, %.neg.i251
+  %.not178252 = icmp sgt i64 %73, -1
   br i1 %.not178252, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %41, %.lr.ph
-  %.0169254 = phi i64 [ %65, %.lr.ph ], [ %48, %41 ]
-  %.0170253 = phi i64 [ %66, %.lr.ph ], [ %51, %41 ]
-  %65 = add i64 %.0169254, -1
-  %66 = add i64 %.0170253, -8
-  %67 = add i64 %66, %49
-  %68 = and i64 %66, 4294967288
-  %69 = and i64 %65, 4294967295
-  %70 = mul nuw i64 %69, %68
-  %71 = shl i64 %70, 32
-  %72 = lshr i64 %67, 32
-  %73 = mul nuw i64 %72, %69
-  %74 = lshr i64 %70, 32
-  %75 = icmp ult i64 %53, %71
-  %.neg.i = sext i1 %75 to i64
-  %76 = add nuw i64 %73, %74
-  %77 = sub i64 %52, %76
-  %78 = add i64 %77, %.neg.i
-  %.not178 = icmp sgt i64 %78, -1
+.lr.ph:                                           ; preds = %50, %.lr.ph
+  %.0169254 = phi i64 [ %74, %.lr.ph ], [ %57, %50 ]
+  %.0170253 = phi i64 [ %75, %.lr.ph ], [ %60, %50 ]
+  %74 = add i64 %.0169254, -1
+  %75 = add i64 %.0170253, -8
+  %76 = add i64 %75, %58
+  %77 = and i64 %75, 4294967288
+  %78 = and i64 %74, 4294967295
+  %79 = mul nuw i64 %78, %77
+  %80 = shl i64 %79, 32
+  %81 = lshr i64 %76, 32
+  %82 = mul nuw i64 %81, %78
+  %83 = lshr i64 %79, 32
+  %84 = icmp ult i64 %62, %80
+  %.neg.i = sext i1 %84 to i64
+  %85 = add nuw i64 %82, %83
+  %86 = sub i64 %61, %85
+  %87 = add i64 %86, %.neg.i
+  %.not178 = icmp sgt i64 %87, -1
   br i1 %.not178, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %41
-  %.0170.lcssa = phi i64 [ %51, %41 ], [ %66, %.lr.ph ]
-  %.0169.lcssa = phi i64 [ %48, %41 ], [ %65, %.lr.ph ]
-  %.lcssa250 = phi i64 [ %57, %41 ], [ %71, %.lr.ph ]
-  %.lcssa249 = phi i64 [ %64, %41 ], [ %78, %.lr.ph ]
-  %79 = sub i64 %53, %.lcssa250
-  %80 = lshr i64 %.lcssa249, 2
-  %81 = mul i64 %80, %33
-  %82 = lshr i64 %81, 32
-  %83 = call i64 @llvm.fshl.i64(i64 %.lcssa249, i64 %79, i64 29)
-  %84 = lshr i64 %.0170.lcssa, 31
-  %85 = and i64 %84, 4294967295
-  %86 = shl i64 %.0170.lcssa, 33
-  br label %87
+._crit_edge:                                      ; preds = %.lr.ph, %50
+  %.0170.lcssa = phi i64 [ %60, %50 ], [ %75, %.lr.ph ]
+  %.0169.lcssa = phi i64 [ %57, %50 ], [ %74, %.lr.ph ]
+  %.lcssa250 = phi i64 [ %66, %50 ], [ %80, %.lr.ph ]
+  %.lcssa249 = phi i64 [ %73, %50 ], [ %87, %.lr.ph ]
+  %88 = sub i64 %62, %.lcssa250
+  %89 = lshr i64 %.lcssa249, 2
+  %90 = mul i64 %89, %42
+  %91 = lshr i64 %90, 32
+  %92 = call i64 @llvm.fshl.i64(i64 %.lcssa249, i64 %88, i64 29)
+  %93 = lshr i64 %.0170.lcssa, 31
+  %94 = and i64 %93, 4294967295
+  %95 = shl i64 %.0170.lcssa, 33
+  br label %96
 
-87:                                               ; preds = %87, %._crit_edge
-  %.1 = phi i64 [ %82, %._crit_edge ], [ %103, %87 ]
-  %88 = shl i64 %.1, 6
-  %89 = add i64 %88, %86
-  %90 = icmp ult i64 %89, %86
-  %.neg = sext i1 %90 to i64
-  %.neg240 = sub nsw i64 %.neg, %85
-  %91 = and i64 %.1, 4294967295
-  %92 = mul i64 %89, %91
-  %93 = lshr i64 %89, 32
-  %94 = mul nuw i64 %93, %91
-  %95 = lshr i64 %92, 32
-  %96 = sub i64 %95, %94
-  %97 = and i64 %96, 4294967295
-  %.neg241 = mul i64 %.neg240, %91
-  %98 = add nuw i64 %97, %94
-  %99 = lshr i64 %98, 32
-  %100 = icmp ne i64 %92, 0
-  %.neg.i201 = sext i1 %100 to i64
-  %.neg234 = add i64 %83, %.neg.i201
-  %101 = add i64 %.neg234, %.neg241
-  %102 = sub i64 %101, %99
-  %.not179 = icmp sgt i64 %102, -1
-  %103 = add i64 %.1, -1
-  br i1 %.not179, label %104, label %87
+96:                                               ; preds = %96, %._crit_edge
+  %.1 = phi i64 [ %91, %._crit_edge ], [ %112, %96 ]
+  %97 = shl i64 %.1, 6
+  %98 = add i64 %97, %95
+  %99 = icmp ult i64 %98, %95
+  %.neg = sext i1 %99 to i64
+  %.neg240 = sub nsw i64 %.neg, %94
+  %100 = and i64 %.1, 4294967295
+  %101 = mul i64 %98, %100
+  %102 = lshr i64 %98, 32
+  %103 = mul nuw i64 %102, %100
+  %104 = lshr i64 %101, 32
+  %105 = sub i64 %104, %103
+  %106 = and i64 %105, 4294967295
+  %.neg241 = mul i64 %.neg240, %100
+  %107 = add nuw i64 %106, %103
+  %108 = lshr i64 %107, 32
+  %109 = icmp ne i64 %101, 0
+  %.neg.i201 = sext i1 %109 to i64
+  %.neg234 = add i64 %92, %.neg.i201
+  %110 = add i64 %.neg234, %.neg241
+  %111 = sub i64 %110, %108
+  %.not179 = icmp sgt i64 %111, -1
+  %112 = add i64 %.1, -1
+  br i1 %.not179, label %113, label %96
 
-104:                                              ; preds = %87
-  %105 = lshr i64 %102, 2
-  %106 = mul i64 %105, %33
-  %107 = lshr i64 %106, 32
-  %108 = add nuw nsw i64 %107, 2
-  %109 = shl i64 %108, 59
-  %110 = lshr i64 %.0169.lcssa, 11
-  %111 = and i64 %110, 2097151
-  %112 = shl i64 %.0169.lcssa, 53
-  %113 = shl nuw nsw i64 %.0168, 18
-  %114 = shl i64 %.1, 24
-  %115 = and i64 %114, 72057594021150720
-  %116 = lshr i64 %108, 5
-  %117 = add nuw nsw i64 %116, %115
-  %118 = add i64 %117, %112
-  %119 = add nuw nsw i64 %111, %113
-  %120 = icmp ult i64 %118, %117
-  %121 = zext i1 %120 to i64
-  %122 = add nuw nsw i64 %119, %121
-  %123 = and i64 %108, 15
-  %124 = icmp samesign ult i64 %123, 3
-  br i1 %124, label %125, label %171
+113:                                              ; preds = %96
+  %114 = lshr i64 %111, 2
+  %115 = mul i64 %114, %42
+  %116 = lshr i64 %115, 32
+  %117 = add nuw nsw i64 %116, 2
+  %118 = shl i64 %117, 59
+  %119 = lshr i64 %.0169.lcssa, 11
+  %120 = and i64 %119, 2097151
+  %121 = shl i64 %.0169.lcssa, 53
+  %122 = shl nuw nsw i64 %.0168, 18
+  %123 = shl i64 %.1, 24
+  %124 = and i64 %123, 72057594021150720
+  %125 = lshr i64 %117, 5
+  %126 = add nuw nsw i64 %125, %124
+  %127 = add i64 %126, %121
+  %128 = add nuw nsw i64 %120, %122
+  %129 = icmp ult i64 %127, %126
+  %130 = zext i1 %129 to i64
+  %131 = add nuw nsw i64 %128, %130
+  %132 = and i64 %117, 15
+  %133 = icmp samesign ult i64 %132, 3
+  br i1 %133, label %134, label %180
 
-125:                                              ; preds = %104
-  %126 = sub i64 0, %92
-  %127 = and i64 %108, 8589934588
-  %128 = shl i64 %127, 59
-  %129 = call i64 @llvm.fshl.i64(i64 %122, i64 %118, i64 6)
-  %130 = call i64 @llvm.fshl.i64(i64 %118, i64 %128, i64 6)
-  %131 = sub i64 %130, %127
-  %132 = icmp ult i64 %130, %127
-  %.neg.i210 = sext i1 %132 to i64
-  %133 = add nsw i64 %129, %.neg.i210
-  %134 = and i64 %131, 4294967292
-  %135 = and i64 %108, 4294967292
-  %136 = mul nuw i64 %134, %135
-  %137 = lshr i64 %131, 32
-  %138 = mul nuw i64 %137, %135
-  %139 = lshr i64 %136, 32
-  %140 = add nuw i64 %139, %138
-  %141 = and i64 %133, 4294967295
-  %142 = mul nuw i64 %141, %135
-  %143 = shl i64 %142, 32
-  %144 = lshr i64 %133, 32
-  %145 = mul nuw i64 %144, %135
-  %146 = lshr i64 %142, 32
-  %147 = add i64 %140, %143
-  %148 = icmp ult i64 %147, %143
-  %149 = zext i1 %148 to i64
-  %150 = call i64 @llvm.fshl.i64(i64 %102, i64 %126, i64 20)
-  %151 = shl i64 %126, 20
-  %152 = icmp ult i64 %147, %151
-  %.neg.i221 = sext i1 %152 to i64
-  %153 = sub i64 %145, %150
-  %154 = add i64 %153, %146
-  %155 = add i64 %154, %149
-  %156 = add i64 %155, %.neg.i221
-  %.not180 = icmp sgt i64 %156, -1
-  br i1 %.not180, label %159, label %157
+134:                                              ; preds = %113
+  %135 = sub i64 0, %101
+  %136 = and i64 %117, 8589934588
+  %137 = shl i64 %136, 59
+  %138 = call i64 @llvm.fshl.i64(i64 %131, i64 %127, i64 6)
+  %139 = call i64 @llvm.fshl.i64(i64 %127, i64 %137, i64 6)
+  %140 = sub i64 %139, %136
+  %141 = icmp ult i64 %139, %136
+  %.neg.i210 = sext i1 %141 to i64
+  %142 = add nsw i64 %138, %.neg.i210
+  %143 = and i64 %140, 4294967292
+  %144 = and i64 %117, 4294967292
+  %145 = mul nuw i64 %143, %144
+  %146 = lshr i64 %140, 32
+  %147 = mul nuw i64 %146, %144
+  %148 = lshr i64 %145, 32
+  %149 = add nuw i64 %148, %147
+  %150 = and i64 %142, 4294967295
+  %151 = mul nuw i64 %150, %144
+  %152 = shl i64 %151, 32
+  %153 = lshr i64 %142, 32
+  %154 = mul nuw i64 %153, %144
+  %155 = lshr i64 %151, 32
+  %156 = add i64 %149, %152
+  %157 = icmp ult i64 %156, %152
+  %158 = zext i1 %157 to i64
+  %159 = call i64 @llvm.fshl.i64(i64 %111, i64 %135, i64 20)
+  %160 = shl i64 %135, 20
+  %161 = icmp ult i64 %156, %160
+  %.neg.i221 = sext i1 %161 to i64
+  %162 = sub i64 %154, %159
+  %163 = add i64 %162, %155
+  %164 = add i64 %163, %158
+  %165 = add i64 %164, %.neg.i221
+  %.not180 = icmp sgt i64 %165, -1
+  br i1 %.not180, label %168, label %166
 
-157:                                              ; preds = %125
-  %158 = or disjoint i64 %128, 1
-  br label %171
+166:                                              ; preds = %134
+  %167 = or disjoint i64 %137, 1
+  br label %180
 
-159:                                              ; preds = %125
-  %160 = sub i64 %147, %151
-  %161 = shl i64 %136, 32
-  %162 = or i64 %160, %161
-  %163 = or i64 %162, %156
-  %.not181 = icmp eq i64 %163, 0
-  br i1 %.not181, label %171, label %164
+168:                                              ; preds = %134
+  %169 = sub i64 %156, %160
+  %170 = shl i64 %145, 32
+  %171 = or i64 %169, %170
+  %172 = or i64 %171, %165
+  %.not181 = icmp eq i64 %172, 0
+  br i1 %.not181, label %180, label %173
 
-164:                                              ; preds = %159
-  %.not182 = icmp eq i64 %128, 0
-  br i1 %.not182, label %167, label %165
+173:                                              ; preds = %168
+  %.not182 = icmp eq i64 %137, 0
+  br i1 %.not182, label %176, label %174
 
-165:                                              ; preds = %164
-  %166 = add i64 %128, -1
-  br label %171
+174:                                              ; preds = %173
+  %175 = add i64 %137, -1
+  br label %180
 
-167:                                              ; preds = %164
-  %168 = add i64 %118, -1
-  %169 = icmp eq i64 %118, 0
-  %.neg.i224 = sext i1 %169 to i64
-  %170 = add nsw i64 %122, %.neg.i224
-  br label %171
+176:                                              ; preds = %173
+  %177 = add i64 %127, -1
+  %178 = icmp eq i64 %127, 0
+  %.neg.i224 = sext i1 %178 to i64
+  %179 = add nsw i64 %131, %.neg.i224
+  br label %180
 
-171:                                              ; preds = %157, %165, %167, %159, %104
-  %.sroa.042.0 = phi i64 [ %118, %157 ], [ %118, %165 ], [ %168, %167 ], [ %118, %159 ], [ %118, %104 ]
-  %.sroa.5.0 = phi i64 [ %122, %157 ], [ %122, %165 ], [ %170, %167 ], [ %122, %159 ], [ %122, %104 ]
-  %.0171 = phi i64 [ %158, %157 ], [ %166, %165 ], [ -1, %167 ], [ %128, %159 ], [ %109, %104 ]
-  %172 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext false, i64 noundef %26, i64 noundef %.sroa.5.0, i64 noundef %.sroa.042.0, i64 noundef %.0171) #3
-  %173 = extractvalue { i64, i64 } %172, 0
-  %174 = extractvalue { i64, i64 } %172, 1
-  br label %176
+180:                                              ; preds = %166, %174, %176, %168, %113
+  %.sroa.042.0 = phi i64 [ %127, %166 ], [ %127, %174 ], [ %177, %176 ], [ %127, %168 ], [ %127, %113 ]
+  %.sroa.5.0 = phi i64 [ %131, %166 ], [ %131, %174 ], [ %179, %176 ], [ %131, %168 ], [ %131, %113 ]
+  %.0171 = phi i64 [ %167, %166 ], [ %175, %174 ], [ -1, %176 ], [ %137, %168 ], [ %118, %113 ]
+  %181 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext false, i64 noundef %35, i64 noundef %.sroa.5.0, i64 noundef %.sroa.042.0, i64 noundef %.0171) #3
+  br label %186
 
-175:                                              ; preds = %16, %14
+182:                                              ; preds = %19, %14
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  br label %176
+  br label %183
 
-176:                                              ; preds = %10, %175, %20, %16, %14, %171
-  %.sroa.0167.0 = phi i64 [ %173, %171 ], [ %0, %14 ], [ %0, %16 ], [ %0, %20 ], [ %12, %10 ], [ 0, %175 ]
-  %.sroa.6.0 = phi i64 [ %174, %171 ], [ %1, %14 ], [ %1, %16 ], [ %1, %20 ], [ %13, %10 ], [ 9223231299366420480, %175 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0167.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
-  ret { i64, i64 } %.fca.1.insert
+183:                                              ; preds = %182, %10
+  %.sroa.0128.0 = phi i64 [ %12, %10 ], [ 0, %182 ]
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 9223231299366420480, %182 ]
+  %184 = insertvalue { i64, i64 } poison, i64 %.sroa.0128.0, 0
+  %185 = insertvalue { i64, i64 } %184, i64 %.sroa.3.0, 1
+  br label %186
+
+186:                                              ; preds = %183, %180, %28, %22, %15
+  %.fca.1.insert.merged = phi { i64, i64 } [ %185, %183 ], [ %17, %15 ], [ %24, %22 ], [ %181, %180 ], [ %30, %28 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 declare { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

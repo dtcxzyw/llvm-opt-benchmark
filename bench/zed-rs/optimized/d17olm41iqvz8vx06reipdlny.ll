@@ -29328,7 +29328,7 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr92drop
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   %133 = load ptr, ptr %21, align 8, !noundef !9
   %134 = icmp eq ptr %133, null
-  br i1 %134, label %.thread83, label %198
+  br i1 %134, label %.thread83, label %200
 
 135:                                              ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
@@ -29459,58 +29459,57 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr92drop
   invoke void @_ZN9workspace4pane4Pane8add_item17ha873e2aee10335dbE(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 1 %196, ptr noalias noundef readonly align 8 dereferenceable(352) %197, i1 noundef zeroext true, i1 noundef zeroext %3, i64 noundef %.sroa.024.0, i64 %.sroa.325.0, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %129 unwind label %188
 
-.thread83:                                        ; preds = %129, %203, %210
+.thread83:                                        ; preds = %129, %205, %212
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
+  %198 = insertvalue { ptr, ptr } poison, ptr %130, 0
+  %199 = insertvalue { ptr, ptr } %198, ptr %132, 1
   br label %"_ZN4core3ptr252drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17hf6e3e6bd039b9065E.llvm.5375636142825082637.exit"
 
-198:                                              ; preds = %129
+200:                                              ; preds = %129
   call void @llvm.experimental.noalias.scope.decl(metadata !5756)
-  %199 = getelementptr inbounds i8, ptr %18, i64 16
-  %200 = load ptr, ptr %199, align 8, !alias.scope !5756, !nonnull !9, !align !39, !noundef !9
-  %201 = load ptr, ptr %200, align 8, !invariant.load !9, !noalias !5756
-  %.not.i = icmp eq ptr %201, null
-  br i1 %.not.i, label %203, label %202
+  %201 = getelementptr inbounds i8, ptr %18, i64 16
+  %202 = load ptr, ptr %201, align 8, !alias.scope !5756, !nonnull !9, !align !39, !noundef !9
+  %203 = load ptr, ptr %202, align 8, !invariant.load !9, !noalias !5756
+  %.not.i = icmp eq ptr %203, null
+  br i1 %.not.i, label %205, label %204
 
-202:                                              ; preds = %198
-  invoke void %201(ptr noundef nonnull align 1 %133)
-          to label %203 unwind label %211, !noalias !5756
+204:                                              ; preds = %200
+  invoke void %203(ptr noundef nonnull align 1 %133)
+          to label %205 unwind label %213, !noalias !5756
 
-203:                                              ; preds = %202, %198
-  %204 = getelementptr inbounds i8, ptr %200, i64 8
-  %205 = load i64, ptr %204, align 8, !range !401, !invariant.load !9, !noalias !5759
-  %206 = getelementptr inbounds i8, ptr %200, i64 16
-  %207 = load i64, ptr %206, align 8, !range !405, !invariant.load !9, !noalias !5759
-  %208 = icmp ult i64 %207, -9223372036854775807
-  call void @llvm.assume(i1 %208)
-  %209 = icmp eq i64 %205, 0
-  br i1 %209, label %.thread83, label %210
+205:                                              ; preds = %204, %200
+  %206 = getelementptr inbounds i8, ptr %202, i64 8
+  %207 = load i64, ptr %206, align 8, !range !401, !invariant.load !9, !noalias !5759
+  %208 = getelementptr inbounds i8, ptr %202, i64 16
+  %209 = load i64, ptr %208, align 8, !range !405, !invariant.load !9, !noalias !5759
+  %210 = icmp ult i64 %209, -9223372036854775807
+  call void @llvm.assume(i1 %210)
+  %211 = icmp eq i64 %207, 0
+  br i1 %211, label %.thread83, label %212
 
-210:                                              ; preds = %203
-  call void @__rust_dealloc(ptr noundef nonnull %133, i64 noundef range(i64 1, -9223372036854775808) %205, i64 noundef range(i64 1, -9223372036854775807) %207) #48, !noalias !5759
+212:                                              ; preds = %205
+  call void @__rust_dealloc(ptr noundef nonnull %133, i64 noundef range(i64 1, -9223372036854775808) %207, i64 noundef range(i64 1, -9223372036854775807) %209) #48, !noalias !5759
   br label %.thread83
 
-211:                                              ; preds = %202
-  %212 = landingpad { ptr, i32 }
+213:                                              ; preds = %204
+  %214 = landingpad { ptr, i32 }
           cleanup
-  %213 = getelementptr inbounds i8, ptr %200, i64 8
-  %214 = load i64, ptr %213, align 8, !range !401, !invariant.load !9, !noalias !5762
-  %215 = getelementptr inbounds i8, ptr %200, i64 16
-  %216 = load i64, ptr %215, align 8, !range !405, !invariant.load !9, !noalias !5762
-  %217 = icmp ult i64 %216, -9223372036854775807
-  call void @llvm.assume(i1 %217)
-  %218 = icmp eq i64 %214, 0
-  br i1 %218, label %common.resume, label %219
+  %215 = getelementptr inbounds i8, ptr %202, i64 8
+  %216 = load i64, ptr %215, align 8, !range !401, !invariant.load !9, !noalias !5762
+  %217 = getelementptr inbounds i8, ptr %202, i64 16
+  %218 = load i64, ptr %217, align 8, !range !405, !invariant.load !9, !noalias !5762
+  %219 = icmp ult i64 %218, -9223372036854775807
+  call void @llvm.assume(i1 %219)
+  %220 = icmp eq i64 %216, 0
+  br i1 %220, label %common.resume, label %221
 
-219:                                              ; preds = %211
-  call void @__rust_dealloc(ptr noundef nonnull %133, i64 noundef range(i64 1, -9223372036854775808) %214, i64 noundef range(i64 1, -9223372036854775807) %216) #48, !noalias !5762
+221:                                              ; preds = %213
+  call void @__rust_dealloc(ptr noundef nonnull %133, i64 noundef range(i64 1, -9223372036854775808) %216, i64 noundef range(i64 1, -9223372036854775807) %218) #48, !noalias !5762
   br label %common.resume
 
 "_ZN4core3ptr252drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17hf6e3e6bd039b9065E.llvm.5375636142825082637.exit": ; preds = %232, %225, %.thread83
-  %.sroa.3.08188 = phi ptr [ %132, %.thread83 ], [ %36, %225 ], [ %36, %232 ]
-  %.sroa.01.08287 = phi ptr [ %130, %.thread83 ], [ %35, %225 ], [ %35, %232 ]
-  %220 = insertvalue { ptr, ptr } poison, ptr %.sroa.01.08287, 0
-  %221 = insertvalue { ptr, ptr } %220, ptr %.sroa.3.08188, 1
-  ret { ptr, ptr } %221
+  %.merged = phi { ptr, ptr } [ %199, %.thread83 ], [ %94, %225 ], [ %94, %232 ]
+  ret { ptr, ptr } %.merged
 
 222:                                              ; preds = %107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
@@ -29553,8 +29552,8 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr92drop
   call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef range(i64 1, -9223372036854775808) %236, i64 noundef range(i64 1, -9223372036854775807) %238) #48, !noalias !5765
   br label %common.resume
 
-common.resume:                                    ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17554267445511233725.exit.i.i", %139, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17554267445511233725.exit.i.i47", %167, %242, %.body45, %.thread58.thread, %219, %211, %233, %241
-  %common.resume.op = phi { ptr, i32 } [ %234, %241 ], [ %234, %233 ], [ %.pn3392, %.thread58.thread ], [ %212, %219 ], [ %212, %211 ], [ %189, %.body45 ], [ %189, %242 ], [ %140, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17554267445511233725.exit.i.i" ], [ %140, %139 ], [ %168, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17554267445511233725.exit.i.i47" ], [ %168, %167 ]
+common.resume:                                    ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17554267445511233725.exit.i.i", %139, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17554267445511233725.exit.i.i47", %167, %242, %.body45, %.thread58.thread, %221, %213, %233, %241
+  %common.resume.op = phi { ptr, i32 } [ %234, %241 ], [ %234, %233 ], [ %.pn3392, %.thread58.thread ], [ %214, %221 ], [ %214, %213 ], [ %189, %.body45 ], [ %189, %242 ], [ %140, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17554267445511233725.exit.i.i" ], [ %140, %139 ], [ %168, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17554267445511233725.exit.i.i47" ], [ %168, %167 ]
   resume { ptr, i32 } %common.resume.op
 
 242:                                              ; preds = %.body45

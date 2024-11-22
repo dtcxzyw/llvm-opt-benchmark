@@ -884,123 +884,159 @@ _ZNSt8functionIFvR9DfgVertexEED2Ev.exit:          ; preds = %5, %7
 define linkonce_odr dso_local void @_ZN8DfgGraph13forEachVertexESt8functionIFvR9DfgVertexEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit, label %4
 
-.lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.754.079.in95 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.754.07996 = load ptr, ptr %.sroa.754.079.in95, align 8
-  %.not6297 = icmp eq ptr %.sroa.754.07996, null
-  %6 = select i1 %.not6297, ptr %3, ptr %.sroa.754.07996
-  tail call void @llvm.prefetch.p0(ptr nonnull %6, i32 1, i32 3, i32 1)
-  %7 = load ptr, ptr %4, align 8
-  %.not.i.i98 = icmp eq ptr %7, null
-  br i1 %.not.i.i98, label %._crit_edge102, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
 
-8:                                                ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
-  %.sroa.754.079.in = getelementptr inbounds i8, ptr %.sroa.754.079100, i64 8
-  %.sroa.754.079 = load ptr, ptr %.sroa.754.079.in, align 8
-  %.not62 = icmp eq ptr %.sroa.754.079, null
-  %9 = select i1 %.not62, ptr %.sroa.754.079100, ptr %.sroa.754.079
-  tail call void @llvm.prefetch.p0(ptr nonnull %9, i32 1, i32 3, i32 1)
-  %10 = load ptr, ptr %4, align 8
-  %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %._crit_edge102, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit: ; preds = %2, %4
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %8, %4 ], [ zeroinitializer, %2 ]
+  %9 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 0
+  %.not73 = icmp eq ptr %9, null
+  br i1 %.not73, label %._crit_edge, label %.lr.ph
 
-._crit_edge102:                                   ; preds = %8, %.lr.ph
+.lr.ph:                                           ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
+  %10 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %.not6288 = icmp eq ptr %10, null
+  %13 = select i1 %.not6288, ptr %9, ptr %10
+  tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
+  %14 = load ptr, ptr %11, align 8
+  %.not.i.i89 = icmp eq ptr %14, null
+  br i1 %.not.i.i89, label %._crit_edge93, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
+
+._crit_edge93:                                    ; preds = %16, %.lr.ph
   tail call void @_ZSt25__throw_bad_function_callv() #30
   unreachable
 
-_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit:       ; preds = %.lr.ph, %8
-  %.not62101 = phi i1 [ %.not62, %8 ], [ %.not6297, %.lr.ph ]
-  %.sroa.754.079100 = phi ptr [ %.sroa.754.079, %8 ], [ %.sroa.754.07996, %.lr.ph ]
-  %.sroa.049.07899 = phi ptr [ %.sroa.754.079100, %8 ], [ %3, %.lr.ph ]
-  %11 = load ptr, ptr %5, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.049.07899)
-  br i1 %.not62101, label %._crit_edge, label %8
+_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit:       ; preds = %.lr.ph, %16
+  %.not6292 = phi i1 [ %.not62, %16 ], [ %.not6288, %.lr.ph ]
+  %.sroa.049.07491 = phi ptr [ %.sroa.754.07590, %16 ], [ %9, %.lr.ph ]
+  %.sroa.754.07590 = phi ptr [ %18, %16 ], [ %10, %.lr.ph ]
+  %15 = load ptr, ptr %12, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.049.07491)
+  br i1 %.not6292, label %._crit_edge, label %16
 
-._crit_edge:                                      ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8
-  %.not.i63 = icmp eq ptr %13, null
-  br i1 %.not.i63, label %._crit_edge84, label %.lr.ph83
-
-.lr.ph83:                                         ; preds = %._crit_edge
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.745.081.in103 = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.745.081104 = load ptr, ptr %.sroa.745.081.in103, align 8
-  %.not61105 = icmp eq ptr %.sroa.745.081104, null
-  %16 = select i1 %.not61105, ptr %13, ptr %.sroa.745.081104
-  tail call void @llvm.prefetch.p0(ptr nonnull %16, i32 1, i32 3, i32 1)
-  %17 = load ptr, ptr %14, align 8
-  %.not.i.i67106 = icmp eq ptr %17, null
-  br i1 %.not.i.i67106, label %._crit_edge110, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit68
-
-18:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit68
-  %.sroa.745.081.in = getelementptr inbounds i8, ptr %.sroa.745.081108, i64 8
-  %.sroa.745.081 = load ptr, ptr %.sroa.745.081.in, align 8
-  %.not61 = icmp eq ptr %.sroa.745.081, null
-  %19 = select i1 %.not61, ptr %.sroa.745.081108, ptr %.sroa.745.081
+16:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
+  %17 = getelementptr inbounds i8, ptr %.sroa.754.07590, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %.not62 = icmp eq ptr %18, null
+  %19 = select i1 %.not62, ptr %.sroa.754.07590, ptr %18
   tail call void @llvm.prefetch.p0(ptr nonnull %19, i32 1, i32 3, i32 1)
-  %20 = load ptr, ptr %14, align 8
-  %.not.i.i67 = icmp eq ptr %20, null
-  br i1 %.not.i.i67, label %._crit_edge110, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit68
+  %20 = load ptr, ptr %11, align 8
+  %.not.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i, label %._crit_edge93, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
 
-._crit_edge110:                                   ; preds = %18, %.lr.ph83
+._crit_edge:                                      ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy5beginEv.exit
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %.not.i63 = icmp eq ptr %22, null
+  br i1 %.not.i63, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit, label %23
+
+23:                                               ; preds = %._crit_edge
+  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = insertvalue { ptr, ptr } poison, ptr %22, 0
+  %27 = insertvalue { ptr, ptr } %26, ptr %25, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
+
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit: ; preds = %._crit_edge, %23
+  %.fca.1.insert.merged.i64 = phi { ptr, ptr } [ %27, %23 ], [ zeroinitializer, %._crit_edge ]
+  %28 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i64, 0
+  %.not5876 = icmp eq ptr %28, null
+  br i1 %.not5876, label %._crit_edge80, label %.lr.ph79
+
+.lr.ph79:                                         ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
+  %29 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i64, 1
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %.not6194 = icmp eq ptr %29, null
+  %32 = select i1 %.not6194, ptr %28, ptr %29
+  tail call void @llvm.prefetch.p0(ptr nonnull %32, i32 1, i32 3, i32 1)
+  %33 = load ptr, ptr %30, align 8
+  %.not.i.i6595 = icmp eq ptr %33, null
+  br i1 %.not.i.i6595, label %._crit_edge99, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit66
+
+._crit_edge99:                                    ; preds = %35, %.lr.ph79
   tail call void @_ZSt25__throw_bad_function_callv() #30
   unreachable
 
-_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit68:     ; preds = %.lr.ph83, %18
-  %.not61109 = phi i1 [ %.not61, %18 ], [ %.not61105, %.lr.ph83 ]
-  %.sroa.745.081108 = phi ptr [ %.sroa.745.081, %18 ], [ %.sroa.745.081104, %.lr.ph83 ]
-  %.sroa.040.082107 = phi ptr [ %.sroa.745.081108, %18 ], [ %13, %.lr.ph83 ]
-  %21 = load ptr, ptr %15, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.040.082107)
-  br i1 %.not61109, label %._crit_edge84, label %18
+_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit66:     ; preds = %.lr.ph79, %35
+  %.not6198 = phi i1 [ %.not61, %35 ], [ %.not6194, %.lr.ph79 ]
+  %.sroa.745.07797 = phi ptr [ %37, %35 ], [ %29, %.lr.ph79 ]
+  %.sroa.040.07896 = phi ptr [ %.sroa.745.07797, %35 ], [ %28, %.lr.ph79 ]
+  %34 = load ptr, ptr %31, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.040.07896)
+  br i1 %.not6198, label %._crit_edge80, label %35
 
-._crit_edge84:                                    ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit68, %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %.not.i69 = icmp eq ptr %23, null
-  br i1 %.not.i69, label %._crit_edge89, label %.lr.ph88
+35:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit66
+  %36 = getelementptr inbounds i8, ptr %.sroa.745.07797, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not61 = icmp eq ptr %37, null
+  %38 = select i1 %.not61, ptr %.sroa.745.07797, ptr %37
+  tail call void @llvm.prefetch.p0(ptr nonnull %38, i32 1, i32 3, i32 1)
+  %39 = load ptr, ptr %30, align 8
+  %.not.i.i65 = icmp eq ptr %39, null
+  br i1 %.not.i.i65, label %._crit_edge99, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit66
 
-.lr.ph88:                                         ; preds = %._crit_edge84
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.7.086.in111 = getelementptr inbounds i8, ptr %23, i64 8
-  %.sroa.7.086112 = load ptr, ptr %.sroa.7.086.in111, align 8
-  %.not60113 = icmp eq ptr %.sroa.7.086112, null
-  %26 = select i1 %.not60113, ptr %23, ptr %.sroa.7.086112
-  tail call void @llvm.prefetch.p0(ptr nonnull %26, i32 1, i32 3, i32 1)
-  %27 = load ptr, ptr %24, align 8
-  %.not.i.i73114 = icmp eq ptr %27, null
-  br i1 %.not.i.i73114, label %._crit_edge118, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit74
+._crit_edge80:                                    ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit66, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE8DfgConstE15UnlinkableProxy5beginEv.exit
+  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = load ptr, ptr %40, align 8
+  %.not.i67 = icmp eq ptr %41, null
+  br i1 %.not.i67, label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit, label %42
 
-28:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit74
-  %.sroa.7.086.in = getelementptr inbounds i8, ptr %.sroa.7.086116, i64 8
-  %.sroa.7.086 = load ptr, ptr %.sroa.7.086.in, align 8
-  %.not60 = icmp eq ptr %.sroa.7.086, null
-  %29 = select i1 %.not60, ptr %.sroa.7.086116, ptr %.sroa.7.086
-  tail call void @llvm.prefetch.p0(ptr nonnull %29, i32 1, i32 3, i32 1)
-  %30 = load ptr, ptr %24, align 8
-  %.not.i.i73 = icmp eq ptr %30, null
-  br i1 %.not.i.i73, label %._crit_edge118, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit74
+42:                                               ; preds = %._crit_edge80
+  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = insertvalue { ptr, ptr } poison, ptr %41, 0
+  %46 = insertvalue { ptr, ptr } %45, ptr %44, 1
+  br label %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
 
-._crit_edge118:                                   ; preds = %28, %.lr.ph88
+_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit: ; preds = %._crit_edge80, %42
+  %.fca.1.insert.merged.i68 = phi { ptr, ptr } [ %46, %42 ], [ zeroinitializer, %._crit_edge80 ]
+  %47 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i68, 0
+  %.not5981 = icmp eq ptr %47, null
+  br i1 %.not5981, label %._crit_edge85, label %.lr.ph84
+
+.lr.ph84:                                         ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
+  %48 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i68, 1
+  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %.not60100 = icmp eq ptr %48, null
+  %51 = select i1 %.not60100, ptr %47, ptr %48
+  tail call void @llvm.prefetch.p0(ptr nonnull %51, i32 1, i32 3, i32 1)
+  %52 = load ptr, ptr %49, align 8
+  %.not.i.i69101 = icmp eq ptr %52, null
+  br i1 %.not.i.i69101, label %._crit_edge105, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit70
+
+._crit_edge105:                                   ; preds = %54, %.lr.ph84
   tail call void @_ZSt25__throw_bad_function_callv() #30
   unreachable
 
-_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit74:     ; preds = %.lr.ph88, %28
-  %.not60117 = phi i1 [ %.not60, %28 ], [ %.not60113, %.lr.ph88 ]
-  %.sroa.7.086116 = phi ptr [ %.sroa.7.086, %28 ], [ %.sroa.7.086112, %.lr.ph88 ]
-  %.sroa.0.087115 = phi ptr [ %.sroa.7.086116, %28 ], [ %23, %.lr.ph88 ]
-  %31 = load ptr, ptr %25, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.087115)
-  br i1 %.not60117, label %._crit_edge89, label %28
+_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit70:     ; preds = %.lr.ph84, %54
+  %.not60104 = phi i1 [ %.not60, %54 ], [ %.not60100, %.lr.ph84 ]
+  %.sroa.7.082103 = phi ptr [ %56, %54 ], [ %48, %.lr.ph84 ]
+  %.sroa.0.083102 = phi ptr [ %.sroa.7.082103, %54 ], [ %47, %.lr.ph84 ]
+  %53 = load ptr, ptr %50, align 8
+  tail call void %53(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.083102)
+  br i1 %.not60104, label %._crit_edge85, label %54
 
-._crit_edge89:                                    ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit74, %._crit_edge84
+54:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit70
+  %55 = getelementptr inbounds i8, ptr %.sroa.7.082103, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %.not60 = icmp eq ptr %56, null
+  %57 = select i1 %.not60, ptr %.sroa.7.082103, ptr %56
+  tail call void @llvm.prefetch.p0(ptr nonnull %57, i32 1, i32 3, i32 1)
+  %58 = load ptr, ptr %49, align 8
+  %.not.i.i69 = icmp eq ptr %58, null
+  br i1 %.not.i.i69, label %._crit_edge105, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit70
+
+._crit_edge85:                                    ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit70, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
   ret void
 }
 

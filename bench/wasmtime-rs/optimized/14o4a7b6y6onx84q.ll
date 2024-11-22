@@ -6960,13 +6960,13 @@ define internal noundef zeroext i1 @"_ZN70_$LT$core..num..error..TryFromIntError
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h066640cc56e92406E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #9 {
-  %.sroa.0.0.in = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !4, !noundef !4
-  %.sroa.5.0.in = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8, !noundef !4
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %3
+  %.pn1.in = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1 = load i64, ptr %.pn1.in, align 8, !noundef !4
+  %.pn3.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3 = load ptr, ptr %.pn3.in, align 8, !nonnull !4, !noundef !4
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn3, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -9778,10 +9778,10 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
   br label %105
 
 108:                                              ; preds = %101, %97
-  %.sroa.3.0.i = phi i64 [ %99, %97 ], [ %102, %101 ]
+  %.pn1.i = phi i64 [ %99, %97 ], [ %102, %101 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %28, i64 56, i1 false)
-  %109 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler16declare_and_call17h5f41d04d5a282ddaE(ptr noalias noundef align 8 dereferenceable(24) %22, ptr noalias nocapture noundef align 8 dereferenceable(56) %17, i32 noundef %56, ptr noalias noundef nonnull readonly align 4 %98, i64 noundef %.sroa.3.0.i)
+  %109 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler16declare_and_call17h5f41d04d5a282ddaE(ptr noalias noundef align 8 dereferenceable(24) %22, ptr noalias nocapture noundef align 8 dereferenceable(56) %17, i32 noundef %56, ptr noalias noundef nonnull readonly align 4 %98, i64 noundef %.pn1.i)
           to label %110 unwind label %106
 
 110:                                              ; preds = %108
@@ -12341,18 +12341,18 @@ _ZN18wasmtime_cranelift8compiler8Compiler24wasm_to_array_trampoline17hf3f3d33169
   br label %323
 
 326:                                              ; preds = %319, %315
-  %.sroa.3.0.i.i = phi i64 [ %317, %315 ], [ %320, %319 ]
-  %327 = icmp ult i64 %.sroa.3.0.i.i, 2
+  %.pn1.i.i = phi i64 [ %317, %315 ], [ %320, %319 ]
+  %327 = icmp ult i64 %.pn1.i.i, 2
   br i1 %327, label %332, label %328
 
 328:                                              ; preds = %326
-  %329 = add i64 %.sroa.3.0.i.i, -2
+  %329 = add i64 %.pn1.i.i, -2
   %330 = getelementptr inbounds i8, ptr %316, i64 8
   %331 = invoke { i32, i32 } @_ZN18wasmtime_cranelift8compiler8Compiler35allocate_stack_array_and_spill_args17h778a15ed3a08c672E(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 4 %330, i64 noundef %329)
           to label %333 unwind label %324, !noalias !2657
 
 332:                                              ; preds = %326
-  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef 2, i64 noundef %.sroa.3.0.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7736b00188ea486646a9328fd927c866.178) #35
+  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef 2, i64 noundef %.pn1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7736b00188ea486646a9328fd927c866.178) #35
           to label %350 unwind label %324, !noalias !2657
 
 333:                                              ; preds = %328

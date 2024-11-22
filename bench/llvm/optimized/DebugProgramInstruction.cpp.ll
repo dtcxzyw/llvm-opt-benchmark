@@ -2594,8 +2594,8 @@ _ZNK4llvm17DbgVariableRecord12location_opsEv.exit: ; preds = %13, %20
   %.not16 = icmp eq i64 %.sroa.012.0, %.sroa.5.0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit, %.critedge22
-  %.sroa.09.017 = phi i64 [ %storemerge.i, %.critedge22 ], [ %.sroa.012.0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ]
+.lr.ph:                                           ; preds = %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit, %.critedge23
+  %.sroa.09.017 = phi i64 [ %storemerge.i, %.critedge23 ], [ %.sroa.012.0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ]
   %29 = and i64 %.sroa.09.017, 4
   %30 = icmp eq i64 %29, 0
   %31 = and i64 %.sroa.09.017, -8
@@ -2626,7 +2626,7 @@ _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph, %
   %.025.i.i = phi ptr [ %48, %47 ], [ %39, %41 ]
   %45 = load ptr, ptr %.025.i.i, align 8, !noalias !50
   %46 = icmp eq ptr %45, %37
-  br i1 %46, label %.critedge22, label %47
+  br i1 %46, label %.critedge23, label %47
 
 47:                                               ; preds = %.lr.ph.i.i
   %48 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -2642,40 +2642,40 @@ _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph, %
   %51 = add nuw i32 %42, 1
   store i32 %51, ptr %6, align 4, !noalias !50
   store ptr %37, ptr %44, align 8, !noalias !50
-  br label %54
+  br label %55
 
 _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %._crit_edge.i.i, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit
   %52 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %37) #17, !noalias !50
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %52, 1
-  %53 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %53, label %54, label %.critedge22
+  %53 = extractvalue { ptr, i8 } %52, 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %.critedge23
 
-54:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
-  %55 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %56) #17
-  call void @_ZN4llvm17DbgVariableRecord25replaceVariableLocationOpEPNS_5ValueES2_b(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %37, ptr noundef %57, i1 noundef zeroext false)
-  br label %.critedge22
+55:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
+  %56 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %57) #17
+  call void @_ZN4llvm17DbgVariableRecord25replaceVariableLocationOpEPNS_5ValueES2_b(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %37, ptr noundef %58, i1 noundef zeroext false)
+  br label %.critedge23
 
-.critedge22:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit, %54
-  %58 = and i64 %.sroa.09.017, -4
-  %59 = add nuw i64 %58, 8
-  %60 = add nuw i64 %31, 136
-  %storemerge.i = select i1 %30, i64 %60, i64 %59
+.critedge23:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit, %55
+  %59 = and i64 %.sroa.09.017, -4
+  %60 = add nuw i64 %59, 8
+  %61 = add nuw i64 %31, 136
+  %storemerge.i = select i1 %30, i64 %61, i64 %60
   %.not = icmp eq i64 %storemerge.i, %.sroa.5.0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.critedge22, %19, %1, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
-  %61 = load ptr, ptr %4, align 8
-  %62 = load ptr, ptr %2, align 8
-  %63 = icmp eq ptr %61, %62
-  br i1 %63, label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit, label %64
+._crit_edge:                                      ; preds = %.critedge23, %19, %1, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
+  %62 = load ptr, ptr %4, align 8
+  %63 = load ptr, ptr %2, align 8
+  %64 = icmp eq ptr %62, %63
+  br i1 %64, label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit, label %65
 
-64:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef %61) #17
+65:                                               ; preds = %._crit_edge
+  call void @free(ptr noundef %62) #17
   br label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit
 
-_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit:  ; preds = %._crit_edge, %64
+_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit:  ; preds = %._crit_edge, %65
   ret void
 }
 
@@ -2822,26 +2822,23 @@ define dso_local { i64, i8 } @_ZNK4llvm17DbgVariableRecord21getFragmentSizeInBit
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %18
+  br i1 %15, label %16, label %20
 
 16:                                               ; preds = %1
   %17 = load i64, ptr %2, align 8
+  %18 = insertvalue { i64, i8 } poison, i64 %17, 0
+  %19 = insertvalue { i64, i8 } %18, i8 1, 1
   br label %24
 
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %20 = load ptr, ptr %19, align 8
-  %21 = call { i64, i8 } @_ZNK4llvm10DIVariable13getSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(20) %20) #17
-  %22 = extractvalue { i64, i8 } %21, 0
-  %23 = extractvalue { i64, i8 } %21, 1
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %22 = load ptr, ptr %21, align 8
+  %23 = call { i64, i8 } @_ZNK4llvm10DIVariable13getSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(20) %22) #17
   br label %24
 
-24:                                               ; preds = %18, %16
-  %.sroa.3.0 = phi i8 [ 1, %16 ], [ %23, %18 ]
-  %.sroa.0.0 = phi i64 [ %17, %16 ], [ %22, %18 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
-  ret { i64, i8 } %.fca.1.insert
+24:                                               ; preds = %20, %16
+  %.fca.1.insert.merged = phi { i64, i8 } [ %19, %16 ], [ %23, %20 ]
+  ret { i64, i8 } %.fca.1.insert.merged
 }
 
 declare { i64, i8 } @_ZNK4llvm10DIVariable13getSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #2

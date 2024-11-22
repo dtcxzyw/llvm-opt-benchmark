@@ -152,11 +152,11 @@ define dso_local ptr @_ZN4llvm22findPHICopyInsertPointEPNS_17MachineBasicBlockES
 74:                                               ; preds = %._crit_edge.i.i, %60
   %75 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull %56) #4, !noalias !6
   %.pre.i = load ptr, ptr %4, align 8, !noalias !6
-  %.pre8.i = load i32, ptr %26, align 4, !noalias !6
+  %.pre6.i = load i32, ptr %26, align 4, !noalias !6
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %74, %70
-  %76 = phi i32 [ %73, %70 ], [ %.pre8.i, %74 ], [ %52, %.lr.ph.i.i ]
+  %76 = phi i32 [ %73, %70 ], [ %.pre6.i, %74 ], [ %52, %.lr.ph.i.i ]
   %77 = phi ptr [ %72, %70 ], [ %.pre.i, %74 ], [ %53, %.lr.ph.i.i ]
   %78 = load ptr, ptr %24, align 8, !noalias !6
   %79 = load i32, ptr %25, align 8, !noalias !6

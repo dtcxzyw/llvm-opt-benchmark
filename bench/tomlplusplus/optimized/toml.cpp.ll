@@ -2768,9 +2768,9 @@ _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   br label %for.end21.i.i16
 
 _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %if.end6.i56
-  %rem.i.i110.i = urem i8 %6, 100
-  %12 = shl nuw i8 %rem.i.i110.i, 1
-  %div.i.i111.i = udiv i8 %6, 100
+  %rem.i.i112.i = urem i8 %6, 100
+  %12 = shl nuw i8 %rem.i.i112.i, 1
+  %div.i.i113.i = udiv i8 %6, 100
   %13 = or disjoint i8 %12, 1
   %idxprom.i.i.i79 = zext i8 %13 to i64
   %arrayidx.i.i.i80 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i.i.i79
@@ -2782,7 +2782,7 @@ _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   %15 = load i8, ptr %arrayidx4.i.i.i83, align 2
   %.sroa.gep129.sroa.gep = getelementptr inbounds i8, ptr %buf.i.i7, i64 1
   store i8 %15, ptr %.sroa.gep129.sroa.gep, align 1
-  %conv.i.i.i66 = or disjoint i8 %div.i.i111.i, 48
+  %conv.i.i.i66 = or disjoint i8 %div.i.i113.i, 48
   store i8 %conv.i.i.i66, ptr %buf.i.i7, align 1
   br label %for.end21.i.i16
 
@@ -2839,9 +2839,9 @@ _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   br label %for.end21.i.i39
 
 _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit122: ; preds = %if.end6.i87
-  %rem.i.i110.i114 = urem i8 %16, 100
-  %22 = shl nuw i8 %rem.i.i110.i114, 1
-  %div.i.i111.i115 = udiv i8 %16, 100
+  %rem.i.i112.i114 = urem i8 %16, 100
+  %22 = shl nuw i8 %rem.i.i112.i114, 1
+  %div.i.i113.i115 = udiv i8 %16, 100
   %23 = or disjoint i8 %22, 1
   %idxprom.i.i.i116 = zext i8 %23 to i64
   %arrayidx.i.i.i117 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i.i.i116
@@ -2853,7 +2853,7 @@ _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   %25 = load i8, ptr %arrayidx4.i.i.i120, align 2
   %.sroa.gep134.sroa.gep = getelementptr inbounds i8, ptr %buf.i.i30, i64 1
   store i8 %25, ptr %.sroa.gep134.sroa.gep, align 1
-  %conv.i.i.i99 = or disjoint i8 %div.i.i111.i115, 48
+  %conv.i.i.i99 = or disjoint i8 %div.i.i113.i115, 48
   store i8 %conv.i.i.i99, ptr %buf.i.i30, align 1
   br label %for.end21.i.i39
 
@@ -2918,9 +2918,9 @@ _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   br label %for.end21.i.i
 
 _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %if.end6.i
-  %rem.i.i110.i = urem i8 %0, 100
-  %6 = shl nuw i8 %rem.i.i110.i, 1
-  %div.i.i111.i = udiv i8 %0, 100
+  %rem.i.i112.i = urem i8 %0, 100
+  %6 = shl nuw i8 %rem.i.i112.i, 1
+  %div.i.i113.i = udiv i8 %0, 100
   %7 = or disjoint i8 %6, 1
   %idxprom.i.i.i = zext i8 %7 to i64
   %arrayidx.i.i.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i.i.i
@@ -2932,7 +2932,7 @@ _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   %9 = load i8, ptr %arrayidx4.i.i.i, align 2
   %.sroa.gep201.sroa.gep = getelementptr inbounds i8, ptr %buf.i.i, i64 1
   store i8 %9, ptr %.sroa.gep201.sroa.gep, align 1
-  %conv.i.i.i = or disjoint i8 %div.i.i111.i, 48
+  %conv.i.i.i = or disjoint i8 %div.i.i113.i, 48
   store i8 %conv.i.i.i, ptr %buf.i.i, align 1
   br label %for.end21.i.i
 
@@ -2989,9 +2989,9 @@ _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   br label %for.end21.i.i24
 
 _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit123: ; preds = %if.end6.i88
-  %rem.i.i110.i115 = urem i8 %10, 100
-  %16 = shl nuw i8 %rem.i.i110.i115, 1
-  %div.i.i111.i116 = udiv i8 %10, 100
+  %rem.i.i112.i115 = urem i8 %10, 100
+  %16 = shl nuw i8 %rem.i.i112.i115, 1
+  %div.i.i113.i116 = udiv i8 %10, 100
   %17 = or disjoint i8 %16, 1
   %idxprom.i.i.i117 = zext i8 %17 to i64
   %arrayidx.i.i.i118 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i.i.i117
@@ -3003,7 +3003,7 @@ _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   %19 = load i8, ptr %arrayidx4.i.i.i121, align 2
   %.sroa.gep206.sroa.gep = getelementptr inbounds i8, ptr %buf.i.i15, i64 1
   store i8 %19, ptr %.sroa.gep206.sroa.gep, align 1
-  %conv.i.i.i100 = or disjoint i8 %div.i.i111.i116, 48
+  %conv.i.i.i100 = or disjoint i8 %div.i.i113.i116, 48
   store i8 %conv.i.i.i100, ptr %buf.i.i15, align 1
   br label %for.end21.i.i24
 
@@ -3060,9 +3060,9 @@ _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   br label %for.end21.i.i48
 
 _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit161: ; preds = %if.end6.i126
-  %rem.i.i110.i153 = urem i8 %20, 100
-  %26 = shl nuw i8 %rem.i.i110.i153, 1
-  %div.i.i111.i154 = udiv i8 %20, 100
+  %rem.i.i112.i153 = urem i8 %20, 100
+  %26 = shl nuw i8 %rem.i.i112.i153, 1
+  %div.i.i113.i154 = udiv i8 %20, 100
   %27 = or disjoint i8 %26, 1
   %idxprom.i.i.i155 = zext i8 %27 to i64
   %arrayidx.i.i.i156 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i.i.i155
@@ -3074,7 +3074,7 @@ _ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   %29 = load i8, ptr %arrayidx4.i.i.i159, align 2
   %.sroa.gep212.sroa.gep = getelementptr inbounds i8, ptr %buf.i.i39, i64 1
   store i8 %29, ptr %.sroa.gep212.sroa.gep, align 1
-  %conv.i.i.i138 = or disjoint i8 %div.i.i111.i154, 48
+  %conv.i.i.i138 = or disjoint i8 %div.i.i113.i154, 48
   store i8 %conv.i.i.i138, ptr %buf.i.i39, align 1
   br label %for.end21.i.i48
 
@@ -3223,8 +3223,8 @@ return.sink.split.i:                              ; preds = %if.else.i.i.i170, %
   br label %_ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 _ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, %return.sink.split.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i66, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i109.i, %return.sink.split.i ]
-  %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %retval.sroa.0.0.i to i64
+  %__last.pn.i = phi ptr [ %add.ptr.i.i66, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i109.i, %return.sink.split.i ]
+  %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %__last.pn.i to i64
   %sub.ptr.rhs.cast.i.i69 = ptrtoint ptr %buf.i.i63 to i64
   %sub.ptr.sub.i.i70 = sub i64 %sub.ptr.lhs.cast.i.i68, %sub.ptr.rhs.cast.i.i69
   %cmp1617.i.i71 = icmp ult i64 %sub.ptr.sub.i.i70, %digits.0.lcssa
@@ -3386,15 +3386,15 @@ return.sink.split.i:                              ; preds = %if.else.i.i.i, %if.
   br label %_ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 _ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, %return.sink.split.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i109.i, %return.sink.split.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i to i64
+  %__last.pn.i = phi ptr [ %add.ptr.i.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i109.i, %return.sink.split.i ]
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last.pn.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp1617.i.i = icmp ult i64 %sub.ptr.sub.i.i, 2
   br i1 %cmp1617.i.i, label %for.body17.i.i.preheader, label %for.end21.i.i
 
 for.body17.i.i.preheader:                         ; preds = %_ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
-  %7 = icmp eq ptr %retval.sroa.0.0.i, %buf.i.i
+  %7 = icmp eq ptr %__last.pn.i, %buf.i.i
   %call18.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %stream, i8 noundef signext 48)
   br i1 %7, label %for.end21.i.i.loopexit.critedge, label %for.end21.i.i, !llvm.loop !27
 
@@ -3535,15 +3535,15 @@ return.sink.split.i65:                            ; preds = %if.else.i.i.i63, %i
   br label %_ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit107
 
 _ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit107: ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i52, %return.sink.split.i65
-  %retval.sroa.0.0.i69 = phi ptr [ %add.ptr.i.i17, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i52 ], [ %add.ptr.i109.i68, %return.sink.split.i65 ]
-  %sub.ptr.lhs.cast.i.i19 = ptrtoint ptr %retval.sroa.0.0.i69 to i64
+  %__last.pn.i69 = phi ptr [ %add.ptr.i.i17, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i52 ], [ %add.ptr.i109.i68, %return.sink.split.i65 ]
+  %sub.ptr.lhs.cast.i.i19 = ptrtoint ptr %__last.pn.i69 to i64
   %sub.ptr.rhs.cast.i.i20 = ptrtoint ptr %buf.i.i14 to i64
   %sub.ptr.sub.i.i21 = sub i64 %sub.ptr.lhs.cast.i.i19, %sub.ptr.rhs.cast.i.i20
   %cmp1617.i.i22 = icmp ult i64 %sub.ptr.sub.i.i21, 2
   br i1 %cmp1617.i.i22, label %for.body17.i.i26.preheader, label %for.end21.i.i23
 
 for.body17.i.i26.preheader:                       ; preds = %_ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit107
-  %14 = icmp eq ptr %retval.sroa.0.0.i69, %buf.i.i14
+  %14 = icmp eq ptr %__last.pn.i69, %buf.i.i14
   %call18.i.i28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %stream, i8 noundef signext 48)
   br i1 %14, label %for.end21.i.i23.loopexit.critedge, label %for.end21.i.i23, !llvm.loop !27
 
@@ -3707,8 +3707,8 @@ return.sink.split.i:                              ; preds = %if.else.i.i.i, %if.
   br label %_ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 _ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, %return.sink.split.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i109.i, %return.sink.split.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i to i64
+  %__last.pn.i = phi ptr [ %add.ptr.i.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i109.i, %return.sink.split.i ]
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last.pn.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %call.i15.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
@@ -3835,8 +3835,8 @@ return.sink.split.i50:                            ; preds = %if.else.i.i.i48, %i
   br label %_ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit92
 
 _ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit92: ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i37, %return.sink.split.i50
-  %retval.sroa.0.0.i54 = phi ptr [ %add.ptr.i.i9, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i37 ], [ %add.ptr.i109.i53, %return.sink.split.i50 ]
-  %sub.ptr.lhs.cast.i.i11 = ptrtoint ptr %retval.sroa.0.0.i54 to i64
+  %__last.pn.i54 = phi ptr [ %add.ptr.i.i9, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i37 ], [ %add.ptr.i109.i53, %return.sink.split.i50 ]
+  %sub.ptr.lhs.cast.i.i11 = ptrtoint ptr %__last.pn.i54 to i64
   %sub.ptr.rhs.cast.i.i12 = ptrtoint ptr %buf.i.i6 to i64
   %sub.ptr.sub.i.i13 = sub i64 %sub.ptr.lhs.cast.i.i11, %sub.ptr.rhs.cast.i.i12
   %call.i15.i.i15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %buf.i.i6, i64 noundef %sub.ptr.sub.i.i13)
@@ -6641,8 +6641,8 @@ return.sink.split.i:                              ; preds = %if.else.i.i.i, %if.
   br label %_ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 _ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, %return.sink.split.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i ], [ %add.ptr.i102.i, %return.sink.split.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i to i64
+  %__last.pn.i = phi ptr [ %add.ptr.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i ], [ %add.ptr.i102.i, %return.sink.split.i ]
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last.pn.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %call.i15.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
   br label %_ZN4toml2v34impl15print_to_streamERSomNS0_11value_flagsEm.exit
@@ -27678,8 +27678,8 @@ return.sink.split.i.i:                            ; preds = %if.else.i.i.i.i, %i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %return.sink.split.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %0, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i ], [ %add.ptr.i102.i.i, %return.sink.split.i.i ]
-  store ptr %retval.sroa.0.0.i.i, ptr %write_pos, align 8
+  %__last.pn.i.i = phi ptr [ %0, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i ], [ %add.ptr.i102.i.i, %return.sink.split.i.i ]
+  store ptr %__last.pn.i.i, ptr %write_pos, align 8
   br label %_ZN12_GLOBAL__N_111concatenateImEEvRPcS1_RKT_.exit
 
 _ZN12_GLOBAL__N_111concatenateImEEvRPcS1_RKT_.exit: ; preds = %entry, %invoke.cont.i
@@ -28052,11 +28052,11 @@ return.sink.split:                                ; preds = %while.body.i63, %wh
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i87, %sw.bb10, %sw.bb8, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, %sw.bb, %entry
-  %retval.sroa.0.0 = phi ptr [ %__last, %entry ], [ %__last, %sw.bb ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %__last, %sw.bb8 ], [ %__last, %sw.bb10 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i87 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %add.ptr.i102, %return.sink.split ]
-  %retval.sroa.8.0 = phi i32 [ 75, %entry ], [ 75, %sw.bb ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ 75, %sw.bb8 ], [ 75, %sw.bb10 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i87 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ 0, %return.sink.split ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.8.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+  %__last.pn = phi ptr [ %__last, %entry ], [ %__last, %sw.bb ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %__last, %sw.bb8 ], [ %__last, %sw.bb10 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i87 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %add.ptr.i102, %return.sink.split ]
+  %.pn113 = phi i32 [ 75, %entry ], [ 75, %sw.bb ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ 75, %sw.bb8 ], [ 75, %sw.bb10 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i87 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ 0, %return.sink.split ]
+  %.pn = insertvalue { ptr, i32 } poison, ptr %__last.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.pn, i32 %.pn113, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -31750,8 +31750,8 @@ return.sink.split.i.i.i:                          ; preds = %if.else.i.i.i.i.i, 
   br label %_ZN12_GLOBAL__N_111concatenateImEEvRPcS1_RKT_.exit.i
 
 _ZN12_GLOBAL__N_111concatenateImEEvRPcS1_RKT_.exit.i: ; preds = %return.sink.split.i.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i
-  %retval.sroa.0.0.i.i.i = phi ptr [ %0, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i ], [ %add.ptr.i102.i.i.i, %return.sink.split.i.i.i ]
-  store ptr %retval.sroa.0.0.i.i.i, ptr %write_pos, align 8
+  %__last.pn.i.i.i = phi ptr [ %0, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i ], [ %add.ptr.i102.i.i.i, %return.sink.split.i.i.i ]
+  store ptr %__last.pn.i.i.i, ptr %write_pos, align 8
   br label %_ZN12_GLOBAL__N_111concatenateIjEEvRPcS1_RKT_.exit
 
 _ZN12_GLOBAL__N_111concatenateIjEEvRPcS1_RKT_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_111concatenateImEEvRPcS1_RKT_.exit.i
@@ -32921,8 +32921,8 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i.i.i: ; preds = %if.else.i.
   br label %_ZN12_GLOBAL__N_111concatenateIlEEvRPcS1_RKT_.exit.i
 
 _ZN12_GLOBAL__N_111concatenateIlEEvRPcS1_RKT_.exit.i: ; preds = %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i, %if.then2.i.i.i
-  %retval.sroa.0.0.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then2.i.i.i ], [ %add.ptr.i29.i.i.i, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i.i.i ], [ %0, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i ]
-  store ptr %retval.sroa.0.0.i.i.i, ptr %write_pos, align 8
+  %__last.pn.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then2.i.i.i ], [ %add.ptr.i29.i.i.i, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i.i.i ], [ %0, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i ]
+  store ptr %__last.pn.i.i.i, ptr %write_pos, align 8
   br label %_ZN12_GLOBAL__N_111concatenateIiEEvRPcS1_RKT_.exit
 
 _ZN12_GLOBAL__N_111concatenateIiEEvRPcS1_RKT_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_111concatenateIlEEvRPcS1_RKT_.exit.i
@@ -33322,11 +33322,11 @@ while.end.i103:                                   ; preds = %while.body.i99, %_Z
   br label %return
 
 return:                                           ; preds = %while.end.i103, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i90, %while.end.i69, %sw.bb13, %if.end27.i, %sw.bb11, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, %if.end22.i, %sw.bb, %entry, %if.then2
-  %retval.sroa.0.0 = phi ptr [ %add.ptr, %if.then2 ], [ %__last, %entry ], [ %add.ptr.i, %if.end22.i ], [ %__last, %sw.bb ], [ %add.ptr.i29, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %add.ptr.i47, %if.end27.i ], [ %__last, %sw.bb11 ], [ %add.ptr.i70, %while.end.i69 ], [ %__last, %sw.bb13 ], [ %add.ptr.i105, %while.end.i103 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i90 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ]
-  %retval.sroa.8.0 = phi i32 [ 0, %if.then2 ], [ 75, %entry ], [ 0, %if.end22.i ], [ 75, %sw.bb ], [ 0, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ 0, %if.end27.i ], [ 75, %sw.bb11 ], [ 0, %while.end.i69 ], [ 75, %sw.bb13 ], [ 0, %while.end.i103 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i90 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.8.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+  %__last.pn = phi ptr [ %add.ptr, %if.then2 ], [ %__last, %entry ], [ %add.ptr.i, %if.end22.i ], [ %__last, %sw.bb ], [ %add.ptr.i29, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %add.ptr.i47, %if.end27.i ], [ %__last, %sw.bb11 ], [ %add.ptr.i70, %while.end.i69 ], [ %__last, %sw.bb13 ], [ %add.ptr.i105, %while.end.i103 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i90 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ]
+  %.pn116 = phi i32 [ 0, %if.then2 ], [ 75, %entry ], [ 0, %if.end22.i ], [ 75, %sw.bb ], [ 0, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ 0, %if.end27.i ], [ 75, %sw.bb11 ], [ 0, %while.end.i69 ], [ 75, %sw.bb13 ], [ 0, %while.end.i103 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i90 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ]
+  %.pn = insertvalue { ptr, i32 } poison, ptr %__last.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.pn, i32 %.pn116, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -38411,11 +38411,11 @@ while.end.i110:                                   ; preds = %while.body.i105, %_
   br label %return
 
 return:                                           ; preds = %while.end.i110, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97, %while.end.i78, %sw.bb16, %if.end27.i45, %sw.bb14, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, %if.end27.i, %sw.bb, %entry, %if.then3
-  %retval.sroa.0.0 = phi ptr [ %add.ptr, %if.then3 ], [ %__last, %entry ], [ %add.ptr.i, %if.end27.i ], [ %__last, %sw.bb ], [ %add.ptr.i29, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %add.ptr.i48, %if.end27.i45 ], [ %__last, %sw.bb14 ], [ %add.ptr.i79, %while.end.i78 ], [ %__last, %sw.bb16 ], [ %add.ptr.i112, %while.end.i110 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
-  %retval.sroa.8.0 = phi i32 [ 0, %if.then3 ], [ 75, %entry ], [ 0, %if.end27.i ], [ 75, %sw.bb ], [ 0, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ 0, %if.end27.i45 ], [ 75, %sw.bb14 ], [ 0, %while.end.i78 ], [ 75, %sw.bb16 ], [ 0, %while.end.i110 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.8.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+  %__last.pn = phi ptr [ %add.ptr, %if.then3 ], [ %__last, %entry ], [ %add.ptr.i, %if.end27.i ], [ %__last, %sw.bb ], [ %add.ptr.i29, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %add.ptr.i48, %if.end27.i45 ], [ %__last, %sw.bb14 ], [ %add.ptr.i79, %while.end.i78 ], [ %__last, %sw.bb16 ], [ %add.ptr.i112, %while.end.i110 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
+  %.pn123 = phi i32 [ 0, %if.then3 ], [ 75, %entry ], [ 0, %if.end27.i ], [ 75, %sw.bb ], [ 0, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ 0, %if.end27.i45 ], [ 75, %sw.bb14 ], [ 0, %while.end.i78 ], [ 75, %sw.bb16 ], [ 0, %while.end.i110 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
+  %.pn = insertvalue { ptr, i32 } poison, ptr %__last.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.pn, i32 %.pn123, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -38815,11 +38815,11 @@ while.end.i110:                                   ; preds = %while.body.i105, %_
   br label %return
 
 return:                                           ; preds = %while.end.i110, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97, %while.end.i78, %sw.bb16, %if.end27.i45, %sw.bb14, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, %if.end27.i, %sw.bb, %entry, %if.then3
-  %retval.sroa.0.0 = phi ptr [ %add.ptr, %if.then3 ], [ %__last, %entry ], [ %add.ptr.i, %if.end27.i ], [ %__last, %sw.bb ], [ %add.ptr.i29, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %add.ptr.i48, %if.end27.i45 ], [ %__last, %sw.bb14 ], [ %add.ptr.i79, %while.end.i78 ], [ %__last, %sw.bb16 ], [ %add.ptr.i112, %while.end.i110 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
-  %retval.sroa.8.0 = phi i32 [ 0, %if.then3 ], [ 75, %entry ], [ 0, %if.end27.i ], [ 75, %sw.bb ], [ 0, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ 0, %if.end27.i45 ], [ 75, %sw.bb14 ], [ 0, %while.end.i78 ], [ 75, %sw.bb16 ], [ 0, %while.end.i110 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.8.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+  %__last.pn = phi ptr [ %add.ptr, %if.then3 ], [ %__last, %entry ], [ %add.ptr.i, %if.end27.i ], [ %__last, %sw.bb ], [ %add.ptr.i29, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %add.ptr.i48, %if.end27.i45 ], [ %__last, %sw.bb14 ], [ %add.ptr.i79, %while.end.i78 ], [ %__last, %sw.bb16 ], [ %add.ptr.i112, %while.end.i110 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
+  %.pn123 = phi i32 [ 0, %if.then3 ], [ 75, %entry ], [ 0, %if.end27.i ], [ 75, %sw.bb ], [ 0, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ 0, %if.end27.i45 ], [ 75, %sw.bb14 ], [ 0, %while.end.i78 ], [ 75, %sw.bb16 ], [ 0, %while.end.i110 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
+  %.pn = insertvalue { ptr, i32 } poison, ptr %__last.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.pn, i32 %.pn123, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39215,11 +39215,11 @@ while.end.i110:                                   ; preds = %while.body.i105, %_
   br label %return
 
 return:                                           ; preds = %while.end.i110, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97, %while.end.i78, %sw.bb13, %if.end27.i45, %sw.bb11, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, %if.end27.i, %sw.bb, %entry, %if.then2
-  %retval.sroa.0.0 = phi ptr [ %add.ptr, %if.then2 ], [ %__last, %entry ], [ %add.ptr.i, %if.end27.i ], [ %__last, %sw.bb ], [ %add.ptr.i29, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %add.ptr.i48, %if.end27.i45 ], [ %__last, %sw.bb11 ], [ %add.ptr.i79, %while.end.i78 ], [ %__last, %sw.bb13 ], [ %add.ptr.i112, %while.end.i110 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
-  %retval.sroa.8.0 = phi i32 [ 0, %if.then2 ], [ 75, %entry ], [ 0, %if.end27.i ], [ 75, %sw.bb ], [ 0, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ 0, %if.end27.i45 ], [ 75, %sw.bb11 ], [ 0, %while.end.i78 ], [ 75, %sw.bb13 ], [ 0, %while.end.i110 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.8.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+  %__last.pn = phi ptr [ %add.ptr, %if.then2 ], [ %__last, %entry ], [ %add.ptr.i, %if.end27.i ], [ %__last, %sw.bb ], [ %add.ptr.i29, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %add.ptr.i48, %if.end27.i45 ], [ %__last, %sw.bb11 ], [ %add.ptr.i79, %while.end.i78 ], [ %__last, %sw.bb13 ], [ %add.ptr.i112, %while.end.i110 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
+  %.pn123 = phi i32 [ 0, %if.then2 ], [ 75, %entry ], [ 0, %if.end27.i ], [ 75, %sw.bb ], [ 0, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ 0, %if.end27.i45 ], [ 75, %sw.bb11 ], [ 0, %while.end.i78 ], [ 75, %sw.bb13 ], [ 0, %while.end.i110 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i97 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ]
+  %.pn = insertvalue { ptr, i32 } poison, ptr %__last.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.pn, i32 %.pn123, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39615,11 +39615,11 @@ while.end.i103:                                   ; preds = %while.body.i99, %_Z
   br label %return
 
 return:                                           ; preds = %while.end.i103, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i90, %while.end.i69, %sw.bb13, %if.end27.i, %sw.bb11, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, %if.end22.i, %sw.bb, %entry, %if.then2
-  %retval.sroa.0.0 = phi ptr [ %add.ptr, %if.then2 ], [ %__last, %entry ], [ %add.ptr.i, %if.end22.i ], [ %__last, %sw.bb ], [ %add.ptr.i29, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %add.ptr.i47, %if.end27.i ], [ %__last, %sw.bb11 ], [ %add.ptr.i70, %while.end.i69 ], [ %__last, %sw.bb13 ], [ %add.ptr.i105, %while.end.i103 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i90 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ]
-  %retval.sroa.8.0 = phi i32 [ 0, %if.then2 ], [ 75, %entry ], [ 0, %if.end22.i ], [ 75, %sw.bb ], [ 0, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ 0, %if.end27.i ], [ 75, %sw.bb11 ], [ 0, %while.end.i69 ], [ 75, %sw.bb13 ], [ 0, %while.end.i103 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i90 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.8.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+  %__last.pn = phi ptr [ %add.ptr, %if.then2 ], [ %__last, %entry ], [ %add.ptr.i, %if.end22.i ], [ %__last, %sw.bb ], [ %add.ptr.i29, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %add.ptr.i47, %if.end27.i ], [ %__last, %sw.bb11 ], [ %add.ptr.i70, %while.end.i69 ], [ %__last, %sw.bb13 ], [ %add.ptr.i105, %while.end.i103 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i90 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ]
+  %.pn116 = phi i32 [ 0, %if.then2 ], [ 75, %entry ], [ 0, %if.end22.i ], [ 75, %sw.bb ], [ 0, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ 0, %if.end27.i ], [ 75, %sw.bb11 ], [ 0, %while.end.i69 ], [ 75, %sw.bb13 ], [ 0, %while.end.i103 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i90 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ]
+  %.pn = insertvalue { ptr, i32 } poison, ptr %__last.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.pn, i32 %.pn116, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39692,9 +39692,9 @@ if.end.i25:                                       ; preds = %sw.bb7
   br i1 %cmp14.i.i, label %while.end.i.i.thread, label %while.end.i.i
 
 while.end.i.i.thread:                             ; preds = %if.end.i25
-  %rem.i.i110 = urem i8 %__value, 100
-  %5 = shl nuw i8 %rem.i.i110, 1
-  %div.i.i111 = udiv i8 %__value, 100
+  %rem.i.i112 = urem i8 %__value, 100
+  %5 = shl nuw i8 %rem.i.i112, 1
+  %div.i.i113 = udiv i8 %__value, 100
   %6 = or disjoint i8 %5, 1
   %idxprom.i.i = zext i8 %6 to i64
   %arrayidx.i.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i.i
@@ -39730,8 +39730,8 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %return.sink.split
 
 if.else.i.i:                                      ; preds = %while.end.i.i.thread, %while.end.i.i
-  %__val.addr.0.lcssa.i.i107 = phi i8 [ %div.i.i111, %while.end.i.i.thread ], [ %__value, %while.end.i.i ]
-  %conv.i.i = or disjoint i8 %__val.addr.0.lcssa.i.i107, 48
+  %__val.addr.0.lcssa.i.i109 = phi i8 [ %div.i.i113, %while.end.i.i.thread ], [ %__value, %while.end.i.i ]
+  %conv.i.i = or disjoint i8 %__val.addr.0.lcssa.i.i109, 48
   br label %return.sink.split
 
 sw.bb9:                                           ; preds = %if.end6
@@ -39904,11 +39904,11 @@ return.sink.split:                                ; preds = %while.body.i56, %wh
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i74, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb, %entry
-  %retval.sroa.0.0 = phi ptr [ %__last, %entry ], [ %__last, %sw.bb ], [ %__last, %sw.bb7 ], [ %__last, %sw.bb9 ], [ %__last, %sw.bb11 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i74 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ %add.ptr.i87, %return.sink.split ]
-  %retval.sroa.8.0 = phi i32 [ 75, %entry ], [ 75, %sw.bb ], [ 75, %sw.bb7 ], [ 75, %sw.bb9 ], [ 75, %sw.bb11 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i74 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ 0, %return.sink.split ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.8.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+  %__last.pn = phi ptr [ %__last, %entry ], [ %__last, %sw.bb ], [ %__last, %sw.bb7 ], [ %__last, %sw.bb9 ], [ %__last, %sw.bb11 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i74 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ %add.ptr.i87, %return.sink.split ]
+  %.pn98 = phi i32 [ 75, %entry ], [ 75, %sw.bb ], [ 75, %sw.bb7 ], [ 75, %sw.bb9 ], [ 75, %sw.bb11 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i74 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ 0, %return.sink.split ]
+  %.pn = insertvalue { ptr, i32 } poison, ptr %__last.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.pn, i32 %.pn98, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -40252,11 +40252,11 @@ return.sink.split:                                ; preds = %while.body.i72, %wh
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i94, %sw.bb11, %sw.bb9, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, %sw.bb, %entry
-  %retval.sroa.0.0 = phi ptr [ %__last, %entry ], [ %__last, %sw.bb ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %__last, %sw.bb9 ], [ %__last, %sw.bb11 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i94 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ %add.ptr.i109, %return.sink.split ]
-  %retval.sroa.8.0 = phi i32 [ 75, %entry ], [ 75, %sw.bb ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ 75, %sw.bb9 ], [ 75, %sw.bb11 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i94 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ 0, %return.sink.split ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.8.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+  %__last.pn = phi ptr [ %__last, %entry ], [ %__last, %sw.bb ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %__last, %sw.bb9 ], [ %__last, %sw.bb11 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i94 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ %add.ptr.i109, %return.sink.split ]
+  %.pn120 = phi i32 [ 75, %entry ], [ 75, %sw.bb ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ 75, %sw.bb9 ], [ 75, %sw.bb11 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i94 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ 0, %return.sink.split ]
+  %.pn = insertvalue { ptr, i32 } poison, ptr %__last.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.pn, i32 %.pn120, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -40625,11 +40625,11 @@ return.sink.split:                                ; preds = %while.body.i72, %wh
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i94, %sw.bb10, %sw.bb8, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, %sw.bb, %entry
-  %retval.sroa.0.0 = phi ptr [ %__last, %entry ], [ %__last, %sw.bb ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %__last, %sw.bb8 ], [ %__last, %sw.bb10 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i94 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ %add.ptr.i109, %return.sink.split ]
-  %retval.sroa.8.0 = phi i32 [ 75, %entry ], [ 75, %sw.bb ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ 75, %sw.bb8 ], [ 75, %sw.bb10 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i94 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ 0, %return.sink.split ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.8.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+  %__last.pn = phi ptr [ %__last, %entry ], [ %__last, %sw.bb ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %__last, %sw.bb8 ], [ %__last, %sw.bb10 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i94 ], [ %__last, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ %add.ptr.i109, %return.sink.split ]
+  %.pn120 = phi i32 [ 75, %entry ], [ 75, %sw.bb ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ 75, %sw.bb8 ], [ 75, %sw.bb10 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i94 ], [ 75, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.thread.i ], [ 0, %return.sink.split ]
+  %.pn = insertvalue { ptr, i32 } poison, ptr %__last.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.pn, i32 %.pn120, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -40998,11 +40998,11 @@ return.sink.split:                                ; preds = %while.body.i63, %wh
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i87, %sw.bb10, %sw.bb8, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, %sw.bb, %entry
-  %retval.sroa.0.0 = phi ptr [ %__last, %entry ], [ %__last, %sw.bb ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %__last, %sw.bb8 ], [ %__last, %sw.bb10 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i87 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %add.ptr.i102, %return.sink.split ]
-  %retval.sroa.8.0 = phi i32 [ 75, %entry ], [ 75, %sw.bb ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ 75, %sw.bb8 ], [ 75, %sw.bb10 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i87 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ 0, %return.sink.split ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.8.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+  %__last.pn = phi ptr [ %__last, %entry ], [ %__last, %sw.bb ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %__last, %sw.bb8 ], [ %__last, %sw.bb10 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i87 ], [ %__last, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %add.ptr.i102, %return.sink.split ]
+  %.pn113 = phi i32 [ 75, %entry ], [ 75, %sw.bb ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ 75, %sw.bb8 ], [ 75, %sw.bb10 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i87 ], [ 75, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ 0, %return.sink.split ]
+  %.pn = insertvalue { ptr, i32 } poison, ptr %__last.pn, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.pn, i32 %.pn113, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
@@ -43253,7 +43253,7 @@ for.body.i40.i:                                   ; preds = %for.inc.i.i, %for.b
   br i1 %cmp3.i.i, label %if.then.i44.i, label %if.else.i.i
 
 if.then.i44.i:                                    ; preds = %for.body.i40.i
-  %37 = trunc i64 %35 to i32
+  %37 = load i32, ptr %next_pos_.i39.i, align 32
   %inc.i.i = add i32 %37, 1
   store i32 %inc.i.i, ptr %next_pos_.i39.i, align 32
   br label %for.inc.i.i
@@ -43411,7 +43411,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %3 = trunc i64 %1 to i32
+  %3 = load i32, ptr %next_pos_, align 32
   %inc = add i32 %3, 1
   store i32 %inc, ptr %next_pos_, align 32
   br label %for.inc

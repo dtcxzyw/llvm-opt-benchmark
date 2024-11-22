@@ -574,9 +574,9 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
 
 .preheader:                                       ; preds = %4
   %.not = icmp eq i64 %.val24, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68
+  br i1 %.not, label %._crit_edge64, label %.lr.ph63
 
-.lr.ph68:                                         ; preds = %.preheader
+.lr.ph63:                                         ; preds = %.preheader
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %trunc.i.i = trunc nuw i64 %2 to i1
   %10 = tail call double @llvm.sqrt.f64(double %3)
@@ -597,25 +597,25 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
 14:                                               ; preds = %13
   unreachable
 
-._crit_edge69:                                    ; preds = %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit", %.preheader
+._crit_edge64:                                    ; preds = %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit", %.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   br label %17
 
-15:                                               ; preds = %.lr.ph68, %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit"
-  %.sroa.015.067 = phi i64 [ 0, %.lr.ph68 ], [ %16, %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit" ]
-  %16 = add nuw i64 %.sroa.015.067, 1
-  %.not70 = icmp eq i64 %.sroa.015.067, 0
-  br i1 %.not70, label %._crit_edge, label %.lr.ph
+15:                                               ; preds = %.lr.ph63, %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit"
+  %.sroa.015.062 = phi i64 [ 0, %.lr.ph63 ], [ %16, %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit" ]
+  %16 = add nuw i64 %.sroa.015.062, 1
+  %.not65 = icmp eq i64 %.sroa.015.062, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
-17:                                               ; preds = %"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE.exit", %._crit_edge69
+17:                                               ; preds = %"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE.exit", %._crit_edge64
   ret void
 
 ._crit_edge:                                      ; preds = %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit", %15
   %.val28 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %.val29 = load i64, ptr %6, align 8, !alias.scope !68, !noundef !4
-  %18 = mul i64 %.val29, %.sroa.015.067
+  %18 = mul i64 %.val29, %.sroa.015.062
   %19 = getelementptr double, ptr %.val28, i64 %18
-  %20 = getelementptr double, ptr %19, i64 %.sroa.015.067
+  %20 = getelementptr double, ptr %19, i64 %.sroa.015.062
   %21 = load double, ptr %20, align 8, !alias.scope !71, !noundef !4
   %22 = tail call double @llvm.sqrt.f64(double %21)
   %narrow.i = fcmp ogt double %21, 0.000000e+00
@@ -631,7 +631,7 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
 .thread:                                          ; preds = %._crit_edge
   store double %.mux, ptr %20, align 8
   %25 = load i64, ptr %7, align 8, !alias.scope !74, !noalias !77, !noundef !4
-  %.not1.i.i.i.not = icmp ult i64 %.sroa.015.067, %25
+  %.not1.i.i.i.not = icmp ult i64 %.sroa.015.062, %25
   br i1 %.not1.i.i.i.not, label %27, label %26
 
 26:                                               ; preds = %.thread
@@ -644,7 +644,7 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
 27:                                               ; preds = %.thread
   %28 = load i64, ptr %6, align 8, !alias.scope !74, !noalias !77, !noundef !4
   %29 = sub i64 %28, %16
-  %30 = mul i64 %28, %.sroa.015.067
+  %30 = mul i64 %28, %.sroa.015.062
   %31 = load ptr, ptr %9, align 8, !alias.scope !79, !noalias !88, !nonnull !4, !noundef !4
   %32 = getelementptr double, ptr %31, i64 %30
   %33 = getelementptr double, ptr %32, i64 %16
@@ -662,8 +662,8 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   br i1 %exitcond.not.i, label %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit", label %.lr.ph.i
 
 "_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit": ; preds = %.lr.ph.i, %27
-  %exitcond71.not = icmp eq i64 %16, %.val24
-  br i1 %exitcond71.not, label %._crit_edge69, label %15
+  %exitcond66.not = icmp eq i64 %16, %.val24
+  br i1 %exitcond66.not, label %._crit_edge64, label %15
 
 38:                                               ; preds = %._crit_edge
   store i64 -9223372036854775808, ptr %0, align 8
@@ -690,16 +690,16 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   br label %17
 
 .lr.ph:                                           ; preds = %15, %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit"
-  %.sroa.017.066 = phi i64 [ %48, %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit" ], [ 0, %15 ]
-  %48 = add nuw i64 %.sroa.017.066, 1
+  %.sroa.017.061 = phi i64 [ %48, %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit" ], [ 0, %15 ]
+  %48 = add nuw i64 %.sroa.017.061, 1
   %.val26 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %.val27 = load i64, ptr %6, align 8, !noundef !4
-  %49 = mul i64 %.val27, %.sroa.017.066
+  %49 = mul i64 %.val27, %.sroa.017.061
   %50 = getelementptr double, ptr %.val26, i64 %49
-  %51 = getelementptr double, ptr %50, i64 %.sroa.015.067
+  %51 = getelementptr double, ptr %50, i64 %.sroa.015.062
   %52 = load double, ptr %51, align 8, !alias.scope !108, !noundef !4
   %53 = load i64, ptr %7, align 8, !alias.scope !111, !noalias !116, !noundef !4
-  %.not.i32.not = icmp ult i64 %.sroa.017.066, %53
+  %.not.i32.not = icmp ult i64 %.sroa.017.061, %53
   br i1 %.not.i32.not, label %57, label %54
 
 54:                                               ; preds = %.lr.ph
@@ -715,15 +715,15 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   br label %71
 
 57:                                               ; preds = %.lr.ph
-  %58 = mul i64 %.val27, %.sroa.015.067
+  %58 = mul i64 %.val27, %.sroa.015.062
   %59 = getelementptr double, ptr %.val26, i64 %58
-  %60 = sub i64 %.val27, %.sroa.015.067
-  %61 = getelementptr double, ptr %59, i64 %.sroa.015.067
+  %60 = sub i64 %.val27, %.sroa.015.062
+  %61 = getelementptr double, ptr %59, i64 %.sroa.015.062
   %62 = icmp ne ptr %61, null
   tail call void @llvm.assume(i1 %62)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  %.not.i.i = icmp eq i64 %.val27, %.sroa.015.067
+  %.not.i.i = icmp eq i64 %.val27, %.sroa.015.062
   br i1 %.not.i.i, label %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %57, %.lr.ph.i.i
@@ -740,7 +740,7 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   br i1 %exitcond.not.i.i, label %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit", label %.lr.ph.i.i
 
 "_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit": ; preds = %.lr.ph.i.i, %57
-  %exitcond.not = icmp eq i64 %48, %.sroa.015.067
+  %exitcond.not = icmp eq i64 %48, %.sroa.015.062
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 70:                                               ; preds = %71

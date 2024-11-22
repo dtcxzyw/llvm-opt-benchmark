@@ -9146,20 +9146,17 @@ if.then:                                          ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %2, align 8
   %call1 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #17
+  %3 = insertvalue { i32, i64 } poison, i32 %call1, 0
+  %4 = insertvalue { i32, i64 } %3, i64 undef, 1
   br label %return
 
 if.end:                                           ; preds = %entry
   %call2 = tail call { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive10fromDoubleERNS0_7RuntimeEd(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, double noundef %number) #17
-  %3 = extractvalue { i32, i64 } %call2, 0
-  %4 = extractvalue { i32, i64 } %call2, 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.3.0 = phi i64 [ %4, %if.end ], [ undef, %if.then ]
-  %retval.sroa.0.0 = phi i32 [ %3, %if.end ], [ %call1, %if.then ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i32, i64 } [ %call2, %if.end ], [ %4, %if.then ]
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

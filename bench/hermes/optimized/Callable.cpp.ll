@@ -1530,6 +1530,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call17 = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
+  %4 = insertvalue { i32, i64 } poison, i32 %call17, 0
+  %5 = insertvalue { i32, i64 } %4, i64 -1688849860263936, 1
   br label %cleanup
 
 if.end:                                           ; preds = %entry
@@ -1538,9 +1540,9 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds i8, ptr %runtime, i64 9496
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
+  %6 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %4, ptr %arrayidx.i19.i, align 8
+  store i64 %6, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i, i8 0, i64 16, i1 false)
@@ -1552,29 +1554,24 @@ if.end:                                           ; preds = %entry
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %0, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %5, align 4
+  %7 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %7, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds i8, ptr %6, i64 112
-  %7 = load ptr, ptr %call3.i, align 8
-  %call6.i = tail call { i32, i64 } %7(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %8 = extractvalue { i32, i64 } %call6.i, 0
-  %9 = extractvalue { i32, i64 } %call6.i, 1
+  %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %call3.i, align 8
+  %call6.i = tail call { i32, i64 } %9(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call17, %if.then ], [ %8, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %9, %if.end ]
+  %.fca.1.insert.merged = phi { i32, i64 } [ %5, %if.then ], [ %call6.i, %if.end ]
   %10 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %dec.i = add i32 %10, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %0, ptr %stackPointer_.i.i, align 8
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 declare noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832), i32 noundef) local_unnamed_addr #1
@@ -1603,6 +1600,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call18 = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
+  %4 = insertvalue { i32, i64 } poison, i32 %call18, 0
+  %5 = insertvalue { i32, i64 } %4, i64 -1688849860263936, 1
   br label %cleanup
 
 if.end:                                           ; preds = %entry
@@ -1611,9 +1610,9 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds i8, ptr %runtime, i64 9496
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
+  %6 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %4, ptr %arrayidx.i19.i, align 8
+  store i64 %6, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i, i8 0, i64 16, i1 false)
@@ -1627,29 +1626,24 @@ if.end:                                           ; preds = %entry
   store i64 %param1.coerce, ptr %0, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %5, align 4
+  %7 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %7, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds i8, ptr %6, i64 112
-  %7 = load ptr, ptr %call3.i, align 8
-  %call6.i = tail call { i32, i64 } %7(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %8 = extractvalue { i32, i64 } %call6.i, 0
-  %9 = extractvalue { i32, i64 } %call6.i, 1
+  %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %call3.i, align 8
+  %call6.i = tail call { i32, i64 } %9(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call18, %if.then ], [ %8, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %9, %if.end ]
+  %.fca.1.insert.merged = phi { i32, i64 } [ %5, %if.then ], [ %call6.i, %if.end ]
   %10 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %dec.i = add i32 %10, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %0, ptr %stackPointer_.i.i, align 8
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1676,6 +1670,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call19 = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
+  %4 = insertvalue { i32, i64 } poison, i32 %call19, 0
+  %5 = insertvalue { i32, i64 } %4, i64 -1688849860263936, 1
   br label %cleanup
 
 if.end:                                           ; preds = %entry
@@ -1684,9 +1680,9 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds i8, ptr %runtime, i64 9496
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
+  %6 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %4, ptr %arrayidx.i19.i, align 8
+  store i64 %6, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i, i8 0, i64 16, i1 false)
@@ -1702,29 +1698,24 @@ if.end:                                           ; preds = %entry
   store i64 %param2.coerce, ptr %0, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %5, align 4
+  %7 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %7, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds i8, ptr %6, i64 112
-  %7 = load ptr, ptr %call3.i, align 8
-  %call6.i = tail call { i32, i64 } %7(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %8 = extractvalue { i32, i64 } %call6.i, 0
-  %9 = extractvalue { i32, i64 } %call6.i, 1
+  %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %call3.i, align 8
+  %call6.i = tail call { i32, i64 } %9(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call19, %if.then ], [ %8, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %9, %if.end ]
+  %.fca.1.insert.merged = phi { i32, i64 } [ %5, %if.then ], [ %call6.i, %if.end ]
   %10 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %dec.i = add i32 %10, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %0, ptr %stackPointer_.i.i, align 8
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1751,6 +1742,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call20 = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
+  %4 = insertvalue { i32, i64 } poison, i32 %call20, 0
+  %5 = insertvalue { i32, i64 } %4, i64 -1688849860263936, 1
   br label %cleanup
 
 if.end:                                           ; preds = %entry
@@ -1759,9 +1752,9 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds i8, ptr %runtime, i64 9496
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
+  %6 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %4, ptr %arrayidx.i19.i, align 8
+  store i64 %6, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i, i8 0, i64 16, i1 false)
@@ -1779,29 +1772,24 @@ if.end:                                           ; preds = %entry
   store i64 %param3.coerce, ptr %0, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %5, align 4
+  %7 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %7, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds i8, ptr %6, i64 112
-  %7 = load ptr, ptr %call3.i, align 8
-  %call6.i = tail call { i32, i64 } %7(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %8 = extractvalue { i32, i64 } %call6.i, 0
-  %9 = extractvalue { i32, i64 } %call6.i, 1
+  %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %call3.i, align 8
+  %call6.i = tail call { i32, i64 } %9(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call20, %if.then ], [ %8, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %9, %if.end ]
+  %.fca.1.insert.merged = phi { i32, i64 } [ %5, %if.then ], [ %call6.i, %if.end ]
   %10 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %dec.i = add i32 %10, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %0, ptr %stackPointer_.i.i, align 8
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1828,6 +1816,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call21 = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
+  %4 = insertvalue { i32, i64 } poison, i32 %call21, 0
+  %5 = insertvalue { i32, i64 } %4, i64 -1688849860263936, 1
   br label %cleanup
 
 if.end:                                           ; preds = %entry
@@ -1836,9 +1826,9 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds i8, ptr %runtime, i64 9496
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
+  %6 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds i8, ptr %0, i64 80
-  store i64 %4, ptr %arrayidx.i19.i, align 8
+  store i64 %6, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i, i8 0, i64 16, i1 false)
@@ -1858,29 +1848,24 @@ if.end:                                           ; preds = %entry
   store i64 %param4.coerce, ptr %0, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %5, align 4
+  %7 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %7, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds i8, ptr %6, i64 112
-  %7 = load ptr, ptr %call3.i, align 8
-  %call6.i = tail call { i32, i64 } %7(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %8 = extractvalue { i32, i64 } %call6.i, 0
-  %9 = extractvalue { i32, i64 } %call6.i, 1
+  %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %call3.i, align 8
+  %call6.i = tail call { i32, i64 } %9(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call21, %if.then ], [ %8, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %9, %if.end ]
+  %.fca.1.insert.merged = phi { i32, i64 } [ %5, %if.then ], [ %call6.i, %if.end ]
   %10 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %dec.i = add i32 %10, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %0, ptr %stackPointer_.i.i, align 8
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2402,16 +2387,22 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.
   %cmp.i.i.i.i = icmp samesign ult i64 %18, 312
   %cmp.i2.i.i.i = icmp ugt i32 %inc.i.i, 384
   %.not.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i2.i.i.i
-  br i1 %.not.i.i, label %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread, label %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit
+  br i1 %.not.i.i, label %if.then.i, label %if.end.i4
 
-_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit
+if.then.i:                                        ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit
+  %call17.i = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
+  %19 = insertvalue { i32, i64 } poison, i32 %call17.i, 0
+  %20 = insertvalue { i32, i64 } %19, i64 -1688849860263936, 1
+  br label %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit
+
+if.end.i4:                                        ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 56
   store ptr %add.ptr.i.i.i, ptr %stackPointer_.i.i.i, align 8
   %currentFrame_.i.i = getelementptr inbounds i8, ptr %runtime, i64 9496
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %currentFrame_.i.i, align 8
-  %19 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i.i to i64
+  %21 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i.i to i64
   %arrayidx.i19.i.i = getelementptr inbounds i8, ptr %15, i64 48
-  store i64 %19, ptr %arrayidx.i19.i.i, align 8
+  store i64 %21, ptr %arrayidx.i19.i.i, align 8
   %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
   %arrayidx19.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i.i, i8 0, i64 16, i1 false)
@@ -2423,44 +2414,39 @@ _ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11H
   store i64 %retval.sroa.0.0.copyload.i.i.i.i, ptr %15, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i5 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i.i6 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i5, 281474976710655
-  %20 = inttoptr i64 %and.i.i.i.i.i.i.i6 to ptr
-  %bf.load.i.i.i.i.i7 = load i32, ptr %20, align 4
+  %22 = inttoptr i64 %and.i.i.i.i.i.i.i6 to ptr
+  %bf.load.i.i.i.i.i7 = load i32, ptr %22, align 4
   %bf.lshr.i.i.i.i.i8 = lshr i32 %bf.load.i.i.i.i.i7, 24
   %conv.i.i.i.i.i9 = zext nneg i32 %bf.lshr.i.i.i.i.i8 to i64
   %arrayidx.i.i.i.i.i.i.i10 = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i.i9
-  %21 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i10, align 8
-  %call3.i.i = getelementptr inbounds i8, ptr %21, i64 112
-  %22 = load ptr, ptr %call3.i.i, align 8
-  %call6.i.i = tail call { i32, i64 } %22(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %23 = extractvalue { i32, i64 } %call6.i.i, 0
-  %24 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
-  %dec.i.i = add i32 %24, -1
+  %23 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i10, align 8
+  %call3.i.i = getelementptr inbounds i8, ptr %23, i64 112
+  %24 = load ptr, ptr %call3.i.i, align 8
+  %call6.i.i = tail call { i32, i64 } %24(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  br label %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit
+
+_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit: ; preds = %if.then.i, %if.end.i4
+  %.fca.1.insert.merged.i = phi { i32, i64 } [ %20, %if.then.i ], [ %call6.i.i, %if.end.i4 ]
+  %25 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
+  %dec.i.i = add i32 %25, -1
   store i32 %dec.i.i, ptr %nativeCallFrameDepth_.i.i, align 8
   store ptr %15, ptr %stackPointer_.i.i.i, align 8
-  %cmp.i12 = icmp eq i32 %23, 0
-  br i1 %cmp.i12, label %return, label %if.end21
-
-_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit
-  %call17.i = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
-  %25 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
-  %dec.i.i23 = add i32 %25, -1
-  store i32 %dec.i.i23, ptr %nativeCallFrameDepth_.i.i, align 8
-  store ptr %15, ptr %stackPointer_.i.i.i, align 8
-  %cmp.i1224 = icmp eq i32 %call17.i, 0
-  br i1 %cmp.i1224, label %return, label %cond.false
+  %26 = extractvalue { i32, i64 } %.fca.1.insert.merged.i, 0
+  %cmp.i11 = icmp eq i32 %26, 0
+  br i1 %cmp.i11, label %return, label %if.end21
 
 if.end21:                                         ; preds = %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit
-  %26 = extractvalue { i32, i64 } %call6.i.i, 1
-  %cmp.i14 = icmp ugt i64 %26, -281474976710657
-  br i1 %cmp.i14, label %return, label %cond.false
+  %27 = extractvalue { i32, i64 } %.fca.1.insert.merged.i, 1
+  %cmp.i13 = icmp ugt i64 %27, -281474976710657
+  br i1 %cmp.i13, label %return, label %cond.false
 
-cond.false:                                       ; preds = %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread, %if.end21
+cond.false:                                       ; preds = %if.end21
   %retval.sroa.0.0.copyload.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   br label %return
 
-return:                                           ; preds = %entry, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread, %if.end21, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit, %cond.false
-  %retval.sroa.0.0 = phi i32 [ 1, %cond.false ], [ 0, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ 0, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit ], [ %23, %if.end21 ], [ 0, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread ], [ 0, %entry ]
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %cond.false ], [ -1688849860263936, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit ], [ %26, %if.end21 ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread ], [ -1688849860263936, %entry ]
+return:                                           ; preds = %entry, %if.end21, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit, %cond.false
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.false ], [ 0, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ 0, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit ], [ %26, %if.end21 ], [ 0, %entry ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %cond.false ], [ -1688849860263936, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit ], [ %27, %if.end21 ], [ -1688849860263936, %entry ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -2637,16 +2623,22 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.
   %cmp.i.i.i.i = icmp samesign ult i64 %18, 320
   %cmp.i2.i.i.i = icmp ugt i32 %inc.i.i, 384
   %.not.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i2.i.i.i
-  br i1 %.not.i.i, label %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread, label %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit
+  br i1 %.not.i.i, label %if.then.i, label %if.end.i4
 
-_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit
+if.then.i:                                        ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit
+  %call18.i = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
+  %19 = insertvalue { i32, i64 } poison, i32 %call18.i, 0
+  %20 = insertvalue { i32, i64 } %19, i64 -1688849860263936, 1
+  br label %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit
+
+if.end.i4:                                        ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 64
   store ptr %add.ptr.i.i.i, ptr %stackPointer_.i.i.i, align 8
   %currentFrame_.i.i = getelementptr inbounds i8, ptr %runtime, i64 9496
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %currentFrame_.i.i, align 8
-  %19 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i.i to i64
+  %21 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i.i to i64
   %arrayidx.i19.i.i = getelementptr inbounds i8, ptr %15, i64 56
-  store i64 %19, ptr %arrayidx.i19.i.i, align 8
+  store i64 %21, ptr %arrayidx.i19.i.i, align 8
   %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %arrayidx19.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i.i, i8 0, i64 16, i1 false)
@@ -2660,44 +2652,39 @@ _ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11H
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %15, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i5 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i.i6 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i5, 281474976710655
-  %20 = inttoptr i64 %and.i.i.i.i.i.i.i6 to ptr
-  %bf.load.i.i.i.i.i7 = load i32, ptr %20, align 4
+  %22 = inttoptr i64 %and.i.i.i.i.i.i.i6 to ptr
+  %bf.load.i.i.i.i.i7 = load i32, ptr %22, align 4
   %bf.lshr.i.i.i.i.i8 = lshr i32 %bf.load.i.i.i.i.i7, 24
   %conv.i.i.i.i.i9 = zext nneg i32 %bf.lshr.i.i.i.i.i8 to i64
   %arrayidx.i.i.i.i.i.i.i10 = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i.i9
-  %21 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i10, align 8
-  %call3.i.i = getelementptr inbounds i8, ptr %21, i64 112
-  %22 = load ptr, ptr %call3.i.i, align 8
-  %call6.i.i = tail call { i32, i64 } %22(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %23 = extractvalue { i32, i64 } %call6.i.i, 0
-  %24 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
-  %dec.i.i = add i32 %24, -1
+  %23 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i10, align 8
+  %call3.i.i = getelementptr inbounds i8, ptr %23, i64 112
+  %24 = load ptr, ptr %call3.i.i, align 8
+  %call6.i.i = tail call { i32, i64 } %24(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  br label %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit
+
+_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit: ; preds = %if.then.i, %if.end.i4
+  %.fca.1.insert.merged.i = phi { i32, i64 } [ %20, %if.then.i ], [ %call6.i.i, %if.end.i4 ]
+  %25 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
+  %dec.i.i = add i32 %25, -1
   store i32 %dec.i.i, ptr %nativeCallFrameDepth_.i.i, align 8
   store ptr %15, ptr %stackPointer_.i.i.i, align 8
-  %cmp.i12 = icmp eq i32 %23, 0
-  br i1 %cmp.i12, label %return, label %if.end27
-
-_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit
-  %call18.i = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
-  %25 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
-  %dec.i.i23 = add i32 %25, -1
-  store i32 %dec.i.i23, ptr %nativeCallFrameDepth_.i.i, align 8
-  store ptr %15, ptr %stackPointer_.i.i.i, align 8
-  %cmp.i1224 = icmp eq i32 %call18.i, 0
-  br i1 %cmp.i1224, label %return, label %cond.false
+  %26 = extractvalue { i32, i64 } %.fca.1.insert.merged.i, 0
+  %cmp.i11 = icmp eq i32 %26, 0
+  br i1 %cmp.i11, label %return, label %if.end27
 
 if.end27:                                         ; preds = %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit
-  %26 = extractvalue { i32, i64 } %call6.i.i, 1
-  %cmp.i14 = icmp ugt i64 %26, -281474976710657
-  br i1 %cmp.i14, label %return, label %cond.false
+  %27 = extractvalue { i32, i64 } %.fca.1.insert.merged.i, 1
+  %cmp.i13 = icmp ugt i64 %27, -281474976710657
+  br i1 %cmp.i13, label %return, label %cond.false
 
-cond.false:                                       ; preds = %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread, %if.end27
+cond.false:                                       ; preds = %if.end27
   %retval.sroa.0.0.copyload.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   br label %return
 
-return:                                           ; preds = %entry, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread, %if.end27, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit, %cond.false
-  %retval.sroa.0.0 = phi i32 [ 1, %cond.false ], [ 0, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ 0, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit ], [ %23, %if.end27 ], [ 0, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread ], [ 0, %entry ]
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %cond.false ], [ -1688849860263936, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit ], [ %26, %if.end27 ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread ], [ -1688849860263936, %entry ]
+return:                                           ; preds = %entry, %if.end27, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit, %cond.false
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.false ], [ 0, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ 0, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit ], [ %26, %if.end27 ], [ 0, %entry ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %cond.false ], [ -1688849860263936, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit ], [ %27, %if.end27 ], [ -1688849860263936, %entry ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert

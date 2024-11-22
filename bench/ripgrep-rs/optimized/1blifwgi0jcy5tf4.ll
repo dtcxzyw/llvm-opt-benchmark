@@ -85,20 +85,20 @@ define void @_ZN12grep_printer4util11PrinterPath14with_separator17ha7fabe1939492
   br label %6
 
 9:                                                ; preds = %4
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !4, !nonnull !7, !noundef !7
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !4, !noundef !7
-  %10 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0decea5e8c6e3a6dE"(i64 noundef %.sroa.5.0.i.i, i1 noundef zeroext false)
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !4, !noundef !7
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !4, !nonnull !7, !noundef !7
+  %10 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0decea5e8c6e3a6dE"(i64 noundef %.pn1.i.i, i1 noundef zeroext false)
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %9
   %11 = extractvalue { i64, ptr } %10, 1
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i, i1 false)
-  %13 = getelementptr inbounds i8, ptr %11, i64 %.sroa.5.0.i.i
-  %14 = icmp eq i64 %.sroa.5.0.i.i, 0
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %.pn3.i.i, i64 %.pn1.i.i, i1 false)
+  %13 = getelementptr inbounds i8, ptr %11, i64 %.pn1.i.i
+  %14 = icmp eq i64 %.pn1.i.i, 0
   br i1 %14, label %.loopexit, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e644820c2e53a7eE.exit.i"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e644820c2e53a7eE.exit.i": ; preds = %.noexc, %19
@@ -153,14 +153,14 @@ define void @_ZN12grep_printer4util11PrinterPath14with_separator17ha7fabe1939492
   %34 = landingpad { ptr, i32 }
           cleanup
   store i64 %21, ptr %1, align 8
-  store ptr %11, ptr %.sroa.0.0.in.i.i, align 8
-  store i64 %.sroa.5.0.i.i, ptr %.sroa.5.0.in.i.i, align 8
+  store ptr %11, ptr %.pn3.in.i.i, align 8
+  store i64 %.pn1.i.i, ptr %.pn1.in.i.i, align 8
   br label %6
 
 "_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h758b1d8d73f4b7deE.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9510f6aa6ec734bcE.exit.i", %.loopexit
   store i64 %21, ptr %1, align 8
-  store ptr %11, ptr %.sroa.0.0.in.i.i, align 8
-  store i64 %.sroa.5.0.i.i, ptr %.sroa.5.0.in.i.i, align 8
+  store ptr %11, ptr %.pn3.in.i.i, align 8
+  store i64 %.pn1.i.i, ptr %.pn1.in.i.i, align 8
   br label %35
 
 35:                                               ; preds = %4, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h758b1d8d73f4b7deE.exit"
@@ -179,13 +179,13 @@ define void @_ZN12grep_printer4util11PrinterPath14with_separator17ha7fabe1939492
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN12grep_printer4util11PrinterPath8as_bytes17h9ae5e6222b9d42deE(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #5 {
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !19, !nonnull !7, !noundef !7
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !19, !noundef !7
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %3
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !19, !noundef !7
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !19, !nonnull !7, !noundef !7
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn1.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -200,24 +200,24 @@ define noundef align 8 dereferenceable_or_null(24) ptr @_ZN12grep_printer4util11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN12grep_printer4util11PrinterPath7as_path17he2bbbfbe14b1fb68E(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #5 {
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !22, !nonnull !7, !noundef !7
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !22, !noundef !7
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i.i, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0.i.i.i, 1
-  ret { ptr, i64 } %3
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !22, !noundef !7
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !22, !nonnull !7, !noundef !7
+  %.pn.i.i.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i.i.i, 0
+  %.merged.i.i.i = insertvalue { ptr, i64 } %.pn.i.i.i, i64 %.pn1.i.i.i, 1
+  ret { ptr, i64 } %.merged.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @_ZN12grep_printer4util11PrinterPath7as_path3imp17h6ee280e02f5d7d32E.llvm.17338457225215580687(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #5 {
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !25, !nonnull !7, !noundef !7
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !25, !noundef !7
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0.i.i, 1
-  ret { ptr, i64 } %3
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !25, !noundef !7
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !25, !nonnull !7, !noundef !7
+  %.pn.i.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i.i, 0
+  %.merged.i.i = insertvalue { ptr, i64 } %.pn.i.i, i64 %.pn1.i.i, 1
+  ret { ptr, i64 } %.merged.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable

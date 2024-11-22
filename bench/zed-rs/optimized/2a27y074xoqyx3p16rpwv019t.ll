@@ -191136,7 +191136,7 @@ define void @"_ZN77_$LT$gpui..elements..deferred..Deferred$u20$as$u20$gpui..elem
   %12 = getelementptr inbounds i8, ptr %11, i64 2024
   %13 = load i64, ptr %12, align 8, !noalias !52533, !noundef !5
   %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %22, label %14
+  br i1 %.not.i, label %_ZN4gpui6window13WindowContext14element_offset17h6d26f98ed65655adE.exit, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %11, i64 2016
@@ -191146,19 +191146,22 @@ define void @"_ZN77_$LT$gpui..elements..deferred..Deferred$u20$as$u20$gpui..elem
   %19 = load float, ptr %18, align 4, !noalias !52533, !noundef !5
   %20 = getelementptr inbounds i8, ptr %18, i64 4
   %21 = load float, ptr %20, align 4, !noalias !52533, !noundef !5
-  br label %22
+  %22 = insertvalue { float, float } poison, float %19, 0
+  %23 = insertvalue { float, float } %22, float %21, 1
+  br label %_ZN4gpui6window13WindowContext14element_offset17h6d26f98ed65655adE.exit
 
-22:                                               ; preds = %14, %9
-  %.sroa.3.0.i = phi float [ %21, %14 ], [ 0.000000e+00, %9 ]
-  %.sroa.0.0.i = phi float [ %19, %14 ], [ 0.000000e+00, %9 ]
+_ZN4gpui6window13WindowContext14element_offset17h6d26f98ed65655adE.exit: ; preds = %14, %9
+  %.merged.i = phi { float, float } [ %23, %14 ], [ zeroinitializer, %9 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = extractvalue { float, float } %.merged.i, 0
+  %25 = extractvalue { float, float } %.merged.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr %.sroa.0.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = load i64, ptr %23, align 8, !noundef !5
-  call void @_ZN4gpui6window13WindowContext10defer_draw17h2db516db08367b18E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, float noundef %.sroa.0.0.i, float noundef %.sroa.3.0.i, i64 noundef %24)
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = load i64, ptr %26, align 8, !noundef !5
+  call void @_ZN4gpui6window13WindowContext10defer_draw17h2db516db08367b18E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, float noundef %24, float noundef %25, i64 noundef %27)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 }

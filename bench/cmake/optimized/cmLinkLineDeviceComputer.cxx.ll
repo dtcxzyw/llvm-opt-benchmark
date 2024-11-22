@@ -1324,8 +1324,8 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit115: ; pred
   store ptr %350, ptr %351, align 8, !noalias !14
   store i8 32, ptr %350, align 8, !noalias !14
   store i64 1, ptr %348, align 8, !alias.scope !20, !noalias !14
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %350, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !20, !noalias !14
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %350, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !20, !noalias !14
   %352 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %352, align 8, !alias.scope !20, !noalias !14
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr nonnull %5, i64 2)

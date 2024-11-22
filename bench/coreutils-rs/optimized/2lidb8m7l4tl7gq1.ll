@@ -220,10 +220,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %36
 
 36:                                               ; preds = %4, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc393d4d2e046f3cbE.exit.thread.sink.split.i", %35
-  %.sroa.8.011 = phi ptr [ %.sroa.7.028.i, %35 ], [ %.sroa.7.026.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc393d4d2e046f3cbE.exit.thread.sink.split.i" ], [ %2, %4 ]
-  %37 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %38 = insertvalue { ptr, ptr } %37, ptr %.sroa.8.011, 1
-  ret { ptr, ptr } %38
+  %.sroa.7.028.i.pn = phi ptr [ %.sroa.7.028.i, %35 ], [ %.sroa.7.026.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc393d4d2e046f3cbE.exit.thread.sink.split.i" ], [ %2, %4 ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.7.028.i.pn, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

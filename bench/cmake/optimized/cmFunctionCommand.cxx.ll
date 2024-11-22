@@ -2183,8 +2183,8 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
   %41 = extractvalue { i64, ptr } %40, 0
   %42 = extractvalue { i64, ptr } %40, 1
   store i64 %41, ptr %39, align 8, !alias.scope !22, !noalias !19
-  %.sroa.2.0..sroa_idx.i6.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %42, ptr %.sroa.2.0..sroa_idx.i6.i.i.i.i, align 8, !alias.scope !22, !noalias !19
+  %.sroa.2.0..sroa_idx.i5.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %42, ptr %.sroa.2.0..sroa_idx.i5.i.i.i.i, align 8, !alias.scope !22, !noalias !19
   %43 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %43, align 8, !alias.scope !22, !noalias !19
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull %5, i64 2)
@@ -2249,7 +2249,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.sroa.2.0..sroa_idx.i.i82.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %68 = getelementptr inbounds i8, ptr %4, i64 16
   %69 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.2.0..sroa_idx.i6.i83.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.2.0..sroa_idx.i5.i83.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %70 = getelementptr inbounds i8, ptr %4, i64 40
   br label %79
 
@@ -2280,7 +2280,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %85 = extractvalue { i64, ptr } %84, 0
   %86 = extractvalue { i64, ptr } %84, 1
   store i64 %85, ptr %69, align 8, !alias.scope !31, !noalias !25
-  store ptr %86, ptr %.sroa.2.0..sroa_idx.i6.i83.i.i.i, align 8, !alias.scope !31, !noalias !25
+  store ptr %86, ptr %.sroa.2.0..sroa_idx.i5.i83.i.i.i, align 8, !alias.scope !31, !noalias !25
   store ptr %11, ptr %70, align 8, !alias.scope !31, !noalias !25
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr nonnull %4, i64 2)
           to label %87 unwind label %106

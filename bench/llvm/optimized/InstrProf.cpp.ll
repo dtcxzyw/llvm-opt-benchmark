@@ -2644,12 +2644,12 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNSt11char_traitsI
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %16, i64 %23)
   br label %_ZNK4llvm9StringRef4findEcm.exit.thread
 
-_ZNK4llvm9StringRef4findEcm.exit.thread:          ; preds = %14, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNK4llvm9StringRef4findEcm.exit, %25
-  %.sroa.3.0 = phi i64 [ %.sroa.speculated.i, %25 ], [ %16, %_ZNK4llvm9StringRef4findEcm.exit ], [ %16, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %16, %14 ]
+_ZNK4llvm9StringRef4findEcm.exit.thread:          ; preds = %_ZNK4llvm9StringRef4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %14, %25
+  %.sroa.speculated.i.pn = phi i64 [ %.sroa.speculated.i, %25 ], [ %16, %14 ], [ %16, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %16, %_ZNK4llvm9StringRef4findEcm.exit ]
+  %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %15, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %.sroa.speculated.i.pn, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %15, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

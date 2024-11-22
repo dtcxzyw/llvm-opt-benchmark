@@ -13760,8 +13760,8 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit.i: ; pre
   %.fca.1.extract21.i = extractvalue { i64, i8 } %124, 1
   %126 = xor i8 %.fca.1.extract.i, %.fca.1.extract21.i
   %127 = and i8 %126, 1
-  %.not64.i = icmp eq i8 %127, 0
-  br i1 %.not64.i, label %128, label %_ZL39optimizeVectorResizeWithIntegerBitCastsPN4llvm5ValueEPNS_10VectorTypeERNS_16InstCombinerImplE.exit.thread
+  %.not63.i = icmp eq i8 %127, 0
+  br i1 %.not63.i, label %128, label %_ZL39optimizeVectorResizeWithIntegerBitCastsPN4llvm5ValueEPNS_10VectorTypeERNS_16InstCombinerImplE.exit.thread
 
 128:                                              ; preds = %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit.i
   %129 = getelementptr inbounds nuw i8, ptr %113, i64 32
@@ -13800,9 +13800,9 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit.i: ; pre
   br i1 %140, label %153, label %154
 
 153:                                              ; preds = %148
-  %.sroa.0.0.idx.i.i = call i64 @llvm.usub.sat.i64(i64 %151, i64 %152)
-  %.sroa.0.0.i.i = getelementptr inbounds i32, ptr %150, i64 %.sroa.0.0.idx.i.i
-  %.sroa.3.0.i.i = call i64 @llvm.umin.i64(i64 %152, i64 %151)
+  %.sroa.0.0.copyload.pn.idx.i.i = call i64 @llvm.usub.sat.i64(i64 %151, i64 %152)
+  %.sroa.0.0.copyload.pn.i.i = getelementptr inbounds i32, ptr %150, i64 %.sroa.0.0.copyload.pn.idx.i.i
+  %.pn2.i.i = call i64 @llvm.umin.i64(i64 %152, i64 %151)
   br label %180
 
 154:                                              ; preds = %148
@@ -13862,14 +13862,14 @@ _ZN4llvm15SmallVectorImplIiE6appendEmi.exit.i:    ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %180
 
 180:                                              ; preds = %177, %154, %153
-  %.sroa.8.0.i = phi i64 [ %.sroa.3.0.i.i, %153 ], [ %..i.i, %154 ], [ %179, %177 ]
-  %.sroa.055.0.i = phi ptr [ %.sroa.0.0.i.i, %153 ], [ %150, %154 ], [ %178, %177 ]
+  %.sroa.8.0.i = phi i64 [ %.pn2.i.i, %153 ], [ %..i.i, %154 ], [ %179, %177 ]
+  %.sroa.054.0.i = phi ptr [ %.sroa.0.0.copyload.pn.i.i, %153 ], [ %150, %154 ], [ %178, %177 ]
   %.043.i = phi ptr [ %149, %153 ], [ %149, %154 ], [ %156, %177 ]
   %181 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 112, i32 noundef 2) #15
   %182 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i16 257, ptr %182, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm17ShuffleVectorInstC1EPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(112) %181, ptr noundef %.041.i, ptr noundef %.043.i, ptr %.sroa.055.0.i, i64 %.sroa.8.0.i, ptr noundef nonnull align 8 dereferenceable(34) %33, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %34) #15
+  call void @_ZN4llvm17ShuffleVectorInstC1EPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(112) %181, ptr noundef %.041.i, ptr noundef %.043.i, ptr %.sroa.054.0.i, i64 %.sroa.8.0.i, ptr noundef nonnull align 8 dereferenceable(34) %33, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %34) #15
   %183 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %32) #15
   %184 = load ptr, ptr %32, align 8
   %185 = icmp eq ptr %184, %146
@@ -17019,13 +17019,13 @@ _ZNK4llvm4User14operand_valuesEv.exit:            ; preds = %7, %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %18
 
-18:                                               ; preds = %.lr.ph, %.critedge22
-  %.sroa.09.017 = phi ptr [ %15, %.lr.ph ], [ %48, %.critedge22 ]
+18:                                               ; preds = %.lr.ph, %.critedge23
+  %.sroa.09.017 = phi ptr [ %15, %.lr.ph ], [ %49, %.critedge23 ]
   %19 = load ptr, ptr %.sroa.09.017, align 8
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, -2
   %spec.select.i.i.i.i.i.i.i.i = icmp eq i8 %21, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %.critedge22, label %22
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %.critedge23, label %22
 
 22:                                               ; preds = %18
   %23 = add i8 %20, -9
@@ -17055,7 +17055,7 @@ _ZNK4llvm4User14operand_valuesEv.exit:            ; preds = %7, %10
   %.025.i.i = phi ptr [ %38, %37 ], [ %28, %30 ]
   %35 = load ptr, ptr %.025.i.i, align 8, !noalias !172
   %36 = icmp eq ptr %35, %spec.select.i.i
-  br i1 %36, label %.critedge22, label %37
+  br i1 %36, label %.critedge23, label %37
 
 37:                                               ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -17072,26 +17072,26 @@ _ZNK4llvm4User14operand_valuesEv.exit:            ; preds = %7, %10
   %42 = add nuw i32 %32, 1
   store i32 %42, ptr %31, align 4, !noalias !172
   store ptr %spec.select.i.i, ptr %34, align 8, !noalias !172
-  br label %45
+  br label %46
 
 _ZN4llvm15SmallPtrSetImplIPKNS_17ConstantAggregateEE6insertES3_.exit: ; preds = %._crit_edge.i.i, %24
   %43 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %25, ptr noundef nonnull %spec.select.i.i) #15, !noalias !172
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %43, 1
-  %44 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %44, label %45, label %.critedge22
+  %44 = extractvalue { ptr, i8 } %43, 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %.critedge23
 
-45:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPKNS_17ConstantAggregateEE6insertES3_.exit
-  %46 = load ptr, ptr %17, align 8
-  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplIPKNS_17ConstantAggregateEE12emplace_backIJRS3_EEES6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge22
+46:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPKNS_17ConstantAggregateEE6insertES3_.exit
+  %47 = load ptr, ptr %17, align 8
+  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplIPKNS_17ConstantAggregateEE12emplace_backIJRS3_EEES6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br label %.critedge23
 
-.critedge22:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPKNS_17ConstantAggregateEE6insertES3_.exit, %45, %18
-  %48 = getelementptr inbounds i8, ptr %.sroa.09.017, i64 32
-  %.not14 = icmp eq ptr %48, %16
+.critedge23:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPKNS_17ConstantAggregateEE6insertES3_.exit, %46, %18
+  %49 = getelementptr inbounds i8, ptr %.sroa.09.017, i64 32
+  %.not14 = icmp eq ptr %49, %16
   br i1 %.not14, label %._crit_edge, label %18
 
-._crit_edge:                                      ; preds = %22, %.critedge22, %_ZNK4llvm4User14operand_valuesEv.exit
-  %.not14.lcssa = phi i1 [ true, %_ZNK4llvm4User14operand_valuesEv.exit ], [ true, %.critedge22 ], [ false, %22 ]
+._crit_edge:                                      ; preds = %22, %.critedge23, %_ZNK4llvm4User14operand_valuesEv.exit
+  %.not14.lcssa = phi i1 [ true, %_ZNK4llvm4User14operand_valuesEv.exit ], [ true, %.critedge23 ], [ false, %22 ]
   ret i1 %.not14.lcssa
 }
 

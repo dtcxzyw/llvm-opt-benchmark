@@ -2259,11 +2259,11 @@ define hidden { ptr, i8 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops
   %9 = load i8, ptr %8, align 8, !range !163, !alias.scope !836, !noalias !833
   %10 = trunc nuw i8 %9 to i1
   %..i.i.i.i = select i1 %10, i8 3, i8 2
-  %.sroa.3.0.i.i = select i1 %4, i8 %7, i8 %..i.i.i.i
-  %.sroa.0.0.i.i = select i1 %4, ptr %5, ptr %1
-  %11 = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0.i.i, 0
-  %12 = insertvalue { ptr, i8 } %11, i8 %.sroa.3.0.i.i, 1
-  ret { ptr, i8 } %12
+  %.pn6.i.i = select i1 %4, ptr %5, ptr %1
+  %.pn4.i.i = select i1 %4, i8 %7, i8 %..i.i.i.i
+  %.pn.i.i = insertvalue { ptr, i8 } poison, ptr %.pn6.i.i, 0
+  %.merged.i.i = insertvalue { ptr, i8 } %.pn.i.i, i8 %.pn4.i.i, 1
+  ret { ptr, i8 } %.merged.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2365,11 +2365,11 @@ define hidden { ptr, i8 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops
   %9 = load i8, ptr %8, align 8, !range !163, !alias.scope !881, !noalias !878
   %10 = trunc nuw i8 %9 to i1
   %..i.i.i.i = select i1 %10, i8 3, i8 2
-  %.sroa.3.0.i.i = select i1 %4, i8 %7, i8 %..i.i.i.i
-  %.sroa.0.0.i.i = select i1 %4, ptr %5, ptr %1
-  %11 = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0.i.i, 0
-  %12 = insertvalue { ptr, i8 } %11, i8 %.sroa.3.0.i.i, 1
-  ret { ptr, i8 } %12
+  %.pn6.i.i = select i1 %4, ptr %5, ptr %1
+  %.pn4.i.i = select i1 %4, i8 %7, i8 %..i.i.i.i
+  %.pn.i.i = insertvalue { ptr, i8 } poison, ptr %.pn6.i.i, 0
+  %.merged.i.i = insertvalue { ptr, i8 } %.pn.i.i, i8 %.pn4.i.i, 1
+  ret { ptr, i8 } %.merged.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
@@ -4607,11 +4607,11 @@ define hidden { ptr, i8 } @"_ZN4core6option15Option$LT$T$GT$6map_or17h80f9217868
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.3.0 = phi i8 [ %..i.i, %5 ], [ %2, %3 ]
-  %.sroa.0.0 = phi ptr [ %0, %5 ], [ %1, %3 ]
-  %10 = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, i8 } %10, i8 %.sroa.3.0, 1
-  ret { ptr, i8 } %11
+  %.pn6 = phi ptr [ %0, %5 ], [ %1, %3 ]
+  %.pn4 = phi i8 [ %..i.i, %5 ], [ %2, %3 ]
+  %.pn = insertvalue { ptr, i8 } poison, ptr %.pn6, 0
+  %.merged = insertvalue { ptr, i8 } %.pn, i8 %.pn4, 1
+  ret { ptr, i8 } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -4627,11 +4627,11 @@ define hidden { ptr, i8 } @"_ZN4core6option15Option$LT$T$GT$6map_or17hb1d9784570
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.3.0 = phi i8 [ %..i.i, %5 ], [ %2, %3 ]
-  %.sroa.0.0 = phi ptr [ %0, %5 ], [ %1, %3 ]
-  %10 = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, i8 } %10, i8 %.sroa.3.0, 1
-  ret { ptr, i8 } %11
+  %.pn6 = phi ptr [ %0, %5 ], [ %1, %3 ]
+  %.pn4 = phi i8 [ %..i.i, %5 ], [ %2, %3 ]
+  %.pn = insertvalue { ptr, i8 } poison, ptr %.pn6, 0
+  %.merged = insertvalue { ptr, i8 } %.pn, i8 %.pn4, 1
+  ret { ptr, i8 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -19893,11 +19893,11 @@ define hidden { ptr, i8 } @"_ZN15tree_sitter_cli8generate10node_types24generate_
   %8 = load i8, ptr %7, align 8, !range !163
   %9 = trunc nuw i8 %8 to i1
   %..i.i.i = select i1 %9, i8 3, i8 2
-  %.sroa.3.0.i = select i1 %3, i8 %6, i8 %..i.i.i
-  %.sroa.0.0.i = select i1 %3, ptr %4, ptr %1
-  %10 = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0.i, 0
-  %11 = insertvalue { ptr, i8 } %10, i8 %.sroa.3.0.i, 1
-  ret { ptr, i8 } %11
+  %.pn6.i = select i1 %3, ptr %4, ptr %1
+  %.pn4.i = select i1 %3, i8 %6, i8 %..i.i.i
+  %.pn.i = insertvalue { ptr, i8 } poison, ptr %.pn6.i, 0
+  %.merged.i = insertvalue { ptr, i8 } %.pn.i, i8 %.pn4.i, 1
+  ret { ptr, i8 } %.merged.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -19953,11 +19953,11 @@ define hidden { ptr, i8 } @"_ZN15tree_sitter_cli8generate10node_types24generate_
   %8 = load i8, ptr %7, align 8, !range !163
   %9 = trunc nuw i8 %8 to i1
   %..i.i.i = select i1 %9, i8 3, i8 2
-  %.sroa.3.0.i = select i1 %3, i8 %6, i8 %..i.i.i
-  %.sroa.0.0.i = select i1 %3, ptr %4, ptr %1
-  %10 = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0.i, 0
-  %11 = insertvalue { ptr, i8 } %10, i8 %.sroa.3.0.i, 1
-  ret { ptr, i8 } %11
+  %.pn6.i = select i1 %3, ptr %4, ptr %1
+  %.pn4.i = select i1 %3, i8 %6, i8 %..i.i.i
+  %.pn.i = insertvalue { ptr, i8 } poison, ptr %.pn6.i, 0
+  %.merged.i = insertvalue { ptr, i8 } %.pn.i, i8 %.pn4.i, 1
+  ret { ptr, i8 } %.merged.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

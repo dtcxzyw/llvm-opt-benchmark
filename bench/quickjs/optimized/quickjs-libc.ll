@@ -1484,82 +1484,82 @@ define dso_local { i64, i64 } @js_std_await(ptr noundef %0, i64 %1, i64 %2) loca
 
 5:                                                ; preds = %.backedge, %3
   %6 = call i32 @JS_PromiseState(ptr noundef %0, i64 %1, i64 %2) #30
-  switch i32 %6, label %JS_FreeValue.exit [
+  switch i32 %6, label %40 [
     i32 1, label %7
-    i32 2, label %18
-    i32 0, label %32
+    i32 2, label %17
+    i32 0, label %30
   ]
 
 7:                                                ; preds = %5
   %8 = call { i64, i64 } @JS_PromiseResult(ptr noundef %0, i64 %1, i64 %2) #30
-  %9 = extractvalue { i64, i64 } %8, 0
-  %10 = extractvalue { i64, i64 } %8, 1
-  %11 = trunc i64 %2 to i32
-  %12 = icmp ugt i32 %11, -12
-  br i1 %12, label %13, label %JS_FreeValue.exit
+  %9 = trunc i64 %2 to i32
+  %10 = icmp ugt i32 %9, -12
+  br i1 %10, label %11, label %JS_FreeValue.exit
 
-13:                                               ; preds = %7
-  %14 = inttoptr i64 %1 to ptr
-  %15 = load i32, ptr %14, align 4
-  %16 = add i32 %15, -1
-  store i32 %16, ptr %14, align 4
-  %17 = icmp slt i32 %16, 1
-  br i1 %17, label %JS_FreeValue.exit.sink.split, label %JS_FreeValue.exit
+11:                                               ; preds = %7
+  %12 = inttoptr i64 %1 to ptr
+  %13 = load i32, ptr %12, align 4
+  %14 = add i32 %13, -1
+  store i32 %14, ptr %12, align 4
+  %15 = icmp slt i32 %14, 1
+  br i1 %15, label %16, label %JS_FreeValue.exit
 
-18:                                               ; preds = %5
-  %19 = call { i64, i64 } @JS_PromiseResult(ptr noundef %0, i64 %1, i64 %2) #30
-  %20 = extractvalue { i64, i64 } %19, 0
-  %21 = extractvalue { i64, i64 } %19, 1
-  %22 = call { i64, i64 } @JS_Throw(ptr noundef %0, i64 %20, i64 %21) #30
-  %23 = extractvalue { i64, i64 } %22, 0
-  %24 = extractvalue { i64, i64 } %22, 1
-  %25 = trunc i64 %2 to i32
-  %26 = icmp ugt i32 %25, -12
-  br i1 %26, label %27, label %JS_FreeValue.exit
-
-27:                                               ; preds = %18
-  %28 = inttoptr i64 %1 to ptr
-  %29 = load i32, ptr %28, align 4
-  %30 = add i32 %29, -1
-  store i32 %30, ptr %28, align 4
-  %31 = icmp slt i32 %30, 1
-  br i1 %31, label %JS_FreeValue.exit.sink.split, label %JS_FreeValue.exit
-
-32:                                               ; preds = %5
-  %33 = call ptr @JS_GetRuntime(ptr noundef %0) #30
-  %34 = call i32 @JS_ExecutePendingJob(ptr noundef %33, ptr noundef nonnull %4) #30
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %38
-
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %4, align 8
-  call void @js_std_dump_error(ptr noundef %37)
-  br label %38
-
-38:                                               ; preds = %36, %32
-  %39 = load ptr, ptr @os_poll_func, align 8
-  %.not = icmp eq ptr %39, null
-  br i1 %.not, label %.backedge, label %40
-
-.backedge:                                        ; preds = %38, %40
-  br label %5
-
-40:                                               ; preds = %38
-  %41 = call i32 @js_os_poll(ptr noundef %0), !callees !16
-  br label %.backedge
-
-JS_FreeValue.exit.sink.split:                     ; preds = %27, %13
-  %.sroa.024.0.ph = phi i64 [ %9, %13 ], [ %23, %27 ]
-  %.sroa.4.0.ph = phi i64 [ %10, %13 ], [ %24, %27 ]
+16:                                               ; preds = %11
   call void @__JS_FreeValue(ptr noundef %0, i64 %1, i64 %2) #30
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %5, %JS_FreeValue.exit.sink.split, %27, %18, %13, %7
-  %.sroa.024.0 = phi i64 [ %9, %7 ], [ %9, %13 ], [ %23, %18 ], [ %23, %27 ], [ %.sroa.024.0.ph, %JS_FreeValue.exit.sink.split ], [ %1, %5 ]
-  %.sroa.4.0 = phi i64 [ %10, %7 ], [ %10, %13 ], [ %24, %18 ], [ %24, %27 ], [ %.sroa.4.0.ph, %JS_FreeValue.exit.sink.split ], [ %2, %5 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.024.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %.fca.1.insert
+17:                                               ; preds = %5
+  %18 = call { i64, i64 } @JS_PromiseResult(ptr noundef %0, i64 %1, i64 %2) #30
+  %19 = extractvalue { i64, i64 } %18, 0
+  %20 = extractvalue { i64, i64 } %18, 1
+  %21 = call { i64, i64 } @JS_Throw(ptr noundef %0, i64 %19, i64 %20) #30
+  %22 = trunc i64 %2 to i32
+  %23 = icmp ugt i32 %22, -12
+  br i1 %23, label %24, label %JS_FreeValue.exit
+
+24:                                               ; preds = %17
+  %25 = inttoptr i64 %1 to ptr
+  %26 = load i32, ptr %25, align 4
+  %27 = add i32 %26, -1
+  store i32 %27, ptr %25, align 4
+  %28 = icmp slt i32 %27, 1
+  br i1 %28, label %29, label %JS_FreeValue.exit
+
+29:                                               ; preds = %24
+  call void @__JS_FreeValue(ptr noundef %0, i64 %1, i64 %2) #30
+  br label %JS_FreeValue.exit
+
+30:                                               ; preds = %5
+  %31 = call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %32 = call i32 @JS_ExecutePendingJob(ptr noundef %31, ptr noundef nonnull %4) #30
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %36
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %4, align 8
+  call void @js_std_dump_error(ptr noundef %35)
+  br label %36
+
+36:                                               ; preds = %34, %30
+  %37 = load ptr, ptr @os_poll_func, align 8
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %.backedge, label %38
+
+.backedge:                                        ; preds = %36, %38
+  br label %5
+
+38:                                               ; preds = %36
+  %39 = call i32 @js_os_poll(ptr noundef %0), !callees !16
+  br label %.backedge
+
+40:                                               ; preds = %5
+  %41 = insertvalue { i64, i64 } poison, i64 %1, 0
+  %42 = insertvalue { i64, i64 } %41, i64 %2, 1
+  br label %JS_FreeValue.exit
+
+JS_FreeValue.exit:                                ; preds = %29, %24, %17, %16, %11, %7, %40
+  %.fca.1.insert.merged = phi { i64, i64 } [ %42, %40 ], [ %8, %7 ], [ %8, %11 ], [ %8, %16 ], [ %21, %17 ], [ %21, %24 ], [ %21, %29 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 declare i32 @JS_PromiseState(ptr noundef, i64, i64) local_unnamed_addr #3

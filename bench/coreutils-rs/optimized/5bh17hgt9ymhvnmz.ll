@@ -748,34 +748,34 @@ define noundef range(i8 0, 3) i8 @_ZN6uu_env14native_int_str9NativeStr8contains1
   br i1 %4, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit, label %6
 
 6:                                                ; preds = %2
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !90, !nonnull !5, !noundef !5
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !90, !noundef !5
-  %7 = icmp ult i64 %.sroa.5.0.i, 16
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !90, !noundef !5
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !90, !nonnull !5, !noundef !5
+  %7 = icmp ult i64 %.pn1.i, 16
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %5, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %9 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %5, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = icmp eq i64 %10, 1
   %12 = zext i1 %11 to i8
   br label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit
 
 13:                                               ; preds = %6
-  %.not.i = icmp eq i64 %.sroa.5.0.i, 0
+  %.not.i = icmp eq i64 %.pn1.i, 0
   br i1 %.not.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %17
   %.05.i = phi i64 [ %18, %17 ], [ 0, %13 ]
-  %14 = getelementptr inbounds [0 x i8], ptr %.sroa.0.0.i, i64 0, i64 %.05.i
+  %14 = getelementptr inbounds [0 x i8], ptr %.pn3.i, i64 0, i64 %.05.i
   %15 = load i8, ptr %14, align 1, !alias.scope !93, !noundef !5
   %16 = icmp eq i8 %15, %5
   br i1 %16, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit, label %17
 
 17:                                               ; preds = %.lr.ph.i
   %18 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %18, %.sroa.5.0.i
+  %exitcond.not.i = icmp eq i64 %18, %.pn1.i
   br i1 %exitcond.not.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit, label %.lr.ph.i
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit: ; preds = %.lr.ph.i, %17, %8, %13, %2
@@ -826,17 +826,17 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   br i1 %14, label %25, label %16
 
 16:                                               ; preds = %3
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !nonnull !5, !noundef !5
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !5
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.sroa.5.0.i
-  %18 = icmp eq i64 %.sroa.5.0.i, 0
+  %.pn1.in.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !5
+  %.pn3.in.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !nonnull !5, !noundef !5
+  %17 = getelementptr inbounds i8, ptr %.pn3.i, i64 %.pn1.i
+  %18 = icmp eq i64 %.pn1.i, 0
   br i1 %18, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %21
   %.011.i = phi i64 [ %23, %21 ], [ 0, %16 ]
-  %19 = phi ptr [ %22, %21 ], [ %.sroa.0.0.i, %16 ]
+  %19 = phi ptr [ %22, %21 ], [ %.pn3.i, %16 ]
   %.val7.i = load i8, ptr %19, align 1, !noalias !106, !noundef !5
   %20 = icmp eq i8 %.val7.i, %15
   br i1 %20, label %26, label %21
@@ -852,7 +852,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   br label %40
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = icmp ult i64 %.011.i, %.sroa.5.0.i
+  %27 = icmp ult i64 %.011.i, %.pn1.i
   tail call void @llvm.assume(i1 %27)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -893,7 +893,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %34, ptr %7, align 8, !noalias !124
-  store i64 %.sroa.5.0.i, ptr %6, align 8, !noalias !124
+  store i64 %.pn1.i, ptr %6, align 8, !noalias !124
   invoke void @_ZN6uu_env14native_int_str9NativeStr9match_cow17h3b77c9e55f5c324fE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %.noexc unwind label %31
 
@@ -905,9 +905,9 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
 
 37:                                               ; preds = %.noexc
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.33683ce109590f0b3fb10d2ea2f16572.18, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33683ce109590f0b3fb10d2ea2f16572.19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33683ce109590f0b3fb10d2ea2f16572.28) #17
-          to label %.noexc19 unwind label %31
+          to label %.noexc20 unwind label %31
 
-.noexc19:                                         ; preds = %37
+.noexc20:                                         ; preds = %37
   unreachable
 
 38:                                               ; preds = %.noexc
@@ -978,13 +978,13 @@ define void @_ZN6uu_env14native_int_str9NativeStr8split_at17h31a2fb18787aeb2cE(p
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !147, !noundef !5
+  %.pn1.in.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !147, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %2, ptr %7, align 8, !noalias !150
-  store i64 %.sroa.5.0.i, ptr %6, align 8, !noalias !150
+  store i64 %.pn1.i, ptr %6, align 8, !noalias !150
   invoke void @_ZN6uu_env14native_int_str9NativeStr9match_cow17h3b77c9e55f5c324fE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %.noexc unwind label %16
 

@@ -2387,8 +2387,8 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
   %58 = extractvalue { i64, ptr } %57, 0
   %59 = extractvalue { i64, ptr } %57, 1
   store i64 %58, ptr %56, align 8, !alias.scope !22, !noalias !19
-  %.sroa.2.0..sroa_idx.i6.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %59, ptr %.sroa.2.0..sroa_idx.i6.i.i.i.i, align 8, !alias.scope !22, !noalias !19
+  %.sroa.2.0..sroa_idx.i5.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %59, ptr %.sroa.2.0..sroa_idx.i5.i.i.i.i, align 8, !alias.scope !22, !noalias !19
   %60 = getelementptr inbounds i8, ptr %9, i64 40
   store ptr null, ptr %60, align 8, !alias.scope !22, !noalias !19
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr nonnull %9, i64 2)

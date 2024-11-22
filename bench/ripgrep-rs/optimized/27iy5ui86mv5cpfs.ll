@@ -917,18 +917,18 @@ define hidden { ptr, i64 } @"_ZN71_$LT$$u5b$T$u5d$$u20$as$u20$core..convert..AsR
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN88_$LT$regex_automata..util..search..Input$u20$as$u20$core..convert..From$LT$$RF$H$GT$$GT$4from17h3b65c3830c0b027dE"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) initializes((0, 4), (8, 41)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !89, !nonnull !12, !noundef !12
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !89, !noundef !12
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !89, !noundef !12
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !89, !nonnull !12, !noundef !12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.0.0.i.i, ptr %3, align 8
+  store ptr %.pn3.i.i, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.i.i, ptr %4, align 8
+  store i64 %.pn1.i.i, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.5.0.i.i, ptr %6, align 8
+  store i64 %.pn1.i.i, ptr %6, align 8
   store i32 0, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %7, align 8

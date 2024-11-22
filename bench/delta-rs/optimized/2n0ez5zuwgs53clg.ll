@@ -45507,13 +45507,13 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h96cd4b7502029613E.llvm.7925
   %19 = add i64 %10, 9223372036854775807
   %20 = tail call i64 @llvm.umin.i64(i64 %19, i64 2)
   tail call void %16(ptr noundef nonnull align 1 %13, i64 noundef %20), !noalias !7068
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07, i64 16
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !7072, !noalias !7073, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07, i64 24
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !7072, !noalias !7073, !noundef !4
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07, i64 24
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !7072, !noalias !7073, !noundef !4
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07, i64 16
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !7072, !noalias !7073, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds i8, ptr %14, i64 144
   %22 = load ptr, ptr %21, align 8, !invariant.load !4, !noalias !7074, !nonnull !4
-  tail call void %22(ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.5.0.i.i.i), !noalias !7074
+  tail call void %22(ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i, i64 noundef %.pn1.i.i.i), !noalias !7074
   switch i64 %20, label %default.unreachable [
     i64 0, label %"_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$core..hash..Hash$GT$4hash17he7650fcb73e2bb56E.llvm.7925137649769596059.exit"
     i64 1, label %.sink.split.i.i
@@ -45524,21 +45524,21 @@ default.unreachable:                              ; preds = %17
   unreachable
 
 23:                                               ; preds = %17
-  %.sroa.0.0.in.i13.i.i = getelementptr inbounds i8, ptr %.sroa.0.07, i64 40
-  %.sroa.0.0.i14.i.i = load ptr, ptr %.sroa.0.0.in.i13.i.i, align 8, !alias.scope !7075, !noalias !7073, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i.i = getelementptr inbounds i8, ptr %.sroa.0.07, i64 48
-  %.sroa.5.0.i16.i.i = load i64, ptr %.sroa.5.0.in.i15.i.i, align 8, !alias.scope !7075, !noalias !7073, !noundef !4
-  tail call void %22(ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i.i, i64 noundef %.sroa.5.0.i16.i.i), !noalias !7078
+  %.pn1.in.i19.i.i = getelementptr inbounds i8, ptr %.sroa.0.07, i64 48
+  %.pn1.i20.i.i = load i64, ptr %.pn1.in.i19.i.i, align 8, !alias.scope !7075, !noalias !7073, !noundef !4
+  %.pn3.in.i21.i.i = getelementptr inbounds i8, ptr %.sroa.0.07, i64 40
+  %.pn3.i22.i.i = load ptr, ptr %.pn3.in.i21.i.i, align 8, !alias.scope !7075, !noalias !7073, !nonnull !4, !noundef !4
+  tail call void %22(ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i.i, i64 noundef %.pn1.i20.i.i), !noalias !7078
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %23, %17
-  %.sink21.i.i = phi i64 [ 56, %23 ], [ 32, %17 ]
-  %.sink.i.i = phi i64 [ 64, %23 ], [ 40, %17 ]
-  %.sroa.0.0.in.i17.i.i = getelementptr inbounds i8, ptr %18, i64 %.sink21.i.i
-  %.sroa.0.0.i18.i.i = load ptr, ptr %.sroa.0.0.in.i17.i.i, align 8, !alias.scope !7072, !noalias !7073, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i.i = getelementptr inbounds i8, ptr %18, i64 %.sink.i.i
-  %.sroa.5.0.i20.i.i = load i64, ptr %.sroa.5.0.in.i19.i.i, align 8, !alias.scope !7072, !noalias !7073, !noundef !4
-  tail call void %22(ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i.i, i64 noundef %.sroa.5.0.i20.i.i), !noalias !7074
+  %.sink31.i.i = phi i64 [ 64, %23 ], [ 40, %17 ]
+  %.sink.i.i = phi i64 [ 56, %23 ], [ 32, %17 ]
+  %.pn1.in.i25.i.i = getelementptr inbounds i8, ptr %18, i64 %.sink31.i.i
+  %.pn1.i26.i.i = load i64, ptr %.pn1.in.i25.i.i, align 8, !alias.scope !7072, !noalias !7073, !noundef !4
+  %.pn3.in.i27.i.i = getelementptr inbounds i8, ptr %18, i64 %.sink.i.i
+  %.pn3.i28.i.i = load ptr, ptr %.pn3.in.i27.i.i, align 8, !alias.scope !7072, !noalias !7073, !nonnull !4, !noundef !4
+  tail call void %22(ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i.i, i64 noundef %.pn1.i26.i.i), !noalias !7074
   br label %"_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$core..hash..Hash$GT$4hash17he7650fcb73e2bb56E.llvm.7925137649769596059.exit"
 
 "_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$core..hash..Hash$GT$4hash17he7650fcb73e2bb56E.llvm.7925137649769596059.exit": ; preds = %7, %17, %.sink.split.i.i
@@ -63474,13 +63474,13 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %32 = getelementptr inbounds i8, ptr %31, i64 128
   %33 = load ptr, ptr %32, align 8, !invariant.load !4, !noalias !9903, !nonnull !4
   tail call void %33(ptr noundef nonnull align 1 %30, i64 noundef %29), !noalias !9903
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %.tr, i64 48
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !9898, !noalias !9901, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %.tr, i64 56
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !9898, !noalias !9901, !noundef !4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %.tr, i64 56
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !9898, !noalias !9901, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %.tr, i64 48
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !9898, !noalias !9901, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds i8, ptr %31, i64 144
   %35 = load ptr, ptr %34, align 8, !invariant.load !4, !noalias !9906, !nonnull !4
-  tail call void %35(ptr noundef nonnull align 1 %30, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i), !noalias !9906
+  tail call void %35(ptr noundef nonnull align 1 %30, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i), !noalias !9906
   switch i64 %29, label %default.unreachable439 [
     i64 0, label %"_ZN65_$LT$datafusion_expr..expr..Alias$u20$as$u20$core..hash..Hash$GT$4hash17hba070eb81f69bc8fE.exit"
     i64 1, label %.sink.split.i
@@ -63491,21 +63491,21 @@ default.unreachable439:                           ; preds = %688, %622, %423, %3
   unreachable
 
 36:                                               ; preds = %25
-  %.sroa.0.0.in.i13.i = getelementptr inbounds i8, ptr %.tr, i64 72
-  %.sroa.0.0.i14.i = load ptr, ptr %.sroa.0.0.in.i13.i, align 8, !alias.scope !9907, !noalias !9901, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i = getelementptr inbounds i8, ptr %.tr, i64 80
-  %.sroa.5.0.i16.i = load i64, ptr %.sroa.5.0.in.i15.i, align 8, !alias.scope !9907, !noalias !9901, !noundef !4
-  tail call void %35(ptr noundef nonnull align 1 %30, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i, i64 noundef %.sroa.5.0.i16.i), !noalias !9910
+  %.pn1.in.i19.i = getelementptr inbounds i8, ptr %.tr, i64 80
+  %.pn1.i20.i = load i64, ptr %.pn1.in.i19.i, align 8, !alias.scope !9907, !noalias !9901, !noundef !4
+  %.pn3.in.i21.i = getelementptr inbounds i8, ptr %.tr, i64 72
+  %.pn3.i22.i = load ptr, ptr %.pn3.in.i21.i, align 8, !alias.scope !9907, !noalias !9901, !nonnull !4, !noundef !4
+  tail call void %35(ptr noundef nonnull align 1 %30, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i, i64 noundef %.pn1.i20.i), !noalias !9910
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %36, %25
-  %.sink21.i = phi i64 [ 56, %36 ], [ 32, %25 ]
-  %.sink.i = phi i64 [ 64, %36 ], [ 40, %25 ]
-  %.sroa.0.0.in.i17.i = getelementptr inbounds i8, ptr %26, i64 %.sink21.i
-  %.sroa.0.0.i18.i = load ptr, ptr %.sroa.0.0.in.i17.i, align 8, !alias.scope !9898, !noalias !9901, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i = getelementptr inbounds i8, ptr %26, i64 %.sink.i
-  %.sroa.5.0.i20.i = load i64, ptr %.sroa.5.0.in.i19.i, align 8, !alias.scope !9898, !noalias !9901, !noundef !4
-  tail call void %35(ptr noundef nonnull align 1 %30, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i, i64 noundef %.sroa.5.0.i20.i), !noalias !9906
+  %.sink31.i = phi i64 [ 64, %36 ], [ 40, %25 ]
+  %.sink.i = phi i64 [ 56, %36 ], [ 32, %25 ]
+  %.pn1.in.i25.i = getelementptr inbounds i8, ptr %26, i64 %.sink31.i
+  %.pn1.i26.i = load i64, ptr %.pn1.in.i25.i, align 8, !alias.scope !9898, !noalias !9901, !noundef !4
+  %.pn3.in.i27.i = getelementptr inbounds i8, ptr %26, i64 %.sink.i
+  %.pn3.i28.i = load ptr, ptr %.pn3.in.i27.i, align 8, !alias.scope !9898, !noalias !9901, !nonnull !4, !noundef !4
+  tail call void %35(ptr noundef nonnull align 1 %30, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i, i64 noundef %.pn1.i26.i), !noalias !9906
   br label %"_ZN65_$LT$datafusion_expr..expr..Alias$u20$as$u20$core..hash..Hash$GT$4hash17hba070eb81f69bc8fE.exit"
 
 "_ZN65_$LT$datafusion_expr..expr..Alias$u20$as$u20$core..hash..Hash$GT$4hash17hba070eb81f69bc8fE.exit": ; preds = %.sink.split.i, %25, %14
@@ -63546,13 +63546,13 @@ default.unreachable439:                           ; preds = %688, %622, %423, %3
   %54 = add i64 %47, 9223372036854775807
   %55 = tail call i64 @llvm.umin.i64(i64 %54, i64 2)
   tail call void %51(ptr noundef nonnull align 1 %.val, i64 noundef %55), !noalias !9936
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %.tr, i64 48
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !9940, !noalias !9941, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %.tr, i64 56
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !9940, !noalias !9941, !noundef !4
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %.tr, i64 56
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !9940, !noalias !9941, !noundef !4
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %.tr, i64 48
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !9940, !noalias !9941, !nonnull !4, !noundef !4
   %56 = getelementptr inbounds i8, ptr %.val8, i64 144
   %57 = load ptr, ptr %56, align 8, !invariant.load !4, !noalias !9923, !nonnull !4
-  tail call void %57(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.5.0.i.i.i), !noalias !9942
+  tail call void %57(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i, i64 noundef %.pn1.i.i.i), !noalias !9942
   switch i64 %55, label %default.unreachable439 [
     i64 0, label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit"
     i64 1, label %.sink.split.i.i
@@ -63560,21 +63560,21 @@ default.unreachable439:                           ; preds = %688, %622, %423, %3
   ]
 
 58:                                               ; preds = %52
-  %.sroa.0.0.in.i13.i.i = getelementptr inbounds i8, ptr %.tr, i64 72
-  %.sroa.0.0.i14.i.i = load ptr, ptr %.sroa.0.0.in.i13.i.i, align 8, !alias.scope !9943, !noalias !9941, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i.i = getelementptr inbounds i8, ptr %.tr, i64 80
-  %.sroa.5.0.i16.i.i = load i64, ptr %.sroa.5.0.in.i15.i.i, align 8, !alias.scope !9943, !noalias !9941, !noundef !4
-  tail call void %57(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i.i, i64 noundef %.sroa.5.0.i16.i.i), !noalias !9946
+  %.pn1.in.i19.i.i = getelementptr inbounds i8, ptr %.tr, i64 80
+  %.pn1.i20.i.i = load i64, ptr %.pn1.in.i19.i.i, align 8, !alias.scope !9943, !noalias !9941, !noundef !4
+  %.pn3.in.i21.i.i = getelementptr inbounds i8, ptr %.tr, i64 72
+  %.pn3.i22.i.i = load ptr, ptr %.pn3.in.i21.i.i, align 8, !alias.scope !9943, !noalias !9941, !nonnull !4, !noundef !4
+  tail call void %57(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i.i, i64 noundef %.pn1.i20.i.i), !noalias !9946
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %58, %52
-  %.sink21.i.i = phi i64 [ 56, %58 ], [ 32, %52 ]
-  %.sink.i.i = phi i64 [ 64, %58 ], [ 40, %52 ]
-  %.sroa.0.0.in.i17.i.i = getelementptr inbounds i8, ptr %53, i64 %.sink21.i.i
-  %.sroa.0.0.i18.i.i = load ptr, ptr %.sroa.0.0.in.i17.i.i, align 8, !alias.scope !9940, !noalias !9941, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i.i = getelementptr inbounds i8, ptr %53, i64 %.sink.i.i
-  %.sroa.5.0.i20.i.i = load i64, ptr %.sroa.5.0.in.i19.i.i, align 8, !alias.scope !9940, !noalias !9941, !noundef !4
-  tail call void %57(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i.i, i64 noundef %.sroa.5.0.i20.i.i), !noalias !9942
+  %.sink31.i.i = phi i64 [ 64, %58 ], [ 40, %52 ]
+  %.sink.i.i = phi i64 [ 56, %58 ], [ 32, %52 ]
+  %.pn1.in.i25.i.i = getelementptr inbounds i8, ptr %53, i64 %.sink31.i.i
+  %.pn1.i26.i.i = load i64, ptr %.pn1.in.i25.i.i, align 8, !alias.scope !9940, !noalias !9941, !noundef !4
+  %.pn3.in.i27.i.i = getelementptr inbounds i8, ptr %53, i64 %.sink.i.i
+  %.pn3.i28.i.i = load ptr, ptr %.pn3.in.i27.i.i, align 8, !alias.scope !9940, !noalias !9941, !nonnull !4, !noundef !4
+  tail call void %57(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i.i, i64 noundef %.pn1.i26.i.i), !noalias !9942
   br label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit"
 
 "_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit": ; preds = %"._ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit_crit_edge.i", %52, %.sink.split.i.i
@@ -64694,13 +64694,13 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit59: ; preds = %.lr.ph201,
   %690 = add i64 %683, 9223372036854775807
   %691 = tail call i64 @llvm.umin.i64(i64 %690, i64 2)
   tail call void %687(ptr noundef nonnull align 1 %.val9, i64 noundef %691), !noalias !10404
-  %.sroa.0.0.in.i.i.i20 = getelementptr inbounds i8, ptr %.tr, i64 48
-  %.sroa.0.0.i.i.i21 = load ptr, ptr %.sroa.0.0.in.i.i.i20, align 8, !alias.scope !10408, !noalias !10409, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i.i22 = getelementptr inbounds i8, ptr %.tr, i64 56
-  %.sroa.5.0.i.i.i23 = load i64, ptr %.sroa.5.0.in.i.i.i22, align 8, !alias.scope !10408, !noalias !10409, !noundef !4
+  %.pn1.in.i.i.i20 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %.pn1.i.i.i21 = load i64, ptr %.pn1.in.i.i.i20, align 8, !alias.scope !10408, !noalias !10409, !noundef !4
+  %.pn3.in.i.i.i22 = getelementptr inbounds i8, ptr %.tr, i64 48
+  %.pn3.i.i.i23 = load ptr, ptr %.pn3.in.i.i.i22, align 8, !alias.scope !10408, !noalias !10409, !nonnull !4, !noundef !4
   %692 = getelementptr inbounds i8, ptr %.val10, i64 144
   %693 = load ptr, ptr %692, align 8, !invariant.load !4, !noalias !10391, !nonnull !4
-  tail call void %693(ptr noundef nonnull align 1 %.val9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i21, i64 noundef %.sroa.5.0.i.i.i23), !noalias !10410
+  tail call void %693(ptr noundef nonnull align 1 %.val9, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i23, i64 noundef %.pn1.i.i.i21), !noalias !10410
   switch i64 %691, label %default.unreachable439 [
     i64 0, label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit39"
     i64 1, label %.sink.split.i.i28
@@ -64708,21 +64708,21 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit59: ; preds = %.lr.ph201,
   ]
 
 694:                                              ; preds = %688
-  %.sroa.0.0.in.i13.i.i24 = getelementptr inbounds i8, ptr %.tr, i64 72
-  %.sroa.0.0.i14.i.i25 = load ptr, ptr %.sroa.0.0.in.i13.i.i24, align 8, !alias.scope !10411, !noalias !10409, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i.i26 = getelementptr inbounds i8, ptr %.tr, i64 80
-  %.sroa.5.0.i16.i.i27 = load i64, ptr %.sroa.5.0.in.i15.i.i26, align 8, !alias.scope !10411, !noalias !10409, !noundef !4
-  tail call void %693(ptr noundef nonnull align 1 %.val9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i.i25, i64 noundef %.sroa.5.0.i16.i.i27), !noalias !10414
+  %.pn1.in.i19.i.i24 = getelementptr inbounds i8, ptr %.tr, i64 80
+  %.pn1.i20.i.i25 = load i64, ptr %.pn1.in.i19.i.i24, align 8, !alias.scope !10411, !noalias !10409, !noundef !4
+  %.pn3.in.i21.i.i26 = getelementptr inbounds i8, ptr %.tr, i64 72
+  %.pn3.i22.i.i27 = load ptr, ptr %.pn3.in.i21.i.i26, align 8, !alias.scope !10411, !noalias !10409, !nonnull !4, !noundef !4
+  tail call void %693(ptr noundef nonnull align 1 %.val9, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i.i27, i64 noundef %.pn1.i20.i.i25), !noalias !10414
   br label %.sink.split.i.i28
 
 .sink.split.i.i28:                                ; preds = %694, %688
-  %.sink21.i.i29 = phi i64 [ 56, %694 ], [ 32, %688 ]
-  %.sink.i.i30 = phi i64 [ 64, %694 ], [ 40, %688 ]
-  %.sroa.0.0.in.i17.i.i31 = getelementptr inbounds i8, ptr %689, i64 %.sink21.i.i29
-  %.sroa.0.0.i18.i.i32 = load ptr, ptr %.sroa.0.0.in.i17.i.i31, align 8, !alias.scope !10408, !noalias !10409, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i.i33 = getelementptr inbounds i8, ptr %689, i64 %.sink.i.i30
-  %.sroa.5.0.i20.i.i34 = load i64, ptr %.sroa.5.0.in.i19.i.i33, align 8, !alias.scope !10408, !noalias !10409, !noundef !4
-  tail call void %693(ptr noundef nonnull align 1 %.val9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i.i32, i64 noundef %.sroa.5.0.i20.i.i34), !noalias !10410
+  %.sink31.i.i29 = phi i64 [ 64, %694 ], [ 40, %688 ]
+  %.sink.i.i30 = phi i64 [ 56, %694 ], [ 32, %688 ]
+  %.pn1.in.i25.i.i31 = getelementptr inbounds i8, ptr %689, i64 %.sink31.i.i29
+  %.pn1.i26.i.i32 = load i64, ptr %.pn1.in.i25.i.i31, align 8, !alias.scope !10408, !noalias !10409, !noundef !4
+  %.pn3.in.i27.i.i33 = getelementptr inbounds i8, ptr %689, i64 %.sink.i.i30
+  %.pn3.i28.i.i34 = load ptr, ptr %.pn3.in.i27.i.i33, align 8, !alias.scope !10408, !noalias !10409, !nonnull !4, !noundef !4
+  tail call void %693(ptr noundef nonnull align 1 %.val9, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i.i34, i64 noundef %.pn1.i26.i.i32), !noalias !10410
   br label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit39"
 
 "_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit39": ; preds = %"._ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit_crit_edge.i36", %688, %.sink.split.i.i28
@@ -82615,13 +82615,13 @@ define hidden void @"_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$c
   %14 = add i64 %4, 9223372036854775807
   %15 = tail call i64 @llvm.umin.i64(i64 %14, i64 2)
   tail call void %11(ptr noundef nonnull align 1 %7, i64 noundef %15), !noalias !12162
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !12159, !noalias !12166, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !12159, !noalias !12166, !noundef !4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !12159, !noalias !12166, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !12159, !noalias !12166, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds i8, ptr %9, i64 144
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !12167, !nonnull !4
-  tail call void %17(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i), !noalias !12167
+  tail call void %17(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i), !noalias !12167
   switch i64 %15, label %default.unreachable [
     i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
     i64 1, label %.sink.split.i
@@ -82632,21 +82632,21 @@ default.unreachable:                              ; preds = %12
   unreachable
 
 18:                                               ; preds = %12
-  %.sroa.0.0.in.i13.i = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.0.0.i14.i = load ptr, ptr %.sroa.0.0.in.i13.i, align 8, !alias.scope !12168, !noalias !12166, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i = getelementptr inbounds i8, ptr %0, i64 48
-  %.sroa.5.0.i16.i = load i64, ptr %.sroa.5.0.in.i15.i, align 8, !alias.scope !12168, !noalias !12166, !noundef !4
-  tail call void %17(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i, i64 noundef %.sroa.5.0.i16.i), !noalias !12171
+  %.pn1.in.i19.i = getelementptr inbounds i8, ptr %0, i64 48
+  %.pn1.i20.i = load i64, ptr %.pn1.in.i19.i, align 8, !alias.scope !12168, !noalias !12166, !noundef !4
+  %.pn3.in.i21.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn3.i22.i = load ptr, ptr %.pn3.in.i21.i, align 8, !alias.scope !12168, !noalias !12166, !nonnull !4, !noundef !4
+  tail call void %17(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i, i64 noundef %.pn1.i20.i), !noalias !12171
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %18, %12
-  %.sink21.i = phi i64 [ 56, %18 ], [ 32, %12 ]
-  %.sink.i = phi i64 [ 64, %18 ], [ 40, %12 ]
-  %.sroa.0.0.in.i17.i = getelementptr inbounds i8, ptr %13, i64 %.sink21.i
-  %.sroa.0.0.i18.i = load ptr, ptr %.sroa.0.0.in.i17.i, align 8, !alias.scope !12159, !noalias !12166, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i = getelementptr inbounds i8, ptr %13, i64 %.sink.i
-  %.sroa.5.0.i20.i = load i64, ptr %.sroa.5.0.in.i19.i, align 8, !alias.scope !12159, !noalias !12166, !noundef !4
-  tail call void %17(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i, i64 noundef %.sroa.5.0.i20.i), !noalias !12167
+  %.sink31.i = phi i64 [ 64, %18 ], [ 40, %12 ]
+  %.sink.i = phi i64 [ 56, %18 ], [ 32, %12 ]
+  %.pn1.in.i25.i = getelementptr inbounds i8, ptr %13, i64 %.sink31.i
+  %.pn1.i26.i = load i64, ptr %.pn1.in.i25.i, align 8, !alias.scope !12159, !noalias !12166, !noundef !4
+  %.pn3.in.i27.i = getelementptr inbounds i8, ptr %13, i64 %.sink.i
+  %.pn3.i28.i = load ptr, ptr %.pn3.in.i27.i, align 8, !alias.scope !12159, !noalias !12166, !nonnull !4, !noundef !4
+  tail call void %17(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i, i64 noundef %.pn1.i26.i), !noalias !12167
   br label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
 
 "_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit": ; preds = %.sink.split.i, %12, %2
@@ -83276,13 +83276,13 @@ define hidden void @"_ZN74_$LT$datafusion_common..dfschema..DFSchema$u20$as$u20$
   %25 = add i64 %16, 9223372036854775807
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 2)
   tail call void %22(ptr noundef nonnull align 1 %19, i64 noundef %26), !noalias !12317
-  %.sroa.0.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 16
-  %.sroa.0.0.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i, align 8, !alias.scope !12321, !noalias !12322, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 24
-  %.sroa.5.0.i.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.i, align 8, !alias.scope !12321, !noalias !12322, !noundef !4
+  %.pn1.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 24
+  %.pn1.i.i.i.i = load i64, ptr %.pn1.in.i.i.i.i, align 8, !alias.scope !12321, !noalias !12322, !noundef !4
+  %.pn3.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 16
+  %.pn3.i.i.i.i = load ptr, ptr %.pn3.in.i.i.i.i, align 8, !alias.scope !12321, !noalias !12322, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds i8, ptr %20, i64 144
   %28 = load ptr, ptr %27, align 8, !invariant.load !4, !noalias !12323, !nonnull !4
-  tail call void %28(ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.5.0.i.i.i.i), !noalias !12323
+  tail call void %28(ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i.i, i64 noundef %.pn1.i.i.i.i), !noalias !12323
   switch i64 %26, label %default.unreachable [
     i64 0, label %"_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$core..hash..Hash$GT$4hash17he7650fcb73e2bb56E.llvm.7925137649769596059.exit.i"
     i64 1, label %.sink.split.i.i.i
@@ -83293,21 +83293,21 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 29:                                               ; preds = %23
-  %.sroa.0.0.in.i13.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 40
-  %.sroa.0.0.i14.i.i.i = load ptr, ptr %.sroa.0.0.in.i13.i.i.i, align 8, !alias.scope !12324, !noalias !12322, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 48
-  %.sroa.5.0.i16.i.i.i = load i64, ptr %.sroa.5.0.in.i15.i.i.i, align 8, !alias.scope !12324, !noalias !12322, !noundef !4
-  tail call void %28(ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i.i.i, i64 noundef %.sroa.5.0.i16.i.i.i), !noalias !12327
+  %.pn1.in.i19.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 48
+  %.pn1.i20.i.i.i = load i64, ptr %.pn1.in.i19.i.i.i, align 8, !alias.scope !12324, !noalias !12322, !noundef !4
+  %.pn3.in.i21.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 40
+  %.pn3.i22.i.i.i = load ptr, ptr %.pn3.in.i21.i.i.i, align 8, !alias.scope !12324, !noalias !12322, !nonnull !4, !noundef !4
+  tail call void %28(ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i.i.i, i64 noundef %.pn1.i20.i.i.i), !noalias !12327
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %29, %23
-  %.sink21.i.i.i = phi i64 [ 56, %29 ], [ 32, %23 ]
-  %.sink.i.i.i = phi i64 [ 64, %29 ], [ 40, %23 ]
-  %.sroa.0.0.in.i17.i.i.i = getelementptr inbounds i8, ptr %24, i64 %.sink21.i.i.i
-  %.sroa.0.0.i18.i.i.i = load ptr, ptr %.sroa.0.0.in.i17.i.i.i, align 8, !alias.scope !12321, !noalias !12322, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i.i.i = getelementptr inbounds i8, ptr %24, i64 %.sink.i.i.i
-  %.sroa.5.0.i20.i.i.i = load i64, ptr %.sroa.5.0.in.i19.i.i.i, align 8, !alias.scope !12321, !noalias !12322, !noundef !4
-  tail call void %28(ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i.i.i, i64 noundef %.sroa.5.0.i20.i.i.i), !noalias !12323
+  %.sink31.i.i.i = phi i64 [ 64, %29 ], [ 40, %23 ]
+  %.sink.i.i.i = phi i64 [ 56, %29 ], [ 32, %23 ]
+  %.pn1.in.i25.i.i.i = getelementptr inbounds i8, ptr %24, i64 %.sink31.i.i.i
+  %.pn1.i26.i.i.i = load i64, ptr %.pn1.in.i25.i.i.i, align 8, !alias.scope !12321, !noalias !12322, !noundef !4
+  %.pn3.in.i27.i.i.i = getelementptr inbounds i8, ptr %24, i64 %.sink.i.i.i
+  %.pn3.i28.i.i.i = load ptr, ptr %.pn3.in.i27.i.i.i, align 8, !alias.scope !12321, !noalias !12322, !nonnull !4, !noundef !4
+  tail call void %28(ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i.i.i, i64 noundef %.pn1.i26.i.i.i), !noalias !12323
   br label %"_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$core..hash..Hash$GT$4hash17he7650fcb73e2bb56E.llvm.7925137649769596059.exit.i"
 
 "_ZN73_$LT$datafusion_common..dfschema..DFField$u20$as$u20$core..hash..Hash$GT$4hash17he7650fcb73e2bb56E.llvm.7925137649769596059.exit.i": ; preds = %.sink.split.i.i.i, %23, %.lr.ph.i
@@ -97851,13 +97851,13 @@ define internal fastcc void @"_ZN81_$LT$datafusion_expr..logical_plan..ddl..Drop
   %11 = getelementptr inbounds i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8, !invariant.load !4, !noalias !14156, !nonnull !4
   tail call void %12(ptr noundef nonnull align 1 %8, i64 noundef %7), !noalias !14156
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !14151, !noalias !14154, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !14151, !noalias !14154, !noundef !4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !14151, !noalias !14154, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !14151, !noalias !14154, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds i8, ptr %10, i64 144
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !14159, !nonnull !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i), !noalias !14159
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i), !noalias !14159
   switch i64 %7, label %default.unreachable [
     i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
     i64 1, label %.sink.split.i
@@ -97868,21 +97868,21 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 15:                                               ; preds = %2
-  %.sroa.0.0.in.i13.i = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.0.0.i14.i = load ptr, ptr %.sroa.0.0.in.i13.i, align 8, !alias.scope !14160, !noalias !14154, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i = getelementptr inbounds i8, ptr %0, i64 48
-  %.sroa.5.0.i16.i = load i64, ptr %.sroa.5.0.in.i15.i, align 8, !alias.scope !14160, !noalias !14154, !noundef !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i, i64 noundef %.sroa.5.0.i16.i), !noalias !14163
+  %.pn1.in.i19.i = getelementptr inbounds i8, ptr %0, i64 48
+  %.pn1.i20.i = load i64, ptr %.pn1.in.i19.i, align 8, !alias.scope !14160, !noalias !14154, !noundef !4
+  %.pn3.in.i21.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn3.i22.i = load ptr, ptr %.pn3.in.i21.i, align 8, !alias.scope !14160, !noalias !14154, !nonnull !4, !noundef !4
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i, i64 noundef %.pn1.i20.i), !noalias !14163
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %15, %2
-  %.sink21.i = phi i64 [ 56, %15 ], [ 32, %2 ]
-  %.sink.i = phi i64 [ 64, %15 ], [ 40, %2 ]
-  %.sroa.0.0.in.i17.i = getelementptr inbounds i8, ptr %3, i64 %.sink21.i
-  %.sroa.0.0.i18.i = load ptr, ptr %.sroa.0.0.in.i17.i, align 8, !alias.scope !14151, !noalias !14154, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i
-  %.sroa.5.0.i20.i = load i64, ptr %.sroa.5.0.in.i19.i, align 8, !alias.scope !14151, !noalias !14154, !noundef !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i, i64 noundef %.sroa.5.0.i20.i), !noalias !14159
+  %.sink31.i = phi i64 [ 64, %15 ], [ 40, %2 ]
+  %.sink.i = phi i64 [ 56, %15 ], [ 32, %2 ]
+  %.pn1.in.i25.i = getelementptr inbounds i8, ptr %3, i64 %.sink31.i
+  %.pn1.i26.i = load i64, ptr %.pn1.in.i25.i, align 8, !alias.scope !14151, !noalias !14154, !noundef !4
+  %.pn3.in.i27.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i
+  %.pn3.i28.i = load ptr, ptr %.pn3.in.i27.i, align 8, !alias.scope !14151, !noalias !14154, !nonnull !4, !noundef !4
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i, i64 noundef %.pn1.i26.i), !noalias !14159
   br label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
 
 "_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit": ; preds = %2, %.sink.split.i
@@ -97918,13 +97918,13 @@ define internal fastcc void @"_ZN82_$LT$datafusion_expr..logical_plan..ddl..Drop
   %11 = getelementptr inbounds i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8, !invariant.load !4, !noalias !14174, !nonnull !4
   tail call void %12(ptr noundef nonnull align 1 %8, i64 noundef %7), !noalias !14174
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !14169, !noalias !14172, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !14169, !noalias !14172, !noundef !4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !14169, !noalias !14172, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !14169, !noalias !14172, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds i8, ptr %10, i64 144
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !14177, !nonnull !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i), !noalias !14177
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i), !noalias !14177
   switch i64 %7, label %default.unreachable [
     i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
     i64 1, label %.sink.split.i
@@ -97935,21 +97935,21 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 15:                                               ; preds = %2
-  %.sroa.0.0.in.i13.i = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.0.0.i14.i = load ptr, ptr %.sroa.0.0.in.i13.i, align 8, !alias.scope !14178, !noalias !14172, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i = getelementptr inbounds i8, ptr %0, i64 48
-  %.sroa.5.0.i16.i = load i64, ptr %.sroa.5.0.in.i15.i, align 8, !alias.scope !14178, !noalias !14172, !noundef !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i, i64 noundef %.sroa.5.0.i16.i), !noalias !14181
+  %.pn1.in.i19.i = getelementptr inbounds i8, ptr %0, i64 48
+  %.pn1.i20.i = load i64, ptr %.pn1.in.i19.i, align 8, !alias.scope !14178, !noalias !14172, !noundef !4
+  %.pn3.in.i21.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn3.i22.i = load ptr, ptr %.pn3.in.i21.i, align 8, !alias.scope !14178, !noalias !14172, !nonnull !4, !noundef !4
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i, i64 noundef %.pn1.i20.i), !noalias !14181
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %15, %2
-  %.sink21.i = phi i64 [ 56, %15 ], [ 32, %2 ]
-  %.sink.i = phi i64 [ 64, %15 ], [ 40, %2 ]
-  %.sroa.0.0.in.i17.i = getelementptr inbounds i8, ptr %3, i64 %.sink21.i
-  %.sroa.0.0.i18.i = load ptr, ptr %.sroa.0.0.in.i17.i, align 8, !alias.scope !14169, !noalias !14172, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i
-  %.sroa.5.0.i20.i = load i64, ptr %.sroa.5.0.in.i19.i, align 8, !alias.scope !14169, !noalias !14172, !noundef !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i, i64 noundef %.sroa.5.0.i20.i), !noalias !14177
+  %.sink31.i = phi i64 [ 64, %15 ], [ 40, %2 ]
+  %.sink.i = phi i64 [ 56, %15 ], [ 32, %2 ]
+  %.pn1.in.i25.i = getelementptr inbounds i8, ptr %3, i64 %.sink31.i
+  %.pn1.i26.i = load i64, ptr %.pn1.in.i25.i, align 8, !alias.scope !14169, !noalias !14172, !noundef !4
+  %.pn3.in.i27.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i
+  %.pn3.i28.i = load ptr, ptr %.pn3.in.i27.i, align 8, !alias.scope !14169, !noalias !14172, !nonnull !4, !noundef !4
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i, i64 noundef %.pn1.i26.i), !noalias !14177
   br label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
 
 "_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit": ; preds = %2, %.sink.split.i
@@ -98224,13 +98224,13 @@ define internal fastcc void @"_ZN83_$LT$datafusion_expr..logical_plan..ddl..Crea
   %11 = getelementptr inbounds i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8, !invariant.load !4, !noalias !14242, !nonnull !4
   tail call void %12(ptr noundef nonnull align 1 %8, i64 noundef %7), !noalias !14242
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !14237, !noalias !14240, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !14237, !noalias !14240, !noundef !4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !14237, !noalias !14240, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !14237, !noalias !14240, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds i8, ptr %10, i64 144
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !14245, !nonnull !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i), !noalias !14245
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i), !noalias !14245
   switch i64 %7, label %default.unreachable [
     i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
     i64 1, label %.sink.split.i
@@ -98241,21 +98241,21 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 15:                                               ; preds = %2
-  %.sroa.0.0.in.i13.i = getelementptr inbounds i8, ptr %0, i64 56
-  %.sroa.0.0.i14.i = load ptr, ptr %.sroa.0.0.in.i13.i, align 8, !alias.scope !14246, !noalias !14240, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i = getelementptr inbounds i8, ptr %0, i64 64
-  %.sroa.5.0.i16.i = load i64, ptr %.sroa.5.0.in.i15.i, align 8, !alias.scope !14246, !noalias !14240, !noundef !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i, i64 noundef %.sroa.5.0.i16.i), !noalias !14249
+  %.pn1.in.i19.i = getelementptr inbounds i8, ptr %0, i64 64
+  %.pn1.i20.i = load i64, ptr %.pn1.in.i19.i, align 8, !alias.scope !14246, !noalias !14240, !noundef !4
+  %.pn3.in.i21.i = getelementptr inbounds i8, ptr %0, i64 56
+  %.pn3.i22.i = load ptr, ptr %.pn3.in.i21.i, align 8, !alias.scope !14246, !noalias !14240, !nonnull !4, !noundef !4
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i, i64 noundef %.pn1.i20.i), !noalias !14249
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %15, %2
-  %.sink21.i = phi i64 [ 56, %15 ], [ 32, %2 ]
-  %.sink.i = phi i64 [ 64, %15 ], [ 40, %2 ]
-  %.sroa.0.0.in.i17.i = getelementptr inbounds i8, ptr %3, i64 %.sink21.i
-  %.sroa.0.0.i18.i = load ptr, ptr %.sroa.0.0.in.i17.i, align 8, !alias.scope !14237, !noalias !14240, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i
-  %.sroa.5.0.i20.i = load i64, ptr %.sroa.5.0.in.i19.i, align 8, !alias.scope !14237, !noalias !14240, !noundef !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i, i64 noundef %.sroa.5.0.i20.i), !noalias !14245
+  %.sink31.i = phi i64 [ 64, %15 ], [ 40, %2 ]
+  %.sink.i = phi i64 [ 56, %15 ], [ 32, %2 ]
+  %.pn1.in.i25.i = getelementptr inbounds i8, ptr %3, i64 %.sink31.i
+  %.pn1.i26.i = load i64, ptr %.pn1.in.i25.i, align 8, !alias.scope !14237, !noalias !14240, !noundef !4
+  %.pn3.in.i27.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i
+  %.pn3.i28.i = load ptr, ptr %.pn3.in.i27.i, align 8, !alias.scope !14237, !noalias !14240, !nonnull !4, !noundef !4
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i, i64 noundef %.pn1.i26.i), !noalias !14245
   br label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
 
 "_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit": ; preds = %2, %.sink.split.i
@@ -99674,13 +99674,13 @@ _ZN4core4hash4Hash10hash_slice17hb76adf15daad20aeE.exit: ; preds = %.lr.ph179, %
   %247 = getelementptr inbounds i8, ptr %246, i64 128
   %248 = load ptr, ptr %247, align 8, !invariant.load !4, !noalias !14570, !nonnull !4
   tail call void %248(ptr noundef nonnull align 1 %245, i64 noundef %244), !noalias !14570
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %.tr, i64 80
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !14565, !noalias !14568, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %.tr, i64 88
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !14565, !noalias !14568, !noundef !4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %.tr, i64 88
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !14565, !noalias !14568, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %.tr, i64 80
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !14565, !noalias !14568, !nonnull !4, !noundef !4
   %249 = getelementptr inbounds i8, ptr %246, i64 144
   %250 = load ptr, ptr %249, align 8, !invariant.load !4, !noalias !14573, !nonnull !4
-  tail call void %250(ptr noundef nonnull align 1 %245, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i), !noalias !14573
+  tail call void %250(ptr noundef nonnull align 1 %245, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i), !noalias !14573
   switch i64 %244, label %default.unreachable [
     i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
     i64 1, label %.sink.split.i
@@ -99688,21 +99688,21 @@ _ZN4core4hash4Hash10hash_slice17hb76adf15daad20aeE.exit: ; preds = %.lr.ph179, %
   ]
 
 251:                                              ; preds = %238
-  %.sroa.0.0.in.i13.i = getelementptr inbounds i8, ptr %.tr, i64 104
-  %.sroa.0.0.i14.i = load ptr, ptr %.sroa.0.0.in.i13.i, align 8, !alias.scope !14574, !noalias !14568, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i = getelementptr inbounds i8, ptr %.tr, i64 112
-  %.sroa.5.0.i16.i = load i64, ptr %.sroa.5.0.in.i15.i, align 8, !alias.scope !14574, !noalias !14568, !noundef !4
-  tail call void %250(ptr noundef nonnull align 1 %245, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i, i64 noundef %.sroa.5.0.i16.i), !noalias !14577
+  %.pn1.in.i19.i = getelementptr inbounds i8, ptr %.tr, i64 112
+  %.pn1.i20.i = load i64, ptr %.pn1.in.i19.i, align 8, !alias.scope !14574, !noalias !14568, !noundef !4
+  %.pn3.in.i21.i = getelementptr inbounds i8, ptr %.tr, i64 104
+  %.pn3.i22.i = load ptr, ptr %.pn3.in.i21.i, align 8, !alias.scope !14574, !noalias !14568, !nonnull !4, !noundef !4
+  tail call void %250(ptr noundef nonnull align 1 %245, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i, i64 noundef %.pn1.i20.i), !noalias !14577
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %251, %238
-  %.sink21.i = phi i64 [ 56, %251 ], [ 32, %238 ]
-  %.sink.i = phi i64 [ 64, %251 ], [ 40, %238 ]
-  %.sroa.0.0.in.i17.i = getelementptr inbounds i8, ptr %240, i64 %.sink21.i
-  %.sroa.0.0.i18.i = load ptr, ptr %.sroa.0.0.in.i17.i, align 8, !alias.scope !14565, !noalias !14568, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i = getelementptr inbounds i8, ptr %240, i64 %.sink.i
-  %.sroa.5.0.i20.i = load i64, ptr %.sroa.5.0.in.i19.i, align 8, !alias.scope !14565, !noalias !14568, !noundef !4
-  tail call void %250(ptr noundef nonnull align 1 %245, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i, i64 noundef %.sroa.5.0.i20.i), !noalias !14573
+  %.sink31.i = phi i64 [ 64, %251 ], [ 40, %238 ]
+  %.sink.i = phi i64 [ 56, %251 ], [ 32, %238 ]
+  %.pn1.in.i25.i = getelementptr inbounds i8, ptr %240, i64 %.sink31.i
+  %.pn1.i26.i = load i64, ptr %.pn1.in.i25.i, align 8, !alias.scope !14565, !noalias !14568, !noundef !4
+  %.pn3.in.i27.i = getelementptr inbounds i8, ptr %240, i64 %.sink.i
+  %.pn3.i28.i = load ptr, ptr %.pn3.in.i27.i, align 8, !alias.scope !14565, !noalias !14568, !nonnull !4, !noundef !4
+  tail call void %250(ptr noundef nonnull align 1 %245, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i, i64 noundef %.pn1.i26.i), !noalias !14573
   br label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
 
 "_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit": ; preds = %238, %.sink.split.i
@@ -99848,13 +99848,13 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit25: ; preds = %.lr.ph177,
   %339 = getelementptr inbounds i8, ptr %338, i64 128
   %340 = load ptr, ptr %339, align 8, !invariant.load !4, !noalias !14632, !nonnull !4
   tail call void %340(ptr noundef nonnull align 1 %337, i64 noundef %336), !noalias !14632
-  %.sroa.0.0.in.i.i27 = getelementptr inbounds i8, ptr %.tr, i64 32
-  %.sroa.0.0.i.i28 = load ptr, ptr %.sroa.0.0.in.i.i27, align 8, !alias.scope !14627, !noalias !14630, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i29 = getelementptr inbounds i8, ptr %.tr, i64 40
-  %.sroa.5.0.i.i30 = load i64, ptr %.sroa.5.0.in.i.i29, align 8, !alias.scope !14627, !noalias !14630, !noundef !4
+  %.pn1.in.i.i27 = getelementptr inbounds i8, ptr %.tr, i64 40
+  %.pn1.i.i28 = load i64, ptr %.pn1.in.i.i27, align 8, !alias.scope !14627, !noalias !14630, !noundef !4
+  %.pn3.in.i.i29 = getelementptr inbounds i8, ptr %.tr, i64 32
+  %.pn3.i.i30 = load ptr, ptr %.pn3.in.i.i29, align 8, !alias.scope !14627, !noalias !14630, !nonnull !4, !noundef !4
   %341 = getelementptr inbounds i8, ptr %338, i64 144
   %342 = load ptr, ptr %341, align 8, !invariant.load !4, !noalias !14635, !nonnull !4
-  tail call void %342(ptr noundef nonnull align 1 %337, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i28, i64 noundef %.sroa.5.0.i.i30), !noalias !14635
+  tail call void %342(ptr noundef nonnull align 1 %337, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i30, i64 noundef %.pn1.i.i28), !noalias !14635
   switch i64 %336, label %default.unreachable [
     i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit43"
     i64 1, label %.sink.split.i35
@@ -99862,21 +99862,21 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit25: ; preds = %.lr.ph177,
   ]
 
 343:                                              ; preds = %328
-  %.sroa.0.0.in.i13.i31 = getelementptr inbounds i8, ptr %.tr, i64 56
-  %.sroa.0.0.i14.i32 = load ptr, ptr %.sroa.0.0.in.i13.i31, align 8, !alias.scope !14636, !noalias !14630, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i33 = getelementptr inbounds i8, ptr %.tr, i64 64
-  %.sroa.5.0.i16.i34 = load i64, ptr %.sroa.5.0.in.i15.i33, align 8, !alias.scope !14636, !noalias !14630, !noundef !4
-  tail call void %342(ptr noundef nonnull align 1 %337, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i32, i64 noundef %.sroa.5.0.i16.i34), !noalias !14639
+  %.pn1.in.i19.i31 = getelementptr inbounds i8, ptr %.tr, i64 64
+  %.pn1.i20.i32 = load i64, ptr %.pn1.in.i19.i31, align 8, !alias.scope !14636, !noalias !14630, !noundef !4
+  %.pn3.in.i21.i33 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %.pn3.i22.i34 = load ptr, ptr %.pn3.in.i21.i33, align 8, !alias.scope !14636, !noalias !14630, !nonnull !4, !noundef !4
+  tail call void %342(ptr noundef nonnull align 1 %337, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i34, i64 noundef %.pn1.i20.i32), !noalias !14639
   br label %.sink.split.i35
 
 .sink.split.i35:                                  ; preds = %343, %328
-  %.sink21.i36 = phi i64 [ 56, %343 ], [ 32, %328 ]
-  %.sink.i37 = phi i64 [ 64, %343 ], [ 40, %328 ]
-  %.sroa.0.0.in.i17.i38 = getelementptr inbounds i8, ptr %332, i64 %.sink21.i36
-  %.sroa.0.0.i18.i39 = load ptr, ptr %.sroa.0.0.in.i17.i38, align 8, !alias.scope !14627, !noalias !14630, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i40 = getelementptr inbounds i8, ptr %332, i64 %.sink.i37
-  %.sroa.5.0.i20.i41 = load i64, ptr %.sroa.5.0.in.i19.i40, align 8, !alias.scope !14627, !noalias !14630, !noundef !4
-  tail call void %342(ptr noundef nonnull align 1 %337, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i39, i64 noundef %.sroa.5.0.i20.i41), !noalias !14635
+  %.sink31.i36 = phi i64 [ 64, %343 ], [ 40, %328 ]
+  %.sink.i37 = phi i64 [ 56, %343 ], [ 32, %328 ]
+  %.pn1.in.i25.i38 = getelementptr inbounds i8, ptr %332, i64 %.sink31.i36
+  %.pn1.i26.i39 = load i64, ptr %.pn1.in.i25.i38, align 8, !alias.scope !14627, !noalias !14630, !noundef !4
+  %.pn3.in.i27.i40 = getelementptr inbounds i8, ptr %332, i64 %.sink.i37
+  %.pn3.i28.i41 = load ptr, ptr %.pn3.in.i27.i40, align 8, !alias.scope !14627, !noalias !14630, !nonnull !4, !noundef !4
+  tail call void %342(ptr noundef nonnull align 1 %337, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i41, i64 noundef %.pn1.i26.i39), !noalias !14635
   br label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit43"
 
 "_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit43": ; preds = %328, %.sink.split.i35
@@ -100327,13 +100327,13 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit13.i: ; preds = %.lr.ph29
   %600 = getelementptr inbounds i8, ptr %599, i64 128
   %601 = load ptr, ptr %600, align 8, !invariant.load !4, !noalias !14830, !nonnull !4
   tail call void %601(ptr noundef nonnull align 1 %598, i64 noundef %597), !noalias !14830
-  %.sroa.0.0.in.i.i46 = getelementptr inbounds i8, ptr %.tr, i64 32
-  %.sroa.0.0.i.i47 = load ptr, ptr %.sroa.0.0.in.i.i46, align 8, !alias.scope !14825, !noalias !14828, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i48 = getelementptr inbounds i8, ptr %.tr, i64 40
-  %.sroa.5.0.i.i49 = load i64, ptr %.sroa.5.0.in.i.i48, align 8, !alias.scope !14825, !noalias !14828, !noundef !4
+  %.pn1.in.i.i46 = getelementptr inbounds i8, ptr %.tr, i64 40
+  %.pn1.i.i47 = load i64, ptr %.pn1.in.i.i46, align 8, !alias.scope !14825, !noalias !14828, !noundef !4
+  %.pn3.in.i.i48 = getelementptr inbounds i8, ptr %.tr, i64 32
+  %.pn3.i.i49 = load ptr, ptr %.pn3.in.i.i48, align 8, !alias.scope !14825, !noalias !14828, !nonnull !4, !noundef !4
   %602 = getelementptr inbounds i8, ptr %599, i64 144
   %603 = load ptr, ptr %602, align 8, !invariant.load !4, !noalias !14833, !nonnull !4
-  tail call void %603(ptr noundef nonnull align 1 %598, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i47, i64 noundef %.sroa.5.0.i.i49), !noalias !14833
+  tail call void %603(ptr noundef nonnull align 1 %598, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i49, i64 noundef %.pn1.i.i47), !noalias !14833
   switch i64 %597, label %default.unreachable [
     i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit62"
     i64 1, label %.sink.split.i54
@@ -100341,21 +100341,21 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit13.i: ; preds = %.lr.ph29
   ]
 
 604:                                              ; preds = %591
-  %.sroa.0.0.in.i13.i50 = getelementptr inbounds i8, ptr %.tr, i64 56
-  %.sroa.0.0.i14.i51 = load ptr, ptr %.sroa.0.0.in.i13.i50, align 8, !alias.scope !14834, !noalias !14828, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i52 = getelementptr inbounds i8, ptr %.tr, i64 64
-  %.sroa.5.0.i16.i53 = load i64, ptr %.sroa.5.0.in.i15.i52, align 8, !alias.scope !14834, !noalias !14828, !noundef !4
-  tail call void %603(ptr noundef nonnull align 1 %598, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i51, i64 noundef %.sroa.5.0.i16.i53), !noalias !14837
+  %.pn1.in.i19.i50 = getelementptr inbounds i8, ptr %.tr, i64 64
+  %.pn1.i20.i51 = load i64, ptr %.pn1.in.i19.i50, align 8, !alias.scope !14834, !noalias !14828, !noundef !4
+  %.pn3.in.i21.i52 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %.pn3.i22.i53 = load ptr, ptr %.pn3.in.i21.i52, align 8, !alias.scope !14834, !noalias !14828, !nonnull !4, !noundef !4
+  tail call void %603(ptr noundef nonnull align 1 %598, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i53, i64 noundef %.pn1.i20.i51), !noalias !14837
   br label %.sink.split.i54
 
 .sink.split.i54:                                  ; preds = %604, %591
-  %.sink21.i55 = phi i64 [ 56, %604 ], [ 32, %591 ]
-  %.sink.i56 = phi i64 [ 64, %604 ], [ 40, %591 ]
-  %.sroa.0.0.in.i17.i57 = getelementptr inbounds i8, ptr %593, i64 %.sink21.i55
-  %.sroa.0.0.i18.i58 = load ptr, ptr %.sroa.0.0.in.i17.i57, align 8, !alias.scope !14825, !noalias !14828, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i59 = getelementptr inbounds i8, ptr %593, i64 %.sink.i56
-  %.sroa.5.0.i20.i60 = load i64, ptr %.sroa.5.0.in.i19.i59, align 8, !alias.scope !14825, !noalias !14828, !noundef !4
-  tail call void %603(ptr noundef nonnull align 1 %598, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i58, i64 noundef %.sroa.5.0.i20.i60), !noalias !14833
+  %.sink31.i55 = phi i64 [ 64, %604 ], [ 40, %591 ]
+  %.sink.i56 = phi i64 [ 56, %604 ], [ 32, %591 ]
+  %.pn1.in.i25.i57 = getelementptr inbounds i8, ptr %593, i64 %.sink31.i55
+  %.pn1.i26.i58 = load i64, ptr %.pn1.in.i25.i57, align 8, !alias.scope !14825, !noalias !14828, !noundef !4
+  %.pn3.in.i27.i59 = getelementptr inbounds i8, ptr %593, i64 %.sink.i56
+  %.pn3.i28.i60 = load ptr, ptr %.pn3.in.i27.i59, align 8, !alias.scope !14825, !noalias !14828, !nonnull !4, !noundef !4
+  tail call void %603(ptr noundef nonnull align 1 %598, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i60, i64 noundef %.pn1.i26.i58), !noalias !14833
   br label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit62"
 
 "_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit62": ; preds = %591, %.sink.split.i54
@@ -100556,13 +100556,13 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit13.i: ; preds = %.lr.ph29
   %705 = add i64 %698, 9223372036854775807
   %706 = tail call i64 @llvm.umin.i64(i64 %705, i64 2)
   tail call void %702(ptr noundef nonnull align 1 %.val.i6, i64 noundef %706), !noalias !14923
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %.tr, i64 40
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !14927, !noalias !14928, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %.tr, i64 48
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !14927, !noalias !14928, !noundef !4
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %.tr, i64 48
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !14927, !noalias !14928, !noundef !4
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %.tr, i64 40
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !14927, !noalias !14928, !nonnull !4, !noundef !4
   %707 = getelementptr inbounds i8, ptr %.val1.i, i64 144
   %708 = load ptr, ptr %707, align 8, !invariant.load !4, !noalias !14910, !nonnull !4
-  tail call void %708(ptr noundef nonnull align 1 %.val.i6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.5.0.i.i.i), !noalias !14929
+  tail call void %708(ptr noundef nonnull align 1 %.val.i6, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i, i64 noundef %.pn1.i.i.i), !noalias !14929
   switch i64 %706, label %default.unreachable [
     i64 0, label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit"
     i64 1, label %.sink.split.i.i
@@ -100570,21 +100570,21 @@ _ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit13.i: ; preds = %.lr.ph29
   ]
 
 709:                                              ; preds = %703
-  %.sroa.0.0.in.i13.i.i = getelementptr inbounds i8, ptr %.tr, i64 64
-  %.sroa.0.0.i14.i.i = load ptr, ptr %.sroa.0.0.in.i13.i.i, align 8, !alias.scope !14930, !noalias !14928, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i.i = getelementptr inbounds i8, ptr %.tr, i64 72
-  %.sroa.5.0.i16.i.i = load i64, ptr %.sroa.5.0.in.i15.i.i, align 8, !alias.scope !14930, !noalias !14928, !noundef !4
-  tail call void %708(ptr noundef nonnull align 1 %.val.i6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i.i, i64 noundef %.sroa.5.0.i16.i.i), !noalias !14933
+  %.pn1.in.i19.i.i = getelementptr inbounds i8, ptr %.tr, i64 72
+  %.pn1.i20.i.i = load i64, ptr %.pn1.in.i19.i.i, align 8, !alias.scope !14930, !noalias !14928, !noundef !4
+  %.pn3.in.i21.i.i = getelementptr inbounds i8, ptr %.tr, i64 64
+  %.pn3.i22.i.i = load ptr, ptr %.pn3.in.i21.i.i, align 8, !alias.scope !14930, !noalias !14928, !nonnull !4, !noundef !4
+  tail call void %708(ptr noundef nonnull align 1 %.val.i6, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i.i, i64 noundef %.pn1.i20.i.i), !noalias !14933
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %709, %703
-  %.sink21.i.i = phi i64 [ 56, %709 ], [ 32, %703 ]
-  %.sink.i.i = phi i64 [ 64, %709 ], [ 40, %703 ]
-  %.sroa.0.0.in.i17.i.i = getelementptr inbounds i8, ptr %704, i64 %.sink21.i.i
-  %.sroa.0.0.i18.i.i = load ptr, ptr %.sroa.0.0.in.i17.i.i, align 8, !alias.scope !14927, !noalias !14928, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i.i = getelementptr inbounds i8, ptr %704, i64 %.sink.i.i
-  %.sroa.5.0.i20.i.i = load i64, ptr %.sroa.5.0.in.i19.i.i, align 8, !alias.scope !14927, !noalias !14928, !noundef !4
-  tail call void %708(ptr noundef nonnull align 1 %.val.i6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i.i, i64 noundef %.sroa.5.0.i20.i.i), !noalias !14929
+  %.sink31.i.i = phi i64 [ 64, %709 ], [ 40, %703 ]
+  %.sink.i.i = phi i64 [ 56, %709 ], [ 32, %703 ]
+  %.pn1.in.i25.i.i = getelementptr inbounds i8, ptr %704, i64 %.sink31.i.i
+  %.pn1.i26.i.i = load i64, ptr %.pn1.in.i25.i.i, align 8, !alias.scope !14927, !noalias !14928, !noundef !4
+  %.pn3.in.i27.i.i = getelementptr inbounds i8, ptr %704, i64 %.sink.i.i
+  %.pn3.i28.i.i = load ptr, ptr %.pn3.in.i27.i.i, align 8, !alias.scope !14927, !noalias !14928, !nonnull !4, !noundef !4
+  tail call void %708(ptr noundef nonnull align 1 %.val.i6, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i.i, i64 noundef %.pn1.i26.i.i), !noalias !14929
   br label %"_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit"
 
 "_ZN70_$LT$datafusion_common..column..Column$u20$as$u20$core..hash..Hash$GT$4hash17h37ca117e262d8efaE.exit": ; preds = %"._ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit_crit_edge.i", %703, %.sink.split.i.i
@@ -101765,13 +101765,13 @@ define hidden void @"_ZN87_$LT$datafusion_common..table_reference..TableReferenc
   %10 = getelementptr inbounds i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8, !invariant.load !4, !noalias !15271, !nonnull !4
   tail call void %11(ptr noundef nonnull align 1 %7, i64 noundef %6), !noalias !15271
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !4
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %9, i64 144
   %13 = load ptr, ptr %12, align 8, !invariant.load !4, !noalias !4, !nonnull !4
-  tail call void %13(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i), !noalias !4
+  tail call void %13(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i), !noalias !4
   switch i64 %6, label %default.unreachable [
     i64 0, label %15
     i64 1, label %.sink.split
@@ -101782,21 +101782,21 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 14:                                               ; preds = %2
-  %.sroa.0.0.in.i13 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.i14 = load ptr, ptr %.sroa.0.0.in.i13, align 8, !alias.scope !15274, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.5.0.i16 = load i64, ptr %.sroa.5.0.in.i15, align 8, !alias.scope !15274, !noundef !4
-  tail call void %13(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14, i64 noundef %.sroa.5.0.i16), !noalias !15277
+  %.pn1.in.i19 = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn1.i20 = load i64, ptr %.pn1.in.i19, align 8, !alias.scope !15274, !noundef !4
+  %.pn3.in.i21 = getelementptr inbounds i8, ptr %0, i64 32
+  %.pn3.i22 = load ptr, ptr %.pn3.in.i21, align 8, !alias.scope !15274, !nonnull !4, !noundef !4
+  tail call void %13(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.pn3.i22, i64 noundef %.pn1.i20), !noalias !15277
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %14
-  %.sink21 = phi i64 [ 56, %14 ], [ 32, %2 ]
-  %.sink = phi i64 [ 64, %14 ], [ 40, %2 ]
-  %.sroa.0.0.in.i17 = getelementptr inbounds i8, ptr %0, i64 %.sink21
-  %.sroa.0.0.i18 = load ptr, ptr %.sroa.0.0.in.i17, align 8, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19 = getelementptr inbounds i8, ptr %0, i64 %.sink
-  %.sroa.5.0.i20 = load i64, ptr %.sroa.5.0.in.i19, align 8, !noundef !4
-  tail call void %13(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18, i64 noundef %.sroa.5.0.i20), !noalias !4
+  %.sink31 = phi i64 [ 64, %14 ], [ 40, %2 ]
+  %.sink = phi i64 [ 56, %14 ], [ 32, %2 ]
+  %.pn1.in.i25 = getelementptr inbounds i8, ptr %0, i64 %.sink31
+  %.pn1.i26 = load i64, ptr %.pn1.in.i25, align 8, !noundef !4
+  %.pn3.in.i27 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %.pn3.i28 = load ptr, ptr %.pn3.in.i27, align 8, !nonnull !4, !noundef !4
+  tail call void %13(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.pn3.i28, i64 noundef %.pn1.i26), !noalias !4
   br label %15
 
 15:                                               ; preds = %.sink.split, %2
@@ -102385,8 +102385,8 @@ define internal fastcc noundef zeroext i1 @"_ZN89_$LT$datafusion_expr..logical_p
     i64 7, label %259
   ]
 
-"_ZN96_$LT$datafusion_expr..logical_plan..ddl..CreateExternalTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b50224e927259d8E.exit": ; preds = %_ZN4core3cmp9PartialEq2ne17h65153203adabf886E.exit.i.i, %134, %132, %122, %179, %117, %32, %22, %285, %280, %275, %"_ZN93_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851ef95496c2679bE.exit.i", %273, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit27.i.i", %271, %270, %259, %257, %252, %246, %244, %239, %233, %229, %224, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit.i13", %214, %210, %205, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit.i", %195, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit48.thread", %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit48", %160, %184, %189, %156, %151, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit.thread", %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit", %113, %109, %103, %99, %94, %88, %84, %73, %72, %59, %53, %47, %42, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit35", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit39", %18, %14, %71, %79, %2
-  %.0.shrunk = phi i1 [ false, %2 ], [ %112, %109 ], [ false, %103 ], [ false, %99 ], [ false, %94 ], [ false, %88 ], [ false, %84 ], [ false, %73 ], [ false, %59 ], [ false, %53 ], [ false, %47 ], [ false, %42 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit35" ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit39" ], [ false, %18 ], [ false, %14 ], [ false, %72 ], [ false, %71 ], [ false, %79 ], [ %159, %156 ], [ false, %151 ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit.thread" ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit" ], [ false, %113 ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit48.thread" ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit48" ], [ false, %160 ], [ %194, %189 ], [ false, %184 ], [ %213, %210 ], [ false, %205 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit.i" ], [ false, %195 ], [ %232, %229 ], [ false, %224 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit.i13" ], [ false, %214 ], [ %245, %244 ], [ false, %239 ], [ false, %233 ], [ %258, %257 ], [ false, %252 ], [ false, %246 ], [ %288, %285 ], [ false, %280 ], [ false, %275 ], [ false, %"_ZN93_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851ef95496c2679bE.exit.i" ], [ false, %259 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit27.i.i" ], [ false, %270 ], [ false, %273 ], [ false, %271 ], [ false, %22 ], [ false, %32 ], [ false, %117 ], [ %.mux, %179 ], [ false, %122 ], [ false, %132 ], [ false, %134 ], [ false, %_ZN4core3cmp9PartialEq2ne17h65153203adabf886E.exit.i.i ]
+"_ZN96_$LT$datafusion_expr..logical_plan..ddl..CreateExternalTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b50224e927259d8E.exit": ; preds = %_ZN4core3cmp9PartialEq2ne17h65153203adabf886E.exit.i.i, %134, %132, %122, %179, %117, %32, %22, %285, %280, %275, %"_ZN93_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851ef95496c2679bE.exit.i", %273, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit33.i.i", %271, %270, %259, %257, %252, %246, %244, %239, %233, %229, %224, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit.i13", %214, %210, %205, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit.i", %195, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit48.thread", %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit48", %160, %184, %189, %156, %151, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit.thread", %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit", %113, %109, %103, %99, %94, %88, %84, %73, %72, %59, %53, %47, %42, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit35", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit39", %18, %14, %71, %79, %2
+  %.0.shrunk = phi i1 [ false, %2 ], [ %112, %109 ], [ false, %103 ], [ false, %99 ], [ false, %94 ], [ false, %88 ], [ false, %84 ], [ false, %73 ], [ false, %59 ], [ false, %53 ], [ false, %47 ], [ false, %42 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit35" ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit39" ], [ false, %18 ], [ false, %14 ], [ false, %72 ], [ false, %71 ], [ false, %79 ], [ %159, %156 ], [ false, %151 ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit.thread" ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit" ], [ false, %113 ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit48.thread" ], [ false, %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17hb2cff6c6a0612551E.exit48" ], [ false, %160 ], [ %194, %189 ], [ false, %184 ], [ %213, %210 ], [ false, %205 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit.i" ], [ false, %195 ], [ %232, %229 ], [ false, %224 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059.exit.i13" ], [ false, %214 ], [ %245, %244 ], [ false, %239 ], [ false, %233 ], [ %258, %257 ], [ false, %252 ], [ false, %246 ], [ %288, %285 ], [ false, %280 ], [ false, %275 ], [ false, %"_ZN93_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851ef95496c2679bE.exit.i" ], [ false, %259 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit33.i.i" ], [ false, %270 ], [ false, %273 ], [ false, %271 ], [ false, %22 ], [ false, %32 ], [ false, %117 ], [ %.mux, %179 ], [ false, %122 ], [ false, %132 ], [ false, %134 ], [ false, %_ZN4core3cmp9PartialEq2ne17h65153203adabf886E.exit.i.i ]
   ret i1 %.0.shrunk
 
 13:                                               ; preds = %12
@@ -102875,50 +102875,50 @@ _ZN4core3cmp9PartialEq2ne17h65153203adabf886E.exit.i.i: ; preds = %134, %132
   br i1 %268, label %269, label %"_ZN96_$LT$datafusion_expr..logical_plan..ddl..CreateExternalTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b50224e927259d8E.exit"
 
 269:                                              ; preds = %259
-  %.sroa.5.0.in.i18.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.5.0.in.i22.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %.pn1.in.i18.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.pn1.in.i24.i.i = getelementptr inbounds i8, ptr %1, i64 24
   br i1 %264, label %271, label %270
 
 270:                                              ; preds = %269
   tail call void @llvm.assume(i1 %267)
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i18.i.i, align 8, !alias.scope !15517, !noalias !15516, !noundef !4
-  %.sroa.5.0.i15.i.i = load i64, ptr %.sroa.5.0.in.i22.i.i, align 8, !alias.scope !15520, !noalias !15515, !noundef !4
-  %.not.i.i.i27 = icmp eq i64 %.sroa.5.0.i.i.i, %.sroa.5.0.i15.i.i
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i18.i.i, align 8, !alias.scope !15517, !noalias !15516, !noundef !4
+  %.pn1.i13.i.i = load i64, ptr %.pn1.in.i24.i.i, align 8, !alias.scope !15520, !noalias !15515, !noundef !4
+  %.not.i.i.i27 = icmp eq i64 %.pn1.i.i.i, %.pn1.i13.i.i
   br i1 %.not.i.i.i27, label %"_ZN93_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851ef95496c2679bE.exit.i", label %"_ZN96_$LT$datafusion_expr..logical_plan..ddl..CreateExternalTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b50224e927259d8E.exit"
 
 271:                                              ; preds = %269
   tail call void @llvm.assume(i1 %not..i.i)
-  %.sroa.5.0.i19.i.i = load i64, ptr %.sroa.5.0.in.i18.i.i, align 8, !alias.scope !15523, !noalias !15516, !noundef !4
-  %.sroa.5.0.i23.i.i = load i64, ptr %.sroa.5.0.in.i22.i.i, align 8, !alias.scope !15526, !noalias !15515, !noundef !4
-  %.not.i24.i.i = icmp eq i64 %.sroa.5.0.i19.i.i, %.sroa.5.0.i23.i.i
-  br i1 %.not.i24.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit27.i.i", label %"_ZN96_$LT$datafusion_expr..logical_plan..ddl..CreateExternalTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b50224e927259d8E.exit"
+  %.pn1.i19.i.i = load i64, ptr %.pn1.in.i18.i.i, align 8, !alias.scope !15523, !noalias !15516, !noundef !4
+  %.pn1.i25.i.i = load i64, ptr %.pn1.in.i24.i.i, align 8, !alias.scope !15526, !noalias !15515, !noundef !4
+  %.not.i30.i.i = icmp eq i64 %.pn1.i19.i.i, %.pn1.i25.i.i
+  br i1 %.not.i30.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit33.i.i", label %"_ZN96_$LT$datafusion_expr..logical_plan..ddl..CreateExternalTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b50224e927259d8E.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit27.i.i": ; preds = %271
-  %.sroa.0.0.in.i20.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.0.0.i21.i.i = load ptr, ptr %.sroa.0.0.in.i20.i.i, align 8, !alias.scope !15526, !noalias !15515, !nonnull !4, !noundef !4
-  %.sroa.0.0.in.i16.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.0.0.i17.i.i = load ptr, ptr %.sroa.0.0.in.i16.i.i, align 8, !alias.scope !15523, !noalias !15516, !nonnull !4, !noundef !4
-  %bcmp.i26.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i17.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i21.i.i, i64 %.sroa.5.0.i19.i.i), !alias.scope !15529, !noalias !15533
-  %272 = icmp eq i32 %bcmp.i26.i.i, 0
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit33.i.i": ; preds = %271
+  %.pn3.in.i26.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn3.i27.i.i = load ptr, ptr %.pn3.in.i26.i.i, align 8, !alias.scope !15526, !noalias !15515, !nonnull !4, !noundef !4
+  %.pn3.in.i20.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn3.i21.i.i = load ptr, ptr %.pn3.in.i20.i.i, align 8, !alias.scope !15523, !noalias !15516, !nonnull !4, !noundef !4
+  %bcmp.i32.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i21.i.i, ptr nonnull readonly align 1 %.pn3.i27.i.i, i64 %.pn1.i19.i.i), !alias.scope !15529, !noalias !15533
+  %272 = icmp eq i32 %bcmp.i32.i.i, 0
   br i1 %272, label %273, label %"_ZN96_$LT$datafusion_expr..logical_plan..ddl..CreateExternalTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b50224e927259d8E.exit"
 
-273:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit27.i.i"
-  %.sroa.5.0.in.i30.i.i = getelementptr inbounds i8, ptr %0, i64 48
-  %.sroa.5.0.i31.i.i = load i64, ptr %.sroa.5.0.in.i30.i.i, align 8, !alias.scope !15534, !noalias !15516, !noundef !4
-  %.sroa.5.0.in.i34.i.i = getelementptr inbounds i8, ptr %1, i64 48
-  %.sroa.5.0.i35.i.i = load i64, ptr %.sroa.5.0.in.i34.i.i, align 8, !alias.scope !15537, !noalias !15515, !noundef !4
-  %.not.i36.i.i = icmp eq i64 %.sroa.5.0.i31.i.i, %.sroa.5.0.i35.i.i
-  br i1 %.not.i36.i.i, label %"_ZN93_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851ef95496c2679bE.exit.i", label %"_ZN96_$LT$datafusion_expr..logical_plan..ddl..CreateExternalTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b50224e927259d8E.exit"
+273:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit33.i.i"
+  %.pn1.in.i34.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %.pn1.i35.i.i = load i64, ptr %.pn1.in.i34.i.i, align 8, !alias.scope !15534, !noalias !15516, !noundef !4
+  %.pn1.in.i40.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %.pn1.i41.i.i = load i64, ptr %.pn1.in.i40.i.i, align 8, !alias.scope !15537, !noalias !15515, !noundef !4
+  %.not.i46.i.i = icmp eq i64 %.pn1.i35.i.i, %.pn1.i41.i.i
+  br i1 %.not.i46.i.i, label %"_ZN93_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851ef95496c2679bE.exit.i", label %"_ZN96_$LT$datafusion_expr..logical_plan..ddl..CreateExternalTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b50224e927259d8E.exit"
 
 "_ZN93_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851ef95496c2679bE.exit.i": ; preds = %273, %270
-  %.sink41.i.i = phi i64 [ 8, %270 ], [ 32, %273 ]
-  %.sroa.5.0.i31.sink.i.i = phi i64 [ %.sroa.5.0.i.i.i, %270 ], [ %.sroa.5.0.i31.i.i, %273 ]
-  %.sroa.0.0.in.i32.i.i = getelementptr inbounds i8, ptr %261, i64 %.sink41.i.i
-  %.sroa.0.0.i33.i.i = load ptr, ptr %.sroa.0.0.in.i32.i.i, align 8, !alias.scope !15516, !noalias !15515, !nonnull !4, !noundef !4
-  %.sroa.0.0.in.i28.i.i = getelementptr inbounds i8, ptr %260, i64 %.sink41.i.i
-  %.sroa.0.0.i29.i.i = load ptr, ptr %.sroa.0.0.in.i28.i.i, align 8, !alias.scope !15515, !noalias !15516, !nonnull !4, !noundef !4
-  %bcmp.i38.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i29.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i33.i.i, i64 %.sroa.5.0.i31.sink.i.i), !noalias !15533
-  %274 = icmp eq i32 %bcmp.i38.i.i, 0
+  %.sink51.i.i = phi i64 [ 8, %270 ], [ 32, %273 ]
+  %.pn1.i35.sink.i.i = phi i64 [ %.pn1.i.i.i, %270 ], [ %.pn1.i35.i.i, %273 ]
+  %.pn3.in.i42.i.i = getelementptr inbounds i8, ptr %261, i64 %.sink51.i.i
+  %.pn3.i43.i.i = load ptr, ptr %.pn3.in.i42.i.i, align 8, !alias.scope !15516, !noalias !15515, !nonnull !4, !noundef !4
+  %.pn3.in.i36.i.i = getelementptr inbounds i8, ptr %260, i64 %.sink51.i.i
+  %.pn3.i37.i.i = load ptr, ptr %.pn3.in.i36.i.i, align 8, !alias.scope !15515, !noalias !15516, !nonnull !4, !noundef !4
+  %bcmp.i48.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i37.i.i, ptr nonnull readonly align 1 %.pn3.i43.i.i, i64 %.pn1.i35.sink.i.i), !noalias !15533
+  %274 = icmp eq i32 %bcmp.i48.i.i, 0
   br i1 %274, label %275, label %"_ZN96_$LT$datafusion_expr..logical_plan..ddl..CreateExternalTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7b50224e927259d8E.exit"
 
 275:                                              ; preds = %"_ZN93_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h851ef95496c2679bE.exit.i"
@@ -103425,13 +103425,13 @@ define internal fastcc void @"_ZN90_$LT$datafusion_expr..logical_plan..ddl..Crea
   %11 = getelementptr inbounds i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8, !invariant.load !4, !noalias !4, !nonnull !4
   tail call void %12(ptr noundef nonnull align 1 %8, i64 noundef %7), !noalias !15581
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 56
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !15576, !noalias !15579, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 64
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !15576, !noalias !15579, !noundef !4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 64
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !15576, !noalias !15579, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !15576, !noalias !15579, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds i8, ptr %10, i64 144
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !noalias !15584, !nonnull !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i), !noalias !15584
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i), !noalias !15584
   switch i64 %7, label %default.unreachable [
     i64 0, label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
     i64 1, label %.sink.split.i
@@ -103442,21 +103442,21 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 15:                                               ; preds = %2
-  %.sroa.0.0.in.i13.i = getelementptr inbounds i8, ptr %0, i64 80
-  %.sroa.0.0.i14.i = load ptr, ptr %.sroa.0.0.in.i13.i, align 8, !alias.scope !15585, !noalias !15579, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i15.i = getelementptr inbounds i8, ptr %0, i64 88
-  %.sroa.5.0.i16.i = load i64, ptr %.sroa.5.0.in.i15.i, align 8, !alias.scope !15585, !noalias !15579, !noundef !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i14.i, i64 noundef %.sroa.5.0.i16.i), !noalias !15588
+  %.pn1.in.i19.i = getelementptr inbounds i8, ptr %0, i64 88
+  %.pn1.i20.i = load i64, ptr %.pn1.in.i19.i, align 8, !alias.scope !15585, !noalias !15579, !noundef !4
+  %.pn3.in.i21.i = getelementptr inbounds i8, ptr %0, i64 80
+  %.pn3.i22.i = load ptr, ptr %.pn3.in.i21.i, align 8, !alias.scope !15585, !noalias !15579, !nonnull !4, !noundef !4
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i22.i, i64 noundef %.pn1.i20.i), !noalias !15588
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %15, %2
-  %.sink21.i = phi i64 [ 56, %15 ], [ 32, %2 ]
-  %.sink.i = phi i64 [ 64, %15 ], [ 40, %2 ]
-  %.sroa.0.0.in.i17.i = getelementptr inbounds i8, ptr %3, i64 %.sink21.i
-  %.sroa.0.0.i18.i = load ptr, ptr %.sroa.0.0.in.i17.i, align 8, !alias.scope !15576, !noalias !15579, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i19.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i
-  %.sroa.5.0.i20.i = load i64, ptr %.sroa.5.0.in.i19.i, align 8, !alias.scope !15576, !noalias !15579, !noundef !4
-  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18.i, i64 noundef %.sroa.5.0.i20.i), !noalias !15584
+  %.sink31.i = phi i64 [ 64, %15 ], [ 40, %2 ]
+  %.sink.i = phi i64 [ 56, %15 ], [ 32, %2 ]
+  %.pn1.in.i25.i = getelementptr inbounds i8, ptr %3, i64 %.sink31.i
+  %.pn1.i26.i = load i64, ptr %.pn1.in.i25.i, align 8, !alias.scope !15576, !noalias !15579, !noundef !4
+  %.pn3.in.i27.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i
+  %.pn3.i28.i = load ptr, ptr %.pn3.in.i27.i, align 8, !alias.scope !15576, !noalias !15579, !nonnull !4, !noundef !4
+  tail call void %14(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %.pn3.i28.i, i64 noundef %.pn1.i26.i), !noalias !15584
   br label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit"
 
 "_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..hash..Hash$GT$4hash17h04e5676d76cc6a2bE.llvm.7925137649769596059.exit": ; preds = %2, %.sink.split.i
@@ -103568,21 +103568,21 @@ define internal fastcc void @"_ZN90_$LT$datafusion_expr..logical_plan..ddl..Drop
   %9 = load ptr, ptr %8, align 8, !invariant.load !4, !noalias !15636, !nonnull !4
   tail call void %9(ptr noundef nonnull align 1 %.val, i64 noundef %7), !noalias !15636
   %10 = icmp eq i64 %5, -9223372036854775807
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !15633, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !15633, !noundef !4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !15633, !noundef !4
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !15633, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %.val1, i64 144
   %12 = load ptr, ptr %11, align 8, !invariant.load !4, !noalias !15633, !nonnull !4
-  tail call void %12(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i), !noalias !15633
+  tail call void %12(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i), !noalias !15633
   br i1 %10, label %"_ZN89_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..hash..Hash$GT$4hash17hec8d68023d002e0bE.exit", label %13
 
 13:                                               ; preds = %2
-  %.sroa.0.0.in.i5.i = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.i6.i = load ptr, ptr %.sroa.0.0.in.i5.i, align 8, !alias.scope !15639, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i7.i = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.5.0.i8.i = load i64, ptr %.sroa.5.0.in.i7.i, align 8, !alias.scope !15639, !noundef !4
-  tail call void %12(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i6.i, i64 noundef %.sroa.5.0.i8.i), !noalias !15642
+  %.pn1.in.i7.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn1.i8.i = load i64, ptr %.pn1.in.i7.i, align 8, !alias.scope !15639, !noundef !4
+  %.pn3.in.i9.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.pn3.i10.i = load ptr, ptr %.pn3.in.i9.i, align 8, !alias.scope !15639, !nonnull !4, !noundef !4
+  tail call void %12(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 1 %.pn3.i10.i, i64 noundef %.pn1.i8.i), !noalias !15642
   br label %"_ZN89_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..hash..Hash$GT$4hash17hec8d68023d002e0bE.exit"
 
 "_ZN89_$LT$datafusion_common..schema_reference..SchemaReference$u20$as$u20$core..hash..Hash$GT$4hash17hec8d68023d002e0bE.exit": ; preds = %2, %13
@@ -105237,8 +105237,8 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$datafusion_common..table_r
   br i1 %11, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 12:                                               ; preds = %2
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.in.i27 = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.in.i25 = getelementptr inbounds i8, ptr %1, i64 16
   switch i64 %6, label %default.unreachable [
     i64 0, label %14
     i64 1, label %16
@@ -105246,18 +105246,18 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$datafusion_common..table_r
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split": ; preds = %25, %22, %14
-  %.sink92 = phi i64 [ 8, %14 ], [ 32, %22 ], [ 56, %25 ]
-  %.sroa.5.0.i80.sink = phi i64 [ %.sroa.5.0.i, %14 ], [ %.sroa.5.0.i56, %22 ], [ %.sroa.5.0.i80, %25 ]
-  %.sroa.0.0.in.i81 = getelementptr inbounds i8, ptr %1, i64 %.sink92
-  %.sroa.0.0.i82 = load ptr, ptr %.sroa.0.0.in.i81, align 8, !nonnull !4, !noundef !4
-  %.sroa.0.0.in.i77 = getelementptr inbounds i8, ptr %0, i64 %.sink92
-  %.sroa.0.0.i78 = load ptr, ptr %.sroa.0.0.in.i77, align 8, !nonnull !4, !noundef !4
-  %bcmp.i87 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i78, ptr nonnull readonly align 1 %.sroa.0.0.i82, i64 %.sroa.5.0.i80.sink)
-  %13 = icmp eq i32 %bcmp.i87, 0
+  %.sink114 = phi i64 [ 8, %14 ], [ 32, %22 ], [ 56, %25 ]
+  %.pn1.i96.sink = phi i64 [ %.pn1.i, %14 ], [ %.pn1.i64, %22 ], [ %.pn1.i96, %25 ]
+  %.pn3.in.i103 = getelementptr inbounds i8, ptr %1, i64 %.sink114
+  %.pn3.i104 = load ptr, ptr %.pn3.in.i103, align 8, !nonnull !4, !noundef !4
+  %.pn3.in.i97 = getelementptr inbounds i8, ptr %0, i64 %.sink114
+  %.pn3.i98 = load ptr, ptr %.pn3.in.i97, align 8, !nonnull !4, !noundef !4
+  %bcmp.i109 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i98, ptr nonnull readonly align 1 %.pn3.i104, i64 %.pn1.i96.sink)
+  %13 = icmp eq i32 %bcmp.i109, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split", %23, %19, %16, %25, %22, %14, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit52", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit76", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit40", %2
-  %.0.shrunk = phi i1 [ false, %2 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit40" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit76" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit52" ], [ false, %14 ], [ false, %22 ], [ false, %25 ], [ false, %16 ], [ false, %19 ], [ false, %23 ], [ %13, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split" ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split", %23, %19, %16, %25, %22, %14, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit62", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit94", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit46", %2
+  %.0.shrunk = phi i1 [ false, %2 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit46" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit94" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit62" ], [ false, %14 ], [ false, %22 ], [ false, %25 ], [ false, %16 ], [ false, %19 ], [ false, %23 ], [ %13, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split" ]
   ret i1 %.0.shrunk
 
 default.unreachable:                              ; preds = %12
@@ -105266,77 +105266,77 @@ default.unreachable:                              ; preds = %12
 14:                                               ; preds = %12
   %15 = icmp eq i64 %9, 0
   tail call void @llvm.assume(i1 %15)
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !15700, !noundef !4
-  %.sroa.5.0.i28 = load i64, ptr %.sroa.5.0.in.i27, align 8, !alias.scope !15703, !noundef !4
-  %.not.i = icmp eq i64 %.sroa.5.0.i, %.sroa.5.0.i28
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !15700, !noundef !4
+  %.pn1.i26 = load i64, ptr %.pn1.in.i25, align 8, !alias.scope !15703, !noundef !4
+  %.not.i = icmp eq i64 %.pn1.i, %.pn1.i26
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 16:                                               ; preds = %12
   %17 = icmp eq i64 %9, 1
   tail call void @llvm.assume(i1 %17)
-  %.sroa.5.0.i32 = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !15706, !noundef !4
-  %.sroa.5.0.i36 = load i64, ptr %.sroa.5.0.in.i27, align 8, !alias.scope !15709, !noundef !4
-  %.not.i37 = icmp eq i64 %.sroa.5.0.i32, %.sroa.5.0.i36
-  br i1 %.not.i37, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit40", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
+  %.pn1.i32 = load i64, ptr %.pn1.in.i, align 8, !alias.scope !15706, !noundef !4
+  %.pn1.i38 = load i64, ptr %.pn1.in.i25, align 8, !alias.scope !15709, !noundef !4
+  %.not.i43 = icmp eq i64 %.pn1.i32, %.pn1.i38
+  br i1 %.not.i43, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit46", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit40": ; preds = %16
-  %.sroa.0.0.in.i33 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i34 = load ptr, ptr %.sroa.0.0.in.i33, align 8, !alias.scope !15709, !nonnull !4, !noundef !4
-  %.sroa.0.0.in.i29 = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i30 = load ptr, ptr %.sroa.0.0.in.i29, align 8, !alias.scope !15706, !nonnull !4, !noundef !4
-  %bcmp.i39 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i30, ptr nonnull readonly align 1 %.sroa.0.0.i34, i64 %.sroa.5.0.i32), !alias.scope !15712
-  %18 = icmp eq i32 %bcmp.i39, 0
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit46": ; preds = %16
+  %.pn3.in.i39 = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i40 = load ptr, ptr %.pn3.in.i39, align 8, !alias.scope !15709, !nonnull !4, !noundef !4
+  %.pn3.in.i33 = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i34 = load ptr, ptr %.pn3.in.i33, align 8, !alias.scope !15706, !nonnull !4, !noundef !4
+  %bcmp.i45 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i34, ptr nonnull readonly align 1 %.pn3.i40, i64 %.pn1.i32), !alias.scope !15712
+  %18 = icmp eq i32 %bcmp.i45, 0
   br i1 %18, label %22, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
 19:                                               ; preds = %12
   %20 = icmp ugt i64 %9, 1
   tail call void @llvm.assume(i1 %20)
-  %.sroa.5.0.i44 = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !15716, !noundef !4
-  %.sroa.5.0.i48 = load i64, ptr %.sroa.5.0.in.i27, align 8, !alias.scope !15719, !noundef !4
-  %.not.i49 = icmp eq i64 %.sroa.5.0.i44, %.sroa.5.0.i48
-  br i1 %.not.i49, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit52", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
+  %.pn1.i48 = load i64, ptr %.pn1.in.i, align 8, !alias.scope !15716, !noundef !4
+  %.pn1.i54 = load i64, ptr %.pn1.in.i25, align 8, !alias.scope !15719, !noundef !4
+  %.not.i59 = icmp eq i64 %.pn1.i48, %.pn1.i54
+  br i1 %.not.i59, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit62", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit52": ; preds = %19
-  %.sroa.0.0.in.i45 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i46 = load ptr, ptr %.sroa.0.0.in.i45, align 8, !alias.scope !15719, !nonnull !4, !noundef !4
-  %.sroa.0.0.in.i41 = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i42 = load ptr, ptr %.sroa.0.0.in.i41, align 8, !alias.scope !15716, !nonnull !4, !noundef !4
-  %bcmp.i51 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i42, ptr nonnull readonly align 1 %.sroa.0.0.i46, i64 %.sroa.5.0.i44), !alias.scope !15722
-  %21 = icmp eq i32 %bcmp.i51, 0
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit62": ; preds = %19
+  %.pn3.in.i55 = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i56 = load ptr, ptr %.pn3.in.i55, align 8, !alias.scope !15719, !nonnull !4, !noundef !4
+  %.pn3.in.i49 = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i50 = load ptr, ptr %.pn3.in.i49, align 8, !alias.scope !15716, !nonnull !4, !noundef !4
+  %bcmp.i61 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i50, ptr nonnull readonly align 1 %.pn3.i56, i64 %.pn1.i48), !alias.scope !15722
+  %21 = icmp eq i32 %bcmp.i61, 0
   br i1 %21, label %23, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-22:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit40"
-  %.sroa.5.0.in.i55 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.5.0.i56 = load i64, ptr %.sroa.5.0.in.i55, align 8, !alias.scope !15726, !noundef !4
-  %.sroa.5.0.in.i59 = getelementptr inbounds i8, ptr %1, i64 40
-  %.sroa.5.0.i60 = load i64, ptr %.sroa.5.0.in.i59, align 8, !alias.scope !15729, !noundef !4
-  %.not.i61 = icmp eq i64 %.sroa.5.0.i56, %.sroa.5.0.i60
-  br i1 %.not.i61, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
+22:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit46"
+  %.pn1.in.i63 = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn1.i64 = load i64, ptr %.pn1.in.i63, align 8, !alias.scope !15726, !noundef !4
+  %.pn1.in.i69 = getelementptr inbounds i8, ptr %1, i64 40
+  %.pn1.i70 = load i64, ptr %.pn1.in.i69, align 8, !alias.scope !15729, !noundef !4
+  %.not.i75 = icmp eq i64 %.pn1.i64, %.pn1.i70
+  br i1 %.not.i75, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-23:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit52"
-  %.sroa.5.0.in.i67 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.5.0.i68 = load i64, ptr %.sroa.5.0.in.i67, align 8, !alias.scope !15732, !noundef !4
-  %.sroa.5.0.in.i71 = getelementptr inbounds i8, ptr %1, i64 40
-  %.sroa.5.0.i72 = load i64, ptr %.sroa.5.0.in.i71, align 8, !alias.scope !15735, !noundef !4
-  %.not.i73 = icmp eq i64 %.sroa.5.0.i68, %.sroa.5.0.i72
-  br i1 %.not.i73, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit76", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
+23:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit62"
+  %.pn1.in.i79 = getelementptr inbounds i8, ptr %0, i64 40
+  %.pn1.i80 = load i64, ptr %.pn1.in.i79, align 8, !alias.scope !15732, !noundef !4
+  %.pn1.in.i85 = getelementptr inbounds i8, ptr %1, i64 40
+  %.pn1.i86 = load i64, ptr %.pn1.in.i85, align 8, !alias.scope !15735, !noundef !4
+  %.not.i91 = icmp eq i64 %.pn1.i80, %.pn1.i86
+  br i1 %.not.i91, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit94", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit76": ; preds = %23
-  %.sroa.0.0.in.i69 = getelementptr inbounds i8, ptr %1, i64 32
-  %.sroa.0.0.i70 = load ptr, ptr %.sroa.0.0.in.i69, align 8, !alias.scope !15735, !nonnull !4, !noundef !4
-  %.sroa.0.0.in.i65 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.i66 = load ptr, ptr %.sroa.0.0.in.i65, align 8, !alias.scope !15732, !nonnull !4, !noundef !4
-  %bcmp.i75 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i66, ptr nonnull readonly align 1 %.sroa.0.0.i70, i64 %.sroa.5.0.i68), !alias.scope !15738
-  %24 = icmp eq i32 %bcmp.i75, 0
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit94": ; preds = %23
+  %.pn3.in.i87 = getelementptr inbounds i8, ptr %1, i64 32
+  %.pn3.i88 = load ptr, ptr %.pn3.in.i87, align 8, !alias.scope !15735, !nonnull !4, !noundef !4
+  %.pn3.in.i81 = getelementptr inbounds i8, ptr %0, i64 32
+  %.pn3.i82 = load ptr, ptr %.pn3.in.i81, align 8, !alias.scope !15732, !nonnull !4, !noundef !4
+  %bcmp.i93 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.pn3.i82, ptr nonnull readonly align 1 %.pn3.i88, i64 %.pn1.i80), !alias.scope !15738
+  %24 = icmp eq i32 %bcmp.i93, 0
   br i1 %24, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 
-25:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit76"
-  %.sroa.5.0.in.i79 = getelementptr inbounds i8, ptr %0, i64 64
-  %.sroa.5.0.i80 = load i64, ptr %.sroa.5.0.in.i79, align 8, !alias.scope !15742, !noundef !4
-  %.sroa.5.0.in.i83 = getelementptr inbounds i8, ptr %1, i64 64
-  %.sroa.5.0.i84 = load i64, ptr %.sroa.5.0.in.i83, align 8, !alias.scope !15745, !noundef !4
-  %.not.i85 = icmp eq i64 %.sroa.5.0.i80, %.sroa.5.0.i84
-  br i1 %.not.i85, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
+25:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit94"
+  %.pn1.in.i95 = getelementptr inbounds i8, ptr %0, i64 64
+  %.pn1.i96 = load i64, ptr %.pn1.in.i95, align 8, !alias.scope !15742, !noundef !4
+  %.pn1.in.i101 = getelementptr inbounds i8, ptr %1, i64 64
+  %.pn1.i102 = load i64, ptr %.pn1.in.i101, align 8, !alias.scope !15745, !noundef !4
+  %.not.i107 = icmp eq i64 %.pn1.i96, %.pn1.i102
+  br i1 %.not.i107, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit"
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

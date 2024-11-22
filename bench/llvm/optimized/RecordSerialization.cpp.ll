@@ -654,11 +654,11 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit: ; preds = %14, %17, %20
   %30 = sub i64 %.0.i.i.i, %29
   %31 = load i64, ptr %7, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8
-  %.sroa.0.0.idx.i = call i64 @llvm.usub.sat.i64(i64 %31, i64 %30)
-  %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.0.0.idx.i
-  %.sroa.3.0.i = call i64 @llvm.umin.i64(i64 %30, i64 %31)
-  store ptr %.sroa.0.0.i, ptr %1, align 8
-  store i64 %.sroa.3.0.i, ptr %7, align 8
+  %.sroa.0.0.copyload.pn.idx.i = call i64 @llvm.usub.sat.i64(i64 %31, i64 %30)
+  %.sroa.0.0.copyload.pn.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.0.0.copyload.pn.idx.i
+  %.pn2.i = call i64 @llvm.umin.i64(i64 %30, i64 %31)
+  store ptr %.sroa.0.0.copyload.pn.i, ptr %1, align 8
+  store i64 %.pn2.i, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %5, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load ptr, ptr %32, align 8
@@ -1008,11 +1008,11 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit: ; preds = %24, %27, %30
   %40 = sub i64 %.0.i.i.i, %39
   %41 = load i64, ptr %8, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8
-  %.sroa.0.0.idx.i = call i64 @llvm.usub.sat.i64(i64 %41, i64 %40)
-  %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.0.0.idx.i
-  %.sroa.3.0.i = call i64 @llvm.umin.i64(i64 %40, i64 %41)
-  store ptr %.sroa.0.0.i, ptr %1, align 8
-  store i64 %.sroa.3.0.i, ptr %8, align 8
+  %.sroa.0.0.copyload.pn.idx.i = call i64 @llvm.usub.sat.i64(i64 %41, i64 %40)
+  %.sroa.0.0.copyload.pn.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.0.0.copyload.pn.idx.i
+  %.pn2.i = call i64 @llvm.umin.i64(i64 %40, i64 %41)
+  store ptr %.sroa.0.0.copyload.pn.i, ptr %1, align 8
+  store i64 %.pn2.i, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %6, align 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %43 = load ptr, ptr %42, align 8

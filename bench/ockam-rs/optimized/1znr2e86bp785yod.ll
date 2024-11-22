@@ -1131,12 +1131,12 @@ define { ptr, i64 } @"_ZN74_$LT$ockam_multiaddr..proto..Worker$u20$as$u20$core..
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !159, !nonnull !33, !align !36
-  %.sroa.0.0.i = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !159, !noundef !33
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %7
+  %.pn3.i = select i1 %3, ptr %5, ptr %2
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !159, !noundef !33
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn1.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -1284,10 +1284,10 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Worker$u20$as$u20$ockam_multiadd
   br label %6
 
 6:                                                ; preds = %3, %6
-  %.0717.i32 = phi i64 [ 0, %3 ], [ %7, %6 ]
-  %.018.i31 = phi i32 [ 102526, %3 ], [ %8, %6 ]
-  %7 = add nuw nsw i64 %.0717.i32, 1
-  %8 = lshr i32 %.018.i31, 7
+  %.0717.i34 = phi i64 [ 0, %3 ], [ %7, %6 ]
+  %.018.i33 = phi i32 [ 102526, %3 ], [ %8, %6 ]
+  %7 = add nuw nsw i64 %.0717.i34, 1
+  %8 = lshr i32 %.018.i33, 7
   %.sroa.0.0.ptr19.i = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = trunc i32 %8 to i8
   %10 = or i8 %9, -128
@@ -1306,8 +1306,8 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %13 = load ptr, ptr %0, align 8, !noundef !33
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !33, !align !36
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !33
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !189)
   br label %18
 
@@ -1324,7 +1324,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   unreachable
 
 18:                                               ; preds = %22, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit
-  %.018.i1 = phi i64 [ %.sroa.5.0.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
+  %.018.i1 = phi i64 [ %.pn1.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   %19 = trunc i64 %.018.i1 to i8
@@ -1341,9 +1341,9 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
 
 _ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit: ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
   %26 = icmp eq ptr %13, null
-  %.sroa.0.0.i = select i1 %26, ptr %15, ptr %13
+  %.pn3.i = select i1 %26, ptr %15, ptr %13
   call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
-  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
   ret void
@@ -1365,12 +1365,12 @@ define { ptr, i64 } @"_ZN75_$LT$ockam_multiaddr..proto..DnsAddr$u20$as$u20$core.
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !198, !nonnull !33, !align !36
-  %.sroa.0.0.i = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !198, !noundef !33
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %7
+  %.pn3.i = select i1 %3, ptr %5, ptr %2
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !198, !noundef !33
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn1.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -1525,8 +1525,8 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..DnsAddr$u20$as$u20$ockam_multiad
   %8 = load ptr, ptr %0, align 8, !noundef !33
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !33, !align !36
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !33
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !228)
   br label %13
 
@@ -1543,7 +1543,7 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..DnsAddr$u20$as$u20$ockam_multiad
   unreachable
 
 13:                                               ; preds = %17, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i"
-  %.018.i1 = phi i64 [ %.sroa.5.0.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %19, %17 ]
+  %.018.i1 = phi i64 [ %.pn1.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %19, %17 ]
   %.0717.i2 = phi i64 [ 0, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %18, %17 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds i8, ptr %3, i64 %.0717.i2
   %14 = trunc i64 %.018.i1 to i8
@@ -1560,9 +1560,9 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..DnsAddr$u20$as$u20$ockam_multiad
 
 _ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit: ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
   %21 = icmp eq ptr %8, null
-  %.sroa.0.0.i = select i1 %21, ptr %10, ptr %8
+  %.pn3.i = select i1 %21, ptr %10, ptr %8
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %11)
-  call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4)
   ret void
@@ -1584,12 +1584,12 @@ define { ptr, i64 } @"_ZN75_$LT$ockam_multiaddr..proto..Service$u20$as$u20$core.
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !237, !nonnull !33, !align !36
-  %.sroa.0.0.i = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !237, !noundef !33
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %7
+  %.pn3.i = select i1 %3, ptr %5, ptr %2
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !237, !noundef !33
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn1.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -1737,10 +1737,10 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Service$u20$as$u20$ockam_multiad
   br label %6
 
 6:                                                ; preds = %3, %6
-  %.0717.i32 = phi i64 [ 0, %3 ], [ %7, %6 ]
-  %.018.i31 = phi i32 [ 62526, %3 ], [ %8, %6 ]
-  %7 = add nuw nsw i64 %.0717.i32, 1
-  %8 = lshr i32 %.018.i31, 7
+  %.0717.i34 = phi i64 [ 0, %3 ], [ %7, %6 ]
+  %.018.i33 = phi i32 [ 62526, %3 ], [ %8, %6 ]
+  %7 = add nuw nsw i64 %.0717.i34, 1
+  %8 = lshr i32 %.018.i33, 7
   %.sroa.0.0.ptr19.i = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = trunc i32 %8 to i8
   %10 = or i8 %9, -128
@@ -1759,8 +1759,8 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %13 = load ptr, ptr %0, align 8, !noundef !33
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !33, !align !36
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !33
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !267)
   br label %18
 
@@ -1777,7 +1777,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   unreachable
 
 18:                                               ; preds = %22, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit
-  %.018.i1 = phi i64 [ %.sroa.5.0.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
+  %.018.i1 = phi i64 [ %.pn1.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   %19 = trunc i64 %.018.i1 to i8
@@ -1794,9 +1794,9 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
 
 _ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit: ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
   %26 = icmp eq ptr %13, null
-  %.sroa.0.0.i = select i1 %26, ptr %15, ptr %13
+  %.pn3.i = select i1 %26, ptr %15, ptr %13
   call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
-  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
   ret void
@@ -1818,12 +1818,12 @@ define { ptr, i64 } @"_ZN72_$LT$ockam_multiaddr..proto..Node$u20$as$u20$core..op
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !276, !nonnull !33, !align !36
-  %.sroa.0.0.i = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !276, !noundef !33
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %7
+  %.pn3.i = select i1 %3, ptr %5, ptr %2
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !276, !noundef !33
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn1.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -1971,10 +1971,10 @@ define void @"_ZN74_$LT$ockam_multiaddr..proto..Node$u20$as$u20$ockam_multiaddr.
   br label %6
 
 6:                                                ; preds = %3, %6
-  %.0717.i32 = phi i64 [ 0, %3 ], [ %7, %6 ]
-  %.018.i31 = phi i32 [ 72526, %3 ], [ %8, %6 ]
-  %7 = add nuw nsw i64 %.0717.i32, 1
-  %8 = lshr i32 %.018.i31, 7
+  %.0717.i34 = phi i64 [ 0, %3 ], [ %7, %6 ]
+  %.018.i33 = phi i32 [ 72526, %3 ], [ %8, %6 ]
+  %7 = add nuw nsw i64 %.0717.i34, 1
+  %8 = lshr i32 %.018.i33, 7
   %.sroa.0.0.ptr19.i = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = trunc i32 %8 to i8
   %10 = or i8 %9, -128
@@ -1993,8 +1993,8 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %13 = load ptr, ptr %0, align 8, !noundef !33
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !33, !align !36
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !33
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !306)
   br label %18
 
@@ -2011,7 +2011,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   unreachable
 
 18:                                               ; preds = %22, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit
-  %.018.i1 = phi i64 [ %.sroa.5.0.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
+  %.018.i1 = phi i64 [ %.pn1.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   %19 = trunc i64 %.018.i1 to i8
@@ -2028,9 +2028,9 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
 
 _ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit: ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
   %26 = icmp eq ptr %13, null
-  %.sroa.0.0.i = select i1 %26, ptr %15, ptr %13
+  %.pn3.i = select i1 %26, ptr %15, ptr %13
   call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
-  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
   ret void
@@ -2052,12 +2052,12 @@ define { ptr, i64 } @"_ZN75_$LT$ockam_multiaddr..proto..Project$u20$as$u20$core.
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !315, !nonnull !33, !align !36
-  %.sroa.0.0.i = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !315, !noundef !33
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %7
+  %.pn3.i = select i1 %3, ptr %5, ptr %2
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !315, !noundef !33
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn1.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -2205,10 +2205,10 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Project$u20$as$u20$ockam_multiad
   br label %6
 
 6:                                                ; preds = %3, %6
-  %.0717.i32 = phi i64 [ 0, %3 ], [ %7, %6 ]
-  %.018.i31 = phi i32 [ 82526, %3 ], [ %8, %6 ]
-  %7 = add nuw nsw i64 %.0717.i32, 1
-  %8 = lshr i32 %.018.i31, 7
+  %.0717.i34 = phi i64 [ 0, %3 ], [ %7, %6 ]
+  %.018.i33 = phi i32 [ 82526, %3 ], [ %8, %6 ]
+  %7 = add nuw nsw i64 %.0717.i34, 1
+  %8 = lshr i32 %.018.i33, 7
   %.sroa.0.0.ptr19.i = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = trunc i32 %8 to i8
   %10 = or i8 %9, -128
@@ -2227,8 +2227,8 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %13 = load ptr, ptr %0, align 8, !noundef !33
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !33, !align !36
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !33
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !345)
   br label %18
 
@@ -2245,7 +2245,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   unreachable
 
 18:                                               ; preds = %22, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit
-  %.018.i1 = phi i64 [ %.sroa.5.0.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
+  %.018.i1 = phi i64 [ %.pn1.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   %19 = trunc i64 %.018.i1 to i8
@@ -2262,9 +2262,9 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
 
 _ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit: ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
   %26 = icmp eq ptr %13, null
-  %.sroa.0.0.i = select i1 %26, ptr %15, ptr %13
+  %.pn3.i = select i1 %26, ptr %15, ptr %13
   call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
-  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
   ret void
@@ -2286,12 +2286,12 @@ define { ptr, i64 } @"_ZN73_$LT$ockam_multiaddr..proto..Space$u20$as$u20$core..o
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !354, !nonnull !33, !align !36
-  %.sroa.0.0.i = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !354, !noundef !33
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %7
+  %.pn3.i = select i1 %3, ptr %5, ptr %2
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !354, !noundef !33
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn1.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -2439,10 +2439,10 @@ define void @"_ZN75_$LT$ockam_multiaddr..proto..Space$u20$as$u20$ockam_multiaddr
   br label %6
 
 6:                                                ; preds = %3, %6
-  %.0717.i32 = phi i64 [ 0, %3 ], [ %7, %6 ]
-  %.018.i31 = phi i32 [ 92526, %3 ], [ %8, %6 ]
-  %7 = add nuw nsw i64 %.0717.i32, 1
-  %8 = lshr i32 %.018.i31, 7
+  %.0717.i34 = phi i64 [ 0, %3 ], [ %7, %6 ]
+  %.018.i33 = phi i32 [ 92526, %3 ], [ %8, %6 ]
+  %7 = add nuw nsw i64 %.0717.i34, 1
+  %8 = lshr i32 %.018.i33, 7
   %.sroa.0.0.ptr19.i = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = trunc i32 %8 to i8
   %10 = or i8 %9, -128
@@ -2461,8 +2461,8 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %13 = load ptr, ptr %0, align 8, !noundef !33
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !33, !align !36
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !33
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !384)
   br label %18
 
@@ -2479,7 +2479,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   unreachable
 
 18:                                               ; preds = %22, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit
-  %.018.i1 = phi i64 [ %.sroa.5.0.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
+  %.018.i1 = phi i64 [ %.pn1.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   %19 = trunc i64 %.018.i1 to i8
@@ -2496,9 +2496,9 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
 
 _ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit: ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
   %26 = icmp eq ptr %13, null
-  %.sroa.0.0.i = select i1 %26, ptr %15, ptr %13
+  %.pn3.i = select i1 %26, ptr %15, ptr %13
   call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
-  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
   ret void
@@ -2520,12 +2520,12 @@ define { ptr, i64 } @"_ZN74_$LT$ockam_multiaddr..proto..Secure$u20$as$u20$core..
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !393, !nonnull !33, !align !36
-  %.sroa.0.0.i = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !393, !noundef !33
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %7
+  %.pn3.i = select i1 %3, ptr %5, ptr %2
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !393, !noundef !33
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.pn1.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -2673,10 +2673,10 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Secure$u20$as$u20$ockam_multiadd
   br label %6
 
 6:                                                ; preds = %3, %6
-  %.0717.i32 = phi i64 [ 0, %3 ], [ %7, %6 ]
-  %.018.i31 = phi i32 [ 99526, %3 ], [ %8, %6 ]
-  %7 = add nuw nsw i64 %.0717.i32, 1
-  %8 = lshr i32 %.018.i31, 7
+  %.0717.i34 = phi i64 [ 0, %3 ], [ %7, %6 ]
+  %.018.i33 = phi i32 [ 99526, %3 ], [ %8, %6 ]
+  %7 = add nuw nsw i64 %.0717.i34, 1
+  %8 = lshr i32 %.018.i33, 7
   %.sroa.0.0.ptr19.i = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = trunc i32 %8 to i8
   %10 = or i8 %9, -128
@@ -2695,8 +2695,8 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %13 = load ptr, ptr %0, align 8, !noundef !33
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !33, !align !36
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !noundef !33
+  %.pn1.in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !423)
   br label %18
 
@@ -2713,7 +2713,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   unreachable
 
 18:                                               ; preds = %22, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit
-  %.018.i1 = phi i64 [ %.sroa.5.0.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
+  %.018.i1 = phi i64 [ %.pn1.i, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exit ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   %19 = trunc i64 %.018.i1 to i8
@@ -2730,9 +2730,9 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
 
 _ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit: ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
   %26 = icmp eq ptr %13, null
-  %.sroa.0.0.i = select i1 %26, ptr %15, ptr %13
+  %.pn3.i = select i1 %26, ptr %15, ptr %13
   call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
-  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  call void %12(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
   ret void

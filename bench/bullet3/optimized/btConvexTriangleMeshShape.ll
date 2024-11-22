@@ -270,16 +270,16 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call { <2 x float>, <2 x float> } %0(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(16) %vec)
-  %1 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  %2 = extractvalue { <2 x float>, <2 x float> } %call, 1
   %vtable2 = load ptr, ptr %this, align 8
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 96
-  %3 = load ptr, ptr %vfn3, align 8
-  %call4 = tail call noundef float %3(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %1 = load ptr, ptr %vfn3, align 8
+  %call4 = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(72) %this)
   %cmp = fcmp une float %call4, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end19
 
 if.then:                                          ; preds = %entry
+  %2 = extractvalue { <2 x float>, <2 x float> } %call, 1
+  %3 = extractvalue { <2 x float>, <2 x float> } %call, 0
   %vecnorm.sroa.0.0.copyload = load float, ptr %vec, align 4
   %vecnorm.sroa.6.0.vec.sroa_idx = getelementptr inbounds i8, ptr %vec, i64 4
   %vecnorm.sroa.6.0.copyload = load float, ptr %vecnorm.sroa.6.0.vec.sroa_idx, align 4
@@ -307,23 +307,22 @@ if.then:                                          ; preds = %entry
   %mul.i.i = fmul float %call15, %mul.i.i.i
   %mul4.i.i = fmul float %call15, %mul4.i.i.i
   %mul8.i.i2 = fmul float %call15, %mul7.i.i.i
-  %retval.sroa.0.0.vec.extract = extractelement <2 x float> %1, i64 0
+  %retval.sroa.0.0.vec.extract = extractelement <2 x float> %3, i64 0
   %add.i = fadd float %retval.sroa.0.0.vec.extract, %mul.i.i
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add.i, i64 0
-  %retval.sroa.0.4.vec.extract = extractelement <2 x float> %1, i64 1
+  %retval.sroa.0.4.vec.extract = extractelement <2 x float> %3, i64 1
   %add8.i = fadd float %retval.sroa.0.4.vec.extract, %mul4.i.i
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %add8.i, i64 1
   %retval.sroa.6.8.vec.extract = extractelement <2 x float> %2, i64 0
   %add13.i = fadd float %retval.sroa.6.8.vec.extract, %mul8.i.i2
   %retval.sroa.6.8.vec.insert = insertelement <2 x float> %2, float %add13.i, i64 0
+  %9 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.4.vec.insert, 0
+  %10 = insertvalue { <2 x float>, <2 x float> } %9, <2 x float> %retval.sroa.6.8.vec.insert, 1
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then, %entry
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert, %if.then ], [ %1, %entry ]
-  %retval.sroa.6.0 = phi <2 x float> [ %retval.sroa.6.8.vec.insert, %if.then ], [ %2, %entry ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.6.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %10, %if.then ], [ %call, %entry ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -448,34 +447,34 @@ cond.false.i:                                     ; preds = %invoke.cont6
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %cond.false.i, %cond.true.i
-  %retval.sroa.0.0.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i.i, %cond.true.i ], [ %retval.sroa.0.0.copyload.i, %cond.false.i ]
-  %retval.sroa.3.0.i = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i.i.i, %cond.true.i ], [ %retval.sroa.3.0.copyload.i, %cond.false.i ]
+  %retval.sroa.0.4.vec.insert.i.i.pn.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i.i, %cond.true.i ], [ %retval.sroa.0.0.copyload.i, %cond.false.i ]
+  %retval.sroa.3.12.vec.insert.i.i.pn.i = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i.i.i, %cond.true.i ], [ %retval.sroa.3.0.copyload.i, %cond.false.i ]
   %m_origin.i = getelementptr inbounds i8, ptr %principal, i64 48
-  store <2 x float> %retval.sroa.0.0.i, ptr %m_origin.i, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.pn.i, ptr %m_origin.i, align 4
   %center.sroa.3.0.m_origin.i.sroa_idx = getelementptr inbounds i8, ptr %principal, i64 56
-  store <2 x float> %retval.sroa.3.0.i, ptr %center.sroa.3.0.m_origin.i.sroa_idx, align 4
+  store <2 x float> %retval.sroa.3.12.vec.insert.i.i.pn.i, ptr %center.sroa.3.0.m_origin.i.sroa_idx, align 4
   %mul.i = fmul float %3, 0x3FC5555560000000
   store float %mul.i, ptr %volume, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE15InertiaCallback, i64 16), ptr %inertiaCallback, align 8
-  %sum.i13 = getelementptr inbounds i8, ptr %inertiaCallback, i64 8
+  %sum.i11 = getelementptr inbounds i8, ptr %inertiaCallback, i64 8
   %center10.i = getelementptr inbounds i8, ptr %inertiaCallback, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %sum.i13, i8 0, i64 48, i1 false)
-  store <2 x float> %retval.sroa.0.0.i, ptr %center10.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %sum.i11, i8 0, i64 48, i1 false)
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.pn.i, ptr %center10.i, align 8
   %center.sroa.3.0.center10.i.sroa_idx = getelementptr inbounds i8, ptr %inertiaCallback, i64 64
-  store <2 x float> %retval.sroa.3.0.i, ptr %center.sroa.3.0.center10.i.sroa_idx, align 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i.i.pn.i, ptr %center.sroa.3.0.center10.i.sroa_idx, align 8
   %7 = load ptr, ptr %m_stridingMesh, align 8
   %8 = load float, ptr %aabbMax, align 4
-  %fneg.i14 = fneg float %8
+  %fneg.i12 = fneg float %8
   %9 = load float, ptr %arrayidx3.i, align 4
-  %fneg4.i16 = fneg float %9
+  %fneg4.i14 = fneg float %9
   %10 = load float, ptr %arrayidx5.i, align 4
-  %fneg8.i18 = fneg float %10
-  %retval.sroa.0.0.vec.insert.i19 = insertelement <2 x float> poison, float %fneg.i14, i64 0
-  %retval.sroa.0.4.vec.insert.i20 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i19, float %fneg4.i16, i64 1
-  %retval.sroa.3.12.vec.insert.i21 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i18, i64 0
-  store <2 x float> %retval.sroa.0.4.vec.insert.i20, ptr %ref.tmp15, align 8
+  %fneg8.i16 = fneg float %10
+  %retval.sroa.0.0.vec.insert.i17 = insertelement <2 x float> poison, float %fneg.i12, i64 0
+  %retval.sroa.0.4.vec.insert.i18 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i17, float %fneg4.i14, i64 1
+  %retval.sroa.3.12.vec.insert.i19 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i16, i64 0
+  store <2 x float> %retval.sroa.0.4.vec.insert.i18, ptr %ref.tmp15, align 8
   %11 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i21, ptr %11, align 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i19, ptr %11, align 8
   %vtable20 = load ptr, ptr %7, align 8
   %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 16
   %12 = load ptr, ptr %vfn21, align 8
@@ -483,30 +482,30 @@ invoke.cont17:                                    ; preds = %cond.false.i, %cond
           to label %invoke.cont22 unwind label %lpad16
 
 invoke.cont22:                                    ; preds = %invoke.cont17
-  invoke void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noundef nonnull align 4 dereferenceable(48) %sum.i13, ptr noundef nonnull align 4 dereferenceable(48) %principal, float noundef 0x3EE4F8B580000000, i32 noundef 20)
+  invoke void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noundef nonnull align 4 dereferenceable(48) %sum.i11, ptr noundef nonnull align 4 dereferenceable(48) %principal, float noundef 0x3EE4F8B580000000, i32 noundef 20)
           to label %invoke.cont27 unwind label %lpad16
 
 invoke.cont27:                                    ; preds = %invoke.cont22
   %arrayidx36 = getelementptr inbounds i8, ptr %inertiaCallback, i64 28
   %arrayidx41 = getelementptr inbounds i8, ptr %inertiaCallback, i64 48
-  %13 = load float, ptr %sum.i13, align 8
+  %13 = load float, ptr %sum.i11, align 8
   store float %13, ptr %inertia, align 4
   %14 = load float, ptr %arrayidx36, align 4
-  %arrayidx3.i26 = getelementptr inbounds i8, ptr %inertia, i64 4
-  store float %14, ptr %arrayidx3.i26, align 4
+  %arrayidx3.i24 = getelementptr inbounds i8, ptr %inertia, i64 4
+  store float %14, ptr %arrayidx3.i24, align 4
   %15 = load float, ptr %arrayidx41, align 8
-  %arrayidx5.i27 = getelementptr inbounds i8, ptr %inertia, i64 8
-  store float %15, ptr %arrayidx5.i27, align 4
-  %arrayidx7.i28 = getelementptr inbounds i8, ptr %inertia, i64 12
-  store float 0.000000e+00, ptr %arrayidx7.i28, align 4
+  %arrayidx5.i25 = getelementptr inbounds i8, ptr %inertia, i64 8
+  store float %15, ptr %arrayidx5.i25, align 4
+  %arrayidx7.i26 = getelementptr inbounds i8, ptr %inertia, i64 12
+  store float 0.000000e+00, ptr %arrayidx7.i26, align 4
   %16 = load float, ptr %volume, align 4
   %div.i = fdiv float 1.000000e+00, %16
   %mul.i.i = fmul float %13, %div.i
   store float %mul.i.i, ptr %inertia, align 4
   %mul4.i.i = fmul float %14, %div.i
-  store float %mul4.i.i, ptr %arrayidx3.i26, align 4
+  store float %mul4.i.i, ptr %arrayidx3.i24, align 4
   %mul7.i.i = fmul float %15, %div.i
-  store float %mul7.i.i, ptr %arrayidx5.i27, align 4
+  store float %mul7.i.i, ptr %arrayidx5.i25, align 4
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inertiaCallback) #16
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %centerCallback) #16
   ret void

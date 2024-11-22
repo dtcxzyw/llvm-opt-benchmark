@@ -16991,8 +16991,8 @@ default.unreachable:                              ; preds = %31
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i
 
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i: ; preds = %45, %40, %34
-  %.sroa.4.0.i.i = phi i64 [ %47, %45 ], [ %44, %40 ], [ %38, %34 ]
-  %.sroa.0.0.i.i = phi ptr [ %48, %45 ], [ %42, %40 ], [ %39, %34 ]
+  %.pn5.i.i = phi ptr [ %48, %45 ], [ %42, %40 ], [ %39, %34 ]
+  %.pn3.i.i = phi i64 [ %47, %45 ], [ %44, %40 ], [ %38, %34 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !3771
   call void @llvm.experimental.noalias.scope.decl(metadata !3774)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10), !noalias !3777
@@ -17003,13 +17003,13 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i: ; preds = %45, %40, %34
 .noexc3:                                          ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i
   %50 = extractvalue { ptr, i64 } %49, 1
   %51 = load <4 x i8>, ptr %10, align 4, !noalias !3777
-  store ptr %.sroa.0.0.i.i, ptr %11, align 8, !alias.scope !3774, !noalias !3779
+  store ptr %.pn5.i.i, ptr %11, align 8, !alias.scope !3774, !noalias !3779
   %52 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %.sroa.4.0.i.i, ptr %52, align 8, !alias.scope !3774, !noalias !3779
+  store i64 %.pn3.i.i, ptr %52, align 8, !alias.scope !3774, !noalias !3779
   %53 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 0, ptr %53, align 8, !alias.scope !3774, !noalias !3779
   %54 = getelementptr inbounds i8, ptr %11, i64 24
-  store i64 %.sroa.4.0.i.i, ptr %54, align 8, !alias.scope !3774, !noalias !3779
+  store i64 %.pn3.i.i, ptr %54, align 8, !alias.scope !3774, !noalias !3779
   %55 = getelementptr inbounds i8, ptr %11, i64 44
   store i32 34, ptr %55, align 4, !alias.scope !3774, !noalias !3779
   %56 = getelementptr inbounds i8, ptr %11, i64 32
@@ -17072,7 +17072,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17haf5f8fa7386ac2baE.llvm
 "_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h6d7e6cc1a29e6004E.exit.i": ; preds = %.noexc5, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17haf5f8fa7386ac2baE.llvm.6364507639633030286.exit.i.i
   %71 = phi i64 [ %70, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17haf5f8fa7386ac2baE.llvm.6364507639633030286.exit.i.i ], [ %65, %.noexc5 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !3784
-  %72 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.not19.i.i
+  %72 = getelementptr inbounds i8, ptr %.pn5.i.i, i64 %.not19.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !3771
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !3788
   call void @llvm.experimental.noalias.scope.decl(metadata !3791)

@@ -489,8 +489,8 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_
   %189 = getelementptr inbounds i8, ptr %187, i64 32
   %190 = load ptr, ptr %189, align 8
   %191 = load i8, ptr %190, align 8
-  %.not50.i.i = icmp eq i8 %191, 17
-  br i1 %.not50.i.i, label %192, label %_ZL18handleSwitchExpectRN4llvm10SwitchInstE.exit.thread.i
+  %.not49.i.i = icmp eq i8 %191, 17
+  br i1 %.not49.i.i, label %192, label %_ZL18handleSwitchExpectRN4llvm10SwitchInstE.exit.thread.i
 
 192:                                              ; preds = %181
   %193 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 4

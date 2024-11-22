@@ -207,15 +207,15 @@ common.resume:                                    ; preds = %10, %40, %27
           to label %10 unwind label %91
 
 55:                                               ; preds = %48
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %8, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !66, !noundef !4
-  %.not.i = icmp eq i64 %.sroa.5.0.i, 0
+  %.pn1.in.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !66, !noundef !4
+  %.not.i = icmp eq i64 %.pn1.i, 0
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h06282cc4d574b0e5E.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h06282cc4d574b0e5E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h06282cc4d574b0e5E.exit": ; preds = %55
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !66, !nonnull !4, !noundef !4
-  %rhsc = load i8, ptr %.sroa.0.0.i, align 1
+  %.pn3.in.i = getelementptr inbounds i8, ptr %8, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !66, !nonnull !4, !noundef !4
+  %rhsc = load i8, ptr %.pn3.i, align 1
   %56 = icmp eq i8 %rhsc, 46
   br i1 %56, label %66, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h06282cc4d574b0e5E.exit.thread"
 
@@ -240,7 +240,7 @@ common.resume:                                    ; preds = %10, %40, %27
   %63 = load ptr, ptr %6, align 8, !noalias !73, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds i8, ptr %6, i64 16
   %65 = load i64, ptr %64, align 8, !noalias !73, !noundef !4
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1191848617827839331"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i, ptr noundef nonnull %63, i64 noundef %61, i64 noundef %65)
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1191848617827839331"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i, ptr noundef nonnull %63, i64 noundef %61, i64 noundef %65)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30846a94a26df7afE.exit.i" unwind label %53
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30846a94a26df7afE.exit.i": ; preds = %62, %.noexc
@@ -268,7 +268,7 @@ common.resume:                                    ; preds = %10, %40, %27
   %73 = load ptr, ptr %5, align 8, !noalias !85, !nonnull !4, !noundef !4
   %74 = getelementptr inbounds i8, ptr %5, i64 16
   %75 = load i64, ptr %74, align 8, !noalias !85, !noundef !4
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1191848617827839331"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i, ptr noundef nonnull %73, i64 noundef %71, i64 noundef %75)
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1191848617827839331"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i, ptr noundef nonnull %73, i64 noundef %71, i64 noundef %75)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30846a94a26df7afE.exit.i37" unwind label %53
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30846a94a26df7afE.exit.i37": ; preds = %72, %.noexc38

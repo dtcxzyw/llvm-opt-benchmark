@@ -845,11 +845,11 @@ define dso_local void @_ZN4llvm27TargetLoweringObjectFileELF17getModuleMetadataE
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 992
   br label %13
 
-13:                                               ; preds = %.lr.ph, %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit
-  %.017 = phi ptr [ %6, %.lr.ph ], [ %33, %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit ]
+13:                                               ; preds = %.lr.ph, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread
+  %.017 = phi ptr [ %6, %.lr.ph ], [ %33, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread ]
   %14 = load ptr, ptr %.017, align 8
   %15 = load i8, ptr %14, align 8
-  switch i8 %15, label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit [
+  switch i8 %15, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread [
     i8 0, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit
     i8 3, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit
     i8 2, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit
@@ -872,7 +872,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit: ; preds = %1
   %.025.i.i = phi ptr [ %26, %25 ], [ %17, %19 ]
   %23 = load ptr, ptr %.025.i.i, align 8, !noalias !4
   %24 = icmp eq ptr %23, %14
-  br i1 %24, label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit, label %25
+  br i1 %24, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread, label %25
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -888,18 +888,18 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit: ; preds = %1
   %30 = add nuw i32 %20, 1
   store i32 %30, ptr %11, align 4, !noalias !4
   store ptr %14, ptr %22, align 8, !noalias !4
-  br label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread
 
 31:                                               ; preds = %._crit_edge.i.i, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit
   %32 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef nonnull %14) #24, !noalias !4
-  br label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread
 
-_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %29, %31, %13
+_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread: ; preds = %.lr.ph.i.i, %29, %31, %13
   %33 = getelementptr inbounds i8, ptr %.017, i64 8
   %.not = icmp eq ptr %33, %8
   br i1 %.not, label %._crit_edge, label %13
 
-._crit_edge:                                      ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit, %2
+._crit_edge:                                      ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread, %2
   %34 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #24
   %35 = load ptr, ptr %3, align 8
   %36 = icmp eq ptr %35, %4
@@ -8188,11 +8188,11 @@ define dso_local void @_ZN4llvm28TargetLoweringObjectFileWasm17getModuleMetadata
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 992
   br label %13
 
-13:                                               ; preds = %.lr.ph, %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit
-  %.017 = phi ptr [ %6, %.lr.ph ], [ %33, %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit ]
+13:                                               ; preds = %.lr.ph, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread
+  %.017 = phi ptr [ %6, %.lr.ph ], [ %33, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread ]
   %14 = load ptr, ptr %.017, align 8
   %15 = load i8, ptr %14, align 8
-  switch i8 %15, label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit [
+  switch i8 %15, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread [
     i8 0, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit
     i8 3, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit
     i8 2, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit
@@ -8215,7 +8215,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit: ; preds = %1
   %.025.i.i = phi ptr [ %26, %25 ], [ %17, %19 ]
   %23 = load ptr, ptr %.025.i.i, align 8, !noalias !165
   %24 = icmp eq ptr %23, %14
-  br i1 %24, label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit, label %25
+  br i1 %24, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread, label %25
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -8231,18 +8231,18 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit: ; preds = %1
   %30 = add nuw i32 %20, 1
   store i32 %30, ptr %11, align 4, !noalias !165
   store ptr %14, ptr %22, align 8, !noalias !165
-  br label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread
 
 31:                                               ; preds = %._crit_edge.i.i, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit
   %32 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef nonnull %14) #24, !noalias !165
-  br label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread
 
-_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %29, %31, %13
+_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread: ; preds = %.lr.ph.i.i, %29, %31, %13
   %33 = getelementptr inbounds i8, ptr %.017, i64 8
   %.not = icmp eq ptr %33, %8
   br i1 %.not, label %._crit_edge, label %13
 
-._crit_edge:                                      ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_.exit, %2
+._crit_edge:                                      ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread, %2
   %34 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #24
   %35 = load ptr, ptr %3, align 8
   %36 = icmp eq ptr %35, %4
@@ -9954,13 +9954,13 @@ _ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i.i: ; preds = %_ZNK4llvm9St
   br label %_ZNK4llvm13MCSymbolXCOFF18getSymbolTableNameEv.exit.i
 
 _ZNK4llvm13MCSymbolXCOFF18getSymbolTableNameEv.exit.i: ; preds = %_ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i.i, %11
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i, %11 ], [ %.sroa.0.0.i3.i.i.i, %_ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i.i ]
-  %.sroa.3.0.i.i = phi i64 [ %.sroa.3.0.copyload.i.i, %11 ], [ %.sroa.4.05.i.i.i.i, %_ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i.i ]
-  %.not.i.i = icmp eq i64 %.sroa.3.0.i.i, 7
+  %.sroa.0.0.copyload.pn.i.i = phi ptr [ %.sroa.0.0.copyload.i.i, %11 ], [ %.sroa.0.0.i3.i.i.i, %_ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i.i ]
+  %.sroa.3.0.copyload.pn.i.i = phi i64 [ %.sroa.3.0.copyload.i.i, %11 ], [ %.sroa.4.05.i.i.i.i, %_ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i.i ]
+  %.not.i.i = icmp eq i64 %.sroa.3.0.copyload.pn.i.i, 7
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %_ZNK4llvm13MCSymbolXCOFF18getSymbolTableNameEv.exit.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.0.0.i.i, ptr noundef nonnull dereferenceable(7) @.str.60, i64 7)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.0.0.copyload.pn.i.i, ptr noundef nonnull dereferenceable(7) @.str.60, i64 7)
   %28 = icmp eq i32 %bcmp.i.i, 0
   br i1 %28, label %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i
 
@@ -10045,11 +10045,11 @@ _ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i: ; preds = %_ZNK4llvm9Stri
   br label %_ZNK4llvm13MCSymbolXCOFF18getSymbolTableNameEv.exit
 
 _ZNK4llvm13MCSymbolXCOFF18getSymbolTableNameEv.exit: ; preds = %50, %_ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %50 ], [ %.sroa.0.0.i3.i.i, %_ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i ]
-  %.sroa.3.0.i = phi i64 [ %.sroa.3.0.copyload.i, %50 ], [ %.sroa.4.05.i.i.i, %_ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i ]
+  %.sroa.0.0.copyload.pn.i = phi ptr [ %.sroa.0.0.copyload.i, %50 ], [ %.sroa.0.0.i3.i.i, %_ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i ]
+  %.sroa.3.0.copyload.pn.i = phi i64 [ %.sroa.3.0.copyload.i, %50 ], [ %.sroa.4.05.i.i.i, %_ZNK4llvm13MCSymbolXCOFF18getUnqualifiedNameEv.exit.i ]
   %.sroa.012.0.insert.ext = zext nneg i16 %.0.i to i24
   %.sroa.012.0.insert.insert = or disjoint i24 %.sroa.012.0.insert.ext, 65792
-  %67 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %47, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i, i32 19, i24 %.sroa.012.0.insert.insert, i1 noundef zeroext false, i64 0) #24
+  %67 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %47, ptr %.sroa.0.0.copyload.pn.i, i64 %.sroa.3.0.copyload.pn.i, i32 19, i24 %.sroa.012.0.insert.insert, i1 noundef zeroext false, i64 0) #24
   ret ptr %67
 }
 

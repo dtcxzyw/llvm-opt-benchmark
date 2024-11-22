@@ -3844,11 +3844,11 @@ define hidden { ptr, i64 } @_ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E(ptr
   br label %12
 
 12:                                               ; preds = %7, %5
-  %.sroa.3.0 = phi i64 [ %.sroa.4.0.i, %7 ], [ %6, %5 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i, %7 ], [ %0, %5 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %14
+  %.sroa.0.0.i.pn = phi ptr [ %.sroa.0.0.i, %7 ], [ %0, %5 ]
+  %.sroa.4.0.i.pn = phi i64 [ %.sroa.4.0.i, %7 ], [ %6, %5 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.sroa.4.0.i.pn, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5484,17 +5484,17 @@ define hidden void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5
   br label %_ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i
 
 _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
-  %.sroa.3.0.i.i = phi i64 [ %.sroa.4.0.i.i.i, %16 ], [ %15, %14 ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.0.i.i.i, %16 ], [ %4, %14 ]
+  %.sroa.0.0.i.pn.i.i = phi ptr [ %.sroa.0.0.i.i.i, %16 ], [ %4, %14 ]
+  %.sroa.4.0.i.pn.i.i = phi i64 [ %.sroa.4.0.i.i.i, %16 ], [ %15, %14 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !1040, !noundef !4
   %23 = load i64, ptr %1, align 8, !alias.scope !1043, !noundef !4
   %24 = sub i64 %23, %22
-  %25 = icmp ugt i64 %.sroa.3.0.i.i, %24
+  %25 = icmp ugt i64 %.sroa.4.0.i.pn.i.i, %24
   br i1 %25, label %26, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i"
 
 26:                                               ; preds = %_ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6e62e7f32b5be7dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %22, i64 noundef %.sroa.3.0.i.i)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6e62e7f32b5be7dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %22, i64 noundef %.sroa.4.0.i.pn.i.i)
   %.pre.i.i = load i64, ptr %21, align 8, !alias.scope !1040
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i"
 
@@ -5503,9 +5503,9 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !alias.scope !1040, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds i8, ptr %29, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %.sroa.0.0.i.pn.i.i, i64 %.sroa.4.0.i.pn.i.i, i1 false)
   %31 = load i64, ptr %21, align 8, !alias.scope !1040, !noundef !4
-  %32 = add i64 %31, %.sroa.3.0.i.i
+  %32 = add i64 %31, %.sroa.4.0.i.pn.i.i
   store i64 %32, ptr %21, align 8, !alias.scope !1040
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1037
   br label %"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$12push_decimal17h442e613474d9d7d9E.llvm.9476733087058070434.exit"
@@ -6476,17 +6476,17 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
   br label %_ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit
 
 _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit: ; preds = %9, %11
-  %.sroa.3.0.i = phi i64 [ %.sroa.4.0.i.i, %11 ], [ %10, %9 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.i.i, %11 ], [ %3, %9 ]
+  %.sroa.0.0.i.pn.i = phi ptr [ %.sroa.0.0.i.i, %11 ], [ %3, %9 ]
+  %.sroa.4.0.i.pn.i = phi i64 [ %.sroa.4.0.i.i, %11 ], [ %10, %9 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !1165, !noundef !4
   %18 = load i64, ptr %0, align 8, !alias.scope !1168, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ugt i64 %.sroa.3.0.i, %19
+  %20 = icmp ugt i64 %.sroa.4.0.i.pn.i, %19
   br i1 %20, label %21, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit"
 
 21:                                               ; preds = %_ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6e62e7f32b5be7dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %17, i64 noundef %.sroa.3.0.i)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6e62e7f32b5be7dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %17, i64 noundef %.sroa.4.0.i.pn.i)
   %.pre.i = load i64, ptr %16, align 8, !alias.scope !1165
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit"
 
@@ -6495,9 +6495,9 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit: ; preds = %9, %11
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !1165, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds i8, ptr %24, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.3.0.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %.sroa.0.0.i.pn.i, i64 %.sroa.4.0.i.pn.i, i1 false)
   %26 = load i64, ptr %16, align 8, !alias.scope !1165, !noundef !4
-  %27 = add i64 %26, %.sroa.3.0.i
+  %27 = add i64 %26, %.sroa.4.0.i.pn.i
   store i64 %27, ptr %16, align 8, !alias.scope !1165
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %29

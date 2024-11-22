@@ -630,11 +630,11 @@ define noundef zeroext i1 @"_ZN70_$LT$grep_cli..process..CommandError$u20$as$u20
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8, !noundef !4
   call void @_ZN5alloc6string6String15from_utf8_lossy17h30ad7bb308df0ad4E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %25)
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %11, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !95, !nonnull !4, !noundef !4
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %11, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !95, !noundef !4
-  %26 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17hf5a69172240a3072E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.5.0.i)
+  %.pn1.in.i = getelementptr inbounds i8, ptr %11, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !95, !noundef !4
+  %.pn3.in.i = getelementptr inbounds i8, ptr %11, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !95, !nonnull !4, !noundef !4
+  %26 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17hf5a69172240a3072E"(ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
           to label %27 unwind label %19
 
 27:                                               ; preds = %21
@@ -709,9 +709,9 @@ define noundef zeroext i1 @"_ZN70_$LT$grep_cli..process..CommandError$u20$as$u20
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %.sroa.0.0.i40 = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !110, !nonnull !4, !noundef !4
-  %.sroa.5.0.i42 = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !110, !noundef !4
-  %53 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17hf5a69172240a3072E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i40, i64 noundef %.sroa.5.0.i42)
+  %.pn1.i40 = load i64, ptr %.pn1.in.i, align 8, !alias.scope !110, !noundef !4
+  %.pn3.i42 = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !110, !nonnull !4, !noundef !4
+  %53 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17hf5a69172240a3072E"(ptr noalias noundef nonnull readonly align 1 %.pn3.i42, i64 noundef %.pn1.i40)
           to label %54 unwind label %50
 
 54:                                               ; preds = %52

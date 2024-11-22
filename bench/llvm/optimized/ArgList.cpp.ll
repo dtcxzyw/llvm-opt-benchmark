@@ -242,25 +242,22 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK4llvm3opt6Option18getUnaliasedOptio
   %12 = extractvalue { ptr, ptr } %9, 1
   store ptr %12, ptr %11, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %17, label %13
+  br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %1
   %14 = call { ptr, ptr } @_ZNK4llvm3opt6Option18getUnaliasedOptionEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
-  %15 = extractvalue { ptr, ptr } %14, 0
-  %16 = extractvalue { ptr, ptr } %14, 1
   br label %18
 
-17:                                               ; preds = %1
+15:                                               ; preds = %1
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %.sroa.3.0.copyload = load ptr, ptr %3, align 8
+  %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.copyload, 0
+  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.3.0.copyload, 1
   br label %18
 
-18:                                               ; preds = %17, %13
-  %.sroa.0.0 = phi ptr [ %15, %13 ], [ %.sroa.0.0.copyload, %17 ]
-  %.sroa.3.0 = phi ptr [ %16, %13 ], [ %.sroa.3.0.copyload, %17 ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %.fca.1.insert
+18:                                               ; preds = %15, %13
+  %.fca.1.insert.merged = phi { ptr, ptr } [ %14, %13 ], [ %17, %15 ]
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

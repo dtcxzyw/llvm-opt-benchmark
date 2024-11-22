@@ -253,6 +253,9 @@ while.body:                                       ; preds = %entry, %while.cond.
   %ret.0.copyload.i = load i64, ptr %data.addr.0124, align 1
   %and = and i64 %ret.0.copyload.i, -9187201950435737472
   %cmp1 = icmp eq i64 %and, 0
+  %0 = lshr i64 %ret.0.copyload.i, 40
+  %1 = lshr i64 %ret.0.copyload.i, 48
+  %2 = lshr i64 %ret.0.copyload.i, 56
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
@@ -267,68 +270,64 @@ while.cond.backedge:                              ; preds = %if.then, %if.end, %
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 if.end:                                           ; preds = %while.body
-  %0 = lshr i64 %ret.0.copyload.i, 32
-  %1 = lshr i64 %ret.0.copyload.i, 24
-  %2 = lshr i64 %ret.0.copyload.i, 16
-  %3 = lshr i64 %ret.0.copyload.i, 8
+  %3 = lshr i64 %ret.0.copyload.i, 32
+  %4 = lshr i64 %ret.0.copyload.i, 24
+  %5 = lshr i64 %ret.0.copyload.i, 16
+  %6 = lshr i64 %ret.0.copyload.i, 8
   %conv1.i = and i64 %ret.0.copyload.i, 255
   %arrayidx.i = getelementptr inbounds [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %conv1.i
-  %4 = load i16, ptr %arrayidx.i, align 2
-  %conv.i = zext i16 %4 to i64
-  %conv1.i63 = and i64 %3, 255
+  %7 = load i16, ptr %arrayidx.i, align 2
+  %conv.i = zext i16 %7 to i64
+  %conv1.i63 = and i64 %6, 255
   %add.i = add nuw nsw i64 %conv1.i63, %conv.i
   %arrayidx.i64 = getelementptr inbounds [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %add.i
-  %5 = load i16, ptr %arrayidx.i64, align 2
-  %conv.i65 = zext i16 %5 to i64
-  %conv1.i66 = and i64 %2, 255
+  %8 = load i16, ptr %arrayidx.i64, align 2
+  %conv.i65 = zext i16 %8 to i64
+  %conv1.i66 = and i64 %5, 255
   %add.i67 = add nuw nsw i64 %conv1.i66, %conv.i65
   %arrayidx.i68 = getelementptr inbounds [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %add.i67
-  %6 = load i16, ptr %arrayidx.i68, align 2
-  %conv.i69 = zext i16 %6 to i64
-  %conv1.i70 = and i64 %1, 255
+  %9 = load i16, ptr %arrayidx.i68, align 2
+  %conv.i69 = zext i16 %9 to i64
+  %conv1.i70 = and i64 %4, 255
   %add.i71 = add nuw nsw i64 %conv1.i70, %conv.i69
   %arrayidx.i72 = getelementptr inbounds [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %add.i71
-  %7 = load i16, ptr %arrayidx.i72, align 2
+  %10 = load i16, ptr %arrayidx.i72, align 2
   %incdec.ptr13 = getelementptr inbounds i8, ptr %data.addr.0124, i64 5
-  %conv.i73 = zext i16 %7 to i64
-  %conv1.i74 = and i64 %0, 255
+  %conv.i73 = zext i16 %10 to i64
+  %conv1.i74 = and i64 %3, 255
   %add.i75 = add nuw nsw i64 %conv1.i74, %conv.i73
   %arrayidx.i76 = getelementptr inbounds [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %add.i75
-  %8 = load i16, ptr %arrayidx.i76, align 2
+  %11 = load i16, ptr %arrayidx.i76, align 2
   %dec15 = add nsw i64 %size.addr.0123, -5
-  %cmp16 = icmp eq i16 %8, 0
+  %cmp16 = icmp eq i16 %11, 0
   br i1 %cmp16, label %while.cond.backedge, label %if.end18
 
 if.end18:                                         ; preds = %if.end
   %incdec.ptr19 = getelementptr inbounds i8, ptr %data.addr.0124, i64 6
-  %9 = load i8, ptr %incdec.ptr13, align 1
-  %conv.i77 = zext i16 %8 to i64
-  %conv1.i78 = zext i8 %9 to i64
+  %conv.i77 = zext i16 %11 to i64
+  %conv1.i78 = and i64 %0, 255
   %add.i79 = add nuw nsw i64 %conv1.i78, %conv.i77
   %arrayidx.i80 = getelementptr inbounds [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %add.i79
-  %10 = load i16, ptr %arrayidx.i80, align 2
+  %12 = load i16, ptr %arrayidx.i80, align 2
   %dec21 = add nsw i64 %size.addr.0123, -6
-  %cmp23 = icmp eq i16 %10, 0
+  %cmp23 = icmp eq i16 %12, 0
   br i1 %cmp23, label %while.cond.backedge, label %if.end25
 
 if.end25:                                         ; preds = %if.end18
   %incdec.ptr26 = getelementptr inbounds i8, ptr %data.addr.0124, i64 7
-  %11 = load i8, ptr %incdec.ptr19, align 1
-  %conv.i81 = zext i16 %10 to i64
-  %conv1.i82 = zext i8 %11 to i64
+  %conv.i81 = zext i16 %12 to i64
+  %conv1.i82 = and i64 %1, 255
   %add.i83 = add nuw nsw i64 %conv1.i82, %conv.i81
   %arrayidx.i84 = getelementptr inbounds [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %add.i83
-  %12 = load i16, ptr %arrayidx.i84, align 2
+  %13 = load i16, ptr %arrayidx.i84, align 2
   %dec28 = add nsw i64 %size.addr.0123, -7
-  %cmp30 = icmp eq i16 %12, 0
+  %cmp30 = icmp eq i16 %13, 0
   br i1 %cmp30, label %while.cond.backedge, label %if.end32
 
 if.end32:                                         ; preds = %if.end25
   %incdec.ptr33 = getelementptr inbounds i8, ptr %data.addr.0124, i64 8
-  %13 = load i8, ptr %incdec.ptr26, align 1
-  %conv.i85 = zext i16 %12 to i64
-  %conv1.i86 = zext i8 %13 to i64
-  %add.i87 = add nuw nsw i64 %conv1.i86, %conv.i85
+  %conv.i85 = zext i16 %13 to i64
+  %add.i87 = add nuw nsw i64 %2, %conv.i85
   %arrayidx.i88 = getelementptr inbounds [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %add.i87
   %14 = load i16, ptr %arrayidx.i88, align 2
   %dec35 = add nsw i64 %size.addr.0123, -8

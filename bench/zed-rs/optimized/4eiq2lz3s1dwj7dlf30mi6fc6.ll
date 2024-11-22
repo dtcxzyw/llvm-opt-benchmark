@@ -68608,65 +68608,71 @@ define hidden { i32, i32 } @"_ZN4text5patch14Patch$LT$T$GT$10old_to_new17h46ef08
   %23 = icmp ule i64 %.sroa.013.0.i, %9
   call void @llvm.assume(i1 %23)
   %24 = icmp eq i64 %.sroa.013.0.i, 0
-  br i1 %24, label %..thread_crit_edge, label %26
+  br i1 %24, label %..thread_crit_edge, label %30
 
 ..thread_crit_edge:                               ; preds = %22
   %.pre = load i32, ptr %4, align 4
   %.pre13 = load i32, ptr %5, align 4
   br label %.thread
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbd2cf39175117563E.llvm.6482399857099888620.exit.thread": ; preds = %.lr.ph.i, %26
-  %.sroa.05.0 = phi i64 [ %27, %26 ], [ %11, %.lr.ph.i ]
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbd2cf39175117563E.llvm.6482399857099888620.exit.thread": ; preds = %.lr.ph.i, %30
+  %.sroa.05.0 = phi i64 [ %31, %30 ], [ %11, %.lr.ph.i ]
   %25 = icmp ult i64 %.sroa.05.0, %9
-  br i1 %25, label %33, label %30
+  br i1 %25, label %38, label %33
 
-26:                                               ; preds = %22
-  %27 = add i64 %.sroa.013.0.i, -1
+.thread:                                          ; preds = %..thread_crit_edge, %3
+  %26 = phi i32 [ %.pre13, %..thread_crit_edge ], [ %2, %3 ]
+  %27 = phi i32 [ %.pre, %..thread_crit_edge ], [ %1, %3 ]
+  %28 = insertvalue { i32, i32 } poison, i32 %27, 0
+  %29 = insertvalue { i32, i32 } %28, i32 %26, 1
+  br label %32
+
+30:                                               ; preds = %22
+  %31 = add i64 %.sroa.013.0.i, -1
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbd2cf39175117563E.llvm.6482399857099888620.exit.thread"
 
-.thread:                                          ; preds = %3, %..thread_crit_edge, %30, %42, %37
-  %.sroa.5.0 = phi i32 [ %57, %42 ], [ %41, %37 ], [ %32, %30 ], [ %.pre13, %..thread_crit_edge ], [ %2, %3 ]
-  %.sroa.0.0 = phi i32 [ %56, %42 ], [ %39, %37 ], [ %31, %30 ], [ %.pre, %..thread_crit_edge ], [ %1, %3 ]
-  %28 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %29 = insertvalue { i32, i32 } %28, i32 %.sroa.5.0, 1
-  ret { i32, i32 } %29
-
-30:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbd2cf39175117563E.llvm.6482399857099888620.exit.thread"
-  %31 = load i32, ptr %4, align 4, !noundef !4
-  %32 = load i32, ptr %5, align 4, !noundef !4
-  br label %.thread
+32:                                               ; preds = %33, %49, %42, %.thread
+  %.merged = phi { i32, i32 } [ %29, %.thread ], [ %62, %49 ], [ %48, %42 ], [ %37, %33 ]
+  ret { i32, i32 } %.merged
 
 33:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbd2cf39175117563E.llvm.6482399857099888620.exit.thread"
-  %34 = getelementptr inbounds { { { { i32, i32 } }, { { i32, i32 } } }, { { { i32, i32 } }, { { i32, i32 } } } }, ptr %7, i64 %.sroa.05.0
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = call noundef range(i8 -1, 3) i8 @"_ZN71_$LT$rope..point_utf16..PointUtf16$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h9235267fb91f4640E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %35), !range !13219
-  %switch.i = icmp ult i8 %36, 2
-  br i1 %switch.i, label %42, label %37
+  %34 = load i32, ptr %4, align 4, !noundef !4
+  %35 = load i32, ptr %5, align 4, !noundef !4
+  %36 = insertvalue { i32, i32 } poison, i32 %34, 0
+  %37 = insertvalue { i32, i32 } %36, i32 %35, 1
+  br label %32
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %34, i64 16
-  %39 = load i32, ptr %38, align 4, !noundef !4
-  %40 = getelementptr inbounds i8, ptr %34, i64 20
-  %41 = load i32, ptr %40, align 4, !noundef !4
-  br label %.thread
+38:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hbd2cf39175117563E.llvm.6482399857099888620.exit.thread"
+  %39 = getelementptr inbounds { { { { i32, i32 } }, { { i32, i32 } } }, { { { i32, i32 } }, { { i32, i32 } } } }, ptr %7, i64 %.sroa.05.0
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = call noundef range(i8 -1, 3) i8 @"_ZN71_$LT$rope..point_utf16..PointUtf16$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h9235267fb91f4640E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %40), !range !13219
+  %switch.i = icmp ult i8 %41, 2
+  br i1 %switch.i, label %49, label %42
 
-42:                                               ; preds = %33
-  %43 = getelementptr inbounds i8, ptr %34, i64 24
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %39, i64 16
   %44 = load i32, ptr %43, align 4, !noundef !4
-  %45 = getelementptr inbounds i8, ptr %34, i64 28
+  %45 = getelementptr inbounds i8, ptr %39, i64 20
   %46 = load i32, ptr %45, align 4, !noundef !4
-  %47 = load i32, ptr %4, align 4, !noundef !4
-  %48 = load i32, ptr %5, align 4, !noundef !4
-  %49 = load i32, ptr %35, align 4, !noundef !4
-  %50 = getelementptr inbounds i8, ptr %34, i64 12
+  %47 = insertvalue { i32, i32 } poison, i32 %44, 0
+  %48 = insertvalue { i32, i32 } %47, i32 %46, 1
+  br label %32
+
+49:                                               ; preds = %38
+  %50 = getelementptr inbounds i8, ptr %39, i64 24
   %51 = load i32, ptr %50, align 4, !noundef !4
-  %52 = call { i32, i32 } @"_ZN71_$LT$rope..point_utf16..PointUtf16$u20$as$u20$core..ops..arith..Sub$GT$3sub17h2b2926fee8cbed07E"(i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef %51)
-  %53 = extractvalue { i32, i32 } %52, 0
-  %54 = extractvalue { i32, i32 } %52, 1
-  %55 = call { i32, i32 } @"_ZN71_$LT$rope..point_utf16..PointUtf16$u20$as$u20$core..ops..arith..Add$GT$3add17h3b03b380564dcae3E"(i32 noundef %44, i32 noundef %46, i32 noundef %53, i32 noundef %54)
-  %56 = extractvalue { i32, i32 } %55, 0
-  %57 = extractvalue { i32, i32 } %55, 1
-  br label %.thread
+  %52 = getelementptr inbounds i8, ptr %39, i64 28
+  %53 = load i32, ptr %52, align 4, !noundef !4
+  %54 = load i32, ptr %4, align 4, !noundef !4
+  %55 = load i32, ptr %5, align 4, !noundef !4
+  %56 = load i32, ptr %40, align 4, !noundef !4
+  %57 = getelementptr inbounds i8, ptr %39, i64 12
+  %58 = load i32, ptr %57, align 4, !noundef !4
+  %59 = call { i32, i32 } @"_ZN71_$LT$rope..point_utf16..PointUtf16$u20$as$u20$core..ops..arith..Sub$GT$3sub17h2b2926fee8cbed07E"(i32 noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef %58)
+  %60 = extractvalue { i32, i32 } %59, 0
+  %61 = extractvalue { i32, i32 } %59, 1
+  %62 = call { i32, i32 } @"_ZN71_$LT$rope..point_utf16..PointUtf16$u20$as$u20$core..ops..arith..Add$GT$3add17h3b03b380564dcae3E"(i32 noundef %51, i32 noundef %53, i32 noundef %60, i32 noundef %61)
+  br label %32
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -120578,8 +120584,8 @@ define hidden { i64, ptr } @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$a
 
 19:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit", %11
   %.sroa.2.0 = phi i64 [ %5, %11 ], [ %100, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit" ]
-  %.sroa.07.0 = phi i64 [ %2, %11 ], [ %.sroa.0.0.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit" ]
-  %.sroa.6.0 = phi ptr [ %3, %11 ], [ %.sroa.3.0.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit" ]
+  %.sroa.07.0 = phi i64 [ %2, %11 ], [ %.pn3.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit" ]
+  %.sroa.6.0 = phi ptr [ %3, %11 ], [ %.pn1.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit" ]
   %.sroa.010.0 = phi i64 [ 0, %11 ], [ %101, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit" ]
   %20 = getelementptr inbounds { { i64, [21 x i64] }, { { ptr, { { ptr, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, i8, [7 x i8] }, { { i32, [1 x i32], [16 x { [2 x i64] }] }, ptr, {}, i8, i8, [6 x i8] } }, i8, [7 x i8] } } }, ptr %0, i64 %.sroa.010.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29328)
@@ -120758,19 +120764,19 @@ define hidden { i64, ptr } @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$a
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit": ; preds = %"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc570dfceca0834ffE.exit.i.i", %"_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17h69ecdf5ebe5b865fE.exit.i.i.i"
-  %.sroa.3.0.i.i.i = phi ptr [ %.sroa.3.0.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17h69ecdf5ebe5b865fE.exit.i.i.i" ], [ %.sroa.6.0, %"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc570dfceca0834ffE.exit.i.i" ]
-  %.sroa.0.0.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17h69ecdf5ebe5b865fE.exit.i.i.i" ], [ %.sroa.07.0, %"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc570dfceca0834ffE.exit.i.i" ]
+  %.pn3.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17h69ecdf5ebe5b865fE.exit.i.i.i" ], [ %.sroa.07.0, %"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc570dfceca0834ffE.exit.i.i" ]
+  %.pn1.i.i.i = phi ptr [ %.sroa.3.0.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17h69ecdf5ebe5b865fE.exit.i.i.i" ], [ %.sroa.6.0, %"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc570dfceca0834ffE.exit.i.i" ]
   %100 = add i64 %.sroa.2.0, 1
   %101 = add nuw i64 %.sroa.010.0, 1
   %102 = icmp eq i64 %101, %15
   br i1 %102, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit", %6
-  %.sroa.3.0 = phi ptr [ %3, %6 ], [ %.sroa.3.0.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit" ]
-  %.sroa.04.0 = phi i64 [ %2, %6 ], [ %.sroa.0.0.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit" ]
-  %103 = insertvalue { i64, ptr } poison, i64 %.sroa.04.0, 0
-  %104 = insertvalue { i64, ptr } %103, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %104
+  %.pn26 = phi i64 [ %2, %6 ], [ %.pn3.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit" ]
+  %.pn24 = phi ptr [ %3, %6 ], [ %.pn1.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha5cee76fb6ec7dbdE.exit" ]
+  %.pn = insertvalue { i64, ptr } poison, i64 %.pn26, 0
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn24, 1
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

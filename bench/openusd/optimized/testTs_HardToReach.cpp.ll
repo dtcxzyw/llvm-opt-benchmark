@@ -57762,16 +57762,16 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7GfVec2dELb1EE4EvalEd.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7GfVec2dELb1EE4EvalEd.exit: ; preds = %9, %11
-  %.sroa.0.0.i.i = phi double [ %37, %11 ], [ %.sroa.0.0.copyload.i.i, %9 ]
-  %.sroa.3.0.i.i = phi double [ %40, %11 ], [ %.sroa.3.0.copyload.i.i, %9 ]
+  %.pn4.i.i = phi double [ %37, %11 ], [ %.sroa.0.0.copyload.i.i, %9 ]
+  %.pn.i.i = phi double [ %40, %11 ], [ %.sroa.3.0.copyload.i.i, %9 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec2dEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %43 = inttoptr i64 %42 to ptr
   store ptr %43, ptr %41, align 8, !alias.scope !167
   %44 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25, !noalias !167
-  store double %.sroa.0.0.i.i, ptr %44, align 8, !noalias !167
+  store double %.pn4.i.i, ptr %44, align 8, !noalias !167
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 8
-  store double %.sroa.3.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !167
+  store double %.pn.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !167
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store atomic i32 0, ptr %45 seq_cst, align 4, !noalias !167
   store ptr %44, ptr %0, align 8, !alias.scope !167
@@ -58813,8 +58813,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %31, %.noexc9, %36, %40
-  %.sroa.3.0.i57 = phi double [ %.sroa.3.0.copyload.i, %36 ], [ %.sroa.3.0.copyload.i, %40 ], [ %.sroa.0.i.i.sroa.4.0.copyload.i.i, %.noexc9 ], [ %.sroa.0.i.i.sroa.4.0.copyload.i.i, %31 ]
-  %.sroa.0.0.i56 = phi double [ %.sroa.0.0.copyload.i, %36 ], [ %.sroa.0.0.copyload.i, %40 ], [ %.sroa.0.i.i.sroa.0.0.copyload.i.i, %.noexc9 ], [ %.sroa.0.i.i.sroa.0.0.copyload.i.i, %31 ]
+  %.sroa.3.0.copyload.pn.i55 = phi double [ %.sroa.3.0.copyload.i, %36 ], [ %.sroa.3.0.copyload.i, %40 ], [ %.sroa.0.i.i.sroa.4.0.copyload.i.i, %.noexc9 ], [ %.sroa.0.i.i.sroa.4.0.copyload.i.i, %31 ]
+  %.sroa.0.0.copyload.pn.i54 = phi double [ %.sroa.0.0.copyload.i, %36 ], [ %.sroa.0.0.copyload.i, %40 ], [ %.sroa.0.i.i.sroa.0.0.copyload.i.i, %.noexc9 ], [ %.sroa.0.i.i.sroa.0.0.copyload.i.i, %31 ]
   store ptr null, ptr %13, align 8
   %48 = load ptr, ptr %2, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 120
@@ -58878,9 +58878,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   %.sroa.0.0.copyload.i16 = load double, ptr %63, align 8
   %.sroa.3.0..sroa_idx.i17 = getelementptr inbounds i8, ptr %63, i64 8
   %.sroa.3.0.copyload.i18 = load double, ptr %.sroa.3.0..sroa_idx.i17, align 8
-  %.pre51 = load ptr, ptr %51, align 8
-  %75 = ptrtoint ptr %.pre51 to i64
-  %.not.i.i35 = icmp eq ptr %.pre51, null
+  %.pre49 = load ptr, ptr %51, align 8
+  %75 = ptrtoint ptr %.pre49 to i64
+  %.not.i.i35 = icmp eq ptr %.pre49, null
   %76 = and i64 %75, 3
   %77 = icmp eq i64 %76, 3
   %or.cond.i.i36 = or i1 %.not.i.i35, %77
@@ -58902,13 +58902,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit37: ; preds = %69, %.noexc32, %74, %78
-  %.sroa.3.0.i2064 = phi double [ %.sroa.3.0.copyload.i18, %74 ], [ %.sroa.3.0.copyload.i18, %78 ], [ %.sroa.0.i.i.sroa.4.0.copyload.i.i26, %.noexc32 ], [ %.sroa.0.i.i.sroa.4.0.copyload.i.i26, %69 ]
-  %.sroa.0.0.i1963 = phi double [ %.sroa.0.0.copyload.i16, %74 ], [ %.sroa.0.0.copyload.i16, %78 ], [ %.sroa.0.i.i.sroa.0.0.copyload.i.i24, %.noexc32 ], [ %.sroa.0.i.i.sroa.0.0.copyload.i.i24, %69 ]
+  %.sroa.3.0.copyload.pn.i2062 = phi double [ %.sroa.3.0.copyload.i18, %74 ], [ %.sroa.3.0.copyload.i18, %78 ], [ %.sroa.0.i.i.sroa.4.0.copyload.i.i26, %.noexc32 ], [ %.sroa.0.i.i.sroa.4.0.copyload.i.i26, %69 ]
+  %.sroa.0.0.copyload.pn.i1961 = phi double [ %.sroa.0.0.copyload.i16, %74 ], [ %.sroa.0.0.copyload.i16, %78 ], [ %.sroa.0.i.i.sroa.0.0.copyload.i.i24, %.noexc32 ], [ %.sroa.0.i.i.sroa.0.0.copyload.i.i24, %69 ]
   %86 = fsub double %7, %9
   %87 = fdiv double 1.000000e+00, %86
   store ptr null, ptr %51, align 8
-  %88 = fsub double %.sroa.0.0.i1963, %.sroa.0.0.i56
-  %89 = fsub double %.sroa.3.0.i2064, %.sroa.3.0.i57
+  %88 = fsub double %.sroa.0.0.copyload.pn.i1961, %.sroa.0.0.copyload.pn.i54
+  %89 = fsub double %.sroa.3.0.copyload.pn.i2062, %.sroa.3.0.copyload.pn.i55
   %90 = fmul double %87, %88
   %91 = fmul double %87, %89
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -59617,16 +59617,16 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_E
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7GfVec2dELb1EE9TypedEvalEd.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7GfVec2dELb1EE9TypedEvalEd.exit: ; preds = %7, %9
-  %.sroa.0.0.i = phi double [ %35, %9 ], [ %.sroa.0.0.copyload.i, %7 ]
-  %.sroa.3.0.i = phi double [ %38, %9 ], [ %.sroa.3.0.copyload.i, %7 ]
+  %.pn4.i = phi double [ %35, %9 ], [ %.sroa.0.0.copyload.i, %7 ]
+  %.pn.i = phi double [ %38, %9 ], [ %.sroa.3.0.copyload.i, %7 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec2dEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %41 = inttoptr i64 %40 to ptr
   store ptr %41, ptr %39, align 8
   %42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  store double %.sroa.0.0.i, ptr %42, align 8
+  store double %.pn4.i, ptr %42, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 8
-  store double %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
+  store double %.pn.i, ptr %.sroa.2.0..sroa_idx, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store atomic i32 0, ptr %43 seq_cst, align 4
   store ptr %42, ptr %0, align 8
@@ -59771,12 +59771,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec2dEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec2dEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit: ; preds = %46, %47, %63
-  %.sroa.0.0.i = phi double [ %.sroa.0.0.copyload.i, %46 ], [ %61, %47 ], [ %69, %63 ]
-  %.sroa.4.0.i = phi double [ %.sroa.4.0.copyload.i, %46 ], [ %62, %47 ], [ %70, %63 ]
+  %.sroa.0.0.copyload.pn.i = phi double [ %.sroa.0.0.copyload.i, %46 ], [ %61, %47 ], [ %69, %63 ]
+  %.sroa.4.0.copyload.pn.i = phi double [ %.sroa.4.0.copyload.i, %46 ], [ %62, %47 ], [ %70, %63 ]
   %71 = getelementptr inbounds i8, ptr %1, i64 16
-  store double %.sroa.0.0.i, ptr %71, align 8
+  store double %.sroa.0.0.copyload.pn.i, ptr %71, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  store double %.sroa.4.0.i, ptr %.sroa.24.0..sroa_idx, align 8
+  store double %.sroa.4.0.copyload.pn.i, ptr %.sroa.24.0..sroa_idx, align 8
   %72 = load i32, ptr %7, align 8
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %77
@@ -59807,8 +59807,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %84 = trunc i8 %83 to i1
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %86 = load ptr, ptr %85, align 8
-  %.idx38.i = select i1 %84, i64 0, i64 16
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx38.i
+  %.idx39.i = select i1 %84, i64 0, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx39.i
   %.sroa.0.0.copyload16.i = load double, ptr %87, align 8
   %.sroa.5.0..sroa_idx17.i = getelementptr inbounds i8, ptr %87, i64 8
   %.sroa.5.0.copyload18.i = load double, ptr %.sroa.5.0..sroa_idx17.i, align 8
@@ -59822,8 +59822,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %93 = trunc i8 %92 to i1
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %95 = load ptr, ptr %94, align 8
-  %.idx39.i = select i1 %93, i64 0, i64 16
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx39.i
+  %.idx40.i = select i1 %93, i64 0, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx40.i
   %.sroa.0.0.copyload2.i.i.i26 = load double, ptr %96, align 8
   %.sroa.4.0..sroa_idx.i.i.i27 = getelementptr inbounds i8, ptr %96, i64 8
   %.sroa.4.0.copyload.i.i.i28 = load double, ptr %.sroa.4.0..sroa_idx.i.i.i27, align 8
@@ -59862,12 +59862,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueINS_7GfVec2dEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueINS_7GfVec2dEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit: ; preds = %74, %81, %88, %103
-  %.sroa.0.0.i29 = phi double [ %.sroa.0.0.copyload.i33, %74 ], [ %.sroa.0.0.copyload16.i, %81 ], [ %101, %88 ], [ %115, %103 ]
-  %.sroa.5.0.i = phi double [ %.sroa.5.0.copyload.i, %74 ], [ %.sroa.5.0.copyload18.i, %81 ], [ %102, %88 ], [ %116, %103 ]
+  %.sroa.0.0.copyload.pn.i29 = phi double [ %.sroa.0.0.copyload.i33, %74 ], [ %.sroa.0.0.copyload16.i, %81 ], [ %101, %88 ], [ %115, %103 ]
+  %.sroa.5.0.copyload.pn.i = phi double [ %.sroa.5.0.copyload.i, %74 ], [ %.sroa.5.0.copyload18.i, %81 ], [ %102, %88 ], [ %116, %103 ]
   %117 = getelementptr inbounds i8, ptr %1, i64 32
-  store double %.sroa.0.0.i29, ptr %117, align 8
+  store double %.sroa.0.0.copyload.pn.i29, ptr %117, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
-  store double %.sroa.5.0.i, ptr %.sroa.22.0..sroa_idx, align 8
+  store double %.sroa.5.0.copyload.pn.i, ptr %.sroa.22.0..sroa_idx, align 8
   %118 = load i32, ptr %7, align 8
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %123
@@ -59891,9 +59891,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4Valu
   %.sroa.0.0.in.i = phi ptr [ %122, %120 ], [ %spec.select.i, %123 ]
   %.sroa.3.0.in.i = getelementptr inbounds i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i = load double, ptr %.sroa.3.0.in.i, align 8
-  %.sroa.0.0.i34 = load double, ptr %.sroa.0.0.in.i, align 8
+  %.sroa.0.0.i = load double, ptr %.sroa.0.0.in.i, align 8
   %129 = getelementptr inbounds i8, ptr %1, i64 48
-  store double %.sroa.0.0.i34, ptr %129, align 8
+  store double %.sroa.0.0.i, ptr %129, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
   store double %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   ret void

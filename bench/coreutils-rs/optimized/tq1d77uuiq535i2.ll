@@ -509,11 +509,11 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %7 = load i8, ptr %6, align 8, !range !10, !alias.scope !61, !noalias !58
   %.sroa.4.0.insert.ext.i = zext nneg i8 %7 to i64
   %8 = inttoptr i64 %.sroa.4.0.insert.ext.i to ptr
-  %.sroa.0.0.i.i.i = load ptr, ptr %6, align 8, !alias.scope !61, !noalias !58, !nonnull !5
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !61, !noalias !58
-  %.sroa.6.0.i = select i1 %5, i64 undef, i64 %.sroa.5.0.i.i.i
-  %.sroa.4.0.i = select i1 %5, ptr %8, ptr %.sroa.0.0.i.i.i
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !61, !noalias !58
+  %.pn3.i.i.i = load ptr, ptr %6, align 8, !alias.scope !61, !noalias !58, !nonnull !5
+  %.sroa.6.0.i = select i1 %5, i64 undef, i64 %.pn1.i.i.i
+  %.sroa.4.0.i = select i1 %5, ptr %8, ptr %.pn3.i.i.i
   %.sink.i.i = select i1 %5, i64 -9223372036854775807, i64 -9223372036854775808
   store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !58, !noalias !61
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1070,11 +1070,11 @@ _ZN5uu_wc5Input11as_borrowed17h5170c1def6c91423E.exit:
   %6 = load i8, ptr %5, align 8, !range !10
   %.sroa.4.0.insert.ext = zext nneg i8 %6 to i64
   %7 = inttoptr i64 %.sroa.4.0.insert.ext to ptr
-  %.sroa.0.0.i.i = load ptr, ptr %5, align 8, !nonnull !5
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8
-  %.sroa.6.0 = select i1 %4, i64 undef, i64 %.sroa.5.0.i.i
-  %.sroa.4.0 = select i1 %4, ptr %7, ptr %.sroa.0.0.i.i
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8
+  %.pn3.i.i = load ptr, ptr %5, align 8, !nonnull !5
+  %.sroa.6.0 = select i1 %4, i64 undef, i64 %.pn1.i.i
+  %.sroa.4.0 = select i1 %4, ptr %7, ptr %.pn3.i.i
   %.sink.i = select i1 %4, i64 -9223372036854775807, i64 -9223372036854775808
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

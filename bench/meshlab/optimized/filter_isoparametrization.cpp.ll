@@ -91030,9 +91030,9 @@ _Z17GetBaryFaceFromUVI8BaseMeshEbRKT_RKNS1_10ScalarTypeES6_RKSt6vectorIPNS1_8Fac
   %.sroa.015.0.vec.extract.i.i = extractelement <2 x float> %472, i64 0
   %474 = fsub <2 x float> %473, %472
   %475 = extractelement <2 x float> %474, i64 0
-  %.sroa.5.12.vec.extract.i.i = extractelement <2 x float> %473, i64 1
+  %.sroa.4.12.vec.extract.i.i = extractelement <2 x float> %473, i64 1
   %.sroa.015.4.vec.extract.i.i = extractelement <2 x float> %472, i64 1
-  %476 = fsub float %.sroa.5.12.vec.extract.i.i, %.sroa.015.4.vec.extract.i.i
+  %476 = fsub float %.sroa.4.12.vec.extract.i.i, %.sroa.015.4.vec.extract.i.i
   %477 = fmul float %476, %476
   %478 = call float @llvm.fmuladd.f32(float %475, float %475, float %477)
   %479 = fcmp ogt float %478, 0.000000e+00
@@ -91049,10 +91049,10 @@ _Z17GetBaryFaceFromUVI8BaseMeshEbRKT_RKNS1_10ScalarTypeES6_RKSt6vectorIPNS1_8Fac
   br i1 %486, label %487, label %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i.i
 
 487:                                              ; preds = %467
-  %.sroa.5.8.vec.extract.i.i = extractelement <2 x float> %473, i64 0
+  %.sroa.4.8.vec.extract.i.i = extractelement <2 x float> %473, i64 0
   %488 = fsub <2 x float> %472, %473
   %489 = extractelement <2 x float> %488, i64 0
-  %490 = fsub float %.sroa.015.4.vec.extract.i.i, %.sroa.5.12.vec.extract.i.i
+  %490 = fsub float %.sroa.015.4.vec.extract.i.i, %.sroa.4.12.vec.extract.i.i
   %491 = fmul float %490, %490
   %492 = call float @llvm.fmuladd.f32(float %489, float %489, float %491)
   %sqrt.i.i.i.i.i = call noundef float @llvm.sqrt.f32(float %492)
@@ -91069,8 +91069,8 @@ _Z17GetBaryFaceFromUVI8BaseMeshEbRKT_RKNS1_10ScalarTypeES6_RKSt6vectorIPNS1_8Fac
   br label %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i.i
 
 _ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i.i: ; preds = %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i.i, %487, %467
-  %.sroa.013.4.vec.extract.pre-phi.i.i = phi float [ %497, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i.i ], [ %.sroa.015.4.vec.extract.i.i, %467 ], [ %.sroa.5.12.vec.extract.i.i, %487 ]
-  %.sroa.013.0.vec.extract.pre-phi.i.i = phi float [ %495, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i.i ], [ %.sroa.015.0.vec.extract.i.i, %467 ], [ %.sroa.5.8.vec.extract.i.i, %487 ]
+  %.sroa.013.4.vec.extract.pre-phi.i.i = phi float [ %497, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i.i ], [ %.sroa.015.4.vec.extract.i.i, %467 ], [ %.sroa.4.12.vec.extract.i.i, %487 ]
+  %.sroa.013.0.vec.extract.pre-phi.i.i = phi float [ %495, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i.i ], [ %.sroa.015.0.vec.extract.i.i, %467 ], [ %.sroa.4.8.vec.extract.i.i, %487 ]
   %.sroa.011.0.i.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i.i.i.i, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i.i ], [ %472, %467 ], [ %473, %487 ]
   %498 = fsub float %.sroa.013.0.vec.extract.pre-phi.i.i, %311
   %499 = fsub float %.sroa.013.4.vec.extract.pre-phi.i.i, %313
@@ -121205,105 +121205,105 @@ _ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit40:    ; preds = %_ZNK3vcg4Box2IfE4Is
   store i32 %75, ptr %.sroa_idx45, align 4
   store i32 %79, ptr %43, align 4
   store i32 %81, ptr %.sroa_idx43, align 4
-  %82 = bitcast i32 %73 to float
-  %83 = bitcast i32 %79 to float
-  %84 = bitcast i32 %69 to float
-  %85 = bitcast i32 %75 to float
-  %86 = bitcast i32 %81 to float
-  br label %87
+  %82 = bitcast i32 %67 to float
+  %83 = bitcast i32 %73 to float
+  %84 = bitcast i32 %79 to float
+  %85 = bitcast i32 %69 to float
+  %86 = bitcast i32 %75 to float
+  %87 = bitcast i32 %81 to float
+  br label %88
 
-87:                                               ; preds = %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i, %.lr.ph
+88:                                               ; preds = %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i, %.lr.ph
   %.sroa.0.3 = phi <2 x float> [ %.sroa.0.273, %.lr.ph ], [ %.sroa.0.4, %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i ]
   %.068 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.169, %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i ]
-  %88 = getelementptr inbounds [3 x %"class.vcg::Point2.140"], ptr %5, i64 0, i64 %indvars.iv.i
+  %89 = getelementptr inbounds [3 x %"class.vcg::Point2.140"], ptr %5, i64 0, i64 %indvars.iv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %89 = icmp eq i64 %indvars.iv.next.i, 3
-  %90 = select i1 %89, i64 0, i64 %indvars.iv.next.i
-  %91 = getelementptr inbounds [3 x %"class.vcg::Point2.140"], ptr %5, i64 0, i64 %90
-  %92 = load <2 x float>, ptr %88, align 4
-  %93 = load <2 x float>, ptr %91, align 4
-  %.sroa.015.0.vec.extract.i = extractelement <2 x float> %92, i64 0
-  %94 = fsub <2 x float> %93, %92
-  %95 = extractelement <2 x float> %94, i64 0
-  %.sroa.5.12.vec.extract.i = extractelement <2 x float> %93, i64 1
-  %.sroa.015.4.vec.extract.i = extractelement <2 x float> %92, i64 1
-  %96 = fsub float %.sroa.5.12.vec.extract.i, %.sroa.015.4.vec.extract.i
-  %97 = fmul float %96, %96
-  %98 = tail call float @llvm.fmuladd.f32(float %95, float %95, float %97)
-  %99 = fcmp ogt float %98, 0.000000e+00
-  %sqrt.i.i.i.i.i = tail call float @llvm.sqrt.f32(float %98)
-  %100 = fdiv float %95, %sqrt.i.i.i.i.i
+  %90 = icmp eq i64 %indvars.iv.next.i, 3
+  %91 = select i1 %90, i64 0, i64 %indvars.iv.next.i
+  %92 = getelementptr inbounds [3 x %"class.vcg::Point2.140"], ptr %5, i64 0, i64 %91
+  %93 = load <2 x float>, ptr %89, align 4
+  %94 = load <2 x float>, ptr %92, align 4
+  %.sroa.015.0.vec.extract.i = extractelement <2 x float> %93, i64 0
+  %95 = fsub <2 x float> %94, %93
+  %96 = extractelement <2 x float> %95, i64 0
+  %.sroa.4.12.vec.extract.i = extractelement <2 x float> %94, i64 1
+  %.sroa.015.4.vec.extract.i = extractelement <2 x float> %93, i64 1
+  %97 = fsub float %.sroa.4.12.vec.extract.i, %.sroa.015.4.vec.extract.i
+  %98 = fmul float %97, %97
+  %99 = tail call float @llvm.fmuladd.f32(float %96, float %96, float %98)
+  %100 = fcmp ogt float %99, 0.000000e+00
+  %sqrt.i.i.i.i.i = tail call float @llvm.sqrt.f32(float %99)
   %101 = fdiv float %96, %sqrt.i.i.i.i.i
-  %.sroa.6.0.i.i = select i1 %99, float %100, float %95
-  %.sroa.10.0.i.i = select i1 %99, float %101, float %96
-  %102 = fsub <2 x float> %.sroa.054.0, %92
-  %103 = extractelement <2 x float> %102, i64 0
-  %104 = fsub float %.sroa.054.4.vec.extract67, %.sroa.015.4.vec.extract.i
-  %105 = fmul float %104, %.sroa.10.0.i.i
-  %106 = tail call noundef float @llvm.fmuladd.f32(float %103, float %.sroa.6.0.i.i, float %105)
-  %107 = fcmp ugt float %106, 0.000000e+00
-  br i1 %107, label %108, label %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i
+  %102 = fdiv float %97, %sqrt.i.i.i.i.i
+  %.sroa.6.0.i.i = select i1 %100, float %101, float %96
+  %.sroa.10.0.i.i = select i1 %100, float %102, float %97
+  %103 = fsub <2 x float> %.sroa.054.0, %93
+  %104 = extractelement <2 x float> %103, i64 0
+  %105 = fsub float %.sroa.054.4.vec.extract67, %.sroa.015.4.vec.extract.i
+  %106 = fmul float %105, %.sroa.10.0.i.i
+  %107 = tail call noundef float @llvm.fmuladd.f32(float %104, float %.sroa.6.0.i.i, float %106)
+  %108 = fcmp ugt float %107, 0.000000e+00
+  br i1 %108, label %109, label %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i
 
-108:                                              ; preds = %87
-  %.sroa.5.8.vec.extract.i = extractelement <2 x float> %93, i64 0
-  %109 = fsub <2 x float> %92, %93
-  %110 = extractelement <2 x float> %109, i64 0
-  %111 = fsub float %.sroa.015.4.vec.extract.i, %.sroa.5.12.vec.extract.i
-  %112 = fmul float %111, %111
-  %113 = tail call float @llvm.fmuladd.f32(float %110, float %110, float %112)
-  %sqrt.i.i.i.i = tail call noundef float @llvm.sqrt.f32(float %113)
-  %114 = fcmp ult float %106, %sqrt.i.i.i.i
-  br i1 %114, label %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i, label %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i
+109:                                              ; preds = %88
+  %.sroa.4.8.vec.extract.i = extractelement <2 x float> %94, i64 0
+  %110 = fsub <2 x float> %93, %94
+  %111 = extractelement <2 x float> %110, i64 0
+  %112 = fsub float %.sroa.015.4.vec.extract.i, %.sroa.4.12.vec.extract.i
+  %113 = fmul float %112, %112
+  %114 = tail call float @llvm.fmuladd.f32(float %111, float %111, float %113)
+  %sqrt.i.i.i.i = tail call noundef float @llvm.sqrt.f32(float %114)
+  %115 = fcmp ult float %107, %sqrt.i.i.i.i
+  br i1 %115, label %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i, label %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i
 
-._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i: ; preds = %108
-  %115 = fmul float %.sroa.6.0.i.i, %106
-  %116 = fadd float %.sroa.015.0.vec.extract.i, %115
-  %.sroa.0.0.vec.insert.i2.i.i.i = insertelement <2 x float> poison, float %116, i64 0
-  %117 = fmul float %.sroa.10.0.i.i, %106
-  %118 = fadd float %.sroa.015.4.vec.extract.i, %117
-  %.sroa.0.4.vec.insert.i3.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i.i.i, float %118, i64 1
+._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i: ; preds = %109
+  %116 = fmul float %.sroa.6.0.i.i, %107
+  %117 = fadd float %.sroa.015.0.vec.extract.i, %116
+  %.sroa.0.0.vec.insert.i2.i.i.i = insertelement <2 x float> poison, float %117, i64 0
+  %118 = fmul float %.sroa.10.0.i.i, %107
+  %119 = fadd float %.sroa.015.4.vec.extract.i, %118
+  %.sroa.0.4.vec.insert.i3.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i.i.i, float %119, i64 1
   br label %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i
 
-_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i: ; preds = %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i, %108, %87
-  %.sroa.013.4.vec.extract.pre-phi.i = phi float [ %118, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i ], [ %.sroa.015.4.vec.extract.i, %87 ], [ %.sroa.5.12.vec.extract.i, %108 ]
-  %.sroa.013.0.vec.extract.pre-phi.i = phi float [ %116, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i ], [ %.sroa.015.0.vec.extract.i, %87 ], [ %.sroa.5.8.vec.extract.i, %108 ]
-  %.sroa.011.0.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i.i.i, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i ], [ %92, %87 ], [ %93, %108 ]
-  %119 = fsub float %.sroa.013.0.vec.extract.pre-phi.i, %.sroa.054.0.vec.extract60
-  %120 = fsub float %.sroa.013.4.vec.extract.pre-phi.i, %.sroa.054.4.vec.extract67
-  %121 = fmul float %120, %120
-  %122 = tail call float @llvm.fmuladd.f32(float %119, float %119, float %121)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %122)
-  %123 = fcmp olt float %sqrt.i.i, %.068
-  %.sroa.0.4 = select i1 %123, <2 x float> %.sroa.011.0.i.i, <2 x float> %.sroa.0.3
-  %.169 = select i1 %123, float %sqrt.i.i, float %.068
-  br i1 %89, label %_ZNK3vcg9Triangle2IfE13PointDistanceERKNS_6Point2IfEERfRS3_.exit, label %87, !llvm.loop !1101
+_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i: ; preds = %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i, %109, %88
+  %.sroa.013.4.vec.extract.pre-phi.i = phi float [ %119, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i ], [ %.sroa.015.4.vec.extract.i, %88 ], [ %.sroa.4.12.vec.extract.i, %109 ]
+  %.sroa.013.0.vec.extract.pre-phi.i = phi float [ %117, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i ], [ %.sroa.015.0.vec.extract.i, %88 ], [ %.sroa.4.8.vec.extract.i, %109 ]
+  %.sroa.011.0.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i.i.i, %._ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit_crit_edge.i ], [ %93, %88 ], [ %94, %109 ]
+  %120 = fsub float %.sroa.013.0.vec.extract.pre-phi.i, %.sroa.054.0.vec.extract60
+  %121 = fsub float %.sroa.013.4.vec.extract.pre-phi.i, %.sroa.054.4.vec.extract67
+  %122 = fmul float %121, %121
+  %123 = tail call float @llvm.fmuladd.f32(float %120, float %120, float %122)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %123)
+  %124 = fcmp olt float %sqrt.i.i, %.068
+  %.sroa.0.4 = select i1 %124, <2 x float> %.sroa.011.0.i.i, <2 x float> %.sroa.0.3
+  %.169 = select i1 %124, float %sqrt.i.i, float %.068
+  br i1 %90, label %_ZNK3vcg9Triangle2IfE13PointDistanceERKNS_6Point2IfEERfRS3_.exit, label %88, !llvm.loop !1101
 
 _ZNK3vcg9Triangle2IfE13PointDistanceERKNS_6Point2IfEERfRS3_.exit: ; preds = %_ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit.i
-  %124 = fcmp olt float %.169, %.275
-  br i1 %124, label %125, label %_ZNK3vcg9Triangle2IfE23InterpolationParametersERKNS_6Point2IfEERfS6_S6_.exit
+  %125 = fcmp olt float %.169, %.275
+  br i1 %125, label %126, label %_ZNK3vcg9Triangle2IfE23InterpolationParametersERKNS_6Point2IfEERfS6_S6_.exit
 
-125:                                              ; preds = %_ZNK3vcg9Triangle2IfE13PointDistanceERKNS_6Point2IfEERfRS3_.exit
+126:                                              ; preds = %_ZNK3vcg9Triangle2IfE13PointDistanceERKNS_6Point2IfEERfRS3_.exit
   store ptr %63, ptr %2, align 8
-  %126 = load float, ptr %5, align 4
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.4, i64 0
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.4, i64 1
-  %127 = fsub float %85, %86
-  %128 = fsub float %.sroa.0.0.vec.extract, %83
-  %129 = fsub float %83, %82
-  %130 = fsub float %.sroa.0.4.vec.extract, %86
+  %127 = fsub float %86, %87
+  %128 = fsub float %.sroa.0.0.vec.extract, %84
+  %129 = fsub float %84, %83
+  %130 = fsub float %.sroa.0.4.vec.extract, %87
   %131 = fmul float %129, %130
   %132 = tail call float @llvm.fmuladd.f32(float %127, float %128, float %131)
-  %133 = fsub float %126, %83
-  %134 = fsub float %84, %86
+  %133 = fsub float %82, %84
+  %134 = fsub float %85, %87
   %135 = fmul float %129, %134
   %136 = tail call float @llvm.fmuladd.f32(float %127, float %133, float %135)
   %137 = fdiv float %132, %136
   store float %137, ptr %3, align 4
-  %138 = fsub float %86, %84
+  %138 = fsub float %87, %85
   %139 = fmul float %133, %130
   %140 = tail call float @llvm.fmuladd.f32(float %138, float %128, float %139)
-  %141 = fsub float %82, %83
+  %141 = fsub float %83, %84
   %142 = fmul float %133, %127
   %143 = tail call float @llvm.fmuladd.f32(float %138, float %141, float %142)
   %144 = fdiv float %140, %143
@@ -121315,7 +121315,7 @@ _ZNK3vcg9Triangle2IfE13PointDistanceERKNS_6Point2IfEERfRS3_.exit: ; preds = %_ZN
   %narrow.i.i = fcmp ueq float %147, 0x7FF0000000000000
   br i1 %narrow.i.i, label %151, label %148
 
-148:                                              ; preds = %125
+148:                                              ; preds = %126
   %149 = tail call float @llvm.fabs.f32(float %144)
   %narrow.i59.i = fcmp ueq float %149, 0x7FF0000000000000
   %150 = tail call float @llvm.fabs.f32(float %146)
@@ -121323,7 +121323,7 @@ _ZNK3vcg9Triangle2IfE13PointDistanceERKNS_6Point2IfEERfRS3_.exit: ; preds = %_ZN
   %or.cond.i41 = select i1 %narrow.i59.i, i1 true, i1 %narrow.i60.i
   br i1 %or.cond.i41, label %151, label %_ZNK3vcg9Triangle2IfE23InterpolationParametersERKNS_6Point2IfEERfS6_S6_.exit
 
-151:                                              ; preds = %148, %125
+151:                                              ; preds = %148, %126
   store float 0x3FD5555560000000, ptr %45, align 4
   store float 0x3FD5555560000000, ptr %44, align 4
   store float 0x3FD5555560000000, ptr %3, align 4

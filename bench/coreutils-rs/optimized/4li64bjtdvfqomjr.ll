@@ -46,11 +46,11 @@ define hidden noundef ptr @_ZN3std3env15set_current_dir17h4230945a43703404E(ptr 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3std3env6var_os17h7b3e5846479e59fdE(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !18, !nonnull !10, !noundef !10
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !18, !noundef !10
-  invoke void @_ZN3std3env7_var_os17hc776618f090d355dE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i)
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !18, !noundef !10
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !18, !nonnull !10, !noundef !10
+  invoke void @_ZN3std3env7_var_os17hc776618f090d355dE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.pn1.i.i)
           to label %6 unwind label %4
 
 4:                                                ; preds = %2
@@ -77,7 +77,7 @@ define hidden void @_ZN3std3env6var_os17h7b3e5846479e59fdE(ptr noalias nocapture
   %13 = load ptr, ptr %3, align 8, !noalias !27, !nonnull !10, !noundef !10
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !noalias !27, !noundef !10
-  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12269880611312064175"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.in.i.i, ptr noundef nonnull %13, i64 noundef %11, i64 noundef %15)
+  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12269880611312064175"(ptr noalias noundef nonnull readonly align 1 %.pn1.in.i.i, ptr noundef nonnull %13, i64 noundef %11, i64 noundef %15)
   br label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h1bbaee4ec3db0cddE.exit.i"
 
 "_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h1bbaee4ec3db0cddE.exit.i": ; preds = %12, %9
@@ -99,15 +99,15 @@ define hidden void @_ZN3std3env6var_os17h7b3e5846479e59fdE(ptr noalias nocapture
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3std3env7set_var17h180840726114ca73E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !38, !noalias !43, !nonnull !10, !noundef !10
-  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !38, !noalias !43, !noundef !10
-  %.sroa.0.0.in.i.i.i1 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.0.0.i.i.i2 = load ptr, ptr %.sroa.0.0.in.i.i.i1, align 8, !alias.scope !46, !noalias !51, !nonnull !10, !noundef !10
-  %.sroa.5.0.in.i.i.i3 = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.5.0.i.i.i4 = load i64, ptr %.sroa.5.0.in.i.i.i3, align 8, !alias.scope !46, !noalias !51, !noundef !10
-  tail call void @_ZN3std3env8_set_var17hbf34a1185b655a15E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.5.0.i.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i2, i64 noundef %.sroa.5.0.i.i.i4)
+  %.pn1.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1.i.i.i = load i64, ptr %.pn1.in.i.i.i, align 8, !alias.scope !38, !noalias !43, !noundef !10
+  %.pn3.in.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3.i.i.i = load ptr, ptr %.pn3.in.i.i.i, align 8, !alias.scope !38, !noalias !43, !nonnull !10, !noundef !10
+  %.pn1.in.i.i.i1 = getelementptr inbounds i8, ptr %1, i64 16
+  %.pn1.i.i.i2 = load i64, ptr %.pn1.in.i.i.i1, align 8, !alias.scope !46, !noalias !51, !noundef !10
+  %.pn3.in.i.i.i3 = getelementptr inbounds i8, ptr %1, i64 8
+  %.pn3.i.i.i4 = load ptr, ptr %.pn3.in.i.i.i3, align 8, !alias.scope !46, !noalias !51, !nonnull !10, !noundef !10
+  tail call void @_ZN3std3env8_set_var17hbf34a1185b655a15E(ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i, i64 noundef %.pn1.i.i.i, ptr noalias noundef nonnull readonly align 1 %.pn3.i.i.i4, i64 noundef %.pn1.i.i.i2)
   ret void
 }
 
@@ -245,13 +245,13 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hfbb074c882f5fc1aE.llvm.13572711817790545932"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !10, !align !69, !noundef !10
-  %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !76, !nonnull !10, !noundef !10
-  %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !76, !noundef !10
-  %3 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %.sroa.5.0.i.i, 1
-  ret { ptr, i64 } %4
+  %.pn1.in.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !76, !noundef !10
+  %.pn3.in.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !76, !nonnull !10, !noundef !10
+  %.pn.i.i = insertvalue { ptr, i64 } poison, ptr %.pn3.i.i, 0
+  %.merged.i.i = insertvalue { ptr, i64 } %.pn.i.i, i64 %.pn1.i.i, 1
+  ret { ptr, i64 } %.merged.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -1897,8 +1897,8 @@ if.end31.i.i:                                     ; preds = %if.end16.i.i, %entr
 
 if.end:                                           ; preds = %if.then19.i.i, %if.then12.i.i, %if.end31.i.i
   %call = tail call noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %P) #7
-  %cmp63.not = icmp eq i32 %call, 0
-  br i1 %cmp63.not, label %for.end, label %for.body.lr.ph
+  %cmp64.not = icmp eq i32 %call, 0
+  br i1 %cmp64.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %CurArray.i.i.i9 = getelementptr inbounds i8, ptr %inputs, i64 8
@@ -1908,8 +1908,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.064 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %call1 = tail call { ptr, ptr } @_ZNK6hermes7PhiInst8getEntryEj(ptr noundef nonnull align 8 dereferenceable(132) %P, i32 noundef %i.064) #7
+  %i.065 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %call1 = tail call { ptr, ptr } @_ZNK6hermes7PhiInst8getEntryEj(ptr noundef nonnull align 8 dereferenceable(132) %P, i32 noundef %i.065) #7
   %9 = extractvalue { ptr, ptr } %call1, 0
   %10 = load i8, ptr %9, align 8
   %cmp.i.i.i.i.i.i.i.i.not = icmp eq i8 %10, 33
@@ -1974,7 +1974,7 @@ if.end31.i.i11:                                   ; preds = %if.end16.i.i51, %if
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i37, %if.then12.i.i48, %if.then19.i.i54, %if.end31.i.i11, %if.then4
-  %inc = add nuw i32 %i.064, 1
+  %inc = add nuw i32 %i.065, 1
   %exitcond.not = icmp eq i32 %inc, %call
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 

@@ -8188,8 +8188,8 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i: ; preds = %_ZN4llvmgtERKNS_1
   br label %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit
 
 _ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i, %74, %78, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.i, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i
-  %.sroa.phi.sroa.speculated.i = phi i64 [ %.sroa.27.0.copyload, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i ], [ %49, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.i ], [ %49, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i ], [ %49, %74 ], [ %49, %78 ]
-  %.sroa.speculated.i = phi i64 [ %.sroa.06.0.copyload, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i ], [ %48, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.i ], [ %48, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i ], [ %48, %74 ], [ %48, %78 ]
+  %.pre-phi169 = phi i64 [ %49, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i ], [ %49, %74 ], [ %49, %78 ], [ %49, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.i ], [ %.sroa.27.0.copyload, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i ]
+  %.pre-phi = phi i64 [ %48, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i ], [ %48, %74 ], [ %48, %78 ], [ %48, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.i ], [ %.sroa.06.0.copyload, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i ]
   %.val = load i32, ptr %16, align 4
   %82 = getelementptr inbounds i8, ptr %1, i64 48
   %.val43 = load i32, ptr %82, align 8
@@ -8218,7 +8218,7 @@ _ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.
 
 _ZNK4llvm12VersionTuple5emptyEv.exit:             ; preds = %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %85, %86
   %.sroa.0.0.i.ph = phi i64 [ -9223371976725233654, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit ], [ -9223371976725233654, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit ], [ 12, %85 ], [ 5, %86 ]
-  %88 = trunc i64 %.sroa.speculated.i to i32
+  %88 = trunc i64 %.pre-phi to i32
   %89 = trunc i64 %.sroa.0.0.i.ph to i32
   %90 = icmp ult i32 %88, %89
   br i1 %90, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, label %91
@@ -8227,13 +8227,13 @@ _ZNK4llvm12VersionTuple5emptyEv.exit:             ; preds = %_ZL40targetVersionO
   %92 = lshr i64 %.sroa.0.0.i.ph, 32
   %93 = trunc nuw i64 %92 to i32
   %94 = and i32 %93, 14
-  %95 = lshr i64 %.sroa.speculated.i, 32
+  %95 = lshr i64 %.pre-phi, 32
   %96 = trunc nuw i64 %95 to i32
   %97 = and i32 %96, 2147483647
   %98 = icmp uge i32 %89, %88
   %99 = icmp samesign ult i32 %97, %94
-  %or.cond167 = select i1 %98, i1 %99, i1 false
-  br i1 %or.cond167, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
+  %or.cond165 = select i1 %98, i1 %99, i1 false
+  br i1 %or.cond165, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
 
 _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %83, %91
   %100 = icmp eq i32 %.val43, 24
@@ -8295,28 +8295,28 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %_ZL40targetVersionO
 
 _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit: ; preds = %106, %106, %107, %109, %112, %115, %118, %119
   %.0.i = phi i32 [ %121, %119 ], [ 10, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ 1, %106 ], [ 1, %106 ], [ 6, %107 ]
-  %123 = trunc i64 %.sroa.speculated.i to i32
-  %124 = lshr i64 %.sroa.speculated.i, 32
+  %123 = trunc i64 %.pre-phi to i32
+  %124 = lshr i64 %.pre-phi, 32
   %125 = trunc nuw i64 %124 to i32
   %126 = and i32 %125, 2147483647
-  %.not161 = icmp sgt i64 %.sroa.speculated.i, -1
-  %.0.i53 = select i1 %.not161, i32 0, i32 %126
-  %127 = trunc i64 %.sroa.phi.sroa.speculated.i to i32
-  %.sroa.0132.0.extract.trunc = and i32 %127, 2147483647
-  %128 = and i64 %.sroa.phi.sroa.speculated.i, 2147483648
-  %.not162 = icmp eq i64 %128, 0
-  %.0.i59 = select i1 %.not162, i32 0, i32 %.sroa.0132.0.extract.trunc
+  %.not159 = icmp sgt i64 %.pre-phi, -1
+  %.0.i51 = select i1 %.not159, i32 0, i32 %126
+  %127 = trunc i64 %.pre-phi169 to i32
+  %.sroa.0130.0.extract.trunc = and i32 %127, 2147483647
+  %128 = and i64 %.pre-phi169, 2147483648
+  %.not160 = icmp eq i64 %128, 0
+  %.0.i57 = select i1 %.not160, i32 0, i32 %.sroa.0130.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %129 = load ptr, ptr %0, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 256
   %131 = load ptr, ptr %130, align 8
-  call void %131(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %.0.i, i32 noundef %123, i32 noundef %.0.i53, i32 noundef %.0.i59, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %8) #23
+  call void %131(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %.0.i, i32 noundef %123, i32 noundef %.0.i51, i32 noundef %.0.i57, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %8) #23
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
 132:                                              ; preds = %102, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   switch i32 %.val, label %147 [
-    i32 9, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
-    i32 1, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
+    i32 9, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59
+    i32 1, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59
     i32 5, label %133
     i32 26, label %137
     i32 27, label %140
@@ -8325,64 +8325,64 @@ _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit: ; preds = %106, %106
   ]
 
 133:                                              ; preds = %132
-  br i1 %100, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61, label %134
+  br i1 %100, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59, label %134
 
 134:                                              ; preds = %133
   %135 = icmp eq i32 %.val43, 23
   %136 = select i1 %135, i32 7, i32 2
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59
 
 137:                                              ; preds = %132
   %138 = icmp eq i32 %.val43, 23
   %139 = select i1 %138, i32 8, i32 3
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59
 
 140:                                              ; preds = %132
   %141 = icmp eq i32 %.val43, 23
   %142 = select i1 %141, i32 9, i32 4
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59
 
 143:                                              ; preds = %132
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59
 
 144:                                              ; preds = %132
   %145 = icmp eq i32 %.val43, 23
   %146 = select i1 %145, i32 12, i32 11
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59
 
 147:                                              ; preds = %132
   unreachable
 
-_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61: ; preds = %132, %132, %133, %134, %137, %140, %143, %144
-  %.0.i60 = phi i32 [ %146, %144 ], [ 10, %143 ], [ %142, %140 ], [ %139, %137 ], [ %136, %134 ], [ 1, %132 ], [ 1, %132 ], [ 6, %133 ]
-  %148 = trunc i64 %.sroa.speculated.i to i32
-  %149 = lshr i64 %.sroa.speculated.i, 32
+_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59: ; preds = %132, %132, %133, %134, %137, %140, %143, %144
+  %.0.i58 = phi i32 [ %146, %144 ], [ 10, %143 ], [ %142, %140 ], [ %139, %137 ], [ %136, %134 ], [ 1, %132 ], [ 1, %132 ], [ 6, %133 ]
+  %148 = trunc i64 %.pre-phi to i32
+  %149 = lshr i64 %.pre-phi, 32
   %150 = trunc nuw i64 %149 to i32
   %151 = and i32 %150, 2147483647
-  %.not159 = icmp sgt i64 %.sroa.speculated.i, -1
-  %.0.i68 = select i1 %.not159, i32 0, i32 %151
-  %152 = trunc i64 %.sroa.phi.sroa.speculated.i to i32
-  %.sroa.0124.0.extract.trunc = and i32 %152, 2147483647
-  %153 = and i64 %.sroa.phi.sroa.speculated.i, 2147483648
-  %.not160 = icmp eq i64 %153, 0
-  %.0.i74 = select i1 %.not160, i32 0, i32 %.sroa.0124.0.extract.trunc
+  %.not157 = icmp sgt i64 %.pre-phi, -1
+  %.0.i66 = select i1 %.not157, i32 0, i32 %151
+  %152 = trunc i64 %.pre-phi169 to i32
+  %.sroa.0122.0.extract.trunc = and i32 %152, 2147483647
+  %153 = and i64 %.pre-phi169, 2147483648
+  %.not158 = icmp eq i64 %153, 0
+  %.0.i72 = select i1 %.not158, i32 0, i32 %.sroa.0122.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %154 = load ptr, ptr %0, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 248
   %156 = load ptr, ptr %155, align 8
-  call void %156(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %.0.i60, i32 noundef %148, i32 noundef %.0.i68, i32 noundef %.0.i74, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %9) #23
+  call void %156(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %.0.i58, i32 noundef %148, i32 noundef %.0.i66, i32 noundef %.0.i72, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %9) #23
   br label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
 
-_ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12VersionTuple5emptyEv.exit, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
-  %.0 = phi i1 [ true, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61 ], [ false, %_ZNK4llvm12VersionTuple5emptyEv.exit ], [ false, %91 ]
+_ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12VersionTuple5emptyEv.exit, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59
+  %.0 = phi i1 [ true, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit59 ], [ false, %_ZNK4llvm12VersionTuple5emptyEv.exit ], [ false, %91 ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %182, label %157
 
 157:                                              ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
   %158 = load i32, ptr %16, align 4
   %159 = and i32 %158, -9
-  %spec.select.i75 = icmp eq i32 %159, 1
-  br i1 %spec.select.i75, label %160, label %182
+  %spec.select.i73 = icmp eq i32 %159, 1
+  br i1 %spec.select.i73, label %160, label %182
 
 160:                                              ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -8405,18 +8405,18 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12Ver
   %174 = lshr i64 %169, 32
   %175 = trunc nuw i64 %174 to i32
   %176 = and i32 %175, 2147483647
-  %.not163 = icmp sgt i64 %169, -1
-  %.0.i82 = select i1 %.not163, i32 0, i32 %176
+  %.not161 = icmp sgt i64 %169, -1
+  %.0.i80 = select i1 %.not161, i32 0, i32 %176
   %177 = trunc i64 %170 to i32
-  %.sroa.0110.0.extract.trunc = and i32 %177, 2147483647
+  %.sroa.0108.0.extract.trunc = and i32 %177, 2147483647
   %178 = and i64 %170, 2147483648
-  %.not164 = icmp eq i64 %178, 0
-  %.0.i88 = select i1 %.not164, i32 0, i32 %.sroa.0110.0.extract.trunc
+  %.not162 = icmp eq i64 %178, 0
+  %.0.i86 = select i1 %.not162, i32 0, i32 %.sroa.0108.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   %179 = load ptr, ptr %0, align 8
   %180 = getelementptr inbounds i8, ptr %179, i64 256
   %181 = load ptr, ptr %180, align 8
-  call void %181(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %172, i32 noundef %173, i32 noundef %.0.i82, i32 noundef %.0.i88, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %10) #23
+  call void %181(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %172, i32 noundef %173, i32 noundef %.0.i80, i32 noundef %.0.i86, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %10) #23
   br label %182
 
 182:                                              ; preds = %157, %160, %164, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
@@ -8445,23 +8445,23 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12Ver
   unreachable
 
 _ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit: ; preds = %183, %183, %184, %185, %186
-  %.0.i89 = phi i32 [ 3, %186 ], [ 2, %185 ], [ 0, %184 ], [ 1, %183 ], [ 1, %183 ]
-  %188 = trunc i64 %.sroa.speculated.i to i32
-  %189 = lshr i64 %.sroa.speculated.i, 32
+  %.0.i87 = phi i32 [ 3, %186 ], [ 2, %185 ], [ 0, %184 ], [ 1, %183 ], [ 1, %183 ]
+  %188 = trunc i64 %.pre-phi to i32
+  %189 = lshr i64 %.pre-phi, 32
   %190 = trunc nuw i64 %189 to i32
   %191 = and i32 %190, 2147483647
-  %.not165 = icmp sgt i64 %.sroa.speculated.i, -1
-  %.0.i96 = select i1 %.not165, i32 0, i32 %191
-  %192 = trunc i64 %.sroa.phi.sroa.speculated.i to i32
+  %.not163 = icmp sgt i64 %.pre-phi, -1
+  %.0.i94 = select i1 %.not163, i32 0, i32 %191
+  %192 = trunc i64 %.pre-phi169 to i32
   %.sroa.0.0.extract.trunc = and i32 %192, 2147483647
-  %193 = and i64 %.sroa.phi.sroa.speculated.i, 2147483648
-  %.not166 = icmp eq i64 %193, 0
-  %.0.i102 = select i1 %.not166, i32 0, i32 %.sroa.0.0.extract.trunc
+  %193 = and i64 %.pre-phi169, 2147483648
+  %.not164 = icmp eq i64 %193, 0
+  %.0.i100 = select i1 %.not164, i32 0, i32 %.sroa.0.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %194 = load ptr, ptr %0, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 240
   %196 = load ptr, ptr %195, align 8
-  call void %196(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %.0.i89, i32 noundef %188, i32 noundef %.0.i96, i32 noundef %.0.i102, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %11) #23
+  call void %196(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %.0.i87, i32 noundef %188, i32 noundef %.0.i94, i32 noundef %.0.i100, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %11) #23
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %19, %182, %20, %5, %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
@@ -8535,14 +8535,13 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %35
   br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12
 
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12: ; preds = %3, %33, %29, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
+  %39 = insertvalue { i64, i64 } poison, i64 %1, 0
+  %40 = insertvalue { i64, i64 } %39, i64 %2, 1
   br label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread
 
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread:   ; preds = %35, %31, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12
-  %.sroa.phi.sroa.speculated = phi i64 [ %2, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12 ], [ %6, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %6, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread ], [ %6, %31 ], [ %6, %35 ]
-  %.sroa.speculated = phi i64 [ %1, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12 ], [ %5, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %5, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread ], [ %5, %31 ], [ %5, %35 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.speculated, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.phi.sroa.speculated, 1
-  ret { i64, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, i64 } [ %40, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12 ], [ %4, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %4, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread ], [ %4, %31 ], [ %4, %35 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

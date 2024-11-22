@@ -1884,6 +1884,7 @@ if.else872.i:                                     ; preds = %if.else838.i
   br label %if.end877.i
 
 if.end877.i:                                      ; preds = %if.else872.i, %if.end861.i, %if.else834.i
+  %.in.i = phi i64 [ %162, %if.else834.i ], [ %169, %if.end861.i ], [ %174, %if.else872.i ]
   %177 = phi i32 [ %add836.i, %if.else834.i ], [ %171, %if.end861.i ], [ %176, %if.else872.i ]
   %aadj.2.i = phi double [ %aadj.1.i, %if.else834.i ], [ %aadj.3.i, %if.end861.i ], [ %aadj.1.i, %if.else872.i ]
   %and879.i = and i32 %177, 2146435072
@@ -1896,8 +1897,8 @@ if.then889.i:                                     ; preds = %if.end877.i
   %conv891.i = sitofp i32 %conv890.i to double
   %sub892.i = fsub double %aadj.2.i, %conv891.i
   %tobool894.i = icmp eq i32 %124, 0
-  %178 = load i32, ptr %rv.i, align 8
-  %tobool897.i = icmp eq i32 %178, 0
+  %178 = and i64 %.in.i, 4294967295
+  %tobool897.i = icmp eq i64 %178, 0
   %or.cond15.not689.i = select i1 %tobool894.i, i1 %tobool897.i, i1 false
   %and900.i = and i32 %177, 1048575
   %tobool901.not.i = icmp eq i32 %and900.i, 0
@@ -2768,6 +2769,7 @@ entry:
   %1 = lshr i64 %0, 32
   %2 = trunc nuw i64 %1 to i32
   %tobool.not = icmp sgt i64 %0, -1
+  %3 = trunc i64 %0 to i32
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2776,18 +2778,17 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
-  %3 = phi i32 [ %and2, %if.then ], [ %2, %entry ]
+  %4 = phi i32 [ %and2, %if.then ], [ %2, %entry ]
   %.sink = phi i32 [ 1, %if.then ], [ 0, %entry ]
   store i32 %.sink, ptr %sign, align 4
-  %and4 = and i32 %3, 2146435072
+  %and4 = and i32 %4, 2146435072
   %cmp = icmp eq i32 %and4, 2146435072
   br i1 %cmp, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.end
   store i32 9999, ptr %decpt, align 4
-  %4 = load i32, ptr %u, align 8
-  %and9 = and i32 %3, 1048575
-  %5 = or i32 %4, %and9
+  %and9 = and i32 %4, 1048575
+  %5 = or i32 %and9, %3
   %or.cond751 = icmp eq i32 %5, 0
   %freelist.i.i.i = getelementptr inbounds i8, ptr %dalloc, i64 16
   %6 = load ptr, ptr %freelist.i.i.i, align 8
@@ -6098,6 +6099,7 @@ entry:
   %1 = lshr i64 %0, 32
   %2 = trunc nuw i64 %1 to i32
   %tobool.not = icmp sgt i64 %0, -1
+  %3 = trunc i64 %0 to i32
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -6106,18 +6108,17 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
-  %3 = phi i32 [ %and2, %if.then ], [ %2, %entry ]
+  %4 = phi i32 [ %and2, %if.then ], [ %2, %entry ]
   %.sink = phi i32 [ 1, %if.then ], [ 0, %entry ]
   store i32 %.sink, ptr %sign, align 4
-  %and4 = and i32 %3, 2146435072
+  %and4 = and i32 %4, 2146435072
   %cmp = icmp eq i32 %and4, 2146435072
   br i1 %cmp, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.end
   store i32 9999, ptr %decpt, align 4
-  %4 = load i32, ptr %u, align 8
-  %and9 = and i32 %3, 1048575
-  %5 = or i32 %4, %and9
+  %and9 = and i32 %4, 1048575
+  %5 = or i32 %and9, %3
   %or.cond719 = icmp eq i32 %5, 0
   %freelist.i.i.i = getelementptr inbounds i8, ptr %dalloc, i64 16
   %6 = load ptr, ptr %freelist.i.i.i, align 8

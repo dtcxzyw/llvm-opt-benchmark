@@ -109,57 +109,54 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview19TypeTableCollection7getTypeENS
 define dso_local { ptr, i64 } @_ZN4llvm8codeview19TypeTableCollection11getTypeNameENS0_9TypeIndexE(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = icmp ult i32 %1, 4096
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = tail call { ptr, i64 } @_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_(i32 %1) #14
-  %7 = extractvalue { ptr, i64 } %6, 0
-  %8 = extractvalue { ptr, i64 } %6, 1
   br label %29
 
-9:                                                ; preds = %2
-  %10 = and i32 %1, 2147483647
-  %11 = add nsw i32 %10, -4096
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %13 = zext i32 %11 to i64
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds %"class.llvm::StringRef", ptr %14, i64 %13
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %27
+7:                                                ; preds = %2
+  %8 = and i32 %1, 2147483647
+  %9 = add nsw i32 %8, -4096
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %11 = zext i32 %9 to i64
+  %12 = load ptr, ptr %10, align 8
+  %13 = getelementptr inbounds %"class.llvm::StringRef", ptr %12, i64 %11
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %25
 
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
+16:                                               ; preds = %7
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @_ZN4llvm8codeview15computeTypeNameB5cxx11ERNS0_14TypeCollectionENS0_9TypeIndexE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %1) #14
-  %20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
-  %21 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
-  %22 = call { ptr, i64 } @_ZN4llvm11StringSaver4saveENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr %20, i64 %21) #14
-  %23 = extractvalue { ptr, i64 } %22, 0
-  %24 = extractvalue { ptr, i64 } %22, 1
+  %18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  %20 = call { ptr, i64 } @_ZN4llvm11StringSaver4saveENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr %18, i64 %19) #14
+  %21 = extractvalue { ptr, i64 } %20, 0
+  %22 = extractvalue { ptr, i64 } %20, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
-  %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds %"class.llvm::StringRef", ptr %25, i64 %13
-  store ptr %23, ptr %26, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %24, ptr %.sroa.2.0..sroa_idx, align 8
-  %.pre = load ptr, ptr %12, align 8
-  %.phi.trans.insert = getelementptr inbounds %"class.llvm::StringRef", ptr %.pre, i64 %13
+  %23 = load ptr, ptr %10, align 8
+  %24 = getelementptr inbounds %"class.llvm::StringRef", ptr %23, i64 %11
+  store ptr %21, ptr %24, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
+  store i64 %22, ptr %.sroa.2.0..sroa_idx, align 8
+  %.pre = load ptr, ptr %10, align 8
+  %.phi.trans.insert = getelementptr inbounds %"class.llvm::StringRef", ptr %.pre, i64 %11
   %.sroa.05.0.copyload.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %27
+  br label %25
 
-27:                                               ; preds = %18, %9
-  %.sroa.05.0.copyload = phi ptr [ %.sroa.05.0.copyload.pre, %18 ], [ %16, %9 ]
-  %28 = phi ptr [ %.pre, %18 ], [ %14, %9 ]
-  %.sroa.3.0..sroa_idx = getelementptr inbounds %"class.llvm::StringRef", ptr %28, i64 %13, i32 1
+25:                                               ; preds = %16, %7
+  %.sroa.05.0.copyload = phi ptr [ %.sroa.05.0.copyload.pre, %16 ], [ %14, %7 ]
+  %26 = phi ptr [ %.pre, %16 ], [ %12, %7 ]
+  %.sroa.3.0..sroa_idx = getelementptr inbounds %"class.llvm::StringRef", ptr %26, i64 %11, i32 1
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
+  %27 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0.copyload, 0
+  %28 = insertvalue { ptr, i64 } %27, i64 %.sroa.3.0.copyload, 1
   br label %29
 
-29:                                               ; preds = %27, %5
-  %.sroa.05.0 = phi ptr [ %7, %5 ], [ %.sroa.05.0.copyload, %27 ]
-  %.sroa.3.0 = phi i64 [ %8, %5 ], [ %.sroa.3.0.copyload, %27 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+29:                                               ; preds = %25, %5
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %6, %5 ], [ %28, %25 ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 declare { ptr, i64 } @_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_(i32) local_unnamed_addr #3

@@ -2390,7 +2390,7 @@ define dso_local void @_ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev(ptr dead_
   %8 = icmp ult i32 %switch.tableidx, 31
   br i1 %8, label %switch.lookup, label %13
 
-9:                                                ; preds = %switch.lookup, %_ZZ8cmStrCatIRA8_KcRKiJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_.exit10.i, %13
+9:                                                ; preds = %switch.lookup, %_ZZ8cmStrCatIRA8_KcRKiJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_.exit9.i, %13
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
@@ -2401,7 +2401,7 @@ switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %switch.load)
-          to label %27 unwind label %9
+          to label %29 unwind label %9
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -2418,43 +2418,44 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %15 = load ptr, ptr %4, align 8, !noalias !23
   %.not.i.i2.i = icmp eq ptr %15, null
-  br i1 %.not.i.i2.i, label %20, label %16
+  br i1 %.not.i.i2.i, label %18, label %16
 
 16:                                               ; preds = %.noexc
   %17 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #18, !noalias !23
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
   %.pre.i3.i = load ptr, ptr %4, align 8, !noalias !23
-  br label %_ZZ8cmStrCatIRA8_KcRKiJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_.exit10.i
+  br label %_ZZ8cmStrCatIRA8_KcRKiJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_.exit9.i
 
-20:                                               ; preds = %.noexc
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.0.0.copyload.i.i7.i = load i64, ptr %21, align 8, !noalias !23
-  %.sroa.3.0..sroa_idx.i.i8.i = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.3.0.copyload.i.i9.i = load ptr, ptr %.sroa.3.0..sroa_idx.i.i8.i, align 8, !noalias !23
-  br label %_ZZ8cmStrCatIRA8_KcRKiJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_.exit10.i
+18:                                               ; preds = %.noexc
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.0.0.copyload.i.i6.i = load i64, ptr %19, align 8, !noalias !23
+  %.sroa.3.0..sroa_idx.i.i7.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.3.0.copyload.i.i8.i = load ptr, ptr %.sroa.3.0..sroa_idx.i.i7.i, align 8, !noalias !23
+  %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.copyload.i.i6.i, 0
+  %21 = insertvalue { i64, ptr } %20, ptr %.sroa.3.0.copyload.i.i8.i, 1
+  br label %_ZZ8cmStrCatIRA8_KcRKiJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_.exit9.i
 
-_ZZ8cmStrCatIRA8_KcRKiJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_.exit10.i: ; preds = %20, %16
-  %22 = phi ptr [ %.pre.i3.i, %16 ], [ null, %20 ]
-  %.sroa.0.0.i.i4.i = phi i64 [ %18, %16 ], [ %.sroa.0.0.copyload.i.i7.i, %20 ]
-  %.sroa.3.0.i.i5.i = phi ptr [ %19, %16 ], [ %.sroa.3.0.copyload.i.i9.i, %20 ]
+_ZZ8cmStrCatIRA8_KcRKiJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_.exit9.i: ; preds = %18, %16
+  %22 = phi ptr [ %.pre.i3.i, %16 ], [ null, %18 ]
+  %.fca.1.insert.merged.i.i4.i = phi { i64, ptr } [ %17, %16 ], [ %21, %18 ]
   %23 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 %.sroa.0.0.i.i4.i, ptr %23, align 8, !alias.scope !20, !noalias !17
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %.sroa.3.0.i.i5.i, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !20, !noalias !17
-  %24 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr %22, ptr %24, align 8, !alias.scope !20, !noalias !17
+  %24 = extractvalue { i64, ptr } %.fca.1.insert.merged.i.i4.i, 0
+  %25 = extractvalue { i64, ptr } %.fca.1.insert.merged.i.i4.i, 1
+  store i64 %24, ptr %23, align 8, !alias.scope !20, !noalias !17
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %25, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !20, !noalias !17
+  %26 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %22, ptr %26, align 8, !alias.scope !20, !noalias !17
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull %3, i64 2)
-          to label %25 unwind label %9
+          to label %27 unwind label %9
 
-25:                                               ; preds = %_ZZ8cmStrCatIRA8_KcRKiJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_.exit10.i
+27:                                               ; preds = %_ZZ8cmStrCatIRA8_KcRKiJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_.exit9.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+  %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  br label %27
+  br label %29
 
-27:                                               ; preds = %switch.lookup, %25
+29:                                               ; preds = %switch.lookup, %27
   ret void
 }
 

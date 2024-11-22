@@ -456,6 +456,8 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %target.i.i, align 8
   %serial2.i.i.i = getelementptr inbounds i8, ptr %1, i64 96
   %2 = load i64, ptr %serial2.i.i.i, align 8
+  %.fca.0.insert.i.i = insertvalue { ptr, i64 } poison, ptr %1, 0
+  %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i, i64 %2, 1
   %cmp.i = icmp eq ptr %a.coerce0, %1
   %3 = load ptr, ptr %0, align 8
   %cmp.i.i.i.i4 = icmp eq ptr %3, %m_header.i.i.i.i
@@ -469,10 +471,11 @@ if.end14:                                         ; preds = %if.then9
   %4 = load ptr, ptr %target.i.i8, align 8
   %serial2.i.i.i9 = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load i64, ptr %serial2.i.i.i9, align 8
+  %.fca.0.insert.i.i10 = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %.fca.1.insert.i.i11 = insertvalue { ptr, i64 } %.fca.0.insert.i.i10, i64 %5, 1
   %6 = load ptr, ptr %3, align 8
   %cmp.i.i.i.i12.not = icmp eq ptr %6, %m_header.i.i.i.i
-  %spec.select = select i1 %cmp.i.i.i.i12.not, ptr %4, ptr null
-  %spec.select37 = select i1 %cmp.i.i.i.i12.not, i64 %5, i64 0
+  %spec.select = select i1 %cmp.i.i.i.i12.not, { ptr, i64 } %.fca.1.insert.i.i11, { ptr, i64 } zeroinitializer
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -493,11 +496,8 @@ if.then33:                                        ; preds = %land.rhs, %lor.rhs
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then9, %entry, %if.else, %lor.rhs, %if.then33
-  %retval.sroa.0.0 = phi ptr [ null, %if.then33 ], [ %1, %lor.rhs ], [ %1, %if.else ], [ null, %entry ], [ null, %if.then9 ], [ %spec.select, %if.end14 ]
-  %retval.sroa.6.0 = phi i64 [ 0, %if.then33 ], [ %2, %lor.rhs ], [ %2, %if.else ], [ 0, %entry ], [ 0, %if.then9 ], [ %spec.select37, %if.end14 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ zeroinitializer, %if.then33 ], [ %.fca.1.insert.i.i, %lor.rhs ], [ %.fca.1.insert.i.i, %if.else ], [ zeroinitializer, %entry ], [ zeroinitializer, %if.then9 ], [ %spec.select, %if.end14 ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -563,6 +563,8 @@ if.end11:                                         ; preds = %if.end
   %5 = load ptr, ptr %source.i.i, align 8
   %serial2.i.i.i = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load i64, ptr %serial2.i.i.i, align 8
+  %.fca.0.insert.i.i = insertvalue { ptr, i64 } poison, ptr %5, 0
+  %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i, i64 %6, 1
   %cmp.i = icmp eq ptr %a.coerce0, %5
   br i1 %cmp.i, label %if.then17, label %return
 
@@ -576,14 +578,13 @@ if.end22:                                         ; preds = %if.then17
   %8 = load ptr, ptr %source.i.i12, align 8
   %serial2.i.i.i13 = getelementptr inbounds i8, ptr %8, i64 96
   %9 = load i64, ptr %serial2.i.i.i13, align 8
+  %.fca.0.insert.i.i14 = insertvalue { ptr, i64 } poison, ptr %8, 0
+  %.fca.1.insert.i.i15 = insertvalue { ptr, i64 } %.fca.0.insert.i.i14, i64 %9, 1
   br label %return
 
 return:                                           ; preds = %for.cond19.i.i.i, %for.cond.i.i.i, %if.then17, %if.end, %entry, %if.end11, %if.end22
-  %retval.sroa.0.0 = phi ptr [ %8, %if.end22 ], [ %5, %if.end11 ], [ null, %entry ], [ null, %if.end ], [ null, %if.then17 ], [ null, %for.cond.i.i.i ], [ null, %for.cond19.i.i.i ]
-  %retval.sroa.5.0 = phi i64 [ %9, %if.end22 ], [ %6, %if.end11 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.then17 ], [ 0, %for.cond.i.i.i ], [ 0, %for.cond19.i.i.i ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %.fca.1.insert.i.i15, %if.end22 ], [ %.fca.1.insert.i.i, %if.end11 ], [ zeroinitializer, %entry ], [ zeroinitializer, %if.end ], [ zeroinitializer, %if.then17 ], [ zeroinitializer, %for.cond.i.i.i ], [ zeroinitializer, %for.cond19.i.i.i ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1952,17 +1952,17 @@ if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
   br label %cleanup.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
-  %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
-  %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
+  %r.sroa.0.0.off0.i.pn.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
+  %r.sroa.0.0.off64.i.pn.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
   br label %load_atom_extract_al16_or_exit.exit.i
 
 load_atom_extract_al16_or_exit.exit.i:            ; preds = %cleanup.i.i.i, %if.then.i.i.i
-  %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.1.i.i.i, %cleanup.i.i.i ]
-  %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.4.1.i.i.i, %cleanup.i.i.i ]
-  %a.sroa.2.0.insert.ext.i.i23.i = zext i64 %retval.sroa.4.0.i.i.i to i128
+  %retval.sroa.0.0.extract.trunc.i.pn.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %r.sroa.0.0.off0.i.pn.i.i.i, %cleanup.i.i.i ]
+  %retval.sroa.2.0.extract.trunc.i.pn.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %r.sroa.0.0.off64.i.pn.i.i.i, %cleanup.i.i.i ]
+  %a.sroa.2.0.insert.ext.i.i23.i = zext i64 %retval.sroa.2.0.extract.trunc.i.pn.i.i.i to i128
   %a.sroa.2.0.insert.shift.i.i24.i = shl nuw i128 %a.sroa.2.0.insert.ext.i.i23.i, 64
-  %a.sroa.0.0.insert.ext.i.i25.i = zext i64 %retval.sroa.0.0.i.i.i to i128
+  %a.sroa.0.0.insert.ext.i.i25.i = zext i64 %retval.sroa.0.0.extract.trunc.i.pn.i.i.i to i128
   %a.sroa.0.0.insert.insert.i.i26.i = or disjoint i128 %a.sroa.2.0.insert.shift.i.i24.i, %a.sroa.0.0.insert.ext.i.i25.i
   %shr.i.i28.i = lshr i128 %a.sroa.0.0.insert.insert.i.i26.i, 56
   %conv36.i = trunc i128 %shr.i.i28.i to i16
@@ -2265,20 +2265,20 @@ if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
   br label %cleanup.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
-  %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
-  %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
+  %r.sroa.0.0.off0.i.pn.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
+  %r.sroa.0.0.off64.i.pn.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
   br label %load_atom_extract_al16_or_exit.exit.i
 
 load_atom_extract_al16_or_exit.exit.i:            ; preds = %cleanup.i.i.i, %if.then.i.i.i
-  %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.1.i.i.i, %cleanup.i.i.i ]
-  %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.4.1.i.i.i, %cleanup.i.i.i ]
+  %retval.sroa.0.0.extract.trunc.i.pn.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %r.sroa.0.0.off0.i.pn.i.i.i, %cleanup.i.i.i ]
+  %retval.sroa.2.0.extract.trunc.i.pn.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %r.sroa.0.0.off64.i.pn.i.i.i, %cleanup.i.i.i ]
   %30 = trunc i64 %add.i.i.i to i32
   %conv.i24.i = shl i32 %30, 3
   %mul.i25.i = and i32 %conv.i24.i, 56
-  %a.sroa.2.0.insert.ext.i.i26.i = zext i64 %retval.sroa.4.0.i.i.i to i128
+  %a.sroa.2.0.insert.ext.i.i26.i = zext i64 %retval.sroa.2.0.extract.trunc.i.pn.i.i.i to i128
   %a.sroa.2.0.insert.shift.i.i27.i = shl nuw i128 %a.sroa.2.0.insert.ext.i.i26.i, 64
-  %a.sroa.0.0.insert.ext.i.i28.i = zext i64 %retval.sroa.0.0.i.i.i to i128
+  %a.sroa.0.0.insert.ext.i.i28.i = zext i64 %retval.sroa.0.0.extract.trunc.i.pn.i.i.i to i128
   %a.sroa.0.0.insert.insert.i.i29.i = or disjoint i128 %a.sroa.2.0.insert.shift.i.i27.i, %a.sroa.0.0.insert.ext.i.i28.i
   %sh_prom.i.i30.i = zext nneg i32 %mul.i25.i to i128
   %shr.i.i31.i = lshr i128 %a.sroa.0.0.insert.insert.i.i29.i, %sh_prom.i.i30.i
@@ -2528,15 +2528,15 @@ if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
   br label %load_atom_extract_al16_or_exit.exit.i
 
 load_atom_extract_al16_or_exit.exit.i:            ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
-  %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
-  %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
+  %r.sroa.0.0.off0.i.pn.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
+  %r.sroa.0.0.off64.i.pn.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
   %23 = trunc i64 %add.i.i.i to i32
   %conv.i13.i = shl i32 %23, 3
   %mul.i.i = and i32 %conv.i13.i, 56
-  %a.sroa.2.0.insert.ext.i.i14.i = zext i64 %retval.sroa.4.1.i.i.i to i128
+  %a.sroa.2.0.insert.ext.i.i14.i = zext i64 %r.sroa.0.0.off64.i.pn.i.i.i to i128
   %a.sroa.2.0.insert.shift.i.i15.i = shl nuw i128 %a.sroa.2.0.insert.ext.i.i14.i, 64
-  %a.sroa.0.0.insert.ext.i.i16.i = zext i64 %retval.sroa.0.1.i.i.i to i128
+  %a.sroa.0.0.insert.ext.i.i16.i = zext i64 %r.sroa.0.0.off0.i.pn.i.i.i to i128
   %a.sroa.0.0.insert.insert.i.i17.i = or disjoint i128 %a.sroa.2.0.insert.shift.i.i15.i, %a.sroa.0.0.insert.ext.i.i16.i
   %sh_prom.i.i18.i = zext nneg i32 %mul.i.i to i128
   %shr.i.i19.i = lshr i128 %a.sroa.0.0.insert.insert.i.i17.i, %sh_prom.i.i18.i
@@ -2918,19 +2918,19 @@ if.then.i.i:                                      ; preds = %sw.bb27.i
 if.end.i.i:                                       ; preds = %sw.bb27.i
   tail call void @mmap_lock() #16
   %38 = load i64, ptr @guest_base, align 8
-  %sub.i63.i = sub i64 %add.i.i.i, %38
+  %sub.i61.i = sub i64 %add.i.i.i, %38
   %39 = load i64, ptr @reserved_va, align 8
   %tobool4.not.i.i = icmp ne i64 %39, 0
-  %cmp5.not11.i.i = icmp ult i64 %39, %sub.i63.i
+  %cmp5.not11.i.i = icmp ult i64 %39, %sub.i61.i
   %cmp5.not.i.i = select i1 %tobool4.not.i.i, i1 %cmp5.not11.i.i, i1 false
-  br i1 %cmp5.not.i.i, label %if.else.i65.i, label %if.end8.i.i
+  br i1 %cmp5.not.i.i, label %if.else.i63.i, label %if.end8.i.i
 
-if.else.i65.i:                                    ; preds = %if.end.i.i
+if.else.i63.i:                                    ; preds = %if.end.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.20, i32 noundef 205, ptr noundef nonnull @__PRETTY_FUNCTION__.load_atomic16_or_exit) #17
   unreachable
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call11.i.i = tail call zeroext i1 @page_check_range(i64 noundef %sub.i63.i, i64 noundef 16, i32 noundef 16)
+  %call11.i.i = tail call zeroext i1 @page_check_range(i64 noundef %sub.i61.i, i64 noundef 16, i32 noundef 16)
   br i1 %call11.i.i, label %if.end13.i.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end8.i.i
@@ -2944,8 +2944,8 @@ if.end13.i.i:                                     ; preds = %if.end8.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 16) ]
   %41 = load i32, ptr @cpuinfo, align 4
   %and.i12.i.i = and i32 %41, 65536
-  %tobool.not.i.i64.i = icmp eq i32 %and.i12.i.i, 0
-  br i1 %tobool.not.i.i64.i, label %if.else.i.i.i, label %if.then.i.i.i
+  %tobool.not.i.i62.i = icmp eq i32 %and.i12.i.i, 0
+  br i1 %tobool.not.i.i62.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end13.i.i
   %42 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %1) #19, !srcloc !12
@@ -2962,8 +2962,8 @@ if.else.i.i.i:                                    ; preds = %if.end13.i.i
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %if.else.i.i.i, %if.then.i.i.i, %if.then12.i.i
-  %retval.sroa.0.1.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i, %if.then12.i.i ], [ %extract.t.i.i.i, %if.then.i.i.i ], [ %extract.t2.i.i.i, %if.else.i.i.i ]
-  %retval.sroa.4.1.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i, %if.then12.i.i ], [ %extract.t3.i.i.i, %if.then.i.i.i ], [ %extract.t5.i.i.i, %if.else.i.i.i ]
+  %r.sroa.0.0.off0.i.pn.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i, %if.then12.i.i ], [ %extract.t.i.i.i, %if.then.i.i.i ], [ %extract.t2.i.i.i, %if.else.i.i.i ]
+  %r.sroa.0.0.off64.i.pn.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i, %if.then12.i.i ], [ %extract.t3.i.i.i, %if.then.i.i.i ], [ %extract.t5.i.i.i, %if.else.i.i.i ]
   tail call void @mmap_unlock() #16
   br label %load_atom_16.exit
 
@@ -2972,16 +2972,16 @@ do.body.i:                                        ; preds = %required_atomicity.
   unreachable
 
 load_atom_16.exit:                                ; preds = %if.then.i15, %sw.bb.i, %sw.bb12.i, %sw.bb15.i, %sw.bb19.i, %sw.bb23.i, %if.then.i.i, %cleanup.i.i
-  %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i, %if.then.i15 ], [ %retval.sroa.0.0.extract.trunc14.i, %sw.bb.i ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %if.then.i.i ], [ %retval.sroa.0.1.i.i, %cleanup.i.i ], [ %or.i48.i, %sw.bb23.i ], [ %26, %sw.bb19.i ], [ %or.i38.i, %sw.bb15.i ], [ %or.i.i, %sw.bb12.i ]
-  %retval.sroa.5.0.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i, %if.then.i15 ], [ %retval.sroa.5.0.extract.trunc18.i, %sw.bb.i ], [ %retval.sroa.2.0.extract.trunc.i.i.i, %if.then.i.i ], [ %retval.sroa.4.1.i.i, %cleanup.i.i ], [ %or.i59.i, %sw.bb23.i ], [ %27, %sw.bb19.i ], [ %or.i43.i, %sw.bb15.i ], [ %or.i34.i, %sw.bb12.i ]
+  %retval.sroa.0.0.extract.trunc.i.pn.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i, %if.then.i15 ], [ %retval.sroa.0.0.extract.trunc14.i, %sw.bb.i ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %if.then.i.i ], [ %r.sroa.0.0.off0.i.pn.i.i, %cleanup.i.i ], [ %or.i48.i, %sw.bb23.i ], [ %26, %sw.bb19.i ], [ %or.i38.i, %sw.bb15.i ], [ %or.i.i, %sw.bb12.i ]
+  %retval.sroa.2.0.extract.trunc.i.pn.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i, %if.then.i15 ], [ %retval.sroa.5.0.extract.trunc18.i, %sw.bb.i ], [ %retval.sroa.2.0.extract.trunc.i.i.i, %if.then.i.i ], [ %r.sroa.0.0.off64.i.pn.i.i, %cleanup.i.i ], [ %or.i59.i, %sw.bb23.i ], [ %27, %sw.bb19.i ], [ %or.i43.i, %sw.bb15.i ], [ %or.i34.i, %sw.bb12.i ]
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
   %45 = and i32 %oi, 256
   %tobool.not = icmp eq i32 %45, 0
-  %46 = tail call i64 @llvm.bswap.i64(i64 %retval.sroa.5.0.i)
-  %47 = tail call i64 @llvm.bswap.i64(i64 %retval.sroa.0.0.i)
-  %.pn19 = select i1 %tobool.not, i64 %retval.sroa.0.0.i, i64 %46
-  %.pn = select i1 %tobool.not, i64 %retval.sroa.5.0.i, i64 %47
+  %46 = tail call i64 @llvm.bswap.i64(i64 %retval.sroa.2.0.extract.trunc.i.pn.i)
+  %47 = tail call i64 @llvm.bswap.i64(i64 %retval.sroa.0.0.extract.trunc.i.pn.i)
+  %.pn19 = select i1 %tobool.not, i64 %retval.sroa.0.0.extract.trunc.i.pn.i, i64 %46
+  %.pn = select i1 %tobool.not, i64 %retval.sroa.2.0.extract.trunc.i.pn.i, i64 %47
   %.fca.0.insert.i.i.pn = insertvalue { i64, i64 } poison, i64 %.pn19, 0
   %.fca.1.insert.merged = insertvalue { i64, i64 } %.fca.0.insert.i.i.pn, i64 %.pn, 1
   ret { i64, i64 } %.fca.1.insert.merged

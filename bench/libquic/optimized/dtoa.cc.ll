@@ -1687,6 +1687,7 @@ if.end741:                                        ; preds = %if.end737, %if.else
   br label %if.end745
 
 if.end745:                                        ; preds = %if.end741, %if.else713
+  %.in = phi i64 [ %158, %if.else713 ], [ %165, %if.end741 ]
   %168 = phi i32 [ %add715, %if.else713 ], [ %167, %if.end741 ]
   %aadj.2 = phi double [ %aadj.1, %if.else713 ], [ %aadj.3, %if.end741 ]
   %and747 = and i32 %168, 2146435072
@@ -1699,8 +1700,8 @@ if.then755:                                       ; preds = %if.end745
   %conv757 = sitofp i32 %conv756 to double
   %sub758 = fsub double %aadj.2, %conv757
   %tobool760 = icmp eq i32 %123, 0
-  %169 = load i32, ptr %rv, align 8
-  %tobool763 = icmp eq i32 %169, 0
+  %169 = and i64 %.in, 4294967295
+  %tobool763 = icmp eq i64 %169, 0
   %or.cond14.not563 = select i1 %tobool760, i1 %tobool763, i1 false
   %and766 = and i32 %168, 1048575
   %tobool767.not = icmp eq i32 %and766, 0
@@ -3661,6 +3662,7 @@ if.end:                                           ; preds = %_ZN6dmg_fp8freedtoa
   %4 = lshr i64 %3, 32
   %5 = trunc nuw i64 %4 to i32
   %tobool1.not = icmp sgt i64 %3, -1
+  %6 = trunc i64 %3 to i32
   br i1 %tobool1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -3669,18 +3671,17 @@ if.then2:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %if.then2
-  %6 = phi i32 [ %and4, %if.then2 ], [ %5, %if.end ]
+  %7 = phi i32 [ %and4, %if.then2 ], [ %5, %if.end ]
   %.sink = phi i32 [ 1, %if.then2 ], [ 0, %if.end ]
   store i32 %.sink, ptr %sign, align 4
-  %and7 = and i32 %6, 2146435072
+  %and7 = and i32 %7, 2146435072
   %cmp = icmp eq i32 %and7, 2146435072
   br i1 %cmp, label %if.then8, label %if.end17
 
 if.then8:                                         ; preds = %if.end5
   store i32 9999, ptr %decpt, align 4
-  %7 = load i32, ptr %u, align 8
-  %and12 = and i32 %6, 1048575
-  %8 = or i32 %7, %and12
+  %and12 = and i32 %7, 1048575
+  %8 = or i32 %and12, %6
   %or.cond699 = icmp eq i32 %8, 0
   %9 = load ptr, ptr @_ZN6dmg_fpL8freelistE, align 16
   %tobool.not.i.i.i = icmp eq ptr %9, null

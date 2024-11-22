@@ -925,24 +925,20 @@ define hidden { i64, ptr } @"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..
   %2 = alloca [0 x i8], align 1
   %3 = load i64, ptr %0, align 8, !range !108, !noundef !20
   %4 = icmp sgt i64 %3, -9223372036854775804
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = tail call { i64, ptr } @_ZN10serde_json5value2de16visit_object_ref17h808b0bc8e71ace57E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
-  %7 = extractvalue { i64, ptr } %6, 0
-  %8 = extractvalue { i64, ptr } %6, 1
-  br label %11
+  br label %10
 
-9:                                                ; preds = %1
-  %10 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.5.llvm.3612665634329711074)
-  br label %11
+7:                                                ; preds = %1
+  %8 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.5.llvm.3612665634329711074)
+  %9 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %8, 1
+  br label %10
 
-11:                                               ; preds = %9, %5
-  %.sroa.3.0 = phi ptr [ %8, %5 ], [ %10, %9 ]
-  %.sroa.0.0 = phi i64 [ %7, %5 ], [ 1, %9 ]
-  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %13
+10:                                               ; preds = %7, %5
+  %.merged = phi { i64, ptr } [ %6, %5 ], [ %9, %7 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1827,44 +1823,37 @@ define hidden { i64, ptr } @"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..
   %2 = alloca [0 x i8], align 1
   %3 = load i64, ptr %0, align 8, !range !108, !noundef !20
   %4 = icmp eq i64 %3, -9223372036854775808
-  br i1 %4, label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h235fefa6b888e3a4E.llvm.3612665634329711074.exit", label %5
+  br i1 %4, label %15, label %5
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !373
   %6 = icmp sgt i64 %3, -9223372036854775804
-  br i1 %6, label %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i.i", label %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.thread.i.i"
+  br i1 %6, label %7, label %9
 
-"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.thread.i.i": ; preds = %5
-  %7 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.5.llvm.3612665634329711074)
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !373
-  br label %13
-
-"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i.i": ; preds = %5
+7:                                                ; preds = %5
   %8 = tail call { i64, ptr } @_ZN10serde_json5value2de16visit_object_ref17h808b0bc8e71ace57E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
+  br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h235fefa6b888e3a4E.llvm.3612665634329711074.exit"
+
+9:                                                ; preds = %5
+  %10 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.5.llvm.3612665634329711074)
+  %11 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %10, 1
+  br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h235fefa6b888e3a4E.llvm.3612665634329711074.exit"
+
+"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h235fefa6b888e3a4E.llvm.3612665634329711074.exit": ; preds = %7, %9
+  %.merged.i.i.i = phi { i64, ptr } [ %8, %7 ], [ %11, %9 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !373
-  %switch.i.i = icmp eq i64 %9, 0
-  br i1 %switch.i.i, label %11, label %13
+  %12 = extractvalue { i64, ptr } %.merged.i.i.i, 1
+  %13 = icmp ne ptr %12, null
+  call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, ptr } %.merged.i.i.i, 0
+  br label %15
 
-11:                                               ; preds = %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i.i"
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h235fefa6b888e3a4E.llvm.3612665634329711074.exit"
-
-13:                                               ; preds = %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i.i", %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.thread.i.i"
-  %.pre.pre-phi = phi i64 [ %9, %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i.i" ], [ 1, %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.thread.i.i" ]
-  %.pre.pre-phi.i = phi ptr [ %10, %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i.i" ], [ %7, %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.thread.i.i" ]
-  %14 = icmp ne ptr %.pre.pre-phi.i, null
-  call void @llvm.assume(i1 %14)
-  br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h235fefa6b888e3a4E.llvm.3612665634329711074.exit"
-
-"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h235fefa6b888e3a4E.llvm.3612665634329711074.exit": ; preds = %13, %11, %1
-  %.sroa.3.0 = phi ptr [ null, %1 ], [ %10, %11 ], [ %.pre.pre-phi.i, %13 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 0, %11 ], [ %.pre.pre-phi, %13 ]
-  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %16
+15:                                               ; preds = %1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h235fefa6b888e3a4E.llvm.3612665634329711074.exit"
+  %.sroa.3.0 = phi ptr [ %12, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h235fefa6b888e3a4E.llvm.3612665634329711074.exit" ], [ null, %1 ]
+  %.sroa.0.0 = phi i64 [ %14, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h235fefa6b888e3a4E.llvm.3612665634329711074.exit" ], [ 0, %1 ]
+  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7164,37 +7153,24 @@ define hidden { i64, ptr } @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !1803
   %3 = load i64, ptr %0, align 8, !range !108, !alias.scope !1806, !noundef !20
   %4 = icmp sgt i64 %3, -9223372036854775804
-  br i1 %4, label %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i", label %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.thread.i"
+  br i1 %4, label %5, label %7
 
-"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.thread.i": ; preds = %1
-  %5 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.5.llvm.3612665634329711074)
-  %6 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %5, 1
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1803
-  br label %12
-
-"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i": ; preds = %1
-  %7 = tail call { i64, ptr } @_ZN10serde_json5value2de16visit_object_ref17h808b0bc8e71ace57E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
-  %8 = extractvalue { i64, ptr } %7, 0
-  %9 = extractvalue { i64, ptr } %7, 1
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1803
-  %switch.i = icmp eq i64 %8, 0
-  br i1 %switch.i, label %10, label %12
-
-10:                                               ; preds = %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i"
-  %11 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %11)
+5:                                                ; preds = %1
+  %6 = tail call { i64, ptr } @_ZN10serde_json5value2de16visit_object_ref17h808b0bc8e71ace57E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
   br label %"_ZN89_$LT$gpui..text_system..font_features..FontFeatures$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h0a1c53f1f9ad04cfE.exit"
 
-12:                                               ; preds = %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i", %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.thread.i"
-  %.pre.pre-phi = phi ptr [ %9, %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i" ], [ %5, %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.thread.i" ]
-  %13 = phi { i64, ptr } [ %7, %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.i" ], [ %6, %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit.thread.i" ]
-  %14 = icmp ne ptr %.pre.pre-phi, null
-  call void @llvm.assume(i1 %14)
+7:                                                ; preds = %1
+  %8 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.5.llvm.3612665634329711074)
+  %9 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %8, 1
   br label %"_ZN89_$LT$gpui..text_system..font_features..FontFeatures$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h0a1c53f1f9ad04cfE.exit"
 
-"_ZN89_$LT$gpui..text_system..font_features..FontFeatures$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h0a1c53f1f9ad04cfE.exit": ; preds = %12, %10
-  %15 = phi { i64, ptr } [ %7, %10 ], [ %13, %12 ]
-  ret { i64, ptr } %15
+"_ZN89_$LT$gpui..text_system..font_features..FontFeatures$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h0a1c53f1f9ad04cfE.exit": ; preds = %5, %7
+  %.merged.i.i = phi { i64, ptr } [ %6, %5 ], [ %9, %7 ]
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1803
+  %10 = extractvalue { i64, ptr } %.merged.i.i, 1
+  %11 = icmp ne ptr %10, null
+  call void @llvm.assume(i1 %11)
+  ret { i64, ptr } %.merged.i.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

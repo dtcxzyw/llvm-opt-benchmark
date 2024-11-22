@@ -10051,10 +10051,10 @@ _ZN11sref_bufferI4goalLj16EED2Ev.exit:            ; preds = %invoke.cont.i.i, %i
   ret void
 
 ehcleanup87:                                      ; preds = %lpad77, %lpad64, %lpad48, %lpad54, %catch.fallthrough42
-  %lpad.val91.merged = phi { ptr, i32 } [ %75, %lpad54 ], [ %77, %lpad77 ], [ %76, %lpad64 ], [ %74, %lpad48 ], [ %.pn16, %catch.fallthrough42 ]
+  %.merged = phi { ptr, i32 } [ %75, %lpad54 ], [ %77, %lpad77 ], [ %76, %lpad64 ], [ %74, %lpad48 ], [ %.pn16, %catch.fallthrough42 ]
   call void @_ZN3refI4goalED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %in_copy) #19
   call void @_ZN11sref_bufferI4goalLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %_result) #19
-  resume { ptr, i32 } %lpad.val91.merged
+  resume { ptr, i32 } %.merged
 
 terminate.lpad:                                   ; preds = %lpad77, %lpad64, %lpad48
   %91 = landingpad { ptr, i32 }
@@ -14320,10 +14320,10 @@ _ZN3refI4goalED2Ev.exit:                          ; preds = %_ZN11sref_bufferI4g
   ret void
 
 ehcleanup159:                                     ; preds = %lpad20.loopexit, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad20.loopexit.split-lp.loopexit, %ehcleanup.i, %ehcleanup61, %ehcleanup40, %ehcleanup, %lpad100, %catch.fallthrough8
-  %lpad.val163.merged = phi { ptr, i32 } [ %117, %lpad100 ], [ %.pn25, %ehcleanup61 ], [ %.pn23, %ehcleanup40 ], [ %.pn, %ehcleanup ], [ %13, %catch.fallthrough8 ], [ %.pn.i, %ehcleanup.i ], [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit198, %lpad20.loopexit.split-lp.loopexit ], [ %lpad.loopexit201, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.merged = phi { ptr, i32 } [ %117, %lpad100 ], [ %.pn25, %ehcleanup61 ], [ %.pn23, %ehcleanup40 ], [ %.pn, %ehcleanup ], [ %13, %catch.fallthrough8 ], [ %.pn.i, %ehcleanup.i ], [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit198, %lpad20.loopexit.split-lp.loopexit ], [ %lpad.loopexit201, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN11sref_bufferI4goalLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %r2) #19
   call void @_ZN3refI4goalED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %new_g) #19
-  resume { ptr, i32 } %lpad.val163.merged
+  resume { ptr, i32 } %.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup61, %ehcleanup40, %ehcleanup
   %205 = landingpad { ptr, i32 }

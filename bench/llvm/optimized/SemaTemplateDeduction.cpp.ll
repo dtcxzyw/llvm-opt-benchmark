@@ -28175,8 +28175,8 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %35 = getelementptr inbounds i8, ptr %.8.val, i64 16
   br label %36
 
-36:                                               ; preds = %.lr.ph, %.critedge9
-  %.07 = phi ptr [ %.0.i.i.i, %.lr.ph ], [ %76, %.critedge9 ]
+36:                                               ; preds = %.lr.ph, %.critedge10
+  %.07 = phi ptr [ %.0.i.i.i, %.lr.ph ], [ %77, %.critedge10 ]
   %37 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %38 = load ptr, ptr %37, align 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %38, align 8
@@ -28217,7 +28217,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %36, %44
   %.025.i.i = phi ptr [ %60, %59 ], [ %51, %53 ]
   %57 = load ptr, ptr %.025.i.i, align 8, !noalias !101
   %58 = icmp eq ptr %57, %49
-  br i1 %58, label %.critedge9, label %59
+  br i1 %58, label %.critedge10, label %59
 
 59:                                               ; preds = %.lr.ph.i.i
   %60 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
@@ -28233,41 +28233,41 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %36, %44
   %63 = add nuw i32 %54, 1
   store i32 %63, ptr %33, align 4, !noalias !101
   store ptr %49, ptr %56, align 8, !noalias !101
-  br label %66
+  br label %67
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit: ; preds = %._crit_edge.i.i, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
   %64 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %.0.val, ptr noundef %49) #21, !noalias !101
-  %.fca.1.extract.i.i = extractvalue { ptr, i8 } %64, 1
-  %65 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %65, label %66, label %.critedge9
+  %65 = extractvalue { ptr, i8 } %64, 1
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %.critedge10
 
-66:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit
-  %67 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
-  %68 = add i64 %67, 1
-  %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
-  %.not.i.i.i10 = icmp ugt i64 %68, %69
-  br i1 %.not.i.i.i10, label %70, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit
+67:                                               ; preds = %.critedge, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit
+  %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
+  %69 = add i64 %68, 1
+  %70 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
+  %.not.i.i.i10 = icmp ugt i64 %69, %70
+  br i1 %.not.i.i.i10, label %71, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit
 
-70:                                               ; preds = %66
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %.8.val, ptr noundef nonnull %35, i64 noundef %68, i64 noundef 8) #21
+71:                                               ; preds = %67
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %.8.val, ptr noundef nonnull %35, i64 noundef %69, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit: ; preds = %66, %70
-  %71 = load ptr, ptr %.8.val, align 8
-  %72 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
-  %73 = getelementptr inbounds %"class.clang::QualType", ptr %71, i64 %72
-  store i64 %.sroa.03.0.i.i, ptr %73, align 1
-  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
-  %75 = add i64 %74, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.8.val, i64 noundef %75) #21
-  br label %.critedge9
+_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit: ; preds = %67, %71
+  %72 = load ptr, ptr %.8.val, align 8
+  %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
+  %74 = getelementptr inbounds %"class.clang::QualType", ptr %72, i64 %73
+  store i64 %.sroa.03.0.i.i, ptr %74, align 1
+  %75 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
+  %76 = add i64 %75, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.8.val, i64 noundef %76) #21
+  br label %.critedge10
 
-.critedge9:                                       ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit
-  %76 = getelementptr inbounds i8, ptr %.07, i64 24
-  %.not = icmp eq ptr %76, %31
+.critedge10:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit
+  %77 = getelementptr inbounds i8, ptr %.07, i64 24
+  %.not = icmp eq ptr %77, %31
   br i1 %.not, label %._crit_edge, label %36
 
-._crit_edge:                                      ; preds = %.critedge9, %_ZNK5clang13CXXRecordDecl5basesEv.exit
+._crit_edge:                                      ; preds = %.critedge10, %_ZNK5clang13CXXRecordDecl5basesEv.exit
   ret void
 }
 

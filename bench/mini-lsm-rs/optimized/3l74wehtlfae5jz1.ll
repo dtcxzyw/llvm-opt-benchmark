@@ -1509,22 +1509,26 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..0.1.sroa_idx.i.i, align 8, !alias.scope !428
   store i64 0, ptr %1, align 8, !alias.scope !428
   %4 = icmp eq i64 %.sroa.02.0.copyload.i.i, 1
-  br i1 %4, label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf18fc806b8e885f0E.exit", label %5
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
   %6 = tail call { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17ha2ae1622ab906f3fE(), !noalias !428
-  %7 = extractvalue { i64, i64 } %6, 0
-  %8 = extractvalue { i64, i64 } %6, 1
   br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf18fc806b8e885f0E.exit"
 
-"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf18fc806b8e885f0E.exit": ; preds = %3, %5
-  %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
-  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
+7:                                                ; preds = %3
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i.i, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.6.0.copyload.i.i, 1
+  br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf18fc806b8e885f0E.exit"
+
+"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf18fc806b8e885f0E.exit": ; preds = %5, %7
+  %.merged.i.i = phi { i64, i64 } [ %9, %7 ], [ %6, %5 ]
+  %10 = extractvalue { i64, i64 } %.merged.i.i, 0
+  %11 = extractvalue { i64, i64 } %.merged.i.i, 1
   store i64 1, ptr %0, align 8, !noalias !422
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !422
+  store i64 %10, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !422
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !422
+  store i64 %11, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !422
   ret ptr %.sroa.4.0..sroa_idx.i
 }
 
@@ -1661,7 +1665,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   %3 = load i64, ptr %0, align 8, !range !389, !noundef !9
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc, label %12, label %5
+  br i1 %trunc, label %15, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !467)
@@ -1678,24 +1682,28 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..0.1.sroa_idx.i.i.i, align 8, !alias.scope !476
   store i64 0, ptr %1, align 8, !alias.scope !476
   %7 = icmp eq i64 %.sroa.02.0.copyload.i.i.i, 1
-  br i1 %7, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc21f167b43c187f5E.llvm.18239827628611957360.exit", label %8
+  br i1 %7, label %10, label %8
 
 8:                                                ; preds = %6, %5
   %9 = tail call { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17ha2ae1622ab906f3fE(), !noalias !476
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc21f167b43c187f5E.llvm.18239827628611957360.exit"
 
-"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc21f167b43c187f5E.llvm.18239827628611957360.exit": ; preds = %6, %8
-  %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
-  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
-  store i64 1, ptr %0, align 8, !noalias !477
-  store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !477
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !477
-  br label %12
+10:                                               ; preds = %6
+  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i.i.i, 0
+  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.6.0.copyload.i.i.i, 1
+  br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc21f167b43c187f5E.llvm.18239827628611957360.exit"
 
-12:                                               ; preds = %2, %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc21f167b43c187f5E.llvm.18239827628611957360.exit"
+"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc21f167b43c187f5E.llvm.18239827628611957360.exit": ; preds = %8, %10
+  %.merged.i.i.i = phi { i64, i64 } [ %12, %10 ], [ %9, %8 ]
+  %13 = extractvalue { i64, i64 } %.merged.i.i.i, 0
+  %14 = extractvalue { i64, i64 } %.merged.i.i.i, 1
+  store i64 1, ptr %0, align 8, !noalias !477
+  store i64 %13, ptr %4, align 8, !noalias !477
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %14, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !477
+  br label %15
+
+15:                                               ; preds = %2, %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc21f167b43c187f5E.llvm.18239827628611957360.exit"
   ret ptr %4
 }
 
@@ -9716,7 +9724,7 @@ define { i64, ptr } @_ZN8mini_lsm5table7SsTable17read_block_cached17hf3509e2f070
   %12 = getelementptr inbounds i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8, !noundef !9
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %44, label %14
+  br i1 %.not, label %46, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -9830,20 +9838,17 @@ define { i64, ptr } @_ZN8mini_lsm5table7SsTable17read_block_cached17hf3509e2f070
   %.sroa.3.0.i = phi ptr [ %36, %"_ZN8mini_lsm5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17h26e0c4d22e197f4dE.llvm.18239827628611957360.exit.i" ], [ %25, %14 ]
   %switch = icmp ne i64 %24, 0
   %spec.select = zext i1 %switch to i64
-  br label %47
+  %44 = insertvalue { i64, ptr } poison, i64 %spec.select, 0
+  %45 = insertvalue { i64, ptr } %44, ptr %.sroa.3.0.i, 1
+  br label %48
 
-44:                                               ; preds = %2
-  %45 = tail call { i64, ptr } @_ZN8mini_lsm5table7SsTable10read_block17h71147bee6d663ad0E(ptr noundef nonnull align 8 %0, i64 noundef %1)
-  %.fca.0.extract = extractvalue { i64, ptr } %45, 0
-  %46 = extractvalue { i64, ptr } %45, 1
-  br label %47
+46:                                               ; preds = %2
+  %47 = tail call { i64, ptr } @_ZN8mini_lsm5table7SsTable10read_block17h71147bee6d663ad0E(ptr noundef nonnull align 8 %0, i64 noundef %1)
+  br label %48
 
-47:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit", %44
-  %.pn = phi ptr [ %46, %44 ], [ %.sroa.3.0.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit" ]
-  %.sroa.0.0 = phi i64 [ %.fca.0.extract, %44 ], [ %spec.select, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit" ]
-  %48 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %49 = insertvalue { i64, ptr } %48, ptr %.pn, 1
-  ret { i64, ptr } %49
+48:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit", %46
+  %.merged = phi { i64, ptr } [ %47, %46 ], [ %45, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1f67424426d2436aE.llvm.18239827628611957360.exit" ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -590,36 +590,42 @@ if.then:                                          ; preds = %entry
   %0 = load i64, ptr %error, align 8
   %and.i.i = and i64 %0, 1
   %cmp.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp.i.i, label %cond.false.i, label %_ZNK4absl12lts_202308026Status7messageEv.exit
+  br i1 %cmp.i.i, label %cond.false.i, label %cond.true.i
+
+cond.true.i:                                      ; preds = %if.then
+  %sub.i.i = add nsw i64 %0, -1
+  %1 = inttoptr i64 %sub.i.i to ptr
+  %message.i = getelementptr inbounds i8, ptr %1, i64 8
+  %call4.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message.i) #15
+  br label %_ZNK4absl12lts_202308026Status7messageEv.exit
 
 cond.false.i:                                     ; preds = %if.then
-  %1 = and i64 %0, 2
-  %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %return, label %if.else
+  %2 = and i64 %0, 2
+  %.not.i = icmp eq i64 %2, 0
+  %spec.select.i = select i1 %.not.i, i64 0, i64 27
+  %spec.select1.i = select i1 %.not.i, ptr null, ptr @_ZN4absl12lts_202308026Status16kMovedFromStringE
+  %3 = insertvalue { i64, ptr } poison, i64 %spec.select.i, 0
+  %4 = insertvalue { i64, ptr } %3, ptr %spec.select1.i, 1
+  br label %_ZNK4absl12lts_202308026Status7messageEv.exit
 
-_ZNK4absl12lts_202308026Status7messageEv.exit:    ; preds = %if.then
-  %sub.i.i = add nsw i64 %0, -1
-  %2 = inttoptr i64 %sub.i.i to ptr
-  %message.i = getelementptr inbounds i8, ptr %2, i64 8
-  %call4.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message.i) #15
-  %3 = extractvalue { i64, ptr } %call4.i, 0
-  %4 = extractvalue { i64, ptr } %call4.i, 1
-  %cmp.i = icmp eq i64 %3, 0
+_ZNK4absl12lts_202308026Status7messageEv.exit:    ; preds = %cond.true.i, %cond.false.i
+  %.fca.1.insert.merged.i = phi { i64, ptr } [ %call4.i, %cond.true.i ], [ %4, %cond.false.i ]
+  %5 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 0
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %return, label %if.else
 
-if.else:                                          ; preds = %cond.false.i, %_ZNK4absl12lts_202308026Status7messageEv.exit
-  %retval.sroa.4.0.i24 = phi ptr [ %4, %_ZNK4absl12lts_202308026Status7messageEv.exit ], [ @_ZN4absl12lts_202308026Status16kMovedFromStringE, %cond.false.i ]
-  %retval.sroa.0.0.i23 = phi i64 [ %3, %_ZNK4absl12lts_202308026Status7messageEv.exit ], [ 27, %cond.false.i ]
+if.else:                                          ; preds = %_ZNK4absl12lts_202308026Status7messageEv.exit
+  %6 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %retval.sroa.0.0.i23, ptr %retval.sroa.4.0.i24) #15
-  %5 = extractvalue { i64, ptr } %call.i, 0
-  %6 = extractvalue { i64, ptr } %call.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %5, ptr %6) #15
-  %7 = load i64, ptr %agg.tmp.i, align 8
-  %8 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %9 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %7, ptr %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %5, ptr %6) #15
+  %7 = extractvalue { i64, ptr } %call.i, 0
+  %8 = extractvalue { i64, ptr } %call.i, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %7, ptr %8) #15
+  %9 = load i64, ptr %agg.tmp.i, align 8
+  %10 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %11 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %9, ptr %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else
@@ -630,7 +636,7 @@ invoke.cont:                                      ; preds = %if.else
   br label %return
 
 lpad:                                             ; preds = %if.else
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #15
   br label %eh.resume
@@ -638,8 +644,8 @@ lpad:                                             ; preds = %if.else
 if.else5:                                         ; preds = %entry
   call void @_ZN9grpc_core12StatusGetStrB5cxx11ERKN4absl12lts_202308026StatusENS_17StatusStrPropertyE(ptr nonnull sret(%"class.std::optional.3") align 8 %value, ptr noundef nonnull align 8 dereferenceable(8) %error, i32 noundef %which)
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %value, i64 32
-  %11 = load i8, ptr %_M_engaged.i.i, align 8
-  %tobool.i.i = trunc i8 %11 to i1
+  %13 = load i8, ptr %_M_engaged.i.i, align 8
+  %tobool.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i, label %if.then7, label %if.else10
 
 if.then7:                                         ; preds = %if.else5
@@ -661,10 +667,10 @@ invoke.cont14:                                    ; preds = %if.then12
   ]
 
 lpad13:                                           ; preds = %sw.bb18.invoke, %if.then12
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %13 = load i8, ptr %_M_engaged.i.i, align 8
-  %tobool.i.i.i.i = trunc i8 %13 to i1
+  %15 = load i8, ptr %_M_engaged.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %15 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %eh.resume
 
 if.then.i.i.i.i:                                  ; preds = %lpad13
@@ -676,14 +682,14 @@ sw.bb18:                                          ; preds = %invoke.cont14
   br label %sw.bb18.invoke
 
 sw.bb18.invoke:                                   ; preds = %invoke.cont14, %sw.bb18
-  %14 = phi ptr [ @.str.1, %sw.bb18 ], [ @.str, %invoke.cont14 ]
-  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %14)
+  %16 = phi ptr [ @.str.1, %sw.bb18 ], [ @.str, %invoke.cont14 ]
+  %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %16)
           to label %cleanup unwind label %lpad13
 
 cleanup:                                          ; preds = %sw.bb18.invoke, %if.else10, %invoke.cont14, %if.then7
   %retval.1 = phi i1 [ true, %if.then7 ], [ false, %invoke.cont14 ], [ false, %if.else10 ], [ true, %sw.bb18.invoke ]
-  %16 = load i8, ptr %_M_engaged.i.i, align 8
-  %tobool.i.i.i.i8 = trunc i8 %16 to i1
+  %18 = load i8, ptr %_M_engaged.i.i, align 8
+  %tobool.i.i.i.i8 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i.i8, label %if.then.i.i.i.i9, label %return
 
 if.then.i.i.i.i9:                                 ; preds = %cleanup
@@ -691,12 +697,12 @@ if.then.i.i.i.i9:                                 ; preds = %cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value) #15
   br label %return
 
-return:                                           ; preds = %cond.false.i, %if.then.i.i.i.i9, %cleanup, %_ZNK4absl12lts_202308026Status7messageEv.exit, %invoke.cont
-  %retval.0 = phi i1 [ true, %invoke.cont ], [ false, %_ZNK4absl12lts_202308026Status7messageEv.exit ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i.i9 ], [ false, %cond.false.i ]
+return:                                           ; preds = %if.then.i.i.i.i9, %cleanup, %_ZNK4absl12lts_202308026Status7messageEv.exit, %invoke.cont
+  %retval.0 = phi i1 [ true, %invoke.cont ], [ false, %_ZNK4absl12lts_202308026Status7messageEv.exit ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i.i9 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i, %lpad13, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %12, %lpad13 ], [ %12, %if.then.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad ], [ %14, %lpad13 ], [ %14, %if.then.i.i.i.i ]
   resume { ptr, i32 } %.pn
 }
 

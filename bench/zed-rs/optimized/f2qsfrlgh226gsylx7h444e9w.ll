@@ -10799,26 +10799,26 @@ define hidden { i64, ptr } @"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$L
   %3 = tail call { i64, ptr } @"_ZN12futures_util2io10buf_writer18BufWriter$LT$W$GT$9flush_buf17hdd0c625a6f297ce1E.llvm.10327530529093878171"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %4 = extractvalue { i64, ptr } %3, 0
   %switch = icmp eq i64 %4, 0
-  br i1 %switch, label %5, label %13
+  br i1 %switch, label %5, label %12
 
 5:                                                ; preds = %2
   %6 = extractvalue { i64, ptr } %3, 1
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = tail call { i64, ptr } @"_ZN76_$LT$async_process..ChildStdin$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hed732da5b649a963E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  %11 = extractvalue { i64, ptr } %10, 0
-  %12 = extractvalue { i64, ptr } %10, 1
-  br label %13
+  br label %11
 
-13:                                               ; preds = %2, %5, %8
-  %.sroa.4.1 = phi ptr [ %12, %8 ], [ undef, %2 ], [ %6, %5 ]
-  %.sroa.0.1 = phi i64 [ %11, %8 ], [ %4, %2 ], [ 0, %5 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.4.1, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %12, %8
+  %.merged = phi { i64, ptr } [ %13, %12 ], [ %10, %8 ]
+  ret { i64, ptr } %.merged
+
+12:                                               ; preds = %5, %2
+  %.sroa.4.0 = phi ptr [ undef, %2 ], [ %6, %5 ]
+  %13 = insertvalue { i64, ptr } %3, ptr %.sroa.4.0, 1
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10839,7 +10839,7 @@ define hidden { i64, ptr } @"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$L
 13:                                               ; preds = %._crit_edge, %4
   %14 = phi i64 [ %.pre, %._crit_edge ], [ %8, %4 ]
   %.not = icmp ult i64 %3, %14
-  br i1 %.not, label %18, label %30
+  br i1 %.not, label %18, label %31
 
 15:                                               ; preds = %10
   %16 = extractvalue { i64, ptr } %11, 1
@@ -10871,21 +10871,24 @@ define hidden { i64, ptr } @"_ZN99_$LT$futures_util..io..buf_writer..BufWriter$L
   %28 = add i64 %27, %3
   store i64 %28, ptr %5, align 8, !alias.scope !2338
   %29 = inttoptr i64 %3 to ptr
-  br label %35
+  %30 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %29, 1
+  br label %34
 
-30:                                               ; preds = %13
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
-  %32 = tail call { i64, ptr } @"_ZN76_$LT$async_process..ChildStdin$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hdd4cbf81c7cc0e30E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  %33 = extractvalue { i64, ptr } %32, 0
-  %34 = extractvalue { i64, ptr } %32, 1
-  br label %35
+31:                                               ; preds = %13
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = tail call { i64, ptr } @"_ZN76_$LT$async_process..ChildStdin$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17hdd4cbf81c7cc0e30E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  br label %34
 
-35:                                               ; preds = %10, %15, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h1c1123f1c8b6074eE.llvm.10327530529093878171.exit", %30
-  %.sroa.5.1 = phi ptr [ %34, %30 ], [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h1c1123f1c8b6074eE.llvm.10327530529093878171.exit" ], [ undef, %10 ], [ %16, %15 ]
-  %.sroa.0.1 = phi i64 [ %33, %30 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h1c1123f1c8b6074eE.llvm.10327530529093878171.exit" ], [ 2, %10 ], [ 1, %15 ]
-  %36 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %37 = insertvalue { i64, ptr } %36, ptr %.sroa.5.1, 1
-  ret { i64, ptr } %37
+34:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h1c1123f1c8b6074eE.llvm.10327530529093878171.exit", %31, %35
+  %.merged = phi { i64, ptr } [ %37, %35 ], [ %33, %31 ], [ %30, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h1c1123f1c8b6074eE.llvm.10327530529093878171.exit" ]
+  ret { i64, ptr } %.merged
+
+35:                                               ; preds = %15, %10
+  %.sroa.5.0 = phi ptr [ undef, %10 ], [ %16, %15 ]
+  %.sroa.0.0 = phi i64 [ 2, %10 ], [ 1, %15 ]
+  %36 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %37 = insertvalue { i64, ptr } %36, ptr %.sroa.5.0, 1
+  br label %34
 }
 
 ; Function Attrs: cold nonlazybind uwtable

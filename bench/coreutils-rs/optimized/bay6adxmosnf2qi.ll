@@ -3018,7 +3018,7 @@ define hidden { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats
 5:                                                ; preds = %8, %3
   %6 = tail call noundef ptr @_ZN5uu_dd8progress10ProgUpdate14write_io_lines17hc122ad9f132a9488E(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %19, label %24
+  br i1 %7, label %17, label %23
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
@@ -3038,30 +3038,24 @@ define hidden { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats
 
 15:                                               ; preds = %8
   %16 = tail call { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %13)
-  %17 = extractvalue { ptr, ptr } %16, 0
-  %18 = extractvalue { ptr, ptr } %16, 1
-  br label %28
+  br label %25
 
-19:                                               ; preds = %5
-  %20 = tail call { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate15write_prog_line17hb48418dfc6ad4255E(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext false)
-  %21 = extractvalue { ptr, ptr } %20, 0
-  %22 = icmp eq ptr %21, null
-  %23 = extractvalue { ptr, ptr } %20, 1
-  %spec.select22 = select i1 %22, ptr undef, ptr %23
-  br label %28
+17:                                               ; preds = %5
+  %18 = tail call { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate15write_prog_line17hb48418dfc6ad4255E(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext false)
+  %19 = extractvalue { ptr, ptr } %18, 0
+  %20 = icmp eq ptr %19, null
+  %21 = extractvalue { ptr, ptr } %18, 1
+  %spec.select22 = select i1 %20, ptr undef, ptr %21
+  %22 = insertvalue { ptr, ptr } %18, ptr %spec.select22, 1
+  br label %25
 
-24:                                               ; preds = %5
-  %25 = tail call { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %6)
-  %26 = extractvalue { ptr, ptr } %25, 0
-  %27 = extractvalue { ptr, ptr } %25, 1
-  br label %28
+23:                                               ; preds = %5
+  %24 = tail call { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %6)
+  br label %25
 
-28:                                               ; preds = %19, %24, %15
-  %.sroa.5.0 = phi ptr [ %27, %24 ], [ %18, %15 ], [ %spec.select22, %19 ]
-  %.sroa.0.0 = phi ptr [ %26, %24 ], [ %17, %15 ], [ %21, %19 ]
-  %29 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %30 = insertvalue { ptr, ptr } %29, ptr %.sroa.5.0, 1
-  ret { ptr, ptr } %30
+25:                                               ; preds = %17, %23, %15
+  %.merged = phi { ptr, ptr } [ %24, %23 ], [ %16, %15 ], [ %22, %17 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

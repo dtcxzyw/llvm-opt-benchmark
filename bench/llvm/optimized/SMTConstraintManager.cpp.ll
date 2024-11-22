@@ -6945,12 +6945,12 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %2, %2, %2, %2
   %20 = tail call noundef ptr @_ZN5clang4ento16MemRegionManager17getSymbolicRegionEPKNS0_7SymExprEPKNS0_14MemSpaceRegionE(ptr noundef nonnull align 8 dereferenceable(152) %19, ptr noundef nonnull %1, ptr noundef null) #19
   br label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread9
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread9: ; preds = %2, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
-  %.sroa.07.0 = phi ptr [ %20, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ %1, %2 ]
-  %.sroa.38.0 = phi i8 [ 4, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ 9, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ 9, %2 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.07.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.38.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread9: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %2, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
+  %.pn11 = phi ptr [ %20, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %1, %2 ], [ %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ]
+  %.pn = phi i8 [ 4, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ 9, %2 ], [ 9, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ]
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn11, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn, 1
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 declare noundef ptr @_ZN5clang4ento16MemRegionManager17getSymbolicRegionEPKNS0_7SymExprEPKNS0_14MemSpaceRegionE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, ptr noundef) local_unnamed_addr #2

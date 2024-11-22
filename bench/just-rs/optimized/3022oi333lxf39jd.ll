@@ -672,11 +672,11 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit: ; pred
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6aa1b4361f5f9da7E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h6aa1b4361f5f9da7E.exit": ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit, %121, %125, %129
-  %.sroa.33.0.i = phi i64 [ %.sroa.4.1.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit ], [ undef, %121 ], [ %133, %129 ], [ undef, %125 ]
-  %.sroa.02.0.i = phi ptr [ %.sroa.0.1.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit ], [ null, %121 ], [ %131, %129 ], [ null, %125 ]
-  %134 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.i, 0
-  %135 = insertvalue { ptr, i64 } %134, i64 %.sroa.33.0.i, 1
-  ret { ptr, i64 } %135
+  %.sroa.0.0.i.pn.i = phi ptr [ null, %121 ], [ %131, %129 ], [ null, %125 ], [ %.sroa.0.1.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit ]
+  %.sroa.3.0.i.pn.i = phi i64 [ undef, %121 ], [ %133, %129 ], [ undef, %125 ], [ %.sroa.4.1.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit ]
+  %.pn.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn.i, 0
+  %.merged.i = insertvalue { ptr, i64 } %.pn.i, i64 %.sroa.3.0.i.pn.i, 1
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
