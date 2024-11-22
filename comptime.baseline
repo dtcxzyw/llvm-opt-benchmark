@@ -38296,7 +38296,7 @@ wireshark/sparkline_delegate.cpp.ll 989864745
 wireshark/splash_overlay.cpp.ll 255394690
 wireshark/srt_table.c.ll 101415483
 wireshark/ssl_key_export.c.ll 81354723
-wireshark/stanag4607.c.ll 74662486
+wireshark/stanag4607.c.ll 74737279
 wireshark/stat_tap_ui.c.ll 110265925
 wireshark/stats_tree.c.ll 428824776
 wireshark/stats_tree_dialog.cpp.ll 451878266
