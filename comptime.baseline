@@ -12644,7 +12644,7 @@ linux/dmar.ll 616326520
 linux/dmi-id.ll 85425119
 linux/dmi_scan.ll 293904675
 linux/dnotify.ll 108261046
-linux/do_mounts.ll 130707134
+linux/do_mounts.ll 130837854
 linux/dock.ll 150191040
 linux/dquot.ll 895258115
 linux/drbg.ll 226327070
