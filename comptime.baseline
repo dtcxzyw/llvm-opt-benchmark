@@ -17020,7 +17020,7 @@ lvgl/lv_cache.ll 115930809
 lvgl/lv_cache_entry.ll 74165742
 lvgl/lv_cache_lru_rb.ll 122172086
 lvgl/lv_calendar.ll 187753439
-lvgl/lv_calendar_header_arrow.ll 54638522
+lvgl/lv_calendar_header_arrow.ll 54693201
 lvgl/lv_calendar_header_dropdown.ll 55782928
 lvgl/lv_canvas.ll 175055474
 lvgl/lv_chart.ll 618320210
