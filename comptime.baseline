@@ -4167,7 +4167,7 @@ coreutils-rs/26h22pl6p1h9j7nl.ll 227964407
 coreutils-rs/26mmyk8qbueosw6q.ll 164584712
 coreutils-rs/26wke4pmjwrhlls2.ll 36520820
 coreutils-rs/277twcxmmiel82tn.ll 240451690
-coreutils-rs/27a90dxx27ftdn5u.ll 123355357
+coreutils-rs/27a90dxx27ftdn5u.ll 123231997
 coreutils-rs/27aefhe4h9z70is7.ll 111544031
 coreutils-rs/27z3nu7r0ehfcroc.ll 844618206
 coreutils-rs/28798c9ufis718bi.ll 123178153
@@ -22549,7 +22549,7 @@ openjdk/Unix.ll 57586901
 openjdk/UnixAsynchronousSocketChannelImpl.ll 35023803
 openjdk/UnixDispatcher.ll 40248109
 openjdk/UnixDll.ll 97356772
-openjdk/UnixDomainSockets.ll 70536049
+openjdk/UnixDomainSockets.ll 70465480
 openjdk/UnixFileDispatcherImpl.ll 85931308
 openjdk/UnixFileSystem.ll 60030792
 openjdk/UnixFileSystem_md.ll 152132978
@@ -28880,7 +28880,7 @@ portaudio/pa_process.c.ll 536675379
 portaudio/pa_pthread_util.c.ll 37409854
 portaudio/pa_ringbuffer.c.ll 68941162
 portaudio/pa_sndio.c.ll 212524677
-portaudio/pa_stream.c.ll 41868808
+portaudio/pa_stream.c.ll 41826680
 portaudio/pa_trace.c.ll 32019329
 portaudio/pa_unix_util.c.ll 106439136
 postgres/acl.ll 1084866859
@@ -37438,7 +37438,7 @@ wireshark/packet-fcfzs.c.ll 197233024
 wireshark/packet-fcgi.c.ll 82376081
 wireshark/packet-fcip.c.ll 167096570
 wireshark/packet-fcoe.c.ll 77468640
-wireshark/packet-fcoib.c.ll 77899399
+wireshark/packet-fcoib.c.ll 77821480
 wireshark/packet-fcsb3.c.ll 163106680
 wireshark/packet-fcsp.c.ll 131890298
 wireshark/packet-fcswils.c.ll 503489538
