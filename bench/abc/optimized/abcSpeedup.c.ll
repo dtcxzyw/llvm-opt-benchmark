@@ -163,7 +163,7 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
   %13 = load i32, ptr %8, align 8
   %14 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef %0) #13
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %13, i32 noundef %14)
-  br label %402
+  br label %405
 
 .thread:                                          ; preds = %2, %7, %5
   %.not211345 = phi i1 [ false, %7 ], [ true, %5 ], [ true, %2 ]
@@ -934,31 +934,33 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
   %392 = load float, ptr %391, align 4
   %393 = load float, ptr %390, align 4
   %394 = fsub float %392, %393
-  %395 = fcmp olt float %394, 0.000000e+00
-  %narrow.sel = select i1 %395, float 0.000000e+00, float %394
-  %396 = getelementptr i8, ptr %390, i64 8
-  store float %narrow.sel, ptr %396, align 4
+  %395 = fpext float %394 to double
+  %396 = fcmp olt double %395, 0.000000e+00
+  %397 = select i1 %396, double 0.000000e+00, double %395
+  %398 = fptrunc double %397 to float
+  %399 = getelementptr i8, ptr %390, i64 8
+  store float %398, ptr %399, align 4
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %.val264 = load i32, ptr %229, align 4
-  %397 = sext i32 %.val264 to i64
-  %398 = icmp slt i64 %indvars.iv.next441, %397
-  br i1 %398, label %234, label %.critedge14, !llvm.loop !18
+  %400 = sext i32 %.val264 to i64
+  %401 = icmp slt i64 %indvars.iv.next441, %400
+  br i1 %401, label %234, label %.critedge14, !llvm.loop !18
 
 .critedge14:                                      ; preds = %.critedge16, %.critedge12
-  %399 = getelementptr inbounds i8, ptr %228, i64 8
-  %400 = load ptr, ptr %399, align 8
-  %.not.i342 = icmp eq ptr %400, null
-  br i1 %.not.i342, label %Vec_PtrFree.exit343, label %401
+  %402 = getelementptr inbounds i8, ptr %228, i64 8
+  %403 = load ptr, ptr %402, align 8
+  %.not.i342 = icmp eq ptr %403, null
+  br i1 %.not.i342, label %Vec_PtrFree.exit343, label %404
 
-401:                                              ; preds = %.critedge14
-  tail call void @free(ptr noundef nonnull %400) #13
+404:                                              ; preds = %.critedge14
+  tail call void @free(ptr noundef nonnull %403) #13
   br label %Vec_PtrFree.exit343
 
-Vec_PtrFree.exit343:                              ; preds = %.critedge14, %401
+Vec_PtrFree.exit343:                              ; preds = %.critedge14, %404
   tail call void @free(ptr noundef nonnull %228) #13
-  br label %402
+  br label %405
 
-402:                                              ; preds = %Vec_PtrFree.exit343, %12
+405:                                              ; preds = %Vec_PtrFree.exit343, %12
   %.0194 = phi float [ -1.000000e+09, %12 ], [ %.10.lcssa461, %Vec_PtrFree.exit343 ]
   ret float %.0194
 }

@@ -357,8 +357,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
 15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
   %16 = fcmp une double %2, 0.000000e+00
   %17 = fdiv double %7, %2
-  %18 = fptrunc double %17 to float
-  %narrow.sel = select i1 %16, float %18, float %6
+  %.0.i12.i = select i1 %16, double %17, double %7
+  %18 = fptrunc double %.0.i12.i to float
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
 
 19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit.i
@@ -367,7 +367,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd.exit: ; preds = %15, %19
-  %.sroa.4.0.i = phi float [ %narrow.sel, %15 ], [ %8, %19 ]
+  %.sroa.4.0.i = phi float [ %18, %15 ], [ %8, %19 ]
   %.sroa.0.0.i = phi float [ %6, %15 ], [ %21, %19 ]
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8GfCamera21SetHorizontalApertureEf(ptr noundef nonnull align 8 dereferenceable(192) %0, float noundef %.sroa.0.0.i)
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8GfCamera19SetVerticalApertureEf(ptr noundef nonnull align 8 dereferenceable(192) %0, float noundef %.sroa.4.0.i)

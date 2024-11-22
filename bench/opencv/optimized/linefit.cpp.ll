@@ -1650,7 +1650,7 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
 24:                                               ; preds = %22, %20
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  br label %149
+  br label %151
 
 25:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false)
@@ -1787,11 +1787,11 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
   store float %96, ptr %97, align 16
   call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 3, i32 noundef 3, i32 noundef 5, ptr noundef nonnull %7, i64 noundef 0)
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef 3, i32 noundef 3, i32 noundef 5, ptr noundef nonnull %8, i64 noundef 0)
-          to label %98 unwind label %141
+          to label %98 unwind label %143
 
 98:                                               ; preds = %.loopexit
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull %9, i64 noundef 0)
-          to label %99 unwind label %143
+          to label %99 unwind label %145
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds i8, ptr %13, i64 16
@@ -1812,7 +1812,7 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
   store i32 33619968, ptr %15, align 8
   store ptr %11, ptr %105, align 8
   %107 = invoke noundef zeroext i1 @_ZN2cv5eigenERKNS_11_InputArrayERKNS_12_OutputArrayES5_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %108 unwind label %145
+          to label %108 unwind label %147
 
 108:                                              ; preds = %99
   %109 = load float, ptr %9, align 4
@@ -1841,54 +1841,55 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
   %130 = fptrunc double %sqrt to float
   %131 = fpext float %130 to double
   %132 = fcmp olt double %131, 0x3EB0C6F7A0B5ED8D
-  %narrow.sel = select i1 %132, float 0x3EB0C6F7A0000000, float %130
-  %133 = fdiv float %119, %narrow.sel
-  store float %133, ptr %3, align 4
-  %134 = fdiv float %122, %narrow.sel
-  %135 = getelementptr inbounds i8, ptr %3, i64 4
-  store float %134, ptr %135, align 4
-  %136 = fdiv float %127, %narrow.sel
-  %137 = getelementptr inbounds i8, ptr %3, i64 8
+  %133 = select i1 %132, double 0x3EB0C6F7A0B5ED8D, double %131
+  %134 = fptrunc double %133 to float
+  %135 = fdiv float %119, %134
+  store float %135, ptr %3, align 4
+  %136 = fdiv float %122, %134
+  %137 = getelementptr inbounds i8, ptr %3, i64 4
   store float %136, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %3, i64 12
-  store float %72, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %3, i64 16
-  store float %73, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %3, i64 20
-  store float %74, ptr %140, align 4
+  %138 = fdiv float %127, %134
+  %139 = getelementptr inbounds i8, ptr %3, i64 8
+  store float %138, ptr %139, align 4
+  %140 = getelementptr inbounds i8, ptr %3, i64 12
+  store float %72, ptr %140, align 4
+  %141 = getelementptr inbounds i8, ptr %3, i64 16
+  store float %73, ptr %141, align 4
+  %142 = getelementptr inbounds i8, ptr %3, i64 20
+  store float %74, ptr %142, align 4
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #17
   ret void
 
-141:                                              ; preds = %.loopexit
-  %142 = landingpad { ptr, i32 }
-          cleanup
-  br label %148
-
-143:                                              ; preds = %98
+143:                                              ; preds = %.loopexit
   %144 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %150
 
-145:                                              ; preds = %99
+145:                                              ; preds = %98
   %146 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #17
-  br label %147
-
-147:                                              ; preds = %145, %143
-  %.pn195.pn.pn.pn = phi { ptr, i32 } [ %146, %145 ], [ %144, %143 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #17
-  br label %148
-
-148:                                              ; preds = %147, %141
-  %.pn195.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn195.pn.pn.pn, %147 ], [ %142, %141 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #17
   br label %149
 
-149:                                              ; preds = %148, %24
-  %.pn195.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn195.pn.pn.pn.pn, %148 ], [ %.pn, %24 ]
+147:                                              ; preds = %99
+  %148 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #17
+  br label %149
+
+149:                                              ; preds = %147, %145
+  %.pn195.pn.pn.pn = phi { ptr, i32 } [ %148, %147 ], [ %146, %145 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #17
+  br label %150
+
+150:                                              ; preds = %149, %143
+  %.pn195.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn195.pn.pn.pn, %149 ], [ %144, %143 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #17
+  br label %151
+
+151:                                              ; preds = %150, %24
+  %.pn195.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn195.pn.pn.pn.pn, %150 ], [ %.pn, %24 ]
   resume { ptr, i32 } %.pn195.pn.pn.pn.pn.pn
 }
 
