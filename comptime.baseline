@@ -5878,7 +5878,7 @@ darktable/CiffEntry.cpp.ll 228262880
 darktable/CiffIFD.cpp.ll 342212579
 darktable/CiffParser.cpp.ll 137491920
 darktable/ColorFilterArray.cpp.ll 305830674
-darktable/Cr2Decoder.cpp.ll 491669002
+darktable/Cr2Decoder.cpp.ll 492161196
 darktable/Cr2Decompressor.cpp.ll 1400944220
 darktable/Cr2LJpegDecoder.cpp.ll 243465176
 darktable/Cr2sRawInterpolator.cpp.ll 930015926
@@ -8035,7 +8035,7 @@ graphviz/neatosplines.c.ll 570038875
 graphviz/node.c.ll 136178771
 graphviz/node_distinct_coloring.c.ll 177085673
 graphviz/nodelist.c.ll 129876037
-graphviz/nop.c.ll 49218066
+graphviz/nop.c.ll 49267374
 graphviz/ns.c.ll 1092356179
 graphviz/obj.c.ll 86281960
 graphviz/opt_arrangement.c.ll 76188527
@@ -8715,7 +8715,7 @@ gromacs/mrcdensitymapheader.cpp.ll 439443665
 gromacs/mrcserializer.cpp.ll 276414333
 gromacs/msd.cpp.ll 2753022834
 gromacs/mshift.cpp.ll 1634551821
-gromacs/mtf.c.ll 256775625
+gromacs/mtf.c.ll 257032687
 gromacs/mtop_atomloops.cpp.ll 135998835
 gromacs/mtop_util.cpp.ll 2819496969
 gromacs/mttk.cpp.ll 2825885793
@@ -9762,7 +9762,7 @@ hdf5/H5VLnative_token.c.ll 42932566
 hdf5/H5VLpassthru.c.ll 282396273
 hdf5/H5VLtest.c.ll 34249604
 hdf5/H5VM.c.ll 504106512
-hdf5/H5WB.c.ll 50114743
+hdf5/H5WB.c.ll 50164903
 hdf5/H5Z.c.ll 455972134
 hdf5/H5Zdeflate.c.ll 56964537
 hdf5/H5Zfletcher32.c.ll 53169342
@@ -11417,7 +11417,7 @@ libquic/bio.c.ll 205233411
 libquic/bio_asn1.c.ll 118752842
 libquic/bio_mem.c.ll 96065174
 libquic/bio_ndef.c.ll 61624332
-libquic/bio_test.cc.ll 270308326
+libquic/bio_test.cc.ll 270579016
 libquic/blinding.c.ll 78854631
 libquic/blowfish.c.ll 425949533
 libquic/bn.c.ll 122056074
@@ -12502,7 +12502,7 @@ linux/bus_numa.ll 65564782
 linux/button.ll 111515554
 linux/byd.ll 86395546
 linux/cabletest.ll 118100275
-linux/cache.ll 130860184
+linux/cache.ll 130991074
 linux/cacheinfo.ll 269065577
 linux/calibrate.ll 111393536
 linux/calipso.ll 384680205
@@ -19405,7 +19405,7 @@ nori/textbox.cpp.ll 5440050422
 nori/texture.cpp.ll 96550110
 nori/texture_gl.cpp.ll 148540190
 nori/theme.cpp.ll 497704830
-nori/traits.cpp.ll 39223947
+nori/traits.cpp.ll 39263344
 nori/ttest.cpp.ll 1141896658
 nori/vscrollpanel.cpp.ll 197718607
 nori/warp.cpp.ll 273013567
@@ -20902,7 +20902,7 @@ opencv/contours_new.cpp.ll 1036130496
 opencv/contrast_preserve.cpp.ll 1184847273
 opencv/conv_1x1_fast_spv.cpp.ll 46003633
 opencv/conv_depthwise.cpp.ll 632574500
-opencv/conv_depthwise_3x3_spv.cpp.ll 41581789
+opencv/conv_depthwise_3x3_spv.cpp.ll 41623720
 opencv/conv_depthwise_spv.cpp.ll 42031448
 opencv/conv_implicit_gemm_spv.cpp.ll 47691696
 opencv/conv_winograd_f63.cpp.ll 35293849
@@ -25064,7 +25064,7 @@ openmpi/osc_rdma_dynamic.ll 567255411
 openmpi/osc_rdma_module.ll 147438016
 openmpi/osc_rdma_passive_target.ll 471596349
 openmpi/osc_rdma_peer.ll 188093946
-openmpi/osc_rdma_sync.ll 84403925
+openmpi/osc_rdma_sync.ll 84488379
 openmpi/osc_sm_active_target.ll 145766185
 openmpi/osc_sm_component.ll 185746450
 openmpi/osc_sm_passive_target.ll 88019362
@@ -25376,7 +25376,7 @@ openmpi/rcache_base_mem_cb.ll 50124306
 openmpi/rcache_base_vma.ll 66991040
 openmpi/rcache_base_vma_tree.ll 61550818
 openmpi/rcache_gpusm_module.ll 181846820
-openmpi/rcache_grdma_component.ll 80098198
+openmpi/rcache_grdma_component.ll 80178339
 openmpi/rcache_grdma_module.ll 276991605
 openmpi/rcache_rgpusm_component.ll 39800118
 openmpi/rcache_rgpusm_module.ll 291183981
@@ -28768,7 +28768,7 @@ php/xpath_callbacks.ll 496226814
 php/zend.ll 656668316
 php/zend_API.ll 4486141560
 php/zend_accelerator_blacklist.ll 183171760
-php/zend_accelerator_debug.ll 47050333
+php/zend_accelerator_debug.ll 47097490
 php/zend_accelerator_hash.ll 94151278
 php/zend_accelerator_module.ll 387881668
 php/zend_accelerator_util_funcs.ll 476696837
@@ -31030,7 +31030,7 @@ qemu/util_bitops.c.ll 94234874
 qemu/util_block-helpers.c.ll 36179242
 qemu/util_buffer.c.ll 113872562
 qemu/util_cacheflush.c.ll 46908827
-qemu/util_compatfd.c.ll 43965680
+qemu/util_compatfd.c.ll 44009778
 qemu/util_coroutine-ucontext.c.ll 59662677
 qemu/util_cpuinfo-i386.c.ll 68098310
 qemu/util_cutils.c.ll 309195387
@@ -36979,7 +36979,7 @@ wireshark/file-blf.c.ll 251461517
 wireshark/file-elf.c.ll 789230052
 wireshark/file-file.c.ll 119669468
 wireshark/file-gif.c.ll 102667895
-wireshark/file-jpeg.c.ll 222689796
+wireshark/file-jpeg.c.ll 222912489
 wireshark/file-mp4.c.ll 237736250
 wireshark/file-pcap.c.ll 90969683
 wireshark/file-pcapng-darwin.c.ll 42615338
@@ -37908,7 +37908,7 @@ wireshark/packet-rnsap.c.ll 5525290715
 wireshark/packet-rohc.c.ll 619185068
 wireshark/packet-roofnet.c.ll 79283410
 wireshark/packet-roon_discovery.c.ll 85727851
-wireshark/packet-ros.c.ll 203893000
+wireshark/packet-ros.c.ll 204096948
 wireshark/packet-rpc.c.ll 696927417
 wireshark/packet-rpcap.c.ll 260137220
 wireshark/packet-rpcrdma.c.ll 445668160
@@ -38204,7 +38204,7 @@ wireshark/pci-ids.c.ll 2551319039
 wireshark/peekclassic.c.ll 128748534
 wireshark/peektagged.c.ll 238019999
 wireshark/percent_bar_delegate.cpp.ll 156517062
-wireshark/persfilepath_opt.c.ll 41203282
+wireshark/persfilepath_opt.c.ll 41244833
 wireshark/plugins.c.ll 111145586
 wireshark/pppdump.c.ll 152579007
 wireshark/pref_delegate.cpp.ll 103755423
