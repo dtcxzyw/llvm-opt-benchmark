@@ -3547,7 +3547,7 @@ cmake/cmExportSet.cxx.ll 738476357
 cmake/cmExportTryCompileFileGenerator.cxx.ll 1033922098
 cmake/cmExprLexer.cxx.ll 457138873
 cmake/cmExprParser.cxx.ll 271546186
-cmake/cmExprParserHelper.cxx.ll 125627890
+cmake/cmExprParserHelper.cxx.ll 125753597
 cmake/cmExternalMakefileProjectGenerator.cxx.ll 194319472
 cmake/cmExtraCodeBlocksGenerator.cxx.ll 2131406625
 cmake/cmExtraCodeLiteGenerator.cxx.ll 1282017959
@@ -8609,7 +8609,7 @@ gromacs/kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF.cpp.ll 1761623199
 gromacs/kernel_ElecQSTabTwinCut_VdwLJFSw_F.cpp.ll 1185000136
 gromacs/kernel_ElecQSTabTwinCut_VdwLJFSw_VF.cpp.ll 1516653230
 gromacs/kernel_ElecQSTabTwinCut_VdwLJFSw_VgrpF.cpp.ll 1618231134
-gromacs/kernel_ElecQSTabTwinCut_VdwLJPSw_F.cpp.ll 1306382411
+gromacs/kernel_ElecQSTabTwinCut_VdwLJPSw_F.cpp.ll 1307688885
 gromacs/kernel_ElecQSTabTwinCut_VdwLJPSw_VF.cpp.ll 1537135968
 gromacs/kernel_ElecQSTabTwinCut_VdwLJPSw_VgrpF.cpp.ll 1641231175
 gromacs/kernel_ElecQSTabTwinCut_VdwLJ_F.cpp.ll 1086849814
@@ -8732,7 +8732,7 @@ gromacs/multipletimestepping.cpp.ll 590433276
 gromacs/multisim.cpp.ll 391730637
 gromacs/nb_free_energy.cpp.ll 38762869866
 gromacs/nbnxm.cpp.ll 377775345
-gromacs/nbnxm_geometry.cpp.ll 47447390
+gromacs/nbnxm_geometry.cpp.ll 47494887
 gromacs/nbnxm_setup.cpp.ll 729895126
 gromacs/nbnxmsetuphelpers.cpp.ll 891850865
 gromacs/nbsearch.cpp.ll 1698857838
@@ -10837,7 +10837,7 @@ icu/uvectr64.ll 135963224
 icu/uwmsg.ll 69309463
 icu/vtzone.ll 1626780438
 icu/vzone.ll 88847050
-icu/writesrc.ll 222567184
+icu/writesrc.ll 222789766
 icu/wrtjava.ll 418260515
 icu/wrtxml.ll 725514606
 icu/xmlparser.ll 439528561
@@ -15810,7 +15810,7 @@ llvm/RISCVInstrInfo.cpp.ll 7098218484
 llvm/RISCVInstructionSelector.cpp.ll 5454337270
 llvm/RISCVLandingPadSetup.cpp.ll 316766399
 llvm/RISCVLegalizerInfo.cpp.ll 4565270357
-llvm/RISCVMCAsmInfo.cpp.ll 51237508
+llvm/RISCVMCAsmInfo.cpp.ll 51288753
 llvm/RISCVMCCodeEmitter.cpp.ll 2259093734
 llvm/RISCVMCExpr.cpp.ll 256561758
 llvm/RISCVMCObjectFileInfo.cpp.ll 45970192
