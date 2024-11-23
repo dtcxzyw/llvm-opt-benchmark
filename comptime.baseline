@@ -18697,7 +18697,7 @@ ncnn/mvn.cpp.ll 197095974
 ncnn/net.cpp.ll 2400800384
 ncnn/noop.cpp.ll 40627294
 ncnn/normalize.cpp.ll 267197176
-ncnn/option.cpp.ll 38084482
+ncnn/option.cpp.ll 38122588
 ncnn/packing.cpp.ll 334270093
 ncnn/packing_x86.cpp.ll 1920272120
 ncnn/packing_x86_avx.cpp.ll 2025599215
@@ -26383,7 +26383,7 @@ openssl/libcrypto-shlib-bn_x931p.ll 83349679
 openssl/libcrypto-shlib-bss_acpt.ll 128314088
 openssl/libcrypto-shlib-bss_bio.ll 159249698
 openssl/libcrypto-shlib-bss_conn.ll 176159221
-openssl/libcrypto-shlib-bss_core.ll 78054761
+openssl/libcrypto-shlib-bss_core.ll 78132823
 openssl/libcrypto-shlib-bss_dgram.ll 283971960
 openssl/libcrypto-shlib-bss_dgram_pair.ll 353305771
 openssl/libcrypto-shlib-bss_fd.ll 70742569
@@ -36551,7 +36551,7 @@ wasmtime-rs/2zbrxqpx49ysr6cn.ll 269739016
 wasmtime-rs/30bs26v8gk3pt07g.ll 692403766
 wasmtime-rs/30grvq3ik5vq8b2f.ll 285467077
 wasmtime-rs/320v7ko74ke0k4k4.ll 5253451570
-wasmtime-rs/322ukxfdvnm2wdbn.ll 43568239
+wasmtime-rs/322ukxfdvnm2wdbn.ll 43611889
 wasmtime-rs/322yw2dra6hhv794.ll 51479089
 wasmtime-rs/32ocpkosjxmve1yg.ll 235198007
 wasmtime-rs/33560kyrqz2cm6nd.ll 60890295
