@@ -1227,7 +1227,7 @@ abseil-cpp/status_payload_printer.cc.ll 60592457
 abseil-cpp/status_test.cc.ll 4423969859
 abseil-cpp/statusor.cc.ll 152275890
 abseil-cpp/statusor_test.cc.ll 18521428028
-abseil-cpp/stderr_log_sink_test.cc.ll 971289156
+abseil-cpp/stderr_log_sink_test.cc.ll 972260626
 abseil-cpp/str_cat.cc.ll 100163741
 abseil-cpp/str_cat_test.cc.ll 5179179524
 abseil-cpp/str_format_test.cc.ll 7249752752
@@ -4456,7 +4456,7 @@ coreutils-rs/420s040g7rwxzzqz.ll 405095980
 coreutils-rs/424qq45zde9500rw.ll 200213351
 coreutils-rs/42lmwach5re7evzy.ll 347109741
 coreutils-rs/42mdia1i938lxfrs.ll 294618135
-coreutils-rs/42tk4bi79ez614n3.ll 79369922
+coreutils-rs/42tk4bi79ez614n3.ll 79449312
 coreutils-rs/42z9ytlgskwt7sja.ll 738169389
 coreutils-rs/430t43armlc6j2ga.ll 61566109
 coreutils-rs/43wjxfdt7imm24dn.ll 905109030
@@ -20337,7 +20337,7 @@ openblas/dlag2.c.ll 67369618
 openblas/dlagge.c.ll 181502411
 openblas/dlags2.c.ll 76930787
 openblas/dlagsy.c.ll 123135413
-openblas/dlagtf.c.ll 63842245
+openblas/dlagtf.c.ll 63906110
 openblas/dlahqr.c.ll 266505558
 openblas/dlahr2.c.ll 84366332
 openblas/dlaic1.c.ll 64909960
@@ -23121,7 +23121,7 @@ openjdk/hb-paint-extents.ll 320209967
 openjdk/hb-paint.ll 506911661
 openjdk/hb-set.ll 2197002024
 openjdk/hb-shape-plan.ll 464415102
-openjdk/hb-shape.ll 70989063
+openjdk/hb-shape.ll 71060300
 openjdk/hb-shaper.ll 75979083
 openjdk/hb-ucd.ll 225592462
 openjdk/hb-unicode.ll 339873794
