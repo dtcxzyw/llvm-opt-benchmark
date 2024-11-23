@@ -22706,7 +22706,7 @@ openjdk/cardTableBarrierSetAssembler_x86.ll 109972523
 openjdk/cardTableBarrierSetC1.ll 281715666
 openjdk/cardTableBarrierSetC2.ll 148981560
 openjdk/cardTableRS.ll 2225746155
-openjdk/castnode.ll 386487051
+openjdk/castnode.ll 386873574
 openjdk/cdsConfig.ll 178819955
 openjdk/cdsConstants.ll 54002639
 openjdk/cdsEnumKlass.ll 1176207991
