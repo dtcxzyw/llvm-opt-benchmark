@@ -6738,7 +6738,7 @@ eastl/EASprintfCore.cpp.ll 1830433629
 eastl/EASprintfOrdered.cpp.ll 845042407
 eastl/EAStopwatch.cpp.ll 114006415
 eastl/EAString.cpp.ll 2534865890
-eastl/EATest.cpp.ll 820415834
+eastl/EATest.cpp.ll 821236520
 eastl/EATextUtil.cpp.ll 654039298
 eastl/Int128_t.cpp.ll 1077356412
 eastl/TestAlgorithm.cpp.ll 10987226905
@@ -28735,7 +28735,7 @@ php/stream.ll 606130673
 php/streams.ll 1306214173
 php/streamsfuncs.ll 914426263
 php/string.ll 7295059951
-php/strlcat.ll 46392440
+php/strlcat.ll 46438885
 php/strlcpy.ll 41757072
 php/strnatcmp.ll 132730850
 php/strtod.ll 208411898
