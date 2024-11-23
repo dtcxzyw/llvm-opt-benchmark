@@ -7985,7 +7985,7 @@ graphviz/gvrender_core_json.c.ll 685927636
 graphviz/gvrender_core_map.c.ll 102461789
 graphviz/gvrender_core_mp.c.ll 204664093
 graphviz/gvrender_core_pic.c.ll 122382862
-graphviz/gvrender_core_pov.c.ll 206521139
+graphviz/gvrender_core_pov.c.ll 206727701
 graphviz/gvrender_core_svg.c.ll 188181131
 graphviz/gvrender_core_tk.c.ll 119486299
 graphviz/gvrender_pango.c.ll 138435394
@@ -12758,7 +12758,7 @@ linux/error_report-traces.ll 56040896
 linux/errseq.ll 52535573
 linux/esp6.ll 301295306
 linux/espfix_64.ll 81603015
-linux/esrt.ll 91648766
+linux/esrt.ll 91740463
 linux/eth.ll 124629748
 linux/ethtool.ll 548387895
 linux/evdev.ll 322226284
@@ -23448,7 +23448,7 @@ openjdk/metaspace.ll 358420440
 openjdk/metaspaceArena.ll 207546337
 openjdk/metaspaceArenaGrowthPolicy.ll 51553854
 openjdk/metaspaceClosure.ll 128257662
-openjdk/metaspaceCommon.ll 63665622
+openjdk/metaspaceCommon.ll 63729389
 openjdk/metaspaceContext.ll 50202492
 openjdk/metaspaceCounters.ll 75264639
 openjdk/metaspaceCriticalAllocation.ll 186200202
@@ -35951,7 +35951,7 @@ vcpkg/export.ifw.cpp.ll 1994787805
 vcpkg/export.prefab.cpp.ll 4130897675
 vcpkg/files.cpp.ll 3194141473
 vcpkg/git.cpp.ll 1312521672
-vcpkg/hash.cpp.ll 1348201166
+vcpkg/hash.cpp.ll 1349549445
 vcpkg/input.cpp.ll 960711232
 vcpkg/json.cpp.ll 3608692975
 vcpkg/message_sinks.cpp.ll 842342057
