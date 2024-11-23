@@ -1584,7 +1584,7 @@ arrow/trie.cc.ll 581232855
 arrow/type.cc.ll 16889529447
 arrow/tz.cpp.ll 2886512635
 arrow/uri.cc.ll 987695610
-arrow/utf8.cc.ll 494287027
+arrow/utf8.cc.ll 494781351
 arrow/util.cc.ll 9900918232
 arrow/util_avx2.cc.ll 212864892
 arrow/util_internal.cc.ll 337091754
@@ -23518,7 +23518,7 @@ openjdk/mlib_sys.ll 41330790
 openjdk/modRefBarrierSetAssembler_x86.ll 59841113
 openjdk/modRefBarrierSetC1.ll 175433411
 openjdk/modRefBarrierSetC2.ll 106108484
-openjdk/moduleEntry.ll 1316082681
+openjdk/moduleEntry.ll 1317399129
 openjdk/modules.ll 1280031310
 openjdk/monitorChunk.ll 57368804
 openjdk/monitorDeflationThread.ll 165978268
