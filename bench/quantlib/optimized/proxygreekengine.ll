@@ -1599,19 +1599,14 @@ _ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %_ZNKSt6vect
   store ptr %add.ptr37.i, ptr %_M_finish.i.i, align 8, !tbaa !16
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8, !tbaa !17
   %sub.ptr.rhs.cast.i39 = ptrtoint ptr %call5.i.i.i.i236 to i64
-  %cmp285.not = icmp eq ptr %3, %4
-  br i1 %cmp285.not, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i43, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit
   %sub.ptr.div.i41 = sdiv exact i64 %sub.ptr.sub.i, 24
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i41, i64 1)
   br label %for.body
 
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i43: ; preds = %for.cond.cleanup19, %invoke.cont, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit
-  %cmp285.not330 = phi i1 [ true, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit ], [ true, %invoke.cont ], [ false, %for.cond.cleanup19 ]
-  %sub.ptr.rhs.cast.i39329 = phi i64 [ %sub.ptr.rhs.cast.i39, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit ], [ 0, %invoke.cont ], [ %sub.ptr.rhs.cast.i39, %for.cond.cleanup19 ]
-  %5 = phi ptr [ %add.ptr37.i, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit ], [ null, %invoke.cont ], [ %add.ptr37.i, %for.cond.cleanup19 ]
-  %6 = phi ptr [ %call5.i.i.i.i236, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit ], [ null, %invoke.cont ], [ %call5.i.i.i.i236, %for.cond.cleanup19 ]
+_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i43: ; preds = %for.cond.cleanup19, %invoke.cont
+  %sub.ptr.rhs.cast.i39329 = phi i64 [ 0, %invoke.cont ], [ %sub.ptr.rhs.cast.i39, %for.cond.cleanup19 ]
+  %5 = phi ptr [ null, %invoke.cont ], [ %add.ptr37.i, %for.cond.cleanup19 ]
+  %6 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i236, %for.cond.cleanup19 ]
   br i1 %cmp.not.i.i.i.i, label %invoke.cont29, label %if.then.i.i.i.i.i45
 
 if.then.i.i.i.i.i45:                              ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i43
@@ -1636,8 +1631,8 @@ lpad4:                                            ; preds = %_ZNKSt6vectorIS_IS_
           cleanup
   br label %ehcleanup99
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond.cleanup19
-  %i.0286 = phi i64 [ %inc, %for.cond.cleanup19 ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit, %for.cond.cleanup19
+  %i.0286 = phi i64 [ %inc, %for.cond.cleanup19 ], [ 0, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit ]
   %add.ptr.i60 = getelementptr inbounds nuw %"class.std::vector.43", ptr %call5.i.i.i.i236, i64 %i.0286
   %9 = load ptr, ptr %constrainedEvolvers_, align 8, !tbaa !10
   %add.ptr.i61 = getelementptr inbounds nuw %"class.std::vector.37", ptr %9, i64 %i.0286
@@ -1871,7 +1866,7 @@ if.then.i.i.i:                                    ; preds = %for.cond.cleanup35
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %for.cond.cleanup35, %if.then.i.i.i
-  br i1 %cmp285.not330, label %invoke.cont.i, label %for.body.i.i.i.i
+  br i1 %cmp.i.not, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %_ZSt8_DestroyISt6vectorIS0_IdSaIdEESaIS2_EEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorIS0_IdSaIdEESaIS2_EEEvPT_.exit.i.i.i.i ], [ %6, %_ZNSt6vectorIdSaIdEED2Ev.exit ]

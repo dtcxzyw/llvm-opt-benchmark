@@ -9541,16 +9541,11 @@ if.end35.i:                                       ; preds = %if.end29.i
   %94 = load i8, ptr %arrayidx36.i, align 1
   switch i8 %94, label %if.then7 [
     i8 9, label %diff_timestamp_len.exit
-    i8 32, label %if.end51.i
+    i8 32, label %while.cond.i89.i
   ]
 
-if.end51.i:                                       ; preds = %if.end35.i
-  %sub.ptr.sub54.i = sub i64 %sub.ptr.rhs.cast82.pre-phi.i.i, %sub.ptr.rhs.cast
-  %tobool.not.i84.i = icmp eq i64 %sub.ptr.sub54.i, 0
-  br i1 %tobool.not.i84.i, label %trailing_spaces_len.exit.i, label %while.cond.i89.i
-
-while.cond.i89.i:                                 ; preds = %if.end51.i, %while.body.i.i
-  %p.0.i90.i = phi ptr [ %incdec.ptr.i91.i, %while.body.i.i ], [ %add.ptr31.i, %if.end51.i ]
+while.cond.i89.i:                                 ; preds = %if.end35.i, %while.body.i.i
+  %p.0.i90.i = phi ptr [ %incdec.ptr.i91.i, %while.body.i.i ], [ %add.ptr31.i, %if.end35.i ]
   %cmp2.not.i.i = icmp eq ptr %p.0.i90.i, %line
   br i1 %cmp2.not.i.i, label %trailing_spaces_len.exit.i, label %while.body.i.i
 
@@ -9562,13 +9557,12 @@ while.body.i.i:                                   ; preds = %while.cond.i89.i
 
 if.then7.i.i:                                     ; preds = %while.body.i.i
   %sub.ptr.rhs.cast.i94.i = ptrtoint ptr %p.0.i90.i to i64
-  %sub.ptr.sub.i95.i = sub i64 %sub.ptr.rhs.cast82.pre-phi.i.i, %sub.ptr.rhs.cast.i94.i
   br label %trailing_spaces_len.exit.i
 
-trailing_spaces_len.exit.i:                       ; preds = %while.cond.i89.i, %if.then7.i.i, %if.end51.i
-  %retval.0.i88.i = phi i64 [ %sub.ptr.sub.i95.i, %if.then7.i.i ], [ 0, %if.end51.i ], [ %sub.ptr.sub54.i, %while.cond.i89.i ]
-  %idx.neg56.i = sub i64 0, %retval.0.i88.i
-  %add.ptr57.i = getelementptr inbounds i8, ptr %add.ptr31.i, i64 %idx.neg56.i
+trailing_spaces_len.exit.i:                       ; preds = %while.cond.i89.i, %if.then7.i.i
+  %sub.ptr.rhs.cast.i94.pn.i = phi i64 [ %sub.ptr.rhs.cast.i94.i, %if.then7.i.i ], [ %sub.ptr.rhs.cast, %while.cond.i89.i ]
+  %retval.0.i88.neg.i = sub i64 %sub.ptr.rhs.cast.i94.pn.i, %sub.ptr.rhs.cast82.pre-phi.i.i
+  %add.ptr57.i = getelementptr inbounds i8, ptr %add.ptr31.i, i64 %retval.0.i88.neg.i
   br label %diff_timestamp_len.exit
 
 diff_timestamp_len.exit:                          ; preds = %if.end35.i, %trailing_spaces_len.exit.i

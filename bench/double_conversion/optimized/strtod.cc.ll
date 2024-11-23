@@ -365,8 +365,7 @@ if.end.i15:                                       ; preds = %_ZN17double_convers
 
 if.then4.i:                                       ; preds = %if.end.i15
   %sub5.i = sub nsw i32 %add124.i, %22
-  %switch.tableidx = add i32 %sub5.i, -1
-  %23 = icmp ult i32 %switch.tableidx, 7
+  %23 = icmp ult i32 %sub5.i, 8
   br i1 %23, label %switch.lookup, label %sw.default.i.i
 
 sw.default.i.i:                                   ; preds = %if.then4.i
@@ -374,10 +373,11 @@ sw.default.i.i:                                   ; preds = %if.then4.i
   unreachable
 
 switch.lookup:                                    ; preds = %if.then4.i
-  %24 = zext nneg i32 %switch.tableidx to i64
+  %switch.tableidx = add nsw i32 %sub5.i, -1
+  %24 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
-  %25 = zext nneg i32 %switch.tableidx to i64
+  %25 = sext i32 %switch.tableidx to i64
   %switch.gep29 = getelementptr inbounds [7 x i64], ptr @switch.table._ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd.1, i64 0, i64 %25
   %switch.load30 = load i64, ptr %switch.gep29, align 8
   %shr.i.i = lshr i64 %significand.1.lcssa.i.i, 32

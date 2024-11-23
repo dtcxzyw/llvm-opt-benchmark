@@ -4614,19 +4614,15 @@ ary_double_capa.exit:                             ; preds = %45, %rb_array_len.e
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds i8, ptr %8, i64 16
-  br label %rb_ary_ptr_use_start.exit.i
+  br label %.lr.ph.i.preheader.i
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds i8, ptr %8, i64 32
   %69 = load ptr, ptr %68, align 8
-  br label %rb_ary_ptr_use_start.exit.i
+  br label %.lr.ph.i.preheader.i
 
-rb_ary_ptr_use_start.exit.i:                      ; preds = %67, %65
+.lr.ph.i.preheader.i:                             ; preds = %65, %67
   %.0.i.i.i = phi ptr [ %66, %65 ], [ %69, %67 ]
-  %.not2.i.i = icmp eq i64 %63, 0
-  br i1 %.not2.i.i, label %ary_mem_clear.exit, label %.lr.ph.i.preheader.i
-
-.lr.ph.i.preheader.i:                             ; preds = %rb_ary_ptr_use_start.exit.i
   %70 = getelementptr i64, ptr %.0.i.i.i, i64 %.0.i
   br label %.lr.ph.i.i
 
@@ -4637,14 +4633,10 @@ rb_ary_ptr_use_start.exit.i:                      ; preds = %67, %65
   %72 = getelementptr i8, ptr %.013.i.i, i64 8
   store i64 4, ptr %.013.i.i, align 8
   %.not.i.i = icmp eq i64 %71, 0
-  br i1 %.not.i.i, label %ary_mem_clear.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %ary_mem_clear.exit, label %.lr.ph.i.i, !llvm.loop !7
 
-ary_mem_clear.exit.loopexit:                      ; preds = %.lr.ph.i.i
-  %.pre82 = load i64, ptr %8, align 8
-  br label %ary_mem_clear.exit
-
-ary_mem_clear.exit:                               ; preds = %ary_mem_clear.exit.loopexit, %rb_ary_ptr_use_start.exit.i
-  %73 = phi i64 [ %.pre82, %ary_mem_clear.exit.loopexit ], [ %62, %rb_ary_ptr_use_start.exit.i ]
+ary_mem_clear.exit:                               ; preds = %.lr.ph.i.i
+  %73 = load i64, ptr %8, align 8
   %74 = and i64 %73, 8192
   %.not79 = icmp eq i64 %74, 0
   br i1 %.not79, label %79, label %75

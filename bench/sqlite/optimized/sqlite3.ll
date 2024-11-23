@@ -133799,8 +133799,8 @@ define internal i32 @vdbeSorterCompareInt(ptr nocapture noundef readonly %0, ptr
 18:                                               ; preds = %6
   %19 = zext i8 %8 to i64
   %20 = add nsw i64 %19, -7
-  %.not62 = icmp ult i64 %20, -6
-  br i1 %.not62, label %.thread59, label %.lr.ph.preheader
+  %.not63 = icmp ult i64 %20, -6
+  br i1 %.not63, label %.thread59, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %18
   %21 = getelementptr inbounds [10 x i8], ptr @vdbeSorterCompareInt.aLen, i64 0, i64 %19
@@ -133831,7 +133831,7 @@ define internal i32 @vdbeSorterCompareInt(ptr nocapture noundef readonly %0, ptr
   %34 = load i8, ptr %16, align 1
   %35 = xor i8 %34, %33
   %.not51 = icmp sgt i8 %35, -1
-  br i1 %.not51, label %select.unfold, label %36
+  br i1 %.not51, label %.thread, label %36
 
 36:                                               ; preds = %32
   %.not52 = icmp sgt i8 %33, -1
@@ -133845,7 +133845,7 @@ define internal i32 @vdbeSorterCompareInt(ptr nocapture noundef readonly %0, ptr
   %42 = icmp ugt i8 %10, 7
   %or.cond = and i1 %41, %42
   %43 = sub nsw i32 %40, %39
-  br i1 %or.cond, label %select.unfold, label %44
+  br i1 %or.cond, label %.thread, label %44
 
 44:                                               ; preds = %38
   %spec.select56 = select i1 %41, i32 -1, i32 %43
@@ -133857,60 +133857,56 @@ define internal i32 @vdbeSorterCompareInt(ptr nocapture noundef readonly %0, ptr
   %47 = load i8, ptr %13, align 1
   %.not49 = icmp sgt i8 %47, -1
   %spec.select = select i1 %.not49, i32 %.2, i32 -1
-  br label %select.unfold
+  br label %.thread
 
 48:                                               ; preds = %44
   %49 = load i8, ptr %16, align 1
   %.not = icmp sgt i8 %49, -1
-  br i1 %.not, label %select.unfold, label %.thread
+  %spec.select61 = select i1 %.not, i32 %spec.select56, i32 1
+  br label %.thread
 
-select.unfold:                                    ; preds = %38, %48, %46, %32
-  %.1 = phi i32 [ %31, %32 ], [ %spec.select, %46 ], [ %spec.select56, %48 ], [ %43, %38 ]
-  %50 = icmp eq i32 %.1, 0
-  br i1 %50, label %.thread59, label %.thread
+.thread59:                                        ; preds = %24, %18
+  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 6
+  %55 = load i16, ptr %54, align 2
+  %56 = icmp ugt i16 %55, 1
+  br i1 %56, label %57, label %72
 
-.thread59:                                        ; preds = %24, %18, %select.unfold
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 40
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 6
-  %56 = load i16, ptr %55, align 2
-  %57 = icmp ugt i16 %56, 1
-  br i1 %57, label %58, label %73
+57:                                               ; preds = %.thread59
+  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = load ptr, ptr %58, align 8
+  %60 = load i32, ptr %1, align 4
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %vdbeSorterCompareTail.exit
 
-58:                                               ; preds = %.thread59
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = load i32, ptr %1, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %vdbeSorterCompareTail.exit
-
-63:                                               ; preds = %58
-  tail call fastcc void @sqlite3VdbeRecordUnpack(ptr noundef nonnull %54, i32 noundef %5, ptr noundef nonnull %4, ptr noundef %60)
+62:                                               ; preds = %57
+  tail call fastcc void @sqlite3VdbeRecordUnpack(ptr noundef nonnull %53, i32 noundef %5, ptr noundef nonnull %4, ptr noundef %59)
   store i32 1, ptr %1, align 4
   br label %vdbeSorterCompareTail.exit
 
-vdbeSorterCompareTail.exit:                       ; preds = %58, %63
-  %64 = tail call fastcc i32 @sqlite3VdbeRecordCompareWithSkip(i32 noundef %3, ptr noundef nonnull %2, ptr noundef %60, i32 noundef 1)
-  br label %73
+vdbeSorterCompareTail.exit:                       ; preds = %57, %62
+  %63 = tail call fastcc i32 @sqlite3VdbeRecordCompareWithSkip(i32 noundef %3, ptr noundef nonnull %2, ptr noundef %59, i32 noundef 1)
+  br label %72
 
-.thread:                                          ; preds = %48, %36, %select.unfold
-  %.158 = phi i32 [ %.1, %select.unfold ], [ 1, %48 ], [ %37, %36 ]
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 40
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 24
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i8, ptr %70, align 1
-  %.not53 = icmp eq i8 %71, 0
-  %72 = sub nsw i32 0, %.158
-  %spec.select55 = select i1 %.not53, i32 %.158, i32 %72
-  br label %73
+.thread:                                          ; preds = %38, %48, %32, %46, %36
+  %.158 = phi i32 [ %37, %36 ], [ %31, %32 ], [ %spec.select, %46 ], [ %spec.select61, %48 ], [ %43, %38 ]
+  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 40
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i8, ptr %69, align 1
+  %.not53 = icmp eq i8 %70, 0
+  %71 = sub nsw i32 0, %.158
+  %spec.select55 = select i1 %.not53, i32 %.158, i32 %71
+  br label %72
 
-73:                                               ; preds = %.thread, %.thread59, %vdbeSorterCompareTail.exit
-  %.3 = phi i32 [ %64, %vdbeSorterCompareTail.exit ], [ 0, %.thread59 ], [ %spec.select55, %.thread ]
+72:                                               ; preds = %.thread, %.thread59, %vdbeSorterCompareTail.exit
+  %.3 = phi i32 [ %63, %vdbeSorterCompareTail.exit ], [ 0, %.thread59 ], [ %spec.select55, %.thread ]
   ret i32 %.3
 }
 

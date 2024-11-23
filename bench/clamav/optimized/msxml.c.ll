@@ -114,7 +114,7 @@ msxml_read_cb_new_window.exit:                    ; preds = %22
   store i64 %spec.select.i, ptr %16, align 8
   br label %28
 
-28:                                               ; preds = %msxml_read_cb_new_window.exit, %._crit_edge138
+28:                                               ; preds = %._crit_edge138, %msxml_read_cb_new_window.exit
   %29 = phi i64 [ %.pre140, %._crit_edge138 ], [ 0, %msxml_read_cb_new_window.exit ]
   %30 = phi i64 [ %.pre, %._crit_edge138 ], [ %spec.select.i, %msxml_read_cb_new_window.exit ]
   %31 = getelementptr inbounds i8, ptr %0, i64 40
@@ -169,80 +169,78 @@ msxml_read_cb_new_window.exit:                    ; preds = %22
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %40, i64 noundef %46, i64 noundef range(i64 1, 131073) %spec.select.i85, i32 noundef 0) #4
   %.not31.i87 = icmp eq ptr %54, null
-  br i1 %.not31.i87, label %msxml_read_cb_new_window.exit89, label %56
+  br i1 %.not31.i87, label %msxml_read_cb_new_window.exit89, label %55
 
 msxml_read_cb_new_window.exit89:                  ; preds = %51
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.5) #4
   br label %msxml_read_cb_new_window.exit.thread
 
-.thread:                                          ; preds = %38, %48
-  %55 = trunc i64 %.063124 to i32
-  br label %msxml_read_cb_new_window.exit.thread
-
-56:                                               ; preds = %51
+55:                                               ; preds = %51
   store ptr %54, ptr %5, align 8
   store i64 0, ptr %32, align 8
   store i64 %46, ptr %34, align 8
   store i64 %spec.select.i85, ptr %31, align 8
   br label %57
 
-57:                                               ; preds = %._crit_edge141, %56
-  %58 = phi i64 [ %.pre143, %._crit_edge141 ], [ 0, %56 ]
-  %59 = phi ptr [ %.pre142, %._crit_edge141 ], [ %54, %56 ]
-  %.167 = phi i64 [ %.066123, %._crit_edge141 ], [ %spec.select.i85, %56 ]
-  %60 = icmp ne i64 %.167, 0
-  %61 = icmp ult i64 %.063124, %4
-  %62 = and i1 %60, %61
-  br i1 %62, label %.lr.ph.preheader, label %._crit_edge
+.thread:                                          ; preds = %38, %48
+  %56 = trunc i64 %.063124 to i32
+  br label %msxml_read_cb_new_window.exit.thread
+
+57:                                               ; preds = %._crit_edge141, %55
+  %58 = phi i64 [ %.pre143, %._crit_edge141 ], [ 0, %55 ]
+  %59 = phi ptr [ %.pre142, %._crit_edge141 ], [ %54, %55 ]
+  %.167 = phi i64 [ %.066123, %._crit_edge141 ], [ %spec.select.i85, %55 ]
+  %60 = icmp ult i64 %.063124, %4
+  br i1 %60, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %59, i64 %58
+  %61 = getelementptr inbounds i8, ptr %59, i64 %58
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread96
-  %.061118 = phi ptr [ %91, %.thread96 ], [ %37, %.lr.ph.preheader ]
-  %.062115 = phi ptr [ %89, %.thread96 ], [ %63, %.lr.ph.preheader ]
-  %.164114 = phi i64 [ %93, %.thread96 ], [ %.063124, %.lr.ph.preheader ]
-  %.268113 = phi i64 [ %92, %.thread96 ], [ %.167, %.lr.ph.preheader ]
-  %64 = load i32, ptr %0, align 4
-  switch i32 %64, label %82 [
-    i32 0, label %65
-    i32 1, label %68
-    i32 2, label %71
-    i32 3, label %76
-    i32 4, label %79
+  %.061118 = phi ptr [ %89, %.thread96 ], [ %37, %.lr.ph.preheader ]
+  %.062115 = phi ptr [ %87, %.thread96 ], [ %61, %.lr.ph.preheader ]
+  %.164114 = phi i64 [ %91, %.thread96 ], [ %.063124, %.lr.ph.preheader ]
+  %.268113 = phi i64 [ %90, %.thread96 ], [ %.167, %.lr.ph.preheader ]
+  %62 = load i32, ptr %0, align 4
+  switch i32 %62, label %80 [
+    i32 0, label %63
+    i32 1, label %66
+    i32 2, label %69
+    i32 3, label %74
+    i32 4, label %77
   ]
 
-65:                                               ; preds = %.lr.ph
-  %66 = load i8, ptr %.062115, align 1
-  %67 = icmp eq i8 %66, 38
-  br i1 %67, label %.thread96.sink.split, label %.thread96
+63:                                               ; preds = %.lr.ph
+  %64 = load i8, ptr %.062115, align 1
+  %65 = icmp eq i8 %64, 38
+  br i1 %65, label %.thread96.sink.split, label %.thread96
 
-68:                                               ; preds = %.lr.ph
-  %69 = load i8, ptr %.062115, align 1
-  %70 = icmp eq i8 %69, 35
-  %. = select i1 %70, i32 2, i32 0
+66:                                               ; preds = %.lr.ph
+  %67 = load i8, ptr %.062115, align 1
+  %68 = icmp eq i8 %67, 35
+  %. = select i1 %68, i32 2, i32 0
   br label %.thread96.sink.split
 
-71:                                               ; preds = %.lr.ph
-  %72 = load i8, ptr %.062115, align 1
-  %73 = icmp eq i8 %72, 120
-  br i1 %73, label %.thread96.sink.split, label %74
+69:                                               ; preds = %.lr.ph
+  %70 = load i8, ptr %.062115, align 1
+  %71 = icmp eq i8 %70, 120
+  br i1 %71, label %.thread96.sink.split, label %72
 
-74:                                               ; preds = %71
-  %75 = add i8 %72, -48
-  %or.cond = icmp ult i8 %75, 10
+72:                                               ; preds = %69
+  %73 = add i8 %70, -48
+  %or.cond = icmp ult i8 %73, 10
   %.154 = select i1 %or.cond, i32 4, i32 0
   br label %.thread96.sink.split
 
-76:                                               ; preds = %.lr.ph
-  %77 = load i8, ptr %.062115, align 1
-  %.fr131 = freeze i8 %77
-  %78 = add i8 %.fr131, -48
-  %or.cond81 = icmp ult i8 %78, 10
+74:                                               ; preds = %.lr.ph
+  %75 = load i8, ptr %.062115, align 1
+  %.fr131 = freeze i8 %75
+  %76 = add i8 %.fr131, -48
+  %or.cond81 = icmp ult i8 %76, 10
   br i1 %or.cond81, label %.thread96, label %switch.early.test
 
-switch.early.test:                                ; preds = %76
+switch.early.test:                                ; preds = %74
   switch i8 %.fr131, label %.thread98.sink.split [
     i8 102, label %.thread96
     i8 101, label %.thread96
@@ -258,80 +256,80 @@ switch.early.test:                                ; preds = %76
     i8 65, label %.thread96
   ]
 
-79:                                               ; preds = %.lr.ph
-  %80 = load i8, ptr %.062115, align 1
-  %81 = add i8 %80, -48
-  %or.cond84 = icmp ult i8 %81, 10
+77:                                               ; preds = %.lr.ph
+  %78 = load i8, ptr %.062115, align 1
+  %79 = add i8 %78, -48
+  %or.cond84 = icmp ult i8 %79, 10
   br i1 %or.cond84, label %.thread96, label %.thread98.sink.split
 
-82:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str, i32 noundef %64) #4
+80:                                               ; preds = %.lr.ph
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str, i32 noundef %62) #4
   %.pr.pre = load i32, ptr %0, align 4
-  %83 = icmp eq i32 %.pr.pre, 5
-  br i1 %83, label %.thread98, label %.thread96
+  %81 = icmp eq i32 %.pr.pre, 5
+  br i1 %81, label %.thread98, label %.thread96
 
-.thread98.sink.split:                             ; preds = %79, %switch.early.test
+.thread98.sink.split:                             ; preds = %77, %switch.early.test
   store i32 5, ptr %0, align 4
   br label %.thread98
 
-.thread98:                                        ; preds = %.thread98.sink.split, %82
-  %84 = load i8, ptr %.062115, align 1
-  %.not79 = icmp eq i8 %84, 59
-  br i1 %.not79, label %88, label %85
+.thread98:                                        ; preds = %.thread98.sink.split, %80
+  %82 = load i8, ptr %.062115, align 1
+  %.not79 = icmp eq i8 %82, 59
+  br i1 %.not79, label %86, label %83
 
-85:                                               ; preds = %.thread98
-  %86 = getelementptr inbounds i8, ptr %.061118, i64 1
+83:                                               ; preds = %.thread98
+  %84 = getelementptr inbounds i8, ptr %.061118, i64 1
   store i8 59, ptr %.061118, align 1
-  %87 = add nuw i64 %.164114, 1
-  br label %88
+  %85 = add nuw i64 %.164114, 1
+  br label %86
 
-88:                                               ; preds = %85, %.thread98
-  %.4 = phi i64 [ %87, %85 ], [ %.164114, %.thread98 ]
-  %.2 = phi ptr [ %86, %85 ], [ %.061118, %.thread98 ]
+86:                                               ; preds = %83, %.thread98
+  %.4 = phi i64 [ %85, %83 ], [ %.164114, %.thread98 ]
+  %.2 = phi ptr [ %84, %83 ], [ %.061118, %.thread98 ]
   store i32 0, ptr %0, align 4
   %.not80 = icmp ult i64 %.4, %4
   br i1 %.not80, label %.thread96, label %._crit_edge
 
-.thread96.sink.split:                             ; preds = %74, %71, %68, %65
-  %.sink = phi i32 [ 1, %65 ], [ %., %68 ], [ 3, %71 ], [ %.154, %74 ]
+.thread96.sink.split:                             ; preds = %72, %69, %66, %63
+  %.sink = phi i32 [ 1, %63 ], [ %., %66 ], [ 3, %69 ], [ %.154, %72 ]
   store i32 %.sink, ptr %0, align 4
   br label %.thread96
 
-.thread96:                                        ; preds = %.thread96.sink.split, %79, %76, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %65, %88, %82
-  %.3 = phi i64 [ %.4, %88 ], [ %.164114, %82 ], [ %.164114, %65 ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %76 ], [ %.164114, %79 ], [ %.164114, %.thread96.sink.split ]
-  %.1 = phi ptr [ %.2, %88 ], [ %.061118, %82 ], [ %.061118, %65 ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %76 ], [ %.061118, %79 ], [ %.061118, %.thread96.sink.split ]
-  %89 = getelementptr inbounds i8, ptr %.062115, i64 1
-  %90 = load i8, ptr %.062115, align 1
-  %91 = getelementptr inbounds i8, ptr %.1, i64 1
-  store i8 %90, ptr %.1, align 1
-  %92 = add i64 %.268113, -1
-  %93 = add nuw i64 %.3, 1
-  %94 = icmp ne i64 %92, 0
-  %95 = icmp ult i64 %93, %4
-  %96 = select i1 %94, i1 %95, i1 false
-  br i1 %96, label %.lr.ph, label %._crit_edge
+.thread96:                                        ; preds = %.thread96.sink.split, %77, %74, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %63, %86, %80
+  %.3 = phi i64 [ %.4, %86 ], [ %.164114, %80 ], [ %.164114, %63 ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %74 ], [ %.164114, %77 ], [ %.164114, %.thread96.sink.split ]
+  %.1 = phi ptr [ %.2, %86 ], [ %.061118, %80 ], [ %.061118, %63 ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %74 ], [ %.061118, %77 ], [ %.061118, %.thread96.sink.split ]
+  %87 = getelementptr inbounds i8, ptr %.062115, i64 1
+  %88 = load i8, ptr %.062115, align 1
+  %89 = getelementptr inbounds i8, ptr %.1, i64 1
+  store i8 %88, ptr %.1, align 1
+  %90 = add i64 %.268113, -1
+  %91 = add nuw i64 %.3, 1
+  %92 = icmp ne i64 %90, 0
+  %93 = icmp ult i64 %91, %4
+  %94 = select i1 %92, i1 %93, i1 false
+  br i1 %94, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread96, %88, %57
-  %.268.lcssa = phi i64 [ %.167, %57 ], [ %.268113, %88 ], [ %92, %.thread96 ]
-  %.265 = phi i64 [ %.063124, %57 ], [ %.4, %88 ], [ %93, %.thread96 ]
-  %97 = icmp ult i64 %.265, %4
-  br i1 %97, label %36, label %._crit_edge127.loopexit
+._crit_edge:                                      ; preds = %.thread96, %86, %57
+  %.268.lcssa = phi i64 [ %.167, %57 ], [ %.268113, %86 ], [ %90, %.thread96 ]
+  %.265 = phi i64 [ %.063124, %57 ], [ %.4, %86 ], [ %91, %.thread96 ]
+  %95 = icmp ult i64 %.265, %4
+  br i1 %95, label %36, label %._crit_edge127.loopexit
 
 ._crit_edge127.loopexit:                          ; preds = %._crit_edge
   %.pre145 = load i64, ptr %31, align 8
-  %98 = trunc i64 %.265 to i32
+  %96 = trunc i64 %.265 to i32
   br label %._crit_edge127
 
 ._crit_edge127:                                   ; preds = %._crit_edge127.loopexit, %28
-  %99 = phi i64 [ %30, %28 ], [ %.pre145, %._crit_edge127.loopexit ]
+  %97 = phi i64 [ %30, %28 ], [ %.pre145, %._crit_edge127.loopexit ]
   %.066.lcssa = phi i64 [ %33, %28 ], [ %.268.lcssa, %._crit_edge127.loopexit ]
-  %.063.lcssa = phi i32 [ 0, %28 ], [ %98, %._crit_edge127.loopexit ]
-  %100 = sub i64 %99, %.066.lcssa
-  store i64 %100, ptr %32, align 8
+  %.063.lcssa = phi i32 [ 0, %28 ], [ %96, %._crit_edge127.loopexit ]
+  %98 = sub i64 %97, %.066.lcssa
+  store i64 %98, ptr %32, align 8
   br label %msxml_read_cb_new_window.exit.thread
 
 msxml_read_cb_new_window.exit.thread:             ; preds = %26, %20, %7, %msxml_read_cb_new_window.exit89, %._crit_edge127, %.thread
-  %.0 = phi i32 [ %55, %.thread ], [ %.063.lcssa, %._crit_edge127 ], [ -1, %msxml_read_cb_new_window.exit89 ], [ 0, %7 ], [ 0, %20 ], [ -1, %26 ]
+  %.0 = phi i32 [ %56, %.thread ], [ %.063.lcssa, %._crit_edge127 ], [ -1, %msxml_read_cb_new_window.exit89 ], [ 0, %7 ], [ 0, %20 ], [ -1, %26 ]
   ret i32 %.0
 }
 

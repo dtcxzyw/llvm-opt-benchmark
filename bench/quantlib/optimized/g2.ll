@@ -7378,25 +7378,19 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i50, align 8, !tbaa !90
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i50, i64 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i, 8
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont52.thread222, label %invoke.cont52
-
-invoke.cont52.thread222:                          ; preds = %call5.i.i.i.i2.i.i.noexc
-  %sub.ptr.rhs.cast.i53227 = ptrtoint ptr %call5.i.i.i.i2.i.i50 to i64
-  br label %for.body.preheader
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %call5.i.i.i.i2.i.i.noexc
   %33 = add nsw i64 %sub.ptr.sub.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %33, i1 false), !tbaa !90
-  %sub.ptr.rhs.cast.i53 = ptrtoint ptr %call5.i.i.i.i2.i.i50 to i64
   %sub.ptr.div.i55 = lshr exact i64 %sub.ptr.sub.i, 3
-  %cmp56197.not = icmp eq i64 %sub.ptr.sub.i, 0
-  br i1 %cmp56197.not, label %for.cond.cleanup, label %for.body.preheader
+  br label %for.body.preheader
 
-for.body.preheader:                               ; preds = %invoke.cont52.thread222, %invoke.cont52
-  %sub.ptr.div.i55237 = phi i64 [ 1, %invoke.cont52.thread222 ], [ %sub.ptr.div.i55, %invoke.cont52 ]
-  %sub.ptr.sub.i54236 = phi i64 [ 8, %invoke.cont52.thread222 ], [ %sub.ptr.sub.i, %invoke.cont52 ]
-  %sub.ptr.rhs.cast.i53235 = phi i64 [ %sub.ptr.rhs.cast.i53227, %invoke.cont52.thread222 ], [ %sub.ptr.rhs.cast.i53, %invoke.cont52 ]
-  %__first.addr.0.i.i.i.i.i234 = phi ptr [ %incdec.ptr.i.i.i.i.i, %invoke.cont52.thread222 ], [ %add.ptr.i.i.i, %invoke.cont52 ]
+for.body.preheader:                               ; preds = %call5.i.i.i.i2.i.i.noexc, %invoke.cont52
+  %sub.ptr.div.i55237 = phi i64 [ %sub.ptr.div.i55, %invoke.cont52 ], [ 1, %call5.i.i.i.i2.i.i.noexc ]
+  %sub.ptr.sub.i54236 = phi i64 [ %sub.ptr.sub.i, %invoke.cont52 ], [ 8, %call5.i.i.i.i2.i.i.noexc ]
+  %__first.addr.0.i.i.i.i.i234 = phi ptr [ %add.ptr.i.i.i, %invoke.cont52 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
+  %sub.ptr.rhs.cast.i53235 = ptrtoint ptr %call5.i.i.i.i2.i.i50 to i64
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i55237, i64 1)
   br label %for.body
 
@@ -7404,13 +7398,13 @@ for.cond.cleanup.loopexit:                        ; preds = %invoke.cont65
   %34 = icmp samesign ugt i64 %sub.ptr.div.i55237, 1152921504606846975
   br label %for.cond.cleanup
 
-for.cond.cleanup:                                 ; preds = %for.cond.cleanup.loopexit, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %invoke.cont52
-  %sub.ptr.div.i55221 = phi i1 [ false, %invoke.cont52 ], [ false, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %34, %for.cond.cleanup.loopexit ]
-  %sub.ptr.sub.i54220 = phi i64 [ 0, %invoke.cont52 ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %sub.ptr.sub.i54236, %for.cond.cleanup.loopexit ]
-  %sub.ptr.rhs.cast.i53215 = phi i64 [ %sub.ptr.rhs.cast.i53, %invoke.cont52 ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %sub.ptr.rhs.cast.i53235, %for.cond.cleanup.loopexit ]
-  %__first.addr.0.i.i.i.i.i214 = phi ptr [ %add.ptr.i.i.i, %invoke.cont52 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %__first.addr.0.i.i.i.i.i234, %for.cond.cleanup.loopexit ]
-  %fixedPayTimes.sroa.0.0212 = phi ptr [ %call5.i.i.i.i2.i.i50, %invoke.cont52 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i50, %for.cond.cleanup.loopexit ]
-  %fixedPayTimes.sroa.16.0210 = phi ptr [ %add.ptr.i.i.i, %invoke.cont52 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %add.ptr.i.i.i, %for.cond.cleanup.loopexit ]
+for.cond.cleanup:                                 ; preds = %for.cond.cleanup.loopexit, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  %sub.ptr.div.i55221 = phi i1 [ false, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %34, %for.cond.cleanup.loopexit ]
+  %sub.ptr.sub.i54220 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %sub.ptr.sub.i54236, %for.cond.cleanup.loopexit ]
+  %sub.ptr.rhs.cast.i53215 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %sub.ptr.rhs.cast.i53235, %for.cond.cleanup.loopexit ]
+  %__first.addr.0.i.i.i.i.i214 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %__first.addr.0.i.i.i.i.i234, %for.cond.cleanup.loopexit ]
+  %fixedPayTimes.sroa.0.0212 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i50, %for.cond.cleanup.loopexit ]
+  %fixedPayTimes.sroa.16.0210 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %add.ptr.i.i.i, %for.cond.cleanup.loopexit ]
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %function) #27
   %a_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %35 = load ptr, ptr %a_.i, align 8, !tbaa !45

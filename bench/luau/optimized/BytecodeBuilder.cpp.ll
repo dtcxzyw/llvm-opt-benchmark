@@ -8435,11 +8435,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.loopexit229
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %273, i8 -1, i64 %277, i1 false)
   br label %.lr.ph274
 
-.preheader227:                                    ; preds = %_ZN4LuauL13getJumpTargetEjj.exit.thread
-  %.not297 = icmp eq i64 %269, 0
-  br i1 %.not297, label %._crit_edge, label %.lr.ph277.preheader
-
-.lr.ph277.preheader:                              ; preds = %.preheader227
+.lr.ph277.preheader:                              ; preds = %_ZN4LuauL13getJumpTargetEjj.exit.thread
   %278 = lshr exact i64 %269, 2
   %umax = tail call i64 @llvm.umax.i64(i64 %278, i64 1)
   br label %.lr.ph277
@@ -8556,7 +8552,7 @@ _ZN4LuauL13getJumpTargetEjj.exit:                 ; preds = %295, %290, %287, %2
 
 304:                                              ; preds = %.thread, %.loopexit.split-lp
   %lpad.phi219 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.phi, %.loopexit.split-lp ]
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0315322, i64 noundef %322) #32
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0315322, i64 noundef %323) #32
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZN4LuauL13getJumpTargetEjj.exit.thread:          ; preds = %293, %299, %_ZN4LuauL13getJumpTargetEjj.exit
@@ -8571,7 +8567,7 @@ _ZN4LuauL13getJumpTargetEjj.exit.thread:          ; preds = %293, %299, %_ZN4Lua
   %312 = sub i64 %310, %311
   %313 = ashr exact i64 %312, 2
   %314 = icmp ult i64 %307, %313
-  br i1 %314, label %.lr.ph274, label %.preheader227, !llvm.loop !62
+  br i1 %314, label %.lr.ph274, label %.lr.ph277.preheader, !llvm.loop !62
 
 .lr.ph277:                                        ; preds = %.lr.ph277.preheader, %320
   %.0132276 = phi i64 [ %321, %320 ], [ 0, %.lr.ph277.preheader ]
@@ -8590,13 +8586,16 @@ _ZN4LuauL13getJumpTargetEjj.exit.thread:          ; preds = %293, %299, %_ZN4Lua
   %.1134 = phi i32 [ %319, %318 ], [ %.0133275, %.lr.ph277 ]
   %321 = add nuw i64 %.0132276, 1
   %exitcond.not = icmp eq i64 %321, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph277, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph277, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %320, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %.preheader227
-  %322 = phi i64 [ 0, %.preheader227 ], [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %269, %320 ]
-  %.lcssa259323 = phi i64 [ %313, %.preheader227 ], [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %313, %320 ]
-  %.sroa.0.0315322 = phi ptr [ %273, %.preheader227 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %273, %320 ]
-  %323 = add nsw i64 %.lcssa259323, 1
+._crit_edge.loopexit:                             ; preds = %320
+  %322 = add nsw i64 %313, 1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+  %323 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %269, %._crit_edge.loopexit ]
+  %.lcssa259323 = phi i64 [ 1, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %322, %._crit_edge.loopexit ]
+  %.sroa.0.0315322 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %273, %._crit_edge.loopexit ]
   store i32 -1, ptr %4, align 4
   %324 = getelementptr inbounds i8, ptr %2, i64 8
   %325 = load ptr, ptr %324, align 8
@@ -8605,20 +8604,20 @@ _ZN4LuauL13getJumpTargetEjj.exit.thread:          ; preds = %293, %299, %_ZN4Lua
   %328 = ptrtoint ptr %326 to i64
   %329 = sub i64 %327, %328
   %330 = ashr exact i64 %329, 2
-  %331 = icmp ugt i64 %323, %330
+  %331 = icmp ugt i64 %.lcssa259323, %330
   br i1 %331, label %332, label %334
 
 332:                                              ; preds = %._crit_edge
-  %333 = sub nuw nsw i64 %323, %330
+  %333 = sub nuw nsw i64 %.lcssa259323, %330
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %325, i64 noundef %333, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 334:                                              ; preds = %._crit_edge
-  %335 = icmp ult i64 %323, %330
+  %335 = icmp ult i64 %.lcssa259323, %330
   br i1 %335, label %336, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 336:                                              ; preds = %334
-  %337 = getelementptr inbounds i32, ptr %326, i64 %323
+  %337 = getelementptr inbounds i32, ptr %326, i64 %.lcssa259323
   %.not.i.i = icmp eq ptr %325, %337
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %338
 
@@ -8885,7 +8884,7 @@ _ZN4LuauL13getJumpTargetEjj.exit195.thread:       ; preds = %435, %_ZN4LuauL13ge
   br i1 %.not.i.i.i196, label %_ZNSt6vectorIiSaIiEED2Ev.exit197, label %465
 
 465:                                              ; preds = %.outer._crit_edge
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0315322, i64 noundef %322) #32
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0315322, i64 noundef %323) #32
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit197
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit230, %.loopexit.split-lp231.loopexit.split-lp.loopexit, %.loopexit.split-lp231.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp231.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp231.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp231.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp231.loopexit, %304, %.loopexit.split-lp, %302

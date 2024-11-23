@@ -20890,7 +20890,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit: ; preds = %_ZN3fmt3v106detail1
   %5 = phi i64 [ %2, %_ZN3fmt3v106detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit ], [ %.pre, %if.then.i11 ]
   %sub = sub i64 %5, %4
   %spec.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub.ptr.sub)
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit
@@ -45483,7 +45483,7 @@ if.end8:                                          ; preds = %for.cond, %entry
 if.then13:                                        ; preds = %if.end8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %buf, i8 0, i64 7, i1 false)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub, -1
-  br i1 %cmp.i.i, label %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit, label %if.then.i.i
+  br i1 %cmp.i.i, label %if.then.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then13
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #28
@@ -45500,14 +45500,14 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i
   call void @__cxa_free_exception(ptr %exception.i.i.i) #28
   resume { ptr, i32 } %0
 
-_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit: ; preds = %if.then13
+if.then.i:                                        ; preds = %if.then13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %p.0, i64 %sub.ptr.sub, i1 false)
   %sub.ptr.rhs.cast28 = ptrtoint ptr %buf to i64
   br label %do.body
 
-do.body:                                          ; preds = %if.end21, %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit
-  %buf_ptr.0 = phi ptr [ %buf, %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit ], [ %call18, %if.end21 ]
-  %p.2 = phi ptr [ %p.0, %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit ], [ %add.ptr25, %if.end21 ]
+do.body:                                          ; preds = %if.end21, %if.then.i
+  %buf_ptr.0 = phi ptr [ %buf, %if.then.i ], [ %call18, %if.end21 ]
+  %p.2 = phi ptr [ %p.0, %if.then.i ], [ %add.ptr25, %if.end21 ]
   %call18 = call noundef ptr @_ZZN3fmt3v106detail18for_each_codepointIZNS1_16code_point_indexENS0_17basic_string_viewIcEEmEUljS4_E_EEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(24) %decode, ptr noundef nonnull %buf_ptr.0, ptr noundef %p.2)
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %if.end31, label %if.end21
@@ -45865,7 +45865,7 @@ if.end8:                                          ; preds = %for.cond, %entry
 if.then13:                                        ; preds = %if.end8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %buf, i8 0, i64 7, i1 false)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub, -1
-  br i1 %cmp.i.i, label %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit, label %if.then.i.i
+  br i1 %cmp.i.i, label %if.then.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then13
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #28
@@ -45882,14 +45882,14 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i
   call void @__cxa_free_exception(ptr %exception.i.i.i) #28
   resume { ptr, i32 } %0
 
-_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit: ; preds = %if.then13
+if.then.i:                                        ; preds = %if.then13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %p.0, i64 %sub.ptr.sub, i1 false)
   %sub.ptr.rhs.cast28 = ptrtoint ptr %buf to i64
   br label %do.body
 
-do.body:                                          ; preds = %if.end21, %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit
-  %buf_ptr.0 = phi ptr [ %buf, %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit ], [ %call18, %if.end21 ]
-  %p.2 = phi ptr [ %p.0, %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit ], [ %add.ptr25, %if.end21 ]
+do.body:                                          ; preds = %if.end21, %if.then.i
+  %buf_ptr.0 = phi ptr [ %buf, %if.then.i ], [ %call18, %if.end21 ]
+  %p.2 = phi ptr [ %p.0, %if.then.i ], [ %add.ptr25, %if.end21 ]
   %call18 = call noundef ptr @_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %decode, ptr noundef nonnull %buf_ptr.0, ptr noundef %p.2)
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %if.end31, label %if.end21
@@ -46067,7 +46067,7 @@ if.end8:                                          ; preds = %for.cond, %entry
 if.then13:                                        ; preds = %if.end8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %buf, i8 0, i64 7, i1 false)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub, -1
-  br i1 %cmp.i.i, label %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit, label %if.then.i.i
+  br i1 %cmp.i.i, label %if.then.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then13
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #28
@@ -46084,14 +46084,14 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i
   call void @__cxa_free_exception(ptr %exception.i.i.i) #28
   resume { ptr, i32 } %0
 
-_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit: ; preds = %if.then13
+if.then.i:                                        ; preds = %if.then13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %p.0, i64 %sub.ptr.sub, i1 false)
   %sub.ptr.rhs.cast28 = ptrtoint ptr %buf to i64
   br label %do.body
 
-do.body:                                          ; preds = %if.end21, %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit
-  %buf_ptr.0 = phi ptr [ %buf, %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit ], [ %call18, %if.end21 ]
-  %p.2 = phi ptr [ %p.0, %_ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit ], [ %add.ptr25, %if.end21 ]
+do.body:                                          ; preds = %if.end21, %if.then.i
+  %buf_ptr.0 = phi ptr [ %buf, %if.then.i ], [ %call18, %if.end21 ]
+  %p.2 = phi ptr [ %p.0, %if.then.i ], [ %add.ptr25, %if.end21 ]
   %call18 = call noundef ptr @_ZZN3fmt3v106detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %decode, ptr noundef nonnull %buf_ptr.0, ptr noundef %p.2)
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %if.end31, label %if.end21

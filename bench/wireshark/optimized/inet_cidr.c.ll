@@ -54,61 +54,48 @@ define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr nocapture noundef readon
   %7 = icmp ugt i32 %6, 7
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %2, %16
-  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %2 ]
-  %.02842.i = phi i32 [ %17, %16 ], [ %..i, %2 ]
+.lr.ph.i:                                         ; preds = %2, %12
+  %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %2 ]
+  %.02842.i = phi i32 [ %13, %12 ], [ %..i, %2 ]
   %8 = getelementptr [16 x i8], ptr %0, i64 0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = getelementptr [16 x i8], ptr %3, i64 0, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %.not37.i = icmp eq i8 %9, %11
-  br i1 %.not37.i, label %16, label %12
+  br i1 %.not37.i, label %12, label %compare_ipv6.exit
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = zext i8 %11 to i32
-  %14 = zext i8 %9 to i32
-  %15 = sub nsw i32 %14, %13
-  br label %compare_ipv6.exit
-
-16:                                               ; preds = %.lr.ph.i
-  %17 = add i32 %.02842.i, -8
+  %13 = add i32 %.02842.i, -8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = icmp ugt i32 %17, 7
-  br i1 %18, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
+  %14 = icmp ugt i32 %13, 7
+  br i1 %14, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
 
-._crit_edge.loopexit.i:                           ; preds = %16
-  %19 = and i64 %indvars.iv.next, 4294967295
+._crit_edge.loopexit.i:                           ; preds = %12
+  %15 = and i64 %indvars.iv.next, 4294967295
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
-  %.029.lcssa.i = phi i64 [ 0, %2 ], [ %19, %._crit_edge.loopexit.i ]
-  %.028.lcssa.i = phi i32 [ %..i, %2 ], [ %17, %._crit_edge.loopexit.i ]
+  %.029.lcssa.i = phi i64 [ 0, %2 ], [ %15, %._crit_edge.loopexit.i ]
+  %.028.lcssa.i = phi i32 [ %..i, %2 ], [ %13, %._crit_edge.loopexit.i ]
   %.not.i = icmp eq i32 %.028.lcssa.i, 0
-  br i1 %.not.i, label %compare_ipv6.exit, label %20
+  br i1 %.not.i, label %compare_ipv6.exit, label %16
 
-20:                                               ; preds = %._crit_edge.i
-  %21 = getelementptr [16 x i8], ptr %0, i64 0, i64 %.029.lcssa.i
-  %22 = load i8, ptr %21, align 1
-  %23 = zext nneg i32 %.028.lcssa.i to i64
-  %24 = getelementptr [9 x i8], ptr @bitmasks, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = and i8 %25, %22
-  %27 = getelementptr [16 x i8], ptr %3, i64 0, i64 %.029.lcssa.i
-  %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, %25
-  %.not36.i = icmp eq i8 %26, %29
-  br i1 %.not36.i, label %compare_ipv6.exit, label %30
-
-30:                                               ; preds = %20
-  %31 = zext i8 %29 to i32
-  %32 = zext i8 %26 to i32
-  %33 = sub nsw i32 %32, %31
+16:                                               ; preds = %._crit_edge.i
+  %17 = getelementptr [16 x i8], ptr %0, i64 0, i64 %.029.lcssa.i
+  %18 = load i8, ptr %17, align 1
+  %19 = zext nneg i32 %.028.lcssa.i to i64
+  %20 = getelementptr [9 x i8], ptr @bitmasks, i64 0, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = getelementptr [16 x i8], ptr %3, i64 0, i64 %.029.lcssa.i
+  %23 = load i8, ptr %22, align 1
+  %24 = xor i8 %23, %18
+  %25 = and i8 %24, %21
+  %.not36.i = icmp eq i8 %25, 0
   br label %compare_ipv6.exit
 
-compare_ipv6.exit:                                ; preds = %12, %._crit_edge.i, %20, %30
-  %.0.i = phi i32 [ %15, %12 ], [ %33, %30 ], [ 0, %20 ], [ 0, %._crit_edge.i ]
-  %34 = icmp eq i32 %.0.i, 0
-  ret i1 %34
+compare_ipv6.exit:                                ; preds = %.lr.ph.i, %16, %._crit_edge.i
+  %26 = phi i1 [ true, %._crit_edge.i ], [ %.not36.i, %16 ], [ false, %.lr.ph.i ]
+  ret i1 %26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

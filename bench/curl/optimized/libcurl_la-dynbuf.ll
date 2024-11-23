@@ -78,7 +78,7 @@ if.else10:                                        ; preds = %if.else8
   %2 = load ptr, ptr %s, align 8
   %sub = sub i64 %0, %trail
   %arrayidx13 = getelementptr inbounds i8, ptr %2, i64 %sub
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2, ptr align 1 %arrayidx13, i64 %trail, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %arrayidx13, i64 %trail, i1 false)
   store i64 %trail, ptr %leng, align 8
   %3 = load ptr, ptr %s, align 8
   %arrayidx17 = getelementptr inbounds i8, ptr %3, i64 %trail

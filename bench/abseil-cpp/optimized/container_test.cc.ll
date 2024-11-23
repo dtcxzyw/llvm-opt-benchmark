@@ -20775,16 +20775,12 @@ if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
 _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %cond.true.i.i.i.i
   %call5.i.i.i.i2.i6.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #32
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i, ptr align 4 %14, i64 %sub.ptr.sub.i.i, i1 false)
-  %cmp6.i.i.i21.not = icmp eq ptr %13, %14
-  br i1 %cmp6.i.i.i21.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_SA_SA_RKT0_T1_.exit.i.i22, label %while.body.i.i.i28.preheader
-
-while.body.i.i.i28.preheader:                     ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   %sub.ptr.div.i.i.i.i.i.i20 = lshr exact i64 %sub.ptr.sub.i.i, 2
   br label %while.body.i.i.i28
 
-while.body.i.i.i28:                               ; preds = %while.body.i.i.i28.preheader, %while.body.i.i.i28
-  %__len.08.i.i.i29 = phi i64 [ %__len.1.i.i.i41, %while.body.i.i.i28 ], [ %sub.ptr.div.i.i.i.i.i.i20, %while.body.i.i.i28.preheader ]
-  %__first.sroa.0.07.i.i.i30 = phi ptr [ %__first.sroa.0.1.i.i.i40, %while.body.i.i.i28 ], [ %call5.i.i.i.i2.i6.i, %while.body.i.i.i28.preheader ]
+while.body.i.i.i28:                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit, %while.body.i.i.i28
+  %__len.08.i.i.i29 = phi i64 [ %__len.1.i.i.i41, %while.body.i.i.i28 ], [ %sub.ptr.div.i.i.i.i.i.i20, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ]
+  %__first.sroa.0.07.i.i.i30 = phi ptr [ %__first.sroa.0.1.i.i.i40, %while.body.i.i.i28 ], [ %call5.i.i.i.i2.i6.i, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ]
   %shr.i.i.i31 = lshr i64 %__len.08.i.i.i29, 1
   %add.ptr.i.i.i.i.i.i34 = getelementptr inbounds i32, ptr %__first.sroa.0.07.i.i.i30, i64 %shr.i.i.i31
   %15 = load i32, ptr %add.ptr.i.i.i.i.i.i34, align 4
@@ -20797,9 +20793,9 @@ while.body.i.i.i28:                               ; preds = %while.body.i.i.i28.
   %cmp.i.i.i42 = icmp sgt i64 %__len.1.i.i.i41, 0
   br i1 %cmp.i.i.i42, label %while.body.i.i.i28, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_SA_SA_RKT0_T1_.exit.i.i22, !llvm.loop !361
 
-_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_SA_SA_RKT0_T1_.exit.i.i22: ; preds = %while.body.i.i.i28, %_ZN7testing15AssertionResultD2Ev.exit, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
-  %cond.i.i.i.i8085 = phi ptr [ %call5.i.i.i.i2.i6.i, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ], [ null, %_ZN7testing15AssertionResultD2Ev.exit ], [ %call5.i.i.i.i2.i6.i, %while.body.i.i.i28 ]
-  %__first.sroa.0.0.lcssa.i.i.i23 = phi ptr [ %call5.i.i.i.i2.i6.i, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ], [ null, %_ZN7testing15AssertionResultD2Ev.exit ], [ %__first.sroa.0.1.i.i.i40, %while.body.i.i.i28 ]
+_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_SA_SA_RKT0_T1_.exit.i.i22: ; preds = %while.body.i.i.i28, %_ZN7testing15AssertionResultD2Ev.exit
+  %cond.i.i.i.i8085 = phi ptr [ null, %_ZN7testing15AssertionResultD2Ev.exit ], [ %call5.i.i.i.i2.i6.i, %while.body.i.i.i28 ]
+  %__first.sroa.0.0.lcssa.i.i.i23 = phi ptr [ null, %_ZN7testing15AssertionResultD2Ev.exit ], [ %__first.sroa.0.1.i.i.i40, %while.body.i.i.i28 ]
   %add.ptr.i.i.i.i.i.i.i.i.i86 = getelementptr inbounds i8, ptr %cond.i.i.i.i8085, i64 %sub.ptr.sub.i.i
   %cmp.i2.not.i.i24 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i.i23, %add.ptr.i.i.i.i.i.i.i.i.i86
   br i1 %cmp.i2.not.i.i24, label %invoke.cont22, label %land.rhs.i.i25

@@ -1848,119 +1848,118 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %bytes39 = getelementptr inbounds i8, ptr %slice, i64 9
   %agg.tmp18.sroa.5.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %agg.tmp18.sroa.6.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  br label %while.body
+  %1 = load i64, ptr %count.i, align 8, !noalias !39
+  %cmp.not.i57 = icmp eq i64 %1, 0
+  br i1 %cmp.not.i57, label %if.then.i, label %grpc_slice_buffer_take_first.exit
 
 if.then:                                          ; preds = %entry
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 380, ptr noundef nonnull @.str.2) #16
   unreachable
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end45
-  %n.addr.037 = phi i64 [ %n, %while.body.lr.ph ], [ %sub, %if.end45 ]
-  %dstp.036 = phi ptr [ %dst, %while.body.lr.ph ], [ %add.ptr, %if.end45 ]
-  %1 = load i64, ptr %count.i, align 8, !noalias !39
-  %cmp.not.i = icmp eq i64 %1, 0
-  br i1 %cmp.not.i, label %if.then.i, label %grpc_slice_buffer_take_first.exit
-
-if.then.i:                                        ; preds = %while.body
+if.then.i:                                        ; preds = %if.end45, %while.body.lr.ph
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @.str.4) #16, !noalias !39
   unreachable
 
-grpc_slice_buffer_take_first.exit:                ; preds = %while.body
-  %2 = load ptr, ptr %slices.i, align 8, !noalias !39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 32
+grpc_slice_buffer_take_first.exit:                ; preds = %while.body.lr.ph, %if.end45
+  %2 = phi i64 [ %18, %if.end45 ], [ %1, %while.body.lr.ph ]
+  %dstp.03659 = phi ptr [ %add.ptr, %if.end45 ], [ %dst, %while.body.lr.ph ]
+  %n.addr.03758 = phi i64 [ %sub, %if.end45 ], [ %n, %while.body.lr.ph ]
+  %3 = load ptr, ptr %slices.i, align 8, !noalias !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %incdec.ptr.i, ptr %slices.i, align 8, !noalias !39
-  %dec.i = add i64 %1, -1
+  %dec.i = add i64 %2, -1
   store i64 %dec.i, ptr %count.i, align 8, !noalias !39
-  %3 = load ptr, ptr %slice, align 8
-  %tobool.not.i = icmp eq ptr %3, null
-  %4 = load i64, ptr %data.i, align 8
-  %conv.i = and i64 %4, 255
-  %cond.i = select i1 %tobool.not.i, i64 %conv.i, i64 %4
-  %5 = load i64, ptr %length, align 8, !noalias !39
-  %sub.i = sub i64 %5, %cond.i
+  %4 = load ptr, ptr %slice, align 8
+  %tobool.not.i = icmp eq ptr %4, null
+  %5 = load i64, ptr %data.i, align 8
+  %conv.i = and i64 %5, 255
+  %cond.i = select i1 %tobool.not.i, i64 %conv.i, i64 %5
+  %6 = load i64, ptr %length, align 8, !noalias !39
+  %sub.i = sub i64 %6, %cond.i
   store i64 %sub.i, ptr %length, align 8, !noalias !39
-  %conv = and i64 %4, 255
-  %cond = select i1 %tobool.not.i, i64 %conv, i64 %4
-  %cmp5 = icmp ugt i64 %cond, %n.addr.037
+  %conv = and i64 %5, 255
+  %cond = select i1 %tobool.not.i, i64 %conv, i64 %5
+  %cmp5 = icmp ugt i64 %cond, %n.addr.03758
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %grpc_slice_buffer_take_first.exit
-  %6 = load ptr, ptr %bytes36, align 8
-  %cond15 = select i1 %tobool.not.i, ptr %bytes39, ptr %6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.036, ptr align 1 %cond15, i64 %n.addr.037, i1 false)
-  call void @grpc_slice_sub_no_ref(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %slice, i64 noundef %n.addr.037, i64 noundef %cond)
+  %7 = load ptr, ptr %bytes36, align 8
+  %cond15 = select i1 %tobool.not.i, ptr %bytes39, ptr %7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.03659, ptr align 1 %cond15, i64 %n.addr.03758, i1 false)
+  call void @grpc_slice_sub_no_ref(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %slice, i64 noundef %n.addr.03758, i64 noundef %cond)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp18.sroa.6)
   %agg.tmp18.sroa.0.0.copyload33 = load ptr, ptr %agg.tmp, align 8
   %agg.tmp18.sroa.5.0.copyload34 = load i64, ptr %agg.tmp18.sroa.5.0.agg.tmp.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18.sroa.6.0.agg.tmp.sroa_idx, i64 16, i1 false)
-  %7 = load ptr, ptr %slices.i, align 8
-  %incdec.ptr.i20 = getelementptr inbounds i8, ptr %7, i64 -32
+  %8 = load ptr, ptr %slices.i, align 8
+  %incdec.ptr.i20 = getelementptr inbounds i8, ptr %8, i64 -32
   store ptr %incdec.ptr.i20, ptr %slices.i, align 8
   store ptr %agg.tmp18.sroa.0.0.copyload33, ptr %incdec.ptr.i20, align 8
-  %agg.tmp18.sroa.5.0.incdec.ptr.i20.sroa_idx = getelementptr inbounds i8, ptr %7, i64 -24
+  %agg.tmp18.sroa.5.0.incdec.ptr.i20.sroa_idx = getelementptr inbounds i8, ptr %8, i64 -24
   store i64 %agg.tmp18.sroa.5.0.copyload34, ptr %agg.tmp18.sroa.5.0.incdec.ptr.i20.sroa_idx, align 8
-  %agg.tmp18.sroa.6.0.incdec.ptr.i20.sroa_idx = getelementptr inbounds i8, ptr %7, i64 -16
+  %agg.tmp18.sroa.6.0.incdec.ptr.i20.sroa_idx = getelementptr inbounds i8, ptr %8, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18.sroa.6.0.incdec.ptr.i20.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18.sroa.6, i64 16, i1 false)
-  %8 = load i64, ptr %count.i, align 8
-  %inc.i = add i64 %8, 1
+  %9 = load i64, ptr %count.i, align 8
+  %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %count.i, align 8
   %tobool.not.i22 = icmp eq ptr %agg.tmp18.sroa.0.0.copyload33, null
   %conv.i24 = and i64 %agg.tmp18.sroa.5.0.copyload34, 255
   %cond.i25 = select i1 %tobool.not.i22, i64 %conv.i24, i64 %agg.tmp18.sroa.5.0.copyload34
-  %9 = load i64, ptr %length, align 8
-  %add.i = add i64 %9, %cond.i25
+  %10 = load i64, ptr %length, align 8
+  %add.i = add i64 %10, %cond.i25
   store i64 %add.i, ptr %length, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp18.sroa.6)
   br label %while.end
 
 if.else:                                          ; preds = %grpc_slice_buffer_take_first.exit
-  %cmp17 = icmp eq i64 %cond, %n.addr.037
-  %10 = load ptr, ptr %bytes36, align 8
-  %cond29 = select i1 %tobool.not.i, ptr %bytes39, ptr %10
+  %cmp17 = icmp eq i64 %cond, %n.addr.03758
+  %11 = load ptr, ptr %bytes36, align 8
+  %cond29 = select i1 %tobool.not.i, ptr %bytes39, ptr %11
   br i1 %cmp17, label %if.then18, label %if.else31
 
 if.then18:                                        ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.036, ptr align 1 %cond29, i64 %n.addr.037, i1 false)
-  %11 = load ptr, ptr %slice, align 8
-  %cmp.i = icmp ugt ptr %11, inttoptr (i64 1 to ptr)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.03659, ptr align 1 %cond29, i64 %n.addr.03758, i1 false)
+  %12 = load ptr, ptr %slice, align 8
+  %cmp.i = icmp ugt ptr %12, inttoptr (i64 1 to ptr)
   br i1 %cmp.i, label %if.then.i26, label %while.end
 
 if.then.i26:                                      ; preds = %if.then18
-  %12 = atomicrmw sub ptr %11, i64 1 acq_rel, align 8
-  %cmp.i.i = icmp eq i64 %12, 1
+  %13 = atomicrmw sub ptr %12, i64 1 acq_rel, align 8
+  %cmp.i.i = icmp eq i64 %13, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %while.end
 
 if.then.i.i:                                      ; preds = %if.then.i26
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load ptr, ptr %destroyer_fn_.i.i, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %while.end
 
 if.else31:                                        ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.036, ptr align 1 %cond29, i64 %cond, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %dstp.036, i64 %cond
-  %sub = sub i64 %n.addr.037, %cond
-  %14 = load ptr, ptr %slice, align 8
-  %cmp.i27 = icmp ugt ptr %14, inttoptr (i64 1 to ptr)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.03659, ptr align 1 %cond29, i64 %cond, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %dstp.03659, i64 %cond
+  %sub = sub i64 %n.addr.03758, %cond
+  %15 = load ptr, ptr %slice, align 8
+  %cmp.i27 = icmp ugt ptr %15, inttoptr (i64 1 to ptr)
   br i1 %cmp.i27, label %if.then.i28, label %if.end45
 
 if.then.i28:                                      ; preds = %if.else31
-  %15 = atomicrmw sub ptr %14, i64 1 acq_rel, align 8
-  %cmp.i.i29 = icmp eq i64 %15, 1
+  %16 = atomicrmw sub ptr %15, i64 1 acq_rel, align 8
+  %cmp.i.i29 = icmp eq i64 %16, 1
   br i1 %cmp.i.i29, label %if.then.i.i30, label %if.end45
 
 if.then.i.i30:                                    ; preds = %if.then.i28
-  %destroyer_fn_.i.i31 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load ptr, ptr %destroyer_fn_.i.i31, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %14)
+  %destroyer_fn_.i.i31 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load ptr, ptr %destroyer_fn_.i.i31, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %15)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then.i.i30, %if.then.i28, %if.else31
-  %cmp1.not = icmp eq i64 %sub, 0
-  br i1 %cmp1.not, label %while.end, label %while.body, !llvm.loop !42
+  %18 = load i64, ptr %count.i, align 8, !noalias !39
+  %cmp.not.i = icmp eq i64 %18, 0
+  br i1 %cmp.not.i, label %if.then.i, label %grpc_slice_buffer_take_first.exit, !llvm.loop !42
 
-while.end:                                        ; preds = %if.end45, %if.then.i.i, %if.then.i26, %if.then18, %if.then6, %while.cond.preheader
+while.end:                                        ; preds = %if.then.i.i, %if.then.i26, %if.then18, %if.then6, %while.cond.preheader
   ret void
 }
 

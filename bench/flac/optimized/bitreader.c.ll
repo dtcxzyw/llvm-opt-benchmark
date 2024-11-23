@@ -481,20 +481,21 @@ if.end42:                                         ; preds = %if.then23
 if.then49:                                        ; preds = %if.end42
   %sub51 = sub i32 64, %sub45
   %cmp52 = icmp ult i32 %sub45, 32
-  br i1 %cmp52, label %cond.true54, label %cond.end56
+  br i1 %cmp52, label %cond.end56.thread, label %cond.end56
 
-cond.true54:                                      ; preds = %if.then49
+cond.end56.thread:                                ; preds = %if.then49
   %10 = load i32, ptr %val, align 4
   %shl = shl i32 %10, %sub45
-  br label %cond.end56
+  store i32 %shl, ptr %val, align 4
+  br label %cond.true60
 
-cond.end56:                                       ; preds = %if.then49, %cond.true54
-  %cond57 = phi i32 [ %shl, %cond.true54 ], [ 0, %if.then49 ]
-  store i32 %cond57, ptr %val, align 4
-  %cmp58 = icmp ult i32 %sub51, 64
+cond.end56:                                       ; preds = %if.then49
+  store i32 0, ptr %val, align 4
+  %cmp58 = icmp ult i32 %sub45, 65
   br i1 %cmp58, label %cond.true60, label %cond.end69
 
-cond.true60:                                      ; preds = %cond.end56
+cond.true60:                                      ; preds = %cond.end56.thread, %cond.end56
+  %cond5777 = phi i32 [ %shl, %cond.end56.thread ], [ 0, %cond.end56 ]
   %11 = load ptr, ptr %br, align 8
   %12 = load i32, ptr %consumed_words, align 4
   %idxprom63 = zext i32 %12 to i64
@@ -503,70 +504,70 @@ cond.true60:                                      ; preds = %cond.end56
   %sh_prom65 = zext nneg i32 %sub51 to i64
   %shr66 = lshr i64 %13, %sh_prom65
   %conv67 = trunc i64 %shr66 to i32
+  %14 = or i32 %cond5777, %conv67
   br label %cond.end69
 
 cond.end69:                                       ; preds = %cond.end56, %cond.true60
-  %cond70 = phi i32 [ %conv67, %cond.true60 ], [ 0, %cond.end56 ]
-  %or = or i32 %cond70, %cond57
+  %or = phi i32 [ %14, %cond.true60 ], [ 0, %cond.end56 ]
   store i32 %or, ptr %val, align 4
   store i32 %sub45, ptr %consumed_bits, align 8
   br label %return
 
 if.else73:                                        ; preds = %if.then20
-  %14 = load ptr, ptr %br, align 8
+  %15 = load ptr, ptr %br, align 8
   %idxprom77 = zext i32 %3 to i64
-  %arrayidx78 = getelementptr inbounds i64, ptr %14, i64 %idxprom77
-  %15 = load i64, ptr %arrayidx78, align 8
+  %arrayidx78 = getelementptr inbounds i64, ptr %15, i64 %idxprom77
+  %16 = load i64, ptr %arrayidx78, align 8
   %cmp79 = icmp ult i32 %bits, 64
   br i1 %cmp79, label %if.then81, label %if.end87
 
 if.then81:                                        ; preds = %if.else73
   %sub82 = sub nuw nsw i32 64, %bits
   %sh_prom83 = zext nneg i32 %sub82 to i64
-  %shr84 = lshr i64 %15, %sh_prom83
+  %shr84 = lshr i64 %16, %sh_prom83
   %conv85 = trunc i64 %shr84 to i32
   store i32 %conv85, ptr %val, align 4
   store i32 %bits, ptr %consumed_bits, align 8
   br label %return
 
 if.end87:                                         ; preds = %if.else73
-  %conv88 = trunc i64 %15 to i32
+  %conv88 = trunc i64 %16 to i32
   store i32 %conv88, ptr %val, align 4
-  %16 = load i32, ptr %consumed_words, align 4
-  %inc90 = add i32 %16, 1
+  %17 = load i32, ptr %consumed_words, align 4
+  %inc90 = add i32 %17, 1
   store i32 %inc90, ptr %consumed_words, align 4
   br label %return
 
 if.else91:                                        ; preds = %while.end
-  %17 = load ptr, ptr %br, align 8
+  %18 = load ptr, ptr %br, align 8
   %idxprom114 = zext i32 %3 to i64
-  %arrayidx115 = getelementptr inbounds i64, ptr %17, i64 %idxprom114
-  %18 = load i64, ptr %arrayidx115, align 8
+  %arrayidx115 = getelementptr inbounds i64, ptr %18, i64 %idxprom114
+  %19 = load i64, ptr %arrayidx115, align 8
   br i1 %tobool22.not, label %if.else111, label %if.then94
 
 if.then94:                                        ; preds = %if.else91
   %sh_prom100 = zext nneg i32 %5 to i64
   %shr101 = lshr i64 -1, %sh_prom100
-  %and102 = and i64 %18, %shr101
-  %19 = add i32 %bits, %5
-  %sub105 = sub i32 64, %19
+  %and102 = and i64 %19, %shr101
+  %20 = add i32 %bits, %5
+  %sub105 = sub i32 64, %20
   %sh_prom106 = zext nneg i32 %sub105 to i64
   %shr107 = lshr i64 %and102, %sh_prom106
   %conv108 = trunc i64 %shr107 to i32
   store i32 %conv108, ptr %val, align 4
-  %20 = load i32, ptr %consumed_bits, align 8
-  %add110 = add i32 %20, %bits
+  %21 = load i32, ptr %consumed_bits, align 8
+  %add110 = add i32 %21, %bits
   store i32 %add110, ptr %consumed_bits, align 8
   br label %return
 
 if.else111:                                       ; preds = %if.else91
   %sub116 = sub i32 64, %bits
   %sh_prom117 = zext nneg i32 %sub116 to i64
-  %shr118 = lshr i64 %18, %sh_prom117
+  %shr118 = lshr i64 %19, %sh_prom117
   %conv119 = trunc i64 %shr118 to i32
   store i32 %conv119, ptr %val, align 4
-  %21 = load i32, ptr %consumed_bits, align 8
-  %add121 = add i32 %21, %bits
+  %22 = load i32, ptr %consumed_bits, align 8
+  %add121 = add i32 %22, %bits
   store i32 %add121, ptr %consumed_bits, align 8
   br label %return
 

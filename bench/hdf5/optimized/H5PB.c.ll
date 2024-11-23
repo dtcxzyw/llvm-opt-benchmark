@@ -995,7 +995,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %93 = getelementptr inbounds i8, ptr %92, i64 %91
   %94 = load i64, ptr %12, align 8
   %95 = sub i64 %94, %91
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %93, i64 %95, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 1 %93, i64 %95, i1 false)
   %96 = load ptr, ptr %60, align 8
   %97 = icmp eq ptr %96, %79
   %98 = getelementptr inbounds i8, ptr %79, i64 24
@@ -1930,7 +1930,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %78 = getelementptr inbounds i8, ptr %77, i64 %.recomposed
   %79 = load i64, ptr %11, align 8
   %80 = sub i64 %79, %.recomposed
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr align 1 %4, i64 %80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 1 %4, i64 %80, i1 false)
   %81 = getelementptr inbounds i8, ptr %75, i64 20
   store i8 1, ptr %81, align 4
   %82 = load ptr, ptr %59, align 8

@@ -6083,10 +6083,8 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %11, %16
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 216
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %33, %35
-  %.not9 = icmp eq ptr %2, %1
-  %or.cond = or i1 %36, %.not9
-  br i1 %or.cond, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %37
+  %36 = icmp eq ptr %33, %35
+  br i1 %36, label %37, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 37:                                               ; preds = %31
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %22)

@@ -1553,7 +1553,7 @@ define hidden { ptr, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit.thread, label %7
 
 7:                                                ; preds = %4
-  br i1 %6, label %"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit", label %"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit.i"
+  br i1 %6, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit, label %"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit.i"
 
 "_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit.i": ; preds = %7
   %8 = add i64 %.sroa.01.0.i, 1
@@ -1561,19 +1561,19 @@ define hidden { ptr, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   %9 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h5778cb10e5aeb715E.llvm.5923418642108526555"(ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract.i.i, i64 noundef %.fca.1.extract.i.i.i)
   %10 = extractvalue { ptr, i64 } %9, 0
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit", label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit, label %4
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit.thread: ; preds = %4
-  br i1 %6, label %"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit", label %11
+  br i1 %6, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit, label %11
 
 11:                                               ; preds = %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit.thread
   %.fca.1.extract.i.i = extractvalue { ptr, i64 } %5, 1
   %12 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h5778cb10e5aeb715E.llvm.5923418642108526555"(ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract.i.i, i64 noundef %.fca.1.extract.i.i)
   %13 = extractvalue { ptr, i64 } %12, 0
   %14 = extractvalue { ptr, i64 } %12, 1
-  br label %"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit"
+  br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit
 
-"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit": ; preds = %"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit.i", %7, %11, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit.thread
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit: ; preds = %"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit.i", %7, %11, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit.thread
   %.sroa.3.0 = phi i64 [ %14, %11 ], [ undef, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit.thread ], [ undef, %7 ], [ undef, %"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit.i" ]
   %.sroa.0.0 = phi ptr [ %13, %11 ], [ null, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7ab8c71712a9d7ebE.llvm.11825479963814566850.exit.thread ], [ null, %7 ], [ null, %"_ZN96_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd609e957a80b689eE.llvm.11825479963814566850.exit.i" ]
   %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0

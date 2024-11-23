@@ -1723,7 +1723,7 @@ if.then.i.i.i.i948:                               ; preds = %_ZNK4entt4sighIFvR1
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP14one_more_eventSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i948
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %109 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i18.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i.i949, ptr align 1 %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i.i949, ptr nonnull align 1 %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load ptr, ptr %_M_finish.i.i.i943, align 8, !tbaa !53
   %.pre31.i.i.i.i = ptrtoint ptr %.pre.i.i.i.i to i64
   br label %if.end.i.i.i.i
@@ -4556,7 +4556,7 @@ if.then.i.i.i:                                    ; preds = %for.body.lr.ph.i, %
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP13another_eventSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i: ; preds = %if.then.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i18.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i, ptr align 1 %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i, ptr nonnull align 1 %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !53
   %.pre31.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
   br label %if.end.i.i.i
@@ -4706,7 +4706,7 @@ if.then.i.i.i:                                    ; preds = %for.body.lr.ph.i, %
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8an_eventSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i: ; preds = %if.then.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i18.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i, ptr align 1 %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i, ptr nonnull align 1 %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !53
   %.pre31.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
   br label %if.end.i.i.i
@@ -9757,7 +9757,7 @@ if.then.i.i.i.i395:                               ; preds = %for.body.lr.ph.i.i,
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8an_eventSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i395
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %89 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i18.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i.i, ptr align 1 %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i.i, ptr nonnull align 1 %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load ptr, ptr %_M_finish.i.i.i384, align 8, !tbaa !53
   %.pre31.i.i.i.i = ptrtoint ptr %.pre.i.i.i.i to i64
   br label %if.end.i.i.i.i
@@ -10057,7 +10057,7 @@ if.then.i.i.i.i488:                               ; preds = %for.body.lr.ph.i.i4
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8an_eventSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i.i493: ; preds = %if.then.i.i.i.i488
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i494 = ptrtoint ptr %127 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i495 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i494, %sub.ptr.lhs.cast.i18.i.i.i491
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i.i489, ptr align 1 %add.ptr.i.i.i490, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i495, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i.i489, ptr nonnull align 1 %add.ptr.i.i.i490, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i495, i1 false)
   %.pre.i.i.i.i496 = load ptr, ptr %_M_finish.i.i.i461, align 8, !tbaa !53
   %.pre31.i.i.i.i497 = ptrtoint ptr %.pre.i.i.i.i496 to i64
   br label %if.end.i.i.i.i498
@@ -10414,7 +10414,7 @@ if.then.i.i.i.i624:                               ; preds = %for.body.lr.ph.i.i6
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8an_eventSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i.i629: ; preds = %if.then.i.i.i.i624
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i630 = ptrtoint ptr %166 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i631 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i630, %sub.ptr.lhs.cast.i18.i.i.i627
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i.i625, ptr align 1 %add.ptr.i.i.i626, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i631, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre.i.i625, ptr nonnull align 1 %add.ptr.i.i.i626, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i631, i1 false)
   %.pre.i.i.i.i632 = load ptr, ptr %_M_finish.i.i.i597, align 8, !tbaa !53
   %.pre31.i.i.i.i633 = ptrtoint ptr %.pre.i.i.i.i632 to i64
   br label %if.end.i.i.i.i634
@@ -12419,7 +12419,7 @@ for.cond.cleanup:                                 ; preds = %for.body.lr.ph, %fo
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8an_eventSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i: ; preds = %for.cond.cleanup
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i18.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre, ptr align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre, ptr nonnull align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i = load ptr, ptr %_M_finish.i, align 8, !tbaa !53
   %.pre31.i.i = ptrtoint ptr %.pre.i.i to i64
   br label %if.end.i.i
@@ -13349,7 +13349,7 @@ for.cond.cleanup:                                 ; preds = %for.body.lr.ph, %fo
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP14one_more_eventSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i: ; preds = %for.cond.cleanup
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i18.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre, ptr align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre, ptr nonnull align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i = load ptr, ptr %_M_finish.i, align 8, !tbaa !53
   %.pre31.i.i = ptrtoint ptr %.pre.i.i to i64
   br label %if.end.i.i
@@ -14084,7 +14084,7 @@ for.cond.cleanup:                                 ; preds = %for.body.lr.ph, %fo
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP13another_eventSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i: ; preds = %for.cond.cleanup
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i18.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre, ptr align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre, ptr nonnull align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i = load ptr, ptr %_M_finish.i, align 8, !tbaa !53
   %.pre31.i.i = ptrtoint ptr %.pre.i.i to i64
   br label %if.end.i.i

@@ -7908,24 +7908,16 @@ if.then5:                                         ; preds = %invoke.cont
 if.then12:                                        ; preds = %if.then5
   %idx.neg = sub i64 0, %sub.i.i.i
   %add.ptr = getelementptr inbounds i64, ptr %3, i64 %idx.neg
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then12
   %add.ptr.idx.neg = shl i64 %sub.i.i.i, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr nonnull align 8 %add.ptr, i64 %add.ptr.idx.neg, i1 false)
-  %.pre120 = load ptr, ptr %_M_finish, align 8
-  br label %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit
-
-_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %if.then12, %if.then.i.i.i.i.i.i.i.i.i
-  %4 = phi ptr [ %3, %if.then12 ], [ %.pre120, %if.then.i.i.i.i.i.i.i.i.i ]
+  %4 = load ptr, ptr %_M_finish, align 8
   %add.ptr23 = getelementptr inbounds i64, ptr %4, i64 %sub.i.i.i
   store ptr %add.ptr23, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit
+if.then.i.i.i.i.i:                                ; preds = %if.then12
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
@@ -7933,7 +7925,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit
 
-_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, %if.then.i.i.i.i.i
+_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %if.then12, %if.then.i.i.i.i.i
   %agg.tmp28.sroa.2.0.copyload = load i64, ptr %index_.i.i, align 8
   %agg.tmp29.sroa.1.0.copyload = load i64, ptr %index_2.i.i, align 8
   %sub.i.i.i.i.i.i = sub i64 %agg.tmp29.sroa.1.0.copyload, %agg.tmp28.sroa.2.0.copyload
@@ -8090,9 +8082,9 @@ for.body.i.preheader.i.i.i.i.i.i.i82:             ; preds = %_ZNSt12_Vector_base
   %agg.tmp79.sroa.0.0.copyload = load ptr, ptr %__first, align 8
   %values_.i.i.i.i.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %agg.tmp79.sroa.0.0.copyload, i64 72
   %vect_.i.i.i.i.i.i.i.i.i.i85 = getelementptr inbounds i8, ptr %agg.tmp79.sroa.0.0.copyload, i64 80
-  %.pre121 = load ptr, ptr %values_.i.i.i.i.i.i.i.i.i.i84, align 8
-  %.pre122 = load ptr, ptr %vect_.i.i.i.i.i.i.i.i.i.i85, align 8
-  %invariant.gep = getelementptr i8, ptr %.pre122, i64 -64
+  %.pre120 = load ptr, ptr %values_.i.i.i.i.i.i.i.i.i.i84, align 8
+  %.pre121 = load ptr, ptr %vect_.i.i.i.i.i.i.i.i.i.i85, align 8
+  %invariant.gep = getelementptr i8, ptr %.pre121, i64 -64
   br label %for.body.i.i.i.i.i.i.i.i86
 
 for.body.i.i.i.i.i.i.i.i86:                       ; preds = %for.body.i.i.i.i.i.i.i.i86, %for.body.i.preheader.i.i.i.i.i.i.i82
@@ -8100,7 +8092,7 @@ for.body.i.i.i.i.i.i.i.i86:                       ; preds = %for.body.i.i.i.i.i.
   %__n.08.i.i.i.i.i.i.i.i88 = phi i64 [ %dec.i.i.i.i.i.i.i.i96, %for.body.i.i.i.i.i.i.i.i86 ], [ %sub.i.i.i, %for.body.i.preheader.i.i.i.i.i.i.i82 ]
   %__result.addr.07.i.i.i.i.i.i.i.i89 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i95, %for.body.i.i.i.i.i.i.i.i86 ], [ %add.ptr.i.i.i.i.i.i.i.i.i74, %for.body.i.preheader.i.i.i.i.i.i.i82 ]
   %cmp.i.i.i.i.i.i.i.i.i.i90 = icmp ult i64 %agg.tmp.sroa.2.0.i.i.i.i.i.i.i87, 8
-  %retval.0.i.i.i.i.i.i.i.i.i.i93.v = select i1 %cmp.i.i.i.i.i.i.i.i.i.i90, ptr %.pre121, ptr %invariant.gep
+  %retval.0.i.i.i.i.i.i.i.i.i.i93.v = select i1 %cmp.i.i.i.i.i.i.i.i.i.i90, ptr %.pre120, ptr %invariant.gep
   %retval.0.i.i.i.i.i.i.i.i.i.i93 = getelementptr i64, ptr %retval.0.i.i.i.i.i.i.i.i.i.i93.v, i64 %agg.tmp.sroa.2.0.i.i.i.i.i.i.i87
   %21 = load i64, ptr %retval.0.i.i.i.i.i.i.i.i.i.i93, align 8
   store i64 %21, ptr %__result.addr.07.i.i.i.i.i.i.i.i89, align 8
@@ -8171,16 +8163,16 @@ if.then5:                                         ; preds = %invoke.cont
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp11 = icmp ugt i64 %sub.ptr.div.i, %sub.i.i.i
-  br i1 %cmp11, label %for.body.i.i.i.i.i.preheader, label %if.else
+  br i1 %cmp11, label %if.then12, label %if.else
 
-for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
+if.then12:                                        ; preds = %if.then5
   %idx.neg = sub i64 0, %sub.i.i.i
   %add.ptr = getelementptr inbounds %"class.rocksdb::Slice", ptr %3, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
-  %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %for.body.i.i.i.i.i.preheader ]
-  %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %for.body.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i:                               ; preds = %if.then12, %for.body.i.i.i.i.i
+  %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %if.then12 ]
+  %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %if.then12 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.08.i.i.i.i.i, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 16
@@ -8188,8 +8180,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN7rocksdb5SliceES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !151
 
 _ZSt22__uninitialized_move_aIPN7rocksdb5SliceES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %for.body.i.i.i.i.i
-  %.pre125 = load ptr, ptr %_M_finish, align 8
-  %add.ptr23 = getelementptr inbounds %"class.rocksdb::Slice", ptr %.pre125, i64 %sub.i.i.i
+  %4 = load ptr, ptr %_M_finish, align 8
+  %add.ptr23 = getelementptr inbounds %"class.rocksdb::Slice", ptr %4, i64 %sub.i.i.i
   store ptr %add.ptr23, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt13move_backwardIPN7rocksdb5SliceES2_ET0_T_S4_S3_.exit, label %if.then.i.i.i.i.i
@@ -8221,11 +8213,11 @@ for.body.i.i.i.i.i30:                             ; preds = %for.body.i.i.i.i.i3
   %__n.08.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i30 ], [ %sub.i.i.i.i.i.i, %for.body.i.preheader.i.i.i.i ]
   %__result.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i31, %for.body.i.i.i.i.i30 ], [ %__position.coerce, %for.body.i.preheader.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %agg.tmp.sroa.2.0.i.i.i.i, 8
-  %4 = load ptr, ptr %values_.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %4, i64 %agg.tmp.sroa.2.0.i.i.i.i
-  %5 = load ptr, ptr %vect_.i.i.i.i.i.i.i, align 8
-  %6 = getelementptr %"class.rocksdb::Slice", ptr %5, i64 %agg.tmp.sroa.2.0.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr i8, ptr %6, i64 -128
+  %5 = load ptr, ptr %values_.i.i.i.i.i.i.i, align 8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %5, i64 %agg.tmp.sroa.2.0.i.i.i.i
+  %6 = load ptr, ptr %vect_.i.i.i.i.i.i.i, align 8
+  %7 = getelementptr %"class.rocksdb::Slice", ptr %6, i64 %agg.tmp.sroa.2.0.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr i8, ptr %7, i64 -128
   %retval.0.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i.i, i64 16, i1 false)
   %inc.i.i.i.i.i.i = add i64 %agg.tmp.sroa.2.0.i.i.i.i, 1
@@ -8249,11 +8241,11 @@ invoke.cont1.i.i.i.i:                             ; preds = %invoke.cont1.i.i.i.
   %agg.tmp.sroa.2.0.i.i.i = phi i64 [ %inc.i.i.i.i.i, %invoke.cont1.i.i.i.i ], [ %add.i.i.i, %invoke.cont1.i.preheader.i.i.i ]
   %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %invoke.cont1.i.i.i.i ], [ %3, %invoke.cont1.i.preheader.i.i.i ]
   %cmp.i.i5.i.i.i.i = icmp ult i64 %agg.tmp.sroa.2.0.i.i.i, 8
-  %7 = load ptr, ptr %values_.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %7, i64 %agg.tmp.sroa.2.0.i.i.i
-  %8 = load ptr, ptr %vect_.i.i.i.i.i.i, align 8
-  %9 = getelementptr %"class.rocksdb::Slice", ptr %8, i64 %agg.tmp.sroa.2.0.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %9, i64 -128
+  %8 = load ptr, ptr %values_.i.i.i.i.i.i, align 8
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %8, i64 %agg.tmp.sroa.2.0.i.i.i
+  %9 = load ptr, ptr %vect_.i.i.i.i.i.i, align 8
+  %10 = getelementptr %"class.rocksdb::Slice", ptr %9, i64 %agg.tmp.sroa.2.0.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %10, i64 -128
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i.i5.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i64 16, i1 false)
   %inc.i.i.i.i.i = add i64 %agg.tmp.sroa.2.0.i.i.i, 1
@@ -8266,9 +8258,9 @@ invoke.cont44.loopexit:                           ; preds = %invoke.cont1.i.i.i.
   br label %invoke.cont44
 
 invoke.cont44:                                    ; preds = %invoke.cont44.loopexit, %if.else
-  %10 = phi ptr [ %.pre, %invoke.cont44.loopexit ], [ %3, %if.else ]
+  %11 = phi ptr [ %.pre, %invoke.cont44.loopexit ], [ %3, %if.else ]
   %sub = sub i64 %sub.i.i.i, %sub.ptr.div.i
-  %add.ptr48 = getelementptr inbounds %"class.rocksdb::Slice", ptr %10, i64 %sub
+  %add.ptr48 = getelementptr inbounds %"class.rocksdb::Slice", ptr %11, i64 %sub
   store ptr %add.ptr48, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i35 = icmp eq ptr %__position.coerce, %3
   br i1 %cmp.i.i.not7.i.i.i.i.i35, label %invoke.cont53, label %for.body.i.i.i.i.i36
@@ -8287,8 +8279,8 @@ invoke.cont53.loopexit:                           ; preds = %for.body.i.i.i.i.i3
   br label %invoke.cont53
 
 invoke.cont53:                                    ; preds = %invoke.cont53.loopexit, %invoke.cont44
-  %11 = phi ptr [ %.pre124, %invoke.cont53.loopexit ], [ %add.ptr48, %invoke.cont44 ]
-  %add.ptr57 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i
+  %12 = phi ptr [ %.pre124, %invoke.cont53.loopexit ], [ %add.ptr48, %invoke.cont44 ]
+  %add.ptr57 = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i
   store ptr %add.ptr57, ptr %_M_finish, align 8
   %agg.tmp58.sroa.2.0.copyload = load i64, ptr %index_.i.i, align 8
   %sub.i.i.i.i.i.i48 = sub i64 %add.i.i.i, %agg.tmp58.sroa.2.0.copyload
@@ -8306,11 +8298,11 @@ for.body.i.i.i.i.i59:                             ; preds = %for.body.i.i.i.i.i5
   %__n.08.i.i.i.i.i61 = phi i64 [ %dec.i.i.i.i.i69, %for.body.i.i.i.i.i59 ], [ %sub.i.i.i.i.i.i48, %for.body.i.preheader.i.i.i.i55 ]
   %__result.addr.07.i.i.i.i.i62 = phi ptr [ %incdec.ptr.i.i.i.i.i68, %for.body.i.i.i.i.i59 ], [ %__position.coerce, %for.body.i.preheader.i.i.i.i55 ]
   %cmp.i.i.i.i.i.i.i63 = icmp ult i64 %agg.tmp.sroa.2.0.i.i.i.i60, 8
-  %12 = load ptr, ptr %values_.i.i.i.i.i.i.i57, align 8
-  %arrayidx.i.i.i.i.i.i.i64 = getelementptr inbounds %"class.rocksdb::Slice", ptr %12, i64 %agg.tmp.sroa.2.0.i.i.i.i60
-  %13 = load ptr, ptr %vect_.i.i.i.i.i.i.i58, align 8
-  %14 = getelementptr %"class.rocksdb::Slice", ptr %13, i64 %agg.tmp.sroa.2.0.i.i.i.i60
-  %add.ptr.i.i.i.i.i.i.i.i65 = getelementptr i8, ptr %14, i64 -128
+  %13 = load ptr, ptr %values_.i.i.i.i.i.i.i57, align 8
+  %arrayidx.i.i.i.i.i.i.i64 = getelementptr inbounds %"class.rocksdb::Slice", ptr %13, i64 %agg.tmp.sroa.2.0.i.i.i.i60
+  %14 = load ptr, ptr %vect_.i.i.i.i.i.i.i58, align 8
+  %15 = getelementptr %"class.rocksdb::Slice", ptr %14, i64 %agg.tmp.sroa.2.0.i.i.i.i60
+  %add.ptr.i.i.i.i.i.i.i.i65 = getelementptr i8, ptr %15, i64 -128
   %retval.0.i.i.i.i.i.i.i66 = select i1 %cmp.i.i.i.i.i.i.i63, ptr %arrayidx.i.i.i.i.i.i.i64, ptr %add.ptr.i.i.i.i.i.i.i.i65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.07.i.i.i.i.i62, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i.i66, i64 16, i1 false)
   %inc.i.i.i.i.i.i67 = add i64 %agg.tmp.sroa.2.0.i.i.i.i60, 1
@@ -8320,8 +8312,8 @@ for.body.i.i.i.i.i59:                             ; preds = %for.body.i.i.i.i.i5
   br i1 %cmp.i.i.i.i.i70, label %for.body.i.i.i.i.i59, label %if.end112, !llvm.loop !152
 
 if.else67:                                        ; preds = %invoke.cont
-  %15 = load ptr, ptr %this, align 8
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %15 to i64
+  %16 = load ptr, ptr %this, align 8
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %sub.i = sub nsw i64 576460752303423487, %sub.ptr.div.i.i
@@ -8336,8 +8328,8 @@ _ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %if.el
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %sub.i.i.i)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
-  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %16
+  %17 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
+  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %17
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
@@ -8348,12 +8340,12 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN7roc
 
 _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i72 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %cmp.i.i.not7.i.i.i.i.i73 = icmp eq ptr %15, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i73 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp.i.i.not7.i.i.i.i.i73, label %invoke.cont1.i.preheader.i.i.i86, label %for.body.i.i.i.i.i74
 
 for.body.i.i.i.i.i74:                             ; preds = %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit, %for.body.i.i.i.i.i74
   %__cur.09.i.i.i.i.i75 = phi ptr [ %incdec.ptr.i.i.i.i.i78, %for.body.i.i.i.i.i74 ], [ %cond.i72, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit ]
-  %__first.sroa.0.08.i.i.i.i.i76 = phi ptr [ %incdec.ptr.i.i.i.i.i.i77, %for.body.i.i.i.i.i74 ], [ %15, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit ]
+  %__first.sroa.0.08.i.i.i.i.i76 = phi ptr [ %incdec.ptr.i.i.i.i.i.i77, %for.body.i.i.i.i.i74 ], [ %16, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.09.i.i.i.i.i75, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.08.i.i.i.i.i76, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i76, i64 16
   %incdec.ptr.i.i.i.i.i78 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i75, i64 16
@@ -8371,11 +8363,11 @@ invoke.cont1.i.i.i.i90:                           ; preds = %invoke.cont1.i.i.i.
   %agg.tmp.sroa.2.0.i.i.i91 = phi i64 [ %inc.i.i.i.i.i97, %invoke.cont1.i.i.i.i90 ], [ %0, %invoke.cont1.i.preheader.i.i.i86 ]
   %__cur.08.i.i.i.i92 = phi ptr [ %incdec.ptr.i.i.i.i98, %invoke.cont1.i.i.i.i90 ], [ %__cur.0.lcssa.i.i.i.i.i80, %invoke.cont1.i.preheader.i.i.i86 ]
   %cmp.i.i5.i.i.i.i93 = icmp ult i64 %agg.tmp.sroa.2.0.i.i.i91, 8
-  %17 = load ptr, ptr %values_.i.i.i.i.i.i88, align 8
-  %arrayidx.i.i.i.i.i.i94 = getelementptr inbounds %"class.rocksdb::Slice", ptr %17, i64 %agg.tmp.sroa.2.0.i.i.i91
-  %18 = load ptr, ptr %vect_.i.i.i.i.i.i89, align 8
-  %19 = getelementptr %"class.rocksdb::Slice", ptr %18, i64 %agg.tmp.sroa.2.0.i.i.i91
-  %add.ptr.i.i.i.i.i.i.i95 = getelementptr i8, ptr %19, i64 -128
+  %18 = load ptr, ptr %values_.i.i.i.i.i.i88, align 8
+  %arrayidx.i.i.i.i.i.i94 = getelementptr inbounds %"class.rocksdb::Slice", ptr %18, i64 %agg.tmp.sroa.2.0.i.i.i91
+  %19 = load ptr, ptr %vect_.i.i.i.i.i.i89, align 8
+  %20 = getelementptr %"class.rocksdb::Slice", ptr %19, i64 %agg.tmp.sroa.2.0.i.i.i91
+  %add.ptr.i.i.i.i.i.i.i95 = getelementptr i8, ptr %20, i64 -128
   %retval.0.i.i.i.i.i.i96 = select i1 %cmp.i.i5.i.i.i.i93, ptr %arrayidx.i.i.i.i.i.i94, ptr %add.ptr.i.i.i.i.i.i.i95
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i92, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i96, i64 16, i1 false)
   %inc.i.i.i.i.i97 = add i64 %agg.tmp.sroa.2.0.i.i.i91, 1
@@ -8398,11 +8390,11 @@ for.body.i.i.i.i.i103:                            ; preds = %invoke.cont83, %for
 
 invoke.cont89:                                    ; preds = %for.body.i.i.i.i.i103, %invoke.cont83
   %__cur.0.lcssa.i.i.i.i.i109 = phi ptr [ %incdec.ptr.i.i.i.i98, %invoke.cont83 ], [ %incdec.ptr.i.i.i.i.i107, %for.body.i.i.i.i.i103 ]
-  %tobool.not.i = icmp eq ptr %15, null
+  %tobool.not.i = icmp eq ptr %16, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit, label %if.then.i111
 
 if.then.i111:                                     ; preds = %invoke.cont89
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #22
   br label %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %invoke.cont89, %if.then.i111

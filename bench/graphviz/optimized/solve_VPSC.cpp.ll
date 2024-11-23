@@ -782,8 +782,8 @@ define void @_ZN7IncVPSC7satisfyEv(ptr noundef nonnull align 8 dereferenceable(1
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
-  %.not23.i33 = icmp eq ptr %9, %8
-  br i1 %.not23.i33, label %_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit.thread, label %.lr.ph.i.preheader.lr.ph
+  %.not22.i33 = icmp eq ptr %9, %8
+  br i1 %.not22.i33, label %_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit.thread, label %.lr.ph.i.preheader.lr.ph
 
 .lr.ph.i.preheader.lr.ph:                         ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 104
@@ -802,10 +802,10 @@ define void @_ZN7IncVPSC7satisfyEv(ptr noundef nonnull align 8 dereferenceable(1
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.1 = phi ptr [ %.2, %.lr.ph.i ], [ %.02534, %.lr.ph.i.preheader ]
-  %.026.i = phi double [ %.1.i, %.lr.ph.i ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i.preheader ]
-  %.sroa.0.025.i = phi ptr [ %40, %.lr.ph.i ], [ %15, %.lr.ph.i.preheader ]
-  %.sroa.018.024.i = phi ptr [ %.sroa.018.1.i, %.lr.ph.i ], [ %16, %.lr.ph.i.preheader ]
-  %17 = load ptr, ptr %.sroa.0.025.i, align 8
+  %.025.i = phi double [ %.1.i, %.lr.ph.i ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i.preheader ]
+  %.sroa.0.024.i = phi ptr [ %40, %.lr.ph.i ], [ %15, %.lr.ph.i.preheader ]
+  %.sroa.018.023.i = phi ptr [ %.sroa.018.1.i, %.lr.ph.i ], [ %16, %.lr.ph.i.preheader ]
+  %17 = load ptr, ptr %.sroa.0.024.i, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 32
@@ -827,11 +827,11 @@ define void @_ZN7IncVPSC7satisfyEv(ptr noundef nonnull align 8 dereferenceable(1
   %36 = load double, ptr %35, align 8
   %37 = fadd double %34, %36
   %38 = fsub double %29, %37
-  %39 = fcmp olt double %38, %.026.i
+  %39 = fcmp olt double %38, %.025.i
   %.2 = select i1 %39, ptr %17, ptr %.1
-  %.sroa.018.1.i = select i1 %39, ptr %.sroa.0.025.i, ptr %.sroa.018.024.i
-  %.1.i = select i1 %39, double %38, double %.026.i
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.025.i, i64 8
+  %.sroa.018.1.i = select i1 %39, ptr %.sroa.0.024.i, ptr %.sroa.018.023.i
+  %.1.i = select i1 %39, double %38, double %.025.i
+  %40 = getelementptr inbounds i8, ptr %.sroa.0.024.i, i64 8
   %.not.i = icmp eq ptr %40, %16
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
@@ -1044,8 +1044,8 @@ _ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; preds = %_ZNSt8_Rb_tr
   %.112 = phi i64 [ %.01135, %73 ], [ %79, %119 ], [ %79, %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i ]
   %132 = load ptr, ptr %7, align 8
   %133 = load ptr, ptr %6, align 8
-  %.not23.i = icmp eq ptr %133, %132
-  br i1 %.not23.i, label %_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit.thread, label %.lr.ph.i.preheader, !llvm.loop !11
+  %.not22.i = icmp eq ptr %133, %132
+  br i1 %.not22.i, label %_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit.thread, label %.lr.ph.i.preheader, !llvm.loop !11
 
 _ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit.thread: ; preds = %_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit, %_ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit, %1
   %134 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1148,14 +1148,14 @@ define noundef double @_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_E
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
-  %.not23 = icmp eq ptr %6, %5
-  br i1 %.not23, label %_ZNSt6vectorIP10ConstraintSaIS1_EE6resizeEm.exit, label %.lr.ph
+  %.not22 = icmp eq ptr %6, %5
+  br i1 %.not22, label %_ZNSt6vectorIP10ConstraintSaIS1_EE6resizeEm.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %31
-  %.026 = phi double [ %.1, %31 ], [ 0x7FEFFFFFFFFFFFFF, %3 ]
-  %.sroa.0.025 = phi ptr [ %32, %31 ], [ %6, %3 ]
-  %.sroa.018.024 = phi ptr [ %.sroa.018.1, %31 ], [ %5, %3 ]
-  %7 = load ptr, ptr %.sroa.0.025, align 8
+  %.025 = phi double [ %.1, %31 ], [ 0x7FEFFFFFFFFFFFFF, %3 ]
+  %.sroa.0.024 = phi ptr [ %32, %31 ], [ %6, %3 ]
+  %.sroa.018.023 = phi ptr [ %.sroa.018.1, %31 ], [ %5, %3 ]
+  %7 = load ptr, ptr %.sroa.0.024, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
@@ -1177,7 +1177,7 @@ define noundef double @_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_E
   %26 = load double, ptr %25, align 8
   %27 = fadd double %24, %26
   %28 = fsub double %19, %27
-  %29 = fcmp olt double %28, %.026
+  %29 = fcmp olt double %28, %.025
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %.lr.ph
@@ -1185,9 +1185,9 @@ define noundef double @_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_E
   br label %31
 
 31:                                               ; preds = %.lr.ph, %30
-  %.sroa.018.1 = phi ptr [ %.sroa.0.025, %30 ], [ %.sroa.018.024, %.lr.ph ]
-  %.1 = phi double [ %28, %30 ], [ %.026, %.lr.ph ]
-  %32 = getelementptr inbounds i8, ptr %.sroa.0.025, i64 8
+  %.sroa.018.1 = phi ptr [ %.sroa.0.024, %30 ], [ %.sroa.018.023, %.lr.ph ]
+  %.1 = phi double [ %28, %30 ], [ %.025, %.lr.ph ]
+  %32 = getelementptr inbounds i8, ptr %.sroa.0.024, i64 8
   %.not = icmp eq ptr %32, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
@@ -1230,8 +1230,8 @@ define noundef double @_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_E
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE6resizeEm.exit: ; preds = %3, %54, %48, %47, %._crit_edge
-  %.0.lcssa31 = phi double [ %.1, %54 ], [ %.1, %48 ], [ %.1, %47 ], [ %.1, %._crit_edge ], [ 0x7FEFFFFFFFFFFFFF, %3 ]
-  ret double %.0.lcssa31
+  %.0.lcssa30 = phi double [ %.1, %54 ], [ %.1, %48 ], [ %.1, %47 ], [ %.1, %._crit_edge ], [ 0x7FEFFFFFFFFFFFFF, %3 ]
+  ret double %.0.lcssa30
 }
 
 declare void @_ZN5Block5mergeEPS_P10Constraint(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, ptr noundef) local_unnamed_addr #0

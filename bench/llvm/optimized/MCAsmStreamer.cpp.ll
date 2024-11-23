@@ -6143,70 +6143,76 @@ switch.lookup:                                    ; preds = %switch.hole_check
   unreachable
 
 13:                                               ; preds = %.thread
-  %.not2735 = icmp eq i32 %2, 0
-  br i1 %.not2735, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i8, ptr %16, align 8
-  %.fr37 = freeze i8 %17
-  %18 = trunc i8 %.fr37 to i1
+  %.fr41 = freeze i8 %17
+  %18 = trunc i8 %.fr41 to i1
+  %.not2735 = icmp eq i32 %2, 0
+  br i1 %.not2735, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %13
   %19 = add i32 %2, -1
+  %.not.i = icmp eq i32 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not.i, label %.lr.ph.split.us.split, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.02436.us = phi i32 [ %36, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %21 = sub i32 %2, %.02436.us
-  %.sroa.speculated.us = call i32 @llvm.umin.i32(i32 %19, i32 %21)
-  %.not.i.us = icmp eq i32 %.sroa.speculated.us, 0
-  %22 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.speculated.us, i1 true)
-  %23 = xor i32 %22, 31
-  %24 = shl nuw i32 1, %23
-  %.0.i.us = select i1 %.not.i.us, i32 0, i32 %24
-  %25 = load i64, ptr %5, align 8
-  %26 = shl i32 %.02436.us, 3
-  %27 = zext nneg i32 %26 to i64
-  %28 = ashr i64 %25, %27
-  %29 = shl i32 %.0.i.us, 3
-  %30 = sub i32 64, %29
-  %31 = zext nneg i32 %30 to i64
-  %32 = lshr i64 -1, %31
-  %33 = and i64 %28, %32
-  %34 = load ptr, ptr %20, align 8
-  %35 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef %33, ptr noundef nonnull align 8 dereferenceable(2432) %34, i1 noundef zeroext false, i32 noundef 0) #21
-  call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %35, i32 noundef %.0.i.us, ptr null) #21
-  %36 = add i32 %.0.i.us, %.02436.us
-  %.not27.us = icmp eq i32 %36, %2
-  br i1 %.not27.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !33
+.lr.ph.split.us.split:                            ; preds = %.lr.ph, %.lr.ph.split.us.split
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef poison, ptr noundef nonnull align 8 dereferenceable(2432) %21, i1 noundef zeroext false, i32 noundef 0) #21
+  call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %22, i32 noundef 0, ptr null) #21
+  br label %.lr.ph.split.us.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.02436 = phi i32 [ %53, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %37 = sub i32 %2, %.02436
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %19, i32 %37)
-  %.not.i = icmp eq i32 %.sroa.speculated, 0
-  %38 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.speculated, i1 true)
-  %39 = xor i32 %38, 31
-  %40 = shl nuw i32 1, %39
-  %.0.i = select i1 %.not.i, i32 0, i32 %40
-  %41 = sub i32 %37, %.0.i
-  %42 = load i64, ptr %5, align 8
-  %43 = shl i32 %41, 3
-  %44 = zext nneg i32 %43 to i64
-  %45 = ashr i64 %42, %44
-  %46 = shl i32 %.0.i, 3
-  %47 = sub i32 64, %46
+.lr.ph.split:                                     ; preds = %.lr.ph
+  br i1 %18, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
+  %.02436.us37 = phi i32 [ %37, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %23 = sub i32 %2, %.02436.us37
+  %.sroa.speculated.us38 = call i32 @llvm.umin.i32(i32 %19, i32 %23)
+  %24 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.speculated.us38, i1 true)
+  %25 = xor i32 %24, 31
+  %26 = shl nuw i32 1, %25
+  %27 = load i64, ptr %5, align 8
+  %28 = shl i32 %.02436.us37, 3
+  %29 = zext nneg i32 %28 to i64
+  %30 = ashr i64 %27, %29
+  %.neg42 = shl i32 -8, %25
+  %31 = add i32 %.neg42, 64
+  %32 = zext nneg i32 %31 to i64
+  %33 = lshr i64 -1, %32
+  %34 = and i64 %30, %33
+  %35 = load ptr, ptr %20, align 8
+  %36 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef %34, ptr noundef nonnull align 8 dereferenceable(2432) %35, i1 noundef zeroext false, i32 noundef 0) #21
+  call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %36, i32 noundef %26, ptr null) #21
+  %37 = add i32 %26, %.02436.us37
+  %.not27.us40 = icmp eq i32 %37, %2
+  br i1 %.not27.us40, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !33
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
+  %.02436 = phi i32 [ %53, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
+  %38 = sub i32 %2, %.02436
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %19, i32 %38)
+  %39 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.speculated, i1 true)
+  %40 = xor i32 %39, 31
+  %41 = shl nuw i32 1, %40
+  %42 = sub i32 %38, %41
+  %43 = load i64, ptr %5, align 8
+  %44 = shl i32 %42, 3
+  %45 = zext nneg i32 %44 to i64
+  %46 = ashr i64 %43, %45
+  %.neg = shl i32 -8, %40
+  %47 = add i32 %.neg, 64
   %48 = zext nneg i32 %47 to i64
   %49 = lshr i64 -1, %48
-  %50 = and i64 %45, %49
+  %50 = and i64 %46, %49
   %51 = load ptr, ptr %20, align 8
   %52 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef %50, ptr noundef nonnull align 8 dereferenceable(2432) %51, i1 noundef zeroext false, i32 noundef 0) #21
-  call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %52, i32 noundef %.0.i, ptr null) #21
-  %53 = add i32 %.0.i, %.02436
+  call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %52, i32 noundef %41, ptr null) #21
+  %53 = add i32 %41, %.02436
   %.not27 = icmp eq i32 %53, %2
-  br i1 %.not27, label %.loopexit, label %.lr.ph.split, !llvm.loop !33
+  br i1 %.not27, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !33
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %switch.lookup
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -6258,7 +6264,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %65, %67, %68
   tail call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer7EmitEOLEv(ptr noundef nonnull align 8 dereferenceable(744) %0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %13, %77, %73
+.loopexit:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %13, %77, %73
   ret void
 }
 

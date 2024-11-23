@@ -2697,13 +2697,17 @@ land.lhs.true:                                    ; preds = %_ZNSt3mapIN4cvc58in
   br i1 %cmp.i.i235, label %if.end105, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %27 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %26 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %call48 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %quantifiers = getelementptr inbounds i8, ptr %call48, i64 328
   %28 = load ptr, ptr %quantifiers, align 8
   %relevantTriggers = getelementptr inbounds i8, ptr %28, i64 361
   %29 = load i8, ptr %relevantTriggers, align 1
   %tobool49 = trunc i8 %29 to i1
-  br i1 %tobool49, label %if.then50, label %if.end72
+  br i1 %tobool49, label %if.then50, label %for.body.lr.ph
 
 if.then50:                                        ; preds = %if.then46
   call void @_ZN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTriggers23sortPatTermsByRelevanceERSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef nonnull align 8 dereferenceable(24) %second.i)
@@ -2815,20 +2819,13 @@ lpad61:                                           ; preds = %land.rhs
           cleanup
   br label %eh.resume
 
-if.end72:                                         ; preds = %if.then46
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %26 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp73564.not = icmp eq ptr %27, %26
-  br i1 %cmp73564.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %cleanup.done68, %while.body, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit247, %if.end72
-  %numSingleTriggersToUse.0570 = phi i64 [ %sub.ptr.div.i, %if.end72 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit247 ], [ %inc, %while.body ], [ %numSingleTriggersToUse.1562, %cleanup.done68 ]
+for.body.lr.ph:                                   ; preds = %while.body, %cleanup.done68, %if.then46, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit247
+  %numSingleTriggersToUse.0 = phi i64 [ %sub.ptr.div.i, %if.then46 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit247 ], [ %numSingleTriggersToUse.1562, %cleanup.done68 ], [ %inc, %while.body ]
   %d_td = getelementptr inbounds i8, ptr %this, i64 16
   %d_num_trigger_vars = getelementptr inbounds i8, ptr %this, i64 512
   %_M_parent.i.i.i.i.i296 = getelementptr inbounds i8, ptr %this, i64 528
   %add.ptr.i.i.i.i297 = getelementptr inbounds i8, ptr %this, i64 520
+  %umax = call i64 @llvm.umax.i64(i64 %numSingleTriggersToUse.0, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit373
@@ -3062,7 +3059,7 @@ terminate.lpad.i372:                              ; preds = %if.then13.i.i371
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit373: ; preds = %invoke.cont87, %if.then.i.i365, %if.then13.i.i371
   %inc89 = add nuw i64 %i.0565, 1
-  %exitcond.not = icmp eq i64 %inc89, %numSingleTriggersToUse.0570
+  %exitcond.not = icmp eq i64 %inc89, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
 
 lpad77:                                           ; preds = %if.then13.i.i286
@@ -3081,7 +3078,7 @@ lpad86:                                           ; preds = %_ZN4cvc58internal12
           cleanup
   br label %eh.resume
 
-for.end:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit373, %if.end72
+for.end:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit373
   %call90 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %quantifiers91 = getelementptr inbounds i8, ptr %call90, i64 328
   %76 = load ptr, ptr %quantifiers91, align 8

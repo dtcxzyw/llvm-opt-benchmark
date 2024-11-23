@@ -5043,7 +5043,7 @@ define dso_local ptr @sema_expand_vasplat_exprs(ptr noundef %0, ptr noundef %1) 
   br label %10
 
 10:                                               ; preds = %.lr.ph, %49
-  %indvars.iv137 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next138, %49 ]
+  %indvars.iv136 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next137, %49 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %11 = getelementptr inbounds ptr, ptr %.079121, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
@@ -5075,7 +5075,7 @@ define dso_local ptr @sema_expand_vasplat_exprs(ptr noundef %0, ptr noundef %1) 
 .lr.ph115.preheader:                              ; preds = %25
   %29 = sub i32 %27, %20
   %invariant.op = add nuw i64 %indvars.iv, 1
-  %wide.trip.count135 = zext i32 %29 to i64
+  %wide.trip.count134 = zext i32 %29 to i64
   br label %.lr.ph115
 
 .preheader:                                       ; preds = %25
@@ -5084,26 +5084,26 @@ define dso_local ptr @sema_expand_vasplat_exprs(ptr noundef %0, ptr noundef %1) 
   br i1 %30, label %.lr.ph119, label %._crit_edge120
 
 .lr.ph119:                                        ; preds = %.preheader, %.lr.ph119
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.lr.ph119 ], [ %indvars.iv137, %.preheader ]
-  %.086.in117 = phi i64 [ %indvars.iv140, %.lr.ph119 ], [ %indvars.iv, %.preheader ]
-  %31 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv140
+  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %.lr.ph119 ], [ %indvars.iv136, %.preheader ]
+  %.086.in117 = phi i64 [ %indvars.iv139, %.lr.ph119 ], [ %indvars.iv, %.preheader ]
+  %31 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv139
   %32 = load ptr, ptr %31, align 8
   %33 = and i64 %.086.in117, 4294967295
   %34 = getelementptr inbounds ptr, ptr %24, i64 %33
   store ptr %32, ptr %34, align 8
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next141 to i32
-  %exitcond143.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond143.not, label %._crit_edge120, label %.lr.ph119, !llvm.loop !28
+  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next140 to i32
+  %exitcond142.not = icmp eq i32 %20, %lftr.wideiv
+  br i1 %exitcond142.not, label %._crit_edge120, label %.lr.ph119, !llvm.loop !28
 
 ._crit_edge120:                                   ; preds = %.lr.ph119, %.preheader
   store i32 %21, ptr %26, align 4
   br label %.thread
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %.lr.ph115
-  %indvars.iv132 = phi i64 [ 0, %.lr.ph115.preheader ], [ %indvars.iv.next133, %.lr.ph115 ]
-  %35 = trunc nuw i64 %indvars.iv132 to i32
-  %36 = add nuw i64 %indvars.iv132, %indvars.iv
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph115.preheader ], [ %indvars.iv.next132, %.lr.ph115 ]
+  %35 = trunc nuw i64 %indvars.iv131 to i32
+  %36 = add nuw i64 %indvars.iv131, %indvars.iv
   %37 = add i32 %20, %35
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr %24, i64 %38
@@ -5111,14 +5111,14 @@ define dso_local ptr @sema_expand_vasplat_exprs(ptr noundef %0, ptr noundef %1) 
   %41 = and i64 %36, 4294967295
   %42 = getelementptr inbounds ptr, ptr %24, i64 %41
   store ptr %40, ptr %42, align 8
-  %.reass = add i64 %invariant.op, %indvars.iv132
+  %.reass = add i64 %invariant.op, %indvars.iv131
   %43 = and i64 %.reass, 4294967295
   %44 = getelementptr inbounds ptr, ptr %24, i64 %43
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %39, align 8
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
-  br i1 %exitcond136.not, label %._crit_edge, label %.lr.ph115, !llvm.loop !29
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
+  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph115, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph115
   %46 = add i32 %27, -1
@@ -5139,14 +5139,14 @@ define dso_local ptr @sema_expand_vasplat_exprs(ptr noundef %0, ptr noundef %1) 
 49:                                               ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   br i1 %exitcond.not, label %.thread104, label %10, !llvm.loop !30
 
 .thread:                                          ; preds = %..thread_crit_edge, %._crit_edge, %._crit_edge120
   %50 = phi i32 [ %.pre, %..thread_crit_edge ], [ %21, %._crit_edge120 ], [ %46, %._crit_edge ]
   %.084100 = phi ptr [ %48, %..thread_crit_edge ], [ %24, %._crit_edge120 ], [ %24, %._crit_edge ]
-  %.not126 = icmp eq i32 %50, 0
-  br i1 %.not126, label %.thread104, label %.lr.ph, !llvm.loop !31
+  %.not125 = icmp eq i32 %50, 0
+  br i1 %.not125, label %.thread104, label %.lr.ph, !llvm.loop !31
 
 .thread104:                                       ; preds = %23, %47, %.thread, %49, %6, %7, %2, %3
   %.082 = phi ptr [ %1, %3 ], [ %1, %2 ], [ %1, %7 ], [ null, %6 ], [ %.079121, %49 ], [ %.084100, %.thread ], [ null, %47 ], [ null, %23 ]

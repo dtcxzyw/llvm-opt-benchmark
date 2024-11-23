@@ -684,16 +684,16 @@ define dso_local noundef range(i32 -14, 1) i32 @xt_data_to_user(ptr noundef %0, 
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #20, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 249, i32 2307, i64 12) #20, !srcloc !16
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #20, !srcloc !17
-  br label %34
+  br label %.critedge
 
 11:                                               ; preds = %5
   %12 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef %1, i64 noundef %8) #20
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %34
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %11
   %15 = icmp eq i32 %7, %4
-  br i1 %15, label %33, label %16
+  br i1 %15, label %31, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %0, i64 %8
@@ -704,7 +704,7 @@ define dso_local noundef range(i32 -14, 1) i32 @xt_data_to_user(ptr noundef %0, 
   %22 = icmp sgt i64 %21, -1
   %23 = icmp uge i64 %21, %20
   %24 = and i1 %22, %23
-  br i1 %24, label %25, label %30
+  br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %16
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !18
@@ -714,19 +714,15 @@ define dso_local noundef range(i32 -14, 1) i32 @xt_data_to_user(ptr noundef %0, 
   %29 = extractvalue { i64, ptr, i64 } %27, 2
   tail call void @llvm.write_register.i64(metadata !0, i64 %29)
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !20
-  br label %30
+  %30 = icmp eq i64 %28, 0
+  br i1 %30, label %31, label %.critedge
 
-30:                                               ; preds = %25, %16
-  %31 = phi i64 [ %28, %25 ], [ %19, %16 ]
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %34
+31:                                               ; preds = %25, %14
+  br label %.critedge
 
-33:                                               ; preds = %30, %14
-  br label %34
-
-34:                                               ; preds = %33, %30, %11, %10
-  %35 = phi i32 [ 0, %33 ], [ -14, %11 ], [ -14, %30 ], [ -14, %10 ]
-  ret i32 %35
+.critedge:                                        ; preds = %16, %31, %25, %11, %10
+  %32 = phi i32 [ 0, %31 ], [ -14, %11 ], [ -14, %25 ], [ -14, %10 ], [ -14, %16 ]
+  ret i32 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -747,7 +743,7 @@ define dso_local noundef range(i32 0, 2) i32 @xt_match_to_user(ptr noundef %0, p
   tail call void @llvm.write_register.i64(metadata !0, i64 %14)
   %16 = and i64 %15, 4294967295
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %72
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %2
   %19 = tail call i64 @strlen(ptr noundef %7) #20
@@ -759,12 +755,12 @@ define dso_local noundef range(i32 0, 2) i32 @xt_match_to_user(ptr noundef %0, p
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #20, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 249, i32 2307, i64 12) #20, !srcloc !16
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #20, !srcloc !17
-  br label %72
+  br label %.critedge
 
 23:                                               ; preds = %18
   %24 = tail call i64 @_copy_to_user(ptr noundef %4, ptr noundef %7, i64 noundef %20) #20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %72
+  br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %23
   %27 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -775,7 +771,7 @@ define dso_local noundef range(i32 0, 2) i32 @xt_match_to_user(ptr noundef %0, p
   tail call void @llvm.write_register.i64(metadata !0, i64 %30)
   %32 = and i64 %31, 4294967295
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %72
+  br i1 %33, label %34, label %.critedge
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds i8, ptr %1, i64 32
@@ -796,17 +792,17 @@ define dso_local noundef range(i32 0, 2) i32 @xt_match_to_user(ptr noundef %0, p
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #20, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 249, i32 2307, i64 12) #20, !srcloc !16
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #20, !srcloc !17
-  br label %72
+  br label %.critedge
 
 48:                                               ; preds = %34
   %49 = getelementptr inbounds i8, ptr %0, i64 32
   %50 = tail call i64 @_copy_to_user(ptr noundef %35, ptr noundef %49, i64 noundef %45) #20
   %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %72
+  br i1 %51, label %52, label %.critedge
 
 52:                                               ; preds = %48
   %53 = icmp eq i32 %44, %42
-  br i1 %53, label %71, label %54
+  br i1 %53, label %69, label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr i8, ptr %35, i64 %45
@@ -817,7 +813,7 @@ define dso_local noundef range(i32 0, 2) i32 @xt_match_to_user(ptr noundef %0, p
   %60 = icmp sgt i64 %59, -1
   %61 = icmp uge i64 %59, %58
   %62 = and i1 %60, %61
-  br i1 %62, label %63, label %68
+  br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %54
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !18
@@ -827,19 +823,15 @@ define dso_local noundef range(i32 0, 2) i32 @xt_match_to_user(ptr noundef %0, p
   %67 = extractvalue { i64, ptr, i64 } %65, 2
   tail call void @llvm.write_register.i64(metadata !0, i64 %67)
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !20
-  br label %68
+  %68 = icmp eq i64 %66, 0
+  br i1 %68, label %69, label %.critedge
 
-68:                                               ; preds = %63, %54
-  %69 = phi i64 [ %66, %63 ], [ %57, %54 ]
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %72
+69:                                               ; preds = %63, %52
+  br label %.critedge
 
-71:                                               ; preds = %68, %52
-  br label %72
-
-72:                                               ; preds = %71, %68, %48, %47, %26, %23, %22, %2
-  %73 = phi i32 [ 1, %26 ], [ 0, %71 ], [ 1, %48 ], [ 1, %68 ], [ 1, %47 ], [ 1, %22 ], [ 1, %23 ], [ 1, %2 ]
-  ret i32 %73
+.critedge:                                        ; preds = %54, %69, %63, %48, %47, %26, %23, %22, %2
+  %70 = phi i32 [ 1, %26 ], [ 0, %69 ], [ 1, %48 ], [ 1, %63 ], [ 1, %47 ], [ 1, %22 ], [ 1, %23 ], [ 1, %2 ], [ 1, %54 ]
+  ret i32 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -860,7 +852,7 @@ define dso_local noundef range(i32 0, 2) i32 @xt_target_to_user(ptr noundef %0, 
   tail call void @llvm.write_register.i64(metadata !0, i64 %14)
   %16 = and i64 %15, 4294967295
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %72
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %2
   %19 = tail call i64 @strlen(ptr noundef %7) #20
@@ -872,12 +864,12 @@ define dso_local noundef range(i32 0, 2) i32 @xt_target_to_user(ptr noundef %0, 
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #20, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 249, i32 2307, i64 12) #20, !srcloc !16
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #20, !srcloc !17
-  br label %72
+  br label %.critedge
 
 23:                                               ; preds = %18
   %24 = tail call i64 @_copy_to_user(ptr noundef %4, ptr noundef %7, i64 noundef %20) #20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %72
+  br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %23
   %27 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -888,7 +880,7 @@ define dso_local noundef range(i32 0, 2) i32 @xt_target_to_user(ptr noundef %0, 
   tail call void @llvm.write_register.i64(metadata !0, i64 %30)
   %32 = and i64 %31, 4294967295
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %72
+  br i1 %33, label %34, label %.critedge
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds i8, ptr %1, i64 32
@@ -909,17 +901,17 @@ define dso_local noundef range(i32 0, 2) i32 @xt_target_to_user(ptr noundef %0, 
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #20, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 249, i32 2307, i64 12) #20, !srcloc !16
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #20, !srcloc !17
-  br label %72
+  br label %.critedge
 
 48:                                               ; preds = %34
   %49 = getelementptr inbounds i8, ptr %0, i64 32
   %50 = tail call i64 @_copy_to_user(ptr noundef %35, ptr noundef %49, i64 noundef %45) #20
   %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %72
+  br i1 %51, label %52, label %.critedge
 
 52:                                               ; preds = %48
   %53 = icmp eq i32 %44, %42
-  br i1 %53, label %71, label %54
+  br i1 %53, label %69, label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr i8, ptr %35, i64 %45
@@ -930,7 +922,7 @@ define dso_local noundef range(i32 0, 2) i32 @xt_target_to_user(ptr noundef %0, 
   %60 = icmp sgt i64 %59, -1
   %61 = icmp uge i64 %59, %58
   %62 = and i1 %60, %61
-  br i1 %62, label %63, label %68
+  br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %54
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !18
@@ -940,19 +932,15 @@ define dso_local noundef range(i32 0, 2) i32 @xt_target_to_user(ptr noundef %0, 
   %67 = extractvalue { i64, ptr, i64 } %65, 2
   tail call void @llvm.write_register.i64(metadata !0, i64 %67)
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !20
-  br label %68
+  %68 = icmp eq i64 %66, 0
+  br i1 %68, label %69, label %.critedge
 
-68:                                               ; preds = %63, %54
-  %69 = phi i64 [ %66, %63 ], [ %57, %54 ]
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %72
+69:                                               ; preds = %63, %52
+  br label %.critedge
 
-71:                                               ; preds = %68, %52
-  br label %72
-
-72:                                               ; preds = %71, %68, %48, %47, %26, %23, %22, %2
-  %73 = phi i32 [ 1, %26 ], [ 0, %71 ], [ 1, %48 ], [ 1, %68 ], [ 1, %47 ], [ 1, %22 ], [ 1, %23 ], [ 1, %2 ]
-  ret i32 %73
+.critedge:                                        ; preds = %54, %69, %63, %48, %47, %26, %23, %22, %2
+  %70 = phi i32 [ 1, %26 ], [ 0, %69 ], [ 1, %48 ], [ 1, %63 ], [ 1, %47 ], [ 1, %22 ], [ 1, %23 ], [ 1, %2 ], [ 1, %54 ]
+  ret i32 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

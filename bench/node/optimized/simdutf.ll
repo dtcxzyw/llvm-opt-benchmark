@@ -25939,8 +25939,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_133avx2_validate_utf32le_with_errorsEPKDim.exit:
 if.then:                                          ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_133avx2_validate_utf32le_with_errorsEPKDim.exit
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %sub.ptr.sub44.i
   %sub = sub i64 %len, %retval.sroa.4.0.i
-  %cmp8.not.i = icmp eq i64 %sub, 0
-  br i1 %cmp8.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit, label %for.body.i
+  br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.inc.i
   %pos.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.then ]
@@ -25959,9 +25958,9 @@ for.inc.i:                                        ; preds = %if.end.i8
   %exitcond.not.i = icmp eq i64 %inc.i, %sub
   br i1 %exitcond.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit, label %for.body.i, !llvm.loop !23
 
-_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit: ; preds = %for.body.i, %if.end.i8, %for.inc.i, %if.then
-  %pos.0.lcssa.i = phi i64 [ 0, %if.then ], [ %pos.09.i, %for.body.i ], [ %pos.09.i, %if.end.i8 ], [ %sub, %for.inc.i ]
-  %retval.sroa.0.0.i9 = phi i32 [ 0, %if.then ], [ 5, %for.body.i ], [ 6, %if.end.i8 ], [ 0, %for.inc.i ]
+_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit: ; preds = %for.body.i, %if.end.i8, %for.inc.i
+  %pos.0.lcssa.i = phi i64 [ %sub, %for.inc.i ], [ %pos.09.i, %if.end.i8 ], [ %pos.09.i, %for.body.i ]
+  %retval.sroa.0.0.i9 = phi i32 [ 0, %for.inc.i ], [ 6, %if.end.i8 ], [ 5, %for.body.i ]
   %add = add i64 %pos.0.lcssa.i, %retval.sroa.4.0.i
   br label %return
 
@@ -39128,8 +39127,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_132sse_validate_utf32le_with_errorsEPKDim.exit:
 if.then:                                          ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_132sse_validate_utf32le_with_errorsEPKDim.exit
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %sub.ptr.sub27.i
   %sub = sub i64 %len, %retval.sroa.4.0.i
-  %cmp8.not.i = icmp eq i64 %sub, 0
-  br i1 %cmp8.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit, label %for.body.i
+  br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.inc.i
   %pos.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.then ]
@@ -39148,9 +39146,9 @@ for.inc.i:                                        ; preds = %if.end.i8
   %exitcond.not.i = icmp eq i64 %inc.i, %sub
   br i1 %exitcond.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit, label %for.body.i, !llvm.loop !23
 
-_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit: ; preds = %for.body.i, %if.end.i8, %for.inc.i, %if.then
-  %pos.0.lcssa.i = phi i64 [ 0, %if.then ], [ %pos.09.i, %for.body.i ], [ %pos.09.i, %if.end.i8 ], [ %sub, %for.inc.i ]
-  %retval.sroa.0.0.i9 = phi i32 [ 0, %if.then ], [ 5, %for.body.i ], [ 6, %if.end.i8 ], [ 0, %for.inc.i ]
+_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit: ; preds = %for.body.i, %if.end.i8, %for.inc.i
+  %pos.0.lcssa.i = phi i64 [ %sub, %for.inc.i ], [ %pos.09.i, %if.end.i8 ], [ %pos.09.i, %for.body.i ]
+  %retval.sroa.0.0.i9 = phi i32 [ 0, %for.inc.i ], [ 6, %if.end.i8 ], [ 5, %for.body.i ]
   %add = add i64 %pos.0.lcssa.i, %retval.sroa.4.0.i
   br label %return
 
