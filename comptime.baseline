@@ -16752,7 +16752,7 @@ luajit/lj_trace.ll 442821069
 luajit/lj_trace_dyn.ll 442631726
 luajit/lj_vmevent.ll 50356516
 luajit/lj_vmevent_dyn.ll 50336100
-luajit/lj_vmmath.ll 46507059
+luajit/lj_vmmath.ll 46553694
 luajit/lj_vmmath_dyn.ll 46512348
 luajit/luajit.ll 267111975
 luajit/minilua.ll 8137877813
@@ -22147,7 +22147,7 @@ opencv/va_intel.cpp.ll 667048130
 opencv/va_intel_interop.cpp.ll 334068221
 opencv/variational_refinement.cpp.ll 1438653462
 opencv/version.cpp.ll 1955947591
-opencv/versions.pb.cc.ll 304639170
+opencv/versions.pb.cc.ll 304943831
 opencv/vgg.cpp.ll 2744480019
 opencv/video-input-psnr-ssim.cpp.ll 221146044
 opencv/video-write.cpp.ll 133402823
@@ -27257,7 +27257,7 @@ openusd/collectionMaterialBindingsSchema.cpp.ll 338858353
 openusd/collectionMembershipQuery.cpp.ll 5574117933
 openusd/collectionNotice.cpp.ll 71800609
 openusd/collectionPredicateLibrary.cpp.ll 3199620376
-openusd/collectionSchema.cpp.ll 386088498
+openusd/collectionSchema.cpp.ll 386474842
 openusd/collectionsSchema.cpp.ll 317902344
 openusd/collector.cpp.ll 1069605785
 openusd/collisionAPI.cpp.ll 775696191
@@ -28907,7 +28907,7 @@ postgres/aset.ll 215390637
 postgres/assert.ll 36057708
 postgres/async.ll 505467942
 postgres/attmap.ll 138200507
-postgres/attoptcache.ll 51343588
+postgres/attoptcache.ll 51394980
 postgres/auth-sasl.ll 52163298
 postgres/auth-scram.ll 242465538
 postgres/auth.ll 528582974
@@ -30592,7 +30592,7 @@ qemu/hw_9pfs_codir.c.ll 120987452
 qemu/hw_9pfs_virtio-9p-device.c.ll 91675939
 qemu/hw_acpi_aml-build.c.ll 1001833922
 qemu/hw_acpi_bios-linker-loader.c.ll 102198055
-qemu/hw_acpi_core.c.ll 237700110
+qemu/hw_acpi_core.c.ll 237937814
 qemu/hw_acpi_erst.c.ll 332453846
 qemu/hw_audio_ac97.c.ll 456609175
 qemu/hw_audio_es1370.c.ll 303840565
@@ -37343,7 +37343,7 @@ wireshark/packet-dcom-dispatch.c.ll 141461331
 wireshark/packet-dcom-oxid.c.ll 74394922
 wireshark/packet-dcom-remact.c.ll 81884455
 wireshark/packet-dcom-remunkn.c.ll 88707020
-wireshark/packet-dcom-sysact.c.ll 206740993
+wireshark/packet-dcom-sysact.c.ll 206947764
 wireshark/packet-dcom-typeinfo.c.ll 150480251
 wireshark/packet-dcom.c.ll 450929017
 wireshark/packet-dcp-etsi.c.ll 250455769
