@@ -28024,7 +28024,7 @@ openusd/testArNotice.cpp.ll 692194028
 openusd/testArResolverContext.cpp.ll 1209133139
 openusd/testArThreadedAssetCreation.cpp.ll 371455540
 openusd/testArURIResolver.cpp.ll 1327377406
-openusd/testArchAbi.cpp.ll 62113771
+openusd/testArchAbi.cpp.ll 62175973
 openusd/testArchAbiPlugin.cpp.ll 39088536
 openusd/testArchPRead.cpp.ll 104716821
 openusd/testArchUtil.cpp.ll 98927636
