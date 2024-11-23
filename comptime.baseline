@@ -25574,7 +25574,7 @@ openspiel/bridge.cc.ll 3396761924
 openspiel/bridge_scoring.cc.ll 105536419
 openspiel/bridge_test.cc.ll 513230880
 openspiel/bridge_uncontested_bidding.cc.ll 2726798537
-openspiel/canonical_game_strings.cc.ll 81188462
+openspiel/canonical_game_strings.cc.ll 81269690
 openspiel/cards.cc.ll 1056491490
 openspiel/catch.cc.ll 1659587836
 openspiel/catch_test.cc.ll 677351732
