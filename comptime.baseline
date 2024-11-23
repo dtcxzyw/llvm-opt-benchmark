@@ -20642,7 +20642,7 @@ opencc/mapper.cc.ll 79915723
 opencc/reader.cc.ll 107311579
 opencc/tail.cc.ll 999411736
 opencc/trie.cc.ll 185448413
-opencc/writer.cc.ll 108862028
+opencc/writer.cc.ll 108971197
 opencv/3calibration.cpp.ll 1542553590
 opencv/AKAZEFeatures.cpp.ll 2646926080
 opencv/AKAZE_match.cpp.ll 505668404
