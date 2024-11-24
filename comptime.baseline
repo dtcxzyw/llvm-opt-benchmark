@@ -11698,7 +11698,7 @@ libquic/ssl_decrepit.c.ll 62192992
 libquic/ssl_ecdh.c.ll 98212691
 libquic/ssl_file.c.ll 109886123
 libquic/ssl_lib.c.ll 663431539
-libquic/ssl_rsa.c.ll 106875178
+libquic/ssl_rsa.c.ll 106982159
 libquic/ssl_session.c.ll 180699798
 libquic/ssl_test.cc.ll 1302842166
 libquic/stack.c.ll 136029968
