@@ -17580,7 +17580,7 @@ minetest/COpenGLCacheHandler.cpp.ll 100832611
 minetest/COpenGLDriver.cpp.ll 3215422695
 minetest/COpenGLExtensionHandler.cpp.ll 921058849
 minetest/COpenGLSLMaterialRenderer.cpp.ll 533860492
-minetest/CReadFile.cpp.ll 73149068
+minetest/CReadFile.cpp.ll 73222246
 minetest/CSDLManager.cpp.ll 50596619
 minetest/CSceneCollisionManager.cpp.ll 94832891
 minetest/CSceneManager.cpp.ll 1334760676
