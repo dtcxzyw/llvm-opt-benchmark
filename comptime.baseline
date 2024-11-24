@@ -7298,7 +7298,7 @@ freetype/bdf.c.ll 960129275
 freetype/cff.c.ll 1766715869
 freetype/ftbase.c.ll 3298492399
 freetype/ftbbox.c.ll 148121736
-freetype/ftbdf.c.ll 42052914
+freetype/ftbdf.c.ll 42095031
 freetype/ftbitmap.c.ll 422935573
 freetype/ftbzip2.c.ll 120573859
 freetype/ftcache.c.ll 801633070
