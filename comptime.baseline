@@ -19762,7 +19762,7 @@ ocio/ImageDesc.cpp.ll 265449974
 ocio/IndexMapping.cpp.ll 193996884
 ocio/LegacyViewingPipeline.cpp.ll 820279813
 ocio/LogAffineTransform.cpp.ll 231347339
-ocio/LogCameraTransform.cpp.ll 244272533
+ocio/LogCameraTransform.cpp.ll 244517025
 ocio/LogOp.cpp.ll 718473607
 ocio/LogOpCPU.cpp.ll 1141555123
 ocio/LogOpData.cpp.ll 796585078
