@@ -24593,7 +24593,7 @@ openmpi/libmpi_c_profile_la-file_call_errhandler.ll 61073347
 openmpi/libmpi_c_profile_la-file_close.ll 65638560
 openmpi/libmpi_c_profile_la-file_delete.ll 74122601
 openmpi/libmpi_c_profile_la-file_f2c.ll 46107594
-openmpi/libmpi_c_profile_la-file_get_amode.ll 68579472
+openmpi/libmpi_c_profile_la-file_get_amode.ll 68648090
 openmpi/libmpi_c_profile_la-file_get_atomicity.ll 68651093
 openmpi/libmpi_c_profile_la-file_get_byte_offset.ll 68679423
 openmpi/libmpi_c_profile_la-file_get_group.ll 67543013
