@@ -76810,7 +76810,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt6vectorINSt7__cxx1112basic_stringIcS
           to label %2741 unwind label %5255
 
 2741:                                             ; preds = %2740, %262, %264, %2727
-  %.merged613 = phi { ptr, i32 } [ %.pn6081716, %264 ], [ %263, %262 ], [ %.pn606, %2740 ], [ %.pn597.pn.pn.pn.pn.pn.pn.pn, %2727 ]
+  %.merged614 = phi { ptr, i32 } [ %.pn6081716, %264 ], [ %263, %262 ], [ %.pn606, %2740 ], [ %.pn597.pn.pn.pn.pn.pn.pn.pn, %2727 ]
   call void @_ZNSt7__cxx114listISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #30
   br label %.body
 
@@ -79133,7 +79133,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt6vectorINSt7__cxx1112basic_stringIcS
           to label %3761 unwind label %5255
 
 3761:                                             ; preds = %3760, %2763, %2765, %3747
-  %.merged614 = phi { ptr, i32 } [ %.pn5801720, %2765 ], [ %2764, %2763 ], [ %.pn578, %3760 ], [ %.pn571.pn.pn.pn.pn.pn, %3747 ]
+  %.merged615 = phi { ptr, i32 } [ %.pn5801720, %2765 ], [ %2764, %2763 ], [ %.pn578, %3760 ], [ %.pn571.pn.pn.pn.pn.pn, %3747 ]
   call void @_ZNSt7__cxx114listISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %103) #30
   br label %.body
 
@@ -81053,12 +81053,12 @@ _ZNSt7__cxx114listISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_E
           to label %4572 unwind label %5255
 
 4572:                                             ; preds = %4571, %3829, %3831, %4558
-  %.merged616 = phi { ptr, i32 } [ %.pn5591726, %3831 ], [ %3830, %3829 ], [ %.pn557, %4571 ], [ %.pn550.pn.pn.pn.pn.pn, %4558 ]
+  %.merged617 = phi { ptr, i32 } [ %.pn5591726, %3831 ], [ %3830, %3829 ], [ %.pn557, %4571 ], [ %.pn550.pn.pn.pn.pn.pn, %4558 ]
   call void @_ZNSt7__cxx114listISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %135) #30
   br label %4573
 
 4573:                                             ; preds = %.loopexit1742, %.loopexit.split-lp1743, %4572, %3826
-  %.merged615 = phi { ptr, i32 } [ %.merged616, %4572 ], [ %3827, %3826 ], [ %lpad.loopexit1744, %.loopexit1742 ], [ %lpad.loopexit.split-lp1745, %.loopexit.split-lp1743 ]
+  %.merged616 = phi { ptr, i32 } [ %.merged617, %4572 ], [ %3827, %3826 ], [ %lpad.loopexit1744, %.loopexit1742 ], [ %lpad.loopexit.split-lp1745, %.loopexit.split-lp1743 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %133) #30
   br label %.body
 
@@ -82718,7 +82718,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt6vectorINSt7__cxx1112basic_stringIcS
   br label %.body1557
 
 .body1557:                                        ; preds = %4606, %4596, %4598, %5243
-  %.merged617 = phi { ptr, i32 } [ %.pn5381732, %4598 ], [ %4597, %4596 ], [ %5245, %5243 ], [ %.pn.i1556, %4606 ]
+  %.merged613 = phi { ptr, i32 } [ %.pn5381732, %4598 ], [ %4597, %4596 ], [ %5245, %5243 ], [ %.pn.i1556, %4606 ]
   call void @_ZNSt7__cxx114listISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #30
   br label %.body
 
@@ -82762,7 +82762,7 @@ _ZNSt7__cxx114listISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_E
   ret void
 
 .body:                                            ; preds = %5252, %193, %2752, %4585, %203, %251, %5254, %.body1557, %4573, %3761, %2741, %225
-  %.merged = phi { ptr, i32 } [ %.pn610.pn, %225 ], [ %.merged613, %2741 ], [ %.merged614, %3761 ], [ %.merged615, %4573 ], [ %.merged617, %.body1557 ], [ %.pn1736, %5254 ], [ %5253, %5252 ], [ %.pn.i, %193 ], [ %.pn.i622, %251 ], [ %.pn.i1160, %2752 ], [ %204, %203 ], [ %.pn.i1552, %4585 ]
+  %.merged = phi { ptr, i32 } [ %.pn610.pn, %225 ], [ %.merged614, %2741 ], [ %.merged615, %3761 ], [ %.merged616, %4573 ], [ %.merged613, %.body1557 ], [ %.pn1736, %5254 ], [ %5253, %5252 ], [ %.pn.i, %193 ], [ %.pn.i622, %251 ], [ %.pn.i1160, %2752 ], [ %204, %203 ], [ %.pn.i1552, %4585 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #30
   resume { ptr, i32 } %.merged
 
@@ -90771,7 +90771,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt6vectorINSt7__cxx1112basic_stringIcS
   br i1 %.not.i.i.i278, label %_ZNSt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEED2Ev.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !6
 
 337:                                              ; preds = %326, %318
-  %.merged237 = phi { ptr, i32 } [ %327, %326 ], [ %319, %318 ]
+  %.merged233 = phi { ptr, i32 } [ %327, %326 ], [ %319, %318 ]
   call void @_ZNSt7__cxx114listISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #30
   br label %605
 
@@ -91319,18 +91319,18 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.ex
   br i1 %cond, label %.invoke, label %1428
 
 605:                                              ; preds = %397, %337, %316
-  %.merged236 = phi { ptr, i32 } [ %398, %397 ], [ %317, %316 ], [ %.merged237, %337 ]
+  %.merged232 = phi { ptr, i32 } [ %398, %397 ], [ %317, %316 ], [ %.merged233, %337 ]
   call void @_ZNSt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #30
   call void @_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #30
   br label %606
 
 606:                                              ; preds = %605, %301
-  %.merged235 = phi { ptr, i32 } [ %.merged236, %605 ], [ %302, %301 ]
+  %.merged231 = phi { ptr, i32 } [ %.merged232, %605 ], [ %302, %301 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #30
   br label %.body
 
 .body:                                            ; preds = %299, %243, %606
-  %.merged234 = phi { ptr, i32 } [ %.merged235, %606 ], [ %300, %299 ], [ %244, %243 ]
+  %.merged230 = phi { ptr, i32 } [ %.merged231, %606 ], [ %300, %299 ], [ %244, %243 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #30
   br label %1472
 
@@ -93346,7 +93346,7 @@ _ZNSt7__cxx114listIN5osgeo4proj2io9SQLValuesESaIS4_EED2Ev.exit: ; preds = %.lr.p
   br label %.critedge245
 
 .body450:                                         ; preds = %1064, %1316, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %918, %1145, %1387, %1149, %922
-  %.merged233 = phi { ptr, i32 } [ %923, %922 ], [ %1388, %1387 ], [ %1150, %1149 ], [ %919, %918 ], [ %1146, %1145 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit622, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp623, %.loopexit.split-lp.loopexit.split-lp ], [ %.pn220, %1316 ], [ %.pn224, %1064 ]
+  %.merged237 = phi { ptr, i32 } [ %923, %922 ], [ %1388, %1387 ], [ %1150, %1149 ], [ %919, %918 ], [ %1146, %1145 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit622, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp623, %.loopexit.split-lp.loopexit.split-lp ], [ %.pn220, %1316 ], [ %.pn224, %1064 ]
   %1418 = load ptr, ptr %38, align 8
   %.not.i.i.i547 = icmp eq ptr %1418, null
   br i1 %.not.i.i.i547, label %.body444, label %1419
@@ -93368,18 +93368,18 @@ _ZNSt7__cxx114listIN5osgeo4proj2io9SQLValuesESaIS4_EED2Ev.exit: ; preds = %.lr.p
   br label %.body444
 
 .body444:                                         ; preds = %1419, %.body450, %878, %870, %880
-  %.merged232 = phi { ptr, i32 } [ %881, %880 ], [ %879, %878 ], [ %871, %870 ], [ %.merged233, %.body450 ], [ %.merged233, %1419 ]
+  %.merged236 = phi { ptr, i32 } [ %881, %880 ], [ %879, %878 ], [ %871, %870 ], [ %.merged237, %.body450 ], [ %.merged237, %1419 ]
   call void @_ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %36) #30
   call void @_ZNSt7__cxx114listISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #30
   br label %.body319
 
 .body319:                                         ; preds = %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i326, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i336, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i346, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i356, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i366, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i376, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i386, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i396, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i406, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i416, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i426, %688, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i437, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i431, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i421, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i411, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i401, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i391, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i381, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i371, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i361, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i351, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i341, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i331, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i321, %.body444
-  %.merged231 = phi { ptr, i32 } [ %.merged232, %.body444 ], [ %624, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i ], [ %633, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i321 ], [ %642, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i326 ], [ %651, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i331 ], [ %660, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i336 ], [ %669, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i341 ], [ %678, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i346 ], [ %687, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i351 ], [ %696, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i356 ], [ %705, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i361 ], [ %714, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i366 ], [ %723, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i371 ], [ %733, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i376 ], [ %742, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i381 ], [ %751, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i386 ], [ %760, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i391 ], [ %767, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i396 ], [ %776, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i401 ], [ %786, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i406 ], [ %795, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i411 ], [ %804, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i416 ], [ %813, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i421 ], [ %820, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i426 ], [ %829, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i431 ], [ %689, %688 ], [ %849, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i437 ]
+  %.merged235 = phi { ptr, i32 } [ %.merged236, %.body444 ], [ %624, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i ], [ %633, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i321 ], [ %642, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i326 ], [ %651, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i331 ], [ %660, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i336 ], [ %669, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i341 ], [ %678, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i346 ], [ %687, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i351 ], [ %696, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i356 ], [ %705, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i361 ], [ %714, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i366 ], [ %723, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i371 ], [ %733, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i376 ], [ %742, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i381 ], [ %751, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i386 ], [ %760, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i391 ], [ %767, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i396 ], [ %776, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i401 ], [ %786, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i406 ], [ %795, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i411 ], [ %804, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i416 ], [ %813, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i421 ], [ %820, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i426 ], [ %829, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i431 ], [ %689, %688 ], [ %849, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj2io9SQLValuesEEEED2Ev.exit9.i.i.i437 ]
   call void @_ZNSt7__cxx114listIN5osgeo4proj2io9SQLValuesESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #30
   br label %1427
 
 1427:                                             ; preds = %.body319, %609
-  %.merged230 = phi { ptr, i32 } [ %.merged231, %.body319 ], [ %610, %609 ]
+  %.merged234 = phi { ptr, i32 } [ %.merged235, %.body319 ], [ %610, %609 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #30
   br label %1472
 
@@ -93491,7 +93491,7 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordi
   ret void
 
 1472:                                             ; preds = %1427, %.body, %233
-  %.merged229 = phi { ptr, i32 } [ %.merged230, %1427 ], [ %.merged234, %.body ], [ %234, %233 ]
+  %.merged229 = phi { ptr, i32 } [ %.merged234, %1427 ], [ %.merged230, %.body ], [ %234, %233 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #30
   br label %.loopexit629
 
