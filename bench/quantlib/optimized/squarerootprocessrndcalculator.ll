@@ -12639,12 +12639,9 @@ lor.rhs:                                          ; preds = %lor.lhs.false.i
   %6 = load double, ptr %p, align 8, !tbaa !20
   %conv7 = fpext double %6 to x86_fp80
   store x86_fp80 %conv7, ptr %ref.tmp6, align 16, !tbaa !22
-  %cmp.i34 = fcmp uge double %6, 0.000000e+00
   %cmp1.i = fcmp ule double %6, 1.000000e+00
-  %or.cond.not6.i = and i1 %cmp.i34, %cmp1.i
-  %7 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %conv7)
-  %8 = fcmp one x86_fp80 %7, 0xK7FFF8000000000000000
-  %or.cond5.i = and i1 %or.cond.not6.i, %8
+  %7 = tail call i1 @llvm.is.fpclass.f80(x86_fp80 %conv7, i32 352)
+  %or.cond5.i = and i1 %cmp1.i, %7
   br i1 %or.cond5.i, label %if.end, label %_ZN5boost4math6detail17check_probabilityIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit
 
 _ZN5boost4math6detail17check_probabilityIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit: ; preds = %lor.rhs
@@ -12680,14 +12677,14 @@ cond.false19:                                     ; preds = %if.then16
   br label %cleanup
 
 if.end24:                                         ; preds = %if.end14
-  %9 = fneg x86_fp80 %conv2
-  %fneg = fmul x86_fp80 %conv2, %9
-  %10 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %conv2, x86_fp80 0xK4000C000000000000000, x86_fp80 %conv)
-  %div = fdiv x86_fp80 %fneg, %10
-  %11 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %conv2, x86_fp80 0xK40008000000000000000, x86_fp80 %conv)
-  %div28 = fdiv x86_fp80 %10, %11
+  %8 = fneg x86_fp80 %conv2
+  %fneg = fmul x86_fp80 %conv2, %8
+  %9 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %conv2, x86_fp80 0xK4000C000000000000000, x86_fp80 %conv)
+  %div = fdiv x86_fp80 %fneg, %9
+  %10 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %conv2, x86_fp80 0xK40008000000000000000, x86_fp80 %conv)
+  %div28 = fdiv x86_fp80 %9, %10
   %mul30 = fmul x86_fp80 %div28, %div28
-  %div31 = fdiv x86_fp80 %11, %mul30
+  %div31 = fdiv x86_fp80 %10, %mul30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %guess) #35
   br i1 %comp, label %if.then33, label %if.else
 
@@ -12704,11 +12701,11 @@ if.then.i.i:                                      ; preds = %if.then33
 
 _ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit: ; preds = %if.then33, %if.then.i.i
   store ptr %ref.tmp35, ptr %ref.tmp34, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 8
-  store ptr %p, ptr %12, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 8
+  store ptr %p, ptr %11, align 8
   %call37 = call noundef x86_fp80 @_ZN5boost4math8quantileINS0_24chi_squared_distributionIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEdEENT_10value_typeERKNS0_18complemented2_typeISC_T0_EE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
-  %13 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %div28, x86_fp80 %call37, x86_fp80 %div)
-  store x86_fp80 %13, ptr %guess, align 16, !tbaa !22
+  %12 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %div28, x86_fp80 %call37, x86_fp80 %div)
+  store x86_fp80 %12, ptr %guess, align 16, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp35) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp34) #35
   br label %if.end42
@@ -12716,44 +12713,44 @@ _ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_flo
 if.else:                                          ; preds = %if.end24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp39) #35
   store x86_fp80 %div31, ptr %ref.tmp39, align 16, !tbaa !99
-  %or.cond.i.i36 = tail call i1 @llvm.is.fpclass.f80(x86_fp80 %div31, i32 384)
-  br i1 %or.cond.i.i36, label %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit38, label %if.then.i.i37
+  %or.cond.i.i35 = tail call i1 @llvm.is.fpclass.f80(x86_fp80 %div31, i32 384)
+  br i1 %or.cond.i.i35, label %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit37, label %if.then.i.i36
 
-if.then.i.i37:                                    ; preds = %if.else
+if.then.i.i36:                                    ; preds = %if.else
   call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.6, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp39)
-  br label %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit38
+  br label %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit37
 
-_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit38: ; preds = %if.else, %if.then.i.i37
+_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit37: ; preds = %if.else, %if.then.i.i36
   %call40 = call noundef x86_fp80 @_ZN5boost4math8quantileINS0_24chi_squared_distributionIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEdEENT_10value_typeERKSC_RKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(8) %p)
-  %14 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %div28, x86_fp80 %call40, x86_fp80 %div)
-  store x86_fp80 %14, ptr %guess, align 16, !tbaa !22
+  %13 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %div28, x86_fp80 %call40, x86_fp80 %div)
+  store x86_fp80 %13, ptr %guess, align 16, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp39) #35
   br label %if.end42
 
-if.end42:                                         ; preds = %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit38, %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit
-  %15 = phi x86_fp80 [ %14, %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit38 ], [ %13, %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit ]
-  %cmp43 = fcmp olt x86_fp80 %15, 0xK3FF7A3D70A3D70A3D800
+if.end42:                                         ; preds = %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit37, %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit
+  %14 = phi x86_fp80 [ %13, %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit37 ], [ %12, %_ZN5boost4math24chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Ee.exit ]
+  %cmp43 = fcmp olt x86_fp80 %14, 0xK3FF7A3D70A3D70A3D800
   br i1 %cmp43, label %if.then44, label %if.end68
 
 if.then44:                                        ; preds = %if.end42
-  %16 = load double, ptr %p, align 8
-  %sub = fsub double 1.000000e+00, %16
-  %cond49 = select i1 %comp, double %sub, double %16
+  %15 = load double, ptr %p, align 8
+  %sub = fsub double 1.000000e+00, %15
+  %cond49 = select i1 %comp, double %sub, double %15
   %conv50 = fpext double %cond49 to x86_fp80
   %div51 = fmul x86_fp80 %conv, 0xK3FFE8000000000000000
   %sub52 = fadd x86_fp80 %div51, 0xKBFFF8000000000000000
   %exp2l = call x86_fp80 @exp2l(x86_fp80 %sub52)
   %div54 = fmul x86_fp80 %conv2, 0xK3FFE8000000000000000
-  %call.i39 = call noundef x86_fp80 @expl(x86_fp80 noundef %div54) #35, !tbaa !15
-  %mul56 = fmul x86_fp80 %exp2l, %call.i39
+  %call.i38 = call noundef x86_fp80 @expl(x86_fp80 noundef %div54) #35, !tbaa !15
+  %mul56 = fmul x86_fp80 %exp2l, %call.i38
   %mul57 = fmul x86_fp80 %mul56, %conv50
   %mul58 = fmul x86_fp80 %mul57, %conv
   %call60 = call noundef x86_fp80 @_ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_(x86_fp80 noundef %div51)
   %mul61 = fmul x86_fp80 %call60, %mul58
   %div62 = fdiv x86_fp80 0xK40008000000000000000, %conv
-  %call.i40 = call noundef x86_fp80 @powl(x86_fp80 noundef %mul61, x86_fp80 noundef %div62) #35, !tbaa !15
-  store x86_fp80 %call.i40, ptr %guess, align 16, !tbaa !22
-  %cmp64 = fcmp oeq x86_fp80 %call.i40, 0xK00000000000000000000
+  %call.i39 = call noundef x86_fp80 @powl(x86_fp80 noundef %mul61, x86_fp80 noundef %div62) #35, !tbaa !15
+  store x86_fp80 %call.i39, ptr %guess, align 16, !tbaa !22
+  %cmp64 = fcmp oeq x86_fp80 %call.i39, 0xK00000000000000000000
   br i1 %cmp64, label %if.then65, label %if.end68
 
 if.then65:                                        ; preds = %if.then44
@@ -12764,20 +12761,20 @@ if.end68:                                         ; preds = %if.then44, %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp69) #35
   call void @_ZN5boost4math36non_central_chi_squared_distributionIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEC2Eee(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp69, x86_fp80 noundef %conv, x86_fp80 noundef %conv2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp70) #35
-  %17 = load double, ptr %p, align 8, !tbaa !20
-  %conv71 = fpext double %17 to x86_fp80
+  %16 = load double, ptr %p, align 8, !tbaa !20
+  %conv71 = fpext double %16 to x86_fp80
   store x86_fp80 %conv71, ptr %ref.tmp70, align 16, !tbaa !22
-  %18 = load ptr, ptr @_ZZN5boost4math6detail13nccs_quantileIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKNS0_36non_central_chi_squared_distributionIS7_T0_EERKS7_bE8function, align 8, !tbaa !60
-  %call73 = call noundef x86_fp80 @_ZN5boost4math6detail16generic_quantileINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEENT_10value_typeERKSD_RKSE_SI_bPKc(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp69, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp70, ptr noundef nonnull align 16 dereferenceable(16) %guess, i1 noundef zeroext %comp, ptr noundef %18)
+  %17 = load ptr, ptr @_ZZN5boost4math6detail13nccs_quantileIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKNS0_36non_central_chi_squared_distributionIS7_T0_EERKS7_bE8function, align 8, !tbaa !60
+  %call73 = call noundef x86_fp80 @_ZN5boost4math6detail16generic_quantileINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEENT_10value_typeERKSD_RKSE_SI_bPKc(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp69, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp70, ptr noundef nonnull align 16 dereferenceable(16) %guess, i1 noundef zeroext %comp, ptr noundef %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp70) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp69) #35
-  %19 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call73)
-  %cmp.i = fcmp ogt x86_fp80 %19, 0xK43FEFFFFFFFFFFFFF800
+  %18 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call73)
+  %cmp.i = fcmp ogt x86_fp80 %18, 0xK43FEFFFFFFFFFFFFF800
   br i1 %cmp.i, label %if.then.i, label %_ZN5boost4math8policies22checked_narrowing_castIdNS1_6policyINS1_13promote_floatILb0EEENS1_14promote_doubleILb0EEENS1_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEeEET_T1_PKc.exit
 
 if.then.i:                                        ; preds = %if.end68
-  %20 = load ptr, ptr @_ZZN5boost4math6detail13nccs_quantileIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKNS0_36non_central_chi_squared_distributionIS7_T0_EERKS7_bE8function, align 8, !tbaa !60
-  call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %20, ptr noundef nonnull @.str.25)
+  %19 = load ptr, ptr @_ZZN5boost4math6detail13nccs_quantileIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKNS0_36non_central_chi_squared_distributionIS7_T0_EERKS7_bE8function, align 8, !tbaa !60
+  call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %19, ptr noundef nonnull @.str.25)
   br label %_ZN5boost4math8policies22checked_narrowing_castIdNS1_6policyINS1_13promote_floatILb0EEENS1_14promote_doubleILb0EEENS1_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEeEET_T1_PKc.exit
 
 _ZN5boost4math8policies22checked_narrowing_castIdNS1_6policyINS1_13promote_floatILb0EEENS1_14promote_doubleILb0EEENS1_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEeEET_T1_PKc.exit: ; preds = %if.end68, %if.then.i
@@ -12811,22 +12808,19 @@ entry:
   br i1 %or.cond.i.i, label %land.rhs.i, label %if.then.critedge.i
 
 land.rhs.i:                                       ; preds = %entry
-  %cmp.i.i = fcmp uge double %2, 0.000000e+00
   %cmp1.i.i = fcmp ule double %2, 1.000000e+00
-  %or.cond.not6.i.i = and i1 %cmp.i.i, %cmp1.i.i
-  %4 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %conv)
-  %5 = fcmp one x86_fp80 %4, 0xK7FFF8000000000000000
-  %or.cond5.i.i = and i1 %or.cond.not6.i.i, %5
+  %4 = tail call i1 @llvm.is.fpclass.f80(x86_fp80 %conv, i32 352)
+  %or.cond5.i.i = and i1 %cmp1.i.i, %4
   br i1 %or.cond5.i.i, label %if.end.i, label %_ZN5boost4math6detail17check_probabilityIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEbPKcRKT_PSD_RKT0_.exit.thread.i
 
 _ZN5boost4math6detail17check_probabilityIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEbPKcRKT_PSD_RKT0_.exit.thread.i: ; preds = %land.rhs.i
-  %6 = load ptr, ptr @_ZZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_18complemented2_typeINS0_24chi_squared_distributionISA_T0_EESA_EEE8function, align 8, !tbaa !60
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %6, ptr noundef nonnull @.str.96, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp1)
+  %5 = load ptr, ptr @_ZZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_18complemented2_typeINS0_24chi_squared_distributionISA_T0_EESA_EEE8function, align 8, !tbaa !60
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %5, ptr noundef nonnull @.str.96, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp1)
   br label %_ZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_18complemented2_typeINS0_24chi_squared_distributionISA_T0_EESA_EE.exit
 
 if.then.critedge.i:                               ; preds = %entry
-  %7 = load ptr, ptr @_ZZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_18complemented2_typeINS0_24chi_squared_distributionISA_T0_EESA_EEE8function, align 8, !tbaa !60
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %7, ptr noundef nonnull @.str.6, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i)
+  %6 = load ptr, ptr @_ZZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_18complemented2_typeINS0_24chi_squared_distributionISA_T0_EESA_EEE8function, align 8, !tbaa !60
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %6, ptr noundef nonnull @.str.6, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i)
   br label %_ZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_18complemented2_typeINS0_24chi_squared_distributionISA_T0_EESA_EE.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
@@ -12861,22 +12855,19 @@ entry:
   br i1 %or.cond.i.i, label %land.rhs.i, label %if.then.critedge.i
 
 land.rhs.i:                                       ; preds = %entry
-  %cmp.i.i = fcmp uge double %0, 0.000000e+00
   %cmp1.i.i = fcmp ule double %0, 1.000000e+00
-  %or.cond.not6.i.i = and i1 %cmp.i.i, %cmp1.i.i
-  %2 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %conv)
-  %3 = fcmp one x86_fp80 %2, 0xK7FFF8000000000000000
-  %or.cond5.i.i = and i1 %or.cond.not6.i.i, %3
+  %2 = tail call i1 @llvm.is.fpclass.f80(x86_fp80 %conv, i32 352)
+  %or.cond5.i.i = and i1 %cmp1.i.i, %2
   br i1 %or.cond5.i.i, label %if.end.i, label %_ZN5boost4math6detail17check_probabilityIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEbPKcRKT_PSD_RKT0_.exit.thread.i
 
 _ZN5boost4math6detail17check_probabilityIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEbPKcRKT_PSD_RKT0_.exit.thread.i: ; preds = %land.rhs.i
-  %4 = load ptr, ptr @_ZZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_24chi_squared_distributionISA_T0_EERKSA_E8function, align 8, !tbaa !60
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %4, ptr noundef nonnull @.str.96, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp)
+  %3 = load ptr, ptr @_ZZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_24chi_squared_distributionISA_T0_EERKSA_E8function, align 8, !tbaa !60
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %3, ptr noundef nonnull @.str.96, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp)
   br label %_ZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_24chi_squared_distributionISA_T0_EERKSA_.exit
 
 if.then.critedge.i:                               ; preds = %entry
-  %5 = load ptr, ptr @_ZZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_24chi_squared_distributionISA_T0_EERKSA_E8function, align 8, !tbaa !60
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %5, ptr noundef nonnull @.str.6, ptr noundef nonnull align 16 dereferenceable(16) %degrees_of_freedom.i)
+  %4 = load ptr, ptr @_ZZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_24chi_squared_distributionISA_T0_EERKSA_E8function, align 8, !tbaa !60
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %4, ptr noundef nonnull @.str.6, ptr noundef nonnull align 16 dereferenceable(16) %degrees_of_freedom.i)
   br label %_ZN5boost4math8quantileIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_24chi_squared_distributionISA_T0_EERKSA_.exit
 
 if.end.i:                                         ; preds = %land.rhs.i

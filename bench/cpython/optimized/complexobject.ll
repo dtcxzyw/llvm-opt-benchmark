@@ -3014,79 +3014,78 @@ if.end30:                                         ; preds = %if.end.i.i, %if.end
   %retval.sroa.4.1.i.pn.i.pn = phi double [ 0.000000e+00, %if.then13.i.i ], [ %div26.i.i, %if.else.i.i ], [ %div45.i.i, %if.then30.i.i ], [ 0x7FF8000000000000, %if.else28.i.i ], [ %mul41.i, %if.end36.i ], [ 0.000000e+00, %if.else27 ], [ 0.000000e+00, %if.then9.i ], [ 0.000000e+00, %if.then14.i ], [ %retval.sroa.4.1.i.i, %if.end.i.i ]
   %29 = tail call double @llvm.fabs.f64(double %retval.sroa.0.1.i.pn.i.pn)
   %or.cond.i39 = fcmp oeq double %29, 0x7FF0000000000000
-  %cmp3.i = fcmp oeq double %retval.sroa.4.1.i.pn.i.pn, 0x7FF0000000000000
-  %or.cond1.i40 = or i1 %or.cond.i39, %cmp3.i
-  %cmp5.i41 = fcmp oeq double %retval.sroa.4.1.i.pn.i.pn, 0xFFF0000000000000
-  %or.cond2.i42 = or i1 %cmp5.i41, %or.cond1.i40
-  br i1 %or.cond2.i42, label %if.then.i46, label %if.else.i44
+  %30 = tail call double @llvm.fabs.f64(double %retval.sroa.4.1.i.pn.i.pn)
+  %31 = fcmp oeq double %30, 0x7FF0000000000000
+  %or.cond2.i40 = or i1 %or.cond.i39, %31
+  br i1 %or.cond2.i40, label %if.then.i44, label %if.else.i42
 
-if.then.i46:                                      ; preds = %if.end30
+if.then.i44:                                      ; preds = %if.end30
   %cmp6.i = icmp eq i32 %28, 0
   br i1 %cmp6.i, label %if.end14.sink.split.i, label %_Py_ADJUST_ERANGE2.exit
 
-if.else.i44:                                      ; preds = %if.end30
+if.else.i42:                                      ; preds = %if.end30
   %cmp10.i = icmp eq i32 %28, 34
   br i1 %cmp10.i, label %if.end14.sink.split.i, label %_Py_ADJUST_ERANGE2.exit
 
-if.end14.sink.split.i:                            ; preds = %if.else.i44, %if.then.i46
-  %.sink.i = phi i32 [ 34, %if.then.i46 ], [ 0, %if.else.i44 ]
+if.end14.sink.split.i:                            ; preds = %if.else.i42, %if.then.i44
+  %.sink.i = phi i32 [ 34, %if.then.i44 ], [ 0, %if.else.i42 ]
   store i32 %.sink.i, ptr %call17, align 4
   br label %_Py_ADJUST_ERANGE2.exit
 
-_Py_ADJUST_ERANGE2.exit:                          ; preds = %if.then.i46, %if.else.i44, %if.end14.sink.split.i
-  %30 = phi i32 [ %28, %if.then.i46 ], [ %28, %if.else.i44 ], [ %.sink.i, %if.end14.sink.split.i ]
-  switch i32 %30, label %if.end43 [
+_Py_ADJUST_ERANGE2.exit:                          ; preds = %if.then.i44, %if.else.i42, %if.end14.sink.split.i
+  %32 = phi i32 [ %28, %if.then.i44 ], [ %28, %if.else.i42 ], [ %.sink.i, %if.end14.sink.split.i ]
+  switch i32 %32, label %if.end43 [
     i32 33, label %if.then36
     i32 34, label %if.then41
   ]
 
 if.then36:                                        ; preds = %_Py_ADJUST_ERANGE2.exit
-  %31 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
-  tail call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.8) #14
+  %33 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
+  tail call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.8) #14
   br label %return
 
 if.then41:                                        ; preds = %_Py_ADJUST_ERANGE2.exit
-  %32 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.9) #14
+  %34 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.9) #14
   br label %return
 
 if.end43:                                         ; preds = %_Py_ADJUST_ERANGE2.exit
-  %call.i47 = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
-  %cmp.i48 = icmp eq ptr %call.i47, null
-  br i1 %cmp.i48, label %if.then.i55, label %if.end.i
+  %call.i45 = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
+  %cmp.i46 = icmp eq ptr %call.i45, null
+  br i1 %cmp.i46, label %if.then.i53, label %if.end.i
 
-if.then.i55:                                      ; preds = %if.end43
+if.then.i53:                                      ; preds = %if.end43
   %call1.i = tail call ptr @PyErr_NoMemory() #14
   br label %return
 
 if.end.i:                                         ; preds = %if.end43
-  %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i47, i64 8
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i45, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
-  %34 = and i64 %33, 512
-  %tobool.not.i.i49 = icmp eq i64 %34, 0
-  br i1 %tobool.not.i.i49, label %_PyObject_Init.exit.i, label %if.then.i.i50
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %36 = and i64 %35, 512
+  %tobool.not.i.i47 = icmp eq i64 %36, 0
+  br i1 %tobool.not.i.i47, label %_PyObject_Init.exit.i, label %if.then.i.i48
 
-if.then.i.i50:                                    ; preds = %if.end.i
-  %35 = load i32, ptr @PyComplex_Type, align 8
-  %add.i.i.i51 = add i32 %35, 1
-  %cmp.i.i.i52 = icmp eq i32 %add.i.i.i51, 0
-  br i1 %cmp.i.i.i52, label %_PyObject_Init.exit.i, label %if.end.i.i.i53
+if.then.i.i48:                                    ; preds = %if.end.i
+  %37 = load i32, ptr @PyComplex_Type, align 8
+  %add.i.i.i49 = add i32 %37, 1
+  %cmp.i.i.i50 = icmp eq i32 %add.i.i.i49, 0
+  br i1 %cmp.i.i.i50, label %_PyObject_Init.exit.i, label %if.end.i.i.i51
 
-if.end.i.i.i53:                                   ; preds = %if.then.i.i50
-  store i32 %add.i.i.i51, ptr @PyComplex_Type, align 8
+if.end.i.i.i51:                                   ; preds = %if.then.i.i48
+  store i32 %add.i.i.i49, ptr @PyComplex_Type, align 8
   br label %_PyObject_Init.exit.i
 
-_PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i53, %if.then.i.i50, %if.end.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i47) #14
-  %cval2.i = getelementptr inbounds i8, ptr %call.i47, i64 16
+_PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i51, %if.then.i.i48, %if.end.i
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i45) #14
+  %cval2.i = getelementptr inbounds i8, ptr %call.i45, i64 16
   store double %retval.sroa.0.1.i.pn.i.pn, ptr %cval2.i, align 8
-  %cval.sroa.2.0.cval2.sroa_idx.i = getelementptr inbounds i8, ptr %call.i47, i64 24
+  %cval.sroa.2.0.cval2.sroa_idx.i = getelementptr inbounds i8, ptr %call.i45, i64 24
   store double %retval.sroa.4.1.i.pn.i.pn, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i19, %land.lhs.true.i, %_PyObject_Init.exit.i, %if.then.i55, %if.end14.i30, %if.end.i.i.i33, %if.end14.i, %if.end.i.i.i, %if.then41, %if.then36, %if.then15
-  %retval.0 = phi ptr [ null, %if.then15 ], [ null, %if.then36 ], [ null, %if.then41 ], [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i30 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i33 ], [ %call1.i, %if.then.i55 ], [ %call.i47, %_PyObject_Init.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i19 ]
+return:                                           ; preds = %land.lhs.true.i19, %land.lhs.true.i, %_PyObject_Init.exit.i, %if.then.i53, %if.end14.i30, %if.end.i.i.i33, %if.end14.i, %if.end.i.i.i, %if.then41, %if.then36, %if.then15
+  %retval.0 = phi ptr [ null, %if.then15 ], [ null, %if.then36 ], [ null, %if.then41 ], [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_NotImplementedStruct, %if.end14.i30 ], [ @_Py_NotImplementedStruct, %if.end.i.i.i33 ], [ %call1.i, %if.then.i53 ], [ %call.i45, %_PyObject_Init.exit.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true.i19 ]
   ret ptr %retval.0
 }
 

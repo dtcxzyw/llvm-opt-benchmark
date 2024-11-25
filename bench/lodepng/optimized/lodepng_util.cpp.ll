@@ -6071,11 +6071,10 @@ if.end:                                           ; preds = %entry
 if.end4:                                          ; preds = %if.end
   %cmp5 = fcmp ogt float %x, 0.000000e+00
   %cmp6 = fcmp ole float %x, 0x47EFFFFFE0000000
-  %cmp8 = fcmp oge float %y, 0xC7EFFFFFE0000000
-  %0 = and i1 %cmp6, %cmp8
-  %cmp10 = fcmp ole float %y, 0x47EFFFFFE0000000
-  %1 = and i1 %cmp10, %0
-  %or.cond3 = and i1 %cmp5, %1
+  %0 = tail call float @llvm.fabs.f32(float %y)
+  %1 = fcmp ole float %0, 0x47EFFFFFE0000000
+  %2 = and i1 %cmp6, %1
+  %or.cond3 = and i1 %cmp5, %2
   br i1 %or.cond3, label %if.end119, label %if.then11
 
 if.then11:                                        ; preds = %if.end4
@@ -6091,11 +6090,7 @@ if.end16:                                         ; preds = %if.then11
 
 if.then18:                                        ; preds = %if.end16
   %cmp19 = fcmp ogt float %x, 0x47EFFFFFE0000000
-  br i1 %cmp19, label %if.then20, label %if.then18.if.end98_crit_edge
-
-if.then18.if.end98_crit_edge:                     ; preds = %if.then18
-  %.pre = tail call float @llvm.fabs.f32(float %y)
-  br label %if.end98
+  br i1 %cmp19, label %if.then20, label %if.end98
 
 if.then20:                                        ; preds = %if.then18
   %cmp21 = fcmp ugt float %y, 0.000000e+00
@@ -6103,8 +6098,7 @@ if.then20:                                        ; preds = %if.then18
   br label %common.ret136
 
 if.else:                                          ; preds = %if.end16
-  %2 = tail call float @llvm.fabs.f32(float %y)
-  %or.cond4 = fcmp ogt float %2, 0x41D0000000000000
+  %or.cond4 = fcmp ogt float %0, 0x41D0000000000000
   br i1 %or.cond4, label %if.end67, label %if.then28
 
 if.then28:                                        ; preds = %if.else
@@ -6185,10 +6179,9 @@ if.end93:                                         ; preds = %if.end75
   %cmp95 = fcmp oeq float %x, -1.000000e+00
   br i1 %cmp95, label %common.ret136, label %if.end98
 
-if.end98:                                         ; preds = %if.then18.if.end98_crit_edge, %if.end93
-  %.pre-phi = phi float [ %.pre, %if.then18.if.end98_crit_edge ], [ %2, %if.end93 ]
-  %x.addr.1 = phi float [ %x, %if.then18.if.end98_crit_edge ], [ %fneg94, %if.end93 ]
-  %or.cond5 = fcmp ogt float %.pre-phi, 0x47EFFFFFE0000000
+if.end98:                                         ; preds = %if.end93, %if.then18
+  %x.addr.1 = phi float [ %x, %if.then18 ], [ %fneg94, %if.end93 ]
+  %or.cond5 = fcmp ogt float %0, 0x47EFFFFFE0000000
   br i1 %or.cond5, label %if.then102, label %if.end119
 
 if.then102:                                       ; preds = %if.end98

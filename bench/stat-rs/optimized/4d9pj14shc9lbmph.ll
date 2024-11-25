@@ -594,20 +594,18 @@ define noundef double @"_ZN123_$LT$statrs..distribution..fisher_snedecor..Fisher
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN6statrs12distribution9geometric9Geometric3new17h9fd95f9717640e3bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1) unnamed_addr #2 {
-  %3 = fcmp ole double %1, 0.000000e+00
-  %4 = fcmp ogt double %1, 1.000000e+00
-  %or.cond = or i1 %3, %4
-  %5 = fcmp uno double %1, 0.000000e+00
-  %or.cond1 = or i1 %5, %or.cond
-  br i1 %or.cond1, label %8, label %6
+  %3 = fcmp ogt double %1, 1.000000e+00
+  %4 = fcmp ule double %1, 0.000000e+00
+  %or.cond1 = or i1 %4, %3
+  br i1 %or.cond1, label %7, label %5
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %1, ptr %7, align 8
-  br label %8
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %1, ptr %6, align 8
+  br label %7
 
-8:                                                ; preds = %2, %6
-  %.sink = phi i64 [ 21, %6 ], [ 0, %2 ]
+7:                                                ; preds = %2, %5
+  %.sink = phi i64 [ 21, %5 ], [ 0, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -875,27 +873,25 @@ define noundef double @"_ZN110_$LT$statrs..distribution..geometric..Geometric$u2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN6statrs12distribution17negative_binomial16NegativeBinomial3new17hf9a43b423c94c3ceE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
   %4 = fcmp uno double %2, 0.000000e+00
-  br i1 %4, label %13, label %5
+  br i1 %4, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = fcmp ult double %2, 0.000000e+00
-  %7 = fcmp ugt double %2, 1.000000e+00
-  %.sroa.04.0.i.not = or i1 %6, %7
-  %8 = fcmp uno double %1, 0.000000e+00
-  %or.cond = or i1 %8, %.sroa.04.0.i.not
-  %9 = fcmp olt double %1, 0.000000e+00
-  %or.cond1 = or i1 %9, %or.cond
-  br i1 %or.cond1, label %13, label %10
+  %6 = fcmp oge double %2, 0.000000e+00
+  %7 = fcmp ole double %2, 1.000000e+00
+  %.sroa.04.0.i = and i1 %6, %7
+  %8 = fcmp oge double %1, 0.000000e+00
+  %or.cond1.not = and i1 %8, %.sroa.04.0.i
+  br i1 %or.cond1.not, label %9, label %12
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %2, ptr %12, align 8
-  br label %13
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %2, ptr %11, align 8
+  br label %12
 
-13:                                               ; preds = %3, %5, %10
-  %storemerge = phi i64 [ 21, %10 ], [ 0, %5 ], [ 0, %3 ]
+12:                                               ; preds = %3, %5, %9
+  %storemerge = phi i64 [ 21, %9 ], [ 0, %5 ], [ 0, %3 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

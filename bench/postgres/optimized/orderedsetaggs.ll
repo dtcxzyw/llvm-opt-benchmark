@@ -532,119 +532,117 @@ define dso_local i64 @percentile_disc_final(ptr nocapture noundef %0) local_unna
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %9, align 4
-  br label %71
+  br label %70
 
 10:                                               ; preds = %1
   %11 = getelementptr i8, ptr %0, i64 48
   %12 = load double, ptr %11, align 8
-  %13 = fcmp olt double %12, 0.000000e+00
-  %14 = fcmp ogt double %12, 1.000000e+00
-  %or.cond = or i1 %13, %14
-  %15 = fcmp uno double %12, 0.000000e+00
-  %or.cond26 = or i1 %15, %or.cond
-  br i1 %or.cond26, label %16, label %20
+  %13 = fcmp ogt double %12, 1.000000e+00
+  %14 = fcmp ult double %12, 0.000000e+00
+  %or.cond26 = or i1 %14, %13
+  br i1 %or.cond26, label %15, label %19
 
-16:                                               ; preds = %10
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 50331778) #10
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, double noundef %12) #10
+15:                                               ; preds = %10
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %16)
+  %17 = tail call i32 @errcode(i32 noundef 50331778) #10
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, double noundef %12) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 449, ptr noundef nonnull @__func__.percentile_disc_final) #10
   unreachable
 
-20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = load i8, ptr %21, align 8
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %26
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = load i8, ptr %20, align 8
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %25
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %25, align 4
-  br label %71
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %24, align 4
+  br label %70
 
-26:                                               ; preds = %20
-  %27 = load i64, ptr %4, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = load i64, ptr %29, align 8
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %34
+25:                                               ; preds = %19
+  %26 = load i64, ptr %4, align 8
+  %27 = inttoptr i64 %26 to ptr
+  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = load i64, ptr %28, align 8
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %33, align 4
-  br label %71
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %32, align 4
+  br label %70
 
-34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %28, i64 32
-  %36 = load i8, ptr %35, align 8
-  %37 = trunc i8 %36 to i1
-  %38 = getelementptr inbounds i8, ptr %28, i64 16
-  %39 = load ptr, ptr %38, align 8
-  br i1 %37, label %41, label %40
+33:                                               ; preds = %25
+  %34 = getelementptr inbounds i8, ptr %27, i64 32
+  %35 = load i8, ptr %34, align 8
+  %36 = trunc i8 %35 to i1
+  %37 = getelementptr inbounds i8, ptr %27, i64 16
+  %38 = load ptr, ptr %37, align 8
+  br i1 %36, label %40, label %39
 
-40:                                               ; preds = %34
-  tail call void @tuplesort_performsort(ptr noundef %39) #10
-  store i8 1, ptr %35, align 8
-  br label %42
+39:                                               ; preds = %33
+  tail call void @tuplesort_performsort(ptr noundef %38) #10
+  store i8 1, ptr %34, align 8
+  br label %41
 
-41:                                               ; preds = %34
-  tail call void @tuplesort_rescan(ptr noundef %39) #10
-  br label %42
+40:                                               ; preds = %33
+  tail call void @tuplesort_rescan(ptr noundef %38) #10
+  br label %41
 
-42:                                               ; preds = %41, %40
-  %43 = load i64, ptr %29, align 8
-  %44 = sitofp i64 %43 to double
-  %45 = fmul double %12, %44
-  %46 = tail call double @llvm.ceil.f64(double %45)
-  %47 = fptosi double %46 to i64
-  %48 = icmp sgt i64 %47, 1
-  br i1 %48, label %49, label %57
+41:                                               ; preds = %40, %39
+  %42 = load i64, ptr %28, align 8
+  %43 = sitofp i64 %42 to double
+  %44 = fmul double %12, %43
+  %45 = tail call double @llvm.ceil.f64(double %44)
+  %46 = fptosi double %45 to i64
+  %47 = icmp sgt i64 %46, 1
+  br i1 %47, label %48, label %56
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %28, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = add nsw i64 %47, -1
-  %53 = tail call zeroext i1 @tuplesort_skiptuples(ptr noundef %51, i64 noundef %52, i1 noundef zeroext true) #10
-  br i1 %53, label %57, label %54
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds i8, ptr %27, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = add nsw i64 %46, -1
+  %52 = tail call zeroext i1 @tuplesort_skiptuples(ptr noundef %50, i64 noundef %51, i1 noundef zeroext true) #10
+  br i1 %52, label %56, label %53
 
-54:                                               ; preds = %49
-  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
+53:                                               ; preds = %48
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %54)
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 482, ptr noundef nonnull @__func__.percentile_disc_final) #10
   unreachable
 
-57:                                               ; preds = %49, %42
-  %58 = getelementptr inbounds i8, ptr %28, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = call zeroext i1 @tuplesort_getdatum(ptr noundef %59, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #10
-  br i1 %60, label %64, label %61
+56:                                               ; preds = %48, %41
+  %57 = getelementptr inbounds i8, ptr %27, i64 16
+  %58 = load ptr, ptr %57, align 8
+  %59 = call zeroext i1 @tuplesort_getdatum(ptr noundef %58, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #10
+  br i1 %59, label %63, label %60
 
-61:                                               ; preds = %57
-  %62 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %62)
-  %63 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
+60:                                               ; preds = %56
+  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %61)
+  %62 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 487, ptr noundef nonnull @__func__.percentile_disc_final) #10
   unreachable
 
-64:                                               ; preds = %57
-  %65 = load i8, ptr %3, align 1
-  %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %69
+63:                                               ; preds = %56
+  %64 = load i8, ptr %3, align 1
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %68
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %68, align 4
-  br label %71
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %67, align 4
+  br label %70
 
-69:                                               ; preds = %64
-  %70 = load i64, ptr %2, align 8
-  br label %71
+68:                                               ; preds = %63
+  %69 = load i64, ptr %2, align 8
+  br label %70
 
-71:                                               ; preds = %69, %67, %32, %24, %8
-  %.0 = phi i64 [ 0, %8 ], [ 0, %24 ], [ 0, %32 ], [ 0, %67 ], [ %70, %69 ]
+70:                                               ; preds = %68, %66, %31, %23, %8
+  %.0 = phi i64 [ 0, %8 ], [ 0, %23 ], [ 0, %31 ], [ 0, %66 ], [ %69, %68 ]
   ret i64 %.0
 }
 
@@ -690,154 +688,152 @@ define internal fastcc i64 @percentile_cont_final_common(ptr nocapture noundef %
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
-  br label %95
+  br label %94
 
 12:                                               ; preds = %2
   %13 = getelementptr i8, ptr %0, i64 48
   %14 = load double, ptr %13, align 8
-  %15 = fcmp olt double %14, 0.000000e+00
-  %16 = fcmp ogt double %14, 1.000000e+00
-  %or.cond = or i1 %15, %16
-  %17 = fcmp uno double %14, 0.000000e+00
-  %or.cond38 = or i1 %17, %or.cond
-  br i1 %or.cond38, label %18, label %22
+  %15 = fcmp ogt double %14, 1.000000e+00
+  %16 = fcmp ult double %14, 0.000000e+00
+  %or.cond38 = or i1 %16, %15
+  br i1 %or.cond38, label %17, label %21
 
-18:                                               ; preds = %12
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 50331778) #10
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, double noundef %14) #10
+17:                                               ; preds = %12
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call i32 @errcode(i32 noundef 50331778) #10
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, double noundef %14) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 554, ptr noundef nonnull @__func__.percentile_cont_final_common) #10
   unreachable
 
-22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load i8, ptr %23, align 8
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %28
+21:                                               ; preds = %12
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load i8, ptr %22, align 8
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %27
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %27, align 4
-  br label %95
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %26, align 4
+  br label %94
 
-28:                                               ; preds = %22
-  %29 = load i64, ptr %6, align 8
-  %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %36
+27:                                               ; preds = %21
+  %28 = load i64, ptr %6, align 8
+  %29 = inttoptr i64 %28 to ptr
+  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %33, label %35
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %35, align 4
-  br label %95
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %34, align 4
+  br label %94
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %30, i64 32
-  %38 = load i8, ptr %37, align 8
-  %39 = trunc i8 %38 to i1
-  %40 = getelementptr inbounds i8, ptr %30, i64 16
-  %41 = load ptr, ptr %40, align 8
-  br i1 %39, label %43, label %42
+35:                                               ; preds = %27
+  %36 = getelementptr inbounds i8, ptr %29, i64 32
+  %37 = load i8, ptr %36, align 8
+  %38 = trunc i8 %37 to i1
+  %39 = getelementptr inbounds i8, ptr %29, i64 16
+  %40 = load ptr, ptr %39, align 8
+  br i1 %38, label %42, label %41
 
-42:                                               ; preds = %36
-  tail call void @tuplesort_performsort(ptr noundef %41) #10
-  store i8 1, ptr %37, align 8
-  br label %44
+41:                                               ; preds = %35
+  tail call void @tuplesort_performsort(ptr noundef %40) #10
+  store i8 1, ptr %36, align 8
+  br label %43
 
-43:                                               ; preds = %36
-  tail call void @tuplesort_rescan(ptr noundef %41) #10
-  br label %44
+42:                                               ; preds = %35
+  tail call void @tuplesort_rescan(ptr noundef %40) #10
+  br label %43
 
-44:                                               ; preds = %43, %42
-  %45 = load i64, ptr %31, align 8
-  %46 = add i64 %45, -1
-  %47 = sitofp i64 %46 to double
-  %48 = fmul double %14, %47
-  %49 = tail call double @llvm.floor.f64(double %48)
-  %50 = fptosi double %49 to i64
-  %51 = tail call double @llvm.ceil.f64(double %48)
-  %52 = fptosi double %51 to i64
-  %53 = getelementptr inbounds i8, ptr %30, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call zeroext i1 @tuplesort_skiptuples(ptr noundef %54, i64 noundef %50, i1 noundef zeroext true) #10
-  br i1 %55, label %59, label %56
+43:                                               ; preds = %42, %41
+  %44 = load i64, ptr %30, align 8
+  %45 = add i64 %44, -1
+  %46 = sitofp i64 %45 to double
+  %47 = fmul double %14, %46
+  %48 = tail call double @llvm.floor.f64(double %47)
+  %49 = fptosi double %48 to i64
+  %50 = tail call double @llvm.ceil.f64(double %47)
+  %51 = fptosi double %50 to i64
+  %52 = getelementptr inbounds i8, ptr %29, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call zeroext i1 @tuplesort_skiptuples(ptr noundef %53, i64 noundef %49, i1 noundef zeroext true) #10
+  br i1 %54, label %58, label %55
 
-56:                                               ; preds = %44
-  %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %57)
-  %58 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+55:                                               ; preds = %43
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %56)
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 583, ptr noundef nonnull @__func__.percentile_cont_final_common) #10
   unreachable
 
-59:                                               ; preds = %44
-  %60 = load ptr, ptr %53, align 8
-  %61 = call zeroext i1 @tuplesort_getdatum(ptr noundef %60, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef null) #10
-  br i1 %61, label %65, label %62
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %52, align 8
+  %60 = call zeroext i1 @tuplesort_getdatum(ptr noundef %59, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef null) #10
+  br i1 %60, label %64, label %61
 
-62:                                               ; preds = %59
-  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %63)
-  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+61:                                               ; preds = %58
+  %62 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %62)
+  %63 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 587, ptr noundef nonnull @__func__.percentile_cont_final_common) #10
   unreachable
 
-65:                                               ; preds = %59
-  %66 = load i8, ptr %5, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %70
+64:                                               ; preds = %58
+  %65 = load i8, ptr %5, align 1
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %69
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %69, align 4
-  br label %95
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %68, align 4
+  br label %94
 
-70:                                               ; preds = %65
-  %71 = icmp eq i64 %50, %52
-  br i1 %71, label %72, label %74
+69:                                               ; preds = %64
+  %70 = icmp eq i64 %49, %51
+  br i1 %70, label %71, label %73
 
-72:                                               ; preds = %70
-  %73 = load i64, ptr %3, align 8
-  br label %95
+71:                                               ; preds = %69
+  %72 = load i64, ptr %3, align 8
+  br label %94
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %53, align 8
-  %76 = call zeroext i1 @tuplesort_getdatum(ptr noundef %75, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #10
-  br i1 %76, label %80, label %77
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %52, align 8
+  %75 = call zeroext i1 @tuplesort_getdatum(ptr noundef %74, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #10
+  br i1 %75, label %79, label %76
 
-77:                                               ; preds = %74
-  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %78)
-  %79 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+76:                                               ; preds = %73
+  %77 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %77)
+  %78 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 599, ptr noundef nonnull @__func__.percentile_cont_final_common) #10
   unreachable
 
-80:                                               ; preds = %74
-  %81 = load i8, ptr %5, align 1
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %83, label %85
+79:                                               ; preds = %73
+  %80 = load i8, ptr %5, align 1
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %84
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %84, align 4
-  br label %95
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %83, align 4
+  br label %94
 
-85:                                               ; preds = %80
-  %86 = load i64, ptr %31, align 8
-  %87 = add i64 %86, -1
-  %88 = sitofp i64 %87 to double
-  %89 = sitofp i64 %50 to double
-  %90 = fneg double %89
-  %91 = call double @llvm.fmuladd.f64(double %14, double %88, double %90)
-  %92 = load i64, ptr %3, align 8
-  %93 = load i64, ptr %4, align 8
-  %94 = call i64 %1(i64 noundef %92, i64 noundef %93, double noundef %91) #10, !callees !8
-  br label %95
+84:                                               ; preds = %79
+  %85 = load i64, ptr %30, align 8
+  %86 = add i64 %85, -1
+  %87 = sitofp i64 %86 to double
+  %88 = sitofp i64 %49 to double
+  %89 = fneg double %88
+  %90 = call double @llvm.fmuladd.f64(double %14, double %87, double %89)
+  %91 = load i64, ptr %3, align 8
+  %92 = load i64, ptr %4, align 8
+  %93 = call i64 %1(i64 noundef %91, i64 noundef %92, double noundef %90) #10, !callees !8
+  br label %94
 
-95:                                               ; preds = %72, %85, %83, %68, %34, %26, %10
-  %.0 = phi i64 [ 0, %10 ], [ 0, %26 ], [ 0, %34 ], [ 0, %68 ], [ 0, %83 ], [ %73, %72 ], [ %94, %85 ]
+94:                                               ; preds = %71, %84, %82, %67, %33, %25, %10
+  %.0 = phi i64 [ 0, %10 ], [ 0, %25 ], [ 0, %33 ], [ 0, %67 ], [ 0, %82 ], [ %72, %71 ], [ %93, %84 ]
   ret i64 %.0
 }
 
@@ -1099,8 +1095,8 @@ define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr n
   %wide.trip.count61 = zext nneg i32 %0 to i64
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %38
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %38 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %37
+  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %37 ], [ 0, %.lr.ph ]
   %13 = getelementptr %struct.pct_info, ptr %8, i64 %indvars.iv58
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = trunc nuw nsw i64 %indvars.iv58 to i32
@@ -1108,96 +1104,92 @@ define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr n
   %16 = getelementptr i8, ptr %2, i64 %indvars.iv58
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %37, label %19
+  br i1 %18, label %36, label %19
 
 19:                                               ; preds = %.lr.ph.split.us
   %20 = getelementptr i64, ptr %1, i64 %indvars.iv58
   %21 = load double, ptr %20, align 8
-  %22 = fcmp olt double %21, 0.000000e+00
-  %23 = fcmp ogt double %21, 1.000000e+00
-  %or.cond.us = or i1 %22, %23
-  %24 = fcmp uno double %21, 0.000000e+00
-  %or.cond52.us = or i1 %24, %or.cond.us
-  br i1 %or.cond52.us, label %.split.us, label %25
+  %22 = fcmp ogt double %21, 1.000000e+00
+  %23 = fcmp ult double %21, 0.000000e+00
+  %or.cond52.us = or i1 %23, %22
+  br i1 %or.cond52.us, label %.split.us, label %24
 
-25:                                               ; preds = %19
-  %26 = fmul double %21, %12
-  %27 = tail call double @llvm.floor.f64(double %26)
-  %28 = fadd double %27, 1.000000e+00
-  %29 = fptosi double %28 to i64
-  store i64 %29, ptr %13, align 8
-  %30 = tail call double @llvm.ceil.f64(double %26)
-  %31 = fadd double %30, 1.000000e+00
-  %32 = fptosi double %31 to i64
-  %33 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 %32, ptr %33, align 8
-  %34 = fneg double %27
-  %35 = tail call double @llvm.fmuladd.f64(double %21, double %12, double %34)
-  %36 = getelementptr inbounds i8, ptr %13, i64 16
-  store double %35, ptr %36, align 8
-  br label %38
+24:                                               ; preds = %19
+  %25 = fmul double %21, %12
+  %26 = tail call double @llvm.floor.f64(double %25)
+  %27 = fadd double %26, 1.000000e+00
+  %28 = fptosi double %27 to i64
+  store i64 %28, ptr %13, align 8
+  %29 = tail call double @llvm.ceil.f64(double %25)
+  %30 = fadd double %29, 1.000000e+00
+  %31 = fptosi double %30 to i64
+  %32 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 %31, ptr %32, align 8
+  %33 = fneg double %26
+  %34 = tail call double @llvm.fmuladd.f64(double %21, double %12, double %33)
+  %35 = getelementptr inbounds i8, ptr %13, i64 16
+  store double %34, ptr %35, align 8
+  br label %37
 
-37:                                               ; preds = %.lr.ph.split.us
+36:                                               ; preds = %.lr.ph.split.us
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %25
+37:                                               ; preds = %36, %24
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %62
-  %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.lr.ph ]
-  %39 = getelementptr %struct.pct_info, ptr %8, i64 %indvars.iv
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
-  %41 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %41, ptr %40, align 8
-  %42 = getelementptr i8, ptr %2, i64 %indvars.iv
-  %43 = load i8, ptr %42, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %46
+.lr.ph.split:                                     ; preds = %.lr.ph, %60
+  %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph ]
+  %38 = getelementptr %struct.pct_info, ptr %8, i64 %indvars.iv
+  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %40, ptr %39, align 8
+  %41 = getelementptr i8, ptr %2, i64 %indvars.iv
+  %42 = load i8, ptr %41, align 1
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %.lr.ph.split
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  br label %60
 
 45:                                               ; preds = %.lr.ph.split
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
-  br label %62
+  %46 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %47 = load double, ptr %46, align 8
+  %48 = fcmp ogt double %47, 1.000000e+00
+  %49 = fcmp ult double %47, 0.000000e+00
+  %or.cond52 = or i1 %49, %48
+  br i1 %or.cond52, label %.split.us, label %53
 
-46:                                               ; preds = %.lr.ph.split
-  %47 = getelementptr i64, ptr %1, i64 %indvars.iv
-  %48 = load double, ptr %47, align 8
-  %49 = fcmp olt double %48, 0.000000e+00
-  %50 = fcmp ogt double %48, 1.000000e+00
-  %or.cond = or i1 %49, %50
-  %51 = fcmp uno double %48, 0.000000e+00
-  %or.cond52 = or i1 %51, %or.cond
-  br i1 %or.cond52, label %.split.us, label %55
-
-.split.us:                                        ; preds = %46, %19
-  %.us-phi = phi double [ %21, %19 ], [ %48, %46 ]
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 @errcode(i32 noundef 50331778) #10
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, double noundef %.us-phi) #10
+.split.us:                                        ; preds = %45, %19
+  %.us-phi = phi double [ %21, %19 ], [ %47, %45 ]
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %50)
+  %51 = tail call i32 @errcode(i32 noundef 50331778) #10
+  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, double noundef %.us-phi) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 694, ptr noundef nonnull @__func__.setup_pct_info) #10
   unreachable
 
-55:                                               ; preds = %46
-  %56 = fmul double %48, %10
-  %57 = tail call double @llvm.ceil.f64(double %56)
-  %58 = fptosi double %57 to i64
-  %59 = tail call i64 @llvm.smax.i64(i64 %58, i64 1)
-  store i64 %59, ptr %39, align 8
-  %60 = getelementptr inbounds i8, ptr %39, i64 8
-  store i64 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %39, i64 16
-  store double 0.000000e+00, ptr %61, align 8
-  br label %62
+53:                                               ; preds = %45
+  %54 = fmul double %47, %10
+  %55 = tail call double @llvm.ceil.f64(double %54)
+  %56 = fptosi double %55 to i64
+  %57 = tail call i64 @llvm.smax.i64(i64 %56, i64 1)
+  store i64 %57, ptr %38, align 8
+  %58 = getelementptr inbounds i8, ptr %38, i64 8
+  store i64 %57, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %38, i64 16
+  store double 0.000000e+00, ptr %59, align 8
+  br label %60
 
-62:                                               ; preds = %45, %55
+60:                                               ; preds = %44, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %62, %38, %5
+._crit_edge:                                      ; preds = %60, %37, %5
   tail call void @pg_qsort(ptr noundef %8, i64 noundef %6, i64 noundef 32, ptr noundef nonnull @pct_info_cmp) #10
   ret ptr %8
 }

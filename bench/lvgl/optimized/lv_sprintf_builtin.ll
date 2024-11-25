@@ -1624,10 +1624,9 @@ _out_rev.exit:                                    ; preds = %.lr.ph40.i182, %.lr
 define internal fastcc i64 @_etoa(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca [32 x i8], align 16
   %10 = fcmp uno double %4, 0.000000e+00
-  %11 = fcmp ogt double %4, 0x7FEFFFFFFFFFFFFF
-  %or.cond = or i1 %10, %11
-  %12 = fcmp olt double %4, 0xFFEFFFFFFFFFFFFF
-  %or.cond3 = or i1 %12, %or.cond
+  %11 = tail call double @llvm.fabs.f64(double %4)
+  %12 = fcmp ogt double %11, 0x7FEFFFFFFFFFFFFF
+  %or.cond3 = or i1 %10, %12
   br i1 %or.cond3, label %13, label %15
 
 13:                                               ; preds = %8

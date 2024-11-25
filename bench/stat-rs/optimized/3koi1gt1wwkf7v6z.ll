@@ -1423,27 +1423,25 @@ _ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit: ; preds = %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN6statrs12distribution10students_t9StudentsT3new17hdb0be23fc6a64ad8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #2 {
   %or.cond = fcmp uno double %1, %2
-  br i1 %or.cond, label %11, label %5
+  br i1 %or.cond, label %10, label %5
 
 5:                                                ; preds = %4
-  %6 = fcmp uno double %3, 0.000000e+00
-  %7 = fcmp ole double %2, 0.000000e+00
-  %or.cond1 = or i1 %7, %6
-  %8 = fcmp ole double %3, 0.000000e+00
-  %or.cond2 = or i1 %8, %or.cond1
-  br i1 %or.cond2, label %11, label %9
+  %6 = fcmp ole double %2, 0.000000e+00
+  %7 = fcmp ule double %3, 0.000000e+00
+  %or.cond2 = or i1 %6, %7
+  br i1 %or.cond2, label %10, label %8
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %1, ptr %10, align 8
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %1, ptr %9, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store double %2, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store double %3, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %11
+  br label %10
 
-11:                                               ; preds = %5, %4, %9
-  %storemerge = phi i64 [ 21, %9 ], [ 0, %4 ], [ 0, %5 ]
+10:                                               ; preds = %5, %4, %8
+  %storemerge = phi i64 [ 21, %8 ], [ 0, %4 ], [ 0, %5 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

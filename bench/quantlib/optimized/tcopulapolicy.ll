@@ -9376,6 +9376,9 @@ unreachable:                                      ; preds = %invoke.cont19
   unreachable
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #17
+
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %pfunction, ptr noundef %pmessage, ptr noundef nonnull align 8 dereferenceable(8) %val) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
@@ -10516,22 +10519,19 @@ entry:
   br i1 %or.cond.i.i, label %land.rhs.i, label %if.then.critedge.i
 
 land.rhs.i:                                       ; preds = %entry
-  %cmp.i.i = fcmp uge double %p, 0.000000e+00
   %cmp1.i.i = fcmp ule double %p, 1.000000e+00
-  %or.cond.not6.i.i = and i1 %cmp.i.i, %cmp1.i.i
-  %2 = tail call double @llvm.fabs.f64(double %p)
-  %3 = fcmp one double %2, 0x7FF0000000000000
-  %or.cond5.i.i = and i1 %or.cond.not6.i.i, %3
+  %2 = tail call i1 @llvm.is.fpclass.f64(double %p, i32 480)
+  %or.cond5.i.i = and i1 %2, %cmp1.i.i
   br i1 %or.cond5.i.i, label %if.end.i, label %_ZN5boost4math6detail17check_probabilityIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.thread.i
 
 _ZN5boost4math6detail17check_probabilityIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.thread.i: ; preds = %land.rhs.i
-  %4 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %4, ptr noundef nonnull @.str.67, ptr noundef nonnull align 8 dereferenceable(8) %probability.i)
+  %3 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %3, ptr noundef nonnull @.str.67, ptr noundef nonnull align 8 dereferenceable(8) %probability.i)
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_.exit
 
 if.then.critedge.i:                               ; preds = %entry
-  %5 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %5, ptr noundef nonnull @.str.62, ptr noundef nonnull align 8 dereferenceable(8) %df.i)
+  %4 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %4, ptr noundef nonnull @.str.62, ptr noundef nonnull align 8 dereferenceable(8) %df.i)
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
@@ -10539,8 +10539,8 @@ if.end.i:                                         ; preds = %land.rhs.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end8.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %6 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
-  tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %6, ptr noundef nonnull @.str.44)
+  %5 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
+  tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %5, ptr noundef nonnull @.str.44)
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_.exit
 
 if.end8.i:                                        ; preds = %if.end.i
@@ -10548,8 +10548,8 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %7 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
-  tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %7, ptr noundef nonnull @.str.44)
+  %6 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
+  tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %6, ptr noundef nonnull @.str.44)
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -10567,10 +10567,10 @@ _ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %df.i) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %probability.i) #31
   %varianceFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %8 = load ptr, ptr %varianceFactors_, align 8, !tbaa !25
-  %add.ptr.i2 = getelementptr inbounds nuw double, ptr %8, i64 %iFactor
-  %9 = load double, ptr %add.ptr.i2, align 8, !tbaa !24
-  %mul = fmul double %retval.0.i, %9
+  %7 = load ptr, ptr %varianceFactors_, align 8, !tbaa !25
+  %add.ptr.i2 = getelementptr inbounds nuw double, ptr %7, i64 %iFactor
+  %8 = load double, ptr %add.ptr.i2, align 8, !tbaa !24
+  %mul = fmul double %retval.0.i, %8
   ret double %mul
 }
 
@@ -25106,22 +25106,19 @@ entry:
   br i1 %or.cond.i.i, label %land.rhs.i, label %if.then.critedge.i
 
 land.rhs.i:                                       ; preds = %entry
-  %cmp.i.i = fcmp uge double %p, 0.000000e+00
   %cmp1.i.i = fcmp ule double %p, 1.000000e+00
-  %or.cond.not6.i.i = and i1 %cmp.i.i, %cmp1.i.i
-  %2 = tail call double @llvm.fabs.f64(double %p)
-  %3 = fcmp one double %2, 0x7FF0000000000000
-  %or.cond5.i.i = and i1 %or.cond.not6.i.i, %3
+  %2 = tail call i1 @llvm.is.fpclass.f64(double %p, i32 480)
+  %or.cond5.i.i = and i1 %2, %cmp1.i.i
   br i1 %or.cond5.i.i, label %if.end.i, label %_ZN5boost4math6detail17check_probabilityIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.thread.i
 
 _ZN5boost4math6detail17check_probabilityIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.thread.i: ; preds = %land.rhs.i
-  %4 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %4, ptr noundef nonnull @.str.67, ptr noundef nonnull align 8 dereferenceable(8) %probability.i)
+  %3 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %3, ptr noundef nonnull @.str.67, ptr noundef nonnull align 8 dereferenceable(8) %probability.i)
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_.exit
 
 if.then.critedge.i:                               ; preds = %entry
-  %5 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %5, ptr noundef nonnull @.str.62, ptr noundef nonnull align 8 dereferenceable(8) %df.i)
+  %4 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %4, ptr noundef nonnull @.str.62, ptr noundef nonnull align 8 dereferenceable(8) %df.i)
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
@@ -25129,8 +25126,8 @@ if.end.i:                                         ; preds = %land.rhs.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end8.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %6 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
-  tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %6, ptr noundef nonnull @.str.44)
+  %5 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
+  tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %5, ptr noundef nonnull @.str.44)
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_.exit
 
 if.end8.i:                                        ; preds = %if.end.i
@@ -25138,8 +25135,8 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %7 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
-  tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %7, ptr noundef nonnull @.str.44)
+  %6 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !3
+  tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %6, ptr noundef nonnull @.str.44)
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_23students_t_distributionIS6_T0_EERKS6_.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -25157,18 +25154,15 @@ _ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %df.i) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %probability.i) #31
   %_M_finish.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %8 = load ptr, ptr %_M_finish.i.i1, align 8, !tbaa !3
-  %add.ptr.i.i2 = getelementptr inbounds i8, ptr %8, i64 -8
-  %9 = load double, ptr %add.ptr.i.i2, align 8, !tbaa !24
-  %mul = fmul double %retval.0.i, %9
+  %7 = load ptr, ptr %_M_finish.i.i1, align 8, !tbaa !3
+  %add.ptr.i.i2 = getelementptr inbounds i8, ptr %7, i64 -8
+  %8 = load double, ptr %add.ptr.i.i2, align 8, !tbaa !24
+  %mul = fmul double %retval.0.i, %8
   ret double %mul
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #29

@@ -4001,10 +4001,8 @@ if.end9:                                          ; preds = %for.body
   %value.i = getelementptr inbounds i8, ptr %6, i64 48
   %9 = load double, ptr %value.i, align 8
   %cmp.i = fcmp ogt double %9, 0x41EFFFFFFFE00000
-  %cmp5.i = fcmp olt double %9, 0.000000e+00
-  %or.cond.i = or i1 %cmp.i, %cmp5.i
-  %10 = fcmp uno double %9, 0.000000e+00
-  %or.cond4.i = or i1 %10, %or.cond.i
+  %10 = fcmp ult double %9, 0.000000e+00
+  %or.cond4.i = or i1 %cmp.i, %10
   br i1 %or.cond4.i, label %cleanup, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end9

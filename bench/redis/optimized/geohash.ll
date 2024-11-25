@@ -57,41 +57,40 @@ land.lhs.true18:                                  ; preds = %lor.lhs.false15
 if.end:                                           ; preds = %land.lhs.true18, %lor.lhs.false15
   %6 = tail call double @llvm.fabs.f64(double %longitude)
   %or.cond5 = fcmp ogt double %6, 1.800000e+02
-  %cmp27 = fcmp ogt double %latitude, 0x40554345B1A57F00
-  %or.cond7 = or i1 %or.cond5, %cmp27
-  %cmp30 = fcmp olt double %latitude, 0xC0554345B1A57F00
-  %or.cond9 = or i1 %cmp30, %or.cond7
+  %7 = tail call double @llvm.fabs.f64(double %latitude)
+  %8 = fcmp ogt double %7, 0x40554345B1A57F00
+  %or.cond9 = or i1 %or.cond5, %8
   br i1 %or.cond9, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end
   store i64 0, ptr %hash, align 8
   %step34 = getelementptr inbounds i8, ptr %hash, i64 8
   store i8 %step, ptr %step34, align 8
-  %7 = load double, ptr %lat_range, align 8
-  %cmp36 = fcmp olt double %latitude, %7
+  %9 = load double, ptr %lat_range, align 8
+  %cmp36 = fcmp olt double %latitude, %9
   br i1 %cmp36, label %return, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %if.end33
-  %8 = load double, ptr %max, align 8
-  %cmp40 = fcmp ogt double %latitude, %8
+  %10 = load double, ptr %max, align 8
+  %cmp40 = fcmp ogt double %latitude, %10
   br i1 %cmp40, label %return, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %lor.lhs.false38
-  %9 = load double, ptr %long_range, align 8
-  %cmp44 = fcmp olt double %longitude, %9
+  %11 = load double, ptr %long_range, align 8
+  %cmp44 = fcmp olt double %longitude, %11
   br i1 %cmp44, label %return, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false42
-  %10 = load double, ptr %max16, align 8
-  %cmp48 = fcmp ogt double %longitude, %10
+  %12 = load double, ptr %max16, align 8
+  %cmp48 = fcmp ogt double %longitude, %12
   br i1 %cmp48, label %return, label %if.end51
 
 if.end51:                                         ; preds = %lor.lhs.false46
-  %sub = fsub double %latitude, %7
-  %sub55 = fsub double %8, %7
+  %sub = fsub double %latitude, %9
+  %sub55 = fsub double %10, %9
   %div = fdiv double %sub, %sub55
-  %sub57 = fsub double %longitude, %9
-  %sub60 = fsub double %10, %9
+  %sub57 = fsub double %longitude, %11
+  %sub60 = fsub double %12, %11
   %div61 = fdiv double %sub57, %sub60
   %sh_prom = zext nneg i8 %step to i64
   %shl = shl nuw nsw i64 1, %sh_prom
@@ -161,10 +160,9 @@ entry:
 if.end.i:                                         ; preds = %entry
   %2 = tail call double @llvm.fabs.f64(double %longitude)
   %or.cond5.i = fcmp ogt double %2, 1.800000e+02
-  %cmp27.i = fcmp ogt double %latitude, 0x40554345B1A57F00
-  %or.cond7.i = or i1 %or.cond5.i, %cmp27.i
-  %cmp30.i = fcmp olt double %latitude, 0xC0554345B1A57F00
-  %or.cond9.i = or i1 %cmp30.i, %or.cond7.i
+  %3 = tail call double @llvm.fabs.f64(double %latitude)
+  %4 = fcmp ogt double %3, 0x40554345B1A57F00
+  %or.cond9.i = or i1 %or.cond5.i, %4
   br i1 %or.cond9.i, label %geohashEncode.exit, label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.end.i
@@ -202,10 +200,9 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %2 = tail call double @llvm.fabs.f64(double %longitude)
   %or.cond5.i.i = fcmp ogt double %2, 1.800000e+02
-  %cmp27.i.i = fcmp ogt double %latitude, 0x40554345B1A57F00
-  %or.cond7.i.i = or i1 %or.cond5.i.i, %cmp27.i.i
-  %cmp30.i.i = fcmp olt double %latitude, 0xC0554345B1A57F00
-  %or.cond9.i.i = or i1 %cmp30.i.i, %or.cond7.i.i
+  %3 = tail call double @llvm.fabs.f64(double %latitude)
+  %4 = fcmp ogt double %3, 0x40554345B1A57F00
+  %or.cond9.i.i = or i1 %or.cond5.i.i, %4
   br i1 %or.cond9.i.i, label %geohashEncodeType.exit, label %if.end51.i.i
 
 if.end51.i.i:                                     ; preds = %if.end.i.i
@@ -251,9 +248,9 @@ if.end51.i.i:                                     ; preds = %if.end.i.i
   %shl31.i = shl nuw nsw i64 %and25.i, 1
   %or32.i = or i64 %shl31.i, %and25.i
   %and33.i = and i64 %or32.i, 6148914691236517205
-  %3 = shl nuw i64 %and29.i, 2
-  %4 = shl nuw nsw i64 %and29.i, 1
-  %and37.i = or i64 %3, %4
+  %5 = shl nuw i64 %and29.i, 2
+  %6 = shl nuw nsw i64 %and29.i, 1
+  %and37.i = or i64 %5, %6
   %shl38.i = and i64 %and37.i, -6148914691236517206
   %or39.i = or disjoint i64 %shl38.i, %and33.i
   store i64 %or39.i, ptr %hash, align 8

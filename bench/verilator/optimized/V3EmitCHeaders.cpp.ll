@@ -4430,10 +4430,9 @@ _ZNK7AstNode8isDoubleEv.exit:                     ; preds = %_ZN7AstNode9private
   %196 = fptosi double %191 to i32
   %197 = sitofp i32 %196 to double
   %198 = fcmp oeq double %191, %197
-  %199 = fcmp ogt double %191, -1.000000e+03
-  %or.cond = and i1 %199, %198
-  %200 = fcmp olt double %191, 1.000000e+03
-  %or.cond3 = and i1 %200, %or.cond
+  %199 = tail call double @llvm.fabs.f64(double %191)
+  %200 = fcmp olt double %199, 1.000000e+03
+  %or.cond3 = and i1 %200, %198
   br i1 %or.cond3, label %202, label %201
 
 201:                                              ; preds = %195, %190
@@ -17632,6 +17631,9 @@ define internal void @_GLOBAL__sub_I_V3EmitCHeaders.cpp() #15 section ".text.sta
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #16

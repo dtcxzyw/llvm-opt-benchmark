@@ -1940,11 +1940,9 @@ _ZN4llvh11SmallVectorISt4pairIPN6hermes7LiteralES4_ELj4EEC2ERKS6_.exit: ; preds 
   %value.i.i.i = getelementptr inbounds i8, ptr %call.i68, i64 48
   %34 = load double, ptr %value.i.i.i, align 8
   %cmp.i.i.i = fcmp ule double %34, 0x41EFFFFFFFE00000
-  %cmp5.i.i.i = fcmp uge double %34, 0.000000e+00
-  %35 = fcmp ord double %34, 0.000000e+00
-  call void @llvm.assume(i1 %35)
+  %35 = fcmp oge double %34, 0.000000e+00
   call void @llvm.assume(i1 %cmp.i.i.i)
-  call void @llvm.assume(i1 %cmp5.i.i.i)
+  call void @llvm.assume(i1 %35)
   %conv11.i.i.i = fptoui double %34 to i32
   %conv12.i.i.i = uitofp i32 %conv11.i.i.i to double
   %cmp14.i.i.i = fcmp oeq double %34, %conv12.i.i.i

@@ -1150,10 +1150,9 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %60
   %143 = fcmp ole float %.sroa.322.0.i, %135
   %144 = fcmp ole float %135, %.sroa.11.0.i
   %or.cond.i.not28.i = and i1 %143, %144
-  %145 = fcmp oge float %.sroa.016.8.vec.extract.i.i, -1.000000e+00
-  %or.cond.not25.i = and i1 %145, %or.cond.i.not28.i
-  %146 = fcmp ole float %.sroa.016.8.vec.extract.i.i, 1.000000e+00
-  %or.cond23.i = and i1 %146, %or.cond.not25.i
+  %145 = call float @llvm.fabs.f32(float %.sroa.016.8.vec.extract.i.i)
+  %146 = fcmp ole float %145, 1.000000e+00
+  %or.cond23.i = and i1 %146, %or.cond.i.not28.i
   br i1 %or.cond23.i, label %147, label %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i
 
 147:                                              ; preds = %142
