@@ -23716,7 +23716,7 @@ openjdk/serialHeap.ll 2545253454
 openjdk/serialMemoryPools.ll 76556185
 openjdk/serialStringDedup.ll 64959029
 openjdk/serialVMOperations.ll 51173657
-openjdk/serviceThread.ll 238348467
+openjdk/serviceThread.ll 238109505
 openjdk/sharedRuntime.ll 2369631734
 openjdk/sharedRuntimeTrans.ll 252429445
 openjdk/sharedRuntimeTrig.ll 436140413
