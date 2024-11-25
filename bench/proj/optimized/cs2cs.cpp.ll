@@ -742,7 +742,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %260 unwind label %1232
 
 260:                                              ; preds = %258, %239, %140
-  %.merged428 = phi { ptr, i32 } [ %141, %140 ], [ %259, %258 ], [ %.pn424, %239 ]
+  %.merged427 = phi { ptr, i32 } [ %141, %140 ], [ %259, %258 ], [ %.pn424, %239 ]
   %261 = load ptr, ptr %9, align 8
   %262 = load ptr, ptr %91, align 8
   %.not4.i.i.i.i438 = icmp eq ptr %261, %262
@@ -2253,7 +2253,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata6ExtentEEED2Ev.exit479
   br label %908
 
 907:                                              ; preds = %904, %607, %889, %589
-  %.merged427 = phi { ptr, i32 } [ %905, %904 ], [ %.pn379.pn.pn.pn, %889 ], [ %608, %607 ], [ %590, %589 ]
+  %.merged428 = phi { ptr, i32 } [ %905, %904 ], [ %.pn379.pn.pn.pn, %889 ], [ %608, %607 ], [ %590, %589 ]
   call void @_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #26
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit446
 
@@ -2975,7 +2975,7 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %1193, %1195
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit446
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit446: ; preds = %.loopexit501, %.loopexit.split-lp502.loopexit.split-lp, %.loopexit.split-lp502.loopexit, %265, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i444, %1100, %1075, %299, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit, %1083, %1058, %1001, %999, %938, %907, %284, %139
-  %.merged426 = phi { ptr, i32 } [ %.pn421, %139 ], [ %300, %299 ], [ %.pn419, %284 ], [ %.pn405, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit ], [ %1101, %1100 ], [ %1084, %1083 ], [ %1076, %1075 ], [ %1059, %1058 ], [ %1002, %1001 ], [ %1000, %999 ], [ %939, %938 ], [ %.merged427, %907 ], [ %.merged428, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i444 ], [ %.merged428, %265 ], [ %lpad.loopexit503, %.loopexit501 ], [ %lpad.loopexit506, %.loopexit.split-lp502.loopexit ], [ %lpad.loopexit.split-lp507, %.loopexit.split-lp502.loopexit.split-lp ]
+  %.merged426 = phi { ptr, i32 } [ %.pn421, %139 ], [ %300, %299 ], [ %.pn419, %284 ], [ %.pn405, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit ], [ %1101, %1100 ], [ %1084, %1083 ], [ %1076, %1075 ], [ %1059, %1058 ], [ %1002, %1001 ], [ %1000, %999 ], [ %939, %938 ], [ %.merged428, %907 ], [ %.merged427, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i444 ], [ %.merged427, %265 ], [ %lpad.loopexit503, %.loopexit501 ], [ %lpad.loopexit506, %.loopexit.split-lp502.loopexit ], [ %lpad.loopexit.split-lp507, %.loopexit.split-lp502.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
