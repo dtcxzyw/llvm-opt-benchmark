@@ -5876,7 +5876,7 @@ darktable/CameraMetaData.cpp.ll 520019218
 darktable/ChecksumFile.cpp.ll 308511898
 darktable/CiffEntry.cpp.ll 228262880
 darktable/CiffIFD.cpp.ll 341572269
-darktable/CiffParser.cpp.ll 137491920
+darktable/CiffParser.cpp.ll 137354407
 darktable/ColorFilterArray.cpp.ll 305830674
 darktable/Cr2Decoder.cpp.ll 492161196
 darktable/Cr2Decompressor.cpp.ll 1400944220
@@ -25132,7 +25132,7 @@ openmpi/pinfo_get_valuelen_f.ll 61748028
 openmpi/pinfo_set_f.ll 63717717
 openmpi/pinstalldirs_base_components.ll 99738567
 openmpi/pinstalldirs_base_expand.ll 157392633
-openmpi/pintercomm_create_from_groups_f.ll 66113890
+openmpi/pintercomm_create_from_groups_f.ll 66047763
 openmpi/plm_base_frame.ll 60518920
 openmpi/plm_base_jobid.ll 51584882
 openmpi/plm_base_launch_support.ll 1397754131
