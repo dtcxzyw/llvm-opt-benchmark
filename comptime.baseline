@@ -36303,7 +36303,7 @@ verilator/V3Tristate.cpp.ll 3974873070
 verilator/V3Undriven.cpp.ll 1598854401
 verilator/V3Unknown.cpp.ll 1536705423
 verilator/V3Unroll.cpp.ll 2867278316
-verilator/V3VariableOrder.cpp.ll 2219007826
+verilator/V3VariableOrder.cpp.ll 2216788768
 verilator/V3Waiver.cpp.ll 219453232
 verilator/V3Width.cpp.ll 11466645624
 verilator/V3WidthCommit.cpp.ll 1233728390
