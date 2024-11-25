@@ -24467,7 +24467,7 @@ openmpi/group_bitmap.ll 109067433
 openmpi/group_init.ll 258936206
 openmpi/group_plist.ll 155635371
 openmpi/group_sporadic.ll 98567214
-openmpi/group_strided.ll 78222241
+openmpi/group_strided.ll 78143968
 openmpi/grpcomm_base_frame.ll 126549223
 openmpi/grpcomm_base_select.ll 81505568
 openmpi/grpcomm_base_stubs.ll 281785875
