@@ -29768,7 +29768,7 @@ _ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit:       ; preds = %_ZNSt16_Sp_counted_
   unreachable
 
 .loopexit1023:                                    ; preds = %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit205, %.loopexit1024, %.loopexit.split-lp1025
-  %.merged182 = phi { ptr, i32 } [ %lpad.loopexit1026, %.loopexit1024 ], [ %lpad.loopexit.split-lp1027, %.loopexit.split-lp1025 ], [ %.pn169.pn, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit205 ]
+  %.merged181 = phi { ptr, i32 } [ %lpad.loopexit1026, %.loopexit1024 ], [ %lpad.loopexit.split-lp1027, %.loopexit.split-lp1025 ], [ %.pn169.pn, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit205 ]
   %810 = load ptr, ptr %335, align 8
   invoke void @_ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %78, ptr noundef %810)
           to label %.body431 unwind label %811
@@ -31475,7 +31475,7 @@ _ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i282: ; preds
           to label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit236 unwind label %2054
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit236: ; preds = %.body, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i233, %1077, %1385, %1010
-  %.merged181 = phi { ptr, i32 } [ %1011, %1010 ], [ %1386, %1385 ], [ %.pn163, %1077 ], [ %.pn163, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i233 ], [ %.pn160.pn, %.body ]
+  %.merged182 = phi { ptr, i32 } [ %1011, %1010 ], [ %1386, %1385 ], [ %.pn163, %1077 ], [ %.pn163, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i233 ], [ %.pn160.pn, %.body ]
   %1387 = load ptr, ptr %89, align 8
   %1388 = load ptr, ptr %303, align 8
   %.not4.i.i.i.i287 = icmp eq ptr %1387, %1388
@@ -33657,7 +33657,7 @@ _ZN3nix8FdSourceD2Ev.exit:                        ; preds = %_ZN3nix16BackedStri
   ret void
 
 .body431:                                         ; preds = %.loopexit1044, %.loopexit.split-lp1045, %1522, %1524, %1403, %_ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i296, %974, %893, %895, %.loopexit1023, %677, %595, %536, %455, %457, %433, %435, %2032, %2034, %1658, %1660, %1410, %1412, %996, %998, %851, %853, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406, %.body576, %_ZN3nix9StorePathD2Ev.exit331, %1491, %988, %844, %.body418
-  %.merged180 = phi { ptr, i32 } [ %.pn1751013, %2034 ], [ %2033, %2032 ], [ %.pn144.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406 ], [ %.pn139996, %1660 ], [ %1659, %1658 ], [ %.pn149, %.body576 ], [ %.pn153.pn, %_ZN3nix9StorePathD2Ev.exit331 ], [ %1492, %1491 ], [ %.pn151984, %1412 ], [ %1411, %1410 ], [ %.pn156978, %998 ], [ %997, %996 ], [ %989, %988 ], [ %.pn165966, %853 ], [ %852, %851 ], [ %.pn167, %844 ], [ %eh.lpad-body419, %.body418 ], [ %434, %433 ], [ %.pn9.i426, %435 ], [ %456, %455 ], [ %.pn9.i440, %457 ], [ %.pn.i448, %536 ], [ %.pn173, %595 ], [ %.pn.i464, %677 ], [ %.merged182, %.loopexit1023 ], [ %894, %893 ], [ %.pn9.i493, %895 ], [ %.pn.i503, %974 ], [ %.merged181, %_ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i296 ], [ %.merged181, %1403 ], [ %1523, %1522 ], [ %.pn9.i546, %1524 ], [ %lpad.loopexit1046, %.loopexit1044 ], [ %lpad.loopexit.split-lp1047, %.loopexit.split-lp1045 ]
+  %.merged180 = phi { ptr, i32 } [ %.pn1751013, %2034 ], [ %2033, %2032 ], [ %.pn144.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406 ], [ %.pn139996, %1660 ], [ %1659, %1658 ], [ %.pn149, %.body576 ], [ %.pn153.pn, %_ZN3nix9StorePathD2Ev.exit331 ], [ %1492, %1491 ], [ %.pn151984, %1412 ], [ %1411, %1410 ], [ %.pn156978, %998 ], [ %997, %996 ], [ %989, %988 ], [ %.pn165966, %853 ], [ %852, %851 ], [ %.pn167, %844 ], [ %eh.lpad-body419, %.body418 ], [ %434, %433 ], [ %.pn9.i426, %435 ], [ %456, %455 ], [ %.pn9.i440, %457 ], [ %.pn.i448, %536 ], [ %.pn173, %595 ], [ %.pn.i464, %677 ], [ %.merged181, %.loopexit1023 ], [ %894, %893 ], [ %.pn9.i493, %895 ], [ %.pn.i503, %974 ], [ %.merged182, %_ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i296 ], [ %.merged182, %1403 ], [ %1523, %1522 ], [ %.pn9.i546, %1524 ], [ %lpad.loopexit1046, %.loopexit1044 ], [ %lpad.loopexit.split-lp1047, %.loopexit.split-lp1045 ]
   call void @_ZN3nix6FdSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %72) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8FdSourceE, i64 16), ptr %71, align 8
   %2045 = load i8, ptr %156, align 8

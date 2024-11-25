@@ -7170,7 +7170,7 @@ if.then.i.i7.i:                                   ; preds = %lpad2.i
   br label %common.resume
 
 common.resume:                                    ; preds = %ehcleanup34, %ehcleanup141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i405, %ehcleanup150, %cleanup.action, %if.then.i.i8.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i216, %if.then.i.i7.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %1, %if.then.i.i7.i ], [ %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %14, %if.then.i.i8.i ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i216 ], [ %.merged, %ehcleanup34 ], [ %.pn198.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup141 ], [ %.merged23, %cleanup.action ], [ %104, %ehcleanup150 ], [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i405 ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %if.then.i.i7.i ], [ %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %14, %if.then.i.i8.i ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i216 ], [ %.merged21, %ehcleanup34 ], [ %.pn198.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup141 ], [ %.merged, %cleanup.action ], [ %104, %ehcleanup150 ], [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i405 ]
   resume { ptr, i32 } %common.resume.op
 
 if.end5:                                          ; preds = %if.end
@@ -7443,7 +7443,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br label %return
 
 ehcleanup32:                                      ; preds = %lpad19, %lpad29, %catch.dispatch
-  %.merged21 = phi { ptr, i32 } [ %.pn208, %catch.dispatch ], [ %37, %lpad29 ], [ %36, %lpad19 ]
+  %.merged22 = phi { ptr, i32 } [ %.pn208, %catch.dispatch ], [ %37, %lpad29 ], [ %36, %lpad19 ]
   %40 = load ptr, ptr %itemstring, align 8, !tbaa !11
   %cmp.i.i.i242 = icmp eq ptr %40, %17
   br i1 %cmp.i.i.i242, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i244, label %if.then.i.i243
@@ -7459,7 +7459,7 @@ if.then.i.i243:                                   ; preds = %ehcleanup32
   br label %ehcleanup34
 
 ehcleanup34:                                      ; preds = %if.then.i.i243, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i244, %lpad
-  %.merged = phi { ptr, i32 } [ %27, %lpad ], [ %.merged21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i244 ], [ %.merged21, %if.then.i.i243 ]
+  %.merged21 = phi { ptr, i32 } [ %27, %lpad ], [ %.merged22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i244 ], [ %.merged22, %if.then.i.i243 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %itemstring) #31
   br label %common.resume
 
@@ -8055,7 +8055,7 @@ ehcleanup150:                                     ; preds = %lpad147
   br i1 %cleanup.isactive.0, label %cleanup.action, label %common.resume
 
 cleanup.action:                                   ; preds = %ehcleanup150, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i405, %ehcleanup150.thread
-  %.merged23 = phi { ptr, i32 } [ %103, %ehcleanup150.thread ], [ %104, %ehcleanup150 ], [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i405 ]
+  %.merged = phi { ptr, i32 } [ %103, %ehcleanup150.thread ], [ %104, %ehcleanup150 ], [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i405 ]
   call void @__cxa_free_exception(ptr %exception) #31
   br label %common.resume
 

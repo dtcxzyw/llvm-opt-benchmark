@@ -2783,7 +2783,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %106, %
   br i1 %cond1, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit162, label %312
 
 143:                                              ; preds = %102, %104, %87
-  %.merged126 = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ], [ %.pn118, %87 ]
+  %.merged125 = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ], [ %.pn118, %87 ]
   call void @_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #24
   br label %316
 
@@ -3089,7 +3089,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit162
 
 243:                                              ; preds = %202, %204, %191
-  %.merged125 = phi { ptr, i32 } [ %205, %204 ], [ %203, %202 ], [ %.pn114, %191 ]
+  %.merged126 = phi { ptr, i32 } [ %205, %204 ], [ %203, %202 ], [ %.pn114, %191 ]
   call void @_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #24
   br label %316
 
@@ -3372,7 +3372,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit180: ; pred
 
 316:                                              ; preds = %294, %243, %143
   %.sroa.0.3 = phi ptr [ %.sroa.0.14, %294 ], [ %.sroa.0.4, %143 ], [ %.sroa.0.10, %243 ]
-  %.merged = phi { ptr, i32 } [ %295, %294 ], [ %.merged126, %143 ], [ %.merged125, %243 ]
+  %.merged = phi { ptr, i32 } [ %295, %294 ], [ %.merged125, %143 ], [ %.merged126, %243 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   %.not.i181 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i181, label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit183, label %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i182
