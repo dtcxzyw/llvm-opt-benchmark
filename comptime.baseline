@@ -339,7 +339,7 @@ abc/cuddSubsetHB.c.ll 462617843
 abc/cuddSubsetSP.c.ll 402579163
 abc/cuddSymmetry.c.ll 571389148
 abc/cuddTable.c.ll 1199026292
-abc/cuddUtil.c.ll 1085411637
+abc/cuddUtil.c.ll 1086497085
 abc/cuddWindow.c.ll 343845615
 abc/cuddZddFuncs.c.ll 263403203
 abc/cuddZddGroup.c.ll 333723831
@@ -21325,7 +21325,7 @@ opencv/histogram.cpp.ll 768133484
 opencv/histogramphaseunwrapping.cpp.ll 954967143
 opencv/hog.cpp.ll 337558817
 opencv/homography_decomp.cpp.ll 1259142260
-opencv/homography_from_camera_displacement.cpp.ll 588992446
+opencv/homography_from_camera_displacement.cpp.ll 589581481
 opencv/homography_solver.cpp.ll 1802656538
 opencv/hough.cpp.ll 5867830196
 opencv/houghcircles.cpp.ll 122620828
@@ -38085,7 +38085,7 @@ wireshark/packet-umts_mac.c.ll 449235723
 wireshark/packet-umts_rlc.c.ll 897131871
 wireshark/packet-unistim.c.ll 980176305
 wireshark/packet-usb-audio.c.ll 514359019
-wireshark/packet-usb-com.c.ll 196150454
+wireshark/packet-usb-com.c.ll 196346746
 wireshark/packet-usb-dfu.c.ll 101854131
 wireshark/packet-usb-hid.c.ll 1153944229
 wireshark/packet-usb-video.c.ll 366332198
