@@ -3034,7 +3034,7 @@ clamav/chmd.c.ll 667908884
 clamav/clamav-milter.c.ll 136119388
 clamav/clamconf.c.ll 258482319
 clamav/clamd.c.ll 237416887
-clamav/clamd_others.c.ll 260657638
+clamav/clamd_others.c.ll 260396974
 clamav/clamdcom.c.ll 192342766
 clamav/clamdscan.c.ll 67654180
 clamav/clamdtop.c.ll 876649334
@@ -4046,7 +4046,7 @@ coreutils-rs/1ciwfpob1c4rpiex.ll 62661304
 coreutils-rs/1cuvxjl4ryp42l0c.ll 282326688
 coreutils-rs/1cy95gv4p34jizu6.ll 166773737
 coreutils-rs/1d0hca39p2ioq12e.ll 160791229
-coreutils-rs/1d5gvmr7ggbmo7q2.ll 177605237
+coreutils-rs/1d5gvmr7ggbmo7q2.ll 177783002
 coreutils-rs/1d8fw503khxds3sb.ll 1114165338
 coreutils-rs/1d8sib7pdb3duiks.ll 158802171
 coreutils-rs/1djsrwanm88d6ovo.ll 261732970
@@ -12096,7 +12096,7 @@ libzmq/zmtp_engine.cpp.ll 212101478
 lief/AArch64Feature.cpp.ll 10664111268
 lief/ASN1Reader.cpp.ll 12458908446
 lief/AndroidIdent.cpp.ll 11902054132
-lief/Attribute.cpp.ll 75368592
+lief/Attribute.cpp.ll 75293203
 lief/BinaryParser.cpp.ll 21369193644
 lief/BinaryStream.cpp.ll 1090711918
 lief/BindingInfo.cpp.ll 81712272
@@ -15439,7 +15439,7 @@ llvm/MemCpyOptimizer.cpp.ll 4428707677
 llvm/MemDerefPrinter.cpp.ll 314330041
 llvm/MemProf.cpp.ll 6075397855
 llvm/MemProfContextDisambiguation.cpp.ll 39607230758
-llvm/MemProfReader.cpp.ll 6969106564
+llvm/MemProfReader.cpp.ll 6962137438
 llvm/MemProfiler.cpp.ll 4327899714
 llvm/MemRegion.cpp.ll 4017460983
 llvm/MemberPointer.cpp.ll 201550338
@@ -25250,7 +25250,7 @@ openmpi/pml_cm_recvreq.ll 190199616
 openmpi/pml_cm_request.ll 45359909
 openmpi/pml_cm_sendreq.ll 177592266
 openmpi/pml_cm_start.ll 283917789
-openmpi/pml_monitoring_comm.ll 34905939
+openmpi/pml_monitoring_comm.ll 34871027
 openmpi/pml_monitoring_component.ll 66519576
 openmpi/pml_monitoring_iprobe.ll 36278930
 openmpi/pml_monitoring_irecv.ll 37702845
@@ -26253,7 +26253,7 @@ openssl/libcrypto-lib-siphash.ll 173365729
 openssl/libcrypto-lib-siv128.ll 110642079
 openssl/libcrypto-lib-sm2_crypt.ll 138577978
 openssl/libcrypto-lib-sm2_sign.ll 129764620
-openssl/libcrypto-lib-sm3.ll 2603706880
+openssl/libcrypto-lib-sm3.ll 2606310630
 openssl/libcrypto-lib-sm4.ll 766202911
 openssl/libcrypto-lib-sparse_array.ll 144055588
 openssl/libcrypto-lib-srp_lib.ll 117326045
@@ -26634,7 +26634,7 @@ openssl/libcrypto-shlib-siphash.ll 173368241
 openssl/libcrypto-shlib-siv128.ll 110671322
 openssl/libcrypto-shlib-sm2_crypt.ll 138578296
 openssl/libcrypto-shlib-sm2_sign.ll 129764684
-openssl/libcrypto-shlib-sm3.ll 2603707274
+openssl/libcrypto-shlib-sm3.ll 2606311013
 openssl/libcrypto-shlib-sm4.ll 766203233
 openssl/libcrypto-shlib-sparse_array.ll 144055942
 openssl/libcrypto-shlib-srp_lib.ll 117254764
