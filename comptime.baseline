@@ -5960,7 +5960,7 @@ darktable/exr.cc.ll 410347669
 darktable/filmstrip.c.ll 52058031
 darktable/filter.c.ll 58151380
 darktable/filtering.c.ll 1466525099
-darktable/gallery.c.ll 152916133
+darktable/gallery.c.ll 153069050
 darktable/gamepad.c.ll 142114054
 darktable/geotagging.c.ll 359240628
 darktable/global_toolbox.c.ll 190964111
@@ -23164,7 +23164,7 @@ openjdk/invoker.ll 427722669
 openjdk/io_util.ll 76173108
 openjdk/io_util_md.ll 88256948
 openjdk/isGCActiveMark.ll 36188854
-openjdk/istream.ll 108020261
+openjdk/istream.ll 108128465
 openjdk/iterator.ll 1135982146
 openjdk/j2secmod.ll 81034972
 openjdk/j2secmod_md.ll 40760865
@@ -24056,7 +24056,7 @@ openjdk/zBarrierSetC1.ll 479835513
 openjdk/zBarrierSetC2.ll 738230216
 openjdk/zBarrierSetNMethod.ll 279297828
 openjdk/zBarrierSetRuntime.ll 1814309522
-openjdk/zBarrierSetStackChunk.ll 40320176
+openjdk/zBarrierSetStackChunk.ll 40360541
 openjdk/zBreakpoint.ll 53325797
 openjdk/zCPU.ll 67705201
 openjdk/zCollectedHeap.ll 289018764
@@ -36604,7 +36604,7 @@ wasmtime-rs/3n0zrdpc82n5c9ib.ll 124749767
 wasmtime-rs/3nx5xa8lpfh19nj.ll 267398601
 wasmtime-rs/3ongwcslbj2wmgl9.ll 1568268776
 wasmtime-rs/3pl7x9pw4pwt2clp.ll 843971904
-wasmtime-rs/3q9n4n36xx9j9s1d.ll 80138749
+wasmtime-rs/3q9n4n36xx9j9s1d.ll 80218899
 wasmtime-rs/3qm6o3ec4wwbp8ot.ll 54395502
 wasmtime-rs/3qxuuvy9ipi9muus.ll 5323703831
 wasmtime-rs/3r0osxvwe4cd326n.ll 8635789725
