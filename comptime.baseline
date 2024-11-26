@@ -1923,7 +1923,7 @@ boost/cpp_re.ll 42731210
 boost/cpu_timer.ll 260324250
 boost/cstdio.ll 198154922
 boost/cstdlib.ll 34744611
-boost/cstring_ref.ll 1901526064
+boost/cstring_ref.ll 1899624427
 boost/cwd.ll 307257041
 boost/date_time.ll 946981159
 boost/date_time_format_parser.ll 892153015
