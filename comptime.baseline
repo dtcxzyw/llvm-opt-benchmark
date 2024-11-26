@@ -24750,7 +24750,7 @@ openmpi/libmpi_c_profile_la-psend_init.ll 63357880
 openmpi/libmpi_c_profile_la-publish_name.ll 94849288
 openmpi/libmpi_c_profile_la-put.ll 88884073
 openmpi/libmpi_c_profile_la-raccumulate.ll 106016176
-openmpi/libmpi_c_profile_la-recv.ll 102665920
+openmpi/libmpi_c_profile_la-recv.ll 102768652
 openmpi/libmpi_c_profile_la-recv_init.ll 101993221
 openmpi/libmpi_c_profile_la-reduce.ll 124597863
 openmpi/libmpi_c_profile_la-reduce_init.ll 115016178
