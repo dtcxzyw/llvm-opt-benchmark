@@ -424,14 +424,15 @@ define internal void @"_ZN4core3ptr63drop_in_place$LT$parser..syntax_kind..gener
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h9283286ce304d74cE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32 }, i16, [1 x i16] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
-  %4 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %5 = load i64, ptr %4, align 8, !range !39, !noalias !40, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  %4 = load ptr, ptr %1, align 8, !alias.scope !39, !nonnull !4, !noundef !4
+  %5 = load i64, ptr %4, align 8, !range !42, !noalias !39, !noundef !4
   %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !40, !nonnull !4, !noundef !4
+  %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !39, !nonnull !4, !noundef !4
   %switch.not.not.i = icmp eq i64 %5, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
   %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
-  %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !40, !noundef !4
+  %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !39, !noundef !4
   %6 = tail call noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i), !range !36
   %7 = getelementptr inbounds i8, ptr %4, i64 60
   %8 = load i8, ptr %7, align 4, !range !43, !noalias !44, !noundef !4
@@ -449,7 +450,7 @@ define hidden void @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h9283286ce304d74
 
 15:                                               ; preds = %13, %10
   %.0.i.i = phi i32 [ %14, %13 ], [ %12, %10 ]
-  %16 = load i64, ptr %4, align 8, !range !39, !noalias !44, !noundef !4
+  %16 = load i64, ptr %4, align 8, !range !42, !noalias !44, !noundef !4
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !44, !nonnull !4, !noundef !4
   %switch.i.i.i = icmp eq i64 %16, 0
   br i1 %switch.i.i.i, label %17, label %19
@@ -498,7 +499,7 @@ define hidden void @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h9283286ce304d74
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i16 @_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E.llvm.9397937700280594456(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %3 = load i64, ptr %2, align 8, !range !39, !noundef !4
+  %3 = load i64, ptr %2, align 8, !range !42, !noundef !4
   %.sroa.3.0.in.i = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.3.0.i = load ptr, ptr %.sroa.3.0.in.i, align 8, !nonnull !4, !noundef !4
   %switch.not.not = icmp eq i64 %3, 0
@@ -510,7 +511,7 @@ define hidden noundef i16 @_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, ptr } @_ZN5rowan6cursor8NodeData5green17h942c2960d71e6ad6E.llvm.9397937700280594456(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #4 {
-  %2 = load i64, ptr %0, align 8, !range !39, !noundef !4
+  %2 = load i64, ptr %0, align 8, !range !42, !noundef !4
   %.sroa.3.0.in = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.3.0 = load ptr, ptr %.sroa.3.0.in, align 8, !nonnull !4, !noundef !4
   %3 = insertvalue { i64, ptr } poison, i64 %2, 0
@@ -716,10 +717,10 @@ attributes #11 = { noreturn }
 !36 = !{i16 0, i16 273}
 !37 = !{!32, !27}
 !38 = !{!35, !30}
-!39 = !{i64 0, i64 2}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E.llvm.9397937700280594456: argument 0"}
-!42 = distinct !{!42, !"_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E.llvm.9397937700280594456"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E.llvm.9397937700280594456: argument 0"}
+!41 = distinct !{!41, !"_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E.llvm.9397937700280594456"}
+!42 = !{i64 0, i64 2}
 !43 = !{i8 0, i8 2}
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZN5rowan3api19SyntaxNode$LT$L$GT$10text_range17h2a4503491369b8f9E: argument 0"}

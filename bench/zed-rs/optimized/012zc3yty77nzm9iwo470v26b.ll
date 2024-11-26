@@ -145,7 +145,7 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %34 = getelementptr inbounds i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8, !alias.scope !10, !nonnull !5, !noundef !5
+  %35 = load ptr, ptr %34, align 8, !alias.scope !13, !nonnull !5, !noundef !5
   %36 = getelementptr inbounds i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !alias.scope !13, !noundef !5
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17ha53d552b1290cde6E.llvm.15042225336479844372"(ptr noalias noundef nonnull align 8 %35, i64 noundef %37) #19
@@ -279,7 +279,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !alias.scope !50, !nonnull !5, !noundef !5
+  %21 = load ptr, ptr %20, align 8, !alias.scope !53, !nonnull !5, !noundef !5
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !alias.scope !53, !noundef !5
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17ha53d552b1290cde6E.llvm.15042225336479844372"(ptr noalias noundef nonnull align 8 %21, i64 noundef %23) #19

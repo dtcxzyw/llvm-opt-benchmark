@@ -1465,7 +1465,7 @@ GetLine.exit139.i:                                ; preds = %182, %.split.loop.e
 
 223:                                              ; preds = %._crit_edge174.i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5), !noalias !7
-  %.sroa.1.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 12), align 4
+  %.sroa.1.0.copyload.i.i = load i32, ptr getelementptr inbounds (i8, ptr @defaultFont, i64 12), align 4, !noalias !7
   %.not.i.i = icmp eq i32 %.sroa.1.0.copyload.i.i, 0
   br i1 %.not.i.i, label %UnloadFont.exit.i, label %224
 

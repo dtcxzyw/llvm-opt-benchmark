@@ -1799,7 +1799,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit: ; preds = %._crit_
 62:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %20, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %20, align 8, !noalias !33
   %63 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i, 7
   br i1 %63, label %_ZL20createLoadInstBeforeN5clang7CodeGen7AddressERKN4llvm5TwineENS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ENS2_10BasicBlockEEELb0ELb0EEERNS0_15CodeGenFunctionE.exit.i, label %64
 
@@ -2786,7 +2786,7 @@ _ZL17CreateNormalEntryRN5clang7CodeGen15CodeGenFunctionERNS0_14EHCleanupScopeE.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18)
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 2920
-  %.0.copyload.i.i.i.i.i = load i64, ptr %301, align 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %301, align 8, !noalias !51
   %302 = icmp ugt i64 %.0.copyload.i.i.i.i.i, 7
   br i1 %302, label %_ZN5clang7CodeGen15CodeGenFunction24getNormalCleanupDestSlotEv.exit, label %303
 
@@ -3051,7 +3051,7 @@ _ZNK5clang7CodeGen14EHCleanupScope18getNumBranchAftersEv.exit336: ; preds = %366
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 2920
-  %.0.copyload.i.i.i.i.i337 = load i64, ptr %415, align 8
+  %.0.copyload.i.i.i.i.i337 = load i64, ptr %415, align 8, !noalias !57
   %416 = icmp ugt i64 %.0.copyload.i.i.i.i.i337, 7
   br i1 %416, label %_ZN5clang7CodeGen15CodeGenFunction24getNormalCleanupDestSlotEv.exit338, label %417
 
@@ -3277,7 +3277,7 @@ _ZNK5clang7CodeGen14EHCleanupScope18getNumBranchAftersEv.exit353: ; preds = %469
   %509 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %507, i64 noundef %508, i1 noundef zeroext false) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
-  %.0.copyload.i.i.i.i.i.i358 = load i64, ptr %415, align 8
+  %.0.copyload.i.i.i.i.i.i358 = load i64, ptr %415, align 8, !noalias !61
   %510 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i358, 7
   br i1 %510, label %_ZN5clang7CodeGen15CodeGenFunction24getNormalCleanupDestSlotEv.exit.i, label %511
 
@@ -3588,7 +3588,7 @@ _ZN5clang7CodeGen14EHCleanupScope11MarkEmittedEv.exit369: ; preds = %596, %599
   %639 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %637, i64 noundef %638, i1 noundef zeroext false) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  %.0.copyload.i.i.i.i.i370 = load i64, ptr %621, align 8
+  %.0.copyload.i.i.i.i.i370 = load i64, ptr %621, align 8, !noalias !69
   %640 = icmp ugt i64 %.0.copyload.i.i.i.i.i370, 7
   br i1 %640, label %_ZN5clang7CodeGen15CodeGenFunction24getNormalCleanupDestSlotEv.exit371, label %641
 
@@ -4857,7 +4857,7 @@ _ZNK5clang7CodeGen12EHScopeStack31getInnermostActiveNormalCleanupEv.exit: ; pred
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 2920
-  %.0.copyload.i.i.i.i.i = load i64, ptr %61, align 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %61, align 8, !noalias !79
   %62 = icmp ugt i64 %.0.copyload.i.i.i.i.i, 7
   br i1 %62, label %_ZL21createStoreInstBeforePN4llvm5ValueEN5clang7CodeGen7AddressENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERNS3_15CodeGenFunctionE.exit, label %63
 
@@ -5861,7 +5861,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_11Instruct
 33:                                               ; preds = %22, %2
   %.sink.i.i.i.i = phi ptr [ %23, %22 ], [ null, %2 ]
   %34 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !135
-  %35 = load ptr, ptr %1, align 8
+  %35 = load ptr, ptr %1, align 8, !noalias !135
   store ptr %35, ptr %34, align 8, !noalias !135
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #19

@@ -45371,7 +45371,7 @@ cleanup.cont169:                                  ; preds = %_ZNKSt14default_del
   %200 = load ptr, ptr %from_void.i862, align 8, !tbaa !876, !noalias !64
   %tobool2.not.i863 = icmp eq ptr %200, null
   %ctx5.i867 = getelementptr inbounds i8, ptr %type, i64 112
-  %201 = load ptr, ptr %ctx5.i867, align 8, !tbaa !29, !noalias !64
+  %201 = load ptr, ptr %ctx5.i867, align 8, !tbaa !29, !noalias !886
   br i1 %tobool2.not.i863, label %cond.false.i866, label %cond.true.i864
 
 cond.true.i864:                                   ; preds = %cleanup.cont169
@@ -53257,13 +53257,13 @@ _ZN7testing15AssertionResultD2Ev.exit99:          ; preds = %cleanup.cont266, %_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_224) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar268) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp269) #26
-  %219 = load ptr, ptr @_ZN4entt7locatorINS_8meta_ctxEE7serviceE, align 8, !tbaa !17, !noalias !64
+  %219 = load ptr, ptr @_ZN4entt7locatorINS_8meta_ctxEE7serviceE, align 8, !tbaa !17, !noalias !1026
   %cmp.i.not.i.i100 = icmp eq ptr %219, null
   br i1 %cmp.i.not.i.i100, label %cond.false.i.i103, label %_ZN4entt7resolveEv.exit106.thread
 
 _ZN4entt7resolveEv.exit106.thread:                ; preds = %_ZN7testing15AssertionResultD2Ev.exit99
   %packed.i.i.i102134 = getelementptr inbounds i8, ptr %219, i64 24
-  %220 = load ptr, ptr %packed.i.i.i102134, align 8, !tbaa !65, !noalias !1026
+  %220 = load ptr, ptr %packed.i.i.i102134, align 8, !tbaa !65, !noalias !1029
   %ref.tmp270.sroa.0.0.vec.insert135 = insertelement <2 x ptr> poison, ptr %220, i64 0
   %ref.tmp270.sroa.0.8.vec.insert136 = insertelement <2 x ptr> %ref.tmp270.sroa.0.0.vec.insert135, ptr %219, i64 1
   store <2 x ptr> %ref.tmp270.sroa.0.8.vec.insert136, ptr %ref.tmp269, align 16
@@ -53272,7 +53272,7 @@ _ZN4entt7resolveEv.exit106.thread:                ; preds = %_ZN7testing15Assert
 
 cond.false.i.i103:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit99
   %call2.i1.i104 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN4entt7locatorINS_8meta_ctxEE7emplaceIS1_JEEERS1_DpOT0_()
-          to label %_ZN4entt7resolveEv.exit106 unwind label %terminate.lpad.i105, !noalias !1031
+          to label %_ZN4entt7resolveEv.exit106 unwind label %terminate.lpad.i105, !noalias !1026
 
 terminate.lpad.i105:                              ; preds = %cond.false.i.i103
   %221 = landingpad { ptr, i32 }
@@ -53284,7 +53284,7 @@ terminate.lpad.i105:                              ; preds = %cond.false.i.i103
 _ZN4entt7resolveEv.exit106:                       ; preds = %cond.false.i.i103
   %.pre132 = load ptr, ptr @_ZN4entt7locatorINS_8meta_ctxEE7serviceE, align 8, !tbaa !17, !noalias !1032
   %packed.i.i.i102 = getelementptr inbounds i8, ptr %call2.i1.i104, i64 24
-  %223 = load ptr, ptr %packed.i.i.i102, align 8, !tbaa !65, !noalias !1026
+  %223 = load ptr, ptr %packed.i.i.i102, align 8, !tbaa !65, !noalias !1029
   %ref.tmp270.sroa.0.0.vec.insert = insertelement <2 x ptr> poison, ptr %223, i64 0
   %ref.tmp270.sroa.0.8.vec.insert = insertelement <2 x ptr> %ref.tmp270.sroa.0.0.vec.insert, ptr %call2.i1.i104, i64 1
   store <2 x ptr> %ref.tmp270.sroa.0.8.vec.insert, ptr %ref.tmp269, align 16
@@ -128307,12 +128307,12 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1023 = !{!1024}
 !1024 = distinct !{!1024, !1025, !"_ZN4entt7resolveEj: %agg.result"}
 !1025 = distinct !{!1025, !"_ZN4entt7resolveEj"}
-!1026 = !{!1027, !1029}
-!1027 = distinct !{!1027, !1028, !"_ZN4entt7resolveERKNS_8meta_ctxE: %agg.result"}
-!1028 = distinct !{!1028, !"_ZN4entt7resolveERKNS_8meta_ctxE"}
-!1029 = distinct !{!1029, !1030, !"_ZN4entt7resolveEv: %agg.result"}
-!1030 = distinct !{!1030, !"_ZN4entt7resolveEv"}
-!1031 = !{!1029}
+!1026 = !{!1027}
+!1027 = distinct !{!1027, !1028, !"_ZN4entt7resolveEv: %agg.result"}
+!1028 = distinct !{!1028, !"_ZN4entt7resolveEv"}
+!1029 = !{!1030, !1027}
+!1030 = distinct !{!1030, !1031, !"_ZN4entt7resolveERKNS_8meta_ctxE: %agg.result"}
+!1031 = distinct !{!1031, !"_ZN4entt7resolveERKNS_8meta_ctxE"}
 !1032 = !{!1033}
 !1033 = distinct !{!1033, !1034, !"_ZN4entt7resolveEv: %agg.result"}
 !1034 = distinct !{!1034, !"_ZN4entt7resolveEv"}

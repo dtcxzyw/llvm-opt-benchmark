@@ -5154,8 +5154,8 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i: ; pred
   %119 = getelementptr inbounds i8, ptr %113, i64 %indvars.iv221
   store i8 %118, ptr %119, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %120 = load ptr, ptr %30, align 8
-  %121 = load ptr, ptr %48, align 8
+  %120 = load ptr, ptr %30, align 8, !noalias !61
+  %121 = load ptr, ptr %48, align 8, !noalias !61
   %122 = icmp eq ptr %120, %121
   br i1 %122, label %_ZNK5Yosys7hashlib4poolINS_14BitPatternPool6bits_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.thread, label %123
 
@@ -5209,8 +5209,8 @@ _ZN5Yosys7hashlib8hash_opsISt6vectorINS_5RTLIL5StateESaIS4_EEE4hashES6_.exit.thr
   store i32 %138, ptr %46, align 8, !noalias !61
   call void @_ZdlPv(ptr noundef nonnull %133) #19, !noalias !61
   %.pre.i.i.i.i = load i32, ptr %46, align 8, !noalias !61
-  %.pre225 = load ptr, ptr %48, align 8
-  %.pre226 = load ptr, ptr %30, align 8
+  %.pre225 = load ptr, ptr %48, align 8, !noalias !61
+  %.pre226 = load ptr, ptr %30, align 8, !noalias !61
   br label %_ZNK5Yosys7hashlib4poolINS_14BitPatternPool6bits_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i
 
 _ZNK5Yosys7hashlib4poolINS_14BitPatternPool6bits_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i: ; preds = %123, %_ZN5Yosys7hashlib8hash_opsISt6vectorINS_5RTLIL5StateESaIS4_EEE4hashES6_.exit.thread.i.i.i.i, %140

@@ -17297,7 +17297,7 @@ _ZN5boost4asio6detail10socket_ops10setsockoptEiRhiiPKvmRNS_6system10error_codeE.
   store ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %.sroa.52.0..sroa_idx.i, align 8, !tbaa !28
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %39, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !13
-  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124, !noalias !560
   %41 = and i64 %40, -2
   %switch.i.i.i.i32 = icmp eq i64 %41, -5572340897628102704
   br i1 %switch.i.i.i.i32, label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit
@@ -17309,7 +17309,7 @@ _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIX
   %45 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef 11) #33, !noalias !560
   %.pre = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !81
   %.pre93 = load i32, ptr %3, align 8
-  %.pre94.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124
+  %.pre94.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124, !noalias !563
   br label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread
 
 _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %38
@@ -19405,7 +19405,7 @@ _ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5boost4asio6detail10socket_ops7sendto1EiPKvmiS4_mRNS_6system10error_codeE.exit54
   %42 = phi i32 [ %97, %_ZN5boost4asio6detail10socket_ops7sendto1EiPKvmiS4_mRNS_6system10error_codeE.exit54 ], [ %17, %.lr.ph ]
   %43 = phi i64 [ %107, %_ZN5boost4asio6detail10socket_ops7sendto1EiPKvmiS4_mRNS_6system10error_codeE.exit54 ], [ %27, %.lr.ph ]
-  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124, !noalias !597
   %45 = and i64 %44, -2
   %switch.i.i.i.i24 = icmp eq i64 %45, -5572340897628102704
   br i1 %switch.i.i.i.i24, label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit
@@ -19417,7 +19417,7 @@ _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIX
   %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef 11) #33, !noalias !597
   %.pre = load i64, ptr %29, align 8, !tbaa !81
   %.pre95 = load i32, ptr %7, align 8
-  %.pre96.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124
+  %.pre96.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124, !noalias !600
   br label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread
 
 _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %.lr.ph.split

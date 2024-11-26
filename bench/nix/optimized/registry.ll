@@ -4301,10 +4301,10 @@ _ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_E
   store i32 %263, ptr %221, align 4, !noalias !28
   %264 = getelementptr inbounds i8, ptr %146, i64 24
   %265 = getelementptr inbounds i8, ptr %146, i64 40
-  %266 = load ptr, ptr %265, align 8
+  %266 = load ptr, ptr %265, align 8, !noalias !28
   %267 = getelementptr inbounds i8, ptr %146, i64 48
-  %268 = load i32, ptr %267, align 8
-  %269 = load ptr, ptr %264, align 8
+  %268 = load i32, ptr %267, align 8, !noalias !28
+  %269 = load ptr, ptr %264, align 8, !noalias !28
   %270 = ptrtoint ptr %266 to i64
   %271 = ptrtoint ptr %269 to i64
   %272 = sub i64 %270, %271
@@ -4463,7 +4463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
   store i32 0, ptr %221, align 4
   store i8 0, ptr %147, align 4
   %.not.i88 = icmp ne i64 %.pre-phi240, %.pre-phi244
-  %.pre228 = load i32, ptr %222, align 8
+  %.pre228 = load i32, ptr %222, align 8, !noalias !28
   %343 = icmp sgt i32 %.pre228, 0
   %or.cond = select i1 %.not.i88, i1 %343, i1 false
   br i1 %or.cond, label %.lr.ph19.preheader.i, label %.noexc36

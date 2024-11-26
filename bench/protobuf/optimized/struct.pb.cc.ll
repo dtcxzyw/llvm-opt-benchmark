@@ -796,7 +796,7 @@ if.end:                                           ; preds = %entry
   %index_of_first_non_null_.i.i.i = getelementptr inbounds i8, ptr %m, i64 12
   %2 = load i32, ptr %index_of_first_non_null_.i.i.i, align 4, !noalias !9
   %num_buckets_.i.i.i = getelementptr inbounds i8, ptr %m, i64 4
-  %3 = load i32, ptr %num_buckets_.i.i.i, align 4
+  %3 = load i32, ptr %num_buckets_.i.i.i, align 4, !noalias !9
   %cmp.i.i.i = icmp eq i32 %2, %3
   br i1 %cmp.i.i.i, label %for.end, label %if.else.i.i.i
 

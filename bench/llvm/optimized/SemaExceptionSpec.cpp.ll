@@ -2909,13 +2909,13 @@ _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17Functio
   store i32 %215, ptr %148, align 4, !noalias !10
   store ptr %204, ptr %208, align 8, !noalias !10
   %216 = load ptr, ptr %14, align 8, !noalias !10
-  %217 = load i32, ptr %148, align 4
+  %217 = load i32, ptr %148, align 4, !noalias !10
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 218:                                              ; preds = %._crit_edge.i.i, %.lr.ph
   %219 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef %204) #15, !noalias !10
   %.pre.i = load ptr, ptr %14, align 8, !noalias !10
-  %.pre7.i = load i32, ptr %148, align 4
+  %.pre7.i = load i32, ptr %148, align 4, !noalias !10
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %218, %214
@@ -3064,7 +3064,7 @@ _ZNK4llvm15SmallPtrSetImplIN5clang7CanQualINS1_4TypeEEEE5countES4_.exit: ; preds
   br i1 %300, label %301, label %314
 
 301:                                              ; preds = %297
-  %302 = load i32, ptr %153, align 4
+  %302 = load i32, ptr %153, align 4, !noalias !15
   %303 = zext i32 %302 to i64
   %304 = getelementptr inbounds ptr, ptr %299, i64 %303
   %.not24.i.i186 = icmp eq i32 %302, 0
@@ -3090,12 +3090,12 @@ _ZNK4llvm15SmallPtrSetImplIN5clang7CanQualINS1_4TypeEEEE5countES4_.exit: ; preds
   %312 = add nuw i32 %302, 1
   store i32 %312, ptr %153, align 4, !noalias !15
   store ptr %271, ptr %304, align 8, !noalias !15
-  %313 = load i32, ptr %153, align 4
+  %313 = load i32, ptr %153, align 4, !noalias !15
   br label %_ZN4llvm15SmallPtrSetImplIN5clang7CanQualINS1_4TypeEEEE6insertES4_.exit191
 
 314:                                              ; preds = %._crit_edge.i.i190, %297
   %315 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %15, ptr noundef %271) #15, !noalias !15
-  %.pre7.i171 = load i32, ptr %153, align 4
+  %.pre7.i171 = load i32, ptr %153, align 4, !noalias !15
   br label %_ZN4llvm15SmallPtrSetImplIN5clang7CanQualINS1_4TypeEEEE6insertES4_.exit191
 
 _ZN4llvm15SmallPtrSetImplIN5clang7CanQualINS1_4TypeEEEE6insertES4_.exit191: ; preds = %.lr.ph.i.i187, %311, %314

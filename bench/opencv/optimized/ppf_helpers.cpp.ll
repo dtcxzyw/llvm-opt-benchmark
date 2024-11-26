@@ -1777,7 +1777,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %57 unwind label %.loopexit.i
 
 57:                                               ; preds = %.lr.ph.i
-  %58 = load ptr, ptr %49, align 8
+  %58 = load ptr, ptr %49, align 8, !alias.scope !4
   %59 = load ptr, ptr %50, align 8, !alias.scope !4
   %.not.i.i.i = icmp eq ptr %58, %59
   br i1 %.not.i.i.i, label %63, label %60

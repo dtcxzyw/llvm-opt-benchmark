@@ -2066,7 +2066,7 @@ _ZStlsINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEfEOT_S7_RKT0_.
   br i1 %.not.i.i201, label %_ZN2cv3PtrINS_18SimpleBlobDetectorEED2Ev.exit223, label %718
 
 718:                                              ; preds = %716
-  %719 = load ptr, ptr %293, align 8
+  %719 = load ptr, ptr %293, align 8, !noalias !29
   %.not.i.i.i.i.i202 = icmp eq ptr %719, null
   br i1 %.not.i.i.i.i.i202, label %_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_18SimpleBlobDetectorEEENS0_IT_EEv.exit.thread, label %720
 
@@ -2165,7 +2165,7 @@ _ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_18SimpleBlobDetectorEEENS0_IT_EEv.ex
   br i1 %.not.i.i211, label %775, label %765
 
 765:                                              ; preds = %763
-  %766 = load ptr, ptr %293, align 8
+  %766 = load ptr, ptr %293, align 8, !noalias !37
   %.not.i.i.i.i.i212 = icmp eq ptr %766, null
   br i1 %.not.i.i.i.i.i212, label %775, label %767
 

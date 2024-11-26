@@ -1353,7 +1353,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13CXXRecordDeclESt8functionIFvS4_EEN
   %56 = load ptr, ptr %55, align 8, !noalias !13
   store ptr %56, ptr %54, align 8, !noalias !13
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %58 = load ptr, ptr %57, align 8
+  %58 = load ptr, ptr %57, align 8, !noalias !13
   %.not.i.i.not.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt4pairIPN5clang13CXXRecordDeclESt8functionIFvS2_EEED2Ev.exit, label %59
 

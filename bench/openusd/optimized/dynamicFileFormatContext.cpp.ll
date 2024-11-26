@@ -2002,8 +2002,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %117, %122
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 56
   store i64 %132, ptr %.sroa.2.0..sroa_idx, align 8
   %144 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %145 = load ptr, ptr %144, align 8, !noalias !10
-  %146 = load ptr, ptr %145, align 8, !noalias !10
+  %145 = load ptr, ptr %144, align 8, !noalias !13
+  %146 = load ptr, ptr %145, align 8, !noalias !13
   %147 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %146, i64 %132, i32 3, i32 2
   %148 = load i16, ptr %147, align 4, !noalias !13
   %149 = zext i16 %148 to i64
@@ -3747,8 +3747,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit43: ; preds = %87, %92
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 56
   store i64 %102, ptr %.sroa.2.0..sroa_idx, align 8
   %114 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %115 = load ptr, ptr %114, align 8, !noalias !23
-  %116 = load ptr, ptr %115, align 8, !noalias !23
+  %115 = load ptr, ptr %114, align 8, !noalias !26
+  %116 = load ptr, ptr %115, align 8, !noalias !26
   %117 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %116, i64 %102, i32 3, i32 2
   %118 = load i16, ptr %117, align 4, !noalias !26
   %119 = zext i16 %118 to i64
@@ -4709,8 +4709,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit44: ; preds = %95, %100
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 56
   store i64 %110, ptr %.sroa.2.0..sroa_idx, align 8
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %123 = load ptr, ptr %122, align 8, !noalias !29
-  %124 = load ptr, ptr %123, align 8, !noalias !29
+  %123 = load ptr, ptr %122, align 8, !noalias !32
+  %124 = load ptr, ptr %123, align 8, !noalias !32
   %125 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %124, i64 %110, i32 3, i32 2
   %126 = load i16, ptr %125, align 4, !noalias !32
   %127 = zext i16 %126 to i64
@@ -5808,8 +5808,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit43: ; preds = %87, %92
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 56
   store i64 %102, ptr %.sroa.2.0..sroa_idx, align 8
   %114 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %115 = load ptr, ptr %114, align 8, !noalias !46
-  %116 = load ptr, ptr %115, align 8, !noalias !46
+  %115 = load ptr, ptr %114, align 8, !noalias !49
+  %116 = load ptr, ptr %115, align 8, !noalias !49
   %117 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %116, i64 %102, i32 3, i32 2
   %118 = load i16, ptr %117, align 4, !noalias !49
   %119 = zext i16 %118 to i64

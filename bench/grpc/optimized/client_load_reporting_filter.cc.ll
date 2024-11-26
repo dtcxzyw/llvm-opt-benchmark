@@ -2776,19 +2776,19 @@ entry:
   call void %2(ptr nonnull sret(%"class.grpc_core::Poll.139") align 8 %ref.tmp.i.i, ptr noundef nonnull %arg.i.i.i), !noalias !53
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  %3 = load i8, ptr %ref.tmp.i.i, align 8, !noalias !53
+  %3 = load i8, ptr %ref.tmp.i.i, align 8, !noalias !60
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   %frombool.i.i.i.i.i = and i8 %3, 1
-  store i8 %frombool.i.i.i.i.i, ptr %r.i, align 8, !alias.scope !60, !noalias !47
+  store i8 %frombool.i.i.i.i.i, ptr %r.i, align 8, !alias.scope !61, !noalias !47
   br i1 %tobool.i.i.i.i.i, label %if.then.i, label %"_ZN9grpc_core14promise_detail3MapINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZNS_25ClientLoadReportingFilter15MakeCallPromiseENS_8CallArgsESt8functionIFS8_SA_EEE3$_1EclEv.exit"
 
 if.then.i:                                        ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %r.i, i64 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %6 = load i8, ptr %5, align 8, !noalias !61
-  store i8 %6, ptr %4, align 8, !alias.scope !60, !noalias !47
+  %6 = load i8, ptr %5, align 8, !noalias !60
+  store i8 %6, ptr %4, align 8, !alias.scope !61, !noalias !47
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %7 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !61
+  %7 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !60
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i), !noalias !47
   store i8 %6, ptr %agg.tmp.i, align 8, !noalias !47
   %8 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
@@ -3015,8 +3015,8 @@ attributes #27 = { builtin nounwind }
 !57 = !{!58}
 !58 = distinct !{!58, !59, !"_ZN9grpc_core14promise_detail11PollWrapperINS_4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEE4WrapEOS8_: %agg.result"}
 !59 = distinct !{!59, !"_ZN9grpc_core14promise_detail11PollWrapperINS_4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEE4WrapEOS8_"}
-!60 = !{!58, !55, !45}
-!61 = !{!58, !55, !45, !48}
+!60 = !{!58, !55, !45, !48}
+!61 = !{!58, !55, !45}
 !62 = !{!63, !48}
 !63 = distinct !{!63, !64, !"_ZZN9grpc_core25ClientLoadReportingFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEENK3$_1clES8_: %agg.result"}
 !64 = distinct !{!64, !"_ZZN9grpc_core25ClientLoadReportingFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEENK3$_1clES8_"}

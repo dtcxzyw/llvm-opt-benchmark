@@ -1468,7 +1468,7 @@ _ZN2cv3PtrINS_4MSEREED2Ev.exit150:                ; preds = %_ZN2cv3PtrINS_9Feat
   %523 = call ptr @__dynamic_cast(ptr nonnull %522, ptr nonnull @_ZTIN2cv9Feature2DE, ptr nonnull @_ZTIN2cv4MSERE, i64 0) #20, !noalias !25
   %.not.i.i151 = icmp ne ptr %523, null
   call void @llvm.assume(i1 %.not.i.i151)
-  %524 = load ptr, ptr %286, align 8
+  %524 = load ptr, ptr %286, align 8, !noalias !25
   %.not.i.i.i.i.i152 = icmp eq ptr %524, null
   br i1 %.not.i.i.i.i.i152, label %_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit, label %525
 
@@ -1723,7 +1723,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %602, %_ZSt8_Destroy
   br i1 %.not.i.i174, label %_ZN2cv3PtrINS_4MSEREED2Ev.exit199, label %612
 
 612:                                              ; preds = %610
-  %613 = load ptr, ptr %286, align 8
+  %613 = load ptr, ptr %286, align 8, !noalias !28
   %.not.i.i.i.i.i175 = icmp eq ptr %613, null
   br i1 %.not.i.i.i.i.i175, label %_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit179.thread, label %614
 
@@ -1811,14 +1811,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit179.threadthread-pre-split
 
 _ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit179.threadthread-pre-split: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i185, %637, %650
-  %.pr485 = load ptr, ptr %286, align 8
+  %.pr485 = load ptr, ptr %286, align 8, !noalias !35
   br label %_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit179.thread
 
 _ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit179.thread: ; preds = %_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit179.threadthread-pre-split, %612
   %655 = phi ptr [ %.pr485, %_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit179.threadthread-pre-split ], [ null, %612 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %656 = load ptr, ptr %46, align 8, !noalias !38, !nonnull !28, !noundef !28
-  %657 = call ptr @__dynamic_cast(ptr nonnull %656, ptr nonnull @_ZTIN2cv9Feature2DE, ptr nonnull @_ZTIN2cv4MSERE, i64 0) #20, !noalias !38
+  call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  %656 = load ptr, ptr %46, align 8, !noalias !35, !nonnull !28, !noundef !28
+  %657 = call ptr @__dynamic_cast(ptr nonnull %656, ptr nonnull @_ZTIN2cv9Feature2DE, ptr nonnull @_ZTIN2cv4MSERE, i64 0) #20, !noalias !35
   %.not.i.i187 = icmp ne ptr %657, null
   call void @llvm.assume(i1 %.not.i.i187)
   %.not.i.i.i.i.i188 = icmp eq ptr %655, null
@@ -1826,23 +1826,23 @@ _ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit179.thread: ;
 
 658:                                              ; preds = %_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit179.thread
   %659 = getelementptr inbounds i8, ptr %655, i64 8
-  %660 = load i8, ptr @__libc_single_threaded, align 1, !noalias !38
+  %660 = load i8, ptr @__libc_single_threaded, align 1, !noalias !35
   %.not.i.i.i.i.i.i189 = icmp eq i8 %660, 0
   br i1 %.not.i.i.i.i.i.i189, label %664, label %661
 
 661:                                              ; preds = %658
-  %662 = load i32, ptr %659, align 4, !noalias !38
+  %662 = load i32, ptr %659, align 4, !noalias !35
   %663 = add nsw i32 %662, 1
-  store i32 %663, ptr %659, align 4, !noalias !38
+  store i32 %663, ptr %659, align 4, !noalias !35
   br label %666
 
 664:                                              ; preds = %658
-  %665 = atomicrmw volatile add ptr %659, i32 1 acq_rel, align 4, !noalias !38
+  %665 = atomicrmw volatile add ptr %659, i32 1 acq_rel, align 4, !noalias !35
   br label %666
 
 666:                                              ; preds = %664, %661, %_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv.exit179.thread
-  store ptr %657, ptr %61, align 8, !alias.scope !35
-  store ptr %655, ptr %298, align 8, !alias.scope !35
+  store ptr %657, ptr %61, align 8, !alias.scope !40
+  store ptr %655, ptr %298, align 8, !alias.scope !40
   store i32 0, ptr %299, align 8
   store i32 0, ptr %300, align 4
   store i32 16842752, ptr %62, align 8
@@ -3351,12 +3351,12 @@ attributes #24 = { noreturn nounwind }
 !32 = distinct !{!32, !"_ZSt20dynamic_pointer_castIN2cv4MSERENS0_9Feature2DEESt10shared_ptrIT_ERKS3_IT0_E"}
 !33 = distinct !{!33, !34, !"_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv: argument 0"}
 !34 = distinct !{!34, !"_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv: argument 0"}
-!37 = distinct !{!37, !"_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv"}
-!38 = !{!39, !36}
-!39 = distinct !{!39, !40, !"_ZSt20dynamic_pointer_castIN2cv4MSERENS0_9Feature2DEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!40 = distinct !{!40, !"_ZSt20dynamic_pointer_castIN2cv4MSERENS0_9Feature2DEESt10shared_ptrIT_ERKS3_IT0_E"}
+!35 = !{!36, !38}
+!36 = distinct !{!36, !37, !"_ZSt20dynamic_pointer_castIN2cv4MSERENS0_9Feature2DEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!37 = distinct !{!37, !"_ZSt20dynamic_pointer_castIN2cv4MSERENS0_9Feature2DEESt10shared_ptrIT_ERKS3_IT0_E"}
+!38 = distinct !{!38, !39, !"_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv: argument 0"}
+!39 = distinct !{!39, !"_ZNK2cv3PtrINS_9Feature2DEE11dynamicCastINS_4MSEREEENS0_IT_EEv"}
+!40 = !{!38}
 !41 = distinct !{!41, !9}
 !42 = distinct !{!42, !9}
 !43 = distinct !{!43, !9}

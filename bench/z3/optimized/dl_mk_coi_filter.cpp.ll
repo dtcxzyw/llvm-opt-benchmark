@@ -923,7 +923,7 @@ lpad148.loopexit.split-lp:                        ; preds = %_ZNK15ref_vector_co
   br label %ehcleanup
 
 if.end.i.i.i110:                                  ; preds = %for.inc160
-  %.pre = load ptr, ptr %constraints, align 8
+  %.pre = load ptr, ptr %constraints, align 8, !noalias !13
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %arrayidx.i.i.i111 = getelementptr inbounds i8, ptr %83, i64 -4
   %88 = load i32, ptr %arrayidx.i.i.i111, align 4, !noalias !13

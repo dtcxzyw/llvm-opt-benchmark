@@ -4190,7 +4190,7 @@ _ZSt22__uninitialized_copy_aIPKcSt15_Deque_iteratorIcRcPcEcET0_T_S7_S6_RSaIT1_E.
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %83 = load ptr, ptr %82, align 8, !tbaa !154
+  %83 = load ptr, ptr %82, align 8, !tbaa !154, !noalias !179
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %10 to i64
   %86 = xor i64 %85, -1
@@ -4201,8 +4201,8 @@ _ZSt22__uninitialized_copy_aIPKcSt15_Deque_iteratorIcRcPcEcET0_T_S7_S6_RSaIT1_E.
 89:                                               ; preds = %81
   %90 = sub nuw i64 %8, %87
   tail call void @_ZNSt5dequeIcSaIcEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %90), !noalias !179
-  %.pre.i19 = load ptr, ptr %78, align 8, !tbaa !117
-  %.pre6.i = load ptr, ptr %82, align 8, !tbaa !131
+  %.pre.i19 = load ptr, ptr %78, align 8, !tbaa !117, !noalias !182
+  %.pre6.i = load ptr, ptr %82, align 8, !tbaa !131, !noalias !182
   %.pre7.i20 = ptrtoint ptr %.pre.i19 to i64
   br label %91
 
@@ -4211,9 +4211,9 @@ _ZSt22__uninitialized_copy_aIPKcSt15_Deque_iteratorIcRcPcEcET0_T_S7_S6_RSaIT1_E.
   %92 = phi ptr [ %.pre6.i, %89 ], [ %83, %81 ]
   %93 = phi ptr [ %.pre.i19, %89 ], [ %79, %81 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %95 = load ptr, ptr %94, align 8, !tbaa !130
+  %95 = load ptr, ptr %94, align 8, !tbaa !130, !noalias !182
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %97 = load ptr, ptr %96, align 8, !tbaa !122
+  %97 = load ptr, ptr %96, align 8, !tbaa !122, !noalias !182
   %98 = ptrtoint ptr %95 to i64
   %99 = sub i64 %.pre-phi.i18, %98
   %100 = add nsw i64 %99, %8
@@ -4422,7 +4422,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIcSaIcEE13_M_insert_auxIPKcEEvSt1
 
 77:                                               ; preds = %5
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %79 = load ptr, ptr %78, align 8, !tbaa !152
+  %79 = load ptr, ptr %78, align 8, !tbaa !152, !noalias !198
   %80 = ptrtoint ptr %79 to i64
   %81 = sub i64 %52, %80
   %82 = icmp ugt i64 %4, %81
@@ -4431,12 +4431,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIcSaIcEE13_M_insert_auxIPKcEEvSt1
 83:                                               ; preds = %77
   %84 = sub nuw i64 %4, %81
   tail call void @_ZNSt5dequeIcSaIcEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %84), !noalias !198
-  %.pre.i = load ptr, ptr %31, align 8, !tbaa !117
-  %.pre7.i = load ptr, ptr %78, align 8, !tbaa !130
+  %.pre.i = load ptr, ptr %31, align 8, !tbaa !117, !noalias !201
+  %.pre7.i = load ptr, ptr %78, align 8, !tbaa !130, !noalias !201
   %.pre8.i = ptrtoint ptr %.pre.i to i64
   %.pre9.i = ptrtoint ptr %.pre7.i to i64
-  %.pre305 = load ptr, ptr %48, align 8, !tbaa !131
-  %.pre306 = load ptr, ptr %34, align 8, !tbaa !122
+  %.pre305 = load ptr, ptr %48, align 8, !tbaa !131, !noalias !201
+  %.pre306 = load ptr, ptr %34, align 8, !tbaa !122, !noalias !201
   br label %85
 
 85:                                               ; preds = %83, %77
@@ -4529,10 +4529,10 @@ _ZStplRKSt15_Deque_iteratorIcRcPcEl.exit:         ; preds = %116, %122
   br i1 %.not, label %_ZSt7advanceIPKclEvRT_T0_.exit, label %130
 
 130:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit
-  %131 = load ptr, ptr %31, align 8, !tbaa !117
-  %132 = load ptr, ptr %78, align 8, !tbaa !130
-  %133 = load ptr, ptr %48, align 8, !tbaa !131
-  %134 = load ptr, ptr %34, align 8, !tbaa !122
+  %131 = load ptr, ptr %31, align 8, !tbaa !117, !noalias !207
+  %132 = load ptr, ptr %78, align 8, !tbaa !130, !noalias !207
+  %133 = load ptr, ptr %48, align 8, !tbaa !131, !noalias !207
+  %134 = load ptr, ptr %34, align 8, !tbaa !122, !noalias !207
   %135 = ptrtoint ptr %131 to i64
   %136 = ptrtoint ptr %132 to i64
   %137 = sub i64 %135, %136
@@ -4980,7 +4980,7 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit: ; preds = %.lr.ph.i, %
 
 332:                                              ; preds = %5
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %334 = load ptr, ptr %333, align 8, !tbaa !154
+  %334 = load ptr, ptr %333, align 8, !tbaa !154, !noalias !288
   %335 = ptrtoint ptr %334 to i64
   %336 = xor i64 %69, -1
   %337 = add i64 %335, %336
@@ -4990,11 +4990,11 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit: ; preds = %.lr.ph.i, %
 339:                                              ; preds = %332
   %340 = sub nuw i64 %4, %337
   tail call void @_ZNSt5dequeIcSaIcEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %340), !noalias !288
-  %.pre.i67 = load ptr, ptr %57, align 8, !tbaa !117
-  %.pre6.i = load ptr, ptr %333, align 8, !tbaa !131
+  %.pre.i67 = load ptr, ptr %57, align 8, !tbaa !117, !noalias !291
+  %.pre6.i = load ptr, ptr %333, align 8, !tbaa !131, !noalias !291
   %.pre7.i68 = ptrtoint ptr %.pre.i67 to i64
-  %.pre = load ptr, ptr %67, align 8, !tbaa !130
-  %.pre304 = load ptr, ptr %58, align 8, !tbaa !122
+  %.pre = load ptr, ptr %67, align 8, !tbaa !130, !noalias !291
+  %.pre304 = load ptr, ptr %58, align 8, !tbaa !122, !noalias !291
   %.pre307 = ptrtoint ptr %.pre to i64
   br label %341
 
@@ -5089,10 +5089,10 @@ _ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit70:       ; preds = %373, %379
   br i1 %387, label %388, label %_ZSt7advanceIPKclEvRT_T0_.exit97
 
 388:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit70
-  %389 = load ptr, ptr %57, align 8, !tbaa !117
-  %390 = load ptr, ptr %67, align 8, !tbaa !130
-  %391 = load ptr, ptr %333, align 8, !tbaa !131
-  %392 = load ptr, ptr %58, align 8, !tbaa !122
+  %389 = load ptr, ptr %57, align 8, !tbaa !117, !noalias !297
+  %390 = load ptr, ptr %67, align 8, !tbaa !130, !noalias !297
+  %391 = load ptr, ptr %333, align 8, !tbaa !131, !noalias !297
+  %392 = load ptr, ptr %58, align 8, !tbaa !122, !noalias !297
   %393 = ptrtoint ptr %389 to i64
   %394 = ptrtoint ptr %390 to i64
   %395 = add i64 %4, %394
@@ -8939,7 +8939,7 @@ _ZN5boost9algorithm6detail10is_any_ofFIcEC2ERKS3_.exit: ; preds = %4, %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %16 = load i64, ptr %8, align 8, !tbaa !474
+  %16 = load i64, ptr %8, align 8, !tbaa !474, !noalias !486
   store i64 %16, ptr %15, align 8, !tbaa !474, !noalias !486
   store ptr null, ptr %5, align 8, !tbaa !44, !noalias !486
   %17 = icmp ult i64 %16, 17
@@ -9115,7 +9115,7 @@ _ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEC2ERKS5_.exit: ; 
 25:                                               ; preds = %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEC2ERKS5_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !492)
   store ptr null, ptr %4, align 8, !tbaa !495, !alias.scope !492
-  %26 = load ptr, ptr %5, align 8, !tbaa !495
+  %26 = load ptr, ptr %5, align 8, !tbaa !495, !noalias !492
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %36, label %27
 
@@ -10503,7 +10503,7 @@ _ZN5boost9algorithm6detail10is_any_ofFIcEC2ERKS3_.exit: ; preds = %3, %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !518)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %16 = load i64, ptr %8, align 8, !tbaa !474
+  %16 = load i64, ptr %8, align 8, !tbaa !474, !noalias !518
   store i64 %16, ptr %15, align 8, !tbaa !474, !noalias !518
   store ptr null, ptr %5, align 8, !tbaa !44, !noalias !518
   %17 = icmp ult i64 %16, 17

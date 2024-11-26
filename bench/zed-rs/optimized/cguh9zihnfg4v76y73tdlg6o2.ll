@@ -912,8 +912,8 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
   br label %.backedge
 
 .backedge:                                        ; preds = %92, %97, %84
-  %85 = load i64, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !noundef !5
-  %86 = load i64, ptr %10, align 8, !noundef !5
+  %85 = load i64, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !91, !noundef !5
+  %86 = load i64, ptr %10, align 8, !alias.scope !91, !noundef !5
   %.not.i.i.i = icmp eq i64 %85, %86
   br i1 %.not.i.i.i, label %._crit_edge317, label %_ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit
 

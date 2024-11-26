@@ -19521,8 +19521,8 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit10.i.i:  ; preds = %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit.i.i
   %64 = add nuw i64 %.013.i.i, 1
-  %65 = load ptr, ptr %14, align 8
-  %66 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %14, align 8, !noalias !327
+  %66 = load ptr, ptr %9, align 8, !noalias !327
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68

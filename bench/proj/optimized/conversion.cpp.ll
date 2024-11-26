@@ -17286,7 +17286,7 @@ thread-pre-split:                                 ; preds = %986, %994, %992
 
 1035:                                             ; preds = %1034
   call void @llvm.experimental.noalias.scope.decl(metadata !283)
-  %1036 = load ptr, ptr %57, align 8
+  %1036 = load ptr, ptr %57, align 8, !noalias !283
   %1037 = icmp eq ptr %1036, null
   br i1 %1037, label %.thread.i564, label %1038
 
@@ -17894,7 +17894,7 @@ declare void @_ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv(ptr dea
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZZNK5osgeo4proj9operation10Conversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
-  %3 = load ptr, ptr %1, align 8, !noalias !248
+  %3 = load ptr, ptr %1, align 8, !noalias !286
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread.i, label %5
 

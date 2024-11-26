@@ -3051,7 +3051,7 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 96
-  %4 = load ptr, ptr %ref.tmp8, align 8
+  %4 = load ptr, ptr %ref.tmp8, align 8, !noalias !15
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -3678,7 +3678,7 @@ invoke.cont77:                                    ; preds = %if.else.i.i306, %if
 
 if.then.i.i.i.i.i343:                             ; preds = %invoke.cont77
   %_M_before_begin.i.i.i.i.i.i.i344 = getelementptr inbounds i8, ptr %75, i64 96
-  %77 = load ptr, ptr %ref.tmp76, align 8
+  %77 = load ptr, ptr %ref.tmp76, align 8, !noalias !24
   br label %for.cond.i.i.i.i.i345
 
 for.cond.i.i.i.i.i345:                            ; preds = %for.body.i.i.i.i.i349, %if.then.i.i.i.i.i343

@@ -7484,7 +7484,7 @@ _ZN5folly2toIlmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typ
   %15 = load ptr, ptr %vfn, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %sub) #29
   %.pre = load ptr, ptr %tailStart_.i.i, align 8, !noalias !53
-  %.pre10 = load ptr, ptr %cachePtr_.i.i, align 8, !noalias !58
+  %.pre10 = load ptr, ptr %cachePtr_.i.i, align 8, !noalias !53
   %.pre11 = load ptr, ptr %.pre10, align 8, !noalias !53
   br label %if.end
 

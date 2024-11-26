@@ -5042,7 +5042,7 @@ if.end36.i.i:                                     ; preds = %if.end27.i.i
   %call.i2.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %result.i.i, ptr noundef nonnull align 8 dereferenceable(16) %filename.i.i31, ptr noundef nonnull align 8 dereferenceable(16) %filename.i.i31, ptr noundef %194), !noalias !46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %filename.i.i31, i64 16, i1 false), !noalias !46
   %second.i.i3.i.i.i = getelementptr inbounds i8, ptr %call.i2.i.i.i, i64 16
-  %203 = load i32, ptr %uintModuleID.i.i, align 4, !noalias !43
+  %203 = load i32, ptr %uintModuleID.i.i, align 4, !noalias !46
   store i32 %203, ptr %second.i.i3.i.i.i, align 4, !noalias !46
   %204 = load ptr, ptr %filenameByModuleID.i.i, align 8, !noalias !49
   %205 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i, align 8, !noalias !49

@@ -4971,7 +4971,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit190.thread:      ; preds = %_ZN4llvmeqENS_9Stri
 
 262:                                              ; preds = %261, %_ZN4llvmeqENS_9StringRefES0_.exit190.thread
   %263 = icmp eq i32 %.2126, 37
-  %.pre374 = load ptr, ptr %6, align 8
+  %.pre374 = load ptr, ptr %6, align 8, !noalias !83
   br i1 %263, label %264, label %_ZN4llvmeqENS_9StringRefES0_.exit190.thread281
 
 264:                                              ; preds = %262

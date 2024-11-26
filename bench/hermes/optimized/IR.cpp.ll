@@ -9627,7 +9627,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
 if.then:                                          ; preds = %if.then12.i.i.i.i, %entry
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %entry ]
   %call.i.i.i = tail call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %X, ptr noundef nonnull align 8 dereferenceable(8) %X, ptr noundef %cond.sink.i.i.i.i), !noalias !52
-  %7 = load ptr, ptr %X, align 8
+  %7 = load ptr, ptr %X, align 8, !noalias !52
   store ptr %7, ptr %call.i.i.i, align 8, !noalias !52
   %vector_ = getelementptr inbounds i8, ptr %this, i64 24
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32

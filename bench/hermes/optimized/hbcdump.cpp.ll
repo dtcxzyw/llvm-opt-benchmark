@@ -5328,7 +5328,7 @@ land.lhs.true:                                    ; preds = %init.end
 
 if.then:                                          ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !54
-  %6 = load ptr, ptr %command, align 8
+  %6 = load ptr, ptr %command, align 8, !noalias !57
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 

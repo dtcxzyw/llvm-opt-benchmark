@@ -12367,7 +12367,7 @@ if.else.i1860:                                    ; preds = %invoke.cont394
           to label %invoke.cont395 unwind label %lpad393
 
 invoke.cont395:                                   ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i1850, %if.else.i1860
-  %288 = load ptr, ptr %jt, align 8, !noalias !71
+  %288 = load ptr, ptr %jt, align 8, !noalias !81
   %d_kind.i.i.i.i1864 = getelementptr inbounds i8, ptr %288, i64 8
   %bf.load.i.i.i.i1865 = load i16, ptr %d_kind.i.i.i.i1864, align 8, !noalias !81
   %bf.clear.i.i.i.i1866 = and i16 %bf.load.i.i.i.i1865, 1023
@@ -12383,7 +12383,7 @@ call2.i.i.i.noexc1888:                            ; preds = %invoke.cont395
   %idxprom.i.i1873 = zext i1 %cmp.i.i1870 to i64
   %arrayidx.i.i1874 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i1872, i64 0, i64 %idxprom.i.i1873
   %289 = load ptr, ptr %arrayidx.i.i1874, align 8, !noalias !81
-  %bf.load.i.i.i1875 = load i64, ptr %289, align 8
+  %bf.load.i.i.i1875 = load i64, ptr %289, align 8, !noalias !81
   %bf.lshr.i.i.i1876 = lshr i64 %bf.load.i.i.i1875, 40
   %290 = trunc nuw nsw i64 %bf.lshr.i.i.i1876 to i32
   %bf.cast.i.i.i1877 = and i32 %290, 1048575
@@ -16401,7 +16401,7 @@ call2.i.i.i.noexc178:                             ; preds = %invoke.cont26
   %d_children.i.i162 = getelementptr inbounds i8, ptr %29, i64 16
   %arrayidx.i.i164 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i162, i64 0, i64 %spec.select.i.i161
   %30 = load ptr, ptr %arrayidx.i.i164, align 8, !noalias !129
-  %bf.load.i.i.i165 = load i64, ptr %30, align 8
+  %bf.load.i.i.i165 = load i64, ptr %30, align 8, !noalias !129
   %bf.lshr.i.i.i166 = lshr i64 %bf.load.i.i.i165, 40
   %31 = trunc nuw nsw i64 %bf.lshr.i.i.i166 to i32
   %bf.cast.i.i.i167 = and i32 %31, 1048575
@@ -22288,7 +22288,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 624
-  %1 = load ptr, ptr %n, align 8
+  %1 = load ptr, ptr %n, align 8, !noalias !182
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -22317,7 +22317,7 @@ if.end15.i.i.i:                                   ; preds = %entry
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end15.i.i.i
   %6 = load ptr, ptr %5, align 8, !noalias !182
-  %7 = load ptr, ptr %n, align 8
+  %7 = load ptr, ptr %n, align 8, !noalias !182
   %add.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load i64, ptr %add.ptr.i9.i.i.i.i.i, align 8, !noalias !182
@@ -26707,7 +26707,7 @@ invoke.cont58:                                    ; preds = %if.else.i.i149, %if
   br i1 %cmp.not.not.i.i.i.i, label %if.then.i.i.i.i, label %if.end15.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont58
-  %33 = load ptr, ptr %agg.tmp57, align 8
+  %33 = load ptr, ptr %agg.tmp57, align 8, !noalias !224
   br label %for.cond.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i
@@ -37539,7 +37539,7 @@ if.end159:                                        ; preds = %if.then13.i.i585, %
   call void @llvm.experimental.noalias.scope.decl(metadata !313)
   %118 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !313
   store ptr %118, ptr %ref.tmp161, align 8, !alias.scope !313
-  %bf.load.i.i.i588 = load i64, ptr %118, align 8
+  %bf.load.i.i.i588 = load i64, ptr %118, align 8, !noalias !313
   %bf.lshr.i.i.i589 = lshr i64 %bf.load.i.i.i588, 40
   %119 = trunc nuw nsw i64 %bf.lshr.i.i.i589 to i32
   %bf.cast.i.i.i590 = and i32 %119, 1048575
@@ -37565,7 +37565,7 @@ if.then13.i.i.i594:                               ; preds = %if.else.i.i.i592
           to label %if.then13.i.i.i594.invoke.cont162_crit_edge unwind label %lpad11
 
 if.then13.i.i.i594.invoke.cont162_crit_edge:      ; preds = %if.then13.i.i.i594
-  %bf.load.i.i.i.i604.pre = load i64, ptr %118, align 8
+  %bf.load.i.i.i.i604.pre = load i64, ptr %118, align 8, !noalias !316
   br label %invoke.cont162
 
 invoke.cont162:                                   ; preds = %if.then13.i.i.i594.invoke.cont162_crit_edge, %if.else.i.i.i592, %if.then.i.i.i596

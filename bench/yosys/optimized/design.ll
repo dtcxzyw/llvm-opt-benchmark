@@ -3055,8 +3055,8 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5eraseE
           to label %1109 unwind label %.loopexit1072
 
 1109:                                             ; preds = %_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5eraseERKS3_.exit398
-  %1110 = load ptr, ptr %29, align 8
-  %1111 = load ptr, ptr %529, align 8
+  %1110 = load ptr, ptr %29, align 8, !noalias !25
+  %1111 = load ptr, ptr %529, align 8, !noalias !25
   %1112 = icmp eq ptr %1110, %1111
   br i1 %1112, label %.loopexit.i.thread, label %1113
 
@@ -3078,7 +3078,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5eraseE
   %1123 = trunc i64 %1122 to i32
   %1124 = urem i32 %1118, %1123
   %1125 = load ptr, ptr %525, align 8, !noalias !25
-  %1126 = load ptr, ptr %524, align 8
+  %1126 = load ptr, ptr %524, align 8, !noalias !25
   %1127 = ptrtoint ptr %1125 to i64
   %1128 = ptrtoint ptr %1126 to i64
   %1129 = sub i64 %1127, %1128
@@ -3307,13 +3307,13 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE7do_hashERKS4_.exi
   br i1 %1236, label %.lr.ph.i591, label %.noexc404.loopexit, !llvm.loop !28
 
 .noexc404.loopexit:                               ; preds = %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i594
-  %.pre2013 = load ptr, ptr %529, align 8
+  %.pre2013 = load ptr, ptr %529, align 8, !noalias !25
   br label %.noexc404
 
 .noexc404:                                        ; preds = %.noexc404.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i590
   %1237 = phi ptr [ %1231, %.noexc404.loopexit ], [ %1199, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i590 ]
   %1238 = phi ptr [ %.pre2013, %.noexc404.loopexit ], [ %1197, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i590 ]
-  %1239 = load ptr, ptr %29, align 8
+  %1239 = load ptr, ptr %29, align 8, !noalias !25
   %1240 = icmp eq ptr %1239, %1238
   br i1 %1240, label %._crit_edge.i.i400, label %1241
 

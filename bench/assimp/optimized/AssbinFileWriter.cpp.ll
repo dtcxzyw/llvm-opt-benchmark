@@ -4848,7 +4848,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %19 = select i1 %cmp.i7.i.i19.i, float %4, float %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6Assimp11ArrayBoundsI11aiVectorKeyEEvPKT_jRS2_S5_.exit.loopexit, label %for.body.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %_ZN6Assimp11ArrayBoundsI11aiVectorKeyEEvPKT_jRS2_S5_.exit.loopexit, label %for.body.i, !llvm.loop !39
 
 _ZN6Assimp11ArrayBoundsI11aiVectorKeyEEvPKT_jRS2_S5_.exit.loopexit: ; preds = %for.body.i
   %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %11, i64 0
@@ -4942,23 +4942,23 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %9 = phi double [ 1.000000e+10, %for.body.preheader.i ], [ %11, %for.body.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %struct.aiQuatKey, ptr %in, i64 %indvars.iv.i
-  %10 = load double, ptr %arrayidx.i, align 8, !noalias !36
+  %10 = load double, ptr %arrayidx.i, align 8, !noalias !40
   %cmp.i.i.i = fcmp olt double %9, %10
   %11 = select i1 %cmp.i.i.i, double %9, double %10
   %mValue.i9.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %12 = load float, ptr %mValue.i9.i, align 4, !noalias !36
+  %12 = load float, ptr %mValue.i9.i, align 4, !noalias !40
   %cmp.i.i.i.i = fcmp olt float %7, %12
   %13 = select i1 %cmp.i.i.i.i, float %7, float %12
   %x.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
-  %14 = load float, ptr %x.i.i.i, align 4, !noalias !36
+  %14 = load float, ptr %x.i.i.i, align 4, !noalias !40
   %cmp.i7.i.i.i = fcmp olt float %6, %14
   %15 = select i1 %cmp.i7.i.i.i, float %6, float %14
   %y.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  %16 = load float, ptr %y.i.i.i, align 4, !noalias !36
+  %16 = load float, ptr %y.i.i.i, align 4, !noalias !40
   %cmp.i9.i.i.i = fcmp olt float %5, %16
   %17 = select i1 %cmp.i9.i.i.i, float %5, float %16
   %z.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
-  %18 = load float, ptr %z.i.i.i, align 4, !noalias !36
+  %18 = load float, ptr %z.i.i.i, align 4, !noalias !40
   %cmp.i11.i.i.i = fcmp olt float %4, %18
   %19 = select i1 %cmp.i11.i.i.i, float %4, float %18
   %cmp.i.i10.i = fcmp olt double %10, %8
@@ -4973,7 +4973,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %24 = select i1 %cmp.i11.i.i22.i, float %0, float %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6Assimp11ArrayBoundsI9aiQuatKeyEEvPKT_jRS2_S5_.exit.loopexit, label %for.body.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %_ZN6Assimp11ArrayBoundsI9aiQuatKeyEEvPKT_jRS2_S5_.exit.loopexit, label %for.body.i, !llvm.loop !43
 
 _ZN6Assimp11ArrayBoundsI9aiQuatKeyEEvPKT_jRS2_S5_.exit.loopexit: ; preds = %for.body.i
   %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %13, i64 0
@@ -5162,6 +5162,11 @@ attributes #21 = { noreturn nounwind }
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = !{}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZSt3minRK11aiVectorKeyS1_: %agg.result"}
+!38 = distinct !{!38, !"_ZSt3minRK11aiVectorKeyS1_"}
+!39 = distinct !{!39, !5}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZSt3minRK9aiQuatKeyS1_: %agg.result"}
+!42 = distinct !{!42, !"_ZSt3minRK9aiQuatKeyS1_"}
+!43 = distinct !{!43, !5}

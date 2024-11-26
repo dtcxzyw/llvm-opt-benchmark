@@ -23995,12 +23995,12 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_113CStringLengthEEENS0_17Program
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE6insertES5_.exit.i: ; preds = %.lr.ph.i.i.i, %59, %57
   %61 = load ptr, ptr %38, align 8, !noalias !258
-  %62 = load ptr, ptr %12, align 8, !noalias !242
+  %62 = load ptr, ptr %12, align 8, !noalias !258
   %63 = icmp eq ptr %61, %62
   br i1 %63, label %64, label %78
 
 64:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE6insertES5_.exit.i
-  %65 = load i32, ptr %40, align 4, !noalias !242
+  %65 = load i32, ptr %40, align 4, !noalias !258
   %66 = zext i32 %65 to i64
   %67 = getelementptr inbounds ptr, ptr %62, i64 %66
   %.not24.i.i46.i = icmp eq i32 %65, 0
@@ -24026,14 +24026,14 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE6insertES5_.exit.i: ; preds 
   %75 = add nuw i32 %65, 1
   store i32 %75, ptr %40, align 4, !noalias !258
   store ptr %43, ptr %67, align 8, !noalias !258
-  %76 = load ptr, ptr %12, align 8, !noalias !242
-  %77 = load i32, ptr %40, align 4, !noalias !242
+  %76 = load ptr, ptr %12, align 8, !noalias !258
+  %77 = load i32, ptr %40, align 4, !noalias !258
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i32.i
 
 78:                                               ; preds = %._crit_edge.i.i50.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE6insertES5_.exit.i
   %79 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef %43) #23, !noalias !258
-  %.pre.i29.i = load ptr, ptr %12, align 8, !noalias !242
-  %.pre6.i31.i = load i32, ptr %40, align 4, !noalias !242
+  %.pre.i29.i = load ptr, ptr %12, align 8, !noalias !258
+  %.pre6.i31.i = load i32, ptr %40, align 4, !noalias !258
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i32.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i32.i: ; preds = %.lr.ph.i.i47.i, %78, %74
@@ -24047,8 +24047,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i32.i: ; preds = %.lr.ph.i.i4
   br i1 %.not2727.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i32.i
-  %85 = load i32, ptr %39, align 8, !noalias !242
-  %86 = load ptr, ptr %38, align 8, !noalias !242
+  %85 = load i32, ptr %39, align 8, !noalias !258
+  %86 = load ptr, ptr %38, align 8, !noalias !258
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i55.i

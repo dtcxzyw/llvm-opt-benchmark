@@ -24154,7 +24154,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i20
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i.i.i
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i20
-  %44 = load ptr, ptr %m_nodes.i.i.i18, align 8
+  %44 = load ptr, ptr %m_nodes.i.i.i18, align 8, !alias.scope !155
   %cmp.i.i7.i.i.i = icmp eq ptr %44, null
   br i1 %cmp.i.i7.i.i.i, label %if.then.i, label %lor.lhs.false.i.i.i.i.i
 
@@ -24309,7 +24309,7 @@ if.then.i.i.i.i.i.i14.i:                          ; preds = %for.body.i.i11.i
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i.i17.i
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i.i17.i: ; preds = %if.then.i.i.i.i.i.i14.i, %for.body.i.i11.i
-  %61 = load ptr, ptr %m_nodes.i.i.i21, align 8
+  %61 = load ptr, ptr %m_nodes.i.i.i21, align 8, !alias.scope !158
   %cmp.i.i7.i.i18.i = icmp eq ptr %61, null
   br i1 %cmp.i.i7.i.i18.i, label %if.then.i190, label %lor.lhs.false.i.i.i.i19.i
 

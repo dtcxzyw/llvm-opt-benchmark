@@ -12466,7 +12466,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i380: ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit385:                          ; preds = %_ZN7QStringD2Ev.exit379, %_ZN9QtPrivate8RefCount5derefEv.exit.i381, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i380
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #26
-  %533 = load ptr, ptr %57, align 8
+  %533 = load ptr, ptr %57, align 8, !noalias !190
   %534 = getelementptr inbounds i8, ptr %533, i64 16
   %535 = getelementptr inbounds i8, ptr %533, i64 8
   %536 = load i32, ptr %535, align 8, !noalias !190
@@ -12516,7 +12516,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i388: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit393
 
 _ZN7QStringD2Ev.exit393:                          ; preds = %545, %_ZN9QtPrivate8RefCount5derefEv.exit.i389, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i388
-  %550 = load ptr, ptr %61, align 8
+  %550 = load ptr, ptr %61, align 8, !noalias !196
   %551 = getelementptr inbounds i8, ptr %550, i64 16
   %552 = getelementptr inbounds i8, ptr %550, i64 8
   %553 = load i32, ptr %552, align 8, !noalias !196

@@ -10355,8 +10355,8 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %indvars.iv.next3670 = add nsw i64 %indvars.iv3669, -1
   %1650 = load ptr, ptr %120, align 8
   %1651 = getelementptr inbounds %"struct.Yosys::hashlib::pool<std::__cxx11::basic_string<char>>::entry_t", ptr %1650, i64 %indvars.iv.next3670
-  %1652 = load ptr, ptr %112, align 8
-  %1653 = load ptr, ptr %122, align 8
+  %1652 = load ptr, ptr %112, align 8, !noalias !51
+  %1653 = load ptr, ptr %122, align 8, !noalias !51
   %1654 = icmp eq ptr %1652, %1653
   br i1 %1654, label %.loopexit1833.thread, label %1655
 
@@ -10383,8 +10383,8 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 _ZNK5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i: ; preds = %.lr.ph.i.i.i398, %1655
   %.0.lcssa.i.i.i = phi i32 [ 0, %1655 ], [ %1661, %.lr.ph.i.i.i398 ]
-  %1663 = load ptr, ptr %122, align 8
-  %1664 = load ptr, ptr %112, align 8
+  %1663 = load ptr, ptr %122, align 8, !noalias !51
+  %1664 = load ptr, ptr %112, align 8, !noalias !51
   %1665 = ptrtoint ptr %1663 to i64
   %1666 = ptrtoint ptr %1664 to i64
   %1667 = sub i64 %1665, %1666
@@ -12033,8 +12033,8 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %indvars.iv.next3673 = add nsw i64 %indvars.iv3672, -1
   %2436 = load ptr, ptr %129, align 8
   %2437 = getelementptr inbounds %"struct.Yosys::hashlib::pool<std::__cxx11::basic_string<char>>::entry_t", ptr %2436, i64 %indvars.iv.next3673
-  %2438 = load ptr, ptr %112, align 8
-  %2439 = load ptr, ptr %122, align 8
+  %2438 = load ptr, ptr %112, align 8, !noalias !56
+  %2439 = load ptr, ptr %122, align 8, !noalias !56
   %2440 = icmp eq ptr %2438, %2439
   br i1 %2440, label %.loopexit1832.thread, label %2441
 
@@ -12061,8 +12061,8 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 _ZNK5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i490: ; preds = %.lr.ph.i.i.i484, %2441
   %.0.lcssa.i.i.i489 = phi i32 [ 0, %2441 ], [ %2447, %.lr.ph.i.i.i484 ]
-  %2449 = load ptr, ptr %122, align 8
-  %2450 = load ptr, ptr %112, align 8
+  %2449 = load ptr, ptr %122, align 8, !noalias !56
+  %2450 = load ptr, ptr %112, align 8, !noalias !56
   %2451 = ptrtoint ptr %2449 to i64
   %2452 = ptrtoint ptr %2450 to i64
   %2453 = sub i64 %2451, %2452
@@ -12791,8 +12791,8 @@ _ZN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8
   %indvars.iv.i = phi i64 [ %2790, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsIS7_EEE6insertERKS7_.exit.i ]
   %2792 = load ptr, ptr %123, align 8
   %2793 = getelementptr inbounds %"struct.Yosys::hashlib::pool<std::__cxx11::basic_string<char>>::entry_t", ptr %2792, i64 %indvars.iv.i
-  %2794 = load ptr, ptr %34, align 8
-  %2795 = load ptr, ptr %132, align 8
+  %2794 = load ptr, ptr %34, align 8, !noalias !59
+  %2795 = load ptr, ptr %132, align 8, !noalias !59
   %2796 = icmp eq ptr %2794, %2795
   br i1 %2796, label %.loopexit1831.thread, label %2797
 
@@ -12819,8 +12819,8 @@ _ZN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8
 
 _ZNK5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i502, %2797
   %.0.lcssa.i.i.i.i = phi i32 [ 0, %2797 ], [ %2803, %.lr.ph.i.i.i.i502 ]
-  %2805 = load ptr, ptr %132, align 8
-  %2806 = load ptr, ptr %34, align 8
+  %2805 = load ptr, ptr %132, align 8, !noalias !59
+  %2806 = load ptr, ptr %34, align 8, !noalias !59
   %2807 = ptrtoint ptr %2805 to i64
   %2808 = ptrtoint ptr %2806 to i64
   %2809 = sub i64 %2807, %2808

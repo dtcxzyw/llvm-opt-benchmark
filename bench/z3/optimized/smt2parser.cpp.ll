@@ -27218,7 +27218,7 @@ if.then:                                          ; preds = %while.cond, %while.
   %bf.clear3.i3.i.i.i.i = and i8 %bf.load.i2.i.i.i.i, -4
   store i8 %bf.clear3.i3.i.i.i.i, ptr %m_kind.i1.i.i.i.i, align 4, !alias.scope !84
   store ptr null, ptr %m_ptr.i4.i.i.i.i, align 8, !alias.scope !84
-  %10 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
+  %10 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !84
   %bf.load.i.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i105, align 4, !noalias !84
   %bf.clear.i.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i9 = icmp eq i8 %bf.clear.i.i.i.i.i.i.i, 0

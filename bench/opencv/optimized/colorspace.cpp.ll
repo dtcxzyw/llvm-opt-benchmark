@@ -5101,7 +5101,7 @@ _ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc10, %89
           to label %.noexc13 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc13:                                         ; preds = %.noexc12
-  %102 = load ptr, ptr %13, align 8, !noalias !31
+  %102 = load ptr, ptr %13, align 8, !alias.scope !37, !noalias !31
   %103 = icmp eq ptr %102, null
   %104 = icmp eq i64 %101, 0
   %or.cond.i.i.i.i = or i1 %104, %103
@@ -5283,7 +5283,7 @@ _ZN2cv3Mat5beginINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.no
           to label %.noexc20 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc20:                                         ; preds = %.noexc19
-  %177 = load ptr, ptr %16, align 8, !noalias !31
+  %177 = load ptr, ptr %16, align 8, !alias.scope !44, !noalias !31
   %178 = icmp eq ptr %177, null
   %179 = icmp eq i64 %176, 0
   %or.cond.i.i.i39.i = or i1 %179, %178
@@ -5795,7 +5795,7 @@ _ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc10, %90
           to label %.noexc13 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc13:                                         ; preds = %.noexc12
-  %103 = load ptr, ptr %14, align 8, !noalias !48
+  %103 = load ptr, ptr %14, align 8, !alias.scope !54, !noalias !48
   %104 = icmp eq ptr %103, null
   %105 = icmp eq i64 %102, 0
   %or.cond.i.i.i.i = or i1 %105, %104
@@ -5982,7 +5982,7 @@ _ZN2cv3Mat5beginINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.no
           to label %.noexc20 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc20:                                         ; preds = %.noexc19
-  %183 = load ptr, ptr %17, align 8, !noalias !48
+  %183 = load ptr, ptr %17, align 8, !alias.scope !61, !noalias !48
   %184 = icmp eq ptr %183, null
   %185 = icmp eq i64 %182, 0
   %or.cond.i.i.i39.i = or i1 %185, %184
@@ -9271,7 +9271,7 @@ _ZN2cv3Mat5beginINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %._Z
           to label %.noexc11.i unwind label %.loopexit.split-lp.i
 
 .noexc11.i:                                       ; preds = %.noexc10.i
-  %21 = load ptr, ptr %6, align 8, !noalias !89
+  %21 = load ptr, ptr %6, align 8, !alias.scope !95, !noalias !89
   %22 = icmp eq ptr %21, null
   %23 = icmp eq i64 %20, 0
   %or.cond.i.i.i.i = or i1 %23, %22
@@ -9587,7 +9587,7 @@ _ZN2cv3Mat5beginINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %._Z
           to label %.noexc11.i unwind label %.loopexit.split-lp.i
 
 .noexc11.i:                                       ; preds = %.noexc10.i
-  %21 = load ptr, ptr %6, align 8, !noalias !103
+  %21 = load ptr, ptr %6, align 8, !alias.scope !109, !noalias !103
   %22 = icmp eq ptr %21, null
   %23 = icmp eq i64 %20, 0
   %or.cond.i.i.i.i = or i1 %23, %22

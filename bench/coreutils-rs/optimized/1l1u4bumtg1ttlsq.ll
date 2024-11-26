@@ -1388,7 +1388,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   %75 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
   %76 = getelementptr inbounds i8, ptr %0, i64 184
-  %77 = load ptr, ptr %76, align 8, !nonnull !5, !noundef !5
+  %77 = load ptr, ptr %76, align 8, !alias.scope !361, !nonnull !5, !noundef !5
   %78 = getelementptr inbounds i8, ptr %0, i64 192
   %79 = load i64, ptr %78, align 8, !alias.scope !361, !noundef !5
   br label %80
@@ -1598,7 +1598,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..build
 define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h448b13ec6a9b3c87E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !393, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !393, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
@@ -1802,7 +1802,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..command..Command$GT$$GT$17hfeb3b886f5ce7fdfE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !466, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !466, !noundef !5
   br label %6

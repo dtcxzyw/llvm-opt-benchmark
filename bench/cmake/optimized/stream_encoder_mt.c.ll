@@ -593,9 +593,9 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
   br label %76
 
 76:                                               ; preds = %.backedge, %75
-  %77 = load i64, ptr %3, align 8
+  %77 = load i64, ptr %3, align 8, !alias.scope !12, !noalias !15
   %78 = icmp ult i64 %77, %4
-  %.pre.i = load ptr, ptr %30, align 8, !noalias !15
+  %.pre.i = load ptr, ptr %30, align 8, !noalias !17
   br i1 %78, label %.critedge.i93, label %79
 
 79:                                               ; preds = %76
@@ -612,41 +612,41 @@ stream_encode_in.exit.thread:                     ; preds = %79
   br i1 %82, label %83, label %.critedge.thread.i
 
 83:                                               ; preds = %.critedge.i93
-  %.val.i.i = load i32, ptr %32, align 8, !noalias !15
-  %.val41.i.i = load i32, ptr %33, align 8, !noalias !15
+  %.val.i.i = load i32, ptr %32, align 8, !noalias !17
+  %.val41.i.i = load i32, ptr %33, align 8, !noalias !17
   %84 = icmp ult i32 %.val41.i.i, %.val.i.i
   br i1 %84, label %85, label %get_thread.exit.i
 
 85:                                               ; preds = %83
   %86 = call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #11
-  %87 = load ptr, ptr %34, align 8, !noalias !15
+  %87 = load ptr, ptr %34, align 8, !noalias !17
   %.not38.i.i = icmp eq ptr %87, null
   br i1 %.not38.i.i, label %.critedge.i.i, label %88
 
 88:                                               ; preds = %85
-  store ptr %87, ptr %30, align 8, !noalias !15
+  store ptr %87, ptr %30, align 8, !noalias !17
   %89 = getelementptr inbounds i8, ptr %87, i64 344
   %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %34, align 8, !noalias !15
+  store ptr %90, ptr %34, align 8, !noalias !17
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %88, %85
   %91 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #11
-  %92 = load ptr, ptr %30, align 8, !noalias !15
+  %92 = load ptr, ptr %30, align 8, !noalias !17
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %.critedge40.critedge.i.i
 
 94:                                               ; preds = %.critedge.i.i
-  %95 = load i32, ptr %35, align 4, !noalias !15
-  %96 = load i32, ptr %36, align 8, !noalias !15
+  %95 = load i32, ptr %35, align 4, !noalias !17
+  %96 = load i32, ptr %36, align 8, !noalias !17
   %97 = icmp eq i32 %95, %96
   br i1 %97, label %get_thread.exit.i, label %98
 
 98:                                               ; preds = %94
-  %99 = load ptr, ptr %37, align 8, !noalias !15
+  %99 = load ptr, ptr %37, align 8, !noalias !17
   %100 = zext i32 %95 to i64
   %101 = getelementptr inbounds %struct.worker_thread_s, ptr %99, i64 %100
-  %102 = load i64, ptr %38, align 8, !noalias !15
+  %102 = load i64, ptr %38, align 8, !noalias !17
   %103 = call noalias ptr @lzma_alloc(i64 noundef %102, ptr noundef %1) #11
   %104 = getelementptr inbounds i8, ptr %101, i64 8
   store ptr %103, ptr %104, align 8
@@ -678,14 +678,14 @@ stream_encode_in.exit.thread:                     ; preds = %79
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %101, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx.i.i.i, i8 0, i64 56, i1 false)
   %116 = getelementptr inbounds i8, ptr %101, i64 440
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11), !noalias !15
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12), !noalias !15
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12), !noalias !17
   %117 = call i32 @sigfillset(ptr noundef nonnull %12) #11
   %118 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %12, ptr noundef nonnull %11) #11
   %119 = call i32 @pthread_create(ptr noundef nonnull %116, ptr noundef null, ptr noundef nonnull @worker_start, ptr noundef nonnull %101) #11
   %120 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %11, ptr noundef null) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11), !noalias !15
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12), !noalias !15
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12), !noalias !17
   %.not26.i.i.i = icmp eq i32 %119, 0
   br i1 %.not26.i.i.i, label %initialize_new_thread.exit.i.i, label %121
 
@@ -703,36 +703,36 @@ stream_encode_in.exit.thread:                     ; preds = %79
   br label %get_thread.exit.i
 
 initialize_new_thread.exit.i.i:                   ; preds = %112
-  %127 = load i32, ptr %35, align 4, !noalias !15
+  %127 = load i32, ptr %35, align 4, !noalias !17
   %128 = add i32 %127, 1
-  store i32 %128, ptr %35, align 4, !noalias !15
-  store ptr %101, ptr %30, align 8, !noalias !15
+  store i32 %128, ptr %35, align 4, !noalias !17
+  store ptr %101, ptr %30, align 8, !noalias !17
   br label %.critedge40.critedge.i.i
 
 .critedge40.critedge.i.i:                         ; preds = %initialize_new_thread.exit.i.i, %.critedge.i.i
   %129 = phi ptr [ %101, %initialize_new_thread.exit.i.i ], [ %92, %.critedge.i.i ]
   %130 = getelementptr inbounds i8, ptr %129, i64 352
   %131 = call i32 @pthread_mutex_lock(ptr noundef nonnull %130) #11
-  %132 = load ptr, ptr %30, align 8, !noalias !15
+  %132 = load ptr, ptr %30, align 8, !noalias !17
   store i32 1, ptr %132, align 8
-  %133 = load ptr, ptr %30, align 8, !noalias !15
+  %133 = load ptr, ptr %30, align 8, !noalias !17
   %134 = getelementptr inbounds i8, ptr %133, i64 16
   store i64 0, ptr %134, align 8
   %135 = call ptr @lzma_outq_get_buf(ptr noundef nonnull %29) #11
-  %136 = load ptr, ptr %30, align 8, !noalias !15
+  %136 = load ptr, ptr %30, align 8, !noalias !17
   %137 = getelementptr inbounds i8, ptr %136, i64 24
   store ptr %135, ptr %137, align 8
-  %138 = load ptr, ptr %30, align 8, !noalias !15
+  %138 = load ptr, ptr %30, align 8, !noalias !17
   %139 = getelementptr inbounds i8, ptr %138, i64 392
   %140 = call i32 @pthread_cond_signal(ptr noundef nonnull %139) #11
-  %141 = load ptr, ptr %30, align 8, !noalias !15
+  %141 = load ptr, ptr %30, align 8, !noalias !17
   %142 = getelementptr inbounds i8, ptr %141, i64 352
   %143 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %142) #11
   br label %get_thread.exit.i
 
 get_thread.exit.i:                                ; preds = %.critedge40.critedge.i.i, %125, %98, %94, %83
   %.027.i.i = phi i32 [ 0, %83 ], [ 0, %94 ], [ 0, %.critedge40.critedge.i.i ], [ 5, %125 ], [ 5, %98 ]
-  %144 = load ptr, ptr %30, align 8, !noalias !15
+  %144 = load ptr, ptr %30, align 8, !noalias !17
   %145 = icmp eq ptr %144, null
   br i1 %145, label %stream_encode_in.exit, label %.critedge.thread.i
 
@@ -740,62 +740,62 @@ get_thread.exit.i:                                ; preds = %.critedge40.critedg
   %146 = phi ptr [ %144, %get_thread.exit.i ], [ %.pre.i, %.critedge.i93 ], [ %.pre.i, %79 ]
   %147 = getelementptr inbounds i8, ptr %146, i64 16
   %148 = load i64, ptr %147, align 8
-  store i64 %148, ptr %13, align 8, !noalias !15
+  store i64 %148, ptr %13, align 8, !noalias !17
   %149 = getelementptr inbounds i8, ptr %146, i64 8
   %150 = load ptr, ptr %149, align 8
-  %151 = load i64, ptr %38, align 8, !noalias !15
+  %151 = load i64, ptr %38, align 8, !noalias !17
   %152 = call i64 @lzma_bufcpy(ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %150, ptr noundef nonnull %13, i64 noundef %151) #11
-  %153 = load i64, ptr %13, align 8, !noalias !15
-  %154 = load i64, ptr %38, align 8, !noalias !15
+  %153 = load i64, ptr %13, align 8, !noalias !17
+  %154 = load i64, ptr %38, align 8, !noalias !17
   %155 = icmp eq i64 %153, %154
   br i1 %155, label %160, label %156
 
 156:                                              ; preds = %.critedge.thread.i
-  %157 = load i64, ptr %3, align 8, !alias.scope !12, !noalias !17
+  %157 = load i64, ptr %3, align 8, !alias.scope !12, !noalias !15
   %158 = icmp eq i64 %157, %4
   %159 = and i1 %31, %158
   br label %160
 
 160:                                              ; preds = %156, %.critedge.thread.i
   %161 = phi i1 [ true, %.critedge.thread.i ], [ %159, %156 ]
-  %162 = load ptr, ptr %30, align 8, !noalias !15
+  %162 = load ptr, ptr %30, align 8, !noalias !17
   %163 = getelementptr inbounds i8, ptr %162, i64 352
   %164 = call i32 @pthread_mutex_lock(ptr noundef nonnull %163) #11
-  %165 = load ptr, ptr %30, align 8, !noalias !15
+  %165 = load ptr, ptr %30, align 8, !noalias !17
   %166 = load i32, ptr %165, align 8
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %.preheader.critedge.i, label %.split.i
 
 .split.i:                                         ; preds = %160
-  %168 = load i64, ptr %13, align 8, !noalias !15
+  %168 = load i64, ptr %13, align 8, !noalias !17
   %169 = getelementptr inbounds i8, ptr %165, i64 16
   store i64 %168, ptr %169, align 8
-  %170 = load ptr, ptr %30, align 8, !noalias !15
+  %170 = load ptr, ptr %30, align 8, !noalias !17
   br i1 %161, label %.loopexit50.i, label %.critedge54.i
 
 .loopexit50.i:                                    ; preds = %.split.i
   store i32 2, ptr %170, align 8
-  %171 = load ptr, ptr %30, align 8, !noalias !15
+  %171 = load ptr, ptr %30, align 8, !noalias !17
   %172 = getelementptr inbounds i8, ptr %171, i64 392
   %173 = call i32 @pthread_cond_signal(ptr noundef nonnull %172) #11
-  %174 = load ptr, ptr %30, align 8, !noalias !15
+  %174 = load ptr, ptr %30, align 8, !noalias !17
   %175 = getelementptr inbounds i8, ptr %174, i64 352
   %176 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %175) #11
-  store ptr null, ptr %30, align 8, !noalias !15
+  store ptr null, ptr %30, align 8, !noalias !17
   br label %.backedge
 
 .preheader.critedge.i:                            ; preds = %160
   %177 = getelementptr inbounds i8, ptr %165, i64 352
   %178 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %177) #11
   %179 = call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #11
-  %180 = load i32, ptr %28, align 4, !noalias !15
+  %180 = load i32, ptr %28, align 4, !noalias !17
   %181 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #11
   br label %stream_encode_in.exit
 
 .critedge54.i:                                    ; preds = %.split.i
   %182 = getelementptr inbounds i8, ptr %170, i64 392
   %183 = call i32 @pthread_cond_signal(ptr noundef nonnull %182) #11
-  %184 = load ptr, ptr %30, align 8, !noalias !15
+  %184 = load ptr, ptr %30, align 8, !noalias !17
   %185 = getelementptr inbounds i8, ptr %184, i64 352
   %186 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %185) #11
   br label %.backedge
@@ -1734,9 +1734,9 @@ attributes #13 = { nounwind willreturn memory(none) }
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"stream_encode_in: argument 1"}
 !14 = distinct !{!14, !"stream_encode_in"}
-!15 = !{!16, !13}
+!15 = !{!16}
 !16 = distinct !{!16, !14, !"stream_encode_in: argument 0"}
-!17 = !{!16}
+!17 = !{!16, !13}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}

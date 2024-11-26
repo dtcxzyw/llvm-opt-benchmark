@@ -1506,7 +1506,7 @@ entry:
   %localStatus = alloca i32, align 4
   store i32 0, ptr %localStatus, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %0 = load i32, ptr %this, align 8
+  %0 = load i32, ptr %this, align 8, !noalias !52
   %cmp.i = icmp eq i32 %0, 9
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 

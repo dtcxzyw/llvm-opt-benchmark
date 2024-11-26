@@ -61,7 +61,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
+  %3 = load ptr, ptr %2, align 8, !alias.scope !10, !nonnull !4, !noundef !4
   %4 = load ptr, ptr %0, align 8, !alias.scope !10, !nonnull !4, !noundef !4
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda3c09b87a48ea0fE.exit.thread", label %6

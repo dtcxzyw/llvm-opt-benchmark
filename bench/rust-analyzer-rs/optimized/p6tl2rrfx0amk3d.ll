@@ -401,7 +401,7 @@ _ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i: ; preds = %2
   %.0.sroa.speculated.i1.i.i = tail call noundef i32 @llvm.umax.i32(i32 %39, i32 %22)
   store i32 %.0.sroa.speculated.i1.i.i, ptr %38, align 8, !alias.scope !34, !noalias !32
   %40 = getelementptr inbounds i8, ptr %17, i64 64
-  %41 = load ptr, ptr %40, align 8, !noundef !4
+  %41 = load ptr, ptr %40, align 8, !noalias !32, !noundef !4
   %.not7.i = icmp eq ptr %41, null
   br i1 %.not7.i, label %"_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i._ZN5salsa7runtime11local_state10LocalState46report_query_read_and_unwind_if_cycle_resulted28_$u7b$$u7b$closure$u7d$$u7d$17hed952b811a65817bE.llvm.14225396269139012787.exit_crit_edge", label %43
 

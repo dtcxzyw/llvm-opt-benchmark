@@ -3666,7 +3666,7 @@ common.resume:                                    ; preds = %43, %17
   unreachable
 
 28:                                               ; preds = %19
-  %29 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %10, align 8, !noalias !53
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 3
   %32 = icmp eq i64 %31, 0

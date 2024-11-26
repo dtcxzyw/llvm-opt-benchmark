@@ -6880,7 +6880,7 @@ if.end103:                                        ; preds = %_ZNSt6vectorIP7aiLi
 
 _ZNK4pugi8xml_node8childrenEv.exit:               ; preds = %if.end103
   %first_child.i.i = getelementptr inbounds i8, ptr %76, i64 32
-  %77 = load ptr, ptr %first_child.i.i, align 8, !noalias !42
+  %77 = load ptr, ptr %first_child.i.i, align 8, !noalias !41
   %cmp.not.i283.not481 = icmp eq ptr %77, null
   br i1 %cmp.not.i283.not481, label %_ZNK4pugi8xml_node8childrenEv.exit386, label %for.body.lr.ph
 
@@ -7055,11 +7055,11 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i371,
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %99, %invoke.cont.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !44
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %96
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIP10aiMaterialjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !49
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIP10aiMaterialjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !48
 
 _ZNSt6vectorISt4pairIP10aiMaterialjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -7096,14 +7096,14 @@ for.inc:                                          ; preds = %if.end120, %_ZNSt6v
   br i1 %cmp.not.i283.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc
-  %.pre = load ptr, ptr %node, align 8, !noalias !50
+  %.pre = load ptr, ptr %node, align 8, !noalias !49
   %tobool.not.i.i379 = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i379, label %for.end152, label %_ZNK4pugi8xml_node8childrenEv.exit386
 
 _ZNK4pugi8xml_node8childrenEv.exit386:            ; preds = %_ZNK4pugi8xml_node8childrenEv.exit, %for.end
   %104 = phi ptr [ %.pre, %for.end ], [ %76, %_ZNK4pugi8xml_node8childrenEv.exit ]
   %first_child.i.i381 = getelementptr inbounds i8, ptr %104, i64 32
-  %105 = load ptr, ptr %first_child.i.i381, align 8, !noalias !50
+  %105 = load ptr, ptr %first_child.i.i381, align 8, !noalias !49
   %cmp.not.i398.not483 = icmp eq ptr %105, null
   br i1 %cmp.not.i398.not483, label %for.end152, label %for.body142.lr.ph
 
@@ -7317,11 +7317,11 @@ call5.i.i.i.i.noexc:                              ; preds = %_ZNSt12_Vector_base
 for.body.i.i.i.i:                                 ; preds = %call5.i.i.i.i.noexc, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i8, %call5.i.i.i.i.noexc ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %3, %call5.i.i.i.i.noexc ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i, i64 16, i1 false), !alias.scope !53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i, i64 16, i1 false), !alias.scope !52
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %4
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt4pairIP10aiMaterialjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %for.body.i.i.i.i, !llvm.loop !49
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt4pairIP10aiMaterialjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %for.body.i.i.i.i, !llvm.loop !48
 
 _ZNSt6vectorISt4pairIP10aiMaterialjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %for.body.i.i.i.i, %call5.i.i.i.i.noexc
   %tobool.not.i.i = icmp eq ptr %3, null
@@ -7585,7 +7585,7 @@ lpad17:                                           ; preds = %if.then15
 if.end20:                                         ; preds = %invoke.cont13
   %7 = load atomic i8, ptr @_ZGVZN6Assimp10TXmlParserIN4pugi8xml_nodeEE11getRootNodeEvE4none acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %7, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !57
+  br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !56
 
 init.check.i:                                     ; preds = %if.end20
   %8 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6Assimp10TXmlParserIN4pugi8xml_nodeEE11getRootNodeEvE4none) #28
@@ -7616,7 +7616,7 @@ cond.true.i.i:                                    ; preds = %if.end.i
   %shr.i.i.i = lshr i64 %11, 8
   %idx.neg.i.i.i = sub nsw i64 0, %shr.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 %idx.neg.i.i.i
-  %12 = load ptr, ptr %add.ptr.i.i.i, align 8, !nonnull !41, !noundef !41
+  %12 = load ptr, ptr %add.ptr.i.i.i, align 8, !nonnull !57, !noundef !57
   %sub.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 -64
   br label %invoke.cont21
 
@@ -17412,23 +17412,23 @@ attributes #33 = { nounwind allocsize(0) }
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = !{}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZNK4pugi8xml_node8childrenEv: %agg.result"}
-!44 = distinct !{!44, !"_ZNK4pugi8xml_node8childrenEv"}
-!45 = !{!46, !48}
-!46 = distinct !{!46, !47, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
-!47 = distinct !{!47, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_"}
-!48 = distinct !{!48, !47, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
-!49 = distinct !{!49, !5}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNK4pugi8xml_node8childrenEv: %agg.result"}
-!52 = distinct !{!52, !"_ZNK4pugi8xml_node8childrenEv"}
-!53 = !{!54, !56}
-!54 = distinct !{!54, !55, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
-!55 = distinct !{!55, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_"}
-!56 = distinct !{!56, !55, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
-!57 = !{!"branch_weights", i32 1, i32 1048575}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZNK4pugi8xml_node8childrenEv: %agg.result"}
+!43 = distinct !{!43, !"_ZNK4pugi8xml_node8childrenEv"}
+!44 = !{!45, !47}
+!45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!46 = distinct !{!46, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_"}
+!47 = distinct !{!47, !46, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
+!48 = distinct !{!48, !5}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNK4pugi8xml_node8childrenEv: %agg.result"}
+!51 = distinct !{!51, !"_ZNK4pugi8xml_node8childrenEv"}
+!52 = !{!53, !55}
+!53 = distinct !{!53, !54, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!54 = distinct !{!54, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_"}
+!55 = distinct !{!55, !54, !"_ZSt19__relocate_object_aISt4pairIP10aiMaterialjES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
+!56 = !{!"branch_weights", i32 1, i32 1048575}
+!57 = !{}
 !58 = !{!59}
 !59 = distinct !{!59, !60, !"_ZNK4pugi8xml_node8childrenEv: %agg.result"}
 !60 = distinct !{!60, !"_ZNK4pugi8xml_node8childrenEv"}

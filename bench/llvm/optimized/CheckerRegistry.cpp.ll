@@ -9124,7 +9124,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E20InsertIntoBucketImplIS6_EEPSC_RKS6_RKT_SG_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E20InsertIntoBucketImplIS6_EEPSC_RKS6_RKT_SG_.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E15LookupBucketForIS6_EEbRKT_RPSC_.exit.i, %138
-  %141 = load ptr, ptr %.06.i, align 8
+  %141 = load ptr, ptr %.06.i, align 8, !noalias !66
   store ptr %141, ptr %.0.i, align 8, !noalias !66
   %142 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %143 = add i64 %142, 1
@@ -9418,7 +9418,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E20InsertIntoBucketImplIS6_EEPSC_RKS6_RKT_SG_.exit65
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E20InsertIntoBucketImplIS6_EEPSC_RKS6_RKT_SG_.exit65: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E15LookupBucketForIS6_EEbRKT_RPSC_.exit.i50, %291
-  %294 = load ptr, ptr %.079.i, align 8
+  %294 = load ptr, ptr %.079.i, align 8, !noalias !73
   store ptr %294, ptr %.0.i51, align 8, !noalias !73
   %295 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %186) #16
   %296 = add i64 %295, 1
@@ -9593,7 +9593,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKN5clang4ento
 33:                                               ; preds = %22, %2
   %.sink.i.i.i.i = phi ptr [ %23, %22 ], [ null, %2 ]
   %34 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E20InsertIntoBucketImplIS6_EEPSC_RKS6_RKT_SG_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !79
-  %35 = load ptr, ptr %1, align 8
+  %35 = load ptr, ptr %1, align 8, !noalias !79
   store ptr %35, ptr %34, align 8, !noalias !79
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #16

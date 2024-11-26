@@ -6592,10 +6592,10 @@ sw.bb.i.i.i:                                      ; preds = %do.end7
   call void @_ZN9grpc_core5SleepclEv(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %promise_holder_), !noalias !118
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  %13 = load i8, ptr %ref.tmp.i.i.i.i, align 8, !noalias !118
+  %13 = load i8, ptr %ref.tmp.i.i.i.i, align 8, !noalias !125
   %tobool.i.i.i.i.i.i.i = trunc i8 %13 to i1
   %frombool.i.i.i.i.i.i.i = and i8 %13, 1
-  store i8 %frombool.i.i.i.i.i.i.i, ptr %result.i.i.i, align 8, !alias.scope !125, !noalias !112
+  store i8 %frombool.i.i.i.i.i.i.i, ptr %result.i.i.i, align 8, !alias.scope !126, !noalias !112
   br i1 %tobool.i.i.i.i.i.i.i, label %if.end.i.i.i, label %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.thread.i.i
 
 lpad.i.i.i:                                       ; preds = %if.end9.i.i.i
@@ -6605,8 +6605,8 @@ lpad.i.i.i:                                       ; preds = %if.end9.i.i.i
   br label %common.resume
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i.i
-  %15 = load i64, ptr %5, align 8, !noalias !126
-  store i64 %15, ptr %4, align 8, !alias.scope !125, !noalias !112
+  %15 = load i64, ptr %5, align 8, !noalias !125
+  store i64 %15, ptr %4, align 8, !alias.scope !126, !noalias !112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !112
   %cmp.i.i.i.i.i = icmp eq i64 %15, 0
   br i1 %cmp.i.i.i.i.i, label %if.end9.i.i.i, label %if.then10.loopexit
@@ -6765,7 +6765,7 @@ _ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit37.thread.i.i.i: ; pred
 sw.bb43.i.i.i:                                    ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit37.thread.i.i.i, %do.end7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i38.i.i.i), !noalias !112
   call void @_ZN9grpc_core5SleepclEv(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i38.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %promise_holder_), !noalias !170
-  %29 = load i8, ptr %ref.tmp.i38.i.i.i, align 8, !noalias !170
+  %29 = load i8, ptr %ref.tmp.i38.i.i.i, align 8, !noalias !173
   %tobool.i.i.i.i39.i.i.i = trunc i8 %29 to i1
   br i1 %tobool.i.i.i.i39.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit49.i.i.i, label %if.then50.i.i.i
 
@@ -7372,7 +7372,7 @@ entry:
   call void %3(ptr nonnull sret(%"class.grpc_core::Poll.258") align 8 %agg.tmp, ptr noundef nonnull %arg.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
   call void @llvm.experimental.noalias.scope.decl(metadata !197)
-  %4 = load i8, ptr %agg.tmp, align 8
+  %4 = load i8, ptr %agg.tmp, align 8, !noalias !200
   %tobool.i.i.i = trunc i8 %4 to i1
   %frombool.i.i.i = and i8 %4, 1
   store i8 %frombool.i.i.i, ptr %agg.result, align 8, !alias.scope !200
@@ -8428,7 +8428,7 @@ entry.sw.bb13.i_crit_edge.i.i.i.i:                ; preds = %while.body.i.i
 sw.bb.i.i.i.i.i:                                  ; preds = %while.body.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !237
   call void @_ZN9grpc_core5SleepclEv(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %3), !noalias !242
-  %35 = load i8, ptr %ref.tmp.i.i.i.i.i.i, align 8, !noalias !242
+  %35 = load i8, ptr %ref.tmp.i.i.i.i.i.i, align 8, !noalias !245
   %tobool.i.i.i.i.i.i.i.i.i = trunc i8 %35 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i.i, label %if.end.cont.i.i.i.i.i, label %if.end12
 
@@ -10983,8 +10983,8 @@ attributes #28 = { noreturn }
 !122 = !{!123}
 !123 = distinct !{!123, !124, !"_ZN9grpc_core14promise_detail11PollWrapperINS_4PollIN4absl12lts_202308026StatusEEEE4WrapEOS6_: %agg.result"}
 !124 = distinct !{!124, !"_ZN9grpc_core14promise_detail11PollWrapperINS_4PollIN4absl12lts_202308026StatusEEEE4WrapEOS6_"}
-!125 = !{!123, !120, !116}
-!126 = !{!123, !120, !116, !113, !110, !107}
+!125 = !{!123, !120, !116, !113, !110, !107}
+!126 = !{!123, !120, !116}
 !127 = !{!128, !130, !132, !113, !110, !107}
 !128 = distinct !{!128, !129, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplIZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1EENSt9enable_ifIXsr14IsVoidCallableINS0_9ResultOfTIFT_vEvE1TEEE5valueENS0_11PromiseLikeIDTclclsr3stdE7declvalIS6_EEEEvEEE4typeEOS6_: %agg.result"}
 !129 = distinct !{!129, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplIZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1EENSt9enable_ifIXsr14IsVoidCallableINS0_9ResultOfTIFT_vEvE1TEEE5valueENS0_11PromiseLikeIDTclclsr3stdE7declvalIS6_EEEEvEEE4typeEOS6_"}

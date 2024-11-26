@@ -1989,9 +1989,9 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Optio
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !alias.scope !571, !nonnull !16, !noundef !16
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !alias.scope !572, !noundef !16
+  %19 = load i64, ptr %18, align 8, !alias.scope !571, !noundef !16
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17h6eb36321ad487cc1E.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 %17, i64 noundef %19) #36
-          to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805.exit.i.i" unwind label %20, !noalias !571
+          to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805.exit.i.i" unwind label %20, !noalias !574
 
 20:                                               ; preds = %14
   %21 = landingpad { ptr, i32 }
@@ -4548,7 +4548,7 @@ _ZN5serde2de9SeqAccess12next_element17h3f969a7873562ea4E.exit: ; preds = %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !1108)
   call void @llvm.experimental.noalias.scope.decl(metadata !1111)
-  %29 = load ptr, ptr %17, align 8, !alias.scope !1108, !nonnull !16, !noundef !16
+  %29 = load ptr, ptr %17, align 8, !alias.scope !1114, !nonnull !16, !noundef !16
   %30 = load i64, ptr %18, align 8, !alias.scope !1114, !noundef !16
   br label %31
 
@@ -4739,7 +4739,7 @@ common.resume:                                    ; preds = %.body.i, %47, %.bod
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1144)
   call void @llvm.experimental.noalias.scope.decl(metadata !1147)
-  %29 = load ptr, ptr %17, align 8, !alias.scope !1144, !nonnull !16, !noundef !16
+  %29 = load ptr, ptr %17, align 8, !alias.scope !1150, !nonnull !16, !noundef !16
   %30 = load i64, ptr %18, align 8, !alias.scope !1150, !noundef !16
   br label %31
 
@@ -16394,10 +16394,10 @@ attributes #36 = { "function-inline-cost-multiplier"="2" }
 !568 = !{!569}
 !569 = distinct !{!569, !570, !"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hb5d24f7143fd9503E: argument 0"}
 !570 = distinct !{!570, !"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hb5d24f7143fd9503E"}
-!571 = !{!569, !548}
-!572 = !{!573, !569, !548}
-!573 = distinct !{!573, !574, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805: argument 0"}
-!574 = distinct !{!574, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805"}
+!571 = !{!572, !569, !548}
+!572 = distinct !{!572, !573, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805: argument 0"}
+!573 = distinct !{!573, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805"}
+!574 = !{!569, !548}
 !575 = !{!576}
 !576 = distinct !{!576, !577, !"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_json..value..Value$GT$$GT$17hb074428357a36404E.llvm.2471798985521550805: argument 0"}
 !577 = distinct !{!577, !"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_json..value..Value$GT$$GT$17hb074428357a36404E.llvm.2471798985521550805"}

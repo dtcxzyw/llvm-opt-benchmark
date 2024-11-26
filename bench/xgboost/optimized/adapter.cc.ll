@@ -653,7 +653,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   store ptr %spec.select.i44, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %0, i64 136
   %158 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !5
-  %159 = load i64, ptr %157, align 8
+  %159 = load i64, ptr %157, align 8, !noalias !5
   store ptr %135, ptr %158, align 8, !noalias !5
   %160 = getelementptr inbounds i8, ptr %158, i64 8
   store i64 %159, ptr %160, align 8, !noalias !5

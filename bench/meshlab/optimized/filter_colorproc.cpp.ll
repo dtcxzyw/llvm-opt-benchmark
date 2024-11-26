@@ -24251,7 +24251,7 @@ _ZNSt5stackIP8CVertexOSt5dequeIS1_SaIS1_EEE4pushEOS1_.exit: ; preds = %._ZNSt5st
 
 40:                                               ; preds = %.lr.ph62, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit30
   %41 = phi ptr [ %30, %.lr.ph62 ], [ %181, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit30 ]
-  %42 = load ptr, ptr %34, align 8
+  %42 = load ptr, ptr %34, align 8, !noalias !81
   %43 = icmp eq ptr %41, %42
   br i1 %43, label %47, label %44
 
@@ -30879,8 +30879,8 @@ _ZN3vcg3tri26ConnectedComponentIteratorI6CMeshOEdeEv.exit: ; preds = %.lr.ph, %7
   %88 = sdiv exact i64 %86, 12
   %89 = getelementptr inbounds i8, ptr %87, i64 %88
   store i32 %24, ptr %89, align 1
-  %90 = load ptr, ptr %11, align 8
-  %91 = load ptr, ptr %13, align 8
+  %90 = load ptr, ptr %11, align 8, !noalias !137
+  %91 = load ptr, ptr %13, align 8, !noalias !137
   %92 = icmp eq ptr %90, %91
   br i1 %92, label %96, label %93
 

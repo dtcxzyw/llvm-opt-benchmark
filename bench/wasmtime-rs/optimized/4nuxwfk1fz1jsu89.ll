@@ -791,7 +791,8 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !noundef !5
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  %6 = load ptr, ptr %5, align 8, !alias.scope !31, !noundef !5
   invoke void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.484570838511886111"(ptr noalias noundef align 8 dereferenceable(64) %6)
           to label %"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$wiggle..error..GuestError$GT$$GT$17h82673ea8364d9116E.llvm.484570838511886111.exit" unwind label %7, !noalias !31
 
@@ -8331,7 +8332,7 @@ common.resume.i.i:                                ; preds = %27
 31:                                               ; preds = %17
   %32 = getelementptr inbounds i8, ptr %3, i64 16
   %33 = getelementptr inbounds i8, ptr %0, i64 320
-  %34 = load i64, ptr %33, align 16, !alias.scope !735, !noalias !725, !noundef !5
+  %34 = load i64, ptr %33, align 16, !alias.scope !736, !noalias !737, !noundef !5
   store i64 %34, ptr %7, align 8, !alias.scope !736, !noalias !737
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull readonly align 16 dereferenceable(48) %32, i64 48, i1 false), !noalias !725
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !723
@@ -9612,7 +9613,7 @@ define noundef i32 @"_ZN75_$LT$wasmtime_wasi..random..Deterministic$u20$as$u20$r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !870)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
+  %8 = load ptr, ptr %7, align 8, !alias.scope !873, !nonnull !5, !noundef !5
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !alias.scope !873, !nonnull !5, !noundef !5
   %.not.i = icmp eq ptr %10, %8

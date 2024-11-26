@@ -15589,9 +15589,9 @@ if.then.i:                                        ; preds = %entry
   %.pre = load ptr, ptr %_stacks, align 8
   %add.ptr.i37.phi.trans.insert = getelementptr inbounds %"class.std::stack", ptr %.pre, i64 %0
   %_M_finish.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i37.phi.trans.insert, i64 48
-  %.pre75 = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8
+  %.pre75 = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8, !noalias !179
   %_M_first3.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i37.phi.trans.insert, i64 56
-  %.pre76 = load ptr, ptr %_M_first3.i.i.i.i.phi.trans.insert, align 8
+  %.pre76 = load ptr, ptr %_M_first3.i.i.i.i.phi.trans.insert, align 8, !noalias !179
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %entry

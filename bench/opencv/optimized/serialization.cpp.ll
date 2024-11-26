@@ -15467,7 +15467,7 @@ _ZN2cv4gapi4s11n12_GLOBAL__N_18mkOpNodeERN3ade5GraphERKNS_5gimpl2OpE.exit: ; pre
 
 401:                                              ; preds = %397
   %402 = getelementptr inbounds i8, ptr %400, i64 12
-  %403 = load i8, ptr @__libc_single_threaded, align 1, !noalias !45
+  %403 = load i8, ptr @__libc_single_threaded, align 1, !noalias !124
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %403, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %408, label %.thread.i
 
@@ -18251,7 +18251,7 @@ _ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4Dat
 
 1526:                                             ; preds = %1522
   %1527 = getelementptr inbounds i8, ptr %1525, i64 12
-  %1528 = load i8, ptr @__libc_single_threaded, align 1, !noalias !45
+  %1528 = load i8, ptr @__libc_single_threaded, align 1, !noalias !194
   %.not.i.i.i.i.i.i.i.i.i86 = icmp eq i8 %1528, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i86, label %1533, label %.thread547.i
 

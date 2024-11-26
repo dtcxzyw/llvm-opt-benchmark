@@ -1172,7 +1172,7 @@ define internal void @_ZN12_GLOBAL__N_151gtest_AllLogUniformIntChiSquaredTest_Ev
 entry:
   %ref.tmp = alloca %"class.std::vector.65", align 8
   call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias align 8 %ref.tmp)
-  %0 = load ptr, ptr %ref.tmp, align 8
+  %0 = load ptr, ptr %ref.tmp, align 8, !noalias !7
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !7
   invoke void @_ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKN4absl28log_uniform_int_distributionIiE10param_typeESt6vectorIS6_SaIS6_EEEEEENS_8internal14ParamGeneratorINSt15iterator_traitsIT_E10value_typeEEESG_SG_(ptr sret(%"class.testing::internal::ParamGenerator") align 8 %agg.result, ptr %0, ptr %1)
@@ -1213,7 +1213,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias align 8 %ref.tmp1)
-  %0 = load ptr, ptr %ref.tmp1, align 8
+  %0 = load ptr, ptr %ref.tmp1, align 8, !noalias !10
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !10
   invoke void @_ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKN4absl28log_uniform_int_distributionIiE10param_typeESt6vectorIS6_SaIS6_EEEEEENS_8internal14ParamGeneratorINSt15iterator_traitsIT_E10value_typeEEESG_SG_(ptr nonnull sret(%"class.testing::internal::ParamGenerator") align 8 %ref.tmp, ptr %0, ptr %1)

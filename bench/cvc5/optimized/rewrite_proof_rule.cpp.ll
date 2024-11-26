@@ -974,7 +974,7 @@ for.inc87:                                        ; preds = %for.cond.i.i.i.i, %
 
 for.end89:                                        ; preds = %for.inc87, %for.end60
   %54 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !10
-  %bf.load.i.i.i = load i64, ptr %54, align 8
+  %bf.load.i.i.i = load i64, ptr %54, align 8, !noalias !10
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %55 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %55, 1048575
@@ -2010,7 +2010,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
   %d_context.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !21
-  %bf.load.i.i.i.i = load i64, ptr %2, align 8
+  %bf.load.i.i.i.i = load i64, ptr %2, align 8, !noalias !21
   %bf.lshr.i.i.i.i = lshr i64 %bf.load.i.i.i.i, 40
   %3 = trunc nuw nsw i64 %bf.lshr.i.i.i.i to i32
   %bf.cast.i.i.i.i = and i32 %3, 1048575
@@ -2772,7 +2772,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal8rewriter16RewriteProofRule1
 entry:
   %d_context = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !39
-  %bf.load.i.i.i = load i64, ptr %0, align 8
+  %bf.load.i.i.i = load i64, ptr %0, align 8, !noalias !39
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %1 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %1, 1048575
@@ -4681,7 +4681,7 @@ invoke.cont55:                                    ; preds = %if.end51
 for.body:                                         ; preds = %invoke.cont55, %for.inc
   %it.sroa.0.0142 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %spec.select.i.i, %invoke.cont55 ]
   %46 = load ptr, ptr %it.sroa.0.0142, align 8, !noalias !56
-  %bf.load.i.i.i = load i64, ptr %46, align 8
+  %bf.load.i.i.i = load i64, ptr %46, align 8, !noalias !56
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %47 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %47, 1048575

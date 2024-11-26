@@ -226,7 +226,7 @@ define dso_local noalias noundef ptr @_ZN5clang10CFGStmtMap5BuildEPNS_3CFGEPNS_9
   %23 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
   %24 = shl i32 %23, 2
   %25 = and i32 %24, 12
-  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %21, align 8
+  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %21, align 8, !noalias !22
   %26 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i to i32
   %27 = and i32 %26, 3
   %28 = add nuw nsw i32 %27, -6

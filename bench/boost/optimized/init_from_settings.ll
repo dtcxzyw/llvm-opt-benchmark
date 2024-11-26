@@ -7772,7 +7772,7 @@ _ZN5boost15optional_detail13optional_baseINSt7__cxx1112basic_stringIcSt11char_tr
   %364 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store i8 46, ptr %364, align 8, !tbaa !46, !alias.scope !366
   %365 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %366 = load ptr, ptr %357, align 8, !tbaa !10
+  %366 = load ptr, ptr %357, align 8, !tbaa !10, !alias.scope !366
   store ptr %366, ptr %365, align 8, !alias.scope !366
   call void @llvm.experimental.noalias.scope.decl(metadata !369)
   call void @llvm.experimental.noalias.scope.decl(metadata !372)
@@ -8020,7 +8020,7 @@ _ZN5boost3log11v2_mt_posix3aux14light_functionIFbvEED2Ev.exit242: ; preds = %433
   %446 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store i8 46, ptr %446, align 8, !tbaa !46, !alias.scope !397
   %447 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  %448 = load ptr, ptr %439, align 8, !tbaa !10
+  %448 = load ptr, ptr %439, align 8, !tbaa !10, !alias.scope !397
   store ptr %448, ptr %447, align 8, !alias.scope !397
   call void @llvm.experimental.noalias.scope.decl(metadata !400)
   call void @llvm.experimental.noalias.scope.decl(metadata !403)
@@ -8345,7 +8345,7 @@ _ZN5boost15optional_detail13optional_baseINSt7__cxx1112basic_stringIcSt11char_tr
   %565 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i8 46, ptr %565, align 8, !tbaa !46, !alias.scope !422
   %566 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %567 = load ptr, ptr %558, align 8, !tbaa !10
+  %567 = load ptr, ptr %558, align 8, !tbaa !10, !alias.scope !422
   store ptr %567, ptr %566, align 8, !alias.scope !422
   call void @llvm.experimental.noalias.scope.decl(metadata !425)
   call void @llvm.experimental.noalias.scope.decl(metadata !428)

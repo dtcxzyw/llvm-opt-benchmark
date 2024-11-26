@@ -9891,7 +9891,7 @@ _ZN4Luau9TypeErrorD2Ev.exit:                      ; preds = %457
 473:                                              ; preds = %469
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %474 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.01.0.copyload.i191 = load ptr, ptr %474, align 8
+  %.sroa.01.0.copyload.i191 = load ptr, ptr %474, align 8, !noalias !31
   %475 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.0.0.copyload.i192 = load ptr, ptr %475, align 8, !noalias !31
   %476 = getelementptr inbounds i8, ptr %0, i64 192
@@ -17702,7 +17702,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %815 = load i8, ptr %739, align 1, !noalias !54
   %816 = and i8 %815, 1
   store i8 %816, ptr %731, align 1, !alias.scope !54
-  %817 = load i8, ptr %740, align 8
+  %817 = load i8, ptr %740, align 8, !noalias !54
   %818 = trunc i8 %817 to i1
   br i1 %818, label %_ZN4Luau7Unifier16makeChildUnifierEv.exit399.thread, label %_ZN4Luau7Unifier16makeChildUnifierEv.exit399
 

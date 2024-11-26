@@ -43,13 +43,13 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine16FindClosestPointERKN
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !4
-  %5 = load double, ptr %1, align 8, !noalias !7
+  %5 = load double, ptr %1, align 8, !noalias !4
   %6 = fsub double %.sroa.0.0.copyload.i, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load double, ptr %7, align 8, !noalias !7
+  %8 = load double, ptr %7, align 8, !noalias !4
   %9 = fsub double %.sroa.4.0.copyload.i, %8
   %10 = getelementptr inbounds i8, ptr %1, i64 16
-  %11 = load double, ptr %10, align 8, !noalias !7
+  %11 = load double, ptr %10, align 8, !noalias !4
   %12 = fsub double %.sroa.6.0.copyload.i, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load double, ptr %13, align 8
@@ -65,12 +65,12 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine16FindClosestPointERKN
 
 22:                                               ; preds = %4
   store double %21, ptr %3, align 8
-  %.sroa.0.0.copyload.i.i.pre = load double, ptr %13, align 8, !noalias !8
-  %.sroa.4.0.copyload.i.i.pre = load double, ptr %15, align 8, !noalias !8
-  %.sroa.6.0.copyload.i.i.pre = load double, ptr %19, align 8, !noalias !8
-  %.sroa.0.0.copyload.i2.i.pre = load double, ptr %1, align 8, !noalias !13
-  %.sroa.4.0.copyload.i4.i.pre = load double, ptr %7, align 8, !noalias !13
-  %.sroa.6.0.copyload.i6.i.pre = load double, ptr %10, align 8, !noalias !13
+  %.sroa.0.0.copyload.i.i.pre = load double, ptr %13, align 8, !noalias !7
+  %.sroa.4.0.copyload.i.i.pre = load double, ptr %15, align 8, !noalias !7
+  %.sroa.6.0.copyload.i.i.pre = load double, ptr %19, align 8, !noalias !7
+  %.sroa.0.0.copyload.i2.i.pre = load double, ptr %1, align 8, !noalias !12
+  %.sroa.4.0.copyload.i4.i.pre = load double, ptr %7, align 8, !noalias !12
+  %.sroa.6.0.copyload.i6.i.pre = load double, ptr %10, align 8, !noalias !12
   br label %23
 
 23:                                               ; preds = %22, %4
@@ -80,19 +80,19 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine16FindClosestPointERKN
   %.sroa.6.0.copyload.i.i = phi double [ %.sroa.6.0.copyload.i.i.pre, %22 ], [ %20, %4 ]
   %.sroa.4.0.copyload.i.i = phi double [ %.sroa.4.0.copyload.i.i.pre, %22 ], [ %16, %4 ]
   %.sroa.0.0.copyload.i.i = phi double [ %.sroa.0.0.copyload.i.i.pre, %22 ], [ %14, %4 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %24 = fmul double %21, %.sroa.0.0.copyload.i.i
   %25 = fmul double %21, %.sroa.4.0.copyload.i.i
   %26 = fmul double %21, %.sroa.6.0.copyload.i.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %27 = fadd double %24, %.sroa.0.0.copyload.i2.i
   %28 = fadd double %25, %.sroa.4.0.copyload.i4.i
   %29 = fadd double %26, %.sroa.6.0.copyload.i6.i
-  store double %27, ptr %0, align 8, !alias.scope !13
+  store double %27, ptr %0, align 8, !alias.scope !12
   %.sroa.4.0..sroa_idx3.i7.i = getelementptr inbounds i8, ptr %0, i64 8
-  store double %28, ptr %.sroa.4.0..sroa_idx3.i7.i, align 8, !alias.scope !13
+  store double %28, ptr %.sroa.4.0..sroa_idx3.i7.i, align 8, !alias.scope !12
   %.sroa.6.0..sroa_idx5.i8.i = getelementptr inbounds i8, ptr %0, i64 16
-  store double %29, ptr %.sroa.6.0..sroa_idx5.i8.i, align 8, !alias.scope !13
+  store double %29, ptr %.sroa.6.0..sroa_idx5.i8.i, align 8, !alias.scope !12
   ret void
 }
 
@@ -180,15 +180,15 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestP
   br i1 %.not53, label %80, label %73
 
 73:                                               ; preds = %72
-  %.sroa.0.0.copyload.i.i56 = load double, ptr %8, align 8, !noalias !18
-  %.sroa.4.0.copyload.i.i58 = load double, ptr %13, align 8, !noalias !18
-  %.sroa.6.0.copyload.i.i60 = load double, ptr %19, align 8, !noalias !18
+  %.sroa.0.0.copyload.i.i56 = load double, ptr %8, align 8, !noalias !17
+  %.sroa.4.0.copyload.i.i58 = load double, ptr %13, align 8, !noalias !17
+  %.sroa.6.0.copyload.i.i60 = load double, ptr %19, align 8, !noalias !17
   %74 = fmul double %64, %.sroa.0.0.copyload.i.i56
   %75 = fmul double %64, %.sroa.4.0.copyload.i.i58
   %76 = fmul double %64, %.sroa.6.0.copyload.i.i60
-  %.sroa.0.0.copyload.i2.i61 = load double, ptr %1, align 8, !noalias !23
-  %.sroa.4.0.copyload.i4.i63 = load double, ptr %30, align 8, !noalias !23
-  %.sroa.6.0.copyload.i6.i65 = load double, ptr %31, align 8, !noalias !23
+  %.sroa.0.0.copyload.i2.i61 = load double, ptr %1, align 8, !noalias !22
+  %.sroa.4.0.copyload.i4.i63 = load double, ptr %30, align 8, !noalias !22
+  %.sroa.6.0.copyload.i6.i65 = load double, ptr %31, align 8, !noalias !22
   %77 = fadd double %74, %.sroa.0.0.copyload.i2.i61
   %78 = fadd double %75, %.sroa.4.0.copyload.i4.i63
   %79 = fadd double %76, %.sroa.6.0.copyload.i6.i65
@@ -232,19 +232,19 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 40)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.2)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i = load double, ptr %7, align 8, !noalias !26
+  %.sroa.0.0.copyload.i.i = load double, ptr %7, align 8, !noalias !25
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 32
-  %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !26
+  %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !25
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 40
-  %.sroa.6.0.copyload.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !26
+  %.sroa.6.0.copyload.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !25
   %8 = fmul double %.sroa.0.0.copyload.i.i, 0.000000e+00
   %9 = fmul double %.sroa.4.0.copyload.i.i, 0.000000e+00
   %10 = fmul double %.sroa.6.0.copyload.i.i, 0.000000e+00
-  %.sroa.0.0.copyload.i2.i = load double, ptr %1, align 8, !noalias !31
+  %.sroa.0.0.copyload.i2.i = load double, ptr %1, align 8, !noalias !30
   %.sroa.4.0..sroa_idx.i3.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.4.0.copyload.i4.i = load double, ptr %.sroa.4.0..sroa_idx.i3.i, align 8, !noalias !31
+  %.sroa.4.0.copyload.i4.i = load double, ptr %.sroa.4.0..sroa_idx.i3.i, align 8, !noalias !30
   %.sroa.6.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.6.0.copyload.i6.i = load double, ptr %.sroa.6.0..sroa_idx.i5.i, align 8, !noalias !31
+  %.sroa.6.0.copyload.i6.i = load double, ptr %.sroa.6.0..sroa_idx.i5.i, align 8, !noalias !30
   %11 = fadd double %8, %.sroa.0.0.copyload.i2.i
   %12 = fadd double %9, %.sroa.4.0.copyload.i4.i
   %13 = fadd double %10, %.sroa.6.0.copyload.i6.i
@@ -352,30 +352,29 @@ attributes #14 = { noreturn nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_: argument 0"}
 !6 = distinct !{!6, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_"}
-!7 = !{}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd: argument 0"}
-!10 = distinct !{!10, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd"}
-!11 = distinct !{!11, !12, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd: argument 0"}
-!12 = distinct !{!12, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd"}
-!13 = !{!14, !11}
-!14 = distinct !{!14, !15, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
-!15 = distinct !{!15, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
-!16 = !{!11}
-!17 = !{!14}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd: argument 0"}
-!20 = distinct !{!20, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd"}
-!21 = distinct !{!21, !22, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd: argument 0"}
-!22 = distinct !{!22, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd"}
-!23 = !{!24, !21}
-!24 = distinct !{!24, !25, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
-!25 = distinct !{!25, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
-!26 = !{!27, !29}
-!27 = distinct !{!27, !28, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd: argument 0"}
-!28 = distinct !{!28, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd"}
-!29 = distinct !{!29, !30, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd: argument 0"}
-!30 = distinct !{!30, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd"}
-!31 = !{!32, !29}
-!32 = distinct !{!32, !33, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
-!33 = distinct !{!33, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
+!7 = !{!8, !10}
+!8 = distinct !{!8, !9, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd: argument 0"}
+!9 = distinct !{!9, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd"}
+!10 = distinct !{!10, !11, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd: argument 0"}
+!11 = distinct !{!11, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd"}
+!12 = !{!13, !10}
+!13 = distinct !{!13, !14, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
+!14 = distinct !{!14, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
+!15 = !{!10}
+!16 = !{!13}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd: argument 0"}
+!19 = distinct !{!19, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd"}
+!20 = distinct !{!20, !21, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd: argument 0"}
+!21 = distinct !{!21, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd"}
+!22 = !{!23, !20}
+!23 = distinct !{!23, !24, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
+!24 = distinct !{!24, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
+!25 = !{!26, !28}
+!26 = distinct !{!26, !27, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd: argument 0"}
+!27 = distinct !{!27, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd"}
+!28 = distinct !{!28, !29, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd: argument 0"}
+!29 = distinct !{!29, !"_ZNK32pxrInternal_v0_24__pxrReserved__6GfLine8GetPointEd"}
+!30 = !{!31, !28}
+!31 = distinct !{!31, !32, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
+!32 = distinct !{!32, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}

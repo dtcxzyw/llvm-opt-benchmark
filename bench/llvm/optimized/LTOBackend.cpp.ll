@@ -5217,7 +5217,7 @@ _ZN4llvm16FunctionImporterC2ERKNS_18ModuleSummaryIndexESt8functionIFNS_8Expected
   call void @_ZN4llvm16FunctionImporter15importFunctionsERNS_6ModuleERKNS0_11ImportMapTyE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.297") align 8 %32, ptr noundef nonnull align 8 dereferenceable(41) %31, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %329 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %330 = load i8, ptr %329, align 8
+  %330 = load i8, ptr %329, align 8, !noalias !84
   %331 = trunc i8 %330 to i1
   br i1 %331, label %_ZN4llvm8ExpectedIbED2Ev.exit, label %_ZN4llvm8ExpectedIbED2Ev.exit.thread
 

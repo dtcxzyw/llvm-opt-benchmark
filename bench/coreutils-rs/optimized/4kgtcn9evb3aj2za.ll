@@ -2565,7 +2565,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br i1 %6, label %7, label %24, !prof !207
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !alias.scope !443, !noalias !453, !nonnull !4, !noundef !4
+  %8 = load ptr, ptr %0, align 8, !alias.scope !449, !noalias !450, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = getelementptr inbounds [128 x { i8 }], ptr %9, i64 0, i64 %5
   %11 = getelementptr inbounds i8, ptr %8, i64 144
@@ -2590,7 +2590,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 24:                                               ; preds = %2
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %5, i64 noundef 128, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9dd555b167f93cc210fe76094ee5a483.13) #24
-          to label %.noexc2.i unwind label %25, !noalias !454
+          to label %.noexc2.i unwind label %25, !noalias !453
 
 .noexc2.i:                                        ; preds = %24
   unreachable
@@ -2602,8 +2602,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %common.resume.i unwind label %42
 
 "_ZN117_$LT$signal_hook..iterator..backend..PendingSignals$LT$E$GT$$u20$as$u20$signal_hook..iterator..backend..AddSignal$GT$10add_signal28_$u7b$$u7b$closure$u7d$$u7d$17h48e751c0dbf97694E.exit.i": ; preds = %.noexc.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !455)
-  %27 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !458
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !454)
+  %27 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !457
   %28 = icmp eq i64 %27, 1
   br i1 %28, label %29, label %"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Arc$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$$GT$17hb71246328d7f9b92E.exit.i.i"
 
@@ -2615,9 +2615,9 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !463)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !466)
-  %32 = load ptr, ptr %12, align 8, !alias.scope !469, !noalias !453, !nonnull !4, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !462)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !465)
+  %32 = load ptr, ptr %12, align 8, !alias.scope !468, !noalias !469, !nonnull !4, !noundef !4
   %33 = atomicrmw sub ptr %32, i64 1 release, align 8, !noalias !470
   %34 = icmp eq i64 %33, 1
   br i1 %34, label %35, label %common.resume.i
@@ -2630,7 +2630,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 "_ZN4core3ptr145drop_in_place$LT$alloc..sync..Arc$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$$GT$17hb71246328d7f9b92E.exit.i.i": ; preds = %29, %"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals$LT$E$GT$$u20$as$u20$signal_hook..iterator..backend..AddSignal$GT$10add_signal28_$u7b$$u7b$closure$u7d$$u7d$17h48e751c0dbf97694E.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !471)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !474)
-  %36 = load ptr, ptr %12, align 8, !alias.scope !477, !noalias !453, !nonnull !4, !noundef !4
+  %36 = load ptr, ptr %12, align 8, !alias.scope !477, !noalias !469, !nonnull !4, !noundef !4
   %37 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !478
   %38 = icmp eq i64 %37, 1
   br i1 %38, label %39, label %_ZN4core3ops8function6FnOnce9call_once17h7292bdcaf5381311E.exit
@@ -4168,31 +4168,31 @@ attributes #27 = { nounwind }
 !450 = !{!451, !452}
 !451 = distinct !{!451, !448, !"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals$LT$E$GT$$u20$as$u20$signal_hook..iterator..backend..AddSignal$GT$10add_signal28_$u7b$$u7b$closure$u7d$$u7d$17h48e751c0dbf97694E: argument 1"}
 !452 = distinct !{!452, !445, !"_ZN4core3ops8function6FnOnce9call_once17h7292bdcaf5381311E: argument 1"}
-!453 = !{!452}
-!454 = !{!444, !452}
-!455 = !{!456}
-!456 = distinct !{!456, !457, !"_ZN4core3ptr223drop_in_place$LT$$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$u20$as$u20$signal_hook..iterator..backend..AddSignal$GT$..add_signal..$u7b$$u7b$closure$u7d$$u7d$$GT$17h88fdd349bb1c5cd9E: argument 0"}
-!457 = distinct !{!457, !"_ZN4core3ptr223drop_in_place$LT$$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$u20$as$u20$signal_hook..iterator..backend..AddSignal$GT$..add_signal..$u7b$$u7b$closure$u7d$$u7d$$GT$17h88fdd349bb1c5cd9E"}
-!458 = !{!459, !461, !456, !444}
-!459 = distinct !{!459, !460, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h606ae93d1c9d4efdE: argument 0"}
-!460 = distinct !{!460, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h606ae93d1c9d4efdE"}
-!461 = distinct !{!461, !462, !"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Arc$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$$GT$17hb71246328d7f9b92E: argument 0"}
-!462 = distinct !{!462, !"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Arc$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$$GT$17hb71246328d7f9b92E"}
-!463 = !{!464}
-!464 = distinct !{!464, !465, !"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$signal_hook..iterator..backend..SelfPipeWrite$GT$$GT$17h001eb037ae6d6e3aE: argument 0"}
-!465 = distinct !{!465, !"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$signal_hook..iterator..backend..SelfPipeWrite$GT$$GT$17h001eb037ae6d6e3aE"}
-!466 = !{!467}
-!467 = distinct !{!467, !468, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0533cf2f3045b3d1E: argument 0"}
-!468 = distinct !{!468, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0533cf2f3045b3d1E"}
-!469 = !{!467, !464, !456, !444}
-!470 = !{!467, !464}
+!453 = !{!444, !452}
+!454 = !{!455}
+!455 = distinct !{!455, !456, !"_ZN4core3ptr223drop_in_place$LT$$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$u20$as$u20$signal_hook..iterator..backend..AddSignal$GT$..add_signal..$u7b$$u7b$closure$u7d$$u7d$$GT$17h88fdd349bb1c5cd9E: argument 0"}
+!456 = distinct !{!456, !"_ZN4core3ptr223drop_in_place$LT$$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$u20$as$u20$signal_hook..iterator..backend..AddSignal$GT$..add_signal..$u7b$$u7b$closure$u7d$$u7d$$GT$17h88fdd349bb1c5cd9E"}
+!457 = !{!458, !460, !455, !444}
+!458 = distinct !{!458, !459, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h606ae93d1c9d4efdE: argument 0"}
+!459 = distinct !{!459, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h606ae93d1c9d4efdE"}
+!460 = distinct !{!460, !461, !"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Arc$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$$GT$17hb71246328d7f9b92E: argument 0"}
+!461 = distinct !{!461, !"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Arc$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$$GT$17hb71246328d7f9b92E"}
+!462 = !{!463}
+!463 = distinct !{!463, !464, !"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$signal_hook..iterator..backend..SelfPipeWrite$GT$$GT$17h001eb037ae6d6e3aE: argument 0"}
+!464 = distinct !{!464, !"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$signal_hook..iterator..backend..SelfPipeWrite$GT$$GT$17h001eb037ae6d6e3aE"}
+!465 = !{!466}
+!466 = distinct !{!466, !467, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0533cf2f3045b3d1E: argument 0"}
+!467 = distinct !{!467, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0533cf2f3045b3d1E"}
+!468 = !{!466, !463, !455, !444}
+!469 = !{!452}
+!470 = !{!466, !463}
 !471 = !{!472}
 !472 = distinct !{!472, !473, !"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$signal_hook..iterator..backend..SelfPipeWrite$GT$$GT$17h001eb037ae6d6e3aE: argument 0"}
 !473 = distinct !{!473, !"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$signal_hook..iterator..backend..SelfPipeWrite$GT$$GT$17h001eb037ae6d6e3aE"}
 !474 = !{!475}
 !475 = distinct !{!475, !476, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0533cf2f3045b3d1E: argument 0"}
 !476 = distinct !{!476, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0533cf2f3045b3d1E"}
-!477 = !{!475, !472, !456, !444}
+!477 = !{!475, !472, !455, !444}
 !478 = !{!475, !472}
 !479 = !{!480}
 !480 = distinct !{!480, !481, !"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Arc$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$$GT$17hb71246328d7f9b92E: argument 0"}

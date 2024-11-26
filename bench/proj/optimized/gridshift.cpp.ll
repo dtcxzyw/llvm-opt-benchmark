@@ -1772,7 +1772,7 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
   br i1 %114, label %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit, label %115
 
 115:                                              ; preds = %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i
-  %116 = load double, ptr %7, align 8
+  %116 = load double, ptr %7, align 8, !noalias !13
   %117 = fcmp oeq double %116, 0x7FF0000000000000
   br i1 %117, label %118, label %119
 

@@ -798,24 +798,24 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %43 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> zeroinitializer
   %44 = fmul <2 x double> %39, %43
   store <2 x double> %44, ptr %11, align 16
-  call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  call void @llvm.experimental.noalias.scope.decl(metadata !89)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
-  store double %41, ptr %.sroa.0.i, align 16, !alias.scope !90, !noalias !87
+  store double %41, ptr %.sroa.0.i, align 16, !alias.scope !92, !noalias !89
   %.sroa.0.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
-  store ptr %25, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx, align 8, !alias.scope !90, !noalias !87
-  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.16..i = load <2 x double>, ptr %.sroa.0.i, align 16, !noalias !87
+  store ptr %25, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx, align 8, !alias.scope !92, !noalias !89
+  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.16..i = load <2 x double>, ptr %.sroa.0.i, align 16, !noalias !89
   %bc.i.i.i.i.i.i.i = bitcast <2 x double> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.16..i to <2 x i64>
   %45 = extractelement <2 x i64> %bc.i.i.i.i.i.i.i, i64 1
   %46 = inttoptr i64 %45 to ptr
   %47 = shufflevector <2 x double> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.16..i, <2 x double> poison, <2 x i32> zeroinitializer
-  %48 = load <2 x double>, ptr %46, align 16, !noalias !87
+  %48 = load <2 x double>, ptr %46, align 16, !noalias !89
   %49 = fmul <2 x double> %47, %48
-  store <2 x double> %49, ptr %12, align 16, !alias.scope !87
+  store <2 x double> %49, ptr %12, align 16, !alias.scope !89
   %50 = getelementptr inbounds i8, ptr %12, i64 16
   %51 = getelementptr inbounds i8, ptr %46, i64 16
-  %52 = load <2 x double>, ptr %51, align 16, !noalias !87
+  %52 = load <2 x double>, ptr %51, align 16, !noalias !89
   %53 = fmul <2 x double> %47, %52
-  store <2 x double> %53, ptr %50, align 16, !alias.scope !87
+  store <2 x double> %53, ptr %50, align 16, !alias.scope !89
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
   call void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_9VertexSE2ENS_15VertexSegment2DEEE23constructQuadraticFormNILi0EEEvRKNS2_IdLi2ELi2ELi0ELi2ELi2EEERKS3_(ptr noundef nonnull align 16 dereferenceable(312) %0, ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(16) %11)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1354,7 +1354,7 @@ _ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit: ; preds = %
   store ptr %15, ptr %.07.i.i.i, align 8
   %31 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %31, %30
-  br i1 %.not.i.i.i, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !93
+  br i1 %.not.i.i.i, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !95
 
 32:                                               ; preds = %14
   %33 = icmp eq i64 %2, %18
@@ -1370,7 +1370,7 @@ _ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit: ; preds = %
   store ptr %15, ptr %.07.i.i.i.i.i.i.i, align 8
   %37 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !93
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !95
 
 _ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %32
   %38 = phi ptr [ %9, %32 ], [ %36, %.lr.ph.i.i.i.i.i.i.i ]
@@ -1395,7 +1395,7 @@ _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT
   store ptr %15, ptr %.07.i.i.i72, align 8
   %42 = getelementptr inbounds i8, ptr %.07.i.i.i72, i64 8
   %.not.i.i.i73 = icmp eq ptr %42, %9
-  br i1 %.not.i.i.i73, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !93
+  br i1 %.not.i.i.i73, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !95
 
 43:                                               ; preds = %5
   %44 = load ptr, ptr %0, align 8
@@ -1438,7 +1438,7 @@ _ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc.exit: ; pred
   store ptr %64, ptr %.07.i.i.i.i.i.i.i76, align 8
   %65 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i76, i64 8
   %.not.i.i.i.i.i.i.i77 = icmp eq ptr %65, %63
-  br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !93
+  br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !95
 
 _ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
   %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %44
@@ -1513,7 +1513,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %13 = getelementptr inbounds i8, ptr %0, i64 296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %13, i64 10, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %14, align 8, !alias.scope !94
+  store ptr %1, ptr %14, align 8, !alias.scope !96
   %.sroa.017.sroa.0.0.copyload = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %16 = load <2 x double>, ptr %.sroa.017.sroa.0.0.copyload, align 16
@@ -1630,7 +1630,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %98 = fadd <2 x double> %97, %96
   store <2 x double> %98, ptr %80, align 1
   %99 = getelementptr i8, ptr %80, i64 16
-  %100 = load ptr, ptr %41, align 16, !noalias !97
+  %100 = load ptr, ptr %41, align 16, !noalias !99
   %101 = getelementptr inbounds i8, ptr %100, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %102 = load double, ptr %54, align 16
   %103 = load double, ptr %101, align 8
@@ -1645,7 +1645,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   store double %111, ptr %99, align 8
   %112 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %112, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %113, label %79, !llvm.loop !100
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %113, label %79, !llvm.loop !102
 
 113:                                              ; preds = %79
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
@@ -1686,7 +1686,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi4ELi3ELi0ELi4ELi3EEELi0ENS_6StrideILi0EL
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %17, i64 10, i1 false)
   %.sroa.015.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8, !noalias !101
+  %23 = load ptr, ptr %22, align 8, !noalias !103
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
@@ -1773,7 +1773,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi4ELi3ELi0ELi4ELi3EEELi0ENS_6StrideILi0EL
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %.sroa.011.0.copyload = load ptr, ptr %1, align 8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %73 = load ptr, ptr %72, align 8, !noalias !104
+  %73 = load ptr, ptr %72, align 8, !noalias !106
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %74, ptr noundef nonnull align 8 dereferenceable(10) %17, i64 10, i1 false)
@@ -1855,7 +1855,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi4ELi3ELi0ELi4ELi3EEELi0ENS_6StrideILi0EL
   %130 = fadd <2 x double> %129, %128
   store <2 x double> %130, ptr %112, align 1
   %131 = getelementptr i8, ptr %112, i64 16
-  %132 = load ptr, ptr %74, align 16, !noalias !107
+  %132 = load ptr, ptr %74, align 16, !noalias !109
   %133 = getelementptr inbounds i8, ptr %132, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %134 = load double, ptr %86, align 16
   %135 = load double, ptr %133, align 8
@@ -1870,7 +1870,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi4ELi3ELi0ELi4ELi3EEELi0ENS_6StrideILi0EL
   store double %143, ptr %131, align 8
   %144 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %144, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi3ELi4ELi0ELi3ELi4EEELi0ENS_6StrideILi0ELi0EEEEENS_10MatrixBaseEEpLINS_7ProductINSA_INS_9TransposeIKNS1_INS2_IdLi2ELi3ELi0ELi2ELi3EEELi16ES5_EEEENS2_IdLi2ELi2ELi0ELi2ELi2EEELi0EEENS1_INS2_IdLi2ELi4ELi0ELi2ELi4EEELi16ES5_EELi0EEEEERS6_RKNS7_IT_EE.exit, label %111, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi3ELi4ELi0ELi3ELi4EEELi0ENS_6StrideILi0ELi0EEEEENS_10MatrixBaseEEpLINS_7ProductINSA_INS_9TransposeIKNS1_INS2_IdLi2ELi3ELi0ELi2ELi3EEELi16ES5_EEEENS2_IdLi2ELi2ELi0ELi2ELi2EEELi0EEENS1_INS2_IdLi2ELi4ELi0ELi2ELi4EEELi16ES5_EELi0EEEEERS6_RKNS7_IT_EE.exit, label %111, !llvm.loop !112
 
 _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi3ELi4ELi0ELi3ELi4EEELi0ENS_6StrideILi0ELi0EEEEENS_10MatrixBaseEEpLINS_7ProductINSA_INS_9TransposeIKNS1_INS2_IdLi2ELi3ELi0ELi2ELi3EEELi16ES5_EEEENS2_IdLi2ELi2ELi0ELi2ELi2EEELi0EEENS1_INS2_IdLi2ELi4ELi0ELi2ELi4EEELi16ES5_EELi0EEEEERS6_RKNS7_IT_EE.exit: ; preds = %111
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
@@ -1886,7 +1886,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %5, align 8, !noalias !111
+  %6 = load ptr, ptr %5, align 8, !noalias !113
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load double, ptr %6, align 8
   %9 = load double, ptr %7, align 8
@@ -1904,7 +1904,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 8
   %22 = load ptr, ptr %4, align 8
-  %23 = load ptr, ptr %22, align 8, !noalias !114
+  %23 = load ptr, ptr %22, align 8, !noalias !116
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load double, ptr %24, align 8
@@ -1923,7 +1923,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 16
   %40 = load ptr, ptr %4, align 8
-  %41 = load ptr, ptr %40, align 8, !noalias !117
+  %41 = load ptr, ptr %40, align 8, !noalias !119
   %42 = getelementptr inbounds i8, ptr %41, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load double, ptr %42, align 8
@@ -1942,7 +1942,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 24
   %58 = load ptr, ptr %4, align 8
-  %59 = load ptr, ptr %58, align 8, !noalias !120
+  %59 = load ptr, ptr %58, align 8, !noalias !122
   %60 = getelementptr inbounds i8, ptr %59, i64 48
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %62 = load double, ptr %60, align 8
@@ -1961,7 +1961,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr i8, ptr %74, i64 32
   %76 = load ptr, ptr %4, align 8
-  %77 = load ptr, ptr %76, align 8, !noalias !123
+  %77 = load ptr, ptr %76, align 8, !noalias !125
   %78 = getelementptr inbounds i8, ptr %76, i64 24
   %79 = load double, ptr %77, align 8
   %80 = load double, ptr %78, align 8
@@ -1979,7 +1979,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr i8, ptr %91, i64 40
   %93 = load ptr, ptr %4, align 8
-  %94 = load ptr, ptr %93, align 8, !noalias !126
+  %94 = load ptr, ptr %93, align 8, !noalias !128
   %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = getelementptr inbounds i8, ptr %93, i64 24
   %97 = load double, ptr %95, align 8
@@ -2005,7 +2005,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %4 = getelementptr i8, ptr %3, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %6, align 8, !noalias !129
+  %7 = load ptr, ptr %6, align 8, !noalias !131
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load double, ptr %8, align 8
@@ -2024,7 +2024,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 56
   %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %24, align 8, !noalias !132
+  %25 = load ptr, ptr %24, align 8, !noalias !134
   %26 = getelementptr inbounds i8, ptr %25, i64 48
   %27 = getelementptr inbounds i8, ptr %24, i64 24
   %28 = load double, ptr %26, align 8
@@ -2043,7 +2043,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 64
   %42 = load ptr, ptr %5, align 8
-  %43 = load ptr, ptr %42, align 8, !noalias !135
+  %43 = load ptr, ptr %42, align 8, !noalias !137
   %44 = getelementptr inbounds i8, ptr %42, i64 32
   %45 = load double, ptr %43, align 8
   %46 = load double, ptr %44, align 8
@@ -2061,7 +2061,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 72
   %59 = load ptr, ptr %5, align 8
-  %60 = load ptr, ptr %59, align 8, !noalias !138
+  %60 = load ptr, ptr %59, align 8, !noalias !140
   %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = getelementptr inbounds i8, ptr %59, i64 32
   %63 = load double, ptr %61, align 8
@@ -2080,7 +2080,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 80
   %77 = load ptr, ptr %5, align 8
-  %78 = load ptr, ptr %77, align 8, !noalias !141
+  %78 = load ptr, ptr %77, align 8, !noalias !143
   %79 = getelementptr inbounds i8, ptr %78, i64 32
   %80 = getelementptr inbounds i8, ptr %77, i64 32
   %81 = load double, ptr %79, align 8
@@ -2099,7 +2099,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr i8, ptr %93, i64 88
   %95 = load ptr, ptr %5, align 8
-  %96 = load ptr, ptr %95, align 8, !noalias !144
+  %96 = load ptr, ptr %95, align 8, !noalias !146
   %97 = getelementptr inbounds i8, ptr %96, i64 48
   %98 = getelementptr inbounds i8, ptr %95, i64 32
   %99 = load double, ptr %97, align 8
@@ -2436,9 +2436,9 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %52
   %59 = load ptr, ptr %11, align 8
   %60 = getelementptr inbounds double, ptr %59, i64 %indvars.iv
   store double 0.000000e+00, ptr %60, align 8
-  store double 0x41BDCD64FFFFFFFF, ptr %.sroa.025, align 16, !alias.scope !147
-  store ptr %3, ptr %.sroa.025.8..sroa_idx, align 8, !alias.scope !147
-  %61 = load ptr, ptr %12, align 8, !noalias !150
+  store double 0x41BDCD64FFFFFFFF, ptr %.sroa.025, align 16, !alias.scope !149
+  store ptr %3, ptr %.sroa.025.8..sroa_idx, align 8, !alias.scope !149
+  %61 = load ptr, ptr %12, align 8, !noalias !152
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv, 4
   %62 = getelementptr inbounds i8, ptr %61, i64 %.idx.i.i.i.i
   %.sroa.025.0..sroa.025.0..sroa.025.0..sroa.025.16. = load <2 x double>, ptr %.sroa.025, align 16
@@ -2451,7 +2451,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %52
   store <2 x double> %67, ptr %62, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %75, label %14, !llvm.loop !153
+  br i1 %exitcond.not, label %75, label %14, !llvm.loop !155
 
 68:                                               ; preds = %.noexc21, %39, %.noexc, %18, %52, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23, %35, %31, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit, %14
   %69 = landingpad { ptr, i32 }
@@ -2597,9 +2597,9 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm4ESaIdEE4fillERKd.exit: ; preds = %53
   %60 = load ptr, ptr %12, align 8
   %61 = getelementptr inbounds double, ptr %60, i64 %indvars.iv
   store double 0.000000e+00, ptr %61, align 8
-  store double 0x41BDCD64FFFFFFFF, ptr %.sroa.025, align 16, !alias.scope !154
-  store ptr %3, ptr %.sroa.025.8..sroa_idx, align 8, !alias.scope !154
-  %62 = load ptr, ptr %13, align 8, !noalias !157
+  store double 0x41BDCD64FFFFFFFF, ptr %.sroa.025, align 16, !alias.scope !156
+  store ptr %3, ptr %.sroa.025.8..sroa_idx, align 8, !alias.scope !156
+  %62 = load ptr, ptr %13, align 8, !noalias !159
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv, 4
   %63 = getelementptr inbounds i8, ptr %62, i64 %.idx.i.i.i.i
   %.sroa.025.0..sroa.025.0..sroa.025.0..sroa.025.16. = load <2 x double>, ptr %.sroa.025, align 16
@@ -2612,7 +2612,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm4ESaIdEE4fillERKd.exit: ; preds = %53
   store <2 x double> %68, ptr %63, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %76, label %15, !llvm.loop !160
+  br i1 %exitcond.not, label %76, label %15, !llvm.loop !162
 
 69:                                               ; preds = %.noexc21, %40, %.noexc, %19, %53, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23, %36, %32, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit, %15
   %70 = landingpad { ptr, i32 }
@@ -2783,78 +2783,80 @@ attributes #23 = { builtin allocsize(0) }
 !83 = distinct !{!83, !"_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE"}
 !84 = distinct !{!84, !85, !"_ZNK3g2o3SE2mlERKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEE: argument 0"}
 !85 = distinct !{!85, !"_ZNK3g2o3SE2mlERKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEE"}
-!86 = !{}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE17robustInformationERKNS2_IdLi3ELi1ELi0ELi3ELi1EEE: argument 0"}
-!89 = distinct !{!89, !"_ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE17robustInformationERKNS2_IdLi3ELi1ELi0ELi3ELi1EEE"}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE: argument 0"}
-!92 = distinct !{!92, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE"}
-!93 = distinct !{!93, !11}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlINS3_IdLi2ELi2ELi0ELi2ELi2EEEEEKNS_7ProductIS9_T_Li0EEERKNS0_ISE_EE: argument 0"}
-!96 = distinct !{!96, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlINS3_IdLi2ELi2ELi0ELi2ELi2EEEEEKNS_7ProductIS9_T_Li0EEERKNS0_ISE_EE"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!99 = distinct !{!99, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!100 = distinct !{!100, !11}
-!101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZNK5Eigen9DenseBaseINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS4_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEE9transposeEv: argument 0"}
-!103 = distinct !{!103, !"_ZNK5Eigen9DenseBaseINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS4_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEE9transposeEv"}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS4_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEEmlINS3_INS4_IdLi2ELi4ELi0ELi2ELi4EEELi16ES7_EEEEKNS1_ISC_T_Li0EEERKNS0_ISH_EE: argument 0"}
-!106 = distinct !{!106, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS4_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEEmlINS3_INS4_IdLi2ELi4ELi0ELi2ELi4EEELi16ES7_EEEEKNS1_ISC_T_Li0EEERKNS0_ISH_EE"}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!109 = distinct !{!109, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!110 = distinct !{!110, !11}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!113 = distinct !{!113, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!116 = distinct !{!116, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!119 = distinct !{!119, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!122 = distinct !{!122, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!125 = distinct !{!125, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!128 = distinct !{!128, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!129 = !{!130}
-!130 = distinct !{!130, !131, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!131 = distinct !{!131, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!134 = distinct !{!134, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!137 = distinct !{!137, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!140 = distinct !{!140, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!143 = distinct !{!143, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!146 = distinct !{!146, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE: argument 0"}
-!149 = distinct !{!149, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE"}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!152 = distinct !{!152, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!153 = distinct !{!153, !11}
-!154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE: argument 0"}
-!156 = distinct !{!156, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE"}
-!157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!159 = distinct !{!159, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!160 = distinct !{!160, !11}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE8ConstantEllRKd: argument 0"}
+!88 = distinct !{!88, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE8ConstantEllRKd"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE17robustInformationERKNS2_IdLi3ELi1ELi0ELi3ELi1EEE: argument 0"}
+!91 = distinct !{!91, !"_ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE17robustInformationERKNS2_IdLi3ELi1ELi0ELi3ELi1EEE"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE: argument 0"}
+!94 = distinct !{!94, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE"}
+!95 = distinct !{!95, !11}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlINS3_IdLi2ELi2ELi0ELi2ELi2EEEEEKNS_7ProductIS9_T_Li0EEERKNS0_ISE_EE: argument 0"}
+!98 = distinct !{!98, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlINS3_IdLi2ELi2ELi0ELi2ELi2EEEEEKNS_7ProductIS9_T_Li0EEERKNS0_ISE_EE"}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!101 = distinct !{!101, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!102 = distinct !{!102, !11}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZNK5Eigen9DenseBaseINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS4_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEE9transposeEv: argument 0"}
+!105 = distinct !{!105, !"_ZNK5Eigen9DenseBaseINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS4_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEE9transposeEv"}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS4_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEEmlINS3_INS4_IdLi2ELi4ELi0ELi2ELi4EEELi16ES7_EEEEKNS1_ISC_T_Li0EEERKNS0_ISH_EE: argument 0"}
+!108 = distinct !{!108, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS4_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEEmlINS3_INS4_IdLi2ELi4ELi0ELi2ELi4EEELi16ES7_EEEEKNS1_ISC_T_Li0EEERKNS0_ISH_EE"}
+!109 = !{!110}
+!110 = distinct !{!110, !111, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!111 = distinct !{!111, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!112 = distinct !{!112, !11}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!115 = distinct !{!115, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!118 = distinct !{!118, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!121 = distinct !{!121, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!124 = distinct !{!124, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!127 = distinct !{!127, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!130 = distinct !{!130, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!133 = distinct !{!133, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!136 = distinct !{!136, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!139 = distinct !{!139, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!142 = distinct !{!142, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!145 = distinct !{!145, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!148 = distinct !{!148, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE: argument 0"}
+!151 = distinct !{!151, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE"}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!154 = distinct !{!154, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!155 = distinct !{!155, !11}
+!156 = !{!157}
+!157 = distinct !{!157, !158, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE: argument 0"}
+!158 = distinct !{!158, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE"}
+!159 = !{!160}
+!160 = distinct !{!160, !161, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!161 = distinct !{!161, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi2ELi4ELi0ELi2ELi4EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!162 = distinct !{!162, !11}

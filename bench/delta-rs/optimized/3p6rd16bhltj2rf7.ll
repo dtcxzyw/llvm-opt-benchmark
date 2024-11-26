@@ -4256,7 +4256,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !1040, !noundef !17
   %13 = add i64 %12, %5
-  %14 = load i64, ptr %1, align 8, !noundef !17
+  %14 = load i64, ptr %1, align 8, !alias.scope !1040, !noundef !17
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
   %.0.i = sub nuw i64 %13, %15

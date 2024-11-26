@@ -6719,7 +6719,7 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %9
   %16 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
   %17 = shl i32 %16, 2
   %18 = and i32 %17, 12
-  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %.034.i, align 8
+  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %.034.i, align 8, !noalias !112
   %19 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i to i32
   %20 = and i32 %19, 3
   %21 = add nuw nsw i32 %20, -6
@@ -6767,7 +6767,7 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i: ; preds = 
   %42 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i to i32
   %43 = shl i32 %42, 2
   %44 = and i32 %43, 12
-  %.0.copyload.i.i.i3.i.i.i.i.i = load i64, ptr %40, align 8
+  %.0.copyload.i.i.i3.i.i.i.i.i = load i64, ptr %40, align 8, !noalias !129
   %45 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i.i to i32
   %46 = and i32 %45, 3
   %47 = add nuw nsw i32 %46, -6
@@ -7815,7 +7815,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang6IfStmtENS1_4StmtEEEDaPT0_.exit: ; preds = %43
   %50 = zext nneg i16 %narrow.i.i to i64
   %51 = getelementptr inbounds ptr, ptr %46, i64 %50
   %52 = load ptr, ptr %51, align 8
-  %53 = load i8, ptr %52, align 8
+  %53 = load i8, ptr %52, align 8, !noalias !133
   %.not.i.i43 = icmp eq i8 %53, 60
   br i1 %.not.i.i43, label %54, label %60
 
@@ -7834,9 +7834,9 @@ _ZN4llvm16dyn_cast_or_nullIN5clang6IfStmtENS1_4StmtEEEDaPT0_.exit: ; preds = %43
   %.0.i.i44 = phi ptr [ %52, %54 ], [ %59, %57 ], [ %52, %_ZN4llvm16dyn_cast_or_nullIN5clang6IfStmtENS1_4StmtEEEDaPT0_.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %62 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i44) #18, !noalias !133
-  %63 = load ptr, ptr %61, align 8, !noalias !100
+  %63 = load ptr, ptr %61, align 8, !noalias !133
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %65 = load i32, ptr %64, align 8, !noalias !100
+  %65 = load i32, ptr %64, align 8, !noalias !133
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %.loopexit.i.i.i, label %67
 
@@ -8705,7 +8705,7 @@ _ZN5clang8consumed16ConsumedStateMap8setStateEPKNS_7VarDeclENS0_13ConsumedStateE
 _ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorENS1_4StmtEEEDaPT0_.exit: ; preds = %477
   %479 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %480 = load ptr, ptr %479, align 8
-  %481 = load i8, ptr %480, align 8
+  %481 = load i8, ptr %480, align 8, !noalias !139
   %.not.i.i96 = icmp eq i8 %481, 60
   br i1 %.not.i.i96, label %482, label %488
 
@@ -8724,9 +8724,9 @@ _ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorENS1_4StmtEEEDaPT0_.exit: ; pr
   %.0.i.i97 = phi ptr [ %480, %482 ], [ %487, %485 ], [ %480, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorENS1_4StmtEEEDaPT0_.exit ]
   %489 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %490 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i97) #18, !noalias !139
-  %491 = load ptr, ptr %489, align 8, !noalias !100
+  %491 = load ptr, ptr %489, align 8, !noalias !139
   %492 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %493 = load i32, ptr %492, align 8, !noalias !100
+  %493 = load i32, ptr %492, align 8, !noalias !139
   %494 = icmp eq i32 %493, 0
   br i1 %494, label %.loopexit.i.i.i106, label %495
 

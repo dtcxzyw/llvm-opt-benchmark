@@ -3946,7 +3946,7 @@ _ZNSt3mapIPKN4llvm13LazyCallGraph4NodeEjSt4lessIS4_ESaISt4pairIKS4_jEEEixEOS4_.e
   br i1 %687, label %714, label %688
 
 688:                                              ; preds = %683
-  %689 = load ptr, ptr %10, align 8
+  %689 = load ptr, ptr %10, align 8, !noalias !152
   %690 = ptrtoint ptr %689 to i64
   %691 = trunc i64 %690 to i32
   %692 = lshr i32 %691, 4
@@ -3991,7 +3991,7 @@ _ZNSt3mapIPKN4llvm13LazyCallGraph4NodeEjSt4lessIS4_ESaISt4pairIKS4_jEEEixEOS4_.e
 714:                                              ; preds = %703, %683
   %.sink.i.i.i.i = phi ptr [ %704, %703 ], [ null, %683 ]
   %715 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13LazyCallGraph4NodeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sink.i.i.i.i), !noalias !152
-  %716 = load ptr, ptr %10, align 8
+  %716 = load ptr, ptr %10, align 8, !noalias !152
   store ptr %716, ptr %715, align 8, !noalias !152
   br label %_ZN4llvm6detail12DenseSetImplIPKNS_13LazyCallGraph4NodeENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertERKS5_.exit
 

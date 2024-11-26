@@ -966,7 +966,7 @@ _ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit: ; preds = %
   store ptr %15, ptr %.07.i.i.i, align 8
   %31 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %31, %30
-  br i1 %.not.i.i.i, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
 32:                                               ; preds = %14
   %33 = icmp eq i64 %2, %18
@@ -982,7 +982,7 @@ _ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit: ; preds = %
   store ptr %15, ptr %.07.i.i.i.i.i.i.i, align 8
   %37 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !13
 
 _ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %32
   %38 = phi ptr [ %9, %32 ], [ %36, %.lr.ph.i.i.i.i.i.i.i ]
@@ -1007,7 +1007,7 @@ _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT
   store ptr %15, ptr %.07.i.i.i72, align 8
   %42 = getelementptr inbounds i8, ptr %.07.i.i.i72, i64 8
   %.not.i.i.i73 = icmp eq ptr %42, %9
-  br i1 %.not.i.i.i73, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !11
+  br i1 %.not.i.i.i73, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !13
 
 43:                                               ; preds = %5
   %44 = load ptr, ptr %0, align 8
@@ -1050,7 +1050,7 @@ _ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc.exit: ; pred
   store ptr %64, ptr %.07.i.i.i.i.i.i.i76, align 8
   %65 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i76, i64 8
   %.not.i.i.i.i.i.i.i77 = icmp eq ptr %65, %63
-  br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !13
 
 _ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
   %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %44
@@ -1370,11 +1370,11 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit: ; preds = %53
   %59 = load ptr, ptr %10, align 8
   %60 = getelementptr inbounds double, ptr %59, i64 %indvars.iv
   store double 0.000000e+00, ptr %60, align 8
-  %61 = load ptr, ptr %11, align 8, !noalias !13
+  %61 = load ptr, ptr %11, align 8, !noalias !15
   %62 = getelementptr inbounds double, ptr %61, i64 %indvars.iv
   %63 = fmul double %58, 0x41BDCD64FFFFFFFF
   store double %63, ptr %62, align 8
-  br i1 %14, label %13, label %71, !llvm.loop !16
+  br i1 %14, label %13, label %71, !llvm.loop !18
 
 64:                                               ; preds = %.noexc21, %40, %.noexc, %18, %53, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23, %36, %31, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit, %13
   %65 = landingpad { ptr, i32 }
@@ -1516,11 +1516,11 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit: ; preds = %54
   %60 = load ptr, ptr %11, align 8
   %61 = getelementptr inbounds double, ptr %60, i64 %indvars.iv
   store double 0.000000e+00, ptr %61, align 8
-  %62 = load ptr, ptr %12, align 8, !noalias !17
+  %62 = load ptr, ptr %12, align 8, !noalias !19
   %63 = getelementptr inbounds double, ptr %62, i64 %indvars.iv
   %64 = fmul double %59, 0x41BDCD64FFFFFFFF
   store double %64, ptr %63, align 8
-  br i1 %15, label %14, label %72, !llvm.loop !20
+  br i1 %15, label %14, label %72, !llvm.loop !22
 
 65:                                               ; preds = %.noexc21, %41, %.noexc, %19, %54, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23, %37, %32, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit, %14
   %66 = landingpad { ptr, i32 }
@@ -1610,14 +1610,16 @@ attributes #21 = { builtin allocsize(0) }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN3g2o8internal17createHessianMapsIJN5Eigen3MapINS2_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi0ENS2_6StrideILi0ELi0EEEEEEEESt5tupleIJDpT_EERKSC_: argument 0"}
 !9 = distinct !{!9, !"_ZN3g2o8internal17createHessianMapsIJN5Eigen3MapINS2_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi0ENS2_6StrideILi0ELi0EEEEEEEESt5tupleIJDpT_EERKSC_"}
-!10 = !{}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!15 = distinct !{!15, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!16 = distinct !{!16, !12}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!19 = distinct !{!19, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!20 = distinct !{!20, !12}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE8ConstantEllRKd: argument 0"}
+!12 = distinct !{!12, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE8ConstantEllRKd"}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!17 = distinct !{!17, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!18 = distinct !{!18, !14}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!21 = distinct !{!21, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!22 = distinct !{!22, !14}

@@ -125,7 +125,7 @@ define noundef zeroext i1 @_ZNK5ZXing24GlobalHistogramBinarizer13getPatternRowEi
   %14 = getelementptr inbounds i8, ptr %5, i64 20
   %15 = load i32, ptr %14, align 4, !noalias !4
   %16 = getelementptr inbounds i8, ptr %5, i64 12
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !noalias !4
   %18 = mul nsw i32 %17, %15
   %19 = sext i32 %18 to i64
   %.ptr = getelementptr inbounds i8, ptr %13, i64 %19

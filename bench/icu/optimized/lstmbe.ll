@@ -2086,22 +2086,23 @@ call.i150.noexc:                                  ; preds = %call4.i145.noexc
   br i1 %cmp.i151, label %for.body.i141, label %invoke.cont28, !llvm.loop !28
 
 invoke.cont28:                                    ; preds = %call.i150.noexc, %call6.i137.noexc
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %59 = load ptr, ptr %data_.i71, align 8, !noalias !29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %ref.tmp23, align 8, !alias.scope !30
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %ref.tmp23, align 8, !alias.scope !29
   %memory_.i.i157 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
-  store ptr null, ptr %memory_.i.i157, align 8, !alias.scope !30
+  store ptr null, ptr %memory_.i.i157, align 8, !alias.scope !29
   %data_.i.i158 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
-  store ptr %59, ptr %data_.i.i158, align 8, !alias.scope !30
+  store ptr %59, ptr %data_.i.i158, align 8, !alias.scope !29
   %d1_.i.i159 = getelementptr inbounds i8, ptr %ref.tmp23, i64 24
-  store i32 %hunits, ptr %d1_.i.i159, align 8, !alias.scope !30
+  store i32 %hunits, ptr %d1_.i.i159, align 8, !alias.scope !29
   %add.ptr.i162 = getelementptr inbounds float, ptr %59, i64 %idx.ext.i100
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %ref.tmp25, align 8, !alias.scope !33
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %ref.tmp25, align 8, !alias.scope !32
   %memory_.i.i163 = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
-  store ptr null, ptr %memory_.i.i163, align 8, !alias.scope !33
+  store ptr null, ptr %memory_.i.i163, align 8, !alias.scope !32
   %data_.i.i164 = getelementptr inbounds i8, ptr %ref.tmp25, i64 16
-  store ptr %add.ptr.i162, ptr %data_.i.i164, align 8, !alias.scope !33
+  store ptr %add.ptr.i162, ptr %data_.i.i164, align 8, !alias.scope !32
   %d1_.i.i165 = getelementptr inbounds i8, ptr %ref.tmp25, i64 24
-  store i32 %hunits, ptr %d1_.i.i165, align 8, !alias.scope !33
+  store i32 %hunits, ptr %d1_.i.i165, align 8, !alias.scope !32
   %vtable6.i = load ptr, ptr %c, align 8
   %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 16
   %60 = load ptr, ptr %vfn7.i, align 8
@@ -2148,7 +2149,7 @@ call.i177.noexc:                                  ; preds = %call7.i.noexc
   %indvars.iv.next.i174 = add nuw nsw i64 %indvars.iv.i169, 1
   %68 = sext i32 %call.i177182 to i64
   %cmp.i178 = icmp slt i64 %indvars.iv.next.i174, %68
-  br i1 %cmp.i178, label %for.body.i168, label %invoke.cont30, !llvm.loop !36
+  br i1 %cmp.i178, label %for.body.i168, label %invoke.cont30, !llvm.loop !35
 
 invoke.cont30:                                    ; preds = %call.i177.noexc, %call8.i.noexc
   call void @_ZN6icu_757Array1DD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp25) #21
@@ -2181,16 +2182,16 @@ for.body.i187:                                    ; preds = %for.body.i187, %for
   br i1 %cmp.i194, label %for.body.i187, label %_ZN6icu_757Array1D4tanhERKS0_.exit, !llvm.loop !21
 
 _ZN6icu_757Array1D4tanhERKS0_.exit:               ; preds = %for.body.i187, %invoke.cont30
-  call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %75 = load ptr, ptr %data_.i71, align 8, !noalias !37
+  call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  %75 = load ptr, ptr %data_.i71, align 8, !noalias !36
   %add.ptr.i197 = getelementptr inbounds float, ptr %75, i64 %idx.ext.i109
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %ref.tmp34, align 8, !alias.scope !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %ref.tmp34, align 8, !alias.scope !36
   %memory_.i.i198 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
-  store ptr null, ptr %memory_.i.i198, align 8, !alias.scope !37
+  store ptr null, ptr %memory_.i.i198, align 8, !alias.scope !36
   %data_.i.i199 = getelementptr inbounds i8, ptr %ref.tmp34, i64 16
-  store ptr %add.ptr.i197, ptr %data_.i.i199, align 8, !alias.scope !37
+  store ptr %add.ptr.i197, ptr %data_.i.i199, align 8, !alias.scope !36
   %d1_.i.i200 = getelementptr inbounds i8, ptr %ref.tmp34, i64 24
-  store i32 %hunits, ptr %d1_.i.i200, align 8, !alias.scope !37
+  store i32 %hunits, ptr %d1_.i.i200, align 8, !alias.scope !36
   %vtable4.i201 = load ptr, ptr %h, align 8
   %vfn5.i202 = getelementptr inbounds i8, ptr %vtable4.i201, i64 16
   %76 = load ptr, ptr %vfn5.i202, align 8
@@ -2550,16 +2551,17 @@ invoke.cont46.lr.ph:                              ; preds = %if.end44
 
 invoke.cont46:                                    ; preds = %invoke.cont46.lr.ph, %invoke.cont63
   %indvars.iv = phi i64 [ %23, %invoke.cont46.lr.ph ], [ %indvars.iv.next, %invoke.cont63 ]
-  %24 = load ptr, ptr %data_.i95, align 8, !noalias !29
-  %25 = load i32, ptr %d2_.i, align 4, !noalias !29
+  call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  %24 = load ptr, ptr %data_.i95, align 8, !noalias !39
+  %25 = load i32, ptr %d2_.i, align 4, !noalias !39
   %26 = trunc i64 %indvars.iv to i32
   %mul.i120 = mul nsw i32 %25, %26
   %idx.ext.i = sext i32 %mul.i120 to i64
   %add.ptr.i = getelementptr inbounds float, ptr %24, i64 %idx.ext.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %hRow, align 8, !alias.scope !40
-  store ptr null, ptr %memory_.i.i, align 8, !alias.scope !40
-  store ptr %add.ptr.i, ptr %data_.i.i, align 8, !alias.scope !40
-  store i32 %25, ptr %d1_.i.i, align 8, !alias.scope !40
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %hRow, align 8, !alias.scope !39
+  store ptr null, ptr %memory_.i.i, align 8, !alias.scope !39
+  store ptr %add.ptr.i, ptr %data_.i.i, align 8, !alias.scope !39
+  store i32 %25, ptr %d1_.i.i, align 8, !alias.scope !39
   %cmp48.not = icmp eq i64 %indvars.iv, %23
   br i1 %cmp48.not, label %invoke.cont61, label %invoke.cont51
 
@@ -2568,10 +2570,10 @@ invoke.cont51:                                    ; preds = %invoke.cont46
   %mul.i123 = mul nsw i32 %25, %27
   %idx.ext.i124 = sext i32 %mul.i123 to i64
   %add.ptr.i125 = getelementptr inbounds float, ptr %24, i64 %idx.ext.i124
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %ref.tmp, align 8, !alias.scope !43
-  store ptr null, ptr %memory_.i.i126, align 8, !alias.scope !43
-  store ptr %add.ptr.i125, ptr %data_.i.i127, align 8, !alias.scope !43
-  store i32 %25, ptr %d1_.i.i128, align 8, !alias.scope !43
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %ref.tmp, align 8, !alias.scope !42
+  store ptr null, ptr %memory_.i.i126, align 8, !alias.scope !42
+  store ptr %add.ptr.i125, ptr %data_.i.i127, align 8, !alias.scope !42
+  store i32 %25, ptr %d1_.i.i128, align 8, !alias.scope !42
   %cmp7.i = icmp sgt i32 %25, 0
   br i1 %cmp7.i, label %for.body.i, label %invoke.cont53
 
@@ -2614,17 +2616,17 @@ invoke.cont61:                                    ; preds = %invoke.cont46, %inv
   %34 = load ptr, ptr %fData, align 8
   %arrayidx = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
   %35 = load i32, ptr %arrayidx, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %data_.i135 = getelementptr inbounds i8, ptr %34, i64 32
-  %36 = load ptr, ptr %data_.i135, align 8, !noalias !46
+  %36 = load ptr, ptr %data_.i135, align 8, !noalias !45
   %d2_.i136 = getelementptr inbounds i8, ptr %34, i64 44
-  %37 = load i32, ptr %d2_.i136, align 4, !noalias !46
+  %37 = load i32, ptr %d2_.i136, align 4, !noalias !45
   %mul.i137 = mul nsw i32 %37, %35
   %idx.ext.i138 = sext i32 %mul.i137 to i64
   %add.ptr.i139 = getelementptr inbounds float, ptr %36, i64 %idx.ext.i138
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ConstArray1DE, i64 16), ptr %ref.tmp59, align 8, !alias.scope !46
-  store ptr %add.ptr.i139, ptr %data_.i.i140, align 8, !alias.scope !46
-  store i32 %37, ptr %d1_.i.i141, align 8, !alias.scope !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ConstArray1DE, i64 16), ptr %ref.tmp59, align 8, !alias.scope !45
+  store ptr %add.ptr.i139, ptr %data_.i.i140, align 8, !alias.scope !45
+  store i32 %37, ptr %d1_.i.i141, align 8, !alias.scope !45
   %fBackwardB = getelementptr inbounds i8, ptr %34, i64 168
   %fBackwardU = getelementptr inbounds i8, ptr %34, i64 144
   %fBackwardW = getelementptr inbounds i8, ptr %34, i64 120
@@ -2636,7 +2638,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
   call void @_ZN6icu_757Array1DD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %hRow) #21
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp45 = icmp sgt i64 %indvars.iv, 0
-  br i1 %cmp45, label %invoke.cont46, label %invoke.cont66.loopexit, !llvm.loop !49
+  br i1 %cmp45, label %invoke.cont46, label %invoke.cont66.loopexit, !llvm.loop !48
 
 lpad62:                                           ; preds = %invoke.cont61
   %38 = landingpad { ptr, i32 }
@@ -2645,26 +2647,27 @@ lpad62:                                           ; preds = %invoke.cont61
   br label %ehcleanup125
 
 invoke.cont66.loopexit:                           ; preds = %invoke.cont63
-  %.pre = load ptr, ptr %data_.i106, align 8, !noalias !29
+  %.pre = load ptr, ptr %data_.i106, align 8, !noalias !49
   br label %invoke.cont66
 
 invoke.cont66:                                    ; preds = %invoke.cont66.loopexit, %if.end44
   %39 = phi ptr [ %.pre, %invoke.cont66.loopexit ], [ %call.i114, %if.end44 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %forwardRow, align 8, !alias.scope !50
+  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %forwardRow, align 8, !alias.scope !49
   %memory_.i.i144 = getelementptr inbounds i8, ptr %forwardRow, i64 8
-  store ptr null, ptr %memory_.i.i144, align 8, !alias.scope !50
+  store ptr null, ptr %memory_.i.i144, align 8, !alias.scope !49
   %data_.i.i145 = getelementptr inbounds i8, ptr %forwardRow, i64 16
-  store ptr %39, ptr %data_.i.i145, align 8, !alias.scope !50
+  store ptr %39, ptr %data_.i.i145, align 8, !alias.scope !49
   %d1_.i.i146 = getelementptr inbounds i8, ptr %forwardRow, i64 24
-  store i32 %13, ptr %d1_.i.i146, align 8, !alias.scope !50
+  store i32 %13, ptr %d1_.i.i146, align 8, !alias.scope !49
   %add.ptr.i149 = getelementptr inbounds float, ptr %39, i64 %conv.i69
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %backwardRow, align 8, !alias.scope !53
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %backwardRow, align 8, !alias.scope !52
   %memory_.i.i150 = getelementptr inbounds i8, ptr %backwardRow, i64 8
-  store ptr null, ptr %memory_.i.i150, align 8, !alias.scope !53
+  store ptr null, ptr %memory_.i.i150, align 8, !alias.scope !52
   %data_.i.i151 = getelementptr inbounds i8, ptr %backwardRow, i64 16
-  store ptr %add.ptr.i149, ptr %data_.i.i151, align 8, !alias.scope !53
+  store ptr %add.ptr.i149, ptr %data_.i.i151, align 8, !alias.scope !52
   %d1_.i.i152 = getelementptr inbounds i8, ptr %backwardRow, i64 24
-  store i32 %13, ptr %d1_.i.i152, align 8, !alias.scope !53
+  store i32 %13, ptr %d1_.i.i152, align 8, !alias.scope !52
   %40 = load ptr, ptr %data_.i71, align 8
   %41 = load i32, ptr %d1_.i72, align 8
   %conv.i155 = sext i32 %41 to i64
@@ -2688,17 +2691,17 @@ invoke.cont83:                                    ; preds = %invoke.cont83.lr.ph
   %42 = load ptr, ptr %fData, align 8
   %arrayidx82 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv258
   %43 = load i32, ptr %arrayidx82, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %data_.i157 = getelementptr inbounds i8, ptr %42, i64 32
-  %44 = load ptr, ptr %data_.i157, align 8, !noalias !56
+  %44 = load ptr, ptr %data_.i157, align 8, !noalias !55
   %d2_.i158 = getelementptr inbounds i8, ptr %42, i64 44
-  %45 = load i32, ptr %d2_.i158, align 4, !noalias !56
+  %45 = load i32, ptr %d2_.i158, align 4, !noalias !55
   %mul.i159 = mul nsw i32 %45, %43
   %idx.ext.i160 = sext i32 %mul.i159 to i64
   %add.ptr.i161 = getelementptr inbounds float, ptr %44, i64 %idx.ext.i160
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ConstArray1DE, i64 16), ptr %ref.tmp78, align 8, !alias.scope !56
-  store ptr %add.ptr.i161, ptr %data_.i.i162, align 8, !alias.scope !56
-  store i32 %45, ptr %d1_.i.i163, align 8, !alias.scope !56
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ConstArray1DE, i64 16), ptr %ref.tmp78, align 8, !alias.scope !55
+  store ptr %add.ptr.i161, ptr %data_.i.i162, align 8, !alias.scope !55
+  store i32 %45, ptr %d1_.i.i163, align 8, !alias.scope !55
   %fForwardB = getelementptr inbounds i8, ptr %42, i64 96
   %fForwardU76 = getelementptr inbounds i8, ptr %42, i64 72
   %fForwardW = getelementptr inbounds i8, ptr %42, i64 48
@@ -2707,17 +2710,17 @@ invoke.cont83:                                    ; preds = %invoke.cont83.lr.ph
 
 invoke.cont88:                                    ; preds = %invoke.cont83
   call void @_ZN6icu_7512ConstArray1DD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp78) #21
-  call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  %46 = load ptr, ptr %data_.i95, align 8, !noalias !59
-  %47 = load i32, ptr %d2_.i, align 4, !noalias !59
+  call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  %46 = load ptr, ptr %data_.i95, align 8, !noalias !58
+  %47 = load i32, ptr %d2_.i, align 4, !noalias !58
   %48 = trunc nuw nsw i64 %indvars.iv258 to i32
   %mul.i166 = mul nsw i32 %47, %48
   %idx.ext.i167 = sext i32 %mul.i166 to i64
   %add.ptr.i168 = getelementptr inbounds float, ptr %46, i64 %idx.ext.i167
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %ref.tmp87, align 8, !alias.scope !59
-  store ptr null, ptr %memory_.i.i169, align 8, !alias.scope !59
-  store ptr %add.ptr.i168, ptr %data_.i.i170, align 8, !alias.scope !59
-  store i32 %47, ptr %d1_.i.i171, align 8, !alias.scope !59
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %ref.tmp87, align 8, !alias.scope !58
+  store ptr null, ptr %memory_.i.i169, align 8, !alias.scope !58
+  store ptr %add.ptr.i168, ptr %data_.i.i170, align 8, !alias.scope !58
+  store i32 %47, ptr %d1_.i.i171, align 8, !alias.scope !58
   %vtable4.i172 = load ptr, ptr %backwardRow, align 8
   %vfn5.i173 = getelementptr inbounds i8, ptr %vtable4.i172, i64 16
   %49 = load ptr, ptr %vfn5.i173, align 8
@@ -2889,7 +2892,7 @@ for.body.i230:                                    ; preds = %for.body.i230, %for
   %max.1.i = select i1 %cmp4.i, float %77, float %max.07.i
   %indvars.iv.next.i232 = add nuw nsw i64 %indvars.iv.i231, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i232, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK6icu_757Array1D8maxIndexEv.exit, label %for.body.i230, !llvm.loop !62
+  br i1 %exitcond.not.i, label %_ZNK6icu_757Array1D8maxIndexEv.exit, label %for.body.i230, !llvm.loop !61
 
 _ZNK6icu_757Array1D8maxIndexEv.exit:              ; preds = %for.body.i230, %invoke.cont97
   %index.0.lcssa.i = phi i32 [ 0, %invoke.cont97 ], [ %index.1.i, %for.body.i230 ]
@@ -2983,7 +2986,7 @@ lpad89:                                           ; preds = %lpad89.loopexit.spl
 for.inc116:                                       ; preds = %_ZNK6icu_757Array1D8maxIndexEv.exit, %invoke.cont108
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count
-  br i1 %exitcond.not, label %for.end117, label %invoke.cont83, !llvm.loop !63
+  br i1 %exitcond.not, label %for.end117, label %invoke.cont83, !llvm.loop !62
 
 for.end117:                                       ; preds = %for.inc116, %invoke.cont66
   %87 = load i32, ptr %count.i, align 8
@@ -3266,31 +3269,31 @@ entry:
   %call = tail call ptr @ures_open_75(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull %status)
   %call1 = tail call ptr @ures_getByKeyWithFallback_75(ptr noundef %call, ptr noundef nonnull @.str.10, ptr noundef %call, ptr noundef nonnull %status)
   %call2 = tail call ptr @uscript_getShortName_75(i32 noundef %script)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8, !alias.scope !64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8, !alias.scope !63
   %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !64
-  store i32 0, ptr %len.i, align 4, !noalias !64
+  store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !63
+  store i32 0, ptr %len.i, align 4, !noalias !63
   %call.i = invoke ptr @ures_getStringByKey_75(ptr noundef %call1, ptr noundef %call2, ptr noundef nonnull %len.i, ptr noundef nonnull %status)
-          to label %invoke.cont3.i unwind label %lpad.i, !noalias !64
+          to label %invoke.cont3.i unwind label %lpad.i, !noalias !63
 
 invoke.cont3.i:                                   ; preds = %entry
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call.i) #21, !noalias !64, !srcloc !67
-  %0 = load i32, ptr %status, align 4, !noalias !64
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call.i) #21, !noalias !63, !srcloc !66
+  %0 = load i32, ptr %status, align 4, !noalias !63
   %cmp.i.i = icmp sgt i32 %0, 0
   br i1 %cmp.i.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont3.i
-  store ptr %call.i, ptr %agg.tmp.i, align 8, !noalias !64
-  %1 = load i32, ptr %len.i, align 4, !noalias !64
+  store ptr %call.i, ptr %agg.tmp.i, align 8, !noalias !63
+  %1 = load i32, ptr %len.i, align 4, !noalias !63
   %call9.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i, i32 noundef %1)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %if.then.i
-  %2 = load ptr, ptr %agg.tmp.i, align 8, !noalias !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2) #21, !srcloc !67
+  %2 = load ptr, ptr %agg.tmp.i, align 8, !noalias !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2) #21, !srcloc !66
   br label %_ZN6icu_7526ures_getUnicodeStringByKeyEPK15UResourceBundlePKcP10UErrorCode.exit
 
 lpad.i:                                           ; preds = %if.else.i, %entry
@@ -3301,8 +3304,8 @@ lpad.i:                                           ; preds = %if.else.i, %entry
 lpad7.i:                                          ; preds = %if.then.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  %5 = load ptr, ptr %agg.tmp.i, align 8, !noalias !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #21, !srcloc !67
+  %5 = load ptr, ptr %agg.tmp.i, align 8, !noalias !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #21, !srcloc !66
   br label %common.resume
 
 if.else.i:                                        ; preds = %invoke.cont3.i
@@ -3812,42 +3815,41 @@ attributes #24 = { builtin nounwind }
 !26 = distinct !{!26, !27, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
 !27 = distinct !{!27, !"_ZNK6icu_757Array1D5sliceEii"}
 !28 = distinct !{!28, !5}
-!29 = !{}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
-!32 = distinct !{!32, !"_ZNK6icu_757Array1D5sliceEii"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
-!35 = distinct !{!35, !"_ZNK6icu_757Array1D5sliceEii"}
-!36 = distinct !{!36, !5}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
-!39 = distinct !{!39, !"_ZNK6icu_757Array1D5sliceEii"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZNK6icu_757Array2D3rowEi: %agg.result"}
-!42 = distinct !{!42, !"_ZNK6icu_757Array2D3rowEi"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK6icu_757Array2D3rowEi: %agg.result"}
-!45 = distinct !{!45, !"_ZNK6icu_757Array2D3rowEi"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZNK6icu_7512ConstArray2D3rowEi: %agg.result"}
-!48 = distinct !{!48, !"_ZNK6icu_7512ConstArray2D3rowEi"}
-!49 = distinct !{!49, !5}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
-!52 = distinct !{!52, !"_ZNK6icu_757Array1D5sliceEii"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
-!55 = distinct !{!55, !"_ZNK6icu_757Array1D5sliceEii"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZNK6icu_7512ConstArray2D3rowEi: %agg.result"}
-!58 = distinct !{!58, !"_ZNK6icu_7512ConstArray2D3rowEi"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK6icu_757Array2D3rowEi: %agg.result"}
-!61 = distinct !{!61, !"_ZNK6icu_757Array2D3rowEi"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
+!31 = distinct !{!31, !"_ZNK6icu_757Array1D5sliceEii"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
+!34 = distinct !{!34, !"_ZNK6icu_757Array1D5sliceEii"}
+!35 = distinct !{!35, !5}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
+!38 = distinct !{!38, !"_ZNK6icu_757Array1D5sliceEii"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZNK6icu_757Array2D3rowEi: %agg.result"}
+!41 = distinct !{!41, !"_ZNK6icu_757Array2D3rowEi"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZNK6icu_757Array2D3rowEi: %agg.result"}
+!44 = distinct !{!44, !"_ZNK6icu_757Array2D3rowEi"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNK6icu_7512ConstArray2D3rowEi: %agg.result"}
+!47 = distinct !{!47, !"_ZNK6icu_7512ConstArray2D3rowEi"}
+!48 = distinct !{!48, !5}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
+!51 = distinct !{!51, !"_ZNK6icu_757Array1D5sliceEii"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZNK6icu_757Array1D5sliceEii: %agg.result"}
+!54 = distinct !{!54, !"_ZNK6icu_757Array1D5sliceEii"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZNK6icu_7512ConstArray2D3rowEi: %agg.result"}
+!57 = distinct !{!57, !"_ZNK6icu_7512ConstArray2D3rowEi"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK6icu_757Array2D3rowEi: %agg.result"}
+!60 = distinct !{!60, !"_ZNK6icu_757Array2D3rowEi"}
+!61 = distinct !{!61, !5}
 !62 = distinct !{!62, !5}
-!63 = distinct !{!63, !5}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN6icu_7526ures_getUnicodeStringByKeyEPK15UResourceBundlePKcP10UErrorCode: %agg.result"}
-!66 = distinct !{!66, !"_ZN6icu_7526ures_getUnicodeStringByKeyEPK15UResourceBundlePKcP10UErrorCode"}
-!67 = !{i64 2152049321}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZN6icu_7526ures_getUnicodeStringByKeyEPK15UResourceBundlePKcP10UErrorCode: %agg.result"}
+!65 = distinct !{!65, !"_ZN6icu_7526ures_getUnicodeStringByKeyEPK15UResourceBundlePKcP10UErrorCode"}
+!66 = !{i64 2152049321}

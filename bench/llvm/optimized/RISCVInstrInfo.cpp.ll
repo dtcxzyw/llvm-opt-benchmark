@@ -7095,13 +7095,13 @@ _ZN4llvm7RISCVCC26getOppositeBranchConditionENS0_8CondCodeE.exit: ; preds = %swi
 ._crit_edge:                                      ; preds = %93, %_ZN4llvm7RISCVCC26getOppositeBranchConditionENS0_8CondCodeE.exit
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %97 = load ptr, ptr %96, align 8, !noalias !170
-  %98 = load ptr, ptr %2, align 8
+  %98 = load ptr, ptr %2, align 8, !noalias !170
   %99 = icmp eq ptr %97, %98
   br i1 %99, label %100, label %116
 
 100:                                              ; preds = %._crit_edge
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %102 = load i32, ptr %101, align 4
+  %102 = load i32, ptr %101, align 4, !noalias !170
   %103 = zext i32 %102 to i64
   %104 = getelementptr inbounds ptr, ptr %98, i64 %103
   %.not24.i.i = icmp eq i32 %102, 0
@@ -7128,21 +7128,21 @@ _ZN4llvm7RISCVCC26getOppositeBranchConditionENS0_8CondCodeE.exit: ; preds = %swi
   %113 = add nuw i32 %102, 1
   store i32 %113, ptr %101, align 4, !noalias !170
   store ptr %71, ptr %104, align 8, !noalias !170
-  %114 = load ptr, ptr %2, align 8
-  %115 = load i32, ptr %101, align 4
+  %114 = load ptr, ptr %2, align 8, !noalias !170
+  %115 = load i32, ptr %101, align 4, !noalias !170
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 116:                                              ; preds = %._crit_edge.i.i, %._crit_edge
   %117 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull %71) #25, !noalias !170
-  %.pre.i = load ptr, ptr %2, align 8
+  %.pre.i = load ptr, ptr %2, align 8, !noalias !170
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 4
+  %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !170
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %116, %112
   %118 = phi ptr [ %114, %112 ], [ %.pre.i, %116 ], [ %98, %.lr.ph.i.i ]
   %119 = phi i32 [ %115, %112 ], [ %.pre6.i, %116 ], [ %102, %.lr.ph.i.i ]
-  %120 = load ptr, ptr %96, align 8
+  %120 = load ptr, ptr %96, align 8, !noalias !170
   %121 = icmp eq ptr %120, %118
   br i1 %121, label %122, label %135
 

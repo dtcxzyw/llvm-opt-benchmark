@@ -1033,15 +1033,15 @@ if.then:
   %arrayidx.i3.i = getelementptr inbounds i8, ptr %xf2, i64 8
   %arrayidx.i4.i = getelementptr inbounds i8, ptr %xf2, i64 24
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %xf2, i64 40
-  %18 = load float, ptr %xf2, align 4
-  %19 = load float, ptr %arrayidx3.i, align 4
-  %20 = load float, ptr %arrayidx6.i, align 4
-  %21 = load float, ptr %arrayidx.i.i9, align 4
-  %22 = load float, ptr %arrayidx.i1.i, align 4
-  %23 = load float, ptr %arrayidx.i2.i, align 4
-  %24 = load float, ptr %arrayidx.i3.i, align 4
-  %25 = load float, ptr %arrayidx.i4.i, align 4
-  %26 = load float, ptr %arrayidx.i5.i, align 4
+  %18 = load float, ptr %xf2, align 4, !noalias !11
+  %19 = load float, ptr %arrayidx3.i, align 4, !noalias !11
+  %20 = load float, ptr %arrayidx6.i, align 4, !noalias !11
+  %21 = load float, ptr %arrayidx.i.i9, align 4, !noalias !11
+  %22 = load float, ptr %arrayidx.i1.i, align 4, !noalias !11
+  %23 = load float, ptr %arrayidx.i2.i, align 4, !noalias !11
+  %24 = load float, ptr %arrayidx.i3.i, align 4, !noalias !11
+  %25 = load float, ptr %arrayidx.i4.i, align 4, !noalias !11
+  %26 = load float, ptr %arrayidx.i5.i, align 4, !noalias !11
   %mul8.i.i12 = fmul float %12, %19
   %27 = tail call float @llvm.fmuladd.f32(float %18, float %7, float %mul8.i.i12)
   %28 = tail call noundef float @llvm.fmuladd.f32(float %20, float %17, float %27)
@@ -1072,7 +1072,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %minDot.1.i = select i1 %cmp2.i, float %37, float %minDot.09.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !14
 
 if.end:                                           ; preds = %for.body.i
   %m_vertices.i = getelementptr inbounds i8, ptr %poly1, i64 96
@@ -1176,4 +1176,7 @@ attributes #17 = { builtin nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZNK11btMatrix3x39transposeEv: %agg.result"}
+!13 = distinct !{!13, !"_ZNK11btMatrix3x39transposeEv"}
+!14 = distinct !{!14, !6}

@@ -5183,7 +5183,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
 
 .loopexit.loopexit:                               ; preds = %86
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %88, i64 136
-  %.pre92 = load i16, ptr %.phi.trans.insert, align 8, !noalias !44
+  %.pre92 = load i16, ptr %.phi.trans.insert, align 8, !noalias !46
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit, %56
@@ -5336,7 +5336,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesE
   %.1 = phi i32 [ %11, %103 ], [ %.3, %149 ]
   %156 = load ptr, ptr %1, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 136
-  %158 = load i16, ptr %157, align 8, !noalias !47
+  %158 = load i16, ptr %157, align 8, !noalias !49
   %159 = and i16 %158, 1
   %.not83 = icmp eq i16 %159, 0
   br i1 %.not83, label %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit, label %160
@@ -5792,10 +5792,12 @@ attributes #23 = { nounwind willreturn memory(read) }
 !40 = distinct !{!40, !6}
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
-!43 = !{}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv: argument 0"}
-!46 = distinct !{!46, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv: argument 0"}
-!49 = distinct !{!49, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv: argument 0"}
+!45 = distinct !{!45, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv: argument 0"}
+!48 = distinct !{!48, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv: argument 0"}
+!51 = distinct !{!51, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv"}

@@ -2181,7 +2181,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont4
           to label %if.else.i.i.i.invoke.cont8_crit_edge unwind label %lpad7
 
 if.else.i.i.i.invoke.cont8_crit_edge:             ; preds = %if.else.i.i.i
-  %.pre.pre = load ptr, ptr %_M_finish.i.i.i, align 8
+  %.pre.pre = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !17
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %if.else.i.i.i.invoke.cont8_crit_edge, %if.then.i.i.i
@@ -2200,7 +2200,7 @@ invoke.cont8:                                     ; preds = %if.else.i.i.i.invok
 
 do.body:                                          ; preds = %do.cond, %invoke.cont8
   %8 = phi ptr [ %170, %do.cond ], [ %.pre, %invoke.cont8 ]
-  %9 = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !17
   %cmp.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i15, label %_ZNSt5stackIN4cvc58internal12NodeTemplateILb0EEESt5dequeIS3_SaIS3_EEE3topEv.exit
 
@@ -10357,7 +10357,7 @@ call2.i.i.i213.noexc:                             ; preds = %land.rhs
   %idxprom.i.i218 = zext i1 %cmp.i.i214 to i64
   %arrayidx.i.i219 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i217, i64 0, i64 %idxprom.i.i218
   %42 = load ptr, ptr %arrayidx.i.i219, align 8, !noalias !122
-  %bf.load.i.i.i220 = load i64, ptr %42, align 8
+  %bf.load.i.i.i220 = load i64, ptr %42, align 8, !noalias !122
   %bf.lshr.i.i.i221 = lshr i64 %bf.load.i.i.i220, 40
   %43 = trunc nuw nsw i64 %bf.lshr.i.i.i221 to i32
   %bf.cast.i.i.i222 = and i32 %43, 1048575
@@ -13708,7 +13708,7 @@ call2.i.i.i.noexc314:                             ; preds = %lor.rhs
   %idxprom.i.i299 = sext i32 %spec.select.i.i297 to i64
   %arrayidx.i.i300 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i298, i64 0, i64 %idxprom.i.i299
   %104 = load ptr, ptr %arrayidx.i.i300, align 8, !noalias !170
-  %bf.load.i.i.i301 = load i64, ptr %104, align 8
+  %bf.load.i.i.i301 = load i64, ptr %104, align 8, !noalias !170
   %bf.lshr.i.i.i302 = lshr i64 %bf.load.i.i.i301, 40
   %105 = trunc nuw nsw i64 %bf.lshr.i.i.i302 to i32
   %bf.cast.i.i.i303 = and i32 %105, 1048575

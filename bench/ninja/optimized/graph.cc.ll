@@ -4221,7 +4221,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %0, i64 64
-  %86 = load ptr, ptr %85, align 8
+  %86 = load ptr, ptr %85, align 8, !noalias !79
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %10 to i64
   %89 = sub i64 %87, %88
@@ -4233,8 +4233,8 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_
 93:                                               ; preds = %84
   %94 = sub nuw nsw i64 %9, %91
   tail call void @_ZNSt5dequeIP4NodeSaIS1_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %94), !noalias !79
-  %.pre.i19 = load ptr, ptr %81, align 8
-  %.pre6.i20 = load ptr, ptr %85, align 8
+  %.pre.i19 = load ptr, ptr %81, align 8, !noalias !82
+  %.pre6.i20 = load ptr, ptr %85, align 8, !noalias !82
   %.pre7.i21 = ptrtoint ptr %.pre.i19 to i64
   br label %95
 
@@ -4243,9 +4243,9 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_
   %96 = phi ptr [ %.pre6.i20, %93 ], [ %86, %84 ]
   %97 = phi ptr [ %.pre.i19, %93 ], [ %82, %84 ]
   %98 = getelementptr inbounds i8, ptr %0, i64 56
-  %99 = load ptr, ptr %98, align 8
+  %99 = load ptr, ptr %98, align 8, !noalias !82
   %100 = getelementptr inbounds i8, ptr %0, i64 72
-  %101 = load ptr, ptr %100, align 8
+  %101 = load ptr, ptr %100, align 8, !noalias !82
   %102 = ptrtoint ptr %99 to i64
   %103 = sub i64 %.pre-phi.i, %102
   %104 = ashr exact i64 %103, 3
@@ -4459,7 +4459,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP4NodeSaIS1_EE13_M_insert_auxIN9
 
 78:                                               ; preds = %5
   %79 = getelementptr inbounds i8, ptr %0, i64 24
-  %80 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %79, align 8, !noalias !98
   %81 = ptrtoint ptr %80 to i64
   %82 = sub i64 %54, %81
   %83 = ashr exact i64 %82, 3
@@ -4469,14 +4469,14 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP4NodeSaIS1_EE13_M_insert_auxIN9
 85:                                               ; preds = %78
   %86 = sub nuw i64 %4, %83
   tail call void @_ZNSt5dequeIP4NodeSaIS1_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %86), !noalias !98
-  %.pre.i = load ptr, ptr %30, align 8
-  %.pre6.i = load ptr, ptr %79, align 8
+  %.pre.i = load ptr, ptr %30, align 8, !noalias !101
+  %.pre6.i = load ptr, ptr %79, align 8, !noalias !101
   %.pre7.i = ptrtoint ptr %.pre.i to i64
   %.pre8.i = ptrtoint ptr %.pre6.i to i64
   %.pre10.i = sub i64 %.pre7.i, %.pre8.i
   %.pre12.i = ashr exact i64 %.pre10.i, 3
-  %.pre294 = load ptr, ptr %50, align 8
-  %.pre295 = load ptr, ptr %33, align 8
+  %.pre294 = load ptr, ptr %50, align 8, !noalias !101
+  %.pre295 = load ptr, ptr %33, align 8, !noalias !101
   br label %87
 
 87:                                               ; preds = %85, %78
@@ -4569,10 +4569,10 @@ _ZStplRKSt15_Deque_iteratorIP4NodeRS1_PS1_El.exit: ; preds = %119, %125
   br i1 %.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit, label %133
 
 133:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIP4NodeRS1_PS1_El.exit
-  %134 = load ptr, ptr %30, align 8
-  %135 = load ptr, ptr %79, align 8
-  %136 = load ptr, ptr %50, align 8
-  %137 = load ptr, ptr %33, align 8
+  %134 = load ptr, ptr %30, align 8, !noalias !107
+  %135 = load ptr, ptr %79, align 8, !noalias !107
+  %136 = load ptr, ptr %50, align 8, !noalias !107
+  %137 = load ptr, ptr %33, align 8, !noalias !107
   %138 = ptrtoint ptr %134 to i64
   %139 = ptrtoint ptr %135 to i64
   %140 = sub i64 %138, %139
@@ -5019,7 +5019,7 @@ _ZNSt15_Deque_iteratorIP4NodeRS1_PS1_EpLEl.exit.i.i.i58: ; preds = %329, %323
 
 341:                                              ; preds = %5
   %342 = getelementptr inbounds i8, ptr %0, i64 64
-  %343 = load ptr, ptr %342, align 8
+  %343 = load ptr, ptr %342, align 8, !noalias !188
   %344 = ptrtoint ptr %343 to i64
   %345 = sub i64 %344, %70
   %346 = ashr exact i64 %345, 3
@@ -5030,11 +5030,11 @@ _ZNSt15_Deque_iteratorIP4NodeRS1_PS1_EpLEl.exit.i.i.i58: ; preds = %329, %323
 349:                                              ; preds = %341
   %350 = sub nuw i64 %4, %347
   tail call void @_ZNSt5dequeIP4NodeSaIS1_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %350), !noalias !188
-  %.pre.i65 = load ptr, ptr %58, align 8
-  %.pre6.i66 = load ptr, ptr %342, align 8
+  %.pre.i65 = load ptr, ptr %58, align 8, !noalias !191
+  %.pre6.i66 = load ptr, ptr %342, align 8, !noalias !191
   %.pre7.i67 = ptrtoint ptr %.pre.i65 to i64
-  %.pre = load ptr, ptr %68, align 8
-  %.pre293 = load ptr, ptr %59, align 8
+  %.pre = load ptr, ptr %68, align 8, !noalias !191
+  %.pre293 = load ptr, ptr %59, align 8, !noalias !191
   %.pre296 = ptrtoint ptr %.pre to i64
   %.pre297 = sub i64 %.pre7.i67, %.pre296
   %.pre299 = ashr exact i64 %.pre297, 3
@@ -5131,10 +5131,10 @@ _ZStmiRKSt15_Deque_iteratorIP4NodeRS1_PS1_El.exit69: ; preds = %383, %389
   br i1 %397, label %398, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit100
 
 398:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorIP4NodeRS1_PS1_El.exit69
-  %399 = load ptr, ptr %58, align 8
-  %400 = load ptr, ptr %68, align 8
-  %401 = load ptr, ptr %342, align 8
-  %402 = load ptr, ptr %59, align 8
+  %399 = load ptr, ptr %58, align 8, !noalias !197
+  %400 = load ptr, ptr %68, align 8, !noalias !197
+  %401 = load ptr, ptr %342, align 8, !noalias !197
+  %402 = load ptr, ptr %59, align 8, !noalias !197
   %403 = sub nsw i64 0, %4
   %404 = ptrtoint ptr %399 to i64
   %405 = ptrtoint ptr %400 to i64

@@ -838,7 +838,7 @@ _ZN7QStringD2Ev.exit88:                           ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not.i.i.i.i.i, label %.body, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
 
 _ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit: ; preds = %.noexc.i.i.i
-  %.pre.i.i = load ptr, ptr %14, align 8
+  %.pre.i.i = load ptr, ptr %14, align 8, !alias.scope !10
   %128 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %.pre.i.i, ptr %128, align 8, !alias.scope !10
   %129 = getelementptr inbounds i8, ptr %14, i64 32

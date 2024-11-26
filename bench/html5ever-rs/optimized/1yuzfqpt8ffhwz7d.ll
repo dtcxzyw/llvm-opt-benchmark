@@ -1207,7 +1207,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17h87a0ed1f35de4df1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
+  %3 = load ptr, ptr %2, align 8, !alias.scope !302, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !302, !noundef !4
   invoke void @"_ZN4core3ptr64drop_in_place$LT$$u5b$markup5ever..interface..Attribute$u5d$$GT$17h50afb50573cfc250E.llvm.6570740198009921828"(ptr noalias noundef nonnull align 8 %3, i64 noundef %5)
@@ -1268,7 +1268,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$xml5ever.
   %2 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
+  %4 = load ptr, ptr %3, align 8, !alias.scope !329, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !329, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)

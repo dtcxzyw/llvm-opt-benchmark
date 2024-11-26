@@ -5775,7 +5775,7 @@ do.body5.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZNSt3mapINSt7__cxx
 _ZN4node9MutexBaseINS_17LibuvRwlockTraitsEEC2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node10UnionBytesESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2EOSE_.exit
   %7 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 80
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %8 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 

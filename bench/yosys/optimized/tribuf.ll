@@ -983,8 +983,8 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %171, %.lr.ph
   %180 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %173, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %180, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %181 = load ptr, ptr %11, align 8
-  %182 = load ptr, ptr %138, align 8
+  %181 = load ptr, ptr %11, align 8, !noalias !14
+  %182 = load ptr, ptr %138, align 8, !noalias !14
   %183 = icmp eq ptr %181, %182
   br i1 %183, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i, label %184
 
@@ -1020,7 +1020,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %201 = urem i32 %.0.i.i.i.i, %200
   store i32 %201, ptr %9, align 4, !noalias !14
   %202 = load ptr, ptr %141, align 8, !noalias !14
-  %203 = load ptr, ptr %140, align 8
+  %203 = load ptr, ptr %140, align 8, !noalias !14
   %204 = ptrtoint ptr %202 to i64
   %205 = ptrtoint ptr %203 to i64
   %206 = sub i64 %204, %205

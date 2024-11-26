@@ -448,7 +448,7 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i:    ; preds = %.lr.ph.i.i.i, %14
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 48, i1 false), !alias.scope !41
   %28 = getelementptr inbounds i8, ptr %1, i64 56
-  %29 = load i64, ptr %28, align 8
+  %29 = load i64, ptr %28, align 8, !noalias !41
   %30 = getelementptr inbounds i8, ptr %7, i64 48
   store i64 %29, ptr %30, align 8, !alias.scope !41
   %.not16.i.i = icmp eq i64 %29, 0

@@ -287,9 +287,11 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !nonnull !10, !align !11, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !119, !noalias !122, !noundef !10
-  %9 = load i64, ptr %6, align 8, !noundef !10
+  %8 = load i64, ptr %7, align 8, !alias.scope !122, !noalias !119, !noundef !10
+  %9 = load i64, ptr %6, align 8, !alias.scope !119, !noalias !122, !noundef !10
   %10 = icmp ult i64 %9, %8
   br i1 %10, label %11, label %.thread
 
@@ -317,9 +319,11 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !nonnull !10, !align !11, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !124, !noalias !127, !noundef !10
-  %9 = load i64, ptr %6, align 8, !noundef !10
+  %8 = load i64, ptr %7, align 8, !alias.scope !127, !noalias !124, !noundef !10
+  %9 = load i64, ptr %6, align 8, !alias.scope !124, !noalias !127, !noundef !10
   %10 = icmp ult i64 %9, %8
   br i1 %10, label %11, label %.thread
 
@@ -5642,15 +5646,15 @@ attributes #29 = { noreturn }
 !117 = !{!118, !112}
 !118 = distinct !{!118, !116, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf26c098e6e9469baE.llvm.15130365213601569483: argument 0"}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf26c098e6e9469baE.llvm.15130365213601569483: argument 1"}
+!120 = distinct !{!120, !121, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf26c098e6e9469baE.llvm.15130365213601569483: argument 0"}
 !121 = distinct !{!121, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf26c098e6e9469baE.llvm.15130365213601569483"}
 !122 = !{!123}
-!123 = distinct !{!123, !121, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf26c098e6e9469baE.llvm.15130365213601569483: argument 0"}
+!123 = distinct !{!123, !121, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf26c098e6e9469baE.llvm.15130365213601569483: argument 1"}
 !124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9706825276449c3dE.llvm.15130365213601569483: argument 1"}
+!125 = distinct !{!125, !126, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9706825276449c3dE.llvm.15130365213601569483: argument 0"}
 !126 = distinct !{!126, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9706825276449c3dE.llvm.15130365213601569483"}
 !127 = !{!128}
-!128 = distinct !{!128, !126, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9706825276449c3dE.llvm.15130365213601569483: argument 0"}
+!128 = distinct !{!128, !126, !"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9706825276449c3dE.llvm.15130365213601569483: argument 1"}
 !129 = !{!130}
 !130 = distinct !{!130, !131, !"_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push28_$u7b$$u7b$closure$u7d$$u7d$17h46e143bf885c4cf5E.llvm.15130365213601569483: argument 0"}
 !131 = distinct !{!131, !"_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push28_$u7b$$u7b$closure$u7d$$u7d$17h46e143bf885c4cf5E.llvm.15130365213601569483"}

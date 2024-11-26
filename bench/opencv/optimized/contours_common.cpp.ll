@@ -972,9 +972,9 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushEOi.exit:      ; preds = %25, %28
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN2cv12TreeIteratorINS_7ContourEE9getNext_sEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !noalias !12
   %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !noalias !12
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %11, label %8
 

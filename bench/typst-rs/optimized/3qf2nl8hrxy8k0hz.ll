@@ -715,7 +715,7 @@ define hidden void @"_ZN68_$LT$typst..layout..frame..GroupItem$u20$as$u20$core..
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i64, ptr %5, align 8, !alias.scope !182, !noalias !177, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 64
-  %8 = load i64, ptr %7, align 8, !alias.scope !180, !noalias !177, !noundef !4
+  %8 = load i64, ptr %7, align 8, !alias.scope !182, !noalias !177, !noundef !4
   %9 = shl i64 %8, 3
   %10 = and i64 %9, 56
   %11 = shl i64 %4, %10
@@ -1090,7 +1090,7 @@ _ZN4core4hash4Hash10hash_slice17h429873bb422b6957E.exit.i: ; preds = %_ZN4core4h
   %249 = load i64, ptr %5, align 8, !alias.scope !256, !noundef !4
   %250 = add i64 %249, 8
   store i64 %250, ptr %5, align 8, !alias.scope !256
-  %251 = load i64, ptr %7, align 8, !noundef !4
+  %251 = load i64, ptr %7, align 8, !alias.scope !256, !noundef !4
   %252 = shl i64 %251, 3
   %253 = and i64 %252, 56
   %254 = shl nuw nsw i64 %248, %253
@@ -1230,7 +1230,7 @@ define hidden void @"_ZN68_$LT$typst..visualize..pattern..Repr$u20$as$u20$core..
   %7 = getelementptr inbounds i8, ptr %1, i64 48
   %8 = load i64, ptr %7, align 8, !alias.scope !279, !noundef !4
   %9 = getelementptr inbounds i8, ptr %1, i64 64
-  %10 = load i64, ptr %9, align 8, !noundef !4
+  %10 = load i64, ptr %9, align 8, !alias.scope !279, !noundef !4
   %11 = shl i64 %10, 3
   %12 = and i64 %11, 56
   %13 = shl i64 %6, %12
@@ -1780,7 +1780,7 @@ define hidden void @"_ZN72_$LT$typst..layout..transform..Transform$u20$as$u20$co
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8, !alias.scope !354, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 64
-  %7 = load i64, ptr %6, align 8, !noundef !4
+  %7 = load i64, ptr %6, align 8, !alias.scope !354, !noundef !4
   %8 = shl i64 %7, 3
   %9 = and i64 %8, 56
   %10 = shl i64 %3, %9
@@ -2416,7 +2416,7 @@ define hidden void @"_ZN73_$LT$typst..visualize..gradient..Gradient$u20$as$u20$c
   %6 = add i64 %5, 8
   store i64 %6, ptr %4, align 8, !alias.scope !415
   %7 = getelementptr inbounds i8, ptr %1, i64 64
-  %8 = load i64, ptr %7, align 8, !noundef !4
+  %8 = load i64, ptr %7, align 8, !alias.scope !415, !noundef !4
   %9 = shl i64 %8, 3
   %10 = and i64 %9, 56
   %11 = shl nuw nsw i64 %3, %10
@@ -2543,7 +2543,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i: ; preds = 
   %87 = getelementptr inbounds i8, ptr %47, i64 40
   %88 = load i64, ptr %87, align 8, !alias.scope !425, !noalias !428, !noundef !4
   %89 = load i64, ptr %4, align 8, !alias.scope !440, !noalias !425, !noundef !4
-  %90 = load i64, ptr %7, align 8, !alias.scope !428, !noalias !425, !noundef !4
+  %90 = load i64, ptr %7, align 8, !alias.scope !440, !noalias !425, !noundef !4
   %91 = shl i64 %90, 3
   %92 = and i64 %91, 56
   %93 = shl i64 %88, %92
@@ -2877,7 +2877,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i5: ; preds =
   %316 = getelementptr inbounds i8, ptr %47, i64 40
   %317 = load i64, ptr %316, align 8, !alias.scope !487, !noalias !490, !noundef !4
   %318 = load i64, ptr %4, align 8, !alias.scope !502, !noalias !487, !noundef !4
-  %319 = load i64, ptr %7, align 8, !alias.scope !490, !noalias !487, !noundef !4
+  %319 = load i64, ptr %7, align 8, !alias.scope !502, !noalias !487, !noundef !4
   %320 = shl i64 %319, 3
   %321 = and i64 %320, 56
   %322 = shl i64 %317, %321
@@ -3518,7 +3518,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i16: ; preds 
   %714 = getelementptr inbounds i8, ptr %47, i64 40
   %715 = load i64, ptr %714, align 8, !alias.scope !610, !noalias !613, !noundef !4
   %716 = load i64, ptr %4, align 8, !alias.scope !625, !noalias !610, !noundef !4
-  %717 = load i64, ptr %7, align 8, !alias.scope !613, !noalias !610, !noundef !4
+  %717 = load i64, ptr %7, align 8, !alias.scope !625, !noalias !610, !noundef !4
   %718 = shl i64 %717, 3
   %719 = and i64 %718, 56
   %720 = shl i64 %715, %719
@@ -4584,7 +4584,7 @@ define hidden void @"_ZN62_$LT$typst_svg..SVGSubGradient$u20$as$u20$core..hash..
   %8 = add i64 %7, 8
   store i64 %8, ptr %6, align 8, !alias.scope !747
   %9 = getelementptr inbounds i8, ptr %1, i64 64
-  %10 = load i64, ptr %9, align 8, !noundef !4
+  %10 = load i64, ptr %9, align 8, !alias.scope !747, !noundef !4
   %11 = shl i64 %10, 3
   %12 = and i64 %11, 56
   %13 = shl i64 %5, %12

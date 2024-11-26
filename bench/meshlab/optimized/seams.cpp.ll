@@ -10627,7 +10627,7 @@ _ZNSt5stackIP8SeamEdgeSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit: ; preds = %._ZNSt5s
 
 .lr.ph413:                                        ; preds = %_ZNSt5stackIP8SeamEdgeSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit, %.loopexit296
   %138 = phi ptr [ %135, %.loopexit296 ], [ %132, %_ZNSt5stackIP8SeamEdgeSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit ]
-  %139 = load ptr, ptr %47, align 8
+  %139 = load ptr, ptr %47, align 8, !noalias !154
   %140 = icmp eq ptr %138, %139
   br i1 %140, label %144, label %141
 

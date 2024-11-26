@@ -15406,7 +15406,7 @@ _ZN4llvm6detail12DenseSetImplIN12_GLOBAL__N_114LVIValueHandleENS_8DenseMapIS3_NS
   call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %35) #19
   %.val7.i.i.pre = load ptr, ptr %4, align 8, !noalias !171
   %.val8.i.i.pre = load i32, ptr %5, align 8, !noalias !171
-  %.val9.i.i.pre = load ptr, ptr %37, align 8
+  %.val9.i.i.pre = load ptr, ptr %37, align 8, !noalias !171
   br label %_ZN12_GLOBAL__N_114LVIValueHandleC2EPN4llvm5ValueEPNS_18LazyValueInfoCacheE.exit
 
 _ZN12_GLOBAL__N_114LVIValueHandleC2EPN4llvm5ValueEPNS_18LazyValueInfoCacheE.exit: ; preds = %34, %34, %34, %38
@@ -15478,7 +15478,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114LVIValueHandleENS_6detail13
   call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114LVIValueHandleENS_6detail13DenseSetEmptyENS_12DenseMapInfoIPNS_5ValueEvEENS4_12DenseSetPairIS3_EEEES3_S5_S9_SB_E4growEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %73), !noalias !171
   %.val16.i.i.i.i = load ptr, ptr %4, align 8, !noalias !171
   %.val17.i.i.i.i = load i32, ptr %5, align 8, !noalias !171
-  %.val18.i.i.i.i = load ptr, ptr %37, align 8
+  %.val18.i.i.i.i = load ptr, ptr %37, align 8, !noalias !171
   %74 = icmp eq i32 %.val17.i.i.i.i, 0
   br i1 %74, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114LVIValueHandleENS_6detail13DenseSetEmptyENS_12DenseMapInfoIPNS_5ValueEvEENS4_12DenseSetPairIS3_EEEES3_S5_S9_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit.i.i.i.i, label %75
 
@@ -15540,7 +15540,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114LVIValueHandleENS_6detail13
   call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114LVIValueHandleENS_6detail13DenseSetEmptyENS_12DenseMapInfoIPNS_5ValueEvEENS4_12DenseSetPairIS3_EEEES3_S5_S9_SB_E4growEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.val8.i.i), !noalias !171
   %.val13.i.i.i.i = load ptr, ptr %4, align 8, !noalias !171
   %.val14.i.i.i.i = load i32, ptr %5, align 8, !noalias !171
-  %.val15.i.i.i.i = load ptr, ptr %37, align 8
+  %.val15.i.i.i.i = load ptr, ptr %37, align 8, !noalias !171
   %107 = icmp eq i32 %.val14.i.i.i.i, 0
   br i1 %107, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114LVIValueHandleENS_6detail13DenseSetEmptyENS_12DenseMapInfoIPNS_5ValueEvEENS4_12DenseSetPairIS3_EEEES3_S5_S9_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit.i.i.i.i, label %108
 

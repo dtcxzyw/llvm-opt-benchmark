@@ -119,7 +119,8 @@ define hidden void @"_ZN2tt6buffer18Cursor$LT$Span$GT$12bump_subtree17h83afd0b06
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  %5 = load i64, ptr %4, align 8, !alias.scope !18, !noalias !15, !noundef !4
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !15, !noalias !18, !noundef !4
   %8 = icmp ult i64 %5, %7
@@ -132,7 +133,7 @@ define hidden void @"_ZN2tt6buffer18Cursor$LT$Span$GT$12bump_subtree17h83afd0b06
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !20, !noundef !4
   %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = load i64, ptr %15, align 8, !noundef !4
+  %16 = load i64, ptr %15, align 8, !alias.scope !18, !noalias !15, !noundef !4
   %17 = icmp ult i64 %16, %14
   br i1 %17, label %19, label %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread"
 
@@ -199,20 +200,21 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN2tt6buffer18C
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %4 = load i64, ptr %3, align 8, !alias.scope !22, !noalias !25, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  %4 = load i64, ptr %3, align 8, !alias.scope !25, !noalias !22, !noundef !4
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  %6 = load i64, ptr %5, align 8, !noalias !4, !noundef !4
+  %6 = load i64, ptr %5, align 8, !alias.scope !22, !noalias !25, !noundef !4
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %8, label %17, !prof !11
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !noalias !4, !nonnull !4, !noundef !4
+  %10 = load ptr, ptr %9, align 8, !alias.scope !22, !noalias !25, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %10, i64 0, i64 %4
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !27, !noundef !4
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !alias.scope !22, !noalias !25, !noundef !4
+  %15 = load i64, ptr %14, align 8, !alias.scope !25, !noalias !22, !noundef !4
   %16 = icmp ult i64 %15, %13
   br i1 %16, label %18, label %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread"
 
@@ -321,7 +323,8 @@ define hidden void @"_ZN2tt6buffer18Cursor$LT$Span$GT$4bump17h3ef521eae6a8502fE"
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  %5 = load i64, ptr %4, align 8, !alias.scope !41, !noalias !38, !noundef !4
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !38, !noalias !41, !noundef !4
   %8 = icmp ult i64 %5, %7
@@ -334,7 +337,7 @@ define hidden void @"_ZN2tt6buffer18Cursor$LT$Span$GT$4bump17h3ef521eae6a8502fE"
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !43, !noundef !4
   %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = load i64, ptr %15, align 8, !noundef !4
+  %16 = load i64, ptr %15, align 8, !alias.scope !41, !noalias !38, !noundef !4
   %17 = icmp ult i64 %16, %14
   br i1 %17, label %19, label %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread"
 
@@ -2452,11 +2455,11 @@ attributes #24 = { nounwind }
 !20 = !{!16, !19}
 !21 = !{i64 0, i64 2}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518: argument 1"}
+!23 = distinct !{!23, !24, !"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518: argument 0"}
 !24 = distinct !{!24, !"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518"}
 !25 = !{!26}
-!26 = distinct !{!26, !24, !"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518: argument 0"}
-!27 = !{!26, !23}
+!26 = distinct !{!26, !24, !"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518: argument 1"}
+!27 = !{!23, !26}
 !28 = !{!29, !31}
 !29 = distinct !{!29, !30, !"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518: argument 0"}
 !30 = distinct !{!30, !"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518"}

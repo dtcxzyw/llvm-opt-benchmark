@@ -1183,7 +1183,7 @@ _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit.i.i.i: ; preds 
   %520 = xor i64 %519, -1
   store i16 257, ptr %124, align 8, !noalias !8
   %521 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueEmRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef %.0.i64.i.i, i64 noundef %520, ptr noundef nonnull align 8 dereferenceable(34) %11), !noalias !8
-  %.val.i.i.i = load ptr, ptr %54, align 8
+  %.val.i.i.i = load ptr, ptr %54, align 8, !noalias !8
   %522 = getelementptr i8, ptr %.val.i.i.i, i64 8
   %.val.val.i65.i.i = load ptr, ptr %522, align 8, !noalias !8
   %523 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %.val.val.i65.i.i, i64 noundef 0, i1 noundef zeroext true) #14, !noalias !8

@@ -32,8 +32,8 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
   %21 = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 24
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   %.promoted29 = load i64, ptr %16, align 8
-  %.pre.pre = load i64, ptr %7, align 8
-  %.pre43.pre = load i64, ptr %8, align 8
+  %.pre.pre = load i64, ptr %7, align 8, !alias.scope !4, !noalias !7
+  %.pre43.pre = load i64, ptr %8, align 8, !alias.scope !4, !noalias !7
   br label %.outer
 
 .outer:                                           ; preds = %73, %3
@@ -240,8 +240,8 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
   %21 = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 24
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   %.promoted29 = load i64, ptr %16, align 8
-  %.pre.pre = load i64, ptr %7, align 8
-  %.pre43.pre = load i64, ptr %8, align 8
+  %.pre.pre = load i64, ptr %7, align 8, !alias.scope !45, !noalias !48
+  %.pre43.pre = load i64, ptr %8, align 8, !alias.scope !45, !noalias !48
   br label %.outer
 
 .outer:                                           ; preds = %73, %3
@@ -448,8 +448,8 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
   %21 = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 24
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   %.promoted29 = load i64, ptr %16, align 8
-  %.pre.pre = load i64, ptr %7, align 8
-  %.pre43.pre = load i64, ptr %8, align 8
+  %.pre.pre = load i64, ptr %7, align 8, !alias.scope !80, !noalias !83
+  %.pre43.pre = load i64, ptr %8, align 8, !alias.scope !80, !noalias !83
   br label %.outer
 
 .outer:                                           ; preds = %73, %3

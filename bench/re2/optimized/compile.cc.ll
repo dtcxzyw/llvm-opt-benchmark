@@ -6417,7 +6417,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %.pre = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  %.pre = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
@@ -6496,7 +6496,7 @@ _ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pred
   store ptr %storemerge.i.i, ptr %_M_finish.i.i, align 8
   %21 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i4 = icmp eq ptr %storemerge.i.i, %21
-  br i1 %cmp.i.i.i4, label %if.end12, label %while.body, !llvm.loop !29
+  br i1 %cmp.i.i.i4, label %if.end12, label %while.body, !llvm.loop !31
 
 if.end12:                                         ; preds = %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit, %invoke.cont, %entry
   ret void
@@ -6537,7 +6537,7 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %cmp.i.i.i.i = icmp slt <16 x i8> %5, splat (i8 -1)
   %6 = bitcast <16 x i1> %cmp.i.i.i.i to i16
   %cmp.i.not.i = icmp eq i16 %6, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !30
+  br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !32
 
 _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %if.end.i, %entry
   %seq.sroa.3.0.lcssa.i = phi i64 [ %and.i.i.i, %entry ], [ %and.i6.i, %if.end.i ]
@@ -6609,7 +6609,7 @@ if.end.i24:                                       ; preds = %_ZN4absl7debian218c
   %cmp.i.i.i.i31 = icmp slt <16 x i8> %16, splat (i8 -1)
   %17 = bitcast <16 x i1> %cmp.i.i.i.i31 to i16
   %cmp.i.not.i32 = icmp eq i16 %17, 0
-  br i1 %cmp.i.not.i32, label %if.end.i24, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit33, !llvm.loop !30
+  br i1 %cmp.i.not.i32, label %if.end.i24, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit33, !llvm.loop !32
 
 _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit33: ; preds = %if.end.i24, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE28rehash_and_grow_if_necessaryEv.exit
   %seq.sroa.3.0.lcssa.i16 = phi i64 [ %and.i.i.i11, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE28rehash_and_grow_if_necessaryEv.exit ], [ %and.i6.i29, %if.end.i24 ]
@@ -6730,7 +6730,7 @@ if.end.i:                                         ; preds = %if.then, %if.end.i
   %cmp.i.i.i.i15 = icmp slt <16 x i8> %13, splat (i8 -1)
   %14 = bitcast <16 x i1> %cmp.i.i.i.i15 to i16
   %cmp.i.not.i = icmp eq i16 %14, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !30
+  br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !32
 
 _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %if.end.i, %if.then
   %seq.sroa.3.0.lcssa.i = phi i64 [ %and.i.i.i, %if.then ], [ %and.i6.i, %if.end.i ]
@@ -6760,7 +6760,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
 for.inc:                                          ; preds = %for.body, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
   %inc = add nuw i64 %i.027, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %if.then14, label %for.body, !llvm.loop !31
+  br i1 %cmp.not, label %if.then14, label %for.body, !llvm.loop !33
 
 if.then14:                                        ; preds = %for.inc
   tail call void @_ZdlPv(ptr noundef %0) #25
@@ -6828,7 +6828,7 @@ if.end.i:                                         ; preds = %if.end, %if.end.i
   %cmp.i.i.i.i = icmp slt <16 x i8> %11, splat (i8 -1)
   %12 = bitcast <16 x i1> %cmp.i.i.i.i to i16
   %cmp.i.not.i = icmp eq i16 %12, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !30
+  br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !32
 
 _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %if.end.i, %if.end
   %seq.sroa.3.0.lcssa.i = phi i64 [ %and.i.i.i, %if.end ], [ %and.i6.i, %if.end.i ]
@@ -6912,7 +6912,7 @@ for.inc:                                          ; preds = %if.then19, %if.else
   %inc = add i64 %i.1, 1
   %32 = load i64, ptr %capacity_, align 8
   %cmp.not = icmp eq i64 %inc, %32
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !34
 
 for.end:                                          ; preds = %for.inc, %entry
   %.lcssa70 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
@@ -7049,13 +7049,13 @@ _ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit: ; 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit
   store i32 0, ptr %retval, align 8
   store i64 0, ptr %retval.4.retval.4.retval.4.end.i.sroa_idx, align 4
-  %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !33
-  %6 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !33
+  %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !35
+  %6 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !35
   %cmp.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i, label %if.then.i.i.i50, label %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
 
 if.then.i.i.i50:                                  ; preds = %for.cond
-  %7 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !33
+  %7 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !35
   %add.ptr.i.i.i51 = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load ptr, ptr %add.ptr.i.i.i51, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 504
@@ -7221,7 +7221,7 @@ if.then58:                                        ; preds = %land.lhs.true51
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.then58, %if.then.i.i.i68, %if.else.i.i.i70, %if.end117
-  br label %for.cond, !llvm.loop !36
+  br label %for.cond, !llvm.loop !38
 
 if.else74:                                        ; preds = %land.lhs.true51, %if.then47.if.else74_crit_edge
   %34 = phi ptr [ %.pre, %if.then47.if.else74_crit_edge ], [ %26, %land.lhs.true51 ]
@@ -7325,7 +7325,7 @@ if.end105:                                        ; preds = %_ZNSt5stackIN3re29W
   br i1 %cmp.i.i.i78, label %if.then.i.i.i80, label %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit84
 
 if.then.i.i.i80:                                  ; preds = %if.end105
-  %50 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !37
+  %50 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !39
   %add.ptr.i.i.i82 = getelementptr inbounds i8, ptr %50, i64 -8
   %51 = load ptr, ptr %add.ptr.i.i.i82, align 8
   %add.ptr.i.i.i.i83 = getelementptr inbounds i8, ptr %51, i64 504
@@ -7650,15 +7650,17 @@ attributes #29 = { cold }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = !{}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZNSt5dequeIN3re29WalkStateINS0_4FragEEESaIS3_EE3endEv: %agg.result"}
+!30 = distinct !{!30, !"_ZNSt5dequeIN3re29WalkStateINS0_4FragEEESaIS3_EE3endEv"}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNSt5dequeIN3re29WalkStateINS0_4FragEEESaIS3_EE3endEv: %agg.result"}
-!35 = distinct !{!35, !"_ZNSt5dequeIN3re29WalkStateINS0_4FragEEESaIS3_EE3endEv"}
-!36 = distinct !{!36, !5}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNSt5dequeIN3re29WalkStateINS0_4FragEEESaIS3_EE3endEv: %agg.result"}
-!39 = distinct !{!39, !"_ZNSt5dequeIN3re29WalkStateINS0_4FragEEESaIS3_EE3endEv"}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZNSt5dequeIN3re29WalkStateINS0_4FragEEESaIS3_EE3endEv: %agg.result"}
+!37 = distinct !{!37, !"_ZNSt5dequeIN3re29WalkStateINS0_4FragEEESaIS3_EE3endEv"}
+!38 = distinct !{!38, !5}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZNSt5dequeIN3re29WalkStateINS0_4FragEEESaIS3_EE3endEv: %agg.result"}
+!41 = distinct !{!41, !"_ZNSt5dequeIN3re29WalkStateINS0_4FragEEESaIS3_EE3endEv"}

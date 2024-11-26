@@ -2640,9 +2640,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %137, %_ZN3gmx11List
   %149 = add i32 %148, %142
   store i32 %149, ptr %116, align 4, !alias.scope !24
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %8, i64 104
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !24
   %.phi.trans.insert82.i = getelementptr inbounds i8, ptr %8, i64 96
-  %.pre83.i = load ptr, ptr %.phi.trans.insert82.i, align 8
+  %.pre83.i = load ptr, ptr %.phi.trans.insert82.i, align 8, !alias.scope !24
   %150 = ashr exact i64 %145, 2
   %151 = add nsw i64 %150, -1
   %152 = ptrtoint ptr %.pre.i to i64

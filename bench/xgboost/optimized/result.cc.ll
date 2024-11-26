@@ -351,7 +351,7 @@ _ZNSt5stackIPKN7xgboost10collective6detail10ResultImplESt5dequeIS5_SaIS5_EEE4pus
   br i1 %25, label %51, label %26
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %18, align 8
+  %27 = load ptr, ptr %18, align 8, !noalias !13
   %28 = icmp eq ptr %23, %27
   br i1 %28, label %32, label %29
 
@@ -1003,7 +1003,7 @@ common.resume:                                    ; preds = %43, %17
   unreachable
 
 28:                                               ; preds = %19
-  %29 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %10, align 8, !noalias !34
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 3
   %32 = icmp eq i64 %31, 0

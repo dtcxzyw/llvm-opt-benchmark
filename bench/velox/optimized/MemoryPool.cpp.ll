@@ -7501,8 +7501,8 @@ lpad.i27:                                         ; preds = %lpad.loopexit.split
   br label %ehcleanup75
 
 while.end.i:                                      ; preds = %invoke.cont6.i
-  %agg.result.val4.pre.i = load ptr, ptr %usages, align 8
-  %agg.result.val.pre.i = load ptr, ptr %19, align 8
+  %agg.result.val4.pre.i = load ptr, ptr %usages, align 8, !alias.scope !64
+  %agg.result.val.pre.i = load ptr, ptr %19, align 8, !alias.scope !64
   %cmp.i.i.i14.i = icmp eq ptr %agg.result.val4.pre.i, %agg.result.val.pre.i
   br i1 %cmp.i.i.i14.i, label %invoke.cont.i, label %while.cond.preheader.i.i.i
 

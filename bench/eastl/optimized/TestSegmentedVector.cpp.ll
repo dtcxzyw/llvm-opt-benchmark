@@ -3422,7 +3422,7 @@ invoke.cont9:                                     ; preds = %call.i.i.i11.i.i.no
   %21 = phi ptr [ %12, %if.then2.i.i68 ], [ %call.i.i.i.i.i78, %call.i.i.i.i.i.noexc77 ], [ %call.i.i.i11.i.i80, %call.i.i.i11.i.i.noexc79 ]
   %retval.0.i.i67 = phi ptr [ %add.ptr.i.i71, %if.then2.i.i68 ], [ %mData6.i.i66, %call.i.i.i.i.i.noexc77 ], [ %mData11.i.i76, %call.i.i.i11.i.i.noexc79 ]
   store i32 3, ptr %retval.0.i.i67, align 4
-  %22 = load ptr, ptr %mFirstSegment.i, align 8
+  %22 = load ptr, ptr %mFirstSegment.i, align 8, !noalias !11
   %tobool.not.i = icmp eq ptr %22, null
   br i1 %tobool.not.i, label %invoke.cont11, label %if.then.i
 

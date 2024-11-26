@@ -6181,7 +6181,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.thread: ; preds = %40, %
   %.446 = phi ptr [ %.143, %_ZN4llvm5APIntD2Ev.exit63 ], [ %169, %_ZNK4llvm4User10getOperandEj.exit ], [ %.042, %171 ], [ %175, %173 ], [ %188, %181 ], [ %spec.select, %179 ], [ %spec.select, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit ], [ %.042, %176 ], [ %.042, %177 ], [ %.042, %40 ]
   %.7 = phi ptr [ %.3, %_ZN4llvm5APIntD2Ev.exit63 ], [ %.1, %_ZNK4llvm4User10getOperandEj.exit ], [ %.1, %171 ], [ %.1, %173 ], [ %.1, %181 ], [ %.1, %179 ], [ %.1, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit ], [ %.1, %176 ], [ %.1, %177 ], [ %.1, %40 ]
   %189 = load ptr, ptr %27, align 8, !noalias !67
-  %190 = load ptr, ptr %7, align 8
+  %190 = load ptr, ptr %7, align 8, !noalias !67
   %191 = icmp eq ptr %189, %190
   br i1 %191, label %192, label %205
 
@@ -6212,12 +6212,12 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.thread: ; preds = %40, %
   %203 = add nuw i32 %193, 1
   store i32 %203, ptr %29, align 4, !noalias !67
   store ptr %.446, ptr %195, align 8, !noalias !67
-  %204 = load ptr, ptr %7, align 8
+  %204 = load ptr, ptr %7, align 8, !noalias !67
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i72
 
 205:                                              ; preds = %._crit_edge.i.i90, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.thread
   %206 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef %.446) #21, !noalias !67
-  %.pre.i69 = load ptr, ptr %7, align 8
+  %.pre.i69 = load ptr, ptr %7, align 8, !noalias !67
   %207 = extractvalue { ptr, i8 } %206, 1
   %208 = trunc i8 %207 to i1
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i72
@@ -6225,7 +6225,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.thread: ; preds = %40, %
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i72: ; preds = %.lr.ph.i.i87, %205, %202
   %209 = phi ptr [ %204, %202 ], [ %.pre.i69, %205 ], [ %189, %.lr.ph.i.i87 ]
   %.fca.1.insert.merged.i.i73 = phi i1 [ true, %202 ], [ %208, %205 ], [ false, %.lr.ph.i.i87 ]
-  %210 = load ptr, ptr %27, align 8
+  %210 = load ptr, ptr %27, align 8, !noalias !67
   br i1 %.fca.1.insert.merged.i.i73, label %35, label %split, !llvm.loop !70
 
 split:                                            ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i72, %44, %_ZN4llvm5APIntD2Ev.exit63._crit_edge
@@ -6393,8 +6393,8 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i: ; preds = %_ZN4llvm14
 
 68:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i, %_ZNK4llvm4User10getOperandEj.exit37.i, %_ZNK4llvm4User10getOperandEj.exit.i, %25
   %.126.i = phi ptr [ %32, %25 ], [ %66, %_ZNK4llvm4User10getOperandEj.exit37.i ], [ %46, %_ZNK4llvm4User10getOperandEj.exit.i ], [ %67, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit.i ]
-  %69 = load ptr, ptr %12, align 8
-  %70 = load ptr, ptr %4, align 8
+  %69 = load ptr, ptr %12, align 8, !noalias !74
+  %70 = load ptr, ptr %4, align 8, !noalias !74
   %71 = icmp eq ptr %69, %70
   br i1 %71, label %72, label %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit61.i
 

@@ -1016,7 +1016,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %56, %59
 88:                                               ; preds = %84, %82
   %.sink104 = phi i64 [ %87, %84 ], [ %83, %82 ]
   %89 = getelementptr inbounds ptr, ptr %66, i64 %.sink104
-  %90 = load ptr, ptr %89, align 8, !noalias !27
+  %90 = load ptr, ptr %89, align 8, !noalias !26
   %.idx.i.i.i.i53 = mul i64 %.sink104, -480
   %91 = getelementptr i8, ptr %90, i64 %.idx.i.i.i.i53
   %92 = getelementptr i8, ptr %91, i64 %69
@@ -1024,7 +1024,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %56, %59
   %94 = load i32, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %94, ptr %95, align 8
-  %96 = load ptr, ptr %89, align 8, !noalias !30
+  %96 = load ptr, ptr %89, align 8, !noalias !29
   %97 = getelementptr i8, ptr %96, i64 %.idx.i.i.i.i53
   %98 = getelementptr i8, ptr %97, i64 %69
   %99 = getelementptr inbounds i8, ptr %98, i64 24
@@ -1033,7 +1033,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %56, %59
   %102 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 %101, ptr %102, align 4
   %103 = getelementptr inbounds ptr, ptr %66, i64 %.sink104
-  %104 = load ptr, ptr %103, align 8, !noalias !33
+  %104 = load ptr, ptr %103, align 8, !noalias !32
   %105 = getelementptr i8, ptr %104, i64 %.idx.i.i.i.i53
   %106 = getelementptr i8, ptr %105, i64 %69
   br label %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit61
@@ -1079,7 +1079,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %56, %59
   br i1 %136, label %137, label %243
 
 137:                                              ; preds = %111
-  %138 = load ptr, ptr %109, align 8, !noalias !36
+  %138 = load ptr, ptr %109, align 8, !noalias !35
   %139 = ptrtoint ptr %138 to i64
   %140 = sub i64 %132, %139
   %141 = sdiv exact i64 %140, 40
@@ -1108,7 +1108,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %56, %59
 154:                                              ; preds = %150, %148
   %155 = phi i64 [ %149, %148 ], [ %153, %150 ]
   %156 = getelementptr inbounds ptr, ptr %114, i64 %155
-  %157 = load ptr, ptr %156, align 8, !noalias !36
+  %157 = load ptr, ptr %156, align 8, !noalias !35
   %.idx.i.i.i.i63 = mul i64 %155, -480
   %158 = getelementptr i8, ptr %157, i64 %.idx.i.i.i.i63
   %159 = getelementptr %"class.cv::mjpeg::mjpeg_buffer", ptr %158, i64 %142
@@ -1197,7 +1197,7 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit65: ; preds = %146, %154
   %211 = add i32 %210, -1
   %212 = zext i32 %211 to i64
   %213 = icmp samesign ult i64 %indvars.iv.next, %212
-  br i1 %213, label %195, label %._crit_edge.loopexit, !llvm.loop !39
+  br i1 %213, label %195, label %._crit_edge.loopexit, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %195
   %214 = zext i32 %211 to i64
@@ -1243,7 +1243,7 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit65: ; preds = %146, %154
   %241 = add nsw i32 %239, -32
   %spec.select = select i1 %240, i32 %241, i32 %239
   %242 = add i32 %.046, 1
-  br label %111, !llvm.loop !40
+  br label %111, !llvm.loop !39
 
 243:                                              ; preds = %111
   %.not = icmp eq i32 %.045, 0
@@ -1339,7 +1339,7 @@ define hidden void @_ZN2cv22createMotionJpegWriterERKNSt7__cxx1112basic_stringIc
   %34 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 48
   %35 = add nsw i64 %.052.i.i.i.i, -1
   %36 = icmp sgt i64 %.052.i.i.i.i, 1
-  br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !41
+  br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !40
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %33
   %.pre.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
@@ -1410,15 +1410,15 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParame
 _ZNK2cv15VideoParameters3getIbEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i, %54
   %.0.i = phi i1 [ %58, %54 ], [ true, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i ], [ true, %._crit_edge.i.i.i.i ]
   %.val6 = load i64, ptr %4, align 4
-  %59 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #23, !noalias !42
+  %59 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #23, !noalias !41
   %60 = getelementptr inbounds i8, ptr %59, i64 8
-  store i32 1, ptr %60, align 8, !noalias !42
+  store i32 1, ptr %60, align 8, !noalias !41
   %61 = getelementptr inbounds i8, ptr %59, i64 12
-  store i32 1, ptr %61, align 4, !noalias !42
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5mjpeg16MotionJpegWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %59, align 8, !noalias !42
+  store i32 1, ptr %61, align 4, !noalias !41
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5mjpeg16MotionJpegWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %59, align 8, !noalias !41
   %62 = getelementptr inbounds i8, ptr %59, i64 16
   invoke void @_ZN2cv5mjpeg16MotionJpegWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS_5Size_IiEEb(ptr noundef nonnull align 8 dereferenceable(280) %62, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %3, i64 %.val6, i1 noundef zeroext %.0.i)
-          to label %_ZN2cv3PtrINS_5mjpeg16MotionJpegWriterEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5mjpeg16MotionJpegWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !42
+          to label %_ZN2cv3PtrINS_5mjpeg16MotionJpegWriterEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5mjpeg16MotionJpegWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !41
 
 common.resume:                                    ; preds = %101, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5mjpeg16MotionJpegWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %63, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5mjpeg16MotionJpegWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %102, %101 ]
@@ -1427,7 +1427,7 @@ common.resume:                                    ; preds = %101, %_ZNSt15__allo
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5mjpeg16MotionJpegWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %_ZNK2cv15VideoParameters3getIbEET_iS2_.exit
   %63 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %59) #24, !noalias !42
+  tail call void @_ZdlPv(ptr noundef nonnull %59) #24, !noalias !41
   br label %common.resume
 
 _ZN2cv3PtrINS_5mjpeg16MotionJpegWriterEED2Ev.exit: ; preds = %_ZNK2cv15VideoParameters3getIbEET_iS2_.exit
@@ -1705,13 +1705,13 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE9push_backEOS2_.exit: ; preds = %54
   br label %_ZN2cv5mjpeg12mjpeg_bufferD2Ev.exit
 
 _ZN2cv5mjpeg12mjpeg_bufferD2Ev.exit:              ; preds = %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE9push_backEOS2_.exit.thread, %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE9push_backEOS2_.exit, %55
-  %56 = load ptr, ptr %5, align 8, !noalias !47
-  %57 = load ptr, ptr %19, align 8, !noalias !47
+  %56 = load ptr, ptr %5, align 8, !noalias !46
+  %57 = load ptr, ptr %19, align 8, !noalias !46
   %58 = icmp eq ptr %56, %57
   br i1 %58, label %59, label %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE4backEv.exit
 
 59:                                               ; preds = %_ZN2cv5mjpeg12mjpeg_bufferD2Ev.exit
-  %60 = load ptr, ptr %7, align 8, !noalias !47
+  %60 = load ptr, ptr %7, align 8, !noalias !46
   %61 = getelementptr inbounds i8, ptr %60, i64 -8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 480
@@ -1751,7 +1751,7 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE4backEv.exit: ; preds = %_ZN2cv5mjp
 _ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit:         ; preds = %74, %76, %78, %80
   %81 = add i32 %.08, 1
   %exitcond.not = icmp eq i32 %81, %1
-  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !49
 
 82:                                               ; preds = %54
   %83 = landingpad { ptr, i32 }
@@ -1896,12 +1896,12 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   store i32 %92, ptr %93, align 4
   %94 = add nuw nsw i32 %.0143289.us, 1
   %exitcond.not = icmp eq i32 %94, %.fr330
-  br i1 %exitcond.not, label %..loopexit279_crit_edge.us, label %77, !llvm.loop !51
+  br i1 %exitcond.not, label %..loopexit279_crit_edge.us, label %77, !llvm.loop !50
 
 ..loopexit279_crit_edge.us:                       ; preds = %77
   %95 = load i32, ptr %49, align 4
   %96 = icmp slt i32 %67, %95
-  br i1 %96, label %.lr.ph.us, label %.loopexit280, !llvm.loop !52
+  br i1 %96, label %.lr.ph.us, label %.loopexit280, !llvm.loop !51
 
 .loopexit279:                                     ; preds = %.lr.ph291, %.loopexit279
   %97 = phi i32 [ %111, %.loopexit279 ], [ %50, %.lr.ph291 ]
@@ -1925,7 +1925,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   call void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32 noundef %108, i32 noundef %109, i32 noundef %98, ptr noundef nonnull %54, ptr noundef nonnull %17, ptr noundef %101, i32 noundef %.0150, i32 noundef %spec.select, i32 noundef %110, i32 noundef %29, i32 noundef %30)
   %111 = load i32, ptr %49, align 4
   %112 = icmp slt i32 %102, %111
-  br i1 %112, label %.loopexit279, label %.loopexit280, !llvm.loop !52
+  br i1 %112, label %.loopexit279, label %.loopexit280, !llvm.loop !51
 
 .loopexit280:                                     ; preds = %.loopexit279, %..loopexit279_crit_edge.us, %38, %2
   %113 = load i32, ptr %1, align 4
@@ -1958,17 +1958,17 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   %134 = load i32, ptr %114, align 4
   %135 = sext i32 %134 to i64
   %136 = icmp slt i64 %indvars.iv.next338, %135
-  br i1 %136, label %137, label %._crit_edge, !llvm.loop !53
+  br i1 %136, label %137, label %._crit_edge, !llvm.loop !52
 
 137:                                              ; preds = %.lr.ph, %.loopexit278
   %indvars.iv337 = phi i64 [ %133, %.lr.ph ], [ %indvars.iv.next338, %.loopexit278 ]
   %138 = load ptr, ptr %117, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 16
-  %140 = load ptr, ptr %139, align 8, !noalias !54
+  %140 = load ptr, ptr %139, align 8, !noalias !53
   %141 = getelementptr inbounds i8, ptr %138, i64 24
-  %142 = load ptr, ptr %141, align 8, !noalias !54
+  %142 = load ptr, ptr %141, align 8, !noalias !53
   %143 = getelementptr inbounds i8, ptr %138, i64 40
-  %144 = load ptr, ptr %143, align 8, !noalias !54
+  %144 = load ptr, ptr %143, align 8, !noalias !53
   %145 = ptrtoint ptr %140 to i64
   %146 = ptrtoint ptr %142 to i64
   %147 = sub i64 %145, %146
@@ -1998,7 +1998,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
 161:                                              ; preds = %157, %155
   %162 = phi i64 [ %156, %155 ], [ %160, %157 ]
   %163 = getelementptr inbounds ptr, ptr %144, i64 %162
-  %164 = load ptr, ptr %163, align 8, !noalias !54
+  %164 = load ptr, ptr %163, align 8, !noalias !53
   %.idx.i.i.i.i.i = mul i64 %162, -480
   %165 = getelementptr i8, ptr %164, i64 %.idx.i.i.i.i.i
   %166 = getelementptr %"class.cv::mjpeg::mjpeg_buffer", ptr %165, i64 %149
@@ -2654,7 +2654,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit224.us: ; preds = %494, %484
 .thread344:                                       ; preds = %.thread, %_ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit224.us, %420
   %512 = add nuw nsw i32 %.1144295.us, 1
   %exitcond336.not = icmp eq i32 %512, %.fr330
-  br i1 %exitcond336.not, label %..loopexit_crit_edge.us, label %209, !llvm.loop !57
+  br i1 %exitcond336.not, label %..loopexit_crit_edge.us, label %209, !llvm.loop !56
 
 .backedge:                                        ; preds = %.backedge.backedge, %_ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us
   %indvars.iv = phi i64 [ 1, %_ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us ], [ %indvars.iv.be, %.backedge.backedge ]
@@ -3212,7 +3212,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit191.us: ; preds = %780, %770
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %798 = add nsw i32 %.1147292.us, -16
   %799 = icmp sgt i32 %.1147292.us, 31
-  br i1 %799, label %.lr.ph.us301, label %._crit_edge.us, !llvm.loop !58
+  br i1 %799, label %.lr.ph.us301, label %._crit_edge.us, !llvm.loop !57
 
 800:                                              ; preds = %.backedge
   %801 = add nsw i32 %.0146293.us, 1
@@ -3223,7 +3223,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit191.us: ; preds = %780, %770
 .backedge.backedge:                               ; preds = %800, %.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %800 ], [ %indvars.iv.next341, %.thread ]
   %.0146293.us.be = phi i32 [ %801, %800 ], [ 0, %.thread ]
-  br label %.backedge, !llvm.loop !59
+  br label %.backedge, !llvm.loop !58
 
 .thread:                                          ; preds = %680, %690
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -3239,7 +3239,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit191.us: ; preds = %780, %770
 ..loopexit_crit_edge.us:                          ; preds = %.thread344
   %803 = load i32, ptr %120, align 4
   %804 = icmp slt i32 %200, %803
-  br i1 %804, label %.lr.ph297.us, label %._crit_edge300, !llvm.loop !60
+  br i1 %804, label %.lr.ph297.us, label %._crit_edge300, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.lr.ph299, %.loopexit
   %805 = phi i32 [ %819, %.loopexit ], [ %192, %.lr.ph299 ]
@@ -3263,7 +3263,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit191.us: ; preds = %780, %770
   call void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32 noundef %816, i32 noundef %817, i32 noundef %806, ptr noundef nonnull %123, ptr noundef nonnull %17, ptr noundef %809, i32 noundef %.0153, i32 noundef %spec.select161, i32 noundef %818, i32 noundef %29, i32 noundef %30)
   %819 = load i32, ptr %120, align 4
   %820 = icmp slt i32 %810, %819
-  br i1 %820, label %.loopexit, label %._crit_edge300, !llvm.loop !60
+  br i1 %820, label %.loopexit, label %._crit_edge300, !llvm.loop !59
 
 .split.us:                                        ; preds = %209
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #21
@@ -3440,7 +3440,7 @@ common.resume:                                    ; preds = %853, %855, %847, %8
   %860 = sext i32 %859 to i64
   %861 = getelementptr inbounds i8, ptr %.0148325, i64 %860
   %862 = icmp slt i32 %194, %spec.select160
-  br i1 %862, label %.preheader277, label %.loopexit278, !llvm.loop !61
+  br i1 %862, label %.preheader277, label %.loopexit278, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.loopexit278, %.loopexit280
   ret void
@@ -3813,14 +3813,14 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   store i16 %23, ptr %24, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !62
 
 ._crit_edge.us:                                   ; preds = %18
   %25 = add nuw nsw i32 %.2150169.us, 1
   %26 = getelementptr inbounds i8, ptr %.4170.us, i64 %16
   %27 = getelementptr inbounds i16, ptr %.2144171.us, i64 %17
   %exitcond225.not = icmp eq i32 %25, %6
-  br i1 %exitcond225.not, label %.loopexit, label %.preheader165.us, !llvm.loop !64
+  br i1 %exitcond225.not, label %.loopexit, label %.preheader165.us, !llvm.loop !63
 
 28:                                               ; preds = %11
   %29 = icmp eq i32 %0, 3
@@ -3914,7 +3914,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %88 = getelementptr inbounds i8, ptr %.3173.us.us.us, i64 %36
   %exitcond236.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count241
-  br i1 %exitcond236.not, label %._crit_edge.split.us.us.us, label %42, !llvm.loop !65
+  br i1 %exitcond236.not, label %._crit_edge.split.us.us.us, label %42, !llvm.loop !64
 
 ._crit_edge.split.us.us.us:                       ; preds = %42
   %89 = getelementptr inbounds i8, ptr %88, i64 %39
@@ -3926,7 +3926,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   %93 = getelementptr inbounds i8, ptr %89, i64 %40
   %94 = getelementptr inbounds i16, ptr %.1143184.us.us, i64 %41
   %exitcond237.not = icmp eq i32 %90, %6
-  br i1 %exitcond237.not, label %.loopexit, label %.preheader162.us.us, !llvm.loop !66
+  br i1 %exitcond237.not, label %.loopexit, label %.preheader162.us.us, !llvm.loop !65
 
 .preheader162.us.us198:                           ; preds = %.preheader162.lr.ph.split.us, %._crit_edge.split.split.us.us.us
   %.1187.us.us199 = phi ptr [ %spec.select.us.us206, %._crit_edge.split.split.us.us.us ], [ %3, %.preheader162.lr.ph.split.us ]
@@ -3989,7 +3989,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %141 = getelementptr inbounds i8, ptr %.3173.us175.us.us, i64 %36
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count241
-  br i1 %exitcond230.not, label %._crit_edge.split.split.us.us.us, label %95, !llvm.loop !65
+  br i1 %exitcond230.not, label %._crit_edge.split.split.us.us.us, label %95, !llvm.loop !64
 
 ._crit_edge.split.split.us.us.us:                 ; preds = %95
   %142 = getelementptr inbounds i8, ptr %141, i64 %39
@@ -4001,7 +4001,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   %146 = getelementptr inbounds i8, ptr %142, i64 %40
   %147 = getelementptr inbounds i16, ptr %.1143184.us.us200, i64 %41
   %exitcond231.not = icmp eq i32 %143, %6
-  br i1 %exitcond231.not, label %.loopexit, label %.preheader162.us.us198, !llvm.loop !66
+  br i1 %exitcond231.not, label %.loopexit, label %.preheader162.us.us198, !llvm.loop !65
 
 .preheader162.us:                                 ; preds = %.preheader162.lr.ph.split.us, %._crit_edge.split.split.us192
   %.1187.us = phi ptr [ %spec.select.us, %._crit_edge.split.split.us192 ], [ %3, %.preheader162.lr.ph.split.us ]
@@ -4042,7 +4042,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %172 = getelementptr inbounds i8, ptr %.3173.us190, i64 %36
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
-  br i1 %exitcond242.not, label %._crit_edge.split.split.us192, label %148, !llvm.loop !65
+  br i1 %exitcond242.not, label %._crit_edge.split.split.us192, label %148, !llvm.loop !64
 
 ._crit_edge.split.split.us192:                    ; preds = %148
   %173 = getelementptr inbounds i8, ptr %172, i64 %39
@@ -4054,7 +4054,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   %177 = getelementptr inbounds i8, ptr %173, i64 %40
   %178 = getelementptr inbounds i16, ptr %.1143184.us, i64 %41
   %exitcond243.not = icmp eq i32 %174, %6
-  br i1 %exitcond243.not, label %.loopexit, label %.preheader162.us, !llvm.loop !66
+  br i1 %exitcond243.not, label %.loopexit, label %.preheader162.us, !llvm.loop !65
 
 .preheader161:                                    ; preds = %28
   %179 = sext i32 %8 to i64
@@ -4159,7 +4159,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 2
   %261 = getelementptr inbounds i8, ptr %.1146210, i64 2
   %262 = icmp samesign ult i64 %indvars.iv244, 14
-  br i1 %262, label %202, label %263, !llvm.loop !67
+  br i1 %262, label %202, label %263, !llvm.loop !66
 
 263:                                              ; preds = %202
   %264 = getelementptr inbounds i8, ptr %261, i64 %198
@@ -4168,7 +4168,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   %267 = getelementptr inbounds i8, ptr %.0142213, i64 64
   %268 = getelementptr inbounds i8, ptr %.0214, i64 32
   %269 = icmp samesign ult i32 %.0148211, 14
-  br i1 %269, label %.preheader, label %.loopexit, !llvm.loop !68
+  br i1 %269, label %.preheader, label %.loopexit, !llvm.loop !67
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.split.split.us.us.us, %._crit_edge.split.us.us.us, %._crit_edge.split.split.us192, %263, %.preheader162.lr.ph, %.preheader165.lr.ph, %.preheader166, %.preheader163
   ret void
@@ -4267,7 +4267,7 @@ define internal fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr nocapture 
   %80 = getelementptr inbounds i16, ptr %.0217, i64 %6
   %81 = getelementptr inbounds i8, ptr %.0207216, i64 32
   %82 = icmp ugt i32 %.0208215, 1
-  br i1 %82, label %7, label %.preheader, !llvm.loop !69
+  br i1 %82, label %7, label %.preheader, !llvm.loop !68
 
 .preheader:                                       ; preds = %7, %.preheader
   %.0205221 = phi ptr [ %204, %.preheader ], [ %1, %7 ]
@@ -4409,7 +4409,7 @@ define internal fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr nocapture 
   %203 = getelementptr inbounds i8, ptr %.0206220, i64 16
   %204 = getelementptr inbounds i8, ptr %.0205221, i64 16
   %205 = icmp ugt i32 %.1209218, 1
-  br i1 %205, label %.preheader, label %206, !llvm.loop !70
+  br i1 %205, label %.preheader, label %206, !llvm.loop !69
 
 206:                                              ; preds = %.preheader
   ret void
@@ -4460,7 +4460,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg19mjpeg_buffer_keeper22allocate_out
   br i1 %34, label %35, label %98
 
 35:                                               ; preds = %9
-  %36 = load ptr, ptr %8, align 8, !noalias !71
+  %36 = load ptr, ptr %8, align 8, !noalias !70
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %30, %37
   %39 = sdiv exact i64 %38, 40
@@ -4489,7 +4489,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg19mjpeg_buffer_keeper22allocate_out
 52:                                               ; preds = %48, %46
   %53 = phi i64 [ %47, %46 ], [ %51, %48 ]
   %54 = getelementptr inbounds ptr, ptr %11, i64 %53
-  %55 = load ptr, ptr %54, align 8, !noalias !71
+  %55 = load ptr, ptr %54, align 8, !noalias !70
   %.idx.i.i.i.i = mul i64 %53, -480
   %56 = getelementptr i8, ptr %55, i64 %.idx.i.i.i.i
   %57 = getelementptr %"class.cv::mjpeg::mjpeg_buffer", ptr %56, i64 %40
@@ -4518,9 +4518,9 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %61, %64
   %.sink.i = phi i32 [ %63, %61 ], [ %67, %64 ]
   %68 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 32
   store i32 %.sink.i, ptr %68, align 8
-  %69 = load ptr, ptr %3, align 8
-  %70 = load ptr, ptr %8, align 8, !noalias !74
-  %71 = load ptr, ptr %5, align 8
+  %69 = load ptr, ptr %3, align 8, !noalias !73
+  %70 = load ptr, ptr %8, align 8, !noalias !73
+  %71 = load ptr, ptr %5, align 8, !noalias !73
   %72 = ptrtoint ptr %69 to i64
   %73 = ptrtoint ptr %70 to i64
   %74 = sub i64 %72, %73
@@ -4550,7 +4550,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %61, %64
 88:                                               ; preds = %84, %82
   %89 = phi i64 [ %83, %82 ], [ %87, %84 ]
   %90 = getelementptr inbounds ptr, ptr %71, i64 %89
-  %91 = load ptr, ptr %90, align 8, !noalias !74
+  %91 = load ptr, ptr %90, align 8, !noalias !73
   %.idx.i.i.i.i10 = mul i64 %89, -480
   %92 = getelementptr i8, ptr %91, i64 %.idx.i.i.i.i10
   %93 = getelementptr %"class.cv::mjpeg::mjpeg_buffer", ptr %92, i64 %76
@@ -4562,7 +4562,7 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit12: ; preds = %80, %88
   %95 = load i32, ptr %94, align 8
   %96 = add i32 %95, %.07
   %97 = add i32 %.0, 1
-  br label %9, !llvm.loop !77
+  br label %9, !llvm.loop !76
 
 98:                                               ; preds = %9
   %99 = zext i32 %.07 to i64
@@ -4702,7 +4702,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg16MotionJpegWriterC2ERKNSt7__cxx111
   br i1 %40, label %41, label %68
 
 41:                                               ; preds = %15
-  %42 = load ptr, ptr %14, align 8, !noalias !78
+  %42 = load ptr, ptr %14, align 8, !noalias !77
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %36, %43
   %45 = sdiv exact i64 %44, 40
@@ -4731,7 +4731,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg16MotionJpegWriterC2ERKNSt7__cxx111
 58:                                               ; preds = %54, %52
   %59 = phi i64 [ %53, %52 ], [ %57, %54 ]
   %60 = getelementptr inbounds ptr, ptr %18, i64 %59
-  %61 = load ptr, ptr %60, align 8, !noalias !78
+  %61 = load ptr, ptr %60, align 8, !noalias !77
   %.idx.i.i.i.i.i.i = mul i64 %59, -480
   %62 = getelementptr i8, ptr %61, i64 %.idx.i.i.i.i.i.i
   %63 = getelementptr %"class.cv::mjpeg::mjpeg_buffer", ptr %62, i64 %46
@@ -5056,13 +5056,13 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg16MotionJpegWriter5writeERKNS_11_In
   %11 = alloca %"class.std::allocator.8", align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.8", align 1
-  %14 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !81
+  %14 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !80
   %15 = icmp eq i32 %14, 65536
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noalias !81
+  %18 = load ptr, ptr %17, align 8, !noalias !80
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %18)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
@@ -5487,21 +5487,21 @@ define linkonce_odr hidden void @_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EED2
   %2 = alloca %"struct.std::_Deque_iterator", align 8
   %3 = alloca %"struct.std::_Deque_iterator", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !noalias !84
+  %5 = load ptr, ptr %4, align 8, !noalias !83
   %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !noalias !84
+  %7 = load ptr, ptr %6, align 8, !noalias !83
   %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !noalias !84
+  %9 = load ptr, ptr %8, align 8, !noalias !83
   %10 = getelementptr inbounds i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !noalias !84
+  %11 = load ptr, ptr %10, align 8, !noalias !83
   %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !noalias !87
+  %13 = load ptr, ptr %12, align 8, !noalias !86
   %14 = getelementptr inbounds i8, ptr %0, i64 56
-  %15 = load ptr, ptr %14, align 8, !noalias !87
+  %15 = load ptr, ptr %14, align 8, !noalias !86
   %16 = getelementptr inbounds i8, ptr %0, i64 64
-  %17 = load ptr, ptr %16, align 8, !noalias !87
+  %17 = load ptr, ptr %16, align 8, !noalias !86
   %18 = getelementptr inbounds i8, ptr %0, i64 72
-  %19 = load ptr, ptr %18, align 8, !noalias !87
+  %19 = load ptr, ptr %18, align 8, !noalias !86
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %5, ptr %2, align 8
@@ -5541,7 +5541,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EED2
   call void @_ZdlPv(ptr noundef %33) #24
   %34 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
   %35 = icmp ult ptr %.06.i.i, %30
-  br i1 %35, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i, !llvm.loop !90
+  br i1 %35, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i, !llvm.loop !89
 
 _ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
   %.pre.i = load ptr, ptr %0, align 8
@@ -5598,7 +5598,7 @@ _ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE16_M_allocate_nodeEv.exit.i:
   store ptr %15, ptr %.011.i, align 8
   %16 = getelementptr inbounds i8, ptr %.011.i, i64 8
   %17 = icmp ult ptr %16, %14
-  br i1 %17, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE15_M_create_nodesEPPS2_S6_.exit, !llvm.loop !91
+  br i1 %17, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE15_M_create_nodesEPPS2_S6_.exit, !llvm.loop !90
 
 18:                                               ; preds = %.lr.ph.i
   %19 = landingpad { ptr, i32 }
@@ -5614,7 +5614,7 @@ _ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE16_M_allocate_nodeEv.exit.i:
   tail call void @_ZdlPv(ptr noundef %23) #24
   %24 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
   %25 = icmp ult ptr %24, %.011.i
-  br i1 %25, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i, !llvm.loop !90
+  br i1 %25, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i, !llvm.loop !89
 
 _ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i: ; preds = %.lr.ph.i.i, %18
   invoke void @__cxa_rethrow() #22
@@ -5719,13 +5719,13 @@ define linkonce_odr hidden void @_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE19
 _ZSt8_DestroyIN2cv5mjpeg12mjpeg_bufferEEvPT_.exit.i.i.i: ; preds = %11, %.lr.ph.i.i.i
   %.05.i.i.i.add = add nuw nsw i64 %.05.i.i.i.idx, 40
   %.not.i.i.i = icmp eq i64 %.05.i.i.i.add, 480
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !92
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !91
 
 _ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN2cv5mjpeg12mjpeg_bufferEEvPT_.exit.i.i.i
   %.0 = getelementptr inbounds i8, ptr %.028, i64 8
   %12 = load ptr, ptr %6, align 8
   %13 = icmp ult ptr %.0, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !93
+  br i1 %13, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !92
 
 ._crit_edge.loopexit:                             ; preds = %_ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit
   %.pre = load ptr, ptr %4, align 8
@@ -5757,7 +5757,7 @@ _ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt
 _ZSt8_DestroyIN2cv5mjpeg12mjpeg_bufferEEvPT_.exit.i.i.i9: ; preds = %20, %.lr.ph.i.i.i6
   %21 = getelementptr inbounds i8, ptr %.05.i.i.i7, i64 40
   %.not.i.i.i10 = icmp eq ptr %21, %18
-  br i1 %.not.i.i.i10, label %_ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit11, label %.lr.ph.i.i.i6, !llvm.loop !92
+  br i1 %.not.i.i.i10, label %_ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit11, label %.lr.ph.i.i.i6, !llvm.loop !91
 
 _ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit11: ; preds = %_ZSt8_DestroyIN2cv5mjpeg12mjpeg_bufferEEvPT_.exit.i.i.i9, %16
   %22 = getelementptr inbounds i8, ptr %2, i64 8
@@ -5779,7 +5779,7 @@ _ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit11: ; preds = %_Z
 _ZSt8_DestroyIN2cv5mjpeg12mjpeg_bufferEEvPT_.exit.i.i.i16: ; preds = %26, %.lr.ph.i.i.i13
   %27 = getelementptr inbounds i8, ptr %.05.i.i.i14, i64 40
   %.not.i.i.i17 = icmp eq ptr %27, %24
-  br i1 %.not.i.i.i17, label %_ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit18, label %.lr.ph.i.i.i13, !llvm.loop !92
+  br i1 %.not.i.i.i17, label %_ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit18, label %.lr.ph.i.i.i13, !llvm.loop !91
 
 28:                                               ; preds = %._crit_edge
   %29 = load ptr, ptr %2, align 8
@@ -5799,7 +5799,7 @@ _ZSt8_DestroyIN2cv5mjpeg12mjpeg_bufferEEvPT_.exit.i.i.i16: ; preds = %26, %.lr.p
 _ZSt8_DestroyIN2cv5mjpeg12mjpeg_bufferEEvPT_.exit.i.i.i23: ; preds = %31, %.lr.ph.i.i.i20
   %32 = getelementptr inbounds i8, ptr %.05.i.i.i21, i64 40
   %.not.i.i.i24 = icmp eq ptr %32, %29
-  br i1 %.not.i.i.i24, label %_ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit18, label %.lr.ph.i.i.i20, !llvm.loop !92
+  br i1 %.not.i.i.i24, label %_ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit18, label %.lr.ph.i.i.i20, !llvm.loop !91
 
 _ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit18: ; preds = %_ZSt8_DestroyIN2cv5mjpeg12mjpeg_bufferEEvPT_.exit.i.i.i16, %_ZSt8_DestroyIN2cv5mjpeg12mjpeg_bufferEEvPT_.exit.i.i.i23, %28, %_ZSt8_DestroyIPN2cv5mjpeg12mjpeg_bufferES2_EvT_S4_RSaIT0_E.exit11
   ret void
@@ -5934,43 +5934,43 @@ attributes #26 = { nounwind willreturn memory(read) }
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
 !25 = distinct !{!25, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
-!26 = !{}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
-!29 = distinct !{!29, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
-!32 = distinct !{!32, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
-!35 = distinct !{!35, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
-!38 = distinct !{!38, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
+!28 = distinct !{!28, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
+!31 = distinct !{!31, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
+!34 = distinct !{!34, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
+!37 = distinct !{!37, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
+!38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"_ZSt11make_sharedIN2cv5mjpeg16MotionJpegWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKdRKNS0_5Size_IiEERKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_: argument 0"}
-!44 = distinct !{!44, !"_ZSt11make_sharedIN2cv5mjpeg16MotionJpegWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKdRKNS0_5Size_IiEERKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_"}
-!45 = distinct !{!45, !46, !"_ZN2cvL7makePtrINS_5mjpeg16MotionJpegWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!46 = distinct !{!46, !"_ZN2cvL7makePtrINS_5mjpeg16MotionJpegWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE3endEv: argument 0"}
-!49 = distinct !{!49, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE3endEv"}
+!41 = !{!42, !44}
+!42 = distinct !{!42, !43, !"_ZSt11make_sharedIN2cv5mjpeg16MotionJpegWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKdRKNS0_5Size_IiEERKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_: argument 0"}
+!43 = distinct !{!43, !"_ZSt11make_sharedIN2cv5mjpeg16MotionJpegWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKdRKNS0_5Size_IiEERKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_"}
+!44 = distinct !{!44, !45, !"_ZN2cvL7makePtrINS_5mjpeg16MotionJpegWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!45 = distinct !{!45, !"_ZN2cvL7makePtrINS_5mjpeg16MotionJpegWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE3endEv: argument 0"}
+!48 = distinct !{!48, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE3endEv"}
+!49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
 !51 = distinct !{!51, !5}
 !52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
-!56 = distinct !{!56, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
+!55 = distinct !{!55, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
+!56 = distinct !{!56, !5}
 !57 = distinct !{!57, !5}
 !58 = distinct !{!58, !5}
 !59 = distinct !{!59, !5}
-!60 = distinct !{!60, !5}
-!61 = distinct !{!61, !5, !62}
-!62 = !{!"llvm.loop.unswitch.partial.disable"}
+!60 = distinct !{!60, !5, !61}
+!61 = !{!"llvm.loop.unswitch.partial.disable"}
+!62 = distinct !{!62, !5}
 !63 = distinct !{!63, !5}
 !64 = distinct !{!64, !5}
 !65 = distinct !{!65, !5}
@@ -5978,27 +5978,26 @@ attributes #26 = { nounwind willreturn memory(read) }
 !67 = distinct !{!67, !5}
 !68 = distinct !{!68, !5}
 !69 = distinct !{!69, !5}
-!70 = distinct !{!70, !5}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
-!73 = distinct !{!73, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
-!76 = distinct !{!76, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
-!77 = distinct !{!77, !5}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
-!80 = distinct !{!80, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!83 = distinct !{!83, !"_ZNK2cv11_InputArray6getMatEi"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE5beginEv: argument 0"}
-!86 = distinct !{!86, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE5beginEv"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE3endEv: argument 0"}
-!89 = distinct !{!89, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE3endEv"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
+!72 = distinct !{!72, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
+!75 = distinct !{!75, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
+!76 = distinct !{!76, !5}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El: argument 0"}
+!79 = distinct !{!79, !"_ZStplRKSt15_Deque_iteratorIN2cv5mjpeg12mjpeg_bufferERS2_PS2_El"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!82 = distinct !{!82, !"_ZNK2cv11_InputArray6getMatEi"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE5beginEv: argument 0"}
+!85 = distinct !{!85, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE5beginEv"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE3endEv: argument 0"}
+!88 = distinct !{!88, !"_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE3endEv"}
+!89 = distinct !{!89, !5}
 !90 = distinct !{!90, !5}
 !91 = distinct !{!91, !5}
 !92 = distinct !{!92, !5}
-!93 = distinct !{!93, !5}

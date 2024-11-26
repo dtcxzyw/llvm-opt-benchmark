@@ -1368,9 +1368,9 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i:       ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %.not.i.i86, label %_ZN5ZXing8BitArray10appendBitsEii.exit.i, label %422, !llvm.loop !32
 
 _ZN5ZXing8BitArray10appendBitsEii.exit.i:         ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i
-  %453 = load ptr, ptr %20, align 8
+  %453 = load ptr, ptr %20, align 8, !noalias !29
   %.sroa.037.048.i = getelementptr inbounds i8, ptr %453, i64 36
-  %454 = load ptr, ptr %394, align 8
+  %454 = load ptr, ptr %394, align 8, !noalias !29
   %.not49.i = icmp eq ptr %.sroa.037.048.i, %454
   br i1 %.not49.i, label %_ZN5ZXing4OneDL13BuildBitArrayERKSt6vectorINS0_7DataBar4PairESaIS3_EE.exit, label %.lr.ph.i87
 
@@ -1590,7 +1590,7 @@ _ZN5ZXing8BitArray10appendBitsEii.exit35.i:       ; preds = %_ZNSt6vectorIhSaIhE
   %.promoted189224 = phi ptr [ %.promoted192, %_ZN5ZXing8BitArray10appendBitsEii.exit20.i ], [ %520, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i24.i ]
   %.promoted191199 = phi ptr [ %.promoted191200, %_ZN5ZXing8BitArray10appendBitsEii.exit20.i ], [ %.promoted191196, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i24.i ]
   %.sroa.037.0.i = getelementptr inbounds i8, ptr %.sroa.037.051.i, i64 36
-  %524 = load ptr, ptr %394, align 8
+  %524 = load ptr, ptr %394, align 8, !noalias !29
   %.not.i88 = icmp eq ptr %.sroa.037.0.i, %524
   br i1 %.not.i88, label %_ZN5ZXing4OneDL13BuildBitArrayERKSt6vectorINS0_7DataBar4PairESaIS3_EE.exit, label %.lr.ph.i87, !llvm.loop !33
 
@@ -3187,7 +3187,7 @@ define internal fastcc void @_ZN5ZXing4OneDL8ReadPairERKNS_11PatternViewENS0_9Di
   %11 = add nuw nsw i32 %.068.i.i.i.i.i.i.i, %10
   %.09.i.i.i.i.i.i.i.add = add nuw nsw i64 %.09.i.i.i.i.i.i.i.idx, 2
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.09.i.i.i.i.i.i.i.add, 26
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !44
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !48
 
 _ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %12 = getelementptr inbounds [6 x %"struct.ZXing::FixedPattern"], ptr %..i.i, i64 0, i64 %indvars.iv50.i.i.i
@@ -3202,7 +3202,7 @@ _ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i.i.i: ; preds = %.lr.p
   %15 = add nuw nsw i32 %.068.i.i34.i.i.i.i.i, %14
   %.09.i.i33.i.i.i.i.i.add = add nuw nsw i64 %.09.i.i33.i.i.i.i.i.idx, 2
   %.not.i.i35.i.i.i.i.i = icmp eq i64 %.09.i.i33.i.i.i.i.i.add, 10
-  br i1 %.not.i.i35.i.i.i.i.i, label %_ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit37.i.i.i.i.i, label %.lr.ph.i.i32.i.i.i.i.i, !llvm.loop !44
+  br i1 %.not.i.i35.i.i.i.i.i, label %_ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit37.i.i.i.i.i, label %.lr.ph.i.i32.i.i.i.i.i, !llvm.loop !48
 
 _ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit37.i.i.i.i.i: ; preds = %.lr.ph.i.i32.i.i.i.i.i
   %16 = icmp samesign ult i32 %11, %15
@@ -3234,7 +3234,7 @@ _ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit37.i.i.i.i.i: ; preds = %.lr
   %33 = fadd float %.02740.i.i.i.i.i, %30
   %34 = add nuw nsw i64 %.02641.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %34, 5
-  br i1 %exitcond.not.i.i.i.i.i, label %._crit_edge.i.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !45
+  br i1 %exitcond.not.i.i.i.i.i, label %._crit_edge.i.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !49
 
 ._crit_edge.i.loopexit.i.i.i.i:                   ; preds = %32
   %35 = fdiv float %33, %18
@@ -3258,7 +3258,7 @@ _ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewENS_12FixedPatter
   %.1.i.i.i = phi float [ %.025.i.i.i, %40 ], [ %.025.i.i.i, %38 ], [ %.0.i.i.i.i.i, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewENS_12FixedPatternILi5ELi15ELb0EEEEEfRKT_RKT0_f.exit.i.i.i ]
   %indvars.iv.next51.i.i.i = add nuw nsw i64 %indvars.iv50.i.i.i, 1
   %exitcond53.not.i.i.i = icmp eq i64 %indvars.iv.next51.i.i.i, 6
-  br i1 %exitcond53.not.i.i.i, label %_ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit, label %.lr.ph.i.i.i.i.preheader.i.i.i, !llvm.loop !46
+  br i1 %exitcond53.not.i.i.i, label %_ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit, label %.lr.ph.i.i.i.i.preheader.i.i.i, !llvm.loop !50
 
 _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; preds = %41
   %42 = getelementptr inbounds i8, ptr %1, i64 24
@@ -3269,17 +3269,17 @@ _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; p
   br i1 %.not, label %_ZN5ZXing8ContainsISt5arrayIiLm7EEiEEDTcmclsr3stdE5beginfp_Ecvb_EERKT_RKT0_.exit, label %46
 
 46:                                               ; preds = %_ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %47 = load ptr, ptr %7, align 8, !noalias !53
-  %48 = load ptr, ptr %42, align 8, !noalias !53
-  store ptr %6, ptr %4, align 8, !alias.scope !53
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  %47 = load ptr, ptr %7, align 8, !noalias !57
+  %48 = load ptr, ptr %42, align 8, !noalias !57
+  store ptr %6, ptr %4, align 8, !alias.scope !57
   %49 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 8, ptr %49, align 8, !alias.scope !53
+  store i32 8, ptr %49, align 8, !alias.scope !57
   %50 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %47, ptr %50, align 8, !alias.scope !53
+  store ptr %47, ptr %50, align 8, !alias.scope !57
   %51 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %48, ptr %51, align 8, !alias.scope !53
+  store ptr %48, ptr %51, align 8, !alias.scope !57
   %52 = call fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %45, i1 noundef zeroext false)
   %53 = and i64 %52, 4294967295
   %.not63 = icmp eq i64 %53, 4294967295
@@ -3301,10 +3301,10 @@ _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; p
   br i1 %spec.select.i, label %62, label %_ZN5ZXing8ContainsISt5arrayIiLm7EEiEEDTcmclsr3stdE5beginfp_Ecvb_EERKT_RKT0_.exit
 
 62:                                               ; preds = %55, %54
-  %63 = load ptr, ptr %1, align 8, !noalias !43
+  %63 = load ptr, ptr %1, align 8, !noalias !58
   %.ptr64 = getelementptr inbounds i8, ptr %63, i64 26
-  %64 = load ptr, ptr %7, align 8, !noalias !43
-  %65 = load ptr, ptr %42, align 8, !noalias !43
+  %64 = load ptr, ptr %7, align 8, !noalias !58
+  %65 = load ptr, ptr %42, align 8, !noalias !58
   %.not1.i.i = icmp uge ptr %.ptr64, %64
   %66 = getelementptr inbounds i8, ptr %63, i64 42
   %67 = icmp ule ptr %66, %65
@@ -3346,13 +3346,13 @@ _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit: ; preds = %.lr.p
   br i1 %79, label %80, label %.thread
 
 80:                                               ; preds = %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit
-  store ptr %.ptr64, ptr %5, align 8, !alias.scope !54
+  store ptr %.ptr64, ptr %5, align 8, !alias.scope !63
   %81 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 8, ptr %81, align 8, !alias.scope !54
+  store i32 8, ptr %81, align 8, !alias.scope !63
   %82 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %64, ptr %82, align 8, !alias.scope !54
+  store ptr %64, ptr %82, align 8, !alias.scope !63
   %83 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %65, ptr %83, align 8, !alias.scope !54
+  store ptr %65, ptr %83, align 8, !alias.scope !63
   %84 = call fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %45, i1 noundef zeroext true)
   %.sroa.629.0.extract.shift = lshr i64 %84, 32
   %85 = and i64 %84, 4294967295
@@ -3525,7 +3525,7 @@ define internal fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternVie
   %32 = add nsw i32 %31, %.057.i.i.i
   %.08.i.i.add.i = add nuw nsw i64 %.08.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.08.i.i.add.i, 16
-  br i1 %.not.i.i.i, label %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit, label %.lr.ph.i.i.i, !llvm.loop !59
+  br i1 %.not.i.i.i, label %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit, label %.lr.ph.i.i.i, !llvm.loop !68
 
 _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %.lr.ph.i.i.i
   %33 = add nsw i32 %30, %23
@@ -3833,20 +3833,29 @@ attributes #23 = { nounwind willreturn memory(read) }
 !40 = distinct !{!40, !"_ZSt19__relocate_object_aIN5ZXing4OneD7DataBar4PairES3_SaIS3_EEvPT_PT0_RT1_"}
 !41 = distinct !{!41, !40, !"_ZSt19__relocate_object_aIN5ZXing4OneD7DataBar4PairES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
 !42 = distinct !{!42, !8}
-!43 = !{}
-!44 = distinct !{!44, !8}
-!45 = distinct !{!45, !8}
-!46 = distinct !{!46, !8}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN5ZXing4OneD7DataBar8LeftCharERKNS_11PatternViewE: argument 0"}
-!49 = distinct !{!49, !"_ZN5ZXing4OneD7DataBar8LeftCharERKNS_11PatternViewE"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
-!52 = distinct !{!52, !"_ZNK5ZXing11PatternView7subViewEii"}
-!53 = !{!51, !48}
-!54 = !{!55, !57}
+!43 = !{!44, !46}
+!44 = distinct !{!44, !45, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
+!45 = distinct !{!45, !"_ZNK5ZXing11PatternView7subViewEii"}
+!46 = distinct !{!46, !47, !"_ZN5ZXing4OneD7DataBar6FinderERKNS_11PatternViewE: argument 0"}
+!47 = distinct !{!47, !"_ZN5ZXing4OneD7DataBar6FinderERKNS_11PatternViewE"}
+!48 = distinct !{!48, !8}
+!49 = distinct !{!49, !8}
+!50 = distinct !{!50, !8}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN5ZXing4OneD7DataBar8LeftCharERKNS_11PatternViewE: argument 0"}
+!53 = distinct !{!53, !"_ZN5ZXing4OneD7DataBar8LeftCharERKNS_11PatternViewE"}
+!54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
 !56 = distinct !{!56, !"_ZNK5ZXing11PatternView7subViewEii"}
-!57 = distinct !{!57, !58, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE: argument 0"}
-!58 = distinct !{!58, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE"}
-!59 = distinct !{!59, !8}
+!57 = !{!55, !52}
+!58 = !{!59, !61}
+!59 = distinct !{!59, !60, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
+!60 = distinct !{!60, !"_ZNK5ZXing11PatternView7subViewEii"}
+!61 = distinct !{!61, !62, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE: argument 0"}
+!62 = distinct !{!62, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE"}
+!63 = !{!64, !66}
+!64 = distinct !{!64, !65, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
+!65 = distinct !{!65, !"_ZNK5ZXing11PatternView7subViewEii"}
+!66 = distinct !{!66, !67, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE: argument 0"}
+!67 = distinct !{!67, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE"}
+!68 = distinct !{!68, !8}

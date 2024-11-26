@@ -88,7 +88,7 @@ define hidden void @_ZN6object4read2pe4file14ImageNtHeaders5parse17h8f2d4dd5ab10
   %5 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %6 = load i64, ptr %3, align 8, !noalias !4, !noundef !4
+  %6 = load i64, ptr %3, align 8, !alias.scope !12, !noalias !13, !noundef !4
   %7 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %6, i64 noundef 136), !noalias !12
   %.fr15.i = freeze { ptr, i64 } %7
   %8 = extractvalue { ptr, i64 } %.fr15.i, 0
@@ -216,7 +216,7 @@ define hidden void @_ZN6object4read2pe4file14ImageNtHeaders5parse17h9aaa57779956
   %5 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  %6 = load i64, ptr %3, align 8, !noalias !4, !noundef !4
+  %6 = load i64, ptr %3, align 8, !alias.scope !28, !noalias !29, !noundef !4
   %7 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %6, i64 noundef 120), !noalias !28
   %.fr15.i = freeze { ptr, i64 } %7
   %8 = extractvalue { ptr, i64 } %.fr15.i, 0
@@ -1698,7 +1698,7 @@ _ZN6object4read8read_ref7ReadRef4read17h226f7740a22bbc80E.llvm.16556925844696330
 define hidden void @"_ZN84_$LT$object..pe..ImageFileHeader$u20$as$u20$object..read..coff..file..CoffHeader$GT$5parse17h0b5ba12c3f00fba0E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
-  %5 = load i64, ptr %3, align 8, !noundef !4
+  %5 = load i64, ptr %3, align 8, !alias.scope !258, !noalias !259, !noundef !4
   %6 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %5, i64 noundef 20), !noalias !258
   %.fr15.i = freeze { ptr, i64 } %6
   %7 = extractvalue { ptr, i64 } %.fr15.i, 0

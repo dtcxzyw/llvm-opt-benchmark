@@ -843,13 +843,13 @@ _ZL20parseBraceExpansionsB5cxx11N4llvm9StringRefESt8optionalImE.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   %295 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %296 = load i8, ptr %295, align 8
+  %296 = load i8, ptr %295, align 8, !noalias !71
   %297 = trunc i8 %296 to i1
   br i1 %297, label %300, label %298
 
 298:                                              ; preds = %_ZL20parseBraceExpansionsB5cxx11N4llvm9StringRefESt8optionalImE.exit
   %299 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(49) %26), !noalias !71
-  %.pre.i = load i8, ptr %295, align 8
+  %.pre.i = load i8, ptr %295, align 8, !noalias !74
   br label %300
 
 300:                                              ; preds = %298, %_ZL20parseBraceExpansionsB5cxx11N4llvm9StringRefESt8optionalImE.exit

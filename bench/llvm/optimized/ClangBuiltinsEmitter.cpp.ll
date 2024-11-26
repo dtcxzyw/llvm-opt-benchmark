@@ -724,11 +724,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 
 _ZN12_GLOBAL__N_113TemplateInstsD2Ev.exit:        ; preds = %124, %120, %115, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i7.i
   %125 = load ptr, ptr %10, align 8, !noalias !9
-  %126 = load ptr, ptr %20, align 8
+  %126 = load ptr, ptr %20, align 8, !noalias !9
   %127 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %128 = load ptr, ptr %127, align 8, !noalias !14
   %129 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %130 = load ptr, ptr %129, align 8
+  %130 = load ptr, ptr %129, align 8, !noalias !14
   %131 = icmp ne ptr %125, %128
   %132 = icmp ne ptr %126, %130
   %.not3.i185 = select i1 %131, i1 %132, i1 false

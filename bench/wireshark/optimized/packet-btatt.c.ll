@@ -7694,7 +7694,7 @@ get_service_uuid_from_handle.exit.thread:         ; preds = %35
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %1, i64 20
-  %39 = load i32, ptr %38, align 4, !noalias !21
+  %39 = load i32, ptr %38, align 4, !noalias !15
   store i32 1, ptr %14, align 16, !noalias !15
   %40 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %5, ptr %40, align 8, !noalias !15
@@ -7718,11 +7718,11 @@ get_service_uuid_from_handle.exit.thread86:       ; preds = %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %15, i8 0, i64 20, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
-  store i32 %36, ptr %11, align 4, !noalias !22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %19, i8 0, i64 20, i1 false), !alias.scope !22
+  store i32 %36, ptr %11, align 4, !noalias !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %19, i8 0, i64 20, i1 false), !alias.scope !21
   br label %59
 
 .lr.ph.i:                                         ; preds = %37, %.thread.i
@@ -7751,64 +7751,64 @@ get_service_uuid_from_handle.exit.thread86:       ; preds = %37
   %58 = add i32 %57, -1
   store i32 %58, ptr %13, align 4, !noalias !15
   %.not11.i = icmp eq i32 %58, 0
-  br i1 %.not11.i, label %get_service_uuid_from_handle.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not11.i, label %get_service_uuid_from_handle.exit, label %.lr.ph.i, !llvm.loop !24
 
 get_service_uuid_from_handle.exit:                ; preds = %.thread.i, %56
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %15, ptr noundef nonnull align 2 dereferenceable(20) %18, i64 20, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  call void @llvm.experimental.noalias.scope.decl(metadata !25)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
-  store i32 %36, ptr %11, align 4, !noalias !26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %19, i8 0, i64 20, i1 false), !alias.scope !26
-  %.pre = load i32, ptr %38, align 4, !noalias !21
+  store i32 %36, ptr %11, align 4, !noalias !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %19, i8 0, i64 20, i1 false), !alias.scope !25
+  %.pre = load i32, ptr %38, align 4, !noalias !25
   br label %59
 
 59:                                               ; preds = %get_service_uuid_from_handle.exit, %get_service_uuid_from_handle.exit.thread86
   %60 = phi i32 [ %.pre, %get_service_uuid_from_handle.exit ], [ %39, %get_service_uuid_from_handle.exit.thread86 ]
-  store i32 1, ptr %12, align 16, !noalias !26
+  store i32 1, ptr %12, align 16, !noalias !25
   %61 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %5, ptr %61, align 8, !noalias !26
+  store ptr %5, ptr %61, align 8, !noalias !25
   %62 = getelementptr inbounds i8, ptr %12, i64 16
-  store i32 1, ptr %62, align 16, !noalias !26
+  store i32 1, ptr %62, align 16, !noalias !25
   %63 = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr %42, ptr %63, align 8, !noalias !26
+  store ptr %42, ptr %63, align 8, !noalias !25
   %64 = getelementptr inbounds i8, ptr %12, i64 32
-  store i32 1, ptr %64, align 16, !noalias !26
+  store i32 1, ptr %64, align 16, !noalias !25
   %65 = getelementptr inbounds i8, ptr %12, i64 40
-  store ptr %11, ptr %65, align 8, !noalias !26
+  store ptr %11, ptr %65, align 8, !noalias !25
   %66 = getelementptr inbounds i8, ptr %12, i64 48
-  store i32 0, ptr %66, align 16, !noalias !26
+  store i32 0, ptr %66, align 16, !noalias !25
   %67 = getelementptr inbounds i8, ptr %12, i64 56
-  store ptr null, ptr %67, align 8, !noalias !26
+  store ptr null, ptr %67, align 8, !noalias !25
   br i1 %.not1115.i, label %get_characteristic_uuid_from_handle.exit.thread87, label %.lr.ph.i72
 
 get_characteristic_uuid_from_handle.exit.thread87: ; preds = %59
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %16, ptr noundef nonnull align 2 dereferenceable(20) %19, i64 20, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  store i32 %36, ptr %9, align 4, !noalias !28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %20, i8 0, i64 20, i1 false), !alias.scope !28
+  store i32 %36, ptr %9, align 4, !noalias !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %20, i8 0, i64 20, i1 false), !alias.scope !27
   br label %78
 
 .lr.ph.i72:                                       ; preds = %59, %.critedge.i
-  %68 = load ptr, ptr @handle_to_uuid, align 8, !noalias !26
-  %69 = call ptr @wmem_tree_lookup32_array(ptr noundef %68, ptr noundef nonnull %12) #13, !noalias !26
+  %68 = load ptr, ptr @handle_to_uuid, align 8, !noalias !25
+  %69 = call ptr @wmem_tree_lookup32_array(ptr noundef %68, ptr noundef nonnull %12) #13, !noalias !25
   %.not14.i = icmp eq ptr %69, null
   br i1 %.not14.i, label %.critedge.i, label %70
 
 70:                                               ; preds = %.lr.ph.i72
-  %71 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %69, i32 noundef %60) #13, !noalias !26
+  %71 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %69, i32 noundef %60) #13, !noalias !25
   %.not15.i = icmp eq ptr %71, null
   br i1 %.not15.i, label %.critedge.i, label %72
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds i8, ptr %71, i64 20
-  %74 = load i32, ptr %73, align 4, !noalias !26
+  %74 = load i32, ptr %73, align 4, !noalias !25
   switch i32 %74, label %.critedge.i [
     i32 0, label %get_characteristic_uuid_from_handle.exit
     i32 1, label %75
@@ -7819,48 +7819,48 @@ get_characteristic_uuid_from_handle.exit.thread87: ; preds = %59
   br label %get_characteristic_uuid_from_handle.exit
 
 .critedge.i:                                      ; preds = %72, %70, %.lr.ph.i72
-  %76 = load i32, ptr %11, align 4, !noalias !26
+  %76 = load i32, ptr %11, align 4, !noalias !25
   %77 = add i32 %76, -1
-  store i32 %77, ptr %11, align 4, !noalias !26
+  store i32 %77, ptr %11, align 4, !noalias !25
   %.not13.i73 = icmp eq i32 %77, 0
-  br i1 %.not13.i73, label %get_characteristic_uuid_from_handle.exit, label %.lr.ph.i72, !llvm.loop !30
+  br i1 %.not13.i73, label %get_characteristic_uuid_from_handle.exit, label %.lr.ph.i72, !llvm.loop !29
 
 get_characteristic_uuid_from_handle.exit:         ; preds = %72, %.critedge.i, %75
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %16, ptr noundef nonnull align 2 dereferenceable(20) %19, i64 20, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  store i32 %36, ptr %9, align 4, !noalias !31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %20, i8 0, i64 20, i1 false), !alias.scope !31
-  %.pre90 = load i32, ptr %38, align 4, !noalias !31
+  store i32 %36, ptr %9, align 4, !noalias !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %20, i8 0, i64 20, i1 false), !alias.scope !30
+  %.pre90 = load i32, ptr %38, align 4, !noalias !30
   br label %78
 
 78:                                               ; preds = %get_characteristic_uuid_from_handle.exit, %get_characteristic_uuid_from_handle.exit.thread87
   %79 = phi i32 [ %.pre90, %get_characteristic_uuid_from_handle.exit ], [ %60, %get_characteristic_uuid_from_handle.exit.thread87 ]
-  store i32 1, ptr %10, align 16, !noalias !31
+  store i32 1, ptr %10, align 16, !noalias !30
   %80 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %5, ptr %80, align 8, !noalias !31
+  store ptr %5, ptr %80, align 8, !noalias !30
   %81 = getelementptr inbounds i8, ptr %10, i64 16
-  store i32 1, ptr %81, align 16, !noalias !31
+  store i32 1, ptr %81, align 16, !noalias !30
   %82 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %42, ptr %82, align 8, !noalias !31
+  store ptr %42, ptr %82, align 8, !noalias !30
   %83 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 1, ptr %83, align 16, !noalias !31
+  store i32 1, ptr %83, align 16, !noalias !30
   %84 = getelementptr inbounds i8, ptr %10, i64 40
-  store ptr %9, ptr %84, align 8, !noalias !31
+  store ptr %9, ptr %84, align 8, !noalias !30
   %85 = getelementptr inbounds i8, ptr %10, i64 48
-  store i32 0, ptr %85, align 16, !noalias !31
+  store i32 0, ptr %85, align 16, !noalias !30
   %86 = getelementptr inbounds i8, ptr %10, i64 56
-  store ptr null, ptr %86, align 8, !noalias !31
-  %87 = load ptr, ptr @handle_to_uuid, align 8, !noalias !31
-  %88 = call ptr @wmem_tree_lookup32_array(ptr noundef %87, ptr noundef nonnull %10) #13, !noalias !31
+  store ptr null, ptr %86, align 8, !noalias !30
+  %87 = load ptr, ptr @handle_to_uuid, align 8, !noalias !30
+  %88 = call ptr @wmem_tree_lookup32_array(ptr noundef %87, ptr noundef nonnull %10) #13, !noalias !30
   %.not10.i = icmp eq ptr %88, null
   br i1 %.not10.i, label %get_bluetooth_uuid_from_handle.exit, label %89
 
 89:                                               ; preds = %78
-  %90 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %88, i32 noundef %79) #13, !noalias !31
+  %90 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %88, i32 noundef %79) #13, !noalias !30
   %.not11.i75 = icmp eq ptr %90, null
   br i1 %.not11.i75, label %get_bluetooth_uuid_from_handle.exit, label %91
 
@@ -8104,7 +8104,7 @@ define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noa
   %28 = add i32 %27, -1
   store i32 %28, ptr %5, align 4
   %.not11 = icmp eq i32 %28, 0
-  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.thread, %7, %4, %26
   ret void
@@ -8131,46 +8131,46 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
 
 16:                                               ; preds = %3
   %17 = zext i16 %1 to i32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  store i32 %17, ptr %8, align 4, !noalias !33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %13, i8 0, i64 20, i1 false), !alias.scope !33
+  store i32 %17, ptr %8, align 4, !noalias !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %13, i8 0, i64 20, i1 false), !alias.scope !32
   %18 = getelementptr inbounds i8, ptr %0, i64 20
-  %19 = load i32, ptr %18, align 4, !noalias !33
-  store i32 1, ptr %9, align 16, !noalias !33
+  %19 = load i32, ptr %18, align 4, !noalias !32
+  store i32 1, ptr %9, align 16, !noalias !32
   %20 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %2, ptr %20, align 8, !noalias !33
+  store ptr %2, ptr %20, align 8, !noalias !32
   %21 = getelementptr inbounds i8, ptr %9, i64 16
-  store i32 1, ptr %21, align 16, !noalias !33
+  store i32 1, ptr %21, align 16, !noalias !32
   %22 = getelementptr inbounds i8, ptr %2, i64 4
   %23 = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr %22, ptr %23, align 8, !noalias !33
+  store ptr %22, ptr %23, align 8, !noalias !32
   %24 = getelementptr inbounds i8, ptr %9, i64 32
-  store i32 1, ptr %24, align 16, !noalias !33
+  store i32 1, ptr %24, align 16, !noalias !32
   %25 = getelementptr inbounds i8, ptr %9, i64 40
-  store ptr %8, ptr %25, align 8, !noalias !33
+  store ptr %8, ptr %25, align 8, !noalias !32
   %26 = getelementptr inbounds i8, ptr %9, i64 48
-  store i32 0, ptr %26, align 16, !noalias !33
+  store i32 0, ptr %26, align 16, !noalias !32
   %27 = getelementptr inbounds i8, ptr %9, i64 56
-  store ptr null, ptr %27, align 8, !noalias !33
+  store ptr null, ptr %27, align 8, !noalias !32
   %.not1115.i = icmp eq i16 %1, 0
   br i1 %.not1115.i, label %.loopexit30, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.thread.i
-  %28 = load ptr, ptr @handle_to_uuid, align 8, !noalias !33
-  %29 = call ptr @wmem_tree_lookup32_array(ptr noundef %28, ptr noundef nonnull %9) #13, !noalias !33
+  %28 = load ptr, ptr @handle_to_uuid, align 8, !noalias !32
+  %29 = call ptr @wmem_tree_lookup32_array(ptr noundef %28, ptr noundef nonnull %9) #13, !noalias !32
   %.not12.i = icmp eq ptr %29, null
   br i1 %.not12.i, label %.thread.i, label %30
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %29, i32 noundef %19) #13, !noalias !33
+  %31 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %29, i32 noundef %19) #13, !noalias !32
   %.not13.i = icmp eq ptr %31, null
   br i1 %.not13.i, label %.thread.i, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %31, i64 20
-  %34 = load i32, ptr %33, align 4, !noalias !33
+  %34 = load i32, ptr %33, align 4, !noalias !32
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %.thread.i
 
@@ -8179,53 +8179,53 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   br label %.loopexit30
 
 .thread.i:                                        ; preds = %32, %30, %.lr.ph.i
-  %37 = load i32, ptr %8, align 4, !noalias !33
+  %37 = load i32, ptr %8, align 4, !noalias !32
   %38 = add i32 %37, -1
-  store i32 %38, ptr %8, align 4, !noalias !33
+  store i32 %38, ptr %8, align 4, !noalias !32
   %.not11.i = icmp eq i32 %38, 0
-  br i1 %.not11.i, label %.loopexit30, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not11.i, label %.loopexit30, label %.lr.ph.i, !llvm.loop !24
 
 .loopexit30:                                      ; preds = %.thread.i, %36, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %10, ptr noundef nonnull align 2 dereferenceable(20) %13, i64 20, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  store i32 %17, ptr %6, align 4, !noalias !36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %14, i8 0, i64 20, i1 false), !alias.scope !36
-  %39 = load i32, ptr %18, align 4, !noalias !36
-  store i32 1, ptr %7, align 16, !noalias !36
+  store i32 %17, ptr %6, align 4, !noalias !35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %14, i8 0, i64 20, i1 false), !alias.scope !35
+  %39 = load i32, ptr %18, align 4, !noalias !35
+  store i32 1, ptr %7, align 16, !noalias !35
   %40 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %2, ptr %40, align 8, !noalias !36
+  store ptr %2, ptr %40, align 8, !noalias !35
   %41 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 1, ptr %41, align 16, !noalias !36
+  store i32 1, ptr %41, align 16, !noalias !35
   %42 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr %22, ptr %42, align 8, !noalias !36
+  store ptr %22, ptr %42, align 8, !noalias !35
   %43 = getelementptr inbounds i8, ptr %7, i64 32
-  store i32 1, ptr %43, align 16, !noalias !36
+  store i32 1, ptr %43, align 16, !noalias !35
   %44 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %6, ptr %44, align 8, !noalias !36
+  store ptr %6, ptr %44, align 8, !noalias !35
   %45 = getelementptr inbounds i8, ptr %7, i64 48
-  store i32 0, ptr %45, align 16, !noalias !36
+  store i32 0, ptr %45, align 16, !noalias !35
   %46 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr null, ptr %46, align 8, !noalias !36
+  store ptr null, ptr %46, align 8, !noalias !35
   br i1 %.not1115.i, label %.loopexit, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %.loopexit30, %.critedge.i
-  %47 = load ptr, ptr @handle_to_uuid, align 8, !noalias !36
-  %48 = call ptr @wmem_tree_lookup32_array(ptr noundef %47, ptr noundef nonnull %7) #13, !noalias !36
+  %47 = load ptr, ptr @handle_to_uuid, align 8, !noalias !35
+  %48 = call ptr @wmem_tree_lookup32_array(ptr noundef %47, ptr noundef nonnull %7) #13, !noalias !35
   %.not14.i = icmp eq ptr %48, null
   br i1 %.not14.i, label %.critedge.i, label %49
 
 49:                                               ; preds = %.lr.ph.i25
-  %50 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %48, i32 noundef %39) #13, !noalias !36
+  %50 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %48, i32 noundef %39) #13, !noalias !35
   %.not15.i = icmp eq ptr %50, null
   br i1 %.not15.i, label %.critedge.i, label %51
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %50, i64 20
-  %53 = load i32, ptr %52, align 4, !noalias !36
+  %53 = load i32, ptr %52, align 4, !noalias !35
   switch i32 %53, label %.critedge.i [
     i32 0, label %.loopexit
     i32 1, label %54
@@ -8236,44 +8236,44 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   br label %.loopexit
 
 .critedge.i:                                      ; preds = %51, %49, %.lr.ph.i25
-  %55 = load i32, ptr %6, align 4, !noalias !36
+  %55 = load i32, ptr %6, align 4, !noalias !35
   %56 = add i32 %55, -1
-  store i32 %56, ptr %6, align 4, !noalias !36
+  store i32 %56, ptr %6, align 4, !noalias !35
   %.not13.i26 = icmp eq i32 %56, 0
-  br i1 %.not13.i26, label %.loopexit, label %.lr.ph.i25, !llvm.loop !30
+  br i1 %.not13.i26, label %.loopexit, label %.lr.ph.i25, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.critedge.i, %51, %54, %.loopexit30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %11, ptr noundef nonnull align 2 dereferenceable(20) %14, i64 20, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  store i32 %17, ptr %4, align 4, !noalias !39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %15, i8 0, i64 20, i1 false), !alias.scope !39
-  %57 = load i32, ptr %18, align 4, !noalias !39
-  store i32 1, ptr %5, align 16, !noalias !39
+  store i32 %17, ptr %4, align 4, !noalias !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %15, i8 0, i64 20, i1 false), !alias.scope !38
+  %57 = load i32, ptr %18, align 4, !noalias !38
+  store i32 1, ptr %5, align 16, !noalias !38
   %58 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %2, ptr %58, align 8, !noalias !39
+  store ptr %2, ptr %58, align 8, !noalias !38
   %59 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 1, ptr %59, align 16, !noalias !39
+  store i32 1, ptr %59, align 16, !noalias !38
   %60 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %22, ptr %60, align 8, !noalias !39
+  store ptr %22, ptr %60, align 8, !noalias !38
   %61 = getelementptr inbounds i8, ptr %5, i64 32
-  store i32 1, ptr %61, align 16, !noalias !39
+  store i32 1, ptr %61, align 16, !noalias !38
   %62 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr %4, ptr %62, align 8, !noalias !39
+  store ptr %4, ptr %62, align 8, !noalias !38
   %63 = getelementptr inbounds i8, ptr %5, i64 48
-  store i32 0, ptr %63, align 16, !noalias !39
+  store i32 0, ptr %63, align 16, !noalias !38
   %64 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr null, ptr %64, align 8, !noalias !39
-  %65 = load ptr, ptr @handle_to_uuid, align 8, !noalias !39
-  %66 = call ptr @wmem_tree_lookup32_array(ptr noundef %65, ptr noundef nonnull %5) #13, !noalias !39
+  store ptr null, ptr %64, align 8, !noalias !38
+  %65 = load ptr, ptr @handle_to_uuid, align 8, !noalias !38
+  %66 = call ptr @wmem_tree_lookup32_array(ptr noundef %65, ptr noundef nonnull %5) #13, !noalias !38
   %.not10.i = icmp eq ptr %66, null
   br i1 %.not10.i, label %get_bluetooth_uuid_from_handle.exit, label %67
 
 67:                                               ; preds = %.loopexit
-  %68 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %66, i32 noundef %57) #13, !noalias !39
+  %68 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %66, i32 noundef %57) #13, !noalias !38
   %.not11.i28 = icmp eq ptr %68, null
   br i1 %.not11.i28, label %get_bluetooth_uuid_from_handle.exit, label %69
 
@@ -8739,45 +8739,45 @@ switch.early.test:                                ; preds = %132
 140:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  store i32 %42, ptr %10, align 4, !noalias !42
+  store i32 %42, ptr %10, align 4, !noalias !41
   %.not.i5535 = icmp eq ptr %28, null
   br i1 %.not.i5535, label %get_service_uuid_from_handle.exit, label %141
 
 141:                                              ; preds = %140
-  %142 = load i32, ptr %49, align 4, !noalias !42
-  store i32 1, ptr %11, align 16, !noalias !42
+  %142 = load i32, ptr %49, align 4, !noalias !41
+  store i32 1, ptr %11, align 16, !noalias !41
   %143 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %28, ptr %143, align 8, !noalias !42
+  store ptr %28, ptr %143, align 8, !noalias !41
   %144 = getelementptr inbounds i8, ptr %11, i64 16
-  store i32 1, ptr %144, align 16, !noalias !42
+  store i32 1, ptr %144, align 16, !noalias !41
   %145 = getelementptr inbounds i8, ptr %28, i64 4
   %146 = getelementptr inbounds i8, ptr %11, i64 24
-  store ptr %145, ptr %146, align 8, !noalias !42
+  store ptr %145, ptr %146, align 8, !noalias !41
   %147 = getelementptr inbounds i8, ptr %11, i64 32
-  store i32 1, ptr %147, align 16, !noalias !42
+  store i32 1, ptr %147, align 16, !noalias !41
   %148 = getelementptr inbounds i8, ptr %11, i64 40
-  store ptr %10, ptr %148, align 8, !noalias !42
+  store ptr %10, ptr %148, align 8, !noalias !41
   %149 = getelementptr inbounds i8, ptr %11, i64 48
-  store i32 0, ptr %149, align 16, !noalias !42
+  store i32 0, ptr %149, align 16, !noalias !41
   %150 = getelementptr inbounds i8, ptr %11, i64 56
-  store ptr null, ptr %150, align 8, !noalias !42
+  store ptr null, ptr %150, align 8, !noalias !41
   %.not1115.i = icmp eq i16 %6, 0
   br i1 %.not1115.i, label %get_service_uuid_from_handle.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %141, %.thread.i
-  %151 = load ptr, ptr @handle_to_uuid, align 8, !noalias !42
-  %152 = call ptr @wmem_tree_lookup32_array(ptr noundef %151, ptr noundef nonnull %11) #13, !noalias !42
+  %151 = load ptr, ptr @handle_to_uuid, align 8, !noalias !41
+  %152 = call ptr @wmem_tree_lookup32_array(ptr noundef %151, ptr noundef nonnull %11) #13, !noalias !41
   %.not12.i = icmp eq ptr %152, null
   br i1 %.not12.i, label %.thread.i, label %153
 
 153:                                              ; preds = %.lr.ph.i
-  %154 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %152, i32 noundef %142) #13, !noalias !42
+  %154 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %152, i32 noundef %142) #13, !noalias !41
   %.not13.i = icmp eq ptr %154, null
   br i1 %.not13.i, label %.thread.i, label %155
 
 155:                                              ; preds = %153
   %156 = getelementptr inbounds i8, ptr %154, i64 20
-  %157 = load i32, ptr %156, align 4, !noalias !42
+  %157 = load i32, ptr %156, align 4, !noalias !41
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %.thread.i
 
@@ -8786,11 +8786,11 @@ switch.early.test:                                ; preds = %132
   br label %get_service_uuid_from_handle.exit
 
 .thread.i:                                        ; preds = %155, %153, %.lr.ph.i
-  %160 = load i32, ptr %10, align 4, !noalias !42
+  %160 = load i32, ptr %10, align 4, !noalias !41
   %161 = add i32 %160, -1
-  store i32 %161, ptr %10, align 4, !noalias !42
+  store i32 %161, ptr %10, align 4, !noalias !41
   %.not11.i = icmp eq i32 %161, 0
-  br i1 %.not11.i, label %get_service_uuid_from_handle.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not11.i, label %get_service_uuid_from_handle.exit, label %.lr.ph.i, !llvm.loop !24
 
 get_service_uuid_from_handle.exit:                ; preds = %.thread.i, %140, %141, %159
   %.sroa.0.0 = phi i16 [ 0, %140 ], [ 0, %141 ], [ %.sroa.0.0.copyload6493, %159 ], [ 0, %.thread.i ]
@@ -9690,7 +9690,7 @@ switch.early.test7932:                            ; preds = %is_readable_respons
   %383 = call fastcc i32 @dissect_handle(ptr noundef %379, ptr noundef %2, i32 noundef %382, ptr noundef %25, i32 noundef %.18203, ptr noundef %28, ptr noundef null, i32 noundef -1)
   %384 = call i32 @tvb_captured_length(ptr noundef %25) #13
   %385 = icmp ult i32 %383, %384
-  br i1 %385, label %.lr.ph8205, label %is_readable_request.exit.thread, !llvm.loop !45
+  br i1 %385, label %.lr.ph8205, label %is_readable_request.exit.thread, !llvm.loop !44
 
 386:                                              ; preds = %get_service_uuid_from_handle.exit
   %387 = load i8, ptr %44, align 8
@@ -11932,7 +11932,7 @@ switch.early.test7980:                            ; preds = %is_readable_respons
   %1222 = call ptr @proto_tree_add_item(ptr noundef %1218, i32 noundef %1221, ptr noundef %25, i32 noundef %.148196, i32 noundef 2, i32 noundef -2147483648) #13
   %1223 = add i32 %.148196, 2
   %.not5358 = icmp eq i16 %1220, 0
-  br i1 %.not5358, label %.thread6580, label %1219, !llvm.loop !46
+  br i1 %.not5358, label %.thread6580, label %1219, !llvm.loop !45
 
 1224:                                             ; preds = %.lr.ph8201
   %1225 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_regulation_bit_field_type, align 4
@@ -11960,7 +11960,7 @@ switch.early.test7980:                            ; preds = %is_readable_respons
 
 1236:                                             ; preds = %1234, %.thread6580
   %.not5356 = icmp eq i16 %1167, 0
-  br i1 %.not5356, label %is_readable_request.exit.thread, label %.lr.ph8201, !llvm.loop !47
+  br i1 %.not5356, label %is_readable_request.exit.thread, label %.lr.ph8201, !llvm.loop !46
 
 1237:                                             ; preds = %get_service_uuid_from_handle.exit
   %1238 = icmp eq i16 %.sroa.0.0, 6170
@@ -12521,7 +12521,7 @@ switch.early.test7989.thread:                     ; preds = %1428, %switch.early
   %1466 = add i32 %.046168191, 1
   %1467 = call i32 @tvb_reported_length_remaining(ptr noundef %25, i32 noundef %1465) #13
   %.not5314 = icmp eq i32 %1467, 0
-  br i1 %.not5314, label %._crit_edge, label %.lr.ph8192, !llvm.loop !48
+  br i1 %.not5314, label %._crit_edge, label %.lr.ph8192, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph8192, %1456
   %.28.lcssa = phi i32 [ %.27, %1456 ], [ %1465, %.lr.ph8192 ]
@@ -13766,7 +13766,7 @@ switch.early.test8017:                            ; preds = %1899
   %1930 = add i32 %.318186, 1
   %1931 = call i32 @tvb_captured_length_remaining(ptr noundef %25, i32 noundef %1930) #13
   %.not5235 = icmp eq i32 %1931, 0
-  br i1 %.not5235, label %is_readable_request.exit.thread, label %.lr.ph8187, !llvm.loop !49
+  br i1 %.not5235, label %is_readable_request.exit.thread, label %.lr.ph8187, !llvm.loop !48
 
 1932:                                             ; preds = %get_service_uuid_from_handle.exit
   %1933 = icmp eq i16 %.sroa.0.0, 6165
@@ -14650,7 +14650,7 @@ switch.early.test8030.thread:                     ; preds = %2284, %switch.early
   %2316 = add i32 %.538179, 2
   %2317 = call i32 @tvb_reported_length_remaining(ptr noundef %25, i32 noundef %2316) #13
   %2318 = icmp sgt i32 %2317, 0
-  br i1 %2318, label %.lr.ph8180, label %.loopexit, !llvm.loop !50
+  br i1 %2318, label %.lr.ph8180, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph8180, %.preheader8171, %2310
   %.52 = phi i32 [ %.51, %2310 ], [ %.51, %.preheader8171 ], [ %2316, %.lr.ph8180 ]
@@ -14670,7 +14670,7 @@ switch.early.test8030.thread:                     ; preds = %2284, %switch.early
   %2324 = add i32 %.548182, 2
   %2325 = call i32 @tvb_reported_length_remaining(ptr noundef %25, i32 noundef %2324) #13
   %2326 = icmp sgt i32 %2325, 0
-  br i1 %2326, label %.lr.ph8183, label %is_readable_request.exit.thread, !llvm.loop !51
+  br i1 %2326, label %.lr.ph8183, label %is_readable_request.exit.thread, !llvm.loop !50
 
 2327:                                             ; preds = %get_service_uuid_from_handle.exit
   %2328 = icmp eq i16 %.sroa.0.0, 6168
@@ -14842,7 +14842,7 @@ switch.early.test8032:                            ; preds = %2344
   %2395 = add i32 %.558178, 1
   %2396 = call i32 @tvb_captured_length_remaining(ptr noundef %25, i32 noundef %2395) #13
   %.not5161 = icmp eq i32 %2396, 0
-  br i1 %.not5161, label %is_readable_request.exit.thread, label %.lr.ph, !llvm.loop !52
+  br i1 %.not5161, label %is_readable_request.exit.thread, label %.lr.ph, !llvm.loop !51
 
 2397:                                             ; preds = %2381
   %2398 = call zeroext i8 @tvb_get_guint8(ptr noundef %25, i32 noundef %2384) #13
@@ -18555,7 +18555,7 @@ switch.early.test8092:                            ; preds = %is_readable_respons
   %3635 = add i32 %.82, 1
   %3636 = call zeroext i8 @tvb_get_guint8(ptr noundef %25, i32 noundef %.82) #13
   %.not4871 = icmp sgt i8 %3636, -1
-  br i1 %.not4871, label %is_readable_request.exit.thread, label %.preheader8174, !llvm.loop !53
+  br i1 %.not4871, label %is_readable_request.exit.thread, label %.preheader8174, !llvm.loop !52
 
 3637:                                             ; preds = %get_service_uuid_from_handle.exit
   %3638 = icmp ne i16 %.sroa.0.0, 6144
@@ -21949,7 +21949,7 @@ define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unw
   %27 = add i32 %26, -1
   store i32 %27, ptr %5, align 4
   %.not13 = icmp eq i32 %27, 0
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.critedge, %22, %7, %4, %25
   ret void
@@ -22215,30 +22215,30 @@ attributes #15 = { noreturn nounwind }
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"get_bluetooth_uuid_from_handle: argument 0:thread"}
 !20 = distinct !{!20, !"get_bluetooth_uuid_from_handle"}
-!21 = !{}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"get_characteristic_uuid_from_handle: argument 0:thread"}
-!24 = distinct !{!24, !"get_characteristic_uuid_from_handle"}
-!25 = distinct !{!25, !5}
-!26 = !{!27}
-!27 = distinct !{!27, !24, !"get_characteristic_uuid_from_handle: argument 0"}
-!28 = !{!29}
-!29 = distinct !{!29, !20, !"get_bluetooth_uuid_from_handle: argument 0:thread"}
-!30 = distinct !{!30, !5}
-!31 = !{!32}
-!32 = distinct !{!32, !20, !"get_bluetooth_uuid_from_handle: argument 0"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"get_service_uuid_from_handle: argument 0"}
-!35 = distinct !{!35, !"get_service_uuid_from_handle"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"get_characteristic_uuid_from_handle: argument 0"}
-!38 = distinct !{!38, !"get_characteristic_uuid_from_handle"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"get_bluetooth_uuid_from_handle: argument 0"}
-!41 = distinct !{!41, !"get_bluetooth_uuid_from_handle"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"get_service_uuid_from_handle: argument 0"}
-!44 = distinct !{!44, !"get_service_uuid_from_handle"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"get_characteristic_uuid_from_handle: argument 0:thread"}
+!23 = distinct !{!23, !"get_characteristic_uuid_from_handle"}
+!24 = distinct !{!24, !5}
+!25 = !{!26}
+!26 = distinct !{!26, !23, !"get_characteristic_uuid_from_handle: argument 0"}
+!27 = !{!28}
+!28 = distinct !{!28, !20, !"get_bluetooth_uuid_from_handle: argument 0:thread"}
+!29 = distinct !{!29, !5}
+!30 = !{!31}
+!31 = distinct !{!31, !20, !"get_bluetooth_uuid_from_handle: argument 0"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"get_service_uuid_from_handle: argument 0"}
+!34 = distinct !{!34, !"get_service_uuid_from_handle"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"get_characteristic_uuid_from_handle: argument 0"}
+!37 = distinct !{!37, !"get_characteristic_uuid_from_handle"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"get_bluetooth_uuid_from_handle: argument 0"}
+!40 = distinct !{!40, !"get_bluetooth_uuid_from_handle"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"get_service_uuid_from_handle: argument 0"}
+!43 = distinct !{!43, !"get_service_uuid_from_handle"}
+!44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
@@ -22247,4 +22247,3 @@ attributes #15 = { noreturn nounwind }
 !50 = distinct !{!50, !5}
 !51 = distinct !{!51, !5}
 !52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}

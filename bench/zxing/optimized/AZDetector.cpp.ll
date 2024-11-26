@@ -75,9 +75,9 @@ define void @_ZN5ZXing5Aztec6DetectERKNS_9BitMatrixEbb(ptr dead_on_unwind noalia
   %5 = alloca %"class.std::vector.0", align 8
   call void @_ZN5ZXing5Aztec6DetectERKNS_9BitMatrixEbbi(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.0") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef 1)
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !noalias !4
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !noalias !4
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %_ZN5ZXing14FirstOrDefaultITtTpTyESt6vectorJNS_5Aztec14DetectorResultESaIS3_EEEEDaOT_IJDpT0_EE.exit.thread, label %_ZN5ZXing14FirstOrDefaultITtTpTyESt6vectorJNS_5Aztec14DetectorResultESaIS3_EEEEDaOT_IJDpT0_EE.exit
 
@@ -332,10 +332,10 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %78
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, %.lr.ph.preheader.i.i.preheader.i
   %.sroa.0.07.i.i = phi ptr [ %120, %_ZN5ZXing11PatternView8skipPairEv.exit.i.i ], [ %.sroa.070.0137.i, %.lr.ph.preheader.i.i.preheader.i ]
-  %94 = load i16, ptr %.sroa.0.07.i.i, align 2, !noalias !12
+  %94 = load i16, ptr %.sroa.0.07.i.i, align 2, !noalias !15
   %95 = zext i16 %94 to i32
   %96 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i, i64 2
-  %97 = load i16, ptr %96, align 2, !noalias !12
+  %97 = load i16, ptr %96, align 2, !noalias !15
   %98 = zext i16 %97 to i32
   %99 = add nuw nsw i32 %98, %95
   br label %.lr.ph.i.i.i
@@ -368,7 +368,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %78
   %111 = load i16, ptr %110, align 2, !noalias !15
   %112 = zext i16 %111 to i32
   %113 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i, i64 6
-  %114 = load i16, ptr %113, align 2, !noalias !12
+  %114 = load i16, ptr %113, align 2, !noalias !15
   %115 = zext i16 %114 to i32
   %116 = add nsw i32 %115, -2
   %.not16.i.i.i = icmp sgt i32 %116, %112

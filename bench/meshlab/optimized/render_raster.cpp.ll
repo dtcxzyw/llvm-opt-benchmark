@@ -230,9 +230,9 @@ define void @_ZN19MeshLabRenderRasterC2ERKS_(ptr noundef nonnull align 8 derefer
   %5 = getelementptr inbounds i8, ptr %1, i64 136
   %6 = load ptr, ptr %5, align 8, !noalias !5
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load i32, ptr %7, align 8, !noalias !6
+  %8 = load i32, ptr %7, align 8, !noalias !5
   %9 = getelementptr inbounds i8, ptr %6, i64 12
-  %10 = load i32, ptr %9, align 4, !noalias !9
+  %10 = load i32, ptr %9, align 4, !noalias !8
   %.not13 = icmp eq i32 %8, %10
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -352,14 +352,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
 
 71:                                               ; preds = %21, %57
   %72 = getelementptr inbounds i8, ptr %.sroa.09.014, i64 8
-  %73 = load ptr, ptr %5, align 8, !noalias !9
+  %73 = load ptr, ptr %5, align 8, !noalias !8
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = getelementptr inbounds i8, ptr %73, i64 12
-  %76 = load i32, ptr %75, align 4, !noalias !9
+  %76 = load i32, ptr %75, align 4, !noalias !8
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds ptr, ptr %74, i64 %77
   %.not = icmp eq ptr %72, %78
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %71, %2
   ret void
@@ -697,7 +697,7 @@ _ZN11RasterPlaneD2Ev.exit:                        ; preds = %46, %_ZN9QtPrivate8
   %58 = sub nsw i32 %57, %54
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %53, %1
   %.lcssa = phi ptr [ %4, %1 ], [ %55, %53 ]
@@ -782,13 +782,12 @@ attributes #18 = { noreturn }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZNK5QListIP11RasterPlaneE5beginEv: argument 0"}
-!8 = distinct !{!8, !"_ZNK5QListIP11RasterPlaneE5beginEv"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK5QListIP11RasterPlaneE3endEv: argument 0"}
-!11 = distinct !{!11, !"_ZNK5QListIP11RasterPlaneE3endEv"}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"_ZNK5QListIP11RasterPlaneE5beginEv: argument 0"}
+!7 = distinct !{!7, !"_ZNK5QListIP11RasterPlaneE5beginEv"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK5QListIP11RasterPlaneE3endEv: argument 0"}
+!10 = distinct !{!10, !"_ZNK5QListIP11RasterPlaneE3endEv"}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12}

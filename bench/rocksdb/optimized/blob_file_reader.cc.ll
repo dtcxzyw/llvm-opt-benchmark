@@ -4644,20 +4644,20 @@ define linkonce_odr void @_ZN7rocksdb19BlobContentsCreator6CreateEPSt10unique_pt
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   %size_.i.i = getelementptr inbounds i8, ptr %contents, i64 8
-  %1 = load i64, ptr %size_.i.i, align 8
+  %1 = load i64, ptr %size_.i.i, align 8, !noalias !52
   %tobool.not.i.i = icmp eq ptr %alloc, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !52
+  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !55
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 152
-  %2 = load ptr, ptr %vfn.i.i, align 8, !noalias !52
+  %2 = load ptr, ptr %vfn.i.i, align 8, !noalias !55
   %call.i.i5 = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(32) %alloc, i64 noundef %1)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %if.then.i.i
   %3 = ptrtoint ptr %alloc to i64
-  %.pr.i = load i64, ptr %size_.i.i, align 8
+  %.pr.i = load i64, ptr %size_.i.i, align 8, !noalias !52
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -4672,8 +4672,8 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i: ; preds = %if.end.i.i
   br i1 %cmp.i.i, label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
-  %5 = load ptr, ptr %contents, align 8, !noalias !57
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %5, i64 %4, i1 false), !noalias !57
+  %5 = load ptr, ptr %contents, align 8, !noalias !52
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %5, i64 %4, i1 false), !noalias !52
   %.pre = load i64, ptr %size_.i.i, align 8
   br label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit
 
@@ -7688,12 +7688,12 @@ attributes #24 = { noreturn }
 !49 = distinct !{!49, !47, !"_ZSt19__relocate_object_aIN7rocksdb13FSReadRequestES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
 !50 = !{!46, !49}
 !51 = distinct !{!51, !8}
-!52 = !{!53, !55}
-!53 = distinct !{!53, !54, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
-!54 = distinct !{!54, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
-!55 = distinct !{!55, !56, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
-!56 = distinct !{!56, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
-!57 = !{!55}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
+!54 = distinct !{!54, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
+!55 = !{!56, !53}
+!56 = distinct !{!56, !57, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
+!57 = distinct !{!57, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
 !58 = !{!59}
 !59 = distinct !{!59, !60, !"_ZN7rocksdb16BZip2_UncompressEPKcmPmjPNS_15MemoryAllocatorE: %agg.result"}
 !60 = distinct !{!60, !"_ZN7rocksdb16BZip2_UncompressEPKcmPmjPNS_15MemoryAllocatorE"}

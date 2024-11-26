@@ -23739,7 +23739,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSo
           to label %.noexc unwind label %218
 
 .noexc:                                           ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource8_GetAxisEf.exit
-  %83 = load ptr, ptr %10, align 8
+  %83 = load ptr, ptr %10, align 8, !noalias !160
   %84 = ptrtoint ptr %83 to i64
   %85 = load ptr, ptr %82, align 8, !noalias !160
   %86 = ptrtoint ptr %85 to i64
@@ -23753,7 +23753,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSo
 
 .noexc9:                                          ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load ptr, ptr %10, align 8
+  %92 = load ptr, ptr %10, align 8, !noalias !160
   %93 = ptrtoint ptr %92 to i64
   %94 = load ptr, ptr %91, align 8, !noalias !160
   %95 = ptrtoint ptr %94 to i64
@@ -28609,7 +28609,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDa
           to label %.noexc unwind label %363
 
 .noexc:                                           ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource8_GetAxisEf.exit
-  %86 = load ptr, ptr %13, align 8
+  %86 = load ptr, ptr %13, align 8, !noalias !219
   %87 = ptrtoint ptr %86 to i64
   %88 = load ptr, ptr %85, align 8, !noalias !219
   %89 = ptrtoint ptr %88 to i64
@@ -28623,7 +28623,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDa
 
 .noexc10:                                         ; preds = %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = load ptr, ptr %13, align 8
+  %95 = load ptr, ptr %13, align 8, !noalias !219
   %96 = ptrtoint ptr %95 to i64
   %97 = load ptr, ptr %94, align 8, !noalias !219
   %98 = ptrtoint ptr %97 to i64
@@ -34740,7 +34740,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDat
           to label %.noexc unwind label %363
 
 .noexc:                                           ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource8_GetAxisEf.exit
-  %86 = load ptr, ptr %13, align 8
+  %86 = load ptr, ptr %13, align 8, !noalias !286
   %87 = ptrtoint ptr %86 to i64
   %88 = load ptr, ptr %85, align 8, !noalias !286
   %89 = ptrtoint ptr %88 to i64
@@ -34754,7 +34754,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDat
 
 .noexc10:                                         ; preds = %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = load ptr, ptr %13, align 8
+  %95 = load ptr, ptr %13, align 8, !noalias !286
   %96 = ptrtoint ptr %95 to i64
   %97 = load ptr, ptr %94, align 8, !noalias !286
   %98 = ptrtoint ptr %97 to i64

@@ -2134,7 +2134,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 .loopexit:                                        ; preds = %8, %26
   %.sink.i.i.i.i = phi ptr [ %27, %26 ], [ null, %8 ]
   %37 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !12
-  %38 = load ptr, ptr %3, align 8
+  %38 = load ptr, ptr %3, align 8, !noalias !12
   store ptr %38, ptr %37, align 8, !noalias !12
   %39 = getelementptr inbounds i8, ptr %38, i64 -32
   %40 = load ptr, ptr %39, align 8
@@ -3089,7 +3089,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 .loopexit:                                        ; preds = %8, %26
   %.sink.i.i.i.i = phi ptr [ %27, %26 ], [ null, %8 ]
   %37 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !18
-  %38 = load ptr, ptr %3, align 8
+  %38 = load ptr, ptr %3, align 8, !noalias !18
   store ptr %38, ptr %37, align 8, !noalias !18
   %39 = getelementptr inbounds i8, ptr %38, i64 -32
   %40 = load ptr, ptr %39, align 8
@@ -3387,7 +3387,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit: ; preds = %tail
 .loopexit:                                        ; preds = %12, %32
   %.sink.i.i.i.i = phi ptr [ %33, %32 ], [ null, %12 ]
   %43 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !23
-  %44 = load ptr, ptr %4, align 8
+  %44 = load ptr, ptr %4, align 8, !noalias !23
   store ptr %44, ptr %43, align 8, !noalias !23
   %45 = getelementptr inbounds i8, ptr %44, i64 -32
   %46 = load ptr, ptr %45, align 8

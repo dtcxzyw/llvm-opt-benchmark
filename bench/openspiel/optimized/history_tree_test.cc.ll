@@ -4494,8 +4494,8 @@ _ZN4absl7debian213flat_hash_setIlNS0_13hash_internal4HashIlEESt8equal_toIlESaIlE
   %1711 = lshr i128 %1710, 64
   %1712 = xor i128 %1711, %1710
   %1713 = trunc i128 %1712 to i64
-  %1714 = load ptr, ptr %172, align 8
-  %1715 = load i64, ptr %1291, align 8
+  %1714 = load ptr, ptr %172, align 8, !noalias !75
+  %1715 = load i64, ptr %1291, align 8, !noalias !75
   %1716 = lshr i64 %1713, 7
   %1717 = ptrtoint ptr %1714 to i64
   %1718 = lshr i64 %1717, 12
@@ -4504,7 +4504,7 @@ _ZN4absl7debian213flat_hash_setIlNS0_13hash_internal4HashIlEESt8equal_toIlESaIlE
   %1721 = and i8 %1720, 127
   %1722 = insertelement <16 x i8> poison, i8 %1721, i64 0
   %1723 = shufflevector <16 x i8> %1722, <16 x i8> poison, <16 x i32> zeroinitializer
-  %1724 = load ptr, ptr %1290, align 8
+  %1724 = load ptr, ptr %1290, align 8, !noalias !75
   br label %1725
 
 1725:                                             ; preds = %1744, %.lr.ph.i.i47

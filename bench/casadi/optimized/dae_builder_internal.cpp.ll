@@ -44104,8 +44104,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
 290:                                              ; preds = %289
   call void @llvm.experimental.noalias.scope.decl(metadata !296)
   %291 = getelementptr inbounds i8, ptr %51, i64 8
-  %292 = load ptr, ptr %291, align 8
-  %293 = load ptr, ptr %51, align 8
+  %292 = load ptr, ptr %291, align 8, !noalias !296
+  %293 = load ptr, ptr %51, align 8, !noalias !296
   %294 = ptrtoint ptr %292 to i64
   %295 = ptrtoint ptr %293 to i64
   %296 = sub i64 %294, %295
@@ -44169,8 +44169,8 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev.exit.us.i: ; preds = %.noexc17.us.i
   %315 = add nuw nsw i64 %.021.us.i, 1
   %316 = getelementptr inbounds i64, ptr %301, i64 %315
   store i64 %314, ptr %316, align 8, !noalias !296
-  %317 = load ptr, ptr %291, align 8
-  %318 = load ptr, ptr %51, align 8
+  %317 = load ptr, ptr %291, align 8, !noalias !296
+  %318 = load ptr, ptr %51, align 8, !noalias !296
   %319 = ptrtoint ptr %317 to i64
   %320 = ptrtoint ptr %318 to i64
   %321 = sub i64 %319, %320

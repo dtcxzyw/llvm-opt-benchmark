@@ -1407,7 +1407,7 @@ define dso_local void @_ZN5clang4ento10CoreEngine19HandleBlockEntranceERKNS_13Bl
   br label %_ZN5clang4ento10CoreEngine15setBlockCounterENS0_12BlockCounterE.exit
 
 _ZN5clang4ento10CoreEngine15setBlockCounterENS0_12BlockCounterE.exit: ; preds = %3, %20
-  %22 = load ptr, ptr %1, align 8
+  %22 = load ptr, ptr %1, align 8, !noalias !9
   %23 = load ptr, ptr %22, align 8, !noalias !9
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load ptr, ptr %24, align 8, !noalias !9
@@ -5448,7 +5448,7 @@ _ZN4llvm6detail12DenseSetImplIPN5clang4ento12ExplodedNodeENS_8DenseMapIS5_NS0_13
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ento12ExplodedNodeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !44
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !44
   store ptr %96, ptr %95, align 8, !noalias !44
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #16

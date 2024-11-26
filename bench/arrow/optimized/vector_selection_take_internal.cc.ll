@@ -1525,7 +1525,7 @@ invoke.cont131.i.i:                               ; preds = %while.body130.i.i
   %and_block.sroa.5.0.extract.trunc.i.i = trunc nuw i32 %and_block.sroa.5.0.extract.shift.i.i to i16
   %conv137.i.i = sext i16 %and_block.sroa.5.0.extract.trunc.i.i to i64
   %mul.i.i.i = shl nsw i64 %conv137.i.i, 1
-  %100 = load i64, ptr %size_.i.i.i.i, align 8, !noalias !10
+  %100 = load i64, ptr %size_.i.i.i.i, align 8, !noalias !34
   %add.i.i.i.i = add nsw i64 %100, %mul.i.i.i
   %101 = load i64, ptr %capacity_.i.i311.i.i, align 8, !noalias !34
   %cmp.not.i.i330.i.i = icmp sgt i64 %add.i.i.i.i, %101
@@ -1862,7 +1862,7 @@ do.body.i.i.i:                                    ; preds = %call.i469.noexc.i.i
   %mul.i.i7.i.i.i = shl i64 %134, 1
   %136 = load i64, ptr %size_.i.i.i8.i.i.i, align 8, !noalias !61
   %add.i.i.i9.i.i.i = add nsw i64 %136, %mul.i.i7.i.i.i
-  %137 = load i64, ptr %capacity_.i.i311.i.i, align 8, !noalias !64
+  %137 = load i64, ptr %capacity_.i.i311.i.i, align 8, !noalias !61
   %cmp.not.i.i.i11.i.i.i = icmp sgt i64 %add.i.i.i9.i.i.i, %137
   br i1 %cmp.not.i.i.i11.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.i24.i.i.i, label %_ZN5arrow6StatusD2Ev.exit39.i12.i.i.i
 
@@ -1873,7 +1873,7 @@ _ZN5arrow6StatusD2Ev.exit.i24.i.i.i:              ; preds = %do.body.i.i.i
           to label %.noexc483.i.i unwind label %lpad124.loopexit.split-lp.loopexit.i.i
 
 .noexc483.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i24.i.i.i
-  %.pr.i27.i.i.i = load ptr, ptr %ref.tmp.i6.i.i.i, align 8, !noalias !69
+  %.pr.i27.i.i.i = load ptr, ptr %ref.tmp.i6.i.i.i, align 8, !noalias !68
   %cmp.i.i28.i.i.i = icmp eq ptr %.pr.i27.i.i.i, null
   br i1 %cmp.i.i28.i.i.i, label %_ZN5arrow6StatusD2Ev.exit39.i12.i.i.i, label %_ZN5arrow6StatusD2Ev.exit521.thread912.i.i
 
@@ -1882,7 +1882,7 @@ _ZN5arrow6StatusD2Ev.exit39.i12.i.i.i:            ; preds = %.noexc483.i.i, %do.
   br i1 %cmp49.i13.i.i.i, label %for.body.i15.preheader.i.i.i, label %nrvo.skipdtor.i.i.i
 
 for.body.i15.preheader.i.i.i:                     ; preds = %_ZN5arrow6StatusD2Ev.exit39.i12.i.i.i
-  %.pre.i.i.i = load i64, ptr %size_.i.i.i8.i.i.i, align 8, !noalias !61
+  %.pre.i.i.i = load i64, ptr %size_.i.i.i8.i.i.i, align 8, !noalias !71
   br label %for.body.i15.i.i.i
 
 for.body.i15.i.i.i:                               ; preds = %for.body.i15.i.i.i, %for.body.i15.preheader.i.i.i
@@ -1890,12 +1890,12 @@ for.body.i15.i.i.i:                               ; preds = %for.body.i15.i.i.i,
   %i.050.i16.i.i.i = phi i64 [ %inc.i22.i.i.i, %for.body.i15.i.i.i ], [ 0, %for.body.i15.preheader.i.i.i ]
   %add.i.i471.i.i = add nsw i64 %i.050.i16.i.i.i, %135
   %conv.i17.i.i.i = trunc i64 %add.i.i471.i.i to i16
-  %139 = load ptr, ptr %data_.i.i.i.i, align 8, !noalias !61
+  %139 = load ptr, ptr %data_.i.i.i.i, align 8, !noalias !71
   %add.ptr.i.i.i20.i.i.i = getelementptr inbounds i8, ptr %139, i64 %138
   store i16 %conv.i17.i.i.i, ptr %add.ptr.i.i.i20.i.i.i, align 1, !noalias !72
-  %140 = load i64, ptr %size_.i.i.i8.i.i.i, align 8, !noalias !61
+  %140 = load i64, ptr %size_.i.i.i8.i.i.i, align 8, !noalias !71
   %add.i.i41.i21.i.i.i = add nsw i64 %140, 2
-  store i64 %add.i.i41.i21.i.i.i, ptr %size_.i.i.i8.i.i.i, align 8, !noalias !61
+  store i64 %add.i.i41.i21.i.i.i, ptr %size_.i.i.i8.i.i.i, align 8, !noalias !71
   %inc.i22.i.i.i = add nuw nsw i64 %i.050.i16.i.i.i, 1
   %exitcond.not.i23.i.i.i = icmp eq i64 %inc.i22.i.i.i, %134
   br i1 %exitcond.not.i23.i.i.i, label %nrvo.skipdtor.i.i.i, label %for.body.i15.i.i.i, !llvm.loop !59
@@ -3373,7 +3373,7 @@ invoke.cont115.i.i:                               ; preds = %while.body114.i.i
   %and_block.sroa.5.0.extract.trunc.i395.i = trunc nuw i32 %and_block.sroa.5.0.extract.shift.i394.i to i16
   %conv121.i.i = sext i16 %and_block.sroa.5.0.extract.trunc.i395.i to i64
   %mul.i.i396.i = shl nsw i64 %conv121.i.i, 2
-  %331 = load i64, ptr %size_.i.i.i390.i, align 8, !noalias !96
+  %331 = load i64, ptr %size_.i.i.i390.i, align 8, !noalias !119
   %add.i.i.i397.i = add nsw i64 %331, %mul.i.i396.i
   %332 = load i64, ptr %capacity_.i.i311.i26.i, align 8, !noalias !119
   %cmp.not.i.i330.i398.i = icmp sgt i64 %add.i.i.i397.i, %332
@@ -3702,7 +3702,7 @@ do.body.i.i49.i:                                  ; preds = %call.i469.noexc.i58
   %mul.i.i7.i.i51.i = shl i64 %364, 2
   %366 = load i64, ptr %size_.i.i.i8.i.i48.i, align 8, !noalias !146
   %add.i.i.i9.i.i52.i = add nsw i64 %366, %mul.i.i7.i.i51.i
-  %367 = load i64, ptr %capacity_.i.i311.i26.i, align 8, !noalias !149
+  %367 = load i64, ptr %capacity_.i.i311.i26.i, align 8, !noalias !146
   %cmp.not.i.i.i11.i.i53.i = icmp sgt i64 %add.i.i.i9.i.i52.i, %367
   br i1 %cmp.not.i.i.i11.i.i53.i, label %_ZN5arrow6StatusD2Ev.exit.i24.i.i299.i, label %_ZN5arrow6StatusD2Ev.exit39.i12.i.i54.i
 
@@ -3713,7 +3713,7 @@ _ZN5arrow6StatusD2Ev.exit.i24.i.i299.i:           ; preds = %do.body.i.i49.i
           to label %.noexc483.i302.i unwind label %lpad108.loopexit.split-lp.loopexit.i.i
 
 .noexc483.i302.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i24.i.i299.i
-  %.pr.i27.i.i303.i = load ptr, ptr %ref.tmp.i6.i.i6.i, align 8, !noalias !154
+  %.pr.i27.i.i303.i = load ptr, ptr %ref.tmp.i6.i.i6.i, align 8, !noalias !153
   %cmp.i.i28.i.i304.i = icmp eq ptr %.pr.i27.i.i303.i, null
   br i1 %cmp.i.i28.i.i304.i, label %_ZN5arrow6StatusD2Ev.exit39.i12.i.i54.i, label %_ZN5arrow6StatusD2Ev.exit521.thread912.i305.i
 
@@ -3722,7 +3722,7 @@ _ZN5arrow6StatusD2Ev.exit39.i12.i.i54.i:          ; preds = %.noexc483.i302.i, %
   br i1 %cmp49.i13.i.i55.i, label %for.body.i15.preheader.i.i289.i, label %nrvo.skipdtor.i.i56.i
 
 for.body.i15.preheader.i.i289.i:                  ; preds = %_ZN5arrow6StatusD2Ev.exit39.i12.i.i54.i
-  %.pre.i.i290.i = load i64, ptr %size_.i.i.i8.i.i48.i, align 8, !noalias !146
+  %.pre.i.i290.i = load i64, ptr %size_.i.i.i8.i.i48.i, align 8, !noalias !156
   br label %for.body.i15.i.i291.i
 
 for.body.i15.i.i291.i:                            ; preds = %for.body.i15.i.i291.i, %for.body.i15.preheader.i.i289.i
@@ -3730,12 +3730,12 @@ for.body.i15.i.i291.i:                            ; preds = %for.body.i15.i.i291
   %i.050.i16.i.i292.i = phi i64 [ %inc.i22.i.i297.i, %for.body.i15.i.i291.i ], [ 0, %for.body.i15.preheader.i.i289.i ]
   %add.i.i471.i293.i = add nsw i64 %i.050.i16.i.i292.i, %365
   %conv.i17.i.i294.i = trunc i64 %add.i.i471.i293.i to i32
-  %369 = load ptr, ptr %data_.i.i.i25.i, align 8, !noalias !146
+  %369 = load ptr, ptr %data_.i.i.i25.i, align 8, !noalias !156
   %add.ptr.i.i.i20.i.i295.i = getelementptr inbounds i8, ptr %369, i64 %368
   store i32 %conv.i17.i.i294.i, ptr %add.ptr.i.i.i20.i.i295.i, align 1, !noalias !157
-  %370 = load i64, ptr %size_.i.i.i8.i.i48.i, align 8, !noalias !146
+  %370 = load i64, ptr %size_.i.i.i8.i.i48.i, align 8, !noalias !156
   %add.i.i41.i21.i.i296.i = add nsw i64 %370, 4
-  store i64 %add.i.i41.i21.i.i296.i, ptr %size_.i.i.i8.i.i48.i, align 8, !noalias !146
+  store i64 %add.i.i41.i21.i.i296.i, ptr %size_.i.i.i8.i.i48.i, align 8, !noalias !156
   %inc.i22.i.i297.i = add nuw nsw i64 %i.050.i16.i.i292.i, 1
   %exitcond.not.i23.i.i298.i = icmp eq i64 %inc.i22.i.i297.i, %364
   br i1 %exitcond.not.i23.i.i298.i, label %nrvo.skipdtor.i.i56.i, label %for.body.i15.i.i291.i, !llvm.loop !144
@@ -5414,7 +5414,7 @@ invoke.cont111.i:                                 ; preds = %land.rhs.i
   %.sroa.speculated.i.i410.i = call noundef i64 @llvm.smin.i64(i64 %12, i64 %.sroa.speculated5.i.i408.i)
   %sub118.i = sub nsw i64 %.sroa.speculated.i.i410.i, %it.sroa.8.11060.i
   %mul.i.i = shl i64 %sub118.i, 1
-  %109 = load i64, ptr %size_.i.i.i, align 8, !noalias !177
+  %109 = load i64, ptr %size_.i.i.i, align 8, !noalias !223
   %add.i.i412.i = add nsw i64 %mul.i.i, %109
   %110 = load i64, ptr %capacity_.i.i386.i, align 8, !noalias !223
   %cmp.not.i.i414.i = icmp sgt i64 %add.i.i412.i, %110
@@ -5594,7 +5594,7 @@ invoke.cont167.i:                                 ; preds = %for.body156.i
   %.sroa.speculated.i.i563.i = call noundef i64 @llvm.smin.i64(i64 %12, i64 %.sroa.speculated5.i.i561.i)
   %sub174.i = sub nsw i64 %.sroa.speculated.i.i563.i, %it.sroa.8.21055.i
   %mul.i565.i = shl i64 %sub174.i, 1
-  %132 = load i64, ptr %size_.i.i566.i, align 8, !noalias !177
+  %132 = load i64, ptr %size_.i.i566.i, align 8, !noalias !236
   %add.i.i567.i = add nsw i64 %mul.i565.i, %132
   %133 = load i64, ptr %capacity_.i.i386.i, align 8, !noalias !236
   %cmp.not.i.i569.i = icmp sgt i64 %add.i.i567.i, %133
@@ -7101,7 +7101,7 @@ invoke.cont111.i398:                              ; preds = %land.rhs.i394
   %.sroa.speculated.i.i410.i403 = call noundef i64 @llvm.smin.i64(i64 %234, i64 %.sroa.speculated5.i.i408.i402)
   %sub118.i404 = sub nsw i64 %.sroa.speculated.i.i410.i403, %it.sroa.8.11060.i387
   %mul.i.i405 = shl i64 %sub118.i404, 2
-  %331 = load i64, ptr %size_.i.i.i384, align 8, !noalias !261
+  %331 = load i64, ptr %size_.i.i.i384, align 8, !noalias !307
   %add.i.i412.i406 = add nsw i64 %mul.i.i405, %331
   %332 = load i64, ptr %capacity_.i.i386.i52, align 8, !noalias !307
   %cmp.not.i.i414.i407 = icmp sgt i64 %add.i.i412.i406, %332
@@ -7281,7 +7281,7 @@ invoke.cont167.i308:                              ; preds = %for.body156.i299
   %.sroa.speculated.i.i563.i313 = call noundef i64 @llvm.smin.i64(i64 %234, i64 %.sroa.speculated5.i.i561.i312)
   %sub174.i314 = sub nsw i64 %.sroa.speculated.i.i563.i313, %it.sroa.8.21055.i301
   %mul.i565.i315 = shl i64 %sub174.i314, 2
-  %354 = load i64, ptr %size_.i.i566.i298, align 8, !noalias !261
+  %354 = load i64, ptr %size_.i.i566.i298, align 8, !noalias !320
   %add.i.i567.i316 = add nsw i64 %mul.i565.i315, %354
   %355 = load i64, ptr %capacity_.i.i386.i52, align 8, !noalias !320
   %cmp.not.i.i569.i317 = icmp sgt i64 %add.i.i567.i316, %355
@@ -8782,7 +8782,7 @@ invoke.cont110.i:                                 ; preds = %land.rhs.i863
   %.sroa.speculated.i.i408.i = call noundef i64 @llvm.smin.i64(i64 %456, i64 %.sroa.speculated5.i.i406.i)
   %sub117.i = sub nsw i64 %.sroa.speculated.i.i408.i, %it.sroa.8.11055.i
   %mul.i.i864 = shl i64 %sub117.i, 3
-  %553 = load i64, ptr %size_.i.i.i862, align 8, !noalias !345
+  %553 = load i64, ptr %size_.i.i.i862, align 8, !noalias !391
   %add.i.i410.i = add nsw i64 %mul.i.i864, %553
   %554 = load i64, ptr %capacity_.i.i385.i, align 8, !noalias !391
   %cmp.not.i.i412.i = icmp sgt i64 %add.i.i410.i, %554
@@ -8959,7 +8959,7 @@ invoke.cont164.i:                                 ; preds = %for.body153.i
   %.sroa.speculated.i.i559.i = call noundef i64 @llvm.smin.i64(i64 %456, i64 %.sroa.speculated5.i.i557.i)
   %sub171.i = sub nsw i64 %.sroa.speculated.i.i559.i, %it.sroa.8.21050.i
   %mul.i561.i = shl i64 %sub171.i, 3
-  %576 = load i64, ptr %size_.i.i562.i, align 8, !noalias !345
+  %576 = load i64, ptr %size_.i.i562.i, align 8, !noalias !404
   %add.i.i563.i = add nsw i64 %mul.i561.i, %576
   %577 = load i64, ptr %capacity_.i.i385.i, align 8, !noalias !404
   %cmp.not.i.i565.i = icmp sgt i64 %add.i.i563.i, %577
@@ -44908,18 +44908,18 @@ attributes #23 = { noreturn }
 !58 = !{!55, !50}
 !59 = distinct !{!59, !16}
 !60 = !{!50}
-!61 = !{!62, !50, !8, !5}
-!62 = distinct !{!62, !63, !"_ZZN5arrow7compute8internal12_GLOBAL__N_128GetTakeIndicesFromBitmapImplINS_10UInt16TypeEEENS_6ResultISt10shared_ptrINS_9ArrayDataEEEERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorEPNS_10MemoryPoolEENKUlllE_clEll: %agg.result"}
-!63 = distinct !{!63, !"_ZZN5arrow7compute8internal12_GLOBAL__N_128GetTakeIndicesFromBitmapImplINS_10UInt16TypeEEENS_6ResultISt10shared_ptrINS_9ArrayDataEEEERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorEPNS_10MemoryPoolEENKUlllE_clEll"}
-!64 = !{!65, !67, !62, !50, !8, !5}
-!65 = distinct !{!65, !66, !"_ZN5arrow13BufferBuilder7ReserveEl: %agg.result"}
-!66 = distinct !{!66, !"_ZN5arrow13BufferBuilder7ReserveEl"}
-!67 = distinct !{!67, !68, !"_ZN5arrow18TypedBufferBuilderItvE7ReserveEl: %agg.result"}
-!68 = distinct !{!68, !"_ZN5arrow18TypedBufferBuilderItvE7ReserveEl"}
-!69 = !{!70, !62, !50, !8, !5}
-!70 = distinct !{!70, !71, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
-!71 = distinct !{!71, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
-!72 = !{!62, !50}
+!61 = !{!62, !64, !66, !50, !8, !5}
+!62 = distinct !{!62, !63, !"_ZN5arrow13BufferBuilder7ReserveEl: %agg.result"}
+!63 = distinct !{!63, !"_ZN5arrow13BufferBuilder7ReserveEl"}
+!64 = distinct !{!64, !65, !"_ZN5arrow18TypedBufferBuilderItvE7ReserveEl: %agg.result"}
+!65 = distinct !{!65, !"_ZN5arrow18TypedBufferBuilderItvE7ReserveEl"}
+!66 = distinct !{!66, !67, !"_ZZN5arrow7compute8internal12_GLOBAL__N_128GetTakeIndicesFromBitmapImplINS_10UInt16TypeEEENS_6ResultISt10shared_ptrINS_9ArrayDataEEEERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorEPNS_10MemoryPoolEENKUlllE_clEll: %agg.result"}
+!67 = distinct !{!67, !"_ZZN5arrow7compute8internal12_GLOBAL__N_128GetTakeIndicesFromBitmapImplINS_10UInt16TypeEEENS_6ResultISt10shared_ptrINS_9ArrayDataEEEERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorEPNS_10MemoryPoolEENKUlllE_clEll"}
+!68 = !{!69, !66, !50, !8, !5}
+!69 = distinct !{!69, !70, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
+!70 = distinct !{!70, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
+!71 = !{!66, !50, !8, !5}
+!72 = !{!66, !50}
 !73 = !{!74, !76}
 !74 = distinct !{!74, !75, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !75 = distinct !{!75, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -44993,18 +44993,18 @@ attributes #23 = { noreturn }
 !143 = !{!140, !135}
 !144 = distinct !{!144, !16}
 !145 = !{!135}
-!146 = !{!147, !135, !94, !5}
-!147 = distinct !{!147, !148, !"_ZZN5arrow7compute8internal12_GLOBAL__N_128GetTakeIndicesFromBitmapImplINS_10UInt32TypeEEENS_6ResultISt10shared_ptrINS_9ArrayDataEEEERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorEPNS_10MemoryPoolEENKUlllE_clEll: %agg.result"}
-!148 = distinct !{!148, !"_ZZN5arrow7compute8internal12_GLOBAL__N_128GetTakeIndicesFromBitmapImplINS_10UInt32TypeEEENS_6ResultISt10shared_ptrINS_9ArrayDataEEEERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorEPNS_10MemoryPoolEENKUlllE_clEll"}
-!149 = !{!150, !152, !147, !135, !94, !5}
-!150 = distinct !{!150, !151, !"_ZN5arrow13BufferBuilder7ReserveEl: %agg.result"}
-!151 = distinct !{!151, !"_ZN5arrow13BufferBuilder7ReserveEl"}
-!152 = distinct !{!152, !153, !"_ZN5arrow18TypedBufferBuilderIjvE7ReserveEl: %agg.result"}
-!153 = distinct !{!153, !"_ZN5arrow18TypedBufferBuilderIjvE7ReserveEl"}
-!154 = !{!155, !147, !135, !94, !5}
-!155 = distinct !{!155, !156, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
-!156 = distinct !{!156, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
-!157 = !{!147, !135}
+!146 = !{!147, !149, !151, !135, !94, !5}
+!147 = distinct !{!147, !148, !"_ZN5arrow13BufferBuilder7ReserveEl: %agg.result"}
+!148 = distinct !{!148, !"_ZN5arrow13BufferBuilder7ReserveEl"}
+!149 = distinct !{!149, !150, !"_ZN5arrow18TypedBufferBuilderIjvE7ReserveEl: %agg.result"}
+!150 = distinct !{!150, !"_ZN5arrow18TypedBufferBuilderIjvE7ReserveEl"}
+!151 = distinct !{!151, !152, !"_ZZN5arrow7compute8internal12_GLOBAL__N_128GetTakeIndicesFromBitmapImplINS_10UInt32TypeEEENS_6ResultISt10shared_ptrINS_9ArrayDataEEEERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorEPNS_10MemoryPoolEENKUlllE_clEll: %agg.result"}
+!152 = distinct !{!152, !"_ZZN5arrow7compute8internal12_GLOBAL__N_128GetTakeIndicesFromBitmapImplINS_10UInt32TypeEEENS_6ResultISt10shared_ptrINS_9ArrayDataEEEERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorEPNS_10MemoryPoolEENKUlllE_clEll"}
+!153 = !{!154, !151, !135, !94, !5}
+!154 = distinct !{!154, !155, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
+!155 = distinct !{!155, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
+!156 = !{!151, !135, !94, !5}
+!157 = !{!151, !135}
 !158 = !{!159, !161}
 !159 = distinct !{!159, !160, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !160 = distinct !{!160, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}

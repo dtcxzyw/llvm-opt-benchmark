@@ -2595,7 +2595,7 @@ define dso_local void @_ZN4llvm22WholeProgramDevirtPass3runERNS_6ModuleERNS_15An
   call void @_ZN4llvm12MemoryBuffer7getFileERKNS_5TwineEbbbSt8optionalINS_5AlignEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr") align 8 %34, ptr noundef nonnull align 8 dereferenceable(34) %35, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i16 0) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   %119 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %120 = load i8, ptr %119, align 8
+  %120 = load i8, ptr %119, align 8, !noalias !26
   %121 = trunc i8 %120 to i1
   br i1 %121, label %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.i.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE9takeErrorEv.exit.thread.i.i
 
@@ -16816,11 +16816,11 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZN4llvm9ErrorList2IDE) #22
-  %.pre52 = load ptr, ptr %2, align 8, !noalias !95
+  %.pre52 = load ptr, ptr %2, align 8, !noalias !234
   br i1 %23, label %24, label %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread
 
 24:                                               ; preds = %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
-  store ptr null, ptr %2, align 8, !noalias !234
+  store ptr null, ptr %2, align 8, !noalias !237
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
@@ -16872,9 +16872,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %24, %._
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
   %44 = phi ptr [ null, %17 ], [ %.pre52, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  store ptr %44, ptr %4, align 8, !alias.scope !237
-  store ptr null, ptr %2, align 8, !noalias !237
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
+  store ptr %44, ptr %4, align 8, !alias.scope !234
+  store ptr null, ptr %2, align 8, !noalias !234
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24

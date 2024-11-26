@@ -19388,7 +19388,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i407: ; pred
   %376 = zext i32 %370 to i64
   %377 = sub nsw i64 0, %376
   %.not.i409 = icmp ne i64 %375, %377
-  %.pre543 = load i32, ptr %242, align 8
+  %.pre543 = load i32, ptr %242, align 8, !noalias !76
   %378 = icmp sgt i32 %.pre543, 0
   %or.cond598 = select i1 %.not.i409, i1 %378, i1 false
   br i1 %or.cond598, label %.lr.ph19.preheader.i411, label %.noexc399
@@ -19502,9 +19502,9 @@ _ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_E
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !76
   %424 = add nsw i32 %423, 1
   store i32 %424, ptr %241, align 4, !noalias !76
-  %425 = load ptr, ptr %208, align 8
-  %426 = load i32, ptr %209, align 8
-  %427 = load ptr, ptr %228, align 8
+  %425 = load ptr, ptr %208, align 8, !noalias !76
+  %426 = load i32, ptr %209, align 8, !noalias !76
+  %427 = load ptr, ptr %228, align 8, !noalias !76
   %428 = ptrtoint ptr %425 to i64
   %429 = ptrtoint ptr %427 to i64
   %430 = sub i64 %428, %429
@@ -19662,7 +19662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i185: ; pred
   store i32 0, ptr %241, align 4
   store i8 0, ptr %240, align 4
   %.not.i187 = icmp ne i64 %.pre-phi561, %.pre-phi565
-  %.pre551 = load i32, ptr %242, align 8
+  %.pre551 = load i32, ptr %242, align 8, !noalias !76
   %499 = icmp sgt i32 %.pre551, 0
   %or.cond599 = select i1 %.not.i187, i1 %499, i1 false
   br i1 %or.cond599, label %.lr.ph19.preheader.i189, label %.noexc150
@@ -19780,9 +19780,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i185: ; pred
 
 _ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_EEEEvRNS_12basic_formatIT_T0_T1_EET2_.exit.loopexit.i145: ; preds = %542
   %.pre.i146 = load i32, ptr %241, align 4, !noalias !76
-  %.pre552 = load ptr, ptr %208, align 8
-  %.pre553 = load i32, ptr %209, align 8
-  %.pre554 = load ptr, ptr %228, align 8
+  %.pre552 = load ptr, ptr %208, align 8, !noalias !76
+  %.pre553 = load i32, ptr %209, align 8, !noalias !76
+  %.pre554 = load ptr, ptr %228, align 8, !noalias !76
   br label %_ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_EEEEvRNS_12basic_formatIT_T0_T1_EET2_.exit.i127
 
 _ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_EEEEvRNS_12basic_formatIT_T0_T1_EET2_.exit.i127: ; preds = %_ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_EEEEvRNS_12basic_formatIT_T0_T1_EET2_.exit.loopexit.i145, %516, %.preheader.i.i141
@@ -19949,7 +19949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
   store i32 0, ptr %241, align 4
   store i8 0, ptr %240, align 4
   %.not.i171 = icmp ne i64 %.pre-phi344, %.pre-phi348
-  %.pre334 = load i32, ptr %242, align 8
+  %.pre334 = load i32, ptr %242, align 8, !noalias !76
   %627 = icmp sgt i32 %.pre334, 0
   %or.cond = select i1 %.not.i171, i1 %627, i1 false
   br i1 %or.cond, label %.lr.ph19.preheader.i, label %.noexc121
@@ -21815,9 +21815,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit: ; preds
   %177 = call i32 @isprint(i32 noundef %176) #32
   %.not.i = icmp eq i32 %177, 0
   %178 = select i1 %.not.i, i8 46, i8 %175
-  %179 = load i64, ptr %115, align 8
+  %179 = load i64, ptr %115, align 8, !alias.scope !81
   %180 = add i64 %179, 1
-  %181 = load ptr, ptr %20, align 8
+  %181 = load ptr, ptr %20, align 8, !alias.scope !81
   %182 = icmp eq ptr %181, %114
   br i1 %182, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.thread
 
@@ -21826,7 +21826,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; 
   br i1 %183, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %200
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.thread: ; preds = %.lr.ph.i
-  %184 = load i64, ptr %114, align 8
+  %184 = load i64, ptr %114, align 8, !alias.scope !81
   %185 = icmp ugt i64 %180, %184
   br i1 %185, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %200
 

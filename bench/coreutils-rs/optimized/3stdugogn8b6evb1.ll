@@ -2922,7 +2922,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load i64, ptr %20, align 8, !noundef !4
+  %21 = load i64, ptr %20, align 8, !alias.scope !315, !noalias !318, !noundef !4
   %22 = icmp ult i64 %21, 8
   %23 = add i64 %21, 1
   %24 = lshr i64 %23, 3
@@ -3027,7 +3027,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   store i64 %.0.i.i.i, ptr %.sroa.617.i.i.sroa.5.0..sroa.617.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !324
   %.sroa.617.i.i.sroa.6.0..sroa.617.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds i8, ptr %9, i64 48
   store i64 0, ptr %.sroa.617.i.i.sroa.6.0..sroa.617.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !324
-  %70 = load i64, ptr %11, align 8, !alias.scope !315, !noalias !318, !noundef !4
+  %70 = load i64, ptr %11, align 8, !alias.scope !338, !noalias !341, !noundef !4
   %invariant.gep = getelementptr i8, ptr %69, i64 16
   %.not101 = icmp eq i64 %70, 0
   br i1 %.not101, label %.thread71, label %.preheader.lr.ph

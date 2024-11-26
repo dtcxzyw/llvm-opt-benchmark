@@ -5741,7 +5741,7 @@ define void @_ZNK5osgeo4proj5datum9Ellipsoid8identifyEv(ptr dead_on_unwind noali
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i8, ptr @__libc_single_threaded, align 1
+  %13 = load i8, ptr @__libc_single_threaded, align 1, !noalias !53
   %.not.i.i.i.i.i = icmp eq i8 %13, 0
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   br i1 %.not.i.i.i.i.i, label %19, label %.thread
@@ -10127,7 +10127,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_6common12ObjectDomainEEERKN7dropbox6o
 
 210:                                              ; preds = %._crit_edge
   %211 = getelementptr inbounds i8, ptr %209, i64 8
-  %212 = load i8, ptr @__libc_single_threaded, align 1
+  %212 = load i8, ptr @__libc_single_threaded, align 1, !noalias !84
   %.not.i.i.i.i.i69 = icmp eq i8 %212, 0
   %213 = getelementptr inbounds i8, ptr %16, i64 8
   br i1 %.not.i.i.i.i.i69, label %220, label %.thread

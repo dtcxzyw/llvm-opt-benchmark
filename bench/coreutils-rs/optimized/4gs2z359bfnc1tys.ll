@@ -284,7 +284,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp1
   %57 = getelementptr inbounds i8, ptr %15, i64 16
   store i64 0, ptr %57, align 8, !noalias !42
   %58 = getelementptr inbounds i8, ptr %2, i64 48
-  %59 = load i8, ptr %58, align 8, !range !61
+  %59 = load i8, ptr %58, align 8, !range !61, !alias.scope !40, !noalias !37
   %60 = getelementptr inbounds i8, ptr %49, i64 64
   %61 = uitofp i64 %54 to float
   %62 = add i64 %54, -1

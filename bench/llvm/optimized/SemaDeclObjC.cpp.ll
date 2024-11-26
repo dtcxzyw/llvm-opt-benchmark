@@ -16430,12 +16430,12 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16
   %.sroa.0.0.copyload.i89 = load i64, ptr %82, align 8
   %83 = inttoptr i64 %.sroa.0.0.copyload.i89 to ptr
   %84 = load ptr, ptr %14, align 8, !noalias !135
-  %85 = load ptr, ptr %7, align 8, !noalias !99
+  %85 = load ptr, ptr %7, align 8, !noalias !135
   %86 = icmp eq ptr %84, %85
   br i1 %86, label %87, label %101
 
 87:                                               ; preds = %81
-  %88 = load i32, ptr %16, align 4, !noalias !99
+  %88 = load i32, ptr %16, align 4, !noalias !135
   %89 = zext i32 %88 to i64
   %90 = getelementptr inbounds ptr, ptr %85, i64 %89
   %.not24.i.i107 = icmp eq i32 %88, 0
@@ -16461,27 +16461,27 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16
   %98 = add nuw i32 %88, 1
   store i32 %98, ptr %16, align 4, !noalias !135
   store ptr %83, ptr %90, align 8, !noalias !135
-  %99 = load ptr, ptr %7, align 8, !noalias !99
-  %100 = load i32, ptr %16, align 4, !noalias !99
+  %99 = load ptr, ptr %7, align 8, !noalias !135
+  %100 = load i32, ptr %16, align 4, !noalias !135
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i93
 
 101:                                              ; preds = %._crit_edge.i.i111, %81
   %102 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef %83) #21, !noalias !135
-  %.pre.i90 = load ptr, ptr %7, align 8, !noalias !99
-  %.pre7.i92 = load i32, ptr %16, align 4, !noalias !99
+  %.pre.i90 = load ptr, ptr %7, align 8, !noalias !135
+  %.pre7.i92 = load i32, ptr %16, align 4, !noalias !135
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i93
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i93: ; preds = %.lr.ph.i.i108, %101, %97
   %103 = phi ptr [ %99, %97 ], [ %.pre.i90, %101 ], [ %85, %.lr.ph.i.i108 ]
   %104 = phi i32 [ %100, %97 ], [ %.pre7.i92, %101 ], [ %88, %.lr.ph.i.i108 ]
-  %105 = load i32, ptr %15, align 8, !noalias !99
+  %105 = load i32, ptr %15, align 8, !noalias !135
   %106 = getelementptr inbounds nuw i8, ptr %80, i64 88
   %.sroa.0.0.copyload.i113 = load i64, ptr %106, align 8
   %107 = icmp eq i64 %.sroa.0.0.copyload.i113, 0
   br i1 %107, label %_ZN4llvm15SmallPtrSetImplIN5clang8SelectorEE6insertES2_.exit137, label %108
 
 108:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i93
-  %109 = load ptr, ptr %14, align 8, !noalias !99
+  %109 = load ptr, ptr %14, align 8, !noalias !135
   %110 = inttoptr i64 %.sroa.0.0.copyload.i113 to ptr
   %111 = icmp eq ptr %109, %103
   br i1 %111, label %112, label %122
@@ -38101,7 +38101,7 @@ _ZN4llvm6detail12DenseSetImplIPN5clang14ObjCMethodDeclENS_8DenseMapIS4_NS0_13Den
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang14ObjCMethodDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !265
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !265
   store ptr %96, ptr %95, align 8, !noalias !265
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #21

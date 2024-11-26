@@ -4917,7 +4917,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i209: ; preds = %_Z
   %.sroa.5.0111.i = phi i32 [ %2128, %_ZNSt6vectorIN12_GLOBAL__N_114RenamePassDataESaIS1_EE12emplace_backIJPN4llvm10BasicBlockERS7_RS_IPNS5_5ValueESaISA_EERS_INS5_8DebugLocESaISE_EEEEERS1_DpOT_.exit.i ], [ 1, %.lr.ph112.i.preheader ]
   %2020 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i131.i.le, i32 noundef %.sroa.5.0111.i) #16
   %2021 = load ptr, ptr %1391, align 8, !noalias !69
-  %2022 = load ptr, ptr %4, align 8
+  %2022 = load ptr, ptr %4, align 8, !noalias !69
   %2023 = icmp eq ptr %2021, %2022
   br i1 %2023, label %2024, label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit161.i
 

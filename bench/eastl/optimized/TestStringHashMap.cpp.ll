@@ -469,7 +469,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #1 comdat($_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mpBucketArray.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %mpBucketArray.i.i, align 8
+  %0 = load ptr, ptr %mpBucketArray.i.i, align 8, !noalias !16
   %1 = load ptr, ptr %0, align 8, !noalias !16
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %while.cond.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i
@@ -485,7 +485,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %ref.tmp.sroa.0.0.i = phi ptr [ %1, %entry ], [ %2, %while.cond.i.i.i ]
   %ref.tmp.sroa.3.0.i = phi ptr [ %0, %entry ], [ %storemerge.i.i.i, %while.cond.i.i.i ]
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i.i, align 8
+  %3 = load i64, ptr %mnBucketCount.i.i, align 8, !noalias !19
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %0, i64 %3
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !19
   %cmp.i.not13.i = icmp eq ptr %ref.tmp.sroa.0.0.i, %4
@@ -612,7 +612,7 @@ _ZN5eastl8hash_mapIPKciNS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(45) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %mpBucketArray.i, align 8
+  %0 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !23
   %1 = load ptr, ptr %0, align 8, !noalias !23
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
@@ -628,7 +628,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %ref.tmp.sroa.0.0 = phi ptr [ %1, %entry ], [ %2, %while.cond.i.i ]
   %ref.tmp.sroa.3.0 = phi ptr [ %0, %entry ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !26
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %3
   %4 = load ptr, ptr %add.ptr.i, align 8, !noalias !26
   %cmp.i.not13 = icmp eq ptr %ref.tmp.sroa.0.0, %4
@@ -718,7 +718,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #3
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE5clearEb(ptr noundef nonnull align 8 dereferenceable(45) %this, i1 noundef zeroext %clearBuckets) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %mpBucketArray.i, align 8
+  %0 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !29
   %1 = load ptr, ptr %0, align 8, !noalias !29
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
@@ -734,7 +734,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %ref.tmp.sroa.0.0 = phi ptr [ %1, %entry ], [ %2, %while.cond.i.i ]
   %ref.tmp.sroa.3.0 = phi ptr [ %0, %entry ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !32
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %3
   %4 = load ptr, ptr %add.ptr.i, align 8, !noalias !32
   %cmp.i.not14 = icmp eq ptr %ref.tmp.sroa.0.0, %4
@@ -861,12 +861,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !36
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !36
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
   %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !36
   %tobool.not4.i.i = icmp eq ptr %5, null
@@ -874,12 +874,12 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !36
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !36
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
   %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !36
   %tobool.not4.i36.i = icmp eq ptr %8, null
@@ -896,7 +896,7 @@ for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 16
   %11 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !36
   %tobool.not.us.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !40
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !39
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %17, %for.inc.i.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
@@ -916,7 +916,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
   %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !36
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
   %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !36
@@ -932,7 +932,7 @@ for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_co
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 16
   %17 = load ptr, ptr %mpNext.i.i, align 8, !noalias !36
   %tobool.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !40
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !39
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %18 = phi ptr [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
@@ -947,7 +947,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %.sink.i = phi ptr [ %20, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr8.sink.i = phi ptr [ %add.ptr8.i, %cond.false.i ], [ %arrayidx35.i, %for.body.us.i.i ], [ %arrayidx.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %22, i64 %21
-  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !42
+  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !41
   %cmp.i.not = icmp eq ptr %.sink.i, %23
   br i1 %cmp.i.not, label %if.end, label %if.then
 
@@ -968,7 +968,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
   store ptr %call.i.i, ptr %ref.tmp2, align 8
   %second.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i32 %24, ptr %second.i, align 8
-  %25 = load i8, ptr %call.i.i, align 1, !noalias !45
+  %25 = load i8, ptr %call.i.i, align 1, !noalias !44
   %cmp.not2.i.i.i.i = icmp eq i8 %25, 0
   br i1 %cmp.not2.i.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_.exit, label %while.body.i.i.i.i3
 
@@ -980,7 +980,7 @@ while.body.i.i.i.i3:                              ; preds = %if.end, %while.body
   %incdec.ptr.i.i.i.i4 = getelementptr inbounds i8, ptr %p.addr.03.i.i.i.i, i64 1
   %mul.i.i.i.i = mul i32 %result.04.i.i.i.i, 16777619
   %xor.i.i.i.i = xor i32 %mul.i.i.i.i, %conv.i.i.i.i
-  %27 = load i8, ptr %incdec.ptr.i.i.i.i4, align 1, !noalias !45
+  %27 = load i8, ptr %incdec.ptr.i.i.i.i4, align 1, !noalias !44
   %cmp.not.i.i.i.i = icmp eq i8 %27, 0
   br i1 %cmp.not.i.i.i.i, label %while.end.loopexit.i.i.i.i, label %while.body.i.i.i.i3, !llvm.loop !12
 
@@ -1013,7 +1013,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE16insert_or_assignES3_RKi(ptr noalias sret(%"struct.eastl::pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca ptr, align 8
-  %0 = load i8, ptr %key, align 1, !noalias !50
+  %0 = load i8, ptr %key, align 1, !noalias !49
   %cmp.not2.i.i.i = icmp eq i8 %0, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -1025,71 +1025,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !50
+  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !49
   %cmp.not.i.i.i = icmp eq i8 %2, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !49
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !49
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
-  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !50
+  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !49
   %tobool.not4.i.i = icmp eq ptr %5, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !49
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !49
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
-  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !50
+  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !49
   %tobool.not4.i36.i = icmp eq ptr %8, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %11, %for.inc.us.i.i ], [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !50
-  %10 = load i8, ptr %9, align 1, !noalias !50
+  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !49
+  %10 = load i8, ptr %9, align 1, !noalias !49
   %cmp6.i.i.us.i.i = icmp eq i8 %10, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 16
-  %11 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !50
+  %11 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !49
   %tobool.not.us.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !40
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !39
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %17, %for.inc.i.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !50
+  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !49
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %13 = phi i8 [ %15, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %12, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %key, %for.body.i.i ]
-  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !50
+  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !49
   %cmp.i.i.i.i = icmp eq i8 %13, %14
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !50
+  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !49
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !50
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !49
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -1100,15 +1100,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 16
-  %17 = load ptr, ptr %mpNext.i.i, align 8, !noalias !50
+  %17 = load ptr, ptr %mpNext.i.i, align 8, !noalias !49
   %tobool.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !40
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !39
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %18 = phi ptr [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %19 = phi i64 [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %3, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %6, %for.inc.us.i.i ], [ %3, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %18, i64 %19
-  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !50
+  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !49
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -1116,7 +1116,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %22 = phi ptr [ %18, %cond.false.i ], [ %7, %for.body.us.i.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %.sink.i = phi ptr [ %20, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %22, i64 %21
-  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !53
+  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !52
   %cmp.i.not = icmp eq ptr %.sink.i, %23
   br i1 %cmp.i.not, label %if.else, label %if.then
 
@@ -1141,8 +1141,8 @@ return:                                           ; preds = %if.else, %if.then
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE16insert_or_assignIRKiEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEERS4_OT_(ptr noalias sret(%"struct.eastl::pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(8) %k, ptr noundef nonnull align 4 dereferenceable(4) %obj) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"struct.eastl::pair.1", align 8
-  %0 = load ptr, ptr %k, align 8
-  %1 = load i8, ptr %0, align 1, !noalias !39
+  %0 = load ptr, ptr %k, align 8, !noalias !55
+  %1 = load i8, ptr %0, align 1, !noalias !55
   %cmp.not2.i.i.i = icmp eq i8 %1, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -1154,71 +1154,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %3 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !56
+  %3 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !55
   %cmp.not.i.i.i = icmp eq i8 %3, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !55
   %conv.i = trunc i64 %4 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !55
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %conv3.i
-  %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !56
+  %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !55
   %tobool.not4.i.i = icmp eq ptr %6, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !55
   %conv31.i = trunc i64 %7 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !55
   %arrayidx35.i = getelementptr inbounds ptr, ptr %8, i64 %conv333.i
-  %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !56
+  %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !55
   %tobool.not4.i36.i = icmp eq ptr %9, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %12, %for.inc.us.i.i ], [ %9, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %10 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !56
-  %11 = load i8, ptr %10, align 1, !noalias !56
+  %10 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !55
+  %11 = load i8, ptr %10, align 1, !noalias !55
   %cmp6.i.i.us.i.i = icmp eq i8 %11, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 16
-  %12 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !56
+  %12 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !55
   %tobool.not.us.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !40
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !39
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %18, %for.inc.i.i ], [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %13 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !56
+  %13 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !55
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %14 = phi i8 [ %16, %while.body.i.i.i.i ], [ %1, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %13, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
-  %15 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !56
+  %15 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !55
   %cmp.i.i.i.i = icmp eq i8 %14, %15
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !56
+  %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !55
   %tobool.not.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !56
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !55
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -1229,15 +1229,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 16
-  %18 = load ptr, ptr %mpNext.i.i, align 8, !noalias !56
+  %18 = load ptr, ptr %mpNext.i.i, align 8, !noalias !55
   %tobool.not.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !40
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !39
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %19 = phi ptr [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %8, %for.inc.us.i.i ], [ %5, %for.inc.i.i ]
   %20 = phi i64 [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %19, i64 %20
-  %21 = load ptr, ptr %add.ptr8.i, align 8, !noalias !56
+  %21 = load ptr, ptr %add.ptr8.i, align 8, !noalias !55
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -1246,7 +1246,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %.sink.i = phi ptr [ %21, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr8.sink.i = phi ptr [ %add.ptr8.i, %cond.false.i ], [ %arrayidx35.i, %for.body.us.i.i ], [ %arrayidx.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %23, i64 %22
-  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !59
+  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !58
   %cmp.i = icmp eq ptr %.sink.i, %24
   br i1 %cmp.i, label %if.then, label %if.else
 
@@ -1265,7 +1265,7 @@ while.body.i.i.i.i5:                              ; preds = %if.then, %while.bod
   %incdec.ptr.i.i.i.i6 = getelementptr inbounds i8, ptr %p.addr.03.i.i.i.i, i64 1
   %mul.i.i.i.i = mul i32 %result.04.i.i.i.i, 16777619
   %xor.i.i.i.i = xor i32 %mul.i.i.i.i, %conv.i.i.i.i
-  %27 = load i8, ptr %incdec.ptr.i.i.i.i6, align 1, !noalias !62
+  %27 = load i8, ptr %incdec.ptr.i.i.i.i6, align 1, !noalias !61
   %cmp.not.i.i.i.i = icmp eq i8 %27, 0
   br i1 %cmp.not.i.i.i.i, label %while.end.loopexit.i.i.i.i, label %while.body.i.i.i.i5, !llvm.loop !12
 
@@ -1297,8 +1297,8 @@ return:                                           ; preds = %if.else, %_ZN5eastl
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE16insert_or_assignIRKiEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEEOS2_OT_(ptr noalias sret(%"struct.eastl::pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(8) %k, ptr noundef nonnull align 4 dereferenceable(4) %obj) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"struct.eastl::pair.1", align 8
-  %0 = load ptr, ptr %k, align 8
-  %1 = load i8, ptr %0, align 1, !noalias !39
+  %0 = load ptr, ptr %k, align 8, !noalias !66
+  %1 = load i8, ptr %0, align 1, !noalias !66
   %cmp.not2.i.i.i = icmp eq i8 %1, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -1310,71 +1310,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %3 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !67
+  %3 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !66
   %cmp.not.i.i.i = icmp eq i8 %3, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !66
   %conv.i = trunc i64 %4 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !66
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %conv3.i
-  %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !67
+  %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !66
   %tobool.not4.i.i = icmp eq ptr %6, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !66
   %conv31.i = trunc i64 %7 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !66
   %arrayidx35.i = getelementptr inbounds ptr, ptr %8, i64 %conv333.i
-  %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !67
+  %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !66
   %tobool.not4.i36.i = icmp eq ptr %9, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %12, %for.inc.us.i.i ], [ %9, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %10 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !67
-  %11 = load i8, ptr %10, align 1, !noalias !67
+  %10 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !66
+  %11 = load i8, ptr %10, align 1, !noalias !66
   %cmp6.i.i.us.i.i = icmp eq i8 %11, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 16
-  %12 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !67
+  %12 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !66
   %tobool.not.us.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !40
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !39
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %18, %for.inc.i.i ], [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %13 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !67
+  %13 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !66
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %14 = phi i8 [ %16, %while.body.i.i.i.i ], [ %1, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %13, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
-  %15 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !67
+  %15 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !66
   %cmp.i.i.i.i = icmp eq i8 %14, %15
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !67
+  %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !66
   %tobool.not.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !67
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !66
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -1385,15 +1385,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 16
-  %18 = load ptr, ptr %mpNext.i.i, align 8, !noalias !67
+  %18 = load ptr, ptr %mpNext.i.i, align 8, !noalias !66
   %tobool.not.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !40
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !39
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %19 = phi ptr [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %8, %for.inc.us.i.i ], [ %5, %for.inc.i.i ]
   %20 = phi i64 [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %19, i64 %20
-  %21 = load ptr, ptr %add.ptr8.i, align 8, !noalias !67
+  %21 = load ptr, ptr %add.ptr8.i, align 8, !noalias !66
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -1402,7 +1402,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %.sink.i = phi ptr [ %21, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr8.sink.i = phi ptr [ %add.ptr8.i, %cond.false.i ], [ %arrayidx35.i, %for.body.us.i.i ], [ %arrayidx.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %23, i64 %22
-  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !70
+  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !69
   %cmp.i = icmp eq ptr %.sink.i, %24
   br i1 %cmp.i, label %if.then, label %if.else
 
@@ -1421,7 +1421,7 @@ while.body.i.i.i.i5:                              ; preds = %if.then, %while.bod
   %incdec.ptr.i.i.i.i6 = getelementptr inbounds i8, ptr %p.addr.03.i.i.i.i, i64 1
   %mul.i.i.i.i = mul i32 %result.04.i.i.i.i, 16777619
   %xor.i.i.i.i = xor i32 %mul.i.i.i.i, %conv.i.i.i.i
-  %27 = load i8, ptr %incdec.ptr.i.i.i.i6, align 1, !noalias !73
+  %27 = load i8, ptr %incdec.ptr.i.i.i.i6, align 1, !noalias !72
   %cmp.not.i.i.i.i = icmp eq i8 %27, 0
   br i1 %cmp.not.i.i.i.i, label %while.end.loopexit.i.i.i.i, label %while.body.i.i.i.i5, !llvm.loop !12
 
@@ -1453,58 +1453,58 @@ return:                                           ; preds = %if.else, %_ZN5eastl
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE5eraseENS_18hashtable_iteratorINS_4pairIKS3_iEELb1ELb0EEE(ptr noalias sret(%"struct.eastl::hashtable_iterator.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr %position.coerce0, ptr %position.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %position.coerce0, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   %mpBucket.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %position.coerce1, ptr %mpBucket.i.i.i, align 8, !alias.scope !78
+  store ptr %position.coerce1, ptr %mpBucket.i.i.i, align 8, !alias.scope !77
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %position.coerce0, i64 16
-  %storemerge1.i.i.i = load ptr, ptr %mpNext.i.i.i, align 8, !noalias !78
-  store ptr %storemerge1.i.i.i, ptr %agg.result, align 8, !alias.scope !78
+  %storemerge1.i.i.i = load ptr, ptr %mpNext.i.i.i, align 8, !noalias !77
+  store ptr %storemerge1.i.i.i, ptr %agg.result, align 8, !alias.scope !77
   %cmp2.i.i.i = icmp eq ptr %storemerge1.i.i.i, null
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %1 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %position.coerce1, %entry ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8, !noalias !78
+  %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8, !noalias !77
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit.loopexit.i, !llvm.loop !13
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit.loopexit.i: ; preds = %while.body.i.i.i
-  store ptr %incdec.ptr.i.i.i, ptr %mpBucket.i.i.i, align 8, !alias.scope !78
-  store ptr %storemerge.i.i.i, ptr %agg.result, align 8, !alias.scope !78
+  store ptr %incdec.ptr.i.i.i, ptr %mpBucket.i.i.i, align 8, !alias.scope !77
+  store ptr %storemerge.i.i.i, ptr %agg.result, align 8, !alias.scope !77
   br label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit.i
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit.loopexit.i, %entry
-  %2 = load ptr, ptr %position.coerce1, align 8, !noalias !78
+  %2 = load ptr, ptr %position.coerce1, align 8, !noalias !77
   %cmp.i = icmp eq ptr %2, %position.coerce0
   br i1 %cmp.i, label %if.then.i, label %while.cond.i
 
 if.then.i:                                        ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit.i
   %mpNext.i = getelementptr inbounds i8, ptr %2, i64 16
-  %3 = load ptr, ptr %mpNext.i, align 8, !noalias !78
-  store ptr %3, ptr %position.coerce1, align 8, !noalias !78
+  %3 = load ptr, ptr %mpNext.i, align 8, !noalias !77
+  store ptr %3, ptr %position.coerce1, align 8, !noalias !77
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit
 
 while.cond.i:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit.i, %while.cond.i
   %pNodeCurrent.0.i = phi ptr [ %pNodeNext.0.i, %while.cond.i ], [ %2, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit.i ]
   %pNodeNext.0.in.i = getelementptr inbounds i8, ptr %pNodeCurrent.0.i, i64 16
-  %pNodeNext.0.i = load ptr, ptr %pNodeNext.0.in.i, align 8, !noalias !78
+  %pNodeNext.0.i = load ptr, ptr %pNodeNext.0.in.i, align 8, !noalias !77
   %cmp6.not.i = icmp eq ptr %pNodeNext.0.i, %position.coerce0
-  br i1 %cmp6.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !81
+  br i1 %cmp6.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !80
 
 while.end.i:                                      ; preds = %while.cond.i
   %pNodeNext.0.in.i.le = getelementptr inbounds i8, ptr %pNodeCurrent.0.i, i64 16
   %mpNext8.i = getelementptr inbounds i8, ptr %pNodeNext.0.i, i64 16
-  %4 = load ptr, ptr %mpNext8.i, align 8, !noalias !78
-  store ptr %4, ptr %pNodeNext.0.in.i.le, align 8, !noalias !78
+  %4 = load ptr, ptr %mpNext8.i, align 8, !noalias !77
+  store ptr %4, ptr %pNodeNext.0.in.i.le, align 8, !noalias !77
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit: ; preds = %while.end.i, %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %position.coerce0) #13, !noalias !78
+  tail call void @_ZdaPv(ptr noundef nonnull %position.coerce0) #13, !noalias !77
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load i64, ptr %mnElementCount.i, align 8, !noalias !78
+  %5 = load i64, ptr %mnElementCount.i, align 8, !noalias !77
   %dec.i = add i64 %5, -1
-  store i64 %dec.i, ptr %mnElementCount.i, align 8, !noalias !78
+  store i64 %dec.i, ptr %mnElementCount.i, align 8, !noalias !77
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %delete.notnull.i
 
@@ -1519,7 +1519,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN5eastl9hashtable
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef i64 @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE5eraseES3_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %key) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i8, ptr %key, align 1, !noalias !82
+  %0 = load i8, ptr %key, align 1, !noalias !81
   %cmp.not2.i.i.i = icmp eq i8 %0, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -1531,71 +1531,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !82
+  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !81
   %cmp.not.i.i.i = icmp eq i8 %2, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !81
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !81
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
-  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !39
+  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !81
   %tobool.not4.i.i = icmp eq ptr %5, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !81
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !81
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
-  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !39
+  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !81
   %tobool.not4.i36.i = icmp eq ptr %8, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %11, %for.inc.us.i.i ], [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !82
-  %10 = load i8, ptr %9, align 1, !noalias !82
+  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !81
+  %10 = load i8, ptr %9, align 1, !noalias !81
   %cmp6.i.i.us.i.i = icmp eq i8 %10, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 16
-  %11 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !82
+  %11 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !81
   %tobool.not.us.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !40
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !39
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %17, %for.inc.i.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !82
+  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !81
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %13 = phi i8 [ %15, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %12, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %key, %for.body.i.i ]
-  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !82
+  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !81
   %cmp.i.i.i.i = icmp eq i8 %13, %14
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !82
+  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !81
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !82
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !81
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -1606,15 +1606,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 16
-  %17 = load ptr, ptr %mpNext.i.i, align 8, !noalias !82
+  %17 = load ptr, ptr %mpNext.i.i, align 8, !noalias !81
   %tobool.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !40
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !39
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %18 = phi ptr [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %19 = phi i64 [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %3, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %6, %for.inc.us.i.i ], [ %3, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %18, i64 %19
-  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !39
+  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !81
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -1624,46 +1624,46 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %.sink.i = phi ptr [ %20, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr8.sink.i = phi ptr [ %add.ptr8.i, %cond.false.i ], [ %arrayidx35.i, %for.body.us.i.i ], [ %arrayidx.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %23, i64 %22
-  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !85
+  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !84
   %cmp.i.not = icmp eq ptr %.sink.i, %24
   br i1 %cmp.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %25 = load ptr, ptr %.sink.i, align 8, !noalias !88
+  %25 = load ptr, ptr %.sink.i, align 8, !noalias !87
   %cmp.i.i = icmp eq ptr %21, %.sink.i
   br i1 %cmp.i.i, label %if.then.i.i, label %while.cond.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   %mpNext.i.i3 = getelementptr inbounds i8, ptr %21, i64 16
-  %26 = load ptr, ptr %mpNext.i.i3, align 8, !noalias !91
-  store ptr %26, ptr %add.ptr8.sink.i, align 8, !noalias !91
+  %26 = load ptr, ptr %mpNext.i.i3, align 8, !noalias !90
+  store ptr %26, ptr %add.ptr8.sink.i, align 8, !noalias !90
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit.i
 
 while.cond.i.i:                                   ; preds = %if.then, %while.cond.i.i
   %pNodeCurrent.0.i.i = phi ptr [ %pNodeNext.0.i.i, %while.cond.i.i ], [ %21, %if.then ]
   %pNodeNext.0.in.i.i = getelementptr inbounds i8, ptr %pNodeCurrent.0.i.i, i64 16
-  %pNodeNext.0.i.i = load ptr, ptr %pNodeNext.0.in.i.i, align 8, !noalias !91
+  %pNodeNext.0.i.i = load ptr, ptr %pNodeNext.0.in.i.i, align 8, !noalias !90
   %cmp6.not.i.i = icmp eq ptr %pNodeNext.0.i.i, %.sink.i
-  br i1 %cmp6.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !81
+  br i1 %cmp6.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !80
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %pNodeNext.0.in.i.i.le = getelementptr inbounds i8, ptr %pNodeCurrent.0.i.i, i64 16
   %mpNext8.i.i = getelementptr inbounds i8, ptr %pNodeNext.0.i.i, i64 16
-  %27 = load ptr, ptr %mpNext8.i.i, align 8, !noalias !91
-  store ptr %27, ptr %pNodeNext.0.in.i.i.le, align 8, !noalias !91
+  %27 = load ptr, ptr %mpNext8.i.i, align 8, !noalias !90
+  store ptr %27, ptr %pNodeNext.0.in.i.i.le, align 8, !noalias !90
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit.i
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit.i: ; preds = %while.end.i.i, %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #13, !noalias !91
+  tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #13, !noalias !90
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %28 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !91
+  %28 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !90
   %dec.i.i = add i64 %28, -1
-  store i64 %dec.i.i, ptr %mnElementCount.i.i, align 8, !noalias !91
+  store i64 %dec.i.i, ptr %mnElementCount.i.i, align 8, !noalias !90
   %isnull.i.i = icmp eq ptr %25, null
   br i1 %isnull.i.i, label %return, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #13, !noalias !88
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #13, !noalias !87
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit.i, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
@@ -1676,7 +1676,7 @@ define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5ea
 entry:
   %ref.tmp3 = alloca %"struct.eastl::pair", align 8
   %ref.tmp4 = alloca %"struct.eastl::pair.1", align 8
-  %0 = load i8, ptr %key, align 1, !noalias !94
+  %0 = load i8, ptr %key, align 1, !noalias !93
   %cmp.not2.i.i.i = icmp eq i8 %0, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -1688,71 +1688,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !94
+  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !93
   %cmp.not.i.i.i = icmp eq i8 %2, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !93
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !93
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
-  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !94
+  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !93
   %tobool.not4.i.i = icmp eq ptr %5, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !93
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !93
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
-  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !94
+  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !93
   %tobool.not4.i36.i = icmp eq ptr %8, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %11, %for.inc.us.i.i ], [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !94
-  %10 = load i8, ptr %9, align 1, !noalias !94
+  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !93
+  %10 = load i8, ptr %9, align 1, !noalias !93
   %cmp6.i.i.us.i.i = icmp eq i8 %10, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 16
-  %11 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !94
+  %11 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !93
   %tobool.not.us.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !40
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !39
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %17, %for.inc.i.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !94
+  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !93
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %13 = phi i8 [ %15, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %12, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %key, %for.body.i.i ]
-  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !94
+  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !93
   %cmp.i.i.i.i = icmp eq i8 %13, %14
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !94
+  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !93
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !94
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !93
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -1763,15 +1763,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 16
-  %17 = load ptr, ptr %mpNext.i.i, align 8, !noalias !94
+  %17 = load ptr, ptr %mpNext.i.i, align 8, !noalias !93
   %tobool.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !40
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !39
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %18 = phi ptr [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %19 = phi i64 [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %3, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %6, %for.inc.us.i.i ], [ %3, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %18, i64 %19
-  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !94
+  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !93
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -1779,7 +1779,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %22 = phi ptr [ %18, %cond.false.i ], [ %7, %for.body.us.i.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %.sink.i = phi ptr [ %20, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %22, i64 %21
-  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !97
+  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !96
   %cmp.i.not = icmp eq ptr %.sink.i, %23
   br i1 %cmp.i.not, label %if.end, label %return
 
@@ -1791,7 +1791,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
   store ptr %call.i.i, ptr %ref.tmp4, align 8
   %second.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store i32 0, ptr %second.i, align 8
-  %24 = load i8, ptr %call.i.i, align 1, !noalias !100
+  %24 = load i8, ptr %call.i.i, align 1, !noalias !99
   %cmp.not2.i.i.i.i = icmp eq i8 %24, 0
   br i1 %cmp.not2.i.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_.exit, label %while.body.i.i.i.i3
 
@@ -1803,7 +1803,7 @@ while.body.i.i.i.i3:                              ; preds = %if.end, %while.body
   %incdec.ptr.i.i.i.i4 = getelementptr inbounds i8, ptr %p.addr.03.i.i.i.i, i64 1
   %mul.i.i.i.i = mul i32 %result.04.i.i.i.i, 16777619
   %xor.i.i.i.i = xor i32 %mul.i.i.i.i, %conv.i.i.i.i
-  %26 = load i8, ptr %incdec.ptr.i.i.i.i4, align 1, !noalias !100
+  %26 = load i8, ptr %incdec.ptr.i.i.i.i4, align 1, !noalias !99
   %cmp.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %cmp.not.i.i.i.i, label %while.end.loopexit.i.i.i.i, label %while.body.i.i.i.i3, !llvm.loop !12
 
@@ -1872,7 +1872,7 @@ while.cond.i.i:                                   ; preds = %entry, %while.cond.
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
   %3 = load ptr, ptr %storemerge.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
-  br i1 %cmp.i.i, label %while.cond.i.i, label %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !105
+  br i1 %cmp.i.i, label %while.cond.i.i, label %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !104
 
 _ZNK5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %entry
   %retval.sroa.4.0.i = phi ptr [ %1, %entry ], [ %storemerge.i.i, %while.cond.i.i ]
@@ -1900,7 +1900,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 invoke.cont12:                                    ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i5, ptr align 1 %6, i64 %add.i, i1 false)
   %second = getelementptr inbounds i8, ptr %i.sroa.0.012, i64 32
-  store ptr %call.i.i5, ptr %ref.tmp, align 32, !alias.scope !106
+  store ptr %call.i.i5, ptr %ref.tmp, align 32, !alias.scope !105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %second.i.i, ptr noundef nonnull align 32 dereferenceable(32) %second, i64 32, i1 false)
   invoke void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEJNS3_IPcS5_EEETnPNS_9enable_ifIXsrT_5valueEvE4typeELPv0EEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEESO_DpOT0_(ptr nonnull sret(%"struct.eastl::pair.16") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(64) %ref.tmp)
           to label %for.inc unwind label %lpad
@@ -1916,7 +1916,7 @@ while.body.i.i:                                   ; preds = %for.inc, %while.bod
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %storemerge.i.i6 = load ptr, ptr %incdec.ptr.i.i, align 8
   %cmp.i.i7 = icmp eq ptr %storemerge.i.i6, null
-  br i1 %cmp.i.i7, label %while.body.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit, !llvm.loop !109
+  br i1 %cmp.i.i7, label %while.body.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit, !llvm.loop !108
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit: ; preds = %while.body.i.i, %for.inc
   %i.sroa.0.1 = phi ptr [ %storemerge1.i.i, %for.inc ], [ %storemerge.i.i6, %while.body.i.i ]
@@ -1972,13 +1972,13 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %3 = load ptr, ptr %mpNext.i.i.i, align 32
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   %tobool.not.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i, !llvm.loop !110
+  br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i, !llvm.loop !109
 
 while.end.i.i.i:                                  ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i, %for.body.i.i.i
   store ptr null, ptr %arrayidx.i.i.i, align 8
   %inc.i.i.i = add nuw i64 %i.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %1
-  br i1 %exitcond.not.i.i.i, label %invoke.cont.i, label %for.body.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i, label %invoke.cont.i, label %for.body.i.i.i, !llvm.loop !110
 
 invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %.pre.i = load ptr, ptr %mpBucketArray.i.i, align 8
@@ -2002,25 +2002,25 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #1 comdat($_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mpBucketArray.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %mpBucketArray.i.i, align 8
-  %1 = load ptr, ptr %0, align 8, !noalias !112
+  %0 = load ptr, ptr %mpBucketArray.i.i, align 8, !noalias !111
+  %1 = load ptr, ptr %0, align 8, !noalias !111
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %while.cond.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i
 
 while.cond.i.i.i:                                 ; preds = %entry, %while.cond.i.i.i
   %.pn.i.i.i = phi ptr [ %storemerge.i.i.i, %while.cond.i.i.i ], [ %0, %entry ]
   %storemerge.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 8
-  %2 = load ptr, ptr %storemerge.i.i.i, align 8, !noalias !112
+  %2 = load ptr, ptr %storemerge.i.i.i, align 8, !noalias !111
   %cmp.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i.i, label %while.cond.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i, !llvm.loop !105
+  br i1 %cmp.i.i.i, label %while.cond.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i, !llvm.loop !104
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i: ; preds = %while.cond.i.i.i, %entry
   %ref.tmp.sroa.0.0.i = phi ptr [ %1, %entry ], [ %2, %while.cond.i.i.i ]
   %ref.tmp.sroa.3.0.i = phi ptr [ %0, %entry ], [ %storemerge.i.i.i, %while.cond.i.i.i ]
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i.i, align 8
+  %3 = load i64, ptr %mnBucketCount.i.i, align 8, !noalias !114
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %0, i64 %3
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !115
+  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !114
   %cmp.i.not13.i = icmp eq ptr %ref.tmp.sroa.0.0.i, %4
   br i1 %cmp.i.not13.i, label %for.end.i, label %for.body.i
 
@@ -2046,13 +2046,13 @@ while.body.i.i.i:                                 ; preds = %_ZN5eastl9allocator
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %storemerge.i.i6.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i7.i = icmp eq ptr %storemerge.i.i6.i, null
-  br i1 %cmp.i.i7.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit.i, !llvm.loop !109
+  br i1 %cmp.i.i7.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit.i, !llvm.loop !108
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %i.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %storemerge.i.i6.i, %while.body.i.i.i ]
   %i.sroa.6.1.i = phi ptr [ %i.sroa.6.015.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %cmp.i.not.i = icmp eq ptr %i.sroa.0.1.i, %4
-  br i1 %cmp.i.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !118
+  br i1 %cmp.i.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !117
 
 for.end.loopexit.i:                               ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit.i
   %.pre.i = load ptr, ptr %mpBucketArray.i.i, align 8
@@ -2082,13 +2082,13 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %10 = load ptr, ptr %mpNext.i.i10.i, align 32
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   %tobool.not.i.i.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i, !llvm.loop !110
+  br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i, !llvm.loop !109
 
 while.end.i.i.i:                                  ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i, %for.body.i.i.i
   store ptr null, ptr %arrayidx.i.i.i, align 8
   %inc.i.i.i = add nuw i64 %i.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %7
-  br i1 %exitcond.not.i.i.i, label %invoke.cont, label %for.body.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i, label %invoke.cont, label %for.body.i.i.i, !llvm.loop !110
 
 invoke.cont:                                      ; preds = %while.end.i.i.i
   %.pre = load ptr, ptr %mpBucketArray.i.i, align 8
@@ -2116,13 +2116,13 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %12 = load ptr, ptr %mpNext.i.i.i.i, align 32
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i.i) #13
   %tobool.not.i.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i.i, label %while.end.i.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i.i, !llvm.loop !110
+  br i1 %tobool.not.i.i.i.i, label %while.end.i.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i.i, !llvm.loop !109
 
 while.end.i.i.i.i:                                ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i.i, %for.body.i.i.i.i
   store ptr null, ptr %arrayidx.i.i.i.i, align 8
   %inc.i.i.i.i = add nuw i64 %i.010.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, %.pre1
-  br i1 %exitcond.not.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i, !llvm.loop !110
 
 invoke.cont.i.i:                                  ; preds = %while.end.i.i.i.i
   %.pre.i.i = load ptr, ptr %mpBucketArray.i.i, align 8
@@ -2145,25 +2145,25 @@ _ZN5eastl8hash_mapIPKc7Align32NS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocator
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(45) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %mpBucketArray.i, align 8
-  %1 = load ptr, ptr %0, align 8, !noalias !119
+  %0 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !118
+  %1 = load ptr, ptr %0, align 8, !noalias !118
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %entry, %while.cond.i.i
   %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %0, %entry ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %2 = load ptr, ptr %storemerge.i.i, align 8, !noalias !119
+  %2 = load ptr, ptr %storemerge.i.i, align 8, !noalias !118
   %cmp.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !105
+  br i1 %cmp.i.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !104
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %entry
   %ref.tmp.sroa.0.0 = phi ptr [ %1, %entry ], [ %2, %while.cond.i.i ]
   %ref.tmp.sroa.3.0 = phi ptr [ %0, %entry ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !121
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %3
-  %4 = load ptr, ptr %add.ptr.i, align 8, !noalias !122
+  %4 = load ptr, ptr %add.ptr.i, align 8, !noalias !121
   %cmp.i.not13 = icmp eq ptr %ref.tmp.sroa.0.0, %4
   br i1 %cmp.i.not13, label %for.end, label %for.body
 
@@ -2189,13 +2189,13 @@ while.body.i.i:                                   ; preds = %_ZN5eastl9allocator
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %storemerge.i.i6 = load ptr, ptr %incdec.ptr.i.i, align 8
   %cmp.i.i7 = icmp eq ptr %storemerge.i.i6, null
-  br i1 %cmp.i.i7, label %while.body.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit, !llvm.loop !109
+  br i1 %cmp.i.i7, label %while.body.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit, !llvm.loop !108
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit: ; preds = %while.body.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit
   %i.sroa.0.1 = phi ptr [ %storemerge1.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %storemerge.i.i6, %while.body.i.i ]
   %i.sroa.6.1 = phi ptr [ %i.sroa.6.015, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %cmp.i.not = icmp eq ptr %i.sroa.0.1, %4
-  br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !118
+  br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !117
 
 for.end.loopexit:                                 ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit
   %.pre = load ptr, ptr %mpBucketArray.i, align 8
@@ -2221,13 +2221,13 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %10 = load ptr, ptr %mpNext.i.i10, align 32
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   %tobool.not.i.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i, label %while.end.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i, !llvm.loop !110
+  br i1 %tobool.not.i.i, label %while.end.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i, !llvm.loop !109
 
 while.end.i.i:                                    ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i, %for.body.i.i
   store ptr null, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw i64 %i.010.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %7
-  br i1 %exitcond.not.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv.exit, label %for.body.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv.exit, label %for.body.i.i, !llvm.loop !110
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv.exit: ; preds = %while.end.i.i, %for.end
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2239,25 +2239,25 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE5clearEb(ptr noundef nonnull align 8 dereferenceable(45) %this, i1 noundef zeroext %clearBuckets) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %mpBucketArray.i, align 8
-  %1 = load ptr, ptr %0, align 8, !noalias !125
+  %0 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !124
+  %1 = load ptr, ptr %0, align 8, !noalias !124
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %entry, %while.cond.i.i
   %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %0, %entry ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %2 = load ptr, ptr %storemerge.i.i, align 8, !noalias !125
+  %2 = load ptr, ptr %storemerge.i.i, align 8, !noalias !124
   %cmp.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !105
+  br i1 %cmp.i.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !104
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %entry
   %ref.tmp.sroa.0.0 = phi ptr [ %1, %entry ], [ %2, %while.cond.i.i ]
   %ref.tmp.sroa.3.0 = phi ptr [ %0, %entry ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !127
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %3
-  %4 = load ptr, ptr %add.ptr.i, align 8, !noalias !128
+  %4 = load ptr, ptr %add.ptr.i, align 8, !noalias !127
   %cmp.i.not14 = icmp eq ptr %ref.tmp.sroa.0.0, %4
   br i1 %cmp.i.not14, label %for.end, label %for.body
 
@@ -2283,13 +2283,13 @@ while.body.i.i:                                   ; preds = %_ZN5eastl9allocator
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %storemerge.i.i6 = load ptr, ptr %incdec.ptr.i.i, align 8
   %cmp.i.i7 = icmp eq ptr %storemerge.i.i6, null
-  br i1 %cmp.i.i7, label %while.body.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit, !llvm.loop !109
+  br i1 %cmp.i.i7, label %while.body.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit, !llvm.loop !108
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit: ; preds = %while.body.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit
   %i.sroa.0.1 = phi ptr [ %storemerge1.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %storemerge.i.i6, %while.body.i.i ]
   %i.sroa.6.1 = phi ptr [ %i.sroa.6.016, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %cmp.i.not = icmp eq ptr %i.sroa.0.1, %4
-  br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !131
+  br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !130
 
 for.end.loopexit:                                 ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit
   %.pre = load ptr, ptr %mpBucketArray.i, align 8
@@ -2315,13 +2315,13 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %10 = load ptr, ptr %mpNext.i.i10, align 32
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   %tobool.not.i.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i, label %while.end.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i, !llvm.loop !110
+  br i1 %tobool.not.i.i, label %while.end.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i, !llvm.loop !109
 
 while.end.i.i:                                    ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i, %for.body.i.i
   store ptr null, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw i64 %i.010.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %7
-  br i1 %exitcond.not.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS6_Lb0EEEm.exit.i, label %for.body.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS6_Lb0EEEm.exit.i, label %for.body.i.i, !llvm.loop !110
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS6_Lb0EEEm.exit.i: ; preds = %while.end.i.i, %for.end
   br i1 %clearBuckets, label %if.then.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEb.exit
@@ -2364,7 +2364,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE6insertES4_RKS1_(ptr noalias sret(%"struct.eastl::pair.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %key, ptr noundef nonnull align 32 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"struct.eastl::pair.19", align 32
-  %0 = load i8, ptr %key, align 1, !noalias !132
+  %0 = load i8, ptr %key, align 1, !noalias !131
   %cmp.not2.i.i.i = icmp eq i8 %0, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -2376,71 +2376,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !132
+  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !131
   %cmp.not.i.i.i = icmp eq i8 %2, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !131
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !131
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
-  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !132
+  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !131
   %tobool.not4.i.i = icmp eq ptr %5, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !131
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !131
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
-  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !132
+  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !131
   %tobool.not4.i36.i = icmp eq ptr %8, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %11, %for.inc.us.i.i ], [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !132
-  %10 = load i8, ptr %9, align 1, !noalias !132
+  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !131
+  %10 = load i8, ptr %9, align 1, !noalias !131
   %cmp6.i.i.us.i.i = icmp eq i8 %10, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 64
-  %11 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !132
+  %11 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !131
   %tobool.not.us.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !135
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !134
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %17, %for.inc.i.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !132
+  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !131
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %13 = phi i8 [ %15, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %12, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %key, %for.body.i.i ]
-  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !132
+  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !131
   %cmp.i.i.i.i = icmp eq i8 %13, %14
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !132
+  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !131
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !132
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !131
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -2451,15 +2451,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 64
-  %17 = load ptr, ptr %mpNext.i.i, align 32, !noalias !132
+  %17 = load ptr, ptr %mpNext.i.i, align 32, !noalias !131
   %tobool.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !135
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !134
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %18 = phi ptr [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %19 = phi i64 [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %3, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %6, %for.inc.us.i.i ], [ %3, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %18, i64 %19
-  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !132
+  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !131
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -2468,7 +2468,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %.sink.i = phi ptr [ %20, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr8.sink.i = phi ptr [ %add.ptr8.i, %cond.false.i ], [ %arrayidx35.i, %for.body.us.i.i ], [ %arrayidx.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %22, i64 %21
-  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !136
+  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !135
   %cmp.i.not = icmp eq ptr %.sink.i, %23
   br i1 %cmp.i.not, label %if.end, label %if.then
 
@@ -2485,7 +2485,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
-  store ptr %call.i.i, ptr %ref.tmp2, align 32, !alias.scope !139
+  store ptr %call.i.i, ptr %ref.tmp2, align 32, !alias.scope !138
   %second.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %second.i.i, ptr noundef nonnull align 32 dereferenceable(32) %value, i64 32, i1 false)
   call void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEJNS3_IPcS5_EEETnPNS_9enable_ifIXsrT_5valueEvE4typeELPv0EEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEESO_DpOT0_(ptr sret(%"struct.eastl::pair.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(64) %ref.tmp2)
@@ -2508,7 +2508,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE16insert_or_assignES4_RKS1_(ptr noalias sret(%"struct.eastl::pair.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %key, ptr noundef nonnull align 32 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca ptr, align 8
-  %0 = load i8, ptr %key, align 1, !noalias !142
+  %0 = load i8, ptr %key, align 1, !noalias !141
   %cmp.not2.i.i.i = icmp eq i8 %0, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -2520,71 +2520,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !142
+  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !141
   %cmp.not.i.i.i = icmp eq i8 %2, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !141
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !141
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
-  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !142
+  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !141
   %tobool.not4.i.i = icmp eq ptr %5, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !141
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !141
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
-  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !142
+  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !141
   %tobool.not4.i36.i = icmp eq ptr %8, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %11, %for.inc.us.i.i ], [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !142
-  %10 = load i8, ptr %9, align 1, !noalias !142
+  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !141
+  %10 = load i8, ptr %9, align 1, !noalias !141
   %cmp6.i.i.us.i.i = icmp eq i8 %10, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 64
-  %11 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !142
+  %11 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !141
   %tobool.not.us.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !135
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !134
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %17, %for.inc.i.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !142
+  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !141
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %13 = phi i8 [ %15, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %12, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %key, %for.body.i.i ]
-  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !142
+  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !141
   %cmp.i.i.i.i = icmp eq i8 %13, %14
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !142
+  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !141
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !142
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !141
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -2595,15 +2595,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 64
-  %17 = load ptr, ptr %mpNext.i.i, align 32, !noalias !142
+  %17 = load ptr, ptr %mpNext.i.i, align 32, !noalias !141
   %tobool.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !135
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !134
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %18 = phi ptr [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %19 = phi i64 [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %3, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %6, %for.inc.us.i.i ], [ %3, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %18, i64 %19
-  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !142
+  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !141
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -2611,7 +2611,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %22 = phi ptr [ %18, %cond.false.i ], [ %7, %for.body.us.i.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %.sink.i = phi ptr [ %20, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %22, i64 %21
-  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !145
+  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !144
   %cmp.i.not = icmp eq ptr %.sink.i, %23
   br i1 %cmp.i.not, label %if.else, label %if.then
 
@@ -2636,8 +2636,8 @@ return:                                           ; preds = %if.else, %if.then
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE16insert_or_assignIRKS5_EENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEERS4_OT_(ptr noalias sret(%"struct.eastl::pair.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(8) %k, ptr noundef nonnull align 32 dereferenceable(4) %obj) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"struct.eastl::pair.20", align 32
-  %0 = load ptr, ptr %k, align 8
-  %1 = load i8, ptr %0, align 1, !noalias !39
+  %0 = load ptr, ptr %k, align 8, !noalias !147
+  %1 = load i8, ptr %0, align 1, !noalias !147
   %cmp.not2.i.i.i = icmp eq i8 %1, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -2649,71 +2649,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %3 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !148
+  %3 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !147
   %cmp.not.i.i.i = icmp eq i8 %3, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !147
   %conv.i = trunc i64 %4 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !147
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %conv3.i
-  %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !148
+  %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !147
   %tobool.not4.i.i = icmp eq ptr %6, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !147
   %conv31.i = trunc i64 %7 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !147
   %arrayidx35.i = getelementptr inbounds ptr, ptr %8, i64 %conv333.i
-  %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !148
+  %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !147
   %tobool.not4.i36.i = icmp eq ptr %9, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %12, %for.inc.us.i.i ], [ %9, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %10 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !148
-  %11 = load i8, ptr %10, align 1, !noalias !148
+  %10 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !147
+  %11 = load i8, ptr %10, align 1, !noalias !147
   %cmp6.i.i.us.i.i = icmp eq i8 %11, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 64
-  %12 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !148
+  %12 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !147
   %tobool.not.us.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !135
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !134
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %18, %for.inc.i.i ], [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %13 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !148
+  %13 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !147
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %14 = phi i8 [ %16, %while.body.i.i.i.i ], [ %1, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %13, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
-  %15 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !148
+  %15 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !147
   %cmp.i.i.i.i = icmp eq i8 %14, %15
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !148
+  %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !147
   %tobool.not.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !148
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !147
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -2724,15 +2724,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 64
-  %18 = load ptr, ptr %mpNext.i.i, align 32, !noalias !148
+  %18 = load ptr, ptr %mpNext.i.i, align 32, !noalias !147
   %tobool.not.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !135
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !134
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %19 = phi ptr [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %8, %for.inc.us.i.i ], [ %5, %for.inc.i.i ]
   %20 = phi i64 [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %19, i64 %20
-  %21 = load ptr, ptr %add.ptr8.i, align 8, !noalias !148
+  %21 = load ptr, ptr %add.ptr8.i, align 8, !noalias !147
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -2741,7 +2741,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %.sink.i = phi ptr [ %21, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr8.sink.i = phi ptr [ %add.ptr8.i, %cond.false.i ], [ %arrayidx35.i, %for.body.us.i.i ], [ %arrayidx.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %23, i64 %22
-  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !151
+  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !150
   %cmp.i = icmp eq ptr %.sink.i, %24
   br i1 %cmp.i, label %if.then, label %if.else
 
@@ -2759,7 +2759,7 @@ while.body.i.i.i.i5:                              ; preds = %if.then, %while.bod
   %incdec.ptr.i.i.i.i6 = getelementptr inbounds i8, ptr %p.addr.03.i.i.i.i, i64 1
   %mul.i.i.i.i = mul i32 %result.04.i.i.i.i, 16777619
   %xor.i.i.i.i = xor i32 %mul.i.i.i.i, %conv.i.i.i.i
-  %26 = load i8, ptr %incdec.ptr.i.i.i.i6, align 1, !noalias !154
+  %26 = load i8, ptr %incdec.ptr.i.i.i.i6, align 1, !noalias !153
   %cmp.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %cmp.not.i.i.i.i, label %while.end.loopexit.i.i.i.i, label %while.body.i.i.i.i5, !llvm.loop !12
 
@@ -2791,8 +2791,8 @@ return:                                           ; preds = %if.else, %_ZN5eastl
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE16insert_or_assignIRKS5_EENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEEOS2_OT_(ptr noalias sret(%"struct.eastl::pair.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(8) %k, ptr noundef nonnull align 32 dereferenceable(4) %obj) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"struct.eastl::pair.20", align 32
-  %0 = load ptr, ptr %k, align 8
-  %1 = load i8, ptr %0, align 1, !noalias !39
+  %0 = load ptr, ptr %k, align 8, !noalias !158
+  %1 = load i8, ptr %0, align 1, !noalias !158
   %cmp.not2.i.i.i = icmp eq i8 %1, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -2804,71 +2804,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %3 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !159
+  %3 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !158
   %cmp.not.i.i.i = icmp eq i8 %3, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !158
   %conv.i = trunc i64 %4 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !158
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %conv3.i
-  %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !159
+  %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !158
   %tobool.not4.i.i = icmp eq ptr %6, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !158
   %conv31.i = trunc i64 %7 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !158
   %arrayidx35.i = getelementptr inbounds ptr, ptr %8, i64 %conv333.i
-  %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !159
+  %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !158
   %tobool.not4.i36.i = icmp eq ptr %9, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %12, %for.inc.us.i.i ], [ %9, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %10 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !159
-  %11 = load i8, ptr %10, align 1, !noalias !159
+  %10 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !158
+  %11 = load i8, ptr %10, align 1, !noalias !158
   %cmp6.i.i.us.i.i = icmp eq i8 %11, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 64
-  %12 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !159
+  %12 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !158
   %tobool.not.us.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !135
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !134
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %18, %for.inc.i.i ], [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %13 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !159
+  %13 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !158
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %14 = phi i8 [ %16, %while.body.i.i.i.i ], [ %1, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %13, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
-  %15 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !159
+  %15 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !158
   %cmp.i.i.i.i = icmp eq i8 %14, %15
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !159
+  %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !158
   %tobool.not.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !159
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !158
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -2879,15 +2879,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 64
-  %18 = load ptr, ptr %mpNext.i.i, align 32, !noalias !159
+  %18 = load ptr, ptr %mpNext.i.i, align 32, !noalias !158
   %tobool.not.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !135
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !134
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %19 = phi ptr [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %8, %for.inc.us.i.i ], [ %5, %for.inc.i.i ]
   %20 = phi i64 [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %19, i64 %20
-  %21 = load ptr, ptr %add.ptr8.i, align 8, !noalias !159
+  %21 = load ptr, ptr %add.ptr8.i, align 8, !noalias !158
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -2896,7 +2896,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %.sink.i = phi ptr [ %21, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr8.sink.i = phi ptr [ %add.ptr8.i, %cond.false.i ], [ %arrayidx35.i, %for.body.us.i.i ], [ %arrayidx.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %23, i64 %22
-  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !162
+  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !161
   %cmp.i = icmp eq ptr %.sink.i, %24
   br i1 %cmp.i, label %if.then, label %if.else
 
@@ -2914,7 +2914,7 @@ while.body.i.i.i.i5:                              ; preds = %if.then, %while.bod
   %incdec.ptr.i.i.i.i6 = getelementptr inbounds i8, ptr %p.addr.03.i.i.i.i, i64 1
   %mul.i.i.i.i = mul i32 %result.04.i.i.i.i, 16777619
   %xor.i.i.i.i = xor i32 %mul.i.i.i.i, %conv.i.i.i.i
-  %26 = load i8, ptr %incdec.ptr.i.i.i.i6, align 1, !noalias !165
+  %26 = load i8, ptr %incdec.ptr.i.i.i.i6, align 1, !noalias !164
   %cmp.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %cmp.not.i.i.i.i, label %while.end.loopexit.i.i.i.i, label %while.body.i.i.i.i5, !llvm.loop !12
 
@@ -2946,58 +2946,58 @@ return:                                           ; preds = %if.else, %_ZN5eastl
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE5eraseENS_18hashtable_iteratorINS_4pairIKS4_S1_EELb1ELb0EEE(ptr noalias sret(%"struct.eastl::hashtable_iterator.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr %position.coerce0, ptr %position.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %position.coerce0, align 32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
   %mpBucket.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %position.coerce1, ptr %mpBucket.i.i.i, align 8, !alias.scope !170
+  store ptr %position.coerce1, ptr %mpBucket.i.i.i, align 8, !alias.scope !169
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %position.coerce0, i64 64
-  %storemerge1.i.i.i = load ptr, ptr %mpNext.i.i.i, align 8, !noalias !170
-  store ptr %storemerge1.i.i.i, ptr %agg.result, align 8, !alias.scope !170
+  %storemerge1.i.i.i = load ptr, ptr %mpNext.i.i.i, align 8, !noalias !169
+  store ptr %storemerge1.i.i.i, ptr %agg.result, align 8, !alias.scope !169
   %cmp2.i.i.i = icmp eq ptr %storemerge1.i.i.i, null
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %1 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %position.coerce1, %entry ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8, !noalias !170
+  %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8, !noalias !169
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.loopexit.i, !llvm.loop !109
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.loopexit.i, !llvm.loop !108
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.loopexit.i: ; preds = %while.body.i.i.i
-  store ptr %incdec.ptr.i.i.i, ptr %mpBucket.i.i.i, align 8, !alias.scope !170
-  store ptr %storemerge.i.i.i, ptr %agg.result, align 8, !alias.scope !170
+  store ptr %incdec.ptr.i.i.i, ptr %mpBucket.i.i.i, align 8, !alias.scope !169
+  store ptr %storemerge.i.i.i, ptr %agg.result, align 8, !alias.scope !169
   br label %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.i
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.loopexit.i, %entry
-  %2 = load ptr, ptr %position.coerce1, align 8, !noalias !170
+  %2 = load ptr, ptr %position.coerce1, align 8, !noalias !169
   %cmp.i = icmp eq ptr %2, %position.coerce0
   br i1 %cmp.i, label %if.then.i, label %while.cond.i
 
 if.then.i:                                        ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.i
   %mpNext.i = getelementptr inbounds i8, ptr %2, i64 64
-  %3 = load ptr, ptr %mpNext.i, align 32, !noalias !170
-  store ptr %3, ptr %position.coerce1, align 8, !noalias !170
+  %3 = load ptr, ptr %mpNext.i, align 32, !noalias !169
+  store ptr %3, ptr %position.coerce1, align 8, !noalias !169
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit
 
 while.cond.i:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.i, %while.cond.i
   %pNodeCurrent.0.i = phi ptr [ %pNodeNext.0.i, %while.cond.i ], [ %2, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb0ELb0EEppEv.exit.i ]
   %pNodeNext.0.in.i = getelementptr inbounds i8, ptr %pNodeCurrent.0.i, i64 64
-  %pNodeNext.0.i = load ptr, ptr %pNodeNext.0.in.i, align 32, !noalias !170
+  %pNodeNext.0.i = load ptr, ptr %pNodeNext.0.in.i, align 32, !noalias !169
   %cmp6.not.i = icmp eq ptr %pNodeNext.0.i, %position.coerce0
-  br i1 %cmp6.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !173
+  br i1 %cmp6.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !172
 
 while.end.i:                                      ; preds = %while.cond.i
   %pNodeNext.0.in.i.le = getelementptr inbounds i8, ptr %pNodeCurrent.0.i, i64 64
   %mpNext8.i = getelementptr inbounds i8, ptr %pNodeNext.0.i, i64 64
-  %4 = load ptr, ptr %mpNext8.i, align 32, !noalias !170
-  store ptr %4, ptr %pNodeNext.0.in.i.le, align 32, !noalias !170
+  %4 = load ptr, ptr %mpNext8.i, align 32, !noalias !169
+  store ptr %4, ptr %pNodeNext.0.in.i.le, align 32, !noalias !169
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit: ; preds = %while.end.i, %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %position.coerce0) #13, !noalias !170
+  tail call void @_ZdaPv(ptr noundef nonnull %position.coerce0) #13, !noalias !169
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load i64, ptr %mnElementCount.i, align 8, !noalias !170
+  %5 = load i64, ptr %mnElementCount.i, align 8, !noalias !169
   %dec.i = add i64 %5, -1
-  store i64 %dec.i, ptr %mnElementCount.i, align 8, !noalias !170
+  store i64 %dec.i, ptr %mnElementCount.i, align 8, !noalias !169
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %delete.notnull.i
 
@@ -3012,7 +3012,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN5eastl9hashtable
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef i64 @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE5eraseES4_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %key) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i8, ptr %key, align 1, !noalias !174
+  %0 = load i8, ptr %key, align 1, !noalias !173
   %cmp.not2.i.i.i = icmp eq i8 %0, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -3024,71 +3024,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !174
+  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !173
   %cmp.not.i.i.i = icmp eq i8 %2, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !173
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !173
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
-  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !39
+  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !173
   %tobool.not4.i.i = icmp eq ptr %5, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !173
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !173
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
-  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !39
+  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !173
   %tobool.not4.i36.i = icmp eq ptr %8, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %11, %for.inc.us.i.i ], [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !174
-  %10 = load i8, ptr %9, align 1, !noalias !174
+  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !173
+  %10 = load i8, ptr %9, align 1, !noalias !173
   %cmp6.i.i.us.i.i = icmp eq i8 %10, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 64
-  %11 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !174
+  %11 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !173
   %tobool.not.us.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !135
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !134
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %17, %for.inc.i.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !174
+  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !173
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %13 = phi i8 [ %15, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %12, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %key, %for.body.i.i ]
-  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !174
+  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !173
   %cmp.i.i.i.i = icmp eq i8 %13, %14
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !174
+  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !173
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !174
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !173
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -3099,15 +3099,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 64
-  %17 = load ptr, ptr %mpNext.i.i, align 32, !noalias !174
+  %17 = load ptr, ptr %mpNext.i.i, align 32, !noalias !173
   %tobool.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !135
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !134
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %18 = phi ptr [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %19 = phi i64 [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %3, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %6, %for.inc.us.i.i ], [ %3, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %18, i64 %19
-  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !39
+  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !173
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -3117,46 +3117,46 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %.sink.i = phi ptr [ %20, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr8.sink.i = phi ptr [ %add.ptr8.i, %cond.false.i ], [ %arrayidx35.i, %for.body.us.i.i ], [ %arrayidx.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %23, i64 %22
-  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !177
+  %24 = load ptr, ptr %add.ptr.i, align 8, !noalias !176
   %cmp.i.not = icmp eq ptr %.sink.i, %24
   br i1 %cmp.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %25 = load ptr, ptr %.sink.i, align 32, !noalias !180
+  %25 = load ptr, ptr %.sink.i, align 32, !noalias !179
   %cmp.i.i = icmp eq ptr %21, %.sink.i
   br i1 %cmp.i.i, label %if.then.i.i, label %while.cond.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   %mpNext.i.i3 = getelementptr inbounds i8, ptr %21, i64 64
-  %26 = load ptr, ptr %mpNext.i.i3, align 32, !noalias !183
-  store ptr %26, ptr %add.ptr8.sink.i, align 8, !noalias !183
+  %26 = load ptr, ptr %mpNext.i.i3, align 32, !noalias !182
+  store ptr %26, ptr %add.ptr8.sink.i, align 8, !noalias !182
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit.i
 
 while.cond.i.i:                                   ; preds = %if.then, %while.cond.i.i
   %pNodeCurrent.0.i.i = phi ptr [ %pNodeNext.0.i.i, %while.cond.i.i ], [ %21, %if.then ]
   %pNodeNext.0.in.i.i = getelementptr inbounds i8, ptr %pNodeCurrent.0.i.i, i64 64
-  %pNodeNext.0.i.i = load ptr, ptr %pNodeNext.0.in.i.i, align 32, !noalias !183
+  %pNodeNext.0.i.i = load ptr, ptr %pNodeNext.0.in.i.i, align 32, !noalias !182
   %cmp6.not.i.i = icmp eq ptr %pNodeNext.0.i.i, %.sink.i
-  br i1 %cmp6.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !173
+  br i1 %cmp6.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !172
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %pNodeNext.0.in.i.i.le = getelementptr inbounds i8, ptr %pNodeCurrent.0.i.i, i64 64
   %mpNext8.i.i = getelementptr inbounds i8, ptr %pNodeNext.0.i.i, i64 64
-  %27 = load ptr, ptr %mpNext8.i.i, align 32, !noalias !183
-  store ptr %27, ptr %pNodeNext.0.in.i.i.le, align 32, !noalias !183
+  %27 = load ptr, ptr %mpNext8.i.i, align 32, !noalias !182
+  store ptr %27, ptr %pNodeNext.0.in.i.i.le, align 32, !noalias !182
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit.i
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit.i: ; preds = %while.end.i.i, %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #13, !noalias !183
+  tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #13, !noalias !182
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %28 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !183
+  %28 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !182
   %dec.i.i = add i64 %28, -1
-  store i64 %dec.i.i, ptr %mnElementCount.i.i, align 8, !noalias !183
+  store i64 %dec.i.i, ptr %mnElementCount.i.i, align 8, !noalias !182
   %isnull.i.i = icmp eq ptr %25, null
   br i1 %isnull.i.i, label %return, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #13, !noalias !180
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #13, !noalias !179
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit.i, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
@@ -3169,7 +3169,7 @@ define weak_odr dso_local noundef nonnull align 32 dereferenceable(4) ptr @_ZN5e
 entry:
   %ref.tmp3 = alloca %"struct.eastl::pair.16", align 8
   %ref.tmp4 = alloca %"struct.eastl::pair.20", align 32
-  %0 = load i8, ptr %key, align 1, !noalias !186
+  %0 = load i8, ptr %key, align 1, !noalias !185
   %cmp.not2.i.i.i = icmp eq i8 %0, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
 
@@ -3181,71 +3181,71 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.03.i.i.i, i64 1
   %mul.i.i.i = mul i32 %result.04.i.i.i, 16777619
   %xor.i.i.i = xor i32 %mul.i.i.i, %conv.i.i.i
-  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !186
+  %2 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !185
   %cmp.not.i.i.i = icmp eq i8 %2, 0
   br i1 %cmp.not.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !185
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !185
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
-  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !186
+  %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !185
   %tobool.not4.i.i = icmp eq ptr %5, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !185
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !185
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
-  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !186
+  %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !185
   %tobool.not4.i36.i = icmp eq ptr %8, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %11, %for.inc.us.i.i ], [ %8, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !186
-  %10 = load i8, ptr %9, align 1, !noalias !186
+  %9 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !185
+  %10 = load i8, ptr %9, align 1, !noalias !185
   %cmp6.i.i.us.i.i = icmp eq i8 %10, 0
   br i1 %cmp6.i.i.us.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 64
-  %11 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !186
+  %11 = load ptr, ptr %mpNext.us.i.i, align 32, !noalias !185
   %tobool.not.us.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !135
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !134
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %17, %for.inc.i.i ], [ %5, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !186
+  %12 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !185
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %13 = phi i8 [ %15, %while.body.i.i.i.i ], [ %0, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %12, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %key, %for.body.i.i ]
-  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !186
+  %14 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !185
   %cmp.i.i.i.i = icmp eq i8 %13, %14
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !186
+  %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !185
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !186
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !185
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -3256,15 +3256,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 64
-  %17 = load ptr, ptr %mpNext.i.i, align 32, !noalias !186
+  %17 = load ptr, ptr %mpNext.i.i, align 32, !noalias !185
   %tobool.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !135
+  br i1 %tobool.not.i.i, label %cond.false.i, label %for.body.i.i, !llvm.loop !134
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %18 = phi ptr [ %7, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %7, %for.inc.us.i.i ], [ %4, %for.inc.i.i ]
   %19 = phi i64 [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %3, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %6, %for.inc.us.i.i ], [ %3, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %18, i64 %19
-  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !186
+  %20 = load ptr, ptr %add.ptr8.i, align 8, !noalias !185
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -3272,7 +3272,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %22 = phi ptr [ %18, %cond.false.i ], [ %7, %for.body.us.i.i ], [ %4, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %.sink.i = phi ptr [ %20, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i.i ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %22, i64 %21
-  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !189
+  %23 = load ptr, ptr %add.ptr.i, align 8, !noalias !188
   %cmp.i.not = icmp eq ptr %.sink.i, %23
   br i1 %cmp.i.not, label %if.end, label %return
 
@@ -3284,7 +3284,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
   store ptr %call.i.i, ptr %ref.tmp4, align 32
   %second.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 32
   store i32 0, ptr %second.i, align 32
-  %24 = load i8, ptr %call.i.i, align 1, !noalias !192
+  %24 = load i8, ptr %call.i.i, align 1, !noalias !191
   %cmp.not2.i.i.i.i = icmp eq i8 %24, 0
   br i1 %cmp.not2.i.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_.exit, label %while.body.i.i.i.i3
 
@@ -3296,7 +3296,7 @@ while.body.i.i.i.i3:                              ; preds = %if.end, %while.body
   %incdec.ptr.i.i.i.i4 = getelementptr inbounds i8, ptr %p.addr.03.i.i.i.i, i64 1
   %mul.i.i.i.i = mul i32 %result.04.i.i.i.i, 16777619
   %xor.i.i.i.i = xor i32 %mul.i.i.i.i, %conv.i.i.i.i
-  %26 = load i8, ptr %incdec.ptr.i.i.i.i4, align 1, !noalias !192
+  %26 = load i8, ptr %incdec.ptr.i.i.i.i4, align 1, !noalias !191
   %cmp.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %cmp.not.i.i.i.i, label %while.end.loopexit.i.i.i.i, label %while.body.i.i.i.i3, !llvm.loop !12
 
@@ -3426,15 +3426,15 @@ invoke.cont22:                                    ; preds = %invoke.cont18
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap) #12
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap30, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31)
   %mpBucketArray.i.i = getelementptr inbounds i8, ptr %stringHashMap30, i64 8
-  %2 = load ptr, ptr %mpBucketArray.i.i, align 8
-  %3 = load ptr, ptr %2, align 8, !noalias !197
+  %2 = load ptr, ptr %mpBucketArray.i.i, align 8, !noalias !196
+  %3 = load ptr, ptr %2, align 8, !noalias !196
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %while.cond.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i
 
 while.cond.i.i.i:                                 ; preds = %invoke.cont22, %while.cond.i.i.i
   %.pn.i.i.i = phi ptr [ %storemerge.i.i.i, %while.cond.i.i.i ], [ %2, %invoke.cont22 ]
   %storemerge.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 8
-  %4 = load ptr, ptr %storemerge.i.i.i, align 8, !noalias !197
+  %4 = load ptr, ptr %storemerge.i.i.i, align 8, !noalias !196
   %cmp.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i.i, label %while.cond.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i, !llvm.loop !5
 
@@ -3442,9 +3442,9 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %ref.tmp.sroa.0.0.i = phi ptr [ %3, %invoke.cont22 ], [ %4, %while.cond.i.i.i ]
   %ref.tmp.sroa.3.0.i = phi ptr [ %2, %invoke.cont22 ], [ %storemerge.i.i.i, %while.cond.i.i.i ]
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %stringHashMap30, i64 16
-  %5 = load i64, ptr %mnBucketCount.i.i, align 8
+  %5 = load i64, ptr %mnBucketCount.i.i, align 8, !noalias !199
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 %5
-  %6 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !200
+  %6 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !199
   %cmp.i.not14.i = icmp eq ptr %ref.tmp.sroa.0.0.i, %6
   br i1 %cmp.i.not14.i, label %for.end.i, label %for.body.i
 
@@ -3567,7 +3567,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i42: ; preds = 
   %temp.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i40, %for.body.i38 ], [ %storemerge.i.i6.i47, %while.body.i.i.i45 ]
   %temp.sroa.5.1.i = phi ptr [ %temp.sroa.5.011.i, %for.body.i38 ], [ %incdec.ptr.i.i.i46, %while.body.i.i.i45 ]
   %cmp.i.not.i43 = icmp eq ptr %temp.sroa.0.1.i, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.not.i43, label %for.end.i44.loopexit, label %for.body.i38, !llvm.loop !203
+  br i1 %cmp.i.not.i43, label %for.end.i44.loopexit, label %for.body.i38, !llvm.loop !202
 
 for.end.i44.loopexit:                             ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i42
   %18 = icmp eq i64 %inc.i, 0
@@ -3607,7 +3607,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nsw i32 %22, 1
   store i32 %inc, ptr %i, align 4
   %cmp46 = icmp slt i32 %22, 9
-  br i1 %cmp46, label %for.body, label %for.end, !llvm.loop !204
+  br i1 %cmp46, label %for.body, label %for.end, !llvm.loop !203
 
 lpad:                                             ; preds = %entry
   %23 = landingpad { ptr, i32 }
@@ -3725,7 +3725,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i83: ; preds = 
   %temp.sroa.0.1.i84 = phi ptr [ %storemerge1.i.i.i81, %for.body.i75 ], [ %storemerge.i.i6.i93, %while.body.i.i.i91 ]
   %temp.sroa.5.1.i85 = phi ptr [ %temp.sroa.5.011.i77, %for.body.i75 ], [ %incdec.ptr.i.i.i92, %while.body.i.i.i91 ]
   %cmp.i.not.i86 = icmp eq ptr %temp.sroa.0.1.i84, %33
-  br i1 %cmp.i.not.i86, label %for.end.i87, label %for.body.i75, !llvm.loop !203
+  br i1 %cmp.i.not.i86, label %for.end.i87, label %for.body.i75, !llvm.loop !202
 
 for.end.i87:                                      ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i83, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i70
   %nElementCount.0.lcssa.i88 = phi i64 [ 0, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i70 ], [ %inc.i79, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i83 ]
@@ -3745,24 +3745,24 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %invoke.cont54 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont54:                                    ; preds = %invoke.cont50
-  %37 = load ptr, ptr %mpBucketArray.i.i, align 8
-  %38 = load ptr, ptr %37, align 8, !noalias !205
+  %37 = load ptr, ptr %mpBucketArray.i.i, align 8, !noalias !204
+  %38 = load ptr, ptr %37, align 8, !noalias !204
   %tobool.not.i.i107 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i107, label %while.cond.i.i.i154, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i108
 
 while.cond.i.i.i154:                              ; preds = %invoke.cont54, %while.cond.i.i.i154
   %.pn.i.i.i155 = phi ptr [ %storemerge.i.i.i156, %while.cond.i.i.i154 ], [ %37, %invoke.cont54 ]
   %storemerge.i.i.i156 = getelementptr inbounds i8, ptr %.pn.i.i.i155, i64 8
-  %39 = load ptr, ptr %storemerge.i.i.i156, align 8, !noalias !205
+  %39 = load ptr, ptr %storemerge.i.i.i156, align 8, !noalias !204
   %cmp.i.i.i157 = icmp eq ptr %39, null
   br i1 %cmp.i.i.i157, label %while.cond.i.i.i154, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i108, !llvm.loop !5
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i108: ; preds = %while.cond.i.i.i154, %invoke.cont54
   %ref.tmp.sroa.0.0.i109 = phi ptr [ %38, %invoke.cont54 ], [ %39, %while.cond.i.i.i154 ]
   %ref.tmp.sroa.3.0.i110 = phi ptr [ %37, %invoke.cont54 ], [ %storemerge.i.i.i156, %while.cond.i.i.i154 ]
-  %40 = load i64, ptr %mnBucketCount.i.i, align 8
+  %40 = load i64, ptr %mnBucketCount.i.i, align 8, !noalias !207
   %add.ptr.i.i112 = getelementptr inbounds ptr, ptr %37, i64 %40
-  %41 = load ptr, ptr %add.ptr.i.i112, align 8, !noalias !208
+  %41 = load ptr, ptr %add.ptr.i.i112, align 8, !noalias !207
   %cmp.i.not14.i113 = icmp eq ptr %ref.tmp.sroa.0.0.i109, %41
   br i1 %cmp.i.not14.i113, label %for.end.i130, label %for.body.i114
 
@@ -3883,7 +3883,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i186: ; preds =
   %temp.sroa.0.1.i187 = phi ptr [ %storemerge1.i.i.i184, %for.body.i178 ], [ %storemerge.i.i6.i196, %while.body.i.i.i194 ]
   %temp.sroa.5.1.i188 = phi ptr [ %temp.sroa.5.011.i180, %for.body.i178 ], [ %incdec.ptr.i.i.i195, %while.body.i.i.i194 ]
   %cmp.i.not.i189 = icmp eq ptr %temp.sroa.0.1.i187, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.not.i189, label %for.end.i190.loopexit, label %for.body.i178, !llvm.loop !203
+  br i1 %cmp.i.not.i189, label %for.end.i190.loopexit, label %for.body.i178, !llvm.loop !202
 
 for.end.i190.loopexit:                            ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i186
   %53 = icmp eq i64 %inc.i182, 0
@@ -3923,7 +3923,7 @@ for.inc77:                                        ; preds = %for.body72
   %inc78 = add nsw i32 %57, 1
   store i32 %inc78, ptr %i69, align 4
   %cmp71 = icmp slt i32 %57, 9
-  br i1 %cmp71, label %for.body72, label %for.end79, !llvm.loop !211
+  br i1 %cmp71, label %for.body72, label %for.end79, !llvm.loop !210
 
 for.end79:                                        ; preds = %for.inc77
   %58 = load ptr, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
@@ -3995,7 +3995,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i237: ; preds =
   %temp.sroa.0.1.i238 = phi ptr [ %storemerge1.i.i.i235, %for.body.i229 ], [ %storemerge.i.i6.i247, %while.body.i.i.i245 ]
   %temp.sroa.5.1.i239 = phi ptr [ %temp.sroa.5.011.i231, %for.body.i229 ], [ %incdec.ptr.i.i.i246, %while.body.i.i.i245 ]
   %cmp.i.not.i240 = icmp eq ptr %temp.sroa.0.1.i238, %65
-  br i1 %cmp.i.not.i240, label %for.end.i241, label %for.body.i229, !llvm.loop !203
+  br i1 %cmp.i.not.i240, label %for.end.i241, label %for.body.i229, !llvm.loop !202
 
 for.end.i241:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i237, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i224
   %nElementCount.0.lcssa.i242 = phi i64 [ 0, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i224 ], [ %inc.i233, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i237 ]
@@ -4015,24 +4015,24 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %invoke.cont86 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont86:                                    ; preds = %invoke.cont82
-  %69 = load ptr, ptr %mpBucketArray.i.i, align 8
-  %70 = load ptr, ptr %69, align 8, !noalias !212
+  %69 = load ptr, ptr %mpBucketArray.i.i, align 8, !noalias !211
+  %70 = load ptr, ptr %69, align 8, !noalias !211
   %tobool.not.i.i261 = icmp eq ptr %70, null
   br i1 %tobool.not.i.i261, label %while.cond.i.i.i308, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i262
 
 while.cond.i.i.i308:                              ; preds = %invoke.cont86, %while.cond.i.i.i308
   %.pn.i.i.i309 = phi ptr [ %storemerge.i.i.i310, %while.cond.i.i.i308 ], [ %69, %invoke.cont86 ]
   %storemerge.i.i.i310 = getelementptr inbounds i8, ptr %.pn.i.i.i309, i64 8
-  %71 = load ptr, ptr %storemerge.i.i.i310, align 8, !noalias !212
+  %71 = load ptr, ptr %storemerge.i.i.i310, align 8, !noalias !211
   %cmp.i.i.i311 = icmp eq ptr %71, null
   br i1 %cmp.i.i.i311, label %while.cond.i.i.i308, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i262, !llvm.loop !5
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i262: ; preds = %while.cond.i.i.i308, %invoke.cont86
   %ref.tmp.sroa.0.0.i263 = phi ptr [ %70, %invoke.cont86 ], [ %71, %while.cond.i.i.i308 ]
   %ref.tmp.sroa.3.0.i264 = phi ptr [ %69, %invoke.cont86 ], [ %storemerge.i.i.i310, %while.cond.i.i.i308 ]
-  %72 = load i64, ptr %mnBucketCount.i.i, align 8
+  %72 = load i64, ptr %mnBucketCount.i.i, align 8, !noalias !214
   %add.ptr.i.i266 = getelementptr inbounds ptr, ptr %69, i64 %72
-  %73 = load ptr, ptr %add.ptr.i.i266, align 8, !noalias !215
+  %73 = load ptr, ptr %add.ptr.i.i266, align 8, !noalias !214
   %cmp.i.not14.i267 = icmp eq ptr %ref.tmp.sroa.0.0.i263, %73
   br i1 %cmp.i.not14.i267, label %for.end.i284, label %for.body.i268
 
@@ -4153,7 +4153,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i340: ; preds =
   %temp.sroa.0.1.i341 = phi ptr [ %storemerge1.i.i.i338, %for.body.i332 ], [ %storemerge.i.i6.i350, %while.body.i.i.i348 ]
   %temp.sroa.5.1.i342 = phi ptr [ %temp.sroa.5.011.i334, %for.body.i332 ], [ %incdec.ptr.i.i.i349, %while.body.i.i.i348 ]
   %cmp.i.not.i343 = icmp eq ptr %temp.sroa.0.1.i341, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.not.i343, label %for.end.i344.loopexit, label %for.body.i332, !llvm.loop !203
+  br i1 %cmp.i.not.i343, label %for.end.i344.loopexit, label %for.body.i332, !llvm.loop !202
 
 for.end.i344.loopexit:                            ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i340
   %85 = icmp eq i64 %inc.i336, 0
@@ -4226,7 +4226,7 @@ invoke.cont5.loopexit.i:                          ; preds = %for.body.i370, %whi
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.014.i, i64 16
   %pNode.0.i = load ptr, ptr %mpNext.i, align 8
   %tobool.not.i373 = icmp eq ptr %pNode.0.i, null
-  br i1 %tobool.not.i373, label %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5countERS4_.exit.loopexit1293, label %for.body.i370, !llvm.loop !218
+  br i1 %tobool.not.i373, label %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5countERS4_.exit.loopexit1293, label %for.body.i370, !llvm.loop !217
 
 _ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5countERS4_.exit.loopexit1293: ; preds = %invoke.cont5.loopexit.i
   %95 = icmp eq i64 %spec.select.i, 0
@@ -4254,7 +4254,7 @@ for.inc124:                                       ; preds = %for.body119
   %inc125 = add nsw i32 %97, 1
   store i32 %inc125, ptr %i116, align 4
   %cmp118 = icmp slt i32 %97, 9
-  br i1 %cmp118, label %for.body119, label %for.end126, !llvm.loop !219
+  br i1 %cmp118, label %for.body119, label %for.end126, !llvm.loop !218
 
 lpad105.loopexit:                                 ; preds = %invoke.cont177.invoke, %if.then, %invoke.cont165, %invoke.cont174
   %lpad.loopexit1102 = landingpad { ptr, i32 }
@@ -4328,7 +4328,7 @@ invoke.cont5.loopexit.i406:                       ; preds = %for.body.i399, %whi
   %mpNext.i411 = getelementptr inbounds i8, ptr %pNode.014.i400, i64 16
   %pNode.0.i412 = load ptr, ptr %mpNext.i411, align 8
   %tobool.not.i413 = icmp eq ptr %pNode.0.i412, null
-  br i1 %tobool.not.i413, label %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5countERS4_.exit441.loopexit1292, label %for.body.i399, !llvm.loop !218
+  br i1 %tobool.not.i413, label %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5countERS4_.exit441.loopexit1292, label %for.body.i399, !llvm.loop !217
 
 _ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5countERS4_.exit441.loopexit1292: ; preds = %invoke.cont5.loopexit.i406
   %105 = icmp eq i64 %spec.select.i410, 1
@@ -4341,15 +4341,15 @@ _ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12st
 
 invoke.cont136:                                   ; preds = %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5countERS4_.exit441
   %mpBucketArray.i442 = getelementptr inbounds i8, ptr %stringHashMap102, i64 8
-  %106 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !39
-  %107 = load ptr, ptr %106, align 8, !noalias !220
+  %106 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !219
+  %107 = load ptr, ptr %106, align 8, !noalias !219
   %tobool.not.i443 = icmp eq ptr %107, null
   br i1 %tobool.not.i443, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont136, %while.cond.i.i
   %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %106, %invoke.cont136 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %108 = load ptr, ptr %storemerge.i.i, align 8, !noalias !220
+  %108 = load ptr, ptr %storemerge.i.i, align 8, !noalias !219
   %cmp.i.i = icmp eq ptr %108, null
   br i1 %cmp.i.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !5
 
@@ -4357,9 +4357,9 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %it.sroa.0.1 = phi ptr [ %107, %invoke.cont136 ], [ %108, %while.cond.i.i ]
   %it.sroa.7.1 = phi ptr [ %106, %invoke.cont136 ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i445 = getelementptr inbounds i8, ptr %stringHashMap102, i64 16
-  %109 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !223
+  %109 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !222
   %add.ptr.i1165 = getelementptr inbounds ptr, ptr %106, i64 %109
-  %110 = load ptr, ptr %add.ptr.i1165, align 8, !noalias !223
+  %110 = load ptr, ptr %add.ptr.i1165, align 8, !noalias !222
   %cmp.i447.not1166 = icmp eq ptr %it.sroa.0.1, %110
   br i1 %cmp.i447.not1166, label %for.body156.preheader, label %for.body142
 
@@ -4388,12 +4388,12 @@ while.body.i.i:                                   ; preds = %for.inc148, %while.
 _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit: ; preds = %while.body.i.i, %for.inc148
   %it.sroa.0.2 = phi ptr [ %storemerge1.i.i, %for.inc148 ], [ %storemerge.i.i448, %while.body.i.i ]
   %it.sroa.7.2 = phi ptr [ %it.sroa.7.01168, %for.inc148 ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %113 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !223
-  %114 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !223
+  %113 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !222
+  %114 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !222
   %add.ptr.i = getelementptr inbounds ptr, ptr %113, i64 %114
-  %115 = load ptr, ptr %add.ptr.i, align 8, !noalias !223
+  %115 = load ptr, ptr %add.ptr.i, align 8, !noalias !222
   %cmp.i447.not = icmp eq ptr %it.sroa.0.2, %115
-  br i1 %cmp.i447.not, label %for.body156.preheader, label %for.body142, !llvm.loop !226
+  br i1 %cmp.i447.not, label %for.body156.preheader, label %for.body142, !llvm.loop !225
 
 for.body156.preheader:                            ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb0ELb0EEppEv.exit, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
   br label %for.body156
@@ -4401,8 +4401,8 @@ for.body156.preheader:                            ; preds = %_ZN5eastl18hashtabl
 for.body156:                                      ; preds = %for.body156.preheader, %for.inc187
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc187 ], [ 0, %for.body156.preheader ]
   %arrayidx159 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 %indvars.iv
-  %116 = load ptr, ptr %arrayidx159, align 8, !noalias !227
-  %117 = load i8, ptr %116, align 1, !noalias !227
+  %116 = load ptr, ptr %arrayidx159, align 8, !noalias !226
+  %117 = load i8, ptr %116, align 1, !noalias !226
   %cmp.not2.i.i.i450 = icmp eq i8 %117, 0
   br i1 %cmp.not2.i.i.i450, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i451
 
@@ -4414,67 +4414,67 @@ while.body.i.i.i451:                              ; preds = %for.body156, %while
   %incdec.ptr.i.i.i455 = getelementptr inbounds i8, ptr %p.addr.03.i.i.i453, i64 1
   %mul.i.i.i456 = mul i32 %result.04.i.i.i452, 16777619
   %xor.i.i.i457 = xor i32 %mul.i.i.i456, %conv.i.i.i454
-  %119 = load i8, ptr %incdec.ptr.i.i.i455, align 1, !noalias !227
+  %119 = load i8, ptr %incdec.ptr.i.i.i455, align 1, !noalias !226
   %cmp.not.i.i.i458 = icmp eq i8 %119, 0
   br i1 %cmp.not.i.i.i458, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, label %while.body.i.i.i451, !llvm.loop !12
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i451
-  %120 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !39
+  %120 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !226
   %conv.i460 = trunc i64 %120 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i457, %conv.i460
   %conv3.i = zext i32 %rem.i.i14.i to i64
-  %121 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !39
+  %121 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !226
   %arrayidx.i462 = getelementptr inbounds ptr, ptr %121, i64 %conv3.i
-  %122 = load ptr, ptr %arrayidx.i462, align 8, !noalias !227
+  %122 = load ptr, ptr %arrayidx.i462, align 8, !noalias !226
   %tobool.not4.i.i = icmp eq ptr %122, null
   br i1 %tobool.not4.i.i, label %cond.false.i, label %for.body.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %for.body156
-  %123 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !39
+  %123 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !226
   %conv31.i = trunc i64 %123 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
-  %124 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !39
+  %124 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !226
   %arrayidx35.i = getelementptr inbounds ptr, ptr %124, i64 %conv333.i
-  %125 = load ptr, ptr %arrayidx35.i, align 8, !noalias !227
+  %125 = load ptr, ptr %arrayidx35.i, align 8, !noalias !226
   %tobool.not4.i36.i = icmp eq ptr %125, null
   br i1 %tobool.not4.i36.i, label %cond.false.i, label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %for.inc.us.i.i
   %pNode.addr.05.us.i.i = phi ptr [ %128, %for.inc.us.i.i ], [ %125, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ]
-  %126 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !227
-  %127 = load i8, ptr %126, align 1, !noalias !227
+  %126 = load ptr, ptr %pNode.addr.05.us.i.i, align 8, !noalias !226
+  %127 = load i8, ptr %126, align 1, !noalias !226
   %cmp6.i.i.us.i.i = icmp eq i8 %127, 0
   br i1 %cmp6.i.i.us.i.i, label %invoke.cont160, label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 16
-  %128 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !227
+  %128 = load ptr, ptr %mpNext.us.i.i, align 8, !noalias !226
   %tobool.not.us.i.i = icmp eq ptr %128, null
-  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !40
+  br i1 %tobool.not.us.i.i, label %cond.false.i, label %for.body.us.i.i, !llvm.loop !39
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %134, %for.inc.i.i ], [ %122, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
-  %129 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !227
+  %129 = load ptr, ptr %pNode.addr.05.i.i, align 8, !noalias !226
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %for.body.i.i
   %130 = phi i8 [ %132, %while.body.i.i.i.i ], [ %117, %for.body.i.i ]
   %b.addr.08.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %while.body.i.i.i.i ], [ %129, %for.body.i.i ]
   %a.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %116, %for.body.i.i ]
-  %131 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !227
+  %131 = load i8, ptr %b.addr.08.i.i.i.i, align 1, !noalias !226
   %cmp.i.i.i.i = icmp eq i8 %130, %131
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.07.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
-  %132 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !227
+  %132 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !226
   %tobool.not.i.i.i.i = icmp eq i8 %132, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
-  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !227
+  %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !226
   br label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i: ; preds = %land.rhs.i.i.i.i, %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i
@@ -4485,15 +4485,15 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_
 
 for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i
   %mpNext.i.i463 = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 16
-  %134 = load ptr, ptr %mpNext.i.i463, align 8, !noalias !227
+  %134 = load ptr, ptr %mpNext.i.i463, align 8, !noalias !226
   %tobool.not.i.i464 = icmp eq ptr %134, null
-  br i1 %tobool.not.i.i464, label %cond.false.i, label %for.body.i.i, !llvm.loop !40
+  br i1 %tobool.not.i.i464, label %cond.false.i, label %for.body.i.i, !llvm.loop !39
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %for.inc.us.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i
   %135 = phi ptr [ %124, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %121, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %124, %for.inc.us.i.i ], [ %121, %for.inc.i.i ]
   %136 = phi i64 [ %123, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i ], [ %120, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ], [ %123, %for.inc.us.i.i ], [ %120, %for.inc.i.i ]
   %add.ptr8.i = getelementptr inbounds ptr, ptr %135, i64 %136
-  %137 = load ptr, ptr %add.ptr8.i, align 8, !noalias !227
+  %137 = load ptr, ptr %add.ptr8.i, align 8, !noalias !226
   br label %invoke.cont160
 
 invoke.cont160:                                   ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i, %cond.false.i
@@ -4502,7 +4502,7 @@ invoke.cont160:                                   ; preds = %_ZNK5eastl14hash_co
   %.sink.i = phi ptr [ %137, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %cmp161 = icmp samesign ult i64 %indvars.iv, 10
   %add.ptr.i467 = getelementptr inbounds ptr, ptr %139, i64 %138
-  %140 = load ptr, ptr %add.ptr.i467, align 8, !noalias !39
+  %140 = load ptr, ptr %add.ptr.i467, align 8, !noalias !229
   br i1 %cmp161, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont160
@@ -4578,11 +4578,11 @@ invoke.cont201:                                   ; preds = %invoke.cont196
   %second206 = getelementptr inbounds i8, ptr %152, i64 8
   store i32 0, ptr %second206, align 8
   %153 = load i64, ptr %mnElementCount.i364, align 8
-  %154 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !39
+  %154 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !237
   %conv.i489 = trunc i64 %154 to i32
   %rem.i.i14.i490 = urem i32 84696443, %conv.i489
   %conv3.i491 = zext nneg i32 %rem.i.i14.i490 to i64
-  %155 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !39
+  %155 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !237
   %arrayidx.i493 = getelementptr inbounds ptr, ptr %155, i64 %conv3.i491
   %156 = load ptr, ptr %arrayidx.i493, align 8, !noalias !237
   %tobool.not4.i.i494 = icmp eq ptr %156, null
@@ -4610,11 +4610,11 @@ for.inc.i.i505:                                   ; preds = %_ZNK5eastl14hash_co
   %mpNext.i.i506 = getelementptr inbounds i8, ptr %pNode.addr.05.i.i497, i64 16
   %160 = load ptr, ptr %mpNext.i.i506, align 8, !noalias !237
   %tobool.not.i.i507 = icmp eq ptr %160, null
-  br i1 %tobool.not.i.i507, label %cond.false.i508, label %for.body.i.i496, !llvm.loop !40
+  br i1 %tobool.not.i.i507, label %cond.false.i508, label %for.body.i.i496, !llvm.loop !39
 
 cond.false.i508:                                  ; preds = %for.inc.i.i505, %invoke.cont201
   %add.ptr8.i509 = getelementptr inbounds ptr, ptr %155, i64 %154
-  %161 = load ptr, ptr %add.ptr8.i509, align 8, !noalias !39
+  %161 = load ptr, ptr %add.ptr8.i509, align 8, !noalias !237
   br label %invoke.cont209
 
 invoke.cont209.loopexit:                          ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i502
@@ -4647,7 +4647,7 @@ while.cond.i.i542:                                ; preds = %invoke.cont213, %wh
   %pNodeNext.0.in.i.i = getelementptr inbounds i8, ptr %pNodeCurrent.0.i.i, i64 16
   %pNodeNext.0.i.i = load ptr, ptr %pNodeNext.0.in.i.i, align 8, !noalias !246
   %cmp6.not.i.i = icmp eq ptr %pNodeNext.0.i.i, %.sink.i510
-  br i1 %cmp6.not.i.i, label %while.end.i.i, label %while.cond.i.i542, !llvm.loop !81
+  br i1 %cmp6.not.i.i, label %while.end.i.i, label %while.cond.i.i542, !llvm.loop !80
 
 while.end.i.i:                                    ; preds = %while.cond.i.i542
   %pNodeNext.0.in.i.i.le = getelementptr inbounds i8, ptr %pNodeCurrent.0.i.i, i64 16
@@ -4677,11 +4677,11 @@ invoke.cont217:                                   ; preds = %delete.notnull.i.i5
           to label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i561 unwind label %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i561: ; preds = %invoke.cont217
-  %169 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !39
+  %169 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !249
   %conv.i563 = trunc i64 %169 to i32
   %rem.i.i14.i564 = urem i32 84696443, %conv.i563
   %conv3.i565 = zext nneg i32 %rem.i.i14.i564 to i64
-  %170 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !39
+  %170 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !249
   %arrayidx.i567 = getelementptr inbounds ptr, ptr %170, i64 %conv3.i565
   %171 = load ptr, ptr %arrayidx.i567, align 8, !noalias !249
   %tobool.not4.i.i568 = icmp eq ptr %171, null
@@ -4709,7 +4709,7 @@ for.inc.i.i579:                                   ; preds = %_ZNK5eastl14hash_co
   %mpNext.i.i580 = getelementptr inbounds i8, ptr %pNode.addr.05.i.i571, i64 16
   %175 = load ptr, ptr %mpNext.i.i580, align 8, !noalias !249
   %tobool.not.i.i581 = icmp eq ptr %175, null
-  br i1 %tobool.not.i.i581, label %cond.false.i582, label %for.body.i.i570, !llvm.loop !40
+  br i1 %tobool.not.i.i581, label %cond.false.i582, label %for.body.i.i570, !llvm.loop !39
 
 cond.false.i582:                                  ; preds = %for.inc.i.i579, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i561
   %add.ptr8.i583 = getelementptr inbounds ptr, ptr %170, i64 %169
@@ -4741,7 +4741,7 @@ invoke.cont233:                                   ; preds = %invoke.cont229
           to label %invoke.cont237 unwind label %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont237:                                   ; preds = %invoke.cont233
-  %179 = load ptr, ptr %mpBucketArray.i442, align 8
+  %179 = load ptr, ptr %mpBucketArray.i442, align 8, !noalias !255
   %180 = load ptr, ptr %179, align 8, !noalias !255
   %tobool.not.i.i616 = icmp eq ptr %180, null
   br i1 %tobool.not.i.i616, label %while.cond.i.i.i653, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i617
@@ -4756,7 +4756,7 @@ while.cond.i.i.i653:                              ; preds = %invoke.cont237, %wh
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i617: ; preds = %while.cond.i.i.i653, %invoke.cont237
   %ref.tmp.sroa.0.0.i618 = phi ptr [ %180, %invoke.cont237 ], [ %181, %while.cond.i.i.i653 ]
   %ref.tmp.sroa.3.0.i619 = phi ptr [ %179, %invoke.cont237 ], [ %storemerge.i.i.i655, %while.cond.i.i.i653 ]
-  %182 = load i64, ptr %mnBucketCount.i445, align 8
+  %182 = load i64, ptr %mnBucketCount.i445, align 8, !noalias !258
   %add.ptr.i.i621 = getelementptr inbounds ptr, ptr %179, i64 %182
   %183 = load ptr, ptr %add.ptr.i.i621, align 8, !noalias !258
   %cmp.i.not13.i = icmp eq ptr %ref.tmp.sroa.0.0.i618, %183
@@ -5004,7 +5004,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i684: ; preds =
   %temp.sroa.0.1.i685 = phi ptr [ %storemerge1.i.i.i682, %for.body.i676 ], [ %storemerge.i.i6.i694, %while.body.i.i.i692 ]
   %temp.sroa.5.1.i686 = phi ptr [ %temp.sroa.5.011.i678, %for.body.i676 ], [ %incdec.ptr.i.i.i693, %while.body.i.i.i692 ]
   %cmp.i.not.i687 = icmp eq ptr %temp.sroa.0.1.i685, %204
-  br i1 %cmp.i.not.i687, label %for.end.i688, label %for.body.i676, !llvm.loop !203
+  br i1 %cmp.i.not.i687, label %for.end.i688, label %for.body.i676, !llvm.loop !202
 
 for.end.i688:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i684, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i671
   %nElementCount.0.lcssa.i689 = phi i64 [ 0, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i671 ], [ %inc.i680, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i684 ]
@@ -5091,7 +5091,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i733: ; preds =
   %temp.sroa.0.1.i734 = phi ptr [ %storemerge1.i.i.i731, %for.body.i725 ], [ %storemerge.i.i6.i743, %while.body.i.i.i741 ]
   %temp.sroa.5.1.i735 = phi ptr [ %temp.sroa.5.011.i727, %for.body.i725 ], [ %incdec.ptr.i.i.i742, %while.body.i.i.i741 ]
   %cmp.i.not.i736 = icmp eq ptr %temp.sroa.0.1.i734, %214
-  br i1 %cmp.i.not.i736, label %for.end.i737, label %for.body.i725, !llvm.loop !203
+  br i1 %cmp.i.not.i736, label %for.end.i737, label %for.body.i725, !llvm.loop !202
 
 for.end.i737:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i733, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i720
   %nElementCount.0.lcssa.i738 = phi i64 [ 0, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i720 ], [ %inc.i729, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i733 ]
@@ -5178,7 +5178,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i782: ; preds =
   %temp.sroa.0.1.i783 = phi ptr [ %storemerge1.i.i.i780, %for.body.i774 ], [ %storemerge.i.i6.i792, %while.body.i.i.i790 ]
   %temp.sroa.5.1.i784 = phi ptr [ %temp.sroa.5.011.i776, %for.body.i774 ], [ %incdec.ptr.i.i.i791, %while.body.i.i.i790 ]
   %cmp.i.not.i785 = icmp eq ptr %temp.sroa.0.1.i783, %224
-  br i1 %cmp.i.not.i785, label %for.end.i786, label %for.body.i774, !llvm.loop !203
+  br i1 %cmp.i.not.i785, label %for.end.i786, label %for.body.i774, !llvm.loop !202
 
 for.end.i786:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i782, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i769
   %nElementCount.0.lcssa.i787 = phi i64 [ 0, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i769 ], [ %inc.i778, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit.i782 ]
@@ -5321,7 +5321,7 @@ invoke.cont367:                                   ; preds = %invoke.cont364
 
 invoke.cont371:                                   ; preds = %invoke.cont367
   %mpBucketArray.i.i805 = getelementptr inbounds i8, ptr %m, i64 8
-  %240 = load ptr, ptr %mpBucketArray.i.i805, align 8
+  %240 = load ptr, ptr %mpBucketArray.i.i805, align 8, !noalias !263
   %241 = load ptr, ptr %240, align 8, !noalias !263
   %tobool.not.i.i806 = icmp eq ptr %241, null
   br i1 %tobool.not.i.i806, label %while.cond.i.i.i847, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i807
@@ -5337,7 +5337,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %ref.tmp.sroa.0.0.i808 = phi ptr [ %241, %invoke.cont371 ], [ %242, %while.cond.i.i.i847 ]
   %ref.tmp.sroa.3.0.i809 = phi ptr [ %240, %invoke.cont371 ], [ %storemerge.i.i.i849, %while.cond.i.i.i847 ]
   %mnBucketCount.i.i810 = getelementptr inbounds i8, ptr %m, i64 16
-  %243 = load i64, ptr %mnBucketCount.i.i810, align 8
+  %243 = load i64, ptr %mnBucketCount.i.i810, align 8, !noalias !266
   %add.ptr.i.i811 = getelementptr inbounds ptr, ptr %240, i64 %243
   %244 = load ptr, ptr %add.ptr.i.i811, align 8, !noalias !266
   %cmp.i.not13.i812 = icmp eq ptr %ref.tmp.sroa.0.0.i808, %244
@@ -5431,7 +5431,7 @@ invoke.cont387:                                   ; preds = %invoke.cont384
 
 invoke.cont390:                                   ; preds = %invoke.cont387
   %mpBucketArray.i.i854 = getelementptr inbounds i8, ptr %m379, i64 8
-  %252 = load ptr, ptr %mpBucketArray.i.i854, align 8
+  %252 = load ptr, ptr %mpBucketArray.i.i854, align 8, !noalias !269
   %253 = load ptr, ptr %252, align 8, !noalias !269
   %tobool.not.i.i855 = icmp eq ptr %253, null
   br i1 %tobool.not.i.i855, label %while.cond.i.i.i896, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i856
@@ -5447,7 +5447,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %ref.tmp.sroa.0.0.i857 = phi ptr [ %253, %invoke.cont390 ], [ %254, %while.cond.i.i.i896 ]
   %ref.tmp.sroa.3.0.i858 = phi ptr [ %252, %invoke.cont390 ], [ %storemerge.i.i.i898, %while.cond.i.i.i896 ]
   %mnBucketCount.i.i859 = getelementptr inbounds i8, ptr %m379, i64 16
-  %255 = load i64, ptr %mnBucketCount.i.i859, align 8
+  %255 = load i64, ptr %mnBucketCount.i.i859, align 8, !noalias !272
   %add.ptr.i.i860 = getelementptr inbounds ptr, ptr %252, i64 %255
   %256 = load ptr, ptr %add.ptr.i.i860, align 8, !noalias !272
   %cmp.i.not13.i861 = icmp eq ptr %ref.tmp.sroa.0.0.i857, %256
@@ -5541,7 +5541,7 @@ invoke.cont406:                                   ; preds = %invoke.cont403
 
 invoke.cont409:                                   ; preds = %invoke.cont406
   %mpBucketArray.i.i903 = getelementptr inbounds i8, ptr %m398, i64 8
-  %264 = load ptr, ptr %mpBucketArray.i.i903, align 8
+  %264 = load ptr, ptr %mpBucketArray.i.i903, align 8, !noalias !275
   %265 = load ptr, ptr %264, align 8, !noalias !275
   %tobool.not.i.i904 = icmp eq ptr %265, null
   br i1 %tobool.not.i.i904, label %while.cond.i.i.i952, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i905
@@ -5557,7 +5557,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %ref.tmp.sroa.0.0.i906 = phi ptr [ %265, %invoke.cont409 ], [ %266, %while.cond.i.i.i952 ]
   %ref.tmp.sroa.3.0.i907 = phi ptr [ %264, %invoke.cont409 ], [ %storemerge.i.i.i954, %while.cond.i.i.i952 ]
   %mnBucketCount.i.i908 = getelementptr inbounds i8, ptr %m398, i64 16
-  %267 = load i64, ptr %mnBucketCount.i.i908, align 8
+  %267 = load i64, ptr %mnBucketCount.i.i908, align 8, !noalias !278
   %add.ptr.i.i909 = getelementptr inbounds ptr, ptr %264, i64 %267
   %268 = load ptr, ptr %add.ptr.i.i909, align 8, !noalias !278
   %cmp.i.not14.i910 = icmp eq ptr %ref.tmp.sroa.0.0.i906, %268
@@ -5667,7 +5667,7 @@ invoke.cont425:                                   ; preds = %invoke.cont422
 
 invoke.cont428:                                   ; preds = %invoke.cont425
   %mpBucketArray.i.i959 = getelementptr inbounds i8, ptr %m417, i64 8
-  %277 = load ptr, ptr %mpBucketArray.i.i959, align 8
+  %277 = load ptr, ptr %mpBucketArray.i.i959, align 8, !noalias !281
   %278 = load ptr, ptr %277, align 8, !noalias !281
   %tobool.not.i.i960 = icmp eq ptr %278, null
   br i1 %tobool.not.i.i960, label %while.cond.i.i.i1002, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i961
@@ -5683,7 +5683,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %ref.tmp.sroa.0.0.i962 = phi ptr [ %278, %invoke.cont428 ], [ %279, %while.cond.i.i.i1002 ]
   %ref.tmp.sroa.3.0.i963 = phi ptr [ %277, %invoke.cont428 ], [ %storemerge.i.i.i1004, %while.cond.i.i.i1002 ]
   %mnBucketCount.i.i964 = getelementptr inbounds i8, ptr %m417, i64 16
-  %280 = load i64, ptr %mnBucketCount.i.i964, align 8
+  %280 = load i64, ptr %mnBucketCount.i.i964, align 8, !noalias !284
   %add.ptr.i.i965 = getelementptr inbounds ptr, ptr %277, i64 %280
   %281 = load ptr, ptr %add.ptr.i.i965, align 8, !noalias !284
   %cmp.i.not14.i966 = icmp eq ptr %ref.tmp.sroa.0.0.i962, %281
@@ -6290,7 +6290,7 @@ for.inc.us.i.i:                                   ; preds = %for.body.us.i.i
   %mpNext.us.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i.i, i64 16
   %18 = load ptr, ptr %mpNext.us.i.i, align 8
   %tobool.not.us.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.us.i.i, label %return, label %for.body.us.i.i, !llvm.loop !40
+  br i1 %tobool.not.us.i.i, label %return, label %for.body.us.i.i, !llvm.loop !39
 
 for.body.i.i:                                     ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i, %for.inc.i.i
   %pNode.addr.05.i.i = phi ptr [ %24, %for.inc.i.i ], [ %14, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i ]
@@ -6310,7 +6310,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
   %22 = load i8, ptr %incdec.ptr.i.i.i.i, align 1
   %tobool.not.i.i.i.i = icmp eq i8 %22, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
   %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1
@@ -6326,7 +6326,7 @@ for.inc.i.i:                                      ; preds = %_ZNK5eastl14hash_co
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 16
   %24 = load ptr, ptr %mpNext.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %24, null
-  br i1 %tobool.not.i.i, label %return, label %for.body.i.i, !llvm.loop !40
+  br i1 %tobool.not.i.i, label %return, label %for.body.i.i, !llvm.loop !39
 
 _ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit: ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i, %for.body.us.i.i
   %retval.sroa.0.0.i16 = phi ptr [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
@@ -6392,12 +6392,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !288
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !288
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
   %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !288
   %tobool.not4.i.i = icmp eq ptr %5, null
@@ -6405,12 +6405,12 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_1
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !288
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !288
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
   %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !288
   %tobool.not4.i36.i = icmp eq ptr %8, null
@@ -6447,7 +6447,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
   %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !288
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
   %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !288
@@ -6521,12 +6521,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !295
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !295
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
   %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !295
   %tobool.not4.i.i = icmp eq ptr %5, null
@@ -6534,12 +6534,12 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_1
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !295
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !295
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
   %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !295
   %tobool.not4.i36.i = icmp eq ptr %8, null
@@ -6576,7 +6576,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
   %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !295
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
   %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !295
@@ -6819,12 +6819,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !308
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !308
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
   %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !308
   %tobool.not4.i.i = icmp eq ptr %5, null
@@ -6832,12 +6832,12 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_1
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !308
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !308
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
   %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !308
   %tobool.not4.i36.i = icmp eq ptr %8, null
@@ -6874,7 +6874,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
   %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !308
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
   %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !308
@@ -6951,12 +6951,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !315
   %conv.i = trunc i64 %3 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %4 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !315
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv3.i
   %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !315
   %tobool.not4.i.i = icmp eq ptr %5, null
@@ -6964,12 +6964,12 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_1
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %6 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !315
   %conv31.i = trunc i64 %6 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %7 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !315
   %arrayidx35.i = getelementptr inbounds ptr, ptr %7, i64 %conv333.i
   %8 = load ptr, ptr %arrayidx35.i, align 8, !noalias !315
   %tobool.not4.i36.i = icmp eq ptr %8, null
@@ -7006,7 +7006,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
   %15 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !315
   %tobool.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
   %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !315
@@ -7247,7 +7247,7 @@ for.inc.us.i:                                     ; preds = %for.body.us.i
   %mpNext.us.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i, i64 16
   %7 = load ptr, ptr %mpNext.us.i, align 8
   %tobool.not.us.i = icmp eq ptr %7, null
-  br i1 %tobool.not.us.i, label %if.then, label %for.body.us.i, !llvm.loop !40
+  br i1 %tobool.not.us.i, label %if.then, label %for.body.us.i, !llvm.loop !39
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %pNode.addr.05.i = phi ptr [ %13, %for.inc.i ], [ %2, %for.body.lr.ph.i ]
@@ -7267,7 +7267,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i, i64 1
   %11 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i, label %land.rhs.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i, label %land.rhs.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit_crit_edge.i: ; preds = %while.body.i.i.i
   %.pre.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
@@ -7283,7 +7283,7 @@ for.inc.i:                                        ; preds = %_ZNK5eastl14hash_co
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.addr.05.i, i64 16
   %13 = load ptr, ptr %mpNext.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !40
+  br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !39
 
 if.then:                                          ; preds = %for.inc.i, %for.inc.us.i, %entry
   %tobool.not = icmp eq ptr %pNodeNew, null
@@ -7531,7 +7531,7 @@ for.inc.us.i:                                     ; preds = %for.body.us.i
   %mpNext.us.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i, i64 64
   %12 = load ptr, ptr %mpNext.us.i, align 32
   %tobool.not.us.i = icmp eq ptr %12, null
-  br i1 %tobool.not.us.i, label %if.then, label %for.body.us.i, !llvm.loop !135
+  br i1 %tobool.not.us.i, label %if.then, label %for.body.us.i, !llvm.loop !134
 
 for.body.i:                                       ; preds = %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit, %for.inc.i
   %pNode.addr.05.i = phi ptr [ %18, %for.inc.i ], [ %6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit ]
@@ -7551,7 +7551,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i, i64 1
   %16 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i, label %land.rhs.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i, label %land.rhs.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i: ; preds = %while.body.i.i.i
   %.pre.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
@@ -7567,7 +7567,7 @@ for.inc.i:                                        ; preds = %_ZNK5eastl14hash_co
   %mpNext.i12 = getelementptr inbounds i8, ptr %pNode.addr.05.i, i64 64
   %18 = load ptr, ptr %mpNext.i12, align 32
   %tobool.not.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !135
+  br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !134
 
 if.then:                                          ; preds = %for.inc.i, %for.inc.us.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit
   %mpBucketArray53 = phi ptr [ %mpBucketArray43, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread ], [ %mpBucketArray, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit ], [ %mpBucketArray43, %for.inc.us.i ], [ %mpBucketArray, %for.inc.i ]
@@ -7748,7 +7748,7 @@ for.inc.us.i:                                     ; preds = %for.body.us.i
   %mpNext.us.i = getelementptr inbounds i8, ptr %pNode.addr.05.us.i, i64 64
   %7 = load ptr, ptr %mpNext.us.i, align 32
   %tobool.not.us.i = icmp eq ptr %7, null
-  br i1 %tobool.not.us.i, label %if.then, label %for.body.us.i, !llvm.loop !135
+  br i1 %tobool.not.us.i, label %if.then, label %for.body.us.i, !llvm.loop !134
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %pNode.addr.05.i = phi ptr [ %13, %for.inc.i ], [ %2, %for.body.lr.ph.i ]
@@ -7768,7 +7768,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i, i64 1
   %11 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i, label %land.rhs.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i, label %land.rhs.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i: ; preds = %while.body.i.i.i
   %.pre.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
@@ -7784,7 +7784,7 @@ for.inc.i:                                        ; preds = %_ZNK5eastl14hash_co
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.addr.05.i, i64 64
   %13 = load ptr, ptr %mpNext.i, align 32
   %tobool.not.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !135
+  br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !134
 
 if.then:                                          ; preds = %for.inc.i, %for.inc.us.i, %entry
   %tobool.not = icmp eq ptr %pNodeNew, null
@@ -7878,7 +7878,7 @@ return:                                           ; preds = %_ZNK5eastl14hash_co
 define linkonce_odr dso_local void @_ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(45) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %mpBucketArray.i, align 8
+  %0 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !345
   %1 = load ptr, ptr %0, align 8, !noalias !345
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
@@ -7894,7 +7894,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6
   %ref.tmp.sroa.0.0 = phi ptr [ %1, %entry ], [ %2, %while.cond.i.i ]
   %ref.tmp.sroa.3.0 = phi ptr [ %0, %entry ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !349
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %3
   %4 = load ptr, ptr %add.ptr.i, align 8, !noalias !349
   %cmp.i.not14 = icmp eq ptr %ref.tmp.sroa.0.0, %4
@@ -7991,7 +7991,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE16insert_or_assignIRKS5_EENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEERS4_OT_(ptr noalias sret(%"struct.eastl::pair.30") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(8) %k, ptr noundef nonnull align 8 dereferenceable(20) %obj) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"struct.eastl::pair.53", align 8
-  %0 = load ptr, ptr %k, align 8
+  %0 = load ptr, ptr %k, align 8, !noalias !354
   %1 = load i8, ptr %0, align 1, !noalias !354
   %cmp.not2.i.i.i = icmp eq i8 %1, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
@@ -8010,12 +8010,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !354
   %conv.i = trunc i64 %4 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !354
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %conv3.i
   %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !354
   %tobool.not4.i.i = icmp eq ptr %6, null
@@ -8023,12 +8023,12 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_1
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !354
   %conv31.i = trunc i64 %7 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !354
   %arrayidx35.i = getelementptr inbounds ptr, ptr %8, i64 %conv333.i
   %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !354
   %tobool.not4.i36.i = icmp eq ptr %9, null
@@ -8065,7 +8065,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
   %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !354
   %tobool.not.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
   %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !354
@@ -8230,7 +8230,7 @@ return:                                           ; preds = %_ZN10TestObjectaSER
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE16insert_or_assignIRKS5_EENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEEOS2_OT_(ptr noalias sret(%"struct.eastl::pair.30") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(8) %k, ptr noundef nonnull align 8 dereferenceable(20) %obj) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"struct.eastl::pair.53", align 8
-  %0 = load ptr, ptr %k, align 8
+  %0 = load ptr, ptr %k, align 8, !noalias !365
   %1 = load i8, ptr %0, align 1, !noalias !365
   %cmp.not2.i.i.i = icmp eq i8 %1, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
@@ -8249,12 +8249,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !365
   %conv.i = trunc i64 %4 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !365
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %conv3.i
   %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !365
   %tobool.not4.i.i = icmp eq ptr %6, null
@@ -8262,12 +8262,12 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_1
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !365
   %conv31.i = trunc i64 %7 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !365
   %arrayidx35.i = getelementptr inbounds ptr, ptr %8, i64 %conv333.i
   %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !365
   %tobool.not4.i36.i = icmp eq ptr %9, null
@@ -8304,7 +8304,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
   %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !365
   %tobool.not.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
   %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !365
@@ -8516,7 +8516,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i, i64 1
   %11 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i, label %land.rhs.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i, label %land.rhs.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i: ; preds = %while.body.i.i.i
   %.pre.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
@@ -8770,7 +8770,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6
 define linkonce_odr dso_local void @_ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EE17CountingAllocatorE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %mpBucketArray.i, align 8
+  %0 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !384
   %1 = load ptr, ptr %0, align 8, !noalias !384
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
@@ -8786,7 +8786,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_fir
   %ref.tmp.sroa.0.0 = phi ptr [ %1, %entry ], [ %2, %while.cond.i.i ]
   %ref.tmp.sroa.3.0 = phi ptr [ %0, %entry ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %mnBucketCount.i, align 8
+  %3 = load i64, ptr %mnBucketCount.i, align 8, !noalias !387
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %3
   %4 = load ptr, ptr %add.ptr.i, align 8, !noalias !387
   %cmp.i.not14 = icmp eq ptr %ref.tmp.sroa.0.0, %4
@@ -9002,7 +9002,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_fir
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE16insert_or_assignIRKS5_EENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEERS4_OT_(ptr noalias sret(%"struct.eastl::pair.30") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %k, ptr noundef nonnull align 8 dereferenceable(20) %obj) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"struct.eastl::pair.53", align 8
-  %0 = load ptr, ptr %k, align 8
+  %0 = load ptr, ptr %k, align 8, !noalias !393
   %1 = load i8, ptr %0, align 1, !noalias !393
   %cmp.not2.i.i.i = icmp eq i8 %1, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
@@ -9021,12 +9021,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !393
   %conv.i = trunc i64 %4 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !393
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %conv3.i
   %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !393
   %tobool.not4.i.i = icmp eq ptr %6, null
@@ -9034,12 +9034,12 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_1
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !393
   %conv31.i = trunc i64 %7 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !393
   %arrayidx35.i = getelementptr inbounds ptr, ptr %8, i64 %conv333.i
   %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !393
   %tobool.not4.i36.i = icmp eq ptr %9, null
@@ -9076,7 +9076,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
   %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !393
   %tobool.not.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
   %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !393
@@ -9241,7 +9241,7 @@ return:                                           ; preds = %_ZN10TestObjectaSER
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE16insert_or_assignIRKS5_EENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEEOS2_OT_(ptr noalias sret(%"struct.eastl::pair.30") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %k, ptr noundef nonnull align 8 dereferenceable(20) %obj) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"struct.eastl::pair.53", align 8
-  %0 = load ptr, ptr %k, align 8
+  %0 = load ptr, ptr %k, align 8, !noalias !404
   %1 = load i8, ptr %0, align 1, !noalias !404
   %cmp.not2.i.i.i = icmp eq i8 %1, 0
   br i1 %cmp.not2.i.i.i, label %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i, label %while.body.i.i.i
@@ -9260,12 +9260,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.i: ; preds = %while.body.i.i.i
   %mnBucketCount.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !39
+  %4 = load i64, ptr %mnBucketCount.i, align 8, !noalias !404
   %conv.i = trunc i64 %4 to i32
   %rem.i.i14.i = urem i32 %xor.i.i.i, %conv.i
   %conv3.i = zext i32 %rem.i.i14.i to i64
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !39
+  %5 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !404
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %conv3.i
   %6 = load ptr, ptr %arrayidx.i, align 8, !noalias !404
   %tobool.not4.i.i = icmp eq ptr %6, null
@@ -9273,12 +9273,12 @@ _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_1
 
 _ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS4_.exit.thread.i: ; preds = %entry
   %mnBucketCount30.i = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !39
+  %7 = load i64, ptr %mnBucketCount30.i, align 8, !noalias !404
   %conv31.i = trunc i64 %7 to i32
   %rem.i.i1432.i = urem i32 -2128831035, %conv31.i
   %conv333.i = zext i32 %rem.i.i1432.i to i64
   %mpBucketArray34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !39
+  %8 = load ptr, ptr %mpBucketArray34.i, align 8, !noalias !404
   %arrayidx35.i = getelementptr inbounds ptr, ptr %8, i64 %conv333.i
   %9 = load ptr, ptr %arrayidx35.i, align 8, !noalias !404
   %tobool.not4.i36.i = icmp eq ptr %9, null
@@ -9315,7 +9315,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i.i, i64 1
   %16 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !404
   %tobool.not.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i, label %land.rhs.i.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i.i: ; preds = %while.body.i.i.i.i
   %.pre.i.i = load i8, ptr %incdec.ptr3.i.i.i.i, align 1, !noalias !404
@@ -9527,7 +9527,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i.i, i64 1
   %11 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i, label %land.rhs.i.i.i, !llvm.loop !41
+  br i1 %tobool.not.i.i.i, label %while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i, label %land.rhs.i.i.i, !llvm.loop !40
 
 while.body.i.i._ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_10TestObjectEENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit_crit_edge.i: ; preds = %while.body.i.i.i
   %.pre.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
@@ -9869,197 +9869,197 @@ attributes #14 = { noreturn nounwind }
 !36 = !{!37}
 !37 = distinct !{!37, !38, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
 !38 = distinct !{!38, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!39 = !{}
+!39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!44 = distinct !{!44, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!45 = !{!46, !48}
-!46 = distinct !{!46, !47, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE: %agg.result"}
-!47 = distinct !{!47, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE"}
-!48 = distinct !{!48, !49, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_: %agg.result"}
-!49 = distinct !{!49, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!52 = distinct !{!52, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!55 = distinct !{!55, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!58 = distinct !{!58, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!61 = distinct !{!61, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!62 = !{!63, !65}
-!63 = distinct !{!63, !64, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE: %agg.result"}
-!64 = distinct !{!64, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE"}
-!65 = distinct !{!65, !66, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_: %agg.result"}
-!66 = distinct !{!66, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!69 = distinct !{!69, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!72 = distinct !{!72, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!73 = !{!74, !76}
-!74 = distinct !{!74, !75, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE: %agg.result"}
-!75 = distinct !{!75, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE"}
-!76 = distinct !{!76, !77, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_: %agg.result"}
-!77 = distinct !{!77, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE: %agg.result"}
-!80 = distinct !{!80, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE"}
-!81 = distinct !{!81, !6}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!84 = distinct !{!84, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!87 = distinct !{!87, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE5eraseENS_18hashtable_iteratorINS_4pairIKS3_iEELb1ELb0EEE: %agg.result"}
-!90 = distinct !{!90, !"_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE5eraseENS_18hashtable_iteratorINS_4pairIKS3_iEELb1ELb0EEE"}
-!91 = !{!92, !89}
-!92 = distinct !{!92, !93, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE: %agg.result"}
-!93 = distinct !{!93, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!96 = distinct !{!96, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!99 = distinct !{!99, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!100 = !{!101, !103}
-!101 = distinct !{!101, !102, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE: %agg.result"}
-!102 = distinct !{!102, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE"}
-!103 = distinct !{!103, !104, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_: %agg.result"}
-!104 = distinct !{!104, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_"}
-!105 = distinct !{!105, !6}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN5eastl9make_pairIPcRK7Align32EENS_4pairINS_24remove_reference_wrapperINS_5decayIT_E4typeEE4typeENS6_INS7_IT0_E4typeEE4typeEEEOS8_OSD_: %agg.result"}
-!108 = distinct !{!108, !"_ZN5eastl9make_pairIPcRK7Align32EENS_4pairINS_24remove_reference_wrapperINS_5decayIT_E4typeEE4typeENS6_INS7_IT0_E4typeEE4typeEEEOS8_OSD_"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!43 = distinct !{!43, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!44 = !{!45, !47}
+!45 = distinct !{!45, !46, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE: %agg.result"}
+!46 = distinct !{!46, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE"}
+!47 = distinct !{!47, !48, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_: %agg.result"}
+!48 = distinct !{!48, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!51 = distinct !{!51, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!54 = distinct !{!54, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!57 = distinct !{!57, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!60 = distinct !{!60, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!61 = !{!62, !64}
+!62 = distinct !{!62, !63, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE: %agg.result"}
+!63 = distinct !{!63, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE"}
+!64 = distinct !{!64, !65, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_: %agg.result"}
+!65 = distinct !{!65, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!68 = distinct !{!68, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!71 = distinct !{!71, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!72 = !{!73, !75}
+!73 = distinct !{!73, !74, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE: %agg.result"}
+!74 = distinct !{!74, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE"}
+!75 = distinct !{!75, !76, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_: %agg.result"}
+!76 = distinct !{!76, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_"}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE: %agg.result"}
+!79 = distinct !{!79, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE"}
+!80 = distinct !{!80, !6}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!83 = distinct !{!83, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!86 = distinct !{!86, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE5eraseENS_18hashtable_iteratorINS_4pairIKS3_iEELb1ELb0EEE: %agg.result"}
+!89 = distinct !{!89, !"_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE5eraseENS_18hashtable_iteratorINS_4pairIKS3_iEELb1ELb0EEE"}
+!90 = !{!91, !88}
+!91 = distinct !{!91, !92, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE: %agg.result"}
+!92 = distinct !{!92, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!95 = distinct !{!95, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!98 = distinct !{!98, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!99 = !{!100, !102}
+!100 = distinct !{!100, !101, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE: %agg.result"}
+!101 = distinct !{!101, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE"}
+!102 = distinct !{!102, !103, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_: %agg.result"}
+!103 = distinct !{!103, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS5_"}
+!104 = distinct !{!104, !6}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZN5eastl9make_pairIPcRK7Align32EENS_4pairINS_24remove_reference_wrapperINS_5decayIT_E4typeEE4typeENS6_INS7_IT0_E4typeEE4typeEEEOS8_OSD_: %agg.result"}
+!107 = distinct !{!107, !"_ZN5eastl9make_pairIPcRK7Align32EENS_4pairINS_24remove_reference_wrapperINS_5decayIT_E4typeEE4typeENS6_INS7_IT0_E4typeEE4typeEEEOS8_OSD_"}
+!108 = distinct !{!108, !6}
 !109 = distinct !{!109, !6}
 !110 = distinct !{!110, !6}
-!111 = distinct !{!111, !6}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
-!114 = distinct !{!114, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!117 = distinct !{!117, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!118 = distinct !{!118, !6}
-!119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
-!121 = distinct !{!121, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
-!122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!124 = distinct !{!124, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
-!127 = distinct !{!127, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
-!128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!130 = distinct !{!130, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!131 = distinct !{!131, !6}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!134 = distinct !{!134, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!135 = distinct !{!135, !6}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!138 = distinct !{!138, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZN5eastl9make_pairIPcRK7Align32EENS_4pairINS_24remove_reference_wrapperINS_5decayIT_E4typeEE4typeENS6_INS7_IT0_E4typeEE4typeEEEOS8_OSD_: %agg.result"}
-!141 = distinct !{!141, !"_ZN5eastl9make_pairIPcRK7Align32EENS_4pairINS_24remove_reference_wrapperINS_5decayIT_E4typeEE4typeENS6_INS7_IT0_E4typeEE4typeEEEOS8_OSD_"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!144 = distinct !{!144, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!147 = distinct !{!147, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!150 = distinct !{!150, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!153 = distinct !{!153, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!154 = !{!155, !157}
-!155 = distinct !{!155, !156, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE: %agg.result"}
-!156 = distinct !{!156, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE"}
-!157 = distinct !{!157, !158, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_: %agg.result"}
-!158 = distinct !{!158, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_"}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!161 = distinct !{!161, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!164 = distinct !{!164, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!165 = !{!166, !168}
-!166 = distinct !{!166, !167, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE: %agg.result"}
-!167 = distinct !{!167, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE"}
-!168 = distinct !{!168, !169, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_: %agg.result"}
-!169 = distinct !{!169, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_"}
-!170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE: %agg.result"}
-!172 = distinct !{!172, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE"}
-!173 = distinct !{!173, !6}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!176 = distinct !{!176, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!179 = distinct !{!179, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE5eraseENS_18hashtable_iteratorINS_4pairIKS4_S1_EELb1ELb0EEE: %agg.result"}
-!182 = distinct !{!182, !"_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE5eraseENS_18hashtable_iteratorINS_4pairIKS4_S1_EELb1ELb0EEE"}
-!183 = !{!184, !181}
-!184 = distinct !{!184, !185, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE: %agg.result"}
-!185 = distinct !{!185, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE"}
-!186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!188 = distinct !{!188, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!191 = distinct !{!191, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!192 = !{!193, !195}
-!193 = distinct !{!193, !194, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE: %agg.result"}
-!194 = distinct !{!194, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE"}
-!195 = distinct !{!195, !196, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_: %agg.result"}
-!196 = distinct !{!196, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_"}
-!197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
-!199 = distinct !{!199, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!202 = distinct !{!202, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
+!113 = distinct !{!113, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!116 = distinct !{!116, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!117 = distinct !{!117, !6}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
+!120 = distinct !{!120, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
+!121 = !{!122}
+!122 = distinct !{!122, !123, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!123 = distinct !{!123, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!124 = !{!125}
+!125 = distinct !{!125, !126, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
+!126 = distinct !{!126, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
+!127 = !{!128}
+!128 = distinct !{!128, !129, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!129 = distinct !{!129, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!130 = distinct !{!130, !6}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!133 = distinct !{!133, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!134 = distinct !{!134, !6}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!137 = distinct !{!137, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZN5eastl9make_pairIPcRK7Align32EENS_4pairINS_24remove_reference_wrapperINS_5decayIT_E4typeEE4typeENS6_INS7_IT0_E4typeEE4typeEEEOS8_OSD_: %agg.result"}
+!140 = distinct !{!140, !"_ZN5eastl9make_pairIPcRK7Align32EENS_4pairINS_24remove_reference_wrapperINS_5decayIT_E4typeEE4typeENS6_INS7_IT0_E4typeEE4typeEEEOS8_OSD_"}
+!141 = !{!142}
+!142 = distinct !{!142, !143, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!143 = distinct !{!143, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!144 = !{!145}
+!145 = distinct !{!145, !146, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!146 = distinct !{!146, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!147 = !{!148}
+!148 = distinct !{!148, !149, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!149 = distinct !{!149, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!152 = distinct !{!152, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!153 = !{!154, !156}
+!154 = distinct !{!154, !155, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE: %agg.result"}
+!155 = distinct !{!155, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE"}
+!156 = distinct !{!156, !157, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_: %agg.result"}
+!157 = distinct !{!157, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_"}
+!158 = !{!159}
+!159 = distinct !{!159, !160, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!160 = distinct !{!160, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!161 = !{!162}
+!162 = distinct !{!162, !163, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!163 = distinct !{!163, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!164 = !{!165, !167}
+!165 = distinct !{!165, !166, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE: %agg.result"}
+!166 = distinct !{!166, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE"}
+!167 = distinct !{!167, !168, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_: %agg.result"}
+!168 = distinct !{!168, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_"}
+!169 = !{!170}
+!170 = distinct !{!170, !171, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE: %agg.result"}
+!171 = distinct !{!171, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE"}
+!172 = distinct !{!172, !6}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!175 = distinct !{!175, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!176 = !{!177}
+!177 = distinct !{!177, !178, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!178 = distinct !{!178, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!179 = !{!180}
+!180 = distinct !{!180, !181, !"_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE5eraseENS_18hashtable_iteratorINS_4pairIKS4_S1_EELb1ELb0EEE: %agg.result"}
+!181 = distinct !{!181, !"_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE5eraseENS_18hashtable_iteratorINS_4pairIKS4_S1_EELb1ELb0EEE"}
+!182 = !{!183, !180}
+!183 = distinct !{!183, !184, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE: %agg.result"}
+!184 = distinct !{!184, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE"}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!187 = distinct !{!187, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!190 = distinct !{!190, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!191 = !{!192, !194}
+!192 = distinct !{!192, !193, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE: %agg.result"}
+!193 = distinct !{!193, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEET_OS6_PNS_9enable_ifIXsrSO_5valueEvE4typeE"}
+!194 = distinct !{!194, !195, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_: %agg.result"}
+!195 = distinct !{!195, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS6_"}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
+!198 = distinct !{!198, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!201 = distinct !{!201, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!202 = distinct !{!202, !6}
 !203 = distinct !{!203, !6}
-!204 = distinct !{!204, !6}
-!205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
-!207 = distinct !{!207, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
-!208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!210 = distinct !{!210, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!211 = distinct !{!211, !6}
-!212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
-!214 = distinct !{!214, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
-!215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!217 = distinct !{!217, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!204 = !{!205}
+!205 = distinct !{!205, !206, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
+!206 = distinct !{!206, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
+!207 = !{!208}
+!208 = distinct !{!208, !209, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!209 = distinct !{!209, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!210 = distinct !{!210, !6}
+!211 = !{!212}
+!212 = distinct !{!212, !213, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
+!213 = distinct !{!213, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
+!214 = !{!215}
+!215 = distinct !{!215, !216, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!216 = distinct !{!216, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!217 = distinct !{!217, !6}
 !218 = distinct !{!218, !6}
-!219 = distinct !{!219, !6}
-!220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
-!222 = distinct !{!222, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
-!223 = !{!224}
-!224 = distinct !{!224, !225, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
-!225 = distinct !{!225, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
-!226 = distinct !{!226, !6}
-!227 = !{!228}
-!228 = distinct !{!228, !229, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
-!229 = distinct !{!229, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!219 = !{!220}
+!220 = distinct !{!220, !221, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv: %agg.result"}
+!221 = distinct !{!221, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv"}
+!222 = !{!223}
+!223 = distinct !{!223, !224, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv: %agg.result"}
+!224 = distinct !{!224, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv"}
+!225 = distinct !{!225, !6}
+!226 = !{!227}
+!227 = distinct !{!227, !228, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_: %agg.result"}
+!228 = distinct !{!228, !"_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_"}
+!229 = !{}
 !230 = distinct !{!230, !6}
 !231 = !{!232}
 !232 = distinct !{!232, !233, !"_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE6insertES3_: %agg.result"}

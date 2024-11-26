@@ -1975,9 +1975,9 @@ define hidden void @"_ZN3hir9semantics19Semantics$LT$DB$GT$18file_to_module_def1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !547)
   %9 = getelementptr inbounds i8, ptr %7, i64 24
-  %10 = load i64, ptr %9, align 8, !noalias !9, !noundef !9
+  %10 = load i64, ptr %9, align 8, !alias.scope !549, !noalias !552, !noundef !9
   %11 = getelementptr inbounds i8, ptr %7, i64 32
-  %12 = load i64, ptr %11, align 8, !noalias !9, !noundef !9
+  %12 = load i64, ptr %11, align 8, !alias.scope !549, !noalias !552, !noundef !9
   %13 = icmp eq i64 %10, %12
   br i1 %13, label %.thread, label %14
 

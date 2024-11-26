@@ -1261,7 +1261,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %3 = load ptr, ptr %this, align 8
+  %3 = load ptr, ptr %this, align 8, !noalias !19
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !19
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -2309,7 +2309,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %2 = load ptr, ptr %this, align 8
+  %2 = load ptr, ptr %this, align 8, !noalias !37
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %capacity_.i.i, align 8, !noalias !37
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7

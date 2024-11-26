@@ -690,7 +690,7 @@ _ZN5serde2de10EnumAccess7variant17h33ad0f575c4f5ccbE.exit.i: ; preds = %48
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
   %167 = getelementptr inbounds i8, ptr %19, i64 16
-  %168 = load ptr, ptr %167, align 8, !alias.scope !143, !nonnull !28, !noundef !28
+  %168 = load ptr, ptr %167, align 8, !alias.scope !149, !nonnull !28, !noundef !28
   %169 = getelementptr inbounds i8, ptr %19, i64 24
   %170 = load i64, ptr %169, align 8, !alias.scope !149, !noundef !28
   br label %171
@@ -1681,7 +1681,7 @@ select.unfold441:                                 ; preds = %393, %389, %358
   br i1 %397, label %.thread447, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %.promoted.i.i = load i64, ptr %50, align 8, !noalias !283
+  %.promoted.i.i = load i64, ptr %50, align 8, !alias.scope !286, !noalias !289
   %398 = load ptr, ptr %53, align 8, !alias.scope !291, !noalias !294, !nonnull !28, !align !296, !noundef !28
   %399 = load i64, ptr %54, align 8, !alias.scope !291, !noalias !294, !noundef !28
   %400 = getelementptr inbounds i8, ptr %398, i64 %399
@@ -1809,7 +1809,7 @@ select.unfold441:                                 ; preds = %393, %389, %358
   br label %401
 
 469:                                              ; preds = %.noexc317
-  %470 = load i64, ptr %55, align 8, !noalias !283, !noundef !28
+  %470 = load i64, ptr %55, align 8, !alias.scope !286, !noalias !289, !noundef !28
   %471 = icmp eq i64 %470, -1
   %472 = load ptr, ptr %53, align 8, !alias.scope !286, !noalias !289, !nonnull !28, !align !296, !noundef !28
   %473 = load i64, ptr %54, align 8, !alias.scope !286, !noalias !289, !noundef !28
@@ -1822,7 +1822,7 @@ select.unfold441:                                 ; preds = %393, %389, %358
   call void @llvm.experimental.noalias.scope.decl(metadata !305)
   call void @llvm.experimental.noalias.scope.decl(metadata !308)
   call void @llvm.experimental.noalias.scope.decl(metadata !310)
-  %.promoted.i5.i = load i64, ptr %58, align 8, !noalias !283
+  %.promoted.i5.i = load i64, ptr %58, align 8, !alias.scope !305, !noalias !312
   %478 = add i64 %.promoted.i5.i, %476
   %479 = icmp ult i64 %478, %473
   br i1 %479, label %.lr.ph.i8.i, label %.thread447
@@ -1923,7 +1923,7 @@ select.unfold441:                                 ; preds = %393, %389, %358
   call void @llvm.experimental.noalias.scope.decl(metadata !316)
   call void @llvm.experimental.noalias.scope.decl(metadata !319)
   call void @llvm.experimental.noalias.scope.decl(metadata !321)
-  %.promoted.i2.i = load i64, ptr %58, align 8, !noalias !283
+  %.promoted.i2.i = load i64, ptr %58, align 8, !alias.scope !316, !noalias !323
   %531 = add i64 %.promoted.i2.i, %476
   %532 = icmp ult i64 %531, %473
   br i1 %532, label %.lr.ph.i4.i, label %.thread447

@@ -2387,7 +2387,7 @@ if.then7:                                         ; preds = %if.end4
   br label %return
 
 if.end17:                                         ; preds = %if.end4
-  %6 = load i32, ptr %config, align 4
+  %6 = load i32, ptr %config, align 4, !noalias !11
   %parse_argv.i.i = getelementptr inbounds i8, ptr %config, i64 4
   %7 = load i32, ptr %parse_argv.i.i, align 4, !noalias !11
   %isolated.i.i = getelementptr inbounds i8, ptr %config, i64 8
@@ -2395,7 +2395,7 @@ if.end17:                                         ; preds = %if.end4
   %use_environment.i.i = getelementptr inbounds i8, ptr %config, i64 12
   %9 = load i32, ptr %use_environment.i.i, align 4, !noalias !11
   %configure_locale.i.i = getelementptr inbounds i8, ptr %config, i64 16
-  %10 = load i32, ptr %configure_locale.i.i, align 4
+  %10 = load i32, ptr %configure_locale.i.i, align 4, !noalias !11
   %dev_mode.i.i = getelementptr inbounds i8, ptr %config, i64 32
   %11 = load i32, ptr %dev_mode.i.i, align 4, !noalias !11
   %coerce_c_locale.i.i = getelementptr inbounds i8, ptr %config, i64 20

@@ -7611,8 +7611,8 @@ invoke.cont:                                      ; preds = %entry
           to label %for.cond.preheader.i unwind label %lpad.loopexit.split-lp.i
 
 for.cond.preheader.i:                             ; preds = %invoke.cont
-  %9 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %10 = load ptr, ptr %names_, align 8
+  %9 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !64
+  %10 = load ptr, ptr %names_, align 8, !noalias !64
   %cmp67.not.i = icmp eq ptr %9, %10
   br i1 %cmp67.not.i, label %invoke.cont5, label %for.body.i
 
@@ -7748,8 +7748,8 @@ lpad.i:                                           ; preds = %lpad.loopexit.split
 for.inc.i:                                        ; preds = %if.end.i.i.i.i.i, %land.rhs.i.i.i.i, %invoke.cont13.i
   %inc.i = add i32 %i.068.i, 1
   %conv.i = zext i32 %inc.i to i64
-  %28 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %29 = load ptr, ptr %names_, align 8
+  %28 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !64
+  %29 = load ptr, ptr %names_, align 8, !noalias !64
   %sub.ptr.lhs.cast.i23.i = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i24.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i25.i = sub i64 %sub.ptr.lhs.cast.i23.i, %sub.ptr.rhs.cast.i24.i
@@ -24610,7 +24610,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !306
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -24753,7 +24753,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !309
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -24896,7 +24896,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !312
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -25039,7 +25039,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !315
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -25182,7 +25182,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !318
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -25325,7 +25325,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !321
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -25468,7 +25468,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !324
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -25611,7 +25611,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !327
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -25754,7 +25754,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !330
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -25897,7 +25897,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !333
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -26040,7 +26040,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !336
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -26322,7 +26322,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !339
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -26531,7 +26531,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !342
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -26740,7 +26740,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !345
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -26949,7 +26949,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !348
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -27158,7 +27158,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !351
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -27367,7 +27367,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !354
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -27576,7 +27576,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !357
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -27785,7 +27785,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !360
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -27994,7 +27994,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !363
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -28203,7 +28203,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !366
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread
@@ -28412,7 +28412,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 
 if.then.i.i.i.i:                                  ; preds = %init.end.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !369
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.thread

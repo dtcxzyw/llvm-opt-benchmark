@@ -4729,7 +4729,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   store ptr %48, ptr %54, align 8, !alias.scope !114
   %55 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 %40, ptr %55, align 8, !alias.scope !114
-  %56 = load i64, ptr %52, align 8
+  %56 = load i64, ptr %52, align 8, !noalias !114
   %57 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %56, ptr %57, align 8, !alias.scope !114
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
@@ -5404,7 +5404,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1E
   store i64 %118, ptr %82, align 8, !alias.scope !125
   store ptr %117, ptr %83, align 8, !alias.scope !125
   store i64 %109, ptr %84, align 8, !alias.scope !125
-  %122 = load i64, ptr %121, align 8
+  %122 = load i64, ptr %121, align 8, !noalias !125
   store i64 %122, ptr %85, align 8, !alias.scope !125
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
@@ -6086,7 +6086,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1E
   store i64 %161, ptr %125, align 8, !alias.scope !132
   store ptr %160, ptr %126, align 8, !alias.scope !132
   store i64 %152, ptr %127, align 8, !alias.scope !132
-  %165 = load i64, ptr %164, align 8
+  %165 = load i64, ptr %164, align 8, !noalias !132
   store i64 %165, ptr %128, align 8, !alias.scope !132
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
@@ -8958,7 +8958,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   store ptr %50, ptr %56, align 8, !alias.scope !158
   %57 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 %40, ptr %57, align 8, !alias.scope !158
-  %58 = load i64, ptr %54, align 8
+  %58 = load i64, ptr %54, align 8, !noalias !158
   %59 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %58, ptr %59, align 8, !alias.scope !158
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
@@ -9621,7 +9621,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1E
   store i64 %120, ptr %82, align 8, !alias.scope !169
   store ptr %119, ptr %83, align 8, !alias.scope !169
   store i64 %109, ptr %84, align 8, !alias.scope !169
-  %124 = load i64, ptr %123, align 8
+  %124 = load i64, ptr %123, align 8, !noalias !169
   store i64 %124, ptr %85, align 8, !alias.scope !169
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -10150,7 +10150,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1E
   store i64 %163, ptr %125, align 8, !alias.scope !176
   store ptr %162, ptr %126, align 8, !alias.scope !176
   store i64 %152, ptr %127, align 8, !alias.scope !176
-  %167 = load i64, ptr %166, align 8
+  %167 = load i64, ptr %166, align 8, !noalias !176
   store i64 %167, ptr %128, align 8, !alias.scope !176
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)

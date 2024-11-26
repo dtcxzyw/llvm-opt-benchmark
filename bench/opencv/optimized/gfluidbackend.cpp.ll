@@ -18904,7 +18904,7 @@ define hidden void @_ZN2cv5gimpl16GFluidExecutable7reshapeERN3ade5GraphERKSt6vec
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %31, i64 12
-  %34 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
+  %34 = load i8, ptr @__libc_single_threaded, align 1, !noalias !271
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %34, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %39, label %.thread.i
 
@@ -19407,7 +19407,7 @@ _ZN12_GLOBAL__N_114resetFluidDataERN3ade5GraphE.exit: ; preds = %_ZN3ade6HandleI
   call fastcc void @_ZN12_GLOBAL__N_18calcSkewERN3ade5GraphE(ptr noundef nonnull align 8 dereferenceable(168) %1)
   call void @_ZN2cv4gapi13getCompileArgINS_16GFluidOutputRoisEEENS_4util8optionalIT_EERKSt6vectorINS_11GCompileArgESaIS8_EE(ptr dead_on_unwind nonnull writable sret(%"class.cv::util::optional.450") align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
-  %239 = load i64, ptr %17, align 8
+  %239 = load i64, ptr %17, align 8, !noalias !287
   %240 = icmp eq i64 %239, 1
   br i1 %240, label %_ZNK2cv4util8optionalINS_16GFluidOutputRoisEE5valueEv.exit.i, label %_ZN2cv16GFluidOutputRoisC2ERKS0_.exit11.i
 
@@ -23524,7 +23524,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119initLineConsumptionERN3ade5Graph
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds i8, ptr %58, i64 12
-  %61 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
+  %61 = load i8, ptr @__libc_single_threaded, align 1, !noalias !388
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %61, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %66, label %.thread
 
@@ -38651,7 +38651,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__n
 
 92:                                               ; preds = %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratorneERKSK_.exit.i.i
   %93 = getelementptr inbounds i8, ptr %.val2.val3.i.i, i64 12
-  %94 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
+  %94 = load i8, ptr @__libc_single_threaded, align 1, !noalias !642
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %94, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %99, label %.thread.i.i.i
 
@@ -44943,7 +44943,7 @@ _ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10I
 
 184:                                              ; preds = %180
   %185 = getelementptr inbounds i8, ptr %183, i64 12
-  %186 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
+  %186 = load i8, ptr @__libc_single_threaded, align 1, !noalias !715
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %186, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %191, label %.thread.i.i
 
@@ -53144,7 +53144,7 @@ _ZN2cv4gapi8GBackendD2Ev.exit.i.i:                ; preds = %_ZNSt16_Sp_counted_
 
 116:                                              ; preds = %112
   %117 = getelementptr inbounds i8, ptr %115, i64 12
-  %118 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
+  %118 = load i8, ptr @__libc_single_threaded, align 1, !noalias !873
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %118, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %123, label %.thread.i.i
 

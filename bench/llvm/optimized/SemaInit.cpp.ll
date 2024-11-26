@@ -7649,10 +7649,11 @@ _ZN5clang18InitializationKind13CreateForInitENS_14SourceLocationEbPNS_4ExprE.exi
   br i1 %254, label %338, label %255
 
 255:                                              ; preds = %247
+  call void @llvm.experimental.noalias.scope.decl(metadata !79)
   store i32 21, ptr %27, align 8, !alias.scope !79
   store ptr null, ptr %237, align 8, !alias.scope !79
   %256 = getelementptr inbounds nuw i8, ptr %248, i64 48
-  %.sroa.0.0.copyload.i.i.i227 = load i64, ptr %256, align 8
+  %.sroa.0.0.copyload.i.i.i227 = load i64, ptr %256, align 8, !noalias !79
   store i64 %.sroa.0.0.copyload.i.i.i227, ptr %238, align 8, !alias.scope !79
   store i32 0, ptr %239, align 8, !alias.scope !79
   store ptr %248, ptr %240, align 8, !alias.scope !79
@@ -30772,10 +30773,11 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit235: ; pr
 
 552:                                              ; preds = %542, %539
   %553 = load ptr, ptr %15, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !182)
   store i32 6, ptr %21, align 8, !alias.scope !182
   store ptr %1, ptr %341, align 8, !alias.scope !182
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 48
-  %.sroa.0.0.copyload.i.i.i237 = load i64, ptr %554, align 8
+  %.sroa.0.0.copyload.i.i.i237 = load i64, ptr %554, align 8, !noalias !182
   store i64 %.sroa.0.0.copyload.i.i.i237, ptr %342, align 8, !alias.scope !182
   store i32 0, ptr %343, align 8, !alias.scope !182
   store ptr %553, ptr %344, align 8, !alias.scope !182
@@ -31316,12 +31318,13 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit317: ; pr
 
 814:                                              ; preds = %805
   %815 = load ptr, ptr %15, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !195)
   store i32 6, ptr %25, align 8, !alias.scope !195
   %816 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %1, ptr %816, align 8, !alias.scope !195
   %817 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %818 = getelementptr inbounds nuw i8, ptr %815, i64 48
-  %.sroa.0.0.copyload.i.i.i323 = load i64, ptr %818, align 8
+  %.sroa.0.0.copyload.i.i.i323 = load i64, ptr %818, align 8, !noalias !195
   store i64 %.sroa.0.0.copyload.i.i.i323, ptr %817, align 8, !alias.scope !195
   %819 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 0, ptr %819, align 8, !alias.scope !195
@@ -37943,11 +37946,12 @@ _ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit545: ; preds = %_Z
   br label %_ZN5clang12InitListExpr7setInitEjPNS_4ExprE.exit553
 
 _ZN5clang12InitListExpr7setInitEjPNS_4ExprE.exit553: ; preds = %843, %852
+  call void @llvm.experimental.noalias.scope.decl(metadata !263)
   store i32 6, ptr %63, align 8, !alias.scope !263
   %859 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %1, ptr %859, align 8, !alias.scope !263
   %860 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %.sroa.0.0.copyload.i.i.i550 = load i64, ptr %762, align 8
+  %.sroa.0.0.copyload.i.i.i550 = load i64, ptr %762, align 8, !noalias !263
   store i64 %.sroa.0.0.copyload.i.i.i550, ptr %860, align 8, !alias.scope !263
   %861 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store i32 0, ptr %861, align 8, !alias.scope !263

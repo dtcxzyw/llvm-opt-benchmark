@@ -2248,7 +2248,7 @@ _ZN12_GLOBAL__N_121DAGDeltaAlgorithmImplC2ERN4llvm17DAGDeltaAlgorithmERKSt3setIj
   %.sroa.031.040.i = phi ptr [ %1005, %_ZNSt3setIjSt4lessIjESaIjEE6insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjS2_EEEEEvT_SB_.exit.i ], [ %790, %787 ]
   %791 = getelementptr inbounds nuw i8, ptr %.sroa.031.040.i, i64 32
   %792 = load i32, ptr %791, align 4
-  %793 = load ptr, ptr %46, align 8
+  %793 = load ptr, ptr %46, align 8, !noalias !22
   %.not10.i.i.i.i.i.i4 = icmp eq ptr %793, null
   br i1 %.not10.i.i.i.i.i.i4, label %.critedge.i.i.i42, label %.lr.ph.i.i.i.i.i.i5
 
@@ -2492,7 +2492,7 @@ _ZN12_GLOBAL__N_121DAGDeltaAlgorithmImpl10pred_beginEj.exit.i14: ; preds = %_ZNS
   %.sroa.05.0.i.i.i15 = phi ptr [ %.19.i.i.i.i.i.i8, %798 ], [ %801, %.thread.i.i46 ], [ %.sroa.070.0.i238374, %_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIjSaIjEEESt10_Select1stIS5_ESt4lessIjESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit.i.i.i ]
   %882 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i15, i64 40
   %883 = load ptr, ptr %882, align 8
-  %884 = load ptr, ptr %46, align 8
+  %884 = load ptr, ptr %46, align 8, !noalias !22
   %.not10.i.i.i.i.i10.i = icmp eq ptr %884, null
   br i1 %.not10.i.i.i.i.i10.i, label %.critedge.i.i21.i, label %.lr.ph.i.i.i.i.i11.i
 

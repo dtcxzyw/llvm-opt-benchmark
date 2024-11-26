@@ -21986,7 +21986,7 @@ if.then.i12.i.i:                                  ; preds = %call6.i.i.noexc
   unreachable
 
 _ZN8facebook5velox13AlignedBuffer8allocateIhEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit.i: ; preds = %call6.i.i.noexc
-  %115 = load ptr, ptr %ref.tmp34, align 8
+  %115 = load ptr, ptr %ref.tmp34, align 8, !alias.scope !297
   %116 = load ptr, ptr %nulls_.i, align 8, !noalias !297
   %size_.i5.i = getelementptr inbounds i8, ptr %115, i64 24
   %117 = load i64, ptr %size_.i5.i, align 8, !noalias !297
@@ -22887,7 +22887,7 @@ if.then.i12.i.i:                                  ; preds = %call6.i.i.noexc
   unreachable
 
 _ZN8facebook5velox13AlignedBuffer8allocateIhEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit.i: ; preds = %call6.i.i.noexc
-  %99 = load ptr, ptr %ref.tmp53, align 8
+  %99 = load ptr, ptr %ref.tmp53, align 8, !alias.scope !308
   %100 = load ptr, ptr %nulls_.i, align 8, !noalias !308
   %size_.i5.i = getelementptr inbounds i8, ptr %99, i64 24
   %101 = load i64, ptr %size_.i5.i, align 8, !noalias !308

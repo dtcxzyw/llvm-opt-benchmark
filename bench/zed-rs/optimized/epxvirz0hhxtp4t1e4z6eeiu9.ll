@@ -1532,10 +1532,11 @@ define void @_ZN5sqlez9statement9Statement11column_blob17hd7f618a1b9514487E(ptr 
   %16 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   store i32 %2, ptr %16, align 4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
   %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = load i64, ptr %17, align 8, !noundef !5
+  %18 = load i64, ptr %17, align 8, !alias.scope !170, !noundef !5
   %19 = getelementptr inbounds i8, ptr %1, i64 32
-  %20 = load i64, ptr %19, align 8, !noundef !5
+  %20 = load i64, ptr %19, align 8, !alias.scope !170, !noundef !5
   %21 = icmp ult i64 %20, %18
   br i1 %21, label %_ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit, label %22
 
@@ -1545,7 +1546,7 @@ define void @_ZN5sqlez9statement9Statement11column_blob17hd7f618a1b9514487E(ptr 
 
 _ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit: ; preds = %3
   %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
+  %24 = load ptr, ptr %23, align 8, !alias.scope !170, !nonnull !5, !noundef !5
   %25 = getelementptr inbounds ptr, ptr %24, i64 %20
   %26 = load ptr, ptr %25, align 8, !noalias !170, !noundef !5
   %27 = tail call noundef ptr @sqlite3_column_blob(ptr noundef %26, i32 noundef %2) #21
@@ -2087,10 +2088,11 @@ define void @_ZN5sqlez9statement9Statement11column_text17h022b51c70d93dc37E(ptr 
   %18 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   store i32 %2, ptr %18, align 4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
   %19 = getelementptr inbounds i8, ptr %1, i64 16
-  %20 = load i64, ptr %19, align 8, !noundef !5
+  %20 = load i64, ptr %19, align 8, !alias.scope !250, !noundef !5
   %21 = getelementptr inbounds i8, ptr %1, i64 32
-  %22 = load i64, ptr %21, align 8, !noundef !5
+  %22 = load i64, ptr %21, align 8, !alias.scope !250, !noundef !5
   %23 = icmp ult i64 %22, %20
   br i1 %23, label %_ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit, label %24
 
@@ -2100,7 +2102,7 @@ define void @_ZN5sqlez9statement9Statement11column_text17h022b51c70d93dc37E(ptr 
 
 _ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit: ; preds = %3
   %25 = getelementptr inbounds i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8, !nonnull !5, !noundef !5
+  %26 = load ptr, ptr %25, align 8, !alias.scope !250, !nonnull !5, !noundef !5
   %27 = getelementptr inbounds ptr, ptr %26, i64 %22
   %28 = load ptr, ptr %27, align 8, !noalias !250, !noundef !5
   %29 = tail call noundef ptr @sqlite3_column_text(ptr noundef %28, i32 noundef %2) #21
@@ -2366,7 +2368,7 @@ define void @_ZN5sqlez9statement9Statement4step17h753d3b5557b8c56cE(ptr dead_on_
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load i64, ptr %6, align 8, !noundef !5
+  %7 = load i64, ptr %6, align 8, !alias.scope !285, !noundef !5
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %.promoted = load i64, ptr %8, align 8
   %9 = icmp ult i64 %.promoted, %7

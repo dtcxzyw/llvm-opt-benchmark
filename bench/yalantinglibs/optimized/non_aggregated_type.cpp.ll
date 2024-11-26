@@ -171,7 +171,7 @@ if.then.i.i:                                      ; preds = %invoke.cont3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %_M_string_length.i.i.i46 = getelementptr inbounds i8, ptr %p, i64 72
-  %7 = load i64, ptr %_M_string_length.i.i.i46, align 8
+  %7 = load i64, ptr %_M_string_length.i.i.i46, align 8, !noalias !5
   %cmp.i162 = icmp ult i64 %7, 256
   br i1 %cmp.i162, label %if.then.i163, label %if.else.i
 
@@ -578,7 +578,7 @@ if.then.i.i102:                                   ; preds = %invoke.cont16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer19, i8 0, i64 24, i1 false)
   %_M_finish.i108 = getelementptr inbounds i8, ptr %buffer19, i64 8
   %_M_string_length.i.i.i113 = getelementptr inbounds i8, ptr %p10, i64 16
-  %52 = load i64, ptr %_M_string_length.i.i.i113, align 8
+  %52 = load i64, ptr %_M_string_length.i.i.i113, align 8, !noalias !12
   %cmp.i250 = icmp ult i64 %52, 256
   br i1 %cmp.i250, label %if.then.i279, label %if.else.i251
 
@@ -929,7 +929,7 @@ if.then.i.i233:                                   ; preds = %invoke.cont33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer36, i8 0, i64 24, i1 false)
   %_M_finish.i239 = getelementptr inbounds i8, ptr %buffer36, i64 8
   %_M_string_length.i.i.i244 = getelementptr inbounds i8, ptr %p27, i64 16
-  %89 = load i64, ptr %_M_string_length.i.i.i244, align 8
+  %89 = load i64, ptr %_M_string_length.i.i.i244, align 8, !noalias !21
   %cmp.i207 = icmp ult i64 %89, 256
   br i1 %cmp.i207, label %if.then.i236, label %if.else.i208
 
@@ -2622,3 +2622,28 @@ attributes #19 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = !{!6, !8, !10}
+!6 = distinct !{!6, !7, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!7 = distinct !{!7, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!8 = distinct !{!8, !9, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!9 = distinct !{!9, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!10 = distinct !{!10, !11, !"_ZN11struct_pack6detail18calculate_one_sizeIN7example6personELm0EEE9size_infoRKT_: %agg.result"}
+!11 = distinct !{!11, !"_ZN11struct_pack6detail18calculate_one_sizeIN7example6personELm0EEE9size_infoRKT_"}
+!12 = !{!13, !15, !17, !19}
+!13 = distinct !{!13, !14, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!14 = distinct !{!14, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!15 = distinct !{!15, !16, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!16 = distinct !{!16, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!17 = distinct !{!17, !18, !"_ZZN11struct_pack6detail18calculate_one_sizeIN8example26personELm0EEE9size_infoRKT_ENKUlDpOT_E_clIJRKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDaSA_: %agg.result"}
+!18 = distinct !{!18, !"_ZZN11struct_pack6detail18calculate_one_sizeIN8example26personELm0EEE9size_infoRKT_ENKUlDpOT_E_clIJRKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDaSA_"}
+!19 = distinct !{!19, !20, !"_ZN11struct_pack6detail18calculate_one_sizeIN8example26personELm0EEE9size_infoRKT_: %agg.result"}
+!20 = distinct !{!20, !"_ZN11struct_pack6detail18calculate_one_sizeIN8example26personELm0EEE9size_infoRKT_"}
+!21 = !{!22, !24, !26, !28}
+!22 = distinct !{!22, !23, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!23 = distinct !{!23, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!24 = distinct !{!24, !25, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!25 = distinct !{!25, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!26 = distinct !{!26, !27, !"_ZZN11struct_pack6detail18calculate_one_sizeIN8example26personELm0EEE9size_infoRKT_ENKUlDpOT_E_clIJRKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDaSA_: %agg.result"}
+!27 = distinct !{!27, !"_ZZN11struct_pack6detail18calculate_one_sizeIN8example26personELm0EEE9size_infoRKT_ENKUlDpOT_E_clIJRKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDaSA_"}
+!28 = distinct !{!28, !29, !"_ZN11struct_pack6detail18calculate_one_sizeIN8example26personELm0EEE9size_infoRKT_: %agg.result"}
+!29 = distinct !{!29, !"_ZN11struct_pack6detail18calculate_one_sizeIN8example26personELm0EEE9size_infoRKT_"}

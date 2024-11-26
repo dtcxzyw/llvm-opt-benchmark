@@ -1663,7 +1663,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i8, ptr @__libc_single_threaded, align 1
+  %14 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i.i13, label %if.then.i.i.i.i13.thread
 
@@ -1916,7 +1916,7 @@ if.end:                                           ; preds = %_ZN4node11Environme
 
 if.then.i.i.i.i:                                  ; preds = %if.end
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load i8, ptr @__libc_single_threaded, align 1
+  %17 = load i8, ptr @__libc_single_threaded, align 1, !noalias !14
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i.i11, label %if.then.i.i.i.i11.thread
 

@@ -1993,23 +1993,23 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang21SimpleProgramPointTagE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 5, ptr %9, align 8, !alias.scope !5
+  store i8 5, ptr %9, align 8, !alias.scope !7
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 3, ptr %10, align 1, !alias.scope !5
-  store ptr %1, ptr %6, align 8, !alias.scope !5
+  store i8 3, ptr %10, align 1, !alias.scope !7
+  store ptr %1, ptr %6, align 8, !alias.scope !7
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %2, ptr %11, align 8, !alias.scope !5
+  store i64 %2, ptr %11, align 8, !alias.scope !7
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @.str.55, ptr %12, align 8, !alias.scope !5
-  store ptr %6, ptr %5, align 8, !alias.scope !8
+  store ptr @.str.55, ptr %12, align 8, !alias.scope !7
+  store ptr %6, ptr %5, align 8, !alias.scope !10
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !alias.scope !8
+  store ptr %3, ptr %13, align 8, !alias.scope !10
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !8
+  store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 2, ptr %14, align 8, !alias.scope !8
+  store i8 2, ptr %14, align 8, !alias.scope !10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 5, ptr %15, align 1, !alias.scope !8
+  store i8 5, ptr %15, align 1, !alias.scope !10
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(34) %5) #14
   ret void
 }
@@ -2163,12 +2163,14 @@ attributes #16 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
-!7 = distinct !{!7, !"_ZN4llvmplERKNS_9StringRefEPKc"}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
-!10 = distinct !{!10, !"_ZNK4llvm5Twine6concatERKS0_"}
-!11 = distinct !{!11, !12, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
-!12 = distinct !{!12, !"_ZN4llvmplERKNS_5TwineES2_"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZNK5clang12ProgramPoint5getAsINS_7PreLoadEEESt8optionalIT_Ev: argument 0"}
+!6 = distinct !{!6, !"_ZNK5clang12ProgramPoint5getAsINS_7PreLoadEEESt8optionalIT_Ev"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
+!9 = distinct !{!9, !"_ZN4llvmplERKNS_9StringRefEPKc"}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
+!12 = distinct !{!12, !"_ZNK4llvm5Twine6concatERKS0_"}
+!13 = distinct !{!13, !14, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
+!14 = distinct !{!14, !"_ZN4llvmplERKNS_5TwineES2_"}

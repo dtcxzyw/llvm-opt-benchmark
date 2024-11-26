@@ -439,7 +439,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hd8924effacfea4a1E(ptr noa
 
 .noexc:                                           ; preds = %54
   %.pre.i.i = load i64, ptr %50, align 8, !alias.scope !50, !noalias !51
-  %.pre = load ptr, ptr %49, align 8
+  %.pre = load ptr, ptr %49, align 8, !alias.scope !50, !noalias !51
   br label %55
 
 55:                                               ; preds = %48, %.noexc

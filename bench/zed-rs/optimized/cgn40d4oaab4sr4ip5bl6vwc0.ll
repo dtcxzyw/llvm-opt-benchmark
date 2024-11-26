@@ -856,7 +856,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.6435588442613421834.exit.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
-  %84 = load ptr, ptr %26, align 8, !alias.scope !228, !nonnull !14, !align !98, !noundef !14
+  %84 = load ptr, ptr %26, align 8, !alias.scope !234, !nonnull !14, !align !98, !noundef !14
   %85 = getelementptr inbounds i8, ptr %84, i64 40
   %86 = load i64, ptr %85, align 8, !noalias !234, !noundef !14
   %87 = getelementptr inbounds i8, ptr %84, i64 32
@@ -1088,7 +1088,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.6435588442613421834.exit.
   %.sroa.021.5 = phi i8 [ 0, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17he059de1d637f25feE.llvm.2466579738287709844.exit" ], [ 1, %208 ], [ 1, %204 ], [ 1, %202 ], [ 1, %198 ], [ 1, %193 ], [ 1, %195 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
-  %169 = load ptr, ptr %26, align 8, !alias.scope !304, !nonnull !14, !align !98, !noundef !14
+  %169 = load ptr, ptr %26, align 8, !alias.scope !310, !nonnull !14, !align !98, !noundef !14
   %170 = getelementptr inbounds i8, ptr %169, i64 40
   %171 = load i64, ptr %170, align 8, !noalias !310, !noundef !14
   %172 = getelementptr inbounds i8, ptr %169, i64 32

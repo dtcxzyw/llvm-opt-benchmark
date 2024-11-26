@@ -1199,7 +1199,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
   %3 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !19
-  %bf.load.i.i.i = load i64, ptr %3, align 8
+  %bf.load.i.i.i = load i64, ptr %3, align 8, !noalias !19
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %4 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %4, 1048575
@@ -4816,7 +4816,7 @@ for.inc:                                          ; preds = %_ZNK4cvc58internal1
 
 for.end:                                          ; preds = %for.inc, %if.then
   %10 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !45
-  %bf.load.i.i.i = load i64, ptr %10, align 8
+  %bf.load.i.i.i = load i64, ptr %10, align 8, !noalias !45
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %11 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %11, 1048575

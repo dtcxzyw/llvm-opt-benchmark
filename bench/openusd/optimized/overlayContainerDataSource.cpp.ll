@@ -1976,7 +1976,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSource
 
 34:                                               ; preds = %32
   store ptr %33, ptr %6, align 8, !alias.scope !30
-  %35 = load ptr, ptr %22, align 8
+  %35 = load ptr, ptr %22, align 8, !noalias !30
   store ptr %35, ptr %21, align 8, !alias.scope !30
   %.not.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exitthread-pre-split.thread, label %36
@@ -2083,7 +2083,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_21HdConta
   br i1 %76, label %77, label %125
 
 77:                                               ; preds = %74
-  %78 = load ptr, ptr %5, align 8
+  %78 = load ptr, ptr %5, align 8, !noalias !31
   %79 = icmp eq ptr %78, null
   br i1 %79, label %._ZN32pxrInternal_v0_24__pxrReserved__17HdBlockDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread.thread_crit_edge, label %80
 

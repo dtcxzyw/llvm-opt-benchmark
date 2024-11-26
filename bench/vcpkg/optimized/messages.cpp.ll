@@ -5692,7 +5692,7 @@ _ZN5vcpkg3msg15get_locale_pathB5cxx11Ei.exit:     ; preds = %14
 37:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %38 = getelementptr inbounds i8, ptr %9, i64 32
-  %39 = load i8, ptr %38, align 8
+  %39 = load i8, ptr %38, align 8, !noalias !65
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %_ZN5vcpkg3msg17MessageMapAndFileD2Ev.exit.i
 

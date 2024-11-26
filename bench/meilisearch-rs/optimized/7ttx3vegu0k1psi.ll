@@ -141,7 +141,7 @@ define hidden void @"_ZN107_$LT$heed..iterator..iter..RoIter$LT$KC$C$DC$C$IM$GT$
 
 .noexc:                                           ; preds = %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !8
-  %28 = load i64, ptr %5, align 8, !range !12, !noalias !13, !noundef !5
+  %28 = load i64, ptr %5, align 8, !range !12, !noalias !8, !noundef !5
   %29 = icmp eq i64 %28, -9223372036854775808
   %30 = getelementptr inbounds i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8, !noalias !13
@@ -1469,7 +1469,7 @@ define hidden void @"_ZN4heed8database27Database$LT$KC$C$DC$C$C$GT$3get17h16c387
 
 .noexc:                                           ; preds = %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !185
-  %44 = load i64, ptr %10, align 8, !range !12, !noalias !189, !noundef !5
+  %44 = load i64, ptr %10, align 8, !range !12, !noalias !185, !noundef !5
   %45 = icmp eq i64 %44, -9223372036854775808
   %46 = getelementptr inbounds i8, ptr %10, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !189
@@ -3017,7 +3017,7 @@ define hidden void @"_ZN4heed8database27Database$LT$KC$C$DC$C$C$GT$5first17h94df
 
 .noexc:                                           ; preds = %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !395
-  %60 = load i64, ptr %6, align 8, !range !12, !noalias !399, !noundef !5
+  %60 = load i64, ptr %6, align 8, !range !12, !noalias !395, !noundef !5
   %61 = icmp eq i64 %60, -9223372036854775808
   %62 = getelementptr inbounds i8, ptr %6, i64 8
   %63 = load ptr, ptr %62, align 8, !noalias !399

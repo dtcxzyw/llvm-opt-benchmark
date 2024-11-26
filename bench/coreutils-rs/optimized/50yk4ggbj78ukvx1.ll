@@ -759,7 +759,7 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
   call void @_ZN8uu_split9filenames16FilenameIterator3new17h02f14ecbcc6836c9E(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %23, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %29)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %30 = load i64, ptr %23, align 8, !range !114, !alias.scope !115, !noundef !4
+  %30 = load i64, ptr %23, align 8, !range !114, !alias.scope !112, !noalias !109, !noundef !4
   %31 = icmp eq i64 %30, -9223372036854775807
   %32 = getelementptr inbounds i8, ptr %23, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !115

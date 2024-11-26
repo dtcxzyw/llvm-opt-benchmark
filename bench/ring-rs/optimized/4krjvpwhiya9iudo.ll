@@ -1409,12 +1409,12 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !216, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !4
+  %6 = load i64, ptr %5, align 8, !alias.scope !216, !noundef !4
   %.not30 = icmp ult i64 %4, %6
   br i1 %.not30, label %7, label %.loopexit
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %1, align 8, !nonnull !4, !align !12
+  %8 = load ptr, ptr %1, align 8, !alias.scope !216, !nonnull !4, !align !12
   %9 = getelementptr inbounds i8, ptr %8, i64 %4
   %10 = add nuw i64 %4, 1
   store i64 %10, ptr %3, align 8, !alias.scope !216

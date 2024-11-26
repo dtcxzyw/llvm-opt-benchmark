@@ -908,7 +908,7 @@ _ZN2cv3Mat5beginIhEENS_12MatIterator_IT_EEv.exit: ; preds = %27, %28
 38:                                               ; preds = %_ZN2cv3Mat5beginIhEENS_12MatIterator_IT_EEv.exit
   call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %39 = call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  %40 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %7, align 8, !alias.scope !16
   %41 = icmp eq ptr %40, null
   %42 = icmp eq i64 %39, 0
   %or.cond.i.i.i = or i1 %42, %41
@@ -1029,7 +1029,7 @@ _ZN2cv3Mat5beginINS_3VecIhLi3EEEEENS_12MatIterator_IT_EEv.exit: ; preds = %75, %
 86:                                               ; preds = %_ZN2cv3Mat5beginINS_3VecIhLi3EEEEENS_12MatIterator_IT_EEv.exit
   call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %87 = call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  %88 = load ptr, ptr %10, align 8
+  %88 = load ptr, ptr %10, align 8, !alias.scope !23
   %89 = icmp eq ptr %88, null
   %90 = icmp eq i64 %87, 0
   %or.cond.i.i.i22 = or i1 %90, %89

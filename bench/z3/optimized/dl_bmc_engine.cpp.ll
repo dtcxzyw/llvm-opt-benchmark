@@ -15730,7 +15730,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %call.i6.noexc unwind label %lpad
 
 call.i6.noexc:                                    ; preds = %invoke.cont10
-  %4 = load ptr, ptr %m, align 8
+  %4 = load ptr, ptr %m, align 8, !noalias !76
   store ptr %call.i67, ptr %ref.tmp11, align 8, !alias.scope !76
   %m_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store ptr %4, ptr %m_manager.i.i, align 8, !alias.scope !76

@@ -4354,7 +4354,7 @@ _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi2
   %.sroa.8.0.i.i.i.i.i.i = phi i32 [ %28, %25 ], [ %.0.lcssa.i.i.i.i.i.i.i.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11lower_boundIlEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i.i ]
   %.sroa.0.0.i8.i.i.i.i.i = phi ptr [ %29, %25 ], [ %.sroa.0.0.i.i.i.i.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11lower_boundIlEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i.i ]
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.i8.i.i.i.i.i, i64 10
-  %22 = load i8, ptr %21, align 1, !noalias !73
+  %22 = load i8, ptr %21, align 1, !noalias !64
   %23 = zext i8 %22 to i32
   %24 = icmp eq i32 %.sroa.8.0.i.i.i.i.i.i, %23
   br i1 %24, label %25, label %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSD_EE.exit.loopexit.i.i.i.i
@@ -4373,7 +4373,7 @@ _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !noalias !64
   %35 = getelementptr inbounds i8, ptr %34, i64 10
-  %36 = load i8, ptr %35, align 1, !noalias !73
+  %36 = load i8, ptr %35, align 1, !noalias !64
   %37 = zext i8 %36 to i32
   br label %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSD_EE.exit.i.i.i.i
 

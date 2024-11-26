@@ -927,7 +927,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h60d9e449074df86
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !119, !noundef !10
   %6 = and i64 %5, -32
-  %7 = load ptr, ptr %1, align 8, !nonnull !10, !noundef !10
+  %7 = load ptr, ptr %1, align 8, !alias.scope !119, !nonnull !10, !noundef !10
   %8 = getelementptr inbounds i8, ptr %7, i64 6912
   %9 = load i64, ptr %8, align 8, !noalias !119, !noundef !10
   %10 = icmp eq i64 %9, %6
@@ -1023,7 +1023,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h60d9e449074df86
 "_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h3a02890907586a9eE.llvm.5441949568091396765.exit.i": ; preds = %40, %49
   tail call void @llvm.x86.sse2.pause() #20, !noalias !122
   %50 = load ptr, ptr %19, align 8, !alias.scope !122, !nonnull !10, !noundef !10
-  %51 = load ptr, ptr %1, align 8, !nonnull !10, !noundef !10
+  %51 = load ptr, ptr %1, align 8, !alias.scope !122, !nonnull !10, !noundef !10
   %.not.i4 = icmp eq ptr %50, %51
   br i1 %.not.i4, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h020cd58a9b9f239dE.llvm.5441949568091396765.exit.loopexit", label %.lr.ph.i2
 

@@ -103,7 +103,7 @@ _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit: ; preds = %2,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$11is_inverted17h5fe079571de6d9c8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
 _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit:
-  %.val = load i64, ptr %0, align 8, !noalias !4, !noundef !4
+  %.val = load i64, ptr %0, align 8, !alias.scope !18, !noalias !21, !noundef !4
   %1 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 8, !range !30, !alias.scope !35, !noundef !4
   %.sroa.3.0.i.i = getelementptr inbounds i8, ptr %0, i64 8

@@ -6955,10 +6955,10 @@ lpad6.i2817:                                      ; preds = %lpad6.i2817.loopexi
 
 invoke.cont.i1579:                                ; preds = %.noexc1591
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  %179 = load i64, ptr %_M_string_length.i.i.i.i2806, align 8
-  %180 = load i64, ptr %_M_string_length.i8.i2744, align 8
+  %179 = load i64, ptr %_M_string_length.i.i.i.i2806, align 8, !noalias !93
+  %180 = load i64, ptr %_M_string_length.i8.i2744, align 8, !noalias !93
   %add.i2745 = add i64 %180, %179
-  %181 = load ptr, ptr %ref.tmp.i1574, align 8
+  %181 = load ptr, ptr %ref.tmp.i1574, align 8, !noalias !93
   %cmp.i.i.i2746 = icmp eq ptr %181, %19
   br i1 %cmp.i.i.i2746, label %if.then.i.i.i2794, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i2747
 
@@ -6968,10 +6968,10 @@ if.then.i.i.i2794:                                ; preds = %invoke.cont.i1579
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i2747
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i2747: ; preds = %if.then.i.i.i2794, %invoke.cont.i1579
-  %182 = load i64, ptr %19, align 8
+  %182 = load i64, ptr %19, align 8, !noalias !93
   %cond.i.i2748 = select i1 %cmp.i.i.i2746, i64 15, i64 %182
   %cmp.i2749 = icmp ugt i64 %add.i2745, %cond.i.i2748
-  %.pre.i2750 = load ptr, ptr %ref.tmp5.i1575, align 8
+  %.pre.i2750 = load ptr, ptr %ref.tmp5.i1575, align 8, !noalias !93
   br i1 %cmp.i2749, label %land.lhs.true.i2777, label %if.end7.i2751
 
 land.lhs.true.i2777:                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i2747
@@ -6984,7 +6984,7 @@ if.then.i.i11.i2792:                              ; preds = %land.lhs.true.i2777
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i2779
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i2779: ; preds = %if.then.i.i11.i2792, %land.lhs.true.i2777
-  %183 = load i64, ptr %20, align 8
+  %183 = load i64, ptr %20, align 8, !noalias !93
   %cond.i10.i2780 = select i1 %cmp.i.i9.i2778, i64 15, i64 %183
   %cmp4.not.i2781 = icmp ugt i64 %add.i2745, %cond.i10.i2780
   br i1 %cmp4.not.i2781, label %if.end7.i2751, label %if.then5.i2782
@@ -7344,10 +7344,10 @@ invoke.cont.i186:                                 ; preds = %if.then.i.i3.i1584,
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1574)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i1575)
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  %209 = load i64, ptr %_M_string_length.i.i.i.i1598, align 8
-  %210 = load i64, ptr %_M_string_length.i13.i.i2787, align 8
+  %209 = load i64, ptr %_M_string_length.i.i.i.i1598, align 8, !noalias !94
+  %210 = load i64, ptr %_M_string_length.i13.i.i2787, align 8, !noalias !94
   %add.i = add i64 %210, %209
-  %211 = load ptr, ptr %ref.tmp.i181, align 8
+  %211 = load ptr, ptr %ref.tmp.i181, align 8, !noalias !94
   %cmp.i.i.i1546 = icmp eq ptr %211, %18
   br i1 %cmp.i.i.i1546, label %if.then.i.i.i1569, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
@@ -7357,10 +7357,10 @@ if.then.i.i.i1569:                                ; preds = %invoke.cont.i186
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.then.i.i.i1569, %invoke.cont.i186
-  %212 = load i64, ptr %18, align 8
+  %212 = load i64, ptr %18, align 8, !noalias !94
   %cond.i.i = select i1 %cmp.i.i.i1546, i64 15, i64 %212
   %cmp.i1547 = icmp ugt i64 %add.i, %cond.i.i
-  %.pre.i1548 = load ptr, ptr %ref.tmp7.i, align 8
+  %.pre.i1548 = load ptr, ptr %ref.tmp7.i, align 8, !noalias !94
   br i1 %cmp.i1547, label %land.lhs.true.i, label %if.end7.i
 
 land.lhs.true.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -7373,7 +7373,7 @@ if.then.i.i11.i:                                  ; preds = %land.lhs.true.i
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i: ; preds = %if.then.i.i11.i, %land.lhs.true.i
-  %213 = load i64, ptr %21, align 8
+  %213 = load i64, ptr %21, align 8, !noalias !94
   %cond.i10.i = select i1 %cmp.i.i9.i, i64 15, i64 %213
   %cmp4.not.i = icmp ugt i64 %add.i, %cond.i10.i
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
@@ -7862,10 +7862,10 @@ lpad6.i3030:                                      ; preds = %lpad6.i3030.loopexi
 
 invoke.cont.i1680:                                ; preds = %.noexc1694
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
-  %246 = load i64, ptr %_M_string_length.i.i.i.i3019, align 8
-  %247 = load i64, ptr %_M_string_length.i8.i2955, align 8
+  %246 = load i64, ptr %_M_string_length.i.i.i.i3019, align 8, !noalias !109
+  %247 = load i64, ptr %_M_string_length.i8.i2955, align 8, !noalias !109
   %add.i2956 = add i64 %247, %246
-  %248 = load ptr, ptr %ref.tmp.i1675, align 8
+  %248 = load ptr, ptr %ref.tmp.i1675, align 8, !noalias !109
   %cmp.i.i.i2957 = icmp eq ptr %248, %24
   br i1 %cmp.i.i.i2957, label %if.then.i.i.i3005, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i2958
 
@@ -7875,10 +7875,10 @@ if.then.i.i.i3005:                                ; preds = %invoke.cont.i1680
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i2958
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i2958: ; preds = %if.then.i.i.i3005, %invoke.cont.i1680
-  %249 = load i64, ptr %24, align 8
+  %249 = load i64, ptr %24, align 8, !noalias !109
   %cond.i.i2959 = select i1 %cmp.i.i.i2957, i64 15, i64 %249
   %cmp.i2960 = icmp ugt i64 %add.i2956, %cond.i.i2959
-  %.pre.i2961 = load ptr, ptr %ref.tmp5.i1676, align 8
+  %.pre.i2961 = load ptr, ptr %ref.tmp5.i1676, align 8, !noalias !109
   br i1 %cmp.i2960, label %land.lhs.true.i2988, label %if.end7.i2962
 
 land.lhs.true.i2988:                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i2958
@@ -7891,7 +7891,7 @@ if.then.i.i11.i3003:                              ; preds = %land.lhs.true.i2988
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i2990
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i2990: ; preds = %if.then.i.i11.i3003, %land.lhs.true.i2988
-  %250 = load i64, ptr %25, align 8
+  %250 = load i64, ptr %25, align 8, !noalias !109
   %cond.i10.i2991 = select i1 %cmp.i.i9.i2989, i64 15, i64 %250
   %cmp4.not.i2992 = icmp ugt i64 %add.i2956, %cond.i10.i2991
   br i1 %cmp4.not.i2992, label %if.end7.i2962, label %if.then5.i2993
@@ -8251,10 +8251,10 @@ invoke.cont.i210:                                 ; preds = %if.then.i.i3.i1687,
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1675)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i1676)
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  %276 = load i64, ptr %_M_string_length.i.i.i.i1702, align 8
-  %277 = load i64, ptr %_M_string_length.i13.i.i2998, align 8
+  %276 = load i64, ptr %_M_string_length.i.i.i.i1702, align 8, !noalias !110
+  %277 = load i64, ptr %_M_string_length.i13.i.i2998, align 8, !noalias !110
   %add.i1619 = add i64 %277, %276
-  %278 = load ptr, ptr %ref.tmp.i202, align 8
+  %278 = load ptr, ptr %ref.tmp.i202, align 8, !noalias !110
   %cmp.i.i.i1620 = icmp eq ptr %278, %23
   br i1 %cmp.i.i.i1620, label %if.then.i.i.i1668, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i1621
 
@@ -8264,10 +8264,10 @@ if.then.i.i.i1668:                                ; preds = %invoke.cont.i210
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i1621
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i1621: ; preds = %if.then.i.i.i1668, %invoke.cont.i210
-  %279 = load i64, ptr %23, align 8
+  %279 = load i64, ptr %23, align 8, !noalias !110
   %cond.i.i1622 = select i1 %cmp.i.i.i1620, i64 15, i64 %279
   %cmp.i1623 = icmp ugt i64 %add.i1619, %cond.i.i1622
-  %.pre.i1624 = load ptr, ptr %ref.tmp7.i203, align 8
+  %.pre.i1624 = load ptr, ptr %ref.tmp7.i203, align 8, !noalias !110
   br i1 %cmp.i1623, label %land.lhs.true.i1651, label %if.end7.i1625
 
 land.lhs.true.i1651:                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i1621
@@ -8280,7 +8280,7 @@ if.then.i.i11.i1666:                              ; preds = %land.lhs.true.i1651
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i1653
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit14.i1653: ; preds = %if.then.i.i11.i1666, %land.lhs.true.i1651
-  %280 = load i64, ptr %26, align 8
+  %280 = load i64, ptr %26, align 8, !noalias !110
   %cond.i10.i1654 = select i1 %cmp.i.i9.i1652, i64 15, i64 %280
   %cmp4.not.i1655 = icmp ugt i64 %add.i1619, %cond.i10.i1654
   br i1 %cmp4.not.i1655, label %if.end7.i1625, label %if.then5.i1656
@@ -45290,7 +45290,7 @@ lpad6.i:                                          ; preds = %lpad6.i.loopexit.sp
   %arrayidx.i.i.i298 = getelementptr inbounds i8, ptr %76, i64 %73
   store i8 0, ptr %arrayidx.i.i.i298, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %77 = load i64, ptr %_M_string_length.i.i.i.i297, align 8
+  %77 = load i64, ptr %_M_string_length.i.i.i.i297, align 8, !alias.scope !857
   %cmp.i.i.i106 = icmp eq i64 %77, 9223372036854775807
   br i1 %cmp.i.i.i106, label %if.then.i.i.i123.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i107
 
@@ -45304,7 +45304,7 @@ if.then.i.i.i123.cont:                            ; preds = %if.then.i.i.i123.in
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i107: ; preds = %.noexc124
   %add.i.i.i108 = add nsw i64 %77, 1
-  %79 = load ptr, ptr %ref.tmp66, align 8
+  %79 = load ptr, ptr %ref.tmp66, align 8, !alias.scope !857
   %cmp.i.i.i.i.i109 = icmp eq ptr %79, %21
   br i1 %cmp.i.i.i.i.i109, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110.thread
 
@@ -45315,7 +45315,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110:
   br i1 %cmp.not.i.i.i112, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i247, label %if.then.i.i.i.i119
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i107
-  %80 = load i64, ptr %21, align 8
+  %80 = load i64, ptr %21, align 8, !alias.scope !857
   %cmp.not.i.i.i112367 = icmp ugt i64 %add.i.i.i108, %80
   br i1 %cmp.not.i.i.i112367, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i247, label %if.then.i.i.i.i119
 

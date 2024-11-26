@@ -2652,7 +2652,7 @@ if.then62:                                        ; preds = %invoke.cont60
           to label %call.i326.noexc unwind label %lpad64
 
 call.i326.noexc:                                  ; preds = %if.then62
-  %81 = load ptr, ptr %dt_eval, align 8
+  %81 = load ptr, ptr %dt_eval, align 8, !noalias !18
   %82 = load ptr, ptr %t, align 8, !noalias !18
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i.i), !noalias !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !18
@@ -2942,7 +2942,7 @@ cond.end80:                                       ; preds = %if.else.i.i368, %if
           to label %call.i387.noexc unwind label %lpad85
 
 call.i387.noexc:                                  ; preds = %cond.end80
-  %112 = load ptr, ptr %dt_eval, align 8
+  %112 = load ptr, ptr %dt_eval, align 8, !noalias !28
   %113 = load ptr, ptr %t, align 8, !noalias !28
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i.i384), !noalias !28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i385), !noalias !28
@@ -5904,7 +5904,7 @@ if.end204:                                        ; preds = %if.end.i.i.i.i580, 
   br i1 %cmp.not.not.i.i.i585, label %if.then.i.i.i612, label %if.end15.i.i.i586
 
 if.then.i.i.i612:                                 ; preds = %if.end204
-  %175 = load ptr, ptr %tn146, align 8
+  %175 = load ptr, ptr %tn146, align 8, !noalias !78
   br label %for.cond.i.i.i614
 
 for.cond.i.i.i614:                                ; preds = %for.body.i.i.i618, %if.then.i.i.i612
@@ -8684,7 +8684,7 @@ call2.i.i.i.noexc94:                              ; preds = %invoke.cont14
   %idxprom.i.i79 = ashr exact i64 %sext, 32
   %arrayidx.i.i80 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i78, i64 0, i64 %idxprom.i.i79
   %10 = load ptr, ptr %arrayidx.i.i80, align 8, !noalias !101
-  %bf.load.i.i.i81 = load i64, ptr %10, align 8
+  %bf.load.i.i.i81 = load i64, ptr %10, align 8, !noalias !101
   %bf.lshr.i.i.i82 = lshr i64 %bf.load.i.i.i81, 40
   %11 = trunc nuw nsw i64 %bf.lshr.i.i.i82 to i32
   %bf.cast.i.i.i83 = and i32 %11, 1048575
@@ -22601,7 +22601,7 @@ for.body:                                         ; preds = %entry, %if.end24
   %__trip_count.0210 = phi i64 [ %dec, %if.end24 ], [ %shr, %entry ]
   %__first.sroa.0.0209 = phi ptr [ %incdec.ptr.i92, %if.end24 ], [ %__first.coerce, %entry ]
   %0 = load ptr, ptr %__first.sroa.0.0209, align 8, !noalias !211
-  %bf.load.i.i.i.i = load i64, ptr %0, align 8
+  %bf.load.i.i.i.i = load i64, ptr %0, align 8, !noalias !211
   %bf.lshr.i.i.i.i = lshr i64 %bf.load.i.i.i.i, 40
   %1 = trunc nuw nsw i64 %bf.lshr.i.i.i.i to i32
   %bf.cast.i.i.i.i = and i32 %1, 1048575
@@ -22661,7 +22661,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4cvc58internal12NodeTemplateILb0EEEEclIN
 if.end:                                           ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4cvc58internal12NodeTemplateILb0EEEEclINS3_4expr9NodeValue8iteratorINS4_ILb1EEEEEEEbT_.exit
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.0209, i64 8
   %6 = load ptr, ptr %incdec.ptr.i, align 8, !noalias !214
-  %bf.load.i.i.i.i9 = load i64, ptr %6, align 8
+  %bf.load.i.i.i.i9 = load i64, ptr %6, align 8, !noalias !214
   %bf.lshr.i.i.i.i10 = lshr i64 %bf.load.i.i.i.i9, 40
   %7 = trunc nuw nsw i64 %bf.lshr.i.i.i.i10 to i32
   %bf.cast.i.i.i.i11 = and i32 %7, 1048575
@@ -22721,7 +22721,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4cvc58internal12NodeTemplateILb0EEEEclIN
 if.end12:                                         ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4cvc58internal12NodeTemplateILb0EEEEclINS3_4expr9NodeValue8iteratorINS4_ILb1EEEEEEEbT_.exit35
   %incdec.ptr.i36 = getelementptr inbounds i8, ptr %__first.sroa.0.0209, i64 16
   %12 = load ptr, ptr %incdec.ptr.i36, align 8, !noalias !217
-  %bf.load.i.i.i.i37 = load i64, ptr %12, align 8
+  %bf.load.i.i.i.i37 = load i64, ptr %12, align 8, !noalias !217
   %bf.lshr.i.i.i.i38 = lshr i64 %bf.load.i.i.i.i37, 40
   %13 = trunc nuw nsw i64 %bf.lshr.i.i.i.i38 to i32
   %bf.cast.i.i.i.i39 = and i32 %13, 1048575
@@ -22781,7 +22781,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4cvc58internal12NodeTemplateILb0EEEEclIN
 if.end18:                                         ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4cvc58internal12NodeTemplateILb0EEEEclINS3_4expr9NodeValue8iteratorINS4_ILb1EEEEEEEbT_.exit63
   %incdec.ptr.i64 = getelementptr inbounds i8, ptr %__first.sroa.0.0209, i64 24
   %18 = load ptr, ptr %incdec.ptr.i64, align 8, !noalias !220
-  %bf.load.i.i.i.i65 = load i64, ptr %18, align 8
+  %bf.load.i.i.i.i65 = load i64, ptr %18, align 8, !noalias !220
   %bf.lshr.i.i.i.i66 = lshr i64 %bf.load.i.i.i.i65, 40
   %19 = trunc nuw nsw i64 %bf.lshr.i.i.i.i66 to i32
   %bf.cast.i.i.i.i67 = and i32 %19, 1048575
@@ -22861,7 +22861,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 sw.bb:                                            ; preds = %for.end
   %24 = load ptr, ptr %__first.sroa.0.0.lcssa, align 8, !noalias !224
-  %bf.load.i.i.i.i97 = load i64, ptr %24, align 8
+  %bf.load.i.i.i.i97 = load i64, ptr %24, align 8, !noalias !224
   %bf.lshr.i.i.i.i98 = lshr i64 %bf.load.i.i.i.i97, 40
   %25 = trunc nuw nsw i64 %bf.lshr.i.i.i.i98 to i32
   %bf.cast.i.i.i.i99 = and i32 %25, 1048575
@@ -22925,7 +22925,7 @@ if.end33:                                         ; preds = %_ZN9__gnu_cxx5__ops
 sw.bb35:                                          ; preds = %if.end33, %for.end
   %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i124, %if.end33 ]
   %30 = load ptr, ptr %__first.sroa.0.1, align 8, !noalias !227
-  %bf.load.i.i.i.i125 = load i64, ptr %30, align 8
+  %bf.load.i.i.i.i125 = load i64, ptr %30, align 8, !noalias !227
   %bf.lshr.i.i.i.i126 = lshr i64 %bf.load.i.i.i.i125, 40
   %31 = trunc nuw nsw i64 %bf.lshr.i.i.i.i126 to i32
   %bf.cast.i.i.i.i127 = and i32 %31, 1048575
@@ -22989,7 +22989,7 @@ if.end40:                                         ; preds = %_ZN9__gnu_cxx5__ops
 sw.bb42:                                          ; preds = %if.end40, %for.end
   %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i152, %if.end40 ]
   %36 = load ptr, ptr %__first.sroa.0.2, align 8, !noalias !230
-  %bf.load.i.i.i.i153 = load i64, ptr %36, align 8
+  %bf.load.i.i.i.i153 = load i64, ptr %36, align 8, !noalias !230
   %bf.lshr.i.i.i.i154 = lshr i64 %bf.load.i.i.i.i153, 40
   %37 = trunc nuw nsw i64 %bf.lshr.i.i.i.i154 to i32
   %bf.cast.i.i.i.i155 = and i32 %37, 1048575

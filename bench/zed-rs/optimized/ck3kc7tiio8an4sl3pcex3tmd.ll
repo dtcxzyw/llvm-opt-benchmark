@@ -726,7 +726,7 @@ define void @_ZN11http_client19HttpClientWithProxy3new17h25b6d876103f37deE(ptr d
 
 22:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !111
-  %23 = load i8, ptr %7, align 8, !range !114, !noalias !108, !noundef !5
+  %23 = load i8, ptr %7, align 8, !range !114, !noalias !111, !noundef !5
   %24 = icmp eq i8 %23, 3
   br i1 %24, label %"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$http..uri..Uri$C$http..uri..InvalidUri$GT$$GT$17h8f63764d3998a909E.exit.i", label %25
 

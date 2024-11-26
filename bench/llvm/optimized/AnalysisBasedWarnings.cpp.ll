@@ -2782,7 +2782,7 @@ _ZNK5clang8CFGBlock23filtered_pred_start_endERKNS0_13FilterOptionsE.exit.i.i: ; 
   %503 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i to i32
   %504 = shl i32 %503, 2
   %505 = and i32 %504, 12
-  %.0.copyload.i.i.i3.i.i.i.i.i = load i64, ptr %.045106.i.i, align 8
+  %.0.copyload.i.i.i3.i.i.i.i.i = load i64, ptr %.045106.i.i, align 8, !noalias !25
   %506 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i.i to i32
   %507 = and i32 %506, 3
   %508 = add nuw nsw i32 %507, -6
@@ -4433,7 +4433,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.i.i: ; preds = %.
   %1229 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i216 to i32
   %1230 = shl i32 %1229, 2
   %1231 = and i32 %1230, 12
-  %.0.copyload.i.i.i3.i.i.i.i.i217 = load i64, ptr %.045144.i.i, align 8
+  %.0.copyload.i.i.i3.i.i.i.i.i217 = load i64, ptr %.045144.i.i, align 8, !noalias !101
   %1232 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i.i217 to i32
   %1233 = and i32 %1232, 3
   %1234 = add nuw nsw i32 %1233, -6
@@ -4577,7 +4577,7 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i.i: ; preds 
   %1294 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i215 to i32
   %1295 = shl i32 %1294, 2
   %1296 = and i32 %1295, 12
-  %.0.copyload.i.i.i3.i.i.i.i.i.i = load i64, ptr %.01639.i.i.i, align 8
+  %.0.copyload.i.i.i3.i.i.i.i.i.i = load i64, ptr %.01639.i.i.i, align 8, !noalias !107
   %1297 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i.i.i to i32
   %1298 = and i32 %1297, 3
   %1299 = add nuw nsw i32 %1298, -6
@@ -7508,7 +7508,7 @@ define internal fastcc void @_ZL27checkThrowInNonThrowingFuncRN5clang4SemaEPKNS_
   %64 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
   %65 = shl i32 %64, 2
   %66 = and i32 %65, 12
-  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %62, align 8
+  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %62, align 8, !noalias !167
   %67 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i to i32
   %68 = and i32 %67, 3
   %69 = add nuw nsw i32 %68, -6

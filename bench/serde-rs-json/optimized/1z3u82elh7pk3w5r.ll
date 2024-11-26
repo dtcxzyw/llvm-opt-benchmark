@@ -2033,7 +2033,7 @@ define void @"_ZN10serde_json5value4from89_$LT$impl$u20$core..convert..From$LT$$
 define void @"_ZN10serde_json5value4from111_$LT$impl$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$u20$for$u20$serde_json..value..Value$GT$4from17hfe7a65811bf63ec7E"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 1), (8, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
-  %3 = load i64, ptr %1, align 8, !range !22, !alias.scope !349, !noundef !5
+  %3 = load i64, ptr %1, align 8, !range !22, !alias.scope !347, !noalias !344, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !349

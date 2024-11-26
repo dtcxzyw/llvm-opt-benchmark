@@ -105,7 +105,7 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !noundef !4
+  %12 = load ptr, ptr %11, align 8, !alias.scope !5, !noundef !4
   %13 = icmp eq ptr %12, null
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = getelementptr inbounds i8, ptr %0, i64 24

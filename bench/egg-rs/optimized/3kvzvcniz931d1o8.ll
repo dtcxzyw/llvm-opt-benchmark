@@ -206,7 +206,7 @@ define noundef zeroext i1 @"_ZN94_$LT$alloc..boxed..Box$LT$$u5b$egg..Id$u5d$$GT$
 define { ptr, i64 } @"_ZN94_$LT$alloc..boxed..Box$LT$$u5b$egg..Id$u5d$$GT$$u20$as$u20$egg..language..LanguageChildren$GT$8from_vec17hf63a850f041a513cE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !alias.scope !26, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !alias.scope !31, !noundef !4
+  %4 = load i64, ptr %3, align 8, !alias.scope !26, !noundef !4
   %5 = icmp ugt i64 %2, %4
   br i1 %5, label %6, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h97399eeb5e04e39bE.exit"
 

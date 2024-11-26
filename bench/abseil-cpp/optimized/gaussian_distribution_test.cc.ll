@@ -14587,9 +14587,9 @@ call.i.i.noexc484:                                ; preds = %invoke.cont154
           to label %call6.i.i.i.noexc486 unwind label %lpad155
 
 call6.i.i.i.noexc486:                             ; preds = %call.i.i.noexc484
-  %vtable7.i.i.i448 = load ptr, ptr %add.ptr.i151, align 8
+  %vtable7.i.i.i448 = load ptr, ptr %add.ptr.i151, align 8, !noalias !359
   %vbase.offset.ptr8.i.i.i449 = getelementptr i8, ptr %vtable7.i.i.i448, i64 -24
-  %vbase.offset9.i.i.i450 = load i64, ptr %vbase.offset.ptr8.i.i.i449, align 8
+  %vbase.offset9.i.i.i450 = load i64, ptr %vbase.offset.ptr8.i.i.i449, align 8, !noalias !359
   %add.ptr10.i.i.i451 = getelementptr inbounds i8, ptr %add.ptr.i151, i64 %vbase.offset9.i.i.i450
   %_M_precision.i.i.i.i452 = getelementptr inbounds i8, ptr %add.ptr10.i.i.i451, i64 8
   %66 = load i64, ptr %_M_precision.i.i.i.i452, align 8, !noalias !359
@@ -14813,9 +14813,9 @@ call.i.i.noexc543:                                ; preds = %invoke.cont176
           to label %call6.i.i.i.noexc545 unwind label %lpad177
 
 call6.i.i.i.noexc545:                             ; preds = %call.i.i.noexc543
-  %vtable7.i.i.i507 = load ptr, ptr %add.ptr.i181, align 8
+  %vtable7.i.i.i507 = load ptr, ptr %add.ptr.i181, align 8, !noalias !365
   %vbase.offset.ptr8.i.i.i508 = getelementptr i8, ptr %vtable7.i.i.i507, i64 -24
-  %vbase.offset9.i.i.i509 = load i64, ptr %vbase.offset.ptr8.i.i.i508, align 8
+  %vbase.offset9.i.i.i509 = load i64, ptr %vbase.offset.ptr8.i.i.i508, align 8, !noalias !365
   %add.ptr10.i.i.i510 = getelementptr inbounds i8, ptr %add.ptr.i181, i64 %vbase.offset9.i.i.i509
   %_M_precision.i.i.i.i511 = getelementptr inbounds i8, ptr %add.ptr10.i.i.i510, i64 8
   %88 = load i64, ptr %_M_precision.i.i.i.i511, align 8, !noalias !365
@@ -15070,9 +15070,9 @@ call.i.i.noexc:                                   ; preds = %invoke.cont208
 
 call6.i.i.i.noexc:                                ; preds = %call.i.i.noexc
   store i8 %call6.i.i.i229, ptr %fill_.i.i.i, align 4, !alias.scope !369
-  %vtable7.i.i.i = load ptr, ptr %add.ptr211, align 8
+  %vtable7.i.i.i = load ptr, ptr %add.ptr211, align 8, !noalias !369
   %vbase.offset.ptr8.i.i.i = getelementptr i8, ptr %vtable7.i.i.i, i64 -24
-  %vbase.offset9.i.i.i = load i64, ptr %vbase.offset.ptr8.i.i.i, align 8
+  %vbase.offset9.i.i.i = load i64, ptr %vbase.offset.ptr8.i.i.i, align 8, !noalias !369
   %gep626 = getelementptr i8, ptr %invariant.gep625, i64 %vbase.offset9.i.i.i
   %107 = load i64, ptr %gep626, align 8, !noalias !369
   store i64 %107, ptr %precision_.i.i.i, align 8, !alias.scope !369
@@ -15959,9 +15959,9 @@ entry:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !375
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !375
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !375
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !375
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !375
@@ -19152,9 +19152,9 @@ call.i.i.noexc489:                                ; preds = %invoke.cont154
           to label %call6.i.i.i.noexc491 unwind label %lpad155
 
 call6.i.i.i.noexc491:                             ; preds = %call.i.i.noexc489
-  %vtable7.i.i.i453 = load ptr, ptr %add.ptr.i152, align 8
+  %vtable7.i.i.i453 = load ptr, ptr %add.ptr.i152, align 8, !noalias !484
   %vbase.offset.ptr8.i.i.i454 = getelementptr i8, ptr %vtable7.i.i.i453, i64 -24
-  %vbase.offset9.i.i.i455 = load i64, ptr %vbase.offset.ptr8.i.i.i454, align 8
+  %vbase.offset9.i.i.i455 = load i64, ptr %vbase.offset.ptr8.i.i.i454, align 8, !noalias !484
   %add.ptr10.i.i.i456 = getelementptr inbounds i8, ptr %add.ptr.i152, i64 %vbase.offset9.i.i.i455
   %_M_precision.i.i.i.i457 = getelementptr inbounds i8, ptr %add.ptr10.i.i.i456, i64 8
   %67 = load i64, ptr %_M_precision.i.i.i.i457, align 8, !noalias !484
@@ -19378,9 +19378,9 @@ call.i.i.noexc548:                                ; preds = %invoke.cont176
           to label %call6.i.i.i.noexc550 unwind label %lpad177
 
 call6.i.i.i.noexc550:                             ; preds = %call.i.i.noexc548
-  %vtable7.i.i.i512 = load ptr, ptr %add.ptr.i182, align 8
+  %vtable7.i.i.i512 = load ptr, ptr %add.ptr.i182, align 8, !noalias !490
   %vbase.offset.ptr8.i.i.i513 = getelementptr i8, ptr %vtable7.i.i.i512, i64 -24
-  %vbase.offset9.i.i.i514 = load i64, ptr %vbase.offset.ptr8.i.i.i513, align 8
+  %vbase.offset9.i.i.i514 = load i64, ptr %vbase.offset.ptr8.i.i.i513, align 8, !noalias !490
   %add.ptr10.i.i.i515 = getelementptr inbounds i8, ptr %add.ptr.i182, i64 %vbase.offset9.i.i.i514
   %_M_precision.i.i.i.i516 = getelementptr inbounds i8, ptr %add.ptr10.i.i.i515, i64 8
   %89 = load i64, ptr %_M_precision.i.i.i.i516, align 8, !noalias !490
@@ -19635,9 +19635,9 @@ call.i.i.noexc:                                   ; preds = %invoke.cont208
 
 call6.i.i.i.noexc:                                ; preds = %call.i.i.noexc
   store i8 %call6.i.i.i226, ptr %fill_.i.i.i, align 4, !alias.scope !494
-  %vtable7.i.i.i = load ptr, ptr %add.ptr211, align 8
+  %vtable7.i.i.i = load ptr, ptr %add.ptr211, align 8, !noalias !494
   %vbase.offset.ptr8.i.i.i = getelementptr i8, ptr %vtable7.i.i.i, i64 -24
-  %vbase.offset9.i.i.i = load i64, ptr %vbase.offset.ptr8.i.i.i, align 8
+  %vbase.offset9.i.i.i = load i64, ptr %vbase.offset.ptr8.i.i.i, align 8, !noalias !494
   %gep631 = getelementptr i8, ptr %invariant.gep630, i64 %vbase.offset9.i.i.i
   %108 = load i64, ptr %gep631, align 8, !noalias !494
   store i64 %108, ptr %precision_.i.i.i, align 8, !alias.scope !494
@@ -20528,9 +20528,9 @@ entry:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !500
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !500
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !500
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !500
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !500
@@ -22734,9 +22734,9 @@ call.i.i.noexc459:                                ; preds = %invoke.cont152
           to label %call6.i.i.i.noexc461 unwind label %lpad153
 
 call6.i.i.i.noexc461:                             ; preds = %call.i.i.noexc459
-  %vtable7.i.i.i423 = load ptr, ptr %add.ptr.i146, align 8
+  %vtable7.i.i.i423 = load ptr, ptr %add.ptr.i146, align 8, !noalias !580
   %vbase.offset.ptr8.i.i.i424 = getelementptr i8, ptr %vtable7.i.i.i423, i64 -24
-  %vbase.offset9.i.i.i425 = load i64, ptr %vbase.offset.ptr8.i.i.i424, align 8
+  %vbase.offset9.i.i.i425 = load i64, ptr %vbase.offset.ptr8.i.i.i424, align 8, !noalias !580
   %add.ptr10.i.i.i426 = getelementptr inbounds i8, ptr %add.ptr.i146, i64 %vbase.offset9.i.i.i425
   %_M_precision.i.i.i.i427 = getelementptr inbounds i8, ptr %add.ptr10.i.i.i426, i64 8
   %67 = load i64, ptr %_M_precision.i.i.i.i427, align 8, !noalias !580
@@ -22960,9 +22960,9 @@ call.i.i.noexc518:                                ; preds = %invoke.cont174
           to label %call6.i.i.i.noexc520 unwind label %lpad175
 
 call6.i.i.i.noexc520:                             ; preds = %call.i.i.noexc518
-  %vtable7.i.i.i482 = load ptr, ptr %add.ptr.i176, align 8
+  %vtable7.i.i.i482 = load ptr, ptr %add.ptr.i176, align 8, !noalias !586
   %vbase.offset.ptr8.i.i.i483 = getelementptr i8, ptr %vtable7.i.i.i482, i64 -24
-  %vbase.offset9.i.i.i484 = load i64, ptr %vbase.offset.ptr8.i.i.i483, align 8
+  %vbase.offset9.i.i.i484 = load i64, ptr %vbase.offset.ptr8.i.i.i483, align 8, !noalias !586
   %add.ptr10.i.i.i485 = getelementptr inbounds i8, ptr %add.ptr.i176, i64 %vbase.offset9.i.i.i484
   %_M_precision.i.i.i.i486 = getelementptr inbounds i8, ptr %add.ptr10.i.i.i485, i64 8
   %89 = load i64, ptr %_M_precision.i.i.i.i486, align 8, !noalias !586
@@ -23171,9 +23171,9 @@ call.i.i.noexc:                                   ; preds = %for.end
 
 call6.i.i.i.noexc:                                ; preds = %call.i.i.noexc
   store i8 %call6.i.i.i206, ptr %fill_.i.i.i, align 4, !alias.scope !590
-  %vtable7.i.i.i = load ptr, ptr %add.ptr188, align 8
+  %vtable7.i.i.i = load ptr, ptr %add.ptr188, align 8, !noalias !590
   %vbase.offset.ptr8.i.i.i = getelementptr i8, ptr %vtable7.i.i.i, i64 -24
-  %vbase.offset9.i.i.i = load i64, ptr %vbase.offset.ptr8.i.i.i, align 8
+  %vbase.offset9.i.i.i = load i64, ptr %vbase.offset.ptr8.i.i.i, align 8, !noalias !590
   %gep580 = getelementptr i8, ptr %invariant.gep579, i64 %vbase.offset9.i.i.i
   %108 = load i64, ptr %gep580, align 8, !noalias !590
   store i64 %108, ptr %precision_.i.i.i, align 8, !alias.scope !590
@@ -24053,9 +24053,9 @@ invoke.cont:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !599
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !599
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !599
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !599
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !599

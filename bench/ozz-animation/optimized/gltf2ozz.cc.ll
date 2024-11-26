@@ -12181,7 +12181,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !368
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !368
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !368
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -12202,7 +12202,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !368
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !368
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -12288,7 +12288,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !372
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !372
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !372
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -12309,7 +12309,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !372
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !372
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -12393,7 +12393,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !375
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !375
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !375
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -12414,7 +12414,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !375
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !375
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -12498,7 +12498,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !378
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !378
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !378
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -12519,7 +12519,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !378
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !378
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -12603,7 +12603,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !381
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !381
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !381
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -12624,7 +12624,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !381
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !381
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -13040,7 +13040,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !394
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !394
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !394
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -13061,7 +13061,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !394
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !394
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -13230,7 +13230,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !397
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !397
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !397
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -13251,7 +13251,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !397
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !397
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -16212,7 +16212,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   store ptr %202, ptr %25, align 8, !alias.scope !463
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %151, i8 0, i64 16, i1 false), !alias.scope !463
   store i64 -9223372036854775808, ptr %152, align 8, !alias.scope !463
-  %220 = load i8, ptr %202, align 8, !noalias !364
+  %220 = load i8, ptr %202, align 8, !noalias !463
   switch i8 %220, label %225 [
     i8 1, label %226
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread.i.i
@@ -16220,7 +16220,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread.i.i: ; preds = %219
   %221 = getelementptr inbounds i8, ptr %202, i64 8
-  %222 = load ptr, ptr %221, align 8, !noalias !364
+  %222 = load ptr, ptr %221, align 8, !noalias !463
   %223 = getelementptr inbounds i8, ptr %222, i64 8
   %224 = load ptr, ptr %223, align 8, !noalias !463
   store ptr %224, ptr %153, align 8, !alias.scope !463
@@ -16235,7 +16235,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 226:                                              ; preds = %219
   %227 = getelementptr inbounds i8, ptr %202, i64 8
-  %228 = load ptr, ptr %227, align 8, !noalias !364
+  %228 = load ptr, ptr %227, align 8, !noalias !463
   %229 = getelementptr inbounds i8, ptr %228, i64 8
   %230 = getelementptr inbounds i8, ptr %228, i64 16
   %231 = load ptr, ptr %230, align 8, !noalias !457
@@ -16486,7 +16486,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
   store ptr %305, ptr %35, align 8, !alias.scope !480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %157, i8 0, i64 16, i1 false), !alias.scope !480
   store i64 -9223372036854775808, ptr %158, align 8, !alias.scope !480
-  %306 = load i8, ptr %305, align 8, !noalias !364
+  %306 = load i8, ptr %305, align 8, !noalias !480
   switch i8 %306, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.i.i [
     i8 1, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.thread58.i.i
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.thread59.i.i
@@ -19067,7 +19067,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL25ParseIntegerArrayPrope
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false), !alias.scope !607
   store i64 -9223372036854775808, ptr %10, align 8, !alias.scope !607
-  %11 = load i8, ptr %1, align 8, !noalias !364
+  %11 = load i8, ptr %1, align 8, !noalias !607
   switch i8 %11, label %19 [
     i8 1, label %20
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread
@@ -19093,7 +19093,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8, !noalias !601
+  %22 = load ptr, ptr %21, align 8, !noalias !607
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = getelementptr inbounds i8, ptr %22, i64 16
   %25 = load ptr, ptr %24, align 8, !noalias !601
@@ -19455,7 +19455,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPN
   %17 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 16, i1 false), !alias.scope !642
   store i64 -9223372036854775808, ptr %17, align 8, !alias.scope !642
-  %18 = load i8, ptr %2, align 8, !noalias !364
+  %18 = load i8, ptr %2, align 8, !noalias !642
   switch i8 %18, label %26 [
     i8 1, label %27
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread
@@ -19481,7 +19481,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 27:                                               ; preds = %6
   %28 = getelementptr inbounds i8, ptr %2, i64 8
-  %29 = load ptr, ptr %28, align 8, !noalias !636
+  %29 = load ptr, ptr %28, align 8, !noalias !642
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = getelementptr inbounds i8, ptr %29, i64 16
   %32 = load ptr, ptr %31, align 8, !noalias !636
@@ -20262,7 +20262,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8tinygltf9Paramet
   %47 = getelementptr inbounds i8, ptr %12, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 16, i1 false), !alias.scope !690
   store i64 -9223372036854775808, ptr %47, align 8, !alias.scope !690
-  %48 = load i8, ptr %2, align 8, !noalias !364
+  %48 = load i8, ptr %2, align 8, !noalias !690
   switch i8 %48, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit [
     i8 1, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.thread58
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.thread59
@@ -20271,7 +20271,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8tinygltf9Paramet
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.thread58: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8tinygltf9ParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEE5clearEv.exit21
   %49 = getelementptr inbounds i8, ptr %2, i64 8
-  %50 = load ptr, ptr %49, align 8, !noalias !364
+  %50 = load ptr, ptr %49, align 8, !noalias !690
   %51 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8, !noalias !690
   store ptr %52, ptr %46, align 8, !alias.scope !690
@@ -20287,7 +20287,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.thread59: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8tinygltf9ParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEE5clearEv.exit21
   %57 = getelementptr inbounds i8, ptr %2, i64 8
-  %58 = load ptr, ptr %57, align 8, !noalias !364
+  %58 = load ptr, ptr %57, align 8, !noalias !690
   %59 = load ptr, ptr %58, align 8, !noalias !690
   %60 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %59, ptr %60, align 8, !alias.scope !690
@@ -20362,7 +20362,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 99:                                               ; preds = %95
   %100 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %101 = load i8, ptr %100, align 8
+  %101 = load i8, ptr %100, align 8, !noalias !707
   switch i8 %101, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit22 [
     i8 1, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit22.thread69
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit22.thread76
@@ -20371,7 +20371,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit22.thread69: ; preds = %99
   %102 = getelementptr inbounds i8, ptr %100, i64 8
-  %103 = load ptr, ptr %102, align 8, !noalias !364
+  %103 = load ptr, ptr %102, align 8, !noalias !707
   %104 = getelementptr inbounds i8, ptr %103, i64 24
   %105 = load ptr, ptr %104, align 8, !noalias !707
   %106 = getelementptr inbounds i8, ptr %103, i64 8
@@ -20379,7 +20379,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit22.thread76: ; preds = %99
   %107 = getelementptr inbounds i8, ptr %100, i64 8
-  %108 = load ptr, ptr %107, align 8, !noalias !364
+  %108 = load ptr, ptr %107, align 8, !noalias !707
   %109 = load ptr, ptr %108, align 8, !noalias !707
   %110 = getelementptr inbounds i8, ptr %108, i64 8
   %111 = load ptr, ptr %110, align 8, !noalias !712
@@ -20648,7 +20648,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
 
 _ZN8tinygltf9ParameterD2Ev.exit:                  ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev.exit.i, %182
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #32
-  %183 = load i8, ptr %100, align 8
+  %183 = load i8, ptr %100, align 8, !noalias !718
   switch i8 %183, label %187 [
     i8 1, label %_ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEEEEiEvRT_T0_.exit.loopexit.i.i
     i8 2, label %185
@@ -22033,7 +22033,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !754
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !754
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !754
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -22054,7 +22054,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !754
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !754
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -22410,7 +22410,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !764
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !764
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !764
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -22431,7 +22431,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !764
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !764
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -25935,7 +25935,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !889
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !889
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !889
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -25956,7 +25956,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !889
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !889
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -38461,7 +38461,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyE
   %16 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 16, i1 false), !alias.scope !954
   store i64 -9223372036854775808, ptr %16, align 8, !alias.scope !954
-  %17 = load i8, ptr %2, align 8, !noalias !364
+  %17 = load i8, ptr %2, align 8, !noalias !954
   switch i8 %17, label %25 [
     i8 1, label %26
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread
@@ -38487,7 +38487,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 26:                                               ; preds = %6
   %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8, !noalias !948
+  %28 = load ptr, ptr %27, align 8, !noalias !954
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = getelementptr inbounds i8, ptr %28, i64 16
   %31 = load ptr, ptr %30, align 8, !noalias !948
@@ -38702,7 +38702,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !965
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !965
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !965
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -38723,7 +38723,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !965
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !965
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -39667,7 +39667,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEP
   %16 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 16, i1 false), !alias.scope !981
   store i64 -9223372036854775808, ptr %16, align 8, !alias.scope !981
-  %17 = load i8, ptr %2, align 8, !noalias !364
+  %17 = load i8, ptr %2, align 8, !noalias !981
   switch i8 %17, label %25 [
     i8 1, label %26
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread
@@ -39693,7 +39693,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 26:                                               ; preds = %6
   %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8, !noalias !975
+  %28 = load ptr, ptr %27, align 8, !noalias !981
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = getelementptr inbounds i8, ptr %28, i64 16
   %31 = load ptr, ptr %30, align 8, !noalias !975
@@ -40020,7 +40020,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseBooleanPropertyEP
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false), !alias.scope !998
   store i64 -9223372036854775808, ptr %8, align 8, !alias.scope !998
-  %9 = load i8, ptr %1, align 8, !noalias !364
+  %9 = load i8, ptr %1, align 8, !noalias !998
   switch i8 %9, label %17 [
     i8 1, label %18
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread
@@ -40046,7 +40046,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8, !noalias !992
+  %20 = load ptr, ptr %19, align 8, !noalias !998
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = getelementptr inbounds i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8, !noalias !992
@@ -40176,7 +40176,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayProper
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false), !alias.scope !1015
   store i64 -9223372036854775808, ptr %10, align 8, !alias.scope !1015
-  %11 = load i8, ptr %1, align 8, !noalias !364
+  %11 = load i8, ptr %1, align 8, !noalias !1015
   switch i8 %11, label %19 [
     i8 1, label %20
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread
@@ -40202,7 +40202,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8, !noalias !1009
+  %22 = load ptr, ptr %21, align 8, !noalias !1015
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = getelementptr inbounds i8, ptr %22, i64 16
   %25 = load ptr, ptr %24, align 8, !noalias !1009
@@ -40823,7 +40823,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !1044
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !1044
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !1044
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -40844,7 +40844,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !1044
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !1044
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -41239,7 +41239,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !1048
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !1048
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !1048
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -41260,7 +41260,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !1048
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !1048
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -45726,7 +45726,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL22ParseParameterProperty
   %48 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 16, i1 false), !alias.scope !1130
   store i64 -9223372036854775808, ptr %48, align 8, !alias.scope !1130
-  %49 = load i8, ptr %2, align 8, !noalias !364
+  %49 = load i8, ptr %2, align 8, !noalias !1130
   switch i8 %49, label %57 [
     i8 1, label %58
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread.i
@@ -45734,7 +45734,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL22ParseParameterProperty
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread.i: ; preds = %45
   %50 = getelementptr inbounds i8, ptr %2, i64 8
-  %51 = load ptr, ptr %50, align 8, !noalias !364
+  %51 = load ptr, ptr %50, align 8, !noalias !1130
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8, !noalias !1130
   %54 = getelementptr inbounds i8, ptr %6, i64 16
@@ -45752,7 +45752,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 58:                                               ; preds = %45
   %59 = getelementptr inbounds i8, ptr %2, i64 8
-  %60 = load ptr, ptr %59, align 8, !noalias !364
+  %60 = load ptr, ptr %59, align 8, !noalias !1130
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   %62 = getelementptr inbounds i8, ptr %60, i64 16
   %63 = load ptr, ptr %62, align 8, !noalias !1124
@@ -45887,7 +45887,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
   %108 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, i8 0, i64 16, i1 false), !alias.scope !1147
   store i64 -9223372036854775808, ptr %108, align 8, !alias.scope !1147
-  %109 = load i8, ptr %106, align 8, !noalias !364
+  %109 = load i8, ptr %106, align 8, !noalias !1147
   switch i8 %109, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.i [
     i8 1, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.thread1.i
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.thread2.i
@@ -45896,7 +45896,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.thread1.i: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEE5clearEv.exit.i
   %110 = getelementptr inbounds i8, ptr %106, i64 8
-  %111 = load ptr, ptr %110, align 8, !noalias !364
+  %111 = load ptr, ptr %110, align 8, !noalias !1147
   %112 = getelementptr inbounds i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8, !noalias !1147
   store ptr %113, ptr %107, align 8, !alias.scope !1147
@@ -45912,7 +45912,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5beginEv.exit.thread2.i: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEE5clearEv.exit.i
   %118 = getelementptr inbounds i8, ptr %106, i64 8
-  %119 = load ptr, ptr %118, align 8, !noalias !364
+  %119 = load ptr, ptr %118, align 8, !noalias !1147
   %120 = load ptr, ptr %119, align 8, !noalias !1147
   %121 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %120, ptr %121, align 8, !alias.scope !1147
@@ -46159,7 +46159,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPd
   %16 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 16, i1 false), !alias.scope !1174
   store i64 -9223372036854775808, ptr %16, align 8, !alias.scope !1174
-  %17 = load i8, ptr %2, align 8, !noalias !364
+  %17 = load i8, ptr %2, align 8, !noalias !1174
   switch i8 %17, label %25 [
     i8 1, label %26
     i8 2, label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE4findIRKS8_EENS_6detail9iter_implIKSA_EEOT_.exit.thread
@@ -46185,7 +46185,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 26:                                               ; preds = %6
   %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8, !noalias !1168
+  %28 = load ptr, ptr %27, align 8, !noalias !1174
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = getelementptr inbounds i8, ptr %28, i64 16
   %31 = load ptr, ptr %30, align 8, !noalias !1168
@@ -47490,7 +47490,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !1189
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !1189
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !1189
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -47511,7 +47511,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !1189
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !1189
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -47703,7 +47703,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !1192
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !1192
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !1192
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -47724,7 +47724,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !1192
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !1192
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -48318,7 +48318,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !1197
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !1197
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !1197
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -48339,7 +48339,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !1197
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !1197
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -48423,7 +48423,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !alias.scope !1200
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !1200
-  %8 = load i8, ptr %1, align 8
+  %8 = load i8, ptr %1, align 8, !noalias !1200
   switch i8 %8, label %15 [
     i8 1, label %16
     i8 2, label %9
@@ -48444,7 +48444,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !1200
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %6, align 8, !alias.scope !1200
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #32
@@ -73409,12 +73409,13 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   br i1 %.015, label %.sink.split, label %105
 
 20:                                               ; preds = %3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1390)
   store ptr %1, ptr %0, align 8, !alias.scope !1390
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 16, i1 false), !alias.scope !1390
   store i64 -9223372036854775808, ptr %22, align 8, !alias.scope !1390
-  %23 = load i8, ptr %1, align 8
+  %23 = load i8, ptr %1, align 8, !noalias !1390
   switch i8 %23, label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3endEv.exit [
     i8 1, label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3endEv.exit.thread
     i8 2, label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3endEv.exit.thread30
@@ -73422,7 +73423,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
 
 _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3endEv.exit.thread: ; preds = %20
   %24 = getelementptr inbounds i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !noalias !1390
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.01.0.copyload = load ptr, ptr %27, align 8
@@ -73444,9 +73445,9 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3endEv.exit.thread30: ; preds = %20
   %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %37, align 8, !noalias !1390
   %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !noalias !1390
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %40, ptr %41, align 8, !alias.scope !1390
   %42 = getelementptr inbounds i8, ptr %2, i64 16

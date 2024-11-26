@@ -22631,8 +22631,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit6.i: ; pre
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !66, !noalias !62
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %118 = load ptr, ptr %117, align 8, !noalias !62
-  %119 = load ptr, ptr %8, align 8, !noalias !62
+  %118 = load ptr, ptr %117, align 8, !noalias !69
+  %119 = load ptr, ptr %8, align 8, !noalias !69
   %120 = ptrtoint ptr %118 to i64
   %121 = ptrtoint ptr %119 to i64
   %122 = sub i64 %120, %121
@@ -47856,7 +47856,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEESaIS3_EE
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %103 = load i8, ptr @__libc_single_threaded, align 1
+  %103 = load i8, ptr @__libc_single_threaded, align 1, !noalias !209
   %.not.i.i.i.i.i.i = icmp eq i8 %103, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread
 
@@ -54249,7 +54249,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8HdSchemacvbEv.exit: ; preds = %38
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %74 = load i8, ptr @__libc_single_threaded, align 1
+  %74 = load i8, ptr @__libc_single_threaded, align 1, !noalias !233
   %.not.i.i.i.i.i.i = icmp eq i8 %74, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread
 
@@ -56031,7 +56031,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__32HdExtComputationOutputDescript
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %96 = load i8, ptr @__libc_single_threaded, align 1
+  %96 = load i8, ptr @__libc_single_threaded, align 1, !noalias !253
   %.not.i.i.i.i.i.i = icmp eq i8 %96, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread
 

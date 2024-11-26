@@ -10303,8 +10303,8 @@ _ZNSt16allocator_traitsISaISt4pairIN2cv5Rect_IiEESt6vectorINS1_6Point_IiEESaIS6_
           to label %3315 unwind label %3340
 
 3315:                                             ; preds = %3314
-  %3316 = load ptr, ptr %221, align 8
-  %3317 = load ptr, ptr %3079, align 8
+  %3316 = load ptr, ptr %221, align 8, !noalias !177
+  %3317 = load ptr, ptr %3079, align 8, !noalias !177
   %.not32.i = icmp eq ptr %3316, %3317
   br i1 %.not32.i, label %.loopexit1382.thread, label %.lr.ph35.i
 

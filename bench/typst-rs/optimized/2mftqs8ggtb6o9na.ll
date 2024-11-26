@@ -1405,7 +1405,7 @@ define hidden void @"_ZN61_$LT$typst..text..item..Glyph$u20$as$u20$core..hash..H
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8, !alias.scope !215, !noundef !26
   %13 = getelementptr inbounds i8, ptr %1, i64 64
-  %14 = load i64, ptr %13, align 8, !noundef !26
+  %14 = load i64, ptr %13, align 8, !alias.scope !215, !noundef !26
   %15 = shl i64 %14, 3
   %16 = and i64 %15, 56
   %17 = shl i64 %10, %16
@@ -1704,7 +1704,7 @@ define hidden void @"_ZN67_$LT$typst..visualize..color..Color$u20$as$u20$core..h
   %8 = add i64 %7, 8
   store i64 %8, ptr %6, align 8, !alias.scope !268
   %9 = getelementptr inbounds i8, ptr %1, i64 64
-  %10 = load i64, ptr %9, align 8, !noundef !26
+  %10 = load i64, ptr %9, align 8, !alias.scope !268, !noundef !26
   %11 = shl i64 %10, 3
   %12 = and i64 %11, 56
   %13 = shl nuw nsw i64 %5, %12
@@ -2259,7 +2259,7 @@ define hidden void @"_ZN69_$LT$typst..visualize..path..PathItem$u20$as$u20$core.
   %6 = add i64 %5, 8
   store i64 %6, ptr %4, align 8, !alias.scope !335
   %7 = getelementptr inbounds i8, ptr %1, i64 64
-  %8 = load i64, ptr %7, align 8, !noundef !26
+  %8 = load i64, ptr %7, align 8, !alias.scope !335, !noundef !26
   %9 = shl i64 %8, 3
   %10 = and i64 %9, 56
   %11 = shl nuw nsw i64 %3, %10

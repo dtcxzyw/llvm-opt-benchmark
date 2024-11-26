@@ -1139,7 +1139,7 @@ invoke.cont4.i.i:                                 ; preds = %land.rhs
   br i1 %11, label %if.then.i.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont4.i.i
-  %12 = load ptr, ptr %dep, align 8, !tbaa !4
+  %12 = load ptr, ptr %dep, align 8, !tbaa !4, !noalias !63
   %add.ptr.i.i42 = getelementptr inbounds i8, ptr %12, i64 %sub
   %13 = load i8, ptr %add.ptr.i.i42, align 1, !tbaa !12
   store i8 %13, ptr %9, align 8, !tbaa !12

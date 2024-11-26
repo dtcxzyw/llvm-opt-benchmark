@@ -8922,7 +8922,7 @@ _ZNSt5stackIN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %.body73
 
 228:                                              ; preds = %211
-  %229 = load ptr, ptr %101, align 8
+  %229 = load ptr, ptr %101, align 8, !noalias !38
   %230 = icmp eq ptr %212, %229
   br i1 %230, label %_ZNSt5stackIiSt5dequeIiSaIiEEE3topEv.exit, label %_ZNSt5stackIiSt5dequeIiSaIiEEE3topEv.exit.thread
 

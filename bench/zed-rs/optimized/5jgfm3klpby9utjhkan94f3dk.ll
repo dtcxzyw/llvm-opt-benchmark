@@ -431,7 +431,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !range !67, !noundef !4
+  %9 = load i32, ptr %8, align 8, !range !67, !alias.scope !64, !noundef !4
   %10 = icmp eq i32 %9, 1000000000
   br i1 %10, label %11, label %"._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hc18c5465342e9861E.exit_crit_edge"
 
@@ -752,7 +752,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !range !67, !noundef !4
+  %9 = load i32, ptr %8, align 8, !range !67, !alias.scope !147, !noundef !4
   %10 = icmp eq i32 %9, 1000000000
   br i1 %10, label %11, label %"._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hc18c5465342e9861E.exit_crit_edge"
 
@@ -1073,7 +1073,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !range !67, !noundef !4
+  %9 = load i32, ptr %8, align 8, !range !67, !alias.scope !228, !noundef !4
   %10 = icmp eq i32 %9, 1000000000
   br i1 %10, label %11, label %"._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hc18c5465342e9861E.exit_crit_edge"
 
@@ -1394,7 +1394,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !range !67, !noundef !4
+  %9 = load i32, ptr %8, align 8, !range !67, !alias.scope !309, !noundef !4
   %10 = icmp eq i32 %9, 1000000000
   br i1 %10, label %11, label %"._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hc18c5465342e9861E.exit_crit_edge"
 
@@ -1715,7 +1715,7 @@ define internal fastcc noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..Acqui
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !390)
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !range !67, !noundef !4
+  %7 = load i32, ptr %6, align 8, !range !67, !alias.scope !390, !noundef !4
   %8 = icmp eq i32 %7, 1000000000
   br i1 %8, label %9, label %"._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hc18c5465342e9861E.exit_crit_edge"
 
@@ -2560,7 +2560,7 @@ define hidden void @"_ZN15async_broadcast14Inner$LT$T$GT$12set_capacity17h9b529c
   %8 = sub nuw i64 %1, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !498)
   %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = load i64, ptr %9, align 8, !noundef !4
+  %10 = load i64, ptr %9, align 8, !alias.scope !498, !noundef !4
   %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %8)
   %12 = extractvalue { i64, i1 } %11, 1
   br i1 %12, label %16, label %13
@@ -2620,7 +2620,7 @@ define hidden void @"_ZN15async_broadcast14Inner$LT$T$GT$12set_capacity17h9b529c
 42:                                               ; preds = %17
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h695f4db3bdd36001E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %10, i64 noundef %8)
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !504
-  %.pre6.i = load i64, ptr %9, align 8
+  %.pre6.i = load i64, ptr %9, align 8, !alias.scope !504
   %.pre7.i = sub i64 %5, %.pre6.i
   br label %20
 

@@ -1626,8 +1626,8 @@ define void @_ZN5Yosys5RTLIL17const_reduce_xnorERKNS0_5ConstES3_bbi(ptr dead_on_
   tail call void @_ZN5Yosys5RTLIL5ConstC1ENS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext %.0.lcssa.i, i32 noundef 1)
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %20, align 8, !alias.scope !27
+  %22 = load ptr, ptr %19, align 8, !alias.scope !27
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -1652,7 +1652,7 @@ define void @_ZN5Yosys5RTLIL17const_reduce_xnorERKNS0_5ConstES3_bbi(ptr dead_on_
   %35 = load ptr, ptr %20, align 8, !alias.scope !27
   %36 = getelementptr inbounds i8, ptr %35, i64 1
   store ptr %36, ptr %20, align 8, !alias.scope !27
-  %.pre.i = load ptr, ptr %19, align 8
+  %.pre.i = load ptr, ptr %19, align 8, !alias.scope !27
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i
 
 37:                                               ; preds = %29

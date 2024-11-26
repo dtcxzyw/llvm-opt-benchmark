@@ -1787,7 +1787,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRmTreeERKNSt7__cxx1112basic
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !alias.scope !12
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !noalias !12
   %.not.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i, label %_ZSt4bindIRFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EERKSA_St8functionIFvS7_S7_EEEJRKSt12_PlaceholderILi1EERKSJ_ILi2EERKSJ_ILi3EERSG_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESV_JDpT0_EE4typeEOSV_DpOSW_.exit, label %11
 
@@ -1799,7 +1799,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRmTreeERKNSt7__cxx1112basic
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !noalias !12
   store ptr %15, ptr %8, align 8, !alias.scope !12
-  %16 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %9, align 8, !noalias !12
   store ptr %16, ptr %7, align 8, !alias.scope !12
   br label %_ZSt4bindIRFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EERKSA_St8functionIFvS7_S7_EEEJRKSt12_PlaceholderILi1EERKSJ_ILi2EERKSJ_ILi3EERSG_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESV_JDpT0_EE4typeEOSV_DpOSW_.exit
 

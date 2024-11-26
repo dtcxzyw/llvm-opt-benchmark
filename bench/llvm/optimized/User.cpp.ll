@@ -220,13 +220,13 @@ _ZN4llvm16dyn_cast_or_nullINS_20DbgVariableIntrinsicENS_4UserEEEDaPT0_.exit: ; p
   br i1 %87, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i, label %90
 
 90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = load ptr, ptr %89, align 8, !noalias !16
+  %91 = load ptr, ptr %89, align 8, !noalias !24
   br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i: ; preds = %90, %.lr.ph.i.i.i.i
   %92 = phi ptr [ %91, %90 ], [ %89, %.lr.ph.i.i.i.i ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 128
-  %94 = load ptr, ptr %93, align 8, !noalias !16
+  %94 = load ptr, ptr %93, align 8, !noalias !24
   %95 = icmp eq ptr %94, %1
   br i1 %95, label %_ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit, label %96
 
@@ -236,7 +236,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_itera
   %99 = add nuw i64 %88, 136
   %storemerge.i.i.i.i.i = select i1 %87, i64 %99, i64 %98
   %.not.i.i.i.i20 = icmp eq i64 %storemerge.i.i.i.i.i, %85
-  br i1 %.not.i.i.i.i20, label %_ZN4llvm16dyn_cast_or_nullINS_20DbgVariableIntrinsicENS_4UserEEEDaPT0_.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i.i20, label %_ZN4llvm16dyn_cast_or_nullINS_20DbgVariableIntrinsicENS_4UserEEEDaPT0_.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !31
 
 _ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_20DbgVariableIntrinsicENS_4UserEEEDaPT0_.exit
   %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i = phi i64 [ %83, %_ZN4llvm16dyn_cast_or_nullINS_20DbgVariableIntrinsicENS_4UserEEEDaPT0_.exit ], [ %.sroa.01.0.copyload.i.i5.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i ]
@@ -276,7 +276,7 @@ define dso_local void @_ZN4llvm4User16allocHungoffUsesEjb(ptr noundef nonnull al
   store ptr %0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %.01214, i64 32
   %.not = icmp eq ptr %11, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -325,7 +325,7 @@ _ZN4llvm4User14getOperandListEv.exit:             ; preds = %8, %11
   store ptr %0, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %.01214.i, i64 32
   %.not.i = icmp eq ptr %23, %20
-  br i1 %.not.i, label %_ZN4llvm4User16allocHungoffUsesEjb.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %_ZN4llvm4User16allocHungoffUsesEjb.exit, label %.lr.ph.i, !llvm.loop !32
 
 _ZN4llvm4User16allocHungoffUsesEjb.exit:          ; preds = %.lr.ph.i, %_ZN4llvm4User14getOperandListEv.exit
   %24 = load i32, ptr %4, align 4
@@ -394,7 +394,7 @@ _ZN4llvm3UseaSERKS0_.exit.i.i.i.i.i:              ; preds = %_ZN4llvm5Value6addU
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %52 = add nsw i64 %.012.i.i.i.i.i, -1
   %53 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %53, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPN4llvm3UseES2_ET0_T_S4_S3_.exit, !llvm.loop !25
+  br i1 %53, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPN4llvm3UseES2_ET0_T_S4_S3_.exit, !llvm.loop !33
 
 _ZSt4copyIPN4llvm3UseES2_ET0_T_S4_S3_.exit:       ; preds = %_ZN4llvm3UseaSERKS0_.exit.i.i.i.i.i
   br i1 %2, label %54, label %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit
@@ -541,7 +541,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm4UsernwEmj(i64 noundef %0, i32 nou
   store ptr %7, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %.029, i64 32
   %.not = icmp eq ptr %14, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret ptr %7
@@ -579,7 +579,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm4UsernwEmjj(i64 noundef %0, i32 no
   store ptr %15, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %.031, i64 32
   %.not29 = icmp eq ptr %24, %15
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   br i1 %4, label %27, label %25
@@ -683,15 +683,23 @@ attributes #9 = { nounwind allocsize(0) }
 !12 = distinct !{!12, !"_ZN4llvm10adl_detail10begin_implIRNS_14iterator_rangeINS_20location_op_iteratorEEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOS6_"}
 !13 = distinct !{!13, !14, !"_ZN4llvm9adl_beginIRNS_14iterator_rangeINS_20location_op_iteratorEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS5_: argument 0"}
 !14 = distinct !{!14, !"_ZN4llvm9adl_beginIRNS_14iterator_rangeINS_20location_op_iteratorEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS5_"}
-!15 = !{}
-!16 = !{!17, !19, !21}
-!17 = distinct !{!17, !18, !"_ZSt9__find_ifIN4llvm20location_op_iteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_5ValueEEEET_S9_S9_T0_St18input_iterator_tag: argument 0"}
-!18 = distinct !{!18, !"_ZSt9__find_ifIN4llvm20location_op_iteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_5ValueEEEET_S9_S9_T0_St18input_iterator_tag"}
-!19 = distinct !{!19, !20, !"_ZSt9__find_ifIN4llvm20location_op_iteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_5ValueEEEET_S9_S9_T0_: argument 0"}
-!20 = distinct !{!20, !"_ZSt9__find_ifIN4llvm20location_op_iteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_5ValueEEEET_S9_S9_T0_"}
-!21 = distinct !{!21, !22, !"_ZSt4findIN4llvm20location_op_iteratorEPNS0_5ValueEET_S4_S4_RKT0_: argument 0"}
-!22 = distinct !{!22, !"_ZSt4findIN4llvm20location_op_iteratorEPNS0_5ValueEET_S4_S4_RKT0_"}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
+!15 = !{!16, !18, !20, !22}
+!16 = distinct !{!16, !17, !"_ZNK4llvm14iterator_rangeINS_20location_op_iteratorEE3endEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK4llvm14iterator_rangeINS_20location_op_iteratorEE3endEv"}
+!18 = distinct !{!18, !19, !"_ZSt3endIN4llvm14iterator_rangeINS0_20location_op_iteratorEEEEDTcldtfp_3endEERT_: argument 0"}
+!19 = distinct !{!19, !"_ZSt3endIN4llvm14iterator_rangeINS0_20location_op_iteratorEEEEDTcldtfp_3endEERT_"}
+!20 = distinct !{!20, !21, !"_ZN4llvm10adl_detail8end_implIRNS_14iterator_rangeINS_20location_op_iteratorEEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOS6_: argument 0"}
+!21 = distinct !{!21, !"_ZN4llvm10adl_detail8end_implIRNS_14iterator_rangeINS_20location_op_iteratorEEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOS6_"}
+!22 = distinct !{!22, !23, !"_ZN4llvm7adl_endIRNS_14iterator_rangeINS_20location_op_iteratorEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS5_: argument 0"}
+!23 = distinct !{!23, !"_ZN4llvm7adl_endIRNS_14iterator_rangeINS_20location_op_iteratorEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS5_"}
+!24 = !{!25, !27, !29}
+!25 = distinct !{!25, !26, !"_ZSt9__find_ifIN4llvm20location_op_iteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_5ValueEEEET_S9_S9_T0_St18input_iterator_tag: argument 0"}
+!26 = distinct !{!26, !"_ZSt9__find_ifIN4llvm20location_op_iteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_5ValueEEEET_S9_S9_T0_St18input_iterator_tag"}
+!27 = distinct !{!27, !28, !"_ZSt9__find_ifIN4llvm20location_op_iteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_5ValueEEEET_S9_S9_T0_: argument 0"}
+!28 = distinct !{!28, !"_ZSt9__find_ifIN4llvm20location_op_iteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKPNS0_5ValueEEEET_S9_S9_T0_"}
+!29 = distinct !{!29, !30, !"_ZSt4findIN4llvm20location_op_iteratorEPNS0_5ValueEET_S4_S4_RKT0_: argument 0"}
+!30 = distinct !{!30, !"_ZSt4findIN4llvm20location_op_iteratorEPNS0_5ValueEET_S4_S4_RKT0_"}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}

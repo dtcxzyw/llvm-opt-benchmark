@@ -2200,7 +2200,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
           to label %48 unwind label %.body.thread38
 
 48:                                               ; preds = %46
-  %.pre = load i64, ptr %8, align 8, !noalias !4
+  %.pre = load i64, ptr %8, align 8, !noalias !298
   br i1 %47, label %50, label %58
 
 49:                                               ; preds = %71, %50
@@ -2208,7 +2208,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
 
 50:                                               ; preds = %48
   %51 = add i64 %.pre, -1
-  store i64 %51, ptr %8, align 8, !noalias !298
+  store i64 %51, ptr %8, align 8, !noalias !305
   tail call void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h0fcb3aca6cbb8589E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
   br label %49
 
@@ -2229,7 +2229,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
 58:                                               ; preds = %15, %48
   %59 = phi i64 [ %16, %15 ], [ %.pre, %48 ]
   %60 = add i64 %59, -1
-  store i64 %60, ptr %8, align 8, !noalias !305
+  store i64 %60, ptr %8, align 8, !noalias !298
   %61 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4), !noalias !312
@@ -2556,7 +2556,8 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
 
 86:                                               ; preds = %21
   %87 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %88 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !356)
+  %88 = load ptr, ptr %10, align 8, !alias.scope !356, !nonnull !4, !noundef !4
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   %90 = load i64, ptr %89, align 8, !noalias !356, !noundef !4
   %91 = icmp ne i64 %90, 0

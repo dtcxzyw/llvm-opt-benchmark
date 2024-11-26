@@ -3106,7 +3106,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit92: ; preds = %if.then
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit92
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 96
-  %30 = load ptr, ptr %ref.tmp19, align 8
+  %30 = load ptr, ptr %ref.tmp19, align 8, !noalias !13
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -3401,7 +3401,7 @@ invoke.cont48:                                    ; preds = %if.then13.i.i169, %
 
 if.then.i.i.i.i.i204:                             ; preds = %invoke.cont48
   %_M_before_begin.i.i.i.i.i.i.i205 = getelementptr inbounds i8, ptr %67, i64 96
-  %69 = load ptr, ptr %ref.tmp45, align 8
+  %69 = load ptr, ptr %ref.tmp45, align 8, !noalias !21
   br label %for.cond.i.i.i.i.i206
 
 for.cond.i.i.i.i.i206:                            ; preds = %for.body.i.i.i.i.i210, %if.then.i.i.i.i.i204
@@ -3580,7 +3580,7 @@ invoke.cont59:                                    ; preds = %if.then13.i.i246, %
 
 if.then.i.i.i260:                                 ; preds = %invoke.cont59
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %96 = load ptr, ptr %ref.tmp56, align 8
+  %96 = load ptr, ptr %ref.tmp56, align 8, !noalias !27
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i260
@@ -9024,7 +9024,7 @@ cond.true609:                                     ; preds = %if.then13.i.i1846, 
   br i1 %cmp.not.not.i.i.i1929, label %if.then.i.i.i1956, label %if.end15.i.i.i1930
 
 if.then.i.i.i1956:                                ; preds = %cond.true609
-  %373 = load ptr, ptr %sel, align 8
+  %373 = load ptr, ptr %sel, align 8, !noalias !89
   br label %for.cond.i.i.i1958
 
 for.cond.i.i.i1958:                               ; preds = %for.body.i.i.i1962, %if.then.i.i.i1956
@@ -9054,7 +9054,7 @@ call2.i.i.i.i.noexc1965:                          ; preds = %if.end15.i.i.i1930
 
 if.end.i.i.i.i.i1936:                             ; preds = %call2.i.i.i.i.noexc1965
   %378 = load ptr, ptr %377, align 8, !noalias !89
-  %379 = load ptr, ptr %sel, align 8
+  %379 = load ptr, ptr %sel, align 8, !noalias !89
   %add.ptr8.i.i.i.i.i1937 = getelementptr inbounds i8, ptr %378, i64 8
   %add.ptr.i9.i.i.i.i.i1938 = getelementptr inbounds i8, ptr %378, i64 24
   %380 = load i64, ptr %add.ptr.i9.i.i.i.i.i1938, align 8, !noalias !89
@@ -26726,7 +26726,7 @@ invoke.cont55:                                    ; preds = %if.end51
 for.body:                                         ; preds = %invoke.cont55, %for.inc
   %it.sroa.0.0142 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %spec.select.i.i, %invoke.cont55 ]
   %46 = load ptr, ptr %it.sroa.0.0142, align 8, !noalias !238
-  %bf.load.i.i.i = load i64, ptr %46, align 8
+  %bf.load.i.i.i = load i64, ptr %46, align 8, !noalias !238
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %47 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %47, 1048575
@@ -30922,7 +30922,7 @@ call2.i.i.i.noexc297:                             ; preds = %lor.rhs72
   %idxprom.i.i282 = ashr exact i64 %sext1755, 32
   %arrayidx.i.i283 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i281, i64 0, i64 %idxprom.i.i282
   %77 = load ptr, ptr %arrayidx.i.i283, align 8, !noalias !277
-  %bf.load.i.i.i284 = load i64, ptr %77, align 8
+  %bf.load.i.i.i284 = load i64, ptr %77, align 8, !noalias !277
   %bf.lshr.i.i.i285 = lshr i64 %bf.load.i.i.i284, 40
   %78 = trunc nuw nsw i64 %bf.lshr.i.i.i285 to i32
   %bf.cast.i.i.i286 = and i32 %78, 1048575
@@ -34749,7 +34749,7 @@ lor.rhs:                                          ; preds = %for.body70
 
 if.then.i.i.i.i.i400:                             ; preds = %lor.rhs
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 96
-  %45 = load ptr, ptr %__begin3.sroa.0.0515, align 8
+  %45 = load ptr, ptr %__begin3.sroa.0.0515, align 8, !noalias !301
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i400
@@ -34778,7 +34778,7 @@ if.end15.i.i.i.i.i:                               ; preds = %lor.rhs
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end15.i.i.i.i.i
   %50 = load ptr, ptr %49, align 8, !noalias !301
-  %51 = load ptr, ptr %__begin3.sroa.0.0515, align 8
+  %51 = load ptr, ptr %__begin3.sroa.0.0515, align 8, !noalias !301
   %add.ptr8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 8
   %add.ptr.i9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load i64, ptr %add.ptr.i9.i.i.i.i.i.i.i, align 8, !noalias !301
@@ -37431,7 +37431,7 @@ lor.rhs:                                          ; preds = %invoke.cont108
 
 if.then.i.i.i.i.i:                                ; preds = %lor.rhs
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 96
-  %48 = load ptr, ptr %__begin6.sroa.0.0654, align 8
+  %48 = load ptr, ptr %__begin6.sroa.0.0654, align 8, !noalias !317
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -37463,7 +37463,7 @@ call2.i.i.i.i.i.i.noexc:                          ; preds = %if.end15.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call2.i.i.i.i.i.i.noexc
   %53 = load ptr, ptr %52, align 8, !noalias !317
-  %54 = load ptr, ptr %__begin6.sroa.0.0654, align 8
+  %54 = load ptr, ptr %__begin6.sroa.0.0654, align 8, !noalias !317
   %add.ptr8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 8
   %add.ptr.i9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load i64, ptr %add.ptr.i9.i.i.i.i.i.i.i, align 8, !noalias !317

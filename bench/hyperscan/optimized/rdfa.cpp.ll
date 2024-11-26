@@ -183,7 +183,7 @@ for.body:                                         ; preds = %entry, %for.inc11
   %reports = getelementptr inbounds i8, ptr %__begin1.sroa.0.012, i64 32
   %2 = load ptr, ptr %reports, align 8, !noalias !7
   %m_size.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.012, i64 40
-  %3 = load i64, ptr %m_size.i.i, align 8, !noalias !8
+  %3 = load i64, ptr %m_size.i.i, align 8, !noalias !12
   %add.ptr.i.i = getelementptr inbounds i32, ptr %2, i64 %3
   %cmp.i.i.i.i.not9 = icmp eq i64 %3, 0
   br i1 %cmp.i.i.i.i.not9, label %for.inc11, label %for.body8.lr.ph
@@ -191,19 +191,19 @@ for.body:                                         ; preds = %entry, %for.inc11
 for.body8.lr.ph:                                  ; preds = %for.body
   %reports_eod = getelementptr inbounds i8, ptr %__begin1.sroa.0.012, i64 64
   %m_size.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.012, i64 72
-  %.pre = load i64, ptr %m_size.i.i.i, align 8, !noalias !7
+  %.pre = load i64, ptr %m_size.i.i.i, align 8, !noalias !17
   br label %for.body8
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit
   %4 = phi i64 [ %.pre, %for.body8.lr.ph ], [ %15, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit ]
   %__begin2.sroa.0.010 = phi ptr [ %2, %for.body8.lr.ph ], [ %incdec.ptr.i.i.i.i, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit ]
-  %5 = load ptr, ptr %reports_eod, align 8, !noalias !7
+  %5 = load ptr, ptr %reports_eod, align 8, !noalias !22
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %5, i64 %4
   %cmp9.i.i.i.i = icmp sgt i64 %4, 0
   br i1 %cmp9.i.i.i.i, label %while.body.i.preheader.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i
 
 while.body.i.preheader.i.i.i:                     ; preds = %for.body8
-  %6 = load i32, ptr %__begin2.sroa.0.010, align 4, !noalias !13
+  %6 = load i32, ptr %__begin2.sroa.0.010, align 4, !noalias !25
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.i.preheader.i.i.i
@@ -211,7 +211,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %__len.010.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %4, %while.body.i.preheader.i.i.i ]
   %shr.i.i.i.i = lshr i64 %__len.010.i.i.i.i, 1
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %7, i64 %shr.i.i.i.i
-  %8 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4, !noalias !13
+  %8 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4, !noalias !25
   %cmp.i.i5.i.i.i.i = icmp ult i32 %8, %6
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 4
   %9 = xor i64 %shr.i.i.i.i, -1
@@ -219,7 +219,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %10 = select i1 %cmp.i.i5.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i, ptr %7
   %__len.1.i.i.i.i = select i1 %cmp.i.i5.i.i.i.i, i64 %sub6.i.i.i.i, i64 %shr.i.i.i.i
   %cmp.i.i.i.i4 = icmp sgt i64 %__len.1.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i4, label %while.body.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i, !llvm.loop !20
+  br i1 %cmp.i.i.i.i4, label %while.body.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i, !llvm.loop !30
 
 _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i.i, %for.body8
   %11 = phi ptr [ %5, %for.body8 ], [ %10, %while.body.i.i.i.i ]
@@ -227,8 +227,8 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RK
   br i1 %cmp.i.not.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit, label %_ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj.exit.i
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj.exit.i: ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i
-  %12 = load i32, ptr %__begin2.sroa.0.010, align 4, !noalias !21
-  %13 = load i32, ptr %11, align 4, !noalias !21
+  %12 = load i32, ptr %__begin2.sroa.0.010, align 4, !noalias !31
+  %13 = load i32, ptr %11, align 4, !noalias !31
   %cmp.i4.i.i = icmp ult i32 %12, %13
   br i1 %cmp.i4.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit, label %if.then.i
 
@@ -241,14 +241,14 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i3.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull align 4 %add.ptr.i.i3.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false), !noalias !22
-  %.pre.i.i.i = load i64, ptr %m_size.i.i.i, align 8, !noalias !22
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull align 4 %add.ptr.i.i3.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false), !noalias !32
+  %.pre.i.i.i = load i64, ptr %m_size.i.i.i, align 8, !noalias !32
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEE.exit.i
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEE.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
   %14 = phi i64 [ %4, %if.then.i ], [ %.pre.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i = add i64 %14, -1
-  store i64 %dec.i.i.i.i, ptr %m_size.i.i.i, align 8, !noalias !22
+  store i64 %dec.i.i.i.i, ptr %m_size.i.i.i, align 8, !noalias !32
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit: ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i, %_ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj.exit.i, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEE.exit.i
@@ -312,21 +312,31 @@ attributes #5 = { builtin nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE3endEv: %agg.result"}
-!10 = distinct !{!10, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE3endEv"}
-!11 = distinct !{!11, !12, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE3endEv: %agg.result"}
-!12 = distinct !{!12, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE3endEv"}
-!13 = !{!14, !16, !18}
-!14 = distinct !{!14, !15, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_: %agg.result"}
-!15 = distinct !{!15, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_"}
-!16 = distinct !{!16, !17, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_: %agg.result"}
-!17 = distinct !{!17, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_"}
-!18 = distinct !{!18, !19, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj: %agg.result"}
-!19 = distinct !{!19, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj"}
-!20 = distinct !{!20, !6}
-!21 = !{!18}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE5eraseENS0_12vec_iteratorIPjLb1EEE: %agg.result"}
-!24 = distinct !{!24, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE5eraseENS0_12vec_iteratorIPjLb1EEE"}
+!7 = !{!8, !10}
+!8 = distinct !{!8, !9, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE5beginEv: %agg.result"}
+!9 = distinct !{!9, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE5beginEv"}
+!10 = distinct !{!10, !11, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE5beginEv: %agg.result"}
+!11 = distinct !{!11, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE5beginEv"}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE3endEv: %agg.result"}
+!14 = distinct !{!14, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE3endEv"}
+!15 = distinct !{!15, !16, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE3endEv: %agg.result"}
+!16 = distinct !{!16, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE3endEv"}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE3endEv: %agg.result"}
+!19 = distinct !{!19, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE3endEv"}
+!20 = distinct !{!20, !21, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj: %agg.result"}
+!21 = distinct !{!21, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj"}
+!22 = !{!23, !20}
+!23 = distinct !{!23, !24, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE5beginEv: %agg.result"}
+!24 = distinct !{!24, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE5beginEv"}
+!25 = !{!26, !28, !20}
+!26 = distinct !{!26, !27, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_: %agg.result"}
+!27 = distinct !{!27, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_"}
+!28 = distinct !{!28, !29, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_: %agg.result"}
+!29 = distinct !{!29, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_"}
+!30 = distinct !{!30, !6}
+!31 = !{!20}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE5eraseENS0_12vec_iteratorIPjLb1EEE: %agg.result"}
+!34 = distinct !{!34, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE5eraseENS0_12vec_iteratorIPjLb1EEE"}

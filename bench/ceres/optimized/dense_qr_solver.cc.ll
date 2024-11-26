@@ -459,7 +459,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEaSINS_3MapIKS2
 100:                                              ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEaSINS_3MapIKS2_Li0ENS_6StrideILi0ELi0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit
   %101 = load ptr, ptr %4, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %102 = load i64, ptr %29, align 8
+  %102 = load i64, ptr %29, align 8, !noalias !16
   %103 = sext i32 %23 to i64
   %104 = sub nsw i64 %102, %103
   %105 = load i64, ptr %55, align 8, !noalias !16

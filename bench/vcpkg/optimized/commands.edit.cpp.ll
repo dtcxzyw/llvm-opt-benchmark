@@ -308,8 +308,8 @@ define internal void @_ZN12_GLOBAL__N_115valid_argumentsB5cxx11ERKN5vcpkg10Vcpkg
           to label %22 unwind label %.loopexit.split-lp.i
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %15, align 8
+  %23 = load ptr, ptr %5, align 8, !noalias !17
+  %24 = load ptr, ptr %15, align 8, !noalias !17
   %.not4.i = icmp eq ptr %23, %24
   br i1 %.not4.i, label %.loopexit.thread, label %.lr.ph.i
 

@@ -23252,7 +23252,7 @@ _ZN2cv4util8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.e
           to label %.noexc351 unwind label %880
 
 .noexc351:                                        ; preds = %_ZN2cv4util8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %753 = load ptr, ptr %141, align 8
+  %753 = load ptr, ptr %141, align 8, !alias.scope !150
   %754 = icmp eq ptr %753, null
   %755 = getelementptr inbounds i8, ptr %753, i64 8
   br i1 %754, label %786, label %756
@@ -40035,7 +40035,7 @@ _ZN2cv4util8any_castIdEEPKT_PKNS0_3anyE.exit.thread.i.i.i: ; preds = %_ZN2cv4uti
 24:                                               ; preds = %23
   %25 = getelementptr inbounds i8, ptr %6, i64 8
   %26 = load ptr, ptr %25, align 8, !noalias !274
-  %27 = load ptr, ptr %6, align 8
+  %27 = load ptr, ptr %6, align 8, !noalias !274
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29

@@ -5731,8 +5731,8 @@ _ZNSt6vectorIlSaIlEEC2ERKS1_.exit:                ; preds = %.thread, %51
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10open_spiel5tarok10TarokState36LegalActionsInTricksPlayingFollowingEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.31") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %4 = load ptr, ptr %3, align 8
-  %5 = load i64, ptr %4, align 8
+  %4 = load ptr, ptr %3, align 8, !noalias !52
+  %5 = load i64, ptr %4, align 8, !noalias !52
   %6 = icmp ult i64 %5, 54
   br i1 %6, label %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit.i, label %7
 
@@ -5744,11 +5744,11 @@ _ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit.i: ; preds = %2
   %8 = getelementptr inbounds [54 x %"struct.open_spiel::tarok::Card"], ptr @_ZN10open_spiel5tarok9TarokGame10card_deck_E, i64 0, i64 %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %11 = load i32, ptr %10, align 8
+  %11 = load i32, ptr %10, align 8, !noalias !52
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %9, align 8
+  %14 = load ptr, ptr %13, align 8, !noalias !52
+  %15 = load ptr, ptr %9, align 8, !noalias !52
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -5762,9 +5762,9 @@ _ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit.i: ; preds = %2
 
 _ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit.i:     ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit.i
   %21 = getelementptr inbounds %"class.std::vector.31", ptr %15, i64 %12
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !noalias !52
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !noalias !52
   %.not17.i = icmp eq ptr %22, %24
   br i1 %.not17.i, label %.thread13, label %.lr.ph.i
 
@@ -5782,7 +5782,7 @@ _ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit.i:     ; preds = %_ZNK10open_spiel5ta
 _ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7.i: ; preds = %.lr.ph.i
   %28 = getelementptr inbounds [54 x %"struct.open_spiel::tarok::Card"], ptr @_ZN10open_spiel5tarok9TarokGame10card_deck_E, i64 0, i64 %25
   %29 = load i32, ptr %28, align 8, !noalias !52
-  %30 = load i32, ptr %8, align 8
+  %30 = load i32, ptr %8, align 8, !noalias !52
   %31 = icmp eq i32 %29, %30
   br i1 %31, label %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit, label %32
 

@@ -8104,7 +8104,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt4pairIiiENS0_8hash_opsIS3_EEE7do_ha
   br i1 %723, label %.lr.ph.i.i, label %.loopexit.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i
-  %724 = load ptr, ptr %365, align 8
+  %724 = load ptr, ptr %365, align 8, !noalias !45
   %725 = load i32, ptr %28, align 4, !noalias !45
   br label %726
 
@@ -8828,7 +8828,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt4pairIiiENS0_8hash_opsIS3_EEE7do_ha
   br i1 %1065, label %.lr.ph.i.i424, label %.loopexit.i420
 
 .lr.ph.i.i424:                                    ; preds = %._crit_edge.i.i419
-  %1066 = load ptr, ptr %365, align 8
+  %1066 = load ptr, ptr %365, align 8, !noalias !49
   %1067 = load i32, ptr %28, align 4, !noalias !49
   br label %1068
 
@@ -9413,7 +9413,7 @@ _ZN5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit456.thread: ; preds = %1315, %1
   %.0159962 = phi i8 [ %.1160, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit484 ], [ 0, %_ZN5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit456.thread ]
   %.0161961 = phi i8 [ %.1162, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit484 ], [ 0, %_ZN5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit456.thread ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %1370 = load i32, ptr %49, align 4
+  %1370 = load i32, ptr %49, align 4, !noalias !57
   %1371 = sext i32 %1370 to i64
   %1372 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !57
   %1373 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !57
@@ -17888,8 +17888,8 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
   %473 = load ptr, ptr %32, align 8
   store ptr %473, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %474 = load ptr, ptr %15, align 8
-  %475 = load ptr, ptr %34, align 8
+  %474 = load ptr, ptr %15, align 8, !noalias !99
+  %475 = load ptr, ptr %34, align 8, !noalias !99
   %476 = icmp eq ptr %474, %475
   br i1 %476, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEPNS2_4CellENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i, label %477
 
@@ -17921,7 +17921,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEPNS2_4CellENS0_8hash_opsIS3_EEE7do_hash
   %491 = urem i32 %.0.i.i.i.i, %490
   store i32 %491, ptr %8, align 4, !noalias !99
   %492 = load ptr, ptr %36, align 8, !noalias !99
-  %493 = load ptr, ptr %35, align 8
+  %493 = load ptr, ptr %35, align 8, !noalias !99
   %494 = ptrtoint ptr %492 to i64
   %495 = ptrtoint ptr %493 to i64
   %496 = sub i64 %494, %495

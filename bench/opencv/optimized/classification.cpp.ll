@@ -3179,11 +3179,11 @@ _ZN2cv3Mat5beginIfEENS_12MatIterator_IT_EEv.exit: ; preds = %576, %577
           to label %.noexc251 unwind label %.loopexit.split-lp
 
 .noexc251:                                        ; preds = %.noexc250
-  %582 = load ptr, ptr %110, align 8
+  %582 = load ptr, ptr %110, align 8, !alias.scope !39
   %583 = icmp eq ptr %582, null
   %584 = icmp eq i64 %581, 0
   %or.cond.i.i.i = or i1 %584, %583
-  %.pre324 = load ptr, ptr %455, align 8
+  %.pre324 = load ptr, ptr %455, align 8, !noalias !42
   br i1 %or.cond.i.i.i, label %_ZN2cv3Mat3endIfEENS_12MatIterator_IT_EEv.exit, label %585
 
 585:                                              ; preds = %.noexc251

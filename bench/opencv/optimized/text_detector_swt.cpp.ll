@@ -2613,7 +2613,7 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit.i.i.i: ; preds = %._ZNSt5stackIiSt5
   %.pre57.i374.i = phi ptr [ %.pre57.i378.i, %.loopexit.i.i190.i ], [ %.pre57.i375.i, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit.i.i.i ]
   %1070 = phi ptr [ %1229, %.loopexit.i.i190.i ], [ %1051, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit.i.i.i ]
   %1071 = phi ptr [ %1228, %.loopexit.i.i190.i ], [ %1067, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit.i.i.i ]
-  %1072 = load ptr, ptr %1044, align 8, !noalias !33
+  %1072 = load ptr, ptr %1044, align 8, !noalias !43
   %1073 = icmp eq ptr %1071, %1072
   br i1 %1073, label %1077, label %1074
 
@@ -6170,8 +6170,8 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i.i: ; preds = %_ZNSt6ve
   %2450 = phi ptr [ %2448, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i ], [ %2414, %2428 ]
   %.sroa.5.0 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.pn, i64 16
   %2451 = add nuw i64 %.045.i.i, 1
-  %.val.i623.i = load ptr, ptr %17, align 8, !noalias !61
-  %.val26.i.i = load ptr, ptr %2239, align 8, !noalias !61
+  %.val.i623.i = load ptr, ptr %17, align 8, !noalias !110
+  %.val26.i.i = load ptr, ptr %2239, align 8, !noalias !110
   %2452 = ptrtoint ptr %.val26.i.i to i64
   %2453 = ptrtoint ptr %.val.i623.i to i64
   %2454 = sub i64 %2452, %2453

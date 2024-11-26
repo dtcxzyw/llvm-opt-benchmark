@@ -271,7 +271,7 @@ define hidden noundef double @_ZNK2cv17MotionJpegCapture11getPropertyEi(ptr noun
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 112
   %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !noalias !13
   %11 = load ptr, ptr %8, align 8
   %12 = icmp eq ptr %11, %10
   %13 = getelementptr inbounds i8, ptr %0, i64 72
@@ -309,9 +309,9 @@ define hidden noundef double @_ZNK2cv17MotionJpegCapture11getPropertyEi(ptr noun
 
 41:                                               ; preds = %7
   %42 = getelementptr inbounds i8, ptr %0, i64 48
-  %43 = load ptr, ptr %42, align 8, !noalias !13
+  %43 = load ptr, ptr %42, align 8, !noalias !16
   %44 = getelementptr inbounds i8, ptr %0, i64 64
-  %45 = load ptr, ptr %44, align 8, !noalias !13
+  %45 = load ptr, ptr %44, align 8, !noalias !16
   %46 = getelementptr inbounds i8, ptr %0, i64 136
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
@@ -351,7 +351,7 @@ _ZNK2cv17MotionJpegCapture11getFramePosEv.exit:   ; preds = %3, %15, %41
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i8, ptr %0, i64 112
   %75 = getelementptr inbounds i8, ptr %0, i64 80
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 8, !noalias !19
   %77 = load ptr, ptr %74, align 8
   %78 = icmp eq ptr %77, %76
   %79 = getelementptr inbounds i8, ptr %0, i64 72
@@ -389,9 +389,9 @@ _ZNK2cv17MotionJpegCapture11getFramePosEv.exit:   ; preds = %3, %15, %41
 
 107:                                              ; preds = %73
   %108 = getelementptr inbounds i8, ptr %0, i64 48
-  %109 = load ptr, ptr %108, align 8, !noalias !16
+  %109 = load ptr, ptr %108, align 8, !noalias !22
   %110 = getelementptr inbounds i8, ptr %0, i64 64
-  %111 = load ptr, ptr %110, align 8, !noalias !16
+  %111 = load ptr, ptr %110, align 8, !noalias !22
   %112 = getelementptr inbounds i8, ptr %0, i64 136
   %113 = load ptr, ptr %112, align 8
   %114 = ptrtoint ptr %113 to i64
@@ -451,7 +451,7 @@ _ZNK2cv17MotionJpegCapture11getFramePosEv.exit5:  ; preds = %69, %81, %107
 143:                                              ; preds = %139
   %144 = getelementptr inbounds i8, ptr %0, i64 112
   %145 = getelementptr inbounds i8, ptr %0, i64 80
-  %146 = load ptr, ptr %145, align 8
+  %146 = load ptr, ptr %145, align 8, !noalias !25
   %147 = load ptr, ptr %144, align 8
   %148 = icmp eq ptr %147, %146
   %149 = getelementptr inbounds i8, ptr %0, i64 72
@@ -489,9 +489,9 @@ _ZNK2cv17MotionJpegCapture11getFramePosEv.exit5:  ; preds = %69, %81, %107
 
 177:                                              ; preds = %143
   %178 = getelementptr inbounds i8, ptr %0, i64 48
-  %179 = load ptr, ptr %178, align 8
+  %179 = load ptr, ptr %178, align 8, !noalias !28
   %180 = getelementptr inbounds i8, ptr %0, i64 64
-  %181 = load ptr, ptr %180, align 8
+  %181 = load ptr, ptr %180, align 8, !noalias !28
   %182 = getelementptr inbounds i8, ptr %0, i64 136
   %183 = load ptr, ptr %182, align 8
   %184 = ptrtoint ptr %183 to i64
@@ -625,13 +625,13 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture9grabFrameEv(ptr noun
 10:                                               ; preds = %6
   store i8 0, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !noalias !19
+  %12 = load ptr, ptr %11, align 8, !noalias !31
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = load ptr, ptr %13, align 8, !noalias !19
+  %14 = load ptr, ptr %13, align 8, !noalias !31
   %15 = getelementptr inbounds i8, ptr %0, i64 64
-  %16 = load ptr, ptr %15, align 8, !noalias !19
+  %16 = load ptr, ptr %15, align 8, !noalias !31
   %17 = getelementptr inbounds i8, ptr %0, i64 72
-  %18 = load ptr, ptr %17, align 8, !noalias !19
+  %18 = load ptr, ptr %17, align 8, !noalias !31
   %19 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %12, ptr %19, align 8
   %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
@@ -645,7 +645,7 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture9grabFrameEv(ptr noun
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 112
   %22 = getelementptr inbounds i8, ptr %0, i64 80
-  %23 = load ptr, ptr %22, align 8, !noalias !22
+  %23 = load ptr, ptr %22, align 8, !noalias !34
   %24 = load ptr, ptr %21, align 8
   %25 = icmp eq ptr %24, %23
   br i1 %25, label %42, label %26
@@ -674,7 +674,7 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture9grabFrameEv(ptr noun
 _ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit: ; preds = %._ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit_crit_edge, %31, %26, %10
   %38 = phi ptr [ %.pre, %._ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit_crit_edge ], [ %35, %31 ], [ %27, %26 ], [ %12, %10 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 80
-  %40 = load ptr, ptr %39, align 8, !noalias !25
+  %40 = load ptr, ptr %39, align 8, !noalias !37
   %41 = icmp ne ptr %38, %40
   br label %42
 
@@ -691,7 +691,7 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture13retrieveFrameEiRKNS
   %7 = alloca %"class.cv::_InputArray", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 112
   %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = load ptr, ptr %9, align 8, !noalias !28
+  %10 = load ptr, ptr %9, align 8, !noalias !40
   %11 = load ptr, ptr %8, align 8
   %12 = icmp ne ptr %11, %10
   br i1 %12, label %13, label %48
@@ -820,13 +820,13 @@ define hidden void @_ZN2cv17MotionJpegCaptureD2Ev(ptr noundef nonnull align 8 de
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !noalias !31
+  %6 = load ptr, ptr %5, align 8, !noalias !43
   %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = load ptr, ptr %7, align 8, !noalias !31
+  %8 = load ptr, ptr %7, align 8, !noalias !43
   %9 = getelementptr inbounds i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !noalias !31
+  %10 = load ptr, ptr %9, align 8, !noalias !43
   %11 = getelementptr inbounds i8, ptr %0, i64 104
-  %12 = load ptr, ptr %11, align 8, !noalias !31
+  %12 = load ptr, ptr %11, align 8, !noalias !43
   %13 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %6, ptr %13, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 120
@@ -856,7 +856,7 @@ define hidden void @_ZN2cv17MotionJpegCaptureD2Ev(ptr noundef nonnull align 8 de
   tail call void @_ZdlPv(ptr noundef %23) #16
   %24 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 8
   %25 = icmp ult ptr %.06.i.i.i, %20
-  br i1 %25, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i, !llvm.loop !34
+  br i1 %25, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i, !llvm.loop !46
 
 _ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
   %.pre.i.i = load ptr, ptr %15, align 8
@@ -958,13 +958,13 @@ define hidden void @_ZN2cv17MotionJpegCapture5closeEv(ptr nocapture noundef nonn
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN2cv16AVIReadContainer5closeEv(ptr noundef nonnull align 8 dereferenceable(137) %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !noalias !36
+  %5 = load ptr, ptr %4, align 8, !noalias !48
   %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = load ptr, ptr %6, align 8, !noalias !36
+  %7 = load ptr, ptr %6, align 8, !noalias !48
   %8 = getelementptr inbounds i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !noalias !36
+  %9 = load ptr, ptr %8, align 8, !noalias !48
   %10 = getelementptr inbounds i8, ptr %0, i64 104
-  %11 = load ptr, ptr %10, align 8, !noalias !36
+  %11 = load ptr, ptr %10, align 8, !noalias !48
   %12 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %5, ptr %12, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
@@ -1009,7 +1009,7 @@ define linkonce_odr hidden void @_ZNSt5dequeISt4pairImjESaIS1_EED2Ev(ptr noundef
   tail call void @_ZdlPv(ptr noundef %10) #16
   %11 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
   %12 = icmp ult ptr %.06.i.i, %7
-  br i1 %12, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, !llvm.loop !34
+  br i1 %12, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, !llvm.loop !46
 
 _ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i: ; preds = %.lr.ph.i.i
   %.pre.i = load ptr, ptr %0, align 8
@@ -1133,18 +1133,18 @@ _ZNSt5dequeISt4pairImjESaIS1_EEC2Ev.exit:         ; preds = %2
 
 .noexc:                                           ; preds = %_ZNSt5dequeISt4pairImjESaIS1_EEC2Ev.exit
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 1, ptr %8, align 8, !noalias !39
+  store i32 1, ptr %8, align 8, !noalias !51
   %9 = getelementptr inbounds i8, ptr %7, i64 12
-  store i32 1, ptr %9, align 4, !noalias !39
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16AVIReadContainerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !39
+  store i32 1, ptr %9, align 4, !noalias !51
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16AVIReadContainerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !51
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   invoke void @_ZN2cv16AVIReadContainerC1Ev(ptr noundef nonnull align 8 dereferenceable(137) %10)
-          to label %_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16AVIReadContainerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !39
+          to label %_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16AVIReadContainerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !51
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16AVIReadContainerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %.noexc
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #16, !noalias !39
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #16, !noalias !51
   br label %.body
 
 _ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.noexc
@@ -1357,13 +1357,13 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture4openERKNSt7__cxx1112
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN2cv16AVIReadContainer5closeEv(ptr noundef nonnull align 8 dereferenceable(137) %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !noalias !44
+  %6 = load ptr, ptr %5, align 8, !noalias !56
   %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = load ptr, ptr %7, align 8, !noalias !44
+  %8 = load ptr, ptr %7, align 8, !noalias !56
   %9 = getelementptr inbounds i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !noalias !44
+  %10 = load ptr, ptr %9, align 8, !noalias !56
   %11 = getelementptr inbounds i8, ptr %0, i64 104
-  %12 = load ptr, ptr %11, align 8, !noalias !44
+  %12 = load ptr, ptr %11, align 8, !noalias !56
   %13 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %6, ptr %13, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 120
@@ -1372,20 +1372,20 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture4openERKNSt7__cxx1112
   store ptr %10, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %12, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %14 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #18, !noalias !47
+  %14 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #18, !noalias !59
   %15 = getelementptr inbounds i8, ptr %14, i64 8
-  store i32 1, ptr %15, align 8, !noalias !47
+  store i32 1, ptr %15, align 8, !noalias !59
   %16 = getelementptr inbounds i8, ptr %14, i64 12
-  store i32 1, ptr %16, align 4, !noalias !47
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16AVIReadContainerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8, !noalias !47
+  store i32 1, ptr %16, align 4, !noalias !59
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16AVIReadContainerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8, !noalias !59
   %17 = getelementptr inbounds i8, ptr %14, i64 16
   invoke void @_ZN2cv16AVIReadContainerC1Ev(ptr noundef nonnull align 8 dereferenceable(137) %17)
-          to label %_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16AVIReadContainerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !47
+          to label %_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16AVIReadContainerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !59
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16AVIReadContainerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %2
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #16, !noalias !47
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #16, !noalias !59
   resume { ptr, i32 } %18
 
 _ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %2
@@ -1557,10 +1557,10 @@ _ZN2cv3PtrINS_16AVIReadContainerEED2Ev.exit:      ; preds = %75, %87, %_ZNSt16_S
   %92 = load ptr, ptr %3, align 8
   tail call void @_ZN2cv16AVIReadContainer10initStreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(137) %92, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %93 = getelementptr inbounds i8, ptr %0, i64 32
-  %94 = load ptr, ptr %5, align 8, !noalias !52
-  %95 = load ptr, ptr %7, align 8, !noalias !52
-  %96 = load ptr, ptr %9, align 8, !noalias !52
-  %97 = load ptr, ptr %11, align 8, !noalias !52
+  %94 = load ptr, ptr %5, align 8, !noalias !64
+  %95 = load ptr, ptr %7, align 8, !noalias !64
+  %96 = load ptr, ptr %9, align 8, !noalias !64
+  %97 = load ptr, ptr %11, align 8, !noalias !64
   store ptr %94, ptr %13, align 8
   store ptr %95, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %96, ptr %.sroa.3.0..sroa_idx.i, align 8
@@ -1574,10 +1574,10 @@ _ZN2cv3PtrINS_16AVIReadContainerEED2Ev.exit:      ; preds = %75, %87, %_ZNSt16_S
 
 102:                                              ; preds = %_ZN2cv3PtrINS_16AVIReadContainerEED2Ev.exit
   tail call void @_ZN2cv16AVIReadContainer5closeEv(ptr noundef nonnull align 8 dereferenceable(137) %101)
-  %103 = load ptr, ptr %5, align 8, !noalias !55
-  %104 = load ptr, ptr %7, align 8, !noalias !55
-  %105 = load ptr, ptr %9, align 8, !noalias !55
-  %106 = load ptr, ptr %11, align 8, !noalias !55
+  %103 = load ptr, ptr %5, align 8, !noalias !67
+  %104 = load ptr, ptr %7, align 8, !noalias !67
+  %105 = load ptr, ptr %9, align 8, !noalias !67
+  %106 = load ptr, ptr %11, align 8, !noalias !67
   store ptr %103, ptr %13, align 8
   store ptr %104, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %105, ptr %.sroa.3.0..sroa_idx.i, align 8
@@ -1912,7 +1912,7 @@ _ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %.l
   store ptr %12, ptr %.011.i, align 8
   %13 = getelementptr inbounds i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE15_M_create_nodesEPPS1_S5_.exit, !llvm.loop !58
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE15_M_create_nodesEPPS1_S5_.exit, !llvm.loop !70
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -1928,7 +1928,7 @@ _ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %.l
   tail call void @_ZdlPv(ptr noundef %20) #16
   %21 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
   %22 = icmp ult ptr %21, %.011.i
-  br i1 %22, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i, !llvm.loop !34
+  br i1 %22, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i, !llvm.loop !46
 
 _ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i: ; preds = %.lr.ph.i.i, %15
   invoke void @__cxa_rethrow() #19
@@ -2092,7 +2092,7 @@ define linkonce_odr hidden void @_ZN2cv16AVIReadContainerD2Ev(ptr noundef nonnul
   tail call void @_ZdlPv(ptr noundef %11) #16
   %12 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 8
   %13 = icmp ult ptr %.06.i.i.i, %8
-  br i1 %13, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i, !llvm.loop !34
+  br i1 %13, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i, !llvm.loop !46
 
 _ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
   %.pre.i.i = load ptr, ptr %2, align 8
@@ -2274,48 +2274,60 @@ attributes #19 = { noreturn }
 !11 = distinct !{!11, !12, !"_ZStplRKSt15_Deque_iteratorISt4pairImjERS1_PS1_El: argument 0"}
 !12 = distinct !{!12, !"_ZStplRKSt15_Deque_iteratorISt4pairImjERS1_PS1_El"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNKSt5dequeISt4pairImjESaIS1_EE5beginEv: argument 0"}
-!15 = distinct !{!15, !"_ZNKSt5dequeISt4pairImjESaIS1_EE5beginEv"}
+!14 = distinct !{!14, !15, !"_ZNKSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!15 = distinct !{!15, !"_ZNKSt5dequeISt4pairImjESaIS1_EE3endEv"}
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZNKSt5dequeISt4pairImjESaIS1_EE5beginEv: argument 0"}
 !18 = distinct !{!18, !"_ZNKSt5dequeISt4pairImjESaIS1_EE5beginEv"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNSt5dequeISt4pairImjESaIS1_EE5beginEv: argument 0"}
-!21 = distinct !{!21, !"_ZNSt5dequeISt4pairImjESaIS1_EE5beginEv"}
+!20 = distinct !{!20, !21, !"_ZNKSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!21 = distinct !{!21, !"_ZNKSt5dequeISt4pairImjESaIS1_EE3endEv"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
-!24 = distinct !{!24, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!23 = distinct !{!23, !24, !"_ZNKSt5dequeISt4pairImjESaIS1_EE5beginEv: argument 0"}
+!24 = distinct !{!24, !"_ZNKSt5dequeISt4pairImjESaIS1_EE5beginEv"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
-!27 = distinct !{!27, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!26 = distinct !{!26, !27, !"_ZNKSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!27 = distinct !{!27, !"_ZNKSt5dequeISt4pairImjESaIS1_EE3endEv"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
-!30 = distinct !{!30, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!29 = distinct !{!29, !30, !"_ZNKSt5dequeISt4pairImjESaIS1_EE5beginEv: argument 0"}
+!30 = distinct !{!30, !"_ZNKSt5dequeISt4pairImjESaIS1_EE5beginEv"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
-!33 = distinct !{!33, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
-!38 = distinct !{!38, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
-!39 = !{!40, !42}
-!40 = distinct !{!40, !41, !"_ZSt11make_sharedIN2cv16AVIReadContainerEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_: argument 0"}
-!41 = distinct !{!41, !"_ZSt11make_sharedIN2cv16AVIReadContainerEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_"}
-!42 = distinct !{!42, !43, !"_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!43 = distinct !{!43, !"_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
-!46 = distinct !{!46, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"_ZSt11make_sharedIN2cv16AVIReadContainerEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_: argument 0"}
-!49 = distinct !{!49, !"_ZSt11make_sharedIN2cv16AVIReadContainerEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_"}
-!50 = distinct !{!50, !51, !"_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!51 = distinct !{!51, !"_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
-!54 = distinct !{!54, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
-!57 = distinct !{!57, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
-!58 = distinct !{!58, !35}
+!32 = distinct !{!32, !33, !"_ZNSt5dequeISt4pairImjESaIS1_EE5beginEv: argument 0"}
+!33 = distinct !{!33, !"_ZNSt5dequeISt4pairImjESaIS1_EE5beginEv"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!36 = distinct !{!36, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!39 = distinct !{!39, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!42 = distinct !{!42, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!45 = distinct !{!45, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!46 = distinct !{!46, !47}
+!47 = !{!"llvm.loop.mustprogress"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!50 = distinct !{!50, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!51 = !{!52, !54}
+!52 = distinct !{!52, !53, !"_ZSt11make_sharedIN2cv16AVIReadContainerEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_: argument 0"}
+!53 = distinct !{!53, !"_ZSt11make_sharedIN2cv16AVIReadContainerEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_"}
+!54 = distinct !{!54, !55, !"_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!55 = distinct !{!55, !"_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!58 = distinct !{!58, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!59 = !{!60, !62}
+!60 = distinct !{!60, !61, !"_ZSt11make_sharedIN2cv16AVIReadContainerEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_: argument 0"}
+!61 = distinct !{!61, !"_ZSt11make_sharedIN2cv16AVIReadContainerEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_"}
+!62 = distinct !{!62, !63, !"_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!63 = distinct !{!63, !"_ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!66 = distinct !{!66, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv: argument 0"}
+!69 = distinct !{!69, !"_ZNSt5dequeISt4pairImjESaIS1_EE3endEv"}
+!70 = distinct !{!70, !47}

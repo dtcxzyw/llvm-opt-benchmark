@@ -625,8 +625,8 @@ _ZN5ZXing8BitArray10appendBitsEii.exit56.i.i:     ; preds = %_ZNSt6vectorIhSaIhE
           to label %270 unwind label %.loopexit.split-lp.i.i
 
 270:                                              ; preds = %_ZN5ZXing8BitArray10appendBitsEii.exit56.i.i
-  %271 = load ptr, ptr %172, align 8
-  %272 = load ptr, ptr %16, align 8
+  %271 = load ptr, ptr %172, align 8, !alias.scope !13
+  %272 = load ptr, ptr %16, align 8, !alias.scope !13
   %273 = ptrtoint ptr %271 to i64
   %274 = ptrtoint ptr %272 to i64
   %275 = sub i64 %273, %274

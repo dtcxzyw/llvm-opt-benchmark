@@ -522,7 +522,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !11
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !11
   store ptr %96, ptr %95, align 8, !noalias !11
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #18
@@ -912,7 +912,7 @@ _ZNSt5dequeIPN4llvm11InstructionESaIS2_EE19_M_range_initializeIPKS2_EEvT_S8_St20
 
 82:                                               ; preds = %.lr.ph34, %.backedge
   %83 = phi ptr [ %47, %.lr.ph34 ], [ %213, %.backedge ]
-  %84 = load ptr, ptr %43, align 8
+  %84 = load ptr, ptr %43, align 8, !noalias !22
   %85 = icmp eq ptr %83, %84
   br i1 %85, label %89, label %86
 
@@ -2665,7 +2665,7 @@ _ZNSt5dequeIPN4llvm11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %78, %
 
 80:                                               ; preds = %.lr.ph14, %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit
   %81 = phi ptr [ %.pre, %.lr.ph14 ], [ %141, %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit ]
-  %82 = load ptr, ptr %17, align 8
+  %82 = load ptr, ptr %17, align 8, !noalias !60
   %83 = icmp eq ptr %81, %82
   br i1 %83, label %87, label %84
 

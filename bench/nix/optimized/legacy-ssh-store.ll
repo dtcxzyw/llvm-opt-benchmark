@@ -7710,7 +7710,7 @@ _ZNKSt8functionIFbRKN3nix3refINS0_14LegacySSHStore10ConnectionEEEEEclES6_.exit: 
 
 138:                                              ; preds = %131
   %139 = getelementptr inbounds i8, ptr %137, i64 8
-  %140 = load i8, ptr @__libc_single_threaded, align 1
+  %140 = load i8, ptr @__libc_single_threaded, align 1, !noalias !40
   %.not.i.i.i.i.i23 = icmp eq i8 %140, 0
   %141 = getelementptr inbounds i8, ptr %0, i64 8
   %142 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7966,7 +7966,7 @@ _ZNKSt8functionIFN3nix3refINS0_14LegacySSHStore10ConnectionEEEvEEclEv.exit: ; pr
 
 246:                                              ; preds = %_ZNKSt8functionIFN3nix3refINS0_14LegacySSHStore10ConnectionEEEvEEclEv.exit
   %247 = getelementptr inbounds i8, ptr %245, i64 8
-  %248 = load i8, ptr @__libc_single_threaded, align 1
+  %248 = load i8, ptr @__libc_single_threaded, align 1, !noalias !47
   %.not.i.i.i.i.i39 = icmp eq i8 %248, 0
   %249 = getelementptr inbounds i8, ptr %0, i64 8
   %250 = getelementptr inbounds i8, ptr %0, i64 16

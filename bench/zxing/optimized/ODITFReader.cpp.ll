@@ -964,7 +964,7 @@ define linkonce_odr void @_ZN5ZXing13FindLeftGuardILi4EZNS_13FindLeftGuardILi4EL
   br label %94
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %1, align 8
+  %11 = load ptr, ptr %1, align 8, !noalias !14
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8, !noalias !14
   %14 = getelementptr inbounds i8, ptr %1, i64 24

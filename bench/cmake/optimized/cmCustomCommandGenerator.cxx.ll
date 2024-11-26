@@ -1694,8 +1694,8 @@ _ZN6cmListD2Ev.exit.i:                            ; preds = %584, %_ZSt8_Destroy
   br label %598
 
 ._crit_edge.i:                                    ; preds = %_ZN6cmListD2Ev.exit.i
-  %.pre.i175 = load ptr, ptr %28, align 8
-  %.pre17.i = load ptr, ptr %562, align 8
+  %.pre.i175 = load ptr, ptr %28, align 8, !alias.scope !8
+  %.pre17.i = load ptr, ptr %562, align 8, !alias.scope !8
   %.not812.i = icmp eq ptr %.pre.i175, %.pre17.i
   br i1 %.not812.i, label %.loopexit, label %.lr.ph15.i
 

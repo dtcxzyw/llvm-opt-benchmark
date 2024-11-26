@@ -1308,7 +1308,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14SpillPlacement6finishEv(ptr nocap
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !noalias !11
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %._crit_edge, label %7
 

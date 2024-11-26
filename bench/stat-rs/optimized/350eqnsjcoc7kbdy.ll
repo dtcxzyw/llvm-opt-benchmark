@@ -452,7 +452,7 @@ define noundef double @_ZN6statrs8function5gamma8gamma_ui17hf42ba329a4b24b6dE(do
   %4 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !66
   call void @_ZN6statrs8function5gamma16checked_gamma_ur17hdd57d034a2d8e7e3E(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %3, double noundef %0, double noundef %1), !noalias !66
-  %5 = load i64, ptr %3, align 8, !range !34, !noundef !4
+  %5 = load i64, ptr %3, align 8, !range !34, !noalias !66, !noundef !4
   %6 = icmp eq i64 %5, 21
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load double, ptr %7, align 8
@@ -625,7 +625,7 @@ define noundef double @_ZN6statrs8function5gamma8gamma_li17hf72f675100a6cdb5E(do
   %4 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !103
   call void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %3, double noundef %0, double noundef %1), !noalias !103
-  %5 = load i64, ptr %3, align 8, !range !34, !noundef !4
+  %5 = load i64, ptr %3, align 8, !range !34, !noalias !103, !noundef !4
   %6 = icmp eq i64 %5, 21
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load double, ptr %7, align 8

@@ -2402,7 +2402,7 @@ if.then.i.i.i.i.i263:                             ; preds = %if.then.i262
   %sub.ptr.sub.i.i.i.i.i266 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i264, %sub.ptr.rhs.cast.i.i.i.i.i265
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %282, ptr nonnull align 4 %add.ptr.i.i5.i, i64 %sub.ptr.sub.i.i.i.i.i266, i1 false), !noalias !101
   %.pre.i.i.i267 = load i64, ptr %m_size.i.i.i260, align 8, !noalias !101
-  %.pre655.pre = load ptr, ptr %literals74, align 8, !noalias !6
+  %.pre655.pre = load ptr, ptr %literals74, align 8, !noalias !104
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEE.exit.i
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEE.exit.i: ; preds = %if.then.i.i.i.i.i263, %if.then.i262
@@ -2422,7 +2422,7 @@ invoke.cont75:                                    ; preds = %_ZN3ue28flat_setIjS
   br i1 %cmp15.i.i.i, label %while.body.i.preheader.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
 
 while.body.i.preheader.i.i:                       ; preds = %invoke.cont75
-  %288 = load i32, ptr %new_id, align 4, !noalias !104
+  %288 = load i32, ptr %new_id, align 4, !noalias !107
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.i.preheader.i.i
@@ -2430,7 +2430,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %__len.016.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %287, %while.body.i.preheader.i.i ]
   %shr.i.i.i = lshr i64 %__len.016.i.i.i, 1
   %incdec.ptr.i15.sink.i.i.i.i.i = getelementptr inbounds i32, ptr %289, i64 %shr.i.i.i
-  %290 = load i32, ptr %incdec.ptr.i15.sink.i.i.i.i.i, align 4, !noalias !104
+  %290 = load i32, ptr %incdec.ptr.i15.sink.i.i.i.i.i, align 4, !noalias !107
   %cmp.i.i11.i.i.i = icmp ult i32 %290, %288
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i15.sink.i.i.i.i.i, i64 4
   %291 = xor i64 %shr.i.i.i, -1
@@ -2446,20 +2446,20 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RK
   br i1 %cmp.i.i275, label %if.then.i276, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
-  %294 = load i32, ptr %new_id, align 4, !noalias !111
-  %295 = load i32, ptr %293, align 4, !noalias !111
+  %294 = load i32, ptr %new_id, align 4, !noalias !104
+  %295 = load i32, ptr %293, align 4, !noalias !104
   %cmp.i23.i = icmp ult i32 %294, %295
   br i1 %cmp.i23.i, label %if.then.i276.thread, label %invoke.cont82
 
 if.then.i276:                                     ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
-  store ptr %293, ptr %agg.tmp14.i, align 8, !noalias !111
+  store ptr %293, ptr %agg.tmp14.i, align 8, !noalias !104
   %m_capacity.i.i = getelementptr inbounds i8, ptr %v.sroa.0.0.copyload, i64 40
   %296 = load i64, ptr %m_capacity.i.i, align 8, !noalias !112
   %cmp.not.i99 = icmp eq i64 %296, %287
   br i1 %cmp.not.i99, label %if.then.i111, label %if.then4.i.i
 
 if.then.i276.thread:                              ; preds = %lor.rhs.i
-  store ptr %293, ptr %agg.tmp14.i, align 8, !noalias !111
+  store ptr %293, ptr %agg.tmp14.i, align 8, !noalias !104
   %m_capacity.i.i318 = getelementptr inbounds i8, ptr %v.sroa.0.0.copyload, i64 40
   %297 = load i64, ptr %m_capacity.i.i318, align 8, !noalias !115
   %cmp.not.i99319 = icmp eq i64 %297, %287
@@ -16647,14 +16647,14 @@ attributes #27 = { noreturn nounwind }
 !101 = !{!102}
 !102 = distinct !{!102, !103, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE5eraseENS0_12vec_iteratorIPjLb1EEE: %agg.result"}
 !103 = distinct !{!103, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE5eraseENS0_12vec_iteratorIPjLb1EEE"}
-!104 = !{!105, !107, !109}
-!105 = distinct !{!105, !106, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_: %agg.result"}
-!106 = distinct !{!106, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_"}
-!107 = distinct !{!107, !108, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_: %agg.result"}
-!108 = distinct !{!108, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_"}
-!109 = distinct !{!109, !110, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj: %agg.result"}
-!110 = distinct !{!110, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj"}
-!111 = !{!109}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj: %agg.result"}
+!106 = distinct !{!106, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj"}
+!107 = !{!108, !110, !105}
+!108 = distinct !{!108, !109, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_: %agg.result"}
+!109 = distinct !{!109, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_"}
+!110 = distinct !{!110, !111, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_: %agg.result"}
+!111 = distinct !{!111, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_"}
 !112 = !{!113}
 !113 = distinct !{!113, !114, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE25priv_forward_range_insertINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_: %agg.result"}
 !114 = distinct !{!114, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE25priv_forward_range_insertINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_"}

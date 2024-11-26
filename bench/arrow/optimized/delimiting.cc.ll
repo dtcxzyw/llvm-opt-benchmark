@@ -1897,7 +1897,7 @@ land.lhs.true:                                    ; preds = %if.end22
   %11 = load i64, ptr %count, align 8
   %12 = load i64, ptr %num_found, align 8
   %cmp23 = icmp sgt i64 %11, %12
-  %.pre129 = load ptr, ptr %block, align 8
+  %.pre129 = load ptr, ptr %block, align 8, !noalias !85
   br i1 %cmp23, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %land.lhs.true

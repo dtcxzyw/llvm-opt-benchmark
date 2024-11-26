@@ -9856,7 +9856,7 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat36convertPPCDoubleDoubleAPFloat
   call void @_ZN4llvm6detail9IEEEFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6) #26
   %12 = call noundef i32 @_ZN4llvm6detail9IEEEFloat7convertERKNS_12fltSemanticsENS_12RoundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(24) @_ZN4llvmL13semIEEEdoubleE, i8 noundef signext 1, ptr noundef nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %14 = load i8, ptr %13, align 4
+  %14 = load i8, ptr %13, align 4, !noalias !239
   %15 = and i8 %14, 6
   %16 = icmp ne i8 %15, 0
   %17 = and i8 %14, 7
@@ -22300,7 +22300,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsE.exit:     ; preds = %10, %11
 
 _ZN4llvm7APFloat17convertFromStringENS_9StringRefENS_12RoundingModeE.exit: ; preds = %13, %14
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %16 = load i8, ptr %15, align 8
+  %16 = load i8, ptr %15, align 8, !noalias !407
   %17 = trunc i8 %16 to i1
   br i1 %17, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEE9takeErrorEv.exit
 
@@ -23590,11 +23590,11 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZN4llvm9ErrorList2IDE) #26
-  %.pre52 = load ptr, ptr %2, align 8, !noalias !117
+  %.pre52 = load ptr, ptr %2, align 8, !noalias !437
   br i1 %23, label %24, label %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread
 
 24:                                               ; preds = %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
-  store ptr null, ptr %2, align 8, !noalias !437
+  store ptr null, ptr %2, align 8, !noalias !440
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
@@ -23646,9 +23646,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %24, %._
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
   %44 = phi ptr [ null, %17 ], [ %.pre52, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
-  store ptr %44, ptr %4, align 8, !alias.scope !440
-  store ptr null, ptr %2, align 8, !noalias !440
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !437)
+  store ptr %44, ptr %4, align 8, !alias.scope !437
+  store ptr null, ptr %2, align 8, !noalias !437
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24

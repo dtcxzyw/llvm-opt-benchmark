@@ -166,7 +166,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread.i.i: ; preds = %36, %_
 
 65:                                               ; preds = %52
   %66 = load ptr, ptr %44, align 8, !noalias !6
-  %67 = load ptr, ptr %7, align 8
+  %67 = load ptr, ptr %7, align 8, !noalias !6
   %68 = icmp eq ptr %66, %67
   br i1 %68, label %69, label %_ZN4llvm15SmallPtrSetImplIPKNS_14TargetLoweringEE6insertES3_.exit.i.i
 

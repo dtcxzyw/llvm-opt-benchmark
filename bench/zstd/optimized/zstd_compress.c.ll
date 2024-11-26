@@ -7577,7 +7577,7 @@ if.then6:                                         ; preds = %if.end
   %3 = load i32, ptr %compressionLevel, align 4
   call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %tmp, i32 noundef %3, i64 noundef 0, i64 noundef %dictSize, i32 noundef 2), !alias.scope !47
   %strategy.i = getelementptr inbounds i8, ptr %tmp, i64 24
-  %4 = load i32, ptr %strategy.i, align 4
+  %4 = load i32, ptr %strategy.i, align 4, !alias.scope !47
   %.off.i = add i32 %4, -3
   %switch.i = icmp ult i32 %.off.i, 3
   %hashLog.i = getelementptr inbounds i8, ptr %tmp, i64 8

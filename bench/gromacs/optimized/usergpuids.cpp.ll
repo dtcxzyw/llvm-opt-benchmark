@@ -1626,7 +1626,7 @@ define void @_ZN3gmx15makeGpuIdStringB5cxx11ERKSt6vectorIiSaIiEEi(ptr dead_on_un
   %13 = sext i32 %2 to i64
   call void @_ZN3gmx10makeGpuIdsENS_8ArrayRefIKiEEm(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %4, ptr %6, ptr %12, i64 noundef %13)
   store ptr @.str.5, ptr %5, align 8
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !noalias !9
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8, !noalias !9
   invoke void @_ZN3gmx13formatAndJoinIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS_15StringFormatterEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SG_PKcRKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %14, ptr %16, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %5)

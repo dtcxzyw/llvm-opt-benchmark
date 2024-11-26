@@ -1949,9 +1949,10 @@ define void @_ZN19OpenColorIO_v2_4devooERKSt10shared_ptrIKNS_13ColorSpaceSetEES5
 entry:
   %css = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %lcss, align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet6CreateEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %css)
   %1 = load ptr, ptr %0, align 8, !noalias !20
-  %2 = load ptr, ptr %css, align 8
+  %2 = load ptr, ptr %css, align 8, !alias.scope !20
   %3 = load ptr, ptr %2, align 8, !noalias !20
   %call3.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet4ImplaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet18createEditableCopyEv.exit unwind label %lpad.i, !noalias !20

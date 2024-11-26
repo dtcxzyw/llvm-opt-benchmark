@@ -12919,7 +12919,7 @@ _ZNK5clang16ObjCProtocolDecl13getDefinitionEv.exit: ; preds = %_ZNK5clang16ObjCP
 51:                                               ; preds = %40, %16
   %.sink.i.i.i.i = phi ptr [ %41, %40 ], [ null, %16 ]
   %52 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang16ObjCProtocolDeclENS_6detail13DenseSetEmptyELj8ENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i), !noalias !72
-  %53 = load ptr, ptr %5, align 8
+  %53 = load ptr, ptr %5, align 8, !noalias !72
   store ptr %53, ptr %52, align 8, !noalias !72
   %54 = getelementptr inbounds i8, ptr %53, i64 48
   %55 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #23

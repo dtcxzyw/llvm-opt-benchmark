@@ -3300,7 +3300,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdMeshSchemaTokens_Sta
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load i8, ptr @__libc_single_threaded, align 1
+  %31 = load i8, ptr @__libc_single_threaded, align 1, !noalias !28
   %.not.i.i.i.i.i.i = icmp eq i8 %31, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread
 

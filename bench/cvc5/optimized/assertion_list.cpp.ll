@@ -689,7 +689,7 @@ if.end21:                                         ; preds = %if.then, %entry
 
 if.then25:                                        ; preds = %if.end21
   %12 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !7
-  %bf.load.i.i.i = load i64, ptr %12, align 8
+  %bf.load.i.i.i = load i64, ptr %12, align 8, !noalias !7
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %13 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %13, 1048575

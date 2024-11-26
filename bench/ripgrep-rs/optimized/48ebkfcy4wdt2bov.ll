@@ -97,7 +97,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
 29:                                               ; preds = %2
   %30 = add i64 %4, -1
   %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
+  %32 = load ptr, ptr %31, align 8, !alias.scope !17, !nonnull !4, !noundef !4
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %.pre to i64
   %35 = sub nuw i64 %33, %34

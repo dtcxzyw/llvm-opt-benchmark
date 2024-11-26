@@ -6160,7 +6160,7 @@ define dso_local i64 @rb_fix2str(i64 noundef %0, i32 noundef %1) local_unnamed_a
   store i8 %18, ptr %19, align 1
   %20 = udiv i64 %.1, %14
   %.not = icmp samesign ult i64 %.1, %14
-  br i1 %.not, label %21, label %15, !llvm.loop !20
+  br i1 %.not, label %21, label %15, !llvm.loop !22
 
 21:                                               ; preds = %15
   %22 = icmp sgt i64 %5, -1
@@ -6224,7 +6224,7 @@ define hidden i64 @rb_fix_to_s(i64 noundef %0) local_unnamed_addr #2 {
   store i8 %16, ptr %17, align 1
   %18 = udiv i64 %.1.i, 10
   %.not.i = icmp samesign ult i64 %.1.i, 10
-  br i1 %.not.i, label %19, label %13, !llvm.loop !20
+  br i1 %.not.i, label %19, label %13, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = icmp sgt i64 %3, -1
@@ -6346,7 +6346,7 @@ define hidden i64 @rb_int2str(i64 noundef %0, i32 noundef %1) local_unnamed_addr
   store i8 %20, ptr %21, align 1
   %22 = udiv i64 %.1.i, %16
   %.not.i = icmp samesign ult i64 %.1.i, %16
-  br i1 %.not.i, label %23, label %17, !llvm.loop !20
+  br i1 %.not.i, label %23, label %17, !llvm.loop !22
 
 23:                                               ; preds = %17
   %24 = icmp sgt i64 %7, -1
@@ -8792,7 +8792,7 @@ define hidden i64 @rb_ulong_isqrt(i64 noundef %0) local_unnamed_addr #13 {
   %19 = lshr i64 %18, 1
   %20 = udiv i64 %0, %19
   %21 = icmp ult i64 %20, %19
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 22:                                               ; preds = %1
   %23 = uitofp nneg i64 %0 to double
@@ -9039,7 +9039,7 @@ rb_class_of.exit:                                 ; preds = %45, %48, %49, %50, 
   tail call void @rb_gc_register_mark_object(i64 noundef %112) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %113, label %110, !llvm.loop !22
+  br i1 %exitcond.not, label %113, label %110, !llvm.loop !24
 
 113:                                              ; preds = %110
   %114 = load i64, ptr @rb_cNumeric, align 8
@@ -10003,7 +10003,7 @@ RB_FLOAT_TYPE_P.exit.thread61:                    ; preds = %53, %RB_FLOAT_TYPE_
   %100 = call i64 @rb_yield(i64 noundef %99) #23
   %101 = add i64 %.14581, %95
   %.not58 = icmp slt i64 %101, %97
-  br i1 %.not58, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not58, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .lr.ph84:                                         ; preds = %.preheader75, %.lr.ph84
   %.283 = phi i64 [ %105, %.lr.ph84 ], [ %94, %.preheader75 ]
@@ -10012,7 +10012,7 @@ RB_FLOAT_TYPE_P.exit.thread61:                    ; preds = %53, %RB_FLOAT_TYPE_
   %104 = call i64 @rb_yield(i64 noundef %103) #23
   %105 = add i64 %.283, %95
   %.not57 = icmp sgt i64 %105, %97
-  br i1 %.not57, label %.loopexit, label %.lr.ph84, !llvm.loop !24
+  br i1 %.not57, label %.loopexit, label %.lr.ph84, !llvm.loop !26
 
 106:                                              ; preds = %.thread67.thread, %.thread63, %.thread67, %81, %RB_FLOAT_TYPE_P.exit.thread61
   %.04366 = phi i1 [ false, %.thread63 ], [ false, %.thread67 ], [ true, %81 ], [ %.043, %RB_FLOAT_TYPE_P.exit.thread61 ], [ true, %.thread67.thread ]
@@ -10050,7 +10050,7 @@ RB_FLOAT_TYPE_P.exit.thread61:                    ; preds = %53, %RB_FLOAT_TYPE_
   %123 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %121, i64 noundef %115, i32 noundef 1, i64 noundef %122) #23
   %124 = and i64 %123, -5
   %.not74 = icmp eq i64 %124, 0
-  br i1 %.not74, label %.lr.ph87, label %.loopexit, !llvm.loop !25
+  br i1 %.not74, label %.lr.ph87, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph84, %.lr.ph87, %.preheader77, %.preheader75, %114, %106, %38, %32
   %.0 = phi i64 [ %37, %32 ], [ %44, %38 ], [ %2, %106 ], [ %2, %114 ], [ %2, %.preheader75 ], [ %2, %.preheader77 ], [ %2, %.lr.ph87 ], [ %2, %.lr.ph84 ], [ %2, %.lr.ph ]
@@ -10186,7 +10186,7 @@ define internal i64 @rb_int_s_isqrt(i64 %0, i64 noundef %1) #2 {
   %28 = lshr i64 %27, 1
   %29 = udiv i64 %10, %28
   %30 = icmp samesign ult i64 %29, %28
-  br i1 %30, label %.lr.ph.i, label %rb_ulong_isqrt.exit, !llvm.loop !21
+  br i1 %30, label %.lr.ph.i, label %rb_ulong_isqrt.exit, !llvm.loop !23
 
 31:                                               ; preds = %9
   %32 = uitofp nneg i64 %10 to double
@@ -10368,7 +10368,7 @@ define internal i64 @int_upto(i64 noundef %0, i64 noundef %1) #2 {
   %17 = tail call i64 @rb_yield(i64 noundef %16) #23
   %18 = add nsw i64 %.01624, 1
   %.not18.not = icmp slt i64 %.01624, %13
-  br i1 %.not18.not, label %.lr.ph, label %ensure_cmp.exit, !llvm.loop !26
+  br i1 %.not18.not, label %.lr.ph, label %ensure_cmp.exit, !llvm.loop !28
 
 .preheader:                                       ; preds = %9, %20
   %.015 = phi i64 [ %22, %20 ], [ %0, %9 ]
@@ -10381,7 +10381,7 @@ define internal i64 @int_upto(i64 noundef %0, i64 noundef %1) #2 {
 20:                                               ; preds = %.preheader
   %21 = tail call i64 @rb_yield(i64 noundef %.015) #23
   %22 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.015, i64 noundef 43, i32 noundef 1, i64 noundef 3) #23
-  br label %.preheader, !llvm.loop !27
+  br label %.preheader, !llvm.loop !29
 
 23:                                               ; preds = %.preheader
   tail call void @rb_cmperr(i64 noundef %.015, i64 noundef %1) #25
@@ -10425,7 +10425,7 @@ define internal i64 @int_downto(i64 noundef %0, i64 noundef %1) #2 {
   %17 = tail call i64 @rb_yield(i64 noundef %16) #23
   %18 = add nsw i64 %.01624, -1
   %.not18.not = icmp sgt i64 %.01624, %13
-  br i1 %.not18.not, label %.lr.ph, label %.loopexit, !llvm.loop !28
+  br i1 %.not18.not, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 .preheader:                                       ; preds = %9, %20
   %.015 = phi i64 [ %22, %20 ], [ %0, %9 ]
@@ -10438,7 +10438,7 @@ define internal i64 @int_downto(i64 noundef %0, i64 noundef %1) #2 {
 20:                                               ; preds = %.preheader
   %21 = tail call i64 @rb_yield(i64 noundef %.015) #23
   %22 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.015, i64 noundef 45, i32 noundef 1, i64 noundef 3) #23
-  br label %.preheader, !llvm.loop !29
+  br label %.preheader, !llvm.loop !31
 
 23:                                               ; preds = %.preheader
   tail call void @rb_cmperr(i64 noundef %.015, i64 noundef %1) #25
@@ -10600,7 +10600,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
   %41 = sext i32 %34 to i64
   %42 = tail call i64 @rb_enc_str_new(ptr noundef null, i64 noundef %41, ptr noundef nonnull %.0) #23, !callees !15
   %43 = inttoptr i64 %42 to ptr
-  %44 = load i64, ptr %43, align 8, !noalias !30
+  %44 = load i64, ptr %43, align 8, !noalias !32
   %45 = and i64 %44, 8192
   %.not.i.i.i = icmp eq i64 %45, 0
   %46 = getelementptr inbounds i8, ptr %43, i64 24
@@ -10615,7 +10615,7 @@ RSTRING_PTR.exit.i:                               ; preds = %47, %40
   %48 = getelementptr inbounds i8, ptr %.0, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 %49(i32 noundef %13, ptr noundef %.sroa.2.0.i.i, ptr noundef nonnull %.0) #23
-  %51 = load i64, ptr %43, align 8, !noalias !19
+  %51 = load i64, ptr %43, align 8, !noalias !35
   %52 = and i64 %51, 8192
   %.not.i.i18.i = icmp eq i64 %52, 0
   br i1 %.not.i.i18.i, label %RSTRING_END.exit.i, label %53
@@ -11919,7 +11919,7 @@ rb_long2num_inline.exit.i:                        ; preds = %57, %54
   %.0.i.i = phi i64 [ %56, %54 ], [ %58, %57 ]
   %59 = tail call i64 @rb_ary_push(i64 noundef %49, i64 noundef %.0.i.i) #23
   %.not.i63 = icmp ugt i64 %.0, %.01316.i
-  br i1 %.not.i63, label %.critedge61, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i63, label %.critedge61, label %.lr.ph.i, !llvm.loop !38
 
 60:                                               ; preds = %41
   %61 = and i64 %2, 6
@@ -12072,7 +12072,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %37, %45
   %68 = add i64 %reass.sub, 2
   %69 = add i64 %68, %67
   %70 = call i64 @rb_str_resize(i64 noundef %38, i64 noundef %69) #23
-  %71 = load i64, ptr %63, align 8, !noalias !34
+  %71 = load i64, ptr %63, align 8, !noalias !39
   %72 = and i64 %71, 8192
   %.not.i.i49 = icmp eq i64 %72, 0
   %73 = getelementptr inbounds i8, ptr %63, i64 24
@@ -12118,7 +12118,7 @@ RSTRING_PTR.exit:                                 ; preds = %61, %74
   %95 = add i64 %92, %44
   %96 = sub i64 %95, %94
   %97 = call i64 @rb_str_resize(i64 noundef %38, i64 noundef %96) #23
-  %98 = load i64, ptr %90, align 8, !noalias !37
+  %98 = load i64, ptr %90, align 8, !noalias !42
   %99 = and i64 %98, 8192
   %.not.i.i50 = icmp eq i64 %99, 0
   %100 = getelementptr inbounds i8, ptr %90, i64 24
@@ -15783,7 +15783,7 @@ rb_long2num_inline.exit.i:                        ; preds = %50, %47
   %.0.i.i = phi i64 [ %49, %47 ], [ %51, %50 ]
   %52 = tail call i64 @rb_ary_push(i64 noundef %42, i64 noundef %.0.i.i) #23
   %.not.i103 = icmp ugt i64 %34, %.01316.i
-  br i1 %.not.i103, label %rb_fix_digits.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i103, label %rb_fix_digits.exit, label %.lr.ph.i, !llvm.loop !38
 
 53:                                               ; preds = %.critedge102
   %.not147 = icmp eq i64 %31, 0
@@ -15942,7 +15942,7 @@ RARRAY_AREF.exit116:                              ; preds = %126, %128
   %133 = icmp eq i64 %132, 0
   %134 = icmp sgt i64 %131, 1
   %or.cond145 = or i1 %134, %133
-  br i1 %or.cond145, label %.critedge, label %rb_fix_digits.exit, !llvm.loop !40
+  br i1 %or.cond145, label %.critedge, label %rb_fix_digits.exit, !llvm.loop !45
 
 int_lt.exit.thread137:                            ; preds = %98, %int_lt.exit
   %135 = tail call i64 @rb_ary_new() #23
@@ -15956,7 +15956,7 @@ int_lt.exit.thread137:                            ; preds = %98, %int_lt.exit
   %139 = tail call i64 @rb_int_mul(i64 noundef %.095150, i64 noundef %.095150)
   %140 = tail call i64 @int_lt(i64 noundef %139, i64 noundef %0)
   %141 = icmp eq i64 %140, 20
-  br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %int_lt.exit.thread137
   %142 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %0) #23
@@ -15968,7 +15968,7 @@ int_lt.exit.thread137:                            ; preds = %98, %int_lt.exit
   br label %148
 
 .loopexit:                                        ; preds = %RARRAY_AREF.exit130._crit_edge, %rb_array_len.exit121
-  br label %148, !llvm.loop !42
+  br label %148, !llvm.loop !47
 
 148:                                              ; preds = %.loopexit, %._crit_edge
   %149 = load i64, ptr %143, align 8
@@ -16063,7 +16063,7 @@ RARRAY_AREF.exit130._crit_edge:                   ; preds = %RARRAY_AREF.exit130
   tail call void @rb_ary_store(i64 noundef %142, i64 noundef %187, i64 noundef %184) #23
   %190 = add nsw i64 %.094151, -1
   %191 = icmp sgt i64 %.094151, 0
-  br i1 %191, label %.lr.ph152, label %.loopexit, !llvm.loop !43
+  br i1 %191, label %.lr.ph152, label %.loopexit, !llvm.loop !48
 
 rb_fix_digits.exit.sink.split:                    ; preds = %53, %39
   %.sink = phi i64 [ 1, %39 ], [ %0, %53 ]
@@ -16294,9 +16294,9 @@ attributes #28 = { memory(none) }
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"rbimpl_rstring_getmem: argument 0"}
 !18 = distinct !{!18, !"rbimpl_rstring_getmem"}
-!19 = !{}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"rbimpl_rstring_getmem: argument 0"}
+!21 = distinct !{!21, !"rbimpl_rstring_getmem"}
 !22 = distinct !{!22, !11}
 !23 = distinct !{!23, !11}
 !24 = distinct !{!24, !11}
@@ -16305,17 +16305,22 @@ attributes #28 = { memory(none) }
 !27 = distinct !{!27, !11}
 !28 = distinct !{!28, !11}
 !29 = distinct !{!29, !11}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"rbimpl_rstring_getmem: argument 0"}
-!32 = distinct !{!32, !"rbimpl_rstring_getmem"}
-!33 = distinct !{!33, !11}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"rbimpl_rstring_getmem: argument 0"}
-!36 = distinct !{!36, !"rbimpl_rstring_getmem"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"rbimpl_rstring_getmem: argument 0"}
-!39 = distinct !{!39, !"rbimpl_rstring_getmem"}
-!40 = distinct !{!40, !11}
-!41 = distinct !{!41, !11}
-!42 = distinct !{!42, !11}
-!43 = distinct !{!43, !11}
+!30 = distinct !{!30, !11}
+!31 = distinct !{!31, !11}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"rbimpl_rstring_getmem: argument 0"}
+!34 = distinct !{!34, !"rbimpl_rstring_getmem"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"rbimpl_rstring_getmem: argument 0"}
+!37 = distinct !{!37, !"rbimpl_rstring_getmem"}
+!38 = distinct !{!38, !11}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"rbimpl_rstring_getmem: argument 0"}
+!41 = distinct !{!41, !"rbimpl_rstring_getmem"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"rbimpl_rstring_getmem: argument 0"}
+!44 = distinct !{!44, !"rbimpl_rstring_getmem"}
+!45 = distinct !{!45, !11}
+!46 = distinct !{!46, !11}
+!47 = distinct !{!47, !11}
+!48 = distinct !{!48, !11}

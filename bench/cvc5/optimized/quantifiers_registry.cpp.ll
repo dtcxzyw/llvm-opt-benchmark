@@ -2403,7 +2403,7 @@ entry:
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %cmp.not5.i.i.i = icmp eq ptr %0, null
-  %.pre = load ptr, ptr %q, align 8
+  %.pre = load ptr, ptr %q, align 8, !noalias !32
   br i1 %cmp.not5.i.i.i, label %if.then, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry

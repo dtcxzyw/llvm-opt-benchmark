@@ -3013,7 +3013,7 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
   br i1 %650, label %677, label %651
 
 651:                                              ; preds = %647
-  %652 = load ptr, ptr %8, align 8
+  %652 = load ptr, ptr %8, align 8, !noalias !34
   %653 = ptrtoint ptr %652 to i64
   %654 = trunc i64 %653 to i32
   %655 = lshr i32 %654, 4
@@ -3058,7 +3058,7 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
 677:                                              ; preds = %666, %647
   %.sink.i.i.i.i58 = phi ptr [ %667, %666 ], [ null, %647 ]
   %678 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i58), !noalias !34
-  %679 = load ptr, ptr %8, align 8
+  %679 = load ptr, ptr %8, align 8, !noalias !34
   store ptr %679, ptr %678, align 8, !noalias !34
   br label %_ZN4llvm6detail12DenseSetImplIPNS_12VPRecipeBaseENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit
 

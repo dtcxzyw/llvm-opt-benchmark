@@ -7932,7 +7932,7 @@ sw.bb.i.i.i.i:                                    ; preds = %entry
   %4 = load ptr, ptr %3, align 8, !noalias !109
   %arg.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   call void %4(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull %arg.i.i.i.i.i.i), !noalias !114
-  %5 = load i8, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !114
+  %5 = load i8, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !115
   %tobool.i.i.i.i.i.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i, label %if.end9.i.i.i.i, label %"_ZZN9grpc_core8OnCancelINS_14promise_detail3SeqINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_19ConnectedSubchannel15MakeCallPromiseENS_8CallArgsEE3$_0EEEZNSA_15MakeCallPromiseESB_E3$_1EEDaT_T0_ENUlvE_clEv.exit"
 

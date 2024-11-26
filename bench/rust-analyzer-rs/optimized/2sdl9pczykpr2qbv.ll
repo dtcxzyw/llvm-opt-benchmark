@@ -200,7 +200,8 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgExpr$GT$17
   ]
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %0, align 8, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  %7 = load ptr, ptr %0, align 8, !alias.scope !58, !noundef !4
   invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgExpr$GT$17h42daefb73d95f1acE.llvm.12438884439326516104"(ptr noalias noundef align 8 dereferenceable(48) %7)
           to label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$cfg..cfg_expr..CfgExpr$GT$$GT$17h87828e6339a06dc9E.llvm.12438884439326516104.exit" unwind label %8, !noalias !58
 
@@ -228,7 +229,7 @@ common.resume:                                    ; preds = %31, %35, %16, %20, 
 11:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !alias.scope !67, !nonnull !4, !noundef !4
+  %13 = load ptr, ptr %12, align 8, !alias.scope !70, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !70, !noundef !4
   invoke void @"_ZN4core3ptr53drop_in_place$LT$$u5b$cfg..cfg_expr..CfgExpr$u5d$$GT$17h3e4dbca4d4384c7aE.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 %13, i64 noundef %15) #14
@@ -263,7 +264,7 @@ common.resume:                                    ; preds = %31, %35, %16, %20, 
 26:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8, !alias.scope !97, !nonnull !4, !noundef !4
+  %28 = load ptr, ptr %27, align 8, !alias.scope !100, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load i64, ptr %29, align 8, !alias.scope !100, !noundef !4
   invoke void @"_ZN4core3ptr53drop_in_place$LT$$u5b$cfg..cfg_expr..CfgExpr$u5d$$GT$17h3e4dbca4d4384c7aE.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 %28, i64 noundef %30) #14

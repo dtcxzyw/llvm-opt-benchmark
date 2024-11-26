@@ -293,7 +293,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17ha4d6d6de6
   %.val4 = load i64, ptr %6, align 8, !noundef !4
   %7 = sub nuw i64 %.val4, %.val
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !noundef !4
+  %9 = load i64, ptr %8, align 8, !alias.scope !124, !noundef !4
   %10 = load i64, ptr %0, align 8, !alias.scope !124, !noundef !4
   %11 = sub i64 %10, %9
   %12 = icmp ugt i64 %7, %11

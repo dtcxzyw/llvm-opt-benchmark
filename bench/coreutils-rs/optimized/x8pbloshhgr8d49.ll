@@ -5467,7 +5467,7 @@ common.resume:                                    ; preds = %47, %19
   %25 = getelementptr inbounds i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8, !alias.scope !492, !noalias !495, !nonnull !23, !noundef !23
   %27 = getelementptr inbounds i8, ptr %1, i64 24
-  %28 = load i64, ptr %27, align 8, !noundef !23
+  %28 = load i64, ptr %27, align 8, !alias.scope !492, !noalias !495, !noundef !23
   %29 = getelementptr inbounds { ptr, i64, ptr }, ptr %26, i64 %28
   br label %30
 

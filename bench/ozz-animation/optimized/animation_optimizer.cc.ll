@@ -803,7 +803,7 @@ _ZNSt6vectorIbN3ozz12StdAllocatorIbEEEC2EmRKbRKS2_.exit.i: ; preds = %338, %_ZNS
 
 .lr.ph49.i:                                       ; preds = %354, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit69.i
   %375 = phi ptr [ %458, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit69.i ], [ %372, %354 ]
-  %376 = load ptr, ptr %214, align 8
+  %376 = load ptr, ptr %214, align 8, !noalias !19
   %377 = icmp eq ptr %375, %376
   br i1 %377, label %380, label %378
 
@@ -1433,7 +1433,7 @@ _ZNSt6vectorIbN3ozz12StdAllocatorIbEEEC2EmRKbRKS2_.exit.i79: ; preds = %638, %_Z
 
 .lr.ph48.i:                                       ; preds = %654, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit69.i87
   %675 = phi ptr [ %766, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit69.i87 ], [ %672, %654 ]
-  %676 = load ptr, ptr %230, align 8
+  %676 = load ptr, ptr %230, align 8, !noalias !26
   %677 = icmp eq ptr %675, %676
   br i1 %677, label %680, label %678
 
@@ -2070,7 +2070,7 @@ _ZNSt6vectorIbN3ozz12StdAllocatorIbEEEC2EmRKbRKS2_.exit.i138: ; preds = %955, %_
 
 .lr.ph49.i142:                                    ; preds = %971, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit69.i154
   %992 = phi ptr [ %1075, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit69.i154 ], [ %989, %971 ]
-  %993 = load ptr, ptr %246, align 8
+  %993 = load ptr, ptr %246, align 8, !noalias !35
   %994 = icmp eq ptr %992, %993
   br i1 %994, label %997, label %995
 

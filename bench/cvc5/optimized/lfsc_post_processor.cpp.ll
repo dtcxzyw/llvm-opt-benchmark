@@ -4046,7 +4046,7 @@ call2.i.i.i1860.noexc:                            ; preds = %invoke.cont635
   %idxprom.i.i1865 = zext i1 %cmp.i.i1861 to i64
   %arrayidx.i.i1866 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i1864, i64 0, i64 %idxprom.i.i1865
   %385 = load ptr, ptr %arrayidx.i.i1866, align 8, !noalias !40
-  %bf.load.i.i.i1867 = load i64, ptr %385, align 8
+  %bf.load.i.i.i1867 = load i64, ptr %385, align 8, !noalias !40
   %bf.lshr.i.i.i1868 = lshr i64 %bf.load.i.i.i1867, 40
   %386 = trunc nuw nsw i64 %bf.lshr.i.i.i1868 to i32
   %bf.cast.i.i.i1869 = and i32 %386, 1048575
@@ -5905,7 +5905,7 @@ if.end914:                                        ; preds = %_ZN4cvc58internal12
   %idxprom.i.i2725 = zext i1 %cmp.i.i2721 to i64
   %arrayidx.i.i2726 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i2724, i64 0, i64 %idxprom.i.i2725
   %573 = load ptr, ptr %arrayidx.i.i2726, align 8, !noalias !60
-  %bf.load.i.i.i2727 = load i64, ptr %573, align 8
+  %bf.load.i.i.i2727 = load i64, ptr %573, align 8, !noalias !60
   %bf.lshr.i.i.i2728 = lshr i64 %bf.load.i.i.i2727, 40
   %574 = trunc nuw nsw i64 %bf.lshr.i.i.i2728 to i32
   %bf.cast.i.i.i2729 = and i32 %574, 1048575
@@ -11138,7 +11138,7 @@ invoke.cont1785:                                  ; preds = %_ZNSt12_Vector_base
           to label %.noexc5338 unwind label %lpad1795
 
 .noexc5338:                                       ; preds = %invoke.cont1785
-  %1076 = load ptr, ptr %qvarsNew, align 8
+  %1076 = load ptr, ptr %qvarsNew, align 8, !noalias !129
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !129
   %cmp.i.not3.i.i.i5332 = icmp eq ptr %call.i.i.i.i2.i5323, %1076
   br i1 %cmp.i.not3.i.i.i5332, label %invoke.cont.i5337, label %for.body.i.i.i5333
@@ -11250,7 +11250,7 @@ terminate.lpad.i5358:                             ; preds = %if.then13.i.i5357
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit5359: ; preds = %invoke.cont1798, %if.then.i.i5350, %if.then13.i.i5357
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  %1087 = load ptr, ptr %conc, align 8
+  %1087 = load ptr, ptr %conc, align 8, !noalias !133
   %d_kind.i.i.i.i5360 = getelementptr inbounds i8, ptr %1087, i64 8
   %bf.load.i.i.i.i5361 = load i16, ptr %d_kind.i.i.i.i5360, align 8, !noalias !133
   %bf.clear.i.i.i.i5362 = and i16 %bf.load.i.i.i.i5361, 1023
@@ -17801,7 +17801,7 @@ invoke.cont55:                                    ; preds = %if.end51
 for.body:                                         ; preds = %invoke.cont55, %for.inc
   %it.sroa.0.0142 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %spec.select.i.i, %invoke.cont55 ]
   %46 = load ptr, ptr %it.sroa.0.0142, align 8, !noalias !181
-  %bf.load.i.i.i = load i64, ptr %46, align 8
+  %bf.load.i.i.i = load i64, ptr %46, align 8, !noalias !181
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %47 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %47, 1048575

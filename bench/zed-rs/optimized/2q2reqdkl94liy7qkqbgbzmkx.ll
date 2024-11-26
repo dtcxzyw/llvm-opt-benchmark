@@ -64,7 +64,7 @@ define hidden void @_ZN3std3sys3pal4unix2os10join_paths17h6e3303521725643eE(ptr 
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %9, align 8, !alias.scope !4, !noalias !9, !nonnull !12, !noundef !12
-  %12 = load ptr, ptr %10, align 8, !nonnull !12, !noundef !12
+  %12 = load ptr, ptr %10, align 8, !alias.scope !4, !noalias !9, !nonnull !12, !noundef !12
   %13 = icmp eq ptr %12, %11
   br i1 %13, label %._crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h99a24ceb78f957ccE.exit.i"
 
@@ -296,7 +296,7 @@ define hidden void @_ZN3std3sys3pal4unix2os10join_paths17h6e3303521725643eE(ptr 
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit19": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i.i1.i.i.i.i18", %73
   %80 = load ptr, ptr %9, align 8, !alias.scope !115, !noalias !9, !nonnull !12, !noundef !12
-  %81 = load ptr, ptr %10, align 8, !nonnull !12, !noundef !12
+  %81 = load ptr, ptr %10, align 8, !alias.scope !115, !noalias !9, !nonnull !12, !noundef !12
   %82 = icmp eq ptr %81, %80
   br i1 %82, label %._crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h99a24ceb78f957ccE.exit.i"
 

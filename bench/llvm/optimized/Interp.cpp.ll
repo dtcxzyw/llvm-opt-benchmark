@@ -200182,7 +200182,7 @@ define linkonce_odr hidden void @_ZN5clang6interp10IntegralAPILb0EE9shiftLeftES2
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %4
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %0) #18
-  %.pr.i = load i32, ptr %12, align 8
+  %.pr.i = load i32, ptr %12, align 8, !alias.scope !4974
   %16 = icmp ult i32 %.pr.i, 65
   br i1 %16, label %_ZNK4llvm5APInt3shlEj.exit.thread, label %_ZNK4llvm5APInt3shlEj.exit
 
@@ -200290,7 +200290,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i:             ; preds = %4
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %4
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %0) #18
-  %.pr.i = load i32, ptr %12, align 8
+  %.pr.i = load i32, ptr %12, align 8, !alias.scope !4977
   %17 = icmp ult i32 %.pr.i, 65
   br i1 %17, label %_ZNK4llvm5APInt4lshrEj.exit.thread, label %_ZNK4llvm5APInt4lshrEj.exit
 

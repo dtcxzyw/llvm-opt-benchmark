@@ -9810,7 +9810,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit53.i: ; preds
   %182 = call noalias noundef nonnull dereferenceable(1016) ptr @_Znwm(i64 noundef 1016) #21, !noalias !385
   %183 = load ptr, ptr %175, align 8, !noalias !385
   %184 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(74) %175) #20, !noalias !385
-  %185 = load ptr, ptr %11, align 8
+  %185 = load ptr, ptr %11, align 8, !noalias !385
   call void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9StringRefES6_PKNS0_12ExplodedNodeENS0_22PathDiagnosticLocationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1016) %182, ptr noundef nonnull align 8 dereferenceable(97) %171, ptr %183, i64 %184, ptr %183, i64 %184, ptr noundef %185, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %12, ptr noundef %181) #20, !noalias !385
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i8 1, ptr %172, align 8

@@ -999,9 +999,9 @@ common.resume:                                    ; preds = %.thread235, %521, %
   %75 = add nuw nsw i32 %72, 1
   store i32 %75, ptr %71, align 8, !noalias !175
   %76 = getelementptr inbounds i8, ptr %1, i64 24
-  %77 = load ptr, ptr %76, align 8, !noalias !4, !nonnull !4, !align !5, !noundef !4
+  %77 = load ptr, ptr %76, align 8, !noalias !175, !nonnull !4, !align !5, !noundef !4
   %78 = getelementptr inbounds i8, ptr %1, i64 32
-  %79 = load i64, ptr %78, align 8, !noalias !4, !noundef !4
+  %79 = load i64, ptr %78, align 8, !noalias !175, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   %80 = getelementptr inbounds i8, ptr %77, i64 16
   %81 = load i64, ptr %80, align 8, !alias.scope !178, !noalias !175, !noundef !4

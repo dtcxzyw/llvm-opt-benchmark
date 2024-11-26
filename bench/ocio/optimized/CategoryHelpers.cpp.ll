@@ -1301,8 +1301,8 @@ land.lhs.true.i:                                  ; preds = %_ZNSt10shared_ptrIK
   br i1 %cmp.i.i.i, label %invoke.cont10, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
-  %11 = load ptr, ptr %encodings, align 8
-  %12 = load ptr, ptr %_M_finish.i.i, align 8
+  %11 = load ptr, ptr %encodings, align 8, !noalias !26
+  %12 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !26
   %cmp.i.i11.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i11.i, label %invoke.cont10, label %if.then.i
 
@@ -1339,8 +1339,8 @@ invoke.cont9.i:                                   ; preds = %invoke.cont7.i
   br i1 %cmp.i.not36.i, label %for.end37.i, label %for.body15.lr.ph.i
 
 for.body15.lr.ph.i:                               ; preds = %invoke.cont9.i
-  %17 = load ptr, ptr %encodings, align 8
-  %18 = load ptr, ptr %_M_finish.i.i, align 8
+  %17 = load ptr, ptr %encodings, align 8, !noalias !26
+  %18 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !26
   %19 = icmp eq ptr %17, %18
   br i1 %19, label %for.end37.i, label %for.body15.i
 
@@ -1349,8 +1349,8 @@ for.body15.i:                                     ; preds = %for.body15.lr.ph.i,
   %ref.tmp.sroa.7.1 = phi ptr [ %ref.tmp.sroa.7.4, %for.inc35.i ], [ %ref.tmp.sroa.7.0, %for.body15.lr.ph.i ]
   %ref.tmp.sroa.11.1 = phi ptr [ %ref.tmp.sroa.11.4, %for.inc35.i ], [ %ref.tmp.sroa.11.0, %for.body15.lr.ph.i ]
   %__begin4.sroa.0.037.i = phi ptr [ %incdec.ptr.i19.i, %for.inc35.i ], [ %15, %for.body15.lr.ph.i ]
-  %20 = load ptr, ptr %encodings, align 8
-  %21 = load ptr, ptr %_M_finish.i.i, align 8
+  %20 = load ptr, ptr %encodings, align 8, !noalias !26
+  %21 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !26
   %cmp.i13.not34.i = icmp eq ptr %20, %21
   br i1 %cmp.i13.not34.i, label %for.inc35.i, label %for.body23.i
 
@@ -1741,8 +1741,8 @@ land.lhs.true.i102:                               ; preds = %_ZNSt10shared_ptrIK
   br i1 %cmp.i.i.i104, label %invoke.cont16, label %land.lhs.true1.i105
 
 land.lhs.true1.i105:                              ; preds = %land.lhs.true.i102
-  %57 = load ptr, ptr %encodings, align 8
-  %58 = load ptr, ptr %_M_finish.i.i, align 8
+  %57 = load ptr, ptr %encodings, align 8, !noalias !32
+  %58 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !32
   %cmp.i.i9.i = icmp eq ptr %57, %58
   br i1 %cmp.i.i9.i, label %invoke.cont16, label %for.cond.preheader.i106
 

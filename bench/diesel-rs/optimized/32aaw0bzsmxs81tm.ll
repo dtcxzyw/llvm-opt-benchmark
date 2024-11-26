@@ -1244,7 +1244,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$L
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3264dfe1f6e45a0cE.llvm.4390069830711507923"(ptr noalias noundef align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %spec.select.i = zext i1 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  %5 = load i64, ptr %4, align 8, !alias.scope !200, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !200, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ult i64 %7, %spec.select.i
@@ -1645,14 +1645,14 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %spec.select.i.i = zext i1 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !333, !noundef !4
-  %6 = load i64, ptr %0, align 8, !alias.scope !336, !noundef !4
+  %6 = load i64, ptr %0, align 8, !alias.scope !333, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ult i64 %7, %spec.select.i.i
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h362a128cfb620ca2E.exit.i"
 
 9:                                                ; preds = %3
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hf1dc46a59d6b0245E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %spec.select.i.i)
-  %.pre.i = load i64, ptr %4, align 8, !alias.scope !333
+  %.pre.i = load i64, ptr %4, align 8, !alias.scope !338
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h362a128cfb620ca2E.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h362a128cfb620ca2E.exit.i": ; preds = %9, %3
@@ -1661,7 +1661,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 
 .critedge.i.i.i:                                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h362a128cfb620ca2E.exit.i"
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !333, !nonnull !4, !noundef !4
+  %12 = load ptr, ptr %11, align 8, !alias.scope !338, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
   store i8 %2, ptr %13, align 1, !noalias !339
   %14 = add i64 %10, 1
@@ -1669,7 +1669,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3264dfe1f6e45a0cE.llvm.4390069830711507923.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h362a128cfb620ca2E.exit.i", %.critedge.i.i.i
   %.val3.i.i.i = phi i64 [ %14, %.critedge.i.i.i ], [ %10, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h362a128cfb620ca2E.exit.i" ]
-  store i64 %.val3.i.i.i, ptr %4, align 8, !alias.scope !333, !noalias !348
+  store i64 %.val3.i.i.i, ptr %4, align 8, !alias.scope !338, !noalias !348
   ret void
 }
 
@@ -2519,12 +2519,12 @@ attributes #14 = { noreturn }
 !330 = !{!310, !312, !314}
 !331 = !{!314, !316}
 !332 = !{!316}
-!333 = !{!334}
-!334 = distinct !{!334, !335, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3264dfe1f6e45a0cE.llvm.4390069830711507923: argument 0"}
-!335 = distinct !{!335, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3264dfe1f6e45a0cE.llvm.4390069830711507923"}
-!336 = !{!337, !334}
-!337 = distinct !{!337, !338, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h362a128cfb620ca2E: argument 0"}
-!338 = distinct !{!338, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h362a128cfb620ca2E"}
+!333 = !{!334, !336}
+!334 = distinct !{!334, !335, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h362a128cfb620ca2E: argument 0"}
+!335 = distinct !{!335, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h362a128cfb620ca2E"}
+!336 = distinct !{!336, !337, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3264dfe1f6e45a0cE.llvm.4390069830711507923: argument 0"}
+!337 = distinct !{!337, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3264dfe1f6e45a0cE.llvm.4390069830711507923"}
+!338 = !{!336}
 !339 = !{!340, !342, !344, !346}
 !340 = distinct !{!340, !341, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h424f08b7b6403977E: argument 0"}
 !341 = distinct !{!341, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h424f08b7b6403977E"}

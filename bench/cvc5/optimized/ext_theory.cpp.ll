@@ -4870,7 +4870,7 @@ entry:
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
-  %2 = load ptr, ptr %lem, align 8
+  %2 = load ptr, ptr %lem, align 8, !noalias !36
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -6643,7 +6643,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %1 = load ptr, ptr %n, align 8
+  %1 = load ptr, ptr %n, align 8, !noalias !64
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -6672,7 +6672,7 @@ if.end15.i.i.i:                                   ; preds = %entry
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end15.i.i.i
   %6 = load ptr, ptr %5, align 8, !noalias !64
-  %7 = load ptr, ptr %n, align 8
+  %7 = load ptr, ptr %n, align 8, !noalias !64
   %add.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load i64, ptr %add.ptr.i9.i.i.i.i.i, align 8, !noalias !64

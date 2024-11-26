@@ -675,7 +675,7 @@ pointintri.exit._crit_edge.thread:                ; preds = %triangulate.exit, %
 277:                                              ; preds = %277, %276
   %indvars.iv.i263 = phi i64 [ 0, %276 ], [ %indvars.iv.next.i268, %277 ]
   %.011.i264 = phi i32 [ 0, %276 ], [ %spec.select.i267, %277 ]
-  %278 = load ptr, ptr @tris.0, align 8, !noalias !4
+  %278 = load ptr, ptr @tris.0, align 8, !noalias !7
   %279 = getelementptr inbounds %struct.triangle_t, ptr %278, i64 %.2219339
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %279, i64 80, i1 false)
   %280 = getelementptr inbounds [3 x %struct.tedge_t], ptr %270, i64 0, i64 %indvars.iv.i263
@@ -1134,7 +1134,7 @@ declare i32 @ccw(double, double, double, double, double, double) local_unnamed_a
 define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 noundef %1) unnamed_addr #7 {
   %3 = alloca %struct.triangle_t, align 8
   %4 = alloca %struct.triangle_t, align 8
-  %5 = load ptr, ptr @tris.0, align 8
+  %5 = load ptr, ptr @tris.0, align 8, !noalias !10
   %6 = getelementptr inbounds %struct.triangle_t, ptr %5, i64 %0
   %.sroa.0.0.copyload = load i32, ptr %6, align 8
   %.not = icmp eq i32 %.sroa.0.0.copyload, 0
@@ -1148,7 +1148,7 @@ define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 nound
 .preheader:                                       ; preds = %7
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = getelementptr inbounds i8, ptr %4, i64 24
-  %.pre20 = load ptr, ptr @tris.0, align 8
+  %.pre20 = load ptr, ptr @tris.0, align 8, !noalias !13
   br label %11
 
 11:                                               ; preds = %.preheader, %21
@@ -1167,7 +1167,7 @@ define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 nound
   %18 = getelementptr i8, ptr %10, i64 %14
   %19 = load i64, ptr %18, align 8
   %20 = tail call fastcc zeroext i1 @marktripath(i64 noundef %19, i64 noundef %1)
-  %.pre = load ptr, ptr @tris.0, align 8
+  %.pre = load ptr, ptr @tris.0, align 8, !noalias !13
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %11, %17
@@ -1344,4 +1344,15 @@ attributes #15 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"triangles_get: argument 0"}
+!6 = distinct !{!6, !"triangles_get"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"triangles_get: argument 0"}
+!9 = distinct !{!9, !"triangles_get"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"triangles_get: argument 0"}
+!12 = distinct !{!12, !"triangles_get"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"triangles_get: argument 0"}
+!15 = distinct !{!15, !"triangles_get"}

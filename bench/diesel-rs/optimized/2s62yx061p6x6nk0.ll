@@ -1126,7 +1126,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
           to label %154 unwind label %139, !noalias !153
 
 154:                                              ; preds = %153
-  %155 = load i64, ptr %15, align 8, !range !4, !noalias !157, !noundef !5
+  %155 = load i64, ptr %15, align 8, !range !4, !noalias !137, !noundef !5
   %156 = icmp eq i64 %155, -9223372036854775798
   br i1 %156, label %157, label %159
 
@@ -1177,7 +1177,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
   br label %186
 
 171:                                              ; preds = %169
-  %172 = load i64, ptr %14, align 8, !range !4, !noalias !157, !noundef !5
+  %172 = load i64, ptr %14, align 8, !range !4, !noalias !137, !noundef !5
   switch i64 %172, label %174 [
     i64 -9223372036854775798, label %.thread85.i
     i64 -9223372036854775800, label %173

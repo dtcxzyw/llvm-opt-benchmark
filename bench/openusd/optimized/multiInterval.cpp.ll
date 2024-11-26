@@ -247,7 +247,7 @@ _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__10GfIntervalESt4lessIS1_ESaIS1_EE11
   br i1 %or.cond.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread14.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalanERKS0_.exit.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread14.i.i.i: ; preds = %64
-  %69 = load double, ptr %62, align 8
+  %69 = load double, ptr %62, align 8, !noalias !6
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.044.081, i64 48
   %71 = load double, ptr %70, align 8, !noalias !6
   %72 = fcmp ogt double %69, %71
@@ -598,7 +598,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfIntervaloRERKS0_.exit17: ; preds = %_ZN
   br i1 %or.cond.i26, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread14.i.i.i33, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalanERKS0_.exit.i27
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread14.i.i.i33: ; preds = %236
-  %241 = load double, ptr %234, align 8
+  %241 = load double, ptr %234, align 8, !noalias !10
   %242 = getelementptr inbounds nuw i8, ptr %233, i64 48
   %243 = load double, ptr %242, align 8, !noalias !10
   %244 = fcmp ogt double %241, %243

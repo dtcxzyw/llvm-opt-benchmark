@@ -9534,8 +9534,8 @@ entry:
   br i1 %cmp.i.not7.i, label %invoke.cont, label %for.body.i
 
 for.body.ithread-pre-split:                       ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit.i
-  %.pr = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !154
-  %.pre = load ptr, ptr %this, align 8, !noalias !154
+  %.pr = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !209
+  %.pre = load ptr, ptr %this, align 8, !noalias !209
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.ithread-pre-split
@@ -9550,7 +9550,7 @@ for.body.i:                                       ; preds = %entry, %for.body.it
   br i1 %cmp15.i.i.i.i, label %while.body.i.preheader.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i
 
 while.body.i.preheader.i.i.i:                     ; preds = %for.body.i
-  %2 = load i32, ptr %_M_storage.i.i.i, align 4, !noalias !209
+  %2 = load i32, ptr %_M_storage.i.i.i, align 4, !noalias !212
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.i.preheader.i.i.i
@@ -9558,7 +9558,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %__len.016.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %1, %while.body.i.preheader.i.i.i ]
   %shr.i.i.i.i = lshr i64 %__len.016.i.i.i.i, 1
   %incdec.ptr.i15.sink.i.i.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %shr.i.i.i.i
-  %4 = load i32, ptr %incdec.ptr.i15.sink.i.i.i.i.i.i, align 4, !noalias !209
+  %4 = load i32, ptr %incdec.ptr.i15.sink.i.i.i.i.i.i, align 4, !noalias !212
   %cmp.i.i11.i.i.i.i = icmp ult i32 %4, %2
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i15.sink.i.i.i.i.i.i, i64 4
   %5 = xor i64 %shr.i.i.i.i, -1
@@ -9566,7 +9566,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %6 = select i1 %cmp.i.i11.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i, ptr %3
   %__len.1.i.i.i.i = select i1 %cmp.i.i11.i.i.i.i, i64 %sub6.i.i.i.i, i64 %shr.i.i.i.i
   %cmp.i.i.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i, !llvm.loop !216
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i, !llvm.loop !217
 
 _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i: ; preds = %while.body.i.i.i.i, %for.body.i
   %7 = phi ptr [ %0, %for.body.i ], [ %6, %while.body.i.i.i.i ]
@@ -9574,19 +9574,19 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RK
   br i1 %cmp.i.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i
-  %8 = load i32, ptr %_M_storage.i.i.i, align 4, !noalias !217
-  %9 = load i32, ptr %7, align 4, !noalias !217
+  %8 = load i32, ptr %_M_storage.i.i.i, align 4, !noalias !209
+  %9 = load i32, ptr %7, align 4, !noalias !209
   %cmp.i23.i.i = icmp ult i32 %8, %9
   br i1 %cmp.i23.i.i, label %if.then.i.i.thread, label %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit.i
 
 if.then.i.i:                                      ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i
-  store ptr %7, ptr %agg.tmp14.i.i, align 8, !noalias !217
+  store ptr %7, ptr %agg.tmp14.i.i, align 8, !noalias !209
   %10 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8, !noalias !218
   %cmp.not.i = icmp eq i64 %10, %1
   br i1 %cmp.not.i, label %if.then.i, label %if.then4.i.i
 
 if.then.i.i.thread:                               ; preds = %lor.rhs.i.i
-  store ptr %7, ptr %agg.tmp14.i.i, align 8, !noalias !217
+  store ptr %7, ptr %agg.tmp14.i.i, align 8, !noalias !209
   %11 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8, !noalias !221
   %cmp.not.i5 = icmp eq i64 %11, %1
   br i1 %cmp.not.i5, label %if.then.i, label %if.then7.i.i
@@ -12310,15 +12310,15 @@ attributes #30 = { nounwind willreturn memory(read) }
 !206 = distinct !{!206, !12}
 !207 = distinct !{!207, !12}
 !208 = distinct !{!208, !12}
-!209 = !{!210, !212, !214}
-!210 = distinct !{!210, !211, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_: %agg.result"}
-!211 = distinct !{!211, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_"}
-!212 = distinct !{!212, !213, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_: %agg.result"}
-!213 = distinct !{!213, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_"}
-!214 = distinct !{!214, !215, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj: %agg.result"}
-!215 = distinct !{!215, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj"}
-!216 = distinct !{!216, !12}
-!217 = !{!214}
+!209 = !{!210}
+!210 = distinct !{!210, !211, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj: %agg.result"}
+!211 = distinct !{!211, !"_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj"}
+!212 = !{!213, !215, !210}
+!213 = distinct !{!213, !214, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_: %agg.result"}
+!214 = distinct !{!214, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIjEEEET_SB_SB_RKT0_T1_"}
+!215 = distinct !{!215, !216, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_: %agg.result"}
+!216 = distinct !{!216, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_"}
+!217 = distinct !{!217, !12}
 !218 = !{!219}
 !219 = distinct !{!219, !220, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE25priv_forward_range_insertINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_: %agg.result"}
 !220 = distinct !{!220, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE25priv_forward_range_insertINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_"}

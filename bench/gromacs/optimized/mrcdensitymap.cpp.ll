@@ -1110,8 +1110,8 @@ define void @_ZN3gmx34MrcDensityMapOfFloatFromFileReader4ImplC2ERKNSt10filesyste
           to label %65 unwind label %83
 
 65:                                               ; preds = %59
-  %66 = load ptr, ptr %56, align 8
-  %67 = load ptr, ptr %0, align 8
+  %66 = load ptr, ptr %56, align 8, !alias.scope !7
+  %67 = load ptr, ptr %0, align 8, !alias.scope !7
   %68 = ptrtoint ptr %66 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69

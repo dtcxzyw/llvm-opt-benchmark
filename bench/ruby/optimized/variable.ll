@@ -264,7 +264,7 @@ RSTRING_END.exit.i:                               ; preds = %27, %23
 44:                                               ; preds = %.lr.ph.i
   %45 = getelementptr i8, ptr %.236.i, i64 1
   %46 = icmp ult ptr %45, %28
-  br i1 %46, label %.lr.ph.i, label %.critedge.i, !llvm.loop !8
+  br i1 %46, label %.lr.ph.i, label %.critedge.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %44, %.lr.ph.i, %41
   %.2.lcssa.i = phi ptr [ %.1.i, %41 ], [ %.236.i, %.lr.ph.i ], [ %45, %44 ]
@@ -277,7 +277,7 @@ RSTRING_END.exit.i:                               ; preds = %27, %23
   %51 = sub i64 %49, %50
   %52 = call i32 @rb_enc_symname_type(ptr noundef %.1.i, i64 noundef %51, ptr noundef %29, i32 noundef 0) #24
   %.not32.i = icmp eq i32 %52, 10
-  br i1 %.not32.i, label %.preheader.i, label %.loopexit, !llvm.loop !10
+  br i1 %.not32.i, label %.preheader.i, label %.loopexit, !llvm.loop !12
 
 is_constant_path.exit:                            ; preds = %.preheader.i
   %53 = load i64, ptr @rb_eArgError, align 8
@@ -376,7 +376,7 @@ classname.exit.thread:                            ; preds = %3, %classname.exit
 .critedge:                                        ; preds = %classname.exit.thread, %21, %25, %17
   %.0 = phi i64 [ %28, %25 ], [ 4, %17 ], [ 0, %21 ], [ 4, %classname.exit.thread ]
   store i8 0, ptr %1, align 1
-  %29 = tail call i64 %2(i64 noundef %0, i64 noundef %.0) #24, !callees !11
+  %29 = tail call i64 %2(i64 noundef %0, i64 noundef %.0) #24, !callees !13
   br label %30
 
 30:                                               ; preds = %classname.exit, %.critedge
@@ -557,7 +557,7 @@ define dso_local i64 @rb_path_to_class(i64 noundef %0) local_unnamed_addr #0 {
   store i64 %0, ptr %2, align 8
   %4 = tail call ptr @rb_enc_get(i64 noundef %0) #24
   %5 = inttoptr i64 %0 to ptr
-  %6 = load i64, ptr %5, align 8, !noalias !12
+  %6 = load i64, ptr %5, align 8, !noalias !14
   %7 = and i64 %6, 8192
   %.not.i.i = icmp eq i64 %7, 0
   %8 = getelementptr inbounds i8, ptr %5, i64 24
@@ -623,7 +623,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RSTRING_PTR.exit, %
 29:                                               ; preds = %.preheader
   %30 = getelementptr i8, ptr %.13450, i64 1
   %31 = icmp ult ptr %30, %17
-  br i1 %31, label %.preheader, label %.critedge, !llvm.loop !15
+  br i1 %31, label %.preheader, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %29
   %32 = ptrtoint ptr %30 to i64
@@ -702,7 +702,7 @@ rb_namespace_p.exit:                              ; preds = %66
   %72 = load i64, ptr %71, align 8
   %73 = and i64 %72, 30
   %switch.i = icmp eq i64 %73, 2
-  br i1 %switch.i, label %26, label %rb_namespace_p.exit.thread, !llvm.loop !16
+  br i1 %switch.i, label %26, label %rb_namespace_p.exit.thread, !llvm.loop !18
 
 rb_namespace_p.exit.thread:                       ; preds = %66, %rb_namespace_p.exit
   %74 = load i64, ptr @rb_eTypeError, align 8
@@ -711,7 +711,7 @@ rb_namespace_p.exit.thread:                       ; preds = %66, %rb_namespace_p
 
 75:                                               ; preds = %26
   store ptr %2, ptr %3, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %3) #24, !srcloc !17
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %3) #24, !srcloc !19
   %76 = load ptr, ptr %3, align 8
   %77 = load volatile i64, ptr %76, align 8
   ret i64 %.032
@@ -778,7 +778,7 @@ define dso_local ptr @rb_class2name(i64 noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %4 to ptr
-  %8 = load i64, ptr %7, align 8, !noalias !18
+  %8 = load i64, ptr %7, align 8, !noalias !20
   %9 = and i64 %8, 8192
   %.not.i.i = icmp eq i64 %9, 0
   %10 = getelementptr inbounds i8, ptr %7, i64 24
@@ -842,7 +842,7 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
 
 21:                                               ; preds = %rb_class_of.exit
   %22 = inttoptr i64 %19 to ptr
-  %23 = load i64, ptr %22, align 8, !noalias !21
+  %23 = load i64, ptr %22, align 8, !noalias !23
   %24 = and i64 %23, 8192
   %.not.i.i.i = icmp eq i64 %24, 0
   %25 = getelementptr inbounds i8, ptr %22, i64 24
@@ -1205,7 +1205,7 @@ define internal noundef i32 @mark_global_entry(i64 noundef %0, ptr nocapture rea
   %14 = getelementptr inbounds i8, ptr %.012, i64 24
   %.0 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %13, %2
   ret i32 0
@@ -1265,7 +1265,7 @@ define dso_local void @rb_define_hooked_variable(ptr noundef nonnull %0, ptr nou
   %19 = getelementptr inbounds i8, ptr %13, i64 32
   store ptr @rb_gvar_var_marker, ptr %19, align 8
   store ptr %5, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #24, !srcloc !25
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #24, !srcloc !27
   %20 = load ptr, ptr %6, align 8
   %21 = load volatile i64, ptr %20, align 8
   ret void
@@ -1341,7 +1341,7 @@ define dso_local void @rb_define_variable(ptr noundef nonnull %0, ptr noundef no
   %12 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr @rb_gvar_var_marker, ptr %12, align 8
   store ptr %3, ptr %4, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #24, !srcloc !25
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #24, !srcloc !27
   %13 = load ptr, ptr %4, align 8
   %14 = load volatile i64, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1369,7 +1369,7 @@ define dso_local void @rb_define_readonly_variable(ptr noundef nonnull %0, ptr n
   %12 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr @rb_gvar_var_marker, ptr %12, align 8
   store ptr %3, ptr %4, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #24, !srcloc !25
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #24, !srcloc !27
   %13 = load ptr, ptr %4, align 8
   %14 = load volatile i64, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1400,7 +1400,7 @@ define dso_local void @rb_define_virtual_variable(ptr noundef nonnull %0, ptr no
   %12 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr @rb_gvar_var_marker, ptr %12, align 8
   store ptr %4, ptr %5, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #24, !srcloc !25
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #24, !srcloc !27
   %13 = load ptr, ptr %5, align 8
   %14 = load volatile i64, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1552,7 +1552,7 @@ rb_find_global_entry.exit:                        ; preds = %13, %rb_ractor_main
   %43 = call i64 @rb_ary_push(i64 noundef %38, i64 noundef %42) #24
   store i32 1, ptr %.02243, align 8
   %.not27 = icmp eq ptr %40, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph44, !llvm.loop !26
+  br i1 %.not27, label %._crit_edge, label %.lr.ph44, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph44, %37
   %44 = load ptr, ptr %.0.i, align 8
@@ -1590,7 +1590,7 @@ rb_find_global_entry.exit:                        ; preds = %13, %rb_ractor_main
   %58 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %59 = load ptr, ptr %58, align 8
   %.not.i29 = icmp eq ptr %59, null
-  br i1 %.not.i29, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i29, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.loopexit.i:                           ; preds = %57
   %.pre.i = load ptr, ptr %50, align 8
@@ -1646,7 +1646,7 @@ remove_trace.exit:                                ; preds = %47, %._crit_edge.lo
   %79 = getelementptr inbounds i8, ptr %.1.i34, i64 24
   %80 = load ptr, ptr %79, align 8
   %.not.i35 = icmp eq ptr %80, null
-  br i1 %.not.i35, label %._crit_edge.loopexit.i36, label %.lr.ph.i31, !llvm.loop !27
+  br i1 %.not.i35, label %._crit_edge.loopexit.i36, label %.lr.ph.i31, !llvm.loop !29
 
 ._crit_edge.loopexit.i36:                         ; preds = %78
   %.pre.i37 = load ptr, ptr %71, align 8
@@ -1667,7 +1667,7 @@ remove_trace.exit38:                              ; preds = %68, %._crit_edge.lo
   %86 = getelementptr inbounds i8, ptr %.141, i64 24
   %87 = load ptr, ptr %86, align 8
   %.not25 = icmp eq ptr %87, null
-  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %85, %.preheader, %._crit_edge, %remove_trace.exit, %82
   %.0 = phi i64 [ %84, %82 ], [ %38, %remove_trace.exit ], [ %38, %._crit_edge ], [ 4, %.preheader ], [ 4, %85 ]
@@ -1963,7 +1963,7 @@ rb_ractor_main_p.exit.thread:                     ; preds = %0, %rb_ractor_main_
 29:                                               ; preds = %14, %27
   %30 = add i32 %.01519, 1
   %.not = icmp sgt i32 %30, %12
-  br i1 %.not, label %.loopexit, label %14, !llvm.loop !29
+  br i1 %.not, label %.loopexit, label %14, !llvm.loop !31
 
 .loopexit:                                        ; preds = %29, %11, %rb_ractor_main_p.exit.thread
   ret i64 %2
@@ -2060,7 +2060,7 @@ rb_ractor_main_p.exit.thread:                     ; preds = %2, %rb_ractor_main_
   %34 = load ptr, ptr %33, align 8
   call void @ruby_xfree(ptr noundef nonnull %.02128) #24
   %.not25 = icmp eq ptr %34, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
   call void @ruby_xfree(ptr noundef nonnull %19) #24
@@ -2208,7 +2208,7 @@ define dso_local void @rb_mark_generic_ivar(i64 noundef %0) local_unnamed_addr #
   %14 = load i32, ptr %6, align 8
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %11, label %.loopexit, !llvm.loop !31
+  br i1 %16, label %11, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %11, %.preheader, %9, %1
   ret void
@@ -2254,7 +2254,7 @@ define dso_local void @rb_ref_update_generic_ivar(i64 noundef %0) local_unnamed_
   %15 = load i32, ptr %6, align 8
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %11, label %.loopexit, !llvm.loop !32
+  br i1 %17, label %11, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %11, %.preheader, %9, %1
   ret void
@@ -3145,7 +3145,7 @@ RB_FL_TEST.exit:                                  ; preds = %8
   %spec.select.i10 = add i64 %.110.i, %64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %gen_ivtbl_count.exit, label %60, !llvm.loop !33
+  br i1 %exitcond.not.i, label %gen_ivtbl_count.exit, label %60, !llvm.loop !35
 
 gen_ivtbl_count.exit:                             ; preds = %60, %57, %.preheader.i, %50, %RB_FL_TEST.exit, %1, %RCLASS_IV_COUNT.exit, %ROBJECT_IV_COUNT.exit
   %.0 = phi i64 [ %46, %RCLASS_IV_COUNT.exit ], [ %27, %ROBJECT_IV_COUNT.exit ], [ 0, %1 ], [ 0, %RB_FL_TEST.exit ], [ 0, %50 ], [ %59, %57 ], [ 0, %.preheader.i ], [ %spec.select.i10, %60 ]
@@ -4022,7 +4022,7 @@ rb_check_frozen_inline.exit:                      ; preds = %9
   %spec.select.i29 = add i64 %.110.i, %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %gen_ivtbl_count.exit, label %36, !llvm.loop !33
+  br i1 %exitcond.not.i, label %gen_ivtbl_count.exit, label %36, !llvm.loop !35
 
 gen_ivtbl_count.exit:                             ; preds = %36, %33
   %.0.i = phi i64 [ %35, %33 ], [ %spec.select.i29, %36 ]
@@ -4071,7 +4071,7 @@ RB_FL_SET.exit:                                   ; preds = %42, %.critedge.i
   store i64 36, ptr %59, align 8
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %53
-  br i1 %exitcond.not.i33, label %gen_ivtbl_resize.exit, label %58, !llvm.loop !34
+  br i1 %exitcond.not.i33, label %gen_ivtbl_resize.exit, label %58, !llvm.loop !36
 
 gen_ivtbl_resize.exit:                            ; preds = %58, %51
   %60 = load i32, ptr %29, align 8
@@ -4104,7 +4104,7 @@ rb_obj_write.exit:                                ; preds = %63, %71
   %72 = load i32, ptr %29, align 8
   %73 = zext i32 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next, %73
-  br i1 %74, label %63, label %.loopexit, !llvm.loop !35
+  br i1 %74, label %63, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %rb_obj_write.exit, %gen_ivtbl_resize.exit, %47
   %.0 = phi ptr [ %48, %47 ], [ %56, %gen_ivtbl_resize.exit ], [ %56, %rb_obj_write.exit ]
@@ -4340,12 +4340,12 @@ define dso_local range(i64 37, 36) i64 @rb_obj_remove_instance_variable(i64 noun
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @rb_is_instance_id(i64 noundef %4) #24, !callees !36
+  %7 = call i32 @rb_is_instance_id(i64 noundef %4) #24, !callees !38
   %.not12.i = icmp eq i32 %7, 0
   br i1 %.not12.i, label %10, label %check_id_type.exit
 
 8:                                                ; preds = %2
-  %9 = call i32 @rb_is_instance_name(i64 noundef %5) #24, !callees !37
+  %9 = call i32 @rb_is_instance_name(i64 noundef %5) #24, !callees !39
   %.not11.i = icmp eq i32 %9, 0
   br i1 %.not11.i, label %10, label %check_id_type.exit
 
@@ -4987,7 +4987,7 @@ rb_ractor_main_p.exit.thread:                     ; preds = %23, %rb_ractor_main
   %40 = load i64, ptr %31, align 8
   %41 = call i64 @rb_mutex_synchronize(i64 noundef %40, ptr noundef nonnull @autoload_try_load, i64 noundef %34) #24
   store ptr %6, ptr %7, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #24, !srcloc !38
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #24, !srcloc !40
   %42 = load ptr, ptr %7, align 8
   %43 = load volatile i64, ptr %42, align 8
   br label %44
@@ -5219,7 +5219,7 @@ define internal i64 @autoload_try_load(i64 noundef %0) #0 {
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.57, i64 noundef 7) #24
   store i64 %12, ptr @autoload_feature_require.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.loopexit.i, !llvm.loop !39
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.loopexit.i, !llvm.loop !41
 
 rbimpl_intern_const.exit.loopexit.i:              ; preds = %.lr.ph.i.i
   %.pre.i = load ptr, ptr %10, align 8
@@ -5458,7 +5458,7 @@ autoload_defined_p.exit.thread:                   ; preds = %rb_const_lookup.exi
   %38 = getelementptr inbounds i8, ptr %22, i64 16
   %39 = load i64, ptr %38, align 8
   %.not17 = icmp eq i64 %39, 0
-  br i1 %.not17, label %get_autoload_data.exit, label %.split, !llvm.loop !40
+  br i1 %.not17, label %get_autoload_data.exit, label %.split, !llvm.loop !42
 
 .split23.us:                                      ; preds = %autoload_defined_p.exit, %autoload_defined_p.exit.us
   %.us-phi = phi i64 [ %0, %autoload_defined_p.exit.us ], [ %.010, %autoload_defined_p.exit ]
@@ -5592,7 +5592,7 @@ autoload_by_someone_else.exit:                    ; preds = %40
 autoload_by_someone_else.exit.thread:             ; preds = %.thread, %40, %autoload_by_someone_else.exit
   %43 = phi i64 [ %39, %.thread ], [ %41, %40 ], [ %41, %autoload_by_someone_else.exit ]
   %44 = inttoptr i64 %43 to ptr
-  %45 = load i64, ptr %44, align 8, !noalias !41
+  %45 = load i64, ptr %44, align 8, !noalias !43
   %46 = and i64 %45, 8192
   %.not.i.i = icmp eq i64 %46, 0
   %47 = getelementptr inbounds i8, ptr %44, i64 24
@@ -5829,12 +5829,12 @@ define dso_local range(i64 37, 36) i64 @rb_mod_remove_const(i64 noundef %0, i64 
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @rb_is_const_id(i64 noundef %4) #24, !callees !36
+  %7 = call i32 @rb_is_const_id(i64 noundef %4) #24, !callees !38
   %.not12.i = icmp eq i32 %7, 0
   br i1 %.not12.i, label %10, label %check_id_type.exit
 
 8:                                                ; preds = %2
-  %9 = call i32 @rb_is_const_name(i64 noundef %5) #24, !callees !37
+  %9 = call i32 @rb_is_const_name(i64 noundef %5) #24, !callees !39
   %.not11.i = icmp eq i32 %9, 0
   br i1 %.not11.i, label %10, label %12
 
@@ -6539,7 +6539,7 @@ rb_const_lookup.exit.thread.us:                   ; preds = %rb_vm_lock_leave.ex
   %46 = getelementptr inbounds i8, ptr %35, i64 16
   %47 = load i64, ptr %46, align 8
   %.not.us = icmp eq i64 %47, 0
-  br i1 %.not.us, label %rb_autoloading_value.exit.thread, label %.lr.ph.us50, !llvm.loop !44
+  br i1 %.not.us, label %rb_autoloading_value.exit.thread, label %.lr.ph.us50, !llvm.loop !46
 
 .split44.split:                                   ; preds = %.split44, %83
   %.021 = phi i64 [ %84, %83 ], [ %0, %.split44 ]
@@ -6638,7 +6638,7 @@ rb_autoloading_value.exit:                        ; preds = %70, %68, %64
   %77 = getelementptr inbounds i8, ptr %49, i64 16
   %78 = load i64, ptr %77, align 8
   %.not = icmp eq i64 %78, 0
-  br i1 %.not, label %._crit_edge42, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %._crit_edge42, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge42:                                    ; preds = %76, %.split44.split
   br i1 %48, label %rb_autoloading_value.exit.thread, label %79
@@ -7287,7 +7287,7 @@ rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.ex
   call void @rb_clear_constant_cache_for_id(i64 noundef %21) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !45
+  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !47
 
 .loopexit36:                                      ; preds = %rb_const_lookup.exit, %rb_const_lookup.exit.thread
   %50 = call i64 @rb_id2sym(i64 noundef %21) #24
@@ -7442,7 +7442,7 @@ cvar_lookup_at.exit107:                           ; preds = %.lr.ph, %46, %52
   %59 = getelementptr inbounds i8, ptr %45, i64 16
   %60 = load i64, ptr %59, align 8
   %.not90 = icmp eq i64 %60, 0
-  br i1 %.not90, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not90, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.thread, %cvar_front_klass.exit
   %.284.lcssa = phi i64 [ %26, %cvar_front_klass.exit ], [ %57, %.thread ]
@@ -7957,7 +7957,7 @@ cvar_lookup_at.exit27.thread.i:                   ; preds = %cvar_lookup_at.exit
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8
   %.not17.i = icmp eq i64 %57, 0
-  br i1 %.not17.i, label %find_cvar.exit, label %.lr.ph.i, !llvm.loop !47
+  br i1 %.not17.i, label %find_cvar.exit, label %.lr.ph.i, !llvm.loop !49
 
 find_cvar.exit:                                   ; preds = %cvar_lookup_at.exit27.thread.i, %cvar_front_klass.exit.i
   %.6 = phi i64 [ %.2, %cvar_front_klass.exit.i ], [ %.5, %cvar_lookup_at.exit27.thread.i ]
@@ -8114,7 +8114,7 @@ cvar_front_klass.exit:                            ; preds = %.thread, %.thread.t
   %51 = getelementptr inbounds i8, ptr %.pre-phi42, i64 16
   %52 = load i64, ptr %51, align 8
   %.not12 = icmp eq i64 %52, 0
-  br i1 %.not12, label %cvar_lookup_at.exit, label %.lr.ph, !llvm.loop !48
+  br i1 %.not12, label %cvar_lookup_at.exit, label %.lr.ph, !llvm.loop !50
 
 cvar_lookup_at.exit:                              ; preds = %50, %.critedge.i17, %cvar_front_klass.exit, %.critedge.i.thread, %.critedge.i, %2
   %.0 = phi i64 [ 0, %2 ], [ 20, %.critedge.i ], [ 20, %.critedge.i.thread ], [ 0, %cvar_front_klass.exit ], [ 0, %50 ], [ 20, %.critedge.i17 ]
@@ -8374,12 +8374,12 @@ define dso_local range(i64 37, 36) i64 @rb_mod_remove_cvar(i64 noundef %0, i64 n
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @rb_is_class_id(i64 noundef %4) #24, !callees !36
+  %7 = call i32 @rb_is_class_id(i64 noundef %4) #24, !callees !38
   %.not12.i = icmp eq i32 %7, 0
   br i1 %.not12.i, label %10, label %check_id_type.exit
 
 8:                                                ; preds = %2
-  %9 = call i32 @rb_is_class_name(i64 noundef %5) #24, !callees !37
+  %9 = call i32 @rb_is_class_name(i64 noundef %5) #24, !callees !39
   %.not11.i = icmp eq i32 %9, 0
   br i1 %.not11.i, label %10, label %check_id_type.exit.thread
 
@@ -8553,7 +8553,7 @@ define internal noundef i64 @trace_ev(i64 noundef %0) #0 {
   %10 = getelementptr inbounds i8, ptr %.08, i64 24
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !49
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %4, %1
   ret i64 4
@@ -8593,7 +8593,7 @@ define internal noundef i64 @trace_en(i64 noundef %0) #0 {
   %15 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.loopexit.i:                           ; preds = %14
   %.pre.i = load ptr, ptr %7, align 8
@@ -8688,7 +8688,7 @@ define internal noundef i32 @generic_ivar_lookup_ensure_size(ptr nocapture nound
   store i64 36, ptr %39, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %31
-  br i1 %exitcond.not.i, label %gen_ivtbl_resize.exit, label %38, !llvm.loop !34
+  br i1 %exitcond.not.i, label %gen_ivtbl_resize.exit, label %38, !llvm.loop !36
 
 gen_ivtbl_resize.exit:                            ; preds = %38, %27
   %40 = ptrtoint ptr %34 to i64
@@ -8917,7 +8917,7 @@ define internal void @autoload_data_free(ptr noundef %0) #0 {
   store ptr %.0911, ptr %4, align 8
   store ptr %.0911, ptr %.0911, align 8
   %.not = icmp eq ptr %.0, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @ruby_xfree(ptr noundef %0) #24
@@ -9081,7 +9081,7 @@ autoload_const_set.exit:                          ; preds = %rb_vm_lock_enter.ex
   %31 = phi ptr [ %8, %.lr.ph ], [ %.pre, %autoload_const_set.exit ]
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   %.not = icmp eq ptr %.012, %32
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %30, %1
   ret i64 20
@@ -9199,7 +9199,7 @@ rb_obj_write.exit47:                              ; preds = %rb_obj_write.exit, 
 
 65:                                               ; preds = %62
   %66 = inttoptr i64 %60 to ptr
-  %67 = load i64, ptr %66, align 8, !noalias !52
+  %67 = load i64, ptr %66, align 8, !noalias !54
   %68 = and i64 %67, 8192
   %.not.i.i = icmp eq i64 %68, 0
   %69 = getelementptr inbounds i8, ptr %66, i64 24
@@ -9554,7 +9554,7 @@ rb_const_warn_if_deprecated.exit:                 ; preds = %38, %40, %45, %rb_c
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %66 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %66, null
-  br i1 %.not.i, label %rb_const_lookup.exit.thread, label %.lr.ph, !llvm.loop !55
+  br i1 %.not.i, label %rb_const_lookup.exit.thread, label %.lr.ph, !llvm.loop !57
 
 67:                                               ; preds = %rb_const_warn_if_deprecated.exit
   %.not40 = icmp ne i32 %2, 0
@@ -9571,7 +9571,7 @@ rb_const_warn_if_deprecated.exit:                 ; preds = %38, %40, %45, %rb_c
   %72 = load i64, ptr %71, align 8
   %73 = and i64 %72, -5
   %.not47 = icmp eq i64 %73, 0
-  br i1 %.not47, label %.loopexit48, label %10, !llvm.loop !56
+  br i1 %.not47, label %.loopexit48, label %10, !llvm.loop !58
 
 .loopexit48:                                      ; preds = %.loopexit, %70, %5, %67
   %74 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -9720,7 +9720,7 @@ rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.ex
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, -5
   %.not19 = icmp eq i64 %47, 0
-  br i1 %.not19, label %.loopexit, label %.lr.ph.split, !llvm.loop !57
+  br i1 %.not19, label %.loopexit, label %.lr.ph.split, !llvm.loop !59
 
 .loopexit:                                        ; preds = %44, %4, %rb_const_lookup.exit.thread.us, %rb_const_lookup.exit.us, %.split.us, %37, %35
   %.0 = phi i64 [ %36, %35 ], [ %43, %37 ], [ 4, %.split.us ], [ 4, %rb_const_lookup.exit.us ], [ 4, %rb_const_lookup.exit.thread.us ], [ 4, %4 ], [ 4, %44 ]
@@ -9982,54 +9982,56 @@ attributes #34 = { cold nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{ptr @make_temporary_path, ptr @no_fallback}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"rbimpl_rstring_getmem: argument 0"}
-!14 = distinct !{!14, !"rbimpl_rstring_getmem"}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = !{i64 2151831888}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"rbimpl_rstring_getmem: argument 0"}
-!20 = distinct !{!20, !"rbimpl_rstring_getmem"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"rbimpl_rstring_getmem: argument 0"}
-!23 = distinct !{!23, !"rbimpl_rstring_getmem"}
-!24 = distinct !{!24, !9}
-!25 = !{i64 2151835301}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = !{ptr @rb_is_class_id, ptr @rb_is_const_id, ptr @rb_is_instance_id}
-!37 = !{ptr @rb_is_class_name, ptr @rb_is_const_name, ptr @rb_is_instance_name}
-!38 = !{i64 2151867957}
-!39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"rbimpl_rstring_getmem: argument 0"}
-!43 = distinct !{!43, !"rbimpl_rstring_getmem"}
-!44 = distinct !{!44, !9}
-!45 = distinct !{!45, !9}
-!46 = distinct !{!46, !9}
-!47 = distinct !{!47, !9}
-!48 = distinct !{!48, !9}
-!49 = distinct !{!49, !9}
-!50 = distinct !{!50, !9}
-!51 = distinct !{!51, !9}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"rbimpl_rstring_getmem: argument 0"}
-!54 = distinct !{!54, !"rbimpl_rstring_getmem"}
-!55 = distinct !{!55, !9}
-!56 = distinct !{!56, !9}
-!57 = distinct !{!57, !9}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"rbimpl_rstring_getmem: argument 0"}
+!9 = distinct !{!9, !"rbimpl_rstring_getmem"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = !{ptr @make_temporary_path, ptr @no_fallback}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"rbimpl_rstring_getmem: argument 0"}
+!16 = distinct !{!16, !"rbimpl_rstring_getmem"}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = !{i64 2151831888}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"rbimpl_rstring_getmem: argument 0"}
+!22 = distinct !{!22, !"rbimpl_rstring_getmem"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"rbimpl_rstring_getmem: argument 0"}
+!25 = distinct !{!25, !"rbimpl_rstring_getmem"}
+!26 = distinct !{!26, !11}
+!27 = !{i64 2151835301}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !11}
+!30 = distinct !{!30, !11}
+!31 = distinct !{!31, !11}
+!32 = distinct !{!32, !11}
+!33 = distinct !{!33, !11}
+!34 = distinct !{!34, !11}
+!35 = distinct !{!35, !11}
+!36 = distinct !{!36, !11}
+!37 = distinct !{!37, !11}
+!38 = !{ptr @rb_is_class_id, ptr @rb_is_const_id, ptr @rb_is_instance_id}
+!39 = !{ptr @rb_is_class_name, ptr @rb_is_const_name, ptr @rb_is_instance_name}
+!40 = !{i64 2151867957}
+!41 = distinct !{!41, !11}
+!42 = distinct !{!42, !11}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"rbimpl_rstring_getmem: argument 0"}
+!45 = distinct !{!45, !"rbimpl_rstring_getmem"}
+!46 = distinct !{!46, !11}
+!47 = distinct !{!47, !11}
+!48 = distinct !{!48, !11}
+!49 = distinct !{!49, !11}
+!50 = distinct !{!50, !11}
+!51 = distinct !{!51, !11}
+!52 = distinct !{!52, !11}
+!53 = distinct !{!53, !11}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"rbimpl_rstring_getmem: argument 0"}
+!56 = distinct !{!56, !"rbimpl_rstring_getmem"}
+!57 = distinct !{!57, !11}
+!58 = distinct !{!58, !11}
+!59 = distinct !{!59, !11}

@@ -6722,7 +6722,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIP
   %149 = load i32, ptr %148, align 8, !tbaa !90
   %150 = and i32 %149, 7
   %or.cond.not = icmp eq i32 %150, 0
-  %.pre = load ptr, ptr %12, align 8, !tbaa !21
+  %.pre = load ptr, ptr %12, align 8, !tbaa !21, !noalias !178
   br i1 %or.cond.not, label %151, label %.critedge
 
 151:                                              ; preds = %142

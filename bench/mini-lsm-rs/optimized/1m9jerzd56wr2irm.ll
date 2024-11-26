@@ -3045,7 +3045,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds i8, ptr %102, i64 186
-  %110 = load i16, ptr %109, align 2, !noalias !427, !noundef !21
+  %110 = load i16, ptr %109, align 2, !noalias !435, !noundef !21
   %.not.i.i.i = icmp eq i16 %110, 0
   br i1 %.not.i.i.i, label %111, label %130
 
@@ -3525,7 +3525,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %100 = getelementptr inbounds i8, ptr %91, i64 802
-  %101 = load i16, ptr %100, align 2, !noalias !21, !noundef !21
+  %101 = load i16, ptr %100, align 2, !noalias !495, !noundef !21
   %102 = icmp ugt i16 %101, 4
   br i1 %102, label %.thread135, label %.lr.ph.preheader
 
@@ -3553,7 +3553,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds i8, ptr %106, i64 802
-  %114 = load i16, ptr %113, align 2, !noalias !21, !noundef !21
+  %114 = load i16, ptr %113, align 2, !noalias !503, !noundef !21
   %.not.i.i.i = icmp eq i16 %114, 0
   br i1 %.not.i.i.i, label %115, label %130
 
@@ -3600,7 +3600,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   store ptr %.sroa.0.0.i151, ptr %.sink.i.sroa.gep109, align 8, !noalias !495
   store i64 %.sroa.3.0.i150, ptr %.sroa.24.8..sroa_idx27.i.i, align 8, !noalias !495
   %124 = getelementptr inbounds i8, ptr %123, i64 802
-  %125 = load i16, ptr %124, align 2, !noalias !21, !noundef !21
+  %125 = load i16, ptr %124, align 2, !noalias !495, !noundef !21
   %126 = zext i16 %125 to i64
   %127 = add nuw nsw i64 %104, 1
   %128 = add nuw nsw i64 %127, %126
@@ -3620,7 +3620,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   store i64 %.sroa.3.0.i150, ptr %.sroa.24.8..sroa_idx.i.i, align 8, !noalias !495
   %133 = add nuw nsw i64 %104, 1
   %134 = getelementptr inbounds i8, ptr %132, i64 802
-  %135 = load i16, ptr %134, align 2, !noalias !21, !noundef !21
+  %135 = load i16, ptr %134, align 2, !noalias !495, !noundef !21
   %136 = zext i16 %135 to i64
   %137 = add nuw nsw i64 %133, %136
   %138 = icmp samesign ult i64 %137, 12
@@ -3766,7 +3766,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
-  %202 = load i16, ptr %147, align 2, !noalias !21, !noundef !21
+  %202 = load i16, ptr %147, align 2, !noalias !495, !noundef !21
   %203 = icmp ugt i16 %202, 4
   br i1 %203, label %.thread135, label %.lr.ph
 
@@ -4498,7 +4498,7 @@ default.unreachable:                              ; preds = %6, %.lr.ph.preheade
   %.val26.i.i = load i64, ptr %.sroa.7.1.i, align 8, !alias.scope !620, !noalias !622
   %9 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 712
   %10 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 802
-  %11 = load i16, ptr %10, align 2, !noalias !625, !noundef !21
+  %11 = load i16, ptr %10, align 2, !noalias !622, !noundef !21
   %12 = zext i16 %11 to i64
   %13 = getelementptr inbounds i64, ptr %9, i64 %12
   br label %14
@@ -4529,7 +4529,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN110_$LT$core..i
   %.val24.i.i = load i64, ptr %.sroa.7.1.i, align 8, !alias.scope !620, !noalias !622
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 712
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 802
-  %22 = load i16, ptr %21, align 2, !noalias !625, !noundef !21
+  %22 = load i16, ptr %21, align 2, !noalias !622, !noundef !21
   %23 = zext i16 %22 to i64
   %24 = getelementptr inbounds i64, ptr %20, i64 %23
   br label %25
@@ -4556,7 +4556,7 @@ default.unreachable.i37.i.i:                      ; preds = %"_ZN110_$LT$core..i
 
 29:                                               ; preds = %6
   %30 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 802
-  %31 = load i16, ptr %30, align 2, !noalias !625, !noundef !21
+  %31 = load i16, ptr %30, align 2, !noalias !622, !noundef !21
   %32 = zext i16 %31 to i64
   br label %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17ha6bc9730cf135668E.exit.i.thread"
 

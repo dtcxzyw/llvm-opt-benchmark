@@ -818,7 +818,7 @@ _ZNSt5stackIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEESt
 
 74:                                               ; preds = %.lr.ph203, %._crit_edge202
   %75 = phi ptr [ %51, %.lr.ph203 ], [ %303, %._crit_edge202 ]
-  %76 = load ptr, ptr %54, align 8
+  %76 = load ptr, ptr %54, align 8, !noalias !6
   %77 = icmp eq ptr %75, %76
   br i1 %77, label %78, label %_ZNSt5stackIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEESt5dequeIS3_SaIS3_EEE3topEv.exit
 

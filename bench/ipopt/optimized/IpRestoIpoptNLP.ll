@@ -7697,7 +7697,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit30:       ; preds = %_ZN5Ipopt8SmartPtrI
 define void @_ZN5Ipopt13RestoIpoptNLP1cERKNS_6VectorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.19") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.19", align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 208
-  %6 = load ptr, ptr %5, align 8, !noalias !30
+  %6 = load ptr, ptr %5, align 8, !noalias !69
   %7 = load ptr, ptr %6, align 8, !noalias !69
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i
@@ -7715,7 +7715,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i: ; preds = %_ZNK5Ipopt14Com
   %12 = load i32, ptr %11, align 8, !noalias !69
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 8, !noalias !69
-  %.pre = load ptr, ptr %5, align 8, !noalias !30
+  %.pre = load ptr, ptr %5, align 8, !noalias !72
   br label %_ZNK5Ipopt14CompoundVector7GetCompEi.exit
 
 _ZNK5Ipopt14CompoundVector7GetCompEi.exit:        ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i
@@ -8225,7 +8225,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13: ; 
 define void @_ZN5Ipopt13RestoIpoptNLP1dERKNS_6VectorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.19") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.19", align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 208
-  %6 = load ptr, ptr %5, align 8, !noalias !30
+  %6 = load ptr, ptr %5, align 8, !noalias !81
   %7 = load ptr, ptr %6, align 8, !noalias !81
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i
@@ -8243,7 +8243,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i: ; preds = %_ZNK5Ipopt14Com
   %12 = load i32, ptr %11, align 8, !noalias !81
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 8, !noalias !81
-  %.pre = load ptr, ptr %5, align 8, !noalias !30
+  %.pre = load ptr, ptr %5, align 8, !noalias !84
   br label %_ZNK5Ipopt14CompoundVector7GetCompEi.exit
 
 _ZNK5Ipopt14CompoundVector7GetCompEi.exit:        ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i
@@ -10347,7 +10347,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i45: ; preds = %_ZNK5Ipopt14C
           to label %47 unwind label %227
 
 47:                                               ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i45
-  %48 = load ptr, ptr %6, align 8, !noalias !30
+  %48 = load ptr, ptr %6, align 8, !noalias !132
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !noalias !132
   %.not.i.i51 = icmp eq ptr %50, null
@@ -10367,7 +10367,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i52: ; preds = %_ZNK5Ipopt14C
   %56 = load i32, ptr %55, align 8, !noalias !132
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %55, align 8, !noalias !132
-  %.pre = load ptr, ptr %6, align 8, !noalias !30
+  %.pre = load ptr, ptr %6, align 8, !noalias !135
   br label %_ZNK5Ipopt14CompoundVector7GetCompEi.exit57
 
 _ZNK5Ipopt14CompoundVector7GetCompEi.exit57:      ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i52, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i55
@@ -10392,7 +10392,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i59: ; preds = %_ZNK5Ipopt14C
   %66 = load i32, ptr %65, align 8, !noalias !135
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %65, align 8, !noalias !135
-  %.pre194 = load ptr, ptr %6, align 8, !noalias !30
+  %.pre194 = load ptr, ptr %6, align 8, !noalias !138
   br label %_ZNK5Ipopt14CompoundVector7GetCompEi.exit64
 
 _ZNK5Ipopt14CompoundVector7GetCompEi.exit64:      ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i59, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i62

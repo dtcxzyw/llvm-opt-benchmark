@@ -2481,20 +2481,20 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %11, %14
   %42 = add nuw i32 %22, 1
   store i32 %42, ptr %6, align 4, !noalias !36
   store ptr %25, ptr %35, align 8, !noalias !36
-  %43 = load ptr, ptr %2, align 8
+  %43 = load ptr, ptr %2, align 8, !noalias !36
   %44 = load i32, ptr %6, align 4, !noalias !36
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 45:                                               ; preds = %._crit_edge.i.i, %.loopexit40
   %46 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %25) #15, !noalias !36
-  %.pre.i = load ptr, ptr %2, align 8
+  %.pre.i = load ptr, ptr %2, align 8, !noalias !36
   %.pre6.i = load i32, ptr %6, align 4, !noalias !36
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %45, %41
   %47 = phi i32 [ %44, %41 ], [ %.pre6.i, %45 ], [ %22, %.lr.ph.i.i ]
   %48 = phi ptr [ %43, %41 ], [ %.pre.i, %45 ], [ %23, %.lr.ph.i.i ]
-  %49 = load ptr, ptr %4, align 8
+  %49 = load ptr, ptr %4, align 8, !noalias !36
   %50 = load i32, ptr %5, align 8, !noalias !36
   br label %_ZL10OnlyUsedByPN4llvm5ValueES1_.exit
 

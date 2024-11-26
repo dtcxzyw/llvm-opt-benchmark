@@ -1209,7 +1209,7 @@ define void @_ZN8uu_rmdir6uumain6uumain19points_to_directory17h21cf8dea487b7256E
 
 7:                                                ; preds = %3
   %.sroa.816.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
-  %.sroa.816.0.copyload = load i32, ptr %.sroa.816.0..sroa_idx, align 8, !alias.scope !432, !noalias !431
+  %.sroa.816.0.copyload = load i32, ptr %.sroa.816.0..sroa_idx, align 8, !alias.scope !432, !noalias !433
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4), !noalias !420
   %8 = and i32 %.sroa.816.0.copyload, 61440
   %9 = icmp eq i32 %8, 16384
@@ -1220,7 +1220,7 @@ define void @_ZN8uu_rmdir6uumain6uumain19points_to_directory17h21cf8dea487b7256E
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = load ptr, ptr %13, align 8, !alias.scope !433, !noalias !434, !nonnull !5, !noundef !5
+  %14 = load ptr, ptr %13, align 8, !alias.scope !429, !noalias !431, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4), !noalias !420
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
@@ -1772,9 +1772,8 @@ attributes #7 = { cold }
 !426 = distinct !{!426, !427, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h9020745a979c3ad7E.llvm.9183683304419771036: argument 0"}
 !427 = distinct !{!427, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h9020745a979c3ad7E.llvm.9183683304419771036"}
 !428 = !{i64 0, i64 3}
-!429 = !{!430, !426}
+!429 = !{!430}
 !430 = distinct !{!430, !427, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h9020745a979c3ad7E.llvm.9183683304419771036: argument 1"}
-!431 = !{!423}
+!431 = !{!426, !421, !423}
 !432 = !{!426, !430}
-!433 = !{!430}
-!434 = !{!426, !421, !423}
+!433 = !{!423}

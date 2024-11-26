@@ -1861,8 +1861,8 @@ define dso_local void @_ZN5clang12ast_matchers8internal18hasAnySelectorFuncEN4ll
 
 _ZN5clang12ast_matchers8internalL14vectorFromRefsB5cxx11EN4llvm8ArrayRefIPKNS2_9StringRefEEE.exit.loopexit: ; preds = %.lr.ph.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre5 = load ptr, ptr %4, align 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !18
+  %.pre5 = load ptr, ptr %4, align 8, !noalias !18
   br label %_ZN5clang12ast_matchers8internalL14vectorFromRefsB5cxx11EN4llvm8ArrayRefIPKNS2_9StringRefEEE.exit
 
 _ZN5clang12ast_matchers8internalL14vectorFromRefsB5cxx11EN4llvm8ArrayRefIPKNS2_9StringRefEEE.exit: ; preds = %7, %_ZN5clang12ast_matchers8internalL14vectorFromRefsB5cxx11EN4llvm8ArrayRefIPKNS2_9StringRefEEE.exit.loopexit

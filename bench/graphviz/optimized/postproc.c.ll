@@ -410,7 +410,7 @@ define void @gv_postprocess(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %.sroa.23.0488.i = phi double [ 0xC1DFFFFFFFC00000, %.lr.ph494.i ], [ %.sroa.23.2.lcssa.i, %._crit_edge478.i ]
   %.sroa.16.0487.i = phi double [ 0x41DFFFFFFFC00000, %.lr.ph494.i ], [ %.sroa.16.2.lcssa.i, %._crit_edge478.i ]
   %.sroa.0371.0486.i = phi double [ 0x41DFFFFFFFC00000, %.lr.ph494.i ], [ %.sroa.0371.2.lcssa.i, %._crit_edge478.i ]
-  %126 = load i8, ptr @Flip, align 1
+  %126 = load i8, ptr @Flip, align 1, !noalias !4
   %127 = trunc nuw i8 %126 to i1
   %128 = getelementptr inbounds i8, ptr %.1492.i, i64 16
   %129 = load ptr, ptr %128, align 8, !noalias !4

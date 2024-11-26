@@ -516,7 +516,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18TargetRegisterInfo23checkAllSupe
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 %10, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %17 = load i32, ptr %16, align 8
+  %17 = load i32, ptr %16, align 8, !noalias !9
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %_ZN4llvm9PrintableD2Ev.exit39, label %19
 

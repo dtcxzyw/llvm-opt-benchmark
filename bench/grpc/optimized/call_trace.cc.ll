@@ -3937,7 +3937,7 @@ _ZZZZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp21.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !97)
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  %27 = load i8, ptr %agg.tmp, align 8
+  %27 = load i8, ptr %agg.tmp, align 8, !noalias !103
   %tobool.i.i.i1 = trunc i8 %27 to i1
   %frombool.i.i.i = and i8 %27, 1
   store i8 %frombool.i.i.i, ptr %agg.result, align 8, !alias.scope !103

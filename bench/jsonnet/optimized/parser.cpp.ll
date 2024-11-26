@@ -17130,13 +17130,13 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit356: ; preds = 
   br i1 %845, label %846, label %865
 
 846:                                              ; preds = %842
-  %.val.val.i479 = load ptr, ptr %.val.i482.pre725, align 8, !noalias !189
+  %.val.val.i479 = load ptr, ptr %.val.i482.pre725, align 8, !noalias !191
   %847 = getelementptr inbounds i8, ptr %.val.val.i479, i64 16
   invoke void @_ZN7jsonnet8internal5TokenC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(192) %81, ptr noundef nonnull align 8 dereferenceable(192) %847)
           to label %848 unwind label %861
 
 848:                                              ; preds = %846
-  %849 = load ptr, ptr %1, align 8, !noalias !189
+  %849 = load ptr, ptr %1, align 8, !noalias !191
   %850 = load ptr, ptr %849, align 8
   %851 = getelementptr inbounds i8, ptr %849, i64 16
   %852 = load i64, ptr %851, align 8
@@ -17155,7 +17155,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit356: ; preds = 
 
 858:                                              ; preds = %856
   call void @_ZN7jsonnet8internal5TokenD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %81) #24
-  %.val.i482.pre = load ptr, ptr %1, align 8, !noalias !192
+  %.val.i482.pre = load ptr, ptr %1, align 8, !noalias !188
   br label %865
 
 859:                                              ; preds = %836
@@ -17178,13 +17178,13 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit356: ; preds = 
   %.val.i482 = phi ptr [ %.val.i482.pre, %858 ], [ %.val.i482.pre725, %842 ], [ %.val172, %838 ]
   %.050 = phi ptr [ %857, %858 ], [ null, %842 ], [ null, %838 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
-  %.val.val.i483 = load ptr, ptr %.val.i482, align 8, !noalias !192
+  %.val.val.i483 = load ptr, ptr %.val.i482, align 8, !noalias !188
   %866 = getelementptr inbounds i8, ptr %.val.val.i483, i64 16
   invoke void @_ZN7jsonnet8internal5TokenC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(192) %83, ptr noundef nonnull align 8 dereferenceable(192) %866)
           to label %867 unwind label %889
 
 867:                                              ; preds = %865
-  %868 = load ptr, ptr %1, align 8, !noalias !192
+  %868 = load ptr, ptr %1, align 8, !noalias !188
   %869 = load ptr, ptr %868, align 8
   %870 = getelementptr inbounds i8, ptr %868, i64 16
   %871 = load i64, ptr %870, align 8
@@ -17205,14 +17205,14 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit356: ; preds = 
           to label %879 unwind label %889
 
 879:                                              ; preds = %877
-  %.val.i486 = load ptr, ptr %1, align 8, !noalias !195
-  %.val.val.i487 = load ptr, ptr %.val.i486, align 8, !noalias !195
+  %.val.i486 = load ptr, ptr %1, align 8, !noalias !194
+  %.val.val.i487 = load ptr, ptr %.val.i486, align 8, !noalias !194
   %880 = getelementptr inbounds i8, ptr %.val.val.i487, i64 16
   invoke void @_ZN7jsonnet8internal5TokenC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(192) %84, ptr noundef nonnull align 8 dereferenceable(192) %880)
           to label %881 unwind label %889
 
 881:                                              ; preds = %879
-  %882 = load ptr, ptr %1, align 8, !noalias !195
+  %882 = load ptr, ptr %1, align 8, !noalias !194
   %883 = load ptr, ptr %882, align 8
   %884 = getelementptr inbounds i8, ptr %882, i64 16
   %885 = load i64, ptr %884, align 8
@@ -17458,7 +17458,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit349.sink.split: 
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit349.backedge: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit349.sink.split, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i543, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i475, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i347
   %.0561.be = phi i8 [ %.1562, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i347 ], [ %.2, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i475 ], [ %.3, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i543 ], [ %.4.ph, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit349.sink.split ]
-  br label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit349, !llvm.loop !198
+  br label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit349, !llvm.loop !197
 
 _ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EED2Ev.exit: ; preds = %289, %_ZSt8_DestroyIPN7jsonnet8internal17ComprehensionSpecES2_EvT_S4_RSaIT0_E.exit.i, %174
   call void @_ZN7jsonnet8internal5TokenD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %9) #24
@@ -17496,7 +17496,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   call void @_ZN7jsonnet8internal11ObjectFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %.05.i.i.i.i548) #24
   %952 = getelementptr inbounds i8, ptr %.05.i.i.i.i548, i64 288
   %.not.i.i.i.i549 = icmp eq ptr %952, %951
-  br i1 %.not.i.i.i.i549, label %_ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i547, !llvm.loop !199
+  br i1 %.not.i.i.i.i549, label %_ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i547, !llvm.loop !198
 
 _ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i547
   %.pr.i550 = load ptr, ptr %6, align 8
@@ -17732,14 +17732,14 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit: ; preds = %_Z
           to label %61 unwind label %495
 
 61:                                               ; preds = %59
-  %.val.i = load ptr, ptr %1, align 8, !noalias !200
-  %.val.val.i = load ptr, ptr %.val.i, align 8, !noalias !200
+  %.val.i = load ptr, ptr %1, align 8, !noalias !199
+  %.val.val.i = load ptr, ptr %.val.i, align 8, !noalias !199
   %62 = getelementptr inbounds i8, ptr %.val.val.i, i64 16
   invoke void @_ZN7jsonnet8internal5TokenC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %62)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv.exit unwind label %495
 
 _ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv.exit: ; preds = %61
-  %63 = load ptr, ptr %1, align 8, !noalias !200
+  %63 = load ptr, ptr %1, align 8, !noalias !199
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %63, i64 16
   %66 = load i64, ptr %65, align 8
@@ -18722,8 +18722,8 @@ _ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i44: ; 
   br label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit46
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit46: ; preds = %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i44, %338
-  %.val.i47 = load ptr, ptr %1, align 8, !noalias !203
-  %.val.val.i48 = load ptr, ptr %.val.i47, align 8, !noalias !203
+  %.val.i47 = load ptr, ptr %1, align 8, !noalias !202
+  %.val.val.i48 = load ptr, ptr %.val.i47, align 8, !noalias !202
   %339 = getelementptr inbounds i8, ptr %.val.val.i48, i64 16
   %340 = load i32, ptr %339, align 8
   store i32 %340, ptr %18, align 8
@@ -19019,7 +19019,7 @@ _ZSt8_DestroyIPN7jsonnet8internal13FodderElementEEvT_S4_.exit721: ; preds = %_ZS
 _ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv.exit50: ; preds = %414
   %427 = getelementptr inbounds i8, ptr %.val.val.i48, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %427, i64 32, i1 false)
-  %428 = load ptr, ptr %1, align 8, !noalias !203
+  %428 = load ptr, ptr %1, align 8, !noalias !202
   %429 = load ptr, ptr %428, align 8
   %430 = getelementptr inbounds i8, ptr %428, i64 16
   %431 = load i64, ptr %430, align 8
@@ -19211,7 +19211,7 @@ _ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i: ; 
 _ZN7jsonnet8internal5TokenD2Ev.exit:              ; preds = %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i, %482
   %483 = load i32, ptr %0, align 8
   %484 = icmp eq i32 %483, 24
-  br i1 %484, label %.lr.ph, label %._crit_edge, !llvm.loop !206
+  br i1 %484, label %.lr.ph, label %._crit_edge, !llvm.loop !205
 
 485:                                              ; preds = %47
   %486 = landingpad { ptr, i32 }
@@ -20865,7 +20865,7 @@ define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EED
   tail call void @_ZN7jsonnet8internal11ObjectFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %.05.i.i.i) #24
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 288
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !199
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !198
 
 _ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -20992,7 +20992,7 @@ _ZSt10_ConstructIN7jsonnet8internal11ObjectFieldEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i.i.i, i64 288
   %21 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 288
   %.not.i.i.i.i = icmp eq ptr %20, %19
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal11ObjectFieldESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !207
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal11ObjectFieldESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !206
 
 22:                                               ; preds = %.lr.ph.i.i.i.i
   %23 = landingpad { ptr, i32 }
@@ -21007,7 +21007,7 @@ _ZSt10_ConstructIN7jsonnet8internal11ObjectFieldEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
   tail call void @_ZN7jsonnet8internal11ObjectFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %.05.i.i.i.i.i.i) #24
   %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 288
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %.014.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldEEvT_S4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !199
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldEEvT_S4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !198
 
 _ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldEEvT_S4_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %22
   invoke void @__cxa_rethrow() #26
@@ -21117,7 +21117,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit: ; preds = %_ZS
   tail call void @_ZN7jsonnet8internal11ObjectFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %.05.i.i.i.i3) #24
   %20 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 288
   %.not.i.i.i.i4 = icmp eq ptr %20, %19
-  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !199
+  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !198
 
 _ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i2
   %.pr.i5 = load ptr, ptr %16, align 8
@@ -21545,7 +21545,7 @@ _ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EED2Ev.exit: ; preds = 
   tail call void @_ZN7jsonnet8internal11ObjectFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %.05.i.i.i.i9) #24
   %27 = getelementptr inbounds i8, ptr %.05.i.i.i.i9, i64 288
   %.not.i.i.i.i10 = icmp eq ptr %27, %26
-  br i1 %.not.i.i.i.i10, label %_ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i8, !llvm.loop !199
+  br i1 %.not.i.i.i.i10, label %_ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i8, !llvm.loop !198
 
 _ZSt8_DestroyIPN7jsonnet8internal11ObjectFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i8
   %.pr.i11 = load ptr, ptr %23, align 8
@@ -21627,7 +21627,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %24 = getelementptr inbounds i8, ptr %.sroa.08.021, i64 96
   %25 = getelementptr inbounds i8, ptr %.022, i64 96
   %.not = icmp eq ptr %24, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !208
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !207
 
 26:                                               ; preds = %.lr.ph
   %27 = landingpad { ptr, i32 }
@@ -22068,7 +22068,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.in.i = getelementptr inbounds i8, ptr %.02127.i, i64 %.in.v.i
   %.021.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.021.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !209
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !208
 
 ._crit_edge.i:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   br i1 %11, label %._crit_edge.thread.i, label %17
@@ -22483,123 +22483,123 @@ define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN7jsonnet8internal11Objec
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.012 = phi ptr [ %82, %.lr.ph ], [ %2, %4 ]
   %.0911 = phi ptr [ %81, %.lr.ph ], [ %0, %4 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
-  %5 = load i32, ptr %.0911, align 8, !alias.scope !213, !noalias !210
-  store i32 %5, ptr %.012, align 8, !alias.scope !210, !noalias !213
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
+  %5 = load i32, ptr %.0911, align 8, !alias.scope !212, !noalias !209
+  store i32 %5, ptr %.012, align 8, !alias.scope !209, !noalias !212
   %6 = getelementptr inbounds i8, ptr %.012, i64 8
   %7 = getelementptr inbounds i8, ptr %.0911, i64 8
-  %8 = load ptr, ptr %7, align 8, !alias.scope !213, !noalias !210
-  store ptr %8, ptr %6, align 8, !alias.scope !210, !noalias !213
+  %8 = load ptr, ptr %7, align 8, !alias.scope !212, !noalias !209
+  store ptr %8, ptr %6, align 8, !alias.scope !209, !noalias !212
   %9 = getelementptr inbounds i8, ptr %.012, i64 16
   %10 = getelementptr inbounds i8, ptr %.0911, i64 16
-  %11 = load ptr, ptr %10, align 8, !alias.scope !213, !noalias !210
-  store ptr %11, ptr %9, align 8, !alias.scope !210, !noalias !213
+  %11 = load ptr, ptr %10, align 8, !alias.scope !212, !noalias !209
+  store ptr %11, ptr %9, align 8, !alias.scope !209, !noalias !212
   %12 = getelementptr inbounds i8, ptr %.012, i64 24
   %13 = getelementptr inbounds i8, ptr %.0911, i64 24
-  %14 = load ptr, ptr %13, align 8, !alias.scope !213, !noalias !210
-  store ptr %14, ptr %12, align 8, !alias.scope !210, !noalias !213
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !213, !noalias !210
+  %14 = load ptr, ptr %13, align 8, !alias.scope !212, !noalias !209
+  store ptr %14, ptr %12, align 8, !alias.scope !209, !noalias !212
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !212, !noalias !209
   %15 = getelementptr inbounds i8, ptr %.012, i64 32
   %16 = getelementptr inbounds i8, ptr %.0911, i64 32
-  %17 = load ptr, ptr %16, align 8, !alias.scope !213, !noalias !210
-  store ptr %17, ptr %15, align 8, !alias.scope !210, !noalias !213
+  %17 = load ptr, ptr %16, align 8, !alias.scope !212, !noalias !209
+  store ptr %17, ptr %15, align 8, !alias.scope !209, !noalias !212
   %18 = getelementptr inbounds i8, ptr %.012, i64 40
   %19 = getelementptr inbounds i8, ptr %.0911, i64 40
-  %20 = load ptr, ptr %19, align 8, !alias.scope !213, !noalias !210
-  store ptr %20, ptr %18, align 8, !alias.scope !210, !noalias !213
+  %20 = load ptr, ptr %19, align 8, !alias.scope !212, !noalias !209
+  store ptr %20, ptr %18, align 8, !alias.scope !209, !noalias !212
   %21 = getelementptr inbounds i8, ptr %.012, i64 48
   %22 = getelementptr inbounds i8, ptr %.0911, i64 48
-  %23 = load ptr, ptr %22, align 8, !alias.scope !213, !noalias !210
-  store ptr %23, ptr %21, align 8, !alias.scope !210, !noalias !213
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !213, !noalias !210
+  %23 = load ptr, ptr %22, align 8, !alias.scope !212, !noalias !209
+  store ptr %23, ptr %21, align 8, !alias.scope !209, !noalias !212
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !212, !noalias !209
   %24 = getelementptr inbounds i8, ptr %.012, i64 56
   %25 = getelementptr inbounds i8, ptr %.0911, i64 56
-  %26 = load ptr, ptr %25, align 8, !alias.scope !213, !noalias !210
-  store ptr %26, ptr %24, align 8, !alias.scope !210, !noalias !213
+  %26 = load ptr, ptr %25, align 8, !alias.scope !212, !noalias !209
+  store ptr %26, ptr %24, align 8, !alias.scope !209, !noalias !212
   %27 = getelementptr inbounds i8, ptr %.012, i64 64
   %28 = getelementptr inbounds i8, ptr %.0911, i64 64
-  %29 = load ptr, ptr %28, align 8, !alias.scope !213, !noalias !210
-  store ptr %29, ptr %27, align 8, !alias.scope !210, !noalias !213
+  %29 = load ptr, ptr %28, align 8, !alias.scope !212, !noalias !209
+  store ptr %29, ptr %27, align 8, !alias.scope !209, !noalias !212
   %30 = getelementptr inbounds i8, ptr %.012, i64 72
   %31 = getelementptr inbounds i8, ptr %.0911, i64 72
-  %32 = load ptr, ptr %31, align 8, !alias.scope !213, !noalias !210
-  store ptr %32, ptr %30, align 8, !alias.scope !210, !noalias !213
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false), !alias.scope !213, !noalias !210
+  %32 = load ptr, ptr %31, align 8, !alias.scope !212, !noalias !209
+  store ptr %32, ptr %30, align 8, !alias.scope !209, !noalias !212
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false), !alias.scope !212, !noalias !209
   %33 = getelementptr inbounds i8, ptr %.012, i64 80
   %34 = getelementptr inbounds i8, ptr %.0911, i64 80
-  %35 = load ptr, ptr %34, align 8, !alias.scope !213, !noalias !210
-  store ptr %35, ptr %33, align 8, !alias.scope !210, !noalias !213
+  %35 = load ptr, ptr %34, align 8, !alias.scope !212, !noalias !209
+  store ptr %35, ptr %33, align 8, !alias.scope !209, !noalias !212
   %36 = getelementptr inbounds i8, ptr %.012, i64 88
   %37 = getelementptr inbounds i8, ptr %.0911, i64 88
-  %38 = load ptr, ptr %37, align 8, !alias.scope !213, !noalias !210
-  store ptr %38, ptr %36, align 8, !alias.scope !210, !noalias !213
+  %38 = load ptr, ptr %37, align 8, !alias.scope !212, !noalias !209
+  store ptr %38, ptr %36, align 8, !alias.scope !209, !noalias !212
   %39 = getelementptr inbounds i8, ptr %.012, i64 96
   %40 = getelementptr inbounds i8, ptr %.0911, i64 96
-  %41 = load ptr, ptr %40, align 8, !alias.scope !213, !noalias !210
-  store ptr %41, ptr %39, align 8, !alias.scope !210, !noalias !213
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false), !alias.scope !213, !noalias !210
+  %41 = load ptr, ptr %40, align 8, !alias.scope !212, !noalias !209
+  store ptr %41, ptr %39, align 8, !alias.scope !209, !noalias !212
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false), !alias.scope !212, !noalias !209
   %42 = getelementptr inbounds i8, ptr %.012, i64 104
   %43 = getelementptr inbounds i8, ptr %.0911, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false), !alias.scope !215
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false), !alias.scope !214
   %44 = getelementptr inbounds i8, ptr %.012, i64 128
   %45 = getelementptr inbounds i8, ptr %.0911, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(64) %45) #24
   %46 = getelementptr inbounds i8, ptr %.012, i64 160
   %47 = getelementptr inbounds i8, ptr %.0911, i64 160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %47, i64 32, i1 false), !alias.scope !215
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %47, i64 32, i1 false), !alias.scope !214
   %48 = getelementptr inbounds i8, ptr %.012, i64 192
   %49 = getelementptr inbounds i8, ptr %.0911, i64 192
-  %50 = load ptr, ptr %49, align 8, !alias.scope !213, !noalias !210
-  store ptr %50, ptr %48, align 8, !alias.scope !210, !noalias !213
+  %50 = load ptr, ptr %49, align 8, !alias.scope !212, !noalias !209
+  store ptr %50, ptr %48, align 8, !alias.scope !209, !noalias !212
   %51 = getelementptr inbounds i8, ptr %.012, i64 200
   %52 = getelementptr inbounds i8, ptr %.0911, i64 200
-  %53 = load ptr, ptr %52, align 8, !alias.scope !213, !noalias !210
-  store ptr %53, ptr %51, align 8, !alias.scope !210, !noalias !213
+  %53 = load ptr, ptr %52, align 8, !alias.scope !212, !noalias !209
+  store ptr %53, ptr %51, align 8, !alias.scope !209, !noalias !212
   %54 = getelementptr inbounds i8, ptr %.012, i64 208
   %55 = getelementptr inbounds i8, ptr %.0911, i64 208
-  %56 = load ptr, ptr %55, align 8, !alias.scope !213, !noalias !210
-  store ptr %56, ptr %54, align 8, !alias.scope !210, !noalias !213
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !213, !noalias !210
+  %56 = load ptr, ptr %55, align 8, !alias.scope !212, !noalias !209
+  store ptr %56, ptr %54, align 8, !alias.scope !209, !noalias !212
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !212, !noalias !209
   %57 = getelementptr inbounds i8, ptr %.012, i64 216
   %58 = getelementptr inbounds i8, ptr %.0911, i64 216
-  %59 = load i8, ptr %58, align 8, !alias.scope !213, !noalias !210
+  %59 = load i8, ptr %58, align 8, !alias.scope !212, !noalias !209
   %60 = and i8 %59, 1
-  store i8 %60, ptr %57, align 8, !alias.scope !210, !noalias !213
+  store i8 %60, ptr %57, align 8, !alias.scope !209, !noalias !212
   %61 = getelementptr inbounds i8, ptr %.012, i64 224
   %62 = getelementptr inbounds i8, ptr %.0911, i64 224
-  %63 = load ptr, ptr %62, align 8, !alias.scope !213, !noalias !210
-  store ptr %63, ptr %61, align 8, !alias.scope !210, !noalias !213
+  %63 = load ptr, ptr %62, align 8, !alias.scope !212, !noalias !209
+  store ptr %63, ptr %61, align 8, !alias.scope !209, !noalias !212
   %64 = getelementptr inbounds i8, ptr %.012, i64 232
   %65 = getelementptr inbounds i8, ptr %.0911, i64 232
-  %66 = load ptr, ptr %65, align 8, !alias.scope !213, !noalias !210
-  store ptr %66, ptr %64, align 8, !alias.scope !210, !noalias !213
+  %66 = load ptr, ptr %65, align 8, !alias.scope !212, !noalias !209
+  store ptr %66, ptr %64, align 8, !alias.scope !209, !noalias !212
   %67 = getelementptr inbounds i8, ptr %.012, i64 240
   %68 = getelementptr inbounds i8, ptr %.0911, i64 240
-  %69 = load ptr, ptr %68, align 8, !alias.scope !213, !noalias !210
-  store ptr %69, ptr %67, align 8, !alias.scope !210, !noalias !213
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false), !alias.scope !213, !noalias !210
+  %69 = load ptr, ptr %68, align 8, !alias.scope !212, !noalias !209
+  store ptr %69, ptr %67, align 8, !alias.scope !209, !noalias !212
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false), !alias.scope !212, !noalias !209
   %70 = getelementptr inbounds i8, ptr %.012, i64 248
   %71 = getelementptr inbounds i8, ptr %.0911, i64 248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !alias.scope !215
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !alias.scope !214
   %72 = getelementptr inbounds i8, ptr %.012, i64 264
   %73 = getelementptr inbounds i8, ptr %.0911, i64 264
-  %74 = load ptr, ptr %73, align 8, !alias.scope !213, !noalias !210
-  store ptr %74, ptr %72, align 8, !alias.scope !210, !noalias !213
+  %74 = load ptr, ptr %73, align 8, !alias.scope !212, !noalias !209
+  store ptr %74, ptr %72, align 8, !alias.scope !209, !noalias !212
   %75 = getelementptr inbounds i8, ptr %.012, i64 272
   %76 = getelementptr inbounds i8, ptr %.0911, i64 272
-  %77 = load ptr, ptr %76, align 8, !alias.scope !213, !noalias !210
-  store ptr %77, ptr %75, align 8, !alias.scope !210, !noalias !213
+  %77 = load ptr, ptr %76, align 8, !alias.scope !212, !noalias !209
+  store ptr %77, ptr %75, align 8, !alias.scope !209, !noalias !212
   %78 = getelementptr inbounds i8, ptr %.012, i64 280
   %79 = getelementptr inbounds i8, ptr %.0911, i64 280
-  %80 = load ptr, ptr %79, align 8, !alias.scope !213, !noalias !210
-  store ptr %80, ptr %78, align 8, !alias.scope !210, !noalias !213
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false), !alias.scope !213, !noalias !210
+  %80 = load ptr, ptr %79, align 8, !alias.scope !212, !noalias !209
+  store ptr %80, ptr %78, align 8, !alias.scope !209, !noalias !212
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false), !alias.scope !212, !noalias !209
   tail call void @_ZN7jsonnet8internal11ObjectFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %.0911) #24
   %81 = getelementptr inbounds i8, ptr %.0911, i64 288
   %82 = getelementptr inbounds i8, ptr %.012, i64 288
   %.not = icmp eq ptr %81, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !216
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi ptr [ %2, %4 ], [ %82, %.lr.ph ]
@@ -22921,7 +22921,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #25
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !217
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !216
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -22943,7 +22943,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #25
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !218
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -23061,7 +23061,7 @@ _ZSt10_ConstructIN7jsonnet8internal5Array7ElementEJRKS3_EEvPT_DpOT0_.exit.i.i.i.
   %23 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i.i.i, i64 32
   %24 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %23, %19
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal5Array7ElementESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !219
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal5Array7ElementESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !218
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
   %26 = landingpad { ptr, i32 }
@@ -23473,62 +23473,62 @@ _ZNSt12_Vector_baseIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_M_allocateE
 .lr.ph.i.i.i:                                     ; preds = %43, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %80, %.lr.ph.i.i.i ], [ %28, %43 ]
   %.0911.i.i.i = phi ptr [ %79, %.lr.ph.i.i.i ], [ %11, %43 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
-  %45 = load i32, ptr %.0911.i.i.i, align 8, !alias.scope !223, !noalias !220
-  store i32 %45, ptr %.012.i.i.i, align 8, !alias.scope !220, !noalias !223
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
+  %45 = load i32, ptr %.0911.i.i.i, align 8, !alias.scope !222, !noalias !219
+  store i32 %45, ptr %.012.i.i.i, align 8, !alias.scope !219, !noalias !222
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %48 = load ptr, ptr %47, align 8, !alias.scope !223, !noalias !220
-  store ptr %48, ptr %46, align 8, !alias.scope !220, !noalias !223
+  %48 = load ptr, ptr %47, align 8, !alias.scope !222, !noalias !219
+  store ptr %48, ptr %46, align 8, !alias.scope !219, !noalias !222
   %49 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %50 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %51 = load ptr, ptr %50, align 8, !alias.scope !223, !noalias !220
-  store ptr %51, ptr %49, align 8, !alias.scope !220, !noalias !223
+  %51 = load ptr, ptr %50, align 8, !alias.scope !222, !noalias !219
+  store ptr %51, ptr %49, align 8, !alias.scope !219, !noalias !222
   %52 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %53 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %54 = load ptr, ptr %53, align 8, !alias.scope !223, !noalias !220
-  store ptr %54, ptr %52, align 8, !alias.scope !220, !noalias !223
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !223, !noalias !220
+  %54 = load ptr, ptr %53, align 8, !alias.scope !222, !noalias !219
+  store ptr %54, ptr %52, align 8, !alias.scope !219, !noalias !222
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !222, !noalias !219
   %55 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %57 = load ptr, ptr %56, align 8, !alias.scope !223, !noalias !220
-  store ptr %57, ptr %55, align 8, !alias.scope !220, !noalias !223
+  %57 = load ptr, ptr %56, align 8, !alias.scope !222, !noalias !219
+  store ptr %57, ptr %55, align 8, !alias.scope !219, !noalias !222
   %58 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %59 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  %60 = load ptr, ptr %59, align 8, !alias.scope !223, !noalias !220
-  store ptr %60, ptr %58, align 8, !alias.scope !220, !noalias !223
+  %60 = load ptr, ptr %59, align 8, !alias.scope !222, !noalias !219
+  store ptr %60, ptr %58, align 8, !alias.scope !219, !noalias !222
   %61 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
   %62 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
-  %63 = load ptr, ptr %62, align 8, !alias.scope !223, !noalias !220
-  store ptr %63, ptr %61, align 8, !alias.scope !220, !noalias !223
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false), !alias.scope !223, !noalias !220
+  %63 = load ptr, ptr %62, align 8, !alias.scope !222, !noalias !219
+  store ptr %63, ptr %61, align 8, !alias.scope !219, !noalias !222
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false), !alias.scope !222, !noalias !219
   %64 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
   %65 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
-  %66 = load ptr, ptr %65, align 8, !alias.scope !223, !noalias !220
-  store ptr %66, ptr %64, align 8, !alias.scope !220, !noalias !223
+  %66 = load ptr, ptr %65, align 8, !alias.scope !222, !noalias !219
+  store ptr %66, ptr %64, align 8, !alias.scope !219, !noalias !222
   %67 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
   %68 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 64
-  %69 = load ptr, ptr %68, align 8, !alias.scope !223, !noalias !220
-  store ptr %69, ptr %67, align 8, !alias.scope !220, !noalias !223
+  %69 = load ptr, ptr %68, align 8, !alias.scope !222, !noalias !219
+  store ptr %69, ptr %67, align 8, !alias.scope !219, !noalias !222
   %70 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
   %71 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 72
-  %72 = load ptr, ptr %71, align 8, !alias.scope !223, !noalias !220
-  store ptr %72, ptr %70, align 8, !alias.scope !220, !noalias !223
+  %72 = load ptr, ptr %71, align 8, !alias.scope !222, !noalias !219
+  store ptr %72, ptr %70, align 8, !alias.scope !219, !noalias !222
   %73 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 80
   %74 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 80
-  %75 = load ptr, ptr %74, align 8, !alias.scope !223, !noalias !220
-  store ptr %75, ptr %73, align 8, !alias.scope !220, !noalias !223
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false), !alias.scope !223, !noalias !220
+  %75 = load ptr, ptr %74, align 8, !alias.scope !222, !noalias !219
+  store ptr %75, ptr %73, align 8, !alias.scope !219, !noalias !222
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false), !alias.scope !222, !noalias !219
   %76 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 88
   %77 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 88
-  %78 = load ptr, ptr %77, align 8, !alias.scope !223, !noalias !220
-  store ptr %78, ptr %76, align 8, !alias.scope !220, !noalias !223
-  tail call void @_ZN7jsonnet8internal17ComprehensionSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i) #24, !noalias !220
+  %78 = load ptr, ptr %77, align 8, !alias.scope !222, !noalias !219
+  store ptr %78, ptr %76, align 8, !alias.scope !219, !noalias !222
+  tail call void @_ZN7jsonnet8internal17ComprehensionSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i) #24, !noalias !219
   %79 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 96
   %80 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %79, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !225
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !224
 
 _ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %43
   %.0.lcssa.i.i.i = phi ptr [ %28, %43 ], [ %80, %.lr.ph.i.i.i ]
@@ -23539,62 +23539,62 @@ _ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_
 .lr.ph.i.i.i32:                                   ; preds = %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i32
   %.012.i.i.i33 = phi ptr [ %117, %.lr.ph.i.i.i32 ], [ %81, %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i34 = phi ptr [ %116, %.lr.ph.i.i.i32 ], [ %1, %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
-  %82 = load i32, ptr %.0911.i.i.i34, align 8, !alias.scope !229, !noalias !226
-  store i32 %82, ptr %.012.i.i.i33, align 8, !alias.scope !226, !noalias !229
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
+  %82 = load i32, ptr %.0911.i.i.i34, align 8, !alias.scope !228, !noalias !225
+  store i32 %82, ptr %.012.i.i.i33, align 8, !alias.scope !225, !noalias !228
   %83 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 8
   %84 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 8
-  %85 = load ptr, ptr %84, align 8, !alias.scope !229, !noalias !226
-  store ptr %85, ptr %83, align 8, !alias.scope !226, !noalias !229
+  %85 = load ptr, ptr %84, align 8, !alias.scope !228, !noalias !225
+  store ptr %85, ptr %83, align 8, !alias.scope !225, !noalias !228
   %86 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 16
   %87 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 16
-  %88 = load ptr, ptr %87, align 8, !alias.scope !229, !noalias !226
-  store ptr %88, ptr %86, align 8, !alias.scope !226, !noalias !229
+  %88 = load ptr, ptr %87, align 8, !alias.scope !228, !noalias !225
+  store ptr %88, ptr %86, align 8, !alias.scope !225, !noalias !228
   %89 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 24
   %90 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 24
-  %91 = load ptr, ptr %90, align 8, !alias.scope !229, !noalias !226
-  store ptr %91, ptr %89, align 8, !alias.scope !226, !noalias !229
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false), !alias.scope !229, !noalias !226
+  %91 = load ptr, ptr %90, align 8, !alias.scope !228, !noalias !225
+  store ptr %91, ptr %89, align 8, !alias.scope !225, !noalias !228
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false), !alias.scope !228, !noalias !225
   %92 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 32
   %93 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 32
-  %94 = load ptr, ptr %93, align 8, !alias.scope !229, !noalias !226
-  store ptr %94, ptr %92, align 8, !alias.scope !226, !noalias !229
+  %94 = load ptr, ptr %93, align 8, !alias.scope !228, !noalias !225
+  store ptr %94, ptr %92, align 8, !alias.scope !225, !noalias !228
   %95 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 40
   %96 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 40
-  %97 = load ptr, ptr %96, align 8, !alias.scope !229, !noalias !226
-  store ptr %97, ptr %95, align 8, !alias.scope !226, !noalias !229
+  %97 = load ptr, ptr %96, align 8, !alias.scope !228, !noalias !225
+  store ptr %97, ptr %95, align 8, !alias.scope !225, !noalias !228
   %98 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 48
   %99 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 48
-  %100 = load ptr, ptr %99, align 8, !alias.scope !229, !noalias !226
-  store ptr %100, ptr %98, align 8, !alias.scope !226, !noalias !229
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false), !alias.scope !229, !noalias !226
+  %100 = load ptr, ptr %99, align 8, !alias.scope !228, !noalias !225
+  store ptr %100, ptr %98, align 8, !alias.scope !225, !noalias !228
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false), !alias.scope !228, !noalias !225
   %101 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 56
   %102 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 56
-  %103 = load ptr, ptr %102, align 8, !alias.scope !229, !noalias !226
-  store ptr %103, ptr %101, align 8, !alias.scope !226, !noalias !229
+  %103 = load ptr, ptr %102, align 8, !alias.scope !228, !noalias !225
+  store ptr %103, ptr %101, align 8, !alias.scope !225, !noalias !228
   %104 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 64
   %105 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 64
-  %106 = load ptr, ptr %105, align 8, !alias.scope !229, !noalias !226
-  store ptr %106, ptr %104, align 8, !alias.scope !226, !noalias !229
+  %106 = load ptr, ptr %105, align 8, !alias.scope !228, !noalias !225
+  store ptr %106, ptr %104, align 8, !alias.scope !225, !noalias !228
   %107 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 72
   %108 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 72
-  %109 = load ptr, ptr %108, align 8, !alias.scope !229, !noalias !226
-  store ptr %109, ptr %107, align 8, !alias.scope !226, !noalias !229
+  %109 = load ptr, ptr %108, align 8, !alias.scope !228, !noalias !225
+  store ptr %109, ptr %107, align 8, !alias.scope !225, !noalias !228
   %110 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 80
   %111 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 80
-  %112 = load ptr, ptr %111, align 8, !alias.scope !229, !noalias !226
-  store ptr %112, ptr %110, align 8, !alias.scope !226, !noalias !229
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, i8 0, i64 24, i1 false), !alias.scope !229, !noalias !226
+  %112 = load ptr, ptr %111, align 8, !alias.scope !228, !noalias !225
+  store ptr %112, ptr %110, align 8, !alias.scope !225, !noalias !228
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, i8 0, i64 24, i1 false), !alias.scope !228, !noalias !225
   %113 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 88
   %114 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 88
-  %115 = load ptr, ptr %114, align 8, !alias.scope !229, !noalias !226
-  store ptr %115, ptr %113, align 8, !alias.scope !226, !noalias !229
-  tail call void @_ZN7jsonnet8internal17ComprehensionSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i34) #24, !noalias !226
+  %115 = load ptr, ptr %114, align 8, !alias.scope !228, !noalias !225
+  store ptr %115, ptr %113, align 8, !alias.scope !225, !noalias !228
+  tail call void @_ZN7jsonnet8internal17ComprehensionSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i34) #24, !noalias !225
   %116 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 96
   %117 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 96
   %.not.i.i.i35 = icmp eq ptr %116, %10
-  br i1 %.not.i.i.i35, label %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit37, label %.lr.ph.i.i.i32, !llvm.loop !225
+  br i1 %.not.i.i.i35, label %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit37, label %.lr.ph.i.i.i32, !llvm.loop !224
 
 _ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit37: ; preds = %.lr.ph.i.i.i32, %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i36 = phi ptr [ %81, %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %117, %.lr.ph.i.i.i32 ]
@@ -23726,62 +23726,62 @@ _ZNSt12_Vector_baseIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_M_allocateE
 .lr.ph.i.i.i:                                     ; preds = %42, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %79, %.lr.ph.i.i.i ], [ %28, %42 ]
   %.0911.i.i.i = phi ptr [ %78, %.lr.ph.i.i.i ], [ %11, %42 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
-  %44 = load i32, ptr %.0911.i.i.i, align 8, !alias.scope !234, !noalias !231
-  store i32 %44, ptr %.012.i.i.i, align 8, !alias.scope !231, !noalias !234
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
+  %44 = load i32, ptr %.0911.i.i.i, align 8, !alias.scope !233, !noalias !230
+  store i32 %44, ptr %.012.i.i.i, align 8, !alias.scope !230, !noalias !233
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
   %46 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %47 = load ptr, ptr %46, align 8, !alias.scope !234, !noalias !231
-  store ptr %47, ptr %45, align 8, !alias.scope !231, !noalias !234
+  %47 = load ptr, ptr %46, align 8, !alias.scope !233, !noalias !230
+  store ptr %47, ptr %45, align 8, !alias.scope !230, !noalias !233
   %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %50 = load ptr, ptr %49, align 8, !alias.scope !234, !noalias !231
-  store ptr %50, ptr %48, align 8, !alias.scope !231, !noalias !234
+  %50 = load ptr, ptr %49, align 8, !alias.scope !233, !noalias !230
+  store ptr %50, ptr %48, align 8, !alias.scope !230, !noalias !233
   %51 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %53 = load ptr, ptr %52, align 8, !alias.scope !234, !noalias !231
-  store ptr %53, ptr %51, align 8, !alias.scope !231, !noalias !234
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !234, !noalias !231
+  %53 = load ptr, ptr %52, align 8, !alias.scope !233, !noalias !230
+  store ptr %53, ptr %51, align 8, !alias.scope !230, !noalias !233
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !233, !noalias !230
   %54 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %55 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %56 = load ptr, ptr %55, align 8, !alias.scope !234, !noalias !231
-  store ptr %56, ptr %54, align 8, !alias.scope !231, !noalias !234
+  %56 = load ptr, ptr %55, align 8, !alias.scope !233, !noalias !230
+  store ptr %56, ptr %54, align 8, !alias.scope !230, !noalias !233
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %58 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  %59 = load ptr, ptr %58, align 8, !alias.scope !234, !noalias !231
-  store ptr %59, ptr %57, align 8, !alias.scope !231, !noalias !234
+  %59 = load ptr, ptr %58, align 8, !alias.scope !233, !noalias !230
+  store ptr %59, ptr %57, align 8, !alias.scope !230, !noalias !233
   %60 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
   %61 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
-  %62 = load ptr, ptr %61, align 8, !alias.scope !234, !noalias !231
-  store ptr %62, ptr %60, align 8, !alias.scope !231, !noalias !234
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false), !alias.scope !234, !noalias !231
+  %62 = load ptr, ptr %61, align 8, !alias.scope !233, !noalias !230
+  store ptr %62, ptr %60, align 8, !alias.scope !230, !noalias !233
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false), !alias.scope !233, !noalias !230
   %63 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
   %64 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
-  %65 = load ptr, ptr %64, align 8, !alias.scope !234, !noalias !231
-  store ptr %65, ptr %63, align 8, !alias.scope !231, !noalias !234
+  %65 = load ptr, ptr %64, align 8, !alias.scope !233, !noalias !230
+  store ptr %65, ptr %63, align 8, !alias.scope !230, !noalias !233
   %66 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
   %67 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 64
-  %68 = load ptr, ptr %67, align 8, !alias.scope !234, !noalias !231
-  store ptr %68, ptr %66, align 8, !alias.scope !231, !noalias !234
+  %68 = load ptr, ptr %67, align 8, !alias.scope !233, !noalias !230
+  store ptr %68, ptr %66, align 8, !alias.scope !230, !noalias !233
   %69 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
   %70 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 72
-  %71 = load ptr, ptr %70, align 8, !alias.scope !234, !noalias !231
-  store ptr %71, ptr %69, align 8, !alias.scope !231, !noalias !234
+  %71 = load ptr, ptr %70, align 8, !alias.scope !233, !noalias !230
+  store ptr %71, ptr %69, align 8, !alias.scope !230, !noalias !233
   %72 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 80
   %73 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 80
-  %74 = load ptr, ptr %73, align 8, !alias.scope !234, !noalias !231
-  store ptr %74, ptr %72, align 8, !alias.scope !231, !noalias !234
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false), !alias.scope !234, !noalias !231
+  %74 = load ptr, ptr %73, align 8, !alias.scope !233, !noalias !230
+  store ptr %74, ptr %72, align 8, !alias.scope !230, !noalias !233
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false), !alias.scope !233, !noalias !230
   %75 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 88
   %76 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 88
-  %77 = load ptr, ptr %76, align 8, !alias.scope !234, !noalias !231
-  store ptr %77, ptr %75, align 8, !alias.scope !231, !noalias !234
-  tail call void @_ZN7jsonnet8internal17ComprehensionSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i) #24, !noalias !231
+  %77 = load ptr, ptr %76, align 8, !alias.scope !233, !noalias !230
+  store ptr %77, ptr %75, align 8, !alias.scope !230, !noalias !233
+  tail call void @_ZN7jsonnet8internal17ComprehensionSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i) #24, !noalias !230
   %78 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 96
   %79 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %78, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !225
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !224
 
 _ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %42
   %.0.lcssa.i.i.i = phi ptr [ %28, %42 ], [ %79, %.lr.ph.i.i.i ]
@@ -23792,62 +23792,62 @@ _ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_
 .lr.ph.i.i.i32:                                   ; preds = %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i32
   %.012.i.i.i33 = phi ptr [ %116, %.lr.ph.i.i.i32 ], [ %80, %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i34 = phi ptr [ %115, %.lr.ph.i.i.i32 ], [ %1, %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
-  %81 = load i32, ptr %.0911.i.i.i34, align 8, !alias.scope !239, !noalias !236
-  store i32 %81, ptr %.012.i.i.i33, align 8, !alias.scope !236, !noalias !239
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !238)
+  %81 = load i32, ptr %.0911.i.i.i34, align 8, !alias.scope !238, !noalias !235
+  store i32 %81, ptr %.012.i.i.i33, align 8, !alias.scope !235, !noalias !238
   %82 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 8
   %83 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 8
-  %84 = load ptr, ptr %83, align 8, !alias.scope !239, !noalias !236
-  store ptr %84, ptr %82, align 8, !alias.scope !236, !noalias !239
+  %84 = load ptr, ptr %83, align 8, !alias.scope !238, !noalias !235
+  store ptr %84, ptr %82, align 8, !alias.scope !235, !noalias !238
   %85 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 16
   %86 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 16
-  %87 = load ptr, ptr %86, align 8, !alias.scope !239, !noalias !236
-  store ptr %87, ptr %85, align 8, !alias.scope !236, !noalias !239
+  %87 = load ptr, ptr %86, align 8, !alias.scope !238, !noalias !235
+  store ptr %87, ptr %85, align 8, !alias.scope !235, !noalias !238
   %88 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 24
   %89 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 24
-  %90 = load ptr, ptr %89, align 8, !alias.scope !239, !noalias !236
-  store ptr %90, ptr %88, align 8, !alias.scope !236, !noalias !239
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false), !alias.scope !239, !noalias !236
+  %90 = load ptr, ptr %89, align 8, !alias.scope !238, !noalias !235
+  store ptr %90, ptr %88, align 8, !alias.scope !235, !noalias !238
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false), !alias.scope !238, !noalias !235
   %91 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 32
   %92 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 32
-  %93 = load ptr, ptr %92, align 8, !alias.scope !239, !noalias !236
-  store ptr %93, ptr %91, align 8, !alias.scope !236, !noalias !239
+  %93 = load ptr, ptr %92, align 8, !alias.scope !238, !noalias !235
+  store ptr %93, ptr %91, align 8, !alias.scope !235, !noalias !238
   %94 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 40
   %95 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 40
-  %96 = load ptr, ptr %95, align 8, !alias.scope !239, !noalias !236
-  store ptr %96, ptr %94, align 8, !alias.scope !236, !noalias !239
+  %96 = load ptr, ptr %95, align 8, !alias.scope !238, !noalias !235
+  store ptr %96, ptr %94, align 8, !alias.scope !235, !noalias !238
   %97 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 48
   %98 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 48
-  %99 = load ptr, ptr %98, align 8, !alias.scope !239, !noalias !236
-  store ptr %99, ptr %97, align 8, !alias.scope !236, !noalias !239
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false), !alias.scope !239, !noalias !236
+  %99 = load ptr, ptr %98, align 8, !alias.scope !238, !noalias !235
+  store ptr %99, ptr %97, align 8, !alias.scope !235, !noalias !238
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false), !alias.scope !238, !noalias !235
   %100 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 56
   %101 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 56
-  %102 = load ptr, ptr %101, align 8, !alias.scope !239, !noalias !236
-  store ptr %102, ptr %100, align 8, !alias.scope !236, !noalias !239
+  %102 = load ptr, ptr %101, align 8, !alias.scope !238, !noalias !235
+  store ptr %102, ptr %100, align 8, !alias.scope !235, !noalias !238
   %103 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 64
   %104 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 64
-  %105 = load ptr, ptr %104, align 8, !alias.scope !239, !noalias !236
-  store ptr %105, ptr %103, align 8, !alias.scope !236, !noalias !239
+  %105 = load ptr, ptr %104, align 8, !alias.scope !238, !noalias !235
+  store ptr %105, ptr %103, align 8, !alias.scope !235, !noalias !238
   %106 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 72
   %107 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 72
-  %108 = load ptr, ptr %107, align 8, !alias.scope !239, !noalias !236
-  store ptr %108, ptr %106, align 8, !alias.scope !236, !noalias !239
+  %108 = load ptr, ptr %107, align 8, !alias.scope !238, !noalias !235
+  store ptr %108, ptr %106, align 8, !alias.scope !235, !noalias !238
   %109 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 80
   %110 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 80
-  %111 = load ptr, ptr %110, align 8, !alias.scope !239, !noalias !236
-  store ptr %111, ptr %109, align 8, !alias.scope !236, !noalias !239
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false), !alias.scope !239, !noalias !236
+  %111 = load ptr, ptr %110, align 8, !alias.scope !238, !noalias !235
+  store ptr %111, ptr %109, align 8, !alias.scope !235, !noalias !238
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false), !alias.scope !238, !noalias !235
   %112 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 88
   %113 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 88
-  %114 = load ptr, ptr %113, align 8, !alias.scope !239, !noalias !236
-  store ptr %114, ptr %112, align 8, !alias.scope !236, !noalias !239
-  tail call void @_ZN7jsonnet8internal17ComprehensionSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i34) #24, !noalias !236
+  %114 = load ptr, ptr %113, align 8, !alias.scope !238, !noalias !235
+  store ptr %114, ptr %112, align 8, !alias.scope !235, !noalias !238
+  tail call void @_ZN7jsonnet8internal17ComprehensionSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i34) #24, !noalias !235
   %115 = getelementptr inbounds i8, ptr %.0911.i.i.i34, i64 96
   %116 = getelementptr inbounds i8, ptr %.012.i.i.i33, i64 96
   %.not.i.i.i35 = icmp eq ptr %115, %10
-  br i1 %.not.i.i.i35, label %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit37, label %.lr.ph.i.i.i32, !llvm.loop !225
+  br i1 %.not.i.i.i35, label %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit37, label %.lr.ph.i.i.i32, !llvm.loop !224
 
 _ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit37: ; preds = %.lr.ph.i.i.i32, %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i36 = phi ptr [ %80, %_ZNSt6vectorIN7jsonnet8internal17ComprehensionSpecESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %116, %.lr.ph.i.i.i32 ]
@@ -24225,27 +24225,27 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal5Array7ElementEEE9constructIS3_JRPN
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN7jsonnet8internal5Array7ElementEEE9constructIS3_JRPNS1_3ASTERSt6vectorINS1_13FodderElementESaISB_EEEEEvRS4_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %24, %_ZNSt16allocator_traitsISaIN7jsonnet8internal5Array7ElementEEE9constructIS3_JRPNS1_3ASTERSt6vectorINS1_13FodderElementESaISB_EEEEEvRS4_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %7, %_ZNSt16allocator_traitsISaIN7jsonnet8internal5Array7ElementEEE9constructIS3_JRPNS1_3ASTERSt6vectorINS1_13FodderElementESaISB_EEEEEvRS4_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  %28 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !244, !noalias !241
-  store ptr %28, ptr %.012.i.i.i, align 8, !alias.scope !241, !noalias !244
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
+  %28 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !243, !noalias !240
+  store ptr %28, ptr %.012.i.i.i, align 8, !alias.scope !240, !noalias !243
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
   %30 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %31 = load ptr, ptr %30, align 8, !alias.scope !244, !noalias !241
-  store ptr %31, ptr %29, align 8, !alias.scope !241, !noalias !244
+  %31 = load ptr, ptr %30, align 8, !alias.scope !243, !noalias !240
+  store ptr %31, ptr %29, align 8, !alias.scope !240, !noalias !243
   %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %34 = load ptr, ptr %33, align 8, !alias.scope !244, !noalias !241
-  store ptr %34, ptr %32, align 8, !alias.scope !241, !noalias !244
+  %34 = load ptr, ptr %33, align 8, !alias.scope !243, !noalias !240
+  store ptr %34, ptr %32, align 8, !alias.scope !240, !noalias !243
   %35 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %37 = load ptr, ptr %36, align 8, !alias.scope !244, !noalias !241
-  store ptr %37, ptr %35, align 8, !alias.scope !241, !noalias !244
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !alias.scope !244, !noalias !241
+  %37 = load ptr, ptr %36, align 8, !alias.scope !243, !noalias !240
+  store ptr %37, ptr %35, align 8, !alias.scope !240, !noalias !243
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !alias.scope !243, !noalias !240
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %38, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !246
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !245
 
 _ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7jsonnet8internal5Array7ElementEEE9constructIS3_JRPNS1_3ASTERSt6vectorINS1_13FodderElementESaISB_EEEEEvRS4_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN7jsonnet8internal5Array7ElementEEE9constructIS3_JRPNS1_3ASTERSt6vectorINS1_13FodderElementESaISB_EEEEEvRS4_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i ]
@@ -24256,27 +24256,27 @@ _ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i28
   %.012.i.i.i29 = phi ptr [ %52, %.lr.ph.i.i.i28 ], [ %40, %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %.0911.i.i.i30 = phi ptr [ %51, %.lr.ph.i.i.i28 ], [ %1, %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
-  %41 = load ptr, ptr %.0911.i.i.i30, align 8, !alias.scope !250, !noalias !247
-  store ptr %41, ptr %.012.i.i.i29, align 8, !alias.scope !247, !noalias !250
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
+  %41 = load ptr, ptr %.0911.i.i.i30, align 8, !alias.scope !249, !noalias !246
+  store ptr %41, ptr %.012.i.i.i29, align 8, !alias.scope !246, !noalias !249
   %42 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 8
   %43 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 8
-  %44 = load ptr, ptr %43, align 8, !alias.scope !250, !noalias !247
-  store ptr %44, ptr %42, align 8, !alias.scope !247, !noalias !250
+  %44 = load ptr, ptr %43, align 8, !alias.scope !249, !noalias !246
+  store ptr %44, ptr %42, align 8, !alias.scope !246, !noalias !249
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 16
   %46 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 16
-  %47 = load ptr, ptr %46, align 8, !alias.scope !250, !noalias !247
-  store ptr %47, ptr %45, align 8, !alias.scope !247, !noalias !250
+  %47 = load ptr, ptr %46, align 8, !alias.scope !249, !noalias !246
+  store ptr %47, ptr %45, align 8, !alias.scope !246, !noalias !249
   %48 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 24
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 24
-  %50 = load ptr, ptr %49, align 8, !alias.scope !250, !noalias !247
-  store ptr %50, ptr %48, align 8, !alias.scope !247, !noalias !250
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false), !alias.scope !250, !noalias !247
+  %50 = load ptr, ptr %49, align 8, !alias.scope !249, !noalias !246
+  store ptr %50, ptr %48, align 8, !alias.scope !246, !noalias !249
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false), !alias.scope !249, !noalias !246
   %51 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 32
   %52 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i31 = icmp eq ptr %51, %6
-  br i1 %.not.i.i.i31, label %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i28, !llvm.loop !246
+  br i1 %.not.i.i.i31, label %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i28, !llvm.loop !245
 
 _ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33: ; preds = %.lr.ph.i.i.i28, %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i32 = phi ptr [ %40, %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %52, %.lr.ph.i.i.i28 ]
@@ -28008,67 +28008,66 @@ attributes #28 = { nounwind willreturn memory(read) }
 !185 = !{!186}
 !186 = distinct !{!186, !187, !"_ZN7jsonnet8internal11ObjectField5LocalERKSt6vectorINS0_13FodderElementESaIS3_EES7_S7_S7_bPKNS0_10IdentifierERKS2_INS0_8ArgParamESaISB_EEbS7_PNS0_3ASTES7_: argument 0"}
 !187 = distinct !{!187, !"_ZN7jsonnet8internal11ObjectField5LocalERKSt6vectorINS0_13FodderElementESaIS3_EES7_S7_S7_bPKNS0_10IdentifierERKS2_INS0_8ArgParamESaISB_EEbS7_PNS0_3ASTES7_"}
-!188 = !{}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
-!191 = distinct !{!191, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
-!194 = distinct !{!194, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
-!197 = distinct !{!197, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
+!190 = distinct !{!190, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
+!191 = !{!192}
+!192 = distinct !{!192, !193, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
+!193 = distinct !{!193, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
+!194 = !{!195}
+!195 = distinct !{!195, !196, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
+!196 = distinct !{!196, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
+!197 = distinct !{!197, !5}
 !198 = distinct !{!198, !5}
-!199 = distinct !{!199, !5}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
-!202 = distinct !{!202, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
-!203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
-!205 = distinct !{!205, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
+!201 = distinct !{!201, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
+!204 = distinct !{!204, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
+!205 = distinct !{!205, !5}
 !206 = distinct !{!206, !5}
 !207 = distinct !{!207, !5}
 !208 = distinct !{!208, !5}
-!209 = distinct !{!209, !5}
-!210 = !{!211}
-!211 = distinct !{!211, !212, !"_ZSt19__relocate_object_aIN7jsonnet8internal11ObjectFieldES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!212 = distinct !{!212, !"_ZSt19__relocate_object_aIN7jsonnet8internal11ObjectFieldES2_SaIS2_EEvPT_PT0_RT1_"}
-!213 = !{!214}
-!214 = distinct !{!214, !212, !"_ZSt19__relocate_object_aIN7jsonnet8internal11ObjectFieldES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!215 = !{!211, !214}
+!209 = !{!210}
+!210 = distinct !{!210, !211, !"_ZSt19__relocate_object_aIN7jsonnet8internal11ObjectFieldES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!211 = distinct !{!211, !"_ZSt19__relocate_object_aIN7jsonnet8internal11ObjectFieldES2_SaIS2_EEvPT_PT0_RT1_"}
+!212 = !{!213}
+!213 = distinct !{!213, !211, !"_ZSt19__relocate_object_aIN7jsonnet8internal11ObjectFieldES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!214 = !{!210, !213}
+!215 = distinct !{!215, !5}
 !216 = distinct !{!216, !5}
 !217 = distinct !{!217, !5}
 !218 = distinct !{!218, !5}
-!219 = distinct !{!219, !5}
-!220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!222 = distinct !{!222, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_"}
-!223 = !{!224}
-!224 = distinct !{!224, !222, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!225 = distinct !{!225, !5}
-!226 = !{!227}
-!227 = distinct !{!227, !228, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!228 = distinct !{!228, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_"}
-!229 = !{!230}
-!230 = distinct !{!230, !228, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!231 = !{!232}
-!232 = distinct !{!232, !233, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!233 = distinct !{!233, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_"}
-!234 = !{!235}
-!235 = distinct !{!235, !233, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!236 = !{!237}
-!237 = distinct !{!237, !238, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!238 = distinct !{!238, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_"}
-!239 = !{!240}
-!240 = distinct !{!240, !238, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!243 = distinct !{!243, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_"}
-!244 = !{!245}
-!245 = distinct !{!245, !243, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!246 = distinct !{!246, !5}
-!247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!249 = distinct !{!249, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_"}
-!250 = !{!251}
-!251 = distinct !{!251, !249, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!219 = !{!220}
+!220 = distinct !{!220, !221, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!221 = distinct !{!221, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_"}
+!222 = !{!223}
+!223 = distinct !{!223, !221, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!224 = distinct !{!224, !5}
+!225 = !{!226}
+!226 = distinct !{!226, !227, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!227 = distinct !{!227, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_"}
+!228 = !{!229}
+!229 = distinct !{!229, !227, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!230 = !{!231}
+!231 = distinct !{!231, !232, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!232 = distinct !{!232, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_"}
+!233 = !{!234}
+!234 = distinct !{!234, !232, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!235 = !{!236}
+!236 = distinct !{!236, !237, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!237 = distinct !{!237, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_"}
+!238 = !{!239}
+!239 = distinct !{!239, !237, !"_ZSt19__relocate_object_aIN7jsonnet8internal17ComprehensionSpecES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!240 = !{!241}
+!241 = distinct !{!241, !242, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!242 = distinct !{!242, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_"}
+!243 = !{!244}
+!244 = distinct !{!244, !242, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!245 = distinct !{!245, !5}
+!246 = !{!247}
+!247 = distinct !{!247, !248, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!248 = distinct !{!248, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_"}
+!249 = !{!250}
+!250 = distinct !{!250, !248, !"_ZSt19__relocate_object_aIN7jsonnet8internal5Array7ElementES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}

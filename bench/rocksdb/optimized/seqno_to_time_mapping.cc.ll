@@ -513,15 +513,15 @@ entry:
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !46
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !47
+  %1 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !46
   %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !47
+  %2 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !46
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %3 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !52
+  %3 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !51
   %_M_first3.i.i2.i = getelementptr inbounds i8, ptr %this, i64 72
-  %4 = load ptr, ptr %_M_first3.i.i2.i, align 8, !noalias !52
+  %4 = load ptr, ptr %_M_first3.i.i2.i, align 8, !noalias !51
   %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 88
-  %5 = load ptr, ptr %_M_node5.i.i6.i, align 8, !noalias !52
+  %5 = load ptr, ptr %_M_node5.i.i6.i, align 8, !noalias !51
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -545,7 +545,7 @@ entry:
 
 while.body.i.i.i.preheader:                       ; preds = %entry
   %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !47
+  %6 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !46
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %if.end.i.i.i
@@ -582,7 +582,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i
 cond.end.i.i.i.i.i.i:                             ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = phi i64 [ %div911.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %sub10.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.17.0.i.i, i64 %cond.i.i.i.i.i.i
-  %7 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !55
+  %7 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !54
   %add.ptr.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 512
   %mul.i.i.i22.i.i.i = shl nsw i64 %cond.i.i.i.i.i.i, 5
   %sub14.i.i.i.i.i.i = sub nsw i64 %add.i.i.i21.i.i.i, %mul.i.i.i22.i.i.i
@@ -594,7 +594,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.7.1.i.i.i = phi ptr [ %7, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.6.0.i.i, %if.then.i19.i.i.i.i.i ]
   %__middle.sroa.12.1.i.i.i = phi ptr [ %add.ptr.i.i17.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.11.0.i.i, %if.then.i19.i.i.i.i.i ]
   %__middle.sroa.17.1.i.i.i = phi ptr [ %add.ptr11.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i.i, %if.then.i19.i.i.i.i.i ]
-  %8 = load i64, ptr %__middle.sroa.0.0.i.i.i, align 8, !noalias !55
+  %8 = load i64, ptr %__middle.sroa.0.0.i.i.i, align 8, !noalias !54
   %cmp.i.i = icmp ult i64 %8, %seqno
   br i1 %cmp.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
@@ -605,7 +605,7 @@ if.then.i.i.i:                                    ; preds = %_ZSt7advanceISt15_D
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__middle.sroa.17.1.i.i.i, i64 8
-  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !55
+  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !54
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEv.exit.i.i.i
 
@@ -637,7 +637,7 @@ if.end:                                           ; preds = %_ZNK7rocksdb18Seqno
 
 if.then.i.i:                                      ; preds = %if.end
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.17.1.i.i, i64 -8
-  %11 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !60
+  %11 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !59
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %11, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit
 
@@ -705,17 +705,17 @@ entry:
 if.end5:                                          ; preds = %entry
   %sub = sub nuw i64 %now, %0
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load ptr, ptr %_M_start.i.i, align 8, !noalias !46
+  %2 = load ptr, ptr %_M_start.i.i, align 8, !noalias !62
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !63
+  %3 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !62
   %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !46
+  %4 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !62
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %5 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !68
+  %5 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !67
   %_M_first3.i.i2.i = getelementptr inbounds i8, ptr %this, i64 72
-  %6 = load ptr, ptr %_M_first3.i.i2.i, align 8, !noalias !68
+  %6 = load ptr, ptr %_M_first3.i.i2.i, align 8, !noalias !67
   %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 88
-  %7 = load ptr, ptr %_M_node5.i.i6.i, align 8, !noalias !68
+  %7 = load ptr, ptr %_M_node5.i.i6.i, align 8, !noalias !67
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -739,7 +739,7 @@ if.end5:                                          ; preds = %entry
 
 while.body.i.i.i.preheader:                       ; preds = %if.end5
   %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !63
+  %8 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !62
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %if.end.i.i.i
@@ -776,7 +776,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i
 cond.end.i.i.i.i.i.i:                             ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = phi i64 [ %div911.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %sub10.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.17.0.i.i, i64 %cond.i.i.i.i.i.i
-  %9 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !71
+  %9 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !70
   %add.ptr.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 512
   %mul.i.i.i22.i.i.i = shl nsw i64 %cond.i.i.i.i.i.i, 5
   %sub14.i.i.i.i.i.i = sub nsw i64 %add.i.i.i21.i.i.i, %mul.i.i.i22.i.i.i
@@ -789,7 +789,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.12.1.i.i.i = phi ptr [ %add.ptr.i.i17.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.11.0.i.i, %if.then.i19.i.i.i.i.i ]
   %__middle.sroa.17.1.i.i.i = phi ptr [ %add.ptr11.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i.i, %if.then.i19.i.i.i.i.i ]
   %time1.i.i = getelementptr inbounds i8, ptr %__middle.sroa.0.0.i.i.i, i64 8
-  %10 = load i64, ptr %time1.i.i, align 8, !noalias !71
+  %10 = load i64, ptr %time1.i.i, align 8, !noalias !70
   %cmp.i.i = icmp ult i64 %sub, %10
   br i1 %cmp.i.i, label %if.end.i.i.i, label %if.else.i.i.i
 
@@ -800,7 +800,7 @@ if.else.i.i.i:                                    ; preds = %_ZSt7advanceISt15_D
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__middle.sroa.17.1.i.i.i, i64 8
-  %11 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !71
+  %11 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !70
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEv.exit.i.i.i
 
@@ -843,26 +843,26 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_Emm
   %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 -16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  store ptr %2, ptr %agg.tmp.i, align 8, !alias.scope !76, !noalias !79
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  store ptr %2, ptr %agg.tmp.i, align 8, !alias.scope !75, !noalias !78
   %_M_first.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %15 = load ptr, ptr %4, align 8, !noalias !82
-  store ptr %15, ptr %_M_first.i.i.i, align 8, !alias.scope !76, !noalias !79
+  %15 = load ptr, ptr %4, align 8, !noalias !81
+  store ptr %15, ptr %_M_first.i.i.i, align 8, !alias.scope !75, !noalias !78
   %_M_last.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 512
-  store ptr %add.ptr.i.i.i, ptr %_M_last.i.i.i, align 8, !alias.scope !76, !noalias !79
+  store ptr %add.ptr.i.i.i, ptr %_M_last.i.i.i, align 8, !alias.scope !75, !noalias !78
   %_M_node.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  store ptr %4, ptr %_M_node.i.i.i, align 8, !alias.scope !76, !noalias !79
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  store ptr %incdec.ptr.i, ptr %agg.tmp2.i, align 8, !alias.scope !83, !noalias !79
+  store ptr %4, ptr %_M_node.i.i.i, align 8, !alias.scope !75, !noalias !78
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  store ptr %incdec.ptr.i, ptr %agg.tmp2.i, align 8, !alias.scope !82, !noalias !78
   %_M_first.i.i2.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
-  %16 = load ptr, ptr %it.sroa.12.0, align 8, !noalias !86
-  store ptr %16, ptr %_M_first.i.i2.i, align 8, !alias.scope !83, !noalias !79
+  %16 = load ptr, ptr %it.sroa.12.0, align 8, !noalias !85
+  store ptr %16, ptr %_M_first.i.i2.i, align 8, !alias.scope !82, !noalias !78
   %_M_last.i.i3.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
   %add.ptr.i.i4.i = getelementptr inbounds i8, ptr %16, i64 512
-  store ptr %add.ptr.i.i4.i, ptr %_M_last.i.i3.i, align 8, !alias.scope !83, !noalias !79
+  store ptr %add.ptr.i.i4.i, ptr %_M_last.i.i3.i, align 8, !alias.scope !82, !noalias !78
   %_M_node.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 24
-  store ptr %it.sroa.12.0, ptr %_M_node.i.i5.i, align 8, !alias.scope !83, !noalias !79
+  store ptr %it.sroa.12.0, ptr %_M_node.i.i5.i, align 8, !alias.scope !82, !noalias !78
   call void @_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE8_M_eraseESt15_Deque_iteratorIS2_RS2_PS2_ES8_(ptr nonnull sret(%"struct.std::_Deque_iterator.3") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(80) %pairs_, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i)
@@ -876,17 +876,17 @@ return:                                           ; preds = %if.end5, %_ZNK7rock
 define noundef i64 @_ZN7rocksdb18SeqnoToTimeMapping26GetProximalSeqnoBeforeTimeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %this, i64 noundef %time) local_unnamed_addr #3 align 2 {
 entry:
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !46
+  %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !86
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !87
+  %1 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !86
   %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !87
+  %2 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !86
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %3 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !92
+  %3 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !91
   %_M_first3.i.i2.i = getelementptr inbounds i8, ptr %this, i64 72
-  %4 = load ptr, ptr %_M_first3.i.i2.i, align 8, !noalias !92
+  %4 = load ptr, ptr %_M_first3.i.i2.i, align 8, !noalias !91
   %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 88
-  %5 = load ptr, ptr %_M_node5.i.i6.i, align 8, !noalias !92
+  %5 = load ptr, ptr %_M_node5.i.i6.i, align 8, !noalias !91
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -910,7 +910,7 @@ entry:
 
 while.body.i.i.i.preheader:                       ; preds = %entry
   %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !87
+  %6 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !86
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %if.end.i.i.i
@@ -947,7 +947,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i
 cond.end.i.i.i.i.i.i:                             ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = phi i64 [ %div911.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %sub10.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.17.0.i.i, i64 %cond.i.i.i.i.i.i
-  %7 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !95
+  %7 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !94
   %add.ptr.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 512
   %mul.i.i.i22.i.i.i = shl nsw i64 %cond.i.i.i.i.i.i, 5
   %sub14.i.i.i.i.i.i = sub nsw i64 %add.i.i.i21.i.i.i, %mul.i.i.i22.i.i.i
@@ -960,7 +960,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.12.1.i.i.i = phi ptr [ %add.ptr.i.i17.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.11.0.i.i, %if.then.i19.i.i.i.i.i ]
   %__middle.sroa.17.1.i.i.i = phi ptr [ %add.ptr11.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i.i, %if.then.i19.i.i.i.i.i ]
   %time1.i.i = getelementptr inbounds i8, ptr %__middle.sroa.0.0.i.i.i, i64 8
-  %8 = load i64, ptr %time1.i.i, align 8, !noalias !95
+  %8 = load i64, ptr %time1.i.i, align 8, !noalias !94
   %cmp.i.i = icmp ult i64 %time, %8
   br i1 %cmp.i.i, label %if.end.i.i.i, label %if.else.i.i.i
 
@@ -971,7 +971,7 @@ if.else.i.i.i:                                    ; preds = %_ZSt7advanceISt15_D
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__middle.sroa.17.1.i.i.i, i64 8
-  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !95
+  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !94
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEv.exit.i.i.i
 
@@ -1029,19 +1029,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !46
+  %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !99
   %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !46
+  %1 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !99
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !46
+  %2 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !99
   %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !46
+  %3 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !99
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !46
+  %4 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !104
   %_M_first3.i.i2.i = getelementptr inbounds i8, ptr %this, i64 72
-  %5 = load ptr, ptr %_M_first3.i.i2.i, align 8, !noalias !46
+  %5 = load ptr, ptr %_M_first3.i.i2.i, align 8, !noalias !104
   %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load ptr, ptr %_M_node5.i.i6.i, align 8, !noalias !46
+  %6 = load ptr, ptr %_M_node5.i.i6.i, align 8, !noalias !104
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -1097,7 +1097,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i
 cond.end.i.i.i.i.i.i:                             ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = phi i64 [ %div911.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %sub10.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.17.0.i.i, i64 %cond.i.i.i.i.i.i
-  %7 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !100
+  %7 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !107
   %add.ptr.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 512
   %mul.i.i.i22.i.i.i = shl nsw i64 %cond.i.i.i.i.i.i, 5
   %sub14.i.i.i.i.i.i = sub nsw i64 %add.i.i.i21.i.i.i, %mul.i.i.i22.i.i.i
@@ -1109,7 +1109,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.7.1.i.i.i = phi ptr [ %7, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.6.0.i.i, %if.then.i19.i.i.i.i.i ]
   %__middle.sroa.12.1.i.i.i = phi ptr [ %add.ptr.i.i17.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.11.0.i.i, %if.then.i19.i.i.i.i.i ]
   %__middle.sroa.17.1.i.i.i = phi ptr [ %add.ptr11.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i.i, %if.then.i19.i.i.i.i.i ]
-  %8 = load i64, ptr %__middle.sroa.0.0.i.i.i, align 8, !noalias !100
+  %8 = load i64, ptr %__middle.sroa.0.0.i.i.i, align 8, !noalias !107
   %cmp.i.i = icmp ult i64 %start, %8
   br i1 %cmp.i.i, label %if.end.i.i.i, label %if.else.i.i.i
 
@@ -1120,7 +1120,7 @@ if.else.i.i.i:                                    ; preds = %_ZSt7advanceISt15_D
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__middle.sroa.17.1.i.i.i, i64 8
-  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !100
+  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !107
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEv.exit.i.i.i
 
@@ -1152,7 +1152,7 @@ if.then2:                                         ; preds = %_ZNK7rocksdb18Seqno
 
 if.then.i.i:                                      ; preds = %if.then2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.17.2.i.i, i64 -8
-  %11 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !107
+  %11 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !112
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %11, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit
 
@@ -1205,7 +1205,7 @@ cond.false.i.i.i.i.i.i64:                         ; preds = %while.body.i.i.i48
 cond.end.i.i.i.i.i.i66:                           ; preds = %cond.false.i.i.i.i.i.i64, %cond.true.i.i.i.i.i.i100
   %cond.i.i.i.i.i.i67 = phi i64 [ %div911.i.i.i.i.i.i101, %cond.true.i.i.i.i.i.i100 ], [ %sub10.i.i.i.i.i.i65, %cond.false.i.i.i.i.i.i64 ]
   %add.ptr11.i.i.i.i.i.i68 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.17.0.i.i52, i64 %cond.i.i.i.i.i.i67
-  %13 = load ptr, ptr %add.ptr11.i.i.i.i.i.i68, align 8, !noalias !110
+  %13 = load ptr, ptr %add.ptr11.i.i.i.i.i.i68, align 8, !noalias !115
   %add.ptr.i.i17.i.i.i.i.i69 = getelementptr inbounds i8, ptr %13, i64 512
   %mul.i.i.i22.i.i.i70 = shl nsw i64 %cond.i.i.i.i.i.i67, 5
   %sub14.i.i.i.i.i.i71 = sub nsw i64 %add.i.i.i21.i.i.i62, %mul.i.i.i22.i.i.i70
@@ -1217,7 +1217,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.7.1.i.i.i75 = phi ptr [ %13, %cond.end.i.i.i.i.i.i66 ], [ %agg.tmp.sroa.6.0.i.i50, %if.then.i19.i.i.i.i.i102 ]
   %__middle.sroa.12.1.i.i.i76 = phi ptr [ %add.ptr.i.i17.i.i.i.i.i69, %cond.end.i.i.i.i.i.i66 ], [ %agg.tmp.sroa.11.0.i.i51, %if.then.i19.i.i.i.i.i102 ]
   %__middle.sroa.17.1.i.i.i77 = phi ptr [ %add.ptr11.i.i.i.i.i.i68, %cond.end.i.i.i.i.i.i66 ], [ %agg.tmp.sroa.17.0.i.i52, %if.then.i19.i.i.i.i.i102 ]
-  %14 = load i64, ptr %__middle.sroa.0.0.i.i.i74, align 8, !noalias !110
+  %14 = load i64, ptr %__middle.sroa.0.0.i.i.i74, align 8, !noalias !115
   %cmp.i.i78 = icmp ult i64 %end, %14
   br i1 %cmp.i.i78, label %if.end.i.i.i88, label %if.else.i.i.i79
 
@@ -1228,7 +1228,7 @@ if.else.i.i.i79:                                  ; preds = %_ZSt7advanceISt15_D
 
 if.then.i.i.i.i95:                                ; preds = %if.else.i.i.i79
   %add.ptr.i.i.i.i96 = getelementptr inbounds i8, ptr %__middle.sroa.17.1.i.i.i77, i64 8
-  %15 = load ptr, ptr %add.ptr.i.i.i.i96, align 8, !noalias !110
+  %15 = load ptr, ptr %add.ptr.i.i.i.i96, align 8, !noalias !115
   %add.ptr.i.i.i.i.i97 = getelementptr inbounds i8, ptr %15, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEv.exit.i.i.i82
 
@@ -1290,7 +1290,7 @@ while.body:                                       ; preds = %land.rhs
 
 if.then.i.i129:                                   ; preds = %while.body
   %add.ptr.i.i130 = getelementptr inbounds i8, ptr %start_it.sroa.42.2458, i64 8
-  %19 = load ptr, ptr %add.ptr.i.i130, align 8, !noalias !117
+  %19 = load ptr, ptr %add.ptr.i.i130, align 8, !noalias !122
   %add.ptr.i.i.i131 = getelementptr inbounds i8, ptr %19, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit
 
@@ -1303,7 +1303,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_Epp
   %cmp3.i = icmp ult ptr %start_it.sroa.0.5, %agg.tmp.sroa.0.2.i.i89
   %cmp6.i = icmp ult ptr %start_it.sroa.42.6, %agg.tmp.sroa.17.2.i.i92
   %cond.i = select i1 %cmp.i120, i1 %cmp3.i, i1 %cmp6.i
-  br i1 %cond.i, label %land.rhs, label %if.end21, !llvm.loop !120
+  br i1 %cond.i, label %land.rhs, label %if.end21, !llvm.loop !125
 
 if.end21:                                         ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit, %land.rhs, %if.then13, %if.end11
   %start_it.sroa.0.1 = phi ptr [ %start_it.sroa.0.0, %if.end11 ], [ %start_it.sroa.0.0, %if.then13 ], [ %start_it.sroa.0.5, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit ], [ %start_it.sroa.0.2455, %land.rhs ]
@@ -1319,7 +1319,7 @@ if.then25:                                        ; preds = %if.end21
 
 if.then.i.i148:                                   ; preds = %if.then25
   %add.ptr.i.i149 = getelementptr inbounds i8, ptr %start_it.sroa.42.1, i64 -8
-  %20 = load ptr, ptr %add.ptr.i.i149, align 8, !noalias !121
+  %20 = load ptr, ptr %add.ptr.i.i149, align 8, !noalias !126
   %add.ptr.i.i.i150 = getelementptr inbounds i8, ptr %20, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit151
 
@@ -1363,7 +1363,7 @@ if.then31:                                        ; preds = %invoke.cont
 
 if.then.i.i175:                                   ; preds = %if.then31
   %add.ptr.i.i176 = getelementptr inbounds i8, ptr %agg.tmp.sroa.17.2.i.i92, i64 -8
-  %22 = load ptr, ptr %add.ptr.i.i176, align 8, !noalias !124
+  %22 = load ptr, ptr %add.ptr.i.i176, align 8, !noalias !129
   %add.ptr.i.i.i177 = getelementptr inbounds i8, ptr %22, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit178
 
@@ -1470,7 +1470,7 @@ for.inc:                                          ; preds = %invoke.cont50, %if.
 
 if.then.i.i268:                                   ; preds = %for.inc
   %add.ptr.i.i269 = getelementptr inbounds i8, ptr %it.sroa.21.0472, i64 8
-  %30 = load ptr, ptr %add.ptr.i.i269, align 8, !noalias !127
+  %30 = load ptr, ptr %add.ptr.i.i269, align 8, !noalias !132
   %add.ptr.i.i.i270 = getelementptr inbounds i8, ptr %30, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271
 
@@ -1482,21 +1482,21 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_Epp
   %cmp3.i188 = icmp ult ptr %it.sroa.0.1, %agg.tmp.sroa.0.2.i.i89
   %cmp6.i189 = icmp ult ptr %it.sroa.21.1, %agg.tmp.sroa.17.2.i.i92
   %cond.i190 = select i1 %cmp.i187, i1 %cmp3.i188, i1 %cmp6.i189
-  br i1 %cond.i190, label %invoke.cont38, label %for.end, !llvm.loop !130
+  br i1 %cond.i190, label %invoke.cont38, label %for.end, !llvm.loop !135
 
 for.end:                                          ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit178
   %_M_start.i272 = getelementptr inbounds i8, ptr %output_copy, i64 16
-  %31 = load ptr, ptr %_M_start.i272, align 8, !noalias !131
+  %31 = load ptr, ptr %_M_start.i272, align 8, !noalias !136
   %_M_last4.i.i276 = getelementptr inbounds i8, ptr %output_copy, i64 32
-  %32 = load ptr, ptr %_M_last4.i.i276, align 8, !noalias !131
+  %32 = load ptr, ptr %_M_last4.i.i276, align 8, !noalias !136
   %_M_node5.i.i278 = getelementptr inbounds i8, ptr %output_copy, i64 40
-  %33 = load ptr, ptr %_M_node5.i.i278, align 8, !noalias !131
+  %33 = load ptr, ptr %_M_node5.i.i278, align 8, !noalias !136
   %_M_finish.i285 = getelementptr inbounds i8, ptr %output_copy, i64 48
-  %34 = load ptr, ptr %_M_finish.i285, align 8, !noalias !134
+  %34 = load ptr, ptr %_M_finish.i285, align 8, !noalias !139
   %_M_first3.i.i287 = getelementptr inbounds i8, ptr %output_copy, i64 56
-  %35 = load ptr, ptr %_M_first3.i.i287, align 8, !noalias !134
+  %35 = load ptr, ptr %_M_first3.i.i287, align 8, !noalias !139
   %_M_node5.i.i291 = getelementptr inbounds i8, ptr %output_copy, i64 72
-  %36 = load ptr, ptr %_M_node5.i.i291, align 8, !noalias !134
+  %36 = load ptr, ptr %_M_node5.i.i291, align 8, !noalias !139
   %.pre = ptrtoint ptr %36 to i64
   %.pre484 = ptrtoint ptr %33 to i64
   %.pre485 = sub i64 %.pre, %.pre484
@@ -1538,7 +1538,7 @@ while.body.i.i:                                   ; preds = %invoke.cont70, %whi
   store i8 %conv.i.i, ptr %ptr.08.i.i, align 1
   %shr.i.i = lshr i64 %v.addr.07.i.i, 7
   %cmp.i.i334 = icmp ugt i64 %v.addr.07.i.i, 16383
-  br i1 %cmp.i.i334, label %while.body.i.i, label %_ZN7rocksdb14EncodeVarint64EPcm.exit.i, !llvm.loop !137
+  br i1 %cmp.i.i334, label %while.body.i.i, label %_ZN7rocksdb14EncodeVarint64EPcm.exit.i, !llvm.loop !142
 
 _ZN7rocksdb14EncodeVarint64EPcm.exit.i:           ; preds = %while.body.i.i, %invoke.cont70
   %v.addr.0.lcssa.i.i = phi i64 [ %add12.i.i.i331, %invoke.cont70 ], [ %shr.i.i, %while.body.i.i ]
@@ -1588,7 +1588,7 @@ while.body.i.i.i349:                              ; preds = %invoke.cont78, %whi
   store i8 %conv.i.i.i, ptr %ptr.08.i.i.i, align 1
   %shr.i.i.i350 = lshr i64 %v.addr.07.i.i.i, 7
   %cmp.i.i.i351 = icmp ugt i64 %v.addr.07.i.i.i, 16383
-  br i1 %cmp.i.i.i351, label %while.body.i.i.i349, label %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i, !llvm.loop !137
+  br i1 %cmp.i.i.i351, label %while.body.i.i.i349, label %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i, !llvm.loop !142
 
 _ZN7rocksdb14EncodeVarint64EPcm.exit.i.i:         ; preds = %while.body.i.i.i349, %invoke.cont78
   %v.addr.0.lcssa.i.i.i = phi i64 [ %sub.i, %invoke.cont78 ], [ %shr.i.i.i350, %while.body.i.i.i349 ]
@@ -1608,7 +1608,7 @@ while.body.i7.i.i:                                ; preds = %_ZN7rocksdb14Encode
   store i8 %conv.i10.i.i, ptr %ptr.08.i8.i.i, align 1
   %shr.i12.i.i = lshr i64 %v.addr.07.i9.i.i, 7
   %cmp.i13.i.i = icmp ugt i64 %v.addr.07.i9.i.i, 16383
-  br i1 %cmp.i13.i.i, label %while.body.i7.i.i, label %_ZN7rocksdb19PutVarint64Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.i, !llvm.loop !137
+  br i1 %cmp.i13.i.i, label %while.body.i7.i.i, label %_ZN7rocksdb19PutVarint64Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.i, !llvm.loop !142
 
 _ZN7rocksdb19PutVarint64Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.i: ; preds = %while.body.i7.i.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i
   %v.addr.0.lcssa.i3.i.i = phi i64 [ %sub4.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i ], [ %shr.i12.i.i, %while.body.i7.i.i ]
@@ -1629,7 +1629,7 @@ for.inc82:                                        ; preds = %_ZN7rocksdb19PutVar
 
 if.then.i.i361:                                   ; preds = %for.inc82
   %add.ptr.i.i362 = getelementptr inbounds i8, ptr %it73.sroa.13.0481, i64 8
-  %42 = load ptr, ptr %add.ptr.i.i362, align 8, !noalias !138
+  %42 = load ptr, ptr %add.ptr.i.i362, align 8, !noalias !143
   %add.ptr.i.i.i363 = getelementptr inbounds i8, ptr %42, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit364
 
@@ -1641,7 +1641,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_Epp
   %cmp3.i345 = icmp ult ptr %it73.sroa.0.1, %end_it.sroa.0.0
   %cmp6.i346 = icmp ult ptr %it73.sroa.13.1, %end_it.sroa.26.0
   %cond.i347 = select i1 %cmp.i344, i1 %cmp3.i345, i1 %cmp6.i346
-  br i1 %cond.i347, label %invoke.cont78, label %for.end84, !llvm.loop !141
+  br i1 %cond.i347, label %invoke.cont78, label %for.end84, !llvm.loop !146
 
 for.end84:                                        ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit364, %invoke.cont72
   %43 = load ptr, ptr %output_copy, align 8
@@ -1663,7 +1663,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i365, %fo
   call void @_ZdlPv(ptr noundef %46) #20
   %incdec.ptr.i.i.i369 = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i370 = icmp ult ptr %__n.04.i.i.i, %45
-  br i1 %cmp.i.i.i370, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !142
+  br i1 %cmp.i.i.i370, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !147
 
 _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i: ; preds = %for.body.i.i.i
   %.pre.i.i = load ptr, ptr %output_copy, align 8
@@ -1703,7 +1703,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   store i8 %conv.i.i, ptr %ptr.08.i.i, align 1
   %shr.i.i = lshr i64 %v.addr.07.i.i, 7
   %cmp.i.i = icmp ugt i64 %v.addr.07.i.i, 16383
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN7rocksdb14EncodeVarint64EPcm.exit.i, !llvm.loop !137
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN7rocksdb14EncodeVarint64EPcm.exit.i, !llvm.loop !142
 
 _ZN7rocksdb14EncodeVarint64EPcm.exit.i:           ; preds = %while.body.i.i, %entry
   %v.addr.0.lcssa.i.i = phi i64 [ %0, %entry ], [ %shr.i.i, %while.body.i.i ]
@@ -1723,7 +1723,7 @@ while.body.i7.i:                                  ; preds = %_ZN7rocksdb14Encode
   store i8 %conv.i10.i, ptr %ptr.08.i8.i, align 1
   %shr.i12.i = lshr i64 %v.addr.07.i9.i, 7
   %cmp.i13.i = icmp ugt i64 %v.addr.07.i9.i, 16383
-  br i1 %cmp.i13.i, label %while.body.i7.i, label %_ZN7rocksdb19PutVarint64Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, !llvm.loop !137
+  br i1 %cmp.i13.i, label %while.body.i7.i, label %_ZN7rocksdb19PutVarint64Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, !llvm.loop !142
 
 _ZN7rocksdb19PutVarint64Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit: ; preds = %while.body.i7.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i
   %v.addr.0.lcssa.i3.i = phi i64 [ %1, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i ], [ %shr.i12.i, %while.body.i7.i ]
@@ -1761,7 +1761,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   tail call void @_ZdlPv(ptr noundef %3) #20
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %2
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i, !llvm.loop !142
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i, !llvm.loop !147
 
 _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i: ; preds = %for.body.i.i
   %.pre.i = load ptr, ptr %this, align 8
@@ -1792,8 +1792,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i, align 8, !alias.scope !143
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !143
+  store ptr null, ptr %state_.i.i, align 8, !alias.scope !148
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !148
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1897,12 +1897,12 @@ for.inc:                                          ; preds = %_ZNKSt14default_del
   %inc = add nuw i64 %i.030, 1
   %10 = load i64, ptr %size, align 8
   %cmp = icmp ult i64 %inc, %10
-  br i1 %cmp, label %invoke.cont, label %for.end, !llvm.loop !146
+  br i1 %cmp, label %invoke.cont, label %for.end, !llvm.loop !151
 
 for.end:                                          ; preds = %for.inc, %if.end5
   %state_.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i15, align 8, !alias.scope !147
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !147
+  store ptr null, ptr %state_.i.i15, align 8, !alias.scope !152
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !152
   br label %return
 
 return:                                           ; preds = %invoke.cont, %for.end, %if.then3, %if.then
@@ -1962,8 +1962,8 @@ if.end7:                                          ; preds = %if.end
   store ptr %call2.i5, ptr %input, align 8
   store i64 %sub.ptr.sub.i10, ptr %size_.i.i, align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i, align 8, !alias.scope !150
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !150
+  store ptr null, ptr %state_.i.i, align 8, !alias.scope !155
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !155
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then4, %if.then
@@ -1990,13 +1990,13 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !46
+  %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !158
   %cmp.i.i.i1 = icmp eq ptr %0, %2
   br i1 %cmp.i.i.i1, label %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit, label %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit.thread
 
 _ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit:      ; preds = %if.then2
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !46
+  %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !158
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 496
@@ -2069,7 +2069,7 @@ if.else.i:                                        ; preds = %if.end23
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %12 = phi ptr [ %.pre67, %if.else.i ], [ %incdec.ptr.i, %if.then.i ]
   %_M_first3.i.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 72
-  %13 = load ptr, ptr %_M_first3.i.i.i.i38, align 8
+  %13 = load ptr, ptr %_M_first3.i.i.i.i38, align 8, !noalias !161
   %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %14 = load ptr, ptr %_M_node.i.i, align 8
   %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -2180,7 +2180,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %inc = add i64 %3, 1
   store i64 %inc, ptr %i, align 8
   %cmp.not = icmp ugt i64 %inc, %to_seqno
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !153
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !164
 
 for.end:                                          ; preds = %if.end.i, %entry
   ret i1 true
@@ -2246,7 +2246,7 @@ if.else:                                          ; preds = %_ZN7rocksdb18SeqnoT
 if.then4:                                         ; preds = %if.else
   %sub = sub nuw i64 %add12.i.i, %retval.0.i
   %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !154
+  %7 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !165
   %sub.ptr.rhs.cast.i.i46 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i47 = sub i64 %sub.ptr.rhs.cast9.i.i, %sub.ptr.rhs.cast.i.i46
   %sub.ptr.div.i.i48 = ashr exact i64 %sub.ptr.sub.i.i47, 4
@@ -2260,7 +2260,7 @@ land.lhs.true.i.i:                                ; preds = %if.then4
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %add.ptr.i.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %6, i64 %sub
-  %.pre = load ptr, ptr %2, align 8, !noalias !157
+  %.pre = load ptr, ptr %2, align 8, !noalias !168
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -2274,11 +2274,11 @@ cond.false.i.i:                                   ; preds = %if.then4
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i
-  %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !46
+  %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !173
   %mul.i.i50 = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i49, %mul.i.i50
   %add.ptr15.i.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %8, i64 %sub14.i.i
-  %.pre59 = load ptr, ptr %2, align 8, !noalias !160
+  %.pre59 = load ptr, ptr %2, align 8, !noalias !176
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %if.then.i.i, %cond.end.i.i
@@ -2288,23 +2288,24 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr15.i.i, %cond.end.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  store ptr %6, ptr %agg.tmp.i, align 8, !alias.scope !163, !noalias !157
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
+  store ptr %6, ptr %agg.tmp.i, align 8, !alias.scope !179, !noalias !180
   %_M_first.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store ptr %9, ptr %_M_first.i.i.i, align 8, !alias.scope !163, !noalias !157
+  store ptr %9, ptr %_M_first.i.i.i, align 8, !alias.scope !179, !noalias !180
   %_M_last.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %add.ptr.i.i.i58 = getelementptr inbounds i8, ptr %9, i64 512
-  store ptr %add.ptr.i.i.i58, ptr %_M_last.i.i.i, align 8, !alias.scope !163, !noalias !157
+  store ptr %add.ptr.i.i.i58, ptr %_M_last.i.i.i, align 8, !alias.scope !179, !noalias !180
   %_M_node.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  store ptr %2, ptr %_M_node.i.i.i, align 8, !alias.scope !163, !noalias !157
-  store ptr %storemerge.i.i, ptr %agg.tmp2.i, align 8, !alias.scope !164, !noalias !157
+  store ptr %2, ptr %_M_node.i.i.i, align 8, !alias.scope !179, !noalias !180
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
+  store ptr %storemerge.i.i, ptr %agg.tmp2.i, align 8, !alias.scope !181, !noalias !180
   %_M_first.i.i2.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
-  store ptr %10, ptr %_M_first.i.i2.i, align 8, !alias.scope !164, !noalias !157
+  store ptr %10, ptr %_M_first.i.i2.i, align 8, !alias.scope !181, !noalias !180
   %_M_last.i.i3.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
   %add.ptr.i.i4.i = getelementptr inbounds i8, ptr %10, i64 512
-  store ptr %add.ptr.i.i4.i, ptr %_M_last.i.i3.i, align 8, !alias.scope !164, !noalias !157
+  store ptr %add.ptr.i.i4.i, ptr %_M_last.i.i3.i, align 8, !alias.scope !181, !noalias !180
   %_M_node.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 24
-  store ptr %ref.tmp10.sroa.8.0, ptr %_M_node.i.i5.i, align 8, !alias.scope !164, !noalias !157
+  store ptr %ref.tmp10.sroa.8.0, ptr %_M_node.i.i5.i, align 8, !alias.scope !181, !noalias !180
   call void @_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE8_M_eraseESt15_Deque_iteratorIS2_RS2_PS2_ES8_(ptr nonnull sret(%"struct.std::_Deque_iterator.3") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(80) %pairs_, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i)
@@ -2352,8 +2353,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i, align 8, !alias.scope !167
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !167
+  store ptr null, ptr %state_.i.i, align 8, !alias.scope !182
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !182
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2368,8 +2369,8 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   store i8 1, ptr %is_sorted_, align 8
   %state_.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i5, align 8, !alias.scope !170
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !170
+  store ptr null, ptr %state_.i.i5, align 8, !alias.scope !185
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !185
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -2419,21 +2420,21 @@ if.then.i.i:                                      ; preds = %if.end4
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EEC2EOS4_.exit: ; preds = %if.end4, %if.then.i.i
   %_M_start.i6 = getelementptr inbounds i8, ptr %copy, i64 16
-  %12 = load ptr, ptr %_M_start.i6, align 8, !noalias !173
+  %12 = load ptr, ptr %_M_start.i6, align 8, !noalias !188
   %_M_first3.i.i = getelementptr inbounds i8, ptr %copy, i64 24
-  %13 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !173
+  %13 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !188
   %_M_last4.i.i = getelementptr inbounds i8, ptr %copy, i64 32
-  %14 = load ptr, ptr %_M_last4.i.i, align 8
+  %14 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !188
   %_M_node5.i.i = getelementptr inbounds i8, ptr %copy, i64 40
-  %15 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !173
+  %15 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !188
   %_M_finish.i7 = getelementptr inbounds i8, ptr %copy, i64 48
-  %16 = load ptr, ptr %_M_finish.i7, align 8, !noalias !176
+  %16 = load ptr, ptr %_M_finish.i7, align 8, !noalias !191
   %_M_first3.i.i9 = getelementptr inbounds i8, ptr %copy, i64 56
-  %17 = load ptr, ptr %_M_first3.i.i9, align 8, !noalias !176
+  %17 = load ptr, ptr %_M_first3.i.i9, align 8, !noalias !191
   %_M_last4.i.i11 = getelementptr inbounds i8, ptr %copy, i64 64
-  %18 = load ptr, ptr %_M_last4.i.i11, align 8, !noalias !176
+  %18 = load ptr, ptr %_M_last4.i.i11, align 8, !noalias !191
   %_M_node5.i.i13 = getelementptr inbounds i8, ptr %copy, i64 72
-  %19 = load ptr, ptr %_M_node5.i.i13, align 8, !noalias !176
+  %19 = load ptr, ptr %_M_node5.i.i13, align 8, !noalias !191
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp5.i.i)
@@ -2503,13 +2504,13 @@ invoke.cont:                                      ; preds = %_ZNSt5dequeIN7rocks
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp5.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i)
-  %21 = load ptr, ptr %_M_start.i, align 8, !noalias !179
+  %21 = load ptr, ptr %_M_start.i, align 8, !noalias !194
   %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %22 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !179
+  %22 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !194
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %23 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !179
+  %23 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !194
   %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %24 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !179
+  %24 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !194
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %25 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %cmp3.i.i.i = icmp ult ptr %24, %25
@@ -2521,7 +2522,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %26 = load ptr, ptr %__n.04.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %26) #20
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %25
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit, !llvm.loop !142
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit, !llvm.loop !147
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit: ; preds = %for.body.i.i.i, %invoke.cont
   store ptr %21, ptr %_M_finish.i, align 8
@@ -2530,7 +2531,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit: 
   %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %23, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i, align 8
   store ptr %24, ptr %_M_node5.i.i.i.i, align 8
-  %27 = load ptr, ptr %_M_start.i6, align 8
+  %27 = load ptr, ptr %_M_start.i6, align 8, !noalias !197
   %28 = load i64, ptr %27, align 8
   %cmp78 = icmp eq i64 %28, 0
   br i1 %cmp78, label %while.body.preheader, label %while.end
@@ -2568,7 +2569,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.ex
   store ptr %storemerge.i, ptr %_M_start.i6, align 8
   %35 = load i64, ptr %storemerge.i, align 8
   %cmp = icmp eq i64 %35, 0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !182
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !200
 
 lpad.loopexit:                                    ; preds = %if.else.i45
   %lpad.loopexit76 = landingpad { ptr, i32 }
@@ -2588,13 +2589,13 @@ lpad:                                             ; preds = %lpad.loopexit.split
 while.end:                                        ; preds = %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit
   %.lcssa = phi ptr [ %27, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit ], [ %storemerge.i, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev, ptr noundef nonnull align 8 dereferenceable(16) %.lcssa, i64 16, i1 false)
-  %36 = load ptr, ptr %_M_finish.i7, align 8, !noalias !183
+  %36 = load ptr, ptr %_M_finish.i7, align 8, !noalias !201
   %cmp.i.i38.not79 = icmp eq ptr %.lcssa, %36
   br i1 %cmp.i.i38.not79, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %37 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !186
-  %38 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !186
+  %37 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !204
+  %38 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !204
   %time18 = getelementptr inbounds i8, ptr %prev, i64 8
   br label %for.body
 
@@ -2679,8 +2680,8 @@ if.else.i62:                                      ; preds = %for.end
 if.end.i:                                         ; preds = %if.else.i62, %if.then.i57
   store i8 1, ptr %is_sorted_, align 8
   %state_.i.i64 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i64, align 8, !alias.scope !189
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !189
+  store ptr null, ptr %state_.i.i64, align 8, !alias.scope !207
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !207
   %50 = load ptr, ptr %copy, align 8
   %tobool.not.i.i65 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i65, label %return, label %if.then.i.i66
@@ -2698,7 +2699,7 @@ for.body.i.i.i70:                                 ; preds = %if.then.i.i66, %for
   call void @_ZdlPv(ptr noundef %53) #20
   %incdec.ptr.i.i.i72 = getelementptr inbounds i8, ptr %__n.04.i.i.i71, i64 8
   %cmp.i.i.i73 = icmp ult ptr %__n.04.i.i.i71, %52
-  br i1 %cmp.i.i.i73, label %for.body.i.i.i70, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !142
+  br i1 %cmp.i.i.i73, label %for.body.i.i.i70, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !147
 
 _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i: ; preds = %for.body.i.i.i70
   %.pre.i.i = load ptr, ptr %copy, align 8
@@ -2718,17 +2719,17 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping13ToHumanStringB5cxx11Ev(ptr noalia
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load ptr, ptr %_M_start.i, align 8, !noalias !192
+  %0 = load ptr, ptr %_M_start.i, align 8, !noalias !210
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load ptr, ptr %_M_finish.i, align 8, !noalias !195
+  %1 = load ptr, ptr %_M_finish.i, align 8, !noalias !213
   %cmp.i.i.not12 = icmp eq ptr %0, %1
   br i1 %cmp.i.i.not12, label %nrvo.skipdtor, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !192
+  %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !210
   %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !192
+  %3 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !210
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEv.exit
@@ -2802,19 +2803,19 @@ entry:
   %is_sorted_.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %is_sorted_.i, align 8
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !46
+  %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !216
   %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !198
+  %1 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !216
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !198
+  %2 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !216
   %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !198
+  %3 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !216
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !46
+  %4 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !221
   %_M_first3.i.i2.i = getelementptr inbounds i8, ptr %this, i64 72
-  %5 = load ptr, ptr %_M_first3.i.i2.i, align 8, !noalias !46
+  %5 = load ptr, ptr %_M_first3.i.i2.i, align 8, !noalias !221
   %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load ptr, ptr %_M_node5.i.i6.i, align 8, !noalias !46
+  %6 = load ptr, ptr %_M_node5.i.i6.i, align 8, !noalias !221
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -2870,7 +2871,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i
 cond.end.i.i.i.i.i.i:                             ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = phi i64 [ %div911.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %sub10.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.17.0.i.i, i64 %cond.i.i.i.i.i.i
-  %7 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !203
+  %7 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !224
   %add.ptr.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 512
   %mul.i.i.i22.i.i.i = shl nsw i64 %cond.i.i.i.i.i.i, 5
   %sub14.i.i.i.i.i.i = sub nsw i64 %add.i.i.i21.i.i.i, %mul.i.i.i22.i.i.i
@@ -2882,7 +2883,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.7.1.i.i.i = phi ptr [ %7, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.6.0.i.i, %if.then.i19.i.i.i.i.i ]
   %__middle.sroa.12.1.i.i.i = phi ptr [ %add.ptr.i.i17.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.11.0.i.i, %if.then.i19.i.i.i.i.i ]
   %__middle.sroa.17.1.i.i.i = phi ptr [ %add.ptr11.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i.i, %if.then.i19.i.i.i.i.i ]
-  %8 = load i64, ptr %__middle.sroa.0.0.i.i.i, align 8, !noalias !203
+  %8 = load i64, ptr %__middle.sroa.0.0.i.i.i, align 8, !noalias !224
   %cmp.i.i = icmp ult i64 %smallest_seqno, %8
   br i1 %cmp.i.i, label %if.end.i.i.i, label %if.else.i.i.i
 
@@ -2893,7 +2894,7 @@ if.else.i.i.i:                                    ; preds = %_ZSt7advanceISt15_D
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__middle.sroa.17.1.i.i.i, i64 8
-  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !203
+  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !224
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEv.exit.i.i.i
 
@@ -2925,7 +2926,7 @@ if.then:                                          ; preds = %invoke.cont
 
 if.then.i.i:                                      ; preds = %if.then
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.17.2.i.i, i64 -8
-  %11 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !208
+  %11 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !229
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %11, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit
 
@@ -2949,7 +2950,7 @@ invoke.cont6:                                     ; preds = %entry, %invoke.cont
   %it.sroa.9.0 = phi ptr [ %it.sroa.9.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit ], [ %agg.tmp.sroa.11.2.i.i, %invoke.cont ], [ %2, %entry ]
   %it.sroa.13.0 = phi ptr [ %it.sroa.13.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit ], [ %agg.tmp.sroa.17.2.i.i, %invoke.cont ], [ %3, %entry ]
   %_M_last4.i.i12 = getelementptr inbounds i8, ptr %this, i64 80
-  %14 = load ptr, ptr %_M_last4.i.i12, align 8, !noalias !211
+  %14 = load ptr, ptr %_M_last4.i.i12, align 8, !noalias !232
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
   store ptr %it.sroa.0.0, ptr %agg.tmp.i.i.i, align 8
@@ -2998,7 +2999,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   tail call void @_ZdlPv(ptr noundef %3) #20
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %2
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !142
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !147
 
 _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i: ; preds = %for.body.i.i.i
   %.pre.i.i = load ptr, ptr %pairs_, align 8
@@ -3040,7 +3041,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
-  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !214
+  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !235
 
 lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
@@ -3056,7 +3057,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   tail call void @_ZdlPv(ptr noundef %4) #20
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i, !llvm.loop !142
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i, !llvm.loop !147
 
 _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i: ; preds = %for.body.i.i, %lpad.i
   invoke void @__cxa_rethrow() #23
@@ -3416,7 +3417,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
-  %5 = load ptr, ptr %_M_start.i, align 8
+  %5 = load ptr, ptr %_M_start.i, align 8, !noalias !236
   %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -3433,9 +3434,9 @@ land.rhs:                                         ; preds = %if.else
   br i1 %cmp.i12, label %if.then5, label %if.else6
 
 if.then5:                                         ; preds = %land.rhs
-  %7 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !215
-  %8 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !215
-  %9 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !215
+  %7 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !239
+  %8 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !239
+  %9 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !239
   %10 = load ptr, ptr %_M_node5.i.i11, align 8
   %cmp3.i.i.i = icmp ult ptr %9, %10
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit
@@ -3446,20 +3447,20 @@ for.body.i.i.i:                                   ; preds = %if.then5, %for.body
   %11 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %11) #20
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %10
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit, !llvm.loop !142
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit, !llvm.loop !147
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit: ; preds = %for.body.i.i.i, %if.then5
   store ptr %5, ptr %_M_finish.i, align 8
   store ptr %7, ptr %_M_first3.i.i7, align 8
   store ptr %8, ptr %_M_last4.i.i9, align 8
   store ptr %9, ptr %_M_node5.i.i11, align 8
-  store ptr %5, ptr %agg.result, align 8, !alias.scope !218
+  store ptr %5, ptr %agg.result, align 8, !alias.scope !242
   %_M_first.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %7, ptr %_M_first.i.i14, align 8, !alias.scope !218
+  store ptr %7, ptr %_M_first.i.i14, align 8, !alias.scope !242
   %_M_last.i.i16 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %8, ptr %_M_last.i.i16, align 8, !alias.scope !218
+  store ptr %8, ptr %_M_last.i.i16, align 8, !alias.scope !242
   %_M_node.i.i18 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %9, ptr %_M_node.i.i18, align 8, !alias.scope !218
+  store ptr %9, ptr %_M_node.i.i18, align 8, !alias.scope !242
   br label %return
 
 if.else6:                                         ; preds = %if.else, %land.rhs
@@ -3490,8 +3491,8 @@ if.else6:                                         ; preds = %if.else, %land.rhs
   %sub.ptr.div11.i = ashr exact i64 %sub.ptr.sub10.i, 4
   %add12.i = add nsw i64 %add.i, %sub.ptr.div11.i
   %sub.i.i178 = sub i64 0, %add12.i
-  %16 = load ptr, ptr %_M_last4.i.i, align 8
-  %17 = load ptr, ptr %_M_node5.i.i, align 8
+  %16 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !245
+  %17 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !245
   %sub.ptr.rhs.cast.i33 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i34 = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.rhs.cast.i33
   %sub.ptr.div.i35 = ashr exact i64 %sub.ptr.sub.i34, 3
@@ -3537,42 +3538,42 @@ if.then11:                                        ; preds = %if.else6
   br i1 %cmp.i5, label %if.end, label %if.then14
 
 if.then14:                                        ; preds = %if.then11
-  %21 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !221
+  %21 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !248
   %_M_last4.i80 = getelementptr inbounds i8, ptr %__last, i64 16
   %22 = load ptr, ptr %_M_last4.i80, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !224
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !227
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !227
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !227
-  store ptr %5, ptr %agg.tmp.i.i.i, align 8, !noalias !230
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !251
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !254
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !254
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !254
+  store ptr %5, ptr %agg.tmp.i.i.i, align 8, !noalias !257
   %_M_first.i.i25.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
-  store ptr %21, ptr %_M_first.i.i25.i.i, align 8, !noalias !230
+  store ptr %21, ptr %_M_first.i.i25.i.i, align 8, !noalias !257
   %_M_last.i.i27.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
-  store ptr %16, ptr %_M_last.i.i27.i.i, align 8, !noalias !230
+  store ptr %16, ptr %_M_last.i.i27.i.i, align 8, !noalias !257
   %_M_node.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
-  store ptr %17, ptr %_M_node.i.i29.i.i, align 8, !noalias !230
-  store ptr %0, ptr %agg.tmp1.i.i.i, align 8, !noalias !230
+  store ptr %17, ptr %_M_node.i.i29.i.i, align 8, !noalias !257
+  store ptr %0, ptr %agg.tmp1.i.i.i, align 8, !noalias !257
   %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
-  store ptr %18, ptr %_M_first.i1.i.i.i, align 8, !noalias !230
+  store ptr %18, ptr %_M_first.i1.i.i.i, align 8, !noalias !257
   %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
-  store ptr %15, ptr %_M_last.i3.i.i.i, align 8, !noalias !230
+  store ptr %15, ptr %_M_last.i3.i.i.i, align 8, !noalias !257
   %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
-  store ptr %13, ptr %_M_node.i5.i.i.i, align 8, !noalias !230
-  store ptr %1, ptr %agg.tmp2.i.i.i, align 8, !noalias !230
+  store ptr %13, ptr %_M_node.i5.i.i.i, align 8, !noalias !257
+  store ptr %1, ptr %agg.tmp2.i.i.i, align 8, !noalias !257
   %_M_first.i7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
-  store ptr %14, ptr %_M_first.i7.i.i.i, align 8, !noalias !230
+  store ptr %14, ptr %_M_first.i7.i.i.i, align 8, !noalias !257
   %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
-  store ptr %22, ptr %_M_last.i9.i.i.i, align 8, !noalias !230
+  store ptr %22, ptr %_M_last.i9.i.i.i, align 8, !noalias !257
   %_M_node.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
-  store ptr %12, ptr %_M_node.i11.i.i.i, align 8, !noalias !230
-  call void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_St15_Deque_iteratorIS2_S3_S4_EET3_S5_IT0_T1_T2_ESB_S7_(ptr nonnull sret(%"struct.std::_Deque_iterator.3") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i), !noalias !227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !224
-  %.pre241 = load ptr, ptr %_M_start.i, align 8, !noalias !233
-  %.pre242 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !233
-  %.pre243 = load ptr, ptr %_M_node5.i.i, align 8
+  store ptr %12, ptr %_M_node.i11.i.i.i, align 8, !noalias !257
+  call void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_St15_Deque_iteratorIS2_S3_S4_EET3_S5_IT0_T1_T2_ESB_S7_(ptr nonnull sret(%"struct.std::_Deque_iterator.3") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i), !noalias !254
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !254
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !254
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !254
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !251
+  %.pre241 = load ptr, ptr %_M_start.i, align 8, !noalias !260
+  %.pre242 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !260
+  %.pre243 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !260
   %.pre255 = ptrtoint ptr %.pre241 to i64
   br label %if.end
 
@@ -3581,7 +3582,7 @@ if.end:                                           ; preds = %if.then14, %if.then
   %23 = phi ptr [ %.pre243, %if.then14 ], [ %17, %if.then11 ]
   %24 = phi ptr [ %.pre242, %if.then14 ], [ %16, %if.then11 ]
   %25 = phi ptr [ %.pre241, %if.then14 ], [ %5, %if.then11 ]
-  %26 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !233
+  %26 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !260
   %sub.ptr.rhs.cast.i.i100 = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i101 = sub i64 %sub.ptr.lhs.cast.i.i99.pre-phi, %sub.ptr.rhs.cast.i.i100
   %sub.ptr.div.i.i102 = ashr exact i64 %sub.ptr.sub.i.i101, 4
@@ -3600,7 +3601,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread256: ; preds = %land.lhs.true.i.i
   %div911.i.i = lshr i64 %add.i.i103, 5
   %add.ptr11.i.i258 = getelementptr inbounds ptr, ptr %23, i64 %div911.i.i
-  %27 = load ptr, ptr %add.ptr11.i.i258, align 8, !noalias !236
+  %27 = load ptr, ptr %add.ptr11.i.i258, align 8, !noalias !263
   %add.ptr.i.i.i259 = getelementptr inbounds i8, ptr %27, i64 512
   %sub14.i.i261 = and i64 %add.i.i103, 31
   %add.ptr15.i.i262 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %27, i64 %sub14.i.i261
@@ -3609,7 +3610,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %if.end
   %sub10.i.i = ashr i64 %add.i.i103, 5
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %23, i64 %sub10.i.i
-  %28 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !236
+  %28 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !263
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %28, i64 512
   %sub14.i.i = and i64 %add.i.i103, 31
   %add.ptr15.i.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %28, i64 %sub14.i.i
@@ -3621,7 +3622,7 @@ for.body.i.i:                                     ; preds = %_ZStplRKSt15_Deque_
   call void @_ZdlPv(ptr noundef %29) #20
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i109 = icmp ult ptr %incdec.ptr.i.i, %add.ptr11.i.i258
-  br i1 %cmp.i.i109, label %for.body.i.i, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit, !llvm.loop !142
+  br i1 %cmp.i.i109, label %for.body.i.i, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit, !llvm.loop !147
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit: ; preds = %for.body.i.i, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread
   %storemerge.i.i231 = phi ptr [ %add.ptr.i.i, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread ], [ %add.ptr15.i.i, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit ], [ %add.ptr15.i.i262, %for.body.i.i ]
@@ -3642,40 +3643,40 @@ if.else19:                                        ; preds = %if.else6
 if.then22:                                        ; preds = %if.else19
   %_M_last4.i121 = getelementptr inbounds i8, ptr %__last, i64 16
   %30 = load ptr, ptr %_M_last4.i121, align 8
-  %31 = load ptr, ptr %_M_last4.i.i114, align 8, !noalias !239
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i140), !noalias !242
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i137), !noalias !245
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i138), !noalias !245
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i139), !noalias !245
-  store ptr %1, ptr %agg.tmp.i.i.i137, align 8, !noalias !248
+  %31 = load ptr, ptr %_M_last4.i.i114, align 8, !noalias !266
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i140), !noalias !269
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i137), !noalias !272
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i138), !noalias !272
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i139), !noalias !272
+  store ptr %1, ptr %agg.tmp.i.i.i137, align 8, !noalias !275
   %_M_first.i.i25.i.i150 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i137, i64 8
-  store ptr %14, ptr %_M_first.i.i25.i.i150, align 8, !noalias !248
+  store ptr %14, ptr %_M_first.i.i25.i.i150, align 8, !noalias !275
   %_M_last.i.i27.i.i151 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i137, i64 16
-  store ptr %30, ptr %_M_last.i.i27.i.i151, align 8, !noalias !248
+  store ptr %30, ptr %_M_last.i.i27.i.i151, align 8, !noalias !275
   %_M_node.i.i29.i.i152 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i137, i64 24
-  store ptr %12, ptr %_M_node.i.i29.i.i152, align 8, !noalias !248
-  store ptr %6, ptr %agg.tmp1.i.i.i138, align 8, !noalias !248
+  store ptr %12, ptr %_M_node.i.i29.i.i152, align 8, !noalias !275
+  store ptr %6, ptr %agg.tmp1.i.i.i138, align 8, !noalias !275
   %_M_first.i1.i.i.i153 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i138, i64 8
-  store ptr %20, ptr %_M_first.i1.i.i.i153, align 8, !noalias !248
+  store ptr %20, ptr %_M_first.i1.i.i.i153, align 8, !noalias !275
   %_M_last.i3.i.i.i154 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i138, i64 16
-  store ptr %31, ptr %_M_last.i3.i.i.i154, align 8, !noalias !248
+  store ptr %31, ptr %_M_last.i3.i.i.i154, align 8, !noalias !275
   %_M_node.i5.i.i.i155 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i138, i64 24
-  store ptr %19, ptr %_M_node.i5.i.i.i155, align 8, !noalias !248
-  store ptr %0, ptr %agg.tmp2.i.i.i139, align 8, !noalias !248
+  store ptr %19, ptr %_M_node.i5.i.i.i155, align 8, !noalias !275
+  store ptr %0, ptr %agg.tmp2.i.i.i139, align 8, !noalias !275
   %_M_first.i7.i.i.i156 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i139, i64 8
-  store ptr %18, ptr %_M_first.i7.i.i.i156, align 8, !noalias !248
+  store ptr %18, ptr %_M_first.i7.i.i.i156, align 8, !noalias !275
   %_M_last.i9.i.i.i157 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i139, i64 16
-  store ptr %15, ptr %_M_last.i9.i.i.i157, align 8, !noalias !248
+  store ptr %15, ptr %_M_last.i9.i.i.i157, align 8, !noalias !275
   %_M_node.i11.i.i.i158 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i139, i64 24
-  store ptr %13, ptr %_M_node.i11.i.i.i158, align 8, !noalias !248
-  call void @_ZSt15__copy_move_ditILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_St15_Deque_iteratorIS2_S3_S4_EET3_S5_IT0_T1_T2_ESB_S7_(ptr nonnull sret(%"struct.std::_Deque_iterator.3") align 8 %agg.tmp.i.i140, ptr noundef nonnull %agg.tmp.i.i.i137, ptr noundef nonnull %agg.tmp1.i.i.i138, ptr noundef nonnull %agg.tmp2.i.i.i139), !noalias !245
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i137), !noalias !245
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i138), !noalias !245
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i139), !noalias !245
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i140), !noalias !242
-  %.pre244 = load ptr, ptr %_M_finish.i52, align 8, !noalias !251
-  %.pre245 = load ptr, ptr %_M_first.i.i55, align 8, !noalias !251
-  %.pre246 = load ptr, ptr %_M_node.i.i54, align 8
+  store ptr %13, ptr %_M_node.i11.i.i.i158, align 8, !noalias !275
+  call void @_ZSt15__copy_move_ditILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_St15_Deque_iteratorIS2_S3_S4_EET3_S5_IT0_T1_T2_ESB_S7_(ptr nonnull sret(%"struct.std::_Deque_iterator.3") align 8 %agg.tmp.i.i140, ptr noundef nonnull %agg.tmp.i.i.i137, ptr noundef nonnull %agg.tmp1.i.i.i138, ptr noundef nonnull %agg.tmp2.i.i.i139), !noalias !272
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i137), !noalias !272
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i138), !noalias !272
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i139), !noalias !272
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i140), !noalias !269
+  %.pre244 = load ptr, ptr %_M_finish.i52, align 8, !noalias !278
+  %.pre245 = load ptr, ptr %_M_first.i.i55, align 8, !noalias !278
+  %.pre246 = load ptr, ptr %_M_node.i.i54, align 8, !noalias !278
   %.pre251 = ptrtoint ptr %.pre244 to i64
   %.pre252 = ptrtoint ptr %.pre245 to i64
   %.pre253 = sub i64 %.pre251, %.pre252
@@ -3687,7 +3688,7 @@ if.end27:                                         ; preds = %if.then22, %if.else
   %32 = phi ptr [ %.pre246, %if.then22 ], [ %19, %if.else19 ]
   %33 = phi ptr [ %.pre245, %if.then22 ], [ %20, %if.else19 ]
   %34 = phi ptr [ %.pre244, %if.then22 ], [ %6, %if.else19 ]
-  %35 = load ptr, ptr %_M_last4.i.i114, align 8, !noalias !251
+  %35 = load ptr, ptr %_M_last4.i.i114, align 8, !noalias !278
   %add.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i.pre-phi, %add12.i
   %cmp.i.i.i179 = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i179, label %land.lhs.true.i.i.i, label %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread267
@@ -3703,7 +3704,7 @@ _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread267: ; preds = %if.end27
   %sub10.i.i.i = ashr i64 %add.i.i.i, 5
   %add.ptr11.i.i.i269 = getelementptr inbounds ptr, ptr %32, i64 %sub10.i.i.i
-  %36 = load ptr, ptr %add.ptr11.i.i.i269, align 8, !noalias !254
+  %36 = load ptr, ptr %add.ptr11.i.i.i269, align 8, !noalias !281
   %add.ptr.i.i.i.i270 = getelementptr inbounds i8, ptr %36, i64 512
   %sub14.i.i.i272 = and i64 %add.i.i.i, 31
   %add.ptr15.i.i.i273 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %36, i64 %sub14.i.i.i272
@@ -3712,7 +3713,7 @@ _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %land.lhs.true.i.i.i
   %div911.i.i.i = lshr i64 %add.i.i.i, 5
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %32, i64 %div911.i.i.i
-  %37 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !254
+  %37 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !281
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 512
   %sub14.i.i.i = and i64 %add.i.i.i, 31
   %add.ptr15.i.i.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %37, i64 %sub14.i.i.i
@@ -3724,7 +3725,7 @@ for.body.i.i184:                                  ; preds = %_ZStmiRKSt15_Deque_
   %38 = load ptr, ptr %__n.04.i.i185, align 8
   call void @_ZdlPv(ptr noundef %38) #20
   %cmp.i.i186 = icmp ult ptr %__n.04.i.i185, %32
-  br i1 %cmp.i.i186, label %for.body.i.i184, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit, !llvm.loop !142
+  br i1 %cmp.i.i186, label %for.body.i.i184, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit, !llvm.loop !147
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit: ; preds = %for.body.i.i184, %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit, %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread
   %storemerge.i.i.i240 = phi ptr [ %add.ptr.i.i.i180, %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread ], [ %add.ptr15.i.i.i, %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit ], [ %add.ptr15.i.i.i273, %for.body.i.i184 ]
@@ -3735,10 +3736,10 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_e
   store ptr %agg.tmp28.sroa.2.0237, ptr %_M_first.i.i55, align 8
   store ptr %agg.tmp28.sroa.4.0238, ptr %_M_last4.i.i114, align 8
   store ptr %agg.tmp28.sroa.6.0239, ptr %_M_node.i.i54, align 8
-  %.pre247 = load ptr, ptr %_M_start.i, align 8, !noalias !257
-  %.pre248 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !257
-  %.pre249 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !257
-  %.pre250 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !257
+  %.pre247 = load ptr, ptr %_M_start.i, align 8, !noalias !284
+  %.pre248 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !284
+  %.pre249 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !284
+  %.pre250 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !284
   br label %if.end30
 
 if.end30:                                         ; preds = %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit
@@ -3746,13 +3747,13 @@ if.end30:                                         ; preds = %_ZNSt5dequeIN7rocks
   %40 = phi ptr [ %.pre249, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit ], [ %agg.tmp17.sroa.4.0229, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit ]
   %41 = phi ptr [ %.pre248, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit ], [ %agg.tmp17.sroa.2.0228, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit ]
   %42 = phi ptr [ %.pre247, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit ], [ %storemerge.i.i231, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !260)
+  call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %_M_first.i.i194 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %41, ptr %_M_first.i.i194, align 8, !alias.scope !260
+  store ptr %41, ptr %_M_first.i.i194, align 8, !alias.scope !287
   %_M_last.i.i196 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %40, ptr %_M_last.i.i196, align 8, !alias.scope !260
+  store ptr %40, ptr %_M_last.i.i196, align 8, !alias.scope !287
   %_M_node.i.i198 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %39, ptr %_M_node.i.i198, align 8, !alias.scope !260
+  store ptr %39, ptr %_M_node.i.i198, align 8, !alias.scope !287
   %sub.ptr.lhs.cast.i.i200 = ptrtoint ptr %42 to i64
   %sub.ptr.rhs.cast.i.i201 = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i.i202 = sub i64 %sub.ptr.lhs.cast.i.i200, %sub.ptr.rhs.cast.i.i201
@@ -3780,11 +3781,11 @@ cond.false.i.i206:                                ; preds = %if.end30
 cond.end.i.i208:                                  ; preds = %cond.false.i.i206, %cond.true.i.i218
   %cond.i.i209 = phi i64 [ %div911.i.i219, %cond.true.i.i218 ], [ %sub10.i.i207, %cond.false.i.i206 ]
   %add.ptr11.i.i210 = getelementptr inbounds ptr, ptr %39, i64 %cond.i.i209
-  store ptr %add.ptr11.i.i210, ptr %_M_node.i.i198, align 8, !alias.scope !260
-  %43 = load ptr, ptr %add.ptr11.i.i210, align 8, !noalias !260
-  store ptr %43, ptr %_M_first.i.i194, align 8, !alias.scope !260
+  store ptr %add.ptr11.i.i210, ptr %_M_node.i.i198, align 8, !alias.scope !287
+  %43 = load ptr, ptr %add.ptr11.i.i210, align 8, !noalias !287
+  store ptr %43, ptr %_M_first.i.i194, align 8, !alias.scope !287
   %add.ptr.i.i.i211 = getelementptr inbounds i8, ptr %43, i64 512
-  store ptr %add.ptr.i.i.i211, ptr %_M_last.i.i196, align 8, !alias.scope !260
+  store ptr %add.ptr.i.i.i211, ptr %_M_last.i.i196, align 8, !alias.scope !287
   %mul.i.i212 = shl nsw i64 %cond.i.i209, 5
   %sub14.i.i213 = sub nsw i64 %add.i.i204, %mul.i.i212
   %add.ptr15.i.i214 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %43, i64 %sub14.i.i213
@@ -3792,7 +3793,7 @@ cond.end.i.i208:                                  ; preds = %cond.false.i.i206, 
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit222: ; preds = %if.then.i.i220, %cond.end.i.i208
   %storemerge.i.i215 = phi ptr [ %add.ptr15.i.i214, %cond.end.i.i208 ], [ %add.ptr.i.i221, %if.then.i.i220 ]
-  store ptr %storemerge.i.i215, ptr %agg.result, align 8, !alias.scope !260
+  store ptr %storemerge.i.i215, ptr %agg.result, align 8, !alias.scope !287
   br label %return
 
 return:                                           ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit222, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit, %if.then
@@ -3839,7 +3840,7 @@ while.body.i:                                     ; preds = %if.then, %_ZNSt15_D
 
 if.end.thread.i:                                  ; preds = %while.body.i
   %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.12.0, i64 -8
-  %9 = load ptr, ptr %add.ptr.i, align 8, !noalias !263
+  %9 = load ptr, ptr %add.ptr.i, align 8, !noalias !290
   %add.ptr6.i = getelementptr inbounds i8, ptr %9, i64 512
   %10 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i, i64 32)
   %.pre239 = ptrtoint ptr %agg.tmp.sroa.0.0 to i64
@@ -3864,7 +3865,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i, %if.end.t
   %add.ptr833.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %__last.addr.013.i, i64 %idx.neg31.i
   %add.ptr8.idx.neg.i = shl nsw i64 %.sroa.speculated29.i, 4
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %__rend.028.i, i64 %idx.neg31.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 %add.ptr833.i, i64 %add.ptr8.idx.neg.i, i1 false), !noalias !263
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 %add.ptr833.i, i64 %add.ptr8.idx.neg.i, i1 false), !noalias !290
   %add.i.i.i = sub nsw i64 %.pre21.i.pre-phi, %.sroa.speculated29.i
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
@@ -3888,7 +3889,7 @@ cond.false.i.i.i:                                 ; preds = %if.then.i.i.i.i
 cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i.i
-  %11 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !263
+  %11 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !290
   %add.ptr.i.i.i7.i = getelementptr inbounds i8, ptr %11, i64 512
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 5
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
@@ -3902,7 +3903,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIE
   %storemerge.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr15.i.i.i, %cond.end.i.i.i ]
   %sub.i = sub nsw i64 %storemerge12.i, %.sroa.speculated29.i
   %cmp.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp.i, label %while.body.i, label %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit, !llvm.loop !266
+  br i1 %cmp.i, label %while.body.i, label %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit, !llvm.loop !293
 
 _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit: ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i, %if.then
   %agg.tmp.sroa.9.2 = phi ptr [ %6, %if.then ], [ %agg.tmp.sroa.9.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i ]
@@ -3941,7 +3942,7 @@ while.body.i30:                                   ; preds = %_ZNSt15_Deque_itera
 
 if.end.thread.i75:                                ; preds = %while.body.i30
   %add.ptr.i76 = getelementptr inbounds i8, ptr %agg.tmp7.sroa.11.0, i64 -8
-  %22 = load ptr, ptr %add.ptr.i76, align 8, !noalias !267
+  %22 = load ptr, ptr %add.ptr.i76, align 8, !noalias !294
   %add.ptr6.i77 = getelementptr inbounds i8, ptr %22, i64 512
   %23 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i32, i64 32)
   %.pre247 = ptrtoint ptr %agg.tmp7.sroa.0.0 to i64
@@ -3966,7 +3967,7 @@ if.then.i.i.i.i40:                                ; preds = %if.end.i34, %if.end
   %add.ptr833.i44 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %__last.addr.013.i31, i64 %idx.neg31.i43
   %add.ptr8.idx.neg.i45 = shl nsw i64 %.sroa.speculated29.i41, 4
   %add.ptr.i.i.i.i47 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %__rend.028.i42, i64 %idx.neg31.i43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i47, ptr nonnull align 8 %add.ptr833.i44, i64 %add.ptr8.idx.neg.i45, i1 false), !noalias !267
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i47, ptr nonnull align 8 %add.ptr833.i44, i64 %add.ptr8.idx.neg.i45, i1 false), !noalias !294
   %add.i.i.i54 = sub nsw i64 %.pre21.i53.pre-phi, %.sroa.speculated29.i41
   %cmp.i.i.i55 = icmp sgt i64 %add.i.i.i54, -1
   br i1 %cmp.i.i.i55, label %land.lhs.true.i.i.i69, label %cond.false.i.i.i56
@@ -3990,7 +3991,7 @@ cond.false.i.i.i56:                               ; preds = %if.then.i.i.i.i40
 cond.end.i.i.i58:                                 ; preds = %cond.false.i.i.i56, %cond.true.i.i.i71
   %cond.i.i.i59 = phi i64 [ %div911.i.i.i72, %cond.true.i.i.i71 ], [ %sub10.i.i.i57, %cond.false.i.i.i56 ]
   %add.ptr11.i.i.i60 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i.i59
-  %24 = load ptr, ptr %add.ptr11.i.i.i60, align 8, !noalias !267
+  %24 = load ptr, ptr %add.ptr11.i.i.i60, align 8, !noalias !294
   %add.ptr.i.i.i7.i61 = getelementptr inbounds i8, ptr %24, i64 512
   %mul.i.i.i62 = shl nsw i64 %cond.i.i.i59, 5
   %sub14.i.i.i63 = sub nsw i64 %add.i.i.i54, %mul.i.i.i62
@@ -4004,7 +4005,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIE
   %storemerge.i.i.i66 = phi ptr [ %add.ptr.i.i.i74, %if.then.i.i.i73 ], [ %add.ptr15.i.i.i64, %cond.end.i.i.i58 ]
   %sub.i67 = sub nsw i64 %storemerge12.i32, %.sroa.speculated29.i41
   %cmp.i68 = icmp sgt i64 %sub.i67, 0
-  br i1 %cmp.i68, label %while.body.i30, label %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit78, !llvm.loop !266
+  br i1 %cmp.i68, label %while.body.i30, label %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit78, !llvm.loop !293
 
 _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit78: ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i65
   store ptr %storemerge.i.i.i66, ptr %__result, align 8
@@ -4014,7 +4015,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairE
   %__node.0 = getelementptr inbounds i8, ptr %__node.0235, i64 -8
   %25 = load ptr, ptr %_M_node, align 8
   %cmp4.not = icmp eq ptr %__node.0, %25
-  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !270
+  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !297
 
 for.end:                                          ; preds = %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit78, %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit
   %26 = phi ptr [ %agg.tmp.sroa.12.2, %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ], [ %agg.tmp7.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit78 ]
@@ -4043,7 +4044,7 @@ while.body.i103:                                  ; preds = %for.end, %_ZNSt15_D
 
 if.end.thread.i148:                               ; preds = %while.body.i103
   %add.ptr.i149 = getelementptr inbounds i8, ptr %agg.tmp9.sroa.12.0, i64 -8
-  %33 = load ptr, ptr %add.ptr.i149, align 8, !noalias !271
+  %33 = load ptr, ptr %add.ptr.i149, align 8, !noalias !298
   %add.ptr6.i150 = getelementptr inbounds i8, ptr %33, i64 512
   %34 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i105, i64 32)
   %.pre243 = ptrtoint ptr %agg.tmp9.sroa.0.0 to i64
@@ -4068,7 +4069,7 @@ if.then.i.i.i.i113:                               ; preds = %if.end.i107, %if.en
   %add.ptr833.i117 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %__last.addr.013.i104, i64 %idx.neg31.i116
   %add.ptr8.idx.neg.i118 = shl nsw i64 %.sroa.speculated29.i114, 4
   %add.ptr.i.i.i.i120 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %__rend.028.i115, i64 %idx.neg31.i116
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i120, ptr nonnull align 8 %add.ptr833.i117, i64 %add.ptr8.idx.neg.i118, i1 false), !noalias !271
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i120, ptr nonnull align 8 %add.ptr833.i117, i64 %add.ptr8.idx.neg.i118, i1 false), !noalias !298
   %add.i.i.i127 = sub nsw i64 %.pre21.i126.pre-phi, %.sroa.speculated29.i114
   %cmp.i.i.i128 = icmp sgt i64 %add.i.i.i127, -1
   br i1 %cmp.i.i.i128, label %land.lhs.true.i.i.i142, label %cond.false.i.i.i129
@@ -4092,7 +4093,7 @@ cond.false.i.i.i129:                              ; preds = %if.then.i.i.i.i113
 cond.end.i.i.i131:                                ; preds = %cond.false.i.i.i129, %cond.true.i.i.i144
   %cond.i.i.i132 = phi i64 [ %div911.i.i.i145, %cond.true.i.i.i144 ], [ %sub10.i.i.i130, %cond.false.i.i.i129 ]
   %add.ptr11.i.i.i133 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i.i132
-  %35 = load ptr, ptr %add.ptr11.i.i.i133, align 8, !noalias !271
+  %35 = load ptr, ptr %add.ptr11.i.i.i133, align 8, !noalias !298
   %add.ptr.i.i.i7.i134 = getelementptr inbounds i8, ptr %35, i64 512
   %mul.i.i.i135 = shl nsw i64 %cond.i.i.i132, 5
   %sub14.i.i.i136 = sub nsw i64 %add.i.i.i127, %mul.i.i.i135
@@ -4106,7 +4107,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIE
   %storemerge.i.i.i139 = phi ptr [ %add.ptr.i.i.i147, %if.then.i.i.i146 ], [ %add.ptr15.i.i.i137, %cond.end.i.i.i131 ]
   %sub.i140 = sub nsw i64 %storemerge12.i105, %.sroa.speculated29.i114
   %cmp.i141 = icmp sgt i64 %sub.i140, 0
-  br i1 %cmp.i141, label %while.body.i103, label %return, !llvm.loop !266
+  br i1 %cmp.i141, label %while.body.i103, label %return, !llvm.loop !293
 
 if.end:                                           ; preds = %entry
   %36 = load ptr, ptr %__first, align 8
@@ -4137,7 +4138,7 @@ while.body.i176:                                  ; preds = %if.end, %_ZNSt15_De
 
 if.end.thread.i221:                               ; preds = %while.body.i176
   %add.ptr.i222 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.12.0, i64 -8
-  %43 = load ptr, ptr %add.ptr.i222, align 8, !noalias !274
+  %43 = load ptr, ptr %add.ptr.i222, align 8, !noalias !301
   %add.ptr6.i223 = getelementptr inbounds i8, ptr %43, i64 512
   %44 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i178, i64 32)
   %.pre = ptrtoint ptr %agg.tmp12.sroa.0.0 to i64
@@ -4162,7 +4163,7 @@ if.then.i.i.i.i186:                               ; preds = %if.end.i180, %if.en
   %add.ptr833.i190 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %__last.addr.013.i177, i64 %idx.neg31.i189
   %add.ptr8.idx.neg.i191 = shl nsw i64 %.sroa.speculated29.i187, 4
   %add.ptr.i.i.i.i193 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %__rend.028.i188, i64 %idx.neg31.i189
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i193, ptr nonnull align 8 %add.ptr833.i190, i64 %add.ptr8.idx.neg.i191, i1 false), !noalias !274
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i193, ptr nonnull align 8 %add.ptr833.i190, i64 %add.ptr8.idx.neg.i191, i1 false), !noalias !301
   %add.i.i.i200 = sub nsw i64 %.pre21.i199.pre-phi, %.sroa.speculated29.i187
   %cmp.i.i.i201 = icmp sgt i64 %add.i.i.i200, -1
   br i1 %cmp.i.i.i201, label %land.lhs.true.i.i.i215, label %cond.false.i.i.i202
@@ -4186,7 +4187,7 @@ cond.false.i.i.i202:                              ; preds = %if.then.i.i.i.i186
 cond.end.i.i.i204:                                ; preds = %cond.false.i.i.i202, %cond.true.i.i.i217
   %cond.i.i.i205 = phi i64 [ %div911.i.i.i218, %cond.true.i.i.i217 ], [ %sub10.i.i.i203, %cond.false.i.i.i202 ]
   %add.ptr11.i.i.i206 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i.i205
-  %45 = load ptr, ptr %add.ptr11.i.i.i206, align 8, !noalias !274
+  %45 = load ptr, ptr %add.ptr11.i.i.i206, align 8, !noalias !301
   %add.ptr.i.i.i7.i207 = getelementptr inbounds i8, ptr %45, i64 512
   %mul.i.i.i208 = shl nsw i64 %cond.i.i.i205, 5
   %sub14.i.i.i209 = sub nsw i64 %add.i.i.i200, %mul.i.i.i208
@@ -4200,7 +4201,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIE
   %storemerge.i.i.i212 = phi ptr [ %add.ptr.i.i.i220, %if.then.i.i.i219 ], [ %add.ptr15.i.i.i210, %cond.end.i.i.i204 ]
   %sub.i213 = sub nsw i64 %storemerge12.i178, %.sroa.speculated29.i187
   %cmp.i214 = icmp sgt i64 %sub.i213, 0
-  br i1 %cmp.i214, label %while.body.i176, label %return, !llvm.loop !266
+  br i1 %cmp.i214, label %while.body.i176, label %return, !llvm.loop !293
 
 return:                                           ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i138, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i211, %if.end, %for.end
   %.sink251 = phi ptr [ %29, %for.end ], [ %38, %if.end ], [ %storemerge.i.i.i212, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i211 ], [ %storemerge.i.i.i139, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i138 ]
@@ -4263,7 +4264,7 @@ while.body.i:                                     ; preds = %if.then, %_ZNSt15_D
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i
   %add.ptr.idx.i = shl nsw i64 %.sroa.speculated.i, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp.sroa.0.0, ptr align 8 %__first.addr.016.i, i64 %add.ptr.idx.i, i1 false), !noalias !277
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp.sroa.0.0, ptr align 8 %__first.addr.016.i, i64 %add.ptr.idx.i, i1 false), !noalias !304
   br label %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i
 
 _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i: ; preds = %if.then.i.i.i.i, %while.body.i
@@ -4293,7 +4294,7 @@ cond.false.i.i:                                   ; preds = %_ZSt14__copy_move_a
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i
-  %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !277
+  %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !304
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 512
   %mul.i.i = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
@@ -4307,7 +4308,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLE
   %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr15.i.i, %cond.end.i.i ]
   %sub.i = sub nsw i64 %storemerge15.i, %.sroa.speculated.i
   %cmp.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp.i, label %while.body.i, label %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit, !llvm.loop !280
+  br i1 %cmp.i, label %while.body.i, label %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit, !llvm.loop !307
 
 _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit: ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i, %if.then
   %agg.tmp.sroa.8.2 = phi ptr [ %6, %if.then ], [ %agg.tmp.sroa.8.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i ]
@@ -4351,7 +4352,7 @@ while.body.i29:                                   ; preds = %_ZNSt15_Deque_itera
 
 if.then.i.i.i.i39:                                ; preds = %while.body.i29
   %add.ptr.idx.i40 = shl nsw i64 %.sroa.speculated.i36, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp7.sroa.0.0, ptr align 8 %__first.addr.016.i30, i64 %add.ptr.idx.i40, i1 false), !noalias !281
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp7.sroa.0.0, ptr align 8 %__first.addr.016.i30, i64 %add.ptr.idx.i40, i1 false), !noalias !308
   br label %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i43
 
 _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i43: ; preds = %if.then.i.i.i.i39, %while.body.i29
@@ -4381,7 +4382,7 @@ cond.false.i.i50:                                 ; preds = %_ZSt14__copy_move_a
 cond.end.i.i52:                                   ; preds = %cond.false.i.i50, %cond.true.i.i65
   %cond.i.i53 = phi i64 [ %div911.i.i66, %cond.true.i.i65 ], [ %sub10.i.i51, %cond.false.i.i50 ]
   %add.ptr11.i.i54 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i53
-  %18 = load ptr, ptr %add.ptr11.i.i54, align 8, !noalias !281
+  %18 = load ptr, ptr %add.ptr11.i.i54, align 8, !noalias !308
   %add.ptr.i.i.i55 = getelementptr inbounds i8, ptr %18, i64 512
   %mul.i.i56 = shl nsw i64 %cond.i.i53, 5
   %sub14.i.i57 = sub nsw i64 %add.i.i48, %mul.i.i56
@@ -4395,7 +4396,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLE
   %storemerge.i.i60 = phi ptr [ %add.ptr.i.i68, %if.then.i.i67 ], [ %add.ptr15.i.i58, %cond.end.i.i52 ]
   %sub.i61 = sub nsw i64 %storemerge15.i31, %.sroa.speculated.i36
   %cmp.i62 = icmp sgt i64 %sub.i61, 0
-  br i1 %cmp.i62, label %while.body.i29, label %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit69, !llvm.loop !280
+  br i1 %cmp.i62, label %while.body.i29, label %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit69, !llvm.loop !307
 
 _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit69: ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i59
   store ptr %storemerge.i.i60, ptr %__result, align 8
@@ -4405,7 +4406,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__g
   %__node.0 = getelementptr inbounds i8, ptr %__node.0210, i64 8
   %19 = load ptr, ptr %_M_node1, align 8
   %cmp4.not = icmp eq ptr %__node.0, %19
-  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !284
+  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !311
 
 for.end:                                          ; preds = %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit69, %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit
   %20 = phi ptr [ %agg.tmp.sroa.12.2, %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ], [ %agg.tmp7.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit69 ]
@@ -4440,7 +4441,7 @@ while.body.i94:                                   ; preds = %for.end, %_ZNSt15_D
 
 if.then.i.i.i.i104:                               ; preds = %while.body.i94
   %add.ptr.idx.i105 = shl nsw i64 %.sroa.speculated.i101, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp9.sroa.0.0, ptr align 8 %__first.addr.016.i95, i64 %add.ptr.idx.i105, i1 false), !noalias !285
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp9.sroa.0.0, ptr align 8 %__first.addr.016.i95, i64 %add.ptr.idx.i105, i1 false), !noalias !312
   br label %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i108
 
 _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i108: ; preds = %if.then.i.i.i.i104, %while.body.i94
@@ -4470,7 +4471,7 @@ cond.false.i.i115:                                ; preds = %_ZSt14__copy_move_a
 cond.end.i.i117:                                  ; preds = %cond.false.i.i115, %cond.true.i.i130
   %cond.i.i118 = phi i64 [ %div911.i.i131, %cond.true.i.i130 ], [ %sub10.i.i116, %cond.false.i.i115 ]
   %add.ptr11.i.i119 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i118
-  %26 = load ptr, ptr %add.ptr11.i.i119, align 8, !noalias !285
+  %26 = load ptr, ptr %add.ptr11.i.i119, align 8, !noalias !312
   %add.ptr.i.i.i120 = getelementptr inbounds i8, ptr %26, i64 512
   %mul.i.i121 = shl nsw i64 %cond.i.i118, 5
   %sub14.i.i122 = sub nsw i64 %add.i.i113, %mul.i.i121
@@ -4484,7 +4485,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLE
   %storemerge.i.i125 = phi ptr [ %add.ptr.i.i133, %if.then.i.i132 ], [ %add.ptr15.i.i123, %cond.end.i.i117 ]
   %sub.i126 = sub nsw i64 %storemerge15.i96, %.sroa.speculated.i101
   %cmp.i127 = icmp sgt i64 %sub.i126, 0
-  br i1 %cmp.i127, label %while.body.i94, label %return, !llvm.loop !280
+  br i1 %cmp.i127, label %while.body.i94, label %return, !llvm.loop !307
 
 if.end:                                           ; preds = %entry
   %27 = load ptr, ptr %__last, align 8
@@ -4519,7 +4520,7 @@ while.body.i159:                                  ; preds = %if.end, %_ZNSt15_De
 
 if.then.i.i.i.i169:                               ; preds = %while.body.i159
   %add.ptr.idx.i170 = shl nsw i64 %.sroa.speculated.i166, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp12.sroa.0.0, ptr align 8 %__first.addr.016.i160, i64 %add.ptr.idx.i170, i1 false), !noalias !288
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp12.sroa.0.0, ptr align 8 %__first.addr.016.i160, i64 %add.ptr.idx.i170, i1 false), !noalias !315
   br label %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i173
 
 _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i173: ; preds = %if.then.i.i.i.i169, %while.body.i159
@@ -4549,7 +4550,7 @@ cond.false.i.i180:                                ; preds = %_ZSt14__copy_move_a
 cond.end.i.i182:                                  ; preds = %cond.false.i.i180, %cond.true.i.i195
   %cond.i.i183 = phi i64 [ %div911.i.i196, %cond.true.i.i195 ], [ %sub10.i.i181, %cond.false.i.i180 ]
   %add.ptr11.i.i184 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i183
-  %32 = load ptr, ptr %add.ptr11.i.i184, align 8, !noalias !288
+  %32 = load ptr, ptr %add.ptr11.i.i184, align 8, !noalias !315
   %add.ptr.i.i.i185 = getelementptr inbounds i8, ptr %32, i64 512
   %mul.i.i186 = shl nsw i64 %cond.i.i183, 5
   %sub14.i.i187 = sub nsw i64 %add.i.i178, %mul.i.i186
@@ -4563,7 +4564,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLE
   %storemerge.i.i190 = phi ptr [ %add.ptr.i.i198, %if.then.i.i197 ], [ %add.ptr15.i.i188, %cond.end.i.i182 ]
   %sub.i191 = sub nsw i64 %storemerge15.i161, %.sroa.speculated.i166
   %cmp.i192 = icmp sgt i64 %sub.i191, 0
-  br i1 %cmp.i192, label %while.body.i159, label %return, !llvm.loop !280
+  br i1 %cmp.i192, label %while.body.i159, label %return, !llvm.loop !307
 
 return:                                           ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i124, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i189, %if.end, %for.end
   %.sink211 = phi ptr [ %23, %for.end ], [ %28, %if.end ], [ %storemerge.i.i190, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i189 ], [ %storemerge.i.i125, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i124 ]
@@ -4855,7 +4856,7 @@ if.end:                                           ; preds = %while.body
   store ptr %17, ptr %_M_node.i40, align 8
   call void @_ZSt16__introsort_loopISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_T1_(ptr noundef nonnull %agg.tmp8, ptr noundef nonnull %agg.tmp9, i64 noundef %dec)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last, ptr noundef nonnull align 8 dereferenceable(32) %__cut, i64 32, i1 false)
-  br label %while.cond, !llvm.loop !291
+  br label %while.cond, !llvm.loop !318
 
 while.end:                                        ; preds = %while.cond, %if.then
   ret void
@@ -4909,13 +4910,13 @@ if.then:                                          ; preds = %entry
   store ptr %4, ptr %_M_last.i2, align 8
   %_M_node.i3 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %1, ptr %_M_node.i3, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
   %_M_first.i.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
-  store ptr %6, ptr %_M_first.i.i, align 8, !alias.scope !292
+  store ptr %6, ptr %_M_first.i.i, align 8, !alias.scope !319
   %_M_last.i.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store ptr %4, ptr %_M_last.i.i, align 8, !alias.scope !292
+  store ptr %4, ptr %_M_last.i.i, align 8, !alias.scope !319
   %_M_node.i.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 24
-  store ptr %1, ptr %_M_node.i.i, align 8, !alias.scope !292
+  store ptr %1, ptr %_M_node.i.i, align 8, !alias.scope !319
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.rhs.cast9.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
@@ -4942,11 +4943,11 @@ cond.false.i.i:                                   ; preds = %if.then
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %1, i64 %cond.i.i
-  store ptr %add.ptr11.i.i, ptr %_M_node.i.i, align 8, !alias.scope !292
-  %7 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !292
-  store ptr %7, ptr %_M_first.i.i, align 8, !alias.scope !292
+  store ptr %add.ptr11.i.i, ptr %_M_node.i.i, align 8, !alias.scope !319
+  %7 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !319
+  store ptr %7, ptr %_M_first.i.i, align 8, !alias.scope !319
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 512
-  store ptr %add.ptr.i.i.i, ptr %_M_last.i.i, align 8, !alias.scope !292
+  store ptr %add.ptr.i.i.i, ptr %_M_last.i.i, align 8, !alias.scope !319
   %mul.i.i = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
   %add.ptr15.i.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %7, i64 %sub14.i.i
@@ -4954,12 +4955,12 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %if.then.i.i, %cond.end.i.i
   %storemerge.i.i = phi ptr [ %add.ptr15.i.i, %cond.end.i.i ], [ %add.ptr.i.i, %if.then.i.i ]
-  store ptr %storemerge.i.i, ptr %agg.tmp1, align 8, !alias.scope !292
+  store ptr %storemerge.i.i, ptr %agg.tmp1, align 8, !alias.scope !319
   call void @_ZSt16__insertion_sortISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1)
-  %8 = load ptr, ptr %__first, align 8, !noalias !295
-  %9 = load ptr, ptr %_M_first3.i, align 8, !noalias !295
-  %10 = load ptr, ptr %_M_last.i, align 8, !noalias !295
-  %11 = load ptr, ptr %_M_node1.i, align 8, !noalias !295
+  %8 = load ptr, ptr %__first, align 8, !noalias !322
+  %9 = load ptr, ptr %_M_first3.i, align 8, !noalias !322
+  %10 = load ptr, ptr %_M_last.i, align 8, !noalias !322
+  %11 = load ptr, ptr %_M_node1.i, align 8, !noalias !322
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
@@ -4987,7 +4988,7 @@ cond.false.i.i16:                                 ; preds = %_ZStplRKSt15_Deque_
 cond.end.i.i18:                                   ; preds = %cond.false.i.i16, %cond.true.i.i28
   %cond.i.i19 = phi i64 [ %div911.i.i29, %cond.true.i.i28 ], [ %sub10.i.i17, %cond.false.i.i16 ]
   %add.ptr11.i.i20 = getelementptr inbounds ptr, ptr %11, i64 %cond.i.i19
-  %12 = load ptr, ptr %add.ptr11.i.i20, align 8, !noalias !295
+  %12 = load ptr, ptr %add.ptr11.i.i20, align 8, !noalias !322
   %add.ptr.i.i.i21 = getelementptr inbounds i8, ptr %12, i64 512
   %mul.i.i22 = shl nsw i64 %cond.i.i19, 5
   %sub14.i.i23 = sub nsw i64 %add.i.i14, %mul.i.i22
@@ -5050,10 +5051,10 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7rocksdb18SeqnoToTimeMapping13SeqnoTimeP
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt15_Deque_iteratorIS5_RS5_PS5_EEEbRT_T0_.exit.i.i, %while.cond.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %__next.sroa.0.0.i.i, i64 16, i1 false)
   %cmp.i10.i.i = icmp eq ptr %__next.sroa.0.0.i.i, %__next.sroa.8.0.i.i.ph
-  br i1 %cmp.i10.i.i, label %if.then.i12.i.i, label %while.cond.i.i, !llvm.loop !298
+  br i1 %cmp.i10.i.i, label %if.then.i12.i.i, label %while.cond.i.i, !llvm.loop !325
 
 if.then.i12.i.i:                                  ; preds = %while.body.i.i
-  br label %while.cond.i.i.sink.split, !llvm.loop !298
+  br label %while.cond.i.i.sink.split, !llvm.loop !325
 
 _ZSt25__unguarded_linear_insertISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt15_Deque_iteratorIS5_RS5_PS5_EEEbRT_T0_.exit.i.i, %lor.rhs.i.i.i.i.i.i
   store i64 %__val.sroa.0.0.copyload.i.i, ptr %15, align 8
@@ -5075,7 +5076,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppE
   %__i.sroa.6.1.i = phi ptr [ %18, %if.then.i.i43 ], [ %__i.sroa.6.018.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i ]
   %__i.sroa.0.1.i = phi ptr [ %18, %if.then.i.i43 ], [ %incdec.ptr.i.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i ]
   %cmp.i.i.not.i = icmp eq ptr %__i.sroa.0.1.i, %13
-  br i1 %cmp.i.i.not.i, label %if.end, label %for.body.i, !llvm.loop !299
+  br i1 %cmp.i.i.not.i, label %if.end, label %for.body.i, !llvm.loop !326
 
 if.else:                                          ; preds = %entry
   store ptr %5, ptr %agg.tmp6, align 8
@@ -5245,7 +5246,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmE
   %add.i.i = add nsw i64 %sub.ptr.div6.i.i, %sub.ptr.div11.i.i
   %add12.i.i = add i64 %add.i.i, %mul.i.i
   %cmp.i = icmp sgt i64 %add12.i.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZSt11__sort_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_.exit, !llvm.loop !300
+  br i1 %cmp.i, label %while.body.i, label %_ZSt11__sort_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_.exit, !llvm.loop !327
 
 _ZSt11__sort_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_.exit: ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i, %entry
   ret void
@@ -5289,7 +5290,7 @@ entry:
   %add12.i = add nsw i64 %add.i, %sub.ptr.div11.i
   %div = sdiv i64 %add12.i, 2
   %_M_first3.i.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %6 = load ptr, ptr %_M_first3.i.i, align 8
+  %6 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !328
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.rhs.cast9.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
@@ -5316,7 +5317,7 @@ cond.false.i.i:                                   ; preds = %entry
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %1, i64 %cond.i.i
-  %7 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !301
+  %7 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !328
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 512
   %mul.i.i = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
@@ -5335,13 +5336,13 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   store ptr %4, ptr %_M_last.i2, align 8
   %_M_node.i3 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %1, ptr %_M_node.i3, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
   %_M_first.i.i4 = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
-  store ptr %6, ptr %_M_first.i.i4, align 8, !alias.scope !304
+  store ptr %6, ptr %_M_first.i.i4, align 8, !alias.scope !331
   %_M_last.i.i6 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store ptr %4, ptr %_M_last.i.i6, align 8, !alias.scope !304
+  store ptr %4, ptr %_M_last.i.i6, align 8, !alias.scope !331
   %_M_node.i.i8 = getelementptr inbounds i8, ptr %agg.tmp1, i64 24
-  store ptr %1, ptr %_M_node.i.i8, align 8, !alias.scope !304
+  store ptr %1, ptr %_M_node.i.i8, align 8, !alias.scope !331
   %add.i.i14 = add nsw i64 %sub.ptr.div.i.i, 1
   %cmp.i.i15 = icmp sgt i64 %sub.ptr.div.i.i, -2
   br i1 %cmp.i.i15, label %land.lhs.true.i.i26, label %cond.false.i.i16
@@ -5365,11 +5366,11 @@ cond.false.i.i16:                                 ; preds = %_ZStplRKSt15_Deque_
 cond.end.i.i18:                                   ; preds = %cond.false.i.i16, %cond.true.i.i28
   %cond.i.i19 = phi i64 [ %div911.i.i29, %cond.true.i.i28 ], [ %sub10.i.i17, %cond.false.i.i16 ]
   %add.ptr11.i.i20 = getelementptr inbounds ptr, ptr %1, i64 %cond.i.i19
-  store ptr %add.ptr11.i.i20, ptr %_M_node.i.i8, align 8, !alias.scope !304
-  %8 = load ptr, ptr %add.ptr11.i.i20, align 8, !noalias !304
-  store ptr %8, ptr %_M_first.i.i4, align 8, !alias.scope !304
+  store ptr %add.ptr11.i.i20, ptr %_M_node.i.i8, align 8, !alias.scope !331
+  %8 = load ptr, ptr %add.ptr11.i.i20, align 8, !noalias !331
+  store ptr %8, ptr %_M_first.i.i4, align 8, !alias.scope !331
   %add.ptr.i.i.i21 = getelementptr inbounds i8, ptr %8, i64 512
-  store ptr %add.ptr.i.i.i21, ptr %_M_last.i.i6, align 8, !alias.scope !304
+  store ptr %add.ptr.i.i.i21, ptr %_M_last.i.i6, align 8, !alias.scope !331
   %mul.i.i22 = shl nsw i64 %cond.i.i19, 5
   %sub14.i.i23 = sub nsw i64 %add.i.i14, %mul.i.i22
   %add.ptr15.i.i24 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %8, i64 %sub14.i.i23
@@ -5377,7 +5378,7 @@ cond.end.i.i18:                                   ; preds = %cond.false.i.i16, %
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit32: ; preds = %if.then.i.i30, %cond.end.i.i18
   %storemerge.i.i25 = phi ptr [ %add.ptr15.i.i24, %cond.end.i.i18 ], [ %add.ptr.i.i31, %if.then.i.i30 ]
-  store ptr %storemerge.i.i25, ptr %agg.tmp1, align 8, !alias.scope !304
+  store ptr %storemerge.i.i25, ptr %agg.tmp1, align 8, !alias.scope !331
   store ptr %storemerge.i.i, ptr %agg.tmp2, align 8
   %_M_first.i33 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store ptr %__mid.sroa.2.0, ptr %_M_first.i33, align 8
@@ -5385,15 +5386,15 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   store ptr %__mid.sroa.5.0, ptr %_M_last.i35, align 8
   %_M_node.i37 = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   store ptr %__mid.sroa.8.0, ptr %_M_node.i37, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   %_M_first.i.i39 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
-  store ptr %3, ptr %_M_first.i.i39, align 8, !alias.scope !307
+  store ptr %3, ptr %_M_first.i.i39, align 8, !alias.scope !334
   %_M_last.i.i41 = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
   %_M_last4.i.i42 = getelementptr inbounds i8, ptr %__last, i64 16
-  %9 = load ptr, ptr %_M_last4.i.i42, align 8, !noalias !307
-  store ptr %9, ptr %_M_last.i.i41, align 8, !alias.scope !307
+  %9 = load ptr, ptr %_M_last4.i.i42, align 8, !noalias !334
+  store ptr %9, ptr %_M_last.i.i41, align 8, !alias.scope !334
   %_M_node.i.i43 = getelementptr inbounds i8, ptr %agg.tmp3, i64 24
-  store ptr %0, ptr %_M_node.i.i43, align 8, !alias.scope !307
+  store ptr %0, ptr %_M_node.i.i43, align 8, !alias.scope !334
   %add.i.i.i = add nsw i64 %sub.ptr.div6.i, -1
   %cmp.i.i.i = icmp sgt i64 %sub.ptr.div6.i, 0
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
@@ -5417,11 +5418,11 @@ cond.false.i.i.i:                                 ; preds = %_ZStplRKSt15_Deque_
 cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %0, i64 %cond.i.i.i
-  store ptr %add.ptr11.i.i.i, ptr %_M_node.i.i43, align 8, !alias.scope !307
-  %10 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !307
-  store ptr %10, ptr %_M_first.i.i39, align 8, !alias.scope !307
+  store ptr %add.ptr11.i.i.i, ptr %_M_node.i.i43, align 8, !alias.scope !334
+  %10 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !334
+  store ptr %10, ptr %_M_first.i.i39, align 8, !alias.scope !334
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 512
-  store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i41, align 8, !alias.scope !307
+  store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i41, align 8, !alias.scope !334
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 5
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
   %add.ptr15.i.i.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %10, i64 %sub14.i.i.i
@@ -5429,12 +5430,12 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
 
 _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %if.then.i.i.i, %cond.end.i.i.i
   %storemerge.i.i.i = phi ptr [ %add.ptr15.i.i.i, %cond.end.i.i.i ], [ %add.ptr.i.i.i45, %if.then.i.i.i ]
-  store ptr %storemerge.i.i.i, ptr %agg.tmp3, align 8, !alias.scope !307
+  store ptr %storemerge.i.i.i, ptr %agg.tmp3, align 8, !alias.scope !334
   call void @_ZSt22__move_median_to_firstISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_SA_T0_(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp3)
-  %11 = load ptr, ptr %__first, align 8
-  %12 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !310
-  %13 = load ptr, ptr %_M_last.i, align 8, !noalias !310
-  %14 = load ptr, ptr %_M_node1.i, align 8, !noalias !310
+  %11 = load ptr, ptr %__first, align 8, !noalias !337
+  %12 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !337
+  %13 = load ptr, ptr %_M_last.i, align 8, !noalias !337
+  %14 = load ptr, ptr %_M_node1.i, align 8, !noalias !337
   %sub.ptr.lhs.cast.i.i52 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i.i53 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i52, %sub.ptr.rhs.cast.i.i53
@@ -5462,7 +5463,7 @@ cond.false.i.i58:                                 ; preds = %_ZStmiRKSt15_Deque_
 cond.end.i.i60:                                   ; preds = %cond.false.i.i58, %cond.true.i.i70
   %cond.i.i61 = phi i64 [ %div911.i.i71, %cond.true.i.i70 ], [ %sub10.i.i59, %cond.false.i.i58 ]
   %add.ptr11.i.i62 = getelementptr inbounds ptr, ptr %14, i64 %cond.i.i61
-  %15 = load ptr, ptr %add.ptr11.i.i62, align 8, !noalias !310
+  %15 = load ptr, ptr %add.ptr11.i.i62, align 8, !noalias !337
   %add.ptr.i.i.i63 = getelementptr inbounds i8, ptr %15, i64 512
   %mul.i.i64 = shl nsw i64 %cond.i.i61, 5
   %sub14.i.i65 = sub nsw i64 %add.i.i56, %mul.i.i64
@@ -5477,7 +5478,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %16 = load ptr, ptr %__last, align 8
   %17 = load ptr, ptr %_M_first.i, align 8
   %18 = load ptr, ptr %_M_node.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !313)
+  call void @llvm.experimental.noalias.scope.decl(metadata !340)
   %time4.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   br label %while.body.i
 
@@ -5489,7 +5490,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %agg.tmp6.sroa.3.0 = phi ptr [ %17, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %.ph, %while.body.i.backedge ]
   %agg.tmp6.sroa.0.0 = phi ptr [ %16, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %storemerge.i, %while.body.i.backedge ]
   %agg.tmp5.sroa.20.1 = phi ptr [ %agg.tmp5.sroa.20.0, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %agg.tmp5.sroa.20.1.be, %while.body.i.backedge ]
-  %19 = load i64, ptr %11, align 8, !noalias !313
+  %19 = load i64, ptr %11, align 8, !noalias !340
   br label %while.cond1.i.outer
 
 while.cond1.i.outer:                              ; preds = %if.then.i.i92, %while.body.i
@@ -5502,7 +5503,7 @@ while.cond1.i.outer:                              ; preds = %if.then.i.i92, %whi
 while.cond1.i:                                    ; preds = %while.cond1.i.outer, %while.body3.i
   %agg.tmp5.sroa.0.1 = phi ptr [ %incdec.ptr.i.i, %while.body3.i ], [ %agg.tmp5.sroa.0.1.ph, %while.cond1.i.outer ]
   %time.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5.sroa.0.1, i64 8
-  %20 = load i64, ptr %agg.tmp5.sroa.0.1, align 8, !noalias !313
+  %20 = load i64, ptr %agg.tmp5.sroa.0.1, align 8, !noalias !340
   %cmp.i.i.i.i.i = icmp ult i64 %20, %19
   br i1 %cmp.i.i.i.i.i, label %while.body3.i, label %lor.rhs.i.i.i.i.i
 
@@ -5511,21 +5512,21 @@ lor.rhs.i.i.i.i.i:                                ; preds = %while.cond1.i
   br i1 %cmp4.i.i.i.i.i, label %while.end.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.i: ; preds = %lor.rhs.i.i.i.i.i
-  %21 = load i64, ptr %time.i.i.i, align 8, !noalias !313
-  %22 = load i64, ptr %time4.i.i.i, align 8, !noalias !313
+  %21 = load i64, ptr %time.i.i.i, align 8, !noalias !340
+  %22 = load i64, ptr %time4.i.i.i, align 8, !noalias !340
   %cmp.i.i.i.i.i.i = icmp ult i64 %21, %22
   br i1 %cmp.i.i.i.i.i.i, label %while.body3.i, label %while.end.i
 
 while.body3.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.i, %while.cond1.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp5.sroa.0.1, i64 16
   %cmp.i.i91 = icmp eq ptr %incdec.ptr.i.i, %agg.tmp5.sroa.13.2.ph
-  br i1 %cmp.i.i91, label %if.then.i.i92, label %while.cond1.i, !llvm.loop !316
+  br i1 %cmp.i.i91, label %if.then.i.i92, label %while.cond1.i, !llvm.loop !343
 
 if.then.i.i92:                                    ; preds = %while.body3.i
   %add.ptr.i.i93 = getelementptr inbounds i8, ptr %agg.tmp5.sroa.20.2.ph, i64 8
-  %23 = load ptr, ptr %add.ptr.i.i93, align 8, !noalias !313
+  %23 = load ptr, ptr %add.ptr.i.i93, align 8, !noalias !340
   %add.ptr.i.i.i94 = getelementptr inbounds i8, ptr %23, i64 512
-  br label %while.cond1.i.outer, !llvm.loop !316
+  br label %while.cond1.i.outer, !llvm.loop !343
 
 while.end.i:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i.i
   %cmp.i10.i = icmp eq ptr %agg.tmp6.sroa.0.0, %agg.tmp6.sroa.3.0
@@ -5534,7 +5535,7 @@ while.end.i:                                      ; preds = %_ZNK9__gnu_cxx5__op
 while.cond6.i.sink.split:                         ; preds = %while.end.i, %if.then.i39.i
   %agg.tmp6.sroa.10.2.sink = phi ptr [ %agg.tmp6.sroa.10.2.ph, %if.then.i39.i ], [ %agg.tmp6.sroa.10.0, %while.end.i ]
   %add.ptr.i41.i = getelementptr inbounds i8, ptr %agg.tmp6.sroa.10.2.sink, i64 -8
-  %24 = load ptr, ptr %add.ptr.i41.i, align 8, !noalias !313
+  %24 = load ptr, ptr %add.ptr.i41.i, align 8, !noalias !340
   %add.ptr.i.i42.i = getelementptr inbounds i8, ptr %24, i64 512
   br label %while.cond6.i.preheader
 
@@ -5548,7 +5549,7 @@ while.cond6.i:                                    ; preds = %while.cond6.i.prehe
   %.pn.i = phi ptr [ %storemerge.i, %while.body10.i ], [ %.pn.i.ph, %while.cond6.i.preheader ]
   %storemerge.i = getelementptr inbounds i8, ptr %.pn.i, i64 -16
   %time4.i.i29.i = getelementptr inbounds i8, ptr %.pn.i, i64 -8
-  %25 = load i64, ptr %storemerge.i, align 8, !noalias !313
+  %25 = load i64, ptr %storemerge.i, align 8, !noalias !340
   %cmp.i.i.i.i30.i = icmp ult i64 %19, %25
   br i1 %cmp.i.i.i.i30.i, label %while.body10.i, label %lor.rhs.i.i.i.i31.i
 
@@ -5557,17 +5558,17 @@ lor.rhs.i.i.i.i31.i:                              ; preds = %while.cond6.i
   br i1 %cmp4.i.i.i.i32.i, label %while.end12.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit35.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit35.i: ; preds = %lor.rhs.i.i.i.i31.i
-  %26 = load i64, ptr %time4.i.i.i, align 8, !noalias !313
-  %27 = load i64, ptr %time4.i.i29.i, align 8, !noalias !313
+  %26 = load i64, ptr %time4.i.i.i, align 8, !noalias !340
+  %27 = load i64, ptr %time4.i.i29.i, align 8, !noalias !340
   %cmp.i.i.i.i.i34.i = icmp ult i64 %26, %27
   br i1 %cmp.i.i.i.i.i34.i, label %while.body10.i, label %while.end12.i
 
 while.body10.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit35.i, %while.cond6.i
   %cmp.i37.i = icmp eq ptr %storemerge.i, %.ph
-  br i1 %cmp.i37.i, label %if.then.i39.i, label %while.cond6.i, !llvm.loop !317
+  br i1 %cmp.i37.i, label %if.then.i39.i, label %while.cond6.i, !llvm.loop !344
 
 if.then.i39.i:                                    ; preds = %while.body10.i
-  br label %while.cond6.i.sink.split, !llvm.loop !317
+  br label %while.cond6.i.sink.split, !llvm.loop !344
 
 while.end12.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit35.i, %lor.rhs.i.i.i.i31.i
   %cmp.i46.i = icmp eq ptr %agg.tmp5.sroa.20.2.ph, %agg.tmp6.sroa.10.2.ph
@@ -5578,9 +5579,9 @@ while.end12.i:                                    ; preds = %_ZNK9__gnu_cxx5__op
 
 if.end.i:                                         ; preds = %while.end12.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5.sroa.0.1, i64 16, i1 false), !noalias !313
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(16) %storemerge.i, i64 16, i1 false), !noalias !313
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storemerge.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i, i64 16, i1 false), !noalias !313
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5.sroa.0.1, i64 16, i1 false), !noalias !340
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(16) %storemerge.i, i64 16, i1 false), !noalias !340
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storemerge.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i, i64 16, i1 false), !noalias !340
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i)
   %incdec.ptr.i65.i = getelementptr inbounds i8, ptr %agg.tmp5.sroa.0.1, i64 16
   %cmp.i67.i = icmp eq ptr %incdec.ptr.i65.i, %agg.tmp5.sroa.13.2.ph
@@ -5588,7 +5589,7 @@ if.end.i:                                         ; preds = %while.end12.i
 
 if.then.i68.i:                                    ; preds = %if.end.i
   %add.ptr.i70.i = getelementptr inbounds i8, ptr %agg.tmp5.sroa.20.2.ph, i64 8
-  %28 = load ptr, ptr %add.ptr.i70.i, align 8, !noalias !313
+  %28 = load ptr, ptr %add.ptr.i70.i, align 8, !noalias !340
   %add.ptr.i.i72.i = getelementptr inbounds i8, ptr %28, i64 512
   br label %while.body.i.backedge
 
@@ -5597,16 +5598,16 @@ while.body.i.backedge:                            ; preds = %if.then.i68.i, %if.
   %agg.tmp5.sroa.8.1.be = phi ptr [ %28, %if.then.i68.i ], [ %agg.tmp5.sroa.8.2.ph, %if.end.i ]
   %agg.tmp5.sroa.0.0.be = phi ptr [ %28, %if.then.i68.i ], [ %incdec.ptr.i65.i, %if.end.i ]
   %agg.tmp5.sroa.20.1.be = phi ptr [ %add.ptr.i70.i, %if.then.i68.i ], [ %agg.tmp5.sroa.20.2.ph, %if.end.i ]
-  br label %while.body.i, !llvm.loop !318
+  br label %while.body.i, !llvm.loop !345
 
 _ZSt21__unguarded_partitionISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_SA_T0_.exit: ; preds = %while.end12.i
-  store ptr %agg.tmp5.sroa.0.1, ptr %agg.result, align 8, !alias.scope !313
+  store ptr %agg.tmp5.sroa.0.1, ptr %agg.result, align 8, !alias.scope !340
   %_M_first.i47.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %agg.tmp5.sroa.8.2.ph, ptr %_M_first.i47.i, align 8, !alias.scope !313
+  store ptr %agg.tmp5.sroa.8.2.ph, ptr %_M_first.i47.i, align 8, !alias.scope !340
   %_M_last.i49.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %agg.tmp5.sroa.13.2.ph, ptr %_M_last.i49.i, align 8, !alias.scope !313
+  store ptr %agg.tmp5.sroa.13.2.ph, ptr %_M_last.i49.i, align 8, !alias.scope !340
   %_M_node.i51.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %agg.tmp5.sroa.20.2.ph, ptr %_M_node.i51.i, align 8, !alias.scope !313
+  store ptr %agg.tmp5.sroa.20.2.ph, ptr %_M_node.i51.i, align 8, !alias.scope !340
   ret void
 }
 
@@ -5747,7 +5748,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppE
   %cmp3.i = icmp ult ptr %__i.sroa.0.1, %26
   %cmp6.i = icmp ult ptr %__i.sroa.16.1, %25
   %cond.i = select i1 %cmp.i, i1 %cmp3.i, i1 %cmp6.i
-  br i1 %cond.i, label %for.body, label %for.end, !llvm.loop !319
+  br i1 %cond.i, label %for.body, label %for.end, !llvm.loop !346
 
 for.end:                                          ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppEv.exit, %entry
   ret void
@@ -5792,7 +5793,7 @@ if.end:                                           ; preds = %entry
   %sub = add nsw i64 %add12.i, -2
   %div5960 = lshr i64 %sub, 1
   %_M_first3.i.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %6 = load ptr, ptr %_M_first3.i.i, align 8
+  %6 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !347
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.rhs.cast9.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
@@ -5819,7 +5820,7 @@ cond.false.i.i:                                   ; preds = %if.end
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %1, i64 %cond.i.i
-  %7 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !320
+  %7 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !347
   %mul.i.i = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
   %add.ptr15.i.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %7, i64 %sub14.i.i
@@ -5844,9 +5845,9 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 if.end7.split:                                    ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit58
   %__parent.065 = phi i64 [ %dec, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit58 ], [ %div5960, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit ]
   %dec = add nsw i64 %__parent.065, -1
-  %8 = load ptr, ptr %__first, align 8
-  %9 = load ptr, ptr %_M_first3.i.i, align 8
-  %10 = load ptr, ptr %_M_node1.i, align 8
+  %8 = load ptr, ptr %__first, align 8, !noalias !350
+  %9 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !350
+  %10 = load ptr, ptr %_M_node1.i, align 8, !noalias !350
   %sub.ptr.lhs.cast.i.i36 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i37 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i38 = sub i64 %sub.ptr.lhs.cast.i.i36, %sub.ptr.rhs.cast.i.i37
@@ -5874,7 +5875,7 @@ cond.false.i.i42:                                 ; preds = %if.end7.split
 cond.end.i.i44:                                   ; preds = %cond.false.i.i42, %cond.true.i.i54
   %cond.i.i45 = phi i64 [ %div911.i.i55, %cond.true.i.i54 ], [ %sub10.i.i43, %cond.false.i.i42 ]
   %add.ptr11.i.i46 = getelementptr inbounds ptr, ptr %10, i64 %cond.i.i45
-  %11 = load ptr, ptr %add.ptr11.i.i46, align 8, !noalias !323
+  %11 = load ptr, ptr %add.ptr11.i.i46, align 8, !noalias !350
   %mul.i.i48 = shl nsw i64 %cond.i.i45, 5
   %sub14.i.i49 = sub nsw i64 %add.i.i40, %mul.i.i48
   %add.ptr15.i.i50 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %11, i64 %sub14.i.i49
@@ -5892,7 +5893,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   store ptr %10, ptr %_M_node.i29, align 8
   call void @_ZSt13__adjust_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_(ptr noundef nonnull %agg.tmp, i64 noundef %dec, i64 noundef %add12.i, i64 %__value.sroa.0.0.copyload, i64 %__value.sroa.2.0.copyload)
   %cmp5 = icmp eq i64 %dec, 0
-  br i1 %cmp5, label %return, label %if.end7.split, !llvm.loop !326
+  br i1 %cmp5, label %return, label %if.end7.split, !llvm.loop !353
 
 return:                                           ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit58, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit, %entry
   ret void
@@ -5917,9 +5918,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %__holeIndex.addr.0166 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %9, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit103 ]
   %add = shl i64 %__holeIndex.addr.0166, 1
   %mul = add i64 %add, 2
-  %0 = load ptr, ptr %__first, align 8, !noalias !46
-  %1 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !46
-  %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !46
+  %0 = load ptr, ptr %__first, align 8, !noalias !354
+  %1 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !354
+  %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !354
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -5947,7 +5948,7 @@ cond.false.i.i:                                   ; preds = %while.body
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i
-  %3 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !327
+  %3 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !354
   %mul.i.i = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
   %add.ptr15.i.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %3, i64 %sub14.i.i
@@ -5979,7 +5980,7 @@ cond.false.i.i29:                                 ; preds = %_ZStplRKSt15_Deque_
 cond.end.i.i31:                                   ; preds = %cond.false.i.i29, %cond.true.i.i41
   %cond.i.i32 = phi i64 [ %div911.i.i42, %cond.true.i.i41 ], [ %sub10.i.i30, %cond.false.i.i29 ]
   %add.ptr11.i.i33 = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i32
-  %4 = load ptr, ptr %add.ptr11.i.i33, align 8, !noalias !330
+  %4 = load ptr, ptr %add.ptr11.i.i33, align 8, !noalias !357
   %mul.i.i35 = shl nsw i64 %cond.i.i32, 5
   %sub14.i.i36 = sub nsw i64 %add.i.i27, %mul.i.i35
   %add.ptr15.i.i37 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %4, i64 %sub14.i.i36
@@ -6033,7 +6034,7 @@ cond.false.i.i58:                                 ; preds = %_ZNK9__gnu_cxx5__op
 cond.end.i.i60:                                   ; preds = %cond.false.i.i58, %cond.true.i.i70
   %cond.i.i61 = phi i64 [ %div911.i.i71, %cond.true.i.i70 ], [ %sub10.i.i59, %cond.false.i.i58 ]
   %add.ptr11.i.i62 = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i61
-  %10 = load ptr, ptr %add.ptr11.i.i62, align 8, !noalias !333
+  %10 = load ptr, ptr %add.ptr11.i.i62, align 8, !noalias !360
   %mul.i.i64 = shl nsw i64 %cond.i.i61, 5
   %sub14.i.i65 = sub nsw i64 %add.i.i56.pre-phi, %mul.i.i64
   %add.ptr15.i.i66 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %10, i64 %sub14.i.i65
@@ -6064,7 +6065,7 @@ cond.false.i.i87:                                 ; preds = %_ZStplRKSt15_Deque_
 cond.end.i.i89:                                   ; preds = %cond.false.i.i87, %cond.true.i.i99
   %cond.i.i90 = phi i64 [ %div911.i.i100, %cond.true.i.i99 ], [ %sub10.i.i88, %cond.false.i.i87 ]
   %add.ptr11.i.i91 = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i90
-  %11 = load ptr, ptr %add.ptr11.i.i91, align 8, !noalias !336
+  %11 = load ptr, ptr %add.ptr11.i.i91, align 8, !noalias !363
   %mul.i.i93 = shl nsw i64 %cond.i.i90, 5
   %sub14.i.i94 = sub nsw i64 %add.i.i85, %mul.i.i93
   %add.ptr15.i.i95 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %11, i64 %sub14.i.i94
@@ -6074,7 +6075,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %storemerge.i.i96 = phi ptr [ %add.ptr15.i.i95, %cond.end.i.i89 ], [ %add.ptr.i.i102, %if.then.i.i101 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storemerge.i.i96, ptr noundef nonnull align 8 dereferenceable(16) %storemerge.i.i67, i64 16, i1 false)
   %cmp = icmp slt i64 %9, %div
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !339
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !366
 
 while.end:                                        ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit103, %entry
   %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %9, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit103 ]
@@ -6091,11 +6092,11 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub14 = or disjoint i64 %add11, 1
-  %12 = load ptr, ptr %__first, align 8, !noalias !46
+  %12 = load ptr, ptr %__first, align 8, !noalias !367
   %_M_first3.i.i105 = getelementptr inbounds i8, ptr %__first, i64 8
-  %13 = load ptr, ptr %_M_first3.i.i105, align 8, !noalias !46
+  %13 = load ptr, ptr %_M_first3.i.i105, align 8, !noalias !367
   %_M_node5.i.i109 = getelementptr inbounds i8, ptr %__first, i64 24
-  %14 = load ptr, ptr %_M_node5.i.i109, align 8, !noalias !46
+  %14 = load ptr, ptr %_M_node5.i.i109, align 8, !noalias !367
   %sub.ptr.lhs.cast.i.i110 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i111 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i112 = sub i64 %sub.ptr.lhs.cast.i.i110, %sub.ptr.rhs.cast.i.i111
@@ -6123,7 +6124,7 @@ cond.false.i.i116:                                ; preds = %if.then10
 cond.end.i.i118:                                  ; preds = %cond.false.i.i116, %cond.true.i.i128
   %cond.i.i119 = phi i64 [ %div911.i.i129, %cond.true.i.i128 ], [ %sub10.i.i117, %cond.false.i.i116 ]
   %add.ptr11.i.i120 = getelementptr inbounds ptr, ptr %14, i64 %cond.i.i119
-  %15 = load ptr, ptr %add.ptr11.i.i120, align 8, !noalias !340
+  %15 = load ptr, ptr %add.ptr11.i.i120, align 8, !noalias !367
   %mul.i.i122 = shl nsw i64 %cond.i.i119, 5
   %sub14.i.i123 = sub nsw i64 %add.i.i114, %mul.i.i122
   %add.ptr15.i.i124 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %15, i64 %sub14.i.i123
@@ -6154,7 +6155,7 @@ cond.false.i.i145:                                ; preds = %_ZStplRKSt15_Deque_
 cond.end.i.i147:                                  ; preds = %cond.false.i.i145, %cond.true.i.i157
   %cond.i.i148 = phi i64 [ %div911.i.i158, %cond.true.i.i157 ], [ %sub10.i.i146, %cond.false.i.i145 ]
   %add.ptr11.i.i149 = getelementptr inbounds ptr, ptr %14, i64 %cond.i.i148
-  %16 = load ptr, ptr %add.ptr11.i.i149, align 8, !noalias !343
+  %16 = load ptr, ptr %add.ptr11.i.i149, align 8, !noalias !370
   %mul.i.i151 = shl nsw i64 %cond.i.i148, 5
   %sub14.i.i152 = sub nsw i64 %add.i.i143, %mul.i.i151
   %add.ptr15.i.i153 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %16, i64 %sub14.i.i152
@@ -6200,9 +6201,9 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %_Z
   %__holeIndex.addr.098 = phi i64 [ %__holeIndex, %land.rhs.lr.ph ], [ %__parent.099, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit64 ]
   %__parent.099.in = add nsw i64 %__holeIndex.addr.098, -1
   %__parent.099 = sdiv i64 %__parent.099.in, 2
-  %0 = load ptr, ptr %__first, align 8, !noalias !46
-  %1 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !46
-  %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !46
+  %0 = load ptr, ptr %__first, align 8, !noalias !373
+  %1 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !373
+  %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !373
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -6230,7 +6231,7 @@ cond.false.i.i:                                   ; preds = %land.rhs
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i
-  %3 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !346
+  %3 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !373
   %mul.i.i = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
   %add.ptr15.i.i = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %3, i64 %sub14.i.i
@@ -6274,7 +6275,7 @@ cond.false.i.i19:                                 ; preds = %while.body
 cond.end.i.i21:                                   ; preds = %cond.false.i.i19, %cond.true.i.i31
   %cond.i.i22 = phi i64 [ %div911.i.i32, %cond.true.i.i31 ], [ %sub10.i.i20, %cond.false.i.i19 ]
   %add.ptr11.i.i23 = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i22
-  %6 = load ptr, ptr %add.ptr11.i.i23, align 8, !noalias !349
+  %6 = load ptr, ptr %add.ptr11.i.i23, align 8, !noalias !376
   %mul.i.i25 = shl nsw i64 %cond.i.i22, 5
   %sub14.i.i26 = sub nsw i64 %add.i.i, %mul.i.i25
   %add.ptr15.i.i27 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %6, i64 %sub14.i.i26
@@ -6305,7 +6306,7 @@ cond.false.i.i48:                                 ; preds = %_ZStplRKSt15_Deque_
 cond.end.i.i50:                                   ; preds = %cond.false.i.i48, %cond.true.i.i60
   %cond.i.i51 = phi i64 [ %div911.i.i61, %cond.true.i.i60 ], [ %sub10.i.i49, %cond.false.i.i48 ]
   %add.ptr11.i.i52 = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i51
-  %7 = load ptr, ptr %add.ptr11.i.i52, align 8, !noalias !352
+  %7 = load ptr, ptr %add.ptr11.i.i52, align 8, !noalias !379
   %mul.i.i54 = shl nsw i64 %cond.i.i51, 5
   %sub14.i.i55 = sub nsw i64 %add.i.i46, %mul.i.i54
   %add.ptr15.i.i56 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %7, i64 %sub14.i.i55
@@ -6315,15 +6316,15 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %storemerge.i.i57 = phi ptr [ %add.ptr15.i.i56, %cond.end.i.i50 ], [ %add.ptr.i.i63, %if.then.i.i62 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storemerge.i.i57, ptr noundef nonnull align 8 dereferenceable(16) %storemerge.i.i28, i64 16, i1 false)
   %cmp = icmp sgt i64 %__parent.099, %__topIndex
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !355
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !382
 
 while.end:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES6_EEbT_RT0_.exit, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit64, %lor.rhs.i.i.i.i, %entry
   %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %__holeIndex.addr.098, %lor.rhs.i.i.i.i ], [ %__parent.099, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit64 ], [ %__holeIndex.addr.098, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES6_EEbT_RT0_.exit ]
-  %8 = load ptr, ptr %__first, align 8, !noalias !356
+  %8 = load ptr, ptr %__first, align 8, !noalias !383
   %_M_first3.i.i66 = getelementptr inbounds i8, ptr %__first, i64 8
-  %9 = load ptr, ptr %_M_first3.i.i66, align 8, !noalias !356
+  %9 = load ptr, ptr %_M_first3.i.i66, align 8, !noalias !383
   %_M_node5.i.i70 = getelementptr inbounds i8, ptr %__first, i64 24
-  %10 = load ptr, ptr %_M_node5.i.i70, align 8, !noalias !356
+  %10 = load ptr, ptr %_M_node5.i.i70, align 8, !noalias !383
   %sub.ptr.lhs.cast.i.i71 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i72 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i73 = sub i64 %sub.ptr.lhs.cast.i.i71, %sub.ptr.rhs.cast.i.i72
@@ -6351,7 +6352,7 @@ cond.false.i.i77:                                 ; preds = %while.end
 cond.end.i.i79:                                   ; preds = %cond.false.i.i77, %cond.true.i.i89
   %cond.i.i80 = phi i64 [ %div911.i.i90, %cond.true.i.i89 ], [ %sub10.i.i78, %cond.false.i.i77 ]
   %add.ptr11.i.i81 = getelementptr inbounds ptr, ptr %10, i64 %cond.i.i80
-  %11 = load ptr, ptr %add.ptr11.i.i81, align 8, !noalias !356
+  %11 = load ptr, ptr %add.ptr11.i.i81, align 8, !noalias !383
   %mul.i.i83 = shl nsw i64 %cond.i.i80, 5
   %sub14.i.i84 = sub nsw i64 %add.i.i75, %mul.i.i83
   %add.ptr15.i.i85 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %11, i64 %sub14.i.i84
@@ -6531,11 +6532,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %_M_first3.i.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %2 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !359
+  %2 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !386
   %_M_last4.i.i = getelementptr inbounds i8, ptr %__first, i64 16
-  %3 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !359
+  %3 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !386
   %_M_node5.i.i = getelementptr inbounds i8, ptr %__first, i64 24
-  %4 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !359
+  %4 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !386
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -6563,7 +6564,7 @@ cond.false.i.i:                                   ; preds = %if.end
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %4, i64 %cond.i.i
-  %5 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !359
+  %5 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !386
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 512
   %mul.i.i = shl nsw i64 %cond.i.i, 5
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
@@ -6645,7 +6646,7 @@ cond.false.i.i32:                                 ; preds = %if.then4
 cond.end.i.i34:                                   ; preds = %cond.false.i.i32, %cond.true.i.i44
   %cond.i.i35 = phi i64 [ %div911.i.i45, %cond.true.i.i44 ], [ %sub10.i.i33, %cond.false.i.i32 ]
   %add.ptr11.i.i36 = getelementptr inbounds ptr, ptr %__i.sroa.25.096, i64 %cond.i.i35
-  %13 = load ptr, ptr %add.ptr11.i.i36, align 8, !noalias !362
+  %13 = load ptr, ptr %add.ptr11.i.i36, align 8, !noalias !389
   %add.ptr.i.i.i37 = getelementptr inbounds i8, ptr %13, i64 512
   %mul.i.i38 = shl nsw i64 %cond.i.i35, 5
   %sub14.i.i39 = sub nsw i64 %add.i.i30, %mul.i.i38
@@ -6657,27 +6658,27 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %agg.tmp8.sroa.2.0 = phi ptr [ %__i.sroa.10.093, %if.then.i.i46 ], [ %13, %cond.end.i.i34 ]
   %agg.tmp8.sroa.8.0 = phi ptr [ %__i.sroa.25.096, %if.then.i.i46 ], [ %add.ptr11.i.i36, %cond.end.i.i34 ]
   %storemerge.i.i41 = phi ptr [ %add.ptr.i.i47, %if.then.i.i46 ], [ %add.ptr15.i.i40, %cond.end.i.i34 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !365
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !368
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !368
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !368
-  store ptr %6, ptr %agg.tmp.i.i.i, align 8, !noalias !371
-  store ptr %10, ptr %_M_first.i.i25.i.i, align 8, !noalias !371
-  store ptr %11, ptr %_M_last.i.i27.i.i, align 8, !noalias !371
-  store ptr %12, ptr %_M_node.i.i29.i.i, align 8, !noalias !371
-  store ptr %__i.sroa.0.090, ptr %agg.tmp1.i.i.i, align 8, !noalias !371
-  store ptr %__i.sroa.10.093, ptr %_M_first.i1.i.i.i, align 8, !noalias !371
-  store ptr %__i.sroa.17.095, ptr %_M_last.i3.i.i.i, align 8, !noalias !371
-  store ptr %__i.sroa.25.096, ptr %_M_node.i5.i.i.i, align 8, !noalias !371
-  store ptr %storemerge.i.i41, ptr %agg.tmp2.i.i.i, align 8, !noalias !371
-  store ptr %agg.tmp8.sroa.2.0, ptr %_M_first.i7.i.i.i, align 8, !noalias !371
-  store ptr %agg.tmp8.sroa.5.0, ptr %_M_last.i9.i.i.i, align 8, !noalias !371
-  store ptr %agg.tmp8.sroa.8.0, ptr %_M_node.i11.i.i.i, align 8, !noalias !371
-  call void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_St15_Deque_iteratorIS2_S3_S4_EET3_S5_IT0_T1_T2_ESB_S7_(ptr nonnull sret(%"struct.std::_Deque_iterator.3") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i), !noalias !368
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !368
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !368
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !368
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !365
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !392
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !395
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !395
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !395
+  store ptr %6, ptr %agg.tmp.i.i.i, align 8, !noalias !398
+  store ptr %10, ptr %_M_first.i.i25.i.i, align 8, !noalias !398
+  store ptr %11, ptr %_M_last.i.i27.i.i, align 8, !noalias !398
+  store ptr %12, ptr %_M_node.i.i29.i.i, align 8, !noalias !398
+  store ptr %__i.sroa.0.090, ptr %agg.tmp1.i.i.i, align 8, !noalias !398
+  store ptr %__i.sroa.10.093, ptr %_M_first.i1.i.i.i, align 8, !noalias !398
+  store ptr %__i.sroa.17.095, ptr %_M_last.i3.i.i.i, align 8, !noalias !398
+  store ptr %__i.sroa.25.096, ptr %_M_node.i5.i.i.i, align 8, !noalias !398
+  store ptr %storemerge.i.i41, ptr %agg.tmp2.i.i.i, align 8, !noalias !398
+  store ptr %agg.tmp8.sroa.2.0, ptr %_M_first.i7.i.i.i, align 8, !noalias !398
+  store ptr %agg.tmp8.sroa.5.0, ptr %_M_last.i9.i.i.i, align 8, !noalias !398
+  store ptr %agg.tmp8.sroa.8.0, ptr %_M_node.i11.i.i.i, align 8, !noalias !398
+  call void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_St15_Deque_iteratorIS2_S3_S4_EET3_S5_IT0_T1_T2_ESB_S7_(ptr nonnull sret(%"struct.std::_Deque_iterator.3") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i), !noalias !395
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !395
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !395
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !395
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !392
   %14 = load ptr, ptr %__first, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %__val, i64 16, i1 false)
   br label %for.inc
@@ -6722,10 +6723,10 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7rocksdb18SeqnoToTimeMapping13SeqnoTimeP
 while.body.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt15_Deque_iteratorIS5_RS5_PS5_EEEbRT_T0_.exit.i, %while.cond.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %__next.sroa.0.0.i, i64 16, i1 false)
   %cmp.i10.i = icmp eq ptr %__next.sroa.0.0.i, %__next.sroa.8.0.i.ph
-  br i1 %cmp.i10.i, label %if.then.i12.i, label %while.cond.i, !llvm.loop !298
+  br i1 %cmp.i10.i, label %if.then.i12.i, label %while.cond.i, !llvm.loop !325
 
 if.then.i12.i:                                    ; preds = %while.body.i
-  br label %while.cond.i.sink.split, !llvm.loop !298
+  br label %while.cond.i.sink.split, !llvm.loop !325
 
 _ZSt25__unguarded_linear_insertISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit: ; preds = %lor.rhs.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt15_Deque_iteratorIS5_RS5_PS5_EEEbRT_T0_.exit.i
   store i64 %7, ptr %16, align 8
@@ -6751,7 +6752,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppE
   %__i.sroa.25.2 = phi ptr [ %add.ptr.i, %if.then.i ], [ %__i.sroa.25.096, %for.inc ]
   %20 = load ptr, ptr %__last, align 8
   %cmp.i.i1.not = icmp eq ptr %__i.sroa.0.1, %20
-  br i1 %cmp.i.i1.not, label %for.end, label %for.body, !llvm.loop !374
+  br i1 %cmp.i.i1.not, label %for.end, label %for.body, !llvm.loop !401
 
 for.end:                                          ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppEv.exit, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit, %entry
   ret void
@@ -6807,7 +6808,7 @@ _ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePai
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i, i64 16
   %dec.i.i.i = add nsw i64 %__n.06.i.i.i, -1
   %cmp.i.i.i = icmp sgt i64 %__n.06.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZSt14__copy_move_a1ILb0EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET1_T0_SA_S9_.exit.loopexit, !llvm.loop !375
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZSt14__copy_move_a1ILb0EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET1_T0_SA_S9_.exit.loopexit, !llvm.loop !402
 
 _ZSt14__copy_move_a1ILb0EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET1_T0_SA_S9_.exit.loopexit: ; preds = %_ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS3_EEEaSERKS3_.exit.i.i.i
   %.pre = load ptr, ptr %_M_node, align 8
@@ -7013,13 +7014,13 @@ _ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePai
   %incdec.ptr.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i14, i64 16
   %dec.i.i.i21 = add nsw i64 %__n.06.i.i.i13, -1
   %cmp.i.i.i22 = icmp ugt i64 %__n.06.i.i.i13, 1
-  br i1 %cmp.i.i.i22, label %for.body.i.i.i12, label %_ZSt14__copy_move_a1ILb0EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET1_T0_SA_S9_.exit24, !llvm.loop !375
+  br i1 %cmp.i.i.i22, label %for.body.i.i.i12, label %_ZSt14__copy_move_a1ILb0EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET1_T0_SA_S9_.exit24, !llvm.loop !402
 
 _ZSt14__copy_move_a1ILb0EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET1_T0_SA_S9_.exit24: ; preds = %_ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS3_EEEaSERKS3_.exit.i.i.i19
   %__node.0 = getelementptr inbounds i8, ptr %__node.079, i64 8
   %26 = load ptr, ptr %_M_node1, align 8
   %cmp6.not = icmp eq ptr %__node.0, %26
-  br i1 %cmp6.not, label %for.end, label %for.body, !llvm.loop !376
+  br i1 %cmp6.not, label %for.end, label %for.body, !llvm.loop !403
 
 for.end:                                          ; preds = %_ZSt14__copy_move_a1ILb0EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET1_T0_SA_S9_.exit24, %_ZSt14__copy_move_a1ILb0EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET1_T0_SA_S9_.exit
   %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
@@ -7061,7 +7062,7 @@ _ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePai
   %incdec.ptr.i.i.i41 = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i35, i64 16
   %dec.i.i.i42 = add nsw i64 %__n.06.i.i.i34, -1
   %cmp.i.i.i43 = icmp sgt i64 %__n.06.i.i.i34, 1
-  br i1 %cmp.i.i.i43, label %for.body.i.i.i33, label %return, !llvm.loop !375
+  br i1 %cmp.i.i.i43, label %for.body.i.i.i33, label %return, !llvm.loop !402
 
 if.end:                                           ; preds = %entry
   %32 = load ptr, ptr %__last, align 8
@@ -7101,7 +7102,7 @@ _ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePai
   %incdec.ptr.i.i.i62 = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i56, i64 16
   %dec.i.i.i63 = add nsw i64 %__n.06.i.i.i55, -1
   %cmp.i.i.i64 = icmp sgt i64 %__n.06.i.i.i55, 1
-  br i1 %cmp.i.i.i64, label %for.body.i.i.i54, label %return, !llvm.loop !375
+  br i1 %cmp.i.i.i64, label %for.body.i.i.i54, label %return, !llvm.loop !402
 
 return:                                           ; preds = %_ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS3_EEEaSERKS3_.exit.i.i.i40, %_ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS3_EEEaSERKS3_.exit.i.i.i61, %if.end, %for.end
   ret ptr %__result.coerce
@@ -7210,334 +7211,361 @@ attributes #24 = { noreturn nounwind }
 !43 = distinct !{!43, !44, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
 !44 = distinct !{!44, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
 !45 = !{!43, !40}
-!46 = !{}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv: %agg.result"}
-!49 = distinct !{!49, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv"}
-!50 = distinct !{!50, !51, !"_ZNK7rocksdb18SeqnoToTimeMapping18FindGreaterEqSeqnoEm: %agg.result"}
-!51 = distinct !{!51, !"_ZNK7rocksdb18SeqnoToTimeMapping18FindGreaterEqSeqnoEm"}
-!52 = !{!53, !50}
-!53 = distinct !{!53, !54, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv: %agg.result"}
-!54 = distinct !{!54, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv"}
-!55 = !{!56, !58, !50}
-!56 = distinct !{!56, !57, !"_ZSt13__lower_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
-!57 = distinct !{!57, !"_ZSt13__lower_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
-!58 = distinct !{!58, !59, !"_ZSt11lower_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
-!59 = distinct !{!59, !"_ZSt11lower_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi: %agg.result"}
-!62 = distinct !{!62, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi"}
-!63 = !{!64, !66}
-!64 = distinct !{!64, !65, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv: %agg.result"}
-!65 = distinct !{!65, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv"}
-!66 = distinct !{!66, !67, !"_ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm: %agg.result"}
-!67 = distinct !{!67, !"_ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm"}
-!68 = !{!69, !66}
-!69 = distinct !{!69, !70, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv: %agg.result"}
-!70 = distinct !{!70, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv"}
-!71 = !{!72, !74, !66}
-!72 = distinct !{!72, !73, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
-!73 = distinct !{!73, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
-!74 = distinct !{!74, !75, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
-!75 = distinct !{!75, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv: %agg.result"}
-!78 = distinct !{!78, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5eraseESt15_Deque_iteratorIS2_RKS2_PS6_ES9_: %agg.result"}
-!81 = distinct !{!81, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5eraseESt15_Deque_iteratorIS2_RKS2_PS6_ES9_"}
-!82 = !{!77, !80}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv: %agg.result"}
-!85 = distinct !{!85, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv"}
-!86 = !{!84, !80}
-!87 = !{!88, !90}
-!88 = distinct !{!88, !89, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv: %agg.result"}
-!89 = distinct !{!89, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv"}
-!90 = distinct !{!90, !91, !"_ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm: %agg.result"}
-!91 = distinct !{!91, !"_ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm"}
-!92 = !{!93, !90}
-!93 = distinct !{!93, !94, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv: %agg.result"}
-!94 = distinct !{!94, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv"}
-!95 = !{!96, !98, !90}
-!96 = distinct !{!96, !97, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
-!97 = distinct !{!97, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
-!98 = distinct !{!98, !99, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
-!99 = distinct !{!99, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
-!100 = !{!101, !103, !105}
-!101 = distinct !{!101, !102, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
-!102 = distinct !{!102, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
-!103 = distinct !{!103, !104, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
-!104 = distinct !{!104, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
-!105 = distinct !{!105, !106, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm: %agg.result"}
-!106 = distinct !{!106, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm"}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi: %agg.result"}
-!109 = distinct !{!109, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi"}
-!110 = !{!111, !113, !115}
-!111 = distinct !{!111, !112, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
-!112 = distinct !{!112, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
-!113 = distinct !{!113, !114, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
-!114 = distinct !{!114, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
-!115 = distinct !{!115, !116, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm: %agg.result"}
-!116 = distinct !{!116, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi: %agg.result"}
-!119 = distinct !{!119, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi"}
-!120 = distinct !{!120, !18}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi: %agg.result"}
-!123 = distinct !{!123, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi: %agg.result"}
-!126 = distinct !{!126, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi: %agg.result"}
-!129 = distinct !{!129, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi"}
-!130 = distinct !{!130, !18}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
-!133 = distinct !{!133, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
-!136 = distinct !{!136, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
-!137 = distinct !{!137, !18}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi: %agg.result"}
-!140 = distinct !{!140, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi"}
-!141 = distinct !{!141, !18}
+!46 = !{!47, !49}
+!47 = distinct !{!47, !48, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv: %agg.result"}
+!48 = distinct !{!48, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv"}
+!49 = distinct !{!49, !50, !"_ZNK7rocksdb18SeqnoToTimeMapping18FindGreaterEqSeqnoEm: %agg.result"}
+!50 = distinct !{!50, !"_ZNK7rocksdb18SeqnoToTimeMapping18FindGreaterEqSeqnoEm"}
+!51 = !{!52, !49}
+!52 = distinct !{!52, !53, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv: %agg.result"}
+!53 = distinct !{!53, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv"}
+!54 = !{!55, !57, !49}
+!55 = distinct !{!55, !56, !"_ZSt13__lower_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
+!56 = distinct !{!56, !"_ZSt13__lower_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
+!57 = distinct !{!57, !58, !"_ZSt11lower_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
+!58 = distinct !{!58, !"_ZSt11lower_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi: %agg.result"}
+!61 = distinct !{!61, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi"}
+!62 = !{!63, !65}
+!63 = distinct !{!63, !64, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv: %agg.result"}
+!64 = distinct !{!64, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv"}
+!65 = distinct !{!65, !66, !"_ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm: %agg.result"}
+!66 = distinct !{!66, !"_ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm"}
+!67 = !{!68, !65}
+!68 = distinct !{!68, !69, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv: %agg.result"}
+!69 = distinct !{!69, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv"}
+!70 = !{!71, !73, !65}
+!71 = distinct !{!71, !72, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
+!72 = distinct !{!72, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
+!73 = distinct !{!73, !74, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
+!74 = distinct !{!74, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv: %agg.result"}
+!77 = distinct !{!77, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5eraseESt15_Deque_iteratorIS2_RKS2_PS6_ES9_: %agg.result"}
+!80 = distinct !{!80, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5eraseESt15_Deque_iteratorIS2_RKS2_PS6_ES9_"}
+!81 = !{!76, !79}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv: %agg.result"}
+!84 = distinct !{!84, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv"}
+!85 = !{!83, !79}
+!86 = !{!87, !89}
+!87 = distinct !{!87, !88, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv: %agg.result"}
+!88 = distinct !{!88, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv"}
+!89 = distinct !{!89, !90, !"_ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm: %agg.result"}
+!90 = distinct !{!90, !"_ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm"}
+!91 = !{!92, !89}
+!92 = distinct !{!92, !93, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv: %agg.result"}
+!93 = distinct !{!93, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv"}
+!94 = !{!95, !97, !89}
+!95 = distinct !{!95, !96, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
+!96 = distinct !{!96, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
+!97 = distinct !{!97, !98, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
+!98 = distinct !{!98, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
+!99 = !{!100, !102}
+!100 = distinct !{!100, !101, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv: %agg.result"}
+!101 = distinct !{!101, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv"}
+!102 = distinct !{!102, !103, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm: %agg.result"}
+!103 = distinct !{!103, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm"}
+!104 = !{!105, !102}
+!105 = distinct !{!105, !106, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv: %agg.result"}
+!106 = distinct !{!106, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv"}
+!107 = !{!108, !110, !102}
+!108 = distinct !{!108, !109, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
+!109 = distinct !{!109, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
+!110 = distinct !{!110, !111, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
+!111 = distinct !{!111, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi: %agg.result"}
+!114 = distinct !{!114, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi"}
+!115 = !{!116, !118, !120}
+!116 = distinct !{!116, !117, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
+!117 = distinct !{!117, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
+!118 = distinct !{!118, !119, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
+!119 = distinct !{!119, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
+!120 = distinct !{!120, !121, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm: %agg.result"}
+!121 = distinct !{!121, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi: %agg.result"}
+!124 = distinct !{!124, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi"}
+!125 = distinct !{!125, !18}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi: %agg.result"}
+!128 = distinct !{!128, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi"}
+!129 = !{!130}
+!130 = distinct !{!130, !131, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi: %agg.result"}
+!131 = distinct !{!131, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi"}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi: %agg.result"}
+!134 = distinct !{!134, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi"}
+!135 = distinct !{!135, !18}
+!136 = !{!137}
+!137 = distinct !{!137, !138, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!138 = distinct !{!138, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
+!141 = distinct !{!141, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
 !142 = distinct !{!142, !18}
 !143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
-!145 = distinct !{!145, !"_ZN7rocksdb6Status2OKEv"}
+!144 = distinct !{!144, !145, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi: %agg.result"}
+!145 = distinct !{!145, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi"}
 !146 = distinct !{!146, !18}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
-!149 = distinct !{!149, !"_ZN7rocksdb6Status2OKEv"}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
-!152 = distinct !{!152, !"_ZN7rocksdb6Status2OKEv"}
-!153 = distinct !{!153, !18}
-!154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
-!156 = distinct !{!156, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
-!157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5eraseESt15_Deque_iteratorIS2_RKS2_PS6_ES9_: %agg.result"}
-!159 = distinct !{!159, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5eraseESt15_Deque_iteratorIS2_RKS2_PS6_ES9_"}
-!160 = !{!161, !158}
-!161 = distinct !{!161, !162, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv: %agg.result"}
-!162 = distinct !{!162, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv"}
-!163 = !{!161}
-!164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv: %agg.result"}
-!166 = distinct !{!166, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv"}
-!167 = !{!168}
-!168 = distinct !{!168, !169, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
-!169 = distinct !{!169, !"_ZN7rocksdb6Status2OKEv"}
-!170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
-!172 = distinct !{!172, !"_ZN7rocksdb6Status2OKEv"}
+!147 = distinct !{!147, !18}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
+!150 = distinct !{!150, !"_ZN7rocksdb6Status2OKEv"}
+!151 = distinct !{!151, !18}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
+!154 = distinct !{!154, !"_ZN7rocksdb6Status2OKEv"}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
+!157 = distinct !{!157, !"_ZN7rocksdb6Status2OKEv"}
+!158 = !{!159}
+!159 = distinct !{!159, !160, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
+!160 = distinct !{!160, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
+!161 = !{!162}
+!162 = distinct !{!162, !163, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
+!163 = distinct !{!163, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
+!164 = distinct !{!164, !18}
+!165 = !{!166}
+!166 = distinct !{!166, !167, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!167 = distinct !{!167, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!168 = !{!169, !171}
+!169 = distinct !{!169, !170, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv: %agg.result"}
+!170 = distinct !{!170, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv"}
+!171 = distinct !{!171, !172, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5eraseESt15_Deque_iteratorIS2_RKS2_PS6_ES9_: %agg.result"}
+!172 = distinct !{!172, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5eraseESt15_Deque_iteratorIS2_RKS2_PS6_ES9_"}
 !173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
-!175 = distinct !{!175, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
-!176 = !{!177}
-!177 = distinct !{!177, !178, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
-!178 = distinct !{!178, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
-!179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
-!181 = distinct !{!181, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
-!182 = distinct !{!182, !18}
-!183 = !{!184}
-!184 = distinct !{!184, !185, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
-!185 = distinct !{!185, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
-!186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
-!188 = distinct !{!188, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
-!191 = distinct !{!191, !"_ZN7rocksdb6Status2OKEv"}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
-!194 = distinct !{!194, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
-!197 = distinct !{!197, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
-!198 = !{!199, !201}
-!199 = distinct !{!199, !200, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv: %agg.result"}
-!200 = distinct !{!200, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv"}
-!201 = distinct !{!201, !202, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm: %agg.result"}
-!202 = distinct !{!202, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm"}
-!203 = !{!204, !206, !201}
-!204 = distinct !{!204, !205, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
-!205 = distinct !{!205, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
-!206 = distinct !{!206, !207, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
-!207 = distinct !{!207, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
-!208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi: %agg.result"}
-!210 = distinct !{!210, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi"}
-!211 = !{!212}
-!212 = distinct !{!212, !213, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
-!213 = distinct !{!213, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
-!214 = distinct !{!214, !18}
-!215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
-!217 = distinct !{!217, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
-!218 = !{!219}
-!219 = distinct !{!219, !220, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
-!220 = distinct !{!220, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
-!221 = !{!222}
-!222 = distinct !{!222, !223, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
-!223 = distinct !{!223, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
-!224 = !{!225}
-!225 = distinct !{!225, !226, !"_ZSt13move_backwardISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_: %agg.result"}
-!226 = distinct !{!226, !"_ZSt13move_backwardISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_"}
-!227 = !{!228, !225}
-!228 = distinct !{!228, !229, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_: %agg.result"}
-!229 = distinct !{!229, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_"}
-!230 = !{!231, !228, !225}
-!231 = distinct !{!231, !232, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_: %agg.result"}
-!232 = distinct !{!232, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_"}
-!233 = !{!234}
-!234 = distinct !{!234, !235, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
-!235 = distinct !{!235, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!174 = distinct !{!174, !175, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!175 = distinct !{!175, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!176 = !{!177, !171}
+!177 = distinct !{!177, !178, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv: %agg.result"}
+!178 = distinct !{!178, !"_ZNKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_E13_M_const_castEv"}
+!179 = !{!177}
+!180 = !{!171}
+!181 = !{!169}
+!182 = !{!183}
+!183 = distinct !{!183, !184, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
+!184 = distinct !{!184, !"_ZN7rocksdb6Status2OKEv"}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
+!187 = distinct !{!187, !"_ZN7rocksdb6Status2OKEv"}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!190 = distinct !{!190, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!191 = !{!192}
+!192 = distinct !{!192, !193, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
+!193 = distinct !{!193, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
+!194 = !{!195}
+!195 = distinct !{!195, !196, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!196 = distinct !{!196, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!197 = !{!198}
+!198 = distinct !{!198, !199, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!199 = distinct !{!199, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!200 = distinct !{!200, !18}
+!201 = !{!202}
+!202 = distinct !{!202, !203, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
+!203 = distinct !{!203, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
+!204 = !{!205}
+!205 = distinct !{!205, !206, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!206 = distinct !{!206, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!207 = !{!208}
+!208 = distinct !{!208, !209, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
+!209 = distinct !{!209, !"_ZN7rocksdb6Status2OKEv"}
+!210 = !{!211}
+!211 = distinct !{!211, !212, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!212 = distinct !{!212, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!213 = !{!214}
+!214 = distinct !{!214, !215, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
+!215 = distinct !{!215, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
+!216 = !{!217, !219}
+!217 = distinct !{!217, !218, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv: %agg.result"}
+!218 = distinct !{!218, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE6cbeginEv"}
+!219 = distinct !{!219, !220, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm: %agg.result"}
+!220 = distinct !{!220, !"_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm"}
+!221 = !{!222, !219}
+!222 = distinct !{!222, !223, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv: %agg.result"}
+!223 = distinct !{!223, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4cendEv"}
+!224 = !{!225, !227, !219}
+!225 = distinct !{!225, !226, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_: %agg.result"}
+!226 = distinct !{!226, !"_ZSt13__upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS5_S5_EEEET_SE_SE_RKT0_T1_"}
+!227 = distinct !{!227, !228, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_: %agg.result"}
+!228 = distinct !{!228, !"_ZSt11upper_boundISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ES3_PFbS5_S5_EET_SA_SA_RKT0_T1_"}
+!229 = !{!230}
+!230 = distinct !{!230, !231, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi: %agg.result"}
+!231 = distinct !{!231, !"_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi"}
+!232 = !{!233}
+!233 = distinct !{!233, !234, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
+!234 = distinct !{!234, !"_ZNKSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
+!235 = distinct !{!235, !18}
 !236 = !{!237}
-!237 = distinct !{!237, !238, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!238 = distinct !{!238, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!237 = distinct !{!237, !238, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!238 = distinct !{!238, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
 !239 = !{!240}
-!240 = distinct !{!240, !241, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
-!241 = distinct !{!241, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
+!240 = distinct !{!240, !241, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!241 = distinct !{!241, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
 !242 = !{!243}
-!243 = distinct !{!243, !244, !"_ZSt4moveISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_: %agg.result"}
-!244 = distinct !{!244, !"_ZSt4moveISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_"}
-!245 = !{!246, !243}
-!246 = distinct !{!246, !247, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_: %agg.result"}
-!247 = distinct !{!247, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_"}
-!248 = !{!249, !246, !243}
-!249 = distinct !{!249, !250, !"_ZSt14__copy_move_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_: %agg.result"}
-!250 = distinct !{!250, !"_ZSt14__copy_move_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_"}
+!243 = distinct !{!243, !244, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
+!244 = distinct !{!244, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
+!245 = !{!246}
+!246 = distinct !{!246, !247, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!247 = distinct !{!247, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!248 = !{!249}
+!249 = distinct !{!249, !250, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!250 = distinct !{!250, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
 !251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
-!253 = distinct !{!253, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
-!254 = !{!255}
-!255 = distinct !{!255, !256, !"_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!256 = distinct !{!256, !"_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!257 = !{!258}
-!258 = distinct !{!258, !259, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
-!259 = distinct !{!259, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!252 = distinct !{!252, !253, !"_ZSt13move_backwardISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_: %agg.result"}
+!253 = distinct !{!253, !"_ZSt13move_backwardISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_"}
+!254 = !{!255, !252}
+!255 = distinct !{!255, !256, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_: %agg.result"}
+!256 = distinct !{!256, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_"}
+!257 = !{!258, !255, !252}
+!258 = distinct !{!258, !259, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_: %agg.result"}
+!259 = distinct !{!259, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_"}
 !260 = !{!261}
-!261 = distinct !{!261, !262, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!262 = distinct !{!262, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!261 = distinct !{!261, !262, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!262 = distinct !{!262, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
 !263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
-!265 = distinct !{!265, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
-!266 = distinct !{!266, !18}
-!267 = !{!268}
-!268 = distinct !{!268, !269, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
-!269 = distinct !{!269, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
-!270 = distinct !{!270, !18}
-!271 = !{!272}
-!272 = distinct !{!272, !273, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
-!273 = distinct !{!273, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
-!274 = !{!275}
-!275 = distinct !{!275, !276, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
-!276 = distinct !{!276, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
-!277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
-!279 = distinct !{!279, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
-!280 = distinct !{!280, !18}
+!264 = distinct !{!264, !265, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!265 = distinct !{!265, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!266 = !{!267}
+!267 = distinct !{!267, !268, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
+!268 = distinct !{!268, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
+!269 = !{!270}
+!270 = distinct !{!270, !271, !"_ZSt4moveISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_: %agg.result"}
+!271 = distinct !{!271, !"_ZSt4moveISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_"}
+!272 = !{!273, !270}
+!273 = distinct !{!273, !274, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_: %agg.result"}
+!274 = distinct !{!274, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_"}
+!275 = !{!276, !273, !270}
+!276 = distinct !{!276, !277, !"_ZSt14__copy_move_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_: %agg.result"}
+!277 = distinct !{!277, !"_ZSt14__copy_move_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_"}
+!278 = !{!279}
+!279 = distinct !{!279, !280, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv: %agg.result"}
+!280 = distinct !{!280, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE3endEv"}
 !281 = !{!282}
-!282 = distinct !{!282, !283, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
-!283 = distinct !{!283, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
-!284 = distinct !{!284, !18}
-!285 = !{!286}
-!286 = distinct !{!286, !287, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
-!287 = distinct !{!287, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
-!288 = !{!289}
-!289 = distinct !{!289, !290, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
-!290 = distinct !{!290, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
-!291 = distinct !{!291, !18}
-!292 = !{!293}
-!293 = distinct !{!293, !294, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!294 = distinct !{!294, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!295 = !{!296}
-!296 = distinct !{!296, !297, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!297 = distinct !{!297, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!298 = distinct !{!298, !18}
-!299 = distinct !{!299, !18}
-!300 = distinct !{!300, !18}
+!282 = distinct !{!282, !283, !"_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!283 = distinct !{!283, !"_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!284 = !{!285}
+!285 = distinct !{!285, !286, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv: %agg.result"}
+!286 = distinct !{!286, !"_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5beginEv"}
+!287 = !{!288}
+!288 = distinct !{!288, !289, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!289 = distinct !{!289, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!290 = !{!291}
+!291 = distinct !{!291, !292, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
+!292 = distinct !{!292, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
+!293 = distinct !{!293, !18}
+!294 = !{!295}
+!295 = distinct !{!295, !296, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
+!296 = distinct !{!296, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
+!297 = distinct !{!297, !18}
+!298 = !{!299}
+!299 = distinct !{!299, !300, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
+!300 = distinct !{!300, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
 !301 = !{!302}
-!302 = distinct !{!302, !303, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!303 = distinct !{!303, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!302 = distinct !{!302, !303, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
+!303 = distinct !{!303, !"_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
 !304 = !{!305}
-!305 = distinct !{!305, !306, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!306 = distinct !{!306, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!307 = !{!308}
-!308 = distinct !{!308, !309, !"_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!309 = distinct !{!309, !"_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!310 = !{!311}
-!311 = distinct !{!311, !312, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!312 = distinct !{!312, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!313 = !{!314}
-!314 = distinct !{!314, !315, !"_ZSt21__unguarded_partitionISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_SA_T0_: %agg.result"}
-!315 = distinct !{!315, !"_ZSt21__unguarded_partitionISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_SA_T0_"}
-!316 = distinct !{!316, !18}
-!317 = distinct !{!317, !18}
+!305 = distinct !{!305, !306, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
+!306 = distinct !{!306, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
+!307 = distinct !{!307, !18}
+!308 = !{!309}
+!309 = distinct !{!309, !310, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
+!310 = distinct !{!310, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
+!311 = distinct !{!311, !18}
+!312 = !{!313}
+!313 = distinct !{!313, !314, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
+!314 = distinct !{!314, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
+!315 = !{!316}
+!316 = distinct !{!316, !317, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_: %agg.result"}
+!317 = distinct !{!317, !"_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_"}
 !318 = distinct !{!318, !18}
-!319 = distinct !{!319, !18}
-!320 = !{!321}
-!321 = distinct !{!321, !322, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!322 = distinct !{!322, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!323 = !{!324}
-!324 = distinct !{!324, !325, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!325 = distinct !{!325, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!319 = !{!320}
+!320 = distinct !{!320, !321, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!321 = distinct !{!321, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!322 = !{!323}
+!323 = distinct !{!323, !324, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!324 = distinct !{!324, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!325 = distinct !{!325, !18}
 !326 = distinct !{!326, !18}
-!327 = !{!328}
-!328 = distinct !{!328, !329, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!329 = distinct !{!329, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!330 = !{!331}
-!331 = distinct !{!331, !332, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!332 = distinct !{!332, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!333 = !{!334}
-!334 = distinct !{!334, !335, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!335 = distinct !{!335, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!336 = !{!337}
-!337 = distinct !{!337, !338, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!338 = distinct !{!338, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!339 = distinct !{!339, !18}
+!327 = distinct !{!327, !18}
+!328 = !{!329}
+!329 = distinct !{!329, !330, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!330 = distinct !{!330, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!331 = !{!332}
+!332 = distinct !{!332, !333, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!333 = distinct !{!333, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!334 = !{!335}
+!335 = distinct !{!335, !336, !"_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!336 = distinct !{!336, !"_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!337 = !{!338}
+!338 = distinct !{!338, !339, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!339 = distinct !{!339, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
 !340 = !{!341}
-!341 = distinct !{!341, !342, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!342 = distinct !{!342, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!343 = !{!344}
-!344 = distinct !{!344, !345, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!345 = distinct !{!345, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!346 = !{!347}
-!347 = distinct !{!347, !348, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!348 = distinct !{!348, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!349 = !{!350}
-!350 = distinct !{!350, !351, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!351 = distinct !{!351, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!352 = !{!353}
-!353 = distinct !{!353, !354, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!354 = distinct !{!354, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!355 = distinct !{!355, !18}
-!356 = !{!357}
-!357 = distinct !{!357, !358, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!358 = distinct !{!358, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!359 = !{!360}
-!360 = distinct !{!360, !361, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!361 = distinct !{!361, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!362 = !{!363}
-!363 = distinct !{!363, !364, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
-!364 = distinct !{!364, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
-!365 = !{!366}
-!366 = distinct !{!366, !367, !"_ZSt13move_backwardISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_: %agg.result"}
-!367 = distinct !{!367, !"_ZSt13move_backwardISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_"}
-!368 = !{!369, !366}
-!369 = distinct !{!369, !370, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_: %agg.result"}
-!370 = distinct !{!370, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_"}
-!371 = !{!372, !369, !366}
-!372 = distinct !{!372, !373, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_: %agg.result"}
-!373 = distinct !{!373, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_"}
-!374 = distinct !{!374, !18}
-!375 = distinct !{!375, !18}
-!376 = distinct !{!376, !18}
+!341 = distinct !{!341, !342, !"_ZSt21__unguarded_partitionISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_SA_T0_: %agg.result"}
+!342 = distinct !{!342, !"_ZSt21__unguarded_partitionISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_SA_T0_"}
+!343 = distinct !{!343, !18}
+!344 = distinct !{!344, !18}
+!345 = distinct !{!345, !18}
+!346 = distinct !{!346, !18}
+!347 = !{!348}
+!348 = distinct !{!348, !349, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!349 = distinct !{!349, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!350 = !{!351}
+!351 = distinct !{!351, !352, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!352 = distinct !{!352, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!353 = distinct !{!353, !18}
+!354 = !{!355}
+!355 = distinct !{!355, !356, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!356 = distinct !{!356, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!357 = !{!358}
+!358 = distinct !{!358, !359, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!359 = distinct !{!359, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!360 = !{!361}
+!361 = distinct !{!361, !362, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!362 = distinct !{!362, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!363 = !{!364}
+!364 = distinct !{!364, !365, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!365 = distinct !{!365, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!366 = distinct !{!366, !18}
+!367 = !{!368}
+!368 = distinct !{!368, !369, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!369 = distinct !{!369, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!370 = !{!371}
+!371 = distinct !{!371, !372, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!372 = distinct !{!372, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!373 = !{!374}
+!374 = distinct !{!374, !375, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!375 = distinct !{!375, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!376 = !{!377}
+!377 = distinct !{!377, !378, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!378 = distinct !{!378, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!379 = !{!380}
+!380 = distinct !{!380, !381, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!381 = distinct !{!381, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!382 = distinct !{!382, !18}
+!383 = !{!384}
+!384 = distinct !{!384, !385, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!385 = distinct !{!385, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!386 = !{!387}
+!387 = distinct !{!387, !388, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!388 = distinct !{!388, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!389 = !{!390}
+!390 = distinct !{!390, !391, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El: %agg.result"}
+!391 = distinct !{!391, !"_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El"}
+!392 = !{!393}
+!393 = distinct !{!393, !394, !"_ZSt13move_backwardISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_: %agg.result"}
+!394 = distinct !{!394, !"_ZSt13move_backwardISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET0_T_S8_S7_"}
+!395 = !{!396, !393}
+!396 = distinct !{!396, !397, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_: %agg.result"}
+!397 = distinct !{!397, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ES6_ET1_T0_S8_S7_"}
+!398 = !{!399, !396, !393}
+!399 = distinct !{!399, !400, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_: %agg.result"}
+!400 = distinct !{!400, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_S2_ESt15_Deque_iteratorIT3_RS6_PS6_ES5_IT0_T1_T2_ESD_S9_"}
+!401 = distinct !{!401, !18}
+!402 = distinct !{!402, !18}
+!403 = distinct !{!403, !18}

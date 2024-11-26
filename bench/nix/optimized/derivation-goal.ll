@@ -9574,7 +9574,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %117, align 8, !noalias !51
   %118 = getelementptr inbounds i8, ptr %117, i64 280
   %119 = getelementptr inbounds i8, ptr %9, i64 288
-  %120 = load ptr, ptr %119, align 8
+  %120 = load ptr, ptr %119, align 8, !noalias !51
   %.not.i.i.i.i.i.i.i = icmp eq ptr %120, null
   br i1 %.not.i.i.i.i.i.i.i, label %134, label %121
 

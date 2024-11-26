@@ -3622,14 +3622,15 @@ common.ret:                                       ; preds = %137, %"_ZN82_$LT$to
   tail call void @llvm.experimental.noalias.scope.decl(metadata !507)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !513)
-  %124 = load ptr, ptr %123, align 8, !alias.scope !516, !nonnull !10, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !516)
+  %124 = load ptr, ptr %123, align 8, !alias.scope !519, !nonnull !10, !noundef !10
   %125 = getelementptr inbounds i8, ptr %124, i64 440
-  %126 = load i8, ptr %125, align 8, !range !266, !noalias !517, !noundef !10
+  %126 = load i8, ptr %125, align 8, !range !266, !noalias !519, !noundef !10
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i", label %128
 
 128:                                              ; preds = %"_ZN4core3ptr124drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_udp..workers..sender..UdpSendWorker$GT$$GT$17hce7ef075cabccc0cE.exit"
-  store i8 1, ptr %125, align 8, !noalias !517
+  store i8 1, ptr %125, align 8, !noalias !519
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i"
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i": ; preds = %128, %"_ZN4core3ptr124drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_udp..workers..sender..UdpSendWorker$GT$$GT$17hce7ef075cabccc0cE.exit"
@@ -3727,14 +3728,15 @@ common.resume:                                    ; preds = %.body.i36, %.body, 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !539)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !542)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !545)
-  %154 = load ptr, ptr %153, align 8, !alias.scope !548, !nonnull !10, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !548)
+  %154 = load ptr, ptr %153, align 8, !alias.scope !551, !nonnull !10, !noundef !10
   %155 = getelementptr inbounds i8, ptr %154, i64 440
-  %156 = load i8, ptr %155, align 8, !range !266, !noalias !549, !noundef !10
+  %156 = load i8, ptr %155, align 8, !range !266, !noalias !551, !noundef !10
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i27", label %158
 
 158:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hfb34baadc7bf9547E.exit"
-  store i8 1, ptr %155, align 8, !noalias !549
+  store i8 1, ptr %155, align 8, !noalias !551
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i27"
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i27": ; preds = %158, %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hfb34baadc7bf9547E.exit"
@@ -4096,14 +4098,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !607)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !610)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !613)
-  %76 = load ptr, ptr %75, align 8, !alias.scope !616, !nonnull !10, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !616)
+  %76 = load ptr, ptr %75, align 8, !alias.scope !619, !nonnull !10, !noundef !10
   %77 = getelementptr inbounds i8, ptr %76, i64 440
-  %78 = load i8, ptr %77, align 8, !range !266, !noalias !617, !noundef !10
+  %78 = load i8, ptr %77, align 8, !range !266, !noalias !619, !noundef !10
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i", label %80
 
 80:                                               ; preds = %74
-  store i8 1, ptr %77, align 8, !noalias !617
+  store i8 1, ptr %77, align 8, !noalias !619
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i"
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i": ; preds = %80, %74
@@ -4343,14 +4346,15 @@ common.resume:                                    ; preds = %163, %71, %149, %84
   tail call void @llvm.experimental.noalias.scope.decl(metadata !659)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !662)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !665)
-  %155 = load ptr, ptr %154, align 8, !alias.scope !668, !nonnull !10, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !668)
+  %155 = load ptr, ptr %154, align 8, !alias.scope !671, !nonnull !10, !noundef !10
   %156 = getelementptr inbounds i8, ptr %155, i64 440
-  %157 = load i8, ptr %156, align 8, !range !266, !noalias !669, !noundef !10
+  %157 = load i8, ptr %156, align 8, !range !266, !noalias !671, !noundef !10
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i32", label %159
 
 159:                                              ; preds = %153
-  store i8 1, ptr %156, align 8, !noalias !669
+  store i8 1, ptr %156, align 8, !noalias !671
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i32"
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE.exit.i.i.i32": ; preds = %159, %153
@@ -11161,10 +11165,10 @@ attributes #26 = { nounwind }
 !513 = !{!514}
 !514 = distinct !{!514, !515, !"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf36c317ecbf2e78E.llvm.11279091928976205697: argument 0"}
 !515 = distinct !{!515, !"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf36c317ecbf2e78E.llvm.11279091928976205697"}
-!516 = !{!514, !511, !508}
-!517 = !{!518, !514, !511, !508}
-!518 = distinct !{!518, !519, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE: argument 0"}
-!519 = distinct !{!519, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE"}
+!516 = !{!517}
+!517 = distinct !{!517, !518, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE: argument 0"}
+!518 = distinct !{!518, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE"}
+!519 = !{!517, !514, !511, !508}
 !520 = !{!511, !508}
 !521 = !{!522}
 !522 = distinct !{!522, !523, !"_ZN4core3ptr151drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mpsc..chan..Chan$LT$ockam_node..relay..CtrlSignal$C$tokio..sync..mpsc..bounded..Semaphore$GT$$GT$$GT$17he4ad6c8b358d55e2E.llvm.11279091928976205697: argument 0"}
@@ -11193,10 +11197,10 @@ attributes #26 = { nounwind }
 !545 = !{!546}
 !546 = distinct !{!546, !547, !"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf36c317ecbf2e78E.llvm.11279091928976205697: argument 0"}
 !547 = distinct !{!547, !"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf36c317ecbf2e78E.llvm.11279091928976205697"}
-!548 = !{!546, !543, !540}
-!549 = !{!550, !546, !543, !540}
-!550 = distinct !{!550, !551, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE: argument 0"}
-!551 = distinct !{!551, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE"}
+!548 = !{!549}
+!549 = distinct !{!549, !550, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE: argument 0"}
+!550 = distinct !{!550, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE"}
+!551 = !{!549, !546, !543, !540}
 !552 = !{!543, !540}
 !553 = !{!554}
 !554 = distinct !{!554, !555, !"_ZN4core3ptr151drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mpsc..chan..Chan$LT$ockam_node..relay..CtrlSignal$C$tokio..sync..mpsc..bounded..Semaphore$GT$$GT$$GT$17he4ad6c8b358d55e2E.llvm.11279091928976205697: argument 0"}
@@ -11261,10 +11265,10 @@ attributes #26 = { nounwind }
 !613 = !{!614}
 !614 = distinct !{!614, !615, !"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf36c317ecbf2e78E.llvm.11279091928976205697: argument 0"}
 !615 = distinct !{!615, !"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf36c317ecbf2e78E.llvm.11279091928976205697"}
-!616 = !{!614, !611, !608}
-!617 = !{!618, !614, !611, !608}
-!618 = distinct !{!618, !619, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE: argument 0"}
-!619 = distinct !{!619, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE"}
+!616 = !{!617}
+!617 = distinct !{!617, !618, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE: argument 0"}
+!618 = distinct !{!618, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE"}
+!619 = !{!617, !614, !611, !608}
 !620 = !{!611, !608}
 !621 = !{!622}
 !622 = distinct !{!622, !623, !"_ZN4core3ptr151drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mpsc..chan..Chan$LT$ockam_node..relay..CtrlSignal$C$tokio..sync..mpsc..bounded..Semaphore$GT$$GT$$GT$17he4ad6c8b358d55e2E.llvm.11279091928976205697: argument 0"}
@@ -11313,10 +11317,10 @@ attributes #26 = { nounwind }
 !665 = !{!666}
 !666 = distinct !{!666, !667, !"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf36c317ecbf2e78E.llvm.11279091928976205697: argument 0"}
 !667 = distinct !{!667, !"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf36c317ecbf2e78E.llvm.11279091928976205697"}
-!668 = !{!666, !663, !660}
-!669 = !{!670, !666, !663, !660}
-!670 = distinct !{!670, !671, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE: argument 0"}
-!671 = distinct !{!671, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE"}
+!668 = !{!669}
+!669 = distinct !{!669, !670, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE: argument 0"}
+!670 = distinct !{!670, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hfaee649712b160bfE"}
+!671 = !{!669, !666, !663, !660}
 !672 = !{!663, !660}
 !673 = !{!674}
 !674 = distinct !{!674, !675, !"_ZN4core3ptr151drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mpsc..chan..Chan$LT$ockam_node..relay..CtrlSignal$C$tokio..sync..mpsc..bounded..Semaphore$GT$$GT$$GT$17he4ad6c8b358d55e2E.llvm.11279091928976205697: argument 0"}

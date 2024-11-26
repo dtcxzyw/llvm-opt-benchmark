@@ -7433,7 +7433,7 @@ _ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pus
 66:                                               ; preds = %.lr.ph84, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit
   %67 = phi ptr [ null, %.lr.ph84 ], [ %234, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit ]
   %68 = phi ptr [ %43, %.lr.ph84 ], [ %235, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit ]
-  %69 = load ptr, ptr %46, align 8
+  %69 = load ptr, ptr %46, align 8, !noalias !39
   %70 = icmp eq ptr %68, %69
   br i1 %70, label %74, label %71
 

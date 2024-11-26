@@ -53340,7 +53340,7 @@ invoke.cont15.i:                                  ; preds = %if.else.i.i.i.i.i10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp326.i.i), !noalias !745
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp334.i.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp339.i.sroa.0.i)
-  %273 = load ptr, ptr %ref.tmp36, align 8
+  %273 = load ptr, ptr %ref.tmp36, align 8, !alias.scope !745
   %add.ptr.i58.i = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %273, i64 %i.0564.i
   store ptr %ref.tmp14.sroa.40.1.i, ptr %add.ptr.i58.i, align 8, !noalias !745
   %owned_type.i.i = getelementptr inbounds i8, ptr %add.ptr.i58.i, i64 8
@@ -53420,7 +53420,7 @@ _ZN5arrow7compute11CallNotNullERKNS0_10ExpressionE.exit.i.i: ; preds = %_ZSt6get
 
 invoke.cont20.i:                                  ; preds = %_ZN5arrow7compute11CallNotNullERKNS0_10ExpressionE.exit.i.i, %if.then9.i.i, %while.end8.i
   %retval.0.i71.i = phi ptr [ %283, %if.then9.i.i ], [ %284, %_ZN5arrow7compute11CallNotNullERKNS0_10ExpressionE.exit.i.i ], [ null, %while.end8.i ]
-  %285 = load ptr, ptr %ref.tmp36, align 8
+  %285 = load ptr, ptr %ref.tmp36, align 8, !alias.scope !745
   %add.ptr.i75.i = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %285, i64 %i.0564.i
   store ptr %retval.0.i71.i, ptr %add.ptr.i75.i, align 8, !noalias !745
   %owned_type.i76.i = getelementptr inbounds i8, ptr %add.ptr.i75.i, i64 8

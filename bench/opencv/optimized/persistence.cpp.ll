@@ -2952,7 +2952,7 @@ define void @_ZN2cv11FileStorage4Impl14endWriteStructEv(ptr noundef nonnull alig
 
 41:                                               ; preds = %28
   %42 = getelementptr inbounds i8, ptr %0, i64 184
-  %43 = load ptr, ptr %42, align 8
+  %43 = load ptr, ptr %42, align 8, !noalias !31
   %44 = icmp eq ptr %31, %43
   br i1 %44, label %45, label %_ZNSt5dequeIN2cv11FStructDataESaIS1_EE4backEv.exit
 
@@ -16566,7 +16566,7 @@ _ZNK2cv8FileNode3endEv.exit:                      ; preds = %_ZNK2cv8FileNode5be
   %58 = load ptr, ptr %6, align 8
   %59 = load ptr, ptr %7, align 8
   %60 = icmp eq ptr %58, %59
-  %.pre = load i64, ptr %45, align 8
+  %.pre = load i64, ptr %45, align 8, !noalias !138
   br i1 %60, label %61, label %_ZNK2cv8FileNode3endEv.exit._ZN2cvneERKNS_16FileNodeIteratorES2_.exit.thread_crit_edge
 
 _ZNK2cv8FileNode3endEv.exit._ZN2cvneERKNS_16FileNodeIteratorES2_.exit.thread_crit_edge: ; preds = %_ZNK2cv8FileNode3endEv.exit
@@ -16576,7 +16576,7 @@ _ZNK2cv8FileNode3endEv.exit._ZN2cvneERKNS_16FileNodeIteratorES2_.exit.thread_cri
 61:                                               ; preds = %_ZNK2cv8FileNode3endEv.exit
   %62 = load i64, ptr %46, align 8
   %63 = icmp eq i64 %.pre, %62
-  %.pre29 = load i64, ptr %47, align 8
+  %.pre29 = load i64, ptr %47, align 8, !noalias !138
   %64 = load i64, ptr %48, align 8
   %65 = icmp eq i64 %.pre29, %64
   %or.cond = select i1 %63, i1 %65, i1 false

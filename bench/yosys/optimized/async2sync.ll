@@ -15364,7 +15364,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
   %31 = load ptr, ptr %1, align 8
   %32 = load ptr, ptr %8, align 8
   %33 = icmp eq ptr %31, %32
-  %.pre17.pre.pre = load i32, ptr %2, align 4
+  %.pre17.pre.pre = load i32, ptr %2, align 4, !noalias !40
   br i1 %33, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i, label %34
 
 34:                                               ; preds = %30

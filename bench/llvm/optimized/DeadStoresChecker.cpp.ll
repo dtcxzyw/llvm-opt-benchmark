@@ -881,7 +881,7 @@ _ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE
   %56 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i to i32
   %57 = shl i32 %56, 2
   %58 = and i32 %57, 12
-  %.0.copyload.i.i.i3.i.i.i.i.i = load i64, ptr %54, align 8
+  %.0.copyload.i.i.i3.i.i.i.i.i = load i64, ptr %54, align 8, !noalias !27
   %59 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i.i to i32
   %60 = and i32 %59, 3
   %61 = add nuw nsw i32 %60, -6

@@ -1114,7 +1114,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %83, %
   %99 = getelementptr inbounds nuw i8, ptr %57, i64 72
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, i8 0, i64 32, i1 false), !noalias !17
-  %101 = load ptr, ptr %100, align 8
+  %101 = load ptr, ptr %100, align 8, !noalias !17
   %.not.i.i.not.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_MaterialDataSourceC2ERKSt10shared_ptrINS_21HdContainerDataSourceEES6_RKNS_7SdfPathERKSt8functionIFvPNS_26HdMaterialNetworkInterfaceEEE.exit.i, label %102
 
@@ -1126,7 +1126,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %83, %
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %106 = load ptr, ptr %105, align 8, !noalias !17
   store ptr %106, ptr %99, align 8, !noalias !17
-  %107 = load ptr, ptr %100, align 8
+  %107 = load ptr, ptr %100, align 8, !noalias !17
   store ptr %107, ptr %98, align 8, !noalias !17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_MaterialDataSourceC2ERKSt10shared_ptrINS_21HdContainerDataSourceEES6_RKNS_7SdfPathERKSt8functionIFvPNS_26HdMaterialNetworkInterfaceEEE.exit.i
 

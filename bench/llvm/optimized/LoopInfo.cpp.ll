@@ -1835,7 +1835,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit: ; preds = %.l
 
 54:                                               ; preds = %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit
   %55 = load ptr, ptr %5, align 8, !noalias !41
-  %56 = load ptr, ptr %3, align 8
+  %56 = load ptr, ptr %3, align 8, !noalias !41
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %58, label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit
 
@@ -2247,7 +2247,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit: ; preds = %.l
 
 58:                                               ; preds = %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit
   %59 = load ptr, ptr %6, align 8, !noalias !53
-  %60 = load ptr, ptr %4, align 8
+  %60 = load ptr, ptr %4, align 8, !noalias !53
   %61 = icmp eq ptr %59, %60
   br i1 %61, label %62, label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit
 
@@ -8871,13 +8871,13 @@ _ZNK4llvm11Instruction7isEHPadEv.exit:            ; preds = %switch.hole_check, 
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  %56 = load ptr, ptr %55, align 8
+  %56 = load ptr, ptr %55, align 8, !noalias !215
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE.exit.thread, label %58
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %56, i64 -24
-  %60 = load i8, ptr %59, align 8
+  %60 = load i8, ptr %59, align 8, !noalias !215
   %61 = add i8 %60, -30
   %62 = icmp ult i8 %61, 11
   br i1 %62, label %_ZN4llvm8childrenIPNS_10BasicBlockEEENS_14iterator_rangeINS_11GraphTraitsIT_E17ChildIteratorTypeEEERKNS6_7NodeRefE.exit.i, label %_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE.exit.thread
@@ -12009,13 +12009,13 @@ _ZN4llvm8DebugLocD2Ev.exit44:                     ; preds = %_ZNK4llvm6MDNode8op
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %59 = load ptr, ptr %58, align 8
+  %59 = load ptr, ptr %58, align 8, !noalias !242
   %60 = icmp eq ptr %58, %59
   br i1 %60, label %_ZN4llvm8DebugLocD2Ev.exit58, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds i8, ptr %59, i64 -24
-  %63 = load i8, ptr %62, align 8
+  %63 = load i8, ptr %62, align 8, !noalias !242
   %64 = add i8 %63, -30
   %65 = icmp ult i8 %64, 11
   br i1 %65, label %_ZN4llvm8childrenIPNS_10BasicBlockEEENS_14iterator_rangeINS_11GraphTraitsIT_E17ChildIteratorTypeEEERKNS6_7NodeRefE.exit.i, label %_ZN4llvm8DebugLocD2Ev.exit58

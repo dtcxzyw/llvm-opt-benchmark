@@ -7216,7 +7216,7 @@ _ZN8QuantLib6HandleINS_27SwaptionVolatilityStructureEED2Ev.exit494: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp362) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %swcub) #27
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  %300 = load ptr, ptr %swvol, align 8, !tbaa !42
+  %300 = load ptr, ptr %swvol, align 8, !tbaa !42, !noalias !206
   %301 = icmp eq ptr %300, null
   br i1 %301, label %cond.false.i500, label %dynamic_cast.end3.i
 

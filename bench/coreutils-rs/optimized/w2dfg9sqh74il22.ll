@@ -630,7 +630,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %6 = ptrtoint ptr %1 to i64
   %7 = sub nuw i64 %5, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !noundef !28
+  %9 = load i64, ptr %8, align 8, !alias.scope !211, !noundef !28
   %10 = load i64, ptr %0, align 8, !alias.scope !211, !noundef !28
   %11 = sub i64 %10, %9
   %12 = icmp ugt i64 %7, %11
@@ -836,7 +836,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc0033a48d
   %9 = sub nuw i64 %7, %8
   %10 = udiv exact i64 %9, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !noundef !28
+  %12 = load i64, ptr %11, align 8, !alias.scope !249, !noundef !28
   %13 = load i64, ptr %0, align 8, !alias.scope !249, !noundef !28
   %14 = sub i64 %13, %12
   %15 = icmp ugt i64 %10, %14
@@ -1031,7 +1031,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %9 = sub nuw i64 %7, %8
   %10 = udiv exact i64 %9, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !alias.scope !279, !noalias !282, !noundef !28
+  %12 = load i64, ptr %11, align 8, !alias.scope !284, !noalias !282, !noundef !28
   %13 = load i64, ptr %0, align 8, !alias.scope !284, !noalias !282, !noundef !28
   %14 = sub i64 %13, %12
   %15 = icmp ugt i64 %10, %14

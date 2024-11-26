@@ -858,7 +858,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i
   %278 = load ptr, ptr %217, align 8, !noalias !10
-  %279 = load i32, ptr %46, align 4
+  %279 = load i32, ptr %46, align 4, !noalias !10
   br label %280
 
 280:                                              ; preds = %285, %.lr.ph.i.i
@@ -1036,7 +1036,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i455:                                    ; preds = %._crit_edge.i.i450
   %368 = load ptr, ptr %217, align 8, !noalias !18
-  %369 = load i32, ptr %47, align 4
+  %369 = load i32, ptr %47, align 4, !noalias !18
   br label %370
 
 370:                                              ; preds = %375, %.lr.ph.i.i455
@@ -1209,7 +1209,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i474:                                    ; preds = %._crit_edge.i.i469
   %456 = load ptr, ptr %217, align 8, !noalias !24
-  %457 = load i32, ptr %48, align 4
+  %457 = load i32, ptr %48, align 4, !noalias !24
   br label %458
 
 458:                                              ; preds = %463, %.lr.ph.i.i474
@@ -1382,7 +1382,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i493:                                    ; preds = %._crit_edge.i.i488
   %544 = load ptr, ptr %217, align 8, !noalias !30
-  %545 = load i32, ptr %49, align 4
+  %545 = load i32, ptr %49, align 4, !noalias !30
   br label %546
 
 546:                                              ; preds = %551, %.lr.ph.i.i493
@@ -1555,7 +1555,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i512:                                    ; preds = %._crit_edge.i.i507
   %632 = load ptr, ptr %217, align 8, !noalias !36
-  %633 = load i32, ptr %50, align 4
+  %633 = load i32, ptr %50, align 4, !noalias !36
   br label %634
 
 634:                                              ; preds = %639, %.lr.ph.i.i512
@@ -1925,7 +1925,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i532:                                    ; preds = %._crit_edge.i.i527
   %809 = load ptr, ptr %749, align 8, !noalias !44
-  %810 = load i32, ptr %52, align 4
+  %810 = load i32, ptr %52, align 4, !noalias !44
   br label %811
 
 811:                                              ; preds = %816, %.lr.ph.i.i532
@@ -2085,7 +2085,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i551:                                    ; preds = %._crit_edge.i.i546
   %889 = load ptr, ptr %749, align 8, !noalias !50
-  %890 = load i32, ptr %53, align 4
+  %890 = load i32, ptr %53, align 4, !noalias !50
   br label %891
 
 891:                                              ; preds = %896, %.lr.ph.i.i551
@@ -2245,7 +2245,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i570:                                    ; preds = %._crit_edge.i.i565
   %969 = load ptr, ptr %749, align 8, !noalias !56
-  %970 = load i32, ptr %54, align 4
+  %970 = load i32, ptr %54, align 4, !noalias !56
   br label %971
 
 971:                                              ; preds = %976, %.lr.ph.i.i570
@@ -2405,7 +2405,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i589:                                    ; preds = %._crit_edge.i.i584
   %1049 = load ptr, ptr %749, align 8, !noalias !62
-  %1050 = load i32, ptr %55, align 4
+  %1050 = load i32, ptr %55, align 4, !noalias !62
   br label %1051
 
 1051:                                             ; preds = %1056, %.lr.ph.i.i589
@@ -2565,7 +2565,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i608:                                    ; preds = %._crit_edge.i.i603
   %1129 = load ptr, ptr %749, align 8, !noalias !68
-  %1130 = load i32, ptr %56, align 4
+  %1130 = load i32, ptr %56, align 4, !noalias !68
   br label %1131
 
 1131:                                             ; preds = %1136, %.lr.ph.i.i608
@@ -3900,8 +3900,8 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i: ; preds = %1793, %1789
 1800:                                             ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i
   %1801 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %1795, i64 %indvars.iv6411
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
-  %1802 = load ptr, ptr %62, align 8
-  %1803 = load ptr, ptr %1272, align 8
+  %1802 = load ptr, ptr %62, align 8, !noalias !77
+  %1803 = load ptr, ptr %1272, align 8, !noalias !77
   %1804 = icmp eq ptr %1802, %1803
   br i1 %1804, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i, label %1805
 
@@ -3939,7 +3939,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %1824 = urem i32 %.0.i.i.i.i, %1823
   store i32 %1824, ptr %34, align 4, !noalias !77
   %1825 = load ptr, ptr %1274, align 8, !noalias !77
-  %1826 = load ptr, ptr %1273, align 8
+  %1826 = load ptr, ptr %1273, align 8, !noalias !77
   %1827 = ptrtoint ptr %1825 to i64
   %1828 = ptrtoint ptr %1826 to i64
   %1829 = sub i64 %1827, %1828
@@ -4299,8 +4299,8 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i678: ; preds = %1983, %1979
 1990:                                             ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i678
   %1991 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %1985, i64 %indvars.iv6411
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
-  %1992 = load ptr, ptr %63, align 8
-  %1993 = load ptr, ptr %1276, align 8
+  %1992 = load ptr, ptr %63, align 8, !noalias !82
+  %1993 = load ptr, ptr %1276, align 8, !noalias !82
   %1994 = icmp eq ptr %1992, %1993
   br i1 %1994, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i705, label %1995
 
@@ -4338,7 +4338,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %2014 = urem i32 %.0.i.i.i.i684, %2013
   store i32 %2014, ptr %33, align 4, !noalias !82
   %2015 = load ptr, ptr %1278, align 8, !noalias !82
-  %2016 = load ptr, ptr %1277, align 8
+  %2016 = load ptr, ptr %1277, align 8, !noalias !82
   %2017 = ptrtoint ptr %2015 to i64
   %2018 = ptrtoint ptr %2016 to i64
   %2019 = sub i64 %2017, %2018

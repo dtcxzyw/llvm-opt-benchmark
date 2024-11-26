@@ -2822,7 +2822,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i:             ; preds = %15
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %15
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %17) #13
-  %.pr.i = load i32, ptr %19, align 8
+  %.pr.i = load i32, ptr %19, align 8, !alias.scope !25
   %24 = icmp ult i32 %.pr.i, 65
   br i1 %24, label %_ZNK4llvm5APInt4lshrEj.exit.thread, label %_ZNK4llvm5APInt4lshrEj.exit
 
@@ -2937,7 +2937,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %59, %62, %65
 
 _ZN4llvm5APIntC2ERKS0_.exit.i21:                  ; preds = %72
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %74) #13
-  %.pr.i22 = load i32, ptr %76, align 8
+  %.pr.i22 = load i32, ptr %76, align 8, !alias.scope !33
   %80 = icmp ult i32 %.pr.i22, 65
   br i1 %80, label %_ZNK4llvm5APInt3shlEj.exit28.thread, label %_ZNK4llvm5APInt3shlEj.exit28
 
@@ -3066,7 +3066,7 @@ _ZN4llvm5APIntD2Ev.exit35:                        ; preds = %122, %125, %128
 
 _ZN4llvm5APIntC2ERKS0_.exit.i37:                  ; preds = %135
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %137) #13
-  %.pr.i38 = load i32, ptr %139, align 8
+  %.pr.i38 = load i32, ptr %139, align 8, !alias.scope !41
   %143 = icmp ult i32 %.pr.i38, 65
   br i1 %143, label %_ZNK4llvm5APInt3shlEj.exit44.thread, label %_ZNK4llvm5APInt3shlEj.exit44
 
@@ -13083,7 +13083,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !168
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !168
   store ptr %96, ptr %95, align 8, !noalias !168
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #13

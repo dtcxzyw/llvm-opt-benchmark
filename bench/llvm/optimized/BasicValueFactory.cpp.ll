@@ -1057,7 +1057,7 @@ define dso_local noundef zeroext i1 @_Z21hasNoRepeatedElementsN4llvm13ImmutableL
   %20 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i.i) #13
   %21 = extractvalue { ptr, i64 } %20, 0
   %.pre = load ptr, ptr %4, align 8, !noalias !4
-  %.pre17 = load ptr, ptr %2, align 8
+  %.pre17 = load ptr, ptr %2, align 8, !noalias !4
   br label %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
 
 _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %19
@@ -1097,12 +1097,12 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %19
   %37 = add nuw i32 %27, 1
   store i32 %37, ptr %6, align 4, !noalias !4
   store ptr %24, ptr %29, align 8, !noalias !4
-  %38 = load ptr, ptr %2, align 8
+  %38 = load ptr, ptr %2, align 8, !noalias !4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 39:                                               ; preds = %._crit_edge.i.i, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
   %40 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %24) #13, !noalias !4
-  %.pre.i = load ptr, ptr %2, align 8
+  %.pre.i = load ptr, ptr %2, align 8, !noalias !4
   %41 = extractvalue { ptr, i8 } %40, 1
   %42 = trunc i8 %41 to i1
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
@@ -1110,7 +1110,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %19
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %39, %36
   %43 = phi ptr [ %38, %36 ], [ %.pre.i, %39 ], [ %22, %.lr.ph.i.i ]
   %.fca.1.insert.merged.i.i = phi i1 [ true, %36 ], [ %42, %39 ], [ false, %.lr.ph.i.i ]
-  %44 = load ptr, ptr %4, align 8
+  %44 = load ptr, ptr %4, align 8, !noalias !4
   br i1 %.fca.1.insert.merged.i.i, label %45, label %._crit_edge
 
 45:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
@@ -2406,7 +2406,7 @@ define linkonce_odr hidden void @_ZNK4llvm6APSIntlsEj(ptr dead_on_unwind noalias
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i:                  ; preds = %3
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
-  %.pr.i.i = load i32, ptr %5, align 8
+  %.pr.i.i = load i32, ptr %5, align 8, !alias.scope !61
   %9 = icmp ult i32 %.pr.i.i, 65
   br i1 %9, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i, label %21
 
@@ -2473,7 +2473,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i:             ; preds = %10
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %10
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
-  %.pr.i = load i32, ptr %11, align 8
+  %.pr.i = load i32, ptr %11, align 8, !alias.scope !62
   %15 = icmp ult i32 %.pr.i, 65
   br i1 %15, label %16, label %23
 
@@ -2504,7 +2504,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %10
 
 _ZN4llvm5APIntC2ERKS0_.exit.i5:                   ; preds = %24
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
-  %.pr.i6 = load i32, ptr %25, align 8
+  %.pr.i6 = load i32, ptr %25, align 8, !alias.scope !65
   %28 = icmp ult i32 %.pr.i6, 65
   br i1 %28, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, label %42
 

@@ -217,17 +217,17 @@ _ZN4llvm10pred_beginEPNS_10BasicBlockE.exit.i.i:  ; preds = %.lr.ph.i.i.i.i.i
   %79 = add nuw i32 %69, 1
   store i32 %79, ptr %60, align 4, !noalias !6
   store ptr %66, ptr %71, align 8, !noalias !6
-  %80 = load ptr, ptr %10, align 8
+  %80 = load ptr, ptr %10, align 8, !noalias !6
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i
 
 81:                                               ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %82 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(160) %10, ptr noundef %66) #8, !noalias !6
-  %.pre.i.i.i.i.i = load ptr, ptr %10, align 8
+  %.pre.i.i.i.i.i = load ptr, ptr %10, align 8, !noalias !6
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %81, %78
   %83 = phi ptr [ %80, %78 ], [ %.pre.i.i.i.i.i, %81 ], [ %63, %.lr.ph.i.i.i.i.i.i ]
-  %84 = load ptr, ptr %58, align 8
+  %84 = load ptr, ptr %58, align 8, !noalias !6
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i.i.i.i, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null

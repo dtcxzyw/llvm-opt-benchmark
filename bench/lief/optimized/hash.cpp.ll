@@ -346,9 +346,9 @@ define void @_ZN4LIEF5MachO4Hash5visitERKNS0_6BinaryE(ptr noundef nonnull align 
   %13 = load ptr, ptr %12, align 8, !noalias !4
   call void @_ZNK4LIEF5MachO6Binary8commandsEv(ptr dead_on_unwind nonnull writable sret(%"class.LIEF::ref_iterator") align 8 %4, ptr noundef nonnull align 8 dereferenceable(384) %1)
   %14 = load ptr, ptr %4, align 8, !noalias !9
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !noalias !9
   %16 = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !noalias !9
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %15 to i64
   %20 = sub i64 %18, %19
@@ -395,9 +395,9 @@ _ZN4LIEF4Hash7processINS_12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO11Lo
   %50 = load ptr, ptr %49, align 8, !noalias !16
   call void @_ZNK4LIEF5MachO6Binary7symbolsEv(ptr dead_on_unwind nonnull writable sret(%"class.LIEF::ref_iterator.41") align 8 %6, ptr noundef nonnull align 8 dereferenceable(384) %1)
   %51 = load ptr, ptr %6, align 8, !noalias !21
-  %52 = load ptr, ptr %51, align 8
+  %52 = load ptr, ptr %51, align 8, !noalias !21
   %53 = getelementptr inbounds i8, ptr %51, i64 8
-  %54 = load ptr, ptr %53, align 8
+  %54 = load ptr, ptr %53, align 8, !noalias !21
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %52 to i64
   %57 = sub i64 %55, %56
@@ -702,9 +702,9 @@ define void @_ZN4LIEF5MachO4Hash5visitERKNS0_14SegmentCommandE(ptr noundef nonnu
   %69 = load ptr, ptr %68, align 8, !noalias !28
   call void @_ZNK4LIEF5MachO14SegmentCommand8sectionsEv(ptr dead_on_unwind nonnull writable sret(%"class.LIEF::ref_iterator.60") align 8 %4, ptr noundef nonnull align 8 dereferenceable(216) %1)
   %70 = load ptr, ptr %4, align 8, !noalias !33
-  %71 = load ptr, ptr %70, align 8
+  %71 = load ptr, ptr %70, align 8, !noalias !33
   %72 = getelementptr inbounds i8, ptr %70, i64 8
-  %73 = load ptr, ptr %72, align 8
+  %73 = load ptr, ptr %72, align 8, !noalias !33
   %74 = ptrtoint ptr %73 to i64
   %75 = ptrtoint ptr %71 to i64
   %76 = sub i64 %74, %75
@@ -851,9 +851,9 @@ define void @_ZN4LIEF5MachO4Hash5visitERKNS0_7SectionE(ptr noundef nonnull align
   %79 = load ptr, ptr %78, align 8, !noalias !39
   call void @_ZNK4LIEF5MachO7Section11relocationsEv(ptr dead_on_unwind nonnull writable sret(%"class.LIEF::ref_iterator.62") align 8 %4, ptr noundef nonnull align 8 dereferenceable(192) %1)
   %80 = load ptr, ptr %4, align 8, !noalias !44
-  %81 = load ptr, ptr %80, align 8
+  %81 = load ptr, ptr %80, align 8, !noalias !44
   %82 = getelementptr inbounds i8, ptr %80, i64 8
-  %83 = load ptr, ptr %82, align 8
+  %83 = load ptr, ptr %82, align 8, !noalias !44
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %81 to i64
   %86 = sub i64 %84, %85
@@ -1695,9 +1695,9 @@ define void @_ZN4LIEF5MachO4Hash5visitERKNS0_10DataInCodeE(ptr noundef nonnull a
   %21 = load ptr, ptr %20, align 8, !noalias !52
   call void @_ZNK4LIEF5MachO10DataInCode7entriesEv(ptr dead_on_unwind nonnull writable sret(%"class.LIEF::ref_iterator.87") align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %1)
   %22 = load ptr, ptr %4, align 8, !noalias !57
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !noalias !57
   %24 = getelementptr inbounds i8, ptr %22, i64 8
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !noalias !57
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %23 to i64
   %28 = sub i64 %26, %27

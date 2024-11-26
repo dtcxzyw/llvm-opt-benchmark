@@ -11457,7 +11457,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
           to label %call3.i.noexc unwind label %lpad36.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call3.i.noexc:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i207
-  %126 = load ptr, ptr %eqs, align 8
+  %126 = load ptr, ptr %eqs, align 8, !noalias !47
   store ptr %call3.i212, ptr %ref.tmp101, align 8, !alias.scope !47
   store ptr %126, ptr %m_manager.i.i209, align 8, !alias.scope !47
   %tobool.not.i.i.i = icmp eq ptr %call3.i212, null

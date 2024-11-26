@@ -2250,9 +2250,9 @@ define void @_ZN11processor_t18parse_varch_stringEPKc(ptr nocapture noundef nonn
   %16 = sext i8 %15 to i32
   %17 = call i32 @tolower(i32 noundef %16) #41
   %18 = trunc i32 %17 to i8
-  %19 = load i64, ptr %12, align 8
+  %19 = load i64, ptr %12, align 8, !alias.scope !4
   %20 = add i64 %19, 1
-  %21 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8, !alias.scope !4
   %22 = icmp eq ptr %21, %11
   br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.thread
 
@@ -2261,7 +2261,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; 
   br i1 %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %40
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.thread: ; preds = %.lr.ph.i
-  %24 = load i64, ptr %11, align 8
+  %24 = load i64, ptr %11, align 8, !alias.scope !4
   %25 = icmp ugt i64 %20, %24
   br i1 %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %40
 

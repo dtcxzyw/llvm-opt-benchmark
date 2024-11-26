@@ -4462,13 +4462,14 @@ invoke.cont287:                                   ; preds = %if.end280, %sw.epil
   %plural.0 = phi i32 [ %118, %if.end280 ], [ 8, %sw.bb.i ], [ 10, %sw.bb1.i ], [ 9, %sw.bb7.tail.i ], [ %call.i.i253, %sw.epilog.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %coreUnit, align 8
   store i16 2, ptr %fUnion2.i254, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %idxprom.i255 = zext i32 %plural.0 to i64
   %arrayidx.i256 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %singleUnitArray, i64 %idxprom.i255
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp288, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i256)
           to label %.noexc268 unwind label %lpad290
 
 .noexc268:                                        ; preds = %invoke.cont287
-  %123 = load i16, ptr %fUnion.i.i257, align 8
+  %123 = load i16, ptr %fUnion.i.i257, align 8, !alias.scope !37
   %conv2.i4.i258 = and i16 %123, 1
   %tobool.not.i259 = icmp eq i16 %conv2.i4.i258, 0
   br i1 %tobool.not.i259, label %invoke.cont291, label %if.then.i260
@@ -4484,7 +4485,7 @@ lpad.i263:                                        ; preds = %if.then.i260
   br label %ehcleanup403
 
 if.end.i264:                                      ; preds = %if.then.i260
-  %.pre.i265 = load i16, ptr %fUnion.i.i257, align 8
+  %.pre.i265 = load i16, ptr %fUnion.i.i257, align 8, !alias.scope !37
   %.pre6.i266 = and i16 %.pre.i265, 1
   %125 = icmp eq i16 %.pre6.i266, 0
   br i1 %125, label %invoke.cont291, label %if.then5.i267
@@ -5632,12 +5633,13 @@ lpad:                                             ; preds = %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %leadFormats, i64 %indvars.iv
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %leadFormat, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
-  %4 = load i16, ptr %fUnion.i.i, align 8
+  %4 = load i16, ptr %fUnion.i.i, align 8, !alias.scope !47
   %conv2.i4.i = and i16 %4, 1
   %tobool.not.i = icmp eq i16 %conv2.i4.i, 0
   br i1 %tobool.not.i, label %invoke.cont2, label %if.then.i
@@ -5653,7 +5655,7 @@ lpad.i17:                                         ; preds = %if.then.i
   br label %ehcleanup43
 
 if.end.i:                                         ; preds = %if.then.i
-  %.pre.i = load i16, ptr %fUnion.i.i, align 8
+  %.pre.i = load i16, ptr %fUnion.i.i, align 8, !alias.scope !47
   %.pre6.i = and i16 %.pre.i, 1
   %6 = icmp eq i16 %.pre6.i, 0
   br i1 %6, label %invoke.cont2, label %invoke.cont2.thread

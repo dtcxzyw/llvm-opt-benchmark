@@ -3970,9 +3970,9 @@ define noundef zeroext i1 @_ZNK10open_spiel10battleship15BattleshipState11DidShi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !noalias !37
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !noalias !37
   %.not17.i = icmp eq ptr %12, %14
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 

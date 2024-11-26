@@ -119,7 +119,7 @@ define hidden void @"_ZN127_$LT$diesel..query_builder..order_clause..OrderClause
   %4 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %6 = load i64, ptr %2, align 8, !range !14, !noalias !4, !noundef !4
+  %6 = load i64, ptr %2, align 8, !range !14, !alias.scope !11, !noalias !15, !noundef !4
   switch i64 %6, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hfab71232e8b34e69E.exit" [
     i64 0, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hfab71232e8b34e69E.exit.thread"
     i64 4, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hfab71232e8b34e69E.exit.thread9"

@@ -1755,7 +1755,7 @@ invoke.cont:                                      ; preds = %call15.i.i.i.noexc,
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %31 = load ptr, ptr %fact, align 8
+  %31 = load ptr, ptr %fact, align 8, !noalias !8
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -2093,7 +2093,7 @@ invoke.cont66:                                    ; preds = %call15.i.i.i.noexc9
   br i1 %cmp.not.not.i.i.i103, label %if.then.i.i.i130, label %if.end15.i.i.i104
 
 if.then.i.i.i130:                                 ; preds = %invoke.cont66
-  %93 = load ptr, ptr %fact61, align 8
+  %93 = load ptr, ptr %fact61, align 8, !noalias !14
   br label %for.cond.i.i.i132
 
 for.cond.i.i.i132:                                ; preds = %for.body.i.i.i136, %if.then.i.i.i130

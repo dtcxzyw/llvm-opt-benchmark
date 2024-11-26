@@ -3359,7 +3359,7 @@ if.end5.i.i.i.i.i.i.i:                            ; preds = %_ZNK5folly3f146deta
   %104 = phi i64 [ %.pre.pre.i, %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIN8facebook5velox9functions12_GLOBAL__N_122ComplexTypeInPredicate12ComplexValueEvNS8_16ComplexValueHashENS8_19ComplexValueEqualToEvEEE8findImplIS9_EENS1_11F14ItemIterIPNS1_8F14ChunkIS9_EEEESt4pairImmERKT_NSD_8PrefetchE.exit.thread.i.i.i.i.i.i.i ], [ %.pre68.i, %call.i.i.i.i.i.i.i.noexc.i ]
   %this.val.i.i.i.i.i.i.i.i = phi i64 [ %this.val.i.pr.i.i.i.i.i.i.i, %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIN8facebook5velox9functions12_GLOBAL__N_122ComplexTypeInPredicate12ComplexValueEvNS8_16ComplexValueHashENS8_19ComplexValueEqualToEvEEE8findImplIS9_EENS1_11F14ItemIterIPNS1_8F14ChunkIS9_EEEESt4pairImmERKT_NSD_8PrefetchE.exit.thread.i.i.i.i.i.i.i ], [ 0, %call.i.i.i.i.i.i.i.noexc.i ]
   %add2.i.i.i.i.i.i.i.i = add i64 %104, 1
-  %105 = load ptr, ptr %uniqueValues.i, align 8, !noalias !37
+  %105 = load ptr, ptr %uniqueValues.i, align 8, !noalias !51
   %106 = getelementptr i8, ptr %105, i64 14
   %.val.i.i.i.i.i.i.i.i = load i8, ptr %106, align 2, !noalias !51
   %107 = and i8 %.val.i.i.i.i.i.i.i.i, 15
@@ -3761,7 +3761,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIN8facebook5velox9functi
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %success.i.i.i.i.i.i.i.i.i.i), !noalias !51
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %SCOPE_EXIT_STATE3.i.i.i.i.i.i.i.i.i.i), !noalias !51
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %stackBuf.i.i.i.i.i.i.i.i.i.i), !noalias !51
-  %.pre.i.i.i.i.i.i.i = load ptr, ptr %uniqueValues.i, align 8, !noalias !37
+  %.pre.i.i.i.i.i.i.i = load ptr, ptr %uniqueValues.i, align 8, !noalias !51
   %.pre78.i.i.i.i.i.i.i = load i64, ptr %chunkMask_.i.i.i.i.i, align 8, !noalias !51
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIN8facebook5velox9functions12_GLOBAL__N_122ComplexTypeInPredicate12ComplexValueEvNS8_16ComplexValueHashENS8_19ComplexValueEqualToEvEEE16reserveForInsertEm.exit.i.i.i.i.i.i.i
 

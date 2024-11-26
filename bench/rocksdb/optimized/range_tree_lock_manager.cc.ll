@@ -5777,7 +5777,7 @@ _ZN7rocksdb21InstrumentedMutexLockD2Ev.exit:      ; preds = %invoke.cont7
           to label %invoke.cont14 unwind label %lpad12
 
 invoke.cont14:                                    ; preds = %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit
-  %18 = load i64, ptr %local_caches, align 8
+  %18 = load i64, ptr %local_caches, align 8, !noalias !49
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %local_caches, i64 88
   %19 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !49
   %20 = load ptr, ptr %vect_.i, align 8, !noalias !49

@@ -4488,7 +4488,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_15SmallVectorI
   %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %60 = and i64 %59, 4294967295
   %.not28.i.i = icmp eq i64 %60, 0
-  %.val.i.i.i.i.i.i.i.pre.pre.i = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i.pre.pre.i = load ptr, ptr %1, align 8, !noalias !33
   br i1 %.not28.i.i, label %.sink.split.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %4, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i
@@ -4530,7 +4530,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.i.i: ; preds = %69
 _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i: ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i.i, %69, %.lr.ph.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i, %60
-  br i1 %.not.i.i, label %.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !33
+  br i1 %.not.i.i, label %.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !44
 
 .sink.split.sink.split.i.i:                       ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i.i, %.lr.ph.i.i, %63
   %79 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -4549,7 +4549,7 @@ _ZN5clang4semaL18nextPathEntryRangeERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_1
   %83 = load i8, ptr %2, align 8
   %84 = icmp eq i8 %83, 48
   %spec.select.i.i.i = select i1 %84, ptr %2, ptr null
-  %85 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14, !noalias !34
+  %85 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14, !noalias !33
   %86 = getelementptr inbounds %"struct.clang::sema::(anonymous namespace)::IndirectLocalPathEntry", ptr %.val.i.i.i.i.i.i.i.pre.pre.i, i64 %85
   %.val.i.i.i = load ptr, ptr %1, align 8, !noalias !45
   %.not11.i.i = icmp eq ptr %86, %.val.i.i.i
@@ -5698,7 +5698,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.i245.i: ; preds = %634
 _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i246.i: ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i245.i, %634, %624
   %644 = add i32 %.029.i237.i, 1
   %.not.i247.i = icmp eq i32 %644, %623
-  br i1 %.not.i247.i, label %.sink.split.i241.i, label %624, !llvm.loop !33
+  br i1 %.not.i247.i, label %.sink.split.i241.i, label %624, !llvm.loop !44
 
 .sink.split.sink.split.i240.i:                    ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i245.i, %624, %628
   %645 = getelementptr inbounds nuw i8, ptr %626, i64 8
@@ -5800,7 +5800,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.i266.i: ; preds = %687
 _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i267.i: ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i266.i, %687, %677
   %697 = add i32 %.029.i258.i, 1
   %.not.i268.i = icmp eq i32 %697, %676
-  br i1 %.not.i268.i, label %.sink.split.i262.i, label %677, !llvm.loop !33
+  br i1 %.not.i268.i, label %.sink.split.i262.i, label %677, !llvm.loop !44
 
 .sink.split.sink.split.i261.i:                    ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i266.i, %677, %681
   %698 = getelementptr inbounds nuw i8, ptr %679, i64 8
@@ -5908,7 +5908,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.i285.i: ; preds = %741
 _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i286.i: ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i285.i, %741, %731
   %751 = add i32 %.029.i277.i, 1
   %.not.i287.i = icmp eq i32 %751, %730
-  br i1 %.not.i287.i, label %.sink.split.i281.i, label %731, !llvm.loop !33
+  br i1 %.not.i287.i, label %.sink.split.i281.i, label %731, !llvm.loop !44
 
 .sink.split.sink.split.i280.i:                    ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.i285.i, %731, %735
   %752 = getelementptr inbounds nuw i8, ptr %733, i64 8
@@ -9234,19 +9234,19 @@ attributes #16 = { builtin nounwind }
 !30 = distinct !{!30, !"_ZN4llvm7reverseIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDaOT_"}
 !31 = !{!29}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = !{!35, !37, !39, !41, !43}
-!35 = distinct !{!35, !36, !"_ZN4llvm25SmallVectorTemplateCommonIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEvE6rbeginEv: argument 0"}
-!36 = distinct !{!36, !"_ZN4llvm25SmallVectorTemplateCommonIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEvE6rbeginEv"}
-!37 = distinct !{!37, !38, !"_ZSt6rbeginIN4llvm15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEDTcldtfp_6rbeginEERT_: argument 0"}
-!38 = distinct !{!38, !"_ZSt6rbeginIN4llvm15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEDTcldtfp_6rbeginEERT_"}
-!39 = distinct !{!39, !40, !"_ZN4llvm10adl_detail11rbegin_implIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOS9_: argument 0"}
-!40 = distinct !{!40, !"_ZN4llvm10adl_detail11rbegin_implIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOS9_"}
-!41 = distinct !{!41, !42, !"_ZN4llvm10adl_rbeginIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS8_: argument 0"}
-!42 = distinct !{!42, !"_ZN4llvm10adl_rbeginIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS8_"}
-!43 = distinct !{!43, !44, !"_ZN4llvm7reverseIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDaOT_: argument 0"}
-!44 = distinct !{!44, !"_ZN4llvm7reverseIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDaOT_"}
-!45 = !{!43}
+!33 = !{!34, !36, !38, !40, !42}
+!34 = distinct !{!34, !35, !"_ZN4llvm25SmallVectorTemplateCommonIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEvE6rbeginEv: argument 0"}
+!35 = distinct !{!35, !"_ZN4llvm25SmallVectorTemplateCommonIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEvE6rbeginEv"}
+!36 = distinct !{!36, !37, !"_ZSt6rbeginIN4llvm15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEDTcldtfp_6rbeginEERT_: argument 0"}
+!37 = distinct !{!37, !"_ZSt6rbeginIN4llvm15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEDTcldtfp_6rbeginEERT_"}
+!38 = distinct !{!38, !39, !"_ZN4llvm10adl_detail11rbegin_implIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOS9_: argument 0"}
+!39 = distinct !{!39, !"_ZN4llvm10adl_detail11rbegin_implIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOS9_"}
+!40 = distinct !{!40, !41, !"_ZN4llvm10adl_rbeginIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS8_: argument 0"}
+!41 = distinct !{!41, !"_ZN4llvm10adl_rbeginIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS8_"}
+!42 = distinct !{!42, !43, !"_ZN4llvm7reverseIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDaOT_: argument 0"}
+!43 = distinct !{!43, !"_ZN4llvm7reverseIRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEEEDaOT_"}
+!44 = distinct !{!44, !5}
+!45 = !{!42}
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
 !48 = !{!49, !51, !53, !55, !57}

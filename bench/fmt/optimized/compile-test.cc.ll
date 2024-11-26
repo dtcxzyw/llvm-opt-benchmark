@@ -48420,7 +48420,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !672)
   %0 = load i32, ptr %args, align 4, !noalias !672
   %retval.i22.i.sroa.0.0.insert.ext.i = zext i32 %0 to i64
-  %1 = load i32, ptr %args1, align 4
+  %1 = load i32, ptr %args1, align 4, !noalias !672
   %retval.i15.i.sroa.0.0.insert.ext.i = zext i32 %1 to i64
   %2 = load i32, ptr %args3, align 4, !noalias !672
   %retval.i.i.sroa.0.0.insert.ext.i = zext i32 %2 to i64
@@ -49512,7 +49512,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %out.coerce, i8 noundef signext %0)
   %rhs = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !676)
-  %1 = load i32, ptr %args, align 4
+  %1 = load i32, ptr %args, align 4, !noalias !676
   %retval.i22.i.sroa.0.0.insert.ext.i = zext i32 %1 to i64
   %2 = load i32, ptr %args1, align 4, !noalias !676
   %retval.i15.i.sroa.0.0.insert.ext.i = zext i32 %2 to i64

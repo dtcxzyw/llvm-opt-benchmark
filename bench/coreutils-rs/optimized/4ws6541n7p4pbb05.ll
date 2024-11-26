@@ -2579,7 +2579,7 @@ _ZN7uu_tail8platform4unix19supports_pid_checks17hfceec79db2c5f31cE.exit.thread.t
   %100 = getelementptr inbounds i8, ptr %0, i64 32
   %101 = load ptr, ptr %100, align 8, !alias.scope !486, !nonnull !5, !noundef !5
   %102 = getelementptr inbounds i8, ptr %0, i64 40
-  %103 = load i64, ptr %102, align 8, !noundef !5
+  %103 = load i64, ptr %102, align 8, !alias.scope !486, !noundef !5
   %104 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %101, i64 %103
   br label %105
 

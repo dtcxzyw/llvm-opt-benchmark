@@ -27169,9 +27169,9 @@ define dso_local void @_ZN5clang6Parser15PopParsingClassENS_4Sema23DelayedDiagno
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 528
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !noalias !262
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2832
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !noalias !262
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %17, label %14
 

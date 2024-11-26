@@ -3636,7 +3636,7 @@ _ZNK9grpc_core5Slice3RefEv.exit:                  ; preds = %entry, %if.then.i.i
   br i1 %tobool.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK9grpc_core5Slice3RefEv.exit
-  %3 = load ptr, ptr %authority3, align 8
+  %3 = load ptr, ptr %authority3, align 8, !noalias !49
   %cmp.i.i3 = icmp ugt ptr %3, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i3, label %invoke.cont, label %invoke.cont.thread
 

@@ -811,7 +811,7 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 define hidden void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h4b4b3d5d54420e54E.llvm.7377480865939079465"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !10, !noundef !10
+  %3 = load ptr, ptr %2, align 8, !alias.scope !158, !nonnull !10, !noundef !10
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !158, !noundef !10
   br label %6
@@ -1080,7 +1080,7 @@ define hidden void @"_ZN4core3ptr150drop_in_place$LT$alloc..raw_vec..RawVec$LT$$
 define hidden void @"_ZN4core3ptr162drop_in_place$LT$alloc..vec..Vec$LT$std..collections..hash..map..HashMap$LT$alloc..sync..Arc$LT$str$GT$$C$regex_automata..util..primitives..SmallIndex$GT$$GT$$GT$17hcc0242b2274b87aaE.llvm.7377480865939079465"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !10, !noundef !10
+  %3 = load ptr, ptr %2, align 8, !alias.scope !234, !nonnull !10, !noundef !10
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !234, !noundef !10
   br label %"_ZN4core3ptr139drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..sync..Arc$LT$str$GT$$C$regex_automata..util..primitives..SmallIndex$GT$$GT$17h1456a97180da6657E.exit.i.i"
@@ -3651,7 +3651,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   %75 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1033)
   %76 = getelementptr inbounds i8, ptr %0, i64 184
-  %77 = load ptr, ptr %76, align 8, !nonnull !10, !noundef !10
+  %77 = load ptr, ptr %76, align 8, !alias.scope !1033, !nonnull !10, !noundef !10
   %78 = getelementptr inbounds i8, ptr %0, i64 192
   %79 = load i64, ptr %78, align 8, !alias.scope !1033, !noundef !10
   br label %80
@@ -3843,7 +3843,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..regex.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1079)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1082)
   %19 = getelementptr inbounds i8, ptr %0, i64 128
-  %20 = load ptr, ptr %19, align 8, !alias.scope !1079, !nonnull !10, !noundef !10
+  %20 = load ptr, ptr %19, align 8, !alias.scope !1085, !nonnull !10, !noundef !10
   %21 = getelementptr inbounds i8, ptr %0, i64 136
   %22 = load i64, ptr %21, align 8, !alias.scope !1085, !noundef !10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
@@ -4459,7 +4459,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$regex_automata..meta..wrappe
 define hidden void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_csplit..patterns..Pattern$GT$$GT$17he0b7accbf9dde29eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1315)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !10, !noundef !10
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1315, !nonnull !10, !noundef !10
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1315, !noundef !10
   %6 = icmp eq i64 %5, 0
@@ -4546,7 +4546,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_csplit
 define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..Properties$GT$$GT$17h4df55ac286e16f6eE.llvm.7377480865939079465"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1350)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !10, !noundef !10
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1350, !nonnull !10, !noundef !10
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1350, !noundef !10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1353)
@@ -4895,7 +4895,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..raw_vec..RawVec$LT$cl
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..command..Command$GT$$GT$17h0a15ef8b1f2ef08cE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !10, !noundef !10
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1515, !nonnull !10, !noundef !10
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1515, !noundef !10
   br label %6
@@ -7061,7 +7061,7 @@ define void @"_ZN64_$LT$uu_csplit..SplitWriter$u20$as$u20$core..ops..drop..Drop$
   call void @_ZN9uu_csplit10split_name9SplitName3get17h005983d60bc81ba9E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %5, i64 noundef %14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1758)
   %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = load ptr, ptr %15, align 8, !alias.scope !1758, !nonnull !10, !noundef !10
+  %16 = load ptr, ptr %15, align 8, !alias.scope !1761, !nonnull !10, !noundef !10
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !1761, !noundef !10
   %19 = invoke noundef ptr @_ZN3std3sys3pal4unix2fs6unlink17hc869ed501c051e4cE(ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %18)

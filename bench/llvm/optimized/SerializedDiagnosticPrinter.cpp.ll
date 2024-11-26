@@ -10792,7 +10792,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112SDiagsWriter15getEmitCate
 33:                                               ; preds = %22, %2
   %.sink.i.i.i.i = phi ptr [ %23, %22 ], [ null, %2 ]
   %34 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E20InsertIntoBucketImplIjEEPS7_RKjRKT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef %.sink.i.i.i.i), !noalias !176
-  %35 = load i32, ptr %4, align 4
+  %35 = load i32, ptr %4, align 4, !noalias !176
   store i32 %35, ptr %34, align 4, !noalias !176
   %36 = call { ptr, i64 } @_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj(i32 noundef %35) #18
   %37 = extractvalue { ptr, i64 } %36, 0

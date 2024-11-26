@@ -2735,7 +2735,7 @@ _ZN4llvm15AssumptionCache11assumptionsEv.exit:    ; preds = %.lr.ph77, %29
 
 36:                                               ; preds = %.lr.ph
   %37 = load ptr, ptr %7, align 8, !noalias !40
-  %38 = load ptr, ptr %2, align 8
+  %38 = load ptr, ptr %2, align 8, !noalias !40
   %39 = icmp eq ptr %37, %38
   br i1 %39, label %40, label %52
 

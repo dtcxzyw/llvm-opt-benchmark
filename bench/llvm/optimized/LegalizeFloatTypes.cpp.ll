@@ -19181,7 +19181,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_
   store i32 %59, ptr %58, align 8, !alias.scope !48
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS2_jS4_S7_Lb0EEEbEOS2_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.192") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(4) %58)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %61 = load i32, ptr %57, align 4
+  call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  %61 = load i32, ptr %57, align 4, !noalias !51
   store i32 %61, ptr %6, align 8, !alias.scope !51
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %62, align 8

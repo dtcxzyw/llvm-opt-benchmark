@@ -167,7 +167,7 @@ _ZNSt10unique_ptrIN5ZXing4OneD9RowReader13DecodingStateESt14default_deleteIS3_EE
   br i1 %49, label %"_ZN5ZXing13FindLeftGuardILi4EZNKS_4OneD16DXFilmEdgeReader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS1_9RowReader13DecodingStateESt14default_deleteIS7_EEE3$_0EES3_RKS3_iT0_.exit", label %50
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr %3, align 8, !noalias !4
+  %51 = load ptr, ptr %3, align 8, !noalias !7
   %52 = getelementptr inbounds i8, ptr %3, i64 16
   %53 = load ptr, ptr %52, align 8, !noalias !7
   %54 = getelementptr inbounds i8, ptr %3, i64 24

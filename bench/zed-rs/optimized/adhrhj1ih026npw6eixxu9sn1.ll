@@ -565,7 +565,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %75, label %"_ZN125_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17he237fa0f64b16e96E.exit.thread.i", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i
-  %.promoted.i.i.i.i = load i64, ptr %53, align 8, !noalias !169
+  %.promoted.i.i.i.i = load i64, ptr %53, align 8, !alias.scope !175, !noalias !179
   %76 = load ptr, ptr %56, align 8, !alias.scope !182, !noalias !185, !nonnull !5, !align !187, !noundef !5
   %77 = load i64, ptr %57, align 8, !alias.scope !182, !noalias !185, !noundef !5
   %78 = getelementptr inbounds i8, ptr %76, i64 %77
@@ -686,7 +686,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br label %79
 
 142:                                              ; preds = %.noexc
-  %143 = load i64, ptr %58, align 8, !noalias !169, !noundef !5
+  %143 = load i64, ptr %58, align 8, !alias.scope !175, !noalias !179, !noundef !5
   %144 = icmp eq i64 %143, -1
   %145 = load ptr, ptr %56, align 8, !alias.scope !175, !noalias !179, !nonnull !5, !align !187, !noundef !5
   %146 = load i64, ptr %57, align 8, !alias.scope !175, !noalias !179, !noundef !5
@@ -699,7 +699,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
   call void @llvm.experimental.noalias.scope.decl(metadata !199)
   call void @llvm.experimental.noalias.scope.decl(metadata !201)
-  %.promoted.i26.i.i.i = load i64, ptr %61, align 8, !noalias !169
+  %.promoted.i26.i.i.i = load i64, ptr %61, align 8, !alias.scope !196, !noalias !203
   %151 = add i64 %.promoted.i26.i.i.i, %149
   %152 = icmp ult i64 %151, %146
   br i1 %152, label %.lr.ph.i29.i.i.i, label %"_ZN125_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17he237fa0f64b16e96E.exit.thread.i"
@@ -814,7 +814,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   call void @llvm.experimental.noalias.scope.decl(metadata !207)
   call void @llvm.experimental.noalias.scope.decl(metadata !210)
   call void @llvm.experimental.noalias.scope.decl(metadata !212)
-  %.promoted.i23.i.i.i = load i64, ptr %61, align 8, !noalias !169
+  %.promoted.i23.i.i.i = load i64, ptr %61, align 8, !alias.scope !207, !noalias !214
   %209 = add i64 %.promoted.i23.i.i.i, %149
   %210 = icmp ult i64 %209, %146
   br i1 %210, label %.lr.ph.i25.i.i.i, label %"_ZN125_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17he237fa0f64b16e96E.exit.thread.i"

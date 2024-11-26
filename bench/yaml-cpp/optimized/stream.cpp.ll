@@ -499,7 +499,7 @@ _ZNK4YAML6Stream4peekEv.exit.thread:              ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !14
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i

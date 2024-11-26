@@ -4316,7 +4316,7 @@ _ZN5boost9algorithm6detail10is_any_ofFIcEC2ERKS3_.exit: ; preds = %4, %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %16 = load i64, ptr %8, align 8, !tbaa !123
+  %16 = load i64, ptr %8, align 8, !tbaa !123, !noalias !142
   store i64 %16, ptr %15, align 8, !tbaa !123, !noalias !142
   store ptr null, ptr %5, align 8, !tbaa !35, !noalias !142
   %17 = icmp ult i64 %16, 17
@@ -4492,7 +4492,7 @@ _ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEC2ERKS5_.exit: ; 
 25:                                               ; preds = %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEC2ERKS5_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !148)
   store ptr null, ptr %4, align 8, !tbaa !151, !alias.scope !148
-  %26 = load ptr, ptr %5, align 8, !tbaa !151
+  %26 = load ptr, ptr %5, align 8, !tbaa !151, !noalias !148
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %36, label %27
 
@@ -5880,7 +5880,7 @@ _ZN5boost9algorithm6detail10is_any_ofFIcEC2ERKS3_.exit: ; preds = %3, %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %16 = load i64, ptr %8, align 8, !tbaa !123
+  %16 = load i64, ptr %8, align 8, !tbaa !123, !noalias !174
   store i64 %16, ptr %15, align 8, !tbaa !123, !noalias !174
   store ptr null, ptr %5, align 8, !tbaa !35, !noalias !174
   %17 = icmp ult i64 %16, 17

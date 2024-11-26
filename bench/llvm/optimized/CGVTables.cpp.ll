@@ -6849,7 +6849,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang7CodeGen13CodeGenModule23
 34:                                               ; preds = %23, %3
   %.sink.i.i.i.i = phi ptr [ %24, %23 ], [ null, %3 ]
   %35 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !72
-  %36 = load ptr, ptr %4, align 8
+  %36 = load ptr, ptr %4, align 8, !noalias !72
   store ptr %36, ptr %35, align 8, !noalias !72
   %37 = call i8 @_ZNK5clang9NamedDecl23getLinkageAndVisibilityEv(ptr noundef nonnull align 8 dereferenceable(48) %36) #17
   %38 = and i8 %37, 7

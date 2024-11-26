@@ -3567,7 +3567,7 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.us.i, 
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(192) %7, ptr noundef nonnull align 64 dereferenceable(192) %14, i64 192, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(192) %6, ptr noundef nonnull align 64 dereferenceable(192) %14, i64 192, i1 false)
-  %116 = load <16 x float>, ptr %13, align 64
+  %116 = load <16 x float>, ptr %13, align 64, !noalias !60
   %117 = load <16 x float>, ptr %6, align 64, !noalias !60
   %118 = fmul contract <16 x float> %116, %117
   br label %119

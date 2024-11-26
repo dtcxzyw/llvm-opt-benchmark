@@ -275,14 +275,14 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd10GetInverseEv(p
   %21 = fneg double %9
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %24 = load double, ptr %23, align 8
-  %25 = load double, ptr %22, align 8
+  %24 = load double, ptr %23, align 8, !noalias !19
+  %25 = load double, ptr %22, align 8, !noalias !24
   %26 = fneg double %25
   %27 = getelementptr inbounds i8, ptr %1, i64 40
-  %28 = load double, ptr %27, align 8
+  %28 = load double, ptr %27, align 8, !noalias !24
   %29 = fneg double %28
   %30 = getelementptr inbounds i8, ptr %1, i64 48
-  %31 = load double, ptr %30, align 8
+  %31 = load double, ptr %30, align 8, !noalias !24
   %32 = fneg double %31
   %33 = fmul double %12, %18
   %34 = fmul double %18, %19
@@ -332,23 +332,23 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd10GetInverseEv(p
 define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatd14SetTranslationERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
-  %.sroa.0.0.copyload.i.i = load double, ptr %1, align 8, !noalias !19
+  %.sroa.0.0.copyload.i.i = load double, ptr %1, align 8, !noalias !27
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !19
+  %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !27
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.6.0.copyload.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !19
+  %.sroa.6.0.copyload.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !27
   %5 = fmul double %.sroa.0.0.copyload.i.i, 5.000000e-01
   %6 = fmul double %.sroa.4.0.copyload.i.i, 5.000000e-01
   %7 = fmul double %.sroa.6.0.copyload.i.i, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  store double %5, ptr %3, align 8, !noalias !24
+  store double %5, ptr %3, align 8, !noalias !32
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store double %6, ptr %.sroa.23.0..sroa_idx, align 8, !noalias !24
+  store double %6, ptr %.sroa.23.0..sroa_idx, align 8, !noalias !32
   %.sroa.34.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store double %7, ptr %.sroa.34.0..sroa_idx, align 8, !noalias !24
+  store double %7, ptr %.sroa.34.0..sroa_idx, align 8, !noalias !32
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
-  store double 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !24
-  %8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdmLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0), !noalias !24
+  store double 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !32
+  %8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdmLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0), !noalias !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -415,14 +415,14 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !27
-  %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdmLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !35
+  %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdmLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !30
-  %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdmLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8), !noalias !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !38
+  %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdmLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8), !noalias !38
   %.sroa.04.0.copyload = load double, ptr %9, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.25.0.copyload = load double, ptr %.sroa.25.0..sroa_idx, align 8
@@ -433,8 +433,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !33
-  %11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdmLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !41
+  %11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdmLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !41
   %.sroa.0.0.copyload = load double, ptr %11, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
@@ -464,22 +464,22 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd9TransformERKNS_
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatd9TransformERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %7 = load double, ptr %6, align 8, !noalias !36
+  %7 = load double, ptr %6, align 8, !noalias !44
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load double, ptr %8, align 8, !noalias !36
-  %10 = load double, ptr %1, align 8, !noalias !36
-  %11 = load double, ptr %5, align 8, !noalias !36
+  %9 = load double, ptr %8, align 8, !noalias !44
+  %10 = load double, ptr %1, align 8, !noalias !44
+  %11 = load double, ptr %5, align 8, !noalias !44
   %12 = fneg double %11
   %13 = fmul double %9, %12
   %14 = call double @llvm.fmuladd.f64(double %7, double %10, double %13)
   %15 = getelementptr inbounds i8, ptr %1, i64 40
-  %16 = load double, ptr %15, align 8, !noalias !36
+  %16 = load double, ptr %15, align 8, !noalias !44
   %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = load double, ptr %17, align 8, !noalias !36
+  %18 = load double, ptr %17, align 8, !noalias !44
   %19 = getelementptr inbounds i8, ptr %1, i64 48
-  %20 = load double, ptr %19, align 8, !noalias !36
+  %20 = load double, ptr %19, align 8, !noalias !44
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = load double, ptr %21, align 8, !noalias !36
+  %22 = load double, ptr %21, align 8, !noalias !44
   %23 = fneg double %22
   %24 = fmul double %20, %23
   %25 = call double @llvm.fmuladd.f64(double %16, double %18, double %24)
@@ -501,20 +501,20 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd9TransformERKNS_
   %41 = call double @llvm.fmuladd.f64(double %11, double %22, double %40)
   %42 = fadd double %38, %41
   %43 = fmul double %42, 2.000000e+00
-  call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %.sroa.0.0.copyload.i = load double, ptr %4, align 8, !noalias !39
+  call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %.sroa.0.0.copyload.i = load double, ptr %4, align 8, !noalias !47
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !39
+  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !47
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !39
+  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !47
   %44 = fsub double %.sroa.0.0.copyload.i, %27
   %45 = fsub double %.sroa.4.0.copyload.i, %35
   %46 = fsub double %.sroa.6.0.copyload.i, %43
-  store double %44, ptr %0, align 8, !alias.scope !39
+  store double %44, ptr %0, align 8, !alias.scope !47
   %.sroa.4.0..sroa_idx3.i = getelementptr inbounds i8, ptr %0, i64 8
-  store double %45, ptr %.sroa.4.0..sroa_idx3.i, align 8, !alias.scope !39
+  store double %45, ptr %.sroa.4.0..sroa_idx3.i, align 8, !alias.scope !47
   %.sroa.6.0..sroa_idx5.i = getelementptr inbounds i8, ptr %0, i64 16
-  store double %46, ptr %.sroa.6.0..sroa_idx5.i, align 8, !alias.scope !39
+  store double %46, ptr %.sroa.6.0..sroa_idx5.i, align 8, !alias.scope !47
   ret void
 }
 
@@ -652,25 +652,33 @@ attributes #17 = { noreturn nounwind }
 !17 = distinct !{!17, !18, !"_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatd11GetIdentityEv: argument 0"}
 !18 = distinct !{!18, !"_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatd11GetIdentityEv"}
 !19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd: argument 0"}
-!21 = distinct !{!21, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd"}
-!22 = distinct !{!22, !23, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_7GfVec3dE: argument 0"}
-!23 = distinct !{!23, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_7GfVec3dE"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_: argument 0"}
-!26 = distinct !{!26, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_: argument 0"}
-!29 = distinct !{!29, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_: argument 0"}
-!32 = distinct !{!32, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_: argument 0"}
-!35 = distinct !{!35, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd14GetTranslationEv: argument 0"}
-!38 = distinct !{!38, !"_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd14GetTranslationEv"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
-!41 = distinct !{!41, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
+!20 = distinct !{!20, !21, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatd12GetConjugateEv: argument 0"}
+!21 = distinct !{!21, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatd12GetConjugateEv"}
+!22 = distinct !{!22, !23, !"_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd12GetConjugateEv: argument 0"}
+!23 = distinct !{!23, !"_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd12GetConjugateEv"}
+!24 = !{!25, !20, !22}
+!25 = distinct !{!25, !26, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dngEv: argument 0"}
+!26 = distinct !{!26, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dngEv"}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd: argument 0"}
+!29 = distinct !{!29, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd"}
+!30 = distinct !{!30, !31, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_7GfVec3dE: argument 0"}
+!31 = distinct !{!31, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_7GfVec3dE"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_: argument 0"}
+!34 = distinct !{!34, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_: argument 0"}
+!37 = distinct !{!37, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_: argument 0"}
+!40 = distinct !{!40, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_: argument 0"}
+!43 = distinct !{!43, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfQuatdES2_"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd14GetTranslationEv: argument 0"}
+!46 = distinct !{!46, !"_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd14GetTranslationEv"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
+!49 = distinct !{!49, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}

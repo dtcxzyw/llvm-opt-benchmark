@@ -3572,20 +3572,20 @@ define hidden void @_ZN15ZStatRelocation15print_age_tableEv(ptr nocapture nounde
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %77 = zext i32 %storemerge1556 to i64
   %78 = getelementptr inbounds [16 x i64], ptr %13, i64 0, i64 %77
-  %79 = load i64, ptr %78, align 8
+  %79 = load i64, ptr %78, align 8, !noalias !52
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %76
-  call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %82 = load i64, ptr %6, align 8, !noalias !55
-  %83 = load i64, ptr %26, align 8, !noalias !55
-  store ptr %27, ptr %3, align 8, !alias.scope !52, !noalias !58
-  store i64 0, ptr %41, align 8, !alias.scope !52, !noalias !58
-  store i64 %82, ptr %42, align 8, !alias.scope !52, !noalias !58
-  store i64 %83, ptr %43, align 8, !alias.scope !52, !noalias !58
-  %84 = load ptr, ptr %15, align 8, !noalias !58
-  call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.12, ptr noundef %84), !noalias !58
+  call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  %82 = load i64, ptr %6, align 8, !noalias !58
+  %83 = load i64, ptr %26, align 8, !noalias !58
+  store ptr %27, ptr %3, align 8, !alias.scope !55, !noalias !52
+  store i64 0, ptr %41, align 8, !alias.scope !55, !noalias !52
+  store i64 %82, ptr %42, align 8, !alias.scope !55, !noalias !52
+  store i64 %83, ptr %43, align 8, !alias.scope !55, !noalias !52
+  %84 = load ptr, ptr %15, align 8, !noalias !52
+  call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.12, ptr noundef %84), !noalias !52
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
   br label %"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv.exit"
 
@@ -3593,14 +3593,14 @@ define hidden void @_ZN15ZStatRelocation15print_age_tableEv(ptr nocapture nounde
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %86 = load i64, ptr %6, align 8, !noalias !62
   %87 = load i64, ptr %26, align 8, !noalias !62
-  store ptr %27, ptr %5, align 8, !alias.scope !59, !noalias !58
-  store i64 0, ptr %38, align 8, !alias.scope !59, !noalias !58
-  store i64 %86, ptr %39, align 8, !alias.scope !59, !noalias !58
-  store i64 %87, ptr %40, align 8, !alias.scope !59, !noalias !58
-  %88 = load ptr, ptr %15, align 8, !noalias !58
-  call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.12, ptr noundef %88), !noalias !58
+  store ptr %27, ptr %5, align 8, !alias.scope !59, !noalias !52
+  store i64 0, ptr %38, align 8, !alias.scope !59, !noalias !52
+  store i64 %86, ptr %39, align 8, !alias.scope !59, !noalias !52
+  store i64 %87, ptr %40, align 8, !alias.scope !59, !noalias !52
+  %88 = load ptr, ptr %15, align 8, !noalias !52
+  call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.12, ptr noundef %88), !noalias !52
   %89 = lshr i64 %79, 20
-  %90 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8, !noalias !58
+  %90 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8, !noalias !52
   %.not.i.i = icmp eq i64 %90, 0
   %91 = uitofp i64 %79 to double
   %92 = uitofp i64 %90 to double
@@ -8699,16 +8699,16 @@ attributes #21 = { nounwind willreturn memory(read) }
 !50 = distinct !{!50, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
 !51 = distinct !{!51, !8}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!54 = distinct !{!54, !"_ZN17ZStatTablePrinterclEv"}
-!55 = !{!53, !56}
-!56 = distinct !{!56, !57, !"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv: argument 0"}
-!57 = distinct !{!57, !"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv"}
-!58 = !{!56}
+!53 = distinct !{!53, !54, !"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv: argument 0"}
+!54 = distinct !{!54, !"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!57 = distinct !{!57, !"_ZN17ZStatTablePrinterclEv"}
+!58 = !{!56, !53}
 !59 = !{!60}
 !60 = distinct !{!60, !61, !"_ZN17ZStatTablePrinterclEv: argument 0"}
 !61 = distinct !{!61, !"_ZN17ZStatTablePrinterclEv"}
-!62 = !{!60, !56}
+!62 = !{!60, !53}
 !63 = distinct !{!63, !8}
 !64 = !{!65, !67}
 !65 = distinct !{!65, !66, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}

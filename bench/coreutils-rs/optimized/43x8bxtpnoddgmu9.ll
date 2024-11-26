@@ -951,7 +951,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %6 = ptrtoint ptr %1 to i64
   %7 = sub nuw i64 %5, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !noundef !15
+  %9 = load i64, ptr %8, align 8, !alias.scope !351, !noundef !15
   %10 = load i64, ptr %0, align 8, !alias.scope !351, !noundef !15
   %11 = sub i64 %10, %9
   %12 = icmp ugt i64 %7, %11
@@ -1216,25 +1216,25 @@ define hidden void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clon
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5fe154022465728bE"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !396, !noundef !15
-  %6 = load i64, ptr %0, align 8, !alias.scope !399, !noundef !15
+  %6 = load i64, ptr %0, align 8, !alias.scope !396, !noundef !15
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h8e08c34add4f2dd7E.llvm.18380110464382538137.exit"
 
 9:                                                ; preds = %3
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h567967bcdf6fd1d1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %2)
-  %.pre.i = load i64, ptr %4, align 8, !alias.scope !396
+  %.pre.i = load i64, ptr %4, align 8, !alias.scope !401
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h8e08c34add4f2dd7E.llvm.18380110464382538137.exit"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h8e08c34add4f2dd7E.llvm.18380110464382538137.exit": ; preds = %3, %9
   %10 = phi i64 [ %5, %3 ], [ %.pre.i, %9 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !396, !nonnull !15, !noundef !15
+  %12 = load ptr, ptr %11, align 8, !alias.scope !401, !nonnull !15, !noundef !15
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %14 = load i64, ptr %4, align 8, !alias.scope !396, !noundef !15
+  %14 = load i64, ptr %4, align 8, !alias.scope !401, !noundef !15
   %15 = add i64 %14, %2
-  store i64 %15, ptr %4, align 8, !alias.scope !396
+  store i64 %15, ptr %4, align 8, !alias.scope !401
   ret void
 }
 
@@ -1442,7 +1442,7 @@ attributes #16 = { nounwind }
 !21 = distinct !{!21, !19, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hae36bb15ed346b02E: argument 2"}
 !22 = distinct !{!22, !19, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hae36bb15ed346b02E: argument 3"}
 !23 = !{i64 0, i64 -9223372036854775804}
-!24 = !{!8, !11, !5}
+!24 = !{!14, !8, !11, !5}
 !25 = !{i64 0, i64 -9223372036854775807}
 !26 = !{!27, !29, !31, !33, !35}
 !27 = distinct !{!27, !28, !"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.llvm.15698352527914270608: argument 0"}
@@ -1482,7 +1482,7 @@ attributes #16 = { nounwind }
 !61 = distinct !{!61, !60, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hae36bb15ed346b02E: argument 1"}
 !62 = distinct !{!62, !60, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hae36bb15ed346b02E: argument 2"}
 !63 = distinct !{!63, !60, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hae36bb15ed346b02E: argument 3"}
-!64 = !{!51, !54, !48, !43, !46, !38, !41}
+!64 = !{!57, !51, !54, !48, !43, !46, !38, !41}
 !65 = !{!66, !68, !70, !72, !74, !46, !41}
 !66 = distinct !{!66, !67, !"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.llvm.15698352527914270608: argument 0"}
 !67 = distinct !{!67, !"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.llvm.15698352527914270608"}
@@ -1589,7 +1589,7 @@ attributes #16 = { nounwind }
 !168 = !{!164, !161}
 !169 = !{!170, !167}
 !170 = distinct !{!170, !165, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8dc4efab1d4ccf94E.llvm.15812483133845673217: argument 0"}
-!171 = !{!164, !167, !161}
+!171 = !{!170, !164, !167, !161}
 !172 = !{!173, !175, !177, !179}
 !173 = distinct !{!173, !174, !"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.llvm.15698352527914270608: argument 0"}
 !174 = distinct !{!174, !"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.llvm.15698352527914270608"}
@@ -1620,7 +1620,7 @@ attributes #16 = { nounwind }
 !199 = !{!195, !192, !190, !185}
 !200 = !{!201, !198, !187, !182}
 !201 = distinct !{!201, !196, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8dc4efab1d4ccf94E.llvm.15812483133845673217: argument 0"}
-!202 = !{!195, !198, !192, !187, !190, !182, !185}
+!202 = !{!201, !195, !198, !192, !187, !190, !182, !185}
 !203 = !{!204, !206, !208, !210, !190, !185}
 !204 = distinct !{!204, !205, !"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.llvm.15698352527914270608: argument 0"}
 !205 = distinct !{!205, !"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.llvm.15698352527914270608"}
@@ -1814,9 +1814,9 @@ attributes #16 = { nounwind }
 !393 = distinct !{!393, !394, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd0e61e6e8123eaf1E: argument 0"}
 !394 = distinct !{!394, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd0e61e6e8123eaf1E"}
 !395 = !{i8 0, i8 2}
-!396 = !{!397}
-!397 = distinct !{!397, !398, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h8e08c34add4f2dd7E.llvm.18380110464382538137: argument 0"}
-!398 = distinct !{!398, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h8e08c34add4f2dd7E.llvm.18380110464382538137"}
-!399 = !{!400, !397}
-!400 = distinct !{!400, !401, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h15a003f1dc5d1813E.llvm.18380110464382538137: argument 0"}
-!401 = distinct !{!401, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h15a003f1dc5d1813E.llvm.18380110464382538137"}
+!396 = !{!397, !399}
+!397 = distinct !{!397, !398, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h15a003f1dc5d1813E.llvm.18380110464382538137: argument 0"}
+!398 = distinct !{!398, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h15a003f1dc5d1813E.llvm.18380110464382538137"}
+!399 = distinct !{!399, !400, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h8e08c34add4f2dd7E.llvm.18380110464382538137: argument 0"}
+!400 = distinct !{!400, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h8e08c34add4f2dd7E.llvm.18380110464382538137"}
+!401 = !{!399}

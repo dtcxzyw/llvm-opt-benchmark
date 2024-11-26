@@ -1573,7 +1573,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %9 = icmp ult i64 %7, %8
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !4, !nonnull !4, !noundef !4
+  %11 = load ptr, ptr %10, align 8, !alias.scope !11, !noalias !14, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %7
   %.sroa.0.0.copyload1 = load i64, ptr %12, align 8, !noalias !11
   %13 = icmp eq i64 %.sroa.0.0.copyload1, 17
@@ -1718,7 +1718,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %9 = icmp ult i64 %7, %8
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !4, !nonnull !4, !noundef !4
+  %11 = load ptr, ptr %10, align 8, !alias.scope !25, !noalias !28, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %7
   %.sroa.0.0.copyload1 = load i64, ptr %12, align 8, !noalias !25
   %13 = icmp eq i64 %.sroa.0.0.copyload1, 17
@@ -2488,10 +2488,10 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h5c1caf1c86e040b6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
-  %.val = load ptr, ptr %0, align 8, !alias.scope !61, !noalias !64, !nonnull !4, !noundef !4
+  %.val = load ptr, ptr %0, align 8, !alias.scope !61, !noalias !66, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val5 = load i64, ptr %9, align 8, !alias.scope !66, !noalias !64, !noundef !4
-  %.val6 = load i8, ptr %1, align 1, !alias.scope !64, !noalias !61
+  %.val5 = load i64, ptr %9, align 8, !alias.scope !61, !noalias !66, !noundef !4
+  %.val6 = load i8, ptr %1, align 1, !alias.scope !66, !noalias !68
   %10 = lshr i64 %8, 57
   %11 = trunc nuw nsw i64 %10 to i8
   %.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %11, i64 0
@@ -4341,14 +4341,14 @@ attributes #21 = { nounwind }
 !58 = !{!59}
 !59 = distinct !{!59, !60, !"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hd25c2d210a7dfcfcE.llvm.3231017819854299114: argument 0"}
 !60 = distinct !{!60, !"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hd25c2d210a7dfcfcE.llvm.3231017819854299114"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE: argument 0"}
-!63 = distinct !{!63, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE"}
-!64 = !{!65}
-!65 = distinct !{!65, !63, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE: argument 1"}
-!66 = !{!67, !62}
-!67 = distinct !{!67, !68, !"_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E: argument 0"}
-!68 = distinct !{!68, !"_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E"}
+!61 = !{!62, !64}
+!62 = distinct !{!62, !63, !"_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E: argument 0"}
+!63 = distinct !{!63, !"_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E"}
+!64 = distinct !{!64, !65, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE: argument 0"}
+!65 = distinct !{!65, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE"}
+!66 = !{!67}
+!67 = distinct !{!67, !65, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE: argument 1"}
+!68 = !{!64}
 !69 = !{!70, !72, !74, !76}
 !70 = distinct !{!70, !71, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E: argument 0"}
 !71 = distinct !{!71, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E"}

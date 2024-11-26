@@ -1535,9 +1535,9 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
 
 _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.15969390215716056838.exit.i.i: ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !noalias !7, !nonnull !7, !align !23, !noundef !7
+  %6 = load ptr, ptr %5, align 8, !alias.scope !296, !noalias !297, !nonnull !7, !align !23, !noundef !7
   %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !noalias !7, !noundef !7
+  %8 = load i64, ptr %7, align 8, !alias.scope !296, !noalias !297, !noundef !7
   call void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 %6, i64 noundef %8), !noalias !309
   %.pr.i.i = load i64, ptr %3, align 8, !noalias !288
   %9 = icmp eq i64 %.pr.i.i, 2
@@ -4950,7 +4950,7 @@ _RNvMsw_NtCseG2FYMysgNb_3wax5tokenNtB5_7Literal18has_variant_casing.exit.i.i: ; 
   %.sroa.01.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.01.0.i.i.i = load ptr, ptr %.sroa.01.0.in.i.i.i, align 8, !alias.scope !1078, !noalias !1079, !nonnull !7, !noundef !7
   %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !1070, !noalias !1067, !noundef !7
+  %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !1078, !noalias !1079, !noundef !7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1088
   %44 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i.i, i64 %.sroa.3.0.i.i.i
   store ptr %.sroa.01.0.i.i.i, ptr %7, align 8, !noalias !1088
@@ -5456,7 +5456,7 @@ _RNvMsw_NtCseG2FYMysgNb_3wax5tokenNtB5_7Literal18has_variant_casing.exit.i.i: ; 
   %.sroa.01.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.01.0.i.i.i = load ptr, ptr %.sroa.01.0.in.i.i.i, align 8, !alias.scope !1175, !noalias !1176, !nonnull !7, !noundef !7
   %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !1167, !noalias !1164, !noundef !7
+  %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !1175, !noalias !1176, !noundef !7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1185
   %44 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i.i, i64 %.sroa.3.0.i.i.i
   store ptr %.sroa.01.0.i.i.i, ptr %4, align 8, !noalias !1185
@@ -7675,7 +7675,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !1600, !noalias !1603, !noundef !7
   %11 = add i64 %10, 1
-  %12 = load i64, ptr %1, align 8, !noalias !7, !noundef !7
+  %12 = load i64, ptr %1, align 8, !alias.scope !1600, !noalias !1603, !noundef !7
   %.not.i = icmp ult i64 %11, %12
   %13 = select i1 %.not.i, i64 0, i64 %12
   %.sroa.0.0.i = sub nuw i64 %11, %13
@@ -7812,7 +7812,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !1614, !noalias !1617, !noundef !7
   %11 = add i64 %10, 1
-  %12 = load i64, ptr %1, align 8, !noalias !7, !noundef !7
+  %12 = load i64, ptr %1, align 8, !alias.scope !1614, !noalias !1617, !noundef !7
   %.not.i = icmp ult i64 %11, %12
   %13 = select i1 %.not.i, i64 0, i64 %12
   %.sroa.0.0.i = sub nuw i64 %11, %13
@@ -8196,7 +8196,7 @@ define hidden void @_RNCINvNtCseG2FYMysgNb_3wax5token8literalsTjjERINtNtCs68wO5n
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1638)
   %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = load i64, ptr %9, align 8, !noundef !7
+  %10 = load i64, ptr %9, align 8, !alias.scope !1638, !noalias !1641, !noundef !7
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %_RNvMsT_NtCseG2FYMysgNb_3wax5tokenINtB5_9ComponentTjjEE7literalB7_.exit.thread, label %12
 

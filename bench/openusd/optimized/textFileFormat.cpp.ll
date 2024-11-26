@@ -10075,7 +10075,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfNameKeyPolicy
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfNameKeyPolicyEE10IsExplicitEv.exit unwind label %661
 
 _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfNameKeyPolicyEE10IsExplicitEv.exit: ; preds = %589
-  %.pre1072 = load ptr, ptr %38, align 8, !noalias !15
+  %.pre1072 = load ptr, ptr %38, align 8, !noalias !93
   br i1 %594, label %595, label %676
 
 595:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfNameKeyPolicyEE10IsExplicitEv.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfNameKeyPolicyEE10IsExplicitEv.exit
@@ -20255,7 +20255,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfPathKeyPolicy
           to label %.noexc209.i unwind label %1172
 
 .noexc209.i:                                      ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfPathKeyPolicyEE10IsExplicitEv.exit.i.i
-  %.pre18.i.i = load ptr, ptr %87, align 8, !noalias !15
+  %.pre18.i.i = load ptr, ptr %87, align 8, !noalias !267
   br i1 %699, label %700, label %753
 
 700:                                              ; preds = %.noexc209.i, %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_16SdfPathKeyPolicyEE10IsExplicitEv.exit.thread.i.i

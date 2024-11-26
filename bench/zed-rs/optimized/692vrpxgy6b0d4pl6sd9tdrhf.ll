@@ -10,19 +10,19 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %6 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
+  %5 = load ptr, ptr %4, align 8, !alias.scope !4, !nonnull !7, !noundef !7
+  %6 = load ptr, ptr %3, align 8, !alias.scope !4, !nonnull !7, !noundef !7
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %9 = icmp eq ptr %6, %5
   br i1 %9, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread", label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 -1
-  store ptr %11, ptr %4, align 8, !alias.scope !11
-  %12 = load i8, ptr %11, align 1, !noalias !14, !noundef !4
+  store ptr %11, ptr %4, align 8, !alias.scope !14
+  %12 = load i8, ptr %11, align 1, !noalias !17, !noundef !7
   %13 = icmp sgt i8 %12, -1
   br i1 %13, label %20, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E.exit17.i.i"
 
@@ -30,8 +30,8 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   %14 = icmp ne ptr %6, %11
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %5, i64 -2
-  store ptr %15, ptr %4, align 8, !alias.scope !15
-  %16 = load i8, ptr %15, align 1, !noalias !14, !noundef !4
+  store ptr %15, ptr %4, align 8, !alias.scope !18
+  %16 = load i8, ptr %15, align 1, !noalias !17, !noundef !7
   %17 = and i8 %16, 31
   %18 = zext nneg i8 %17 to i32
   %19 = icmp slt i8 %16, -64
@@ -45,8 +45,8 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   %22 = icmp ne ptr %6, %15
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds i8, ptr %5, i64 -3
-  store ptr %23, ptr %4, align 8, !alias.scope !18
-  %24 = load i8, ptr %23, align 1, !noalias !14, !noundef !4
+  store ptr %23, ptr %4, align 8, !alias.scope !21
+  %24 = load i8, ptr %23, align 1, !noalias !17, !noundef !7
   %25 = and i8 %24, 15
   %26 = zext nneg i8 %25 to i32
   %27 = icmp slt i8 %24, -64
@@ -65,8 +65,8 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   %34 = icmp ne ptr %6, %23
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds i8, ptr %5, i64 -4
-  store ptr %35, ptr %4, align 8, !alias.scope !21
-  %36 = load i8, ptr %35, align 1, !noalias !14, !noundef !4
+  store ptr %35, ptr %4, align 8, !alias.scope !24
+  %36 = load i8, ptr %35, align 1, !noalias !17, !noundef !7
   %37 = and i8 %36, 7
   %38 = zext nneg i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 6
@@ -90,7 +90,7 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   %51 = icmp samesign ult i32 %.sroa.4.1.i.ph.i, 1114112
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds i8, ptr %1, i64 32
-  %53 = load i64, ptr %52, align 8, !alias.scope !5, !noundef !4
+  %53 = load i64, ptr %52, align 8, !alias.scope !8, !noundef !7
   %54 = ptrtoint ptr %50 to i64
   %55 = sub i64 %53, %8
   %56 = add i64 %55, %54
@@ -130,14 +130,14 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   %68 = and i32 %.sroa.4.1.i.ph.i, 255
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %69
-  %71 = load i8, ptr %70, align 1, !noundef !4
+  %71 = load i8, ptr %70, align 1, !noundef !7
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit"
 
 72:                                               ; preds = %59
   %73 = and i32 %.sroa.4.1.i.ph.i, 255
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %74
-  %76 = load i8, ptr %75, align 1, !noundef !4
+  %76 = load i8, ptr %75, align 1, !noundef !7
   %77 = lshr i8 %76, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit"
 
@@ -166,27 +166,27 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hac921c447e1e8b4eE.llvm.1931232142210905675"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #1 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = load ptr, ptr %3, align 8, !alias.scope !29, !noalias !32, !nonnull !4, !noundef !4
-  %.promoted.i = load ptr, ptr %4, align 8, !alias.scope !29, !noalias !32
+  %5 = load ptr, ptr %3, align 8, !alias.scope !32, !noalias !37, !nonnull !7, !noundef !7
+  %.promoted.i = load ptr, ptr %4, align 8, !alias.scope !39, !noalias !37
   %6 = icmp eq ptr %5, %.promoted.i
   br i1 %6, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 32
-  %8 = load i64, ptr %7, align 8, !alias.scope !34, !noalias !32, !noundef !4
+  %8 = load i64, ptr %7, align 8, !alias.scope !40, !noalias !37, !noundef !7
   br label %9
 
 9:                                                ; preds = %83, %.lr.ph.i
   %10 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %50, %83 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %11 = getelementptr inbounds i8, ptr %10, i64 -1
-  %12 = load i8, ptr %11, align 1, !noalias !42, !noundef !4
+  %12 = load i8, ptr %11, align 1, !noalias !48, !noundef !7
   %13 = icmp sgt i8 %12, -1
   br i1 %13, label %20, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E.exit17.i.i.i.i"
 
@@ -194,7 +194,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   %14 = icmp ne ptr %5, %11
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %10, i64 -2
-  %16 = load i8, ptr %15, align 1, !noalias !42, !noundef !4
+  %16 = load i8, ptr %15, align 1, !noalias !48, !noundef !7
   %17 = and i8 %16, 31
   %18 = zext nneg i8 %17 to i32
   %19 = icmp slt i8 %16, -64
@@ -208,7 +208,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   %22 = icmp ne ptr %5, %15
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds i8, ptr %10, i64 -3
-  %24 = load i8, ptr %23, align 1, !noalias !42, !noundef !4
+  %24 = load i8, ptr %23, align 1, !noalias !48, !noundef !7
   %25 = and i8 %24, 15
   %26 = zext nneg i8 %25 to i32
   %27 = icmp slt i8 %24, -64
@@ -227,7 +227,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   %34 = icmp ne ptr %5, %23
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds i8, ptr %10, i64 -4
-  %36 = load i8, ptr %35, align 1, !noalias !42, !noundef !4
+  %36 = load i8, ptr %35, align 1, !noalias !48, !noundef !7
   %37 = and i8 %36, 7
   %38 = zext nneg i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 6
@@ -286,14 +286,14 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   %63 = and i32 %.sroa.4.1.i.ph.i.i.i, 255
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1, !noalias !43, !noundef !4
+  %66 = load i8, ptr %65, align 1, !noalias !49, !noundef !7
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit.i.i"
 
 67:                                               ; preds = %54
   %68 = and i32 %.sroa.4.1.i.ph.i.i.i, 255
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %69
-  %71 = load i8, ptr %70, align 1, !noalias !43, !noundef !4
+  %71 = load i8, ptr %70, align 1, !noalias !49, !noundef !7
   %72 = lshr i8 %71, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit.i.i"
 
@@ -303,7 +303,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   br i1 %73, label %83, label %74
 
 74:                                               ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit.i.i", %54, %52
-  store ptr %50, ptr %4, align 8, !alias.scope !44, !noalias !32
+  store ptr %50, ptr %4, align 8, !alias.scope !50, !noalias !37
   %75 = ptrtoint ptr %10 to i64
   %76 = ptrtoint ptr %5 to i64
   %77 = ptrtoint ptr %50 to i64
@@ -311,9 +311,9 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   %79 = add i64 %78, %77
   %80 = add i64 %78, %75
   %81 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %79, ptr %81, align 8, !alias.scope !24, !noalias !27
+  store i64 %79, ptr %81, align 8, !alias.scope !27, !noalias !30
   %82 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %80, ptr %82, align 8, !alias.scope !24, !noalias !27
+  store i64 %80, ptr %82, align 8, !alias.scope !27, !noalias !30
   br label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675.exit
 
 83:                                               ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit.i.i", %49, %49, %49, %49, %49, %49
@@ -321,12 +321,12 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   br i1 %84, label %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675.exit.thread.loopexit_crit_edge.i", label %9
 
 "._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675.exit.thread.loopexit_crit_edge.i": ; preds = %83
-  store ptr %50, ptr %4, align 8, !alias.scope !44, !noalias !32
+  store ptr %50, ptr %4, align 8, !alias.scope !50, !noalias !37
   br label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675.exit
 
 _ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675.exit: ; preds = %2, %74, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675.exit.thread.loopexit_crit_edge.i"
   %storemerge.i = phi i64 [ 1, %74 ], [ 0, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675.exit.thread.loopexit_crit_edge.i" ], [ 0, %2 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !24, !noalias !27
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !27, !noalias !30
   ret void
 }
 
@@ -357,7 +357,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %73
   %5 = phi ptr [ %45, %73 ], [ %4, %.lr.ph.i.i.preheader ]
   %6 = getelementptr inbounds i8, ptr %5, i64 -1
-  %7 = load i8, ptr %6, align 1, !noalias !45, !noundef !4
+  %7 = load i8, ptr %6, align 1, !noalias !51, !noundef !7
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %15, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E.exit17.i.i.i.i.i"
 
@@ -365,7 +365,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %9 = icmp ne ptr %0, %6
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds i8, ptr %5, i64 -2
-  %11 = load i8, ptr %10, align 1, !noalias !45, !noundef !4
+  %11 = load i8, ptr %10, align 1, !noalias !51, !noundef !7
   %12 = and i8 %11, 31
   %13 = zext nneg i8 %12 to i32
   %14 = icmp slt i8 %11, -64
@@ -379,7 +379,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %17 = icmp ne ptr %0, %10
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds i8, ptr %5, i64 -3
-  %19 = load i8, ptr %18, align 1, !noalias !45, !noundef !4
+  %19 = load i8, ptr %18, align 1, !noalias !51, !noundef !7
   %20 = and i8 %19, 15
   %21 = zext nneg i8 %20 to i32
   %22 = icmp slt i8 %19, -64
@@ -398,7 +398,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %29 = icmp ne ptr %0, %18
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds i8, ptr %5, i64 -4
-  %31 = load i8, ptr %30, align 1, !noalias !45, !noundef !4
+  %31 = load i8, ptr %30, align 1, !noalias !51, !noundef !7
   %32 = and i8 %31, 7
   %33 = zext nneg i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 6
@@ -457,14 +457,14 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %58 = and i32 %.sroa.4.1.i.ph.i.i.i.i, 255
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %59
-  %61 = load i8, ptr %60, align 1, !noalias !59, !noundef !4
+  %61 = load i8, ptr %60, align 1, !noalias !65, !noundef !7
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit.i.i.i"
 
 62:                                               ; preds = %49
   %63 = and i32 %.sroa.4.1.i.ph.i.i.i.i, 255
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1, !noalias !59, !noundef !4
+  %66 = load i8, ptr %65, align 1, !noalias !65, !noundef !7
   %67 = lshr i8 %66, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit.i.i.i"
 
@@ -502,23 +502,23 @@ define hidden { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17hf7e506d
 define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = load ptr, ptr %3, align 8, !alias.scope !60, !noalias !63, !nonnull !4, !noundef !4
-  %.promoted = load ptr, ptr %4, align 8, !alias.scope !60, !noalias !63
+  %5 = load ptr, ptr %3, align 8, !alias.scope !66, !noalias !71, !nonnull !7, !noundef !7
+  %.promoted = load ptr, ptr %4, align 8, !alias.scope !73, !noalias !71
   %6 = icmp eq ptr %5, %.promoted
   br i1 %6, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 32
-  %8 = load i64, ptr %7, align 8, !alias.scope !65, !noalias !63, !noundef !4
+  %8 = load i64, ptr %7, align 8, !alias.scope !74, !noalias !71, !noundef !7
   br label %9
 
 9:                                                ; preds = %.lr.ph, %83
   %10 = phi ptr [ %.promoted, %.lr.ph ], [ %50, %83 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %11 = getelementptr inbounds i8, ptr %10, i64 -1
-  %12 = load i8, ptr %11, align 1, !noalias !72, !noundef !4
+  %12 = load i8, ptr %11, align 1, !noalias !81, !noundef !7
   %13 = icmp sgt i8 %12, -1
   br i1 %13, label %20, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E.exit17.i.i.i"
 
@@ -526,7 +526,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb2
   %14 = icmp ne ptr %5, %11
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %10, i64 -2
-  %16 = load i8, ptr %15, align 1, !noalias !72, !noundef !4
+  %16 = load i8, ptr %15, align 1, !noalias !81, !noundef !7
   %17 = and i8 %16, 31
   %18 = zext nneg i8 %17 to i32
   %19 = icmp slt i8 %16, -64
@@ -540,7 +540,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb2
   %22 = icmp ne ptr %5, %15
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds i8, ptr %10, i64 -3
-  %24 = load i8, ptr %23, align 1, !noalias !72, !noundef !4
+  %24 = load i8, ptr %23, align 1, !noalias !81, !noundef !7
   %25 = and i8 %24, 15
   %26 = zext nneg i8 %25 to i32
   %27 = icmp slt i8 %24, -64
@@ -559,7 +559,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb2
   %34 = icmp ne ptr %5, %23
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds i8, ptr %10, i64 -4
-  %36 = load i8, ptr %35, align 1, !noalias !72, !noundef !4
+  %36 = load i8, ptr %35, align 1, !noalias !81, !noundef !7
   %37 = and i8 %36, 7
   %38 = zext nneg i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 6
@@ -618,14 +618,14 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb2
   %63 = and i32 %.sroa.4.1.i.ph.i.i, 255
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1, !noalias !73, !noundef !4
+  %66 = load i8, ptr %65, align 1, !noalias !82, !noundef !7
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit.i"
 
 67:                                               ; preds = %54
   %68 = and i32 %.sroa.4.1.i.ph.i.i, 255
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %69
-  %71 = load i8, ptr %70, align 1, !noalias !73, !noundef !4
+  %71 = load i8, ptr %70, align 1, !noalias !82, !noundef !7
   %72 = lshr i8 %71, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit.i"
 
@@ -635,7 +635,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb2
   br i1 %73, label %83, label %74
 
 74:                                               ; preds = %54, %52, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc4d1716d398eaecaE.exit.i"
-  store ptr %50, ptr %4, align 8, !alias.scope !74, !noalias !63
+  store ptr %50, ptr %4, align 8, !alias.scope !83, !noalias !71
   %75 = ptrtoint ptr %10 to i64
   %76 = ptrtoint ptr %5 to i64
   %77 = ptrtoint ptr %50 to i64
@@ -653,7 +653,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb2
   br i1 %84, label %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675.exit.thread.loopexit_crit_edge", label %9
 
 "._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675.exit.thread.loopexit_crit_edge": ; preds = %83
-  store ptr %50, ptr %4, align 8, !alias.scope !74, !noalias !63
+  store ptr %50, ptr %4, align 8, !alias.scope !83, !noalias !71
   br label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675.exit.thread"
 
 "_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675.exit.thread": ; preds = %2, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675.exit.thread.loopexit_crit_edge", %74
@@ -672,9 +672,9 @@ define hidden noundef align 8 ptr @_ZN4core5error19request_by_type_tag17h78c5fd9
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 80
-  %7 = load ptr, ptr %6, align 8, !invariant.load !4, !nonnull !4
+  %7 = load ptr, ptr %6, align 8, !invariant.load !7, !nonnull !7
   call void %7(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 8 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.247638bce9b991e2df2bfd49694791ba.6.llvm.1931232142210905675)
-  %8 = load ptr, ptr %5, align 8, !align !75, !noundef !4
+  %8 = load ptr, ptr %5, align 8, !align !84, !noundef !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret ptr %8
 }
@@ -685,7 +685,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h4a8da4455e5c1beaE(ptr n
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
-  %6 = load ptr, ptr %5, align 8, !invariant.load !4, !nonnull !4
+  %6 = load ptr, ptr %5, align 8, !invariant.load !7, !nonnull !7
   %7 = tail call { ptr, ptr } %6(ptr noundef align 1 %3)
   ret { ptr, ptr } %7
 }
@@ -697,12 +697,12 @@ define hidden { i64, i64 } @_ZN4core5error5Error7type_id17h56d584f058e5ca84E(ptr
 
 ; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0ca763c92461ca4fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #7 {
-  %3 = load i64, ptr %1, align 8, !range !76, !noundef !4
+  %3 = load i64, ptr %1, align 8, !range !85, !noundef !7
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
+  %5 = load ptr, ptr %4, align 8, !nonnull !7, !noundef !7
   %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load i64, ptr %6, align 8, !noundef !4
+  %7 = load i64, ptr %6, align 8, !noundef !7
   br i1 %trunc, label %8, label %11
 
 8:                                                ; preds = %2
@@ -727,7 +727,7 @@ define hidden void @"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..c
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6anyhow5error11object_drop17hb1ffc6ec86b052dcE(ptr noundef nonnull %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !range !77, !alias.scope !78, !noundef !4
+  %3 = load i64, ptr %2, align 8, !range !86, !alias.scope !87, !noundef !7
   %switch.i.i.i = icmp eq i64 %3, 2
   br i1 %switch.i.i.i, label %4, label %"_ZN4core3ptr112drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$futures_channel..oneshot..Canceled$GT$$GT$$GT$17h519515a1fe0686c7E.exit"
 
@@ -760,7 +760,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h95d858d3bb0bc761E
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6anyhow5error17object_drop_front17h03e590e78fae8a6eE(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !range !77, !alias.scope !83, !noundef !4
+  %5 = load i64, ptr %4, align 8, !range !86, !alias.scope !92, !noundef !7
   %switch.i.i.i = icmp eq i64 %5, 2
   br i1 %switch.i.i.i, label %6, label %"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$futures_channel..oneshot..Canceled$GT$$GT$$GT$$GT$17h0656f03a3d3f835bE.exit"
 
@@ -792,7 +792,7 @@ define hidden { ptr, ptr } @"_ZN72_$LT$anyhow..error..ErrorImpl$LT$E$GT$$u20$as$
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
-  %6 = load ptr, ptr %5, align 8, !invariant.load !4, !nonnull !4
+  %6 = load ptr, ptr %5, align 8, !invariant.load !7, !nonnull !7
   %7 = tail call { ptr, ptr } %6(ptr noundef align 1 %3)
   ret { ptr, ptr } %7
 }
@@ -809,7 +809,7 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$anyhow..error..ErrorImpl$LT$E$GT$$u
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
   %6 = getelementptr inbounds i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !invariant.load !4, !nonnull !4
+  %7 = load ptr, ptr %6, align 8, !invariant.load !7, !nonnull !7
   %8 = tail call noundef zeroext i1 %7(ptr noundef align 1 %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %8
 }
@@ -885,87 +885,96 @@ attributes #14 = { nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.81.0 (eeb90cda1 2024-09-04)"}
-!4 = !{}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E: argument 0"}
-!7 = distinct !{!7, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h44b43d7f8c416050E: argument 0"}
+!6 = distinct !{!6, !"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h44b43d7f8c416050E"}
+!7 = !{}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE: argument 0"}
-!10 = distinct !{!10, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE"}
-!11 = !{!12, !9, !6}
-!12 = distinct !{!12, !13, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E: argument 0"}
-!13 = distinct !{!13, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E"}
-!14 = !{!9, !6}
-!15 = !{!16, !9, !6}
-!16 = distinct !{!16, !17, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E: argument 0"}
-!17 = distinct !{!17, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E"}
-!18 = !{!19, !9, !6}
+!9 = distinct !{!9, !10, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E: argument 0"}
+!10 = distinct !{!10, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE: argument 0"}
+!13 = distinct !{!13, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE"}
+!14 = !{!15, !12, !9}
+!15 = distinct !{!15, !16, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E: argument 0"}
+!16 = distinct !{!16, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E"}
+!17 = !{!12, !9}
+!18 = !{!19, !12, !9}
 !19 = distinct !{!19, !20, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E: argument 0"}
 !20 = distinct !{!20, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E"}
-!21 = !{!22, !9, !6}
+!21 = !{!22, !12, !9}
 !22 = distinct !{!22, !23, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E: argument 0"}
 !23 = distinct !{!23, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675: argument 0"}
-!26 = distinct !{!26, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675"}
+!24 = !{!25, !12, !9}
+!25 = distinct !{!25, !26, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E: argument 0"}
+!26 = distinct !{!26, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1dcf5565c91bb0d5E"}
 !27 = !{!28}
-!28 = distinct !{!28, !26, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675: argument 1"}
-!29 = !{!30, !28}
-!30 = distinct !{!30, !31, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 1"}
-!31 = distinct !{!31, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675"}
-!32 = !{!33, !25}
-!33 = distinct !{!33, !31, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 0"}
-!34 = !{!35, !30, !28}
-!35 = distinct !{!35, !36, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E: argument 0"}
-!36 = distinct !{!36, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E"}
-!37 = !{!30}
-!38 = !{!35}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE: argument 0"}
-!41 = distinct !{!41, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE"}
-!42 = !{!40, !35, !33, !30, !25, !28}
-!43 = !{!33, !30, !25, !28}
-!44 = !{!40, !35, !30, !28}
-!45 = !{!46, !48, !50, !52, !53, !55, !56, !58}
+!28 = distinct !{!28, !29, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675: argument 0"}
+!29 = distinct !{!29, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675"}
+!30 = !{!31}
+!31 = distinct !{!31, !29, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675: argument 1"}
+!32 = !{!33, !35, !31}
+!33 = distinct !{!33, !34, !"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h44b43d7f8c416050E: argument 0"}
+!34 = distinct !{!34, !"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h44b43d7f8c416050E"}
+!35 = distinct !{!35, !36, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 1"}
+!36 = distinct !{!36, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675"}
+!37 = !{!38, !28}
+!38 = distinct !{!38, !36, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 0"}
+!39 = !{!35, !31}
+!40 = !{!41, !35, !31}
+!41 = distinct !{!41, !42, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E: argument 0"}
+!42 = distinct !{!42, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E"}
+!43 = !{!35}
+!44 = !{!41}
+!45 = !{!46}
 !46 = distinct !{!46, !47, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE: argument 0"}
 !47 = distinct !{!47, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE"}
-!48 = distinct !{!48, !49, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E: argument 0"}
-!49 = distinct !{!49, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E"}
-!50 = distinct !{!50, !51, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 0"}
-!51 = distinct !{!51, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675"}
-!52 = distinct !{!52, !51, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 1"}
-!53 = distinct !{!53, !54, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675: argument 0"}
-!54 = distinct !{!54, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675"}
-!55 = distinct !{!55, !54, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675: argument 1"}
-!56 = distinct !{!56, !57, !"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hac921c447e1e8b4eE.llvm.1931232142210905675: argument 0"}
-!57 = distinct !{!57, !"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hac921c447e1e8b4eE.llvm.1931232142210905675"}
-!58 = distinct !{!58, !57, !"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hac921c447e1e8b4eE.llvm.1931232142210905675: argument 1"}
-!59 = !{!50, !52, !53, !55, !56, !58}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 1"}
-!62 = distinct !{!62, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675"}
-!63 = !{!64}
-!64 = distinct !{!64, !62, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 0"}
-!65 = !{!66, !61}
-!66 = distinct !{!66, !67, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E: argument 0"}
-!67 = distinct !{!67, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E"}
-!68 = !{!66}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE: argument 0"}
-!71 = distinct !{!71, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE"}
-!72 = !{!70, !66, !64, !61}
-!73 = !{!64, !61}
-!74 = !{!70, !66, !61}
-!75 = !{i64 8}
-!76 = !{i64 0, i64 2}
-!77 = !{i64 0, i64 4}
-!78 = !{!79, !81}
-!79 = distinct !{!79, !80, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h3b4c7e869ee90702E.llvm.16956122376660418962: argument 0"}
-!80 = distinct !{!80, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h3b4c7e869ee90702E.llvm.16956122376660418962"}
-!81 = distinct !{!81, !82, !"_ZN4core3ptr87drop_in_place$LT$anyhow..error..ErrorImpl$LT$futures_channel..oneshot..Canceled$GT$$GT$17h56170b504b1edd47E: argument 0"}
-!82 = distinct !{!82, !"_ZN4core3ptr87drop_in_place$LT$anyhow..error..ErrorImpl$LT$futures_channel..oneshot..Canceled$GT$$GT$17h56170b504b1edd47E"}
-!83 = !{!84, !86}
-!84 = distinct !{!84, !85, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h3b4c7e869ee90702E.llvm.16956122376660418962: argument 0"}
-!85 = distinct !{!85, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h3b4c7e869ee90702E.llvm.16956122376660418962"}
-!86 = distinct !{!86, !87, !"_ZN4core3ptr133drop_in_place$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$futures_channel..oneshot..Canceled$GT$$GT$$GT$17hd9d19067ff114c4fE: argument 0"}
-!87 = distinct !{!87, !"_ZN4core3ptr133drop_in_place$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$futures_channel..oneshot..Canceled$GT$$GT$$GT$17hd9d19067ff114c4fE"}
+!48 = !{!46, !41, !38, !35, !28, !31}
+!49 = !{!38, !35, !28, !31}
+!50 = !{!46, !41, !35, !31}
+!51 = !{!52, !54, !56, !58, !59, !61, !62, !64}
+!52 = distinct !{!52, !53, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE: argument 0"}
+!53 = distinct !{!53, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE"}
+!54 = distinct !{!54, !55, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E: argument 0"}
+!55 = distinct !{!55, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E"}
+!56 = distinct !{!56, !57, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 0"}
+!57 = distinct !{!57, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675"}
+!58 = distinct !{!58, !57, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 1"}
+!59 = distinct !{!59, !60, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675: argument 0"}
+!60 = distinct !{!60, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675"}
+!61 = distinct !{!61, !60, !"_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hb25b6fcf6b3c7d53E.llvm.1931232142210905675: argument 1"}
+!62 = distinct !{!62, !63, !"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hac921c447e1e8b4eE.llvm.1931232142210905675: argument 0"}
+!63 = distinct !{!63, !"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hac921c447e1e8b4eE.llvm.1931232142210905675"}
+!64 = distinct !{!64, !63, !"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hac921c447e1e8b4eE.llvm.1931232142210905675: argument 1"}
+!65 = !{!56, !58, !59, !61, !62, !64}
+!66 = !{!67, !69}
+!67 = distinct !{!67, !68, !"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h44b43d7f8c416050E: argument 0"}
+!68 = distinct !{!68, !"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h44b43d7f8c416050E"}
+!69 = distinct !{!69, !70, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 1"}
+!70 = distinct !{!70, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675"}
+!71 = !{!72}
+!72 = distinct !{!72, !70, !"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17ha72a931e3bfa03f7E.llvm.1931232142210905675: argument 0"}
+!73 = !{!69}
+!74 = !{!75, !69}
+!75 = distinct !{!75, !76, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E: argument 0"}
+!76 = distinct !{!76, !"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E"}
+!77 = !{!75}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE: argument 0"}
+!80 = distinct !{!80, !"_ZN4core3str11validations23next_code_point_reverse17h39810340071a7abdE"}
+!81 = !{!79, !75, !72, !69}
+!82 = !{!72, !69}
+!83 = !{!79, !75, !69}
+!84 = !{i64 8}
+!85 = !{i64 0, i64 2}
+!86 = !{i64 0, i64 4}
+!87 = !{!88, !90}
+!88 = distinct !{!88, !89, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h3b4c7e869ee90702E.llvm.16956122376660418962: argument 0"}
+!89 = distinct !{!89, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h3b4c7e869ee90702E.llvm.16956122376660418962"}
+!90 = distinct !{!90, !91, !"_ZN4core3ptr87drop_in_place$LT$anyhow..error..ErrorImpl$LT$futures_channel..oneshot..Canceled$GT$$GT$17h56170b504b1edd47E: argument 0"}
+!91 = distinct !{!91, !"_ZN4core3ptr87drop_in_place$LT$anyhow..error..ErrorImpl$LT$futures_channel..oneshot..Canceled$GT$$GT$17h56170b504b1edd47E"}
+!92 = !{!93, !95}
+!93 = distinct !{!93, !94, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h3b4c7e869ee90702E.llvm.16956122376660418962: argument 0"}
+!94 = distinct !{!94, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h3b4c7e869ee90702E.llvm.16956122376660418962"}
+!95 = distinct !{!95, !96, !"_ZN4core3ptr133drop_in_place$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$futures_channel..oneshot..Canceled$GT$$GT$$GT$17hd9d19067ff114c4fE: argument 0"}
+!96 = distinct !{!96, !"_ZN4core3ptr133drop_in_place$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$futures_channel..oneshot..Canceled$GT$$GT$$GT$17hd9d19067ff114c4fE"}

@@ -2490,7 +2490,7 @@ if.end.i:                                         ; preds = %for.body.i57
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.i55 = icmp ult i64 %inc.i, %sub.ptr.div.i
-  br i1 %cmp.i55, label %for.body.i57, label %common.ret, !llvm.loop !18
+  br i1 %cmp.i55, label %for.body.i57, label %common.ret, !llvm.loop !20
 
 sw.bb10:                                          ; preds = %entry
   %m_params.i61 = getelementptr inbounds i8, ptr %this, i64 8
@@ -2710,5 +2710,7 @@ attributes #16 = { builtin nounwind }
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZStplRKSt15_Deque_iteratorIcRcPcEl: %agg.result"}
 !16 = distinct !{!16, !"_ZStplRKSt15_Deque_iteratorIcRcPcEl"}
-!17 = !{}
-!18 = distinct !{!18, !6}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZStplRKSt15_Deque_iteratorIcRcPcEl: %agg.result"}
+!19 = distinct !{!19, !"_ZStplRKSt15_Deque_iteratorIcRcPcEl"}
+!20 = distinct !{!20, !6}

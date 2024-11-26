@@ -5098,7 +5098,7 @@ invoke.cont:                                      ; preds = %_ZN4entt16basic_dis
 invoke.cont3:                                     ; preds = %invoke.cont
   %signal.i.i = getelementptr inbounds i8, ptr %call.i380, i64 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call.i380, i64 16
-  %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !53
+  %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !53, !noalias !124
   %5 = load ptr, ptr %signal.i.i, align 8, !tbaa !91, !noalias !124
   %tobool.not15.i.i.i = icmp eq ptr %4, %5
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvR8an_eventESaIvEEEE10disconnectITnDaXadL_ZN8receiver7receiveERKS2_EEJRS9_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -7256,7 +7256,7 @@ _ZN4entt16basic_dispatcherISaIvEEC2Ev.exit:       ; preds = %entry
 invoke.cont:                                      ; preds = %_ZN4entt16basic_dispatcherISaIvEEC2Ev.exit
   %signal.i.i = getelementptr inbounds i8, ptr %call.i108, i64 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call.i108, i64 16
-  %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !53
+  %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !53, !noalias !147
   %3 = load ptr, ptr %signal.i.i, align 8, !tbaa !91, !noalias !147
   %tobool.not15.i.i.i = icmp eq ptr %2, %3
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvR8an_eventESaIvEEEE10disconnectITnDaXadL_ZN8receiver7forwardERNS_16basic_dispatcherIS5_EES3_EEJSC_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -7383,7 +7383,7 @@ invoke.cont4:                                     ; preds = %_ZNSt6vectorIN4entt
 invoke.cont8:                                     ; preds = %invoke.cont4
   %signal.i.i111 = getelementptr inbounds i8, ptr %call.i110112, i64 8
   %_M_finish.i.i.i.i115 = getelementptr inbounds i8, ptr %call.i110112, i64 16
-  %16 = load ptr, ptr %_M_finish.i.i.i.i115, align 8, !tbaa !53
+  %16 = load ptr, ptr %_M_finish.i.i.i.i115, align 8, !tbaa !53, !noalias !155
   %17 = load ptr, ptr %signal.i.i111, align 8, !tbaa !91, !noalias !155
   %tobool.not15.i.i.i116 = icmp eq ptr %16, %17
   br i1 %tobool.not15.i.i.i116, label %_ZN4entt4sinkINS_4sighIFvR8an_eventESaIvEEEE10disconnectITnDaXadL_ZN8receiver7receiveERKS2_EEJRS9_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i117
@@ -8160,7 +8160,7 @@ _ZN4entt16basic_dispatcherISaIvEEC2Ev.exit:       ; preds = %entry
 invoke.cont:                                      ; preds = %_ZN4entt16basic_dispatcherISaIvEEC2Ev.exit
   %signal.i.i = getelementptr inbounds i8, ptr %call.i93, i64 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call.i93, i64 16
-  %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !53
+  %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !53, !noalias !172
   %3 = load ptr, ptr %signal.i.i, align 8, !tbaa !91, !noalias !172
   %tobool.not15.i.i.i = icmp eq ptr %2, %3
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvR8an_eventESaIvEEEE10disconnectITnDaXadL_ZN8receiver7receiveERKS2_EEJRS9_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -8879,7 +8879,7 @@ _ZN4entt16basic_dispatcherISaIvEEC2Ev.exit:       ; preds = %entry
 invoke.cont:                                      ; preds = %_ZN4entt16basic_dispatcherISaIvEEC2Ev.exit
   %signal.i.i = getelementptr inbounds i8, ptr %call.i252, i64 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call.i252, i64 16
-  %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !53
+  %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !53, !noalias !189
   %3 = load ptr, ptr %signal.i.i, align 8, !tbaa !91, !noalias !189
   %tobool.not15.i.i.i = icmp eq ptr %2, %3
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvR8an_eventESaIvEEEE10disconnectITnDaXadL_ZN8receiver7receiveERKS2_EEJRS9_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i

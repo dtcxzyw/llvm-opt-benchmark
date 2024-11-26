@@ -10583,7 +10583,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit: ; preds = %_ZN
 
 676:                                              ; preds = %675
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  %677 = load ptr, ptr %11, align 8, !noalias !60
+  %677 = load ptr, ptr %11, align 8, !noalias !66
   %.not.i.i74 = icmp eq ptr %677, null
   %.val.i = load ptr, ptr %12, align 8, !noalias !60
   %678 = select i1 %.not.i.i74, ptr %.val.i, ptr %677
@@ -10647,7 +10647,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ResolveISt10shared_ptrINS_2
 
 702:                                              ; preds = %701
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %703 = load ptr, ptr %18, align 8, !noalias !60
+  %703 = load ptr, ptr %18, align 8, !noalias !70
   %.not.i63.i = icmp eq ptr %703, null
   %.val296.i = load ptr, ptr %19, align 8, !noalias !60
   %704 = select i1 %.not.i63.i, ptr %.val296.i, ptr %703
@@ -10689,7 +10689,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ResolveISt10shared_ptrINS_2
 
 717:                                              ; preds = %716
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %718 = load ptr, ptr %21, align 8, !noalias !60
+  %718 = load ptr, ptr %21, align 8, !noalias !74
   %.not.i66.i = icmp eq ptr %718, null
   %.val298.i = load ptr, ptr %22, align 8, !noalias !60
   %719 = select i1 %.not.i66.i, ptr %.val298.i, ptr %718
@@ -10731,7 +10731,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ResolveISt10shared_ptrINS_2
 
 732:                                              ; preds = %731
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  %733 = load ptr, ptr %24, align 8, !noalias !60
+  %733 = load ptr, ptr %24, align 8, !noalias !78
   %.not.i69.i = icmp eq ptr %733, null
   %.val300.i = load ptr, ptr %25, align 8, !noalias !60
   %734 = select i1 %.not.i69.i, ptr %.val300.i, ptr %733
@@ -10778,7 +10778,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ResolveISt10shared_ptrINS_2
 
 749:                                              ; preds = %748
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %750 = load ptr, ptr %28, align 8, !noalias !60
+  %750 = load ptr, ptr %28, align 8, !noalias !82
   %.not.i72.i = icmp eq ptr %750, null
   %.val302.i = load ptr, ptr %29, align 8, !noalias !60
   %751 = select i1 %.not.i72.i, ptr %.val302.i, ptr %750
@@ -10820,7 +10820,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ResolveISt10shared_ptrINS_2
 
 764:                                              ; preds = %763
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  %765 = load ptr, ptr %31, align 8, !noalias !60
+  %765 = load ptr, ptr %31, align 8, !noalias !86
   %.not.i75.i = icmp eq ptr %765, null
   %.val304.i = load ptr, ptr %32, align 8, !noalias !60
   %766 = select i1 %.not.i75.i, ptr %.val304.i, ptr %765
@@ -10862,7 +10862,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ResolveISt10shared_ptrINS_2
 
 779:                                              ; preds = %778
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %780 = load ptr, ptr %34, align 8, !noalias !60
+  %780 = load ptr, ptr %34, align 8, !noalias !90
   %.not.i78.i = icmp eq ptr %780, null
   %.val306.i = load ptr, ptr %35, align 8, !noalias !60
   %781 = select i1 %.not.i78.i, ptr %.val306.i, ptr %780

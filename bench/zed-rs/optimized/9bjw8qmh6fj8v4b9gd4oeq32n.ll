@@ -69,7 +69,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !alias.scope !16, !nonnull !5, !noundef !5
+  %21 = load ptr, ptr %20, align 8, !alias.scope !19, !nonnull !5, !noundef !5
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !alias.scope !19, !noundef !5
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17ha53d552b1290cde6E.llvm.15042225336479844372"(ptr noalias noundef nonnull align 8 %21, i64 noundef %23) #12

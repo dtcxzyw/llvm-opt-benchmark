@@ -1430,21 +1430,21 @@ _ZN4llvm12is_containedIRNS_8ArrayRefIPNS_10BasicBlockEEES3_EEbOT_RKT0_.exit.thre
   %226 = add nuw i32 %180, 1
   store i32 %226, ptr %151, align 4, !noalias !22
   store ptr %183, ptr %219, align 8, !noalias !22
-  %227 = load ptr, ptr %5, align 8
-  %228 = load i32, ptr %151, align 4
+  %227 = load ptr, ptr %5, align 8, !noalias !22
+  %228 = load i32, ptr %151, align 4, !noalias !22
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
 229:                                              ; preds = %._crit_edge.i.i.i, %_ZN4llvm12is_containedIRNS_8ArrayRefIPNS_10BasicBlockEEES3_EEbOT_RKT0_.exit.thread.i
   %230 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef %183) #19, !noalias !22
-  %.pre.i.i = load ptr, ptr %5, align 8
-  %.pre6.i.i = load i32, ptr %151, align 4
+  %.pre.i.i = load ptr, ptr %5, align 8, !noalias !22
+  %.pre6.i.i = load i32, ptr %151, align 4, !noalias !22
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %.lr.ph.i.i.i9, %229, %225
   %231 = phi i32 [ %228, %225 ], [ %.pre6.i.i, %229 ], [ %180, %.lr.ph.i.i.i9 ]
   %232 = phi ptr [ %227, %225 ], [ %.pre.i.i, %229 ], [ %181, %.lr.ph.i.i.i9 ]
-  %233 = load ptr, ptr %149, align 8
-  %234 = load i32, ptr %150, align 8
+  %233 = load ptr, ptr %149, align 8, !noalias !22
+  %234 = load i32, ptr %150, align 8, !noalias !22
   br label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %_ZN4llvm12is_containedIRNS_8ArrayRefIPNS_10BasicBlockEEES3_EEbOT_RKT0_.exit.i

@@ -1387,7 +1387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i141: ; pred
   %351 = zext i32 %345 to i64
   %352 = sub nsw i64 0, %351
   %.not.i143 = icmp ne i64 %350, %352
-  %.pre310 = load i32, ptr %107, align 8
+  %.pre310 = load i32, ptr %107, align 8, !noalias !20
   %353 = icmp sgt i32 %.pre310, 0
   %or.cond = select i1 %.not.i143, i1 %353, i1 false
   br i1 %or.cond, label %.lr.ph19.preheader.i145, label %.noexc101
@@ -1501,9 +1501,9 @@ _ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_E
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !20
   %399 = add nsw i32 %398, 1
   store i32 %399, ptr %106, align 4, !noalias !20
-  %400 = load ptr, ptr %88, align 8
-  %401 = load i32, ptr %89, align 8
-  %402 = load ptr, ptr %105, align 8
+  %400 = load ptr, ptr %88, align 8, !noalias !20
+  %401 = load i32, ptr %89, align 8, !noalias !20
+  %402 = load ptr, ptr %105, align 8, !noalias !20
   %403 = ptrtoint ptr %400 to i64
   %404 = ptrtoint ptr %402 to i64
   %405 = sub i64 %403, %404
@@ -1661,7 +1661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
   store i32 0, ptr %106, align 4
   store i8 0, ptr %103, align 4
   %.not.i128 = icmp ne i64 %.pre-phi325, %.pre-phi329
-  %.pre315 = load i32, ptr %107, align 8
+  %.pre315 = load i32, ptr %107, align 8, !noalias !20
   %475 = icmp sgt i32 %.pre315, 0
   %or.cond378 = select i1 %.not.i128, i1 %475, i1 false
   br i1 %or.cond378, label %.lr.ph19.preheader.i, label %.noexc73

@@ -4655,8 +4655,8 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
 _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i, %_ZN4llvm8DebugLocD2Ev.exit.i137
   %.sroa.0.0.i.i.i.i = phi ptr [ %1941, %_ZN4llvm8DebugLocD2Ev.exit.i137 ], [ %1941, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i ], [ %1947, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i ]
   %1951 = load i32, ptr %23, align 4
-  %1952 = load ptr, ptr %41, align 8
-  %1953 = load i32, ptr %44, align 8
+  %1952 = load ptr, ptr %41, align 8, !noalias !75
+  %1953 = load i32, ptr %44, align 8, !noalias !75
   %1954 = icmp eq i32 %1953, 0
   br i1 %1954, label %1981, label %1955
 

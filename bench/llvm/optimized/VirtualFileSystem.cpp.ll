@@ -5383,7 +5383,7 @@ _ZN12_GLOBAL__N_114isFileNotFoundESt10error_codePN4llvm3vfs21RedirectingFileSyst
   %96 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #29
   store ptr %96, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 272
-  %98 = load ptr, ptr %97, align 8
+  %98 = load ptr, ptr %97, align 8, !noalias !132
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8, !noalias !132
   switch i32 %100, label %_ZNK4llvm3vfs21RedirectingFileSystem12LookupResult19getExternalRedirectEv.exit [
@@ -6280,7 +6280,7 @@ define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem6statusERKNS_5TwineES4
   %17 = alloca %"class.llvm::vfs::Status", align 8
   %18 = alloca %"class.llvm::vfs::Status", align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !noalias !141
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8, !noalias !141
   switch i32 %22, label %_ZNK4llvm3vfs21RedirectingFileSystem12LookupResult19getExternalRedirectEv.exit [

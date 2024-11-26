@@ -1451,7 +1451,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit166.i:  ; preds = %.thread294.i
   br i1 %.not.i175.i, label %.loopexit.i, label %.lr.ph.i171.i, !llvm.loop !35
 
 .loopexit.i:                                      ; preds = %603, %.loopexit335.i
-  %606 = load ptr, ptr %576, align 8
+  %606 = load ptr, ptr %576, align 8, !noalias !36
   %607 = icmp eq ptr %576, %606
   br i1 %607, label %._crit_edge.i.i.i.i.i.i, label %608
 

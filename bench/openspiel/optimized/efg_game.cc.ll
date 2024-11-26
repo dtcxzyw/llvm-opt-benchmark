@@ -5619,7 +5619,7 @@ _ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit: ; preds = %37, %44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %71, i8 0, i64 120, i1 false), !noalias !27
   store ptr %67, ptr %7, align 8, !alias.scope !27
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %73 = load ptr, ptr %72, align 8
+  %73 = load ptr, ptr %72, align 8, !noalias !21
   %74 = load ptr, ptr %66, align 8, !noalias !21
   %75 = ptrtoint ptr %73 to i64
   %76 = ptrtoint ptr %74 to i64
@@ -9294,7 +9294,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   %287 = getelementptr inbounds nuw i8, ptr %282, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %287, i8 0, i64 120, i1 false), !noalias !51
   store ptr %282, ptr %45, align 8, !alias.scope !51
-  %288 = load ptr, ptr %160, align 8
+  %288 = load ptr, ptr %160, align 8, !noalias !45
   %289 = load ptr, ptr %159, align 8, !noalias !45
   %290 = ptrtoint ptr %288 to i64
   %291 = ptrtoint ptr %289 to i64
@@ -11185,7 +11185,7 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlE
   %345 = getelementptr inbounds nuw i8, ptr %340, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %345, i8 0, i64 120, i1 false), !noalias !81
   store ptr %340, ptr %35, align 8, !alias.scope !81
-  %346 = load ptr, ptr %290, align 8
+  %346 = load ptr, ptr %290, align 8, !noalias !75
   %347 = load ptr, ptr %289, align 8, !noalias !75
   %348 = ptrtoint ptr %346 to i64
   %349 = ptrtoint ptr %347 to i64

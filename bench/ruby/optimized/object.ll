@@ -8688,4 +8688,6 @@ attributes #26 = { nounwind allocsize(1) }
 !42 = !{!43}
 !43 = distinct !{!43, !44, !"rbimpl_rstring_getmem: argument 0"}
 !44 = distinct !{!44, !"rbimpl_rstring_getmem"}
-!45 = !{}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"rbimpl_rstring_getmem: argument 0"}
+!47 = distinct !{!47, !"rbimpl_rstring_getmem"}

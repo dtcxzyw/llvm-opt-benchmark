@@ -2145,6 +2145,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   store i64 %11, ptr %filter_size, align 16
   %file_ = getelementptr inbounds i8, ptr %this, i64 2376
   %12 = load ptr, ptr %file_, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %13 = load i64, ptr %offset_, align 16, !noalias !16
   store i64 %13, ptr %bloom_block_handle, align 8, !noalias !16
   %size_.i5.i = getelementptr inbounds i8, ptr %bloom_block_handle, i64 8
@@ -2153,7 +2154,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont19
-  %14 = load i8, ptr %ref.tmp, align 8
+  %14 = load i8, ptr %ref.tmp, align 8, !alias.scope !16
   %cmp.i.i = icmp eq i8 %14, 0
   br i1 %cmp.i.i, label %if.then.i, label %invoke.cont25
 
@@ -2309,6 +2310,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   store i64 %37, ptr %index_size, align 8
   %file_46 = getelementptr inbounds i8, ptr %this, i64 2376
   %38 = load ptr, ptr %file_46, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %39 = load i64, ptr %offset_, align 16, !noalias !19
   store i64 %39, ptr %index_block_handle, align 8, !noalias !19
   %size_.i5.i20 = getelementptr inbounds i8, ptr %index_block_handle, i64 8
@@ -2317,7 +2319,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
           to label %.noexc24 unwind label %lpad
 
 .noexc24:                                         ; preds = %invoke.cont40
-  %40 = load i8, ptr %ref.tmp45, align 8
+  %40 = load i8, ptr %ref.tmp45, align 8, !alias.scope !19
   %cmp.i.i21 = icmp eq i8 %40, 0
   br i1 %cmp.i.i21, label %if.then.i22, label %invoke.cont48
 
@@ -2525,6 +2527,7 @@ invoke.cont89:                                    ; preds = %invoke.cont86
   store i64 %66, ptr %65, align 8
   %file_91 = getelementptr inbounds i8, ptr %this, i64 2376
   %67 = load ptr, ptr %file_91, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %68 = load i64, ptr %offset_, align 16, !noalias !23
   store i64 %68, ptr %property_block_handle, align 8, !noalias !23
   %size_.i5.i79 = getelementptr inbounds i8, ptr %property_block_handle, i64 8
@@ -2533,7 +2536,7 @@ invoke.cont89:                                    ; preds = %invoke.cont86
           to label %.noexc83 unwind label %lpad74.loopexit.split-lp
 
 .noexc83:                                         ; preds = %invoke.cont89
-  %69 = load i8, ptr %ref.tmp87, align 8
+  %69 = load i8, ptr %ref.tmp87, align 8, !alias.scope !23
   %cmp.i.i80 = icmp eq i8 %69, 0
   br i1 %cmp.i.i80, label %if.then.i81, label %invoke.cont93
 
@@ -2699,6 +2702,7 @@ invoke.cont111:                                   ; preds = %invoke.cont108
   %92 = extractvalue { ptr, i64 } %call112, 1
   store i64 %92, ptr %91, align 8
   %93 = load ptr, ptr %file_91, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %94 = load i64, ptr %offset_, align 16, !noalias !26
   store i64 %94, ptr %metaindex_block_handle, align 8, !noalias !26
   %size_.i5.i136 = getelementptr inbounds i8, ptr %metaindex_block_handle, i64 8
@@ -2707,7 +2711,7 @@ invoke.cont111:                                   ; preds = %invoke.cont108
           to label %.noexc140 unwind label %lpad74.loopexit.split-lp
 
 .noexc140:                                        ; preds = %invoke.cont111
-  %95 = load i8, ptr %ref.tmp109, align 8
+  %95 = load i8, ptr %ref.tmp109, align 8, !alias.scope !26
   %cmp.i.i137 = icmp eq i8 %95, 0
   br i1 %cmp.i.i137, label %if.then.i138, label %invoke.cont115
 

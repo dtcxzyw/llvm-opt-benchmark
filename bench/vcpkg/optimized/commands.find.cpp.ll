@@ -353,7 +353,7 @@ _ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev.exi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !alias.scope !5
   %30 = getelementptr inbounds i8, ptr %12, i64 8
   %31 = load ptr, ptr %30, align 8, !noalias !5
-  %32 = load ptr, ptr %12, align 8
+  %32 = load ptr, ptr %12, align 8, !noalias !5
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34

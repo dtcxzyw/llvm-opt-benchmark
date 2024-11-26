@@ -8551,9 +8551,9 @@ define linkonce_odr void @_ZN7glslang10TPpContext22TokenizableIncludeFile13notif
   store ptr %7, ptr %8, align 8
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 520
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !noalias !107
   %12 = getelementptr inbounds i8, ptr %9, i64 528
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noalias !107
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %18, label %15
 

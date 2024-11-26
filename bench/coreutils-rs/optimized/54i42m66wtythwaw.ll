@@ -1056,7 +1056,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit56.
           to label %.noexc67 unwind label %139
 
 .noexc67:                                         ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit56.thread104.i
-  %53 = load i64, ptr %7, align 8, !range !18, !noalias !176, !noundef !4
+  %53 = load i64, ptr %7, align 8, !range !18, !noalias !171, !noundef !4
   %54 = icmp eq i64 %53, 0
   %55 = getelementptr inbounds i8, ptr %7, i64 8
   %56 = load i64, ptr %55, align 8, !noalias !176

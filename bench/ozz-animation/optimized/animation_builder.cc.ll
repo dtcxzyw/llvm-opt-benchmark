@@ -3582,8 +3582,8 @@ _ZNSt6vectorIfN3ozz12StdAllocatorIfEEE9push_backERKf.exit37.i: ; preds = %1344, 
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEEEvT_S9_.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEEEvT_S9_.exit.i: ; preds = %._crit_edge29.i
-  %1349 = load ptr, ptr %69, align 8
-  %1350 = load ptr, ptr %1347, align 8
+  %1349 = load ptr, ptr %69, align 8, !alias.scope !37
+  %1350 = load ptr, ptr %1347, align 8, !alias.scope !37
   %1351 = icmp eq ptr %1349, %1350
   br i1 %1351, label %_ZN3ozz9animation7offline12_GLOBAL__N_115BuildTimePointsERSt6vectorINS2_10SortingKeyINS1_12RawAnimation14TranslationKeyEEENS_12StdAllocatorIS7_EEERS3_INS4_INS5_11RotationKeyEEENS8_ISD_EEERS3_INS4_INS5_8ScaleKeyEEENS8_ISI_EEE.exit, label %.preheader.i.i.i.i
 
@@ -3625,7 +3625,7 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllo
   br i1 %.not.i.i.i455, label %._crit_edge.i.i.loopexit.i, label %.lr.ph.i.i.i454, !llvm.loop !41
 
 ._crit_edge.i.i.loopexit.i:                       ; preds = %1364
-  %.pre.pre.i = load ptr, ptr %1347, align 8
+  %.pre.pre.i = load ptr, ptr %1347, align 8, !alias.scope !37
   %.pre.pre = load ptr, ptr %69, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEEET_S9_S9_.exit.i
 
@@ -4287,10 +4287,10 @@ _ZN3ozz9animation7offline12_GLOBAL__N_113BuilderIFrameD2Ev.exit.i494: ; preds = 
   br label %.body.i483
 
 ._crit_edge.loopexit.i496:                        ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_113BuilderIFrameD2Ev.exit.i494
-  %.pre4.i497 = load ptr, ptr %1562, align 8
-  %.pre6.i498 = load ptr, ptr %1561, align 8
-  %.pre7.i499 = load ptr, ptr %71, align 8
-  %.pre9.i500 = load ptr, ptr %1563, align 8
+  %.pre4.i497 = load ptr, ptr %1562, align 8, !alias.scope !51
+  %.pre6.i498 = load ptr, ptr %1561, align 8, !alias.scope !51
+  %.pre7.i499 = load ptr, ptr %71, align 8, !alias.scope !51
+  %.pre9.i500 = load ptr, ptr %1563, align 8, !alias.scope !51
   %1672 = ptrtoint ptr %.pre4.i497 to i64
   %1673 = ptrtoint ptr %.pre6.i498 to i64
   %1674 = sub i64 %1672, %1673
@@ -4614,10 +4614,10 @@ _ZN3ozz9animation7offline12_GLOBAL__N_113BuilderIFrameD2Ev.exit.i535: ; preds = 
   br label %.body.i524
 
 ._crit_edge.loopexit.i537:                        ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_113BuilderIFrameD2Ev.exit.i535
-  %.pre4.i538 = load ptr, ptr %1714, align 8
-  %.pre6.i539 = load ptr, ptr %1713, align 8
-  %.pre7.i540 = load ptr, ptr %72, align 8
-  %.pre9.i541 = load ptr, ptr %1715, align 8
+  %.pre4.i538 = load ptr, ptr %1714, align 8, !alias.scope !60
+  %.pre6.i539 = load ptr, ptr %1713, align 8, !alias.scope !60
+  %.pre7.i540 = load ptr, ptr %72, align 8, !alias.scope !60
+  %.pre9.i541 = load ptr, ptr %1715, align 8, !alias.scope !60
   %1824 = ptrtoint ptr %.pre4.i538 to i64
   %1825 = ptrtoint ptr %.pre6.i539 to i64
   %1826 = sub i64 %1824, %1825

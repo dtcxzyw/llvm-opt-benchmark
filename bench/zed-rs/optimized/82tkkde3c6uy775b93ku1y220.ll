@@ -53,7 +53,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   %24 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %23, ptr %24, align 8, !noalias !5
   %25 = getelementptr inbounds i8, ptr %1, i64 32
-  %26 = load i64, ptr %25, align 8, !noundef !4
+  %26 = load i64, ptr %25, align 8, !alias.scope !5, !noundef !4
   %.not.i = icmp ugt i64 %23, %26
   %27 = add i64 %23, 1
   %.not8.i = icmp uge i64 %18, %27
@@ -339,7 +339,7 @@ define hidden noundef zeroext i1 @_ZN7globset7GlobSet8is_match17h7c99975327b5ed2
   %3 = alloca [72 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
+  %5 = load ptr, ptr %4, align 8, !alias.scope !46, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !46, !noundef !4
   invoke void @_ZN7globset9Candidate3new17ha18cd56075804cb4E.llvm.1119484355759607352(ptr noalias nocapture noundef nonnull sret([72 x i8]) align 8 dereferenceable(72) %3, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7)

@@ -20602,7 +20602,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE4findIS7_EENSJ_14const_iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %hash) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !347
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !347
   %shr.i.i.i.i = lshr i64 %hash, 7
@@ -21148,7 +21148,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !353
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !353
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -22568,7 +22568,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %3 = load ptr, ptr %this, align 8
+  %3 = load ptr, ptr %this, align 8, !noalias !395
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i, align 8, !noalias !395
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -22861,7 +22861,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %3 = load ptr, ptr %this, align 8
+  %3 = load ptr, ptr %this, align 8, !noalias !399
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i, align 8, !noalias !399
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -23577,7 +23577,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !424
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !424
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -24518,7 +24518,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !450
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !450
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -30458,7 +30458,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !531
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !531
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -30751,7 +30751,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !542
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !542
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -31294,7 +31294,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE4findIS7_EENSF_14const_iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %hash) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !566
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !566
   %shr.i.i.i.i = lshr i64 %hash, 7
@@ -31754,7 +31754,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %3 = load ptr, ptr %this, align 8
+  %3 = load ptr, ptr %this, align 8, !noalias !573
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i, align 8, !noalias !573
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -32053,7 +32053,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE4findIS7_EENSC_14const_iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %hash) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !578
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !578
   %shr.i.i.i.i = lshr i64 %hash, 7

@@ -7368,7 +7368,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_Z18read_ra
   %10 = extractvalue { i64, i64 } %8, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %11 = getelementptr inbounds i8, ptr %0, i64 320
-  %12 = load i64, ptr %11, align 8
+  %12 = load i64, ptr %11, align 8, !noalias !33
   %13 = icmp ugt i64 %12, 2305843009213693951
   br i1 %13, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -7872,7 +7872,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_Z18read_ra
   %9 = load i64, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %10 = getelementptr inbounds i8, ptr %0, i64 320
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !noalias !39
   %12 = icmp ugt i64 %11, 2305843009213693951
   br i1 %12, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -8181,7 +8181,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11colvar
   %13 = load i64, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %14 = getelementptr inbounds i8, ptr %0, i64 320
-  %15 = load i64, ptr %14, align 8
+  %15 = load i64, ptr %14, align 8, !noalias !44
   %16 = icmp ugt i64 %15, 2305843009213693951
   br i1 %16, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -8482,7 +8482,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZNK11colva
   %5 = alloca i64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %6 = getelementptr inbounds i8, ptr %0, i64 320
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !noalias !49
   %8 = icmp ugt i64 %7, 2305843009213693951
   br i1 %8, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -14562,7 +14562,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_Z18read_ra
   %10 = extractvalue { i64, i64 } %8, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %11 = getelementptr inbounds i8, ptr %0, i64 320
-  %12 = load i64, ptr %11, align 8
+  %12 = load i64, ptr %11, align 8, !noalias !94
   %13 = icmp ugt i64 %12, 2305843009213693951
   br i1 %13, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -15062,7 +15062,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_Z18read_ra
   %9 = load i64, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %10 = getelementptr inbounds i8, ptr %0, i64 320
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !noalias !100
   %12 = icmp ugt i64 %11, 2305843009213693951
   br i1 %12, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -15369,7 +15369,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11colvar
   %13 = load i64, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %14 = getelementptr inbounds i8, ptr %0, i64 320
-  %15 = load i64, ptr %14, align 8
+  %15 = load i64, ptr %14, align 8, !noalias !105
   %16 = icmp ugt i64 %15, 2305843009213693951
   br i1 %16, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -15664,7 +15664,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZNK11colva
   %5 = alloca i64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %6 = getelementptr inbounds i8, ptr %0, i64 320
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !noalias !110
   %8 = icmp ugt i64 %7, 2305843009213693951
   br i1 %8, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -19333,7 +19333,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %6
 32:                                               ; preds = %24, %30
   %.028 = phi double [ %31, %30 ], [ 0.000000e+00, %24 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 320
-  %34 = load i64, ptr %33, align 8
+  %34 = load i64, ptr %33, align 8, !noalias !148
   %35 = icmp ugt i64 %34, 2305843009213693951
   br i1 %35, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 

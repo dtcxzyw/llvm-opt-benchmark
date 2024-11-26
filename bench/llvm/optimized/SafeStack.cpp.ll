@@ -4925,7 +4925,7 @@ _ZN12_GLOBAL__N_19SafeStack18IsMemIntrinsicSafeEPKN4llvm12MemIntrinsicERKNS1_3Us
 
 _ZNK4llvm8CallBase14doesNotCaptureEj.exit:        ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %162 = load i32, ptr %161, align 8
+  %162 = load i32, ptr %161, align 8, !noalias !70
   %163 = sub i32 %140, %162
   %164 = load i32, ptr %125, align 4, !noalias !70
   %165 = and i32 %164, 134217727
@@ -7151,7 +7151,7 @@ _ZNSt8functionIFbPKN4llvm13IntrinsicInstEEEC2ERKS5_.exit5: ; preds = %_ZNSt8func
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.16..sroa_idx, i8 0, i64 24, i1 false), !noalias !89
   %38 = load ptr, ptr %37, align 8, !noalias !89
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !noalias !89
   %.not.i.i.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm20filter_iterator_implIPKPKNS_13IntrinsicInstESt8functionIFbS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit.i, label %41
 
@@ -7169,7 +7169,7 @@ _ZN4llvm20filter_iterator_implIPKPKNS_13IntrinsicInstESt8functionIFbS3_EESt26bid
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i, i8 0, i64 16, i1 false), !noalias !89
   %47 = load ptr, ptr %46, align 8, !noalias !89
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %49 = load ptr, ptr %48, align 8
+  %49 = load ptr, ptr %48, align 8, !noalias !89
   %.not.i.i.not.i.i.i1.i = icmp eq ptr %49, null
   br i1 %.not.i.i.not.i.i.i1.i, label %_ZN4llvm20filter_iterator_implIPKPKNS_13IntrinsicInstESt8functionIFbS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit2.i, label %50
 

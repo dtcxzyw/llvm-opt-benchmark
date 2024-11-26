@@ -961,7 +961,7 @@ invoke.cont5:                                     ; preds = %_Z4ReadIjET_PN6Assi
           to label %call.i50.noexc unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i50.noexc:                                   ; preds = %invoke.cont5
-  %7 = load i32, ptr %ref.tmp, align 4
+  %7 = load i32, ptr %ref.tmp, align 4, !alias.scope !7
   %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %_ZN8aiStringaSERKS_.exit, label %if.then.i51
 
@@ -974,7 +974,7 @@ if.then.i51:                                      ; preds = %call.i50.noexc
           to label %call5.i.noexc unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call5.i.noexc:                                    ; preds = %if.then.i51
-  %.pre.i = load i32, ptr %ref.tmp, align 4
+  %.pre.i = load i32, ptr %ref.tmp, align 4, !alias.scope !7
   %9 = zext i32 %.pre.i to i64
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -1265,7 +1265,7 @@ for.body66:                                       ; preds = %invoke.cont60, %sw.
           to label %call.i124.noexc unwind label %lpad6.loopexit
 
 call.i124.noexc:                                  ; preds = %for.body66
-  %34 = load i32, ptr %ref.tmp67, align 4
+  %34 = load i32, ptr %ref.tmp67, align 4, !alias.scope !12
   %tobool.not.i125 = icmp eq i32 %34, 0
   br i1 %tobool.not.i125, label %invoke.cont68, label %if.then.i126
 
@@ -1278,7 +1278,7 @@ if.then.i126:                                     ; preds = %call.i124.noexc
           to label %call5.i.noexc135 unwind label %lpad6.loopexit
 
 call5.i.noexc135:                                 ; preds = %if.then.i126
-  %.pre.i130 = load i32, ptr %ref.tmp67, align 4
+  %.pre.i130 = load i32, ptr %ref.tmp67, align 4, !alias.scope !12
   %36 = zext i32 %.pre.i130 to i64
   br label %invoke.cont68
 
@@ -1868,7 +1868,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit24:           ; preds = %if.end
   %vfn.i26 = getelementptr inbounds i8, ptr %vtable.i25, i64 16
   %6 = load ptr, ptr %vfn.i26, align 8, !noalias !19
   %call.i27 = call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 %ref.tmp, i64 noundef 4, i64 noundef 1)
-  %7 = load i32, ptr %ref.tmp, align 4
+  %7 = load i32, ptr %ref.tmp, align 4, !alias.scope !19
   %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit, label %if.then.i28
 
@@ -1878,7 +1878,7 @@ if.then.i28:                                      ; preds = %_Z4ReadIjET_PN6Assi
   %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %8 = load ptr, ptr %vfn4.i, align 8
   %call5.i = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %data.i.i, i64 noundef %conv.i, i64 noundef 1)
-  %.pre.i = load i32, ptr %ref.tmp, align 4
+  %.pre.i = load i32, ptr %ref.tmp, align 4, !alias.scope !19
   %9 = zext i32 %.pre.i to i64
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
@@ -2914,7 +2914,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit25:           ; preds = %if.end
   %vfn.i27 = getelementptr inbounds i8, ptr %vtable.i26, i64 16
   %6 = load ptr, ptr %vfn.i27, align 8, !noalias !30
   %call.i28 = call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 %ref.tmp, i64 noundef 4, i64 noundef 1)
-  %7 = load i32, ptr %ref.tmp, align 4
+  %7 = load i32, ptr %ref.tmp, align 4, !alias.scope !30
   %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit, label %if.then.i29
 
@@ -2924,7 +2924,7 @@ if.then.i29:                                      ; preds = %_Z4ReadIjET_PN6Assi
   %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %8 = load ptr, ptr %vfn4.i, align 8
   %call5.i = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %data.i.i, i64 noundef %conv.i, i64 noundef 1)
-  %.pre.i = load i32, ptr %ref.tmp, align 4
+  %.pre.i = load i32, ptr %ref.tmp, align 4, !alias.scope !30
   %9 = zext i32 %.pre.i to i64
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
@@ -3325,7 +3325,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit51:           ; preds = %if.end
   %vfn.i53 = getelementptr inbounds i8, ptr %vtable.i52, i64 16
   %6 = load ptr, ptr %vfn.i53, align 8, !noalias !34
   %call.i54 = call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 %ref.tmp, i64 noundef 4, i64 noundef 1)
-  %7 = load i32, ptr %ref.tmp, align 4
+  %7 = load i32, ptr %ref.tmp, align 4, !alias.scope !34
   %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit, label %if.then.i55
 
@@ -3335,7 +3335,7 @@ if.then.i55:                                      ; preds = %_Z4ReadIjET_PN6Assi
   %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %8 = load ptr, ptr %vfn4.i, align 8
   %call5.i = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %data.i.i, i64 noundef %conv.i, i64 noundef 1)
-  %.pre.i = load i32, ptr %ref.tmp, align 4
+  %.pre.i = load i32, ptr %ref.tmp, align 4, !alias.scope !34
   %9 = zext i32 %.pre.i to i64
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
@@ -3820,7 +3820,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit28:           ; preds = %if.end
   %vfn.i30 = getelementptr inbounds i8, ptr %vtable.i29, i64 16
   %6 = load ptr, ptr %vfn.i30, align 8, !noalias !45
   %call.i31 = call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 %ref.tmp, i64 noundef 4, i64 noundef 1)
-  %7 = load i32, ptr %ref.tmp, align 4
+  %7 = load i32, ptr %ref.tmp, align 4, !alias.scope !45
   %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit, label %if.then.i32
 
@@ -3830,7 +3830,7 @@ if.then.i32:                                      ; preds = %_Z4ReadIjET_PN6Assi
   %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %8 = load ptr, ptr %vfn4.i, align 8
   %call5.i = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %data.i.i, i64 noundef %conv.i, i64 noundef 1)
-  %.pre.i = load i32, ptr %ref.tmp, align 4
+  %.pre.i = load i32, ptr %ref.tmp, align 4, !alias.scope !45
   %9 = zext i32 %.pre.i to i64
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
@@ -4252,7 +4252,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit38:           ; preds = %if.end
   %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 16
   %6 = load ptr, ptr %vfn.i40, align 8, !noalias !49
   %call.i41 = call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 %ref.tmp, i64 noundef 4, i64 noundef 1)
-  %7 = load i32, ptr %ref.tmp, align 4
+  %7 = load i32, ptr %ref.tmp, align 4, !alias.scope !49
   %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit, label %if.then.i42
 
@@ -4262,7 +4262,7 @@ if.then.i42:                                      ; preds = %_Z4ReadIjET_PN6Assi
   %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %8 = load ptr, ptr %vfn4.i, align 8
   %call5.i = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %data.i.i, i64 noundef %conv.i, i64 noundef 1)
-  %.pre.i = load i32, ptr %ref.tmp, align 4
+  %.pre.i = load i32, ptr %ref.tmp, align 4, !alias.scope !49
   %9 = zext i32 %.pre.i to i64
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
@@ -4689,7 +4689,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit26:           ; preds = %if.end
   %vfn.i28 = getelementptr inbounds i8, ptr %vtable.i27, i64 16
   %6 = load ptr, ptr %vfn.i28, align 8, !noalias !61
   %call.i29 = call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 %ref.tmp, i64 noundef 4, i64 noundef 1)
-  %7 = load i32, ptr %ref.tmp, align 4
+  %7 = load i32, ptr %ref.tmp, align 4, !alias.scope !61
   %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit, label %if.then.i30
 
@@ -4699,7 +4699,7 @@ if.then.i30:                                      ; preds = %_Z4ReadIjET_PN6Assi
   %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %8 = load ptr, ptr %vfn4.i, align 8
   %call5.i = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %data.i.i, i64 noundef %conv.i, i64 noundef 1)
-  %.pre.i = load i32, ptr %ref.tmp, align 4
+  %.pre.i = load i32, ptr %ref.tmp, align 4, !alias.scope !61
   %9 = zext i32 %.pre.i to i64
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 

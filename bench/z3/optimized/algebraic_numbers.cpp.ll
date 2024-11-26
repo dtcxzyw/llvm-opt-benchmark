@@ -17051,7 +17051,7 @@ invoke.cont26:                                    ; preds = %if.end.i15, %if.the
 
 invoke.cont31:                                    ; preds = %invoke.cont26
   %tobool.not.i23 = icmp eq ptr %call32, null
-  %.pre66.pre = load ptr, ptr %m_manager.i3, align 8
+  %.pre66.pre = load ptr, ptr %m_manager.i3, align 8, !noalias !73
   br i1 %tobool.not.i23, label %if.end.i26, label %if.then.i24
 
 if.then.i24:                                      ; preds = %invoke.cont31
@@ -17759,7 +17759,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !73
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !76
 
 lpad:                                             ; preds = %entry
   %16 = landingpad { ptr, i32 }
@@ -17843,7 +17843,7 @@ if.end86.us:                                      ; preds = %for.cond37.for.end6
           to label %invoke.cont87.us unwind label %lpad32.loopexit.split-lp.loopexit.split.us
 
 invoke.cont87.us:                                 ; preds = %if.end86.us
-  br i1 %call88.us, label %while.cond.us, label %if.then89, !llvm.loop !74
+  br i1 %call88.us, label %while.cond.us, label %if.then89, !llvm.loop !77
 
 invoke.cont40.us:                                 ; preds = %invoke.cont33.us, %for.inc67.us
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %for.inc67.us ], [ 0, %invoke.cont33.us ]
@@ -17907,7 +17907,7 @@ for.inc67.us:                                     ; preds = %if.else.us, %.noexc
   %target_uV.1.us = phi i32 [ %target_uV.0137.us, %invoke.cont40.us ], [ %call56.us, %if.then61.us ], [ %target_uV.0137.us, %if.then58.us ], [ %target_uV.0137.us, %.noexc62.us ], [ %target_uV.0137.us, %if.else.us ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %retval.0.i.i159
-  br i1 %exitcond156.not, label %for.cond37.for.end69_crit_edge.us, label %invoke.cont40.us, !llvm.loop !75
+  br i1 %exitcond156.not, label %for.cond37.for.end69_crit_edge.us, label %invoke.cont40.us, !llvm.loop !78
 
 for.cond37.for.end69_crit_edge.us:                ; preds = %for.inc67.us
   %cmp70.us = icmp eq i32 %num_rem.1.us, 1
@@ -18009,7 +18009,7 @@ invoke.cont83:                                    ; preds = %invoke.cont78
           to label %cleanup unwind label %lpad32.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont87:                                    ; preds = %for.cond37.preheader
-  br i1 %call88, label %while.cond, label %if.then89, !llvm.loop !74
+  br i1 %call88, label %while.cond, label %if.then89, !llvm.loop !77
 
 if.then89:                                        ; preds = %invoke.cont87.us, %invoke.cont87
   invoke void @_ZN17algebraic_numbers7manager3imp14save_intervals20restore_if_too_smallEv(ptr noundef nonnull align 8 dereferenceable(65) %saved_a)
@@ -18382,7 +18382,7 @@ if.then.i.i28:                                    ; preds = %if.end.i26
 
 invoke.cont33:                                    ; preds = %if.end.i26, %if.then.i.i28
   store ptr %call32, ptr %x_yk, align 8
-  %13 = load ptr, ptr %m_manager.i3, align 8
+  %13 = load ptr, ptr %m_manager.i3, align 8, !noalias !79
   %call3.i34 = invoke noundef ptr @_ZN10polynomial7manager3subEPKNS_10polynomialES3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %call24, ptr noundef %call32)
           to label %call3.i.noexc unwind label %lpad15
 
@@ -19245,7 +19245,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !76
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !82
 
 lpad:                                             ; preds = %entry
   %18 = landingpad { ptr, i32 }
@@ -19445,7 +19445,7 @@ for.inc70:                                        ; preds = %if.else, %.noexc69,
   %target_uV.1 = phi i32 [ %target_uV.0153, %invoke.cont43 ], [ %call59, %if.then64 ], [ %target_uV.0153, %if.then61 ], [ %target_uV.0153, %.noexc69 ], [ %target_uV.0153, %if.else ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %retval.0.i.i169
-  br i1 %exitcond166.not, label %for.end72, label %invoke.cont43, !llvm.loop !77
+  br i1 %exitcond166.not, label %for.end72, label %invoke.cont43, !llvm.loop !83
 
 for.end72:                                        ; preds = %for.inc70
   %36 = icmp eq i32 %num_rem.1, 1
@@ -19498,7 +19498,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont91
           to label %invoke.cont93 unwind label %lpad35.loopexit.split-lp.loopexit
 
 invoke.cont93:                                    ; preds = %lor.lhs.false
-  br i1 %call94, label %while.cond, label %if.then95, !llvm.loop !78
+  br i1 %call94, label %while.cond, label %if.then95, !llvm.loop !84
 
 if.then95:                                        ; preds = %invoke.cont93, %invoke.cont91
   invoke void @_ZN17algebraic_numbers7manager3imp14save_intervals20restore_if_too_smallEv(ptr noundef nonnull align 8 dereferenceable(65) %saved_a)
@@ -20783,7 +20783,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !79
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !85
 
 lpad:                                             ; preds = %entry
   %18 = landingpad { ptr, i32 }
@@ -20983,7 +20983,7 @@ for.inc70:                                        ; preds = %if.else, %.noexc70,
   %target_uV.1 = phi i32 [ %target_uV.0154, %invoke.cont43 ], [ %call59, %if.then64 ], [ %target_uV.0154, %if.then61 ], [ %target_uV.0154, %.noexc70 ], [ %target_uV.0154, %if.else ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %retval.0.i.i170
-  br i1 %exitcond167.not, label %for.end72, label %invoke.cont43, !llvm.loop !80
+  br i1 %exitcond167.not, label %for.end72, label %invoke.cont43, !llvm.loop !86
 
 for.end72:                                        ; preds = %for.inc70
   %36 = icmp eq i32 %num_rem.1, 1
@@ -21036,7 +21036,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont91
           to label %invoke.cont93 unwind label %lpad35.loopexit.split-lp.loopexit
 
 invoke.cont93:                                    ; preds = %lor.lhs.false
-  br i1 %call94, label %while.cond, label %if.then95, !llvm.loop !81
+  br i1 %call94, label %while.cond, label %if.then95, !llvm.loop !87
 
 if.then95:                                        ; preds = %invoke.cont93, %invoke.cont91
   invoke void @_ZN17algebraic_numbers7manager3imp14save_intervals20restore_if_too_smallEv(ptr noundef nonnull align 8 dereferenceable(65) %saved_a)
@@ -22272,7 +22272,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !82
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !88
 
 lpad:                                             ; preds = %entry
   %19 = landingpad { ptr, i32 }
@@ -22366,7 +22366,7 @@ lor.lhs.false.us:                                 ; preds = %invoke.cont91.us
           to label %invoke.cont93.us unwind label %lpad35.loopexit.split-lp.loopexit.split.us
 
 invoke.cont93.us:                                 ; preds = %lor.lhs.false.us
-  br i1 %call94.us, label %while.cond.us, label %if.then95, !llvm.loop !83
+  br i1 %call94.us, label %while.cond.us, label %if.then95, !llvm.loop !89
 
 invoke.cont43.us:                                 ; preds = %invoke.cont36.us, %for.inc70.us
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %for.inc70.us ], [ 0, %invoke.cont36.us ]
@@ -22430,7 +22430,7 @@ for.inc70.us:                                     ; preds = %if.else.us, %.noexc
   %target_uV.1.us = phi i32 [ %target_uV.0152.us, %invoke.cont43.us ], [ %call59.us, %if.then64.us ], [ %target_uV.0152.us, %if.then61.us ], [ %target_uV.0152.us, %.noexc68.us ], [ %target_uV.0152.us, %if.else.us ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %retval.0.i.i174
-  br i1 %exitcond171.not, label %for.cond40.for.end72_crit_edge.us, label %invoke.cont43.us, !llvm.loop !84
+  br i1 %exitcond171.not, label %for.cond40.for.end72_crit_edge.us, label %invoke.cont43.us, !llvm.loop !90
 
 for.cond40.for.end72_crit_edge.us:                ; preds = %for.inc70.us
   %cmp73.us = icmp eq i32 %num_rem.1.us, 1
@@ -22547,7 +22547,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont91
           to label %invoke.cont93 unwind label %lpad35.loopexit.split-lp.loopexit.split
 
 invoke.cont93:                                    ; preds = %lor.lhs.false
-  br i1 %call94, label %while.cond, label %if.then95, !llvm.loop !83
+  br i1 %call94, label %while.cond, label %if.then95, !llvm.loop !89
 
 if.then95:                                        ; preds = %invoke.cont91.us, %invoke.cont93.us, %invoke.cont91, %invoke.cont93
   invoke void @_ZN17algebraic_numbers7manager3imp14save_intervals20restore_if_too_smallEv(ptr noundef nonnull align 8 dereferenceable(65) %saved_a)
@@ -23421,7 +23421,7 @@ lpad:                                             ; preds = %invoke.cont25, %if.
 
 if.end29:                                         ; preds = %_ZN12mpbq_manager4div2ER4mpbq.exit
   %cmp30 = icmp eq i32 %call20, %cond.i85
-  br i1 %cmp30, label %if.end58, label %while.bodythread-pre-split, !llvm.loop !85
+  br i1 %cmp30, label %if.end58, label %while.bodythread-pre-split, !llvm.loop !91
 
 if.else:                                          ; preds = %land.lhs.true
   %m_sign_lower.i = getelementptr inbounds i8, ptr %2, i64 64
@@ -23525,7 +23525,7 @@ lpad46:                                           ; preds = %invoke.cont49, %if.
 
 if.end53:                                         ; preds = %_ZN12mpbq_manager4div2ER4mpbq.exit59
   %cmp54 = icmp eq i32 %call40, %switch.select2.i
-  br i1 %cmp54, label %if.end58, label %while.body34thread-pre-split, !llvm.loop !86
+  br i1 %cmp54, label %if.end58, label %while.body34thread-pre-split, !llvm.loop !92
 
 if.end58:                                         ; preds = %if.end53, %if.end29, %.noexc.i77, %.noexc.i, %land.lhs.true, %entry
   ret void
@@ -23759,7 +23759,7 @@ if.then30:                                        ; preds = %while.body
 
 if.end33:                                         ; preds = %while.body
   %call.i.i.i73 = tail call noundef zeroext i1 @_ZN12mpbq_manager2ltERK4mpbqS2_(ptr noundef nonnull align 8 dereferenceable(208) %m_bqmanager.i, ptr noundef nonnull align 8 dereferenceable(20) %m_interval.i, ptr noundef nonnull align 8 dereferenceable(20) %m_upper.i.i67)
-  br i1 %call.i.i.i73, label %while.cond, label %if.then36, !llvm.loop !87
+  br i1 %call.i.i.i73, label %while.cond, label %if.then36, !llvm.loop !93
 
 if.then36:                                        ; preds = %if.end33
   %m_compare_cheap37 = getelementptr inbounds i8, ptr %this, i64 904
@@ -23864,7 +23864,7 @@ if.then49:                                        ; preds = %_ZN17algebraic_numb
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i32 %i.03.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %sub
-  br i1 %exitcond.not.i, label %if.end53, label %for.body.i, !llvm.loop !88
+  br i1 %exitcond.not.i, label %if.end53, label %for.body.i, !llvm.loop !94
 
 for.body.i:                                       ; preds = %if.then49, %for.cond.i
   %i.03.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.then49 ]
@@ -23912,7 +23912,7 @@ if.then70:                                        ; preds = %if.end68
 for.cond.i109:                                    ; preds = %for.body.i105
   %inc.i110 = add nuw i32 %i.03.i106, 1
   %exitcond.not.i111 = icmp eq i32 %inc.i110, %sub71
-  br i1 %exitcond.not.i111, label %if.end75, label %for.body.i105, !llvm.loop !88
+  br i1 %exitcond.not.i111, label %if.end75, label %for.body.i105, !llvm.loop !94
 
 for.body.i105:                                    ; preds = %if.then70, %for.cond.i109
   %i.03.i106 = phi i32 [ %inc.i110, %for.cond.i109 ], [ 0, %if.then70 ]
@@ -23966,7 +23966,7 @@ for.body.lr.ph:                                   ; preds = %if.then94
 for.cond:                                         ; preds = %if.end110
   %inc117 = add nuw nsw i32 %i.0173, 1
   %exitcond.not = icmp eq i32 %inc117, %sub96
-  br i1 %exitcond.not, label %invoke.cont126, label %for.body, !llvm.loop !89
+  br i1 %exitcond.not, label %invoke.cont126, label %for.body, !llvm.loop !95
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.0173 = phi i32 [ 0, %for.body.lr.ph ], [ %inc117, %for.cond ]
@@ -24667,7 +24667,7 @@ _Z7deallocIN17algebraic_numbers7manager3imp14save_intervalsEEvPT_.exit.i.i: ; pr
 _ZN11delete_procIN17algebraic_numbers7manager3imp14save_intervalsEEclEPS3_.exit.i: ; preds = %_Z7deallocIN17algebraic_numbers7manager3imp14save_intervalsEEvPT_.exit.i.i, %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp.not.i, label %_ZSt8for_eachIPPN17algebraic_numbers7manager3imp14save_intervalsE11delete_procIS3_EET0_T_S9_S8_.exit, label %for.body.i, !llvm.loop !90
+  br i1 %cmp.not.i, label %_ZSt8for_eachIPPN17algebraic_numbers7manager3imp14save_intervalsE11delete_procIS3_EET0_T_S9_S8_.exit, label %for.body.i, !llvm.loop !96
 
 _ZSt8for_eachIPPN17algebraic_numbers7manager3imp14save_intervalsE11delete_procIS3_EET0_T_S9_S8_.exit: ; preds = %_ZN11delete_procIN17algebraic_numbers7manager3imp14save_intervalsEEclEPS3_.exit.i
   %.pre = load ptr, ptr %this, align 8
@@ -25493,15 +25493,15 @@ attributes #31 = { builtin nounwind }
 !70 = distinct !{!70, !5}
 !71 = distinct !{!71, !5}
 !72 = distinct !{!72, !5}
-!73 = distinct !{!73, !5}
-!74 = distinct !{!74, !5}
-!75 = distinct !{!75, !5}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZmiRK7obj_refIN10polynomial10polynomialENS0_7managerEES5_: %agg.result"}
+!75 = distinct !{!75, !"_ZmiRK7obj_refIN10polynomial10polynomialENS0_7managerEES5_"}
 !76 = distinct !{!76, !5}
 !77 = distinct !{!77, !5}
 !78 = distinct !{!78, !5}
-!79 = distinct !{!79, !5}
-!80 = distinct !{!80, !5}
-!81 = distinct !{!81, !5}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZmiRK7obj_refIN10polynomial10polynomialENS0_7managerEES5_: %agg.result"}
+!81 = distinct !{!81, !"_ZmiRK7obj_refIN10polynomial10polynomialENS0_7managerEES5_"}
 !82 = distinct !{!82, !5}
 !83 = distinct !{!83, !5}
 !84 = distinct !{!84, !5}
@@ -25511,3 +25511,9 @@ attributes #31 = { builtin nounwind }
 !88 = distinct !{!88, !5}
 !89 = distinct !{!89, !5}
 !90 = distinct !{!90, !5}
+!91 = distinct !{!91, !5}
+!92 = distinct !{!92, !5}
+!93 = distinct !{!93, !5}
+!94 = distinct !{!94, !5}
+!95 = distinct !{!95, !5}
+!96 = distinct !{!96, !5}

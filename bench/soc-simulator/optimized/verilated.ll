@@ -14223,7 +14223,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %39, %37
 
 48:                                               ; preds = %46
   %49 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %44, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %50 = load i64, ptr %45, align 8
+  %50 = load i64, ptr %45, align 8, !alias.scope !104
   %51 = icmp ult i64 %50, 31
   br i1 %51, label %52, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 
@@ -15445,7 +15445,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %43, %41
 
 51:                                               ; preds = %49
   %52 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %47, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %53 = load i64, ptr %48, align 8
+  %53 = load i64, ptr %48, align 8, !alias.scope !113
   %54 = icmp ult i64 %53, 31
   br i1 %54, label %55, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 
@@ -15643,7 +15643,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %35, %33
 
 43:                                               ; preds = %41
   %44 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %39, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %45 = load i64, ptr %40, align 8
+  %45 = load i64, ptr %40, align 8, !alias.scope !116
   %46 = icmp ult i64 %45, 31
   br i1 %46, label %47, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 
@@ -15841,7 +15841,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %33, %31
 
 41:                                               ; preds = %39
   %42 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %37, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %43 = load i64, ptr %38, align 8
+  %43 = load i64, ptr %38, align 8, !alias.scope !119
   %44 = icmp ult i64 %43, 31
   br i1 %44, label %45, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 
@@ -16796,7 +16796,7 @@ _ZN15VerilatedFpList9push_backEP8_IO_FILE.exit21.i: ; preds = %44, %42
 
 52:                                               ; preds = %50
   %53 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %48, ptr nonnull @.str.64, ptr nonnull @.str.65, i32 430, ptr null)
-  %54 = load i64, ptr %49, align 8
+  %54 = load i64, ptr %49, align 8, !alias.scope !123
   %55 = icmp ult i64 %54, 31
   br i1 %55, label %56, label %_ZN15VerilatedFpList9push_backEP8_IO_FILE.exit22.i
 

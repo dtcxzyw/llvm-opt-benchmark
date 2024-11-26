@@ -152,7 +152,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 16:                                               ; preds = %15, %.thread
   %17 = lshr i64 %3, 6
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !14
+  %19 = load i64, ptr %18, align 8, !alias.scope !30, !noundef !14
   %20 = icmp ult i64 %17, %19
   br i1 %20, label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17habeb65851d84f8ffE.exit", label %36, !prof !33
 
@@ -217,7 +217,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 16:                                               ; preds = %15, %.thread
   %17 = lshr i64 %3, 6
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !14
+  %19 = load i64, ptr %18, align 8, !alias.scope !40, !noundef !14
   %20 = icmp ult i64 %17, %19
   br i1 %20, label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit", label %36, !prof !33
 

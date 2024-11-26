@@ -1805,11 +1805,12 @@ entry:
   %data = alloca %"struct.facebook::velox::cache::SsdCacheStats", align 8
   %out = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %data, i8 0, i64 88, i1 false), !alias.scope !39
   %files_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %files_.i, align 8
+  %0 = load ptr, ptr %files_.i, align 8, !noalias !39
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load ptr, ptr %_M_finish.i.i, align 8
+  %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !39
   %cmp.i.not4.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not4.i, label %_ZNK8facebook5velox5cache8SsdCache5statsEv.exit, label %for.body.i
 

@@ -37357,7 +37357,7 @@ _ZNK4llvm7SDValue24getScalarValueSizeInBitsEv.exit: ; preds = %42, %46
 
 _ZN4llvm5APIntC2Ejmbb.exit.i.thread:              ; preds = %_ZNK4llvm7SDValue24getScalarValueSizeInBitsEv.exit
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %11, i64 noundef 0, i1 noundef zeroext false) #28
-  %.pre.i = load i32, ptr %51, align 8
+  %.pre.i = load i32, ptr %51, align 8, !alias.scope !185
   br label %54
 
 _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %_ZNK4llvm7SDValue24getScalarValueSizeInBitsEv.exit
@@ -58467,7 +58467,7 @@ _ZN4llvm5APIntD2Ev.exit1278:                      ; preds = %744, %741, %"_ZZNK4
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %746
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %132, ptr noundef nonnull align 8 dereferenceable(12) %97) #28
-  %.pr.i = load i32, ptr %747, align 8
+  %.pr.i = load i32, ptr %747, align 8, !alias.scope !310
   %750 = icmp ult i32 %.pr.i, 65
   br i1 %750, label %_ZNK4llvm5APInt3shlEj.exit.thread, label %_ZNK4llvm5APInt3shlEj.exit
 
@@ -61200,7 +61200,7 @@ define dso_local { ptr, i32 } @_ZNK4llvm14TargetLowering15CTTZTableLookupEPNS_6S
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %57
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %25, ptr noundef nonnull align 8 dereferenceable(12) %16) #28
-  %.pr.i = load i32, ptr %54, align 8
+  %.pr.i = load i32, ptr %54, align 8, !alias.scope !326
   %60 = icmp ult i32 %.pr.i, 65
   br i1 %60, label %_ZNK4llvm5APInt3shlEj.exit.thread, label %_ZNK4llvm5APInt3shlEj.exit
 
@@ -61241,7 +61241,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i:             ; preds = %_ZNK4llvm5APInt3shl
 
 _ZN4llvm5APIntC2ERKS0_.exit.i213:                 ; preds = %_ZNK4llvm5APInt3shlEj.exit
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %25) #28
-  %.pr.i214 = load i32, ptr %56, align 8
+  %.pr.i214 = load i32, ptr %56, align 8, !alias.scope !332
   %76 = icmp ult i32 %.pr.i214, 65
   br i1 %76, label %77, label %85
 

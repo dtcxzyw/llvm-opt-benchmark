@@ -92327,7 +92327,7 @@ if.then.i.i.i.i72:                                ; preds = %do.body.i.i.i.i.i59
   br label %_ZNKSt8weak_ptrIN7coro_io11client_poolIN7cinatra16coro_http_clientENS0_15io_context_poolEEEE4lockEv.exit73
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i64: ; preds = %do.cond.i.i.i.i.i62
-  %.pr.i.i.i65 = load ptr, ptr %_M_refcount.i.i.i54, align 8
+  %.pr.i.i.i65 = load ptr, ptr %_M_refcount.i.i.i54, align 8, !alias.scope !1106
   %tobool.not.i2.i.i.i66 = icmp eq ptr %.pr.i.i.i65, null
   br i1 %tobool.not.i2.i.i.i66, label %_ZNKSt8weak_ptrIN7coro_io11client_poolIN7cinatra16coro_http_clientENS0_15io_context_poolEEEE4lockEv.exit73, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i67
 

@@ -3818,7 +3818,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata10IdentifierEEED2Ev.ex
 
 108:                                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %109 = load ptr, ptr %10, align 8
+  %109 = load ptr, ptr %10, align 8, !noalias !71
   %110 = icmp eq ptr %109, null
   br i1 %110, label %.thread.i, label %111
 
@@ -4646,7 +4646,7 @@ define hidden void @_ZN5osgeo4proj6common16IdentifiedObject7Private10setAliasesE
 
 17:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  %18 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %16, align 8, !noalias !77
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread.i, label %20
 

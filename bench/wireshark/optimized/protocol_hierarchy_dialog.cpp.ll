@@ -569,7 +569,7 @@ _ZN7QStringD2Ev.exit94:                           ; preds = %166, %_ZN17QArrayDa
           to label %171 unwind label %.loopexit.split-lp
 
 171:                                              ; preds = %_ZN7QStringD2Ev.exit94
-  %172 = load ptr, ptr %16, align 8
+  %172 = load ptr, ptr %16, align 8, !noalias !9
   %173 = getelementptr inbounds i8, ptr %16, i64 8
   %174 = load ptr, ptr %173, align 8, !noalias !9
   %175 = getelementptr inbounds i8, ptr %16, i64 16
@@ -704,7 +704,7 @@ _ZN7QStringD2Ev.exit113:                          ; preds = %207, %_ZN17QArrayDa
           to label %212 unwind label %.loopexit.split-lp
 
 212:                                              ; preds = %_ZN7QStringD2Ev.exit113
-  %213 = load ptr, ptr %19, align 8
+  %213 = load ptr, ptr %19, align 8, !noalias !13
   %214 = getelementptr inbounds i8, ptr %19, i64 8
   %215 = load ptr, ptr %214, align 8, !noalias !13
   %216 = getelementptr inbounds i8, ptr %19, i64 16
@@ -6144,7 +6144,7 @@ _ZN12QSetIteratorI7QStringEC2ERK4QSetIS0_E.exit:  ; preds = %18, %22, %6, %_ZN4Q
   br label %.loopexit
 
 48:                                               ; preds = %42
-  %49 = load ptr, ptr %41, align 8
+  %49 = load ptr, ptr %41, align 8, !noalias !66
   %50 = lshr i64 %44, 7
   %51 = getelementptr %"struct.QHashPrivate::Span", ptr %49, i64 %50
   %52 = and i64 %44, 127
@@ -6358,7 +6358,7 @@ _ZN12QSetIteratorI7QStringEC2ERK4QSetIS0_E.exit:  ; preds = %19, %23, %1, %_ZN4Q
   br label %.loopexit
 
 43:                                               ; preds = %37
-  %44 = load ptr, ptr %36, align 8
+  %44 = load ptr, ptr %36, align 8, !noalias !73
   %45 = lshr i64 %39, 7
   %46 = getelementptr %"struct.QHashPrivate::Span", ptr %44, i64 %45
   %47 = and i64 %39, 127

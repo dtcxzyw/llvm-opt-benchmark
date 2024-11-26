@@ -17755,9 +17755,9 @@ if.then.i:                                        ; preds = %entry
   %.pre = load ptr, ptr %_stacks, align 8
   %add.ptr.i37.phi.trans.insert = getelementptr inbounds %"class.std::stack", ptr %.pre, i64 %0
   %_M_finish.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i37.phi.trans.insert, i64 48
-  %.pre75 = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8
+  %.pre75 = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8, !noalias !214
   %_M_first3.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i37.phi.trans.insert, i64 56
-  %.pre76 = load ptr, ptr %_M_first3.i.i.i.i.phi.trans.insert, align 8
+  %.pre76 = load ptr, ptr %_M_first3.i.i.i.i.phi.trans.insert, align 8, !noalias !214
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %entry
@@ -19982,7 +19982,7 @@ while.cond:                                       ; preds = %invoke.cont44, %inv
   br i1 %cmp.i.i.i, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %16 = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  %16 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !263
   %cmp.i.i.i13 = icmp eq ptr %14, %16
   br i1 %cmp.i.i.i13, label %if.else.i.i, label %if.then.i.i
 

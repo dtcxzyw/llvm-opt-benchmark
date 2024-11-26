@@ -17144,8 +17144,8 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i2155: ; preds =
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2157:             ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i2097, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i2100, %7242, %._crit_edge.i.i2090, %7601, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i2155
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
-  %7619 = load ptr, ptr %176, align 8
-  %7620 = load ptr, ptr %359, align 8
+  %7619 = load ptr, ptr %176, align 8, !noalias !251
+  %7620 = load ptr, ptr %359, align 8, !noalias !251
   %7621 = icmp eq ptr %7619, %7620
   br i1 %7621, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i2180, label %7622
 
@@ -17181,7 +17181,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %7639 = urem i32 %.0.i.i.i.i2159, %7638
   store i32 %7639, ptr %34, align 4, !noalias !251
   %7640 = load ptr, ptr %361, align 8, !noalias !251
-  %7641 = load ptr, ptr %360, align 8
+  %7641 = load ptr, ptr %360, align 8, !noalias !251
   %7642 = ptrtoint ptr %7640 to i64
   %7643 = ptrtoint ptr %7641 to i64
   %7644 = sub i64 %7642, %7643
@@ -20717,8 +20717,8 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i2483: ; preds =
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2485:             ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i2423, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i2426, %8733, %._crit_edge.i.i2416, %9092, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i2483
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
-  %9155 = load ptr, ptr %191, align 8
-  %9156 = load ptr, ptr %393, align 8
+  %9155 = load ptr, ptr %191, align 8, !noalias !266
+  %9156 = load ptr, ptr %393, align 8, !noalias !266
   %9157 = icmp eq ptr %9155, %9156
   br i1 %9157, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i2514, label %9158
 
@@ -20754,7 +20754,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %9175 = urem i32 %.0.i.i.i.i2493, %9174
   store i32 %9175, ptr %28, align 4, !noalias !266
   %9176 = load ptr, ptr %395, align 8, !noalias !266
-  %9177 = load ptr, ptr %394, align 8
+  %9177 = load ptr, ptr %394, align 8, !noalias !266
   %9178 = ptrtoint ptr %9176 to i64
   %9179 = ptrtoint ptr %9177 to i64
   %9180 = sub i64 %9178, %9179

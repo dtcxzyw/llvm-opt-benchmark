@@ -9012,8 +9012,8 @@ _ZNK4llvm8SmallSetINS_8RegisterELj4ESt4lessIS1_EE5countERKS1_.exit112.thread: ; 
   %484 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.03.0.lcssa.i) #22, !noalias !114
   %485 = zext i32 %484 to i64
   %486 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %483, i64 %485
-  %487 = load ptr, ptr %333, align 8, !noalias !56
-  %488 = load i24, ptr %335, align 8, !noalias !56
+  %487 = load ptr, ptr %333, align 8, !noalias !114
+  %488 = load i24, ptr %335, align 8, !noalias !114
   %489 = zext i24 %488 to i64
   %490 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %487, i64 %489
   %.not1.i.i.i.i.i = icmp eq ptr %486, %490

@@ -4011,8 +4011,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i.i:      ; preds = %_ZNSt6vectorIjSaIjE
   %.pn = phi ptr [ %181, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i ], [ %.sroa.8.2, %162 ]
   %.sroa.18.9 = phi ptr [ %183, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i ], [ %.sroa.18.2, %162 ]
   %.sroa.8.9 = getelementptr inbounds i8, ptr %.pn, i64 4
-  %184 = load ptr, ptr %31, align 8
-  %185 = load i32, ptr %79, align 8
+  %184 = load ptr, ptr %31, align 8, !noalias !63
+  %185 = load i32, ptr %79, align 8, !noalias !63
   %186 = icmp eq i32 %185, 0
   br i1 %186, label %207, label %187
 
@@ -7961,7 +7961,7 @@ _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapI
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread.thread.i: ; preds = %2128, %2151
   %.sink.i.i.i.i.i69 = phi ptr [ %2152, %2151 ], [ null, %2128 ]
   %2162 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E20InsertIntoBucketImplIjEEPS7_RKjRKT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef %.sink.i.i.i.i.i69), !noalias !148
-  %2163 = load i32, ptr %16, align 4
+  %2163 = load i32, ptr %16, align 4, !noalias !148
   store i32 %2163, ptr %2162, align 4, !noalias !148
   br label %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E6insertERKj.exit.i
 
@@ -8221,7 +8221,7 @@ _ZNSt6vectorIPN4llvm4TypeESaIS2_EE9push_backEOS2_.exit.i36: ; preds = %_ZNSt6vec
 2288:                                             ; preds = %2277, %_ZNSt6vectorIPN4llvm4TypeESaIS2_EE9push_backEOS2_.exit.i36
   %.sink.i.i.i.i145.i = phi ptr [ %2278, %2277 ], [ null, %_ZNSt6vectorIPN4llvm4TypeESaIS2_EE9push_backEOS2_.exit.i36 ]
   %2289 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E20InsertIntoBucketImplIjEEPS7_RKjRKT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef %.sink.i.i.i.i145.i), !noalias !164
-  %2290 = load i32, ptr %19, align 4
+  %2290 = load i32, ptr %19, align 4, !noalias !164
   store i32 %2290, ptr %2289, align 4, !noalias !164
   br label %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E6insertERKj.exit146.i
 
@@ -20717,7 +20717,7 @@ define linkonce_odr hidden void @_ZNK4llvm12IRSimilarity21IRSimilarityCandidate1
 44:                                               ; preds = %33, %11
   %.sink.i.i.i.i = phi ptr [ %34, %33 ], [ null, %11 ]
   %45 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !338
-  %46 = load ptr, ptr %4, align 8
+  %46 = load ptr, ptr %4, align 8, !noalias !338
   store ptr %46, ptr %45, align 8, !noalias !338
   %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
   %48 = add i64 %47, 1
@@ -22076,7 +22076,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_5ValueENS_
 33:                                               ; preds = %22, %2
   %.sink.i.i.i.i = phi ptr [ %23, %22 ], [ null, %2 ]
   %34 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !356
-  %35 = load ptr, ptr %1, align 8
+  %35 = load ptr, ptr %1, align 8, !noalias !356
   store ptr %35, ptr %34, align 8, !noalias !356
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #24

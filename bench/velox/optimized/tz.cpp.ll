@@ -936,7 +936,7 @@ invoke.cont148.i:                                 ; preds = %if.then141.i
           to label %invoke.cont150.i unwind label %lpad138.i, !noalias !7
 
 invoke.cont150.i:                                 ; preds = %invoke.cont148.i
-  %49 = load ptr, ptr %ref.tmp, align 8
+  %49 = load ptr, ptr %ref.tmp, align 8, !alias.scope !7
   %leap_seconds.i = getelementptr inbounds i8, ptr %49, i64 56
   %50 = load ptr, ptr %leap_seconds.i, align 8, !noalias !7
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 64
@@ -1141,7 +1141,7 @@ invoke.cont194.i:                                 ; preds = %if.end187.i
           to label %invoke.cont196.i unwind label %lpad138.i, !noalias !7
 
 invoke.cont196.i:                                 ; preds = %invoke.cont194.i
-  %69 = load ptr, ptr %ref.tmp, align 8
+  %69 = load ptr, ptr %ref.tmp, align 8, !alias.scope !7
   %leap_seconds198.i = getelementptr inbounds i8, ptr %69, i64 56
   %70 = load ptr, ptr %leap_seconds198.i, align 8, !noalias !7
   %_M_finish.i.i.i.i115.i = getelementptr inbounds i8, ptr %69, i64 64

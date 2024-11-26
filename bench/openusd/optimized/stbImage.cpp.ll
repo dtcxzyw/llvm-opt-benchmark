@@ -3061,9 +3061,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12Hio_StbImage21_GetFilenameExtensionB5cxx1
           to label %.noexc83 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc83:                                         ; preds = %81
-  %84 = load i32, ptr %1, align 8
+  %84 = load i32, ptr %1, align 8, !noalias !18
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %86 = load i32, ptr %85, align 4
+  %86 = load i32, ptr %85, align 4, !noalias !18
   %87 = mul i32 %84, %83
   %88 = mul i32 %87, %86
   %89 = sext i32 %88 to i64
@@ -3133,9 +3133,9 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %
           to label %.noexc94 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc94:                                         ; preds = %108
-  %111 = load i32, ptr %1, align 8
+  %111 = load i32, ptr %1, align 8, !noalias !22
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %113 = load i32, ptr %112, align 4
+  %113 = load i32, ptr %112, align 4, !noalias !22
   %114 = mul i32 %111, %110
   %115 = mul i32 %114, %113
   %116 = sext i32 %115 to i64

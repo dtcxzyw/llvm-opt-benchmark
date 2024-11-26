@@ -7601,7 +7601,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i:             ; preds = %10
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %10
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1) #16
-  %.pr.i = load i32, ptr %11, align 8
+  %.pr.i = load i32, ptr %11, align 8, !alias.scope !265
   %15 = icmp ult i32 %.pr.i, 65
   br i1 %15, label %16, label %23
 
@@ -7632,7 +7632,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %10
 
 _ZN4llvm5APIntC2ERKS0_.exit.i5:                   ; preds = %24
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %1) #16
-  %.pr.i6 = load i32, ptr %25, align 8
+  %.pr.i6 = load i32, ptr %25, align 8, !alias.scope !268
   %28 = icmp ult i32 %.pr.i6, 65
   br i1 %28, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, label %42
 

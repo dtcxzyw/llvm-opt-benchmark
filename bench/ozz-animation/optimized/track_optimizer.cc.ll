@@ -412,7 +412,7 @@ _ZNSt6vectorIbN3ozz12StdAllocatorIbEEEC2EmRKbRKS2_.exit.i.i: ; preds = %121, %_Z
 
 161:                                              ; preds = %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit81.i.i, %.lr.ph49.i.i
   %162 = phi ptr [ %156, %.lr.ph49.i.i ], [ %234, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit81.i.i ]
-  %163 = load ptr, ptr %87, align 8
+  %163 = load ptr, ptr %87, align 8, !noalias !7
   %164 = icmp eq ptr %162, %163
   br i1 %164, label %167, label %165
 
@@ -1125,7 +1125,7 @@ _ZNSt6vectorIbN3ozz12StdAllocatorIbEEEC2EmRKbRKS2_.exit.i.i: ; preds = %120, %_Z
 
 160:                                              ; preds = %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit81.i.i, %.lr.ph49.i.i
   %161 = phi ptr [ %155, %.lr.ph49.i.i ], [ %246, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit81.i.i ]
-  %162 = load ptr, ptr %86, align 8
+  %162 = load ptr, ptr %86, align 8, !noalias !14
   %163 = icmp eq ptr %161, %162
   br i1 %163, label %166, label %164
 
@@ -1856,7 +1856,7 @@ _ZNSt6vectorIbN3ozz12StdAllocatorIbEEEC2EmRKbRKS2_.exit.i.i: ; preds = %121, %_Z
 
 161:                                              ; preds = %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit73.i.i, %.lr.ph50.i.i
   %162 = phi ptr [ %156, %.lr.ph50.i.i ], [ %259, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit73.i.i ]
-  %163 = load ptr, ptr %87, align 8
+  %163 = load ptr, ptr %87, align 8, !noalias !20
   %164 = icmp eq ptr %162, %163
   br i1 %164, label %167, label %165
 
@@ -2604,7 +2604,7 @@ _ZNSt6vectorIbN3ozz12StdAllocatorIbEEEC2EmRKbRKS2_.exit.i.i: ; preds = %121, %_Z
 
 161:                                              ; preds = %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit73.i.i, %.lr.ph50.i.i
   %162 = phi ptr [ %156, %.lr.ph50.i.i ], [ %269, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit73.i.i ]
-  %163 = load ptr, ptr %87, align 8
+  %163 = load ptr, ptr %87, align 8, !noalias !29
   %164 = icmp eq ptr %162, %163
   br i1 %164, label %167, label %165
 
@@ -3371,7 +3371,7 @@ _ZNSt6vectorIbN3ozz12StdAllocatorIbEEEC2EmRKbRKS2_.exit.i.i: ; preds = %124, %_Z
 
 164:                                              ; preds = %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit73.i.i, %.lr.ph50.i.i
   %165 = phi ptr [ %159, %.lr.ph50.i.i ], [ %281, %_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE4pushEOS1_.exit73.i.i ]
-  %166 = load ptr, ptr %90, align 8
+  %166 = load ptr, ptr %90, align 8, !noalias !38
   %167 = icmp eq ptr %165, %166
   br i1 %167, label %170, label %168
 

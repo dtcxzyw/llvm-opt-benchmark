@@ -6284,7 +6284,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %11, %12
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !noalias !37
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %26 = load ptr, ptr %25, align 8, !noalias !37

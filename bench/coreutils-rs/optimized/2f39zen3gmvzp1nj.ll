@@ -628,7 +628,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$uu_head..HeadOptions$GT$17h3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !alias.scope !169, !nonnull !4, !noundef !4
+  %4 = load ptr, ptr %3, align 8, !alias.scope !175, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8, !alias.scope !175, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
@@ -2107,7 +2107,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   %90 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !693)
   %91 = getelementptr inbounds i8, ptr %0, i64 184
-  %92 = load ptr, ptr %91, align 8, !nonnull !4, !noundef !4
+  %92 = load ptr, ptr %91, align 8, !alias.scope !693, !nonnull !4, !noundef !4
   %93 = getelementptr inbounds i8, ptr %0, i64 192
   %94 = load i64, ptr %93, align 8, !alias.scope !693, !noundef !4
   br label %95
@@ -2305,7 +2305,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..build
 define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hbfe64d6658486ebcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !709)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
+  %3 = load ptr, ptr %2, align 8, !alias.scope !709, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !709, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !712)
@@ -2445,7 +2445,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io
 define hidden void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$$GT$17h633af479176c553fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !770)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
+  %3 = load ptr, ptr %2, align 8, !alias.scope !770, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !770, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !773)
@@ -2661,7 +2661,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..raw_vec..RawVec$LT$cl
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..command..Command$GT$$GT$17h83ff53a948330e7aE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
+  %3 = load ptr, ptr %2, align 8, !alias.scope !874, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !874, !noundef !4
   br label %6
@@ -3282,7 +3282,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !974, !noalias !977, !noundef !4
   %13 = add i64 %12, %6
-  %14 = load i64, ptr %1, align 8, !alias.scope !969, !noalias !977, !noundef !4
+  %14 = load i64, ptr %1, align 8, !alias.scope !974, !noalias !977, !noundef !4
   %.not.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i, i64 0, i64 %14
   %.0.i.i = sub nuw i64 %13, %15
@@ -3857,7 +3857,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !1079, !noalias !1082, !noundef !4
   %13 = add i64 %12, %6
-  %14 = load i64, ptr %0, align 8, !alias.scope !1083, !noalias !1082, !noundef !4
+  %14 = load i64, ptr %0, align 8, !alias.scope !1079, !noalias !1082, !noundef !4
   %.not.i.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i.i, i64 0, i64 %14
   %.0.i.i.i = sub nuw i64 %13, %15
@@ -3885,7 +3885,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   store ptr %22, ptr %2, align 8
   %25 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %.sroa.11.0.i, ptr %25, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1084)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1083)
   br label %26
 
 26:                                               ; preds = %28, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17he69d0c3bd0c11494E.llvm.352779645908068936.exit"
@@ -3896,11 +3896,11 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
 28:                                               ; preds = %26
   %29 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %23, i64 0, i64 %.0.i
   %30 = add i64 %.0.i, 1
-  %.val.i = load i64, ptr %29, align 8, !range !9, !alias.scope !1084, !noundef !4
+  %.val.i = load i64, ptr %29, align 8, !range !9, !alias.scope !1083, !noundef !4
   %31 = getelementptr i8, ptr %29, i64 8
-  %.val7.i = load ptr, ptr %31, align 8, !alias.scope !1084
+  %.val7.i = load ptr, ptr %31, align 8, !alias.scope !1083
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$GT$17hcdbce09223ad5a0cE"(i64 %.val.i, ptr %.val7.i)
-          to label %26 unwind label %34, !noalias !1084
+          to label %26 unwind label %34, !noalias !1083
 
 32:                                               ; preds = %36, %34
   %.1.i = phi i64 [ %30, %34 ], [ %38, %36 ]
@@ -3915,16 +3915,16 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
 36:                                               ; preds = %32
   %37 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %23, i64 0, i64 %.1.i
   %38 = add i64 %.1.i, 1
-  %.val8.i = load i64, ptr %37, align 8, !range !9, !alias.scope !1084, !noundef !4
+  %.val8.i = load i64, ptr %37, align 8, !range !9, !alias.scope !1083, !noundef !4
   %39 = getelementptr i8, ptr %37, i64 8
-  %.val9.i = load ptr, ptr %39, align 8, !alias.scope !1084
+  %.val9.i = load ptr, ptr %39, align 8, !alias.scope !1083
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$GT$17hcdbce09223ad5a0cE"(i64 %.val8.i, ptr %.val9.i) #15
-          to label %32 unwind label %40, !noalias !1084
+          to label %32 unwind label %40, !noalias !1083
 
 40:                                               ; preds = %36
   %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !1084
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !1083
   unreachable
 
 .body:                                            ; preds = %32
@@ -3932,7 +3932,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
           to label %common.resume unwind label %58
 
 "_ZN4core3ptr108drop_in_place$LT$$u5b$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$u5d$$GT$17h7d6a79ad1c6c9052E.llvm.352779645908068936.exit": ; preds = %26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1087)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
   br label %42
 
 42:                                               ; preds = %44, %"_ZN4core3ptr108drop_in_place$LT$$u5b$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$u5d$$GT$17h7d6a79ad1c6c9052E.llvm.352779645908068936.exit"
@@ -3943,11 +3943,11 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
 44:                                               ; preds = %42
   %45 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %22, i64 0, i64 %.0.i.i.i1
   %46 = add i64 %.0.i.i.i1, 1
-  %.val.i.i.i = load i64, ptr %45, align 8, !range !9, !alias.scope !1087, !noalias !1090, !noundef !4
+  %.val.i.i.i = load i64, ptr %45, align 8, !range !9, !alias.scope !1086, !noalias !1089, !noundef !4
   %47 = getelementptr i8, ptr %45, i64 8
-  %.val7.i.i.i = load ptr, ptr %47, align 8, !alias.scope !1087, !noalias !1090
+  %.val7.i.i.i = load ptr, ptr %47, align 8, !alias.scope !1086, !noalias !1089
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$GT$17hcdbce09223ad5a0cE"(i64 %.val.i.i.i, ptr %.val7.i.i.i)
-          to label %42 unwind label %50, !noalias !1095
+          to label %42 unwind label %50, !noalias !1094
 
 48:                                               ; preds = %52, %50
   %.1.i.i.i = phi i64 [ %46, %50 ], [ %54, %52 ]
@@ -3962,11 +3962,11 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
 52:                                               ; preds = %48
   %53 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %22, i64 0, i64 %.1.i.i.i
   %54 = add i64 %.1.i.i.i, 1
-  %.val8.i.i.i = load i64, ptr %53, align 8, !range !9, !alias.scope !1087, !noalias !1090, !noundef !4
+  %.val8.i.i.i = load i64, ptr %53, align 8, !range !9, !alias.scope !1086, !noalias !1089, !noundef !4
   %55 = getelementptr i8, ptr %53, i64 8
-  %.val9.i.i.i = load ptr, ptr %55, align 8, !alias.scope !1087, !noalias !1090
+  %.val9.i.i.i = load ptr, ptr %55, align 8, !alias.scope !1086, !noalias !1089
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$GT$17hcdbce09223ad5a0cE"(i64 %.val8.i.i.i, ptr %.val9.i.i.i) #15
-          to label %48 unwind label %56, !noalias !1095
+          to label %48 unwind label %56, !noalias !1094
 
 common.resume:                                    ; preds = %48, %.body
   %common.resume.op = phi { ptr, i32 } [ %35, %.body ], [ %51, %48 ]
@@ -3975,7 +3975,7 @@ common.resume:                                    ; preds = %48, %.body
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !1095
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !1094
   unreachable
 
 "_ZN4core3ptr214drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$GT$$GT$17hc3ea3c32a5a1c1f6E.llvm.352779645908068936.exit": ; preds = %42
@@ -5137,16 +5137,15 @@ attributes #18 = { noreturn }
 !1080 = distinct !{!1080, !1081, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17hcb3214344a91deceE.llvm.7590514773680538705: argument 0"}
 !1081 = distinct !{!1081, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17hcb3214344a91deceE.llvm.7590514773680538705"}
 !1082 = !{!1078, !1073}
-!1083 = !{!1075, !1070}
-!1084 = !{!1085}
-!1085 = distinct !{!1085, !1086, !"_ZN4core3ptr108drop_in_place$LT$$u5b$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$u5d$$GT$17h7d6a79ad1c6c9052E.llvm.352779645908068936: argument 0"}
-!1086 = distinct !{!1086, !"_ZN4core3ptr108drop_in_place$LT$$u5b$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$u5d$$GT$17h7d6a79ad1c6c9052E.llvm.352779645908068936"}
-!1087 = !{!1088}
-!1088 = distinct !{!1088, !1089, !"_ZN4core3ptr108drop_in_place$LT$$u5b$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$u5d$$GT$17h7d6a79ad1c6c9052E.llvm.352779645908068936: argument 0"}
-!1089 = distinct !{!1089, !"_ZN4core3ptr108drop_in_place$LT$$u5b$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$u5d$$GT$17h7d6a79ad1c6c9052E.llvm.352779645908068936"}
-!1090 = !{!1091, !1093}
-!1091 = distinct !{!1091, !1092, !"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab6f3eaeb86de8caE.llvm.352779645908068936: argument 0"}
-!1092 = distinct !{!1092, !"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab6f3eaeb86de8caE.llvm.352779645908068936"}
-!1093 = distinct !{!1093, !1094, !"_ZN4core3ptr214drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$GT$$GT$17hc3ea3c32a5a1c1f6E.llvm.352779645908068936: argument 0"}
-!1094 = distinct !{!1094, !"_ZN4core3ptr214drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$GT$$GT$17hc3ea3c32a5a1c1f6E.llvm.352779645908068936"}
-!1095 = !{!1088, !1091, !1093}
+!1083 = !{!1084}
+!1084 = distinct !{!1084, !1085, !"_ZN4core3ptr108drop_in_place$LT$$u5b$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$u5d$$GT$17h7d6a79ad1c6c9052E.llvm.352779645908068936: argument 0"}
+!1085 = distinct !{!1085, !"_ZN4core3ptr108drop_in_place$LT$$u5b$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$u5d$$GT$17h7d6a79ad1c6c9052E.llvm.352779645908068936"}
+!1086 = !{!1087}
+!1087 = distinct !{!1087, !1088, !"_ZN4core3ptr108drop_in_place$LT$$u5b$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$u5d$$GT$17h7d6a79ad1c6c9052E.llvm.352779645908068936: argument 0"}
+!1088 = distinct !{!1088, !"_ZN4core3ptr108drop_in_place$LT$$u5b$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$u5d$$GT$17h7d6a79ad1c6c9052E.llvm.352779645908068936"}
+!1089 = !{!1090, !1092}
+!1090 = distinct !{!1090, !1091, !"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab6f3eaeb86de8caE.llvm.352779645908068936: argument 0"}
+!1091 = distinct !{!1091, !"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab6f3eaeb86de8caE.llvm.352779645908068936"}
+!1092 = distinct !{!1092, !1093, !"_ZN4core3ptr214drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$GT$$GT$17hc3ea3c32a5a1c1f6E.llvm.352779645908068936: argument 0"}
+!1093 = distinct !{!1093, !"_ZN4core3ptr214drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$GT$$GT$17hc3ea3c32a5a1c1f6E.llvm.352779645908068936"}
+!1094 = !{!1087, !1090, !1092}

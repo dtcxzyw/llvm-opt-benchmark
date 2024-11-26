@@ -4814,18 +4814,19 @@ invoke.cont31:                                    ; preds = %_ZNK7rocksdb21FSRan
   br i1 %brmerge, label %if.else, label %invoke.cont37
 
 invoke.cont37:                                    ; preds = %invoke.cont31
+  call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %result.i.i = getelementptr inbounds i8, ptr %aligned_req, i64 24
   store ptr @.str.4, ptr %result.i.i, align 8, !alias.scope !45
   %size_.i.i.i = getelementptr inbounds i8, ptr %aligned_req, i64 32
   %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %aligned_req, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %size_.i.i.i, i8 0, i64 14, i1 false), !alias.scope !45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %state_.i.i.i.i.i, i8 0, i64 48, i1 false), !alias.scope !45
-  %40 = load i64, ptr %req, align 8
+  %40 = load i64, ptr %req, align 8, !noalias !45
   %sub.not.i.i = sub i64 0, %call22
   %sub1.i.i = and i64 %40, %sub.not.i.i
   store i64 %sub1.i.i, ptr %aligned_req, align 8, !alias.scope !45
   %len.i.i = getelementptr inbounds i8, ptr %req, i64 8
-  %41 = load i64, ptr %len.i.i, align 8
+  %41 = load i64, ptr %len.i.i, align 8, !noalias !45
   %add.i3.i = add i64 %40, %sub
   %sub.i.i = add i64 %add.i3.i, %41
   %42 = urem i64 %sub.i.i, %call22

@@ -2047,19 +2047,19 @@ _ZN5vcpkg8OptionalINS_10DependencyEED2Ev.exit.i:  ; preds = %_ZN5vcpkg8OptionalI
 
 .noexc.i:                                         ; preds = %_ZN5vcpkg8OptionalINS_10DependencyEED2Ev.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %92 = load i8, ptr %19, align 8, !noalias !43
+  %92 = load i8, ptr %19, align 8, !noalias !48
   %93 = trunc i8 %92 to i1
   br i1 %93, label %94, label %151
 
 94:                                               ; preds = %.noexc.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17), !noalias !51
+  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !48
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12), !noalias !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !48
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !48
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !48
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !48
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17), !noalias !48
   %95 = load i8, ptr %45, align 8, !noalias !52
   %96 = trunc i8 %95 to i1
   br i1 %96, label %97, label %103
@@ -2309,13 +2309,13 @@ _ZNSt6vectorIN5vcpkg26DependencyRequestedFeatureESaIS1_EE9push_backEOS1_.exit.i.
   br label %.body.i.i
 
 "_ZZZN5vcpkg23parse_dependencies_listERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewENS_10TextRowColEENK3$_0clERNS_10ParserBaseEENKUlONS_24ParsedQualifiedSpecifierEE_clESE_.exit.i.i.i": ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit42.i.i.i.i, %100
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !51
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !48
   %.pre.i.i = load i8, ptr %19, align 8, !noalias !43
   br label %"_ZNO5vcpkg8OptionalINS_24ParsedQualifiedSpecifierEE4thenIZZNS_23parse_dependencies_listERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewENS_10TextRowColEENK3$_0clERNS_10ParserBaseEEUlOS1_E_EEDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalISH_EDTcl9__declvalISJ_ELi0EEEvEEEESJ_.exit.i.i"
 
@@ -14680,25 +14680,25 @@ attributes #26 = { nounwind willreturn memory(none) }
 !45 = !{!46}
 !46 = distinct !{!46, !47, !"_ZNO5vcpkg8OptionalINS_24ParsedQualifiedSpecifierEE4thenIZZNS_23parse_dependencies_listERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewENS_10TextRowColEENK3$_0clERNS_10ParserBaseEEUlOS1_E_EEDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalISH_EDTcl9__declvalISJ_ELi0EEEvEEEESJ_: argument 0"}
 !47 = distinct !{!47, !"_ZNO5vcpkg8OptionalINS_24ParsedQualifiedSpecifierEE4thenIZZNS_23parse_dependencies_listERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewENS_10TextRowColEENK3$_0clERNS_10ParserBaseEEUlOS1_E_EEDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalISH_EDTcl9__declvalISJ_ELi0EEEvEEEESJ_"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZZZN5vcpkg23parse_dependencies_listERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewENS_10TextRowColEENK3$_0clERNS_10ParserBaseEENKUlONS_24ParsedQualifiedSpecifierEE_clESE_: argument 0"}
-!50 = distinct !{!50, !"_ZZZN5vcpkg23parse_dependencies_listERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewENS_10TextRowColEENK3$_0clERNS_10ParserBaseEENKUlONS_24ParsedQualifiedSpecifierEE_clESE_"}
-!51 = !{!46, !38, !35}
-!52 = !{!49, !46, !38, !35}
-!53 = !{!54, !49, !46, !38, !35}
+!48 = !{!46, !38, !35}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZZZN5vcpkg23parse_dependencies_listERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewENS_10TextRowColEENK3$_0clERNS_10ParserBaseEENKUlONS_24ParsedQualifiedSpecifierEE_clESE_: argument 0"}
+!51 = distinct !{!51, !"_ZZZN5vcpkg23parse_dependencies_listERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewENS_10TextRowColEENK3$_0clERNS_10ParserBaseEENKUlONS_24ParsedQualifiedSpecifierEE_clESE_"}
+!52 = !{!50, !46, !38, !35}
+!53 = !{!54, !50, !46, !38, !35}
 !54 = distinct !{!54, !55, !"_ZN5vcpkg3msg6formatIJNS0_14package_name_tENS0_9triplet_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE: argument 0"}
 !55 = distinct !{!55, !"_ZN5vcpkg3msg6formatIJNS0_14package_name_tENS0_9triplet_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE"}
 !56 = !{!57}
 !57 = distinct !{!57, !58, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJNS0_6detail9named_argIcN5vcpkg10StringViewEEES9_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSE_: argument 0"}
 !58 = distinct !{!58, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJNS0_6detail9named_argIcN5vcpkg10StringViewEEES9_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSE_"}
-!59 = !{!60, !54, !49, !46, !38, !35}
+!59 = !{!60, !54, !50, !46, !38, !35}
 !60 = distinct !{!60, !61, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEES8_EEENS_15LocalizedStringEmDpOT_: argument 0"}
 !61 = distinct !{!61, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEES8_EEENS_15LocalizedStringEmDpOT_"}
-!62 = !{!49, !46, !38}
-!63 = !{!64, !49, !46, !38, !35}
+!62 = !{!50, !46, !38}
+!63 = !{!64, !50, !46, !38, !35}
 !64 = distinct !{!64, !65, !"_ZNKR5vcpkg8OptionalINS_18PlatformExpression4ExprEE8value_orEOS2_: argument 0"}
 !65 = distinct !{!65, !"_ZNKR5vcpkg8OptionalINS_18PlatformExpression4ExprEE8value_orEOS2_"}
-!66 = !{!67, !49, !46, !38, !35}
+!66 = !{!67, !50, !46, !38, !35}
 !67 = distinct !{!67, !68, !"_ZNKR5vcpkg8OptionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE8value_orEOS9_: argument 0"}
 !68 = distinct !{!68, !"_ZNKR5vcpkg8OptionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE8value_orEOS9_"}
 !69 = !{!46, !38}

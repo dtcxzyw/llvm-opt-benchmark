@@ -1459,7 +1459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZN4absl7debian211string_viewC2EPKc.exit unwind label %52
 
 _ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %54
-  %58 = load ptr, ptr %11, align 8
+  %58 = load ptr, ptr %11, align 8, !noalias !7
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %60 = load ptr, ptr %59, align 8, !noalias !7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #32
@@ -1588,7 +1588,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %_ZN4absl7debian211string_viewC2EPKc.exit29 unwind label %52
 
 _ZN4absl7debian211string_viewC2EPKc.exit29:       ; preds = %98
-  %112 = load ptr, ptr %16, align 8
+  %112 = load ptr, ptr %16, align 8, !noalias !23
   %113 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %114 = load ptr, ptr %113, align 8, !noalias !23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #32

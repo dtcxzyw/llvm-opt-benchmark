@@ -633,8 +633,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8GfBBox3d15_CombineInOrderERKS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %26 = load double, ptr %6, align 8
-  %27 = load double, ptr %11, align 8
+  %26 = load double, ptr %6, align 8, !noalias !13
+  %27 = load double, ptr %11, align 8, !noalias !13
   %28 = fcmp ogt double %26, %27
   %.sroa.3.0.copyload.pre = load double, ptr %10, align 8
   br i1 %28, label %._ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread.i_crit_edge, label %29
@@ -646,7 +646,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8GfBBox3d15_CombineInOrderERKS
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8GfBBox3d19ComputeAlignedRangeEv.exit
 
 29:                                               ; preds = %3
-  %30 = load double, ptr %13, align 8
+  %30 = load double, ptr %13, align 8, !noalias !13
   %31 = fcmp ogt double %.sroa.3.0.copyload.pre, %30
   %.sroa.4.0.copyload.pre13 = load double, ptr %9, align 8
   %.sroa.8.0.copyload.pre16 = load double, ptr %12, align 8

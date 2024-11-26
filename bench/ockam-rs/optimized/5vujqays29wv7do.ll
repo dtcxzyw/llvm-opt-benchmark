@@ -1495,13 +1495,14 @@ define void @_ZN9mitm_node15tcp_interceptor9transport6common17parse_socket_addr1
   %4 = alloca { i16, [15 x i16] }, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @"_ZN4core3net6parser91_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$core..net..socket_addr..SocketAddr$GT$8from_str17h4712d27b7aa81435E"(ptr noalias nocapture noundef nonnull sret({ i16, [15 x i16] }) align 4 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %5 = load i16, ptr %4, align 4, !range !292, !alias.scope !293, !noundef !15
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
+  %5 = load i16, ptr %4, align 4, !range !295, !alias.scope !296, !noalias !292, !noundef !15
   %6 = icmp eq i16 %5, 2
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
   %.sroa.58.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 2
-  %.sroa.58.0.copyload = load i8, ptr %.sroa.58.0..sroa_idx, align 2, !alias.scope !297
+  %.sroa.58.0.copyload = load i8, ptr %.sroa.58.0..sroa_idx, align 2, !alias.scope !298
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %.sroa.3, ptr noundef nonnull align 1 dereferenceable(29) %.sroa.8.0..sroa_idx, i64 29, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -1969,9 +1970,10 @@ attributes #20 = { nounwind }
 !289 = !{!287, !290}
 !290 = distinct !{!290, !288, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h64cdc7c185c36547E.llvm.15309562338345291987: argument 1"}
 !291 = !{!290}
-!292 = !{i16 0, i16 3}
-!293 = !{!294, !296}
-!294 = distinct !{!294, !295, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5e020b569a6b6db6E: argument 1"}
-!295 = distinct !{!295, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5e020b569a6b6db6E"}
-!296 = distinct !{!296, !295, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5e020b569a6b6db6E: argument 0"}
-!297 = !{!296, !294}
+!292 = !{!293}
+!293 = distinct !{!293, !294, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5e020b569a6b6db6E: argument 0"}
+!294 = distinct !{!294, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5e020b569a6b6db6E"}
+!295 = !{i16 0, i16 3}
+!296 = !{!297}
+!297 = distinct !{!297, !294, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5e020b569a6b6db6E: argument 1"}
+!298 = !{!293, !297}

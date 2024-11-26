@@ -3023,7 +3023,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 _ZNK4QMapIdjE4keysEv.exit:                        ; preds = %.noexc.i.i, %15
-  %.pr = load ptr, ptr %7, align 8
+  %.pr = load ptr, ptr %7, align 8, !noalias !32
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !32
   %.phi.trans.insert26 = getelementptr inbounds i8, ptr %7, i64 16

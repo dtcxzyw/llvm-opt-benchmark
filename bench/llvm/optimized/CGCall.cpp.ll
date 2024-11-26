@@ -17704,7 +17704,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit.i: ; preds = %._c
   %218 = and i64 %217, -8
   %219 = or disjoint i64 %218, %216
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !298
-  %220 = load ptr, ptr %87, align 8
+  %220 = load ptr, ptr %87, align 8, !noalias !298
   br label %_ZL19emitAddressAtOffsetRN5clang7CodeGen15CodeGenFunctionENS0_7AddressERKNS0_10ABIArgInfoE.exit
 
 _ZL19emitAddressAtOffsetRN5clang7CodeGen15CodeGenFunctionENS0_7AddressERKNS0_10ABIArgInfoE.exit: ; preds = %._ZL19emitAddressAtOffsetRN5clang7CodeGen15CodeGenFunctionENS0_7AddressERKNS0_10ABIArgInfoE.exit_crit_edge, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit.i
@@ -18654,7 +18654,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit: ; preds = %
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %97, %95
   %.fca.1.insert.merged.i.i = phi i1 [ true, %95 ], [ %100, %97 ], [ false, %.lr.ph.i.i ]
-  %101 = load ptr, ptr %77, align 8
+  %101 = load ptr, ptr %77, align 8, !noalias !312
   br i1 %.fca.1.insert.merged.i.i, label %102, label %.critedge
 
 102:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
@@ -29156,7 +29156,7 @@ _ZN4llvm13IRBuilderBase18CreateExtractValueEPNS_5ValueENS_8ArrayRefIjEERKNS_5Twi
 2674:                                             ; preds = %2669
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !508
   %2675 = getelementptr inbounds i8, ptr %2, i64 64
-  %2676 = load i32, ptr %2675, align 8, !noalias !508
+  %2676 = load i32, ptr %2675, align 8, !noalias !526
   %.not.i67.i = icmp eq i32 %2676, 0
   br i1 %.not.i67.i, label %_ZL19emitAddressAtOffsetRN5clang7CodeGen15CodeGenFunctionENS0_7AddressERKNS0_10ABIArgInfoE.exit.i, label %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit.i.i
 

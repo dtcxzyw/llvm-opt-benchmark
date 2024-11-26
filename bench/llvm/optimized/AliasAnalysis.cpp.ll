@@ -3011,7 +3011,7 @@ _ZNK4llvm8CallBase17data_operands_endEv.exit:     ; preds = %17, %25, %26
 
 _ZNK4llvm8CallBase14doesNotCaptureEj.exit:        ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %70 = load i32, ptr %69, align 8
+  %70 = load i32, ptr %69, align 8, !noalias !20
   %71 = sub i32 %.03549, %70
   %72 = load i32, ptr %18, align 4, !noalias !20
   %73 = and i32 %72, 134217727
@@ -3250,7 +3250,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8CallBase15onlyReadsMemo
 
 _ZNK4llvm8CallBase25dataOperandHasImpliedAttrEjNS_9Attribute8AttrKindE.exit: ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %25 = load i32, ptr %24, align 8
+  %25 = load i32, ptr %24, align 8, !noalias !30
   %26 = sub i32 %1, %25
   %27 = load i32, ptr %4, align 4, !noalias !30
   %28 = and i32 %27, 134217727

@@ -268,7 +268,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load i64, ptr %8, align 8, !alias.scope !41, !noalias !46, !noundef !4
-  %.promoted.i = load i64, ptr %7, align 8
+  %.promoted.i = load i64, ptr %7, align 8, !alias.scope !38, !noalias !50
   %10 = icmp ult i64 %.promoted.i, %9
   br i1 %10, label %.lr.ph.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h40e68377b52dab4cE.exit.thread"
 
@@ -279,10 +279,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 13:                                               ; preds = %17, %.lr.ph.i
   %14 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %18, %17 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %15 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1, !noalias !52, !noundef !4
+  %16 = load i8, ptr %15, align 1, !noalias !53, !noundef !4
   switch i8 %16, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h40e68377b52dab4cE.exit.thread" [
     i8 32, label %17
     i8 10, label %17
@@ -293,7 +293,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 17:                                               ; preds = %13, %13, %13, %13
   %18 = add i64 %14, 1
-  store i64 %18, ptr %7, align 8, !alias.scope !53, !noalias !56
+  store i64 %18, ptr %7, align 8, !alias.scope !54, !noalias !50
   %exitcond.not.i = icmp eq i64 %18, %9
   br i1 %exitcond.not.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h40e68377b52dab4cE.exit.thread", label %13
 
@@ -400,7 +400,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load i64, ptr %8, align 8, !alias.scope !80, !noalias !85, !noundef !4
-  %.promoted.i = load i64, ptr %7, align 8
+  %.promoted.i = load i64, ptr %7, align 8, !alias.scope !77, !noalias !89
   %10 = icmp ult i64 %.promoted.i, %9
   br i1 %10, label %.lr.ph.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h40e68377b52dab4cE.exit.thread"
 
@@ -411,10 +411,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 13:                                               ; preds = %17, %.lr.ph.i
   %14 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %18, %17 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %15 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1, !noalias !91, !noundef !4
+  %16 = load i8, ptr %15, align 1, !noalias !92, !noundef !4
   switch i8 %16, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h40e68377b52dab4cE.exit.thread" [
     i8 32, label %17
     i8 10, label %17
@@ -425,7 +425,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 17:                                               ; preds = %13, %13, %13, %13
   %18 = add i64 %14, 1
-  store i64 %18, ptr %7, align 8, !alias.scope !92, !noalias !95
+  store i64 %18, ptr %7, align 8, !alias.scope !93, !noalias !89
   %exitcond.not.i = icmp eq i64 %18, %9
   br i1 %exitcond.not.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h40e68377b52dab4cE.exit.thread", label %13
 
@@ -1295,13 +1295,13 @@ attributes #14 = { nounwind }
 !47 = distinct !{!47, !43, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h9b2012f39402e252E.llvm.3177657743263483309: argument 0"}
 !48 = distinct !{!48, !45, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17hc0f3e40a2df6e9e7E.llvm.3177657743263483309: argument 0"}
 !49 = distinct !{!49, !40, !"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h40e68377b52dab4cE: argument 0"}
-!50 = !{!44}
-!51 = !{!42}
-!52 = !{!47, !42, !48, !44, !49, !39}
-!53 = !{!54, !39}
-!54 = distinct !{!54, !55, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17hf734fef88fe759afE.llvm.3177657743263483309: argument 0"}
-!55 = distinct !{!55, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17hf734fef88fe759afE.llvm.3177657743263483309"}
-!56 = !{!49}
+!50 = !{!49}
+!51 = !{!44}
+!52 = !{!42}
+!53 = !{!47, !42, !48, !44, !49, !39}
+!54 = !{!55, !39}
+!55 = distinct !{!55, !56, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17hf734fef88fe759afE.llvm.3177657743263483309: argument 0"}
+!56 = distinct !{!56, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17hf734fef88fe759afE.llvm.3177657743263483309"}
 !57 = !{!58}
 !58 = distinct !{!58, !59, !"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17hb4eaa58d25cc2512E: argument 0"}
 !59 = distinct !{!59, !"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17hb4eaa58d25cc2512E"}
@@ -1334,13 +1334,13 @@ attributes #14 = { nounwind }
 !86 = distinct !{!86, !82, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h9b2012f39402e252E.llvm.3177657743263483309: argument 0"}
 !87 = distinct !{!87, !84, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17hc0f3e40a2df6e9e7E.llvm.3177657743263483309: argument 0"}
 !88 = distinct !{!88, !79, !"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h40e68377b52dab4cE: argument 0"}
-!89 = !{!83}
-!90 = !{!81}
-!91 = !{!86, !81, !87, !83, !88, !78}
-!92 = !{!93, !78}
-!93 = distinct !{!93, !94, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17hf734fef88fe759afE.llvm.3177657743263483309: argument 0"}
-!94 = distinct !{!94, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17hf734fef88fe759afE.llvm.3177657743263483309"}
-!95 = !{!88}
+!89 = !{!88}
+!90 = !{!83}
+!91 = !{!81}
+!92 = !{!86, !81, !87, !83, !88, !78}
+!93 = !{!94, !78}
+!94 = distinct !{!94, !95, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17hf734fef88fe759afE.llvm.3177657743263483309: argument 0"}
+!95 = distinct !{!95, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17hf734fef88fe759afE.llvm.3177657743263483309"}
 !96 = !{!97}
 !97 = distinct !{!97, !98, !"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h5d949c23cfedbbc0E: argument 0"}
 !98 = distinct !{!98, !"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h5d949c23cfedbbc0E"}

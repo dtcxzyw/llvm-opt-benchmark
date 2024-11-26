@@ -76030,9 +76030,9 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS
   %m_collisions.i = getelementptr inbounds i8, ptr %new_table, i64 32
   store i32 0, ptr %m_collisions.i, align 8
   %m_monomials = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load ptr, ptr %m_monomials, align 8
+  %0 = load ptr, ptr %m_monomials, align 8, !noalias !319
   %m_slots.i = getelementptr inbounds i8, ptr %this, i64 44
-  %1 = load i32, ptr %m_slots.i, align 4
+  %1 = load i32, ptr %m_slots.i, align 4, !noalias !319
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::monomial *, polynomial::monomial::hash_proc, polynomial::monomial::eq_proc>::cell", ptr %0, i64 %idx.ext.i
   %cmp.not3.i.i.i = icmp eq i32 %1, 0

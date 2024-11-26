@@ -1182,10 +1182,10 @@ if.end31.i.i:                                     ; preds = %if.end16.i.i, %for.
   br label %_ZN4llvh19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvh19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %for.body.i.i, %if.end31.i.i, %if.then19.i.i, %if.then12.i.i
-  %14 = load ptr, ptr %CurArray.i.i.i, align 8
-  %15 = load ptr, ptr %OtherChildren, align 8
-  %16 = load i32, ptr %NumNonEmpty.i.i.i, align 4
-  %17 = load i32, ptr %CurArraySize.i.i.i, align 8
+  %14 = load ptr, ptr %CurArray.i.i.i, align 8, !noalias !9
+  %15 = load ptr, ptr %OtherChildren, align 8, !noalias !9
+  %16 = load i32, ptr %NumNonEmpty.i.i.i, align 4, !noalias !9
+  %17 = load i32, ptr %CurArraySize.i.i.i, align 8, !noalias !9
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.037, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
@@ -11375,7 +11375,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
 if.end.i.i12:                                     ; preds = %if.then12.i.i.i.i, %_ZN4llvh14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseIN6hermes10BasicBlockELb0EEEE13InsertionInfoC2Ev.exit
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %_ZN4llvh14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseIN6hermes10BasicBlockELb0EEEE13InsertionInfoC2Ev.exit ]
   %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEENS_6detail13DenseSetEmptyELj8ENS_12DenseMapInfoIS6_EENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E20InsertIntoBucketImplIS6_EEPSC_RKS6_RKT_SG_(ptr noundef nonnull align 8 dereferenceable(72) %Affected.i, ptr noundef nonnull align 8 dereferenceable(8) %To.addr, ptr noundef nonnull align 8 dereferenceable(8) %To.addr, ptr noundef %cond.sink.i.i.i.i), !noalias !77
-  %17 = load ptr, ptr %To.addr, align 8
+  %17 = load ptr, ptr %To.addr, align 8, !noalias !77
   store ptr %17, ptr %call.i.i.i, align 8, !noalias !77
   br label %_ZN4llvh6detail12DenseSetImplIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEENS_13SmallDenseMapIS6_NS0_13DenseSetEmptyELj8ENS_12DenseMapInfoIS6_EENS0_12DenseSetPairIS6_EEEESA_E6insertERKS6_.exit
 
@@ -15113,7 +15113,7 @@ if.end31.i.i:                                     ; preds = %if.end16.i.i, %_ZN4
   br label %_ZN4llvh19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvh19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %for.body.i.i, %if.end31.i.i, %if.then19.i.i, %if.then12.i.i
-  %14 = load ptr, ptr %CurArray.i.i.i, align 8
+  %14 = load ptr, ptr %CurArray.i.i.i, align 8, !noalias !125
   %15 = load i32, ptr %Size.i.i.i.i.i, align 8
   %tobool.not.i = icmp eq i32 %15, 0
   br i1 %tobool.not.i, label %do.end53, label %do.body1, !llvm.loop !128
@@ -15816,7 +15816,7 @@ if.end13.i.i.i.i139:                              ; preds = %if.end9.i.i.i.i133
 if.end.i.i156:                                    ; preds = %land.lhs.true, %if.then12.i.i.i.i153
   %cond.sink.i.i.i.i157 = phi ptr [ %cond.i.i.i.i155, %if.then12.i.i.i.i153 ], [ null, %land.lhs.true ]
   %call.i.i.i158 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEENS_6detail13DenseSetEmptyELj8ENS_12DenseMapInfoIS6_EENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E20InsertIntoBucketImplIS6_EEPSC_RKS6_RKT_SG_(ptr noundef nonnull align 8 dereferenceable(72) %Affected, ptr noundef nonnull align 8 dereferenceable(8) %SuccTN, ptr noundef nonnull align 8 dereferenceable(8) %SuccTN, ptr noundef %cond.sink.i.i.i.i157), !noalias !136
-  %109 = load ptr, ptr %SuccTN, align 8
+  %109 = load ptr, ptr %SuccTN, align 8, !noalias !136
   store ptr %109, ptr %call.i.i.i158, align 8, !noalias !136
   br label %_ZN4llvh6detail12DenseSetImplIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEENS_13SmallDenseMapIS6_NS0_13DenseSetEmptyELj8ENS_12DenseMapInfoIS6_EENS0_12DenseSetPairIS6_EEEESA_E6insertERKS6_.exit
 
@@ -15887,7 +15887,7 @@ for.inc:                                          ; preds = %if.end13.i.i.i107, 
   br i1 %cmp.not, label %for.cond.cleanup.loopexit, label %for.body
 
 do.end53:                                         ; preds = %_ZN4llvh19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  %119 = load ptr, ptr %Processed, align 8
+  %119 = load ptr, ptr %Processed, align 8, !noalias !125
   %cmp.i.i4.i.i.le = icmp eq ptr %14, %119
   br i1 %cmp.i.i4.i.i.le, label %_ZN4llvh11SmallPtrSetIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit, label %if.then.i.i.i173
 

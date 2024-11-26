@@ -3142,7 +3142,7 @@ if.then.i.i.i.i11:                                ; preds = %do.body.i.i.i.i.i
   br label %_ZNKSt8weak_ptrIiE4lockEv.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i: ; preds = %do.cond.i.i.i.i.i
-  %.pr.i.i.i = load ptr, ptr %_M_refcount.i.i.i9, align 8
+  %.pr.i.i.i = load ptr, ptr %_M_refcount.i.i.i9, align 8, !alias.scope !46
   %tobool.not.i2.i.i.i = icmp eq ptr %.pr.i.i.i, null
   br i1 %tobool.not.i2.i.i.i, label %_ZNKSt8weak_ptrIiE4lockEv.exit, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
 

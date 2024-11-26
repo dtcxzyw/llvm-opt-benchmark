@@ -1061,7 +1061,7 @@ _ZN4llvm6Logger5flushEv.exit:                     ; preds = %._crit_edge, %42
   %64 = add i64 %.012, %63
   %65 = sub i64 %62, %64
   call void @_ZN4llvm3sys2fs14readNativeFileEiNS_15MutableArrayRefIcEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %2, i32 noundef %58, ptr %59, i64 %65) #16
-  %66 = load i8, ptr %51, align 8
+  %66 = load i8, ptr %51, align 8, !noalias !25
   %67 = trunc i8 %66 to i1
   %.pre = load i64, ptr %2, align 8
   br i1 %67, label %_ZN4llvm8ExpectedImE9takeErrorEv.exit, label %_ZN4llvm5ErrorD2Ev.exit.thread

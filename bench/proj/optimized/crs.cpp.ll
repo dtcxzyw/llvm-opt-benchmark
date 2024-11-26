@@ -4056,7 +4056,7 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_27Derive
 
 22:                                               ; preds = %4
   %23 = getelementptr inbounds i8, ptr %20, i64 8
-  %24 = load i8, ptr @__libc_single_threaded, align 1
+  %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !40
   %.not.i.i.i.i.i.i = icmp eq i8 %24, 0
   %25 = getelementptr inbounds i8, ptr %6, i64 8
   br i1 %.not.i.i.i.i.i.i, label %29, label %.thread
@@ -7040,7 +7040,7 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_26Derive
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds i8, ptr %21, i64 8
-  %25 = load i8, ptr @__libc_single_threaded, align 1
+  %25 = load i8, ptr @__libc_single_threaded, align 1, !noalias !100
   %.not.i.i.i.i.i.i = icmp eq i8 %25, 0
   %26 = getelementptr inbounds i8, ptr %6, i64 8
   br i1 %.not.i.i.i.i.i.i, label %30, label %.thread
@@ -9588,7 +9588,7 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_24Derive
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds i8, ptr %21, i64 8
-  %25 = load i8, ptr @__libc_single_threaded, align 1
+  %25 = load i8, ptr @__libc_single_threaded, align 1, !noalias !133
   %.not.i.i.i.i.i.i = icmp eq i8 %25, 0
   %26 = getelementptr inbounds i8, ptr %6, i64 8
   br i1 %.not.i.i.i.i.i.i, label %30, label %.thread
@@ -12478,7 +12478,7 @@ _ZNK5osgeo4proj3crs19DerivedProjectedCRS7baseCRSEv.exit: ; preds = %100, %110, %
 
 122:                                              ; preds = %120
   %123 = getelementptr inbounds i8, ptr %8, i64 8
-  %124 = load ptr, ptr %123, align 8
+  %124 = load ptr, ptr %123, align 8, !noalias !185
   %.not.i.i.i.i55 = icmp eq ptr %124, null
   br i1 %.not.i.i.i.i55, label %_ZNSt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEED2Ev.exit.thread, label %126
 
@@ -15353,7 +15353,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameEED2Ev.exit: ; preds
   %483 = load ptr, ptr %482, align 8
   %484 = getelementptr inbounds i8, ptr %483, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
-  %485 = load ptr, ptr %484, align 8, !noalias !160
+  %485 = load ptr, ptr %484, align 8, !noalias !216
   %486 = icmp eq ptr %485, null
   br i1 %486, label %.thread.i, label %487
 

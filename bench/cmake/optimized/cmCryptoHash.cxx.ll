@@ -855,7 +855,7 @@ define dso_local void @_ZN12cmCryptoHash10HashStringB5cxx11ESt17basic_string_vie
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !32
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !noalias !32
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -933,7 +933,7 @@ define dso_local void @_ZN12cmCryptoHash8HashFileERKNSt7__cxx1112basic_stringIcS
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !35
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !noalias !35
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9

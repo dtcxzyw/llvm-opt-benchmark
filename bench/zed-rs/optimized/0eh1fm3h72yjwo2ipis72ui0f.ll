@@ -429,7 +429,7 @@ define internal noundef zeroext i1 @"_ZN65_$LT$smallvec..CollectionAllocErr$u20$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h08dfc82d27e08fb0E"(ptr noalias noundef align 8 dereferenceable(2120) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 2112
-  %4 = load i64, ptr %3, align 8, !noundef !4
+  %4 = load i64, ptr %3, align 8, !alias.scope !22, !noalias !25, !noundef !4
   %5 = icmp ugt i64 %4, 16
   %6 = load ptr, ptr %0, align 8, !alias.scope !22, !noalias !25, !nonnull !4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -444,7 +444,7 @@ define hidden { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN89_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h42d573966553a178E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([2136 x i8]) align 8 dereferenceable(2136) initializes((0, 2136)) %0, ptr noalias nocapture noundef align 8 dereferenceable(2120) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2112
-  %4 = load i64, ptr %3, align 8, !noalias !4, !noundef !4
+  %4 = load i64, ptr %3, align 8, !alias.scope !27, !noalias !30, !noundef !4
   %5 = icmp ugt i64 %4, 16
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !27, !noalias !30

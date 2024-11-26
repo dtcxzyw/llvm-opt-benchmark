@@ -363,7 +363,7 @@ _ZN6hermes2vm10StringView14const_iteratorppEv.exit.i: ; preds = %if.else.i.i, %i
   %__k1.sroa.0.1.i = phi ptr [ null, %if.else.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
   %__k1.sroa.5.1.i = phi ptr [ %incdec.ptr3.i.i, %if.else.i.i ], [ %__k1.sroa.5.0.i, %if.then.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__p.addr.0.i, i64 1
-  br label %for.cond.i, !llvm.loop !5
+  br label %for.cond.i, !llvm.loop !7
 
 _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN6hermes2vm10StringView14const_iteratorEEEvT_SA_St20forward_iterator_tagEN6_GuardD2Ev.exit: ; preds = %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.thread.i, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.i
   %3 = load i64, ptr %__dnew, align 8
@@ -393,6 +393,8 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!6 = distinct !{!6, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

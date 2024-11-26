@@ -7420,7 +7420,7 @@ ZSTD_dedicatedDictSearch_getCParams.exit:         ; preds = %15
   %19 = load i32, ptr %18, align 4
   call fastcc void @ZSTD_getCParams_internal(ptr dead_on_unwind noalias nonnull writable align 4 %8, i32 noundef %19, i64 noundef 0, i64 noundef %1, i32 noundef 2), !alias.scope !48
   %20 = getelementptr inbounds i8, ptr %8, i64 24
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 4, !alias.scope !48
   %.off.i = add i32 %21, -3
   %switch.i = icmp ult i32 %.off.i, 3
   %22 = getelementptr inbounds i8, ptr %8, i64 8

@@ -735,7 +735,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5al
 ; Function Attrs: nonlazybind uwtable
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecIBH_NtNtCseG2FYMysgNb_3wax5token5TokenEEEB1l_(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
+  %3 = load ptr, ptr %2, align 8, !alias.scope !174, !nonnull !8, !noundef !8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !174, !noundef !8
   %6 = icmp eq i64 %5, 0
@@ -837,7 +837,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecIBH_TINtCs4DJqE8qduBp_4pori8StatefulINtB1l_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEuEEEEB2a_(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
+  %3 = load ptr, ptr %2, align 8, !alias.scope !225, !nonnull !8, !noundef !8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !225, !noundef !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
@@ -930,7 +930,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtBJ_9into_iter8IntoIterTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1H_5TokenEEEEB1J_(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
+  %3 = load ptr, ptr %2, align 8, !alias.scope !270, !nonnull !8, !noundef !8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !270, !noundef !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
@@ -1027,7 +1027,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
 ; Function Attrs: nonlazybind uwtable
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
+  %3 = load ptr, ptr %2, align 8, !alias.scope !305, !nonnull !8, !noundef !8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !305, !noundef !8
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCseG2FYMysgNb_3wax5token5TokenEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 %3, i64 noundef %5)
@@ -1089,7 +1089,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsaz5AFKTGGYY_5regex5regex6string5RegexEECseG2FYMysgNb_3wax(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
+  %3 = load ptr, ptr %2, align 8, !alias.scope !344, !nonnull !8, !noundef !8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !344, !noundef !8
   br label %6
@@ -1161,7 +1161,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
 ; Function Attrs: nonlazybind uwtable
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryEEB1j_(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
+  %3 = load ptr, ptr %2, align 8, !alias.scope !371, !nonnull !8, !noundef !8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !371, !noundef !8
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryEBN_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 %3, i64 noundef %5)
@@ -1204,7 +1204,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1j_(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
+  %3 = load ptr, ptr %2, align 8, !alias.scope !398, !nonnull !8, !noundef !8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !398, !noundef !8
   br label %6
@@ -1516,7 +1516,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEENtB1h_15LiteralSequenceEEEB1j_(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !497)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
+  %3 = load ptr, ptr %2, align 8, !alias.scope !497, !nonnull !8, !noundef !8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !497, !noundef !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !500)
@@ -1725,7 +1725,7 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsW
   %3 = load ptr, ptr %2, align 8, !nonnull !8, !align !16, !noundef !8
   %4 = load ptr, ptr %3, align 8, !invariant.load !8
   %.not = icmp eq ptr %4, null
-  %.pre = load ptr, ptr %0, align 8
+  %.pre = load ptr, ptr %0, align 8, !alias.scope !587
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
@@ -1733,6 +1733,7 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsW
           to label %6 unwind label %13
 
 6:                                                ; preds = %5, %1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !587)
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8, !range !25, !invariant.load !8, !noalias !587
   %9 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2321,7 +2322,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wa
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !767)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !alias.scope !767, !nonnull !8, !noundef !8
+  %4 = load ptr, ptr %3, align 8, !alias.scope !770, !nonnull !8, !noundef !8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8, !alias.scope !770, !noundef !8
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCseG2FYMysgNb_3wax5token5TokenEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 %4, i64 noundef %6)
@@ -2364,7 +2365,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token11AlternativeTjjEEEBL_(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !797)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !alias.scope !797, !nonnull !8, !noundef !8
+  %3 = load ptr, ptr %2, align 8, !alias.scope !800, !nonnull !8, !noundef !8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !800, !noundef !8
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1i_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 %3, i64 noundef %5)
@@ -2670,7 +2671,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4WalkT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !977)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !980)
   %22 = getelementptr inbounds i8, ptr %0, i64 96
-  %23 = load ptr, ptr %22, align 8, !alias.scope !977, !nonnull !8, !noundef !8
+  %23 = load ptr, ptr %22, align 8, !alias.scope !983, !nonnull !8, !noundef !8
   %24 = getelementptr inbounds i8, ptr %0, i64 104
   %25 = load i64, ptr %24, align 8, !alias.scope !983, !noundef !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !984)
@@ -6178,7 +6179,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc6borrow3CoweEECseG2FYMysgNb_3wax.llvm.4870895441494037529.exit: ; preds = %1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECseG2FYMysgNb_3wax.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2618)
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !alias.scope !2618, !nonnull !8, !noundef !8
+  %13 = load ptr, ptr %12, align 8, !alias.scope !2621, !nonnull !8, !noundef !8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !2621, !noundef !8
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i
@@ -6872,7 +6873,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc6borrow3CoweEECseG2FYMysgNb_3wax.llvm.4870895441494037529.exit: ; preds = %1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECseG2FYMysgNb_3wax.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2728)
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !alias.scope !2728, !nonnull !8, !noundef !8
+  %13 = load ptr, ptr %12, align 8, !alias.scope !2731, !nonnull !8, !noundef !8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !2731, !noundef !8
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryEBN_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 %13, i64 noundef %15)

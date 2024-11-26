@@ -27184,14 +27184,14 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i1633: ; preds = %2
   br i1 %2889, label %.lr.ph.i1631, label %.noexc1157.loopexit, !llvm.loop !177
 
 .noexc1157.loopexit:                              ; preds = %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i1633
-  %.pre4168 = load ptr, ptr %2388, align 8
+  %.pre4168 = load ptr, ptr %2388, align 8, !noalias !178
   br label %.noexc1157
 
 .noexc1157:                                       ; preds = %.noexc1157.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i1630
   %2890 = phi ptr [ %2883, %.noexc1157.loopexit ], [ %2855, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i1630 ]
   %2891 = phi ptr [ %2884, %.noexc1157.loopexit ], [ %2856, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i1630 ]
   %2892 = phi ptr [ %.pre4168, %.noexc1157.loopexit ], [ %2854, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i1630 ]
-  %2893 = load ptr, ptr %156, align 8
+  %2893 = load ptr, ptr %156, align 8, !noalias !178
   %2894 = icmp eq ptr %2893, %2892
   br i1 %2894, label %._crit_edge.i.i1147, label %2895
 
@@ -28429,14 +28429,14 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i1693: ; preds = %3
   br i1 %3496, label %.lr.ph.i1691, label %.noexc1186.loopexit, !llvm.loop !177
 
 .noexc1186.loopexit:                              ; preds = %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i1693
-  %.pre4172 = load ptr, ptr %2388, align 8
+  %.pre4172 = load ptr, ptr %2388, align 8, !noalias !192
   br label %.noexc1186
 
 .noexc1186:                                       ; preds = %.noexc1186.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i1690
   %3497 = phi ptr [ %3490, %.noexc1186.loopexit ], [ %3462, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i1690 ]
   %3498 = phi ptr [ %3491, %.noexc1186.loopexit ], [ %3463, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i1690 ]
   %3499 = phi ptr [ %.pre4172, %.noexc1186.loopexit ], [ %3461, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i1690 ]
-  %3500 = load ptr, ptr %156, align 8
+  %3500 = load ptr, ptr %156, align 8, !noalias !192
   %3501 = icmp eq ptr %3500, %3499
   br i1 %3501, label %._crit_edge.i.i1176, label %3502
 
@@ -29117,7 +29117,7 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i.i1204: ; preds = 
 
 .lr.ph.i.i1202:                                   ; preds = %._crit_edge.i.i1197
   %3828 = load ptr, ptr %2386, align 8, !noalias !208
-  %3829 = load i32, ptr %159, align 4
+  %3829 = load i32, ptr %159, align 4, !noalias !208
   br label %3830
 
 3830:                                             ; preds = %3835, %.lr.ph.i.i1202

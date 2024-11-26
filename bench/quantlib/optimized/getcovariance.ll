@@ -54,7 +54,7 @@ entry:
   %ref.tmp123 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   %rows_.i.i = getelementptr inbounds nuw i8, ptr %cov, i64 8
-  %0 = load i64, ptr %rows_.i.i, align 8, !tbaa !6
+  %0 = load i64, ptr %rows_.i.i, align 8, !tbaa !6, !noalias !3
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %cov, i64 16
   %1 = load i64, ptr %columns_.i.i, align 8, !tbaa !18, !noalias !3
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %0)

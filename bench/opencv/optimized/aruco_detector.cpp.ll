@@ -9035,7 +9035,7 @@ _ZN2cv3Mat5beginINS_6Point_IfEEEENS_12MatIterator_IT_EEv.exit: ; preds = %1164, 
           to label %.noexc286 unwind label %.loopexit.split-lp526.loopexit.split-lp.loopexit
 
 .noexc286:                                        ; preds = %.noexc285
-  %1170 = load ptr, ptr %88, align 8
+  %1170 = load ptr, ptr %88, align 8, !alias.scope !124
   %1171 = icmp eq ptr %1170, null
   %1172 = icmp eq i64 %1169, 0
   %or.cond.i.i.i = or i1 %1172, %1171

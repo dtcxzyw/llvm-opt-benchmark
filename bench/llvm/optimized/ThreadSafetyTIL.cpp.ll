@@ -1345,8 +1345,8 @@ _ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i: ; preds = %.lr
   br i1 %.not.i40, label %_ZN5clang12threadSafety3til4SCFG14renumberInstrsEv.exit, label %.lr.ph.i39
 
 _ZN5clang12threadSafety3til4SCFG14renumberInstrsEv.exit: ; preds = %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i
-  %.pre93 = load ptr, ptr %4, align 8
-  %.pre94 = load i64, ptr %5, align 8
+  %.pre93 = load ptr, ptr %4, align 8, !noalias !11
+  %.pre94 = load i64, ptr %5, align 8, !noalias !11
   %.not6776 = icmp eq i64 %.pre94, 0
   br i1 %.not6776, label %._crit_edge89, label %.lr.ph78.preheader
 
@@ -1504,8 +1504,8 @@ _ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNod
   br i1 %.not38, label %._crit_edge84, label %.lr.ph83
 
 ._crit_edge84:                                    ; preds = %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54
-  %.pre97 = load ptr, ptr %4, align 8, !noalias !11
-  %.pre98 = load i64, ptr %5, align 8, !noalias !16
+  %.pre97 = load ptr, ptr %4, align 8, !noalias !24
+  %.pre98 = load i64, ptr %5, align 8, !noalias !24
   %.not6885 = icmp eq i64 %.pre98, 0
   br i1 %.not6885, label %._crit_edge89, label %.lr.ph88.preheader
 
@@ -1673,17 +1673,29 @@ attributes #9 = { nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"_ZN4llvm7reverseIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDaOT_: argument 0"}
-!13 = distinct !{!13, !"_ZN4llvm7reverseIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDaOT_"}
-!14 = distinct !{!14, !15, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE7reverseEv: argument 0"}
-!15 = distinct !{!15, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE7reverseEv"}
-!16 = !{!17, !19, !21, !23, !12, !14}
-!17 = distinct !{!17, !18, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE6rbeginEv: argument 0"}
-!18 = distinct !{!18, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE6rbeginEv"}
-!19 = distinct !{!19, !20, !"_ZSt6rbeginIN5clang12threadSafety3til11SimpleArrayIPNS2_10BasicBlockEEEEDTcldtfp_6rbeginEERT_: argument 0"}
-!20 = distinct !{!20, !"_ZSt6rbeginIN5clang12threadSafety3til11SimpleArrayIPNS2_10BasicBlockEEEEDTcldtfp_6rbeginEERT_"}
-!21 = distinct !{!21, !22, !"_ZN4llvm10adl_detail11rbegin_implIRN5clang12threadSafety3til11SimpleArrayIPNS4_10BasicBlockEEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOSA_: argument 0"}
-!22 = distinct !{!22, !"_ZN4llvm10adl_detail11rbegin_implIRN5clang12threadSafety3til11SimpleArrayIPNS4_10BasicBlockEEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOSA_"}
-!23 = distinct !{!23, !24, !"_ZN4llvm10adl_rbeginIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS9_: argument 0"}
-!24 = distinct !{!24, !"_ZN4llvm10adl_rbeginIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS9_"}
+!11 = !{!12, !14, !16, !18, !20, !22}
+!12 = distinct !{!12, !13, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE6rbeginEv: argument 0"}
+!13 = distinct !{!13, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE6rbeginEv"}
+!14 = distinct !{!14, !15, !"_ZSt6rbeginIN5clang12threadSafety3til11SimpleArrayIPNS2_10BasicBlockEEEEDTcldtfp_6rbeginEERT_: argument 0"}
+!15 = distinct !{!15, !"_ZSt6rbeginIN5clang12threadSafety3til11SimpleArrayIPNS2_10BasicBlockEEEEDTcldtfp_6rbeginEERT_"}
+!16 = distinct !{!16, !17, !"_ZN4llvm10adl_detail11rbegin_implIRN5clang12threadSafety3til11SimpleArrayIPNS4_10BasicBlockEEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOSA_: argument 0"}
+!17 = distinct !{!17, !"_ZN4llvm10adl_detail11rbegin_implIRN5clang12threadSafety3til11SimpleArrayIPNS4_10BasicBlockEEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOSA_"}
+!18 = distinct !{!18, !19, !"_ZN4llvm10adl_rbeginIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS9_: argument 0"}
+!19 = distinct !{!19, !"_ZN4llvm10adl_rbeginIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS9_"}
+!20 = distinct !{!20, !21, !"_ZN4llvm7reverseIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDaOT_: argument 0"}
+!21 = distinct !{!21, !"_ZN4llvm7reverseIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDaOT_"}
+!22 = distinct !{!22, !23, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE7reverseEv: argument 0"}
+!23 = distinct !{!23, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE7reverseEv"}
+!24 = !{!25, !27, !29, !31, !33, !35}
+!25 = distinct !{!25, !26, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE6rbeginEv: argument 0"}
+!26 = distinct !{!26, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE6rbeginEv"}
+!27 = distinct !{!27, !28, !"_ZSt6rbeginIN5clang12threadSafety3til11SimpleArrayIPNS2_10BasicBlockEEEEDTcldtfp_6rbeginEERT_: argument 0"}
+!28 = distinct !{!28, !"_ZSt6rbeginIN5clang12threadSafety3til11SimpleArrayIPNS2_10BasicBlockEEEEDTcldtfp_6rbeginEERT_"}
+!29 = distinct !{!29, !30, !"_ZN4llvm10adl_detail11rbegin_implIRN5clang12threadSafety3til11SimpleArrayIPNS4_10BasicBlockEEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOSA_: argument 0"}
+!30 = distinct !{!30, !"_ZN4llvm10adl_detail11rbegin_implIRN5clang12threadSafety3til11SimpleArrayIPNS4_10BasicBlockEEEEEDTcl6rbeginclsr3stdE7forwardIT_Efp_EEEOSA_"}
+!31 = distinct !{!31, !32, !"_ZN4llvm10adl_rbeginIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS9_: argument 0"}
+!32 = distinct !{!32, !"_ZN4llvm10adl_rbeginIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDTclsr10adl_detailE11rbegin_implclsr3stdE7forwardIT_Efp_EEEOS9_"}
+!33 = distinct !{!33, !34, !"_ZN4llvm7reverseIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDaOT_: argument 0"}
+!34 = distinct !{!34, !"_ZN4llvm7reverseIRN5clang12threadSafety3til11SimpleArrayIPNS3_10BasicBlockEEEEEDaOT_"}
+!35 = distinct !{!35, !36, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE7reverseEv: argument 0"}
+!36 = distinct !{!36, !"_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE7reverseEv"}

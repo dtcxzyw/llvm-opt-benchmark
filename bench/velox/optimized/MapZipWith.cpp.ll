@@ -10922,7 +10922,7 @@ lpad.i.i.i595:                                    ; preds = %if.then6.i.i.i.i591
   br label %common.resume.i596
 
 _ZN8facebook5velox15allocateIndicesEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %for.body.i.i.i.preheader.i.i.i.i599, %if.end.i.i.i.i589
-  %811 = load ptr, ptr %ref.tmp154, align 8
+  %811 = load ptr, ptr %ref.tmp154, align 8, !alias.scope !132
   %vtable.i.i600 = load ptr, ptr %811, align 8, !noalias !132
   %vfn.i.i601 = getelementptr inbounds i8, ptr %vtable.i.i600, i64 24
   %812 = load ptr, ptr %vfn.i.i601, align 8, !noalias !132

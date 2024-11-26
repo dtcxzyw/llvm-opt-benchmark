@@ -88487,23 +88487,23 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i
   %6 = atomicrmw add ptr %4, i32 1 monotonic, align 4, !noalias !1525
-  %.pre.i = load ptr, ptr %shared_destroy.i.i.i.i.i, align 8, !noalias !1525
+  %.pre.i = load ptr, ptr %shared_destroy.i.i.i.i.i, align 8, !noalias !1528
   %7 = icmp eq ptr %.pre.i, null
   %vtable_.i.i.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  store ptr %ref.tmp8.val, ptr %vtable_.i.i.i.i.i1.i, align 8, !alias.scope !1528
+  store ptr %ref.tmp8.val, ptr %vtable_.i.i.i.i.i1.i, align 8, !alias.scope !1531
   %buffer_.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
-  store i64 %ref.tmp8.val45, ptr %buffer_.i.i.i.i.i2.i, align 8, !alias.scope !1528
+  store i64 %ref.tmp8.val45, ptr %buffer_.i.i.i.i.i2.i, align 8, !alias.scope !1531
   br i1 %7, label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont10
-  call void @llvm.experimental.noalias.scope.decl(metadata !1531)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1533)
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i
-  %8 = atomicrmw add ptr %4, i32 1 monotonic, align 4, !noalias !1533
+  %8 = atomicrmw add ptr %4, i32 1 monotonic, align 4, !noalias !1528
   %.pre4.i = load ptr, ptr %shared_destroy.i.i.i.i.i, align 8, !noalias !1525
   %9 = icmp eq ptr %.pre4.i, null
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp7, align 8, !alias.scope !1533
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp7, align 8, !alias.scope !1528
   br i1 %9, label %invoke.cont12, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
@@ -88531,7 +88531,7 @@ _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDete
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i: ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp7, align 8, !alias.scope !1533
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp7, align 8, !alias.scope !1528
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i, %if.then.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
@@ -88965,23 +88965,23 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i110: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i107
   %94 = atomicrmw add ptr %92, i32 1 monotonic, align 4, !noalias !1541
-  %.pre.i111 = load ptr, ptr %shared_destroy.i.i.i.i.i108, align 8, !noalias !1541
+  %.pre.i111 = load ptr, ptr %shared_destroy.i.i.i.i.i108, align 8, !noalias !1544
   %95 = icmp eq ptr %.pre.i111, null
   %vtable_.i.i.i.i.i1.i112 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
-  store ptr %ref.tmp40.val, ptr %vtable_.i.i.i.i.i1.i112, align 8, !alias.scope !1544
+  store ptr %ref.tmp40.val, ptr %vtable_.i.i.i.i.i1.i112, align 8, !alias.scope !1547
   %buffer_.i.i.i.i.i2.i113 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
-  store i64 %ref.tmp40.val46, ptr %buffer_.i.i.i.i.i2.i113, align 8, !alias.scope !1544
+  store i64 %ref.tmp40.val46, ptr %buffer_.i.i.i.i.i2.i113, align 8, !alias.scope !1547
   br i1 %95, label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i120, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i114
 
 invoke.cont.i125:                                 ; preds = %invoke.cont42
-  call void @llvm.experimental.noalias.scope.decl(metadata !1547)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1549)
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i121
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i114: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i110
-  %96 = atomicrmw add ptr %92, i32 1 monotonic, align 4, !noalias !1549
+  %96 = atomicrmw add ptr %92, i32 1 monotonic, align 4, !noalias !1544
   %.pre4.i115 = load ptr, ptr %shared_destroy.i.i.i.i.i108, align 8, !noalias !1541
   %97 = icmp eq ptr %.pre4.i115, null
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp39, align 8, !alias.scope !1549
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp39, align 8, !alias.scope !1544
   br i1 %97, label %invoke.cont44, label %land.lhs.true.i.i.i.i.i116
 
 land.lhs.true.i.i.i.i.i116:                       ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i114
@@ -89009,7 +89009,7 @@ _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDete
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i120
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i120: ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i121, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i110
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp39, align 8, !alias.scope !1549
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp39, align 8, !alias.scope !1544
   br label %invoke.cont44
 
 invoke.cont44:                                    ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i120, %if.then.i.i.i.i.i118, %land.lhs.true.i.i.i.i.i116, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i114
@@ -89587,23 +89587,23 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i289: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i286
   %198 = atomicrmw add ptr %196, i32 1 monotonic, align 4, !noalias !1557
-  %.pre.i290 = load ptr, ptr %shared_destroy.i.i.i.i.i287, align 8, !noalias !1557
+  %.pre.i290 = load ptr, ptr %shared_destroy.i.i.i.i.i287, align 8, !noalias !1560
   %199 = icmp eq ptr %.pre.i290, null
   %vtable_.i.i.i.i.i1.i291 = getelementptr inbounds i8, ptr %ref.tmp104, i64 8
-  store ptr %ref.tmp105.val, ptr %vtable_.i.i.i.i.i1.i291, align 8, !alias.scope !1560
+  store ptr %ref.tmp105.val, ptr %vtable_.i.i.i.i.i1.i291, align 8, !alias.scope !1563
   %buffer_.i.i.i.i.i2.i292 = getelementptr inbounds i8, ptr %ref.tmp104, i64 16
-  store i64 %ref.tmp105.val47, ptr %buffer_.i.i.i.i.i2.i292, align 8, !alias.scope !1560
+  store i64 %ref.tmp105.val47, ptr %buffer_.i.i.i.i.i2.i292, align 8, !alias.scope !1563
   br i1 %199, label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i299, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i293
 
 invoke.cont.i304:                                 ; preds = %invoke.cont107
-  call void @llvm.experimental.noalias.scope.decl(metadata !1563)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1565)
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i300
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i293: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i289
-  %200 = atomicrmw add ptr %196, i32 1 monotonic, align 4, !noalias !1565
+  %200 = atomicrmw add ptr %196, i32 1 monotonic, align 4, !noalias !1560
   %.pre4.i294 = load ptr, ptr %shared_destroy.i.i.i.i.i287, align 8, !noalias !1557
   %201 = icmp eq ptr %.pre4.i294, null
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp104, align 8, !alias.scope !1565
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp104, align 8, !alias.scope !1560
   br i1 %201, label %invoke.cont109, label %land.lhs.true.i.i.i.i.i295
 
 land.lhs.true.i.i.i.i.i295:                       ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i293
@@ -89631,7 +89631,7 @@ _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDete
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i299
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i299: ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i300, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i289
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp104, align 8, !alias.scope !1565
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp104, align 8, !alias.scope !1560
   br label %invoke.cont109
 
 invoke.cont109:                                   ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i299, %if.then.i.i.i.i.i297, %land.lhs.true.i.i.i.i.i295, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i293
@@ -90210,23 +90210,23 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i463: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i460
   %302 = atomicrmw add ptr %300, i32 1 monotonic, align 4, !noalias !1573
-  %.pre.i464 = load ptr, ptr %shared_destroy.i.i.i.i.i461, align 8, !noalias !1573
+  %.pre.i464 = load ptr, ptr %shared_destroy.i.i.i.i.i461, align 8, !noalias !1576
   %303 = icmp eq ptr %.pre.i464, null
   %vtable_.i.i.i.i.i1.i465 = getelementptr inbounds i8, ptr %ref.tmp169, i64 8
-  store ptr %ref.tmp170.val, ptr %vtable_.i.i.i.i.i1.i465, align 8, !alias.scope !1576
+  store ptr %ref.tmp170.val, ptr %vtable_.i.i.i.i.i1.i465, align 8, !alias.scope !1579
   %buffer_.i.i.i.i.i2.i466 = getelementptr inbounds i8, ptr %ref.tmp169, i64 16
-  store i64 %ref.tmp170.val48, ptr %buffer_.i.i.i.i.i2.i466, align 8, !alias.scope !1576
+  store i64 %ref.tmp170.val48, ptr %buffer_.i.i.i.i.i2.i466, align 8, !alias.scope !1579
   br i1 %303, label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i473, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i467
 
 invoke.cont.i478:                                 ; preds = %invoke.cont172
-  call void @llvm.experimental.noalias.scope.decl(metadata !1579)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1581)
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i474
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i467: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i463
-  %304 = atomicrmw add ptr %300, i32 1 monotonic, align 4, !noalias !1581
+  %304 = atomicrmw add ptr %300, i32 1 monotonic, align 4, !noalias !1576
   %.pre4.i468 = load ptr, ptr %shared_destroy.i.i.i.i.i461, align 8, !noalias !1573
   %305 = icmp eq ptr %.pre4.i468, null
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp169, align 8, !alias.scope !1581
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp169, align 8, !alias.scope !1576
   br i1 %305, label %invoke.cont174, label %land.lhs.true.i.i.i.i.i469
 
 land.lhs.true.i.i.i.i.i469:                       ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i467
@@ -90254,7 +90254,7 @@ _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDete
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i473
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i473: ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i474, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i463
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp169, align 8, !alias.scope !1581
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp169, align 8, !alias.scope !1576
   br label %invoke.cont174
 
 invoke.cont174:                                   ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i473, %if.then.i.i.i.i.i471, %land.lhs.true.i.i.i.i.i469, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i467
@@ -94346,23 +94346,23 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i
   %6 = atomicrmw add ptr %4, i32 1 monotonic, align 4, !noalias !1665
-  %.pre.i = load ptr, ptr %shared_destroy.i.i.i.i.i, align 8, !noalias !1665
+  %.pre.i = load ptr, ptr %shared_destroy.i.i.i.i.i, align 8, !noalias !1668
   %7 = icmp eq ptr %.pre.i, null
   %vtable_.i.i.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
-  store ptr %ref.tmp13.val, ptr %vtable_.i.i.i.i.i1.i, align 8, !alias.scope !1668
+  store ptr %ref.tmp13.val, ptr %vtable_.i.i.i.i.i1.i, align 8, !alias.scope !1671
   %buffer_.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
-  store i64 %ref.tmp13.val35, ptr %buffer_.i.i.i.i.i2.i, align 8, !alias.scope !1668
+  store i64 %ref.tmp13.val35, ptr %buffer_.i.i.i.i.i2.i, align 8, !alias.scope !1671
   br i1 %7, label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont14
-  call void @llvm.experimental.noalias.scope.decl(metadata !1671)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1673)
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i
-  %8 = atomicrmw add ptr %4, i32 1 monotonic, align 4, !noalias !1673
+  %8 = atomicrmw add ptr %4, i32 1 monotonic, align 4, !noalias !1668
   %.pre4.i = load ptr, ptr %shared_destroy.i.i.i.i.i, align 8, !noalias !1665
   %9 = icmp eq ptr %.pre4.i, null
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp12, align 8, !alias.scope !1673
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp12, align 8, !alias.scope !1668
   br i1 %9, label %invoke.cont16, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
@@ -94390,7 +94390,7 @@ _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDete
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i: ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp12, align 8, !alias.scope !1673
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp12, align 8, !alias.scope !1668
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i, %if.then.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
@@ -94897,23 +94897,23 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i116: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i113
   %100 = atomicrmw add ptr %98, i32 1 monotonic, align 4, !noalias !1681
-  %.pre.i117 = load ptr, ptr %shared_destroy.i.i.i.i.i114, align 8, !noalias !1681
+  %.pre.i117 = load ptr, ptr %shared_destroy.i.i.i.i.i114, align 8, !noalias !1684
   %101 = icmp eq ptr %.pre.i117, null
   %vtable_.i.i.i.i.i1.i118 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
-  store ptr %ref.tmp73.val, ptr %vtable_.i.i.i.i.i1.i118, align 8, !alias.scope !1684
+  store ptr %ref.tmp73.val, ptr %vtable_.i.i.i.i.i1.i118, align 8, !alias.scope !1687
   %buffer_.i.i.i.i.i2.i119 = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  store i64 %ref.tmp73.val34, ptr %buffer_.i.i.i.i.i2.i119, align 8, !alias.scope !1684
+  store i64 %ref.tmp73.val34, ptr %buffer_.i.i.i.i.i2.i119, align 8, !alias.scope !1687
   br i1 %101, label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i126, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i120
 
 invoke.cont.i131:                                 ; preds = %invoke.cont74
-  call void @llvm.experimental.noalias.scope.decl(metadata !1687)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1689)
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i127
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i120: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i116
-  %102 = atomicrmw add ptr %98, i32 1 monotonic, align 4, !noalias !1689
+  %102 = atomicrmw add ptr %98, i32 1 monotonic, align 4, !noalias !1684
   %.pre4.i121 = load ptr, ptr %shared_destroy.i.i.i.i.i114, align 8, !noalias !1681
   %103 = icmp eq ptr %.pre4.i121, null
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp72, align 8, !alias.scope !1689
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp72, align 8, !alias.scope !1684
   br i1 %103, label %invoke.cont76, label %land.lhs.true.i.i.i.i.i122
 
 land.lhs.true.i.i.i.i.i122:                       ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i120
@@ -94941,7 +94941,7 @@ _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDete
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i126
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i126: ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i127, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i116
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp72, align 8, !alias.scope !1689
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp72, align 8, !alias.scope !1684
   br label %invoke.cont76
 
 invoke.cont76:                                    ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i126, %if.then.i.i.i.i.i124, %land.lhs.true.i.i.i.i.i122, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i120
@@ -95447,23 +95447,23 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i271: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i268
   %192 = atomicrmw add ptr %190, i32 1 monotonic, align 4, !noalias !1697
-  %.pre.i272 = load ptr, ptr %shared_destroy.i.i.i.i.i269, align 8, !noalias !1697
+  %.pre.i272 = load ptr, ptr %shared_destroy.i.i.i.i.i269, align 8, !noalias !1700
   %193 = icmp eq ptr %.pre.i272, null
   %vtable_.i.i.i.i.i1.i273 = getelementptr inbounds i8, ptr %ref.tmp138, i64 8
-  store ptr %ref.tmp139.val, ptr %vtable_.i.i.i.i.i1.i273, align 8, !alias.scope !1700
+  store ptr %ref.tmp139.val, ptr %vtable_.i.i.i.i.i1.i273, align 8, !alias.scope !1703
   %buffer_.i.i.i.i.i2.i274 = getelementptr inbounds i8, ptr %ref.tmp138, i64 16
-  store i64 %ref.tmp139.val33, ptr %buffer_.i.i.i.i.i2.i274, align 8, !alias.scope !1700
+  store i64 %ref.tmp139.val33, ptr %buffer_.i.i.i.i.i2.i274, align 8, !alias.scope !1703
   br i1 %193, label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i281, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i275
 
 invoke.cont.i286:                                 ; preds = %invoke.cont140
-  call void @llvm.experimental.noalias.scope.decl(metadata !1703)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1705)
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i282
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i275: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i271
-  %194 = atomicrmw add ptr %190, i32 1 monotonic, align 4, !noalias !1705
+  %194 = atomicrmw add ptr %190, i32 1 monotonic, align 4, !noalias !1700
   %.pre4.i276 = load ptr, ptr %shared_destroy.i.i.i.i.i269, align 8, !noalias !1697
   %195 = icmp eq ptr %.pre4.i276, null
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp138, align 8, !alias.scope !1705
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp138, align 8, !alias.scope !1700
   br i1 %195, label %invoke.cont142, label %land.lhs.true.i.i.i.i.i277
 
 land.lhs.true.i.i.i.i.i277:                       ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i275
@@ -95491,7 +95491,7 @@ _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDete
   br label %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i281
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i281: ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i282, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i271
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp138, align 8, !alias.scope !1705
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp138, align 8, !alias.scope !1700
   br label %invoke.cont142
 
 invoke.cont142:                                   ; preds = %_ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.i281, %if.then.i.i.i.i.i279, %land.lhs.true.i.i.i.i.i277, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i275
@@ -138364,12 +138364,12 @@ attributes #31 = { noreturn nounwind }
 !1526 = distinct !{!1526, !1527, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE: %agg.result"}
 !1527 = distinct !{!1527, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE"}
 !1528 = !{!1529, !1526}
-!1529 = distinct !{!1529, !1530, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1529 = distinct !{!1529, !1530, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
 !1530 = distinct !{!1530, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_"}
-!1531 = !{!1532}
-!1532 = distinct !{!1532, !1530, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
-!1533 = !{!1532, !1526}
-!1534 = !{!1529, !1532, !1526}
+!1531 = !{!1532, !1526}
+!1532 = distinct !{!1532, !1530, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1533 = !{!1529}
+!1534 = !{!1532, !1529, !1526}
 !1535 = !{!1536}
 !1536 = distinct !{!1536, !1537, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_: %agg.result"}
 !1537 = distinct !{!1537, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_"}
@@ -138380,12 +138380,12 @@ attributes #31 = { noreturn nounwind }
 !1542 = distinct !{!1542, !1543, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE: %agg.result"}
 !1543 = distinct !{!1543, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE"}
 !1544 = !{!1545, !1542}
-!1545 = distinct !{!1545, !1546, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1545 = distinct !{!1545, !1546, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
 !1546 = distinct !{!1546, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_"}
-!1547 = !{!1548}
-!1548 = distinct !{!1548, !1546, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
-!1549 = !{!1548, !1542}
-!1550 = !{!1545, !1548, !1542}
+!1547 = !{!1548, !1542}
+!1548 = distinct !{!1548, !1546, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1549 = !{!1545}
+!1550 = !{!1548, !1545, !1542}
 !1551 = !{!1552}
 !1552 = distinct !{!1552, !1553, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_: %agg.result"}
 !1553 = distinct !{!1553, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_"}
@@ -138396,12 +138396,12 @@ attributes #31 = { noreturn nounwind }
 !1558 = distinct !{!1558, !1559, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE: %agg.result"}
 !1559 = distinct !{!1559, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE"}
 !1560 = !{!1561, !1558}
-!1561 = distinct !{!1561, !1562, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1561 = distinct !{!1561, !1562, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
 !1562 = distinct !{!1562, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_"}
-!1563 = !{!1564}
-!1564 = distinct !{!1564, !1562, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
-!1565 = !{!1564, !1558}
-!1566 = !{!1561, !1564, !1558}
+!1563 = !{!1564, !1558}
+!1564 = distinct !{!1564, !1562, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1565 = !{!1561}
+!1566 = !{!1564, !1561, !1558}
 !1567 = !{!1568}
 !1568 = distinct !{!1568, !1569, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_: %agg.result"}
 !1569 = distinct !{!1569, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_"}
@@ -138412,12 +138412,12 @@ attributes #31 = { noreturn nounwind }
 !1574 = distinct !{!1574, !1575, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE: %agg.result"}
 !1575 = distinct !{!1575, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE"}
 !1576 = !{!1577, !1574}
-!1577 = distinct !{!1577, !1578, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1577 = distinct !{!1577, !1578, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
 !1578 = distinct !{!1578, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_"}
-!1579 = !{!1580}
-!1580 = distinct !{!1580, !1578, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
-!1581 = !{!1580, !1574}
-!1582 = !{!1577, !1580, !1574}
+!1579 = !{!1580, !1574}
+!1580 = distinct !{!1580, !1578, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1581 = !{!1577}
+!1582 = !{!1580, !1577, !1574}
 !1583 = !{!1584}
 !1584 = distinct !{!1584, !1585, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_: %agg.result"}
 !1585 = distinct !{!1585, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_"}
@@ -138504,12 +138504,12 @@ attributes #31 = { noreturn nounwind }
 !1666 = distinct !{!1666, !1667, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE: %agg.result"}
 !1667 = distinct !{!1667, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE"}
 !1668 = !{!1669, !1666}
-!1669 = distinct !{!1669, !1670, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1669 = distinct !{!1669, !1670, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
 !1670 = distinct !{!1670, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_"}
-!1671 = !{!1672}
-!1672 = distinct !{!1672, !1670, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
-!1673 = !{!1672, !1666}
-!1674 = !{!1669, !1672, !1666}
+!1671 = !{!1672, !1666}
+!1672 = distinct !{!1672, !1670, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1673 = !{!1669}
+!1674 = !{!1672, !1669, !1666}
 !1675 = !{!1676}
 !1676 = distinct !{!1676, !1677, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_: %agg.result"}
 !1677 = distinct !{!1677, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_"}
@@ -138520,12 +138520,12 @@ attributes #31 = { noreturn nounwind }
 !1682 = distinct !{!1682, !1683, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE: %agg.result"}
 !1683 = distinct !{!1683, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE"}
 !1684 = !{!1685, !1682}
-!1685 = distinct !{!1685, !1686, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1685 = distinct !{!1685, !1686, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
 !1686 = distinct !{!1686, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_"}
-!1687 = !{!1688}
-!1688 = distinct !{!1688, !1686, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
-!1689 = !{!1688, !1682}
-!1690 = !{!1685, !1688, !1682}
+!1687 = !{!1688, !1682}
+!1688 = distinct !{!1688, !1686, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1689 = !{!1685}
+!1690 = !{!1688, !1685, !1682}
 !1691 = !{!1692}
 !1692 = distinct !{!1692, !1693, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_: %agg.result"}
 !1693 = distinct !{!1693, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_"}
@@ -138536,12 +138536,12 @@ attributes #31 = { noreturn nounwind }
 !1698 = distinct !{!1698, !1699, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE: %agg.result"}
 !1699 = distinct !{!1699, !"_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE"}
 !1700 = !{!1701, !1698}
-!1701 = distinct !{!1701, !1702, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1701 = distinct !{!1701, !1702, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
 !1702 = distinct !{!1702, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_"}
-!1703 = !{!1704}
-!1704 = distinct !{!1704, !1702, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result"}
-!1705 = !{!1704, !1698}
-!1706 = !{!1701, !1704, !1698}
+!1703 = !{!1704, !1698}
+!1704 = distinct !{!1704, !1702, !"_ZN7testing22MakePolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEENS_18PolymorphicMatcherIT_EERKS8_: %agg.result:thread"}
+!1705 = !{!1701}
+!1706 = !{!1704, !1701, !1698}
 !1707 = !{!1708}
 !1708 = distinct !{!1708, !1709, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_: %agg.result"}
 !1709 = distinct !{!1709, !"_ZN12_GLOBAL__N_112IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEEENS_19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSB_"}

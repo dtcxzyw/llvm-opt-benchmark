@@ -14379,7 +14379,7 @@ _ZN5clang12ast_matchers9hasMethodERKNS0_8internal7MatcherINS_13CXXMethodDeclEEE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %821, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 12, i1 false), !noalias !1603
   %822 = getelementptr inbounds nuw i8, ptr %819, i64 32
   %823 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %824 = load ptr, ptr %823, align 8
+  %824 = load ptr, ptr %823, align 8, !noalias !1603
   store ptr %824, ptr %822, align 8, !noalias !1603
   %.not.i.i.i.i.i.i122 = icmp eq ptr %824, null
   br i1 %.not.i.i.i.i.i.i122, label %_ZN5clang12ast_matchers8internal7MatcherINS_13CXXRecordDeclEED2Ev.exit, label %825

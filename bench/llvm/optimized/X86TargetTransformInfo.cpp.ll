@@ -28694,7 +28694,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
 
 41:                                               ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread
   %42 = load ptr, ptr %10, align 8, !noalias !202
-  %43 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %8, align 8, !noalias !202
   %44 = icmp eq ptr %42, %43
   br i1 %44, label %45, label %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit
 

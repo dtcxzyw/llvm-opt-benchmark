@@ -2198,7 +2198,7 @@ sw.bb4:                                           ; preds = %for.body, %for.body
   %4 = load ptr, ptr %add.ptr2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef %config, ptr noundef null) #21, !noalias !19
-  %5 = load i32, ptr %status.i, align 8
+  %5 = load i32, ptr %status.i, align 8, !noalias !19
   %cmp.not.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
@@ -3001,7 +3001,7 @@ if.end:                                           ; preds = %if.end.i17
 if.then2:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef %config, ptr noundef null) #21, !noalias !29
-  %2 = load i32, ptr %status.i, align 8
+  %2 = load i32, ptr %status.i, align 8, !noalias !29
   %cmp.not.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i, label %if.end.i18, label %PyConfig_SetString.exit
 
@@ -3037,7 +3037,7 @@ if.else6:                                         ; preds = %if.else
 if.end10:                                         ; preds = %if.else6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i21)
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i21, ptr noundef %config, ptr noundef null) #21, !noalias !32
-  %8 = load i32, ptr %status.i21, align 8
+  %8 = load i32, ptr %status.i21, align 8, !noalias !32
   %cmp.not.i22 = icmp eq i32 %8, 0
   br i1 %cmp.not.i22, label %if.then2.i25, label %PyConfig_SetString.exit27
 
@@ -4129,7 +4129,7 @@ lor.lhs.false45.i.i:                              ; preds = %lor.lhs.false.i.i
 if.then48.i.i:                                    ; preds = %lor.lhs.false45.i.i, %lor.lhs.false.i.i, %sw.bb.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i.i), !noalias !53
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !56
-  %51 = load i32, ptr %status.i.i.i, align 8, !noalias !53
+  %51 = load i32, ptr %status.i.i.i, align 8, !noalias !56
   %cmp.not.i.i.i = icmp eq i32 %51, 0
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
@@ -4615,7 +4615,7 @@ if.end5.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i.i.i), !noalias !74
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i.i.i.i), !noalias !74
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i.i.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !79
-  %105 = load i32, ptr %status.i.i.i.i, align 8, !noalias !82
+  %105 = load i32, ptr %status.i.i.i.i, align 8, !noalias !79
   %cmp.not.i.i.i.i = icmp eq i32 %105, 0
   br i1 %cmp.not.i.i.i.i, label %if.then2.i.i.i.i, label %if.then.i.i.i.i
 
@@ -5571,7 +5571,7 @@ if.end5.i.i:                                      ; preds = %lor.lhs.false.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i.i), !noalias !134
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i.i.i), !noalias !134
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !137
-  %6 = load i32, ptr %status.i.i.i, align 8, !noalias !131
+  %6 = load i32, ptr %status.i.i.i, align 8, !noalias !137
   %cmp.not.i.i.i = icmp eq i32 %6, 0
   br i1 %cmp.not.i.i.i, label %if.then2.i.i.i, label %if.then.i.i.i
 
@@ -5660,7 +5660,7 @@ if.end5.i57.i:                                    ; preds = %lor.lhs.false.i55.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i48.i), !noalias !140
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i.i49.i), !noalias !140
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i48.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !143
-  %12 = load i32, ptr %status.i.i48.i, align 8, !noalias !131
+  %12 = load i32, ptr %status.i.i48.i, align 8, !noalias !143
   %cmp.not.i.i58.i = icmp eq i32 %12, 0
   br i1 %cmp.not.i.i58.i, label %if.then2.i.i61.i, label %if.then.i.i59.i
 
@@ -5741,7 +5741,7 @@ if.end5.i84.i:                                    ; preds = %lor.lhs.false.i82.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i75.i), !noalias !146
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i.i76.i), !noalias !146
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i75.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !149
-  %17 = load i32, ptr %status.i.i75.i, align 8, !noalias !131
+  %17 = load i32, ptr %status.i.i75.i, align 8, !noalias !149
   %cmp.not.i.i85.i = icmp eq i32 %17, 0
   br i1 %cmp.not.i.i85.i, label %if.then2.i.i88.i, label %if.then.i.i86.i
 
@@ -6303,7 +6303,7 @@ if.end5.i.i.i:                                    ; preds = %lor.lhs.false.i.i11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i.i.i), !noalias !173
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i.i.i.i), !noalias !173
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i.i.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !176
-  %51 = load i32, ptr %status.i.i.i.i, align 8, !noalias !155
+  %51 = load i32, ptr %status.i.i.i.i, align 8, !noalias !176
   %cmp.not.i.i.i.i = icmp eq i32 %51, 0
   br i1 %cmp.not.i.i.i.i, label %if.then2.i.i.i.i, label %if.then.i.i.i.i
 
@@ -6469,7 +6469,7 @@ if.then.i93:                                      ; preds = %if.end42
 if.then.i.i95:                                    ; preds = %if.then.i93
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i.i88), !noalias !179
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i.i88, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !184
-  %62 = load i32, ptr %status.i.i.i88, align 8, !noalias !187
+  %62 = load i32, ptr %status.i.i.i88, align 8, !noalias !184
   %cmp.not.i.i.i96 = icmp eq i32 %62, 0
   br i1 %cmp.not.i.i.i96, label %if.end.i.i.i101, label %if.then.i.i.i97
 
@@ -6515,7 +6515,7 @@ if.end.i.i104:                                    ; preds = %if.then.i93
 if.then2.i.i:                                     ; preds = %if.end.i.i104
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i6.i.i), !noalias !179
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i6.i.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !188
-  %64 = load i32, ptr %status.i6.i.i, align 8, !noalias !187
+  %64 = load i32, ptr %status.i6.i.i, align 8, !noalias !188
   %cmp.not.i7.i.i = icmp eq i32 %64, 0
   br i1 %cmp.not.i7.i.i, label %if.end.i9.i.i, label %if.then.i8.i.i
 
@@ -6574,7 +6574,7 @@ if.end.i19.i:                                     ; preds = %if.else.i.i110, %if
 if.end3.i20.i:                                    ; preds = %if.end.i19.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i15.i), !noalias !191
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i15.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !194
-  %67 = load i32, ptr %status.i.i15.i, align 8, !noalias !187
+  %67 = load i32, ptr %status.i.i15.i, align 8, !noalias !194
   %cmp.not.i.i21.i = icmp eq i32 %67, 0
   br i1 %cmp.not.i.i21.i, label %if.then2.i.i.i109, label %if.then.i.i22.i
 
@@ -6633,7 +6633,7 @@ if.then6.i:                                       ; preds = %lor.lhs.false, %if.
   %filesystem_errors.i267 = getelementptr inbounds i8, ptr %config, i64 88
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i), !noalias !187
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !197
-  %70 = load i32, ptr %status.i.i, align 8, !noalias !187
+  %70 = load i32, ptr %status.i.i, align 8, !noalias !197
   %cmp.not.i.i91 = icmp eq i32 %70, 0
   br i1 %cmp.not.i.i91, label %if.end.i12.i, label %if.then.i11.i
 
@@ -6743,7 +6743,7 @@ if.then20.i:                                      ; preds = %if.then17.i121
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i113), !noalias !200
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i.i), !noalias !200
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i113, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !203
-  %77 = load i32, ptr %status.i.i113, align 8, !noalias !200
+  %77 = load i32, ptr %status.i.i113, align 8, !noalias !203
   %cmp.not.i.i140 = icmp eq i32 %77, 0
   br i1 %cmp.not.i.i140, label %if.then2.i.i154, label %if.then.i.i141
 
@@ -6809,7 +6809,7 @@ if.then35.i139:                                   ; preds = %if.end30.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i44.i), !noalias !200
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i45.i), !noalias !200
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i44.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !206
-  %81 = load i32, ptr %status.i44.i, align 8, !noalias !200
+  %81 = load i32, ptr %status.i44.i, align 8, !noalias !206
   %cmp.not.i46.i = icmp eq i32 %81, 0
   br i1 %cmp.not.i46.i, label %if.then2.i50.i, label %if.then.i47.i
 
@@ -6887,7 +6887,7 @@ if.end.i65.i:                                     ; preds = %if.else.i70.i, %if.
 if.end3.i.i131:                                   ; preds = %if.end.i65.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i.i112), !noalias !209
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i.i112, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !212
-  %86 = load i32, ptr %status.i.i.i112, align 8, !noalias !200
+  %86 = load i32, ptr %status.i.i.i112, align 8, !noalias !212
   %cmp.not.i.i.i132 = icmp eq i32 %86, 0
   br i1 %cmp.not.i.i.i132, label %if.then2.i.i.i135, label %if.then.i.i.i133
 
@@ -6972,7 +6972,7 @@ config_get_stdio_errors.exit.i:                   ; preds = %if.end12.i.i, %if.e
   %retval.0.i.i = phi ptr [ @.str.182, %if.end12.i.i ], [ @.str.174, %if.then56.i ], [ @.str.174, %lor.lhs.false.i.i125 ], [ @.str.174, %if.then1.tail.i.i ], [ @.str.174, %if.end7.i.i126 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i76.i), !noalias !200
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i76.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !215
-  %94 = load i32, ptr %status.i76.i, align 8, !noalias !200
+  %94 = load i32, ptr %status.i76.i, align 8, !noalias !215
   %cmp.not.i77.i = icmp eq i32 %94, 0
   br i1 %cmp.not.i77.i, label %if.end.i79.i123, label %if.then.i78.i
 

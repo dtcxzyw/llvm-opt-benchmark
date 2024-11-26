@@ -7946,9 +7946,9 @@ entry:
 define linkonce_odr void @_ZNK5arrow14SparseCOOIndex13ValidateShapeERKSt6vectorIlSaIlEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(24) %shape) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
-  %0 = load ptr, ptr %shape, align 8
+  %0 = load ptr, ptr %shape, align 8, !noalias !172
   %_M_finish.i.i = getelementptr inbounds i8, ptr %shape, i64 8
-  %1 = load ptr, ptr %_M_finish.i.i, align 8
+  %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !172
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i

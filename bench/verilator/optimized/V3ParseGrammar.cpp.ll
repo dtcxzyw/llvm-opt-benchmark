@@ -68212,7 +68212,7 @@ define linkonce_odr dso_local void @_ZN14V3ParseGrammar6pinPopEP8FileLine(ptr no
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 184
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !noalias !96
   %15 = icmp eq ptr %5, %14
   br i1 %15, label %20, label %16
 

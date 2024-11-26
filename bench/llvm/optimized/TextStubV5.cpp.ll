@@ -6307,11 +6307,11 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZN4llvm9ErrorList2IDE) #17
-  %.pre52 = load ptr, ptr %2, align 8, !noalias !390
+  %.pre52 = load ptr, ptr %2, align 8, !noalias !460
   br i1 %23, label %24, label %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread
 
 24:                                               ; preds = %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
-  store ptr null, ptr %2, align 8, !noalias !460
+  store ptr null, ptr %2, align 8, !noalias !463
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
@@ -6363,9 +6363,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %24, %._
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
   %44 = phi ptr [ null, %17 ], [ %.pre52, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !463)
-  store ptr %44, ptr %4, align 8, !alias.scope !463
-  store ptr null, ptr %2, align 8, !noalias !463
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
+  store ptr %44, ptr %4, align 8, !alias.scope !460
+  store ptr null, ptr %2, align 8, !noalias !460
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -10208,7 +10208,7 @@ _ZN4llvm11SmallVectorINS_5MachO6TargetELj5EEC2ERKS3_.exit: ; preds = %20, %28
 .lr.ph.i:                                         ; preds = %33, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i
   %.0911.i = phi ptr [ %67, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i ], [ %34, %33 ]
   call fastcc void @_ZN12_GLOBAL__N_115getFormattedStrB5cxx11ERKN4llvm5MachO6TargetE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 4 dereferenceable(24) %.0911.i)
-  %37 = load ptr, ptr %17, align 8
+  %37 = load ptr, ptr %17, align 8, !alias.scope !616
   %38 = load ptr, ptr %18, align 8, !alias.scope !616
   %.not.i.i = icmp eq ptr %37, %38
   br i1 %.not.i.i, label %42, label %39
@@ -16805,7 +16805,7 @@ _ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit26: ; preds = %_ZNSt8funct
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.32..sroa_idx, i8 0, i64 24, i1 false), !noalias !685
   %28 = load ptr, ptr %27, align 8, !noalias !685
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %30 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %29, align 8, !noalias !685
   %.not.i.i.not.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm20filter_iterator_implINS_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS1_6SymbolEEESt20forward_iterator_tagEC2EOSB_.exit.i, label %31
 
@@ -16821,7 +16821,7 @@ _ZN4llvm20filter_iterator_implINS_5MachO9SymbolSet21const_symbol_iteratorESt8fun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i, i8 0, i64 16, i1 false), !noalias !685
   %35 = load ptr, ptr %34, align 8, !noalias !685
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !noalias !685
   %.not.i.i.not.i.i.i1.i = icmp eq ptr %37, null
   br i1 %.not.i.i.not.i.i.i1.i, label %_ZN4llvm20filter_iterator_implINS_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS1_6SymbolEEESt20forward_iterator_tagEC2EOSB_.exit2.i, label %38
 

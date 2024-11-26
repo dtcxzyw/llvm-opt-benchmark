@@ -782,7 +782,7 @@ invoke.cont252:                                   ; preds = %if.end.i.i
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %add.ptr4.i = getelementptr inbounds i8, ptr %1, i64 %call3.i
   %cmp.i = icmp eq ptr %call1.i.i35, %add.ptr4.i
-  %.pre128 = load i32, ptr %ok_phases250, align 4
+  %.pre128 = load i32, ptr %ok_phases250, align 4, !noalias !5
   br i1 %cmp.i, label %if.then, label %if.end257
 
 if.then:                                          ; preds = %invoke.cont252
@@ -792,7 +792,7 @@ if.then:                                          ; preds = %invoke.cont252
           to label %invoke.cont253 unwind label %lpad248
 
 invoke.cont253:                                   ; preds = %if.then
-  %.pre = load i32, ptr %ok_phases250, align 4
+  %.pre = load i32, ptr %ok_phases250, align 4, !noalias !5
   br i1 %call254, label %if.then255, label %if.end257
 
 if.then255:                                       ; preds = %invoke.cont253

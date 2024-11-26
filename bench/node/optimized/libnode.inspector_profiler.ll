@@ -2000,24 +2000,24 @@ _ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit92: ; preds = %_ZN9__gnu_
 
 if.then44:                                        ; preds = %if.end8.sink.split.i.i.i.i83, %_ZN4node11Environment7optionsEv.exit60, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit92
   %56 = load ptr, ptr %options_.i50, align 8, !noalias !34
-  %57 = load ptr, ptr %_M_refcount3.i.i.i52, align 8, !noalias !34
+  %57 = load ptr, ptr %_M_refcount3.i.i.i52, align 8, !noalias !37
   %cmp.not.i.i.i.i96 = icmp eq ptr %57, null
   br i1 %cmp.not.i.i.i.i96, label %_ZN4node11Environment7optionsEv.exit146, label %if.then.i.i.i.i97
 
 if.then.i.i.i.i97:                                ; preds = %if.then44
   %_M_use_count.i.i.i.i.i98 = getelementptr inbounds i8, ptr %57, i64 8
-  %58 = load i8, ptr @__libc_single_threaded, align 1, !noalias !35
+  %58 = load i8, ptr @__libc_single_threaded, align 1, !noalias !34
   %tobool.i.not.i.i.i.i.i99 = icmp eq i8 %58, 0
   br i1 %tobool.i.not.i.i.i.i.i99, label %if.else.i.i.i.i.i.i102, label %if.then.i.i.i.i.i.i100
 
 if.then.i.i.i.i.i.i100:                           ; preds = %if.then.i.i.i.i97
-  %59 = load i32, ptr %_M_use_count.i.i.i.i.i98, align 4, !noalias !35
+  %59 = load i32, ptr %_M_use_count.i.i.i.i.i98, align 4, !noalias !34
   %add.i.i.i.i.i.i101 = add nsw i32 %59, 1
-  store i32 %add.i.i.i.i.i.i101, ptr %_M_use_count.i.i.i.i.i98, align 4, !noalias !35
+  store i32 %add.i.i.i.i.i.i101, ptr %_M_use_count.i.i.i.i.i98, align 4, !noalias !34
   br label %if.then.i.i.i106
 
 if.else.i.i.i.i.i.i102:                           ; preds = %if.then.i.i.i.i97
-  %60 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i98, i32 1 acq_rel, align 4, !noalias !35
+  %60 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i98, i32 1 acq_rel, align 4, !noalias !34
   br label %if.then.i.i.i106
 
 if.then.i.i.i106:                                 ; preds = %if.then.i.i.i.i.i.i100, %if.else.i.i.i.i.i.i102
@@ -2607,8 +2607,8 @@ _ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit342: ; preds = %_ZN9__gnu
   br i1 %tobool81627, label %if.then82, label %if.end111
 
 if.then82:                                        ; preds = %if.end8.sink.split.i.i.i.i333, %_ZN4node11Environment7optionsEv.exit310, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit342
-  %141 = load ptr, ptr %options_.i50, align 8, !noalias !34
-  %142 = load ptr, ptr %_M_refcount3.i.i.i52, align 8, !noalias !34
+  %141 = load ptr, ptr %options_.i50, align 8, !noalias !56
+  %142 = load ptr, ptr %_M_refcount3.i.i.i52, align 8, !noalias !37
   %cmp.not.i.i.i.i346 = icmp eq ptr %142, null
   br i1 %cmp.not.i.i.i.i346, label %_ZN4node11Environment7optionsEv.exit396, label %if.then.i.i.i.i347
 
@@ -6929,10 +6929,10 @@ attributes #25 = { nounwind willreturn memory(read) }
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZN4node11Environment7optionsEv: %agg.result"}
 !33 = distinct !{!33, !"_ZN4node11Environment7optionsEv"}
-!34 = !{}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN4node11Environment7optionsEv: %agg.result"}
-!37 = distinct !{!37, !"_ZN4node11Environment7optionsEv"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN4node11Environment7optionsEv: %agg.result"}
+!36 = distinct !{!36, !"_ZN4node11Environment7optionsEv"}
+!37 = !{}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN4node11Environment7optionsEv: %agg.result"}
 !40 = distinct !{!40, !"_ZN4node11Environment7optionsEv"}

@@ -1427,7 +1427,7 @@ common.resume:                                    ; preds = %"_ZN63_$LT$alloc..a
           to label %.noexc unwind label %47
 
 .noexc:                                           ; preds = %53
-  %57 = load i64, ptr %6, align 8, !range !64, !noalias !153, !noundef !4
+  %57 = load i64, ptr %6, align 8, !range !64, !noalias !149, !noundef !4
   %58 = icmp eq i64 %57, -9223372036854775808
   %59 = getelementptr inbounds i8, ptr %6, i64 8
   %60 = load ptr, ptr %59, align 8, !noalias !153
@@ -9377,7 +9377,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit574: ; preds = %9
 
 1103:                                             ; preds = %1108, %1106, %1098
   %.sroa.04.0.i = phi i32 [ %1109, %1108 ], [ %1107, %1106 ], [ 0, %1098 ]
-  %1104 = load i64, ptr %342, align 8, !range !74, !noundef !4
+  %1104 = load i64, ptr %342, align 8, !range !74, !noalias !819, !noundef !4
   %1105 = icmp eq i64 %1104, 15
   br i1 %1105, label %1112, label %1110
 
@@ -9702,7 +9702,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit574: ; preds = %9
 
 1225:                                             ; preds = %1230, %1228, %1220
   %.sroa.04.0.i583 = phi i32 [ %1231, %1230 ], [ %1229, %1228 ], [ 0, %1220 ]
-  %1226 = load i64, ptr %330, align 8, !range !74, !noundef !4
+  %1226 = load i64, ptr %330, align 8, !range !74, !noalias !837, !noundef !4
   %1227 = icmp eq i64 %1226, 15
   br i1 %1227, label %1234, label %1232
 
@@ -9943,7 +9943,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit574: ; preds = %9
 
 1302:                                             ; preds = %1307, %1305, %1297
   %.sroa.04.0.i611 = phi i32 [ %1308, %1307 ], [ %1306, %1305 ], [ 0, %1297 ]
-  %1303 = load i64, ptr %321, align 8, !range !74, !noundef !4
+  %1303 = load i64, ptr %321, align 8, !range !74, !noalias !852, !noundef !4
   %1304 = icmp eq i64 %1303, 15
   br i1 %1304, label %1311, label %1309
 

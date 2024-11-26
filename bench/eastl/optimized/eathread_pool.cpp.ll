@@ -1470,14 +1470,14 @@ entry:
 while.cond.i:                                     ; preds = %land.rhs.i, %entry
   %.pn.i = phi ptr [ %0, %entry ], [ %storemerge.i, %land.rhs.i ]
   %storemerge.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
-  %storemerge.i = load ptr, ptr %storemerge.in.i, align 8, !noalias !52
+  %storemerge.i = load ptr, ptr %storemerge.in.i, align 8, !noalias !54
   %cmp.i.not.i = icmp eq ptr %1, %storemerge.i
   br i1 %cmp.i.not.i, label %if.end18, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %2 = load ptr, ptr %storemerge.i, align 8, !noalias !52
+  %2 = load ptr, ptr %storemerge.i, align 8, !noalias !54
   %cmp.not.i = icmp eq ptr %pThreadInfo, %2
-  br i1 %cmp.not.i, label %if.then, label %while.cond.i, !llvm.loop !53
+  br i1 %cmp.not.i, label %if.then, label %while.cond.i, !llvm.loop !55
 
 if.then:                                          ; preds = %land.rhs.i
   %3 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
@@ -1508,40 +1508,40 @@ delete.notnull:                                   ; preds = %if.else
 if.end:                                           ; preds = %if.else, %delete.notnull, %if.then3
   %mpThread6 = getelementptr inbounds i8, ptr %pThreadInfo, i64 8
   store ptr null, ptr %mpThread6, align 8
-  %8 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !54
+  %8 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !56
   %mpNext.i.i = getelementptr inbounds i8, ptr %8, i64 16
-  %9 = load ptr, ptr %mpNext.i.i, align 8, !noalias !54
-  %10 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !54
+  %9 = load ptr, ptr %mpNext.i.i, align 8, !noalias !56
+  %10 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !56
   %cmp.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i, label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %mpNext.i = getelementptr inbounds i8, ptr %storemerge.i, i64 16
-  %11 = load ptr, ptr %mpNext.i, align 8, !noalias !54
+  %11 = load ptr, ptr %mpNext.i, align 8, !noalias !56
   %mpPrev.i = getelementptr inbounds i8, ptr %storemerge.i, i64 8
-  %12 = load ptr, ptr %mpPrev.i, align 8, !noalias !54
+  %12 = load ptr, ptr %mpPrev.i, align 8, !noalias !56
   %mpPrev5.i = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %12, ptr %mpPrev5.i, align 8, !noalias !54
-  %13 = load ptr, ptr %mpNext.i, align 8, !noalias !54
+  store ptr %12, ptr %mpPrev5.i, align 8, !noalias !56
+  %13 = load ptr, ptr %mpNext.i, align 8, !noalias !56
   %mpNext10.i = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %13, ptr %mpNext10.i, align 8, !noalias !54
+  store ptr %13, ptr %mpNext10.i, align 8, !noalias !56
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 232
-  %14 = load i64, ptr %mnSize.i, align 8, !noalias !54
+  %14 = load i64, ptr %mnSize.i, align 8, !noalias !56
   %dec.i = add i64 %14, -1
-  store i64 %dec.i, ptr %mnSize.i, align 8, !noalias !54
-  %call.i.i = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv(), !noalias !54
+  store i64 %dec.i, ptr %mnSize.i, align 8, !noalias !56
+  %call.i.i = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv(), !noalias !56
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %delete.notnull.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %vtable.i.i = load ptr, ptr %call.i.i, align 8, !noalias !54
+  %vtable.i.i = load ptr, ptr %call.i.i, align 8, !noalias !56
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
-  %15 = load ptr, ptr %vfn.i.i, align 8, !noalias !54
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %storemerge.i, i64 noundef 0), !noalias !54
+  %15 = load ptr, ptr %vfn.i.i, align 8, !noalias !56
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %storemerge.i, i64 noundef 0), !noalias !56
   br label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %storemerge.i) #16, !noalias !54
+  tail call void @_ZdlPv(ptr noundef nonnull %storemerge.i) #16, !noalias !56
   br label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit
 
 _ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit: ; preds = %if.end, %if.then.i.i, %delete.notnull.i.i
@@ -1649,9 +1649,9 @@ _ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocat
   %inc.i = add i64 %15, 1
   store i64 %inc.i, ptr %mnSize.i, align 8
   %mpNodeHead.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %16 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !57
+  %16 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !59
   %mpNodeTail.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %17 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !60
+  %17 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !62
   %it.sroa.0.0.in5.i = getelementptr inbounds i8, ptr %16, i64 16
   %it.sroa.0.06.i = load ptr, ptr %it.sroa.0.0.in5.i, align 8
   %cmp.i.not7.i = icmp eq ptr %17, %it.sroa.0.06.i
@@ -1711,9 +1711,9 @@ return:                                           ; preds = %entry, %if.end16, %
 define dso_local void @_ZN2EA6Thread10ThreadPool10FixThreadsEv(ptr noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #0 align 2 {
 entry:
   %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 216
-  %0 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !63
+  %0 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !65
   %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 224
-  %1 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !66
+  %1 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !68
   %it.sroa.0.0.in5 = getelementptr inbounds i8, ptr %0, i64 16
   %it.sroa.0.06 = load ptr, ptr %it.sroa.0.0.in5, align 8
   %cmp.i.not7 = icmp eq ptr %1, %it.sroa.0.06
@@ -2105,9 +2105,9 @@ invoke.cont:
   %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call.i = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 216
-  %0 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !69
+  %0 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !71
   %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 224
-  %1 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !72
+  %1 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !74
   %it.sroa.0.0.in10 = getelementptr inbounds i8, ptr %0, i64 16
   %it.sroa.0.011 = load ptr, ptr %it.sroa.0.0.in10, align 8
   %cmp.i.not12 = icmp eq ptr %1, %it.sroa.0.011
@@ -2390,27 +2390,29 @@ attributes #17 = { noreturn nounwind }
 !48 = distinct !{!48, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
 !49 = distinct !{!49, !50, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE4findERKS4_: %agg.result"}
 !50 = distinct !{!50, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE4findERKS4_"}
-!51 = !{}
-!52 = !{!49}
-!53 = distinct !{!53, !6}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE: %agg.result"}
-!56 = distinct !{!56, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
-!59 = distinct !{!59, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
-!62 = distinct !{!62, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
-!65 = distinct !{!65, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
-!68 = distinct !{!68, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
-!71 = distinct !{!71, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
-!74 = distinct !{!74, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
+!51 = !{!52, !49}
+!52 = distinct !{!52, !53, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
+!53 = distinct !{!53, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
+!54 = !{!49}
+!55 = distinct !{!55, !6}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE: %agg.result"}
+!58 = distinct !{!58, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
+!61 = distinct !{!61, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
+!64 = distinct !{!64, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
+!67 = distinct !{!67, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
+!70 = distinct !{!70, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
+!73 = distinct !{!73, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
+!76 = distinct !{!76, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}

@@ -4362,7 +4362,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i.i:            ; preds = %_ZN4llvm5APIntC2ERK
 
 _ZN4llvm5APIntC2Ejmbb.exit.i.i:                   ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %10, i64 noundef 0, i1 noundef zeroext false) #22
-  %.pre.i.i = load i32, ptr %152, align 8
+  %.pre.i.i = load i32, ptr %152, align 8, !alias.scope !91
   %397 = icmp ult i32 %.pre.i.i, 65
   %398 = add i32 %384, -1
   %399 = and i32 %398, 63

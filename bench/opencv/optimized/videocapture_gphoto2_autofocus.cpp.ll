@@ -1589,7 +1589,7 @@ define internal fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnu
           to label %.noexc25 unwind label %.loopexit.split-lp
 
 .noexc25:                                         ; preds = %.noexc24
-  %49 = load ptr, ptr %11, align 8
+  %49 = load ptr, ptr %11, align 8, !alias.scope !12
   %50 = icmp eq ptr %49, null
   %51 = icmp eq i64 %48, 0
   %or.cond.i.i.i = or i1 %51, %50

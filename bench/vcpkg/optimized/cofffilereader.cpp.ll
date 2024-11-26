@@ -1043,8 +1043,8 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit40: ; preds = %173
   %183 = getelementptr inbounds i8, ptr %22, i64 384
   %184 = zext i16 %182 to i64
   %185 = getelementptr inbounds i8, ptr %22, i64 392
-  %186 = load ptr, ptr %185, align 8
-  %187 = load ptr, ptr %183, align 8
+  %186 = load ptr, ptr %185, align 8, !noalias !31
+  %187 = load ptr, ptr %183, align 8, !noalias !31
   %188 = ptrtoint ptr %186 to i64
   %189 = ptrtoint ptr %187 to i64
   %190 = sub i64 %188, %189
@@ -1789,7 +1789,7 @@ _ZNK5vcpkg11DllMetadata28try_get_image_data_directoryEm.exit: ; preds = %12
 
 29:                                               ; preds = %.noexc7.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull align 8 dereferenceable(33) %4) #25
-  %.pre.i = load i8, ptr %26, align 8, !noalias !87
+  %.pre.i = load i8, ptr %26, align 8, !noalias !88
   br label %35
 
 30:                                               ; preds = %.noexc7.i
@@ -1797,14 +1797,14 @@ _ZNK5vcpkg11DllMetadata28try_get_image_data_directoryEm.exit: ; preds = %12
   %32 = getelementptr inbounds i8, ptr %6, i64 %31
   %33 = sub nuw nsw i32 40, %.val.i.i
   %34 = zext nneg i32 %33 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 0, i64 %34, i1 false), !noalias !88
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 0, i64 %34, i1 false), !noalias !87
   br label %35
 
 35:                                               ; preds = %30, %29
   %36 = phi i8 [ %.pre.i, %29 ], [ %27, %30 ]
   %.sink.i.i.i.i.i.i.i = phi i8 [ 1, %29 ], [ 0, %30 ]
   %37 = getelementptr inbounds i8, ptr %7, i64 32
-  store i8 %.sink.i.i.i.i.i.i.i, ptr %37, align 8, !alias.scope !88
+  store i8 %.sink.i.i.i.i.i.i.i, ptr %37, align 8, !alias.scope !87
   %38 = trunc i8 %36 to i1
   br i1 %38, label %39, label %"_ZSt6invokeIRZN12_GLOBAL__N_124try_read_struct_from_rvaERKN5vcpkg11DllMetadataERNS1_15ReadFilePointerEPvjjE3$_0JjEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i"
 
@@ -2601,8 +2601,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMe
   %22 = add i32 %21, %19
   %23 = zext i32 %22 to i64
   call void @_ZN5vcpkg11FilePointer11try_seek_toEx(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.21") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %23)
+  call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %24 = getelementptr inbounds i8, ptr %6, i64 32
-  %25 = load i8, ptr %24, align 8
+  %25 = load i8, ptr %24, align 8, !noalias !142
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %28
 
@@ -9888,8 +9889,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !84 = !{!85}
 !85 = distinct !{!85, !86, !"_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE3mapIZZN12_GLOBAL__N_124try_read_struct_from_rvaERKNS_11DllMetadataERNS_15ReadFilePointerEPvjjENK3$_0clEjEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIS1_EDTcl9__declvalISE_ELi0EEEvEEEES2_EESE_: argument 0"}
 !86 = distinct !{!86, !"_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE3mapIZZN12_GLOBAL__N_124try_read_struct_from_rvaERKNS_11DllMetadataERNS_15ReadFilePointerEPvjjENK3$_0clEjEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIS1_EDTcl9__declvalISE_ELi0EEEvEEEES2_EESE_"}
-!87 = !{!81, !78, !75, !72, !68, !65}
-!88 = !{!85, !81, !78, !75, !72, !68, !65}
+!87 = !{!85, !81, !78, !75, !72, !68, !65}
+!88 = !{!81, !78, !75, !72, !68, !65}
 !89 = !{!90}
 !90 = distinct !{!90, !91, !"_ZNO5vcpkg9ExpectedTIjNS_15LocalizedStringEE4thenIZNS_31try_read_dll_imported_dll_namesB5cxx11ERKNS_11DllMetadataERNS_15ReadFilePointerEE3$_0JEEENSt13invoke_resultIT_JjDpT0_EE4typeESB_DpOSC_: argument 0"}
 !91 = distinct !{!91, !"_ZNO5vcpkg9ExpectedTIjNS_15LocalizedStringEE4thenIZNS_31try_read_dll_imported_dll_namesB5cxx11ERKNS_11DllMetadataERNS_15ReadFilePointerEE3$_0JEEENSt13invoke_resultIT_JjDpT0_EE4typeESB_DpOSC_"}

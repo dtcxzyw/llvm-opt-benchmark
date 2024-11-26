@@ -1017,7 +1017,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12MachineInstrENS_8DenseMapIS3_NS0_13DenseSetE
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !19
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !19
   store ptr %96, ptr %95, align 8, !noalias !19
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #15
@@ -1172,21 +1172,21 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Localizer18localizeIntraBlockERNS_
   %59 = add nuw i32 %41, 1
   store i32 %59, ptr %12, align 4, !noalias !25
   store ptr %45, ptr %52, align 8, !noalias !25
-  %60 = load ptr, ptr %3, align 8
-  %61 = load i32, ptr %12, align 4
+  %60 = load ptr, ptr %3, align 8, !noalias !25
+  %61 = load i32, ptr %12, align 4, !noalias !25
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 62:                                               ; preds = %._crit_edge.i.i, %48
   %63 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull %45) #15, !noalias !25
-  %.pre.i = load ptr, ptr %3, align 8
-  %.pre6.i = load i32, ptr %12, align 4
+  %.pre.i = load ptr, ptr %3, align 8, !noalias !25
+  %.pre6.i = load i32, ptr %12, align 4, !noalias !25
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %62, %58
   %64 = phi i32 [ %61, %58 ], [ %.pre6.i, %62 ], [ %41, %.lr.ph.i.i ]
   %65 = phi ptr [ %60, %58 ], [ %.pre.i, %62 ], [ %42, %.lr.ph.i.i ]
-  %66 = load ptr, ptr %10, align 8
-  %67 = load i32, ptr %11, align 8
+  %66 = load ptr, ptr %10, align 8, !noalias !25
+  %67 = load i32, ptr %11, align 8, !noalias !25
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %.lr.ph, %.lr.ph

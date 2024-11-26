@@ -10576,7 +10576,7 @@ _ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit147: ; preds = %if.en
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.exit, %_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit147
-  %25 = load i32, ptr %token_tag_.i, align 8
+  %25 = load i32, ptr %token_tag_.i, align 8, !noalias !211
   switch i32 %25, label %if.end6.i [
     i32 11, label %_ZN4node9inspector8protocol12_GLOBAL__N_110parseArrayEiPNS1_4cbor13CBORTokenizerE.exit
     i32 13, label %_ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121

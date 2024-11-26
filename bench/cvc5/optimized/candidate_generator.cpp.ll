@@ -4117,7 +4117,7 @@ land.rhs:                                         ; preds = %invoke.cont43
 
 if.then67:                                        ; preds = %land.rhs
   %43 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !27
-  %bf.load.i.i.i = load i64, ptr %43, align 8
+  %bf.load.i.i.i = load i64, ptr %43, align 8, !noalias !27
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %44 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %44, 1048575

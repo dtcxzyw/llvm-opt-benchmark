@@ -870,7 +870,7 @@ define hidden void @"_ZN67_$LT$typst..visualize..color..Color$u20$as$u20$core..h
   %8 = add i64 %7, 8
   store i64 %8, ptr %6, align 8, !alias.scope !102
   %9 = getelementptr inbounds i8, ptr %1, i64 64
-  %10 = load i64, ptr %9, align 8, !noundef !4
+  %10 = load i64, ptr %9, align 8, !alias.scope !102, !noundef !4
   %11 = shl i64 %10, 3
   %12 = and i64 %11, 56
   %13 = shl nuw nsw i64 %5, %12

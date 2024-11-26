@@ -3728,7 +3728,7 @@ _ZN2cvL14initLUTforABXZEv.exit:                   ; preds = %363
   call void @_ZNK2cv9softfloatplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %160, ptr noundef nonnull align 4 dereferenceable(4) %155, ptr noundef nonnull align 4 dereferenceable(4) %161), !noalias !93
   call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %159, ptr noundef nonnull align 4 dereferenceable(4) %140, ptr noundef nonnull align 4 dereferenceable(4) %160), !noalias !93
   %378 = call noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %159, ptr noundef nonnull align 4 dereferenceable(4) %140), !noalias !93
-  %.pre.i = load i32, ptr %140, align 4, !noalias !93
+  %.pre.i = load i32, ptr %140, align 4, !noalias !97
   br i1 %378, label %379, label %380
 
 379:                                              ; preds = %.preheader.i
@@ -3736,13 +3736,14 @@ _ZN2cvL14initLUTforABXZEv.exit:                   ; preds = %363
   br label %380
 
 380:                                              ; preds = %379, %.preheader.i
+  call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %381 = xor i32 %.pre.i, -2147483648
-  store i32 %381, ptr %162, align 4, !alias.scope !97, !noalias !93
+  store i32 %381, ptr %162, align 4, !alias.scope !100, !noalias !93
   %382 = call noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %159, ptr noundef nonnull align 4 dereferenceable(4) %162), !noalias !93
   br i1 %382, label %383, label %386
 
 383:                                              ; preds = %380
-  %384 = load i32, ptr %140, align 4, !noalias !100
+  %384 = load i32, ptr %140, align 4, !noalias !101
   %385 = xor i32 %384, -2147483648
   store i32 %385, ptr %159, align 4, !noalias !93
   br label %386
@@ -3761,12 +3762,12 @@ _ZN2cvL14initLUTforABXZEv.exit:                   ; preds = %363
   store i64 %392, ptr %393, align 8, !noalias !93
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next33.i, 256
-  br i1 %exitcond35.not.i, label %394, label %.preheader.i, !llvm.loop !103
+  br i1 %exitcond35.not.i, label %394, label %.preheader.i, !llvm.loop !104
 
 394:                                              ; preds = %386
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next37.i, 256
-  br i1 %exitcond39.not.i, label %_ZN2cvL13initLUTforLUVERKNS_9softfloatES2_.exit, label %370, !llvm.loop !104
+  br i1 %exitcond39.not.i, label %_ZN2cvL13initLUTforLUVERKNS_9softfloatES2_.exit, label %370, !llvm.loop !105
 
 _ZN2cvL13initLUTforLUVERKNS_9softfloatES2_.exit:  ; preds = %394
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %140)
@@ -3921,12 +3922,12 @@ _ZN2cvL13initLUTforLUVERKNS_9softfloatES2_.exit:  ; preds = %394
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %139)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %18, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %19, i8 0, i64 36, i1 false)
-  store i64 4607182418800017408, ptr %21, align 8, !alias.scope !105
+  store i64 4607182418800017408, ptr %21, align 8, !alias.scope !106
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL3D65E)
   %395 = getelementptr inbounds i8, ptr %20, i64 8
-  store i64 4607182418800017408, ptr %395, align 8, !alias.scope !110
+  store i64 4607182418800017408, ptr %395, align 8, !alias.scope !111
   %396 = getelementptr inbounds i8, ptr %20, i64 16
-  store i64 4607182418800017408, ptr %22, align 8, !alias.scope !115
+  store i64 4607182418800017408, ptr %22, align 8, !alias.scope !116
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %396, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 16))
   br label %_ZN2cv9softfloataSERKS0_.exit.i
 
@@ -3968,7 +3969,7 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSE
   store i32 %415, ptr %414, align 4
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
   %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, 3
-  br i1 %exitcond.not.i115, label %416, label %_ZN2cv9softfloataSERKS0_.exit.i, !llvm.loop !120
+  br i1 %exitcond.not.i115, label %416, label %_ZN2cv9softfloataSERKS0_.exit.i, !llvm.loop !121
 
 416:                                              ; preds = %_ZN2cv9softfloataSERKS0_.exit.i
   %417 = load i32, ptr %18, align 16
@@ -4354,7 +4355,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %545
           to label %.noexc103.i unwind label %.loopexit.i
 
 .noexc103.i:                                      ; preds = %568
-  store i64 4607182418800017408, ptr %17, align 8, !alias.scope !121, !noalias !126
+  store i64 4607182418800017408, ptr %17, align 8, !alias.scope !122, !noalias !127
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL11gammaXshiftE)
           to label %.noexc104.i unwind label %.loopexit.i
 
@@ -4406,7 +4407,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %545
           to label %.noexc112.i unwind label %.loopexit.i
 
 .noexc112.i:                                      ; preds = %574
-  store i64 4607182418800017408, ptr %11, align 8, !alias.scope !129, !noalias !134
+  store i64 4607182418800017408, ptr %11, align 8, !alias.scope !130, !noalias !135
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL11gammaXshiftE)
           to label %.noexc113.i unwind label %.loopexit.i
 
@@ -4458,7 +4459,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %545
           to label %.noexc122.i unwind label %.loopexit.i
 
 .noexc122.i:                                      ; preds = %580
-  store i64 4607182418800017408, ptr %5, align 8, !alias.scope !137, !noalias !142
+  store i64 4607182418800017408, ptr %5, align 8, !alias.scope !138, !noalias !143
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL11gammaXshiftE)
           to label %.noexc123.i unwind label %.loopexit.i
 
@@ -4784,15 +4785,15 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %545
 
 672:                                              ; preds = %671
   store float 0x3E80000000000000, ptr %124, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !145)
+  call void @llvm.experimental.noalias.scope.decl(metadata !146)
   %673 = invoke noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %120, ptr noundef nonnull align 4 dereferenceable(4) %124)
           to label %674 unwind label %.loopexit.i
 
 674:                                              ; preds = %672
-  %.val.i.i = load i32, ptr %120, align 4, !noalias !145
-  %.val4.i.i = load i32, ptr %124, align 4, !noalias !145
+  %.val.i.i = load i32, ptr %120, align 4, !noalias !146
+  %.val4.i.i = load i32, ptr %124, align 4, !noalias !146
   %675 = select i1 %673, i32 %.val.i.i, i32 %.val4.i.i
-  store i32 %675, ptr %119, align 4, !alias.scope !145
+  store i32 %675, ptr %119, align 4, !alias.scope !146
   invoke void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %117, ptr noundef nonnull align 4 dereferenceable(4) %118, ptr noundef nonnull align 4 dereferenceable(4) %119)
           to label %676 unwind label %.loopexit.i
 
@@ -4883,7 +4884,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %545
   store i16 %704, ptr %706, align 2
   %indvars.iv.next159.i = add nuw nsw i64 %indvars.iv158.i, 1
   %exitcond161.not.i = icmp eq i64 %indvars.iv.next159.i, 33
-  br i1 %exitcond161.not.i, label %741, label %555, !llvm.loop !148
+  br i1 %exitcond161.not.i, label %741, label %555, !llvm.loop !149
 
 707:                                              ; preds = %455
   %708 = landingpad { ptr, i32 }
@@ -5000,12 +5001,12 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %545
 741:                                              ; preds = %703
   %indvars.iv.next163.i = add nuw nsw i64 %indvars.iv162.i, 1
   %exitcond165.not.i = icmp eq i64 %indvars.iv.next163.i, 33
-  br i1 %exitcond165.not.i, label %742, label %.preheader144.i, !llvm.loop !149
+  br i1 %exitcond165.not.i, label %742, label %.preheader144.i, !llvm.loop !150
 
 742:                                              ; preds = %741
   %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv166.i, 1
   %exitcond169.not.i = icmp eq i64 %indvars.iv.next167.i, 33
-  br i1 %exitcond169.not.i, label %743, label %.preheader145.i, !llvm.loop !150
+  br i1 %exitcond169.not.i, label %743, label %.preheader145.i, !llvm.loop !151
 
 743:                                              ; preds = %742
   %744 = invoke noundef ptr @_ZN2cv20allocSingletonBufferEm(i64 noundef 1724976)
@@ -5096,28 +5097,28 @@ _ZN2cvL14allocSingletonIsEEPT_m.exit.i:           ; preds = %743
   %795 = load i16, ptr %794, align 2
   %796 = getelementptr inbounds i16, ptr %745, i64 %786
   store i16 %795, ptr %796, align 2
-  br i1 %765, label %764, label %797, !llvm.loop !151
+  br i1 %765, label %764, label %797, !llvm.loop !152
 
 797:                                              ; preds = %764
-  br i1 %757, label %.preheader.i116, label %798, !llvm.loop !152
+  br i1 %757, label %.preheader.i116, label %798, !llvm.loop !153
 
 798:                                              ; preds = %797
-  br i1 %751, label %.preheader140.i, label %799, !llvm.loop !153
+  br i1 %751, label %.preheader140.i, label %799, !llvm.loop !154
 
 799:                                              ; preds = %798
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond182.not.i = icmp eq i64 %indvars.iv.next180.i, 33
-  br i1 %exitcond182.not.i, label %800, label %.preheader141.i, !llvm.loop !154
+  br i1 %exitcond182.not.i, label %800, label %.preheader141.i, !llvm.loop !155
 
 800:                                              ; preds = %799
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
   %exitcond186.not.i = icmp eq i64 %indvars.iv.next184.i, 33
-  br i1 %exitcond186.not.i, label %_ZN2cvL14allocSingletonIsEEPT_m.exit133.i, label %.preheader142.i, !llvm.loop !155
+  br i1 %exitcond186.not.i, label %_ZN2cvL14allocSingletonIsEEPT_m.exit133.i, label %.preheader142.i, !llvm.loop !156
 
 _ZN2cvL14allocSingletonIsEEPT_m.exit133.i:        ; preds = %800
   %indvars.iv.next188.i = add nuw nsw i64 %indvars.iv187.i, 1
   %exitcond190.not.i = icmp eq i64 %indvars.iv.next188.i, 33
-  br i1 %exitcond190.not.i, label %801, label %.preheader143.i, !llvm.loop !156
+  br i1 %exitcond190.not.i, label %801, label %.preheader143.i, !llvm.loop !157
 
 801:                                              ; preds = %_ZN2cvL14allocSingletonIsEEPT_m.exit133.i
   %802 = load ptr, ptr %54, align 8
@@ -5330,17 +5331,17 @@ _ZN2cvL19initLUTforLABLUVs16ERKNS_9softfloatES2_.exit: ; preds = %806, %801
   store i16 %845, ptr %844, align 2
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next160, 16
-  br i1 %exitcond162.not, label %846, label %818, !llvm.loop !157
+  br i1 %exitcond162.not, label %846, label %818, !llvm.loop !158
 
 846:                                              ; preds = %818
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next164, 16
-  br i1 %exitcond168.not, label %847, label %810, !llvm.loop !158
+  br i1 %exitcond168.not, label %847, label %810, !llvm.loop !159
 
 847:                                              ; preds = %846
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next170, 16
-  br i1 %exitcond174.not, label %848, label %807, !llvm.loop !159
+  br i1 %exitcond174.not, label %848, label %807, !llvm.loop !160
 
 848:                                              ; preds = %847
   ret void
@@ -5399,7 +5400,7 @@ define internal fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr nound
   %31 = getelementptr inbounds %"struct.cv::softfloat", ptr %0, i64 %30
   call void @_ZNK2cv9softfloatplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %31)
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store i32 1065353216, ptr %11, align 4, !alias.scope !160
+  store i32 1065353216, ptr %11, align 4, !alias.scope !161
   %32 = shl nsw i64 %30, 2
   %33 = getelementptr inbounds %"struct.cv::softfloat", ptr %24, i64 %32
   call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %12, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %33)
@@ -5431,7 +5432,7 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %26, %36
 
 _ZN2cv9softfloataSERKS0_.exit47:                  ; preds = %_ZN2cv9softfloataSERKS0_.exit, %42
   %exitcond.not = icmp eq i64 %27, 1024
-  br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !165
+  br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !166
 
 .preheader:                                       ; preds = %_ZN2cv9softfloataSERKS0_.exit47, %_ZN2cv9softfloataSERKS0_.exit55
   %.04458 = phi i64 [ %65, %_ZN2cv9softfloataSERKS0_.exit55 ], [ 0, %_ZN2cv9softfloataSERKS0_.exit47 ]
@@ -5496,7 +5497,7 @@ _ZN2cv9softfloataSERKS0_.exit55:                  ; preds = %_ZN2cv9softfloataSE
   store i32 %64, ptr %5, align 4
   %65 = add nuw nsw i64 %.04458, 1
   %exitcond59.not = icmp eq i64 %65, 1024
-  br i1 %exitcond59.not, label %66, label %.preheader, !llvm.loop !166
+  br i1 %exitcond59.not, label %66, label %.preheader, !llvm.loop !167
 
 66:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit55
   ret ptr %24
@@ -5520,7 +5521,7 @@ define internal fastcc void @_ZN2cvL10applyGammaENS_9softfloatE(ptr dead_on_unwi
 
 11:                                               ; preds = %2
   call void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL11gammaXshiftE)
-  store i64 4607182418800017408, ptr %8, align 8, !alias.scope !167
+  store i64 4607182418800017408, ptr %8, align 8, !alias.scope !168
   call void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL11gammaXshiftE)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL10gammaPowerE)
@@ -5550,10 +5551,10 @@ define internal fastcc void @_ZN2cvL13applyInvGammaENS_9softfloatE(ptr dead_on_u
   br label %14
 
 13:                                               ; preds = %2
-  store i64 4607182418800017408, ptr %8, align 8, !alias.scope !172
+  store i64 4607182418800017408, ptr %8, align 8, !alias.scope !173
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL10gammaPowerE)
   call void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store i64 4607182418800017408, ptr %10, align 8, !alias.scope !177
+  store i64 4607182418800017408, ptr %10, align 8, !alias.scope !178
   call void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL11gammaXshiftE)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL11gammaXshiftE)
@@ -5683,12 +5684,12 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   store double %52, ptr %53, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader54, label %_ZN2cv10softdoubleaSERKS0_.exit, !llvm.loop !182
+  br i1 %exitcond.not, label %.preheader54, label %_ZN2cv10softdoubleaSERKS0_.exit, !llvm.loop !183
 
 54:                                               ; preds = %84
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 3
-  br i1 %exitcond77.not, label %94, label %.preheader, !llvm.loop !183
+  br i1 %exitcond77.not, label %94, label %.preheader, !llvm.loop !184
 
 .preheader:                                       ; preds = %.preheader54, %54
   %indvars.iv74 = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next75, %54 ]
@@ -5705,7 +5706,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   store float %59, ptr %60, align 4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 3
-  br i1 %exitcond73.not, label %.split.us, label %.preheader.split.us, !llvm.loop !184
+  br i1 %exitcond73.not, label %.split.us, label %.preheader.split.us, !llvm.loop !185
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.preheader.split ], [ 0, %.preheader ]
@@ -5716,7 +5717,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   store float %63, ptr %64, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 3
-  br i1 %exitcond69.not, label %.split.us, label %.preheader.split, !llvm.loop !184
+  br i1 %exitcond69.not, label %.split.us, label %.preheader.split, !llvm.loop !185
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
   %65 = getelementptr inbounds [9 x float], ptr %48, i64 0, i64 %55
@@ -5803,14 +5804,14 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %21)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
-  store i32 1065353216, ptr %24, align 4, !alias.scope !185
-  store i32 872415232, ptr %26, align 4, !alias.scope !190
-  call void @llvm.experimental.noalias.scope.decl(metadata !195)
-  %97 = call noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %26), !noalias !195
-  %.val.i = load i32, ptr %16, align 4, !noalias !195
-  %.val4.i = load i32, ptr %26, align 4, !noalias !195
+  store i32 1065353216, ptr %24, align 4, !alias.scope !186
+  store i32 872415232, ptr %26, align 4, !alias.scope !191
+  call void @llvm.experimental.noalias.scope.decl(metadata !196)
+  %97 = call noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %26), !noalias !196
+  %.val.i = load i32, ptr %16, align 4, !noalias !196
+  %.val4.i = load i32, ptr %26, align 4, !noalias !196
   %98 = select i1 %97, i32 %.val.i, i32 %.val4.i
-  store i32 %98, ptr %25, align 4, !alias.scope !195
+  store i32 %98, ptr %25, align 4, !alias.scope !196
   call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %23, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %25)
   %99 = load i32, ptr %23, align 4
   store i32 %99, ptr %16, align 4
@@ -5828,7 +5829,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   %102 = load float, ptr %31, align 4
   %103 = getelementptr inbounds i8, ptr %0, i64 44
   store float %102, ptr %103, align 4
-  store i64 4607182418800017408, ptr %35, align 8, !alias.scope !198
+  store i64 4607182418800017408, ptr %35, align 8, !alias.scope !199
   %104 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull align 8 dereferenceable(8) %35)
   br i1 %104, label %113, label %105
 
@@ -5931,7 +5932,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   store double %32, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader47, label %_ZN2cv10softdoubleaSERKS0_.exit, !llvm.loop !203
+  br i1 %exitcond.not, label %.preheader47, label %_ZN2cv10softdoubleaSERKS0_.exit, !llvm.loop !204
 
 .preheader46:                                     ; preds = %.preheader47, %.split.us
   %indvars.iv66 = phi i64 [ 0, %.preheader47 ], [ %indvars.iv.next67, %.split.us ]
@@ -5959,7 +5960,7 @@ _ZN2cv10softdoubleaSERKS0_.exit43.preheader:      ; preds = %.preheader46
 _ZN2cv10softdoubleaSERKS0_.exit43.us:             ; preds = %38, %.preheader.split.us
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 3
-  br i1 %exitcond65.not, label %.split.us, label %.preheader.split.us, !llvm.loop !204
+  br i1 %exitcond65.not, label %.split.us, label %.preheader.split.us, !llvm.loop !205
 
 _ZN2cv10softdoubleaSERKS0_.exit43:                ; preds = %_ZN2cv10softdoubleaSERKS0_.exit43.preheader, %_ZN2cv10softdoubleaSERKS0_.exit43
   %indvars.iv58 = phi i64 [ 0, %_ZN2cv10softdoubleaSERKS0_.exit43.preheader ], [ %indvars.iv.next59, %_ZN2cv10softdoubleaSERKS0_.exit43 ]
@@ -5971,7 +5972,7 @@ _ZN2cv10softdoubleaSERKS0_.exit43:                ; preds = %_ZN2cv10softdoublea
   store double %41, ptr %42, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 3
-  br i1 %exitcond61.not, label %.split.us, label %_ZN2cv10softdoubleaSERKS0_.exit43, !llvm.loop !204
+  br i1 %exitcond61.not, label %.split.us, label %_ZN2cv10softdoubleaSERKS0_.exit43, !llvm.loop !205
 
 .split.us:                                        ; preds = %_ZN2cv10softdoubleaSERKS0_.exit43, %_ZN2cv10softdoubleaSERKS0_.exit43.us
   %43 = getelementptr inbounds [3 x %"struct.cv::softdouble"], ptr %7, i64 0, i64 %indvars.iv66
@@ -6003,7 +6004,7 @@ _ZN2cv10softdoubleaSERKS0_.exit43:                ; preds = %_ZN2cv10softdoublea
   store float %58, ptr %63, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 3
-  br i1 %exitcond69.not, label %64, label %.preheader46, !llvm.loop !205
+  br i1 %exitcond69.not, label %64, label %.preheader46, !llvm.loop !206
 
 64:                                               ; preds = %.split.us
   call void @_ZN2cv9softfloatC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %12, i32 noundef 8)
@@ -6051,7 +6052,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %.preheader50, %_ZN2
   store double %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split.us, label %_ZN2cv10softdoubleaSERKS0_.exit, !llvm.loop !206
+  br i1 %exitcond.not, label %.split.us, label %_ZN2cv10softdoubleaSERKS0_.exit, !llvm.loop !207
 
 .split.us:                                        ; preds = %_ZN2cv10softdoubleaSERKS0_.exit, %_ZN2cv10softdoubleaSERKS0_.exit.us.preheader
   %20 = load atomic i8, ptr @_ZGVZN2cv14Lab2RGBintegerC1EiiPKfS2_bE6lshift acquire, align 8
@@ -6109,7 +6110,7 @@ _ZN2cv10softdoubleaSERKS0_.exit46.preheader:      ; preds = %.preheader49
 _ZN2cv10softdoubleaSERKS0_.exit46.us:             ; preds = %39, %.preheader.split.us
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 3
-  br i1 %exitcond69.not, label %.split54.us, label %.preheader.split.us, !llvm.loop !207
+  br i1 %exitcond69.not, label %.split54.us, label %.preheader.split.us, !llvm.loop !208
 
 _ZN2cv10softdoubleaSERKS0_.exit46:                ; preds = %_ZN2cv10softdoubleaSERKS0_.exit46.preheader, %_ZN2cv10softdoubleaSERKS0_.exit46
   %indvars.iv62 = phi i64 [ 0, %_ZN2cv10softdoubleaSERKS0_.exit46.preheader ], [ %indvars.iv.next63, %_ZN2cv10softdoubleaSERKS0_.exit46 ]
@@ -6121,7 +6122,7 @@ _ZN2cv10softdoubleaSERKS0_.exit46:                ; preds = %_ZN2cv10softdoublea
   store double %42, ptr %43, align 8
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 3
-  br i1 %exitcond65.not, label %.split54.us, label %_ZN2cv10softdoubleaSERKS0_.exit46, !llvm.loop !207
+  br i1 %exitcond65.not, label %.split54.us, label %_ZN2cv10softdoubleaSERKS0_.exit46, !llvm.loop !208
 
 44:                                               ; preds = %24
   %45 = landingpad { ptr, i32 }
@@ -6151,7 +6152,7 @@ _ZN2cv10softdoubleaSERKS0_.exit46:                ; preds = %_ZN2cv10softdoublea
   store i32 %53, ptr %55, align 4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 3
-  br i1 %exitcond73.not, label %56, label %.preheader49, !llvm.loop !208
+  br i1 %exitcond73.not, label %56, label %.preheader49, !llvm.loop !209
 
 56:                                               ; preds = %.split54.us
   ret void
@@ -6252,7 +6253,7 @@ _ZN2cv9softfloataSERKS0_.exit.us.us:              ; preds = %.preheader49.us, %_
   store i32 %54, ptr %53, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond75.not, label %.split.us.us, label %_ZN2cv9softfloataSERKS0_.exit.us.us, !llvm.loop !209
+  br i1 %exitcond75.not, label %.split.us.us, label %_ZN2cv9softfloataSERKS0_.exit.us.us, !llvm.loop !210
 
 .split.us.us:                                     ; preds = %_ZN2cv9softfloataSERKS0_.exit.us.us
   %55 = load float, ptr %8, align 4
@@ -6269,7 +6270,7 @@ _ZN2cv9softfloataSERKS0_.exit.us.us:              ; preds = %.preheader49.us, %_
   store float %61, ptr %63, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 3
-  br i1 %exitcond79.not, label %.split57.us, label %.preheader49.us, !llvm.loop !210
+  br i1 %exitcond79.not, label %.split57.us, label %.preheader49.us, !llvm.loop !211
 
 _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTabsEv.exit, %_ZN2cv10softdoubleaSERKS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv10softdoubleaSERKS0_.exit ], [ 0, %_ZN2cvL11initLabTabsEv.exit ]
@@ -6280,7 +6281,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   store double %66, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader50, label %_ZN2cv10softdoubleaSERKS0_.exit, !llvm.loop !211
+  br i1 %exitcond.not, label %.preheader50, label %_ZN2cv10softdoubleaSERKS0_.exit, !llvm.loop !212
 
 .preheader49:                                     ; preds = %.preheader50, %.split
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.split ], [ 0, %.preheader50 ]
@@ -6297,7 +6298,7 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %.preheader49, %_ZN2
   store i32 %68, ptr %69, align 4
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 3
-  br i1 %exitcond67.not, label %.split, label %_ZN2cv9softfloataSERKS0_.exit, !llvm.loop !209
+  br i1 %exitcond67.not, label %.split, label %_ZN2cv9softfloataSERKS0_.exit, !llvm.loop !210
 
 .split:                                           ; preds = %_ZN2cv9softfloataSERKS0_.exit
   %70 = load float, ptr %8, align 4
@@ -6314,7 +6315,7 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %.preheader49, %_ZN2
   store float %76, ptr %78, align 4
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, 3
-  br i1 %exitcond71.not, label %.split57.us, label %.preheader49, !llvm.loop !210
+  br i1 %exitcond71.not, label %.split57.us, label %.preheader49, !llvm.loop !211
 
 .split57.us:                                      ; preds = %.split, %.split.us.us
   %79 = getelementptr inbounds i8, ptr %7, i64 8
@@ -6326,14 +6327,14 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %.preheader49, %_ZN2
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull align 8 dereferenceable(8) %16)
   call void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %15)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store i32 1065353216, ptr %18, align 4, !alias.scope !212
-  store i32 872415232, ptr %20, align 4, !alias.scope !217
-  call void @llvm.experimental.noalias.scope.decl(metadata !222)
-  %81 = call noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %20), !noalias !222
-  %.val.i = load i32, ptr %10, align 4, !noalias !222
-  %.val4.i = load i32, ptr %20, align 4, !noalias !222
+  store i32 1065353216, ptr %18, align 4, !alias.scope !213
+  store i32 872415232, ptr %20, align 4, !alias.scope !218
+  call void @llvm.experimental.noalias.scope.decl(metadata !223)
+  %81 = call noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %20), !noalias !223
+  %.val.i = load i32, ptr %10, align 4, !noalias !223
+  %.val4.i = load i32, ptr %20, align 4, !noalias !223
   %82 = select i1 %81, i32 %.val.i, i32 %.val4.i
-  store i32 %82, ptr %19, align 4, !alias.scope !222
+  store i32 %82, ptr %19, align 4, !alias.scope !223
   call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
   %83 = load i32, ptr %17, align 4
   store i32 %83, ptr %10, align 4
@@ -6351,7 +6352,7 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %.preheader49, %_ZN2
   %86 = load float, ptr %25, align 4
   %87 = getelementptr inbounds i8, ptr %0, i64 44
   store float %86, ptr %87, align 4
-  store i64 4607182418800017408, ptr %29, align 8, !alias.scope !225
+  store i64 4607182418800017408, ptr %29, align 8, !alias.scope !226
   %88 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(8) %29)
   br i1 %88, label %97, label %89
 
@@ -6477,7 +6478,7 @@ _ZN2cvL11initLabTabsEv.exit:                      ; preds = %6, %15, %18
 _ZN2cv10softdoubleaSERKS0_.exit.us.us:            ; preds = %40, %.preheader.us
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %.split.us.us, label %.preheader.us, !llvm.loop !230
+  br i1 %exitcond43.not, label %.split.us.us, label %.preheader.us, !llvm.loop !231
 
 .split.us.us:                                     ; preds = %_ZN2cv10softdoubleaSERKS0_.exit.us.us
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv14Luv2RGBintegerC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -6497,7 +6498,7 @@ _ZN2cv10softdoubleaSERKS0_.exit.us.us:            ; preds = %40, %.preheader.us
   store i32 %48, ptr %50, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3
-  br i1 %exitcond47.not, label %.split33.us, label %.preheader28.us, !llvm.loop !231
+  br i1 %exitcond47.not, label %.split33.us, label %.preheader28.us, !llvm.loop !232
 
 .preheader28:                                     ; preds = %27, %.split
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.split ], [ 0, %27 ]
@@ -6515,7 +6516,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %.preheader28, %_ZN2
   store double %52, ptr %53, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split, label %_ZN2cv10softdoubleaSERKS0_.exit, !llvm.loop !230
+  br i1 %exitcond.not, label %.split, label %_ZN2cv10softdoubleaSERKS0_.exit, !llvm.loop !231
 
 54:                                               ; preds = %25
   %55 = landingpad { ptr, i32 }
@@ -6540,7 +6541,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %.preheader28, %_ZN2
   store i32 %62, ptr %64, align 4
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 3
-  br i1 %exitcond39.not, label %.split33.us, label %.preheader28, !llvm.loop !231
+  br i1 %exitcond39.not, label %.split33.us, label %.preheader28, !llvm.loop !232
 
 .split33.us:                                      ; preds = %.split, %.split.us.us
   ret void
@@ -6612,7 +6613,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2X
   %31 = getelementptr inbounds i8, ptr %.01215, i64 %30
   %32 = load i32, ptr %7, align 4
   %33 = icmp slt i32 %27, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !232
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !233
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -6725,7 +6726,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2XYZ_iIhEclEPKhPhi(ptr noundef nonnu
   %69 = getelementptr inbounds i8, ptr %.037, i64 %26
   %70 = getelementptr inbounds i8, ptr %.03336, i64 3
   %exitcond.not = icmp eq i32 %68, %3
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !233
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !234
 
 ._crit_edge:                                      ; preds = %27, %4
   %71 = getelementptr inbounds i8, ptr %5, i64 8
@@ -6809,7 +6810,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2X
   %31 = getelementptr inbounds i8, ptr %.01215, i64 %30
   %32 = load i32, ptr %7, align 4
   %33 = icmp slt i32 %27, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !234
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !235
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -6919,7 +6920,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2XYZ_iItEclEPKtPti(ptr noundef nonnu
   %69 = getelementptr inbounds i16, ptr %.037, i64 %26
   %70 = getelementptr inbounds i8, ptr %.03336, i64 6
   %exitcond.not = icmp eq i32 %68, %3
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !235
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !236
 
 ._crit_edge:                                      ; preds = %27, %4
   %71 = getelementptr inbounds i8, ptr %5, i64 8
@@ -7049,7 +7050,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2X
   %67 = getelementptr inbounds float, ptr %.037.i, i64 %48
   %68 = getelementptr inbounds i8, ptr %.03336.i, i64 12
   %exitcond.not.i = icmp eq i32 %66, %27
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %49, !llvm.loop !236
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %49, !llvm.loop !237
 
 ._crit_edge.i:                                    ; preds = %49, %.noexc
   %69 = load i32, ptr %24, align 8
@@ -7076,7 +7077,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2X
   %79 = getelementptr inbounds i8, ptr %.01215, i64 %78
   %80 = load i32, ptr %8, align 4
   %81 = icmp slt i32 %75, %80
-  br i1 %81, label %25, label %._crit_edge, !llvm.loop !237
+  br i1 %81, label %25, label %._crit_edge, !llvm.loop !238
 
 82:                                               ; preds = %25
   %83 = landingpad { ptr, i32 }
@@ -7166,7 +7167,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9XYZ2R
   %31 = getelementptr inbounds i8, ptr %.01215, i64 %30
   %32 = load i32, ptr %7, align 4
   %33 = icmp slt i32 %27, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !238
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !239
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -7279,7 +7280,7 @@ define linkonce_odr hidden void @_ZNK2cv9XYZ2RGB_iIhEclEPKhPhi(ptr noundef nonnu
   %70 = getelementptr inbounds i8, ptr %.040.us, i64 3
   %71 = getelementptr inbounds i8, ptr %.03639.us, i64 %27
   %exitcond42.not = icmp eq i32 %69, %3
-  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !239
+  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !240
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.040 = phi ptr [ %113, %.lr.ph.split ], [ %1, %.lr.ph ]
@@ -7332,7 +7333,7 @@ define linkonce_odr hidden void @_ZNK2cv9XYZ2RGB_iIhEclEPKhPhi(ptr noundef nonnu
   %113 = getelementptr inbounds i8, ptr %.040, i64 3
   %114 = getelementptr inbounds i8, ptr %.03639, i64 %27
   %exitcond.not = icmp eq i32 %112, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !239
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !240
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %4
   %115 = getelementptr inbounds i8, ptr %5, i64 8
@@ -7413,7 +7414,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9XYZ2R
   %31 = getelementptr inbounds i8, ptr %.01215, i64 %30
   %32 = load i32, ptr %7, align 4
   %33 = icmp slt i32 %27, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !240
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !241
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -7526,7 +7527,7 @@ define linkonce_odr hidden void @_ZNK2cv9XYZ2RGB_iItEclEPKtPti(ptr noundef nonnu
   %70 = getelementptr inbounds i8, ptr %.040.us, i64 6
   %71 = getelementptr inbounds i16, ptr %.03639.us, i64 %27
   %exitcond42.not = icmp eq i32 %69, %3
-  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !241
+  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !242
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.040 = phi ptr [ %113, %.lr.ph.split ], [ %1, %.lr.ph ]
@@ -7579,7 +7580,7 @@ define linkonce_odr hidden void @_ZNK2cv9XYZ2RGB_iItEclEPKtPti(ptr noundef nonnu
   %113 = getelementptr inbounds i8, ptr %.040, i64 6
   %114 = getelementptr inbounds i16, ptr %.03639, i64 %27
   %exitcond.not = icmp eq i32 %112, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !241
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !242
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %4
   %115 = getelementptr inbounds i8, ptr %5, i64 8
@@ -7660,7 +7661,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9XYZ2R
   %31 = getelementptr inbounds i8, ptr %.01215, i64 %30
   %32 = load i32, ptr %7, align 4
   %33 = icmp slt i32 %27, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !242
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !243
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -7749,7 +7750,7 @@ define linkonce_odr hidden void @_ZNK2cv9XYZ2RGB_fIfEclEPKfPfi(ptr noundef nonnu
   %46 = getelementptr inbounds i8, ptr %.040.us, i64 12
   %47 = getelementptr inbounds float, ptr %.03639.us, i64 %27
   %exitcond42.not = icmp eq i32 %45, %3
-  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !243
+  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !244
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.040 = phi ptr [ %65, %.lr.ph.split ], [ %1, %.lr.ph ]
@@ -7778,7 +7779,7 @@ define linkonce_odr hidden void @_ZNK2cv9XYZ2RGB_fIfEclEPKfPfi(ptr noundef nonnu
   %65 = getelementptr inbounds i8, ptr %.040, i64 12
   %66 = getelementptr inbounds float, ptr %.03639, i64 %27
   %exitcond.not = icmp eq i32 %64, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !243
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !244
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %4
   %67 = getelementptr inbounds i8, ptr %5, i64 8
@@ -7859,7 +7860,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2L
   %31 = getelementptr inbounds i8, ptr %.01215, i64 %30
   %32 = load i32, ptr %7, align 4
   %33 = icmp slt i32 %27, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !244
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !245
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -8005,7 +8006,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_bclEPKhPhi(ptr noundef nonnull 
   %104 = getelementptr inbounds i8, ptr %.045, i64 %29
   %105 = getelementptr inbounds i8, ptr %.04144, i64 3
   %exitcond.not = icmp eq i32 %103, %3
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !245
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !246
 
 ._crit_edge:                                      ; preds = %30, %4
   %106 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8086,7 +8087,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2L
   %31 = getelementptr inbounds i8, ptr %.01215, i64 %30
   %32 = load i32, ptr %7, align 4
   %33 = icmp slt i32 %27, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !246
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !247
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -8246,7 +8247,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
   %98 = getelementptr inbounds float, ptr %.0135, i64 %48
   %99 = trunc nuw i64 %indvars.iv.next to i32
   %100 = icmp sgt i32 %42, %99
-  br i1 %100, label %49, label %.loopexit, !llvm.loop !247
+  br i1 %100, label %49, label %.loopexit, !llvm.loop !248
 
 101:                                              ; preds = %221, %213, %205
   %102 = landingpad { ptr, i32 }
@@ -8474,7 +8475,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
   %238 = getelementptr inbounds float, ptr %.1133, i64 %115
   %239 = getelementptr inbounds i8, ptr %.0103132, i64 12
   %exitcond.not = icmp eq i32 %237, %3
-  br i1 %exitcond.not, label %.loopexit, label %116, !llvm.loop !248
+  br i1 %exitcond.not, label %.loopexit, label %116, !llvm.loop !249
 
 .loopexit:                                        ; preds = %226, %75, %113, %41
   %240 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8553,7 +8554,7 @@ define internal fastcc void @_ZN2cvL20trilinearInterpolateEiiiPKsRiS2_S2_(i32 no
   store i32 %44, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %31, !llvm.loop !249
+  br i1 %exitcond.not, label %.preheader, label %31, !llvm.loop !250
 
 46:                                               ; preds = %.preheader, %46
   %indvars.iv40 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next41, %46 ]
@@ -8565,7 +8566,7 @@ define internal fastcc void @_ZN2cvL20trilinearInterpolateEiiiPKsRiS2_S2_(i32 no
   store i32 %50, ptr %51, align 4
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 8
-  br i1 %exitcond43.not, label %52, label %46, !llvm.loop !250
+  br i1 %exitcond43.not, label %52, label %46, !llvm.loop !251
 
 52:                                               ; preds = %46
   %53 = load i32, ptr %8, align 16
@@ -8751,7 +8752,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2L
   %31 = getelementptr inbounds i8, ptr %.01215, i64 %30
   %32 = load i32, ptr %7, align 4
   %33 = icmp slt i32 %27, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !251
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !252
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -8881,10 +8882,10 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
   br i1 %.not45, label %51, label %46
 
 46:                                               ; preds = %44
-  call void @llvm.experimental.noalias.scope.decl(metadata !252)
-  %47 = load i32, ptr @_ZN2cvL4uLowE, align 4, !noalias !252
+  call void @llvm.experimental.noalias.scope.decl(metadata !253)
+  %47 = load i32, ptr @_ZN2cvL4uLowE, align 4, !noalias !253
   %48 = xor i32 %47, -2147483648
-  store i32 %48, ptr %9, align 4, !alias.scope !252
+  store i32 %48, ptr %9, align 4, !alias.scope !253
   invoke void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) @_ZN2cvL4f255E)
           to label %49 unwind label %103
 
@@ -8907,10 +8908,10 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
   br i1 %.not46, label %61, label %56
 
 56:                                               ; preds = %54
-  call void @llvm.experimental.noalias.scope.decl(metadata !255)
-  %57 = load i32, ptr @_ZN2cvL4vLowE, align 4, !noalias !255
+  call void @llvm.experimental.noalias.scope.decl(metadata !256)
+  %57 = load i32, ptr @_ZN2cvL4vLowE, align 4, !noalias !256
   %58 = xor i32 %57, -2147483648
-  store i32 %58, ptr %11, align 4, !alias.scope !255
+  store i32 %58, ptr %11, align 4, !alias.scope !256
   invoke void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) @_ZN2cvL4f255E)
           to label %59 unwind label %105
 
@@ -8947,7 +8948,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
   br i1 %.not47, label %73, label %71
 
 71:                                               ; preds = %69
-  store i32 1065353216, ptr %12, align 4, !alias.scope !258
+  store i32 1065353216, ptr %12, align 4, !alias.scope !259
   invoke void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 @_ZZNK2cv9RGB2Luv_bclEPKhPhiE7f255inv, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) @_ZN2cvL4f255E)
           to label %72 unwind label %107
 
@@ -8990,7 +8991,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %95 = getelementptr inbounds i8, ptr %.153, i64 %63
   %96 = icmp samesign ult i64 %indvars.iv.next, %77
-  br i1 %96, label %78, label %._crit_edge, !llvm.loop !263
+  br i1 %96, label %78, label %._crit_edge, !llvm.loop !264
 
 97:                                               ; preds = %25, %24
   %98 = landingpad { ptr, i32 }
@@ -9081,13 +9082,13 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
   store i8 %142, ptr %143, align 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 3
   %144 = icmp samesign ult i64 %indvars.iv.next66, %109
-  br i1 %144, label %.lr.ph57, label %._crit_edge58, !llvm.loop !264
+  br i1 %144, label %.lr.ph57, label %._crit_edge58, !llvm.loop !265
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %.preheader
   %145 = add nuw nsw i32 %.03760, 256
   %146 = getelementptr inbounds i8, ptr %.03859, i64 768
   %147 = icmp slt i32 %145, %3
-  br i1 %147, label %65, label %.loopexit, !llvm.loop !265
+  br i1 %147, label %65, label %.loopexit, !llvm.loop !266
 
 .loopexit:                                        ; preds = %._crit_edge58, %61, %16
   %148 = getelementptr inbounds i8, ptr %5, i64 8
@@ -9178,7 +9179,7 @@ define linkonce_odr hidden void @_ZNK2cv18RGB2LuvinterpolateclEPKhPhi(ptr nounde
   %50 = getelementptr inbounds i8, ptr %.025, i64 %18
   %51 = trunc nuw i64 %indvars.iv.next to i32
   %52 = icmp sgt i32 %9, %51
-  br i1 %52, label %19, label %._crit_edge, !llvm.loop !266
+  br i1 %52, label %19, label %._crit_edge, !llvm.loop !267
 
 ._crit_edge:                                      ; preds = %19, %4
   %53 = getelementptr inbounds i8, ptr %5, i64 8
@@ -9380,7 +9381,7 @@ define linkonce_odr hidden void @_ZNK2cv12RGB2LuvfloatclEPKfPfi(ptr noundef nonn
   %150 = getelementptr inbounds float, ptr %.082, i64 %35
   %151 = getelementptr inbounds i8, ptr %.06581, i64 12
   %exitcond.not = icmp eq i32 %149, %3
-  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !267
+  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !268
 
 ._crit_edge:                                      ; preds = %106, %4
   %152 = getelementptr inbounds i8, ptr %5, i64 8
@@ -9461,7 +9462,7 @@ _ZNK2cv9RGB2Luv_fclEPKfPfi.exit:                  ; preds = %23
   %30 = getelementptr inbounds i8, ptr %.01215, i64 %29
   %31 = load i32, ptr %7, align 4
   %32 = icmp slt i32 %26, %31
-  br i1 %32, label %23, label %._crit_edge, !llvm.loop !268
+  br i1 %32, label %23, label %._crit_edge, !llvm.loop !269
 
 33:                                               ; preds = %23
   %34 = landingpad { ptr, i32 }
@@ -9579,7 +9580,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9Lab2R
   %42 = getelementptr inbounds i8, ptr %.01215, i64 %41
   %43 = load i32, ptr %8, align 4
   %44 = icmp slt i32 %38, %43
-  br i1 %44, label %25, label %._crit_edge, !llvm.loop !269
+  br i1 %44, label %25, label %._crit_edge, !llvm.loop !270
 
 45:                                               ; preds = %25
   %46 = landingpad { ptr, i32 }
@@ -9662,7 +9663,7 @@ define linkonce_odr hidden void @_ZNK2cv14Lab2RGBintegerclEPKhPhi(ptr noundef no
   %34 = getelementptr inbounds i8, ptr %.019.us, i64 3
   %35 = getelementptr inbounds i8, ptr %.01518.us, i64 %12
   %exitcond22.not = icmp eq i32 %33, %3
-  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !270
+  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !271
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.019 = phi ptr [ %56, %.lr.ph.split ], [ %1, %.lr.ph ]
@@ -9695,7 +9696,7 @@ define linkonce_odr hidden void @_ZNK2cv14Lab2RGBintegerclEPKhPhi(ptr noundef no
   %56 = getelementptr inbounds i8, ptr %.019, i64 3
   %57 = getelementptr inbounds i8, ptr %.01518, i64 %12
   %exitcond.not = icmp eq i32 %55, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !270
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !271
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %4
   %58 = getelementptr inbounds i8, ptr %5, i64 8
@@ -9908,7 +9909,7 @@ _ZNK2cv9Lab2RGB_fclEPKfPfi.exit:                  ; preds = %23
   %30 = getelementptr inbounds i8, ptr %.01215, i64 %29
   %31 = load i32, ptr %7, align 4
   %32 = icmp slt i32 %26, %31
-  br i1 %32, label %23, label %._crit_edge, !llvm.loop !271
+  br i1 %32, label %23, label %._crit_edge, !llvm.loop !272
 
 33:                                               ; preds = %23
   %34 = landingpad { ptr, i32 }
@@ -10125,7 +10126,7 @@ define linkonce_odr hidden void @_ZNK2cv12Lab2RGBfloatclEPKfPfi(ptr noundef nonn
   %146 = getelementptr inbounds i8, ptr %.099, i64 12
   %147 = getelementptr inbounds float, ptr %.07798, i64 %34
   %exitcond.not = icmp eq i32 %145, %3
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !272
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !273
 
 ._crit_edge:                                      ; preds = %144, %4
   %148 = getelementptr inbounds i8, ptr %5, i64 8
@@ -10206,7 +10207,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9Luv2R
   %31 = getelementptr inbounds i8, ptr %.01215, i64 %30
   %32 = load i32, ptr %7, align 4
   %33 = icmp slt i32 %27, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !273
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !274
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -10373,7 +10374,7 @@ define linkonce_odr hidden void @_ZNK2cv9Luv2RGB_bclEPKhPhi(ptr noundef nonnull 
   store float %67, ptr %68, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %69 = icmp samesign ult i64 %indvars.iv.next, %50
-  br i1 %69, label %51, label %._crit_edge, !llvm.loop !274
+  br i1 %69, label %51, label %._crit_edge, !llvm.loop !275
 
 70:                                               ; preds = %20, %19
   %71 = landingpad { ptr, i32 }
@@ -10449,14 +10450,14 @@ define linkonce_odr hidden void @_ZNK2cv9Luv2RGB_bclEPKhPhi(ptr noundef nonnull 
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 3
   %108 = getelementptr inbounds i8, ptr %.155, i64 %40
   %109 = icmp samesign ult i64 %indvars.iv.next66, %76
-  br i1 %109, label %.lr.ph56, label %._crit_edge57, !llvm.loop !275
+  br i1 %109, label %.lr.ph56, label %._crit_edge57, !llvm.loop !276
 
 ._crit_edge57:                                    ; preds = %107, %.preheader
   %.1.lcssa = phi ptr [ %.03860, %.preheader ], [ %108, %107 ]
   %110 = add nuw nsw i32 %.04259, 256
   %111 = getelementptr inbounds i8, ptr %.061, i64 768
   %112 = icmp slt i32 %110, %3
-  br i1 %112, label %41, label %.loopexit, !llvm.loop !276
+  br i1 %112, label %41, label %.loopexit, !llvm.loop !277
 
 .loopexit:                                        ; preds = %._crit_edge57, %36, %11
   %113 = getelementptr inbounds i8, ptr %5, i64 8
@@ -10534,7 +10535,7 @@ define linkonce_odr hidden void @_ZNK2cv14Luv2RGBintegerclEPKhPhi(ptr noundef no
   %34 = getelementptr inbounds i8, ptr %.019.us, i64 3
   %35 = getelementptr inbounds i8, ptr %.01518.us, i64 %12
   %exitcond22.not = icmp eq i32 %33, %3
-  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !277
+  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !278
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.019 = phi ptr [ %56, %.lr.ph.split ], [ %1, %.lr.ph ]
@@ -10567,7 +10568,7 @@ define linkonce_odr hidden void @_ZNK2cv14Luv2RGBintegerclEPKhPhi(ptr noundef no
   %56 = getelementptr inbounds i8, ptr %.019, i64 3
   %57 = getelementptr inbounds i8, ptr %.01518, i64 %12
   %exitcond.not = icmp eq i32 %55, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !277
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !278
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %4
   %58 = getelementptr inbounds i8, ptr %5, i64 8
@@ -10775,7 +10776,7 @@ define linkonce_odr hidden void @_ZNK2cv12Luv2RGBfloatclEPKfPfi(ptr noundef nonn
   %145 = getelementptr inbounds i8, ptr %.098, i64 12
   %146 = getelementptr inbounds float, ptr %.07897, i64 %36
   %exitcond.not = icmp eq i32 %144, %3
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !278
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !279
 
 ._crit_edge:                                      ; preds = %143, %4
   %147 = getelementptr inbounds i8, ptr %5, i64 8
@@ -11002,7 +11003,7 @@ _ZNK2cv9Luv2RGB_fclEPKfPfi.exit:                  ; preds = %23
   %30 = getelementptr inbounds i8, ptr %.01215, i64 %29
   %31 = load i32, ptr %7, align 4
   %32 = icmp slt i32 %26, %31
-  br i1 %32, label %23, label %._crit_edge, !llvm.loop !279
+  br i1 %32, label %23, label %._crit_edge, !llvm.loop !280
 
 33:                                               ; preds = %23
   %34 = landingpad { ptr, i32 }
@@ -11077,27 +11078,27 @@ define internal void @_GLOBAL__sub_I_color_lab.cpp() #16 section ".text.startup"
   %17 = alloca %"struct.cv::softfloat", align 4
   %18 = alloca %"struct.cv::softfloat", align 4
   %19 = alloca %"struct.cv::softfloat", align 4
-  store i64 4601101712626337293, ptr @_ZN2cvL12sRGB2XYZ_D65E, align 16, !alias.scope !280
-  store i64 4600113208536926488, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 8), align 8, !alias.scope !283
-  store i64 4595668443935087960, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 16), align 16, !alias.scope !286
-  store i64 4596830300581355510, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 24), align 8, !alias.scope !289
-  store i64 4604616808164296984, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 32), align 16, !alias.scope !292
-  store i64 4589864745167288149, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 40), align 8, !alias.scope !295
-  store i64 4581229867500941131, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 48), align 16, !alias.scope !298
-  store i64 4593253181469327672, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 56), align 8, !alias.scope !301
-  store i64 4606734103471511185, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 64), align 16, !alias.scope !304
-  store i64 4614479328808468367, ptr @_ZN2cvL12XYZ2sRGB_D65E, align 16, !alias.scope !307
-  store i64 -4613770509514916338, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 8), align 8, !alias.scope !310
-  store i64 -4620719608775945287, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 16), align 16, !alias.scope !313
-  store i64 -4616466535388646157, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 24), align 8, !alias.scope !316
-  store i64 4611127531541197316, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 32), align 16, !alias.scope !319
-  store i64 4586149671791474699, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 40), align 8, !alias.scope !322
-  store i64 4588180543021839660, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 48), align 16, !alias.scope !325
-  store i64 -4626852592734099919, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 56), align 8, !alias.scope !328
-  store i64 4607440524598261638, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 64), align 16, !alias.scope !331
-  store i64 4606736166120140520, ptr @_ZN2cvL3D65E, align 16, !alias.scope !334
-  store i64 4607182418800017408, ptr getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 8), align 8, !alias.scope !337
-  store i64 4607582131281345049, ptr getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 16), align 16, !alias.scope !342
+  store i64 4601101712626337293, ptr @_ZN2cvL12sRGB2XYZ_D65E, align 16, !alias.scope !281
+  store i64 4600113208536926488, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 8), align 8, !alias.scope !284
+  store i64 4595668443935087960, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 16), align 16, !alias.scope !287
+  store i64 4596830300581355510, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 24), align 8, !alias.scope !290
+  store i64 4604616808164296984, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 32), align 16, !alias.scope !293
+  store i64 4589864745167288149, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 40), align 8, !alias.scope !296
+  store i64 4581229867500941131, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 48), align 16, !alias.scope !299
+  store i64 4593253181469327672, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 56), align 8, !alias.scope !302
+  store i64 4606734103471511185, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 64), align 16, !alias.scope !305
+  store i64 4614479328808468367, ptr @_ZN2cvL12XYZ2sRGB_D65E, align 16, !alias.scope !308
+  store i64 -4613770509514916338, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 8), align 8, !alias.scope !311
+  store i64 -4620719608775945287, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 16), align 16, !alias.scope !314
+  store i64 -4616466535388646157, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 24), align 8, !alias.scope !317
+  store i64 4611127531541197316, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 32), align 16, !alias.scope !320
+  store i64 4586149671791474699, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 40), align 8, !alias.scope !323
+  store i64 4588180543021839660, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 48), align 16, !alias.scope !326
+  store i64 -4626852592734099919, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 56), align 8, !alias.scope !329
+  store i64 4607440524598261638, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 64), align 16, !alias.scope !332
+  store i64 4606736166120140520, ptr @_ZN2cvL3D65E, align 16, !alias.scope !335
+  store i64 4607182418800017408, ptr getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 8), align 8, !alias.scope !338
+  store i64 4607582131281345049, ptr getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 16), align 16, !alias.scope !343
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
@@ -11318,58 +11319,58 @@ attributes #24 = { builtin nounwind }
 !94 = distinct !{!94, !95, !"_ZN2cvL13initLUTforLUVERKNS_9softfloatES2_: argument 0"}
 !95 = distinct !{!95, !"_ZN2cvL13initLUTforLUVERKNS_9softfloatES2_"}
 !96 = distinct !{!96, !5}
-!97 = !{!98}
+!97 = !{!98, !94}
 !98 = distinct !{!98, !99, !"_ZNK2cv9softfloatngEv: argument 0"}
 !99 = distinct !{!99, !"_ZNK2cv9softfloatngEv"}
-!100 = !{!101, !94}
-!101 = distinct !{!101, !102, !"_ZNK2cv9softfloatngEv: argument 0"}
-!102 = distinct !{!102, !"_ZNK2cv9softfloatngEv"}
-!103 = distinct !{!103, !5}
+!100 = !{!98}
+!101 = !{!102, !94}
+!102 = distinct !{!102, !103, !"_ZNK2cv9softfloatngEv: argument 0"}
+!103 = distinct !{!103, !"_ZNK2cv9softfloatngEv"}
 !104 = distinct !{!104, !5}
-!105 = !{!106, !108}
-!106 = distinct !{!106, !107, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!107 = distinct !{!107, !"_ZN2cv10softdouble7fromRawEm"}
-!108 = distinct !{!108, !109, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!109 = distinct !{!109, !"_ZN2cv10softdouble3oneEv"}
-!110 = !{!111, !113}
-!111 = distinct !{!111, !112, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!112 = distinct !{!112, !"_ZN2cv10softdouble7fromRawEm"}
-!113 = distinct !{!113, !114, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!114 = distinct !{!114, !"_ZN2cv10softdouble3oneEv"}
-!115 = !{!116, !118}
-!116 = distinct !{!116, !117, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!117 = distinct !{!117, !"_ZN2cv10softdouble7fromRawEm"}
-!118 = distinct !{!118, !119, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!119 = distinct !{!119, !"_ZN2cv10softdouble3oneEv"}
-!120 = distinct !{!120, !5}
-!121 = !{!122, !124}
-!122 = distinct !{!122, !123, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!123 = distinct !{!123, !"_ZN2cv10softdouble7fromRawEm"}
-!124 = distinct !{!124, !125, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!125 = distinct !{!125, !"_ZN2cv10softdouble3oneEv"}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZN2cvL10applyGammaENS_9softfloatE: argument 0"}
-!128 = distinct !{!128, !"_ZN2cvL10applyGammaENS_9softfloatE"}
-!129 = !{!130, !132}
-!130 = distinct !{!130, !131, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!131 = distinct !{!131, !"_ZN2cv10softdouble7fromRawEm"}
-!132 = distinct !{!132, !133, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!133 = distinct !{!133, !"_ZN2cv10softdouble3oneEv"}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZN2cvL10applyGammaENS_9softfloatE: argument 0"}
-!136 = distinct !{!136, !"_ZN2cvL10applyGammaENS_9softfloatE"}
-!137 = !{!138, !140}
-!138 = distinct !{!138, !139, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!139 = distinct !{!139, !"_ZN2cv10softdouble7fromRawEm"}
-!140 = distinct !{!140, !141, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!141 = distinct !{!141, !"_ZN2cv10softdouble3oneEv"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZN2cvL10applyGammaENS_9softfloatE: argument 0"}
-!144 = distinct !{!144, !"_ZN2cvL10applyGammaENS_9softfloatE"}
-!145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZN2cv3maxERKNS_9softfloatES2_: argument 0"}
-!147 = distinct !{!147, !"_ZN2cv3maxERKNS_9softfloatES2_"}
-!148 = distinct !{!148, !5}
+!105 = distinct !{!105, !5}
+!106 = !{!107, !109}
+!107 = distinct !{!107, !108, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!108 = distinct !{!108, !"_ZN2cv10softdouble7fromRawEm"}
+!109 = distinct !{!109, !110, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!110 = distinct !{!110, !"_ZN2cv10softdouble3oneEv"}
+!111 = !{!112, !114}
+!112 = distinct !{!112, !113, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!113 = distinct !{!113, !"_ZN2cv10softdouble7fromRawEm"}
+!114 = distinct !{!114, !115, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!115 = distinct !{!115, !"_ZN2cv10softdouble3oneEv"}
+!116 = !{!117, !119}
+!117 = distinct !{!117, !118, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!118 = distinct !{!118, !"_ZN2cv10softdouble7fromRawEm"}
+!119 = distinct !{!119, !120, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!120 = distinct !{!120, !"_ZN2cv10softdouble3oneEv"}
+!121 = distinct !{!121, !5}
+!122 = !{!123, !125}
+!123 = distinct !{!123, !124, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!124 = distinct !{!124, !"_ZN2cv10softdouble7fromRawEm"}
+!125 = distinct !{!125, !126, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!126 = distinct !{!126, !"_ZN2cv10softdouble3oneEv"}
+!127 = !{!128}
+!128 = distinct !{!128, !129, !"_ZN2cvL10applyGammaENS_9softfloatE: argument 0"}
+!129 = distinct !{!129, !"_ZN2cvL10applyGammaENS_9softfloatE"}
+!130 = !{!131, !133}
+!131 = distinct !{!131, !132, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!132 = distinct !{!132, !"_ZN2cv10softdouble7fromRawEm"}
+!133 = distinct !{!133, !134, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!134 = distinct !{!134, !"_ZN2cv10softdouble3oneEv"}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZN2cvL10applyGammaENS_9softfloatE: argument 0"}
+!137 = distinct !{!137, !"_ZN2cvL10applyGammaENS_9softfloatE"}
+!138 = !{!139, !141}
+!139 = distinct !{!139, !140, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!140 = distinct !{!140, !"_ZN2cv10softdouble7fromRawEm"}
+!141 = distinct !{!141, !142, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!142 = distinct !{!142, !"_ZN2cv10softdouble3oneEv"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"_ZN2cvL10applyGammaENS_9softfloatE: argument 0"}
+!145 = distinct !{!145, !"_ZN2cvL10applyGammaENS_9softfloatE"}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"_ZN2cv3maxERKNS_9softfloatES2_: argument 0"}
+!148 = distinct !{!148, !"_ZN2cv3maxERKNS_9softfloatES2_"}
 !149 = distinct !{!149, !5}
 !150 = distinct !{!150, !5}
 !151 = distinct !{!151, !5}
@@ -11381,50 +11382,50 @@ attributes #24 = { builtin nounwind }
 !157 = distinct !{!157, !5}
 !158 = distinct !{!158, !5}
 !159 = distinct !{!159, !5}
-!160 = !{!161, !163}
-!161 = distinct !{!161, !162, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!162 = distinct !{!162, !"_ZN2cv9softfloat7fromRawEj"}
-!163 = distinct !{!163, !164, !"_ZN2cv9softfloat3oneEv: argument 0"}
-!164 = distinct !{!164, !"_ZN2cv9softfloat3oneEv"}
-!165 = distinct !{!165, !5}
+!160 = distinct !{!160, !5}
+!161 = !{!162, !164}
+!162 = distinct !{!162, !163, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!163 = distinct !{!163, !"_ZN2cv9softfloat7fromRawEj"}
+!164 = distinct !{!164, !165, !"_ZN2cv9softfloat3oneEv: argument 0"}
+!165 = distinct !{!165, !"_ZN2cv9softfloat3oneEv"}
 !166 = distinct !{!166, !5}
-!167 = !{!168, !170}
-!168 = distinct !{!168, !169, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!169 = distinct !{!169, !"_ZN2cv10softdouble7fromRawEm"}
-!170 = distinct !{!170, !171, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!171 = distinct !{!171, !"_ZN2cv10softdouble3oneEv"}
-!172 = !{!173, !175}
-!173 = distinct !{!173, !174, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!174 = distinct !{!174, !"_ZN2cv10softdouble7fromRawEm"}
-!175 = distinct !{!175, !176, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!176 = distinct !{!176, !"_ZN2cv10softdouble3oneEv"}
-!177 = !{!178, !180}
-!178 = distinct !{!178, !179, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!179 = distinct !{!179, !"_ZN2cv10softdouble7fromRawEm"}
-!180 = distinct !{!180, !181, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!181 = distinct !{!181, !"_ZN2cv10softdouble3oneEv"}
-!182 = distinct !{!182, !5}
+!167 = distinct !{!167, !5}
+!168 = !{!169, !171}
+!169 = distinct !{!169, !170, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!170 = distinct !{!170, !"_ZN2cv10softdouble7fromRawEm"}
+!171 = distinct !{!171, !172, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!172 = distinct !{!172, !"_ZN2cv10softdouble3oneEv"}
+!173 = !{!174, !176}
+!174 = distinct !{!174, !175, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!175 = distinct !{!175, !"_ZN2cv10softdouble7fromRawEm"}
+!176 = distinct !{!176, !177, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!177 = distinct !{!177, !"_ZN2cv10softdouble3oneEv"}
+!178 = !{!179, !181}
+!179 = distinct !{!179, !180, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!180 = distinct !{!180, !"_ZN2cv10softdouble7fromRawEm"}
+!181 = distinct !{!181, !182, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!182 = distinct !{!182, !"_ZN2cv10softdouble3oneEv"}
 !183 = distinct !{!183, !5}
 !184 = distinct !{!184, !5}
-!185 = !{!186, !188}
-!186 = distinct !{!186, !187, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!187 = distinct !{!187, !"_ZN2cv9softfloat7fromRawEj"}
-!188 = distinct !{!188, !189, !"_ZN2cv9softfloat3oneEv: argument 0"}
-!189 = distinct !{!189, !"_ZN2cv9softfloat3oneEv"}
-!190 = !{!191, !193}
-!191 = distinct !{!191, !192, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!192 = distinct !{!192, !"_ZN2cv9softfloat7fromRawEj"}
-!193 = distinct !{!193, !194, !"_ZN2cv9softfloat3epsEv: argument 0"}
-!194 = distinct !{!194, !"_ZN2cv9softfloat3epsEv"}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZN2cv3maxERKNS_9softfloatES2_: argument 0"}
-!197 = distinct !{!197, !"_ZN2cv3maxERKNS_9softfloatES2_"}
-!198 = !{!199, !201}
-!199 = distinct !{!199, !200, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!200 = distinct !{!200, !"_ZN2cv10softdouble7fromRawEm"}
-!201 = distinct !{!201, !202, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!202 = distinct !{!202, !"_ZN2cv10softdouble3oneEv"}
-!203 = distinct !{!203, !5}
+!185 = distinct !{!185, !5}
+!186 = !{!187, !189}
+!187 = distinct !{!187, !188, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!188 = distinct !{!188, !"_ZN2cv9softfloat7fromRawEj"}
+!189 = distinct !{!189, !190, !"_ZN2cv9softfloat3oneEv: argument 0"}
+!190 = distinct !{!190, !"_ZN2cv9softfloat3oneEv"}
+!191 = !{!192, !194}
+!192 = distinct !{!192, !193, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!193 = distinct !{!193, !"_ZN2cv9softfloat7fromRawEj"}
+!194 = distinct !{!194, !195, !"_ZN2cv9softfloat3epsEv: argument 0"}
+!195 = distinct !{!195, !"_ZN2cv9softfloat3epsEv"}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"_ZN2cv3maxERKNS_9softfloatES2_: argument 0"}
+!198 = distinct !{!198, !"_ZN2cv3maxERKNS_9softfloatES2_"}
+!199 = !{!200, !202}
+!200 = distinct !{!200, !201, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!201 = distinct !{!201, !"_ZN2cv10softdouble7fromRawEm"}
+!202 = distinct !{!202, !203, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!203 = distinct !{!203, !"_ZN2cv10softdouble3oneEv"}
 !204 = distinct !{!204, !5}
 !205 = distinct !{!205, !5}
 !206 = distinct !{!206, !5}
@@ -11433,25 +11434,25 @@ attributes #24 = { builtin nounwind }
 !209 = distinct !{!209, !5}
 !210 = distinct !{!210, !5}
 !211 = distinct !{!211, !5}
-!212 = !{!213, !215}
-!213 = distinct !{!213, !214, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!214 = distinct !{!214, !"_ZN2cv9softfloat7fromRawEj"}
-!215 = distinct !{!215, !216, !"_ZN2cv9softfloat3oneEv: argument 0"}
-!216 = distinct !{!216, !"_ZN2cv9softfloat3oneEv"}
-!217 = !{!218, !220}
-!218 = distinct !{!218, !219, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!219 = distinct !{!219, !"_ZN2cv9softfloat7fromRawEj"}
-!220 = distinct !{!220, !221, !"_ZN2cv9softfloat3epsEv: argument 0"}
-!221 = distinct !{!221, !"_ZN2cv9softfloat3epsEv"}
-!222 = !{!223}
-!223 = distinct !{!223, !224, !"_ZN2cv3maxERKNS_9softfloatES2_: argument 0"}
-!224 = distinct !{!224, !"_ZN2cv3maxERKNS_9softfloatES2_"}
-!225 = !{!226, !228}
-!226 = distinct !{!226, !227, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!227 = distinct !{!227, !"_ZN2cv10softdouble7fromRawEm"}
-!228 = distinct !{!228, !229, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!229 = distinct !{!229, !"_ZN2cv10softdouble3oneEv"}
-!230 = distinct !{!230, !5}
+!212 = distinct !{!212, !5}
+!213 = !{!214, !216}
+!214 = distinct !{!214, !215, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!215 = distinct !{!215, !"_ZN2cv9softfloat7fromRawEj"}
+!216 = distinct !{!216, !217, !"_ZN2cv9softfloat3oneEv: argument 0"}
+!217 = distinct !{!217, !"_ZN2cv9softfloat3oneEv"}
+!218 = !{!219, !221}
+!219 = distinct !{!219, !220, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!220 = distinct !{!220, !"_ZN2cv9softfloat7fromRawEj"}
+!221 = distinct !{!221, !222, !"_ZN2cv9softfloat3epsEv: argument 0"}
+!222 = distinct !{!222, !"_ZN2cv9softfloat3epsEv"}
+!223 = !{!224}
+!224 = distinct !{!224, !225, !"_ZN2cv3maxERKNS_9softfloatES2_: argument 0"}
+!225 = distinct !{!225, !"_ZN2cv3maxERKNS_9softfloatES2_"}
+!226 = !{!227, !229}
+!227 = distinct !{!227, !228, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!228 = distinct !{!228, !"_ZN2cv10softdouble7fromRawEm"}
+!229 = distinct !{!229, !230, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!230 = distinct !{!230, !"_ZN2cv10softdouble3oneEv"}
 !231 = distinct !{!231, !5}
 !232 = distinct !{!232, !5}
 !233 = distinct !{!233, !5}
@@ -11473,18 +11474,18 @@ attributes #24 = { builtin nounwind }
 !249 = distinct !{!249, !5}
 !250 = distinct !{!250, !5}
 !251 = distinct !{!251, !5}
-!252 = !{!253}
-!253 = distinct !{!253, !254, !"_ZNK2cv9softfloatngEv: argument 0"}
-!254 = distinct !{!254, !"_ZNK2cv9softfloatngEv"}
-!255 = !{!256}
-!256 = distinct !{!256, !257, !"_ZNK2cv9softfloatngEv: argument 0"}
-!257 = distinct !{!257, !"_ZNK2cv9softfloatngEv"}
-!258 = !{!259, !261}
-!259 = distinct !{!259, !260, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!260 = distinct !{!260, !"_ZN2cv9softfloat7fromRawEj"}
-!261 = distinct !{!261, !262, !"_ZN2cv9softfloat3oneEv: argument 0"}
-!262 = distinct !{!262, !"_ZN2cv9softfloat3oneEv"}
-!263 = distinct !{!263, !5}
+!252 = distinct !{!252, !5}
+!253 = !{!254}
+!254 = distinct !{!254, !255, !"_ZNK2cv9softfloatngEv: argument 0"}
+!255 = distinct !{!255, !"_ZNK2cv9softfloatngEv"}
+!256 = !{!257}
+!257 = distinct !{!257, !258, !"_ZNK2cv9softfloatngEv: argument 0"}
+!258 = distinct !{!258, !"_ZNK2cv9softfloatngEv"}
+!259 = !{!260, !262}
+!260 = distinct !{!260, !261, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!261 = distinct !{!261, !"_ZN2cv9softfloat7fromRawEj"}
+!262 = distinct !{!262, !263, !"_ZN2cv9softfloat3oneEv: argument 0"}
+!263 = distinct !{!263, !"_ZN2cv9softfloat3oneEv"}
 !264 = distinct !{!264, !5}
 !265 = distinct !{!265, !5}
 !266 = distinct !{!266, !5}
@@ -11501,68 +11502,69 @@ attributes #24 = { builtin nounwind }
 !277 = distinct !{!277, !5}
 !278 = distinct !{!278, !5}
 !279 = distinct !{!279, !5}
-!280 = !{!281}
-!281 = distinct !{!281, !282, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!282 = distinct !{!282, !"_ZN2cv10softdouble7fromRawEm"}
-!283 = !{!284}
-!284 = distinct !{!284, !285, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!285 = distinct !{!285, !"_ZN2cv10softdouble7fromRawEm"}
-!286 = !{!287}
-!287 = distinct !{!287, !288, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!288 = distinct !{!288, !"_ZN2cv10softdouble7fromRawEm"}
-!289 = !{!290}
-!290 = distinct !{!290, !291, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!291 = distinct !{!291, !"_ZN2cv10softdouble7fromRawEm"}
-!292 = !{!293}
-!293 = distinct !{!293, !294, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!294 = distinct !{!294, !"_ZN2cv10softdouble7fromRawEm"}
-!295 = !{!296}
-!296 = distinct !{!296, !297, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!297 = distinct !{!297, !"_ZN2cv10softdouble7fromRawEm"}
-!298 = !{!299}
-!299 = distinct !{!299, !300, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!300 = distinct !{!300, !"_ZN2cv10softdouble7fromRawEm"}
-!301 = !{!302}
-!302 = distinct !{!302, !303, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!303 = distinct !{!303, !"_ZN2cv10softdouble7fromRawEm"}
-!304 = !{!305}
-!305 = distinct !{!305, !306, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!306 = distinct !{!306, !"_ZN2cv10softdouble7fromRawEm"}
-!307 = !{!308}
-!308 = distinct !{!308, !309, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!309 = distinct !{!309, !"_ZN2cv10softdouble7fromRawEm"}
-!310 = !{!311}
-!311 = distinct !{!311, !312, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!312 = distinct !{!312, !"_ZN2cv10softdouble7fromRawEm"}
-!313 = !{!314}
-!314 = distinct !{!314, !315, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!315 = distinct !{!315, !"_ZN2cv10softdouble7fromRawEm"}
-!316 = !{!317}
-!317 = distinct !{!317, !318, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!318 = distinct !{!318, !"_ZN2cv10softdouble7fromRawEm"}
-!319 = !{!320}
-!320 = distinct !{!320, !321, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!321 = distinct !{!321, !"_ZN2cv10softdouble7fromRawEm"}
-!322 = !{!323}
-!323 = distinct !{!323, !324, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!324 = distinct !{!324, !"_ZN2cv10softdouble7fromRawEm"}
-!325 = !{!326}
-!326 = distinct !{!326, !327, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!327 = distinct !{!327, !"_ZN2cv10softdouble7fromRawEm"}
-!328 = !{!329}
-!329 = distinct !{!329, !330, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!330 = distinct !{!330, !"_ZN2cv10softdouble7fromRawEm"}
-!331 = !{!332}
-!332 = distinct !{!332, !333, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!333 = distinct !{!333, !"_ZN2cv10softdouble7fromRawEm"}
-!334 = !{!335}
-!335 = distinct !{!335, !336, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!336 = distinct !{!336, !"_ZN2cv10softdouble7fromRawEm"}
-!337 = !{!338, !340}
-!338 = distinct !{!338, !339, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!339 = distinct !{!339, !"_ZN2cv10softdouble7fromRawEm"}
-!340 = distinct !{!340, !341, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!341 = distinct !{!341, !"_ZN2cv10softdouble3oneEv"}
-!342 = !{!343}
-!343 = distinct !{!343, !344, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!344 = distinct !{!344, !"_ZN2cv10softdouble7fromRawEm"}
+!280 = distinct !{!280, !5}
+!281 = !{!282}
+!282 = distinct !{!282, !283, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!283 = distinct !{!283, !"_ZN2cv10softdouble7fromRawEm"}
+!284 = !{!285}
+!285 = distinct !{!285, !286, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!286 = distinct !{!286, !"_ZN2cv10softdouble7fromRawEm"}
+!287 = !{!288}
+!288 = distinct !{!288, !289, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!289 = distinct !{!289, !"_ZN2cv10softdouble7fromRawEm"}
+!290 = !{!291}
+!291 = distinct !{!291, !292, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!292 = distinct !{!292, !"_ZN2cv10softdouble7fromRawEm"}
+!293 = !{!294}
+!294 = distinct !{!294, !295, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!295 = distinct !{!295, !"_ZN2cv10softdouble7fromRawEm"}
+!296 = !{!297}
+!297 = distinct !{!297, !298, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!298 = distinct !{!298, !"_ZN2cv10softdouble7fromRawEm"}
+!299 = !{!300}
+!300 = distinct !{!300, !301, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!301 = distinct !{!301, !"_ZN2cv10softdouble7fromRawEm"}
+!302 = !{!303}
+!303 = distinct !{!303, !304, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!304 = distinct !{!304, !"_ZN2cv10softdouble7fromRawEm"}
+!305 = !{!306}
+!306 = distinct !{!306, !307, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!307 = distinct !{!307, !"_ZN2cv10softdouble7fromRawEm"}
+!308 = !{!309}
+!309 = distinct !{!309, !310, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!310 = distinct !{!310, !"_ZN2cv10softdouble7fromRawEm"}
+!311 = !{!312}
+!312 = distinct !{!312, !313, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!313 = distinct !{!313, !"_ZN2cv10softdouble7fromRawEm"}
+!314 = !{!315}
+!315 = distinct !{!315, !316, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!316 = distinct !{!316, !"_ZN2cv10softdouble7fromRawEm"}
+!317 = !{!318}
+!318 = distinct !{!318, !319, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!319 = distinct !{!319, !"_ZN2cv10softdouble7fromRawEm"}
+!320 = !{!321}
+!321 = distinct !{!321, !322, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!322 = distinct !{!322, !"_ZN2cv10softdouble7fromRawEm"}
+!323 = !{!324}
+!324 = distinct !{!324, !325, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!325 = distinct !{!325, !"_ZN2cv10softdouble7fromRawEm"}
+!326 = !{!327}
+!327 = distinct !{!327, !328, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!328 = distinct !{!328, !"_ZN2cv10softdouble7fromRawEm"}
+!329 = !{!330}
+!330 = distinct !{!330, !331, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!331 = distinct !{!331, !"_ZN2cv10softdouble7fromRawEm"}
+!332 = !{!333}
+!333 = distinct !{!333, !334, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!334 = distinct !{!334, !"_ZN2cv10softdouble7fromRawEm"}
+!335 = !{!336}
+!336 = distinct !{!336, !337, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!337 = distinct !{!337, !"_ZN2cv10softdouble7fromRawEm"}
+!338 = !{!339, !341}
+!339 = distinct !{!339, !340, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!340 = distinct !{!340, !"_ZN2cv10softdouble7fromRawEm"}
+!341 = distinct !{!341, !342, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!342 = distinct !{!342, !"_ZN2cv10softdouble3oneEv"}
+!343 = !{!344}
+!344 = distinct !{!344, !345, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!345 = distinct !{!345, !"_ZN2cv10softdouble7fromRawEm"}

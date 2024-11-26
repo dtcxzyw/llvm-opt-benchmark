@@ -3234,36 +3234,36 @@ entry:
 
 "_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEEclEv.exit": ; preds = %entry
   call fastcc void @"_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEE12PollNonEmptyEv"(ptr noalias nonnull align 8 %agg.tmp, ptr noundef nonnull align 16 dereferenceable(64) %0)
-  %.pre = load i8, ptr %agg.tmp, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
+  %.pre = load i8, ptr %agg.tmp, align 8, !noalias !102
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %tobool.i.i.i = trunc i8 %.pre to i1
   %frombool.i.i.i = and i8 %.pre, 1
-  store i8 %frombool.i.i.i, ptr %agg.result, align 8, !alias.scope !106
+  store i8 %frombool.i.i.i, ptr %agg.result, align 8, !alias.scope !102
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %"_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEEclEv.exit.thread", %"_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEEclEv.exit"
   %9 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %10 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !noalias !102
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %11, 0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i, label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.sink.split
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i:   ; preds = %if.then.i.i.i
   %12 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %13 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %14 = load i8, ptr %12, align 8, !noalias !106
-  store i8 %14, ptr %13, align 8, !alias.scope !106
+  %14 = load i8, ptr %12, align 8, !noalias !102
+  store i8 %14, ptr %13, align 8, !alias.scope !102
   %15 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %16 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !106
-  store i64 %16, ptr %15, align 8, !alias.scope !106
-  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !106
+  %16 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !102
+  store i64 %16, ptr %15, align 8, !alias.scope !102
+  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !102
   br label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.sink.split
 
 _ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.sink.split: ; preds = %if.then.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i
   %.sink = phi i64 [ 0, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i ], [ %11, %if.then.i.i.i ]
-  store i64 %.sink, ptr %9, align 8, !alias.scope !106
+  store i64 %.sink, ptr %9, align 8, !alias.scope !102
   br label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit
 
 _ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit: ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.sink.split, %"_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEEclEv.exit"
@@ -3414,7 +3414,7 @@ entry:
   call void %2(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i, ptr noundef nonnull %arg.i.i), !noalias !107
   call void @llvm.experimental.noalias.scope.decl(metadata !113)
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  %3 = load i8, ptr %ref.tmp.i, align 8, !noalias !107
+  %3 = load i8, ptr %ref.tmp.i, align 8, !noalias !119
   %tobool.i.i.i.i = trunc i8 %3 to i1
   %frombool.i.i.i.i = and i8 %3, 1
   store i8 %frombool.i.i.i.i, ptr %r, align 8, !alias.scope !119
@@ -3422,7 +3422,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %5 = load i64, ptr %4, align 8, !noalias !107
+  %5 = load i64, ptr %4, align 8, !noalias !119
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEEC2EOS8_.exit43, label %if.then.i3
 
@@ -4227,11 +4227,11 @@ attributes #23 = { noreturn nounwind }
 !99 = distinct !{!99, !"_ZN9grpc_core12PollCastImplIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_4PollIS9_EEvE4CastEOSB_"}
 !100 = distinct !{!100, !101, !"_ZN9grpc_core9poll_castIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_4PollIS9_EEEENSA_IT_EET0_: %agg.result:thread"}
 !101 = distinct !{!101, !"_ZN9grpc_core9poll_castIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_4PollIS9_EEEENSA_IT_EET0_"}
-!102 = !{!103}
-!103 = distinct !{!103, !101, !"_ZN9grpc_core9poll_castIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_4PollIS9_EEEENSA_IT_EET0_: %agg.result"}
-!104 = !{!105}
-!105 = distinct !{!105, !99, !"_ZN9grpc_core12PollCastImplIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_4PollIS9_EEvE4CastEOSB_: %agg.result"}
-!106 = !{!105, !103}
+!102 = !{!103, !104}
+!103 = distinct !{!103, !99, !"_ZN9grpc_core12PollCastImplIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_4PollIS9_EEvE4CastEOSB_: %agg.result"}
+!104 = distinct !{!104, !101, !"_ZN9grpc_core9poll_castIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_4PollIS9_EEEENSA_IT_EET0_: %agg.result"}
+!105 = !{!104}
+!106 = !{!103}
 !107 = !{!108}
 !108 = distinct !{!108, !109, !"_ZN9grpc_core14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEclEv: %agg.result"}
 !109 = distinct !{!109, !"_ZN9grpc_core14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEclEv"}

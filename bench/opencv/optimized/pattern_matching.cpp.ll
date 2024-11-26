@@ -818,7 +818,7 @@ _ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS
 
 320:                                              ; preds = %.lr.ph.i.i
   %321 = getelementptr inbounds i8, ptr %319, i64 12
-  %322 = load i8, ptr @__libc_single_threaded, align 1, !noalias !30
+  %322 = load i8, ptr @__libc_single_threaded, align 1, !noalias !23
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %322, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %327, label %.thread2518
 
@@ -1702,7 +1702,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit12.i:           ; preds = %_ZNSt20back_insert_
 
 674:                                              ; preds = %.lr.ph.i.i.i
   %675 = getelementptr inbounds i8, ptr %673, i64 12
-  %676 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
+  %676 = load i8, ptr @__libc_single_threaded, align 1, !noalias !75
   %.not.i.i.i.i.i.i.i.i.i22.i = icmp eq i8 %676, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i22.i, label %681, label %.thread.i
 

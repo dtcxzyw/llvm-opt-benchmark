@@ -54251,7 +54251,7 @@ _ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEE4pushEOS1_.exit: ; preds = %._ZNSt5stac
   %46 = phi ptr [ %338, %337 ], [ %43, %_ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEE4pushEOS1_.exit ]
   %.376 = phi i8 [ %.4, %337 ], [ %.082, %_ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEE4pushEOS1_.exit ]
   %.32775 = phi i8 [ %.5, %337 ], [ %.02481, %_ZNSt5stackIP6CFaceOSt5dequeIS1_SaIS1_EEE4pushEOS1_.exit ]
-  %47 = load ptr, ptr %24, align 8
+  %47 = load ptr, ptr %24, align 8, !noalias !522
   %48 = icmp eq ptr %46, %47
   br i1 %48, label %52, label %49
 

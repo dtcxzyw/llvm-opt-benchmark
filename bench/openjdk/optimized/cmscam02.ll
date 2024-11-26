@@ -450,9 +450,9 @@ ChromaticAdaptation.exit:                         ; preds = %26
   br i1 %exitcond.not.i12, label %NonlinearCompression.exit, label %45, !llvm.loop !14
 
 NonlinearCompression.exit:                        ; preds = %67
-  %69 = load double, ptr %.sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, align 8
-  %70 = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.11.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8
-  %71 = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.13.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8
+  %69 = load double, ptr %.sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, align 8, !noalias !18
+  %70 = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.11.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8, !noalias !18
+  %71 = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.13.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8, !noalias !18
   %72 = getelementptr inbounds i8, ptr %0, i64 320
   %73 = load double, ptr %72, align 8, !noalias !18
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4)

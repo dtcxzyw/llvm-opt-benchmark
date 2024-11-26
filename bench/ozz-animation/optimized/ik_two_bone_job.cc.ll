@@ -149,7 +149,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   %46 = getelementptr inbounds i8, ptr %3, i64 32
   %47 = load <4 x float>, ptr %46, align 16, !noalias !5
   %48 = getelementptr inbounds i8, ptr %3, i64 48
-  %49 = load <4 x float>, ptr %48, align 16
+  %49 = load <4 x float>, ptr %48, align 16, !noalias !5
   %50 = shufflevector <4 x float> %47, <4 x float> %49, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %51 = shufflevector <4 x float> %42, <4 x float> %44, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   %52 = shufflevector <4 x float> %47, <4 x float> %49, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
@@ -253,7 +253,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   %149 = getelementptr inbounds i8, ptr %5, i64 32
   %150 = load <4 x float>, ptr %149, align 16, !noalias !8
   %151 = getelementptr inbounds i8, ptr %5, i64 48
-  %152 = load <4 x float>, ptr %151, align 16
+  %152 = load <4 x float>, ptr %151, align 16, !noalias !8
   %153 = shufflevector <4 x float> %146, <4 x float> %148, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %154 = shufflevector <4 x float> %150, <4 x float> %152, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %155 = shufflevector <4 x float> %153, <4 x float> %154, <4 x i32> <i32 0, i32 2, i32 4, i32 6>

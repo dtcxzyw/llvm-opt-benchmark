@@ -1775,9 +1775,9 @@ define noundef zeroext i1 @_ZN6sparse5index14search_context13SearchContext26prun
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8, !noundef !5
+  %10 = load i64, ptr %9, align 8, !alias.scope !197, !noundef !5
   %11 = getelementptr inbounds i8, ptr %8, i64 16
-  %12 = load i64, ptr %11, align 8, !noundef !5
+  %12 = load i64, ptr %11, align 8, !alias.scope !197, !noundef !5
   %.not = icmp ult i64 %12, %10
   %13 = load ptr, ptr %8, align 8, !alias.scope !197, !nonnull !5, !align !156
   %14 = getelementptr inbounds { i32, float, float }, ptr %13, i64 %12

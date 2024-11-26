@@ -971,7 +971,7 @@ define hidden void @_ZN10vfs_notify11NotifyActor3run17h62ca90388ebb12efE(ptr noa
   unreachable
 
 158:                                              ; preds = %156
-  %159 = load i64, ptr %35, align 8, !range !93, !alias.scope !155, !noalias !159, !noundef !5
+  %159 = load i64, ptr %35, align 8, !range !93, !alias.scope !155, !noalias !158, !noundef !5
   %160 = icmp eq i64 %159, -9223372036854775807
   br i1 %160, label %164, label %165
 
@@ -1051,7 +1051,7 @@ define hidden void @_ZN10vfs_notify11NotifyActor3run17h62ca90388ebb12efE(ptr noa
   unreachable
 
 177:                                              ; preds = %175
-  %178 = load i64, ptr %33, align 8, !range !170, !alias.scope !171, !noalias !175, !noundef !5
+  %178 = load i64, ptr %33, align 8, !range !170, !alias.scope !171, !noalias !174, !noundef !5
   %179 = icmp eq i64 %178, 7
   br i1 %179, label %183, label %184
 
@@ -2304,7 +2304,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
   %523 = load ptr, ptr %.sroa.028.sroa.4.0..sroa_idx, align 8, !alias.scope !469, !noalias !375, !nonnull !5, !noundef !5
-  %524 = load ptr, ptr %.sroa.028.sroa.2.0..sroa_idx, align 8, !nonnull !5, !noundef !5
+  %524 = load ptr, ptr %.sroa.028.sroa.2.0..sroa_idx, align 8, !alias.scope !469, !noalias !375, !nonnull !5, !noundef !5
   %525 = icmp eq ptr %524, %523
   br i1 %525, label %._crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f0b26eda0c63afaE.exit.i"
 
@@ -3385,11 +3385,11 @@ attributes #16 = { noreturn }
 !152 = !{!150, !147, !151, !137, !133, !138}
 !153 = !{!150, !147, !137}
 !154 = !{!150, !137}
-!155 = !{!156, !158}
+!155 = !{!156}
 !156 = distinct !{!156, !157, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h194ae61b533289d8E.llvm.9805873478638581678: argument 1"}
 !157 = distinct !{!157, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h194ae61b533289d8E.llvm.9805873478638581678"}
-!158 = distinct !{!158, !157, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h194ae61b533289d8E.llvm.9805873478638581678: argument 0"}
-!159 = !{!147, !151, !137, !133, !138}
+!158 = !{!159, !150, !147, !151, !137, !133, !138}
+!159 = distinct !{!159, !157, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h194ae61b533289d8E.llvm.9805873478638581678: argument 0"}
 !160 = !{!133, !138}
 !161 = !{!162}
 !162 = distinct !{!162, !163, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h55c99f375e97b9a5E: argument 1"}
@@ -3401,11 +3401,11 @@ attributes #16 = { noreturn }
 !168 = !{!165, !162, !137}
 !169 = !{!165, !137}
 !170 = !{i64 0, i64 8}
-!171 = !{!172, !174}
+!171 = !{!172}
 !172 = distinct !{!172, !173, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8dd900c539142271E.llvm.9805873478638581678: argument 1"}
 !173 = distinct !{!173, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8dd900c539142271E.llvm.9805873478638581678"}
-!174 = distinct !{!174, !173, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8dd900c539142271E.llvm.9805873478638581678: argument 0"}
-!175 = !{!162, !166, !137, !133, !138}
+!174 = !{!175, !165, !162, !166, !137, !133, !138}
+!175 = distinct !{!175, !173, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8dd900c539142271E.llvm.9805873478638581678: argument 0"}
 !176 = !{!177}
 !177 = distinct !{!177, !178, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
 !178 = distinct !{!178, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}

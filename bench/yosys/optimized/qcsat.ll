@@ -2172,8 +2172,8 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.th
   %376 = load ptr, ptr %364, align 8
   %377 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %376, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %378 = load ptr, ptr %14, align 8
-  %379 = load ptr, ptr %28, align 8
+  %378 = load ptr, ptr %14, align 8, !noalias !21
+  %379 = load ptr, ptr %28, align 8, !noalias !21
   %380 = icmp eq ptr %378, %379
   br i1 %380, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i, label %381
 
@@ -2211,7 +2211,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %400 = urem i32 %.0.i.i.i.i, %399
   store i32 %400, ptr %6, align 4, !noalias !21
   %401 = load ptr, ptr %16, align 8, !noalias !21
-  %402 = load ptr, ptr %15, align 8
+  %402 = load ptr, ptr %15, align 8, !noalias !21
   %403 = ptrtoint ptr %401 to i64
   %404 = ptrtoint ptr %402 to i64
   %405 = sub i64 %403, %404

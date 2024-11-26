@@ -187,7 +187,7 @@ return:                                           ; preds = %if.end12, %if.end26
 define hidden { i32, i64 } @_ZN6hermes2vm22weakSetPrototypeDeleteEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %1 = load ptr, ptr %args, align 8, !noalias !4
+  %1 = load ptr, ptr %args, align 8, !noalias !7
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_13JSWeakMapImplILNS0_8CellKindE52EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -275,7 +275,7 @@ return:                                           ; preds = %_ZNK6hermes2vm10Nat
 define hidden { i32, i64 } @_ZN6hermes2vm19weakSetPrototypeHasEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %1 = load ptr, ptr %args, align 8, !noalias !4
+  %1 = load ptr, ptr %args, align 8, !noalias !10
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_13JSWeakMapImplILNS0_8CellKindE52EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -411,7 +411,7 @@ if.then:                                          ; preds = %entry
   br label %cleanup107
 
 if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %args, align 8, !noalias !4
+  %5 = load ptr, ptr %args, align 8, !noalias !13
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %5, align 8
   %cmp.i.i.i10 = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i10, label %_ZN6hermes2vm5vmisaINS0_13JSWeakMapImplILNS0_8CellKindE52EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -566,7 +566,7 @@ if.end86:                                         ; preds = %if.end72
   %call99 = call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b(ptr nonnull %retval.sroa.0.0.i27, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i, i64 %30, i1 noundef zeroext false) #4
   %31 = extractvalue { i32, i64 } %call99, 0
   %cmp.i62 = icmp eq i32 %31, 0
-  br i1 %cmp.i62, label %if.then101, label %for.cond, !llvm.loop !5
+  br i1 %cmp.i62, label %if.then101, label %for.cond, !llvm.loop !16
 
 if.then101:                                       ; preds = %if.end86
   %agg.tmp102.sroa.0.0.copyload = load ptr, ptr %iteratorRecord, align 8
@@ -636,6 +636,17 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!6 = distinct !{!6, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!9 = distinct !{!9, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!12 = distinct !{!12, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!15 = distinct !{!15, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}

@@ -1917,7 +1917,7 @@ _ZNK4llvm19formatv_object_basecvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %407, align 8, !noalias !70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %408) #18, !noalias !70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #18, !noalias !70
-  %419 = load ptr, ptr %75, align 8
+  %419 = load ptr, ptr %75, align 8, !noalias !70
   %420 = load ptr, ptr %91, align 8, !noalias !70
   %421 = getelementptr inbounds i8, ptr %420, i64 24
   %422 = load ptr, ptr %421, align 8, !noalias !70

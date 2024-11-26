@@ -4468,7 +4468,7 @@ _ZL14isNonEqualPHIsPKN4llvm7PHINodeES2_RKNS_5APIntEjRKNS_13SimplifyQueryE.exit.t
   %.029.i187 = phi ptr [ %73, %.lr.ph190 ], [ %182, %_ZN4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE6insertES3_.exit.thread228 ]
   %85 = load ptr, ptr %.029.i187, align 8
   %86 = load ptr, ptr %64, align 8, !noalias !54
-  %87 = load ptr, ptr %6, align 8
+  %87 = load ptr, ptr %6, align 8, !noalias !54
   %88 = icmp eq ptr %86, %87
   br i1 %88, label %89, label %_ZN4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE6insertES3_.exit
 
@@ -28846,7 +28846,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit: ; preds 
   br i1 %35, label %36, label %49
 
 36:                                               ; preds = %31
-  %37 = load i32, ptr %7, align 4
+  %37 = load i32, ptr %7, align 4, !noalias !401
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr %34, i64 %38
   %.not24.i.i = icmp eq i32 %37, 0
@@ -28872,12 +28872,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit: ; preds 
   %47 = add nuw i32 %37, 1
   store i32 %47, ptr %7, align 4, !noalias !401
   store ptr %32, ptr %39, align 8, !noalias !401
-  %48 = load i32, ptr %7, align 4
+  %48 = load i32, ptr %7, align 4, !noalias !401
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit
 
 49:                                               ; preds = %._crit_edge.i.i, %31
   %50 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %32) #24, !noalias !401
-  %.pre6.i = load i32, ptr %7, align 4
+  %.pre6.i = load i32, ptr %7, align 4, !noalias !401
   %51 = extractvalue { ptr, i8 } %50, 1
   %52 = trunc i8 %51 to i1
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit
@@ -42020,7 +42020,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i252:           ; preds = %334
 
 _ZN4llvm5APIntC2Ejmbb.exit.i250:                  ; preds = %334
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %16, i64 noundef 0, i1 noundef zeroext false) #24
-  %.pre.i251 = load i32, ptr %335, align 8
+  %.pre.i251 = load i32, ptr %335, align 8, !alias.scope !519
   %341 = icmp ult i32 %.pre.i251, 65
   %342 = add i32 %53, -1
   %343 = and i32 %342, 63
@@ -42120,7 +42120,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.thread.i:       ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APInt10getAllOnesEj.exit.i:              ; preds = %_ZN4llvm5APIntD2Ev.exit256
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %18, i64 noundef -1, i1 noundef zeroext true) #24
-  %.pre.i257 = load i32, ptr %378, align 8
+  %.pre.i257 = load i32, ptr %378, align 8, !alias.scope !532
   %387 = icmp ult i32 %.pre.i257, 65
   %388 = add i32 %53, -1
   %389 = and i32 %388, 63
@@ -63090,7 +63090,7 @@ _ZNK4llvm9KnownBits9isNonZeroEv.exit:             ; preds = %_ZNK4llvm4User10get
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %50 = load i32, ptr %49, align 8
+  %50 = load i32, ptr %49, align 8, !noalias !787
   store i32 %50, ptr %48, align 8, !noalias !787
   %51 = icmp ult i32 %50, 65
   br i1 %51, label %_ZNK4llvm9KnownBits11getMaxValueEv.exit.thread, label %_ZN4llvm5APIntC2ERKS0_.exit.i

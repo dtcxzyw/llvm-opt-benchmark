@@ -941,6 +941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20: ; 
 51:                                               ; preds = %50
   %52 = load i32, ptr %16, align 8
   %53 = load ptr, ptr %12, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !noalias !7
   %56 = getelementptr inbounds i8, ptr %55, i64 16
@@ -957,7 +958,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20: ; 
 
 66:                                               ; preds = %51
   call void @_ZN5draco26CreateMeshPredictionSchemeINS_11MeshEncoderENS_23PredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEENS_34MeshPredictionSchemeEncoderFactoryIiEEEESt10unique_ptrIT0_St14default_deleteIS9_EEPKT_NS_22PredictionSchemeMethodEiRKNS9_9TransformEt(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.66") align 8 %11, ptr noundef nonnull %53, i32 noundef 6, i32 noundef %52, ptr noundef nonnull align 4 dereferenceable(20) %7, i16 noundef zeroext 514)
-  %67 = load ptr, ptr %11, align 8
+  %67 = load ptr, ptr %11, align 8, !alias.scope !7
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit
 

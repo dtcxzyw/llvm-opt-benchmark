@@ -67269,6 +67269,7 @@ invoke.cont144:                                   ; preds = %land.rhs.i.i.i558.l
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %agg.tmp5.sroa.10.0.agg.result.sroa_idx.i.i585, ptr noundef nonnull align 1 dereferenceable(7) %agg.tmp141540.sroa.8, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %agg.tmp141540.sroa.8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp145) #22
+  call void @llvm.experimental.noalias.scope.decl(metadata !1073)
   %203 = load ptr, ptr %view, align 8, !tbaa !277
   %204 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !277
   %cmp.i.i.i598 = icmp eq ptr %203, %204
@@ -67280,7 +67281,7 @@ cond.true.i602:                                   ; preds = %invoke.cont144
 
 cond.false.i599:                                  ; preds = %invoke.cont144
   %filter.i600 = getelementptr inbounds i8, ptr %view, i64 24
-  %205 = load ptr, ptr %203, align 8, !tbaa !277
+  %205 = load ptr, ptr %203, align 8, !tbaa !277, !noalias !1073
   %packed.i.i601 = getelementptr inbounds i8, ptr %205, i64 32
   store ptr %view, ptr %ref.tmp145, align 8, !tbaa !295
   %filter.i683 = getelementptr inbounds i8, ptr %ref.tmp145, i64 8
@@ -73142,6 +73143,7 @@ invoke.cont144:                                   ; preds = %land.rhs.i.i.i558.l
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %agg.tmp5.sroa.10.0.agg.result.sroa_idx.i.i585, ptr noundef nonnull align 1 dereferenceable(7) %agg.tmp141540.sroa.8, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %agg.tmp141540.sroa.8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp145) #22
+  call void @llvm.experimental.noalias.scope.decl(metadata !1165)
   %203 = load ptr, ptr %view, align 8, !tbaa !277
   %204 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !277
   %cmp.i.i.i598 = icmp eq ptr %203, %204
@@ -73153,7 +73155,7 @@ cond.true.i602:                                   ; preds = %invoke.cont144
 
 cond.false.i599:                                  ; preds = %invoke.cont144
   %filter.i600 = getelementptr inbounds i8, ptr %view, i64 24
-  %205 = load ptr, ptr %203, align 8, !tbaa !277
+  %205 = load ptr, ptr %203, align 8, !tbaa !277, !noalias !1165
   %packed.i.i601 = getelementptr inbounds i8, ptr %205, i64 32
   store ptr %view, ptr %ref.tmp145, align 8, !tbaa !611
   %filter.i683 = getelementptr inbounds i8, ptr %ref.tmp145, i64 8

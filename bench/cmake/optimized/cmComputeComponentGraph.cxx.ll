@@ -870,8 +870,8 @@ _ZNSt6vectorI15cmGraphNodeListSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; preds
   br label %91
 
 91:                                               ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit, %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
-  %92 = load ptr, ptr %20, align 8
-  %93 = load ptr, ptr %87, align 8
+  %92 = load ptr, ptr %20, align 8, !noalias !17
+  %93 = load ptr, ptr %87, align 8, !noalias !17
   %94 = icmp eq ptr %92, %93
   br i1 %94, label %98, label %95
 

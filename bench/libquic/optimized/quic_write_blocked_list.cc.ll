@@ -2783,12 +2783,12 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   %__next.sroa.11.0 = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %2, %entry ]
   %__next.sroa.16.0 = phi ptr [ %add.ptr.i, %if.then.i ], [ %3, %entry ]
   %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
-  %5 = load ptr, ptr %_M_start.i, align 8
+  %5 = load ptr, ptr %_M_start.i, align 8, !noalias !88
   %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load ptr, ptr %_M_last4.i.i, align 8
+  %6 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !88
   %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %_M_node5.i.i, align 8
+  %7 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !88
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -2835,37 +2835,37 @@ if.then:                                          ; preds = %_ZNSt15_Deque_itera
   br i1 %cmp.i.i.not, label %if.end, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %11 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !88
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !91
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !94
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !94
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !94
-  store ptr %5, ptr %agg.tmp.i.i.i, align 8, !noalias !97
+  %11 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !91
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !94
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !97
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !97
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !97
+  store ptr %5, ptr %agg.tmp.i.i.i, align 8, !noalias !100
   %_M_first.i.i25.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
-  store ptr %11, ptr %_M_first.i.i25.i.i, align 8, !noalias !97
+  store ptr %11, ptr %_M_first.i.i25.i.i, align 8, !noalias !100
   %_M_last.i.i27.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
-  store ptr %6, ptr %_M_last.i.i27.i.i, align 8, !noalias !97
+  store ptr %6, ptr %_M_last.i.i27.i.i, align 8, !noalias !100
   %_M_node.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
-  store ptr %7, ptr %_M_node.i.i29.i.i, align 8, !noalias !97
-  store ptr %0, ptr %agg.tmp1.i.i.i, align 8, !noalias !97
+  store ptr %7, ptr %_M_node.i.i29.i.i, align 8, !noalias !100
+  store ptr %0, ptr %agg.tmp1.i.i.i, align 8, !noalias !100
   %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
-  store ptr %1, ptr %_M_first.i1.i.i.i, align 8, !noalias !97
+  store ptr %1, ptr %_M_first.i1.i.i.i, align 8, !noalias !100
   %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
-  store ptr %2, ptr %_M_last.i3.i.i.i, align 8, !noalias !97
+  store ptr %2, ptr %_M_last.i3.i.i.i, align 8, !noalias !100
   %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
-  store ptr %3, ptr %_M_node.i5.i.i.i, align 8, !noalias !97
-  store ptr %__next.sroa.0.0, ptr %agg.tmp2.i.i.i, align 8, !noalias !97
+  store ptr %3, ptr %_M_node.i5.i.i.i, align 8, !noalias !100
+  store ptr %__next.sroa.0.0, ptr %agg.tmp2.i.i.i, align 8, !noalias !100
   %_M_first.i7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
-  store ptr %__next.sroa.7.0, ptr %_M_first.i7.i.i.i, align 8, !noalias !97
+  store ptr %__next.sroa.7.0, ptr %_M_first.i7.i.i.i, align 8, !noalias !100
   %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
-  store ptr %__next.sroa.11.0, ptr %_M_last.i9.i.i.i, align 8, !noalias !97
+  store ptr %__next.sroa.11.0, ptr %_M_last.i9.i.i.i, align 8, !noalias !100
   %_M_node.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
-  store ptr %__next.sroa.16.0, ptr %_M_node.i11.i.i.i, align 8, !noalias !97
-  call void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i), !noalias !94
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !94
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !94
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !94
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !91
+  store ptr %__next.sroa.16.0, ptr %_M_node.i11.i.i.i, align 8, !noalias !100
+  call void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i), !noalias !97
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !97
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !97
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !97
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !94
   %.pre145 = load ptr, ptr %_M_start.i, align 8
   %.pre146 = load ptr, ptr %_M_last4.i.i, align 8
   br label %if.end
@@ -2905,37 +2905,37 @@ if.else:                                          ; preds = %_ZNSt15_Deque_itera
   br i1 %cmp.i.i56.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %if.else
-  %18 = load ptr, ptr %_M_last4.i.i53, align 8, !noalias !100
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i79), !noalias !103
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i76), !noalias !106
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i77), !noalias !106
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i78), !noalias !106
-  store ptr %__next.sroa.0.0, ptr %agg.tmp.i.i.i76, align 8, !noalias !109
+  %18 = load ptr, ptr %_M_last4.i.i53, align 8, !noalias !103
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i79), !noalias !106
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i76), !noalias !109
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i77), !noalias !109
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i78), !noalias !109
+  store ptr %__next.sroa.0.0, ptr %agg.tmp.i.i.i76, align 8, !noalias !112
   %_M_first.i.i25.i.i89 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i76, i64 8
-  store ptr %__next.sroa.7.0, ptr %_M_first.i.i25.i.i89, align 8, !noalias !109
+  store ptr %__next.sroa.7.0, ptr %_M_first.i.i25.i.i89, align 8, !noalias !112
   %_M_last.i.i27.i.i90 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i76, i64 16
-  store ptr %__next.sroa.11.0, ptr %_M_last.i.i27.i.i90, align 8, !noalias !109
+  store ptr %__next.sroa.11.0, ptr %_M_last.i.i27.i.i90, align 8, !noalias !112
   %_M_node.i.i29.i.i91 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i76, i64 24
-  store ptr %__next.sroa.16.0, ptr %_M_node.i.i29.i.i91, align 8, !noalias !109
-  store ptr %9, ptr %agg.tmp1.i.i.i77, align 8, !noalias !109
+  store ptr %__next.sroa.16.0, ptr %_M_node.i.i29.i.i91, align 8, !noalias !112
+  store ptr %9, ptr %agg.tmp1.i.i.i77, align 8, !noalias !112
   %_M_first.i1.i.i.i92 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i77, i64 8
-  store ptr %10, ptr %_M_first.i1.i.i.i92, align 8, !noalias !109
+  store ptr %10, ptr %_M_first.i1.i.i.i92, align 8, !noalias !112
   %_M_last.i3.i.i.i93 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i77, i64 16
-  store ptr %18, ptr %_M_last.i3.i.i.i93, align 8, !noalias !109
+  store ptr %18, ptr %_M_last.i3.i.i.i93, align 8, !noalias !112
   %_M_node.i5.i.i.i94 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i77, i64 24
-  store ptr %8, ptr %_M_node.i5.i.i.i94, align 8, !noalias !109
-  store ptr %0, ptr %agg.tmp2.i.i.i78, align 8, !noalias !109
+  store ptr %8, ptr %_M_node.i5.i.i.i94, align 8, !noalias !112
+  store ptr %0, ptr %agg.tmp2.i.i.i78, align 8, !noalias !112
   %_M_first.i7.i.i.i95 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i78, i64 8
-  store ptr %1, ptr %_M_first.i7.i.i.i95, align 8, !noalias !109
+  store ptr %1, ptr %_M_first.i7.i.i.i95, align 8, !noalias !112
   %_M_last.i9.i.i.i96 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i78, i64 16
-  store ptr %2, ptr %_M_last.i9.i.i.i96, align 8, !noalias !109
+  store ptr %2, ptr %_M_last.i9.i.i.i96, align 8, !noalias !112
   %_M_node.i11.i.i.i97 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i78, i64 24
-  store ptr %3, ptr %_M_node.i11.i.i.i97, align 8, !noalias !109
-  call void @_ZSt15__copy_move_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i79, ptr noundef nonnull %agg.tmp.i.i.i76, ptr noundef nonnull %agg.tmp1.i.i.i77, ptr noundef nonnull %agg.tmp2.i.i.i78), !noalias !106
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i76), !noalias !106
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i77), !noalias !106
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i78), !noalias !106
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i79), !noalias !103
+  store ptr %3, ptr %_M_node.i11.i.i.i97, align 8, !noalias !112
+  call void @_ZSt15__copy_move_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i79, ptr noundef nonnull %agg.tmp.i.i.i76, ptr noundef nonnull %agg.tmp1.i.i.i77, ptr noundef nonnull %agg.tmp2.i.i.i78), !noalias !109
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i76), !noalias !109
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i77), !noalias !109
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i78), !noalias !109
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i79), !noalias !106
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre144 = load ptr, ptr %_M_first.i.i10, align 8
   br label %if.end16
@@ -2965,22 +2965,22 @@ if.else.i110:                                     ; preds = %if.end16
 _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit: ; preds = %if.then.i107, %if.else.i110
   %storemerge.i109 = phi ptr [ %incdec.ptr.i108, %if.then.i107 ], [ %add.ptr8.i.i, %if.else.i110 ]
   store ptr %storemerge.i109, ptr %_M_finish.i, align 8
-  %.pre147 = load ptr, ptr %_M_start.i, align 8, !noalias !112
-  %.pre148 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !112
+  %.pre147 = load ptr, ptr %_M_start.i, align 8, !noalias !115
+  %.pre148 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !115
   br label %if.end17
 
 if.end17:                                         ; preds = %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit, %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit
   %23 = phi ptr [ %.pre148, %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit ], [ %17, %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit ]
   %24 = phi ptr [ %.pre147, %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit ], [ %storemerge.i, %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit ]
-  %25 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !112
-  %26 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !112
-  call void @llvm.experimental.noalias.scope.decl(metadata !115)
+  %25 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !115
+  %26 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !115
+  call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %_M_first.i.i121 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %25, ptr %_M_first.i.i121, align 8, !alias.scope !115
+  store ptr %25, ptr %_M_first.i.i121, align 8, !alias.scope !118
   %_M_last.i.i123 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %23, ptr %_M_last.i.i123, align 8, !alias.scope !115
+  store ptr %23, ptr %_M_last.i.i123, align 8, !alias.scope !118
   %_M_node.i.i125 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %26, ptr %_M_node.i.i125, align 8, !alias.scope !115
+  store ptr %26, ptr %_M_node.i.i125, align 8, !alias.scope !118
   %sub.ptr.lhs.cast.i.i127 = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast.i.i128 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i129 = sub i64 %sub.ptr.lhs.cast.i.i127, %sub.ptr.rhs.cast.i.i128
@@ -3008,11 +3008,11 @@ cond.false.i.i:                                   ; preds = %if.end17
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %26, i64 %cond.i.i
-  store ptr %add.ptr11.i.i, ptr %_M_node.i.i125, align 8, !alias.scope !115
-  %27 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !115
-  store ptr %27, ptr %_M_first.i.i121, align 8, !alias.scope !115
+  store ptr %add.ptr11.i.i, ptr %_M_node.i.i125, align 8, !alias.scope !118
+  %27 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !118
+  store ptr %27, ptr %_M_first.i.i121, align 8, !alias.scope !118
   %add.ptr.i.i.i133 = getelementptr inbounds i8, ptr %27, i64 512
-  store ptr %add.ptr.i.i.i133, ptr %_M_last.i.i123, align 8, !alias.scope !115
+  store ptr %add.ptr.i.i.i133, ptr %_M_last.i.i123, align 8, !alias.scope !118
   %mul.i.i134 = shl nsw i64 %cond.i.i, 6
   %sub14.i.i = sub nsw i64 %add.i.i131, %mul.i.i134
   %add.ptr15.i.i = getelementptr inbounds ptr, ptr %27, i64 %sub14.i.i
@@ -3020,7 +3020,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
 
 _ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_El.exit: ; preds = %if.then.i.i, %cond.end.i.i
   %storemerge.i.i = phi ptr [ %add.ptr15.i.i, %cond.end.i.i ], [ %add.ptr.i.i135, %if.then.i.i ]
-  store ptr %storemerge.i.i, ptr %agg.result, align 8, !alias.scope !115
+  store ptr %storemerge.i.i, ptr %agg.result, align 8, !alias.scope !118
   ret void
 }
 
@@ -3064,7 +3064,7 @@ while.body.i:                                     ; preds = %if.then, %_ZNSt15_D
 
 if.end.thread.i:                                  ; preds = %while.body.i
   %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.12.0, i64 -8
-  %9 = load ptr, ptr %add.ptr.i, align 8, !noalias !118
+  %9 = load ptr, ptr %add.ptr.i, align 8, !noalias !121
   %add.ptr6.i = getelementptr inbounds i8, ptr %9, i64 512
   %10 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i, i64 64)
   %.pre239 = ptrtoint ptr %agg.tmp.sroa.0.0 to i64
@@ -3089,7 +3089,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i, %if.end.t
   %add.ptr833.i = getelementptr inbounds ptr, ptr %__last.addr.013.i, i64 %idx.neg31.i
   %add.ptr8.idx.neg.i = shl nsw i64 %.sroa.speculated29.i, 3
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__rend.028.i, i64 %idx.neg31.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 %add.ptr833.i, i64 %add.ptr8.idx.neg.i, i1 false), !noalias !118
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 %add.ptr833.i, i64 %add.ptr8.idx.neg.i, i1 false), !noalias !121
   %add.i.i.i = sub nsw i64 %.pre21.i.pre-phi, %.sroa.speculated29.i
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
@@ -3113,7 +3113,7 @@ cond.false.i.i.i:                                 ; preds = %if.then.i.i.i.i
 cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i.i
-  %11 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !118
+  %11 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !121
   %add.ptr.i.i.i7.i = getelementptr inbounds i8, ptr %11, i64 512
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 6
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
@@ -3127,7 +3127,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %storemerge.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr15.i.i.i, %cond.end.i.i.i ]
   %sub.i = sub nsw i64 %storemerge12.i, %.sroa.speculated29.i
   %cmp.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp.i, label %while.body.i, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit, !llvm.loop !121
+  br i1 %cmp.i, label %while.body.i, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit, !llvm.loop !124
 
 _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit: ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i, %if.then
   %agg.tmp.sroa.9.2 = phi ptr [ %6, %if.then ], [ %agg.tmp.sroa.9.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i ]
@@ -3166,7 +3166,7 @@ while.body.i30:                                   ; preds = %_ZNSt15_Deque_itera
 
 if.end.thread.i75:                                ; preds = %while.body.i30
   %add.ptr.i76 = getelementptr inbounds i8, ptr %agg.tmp7.sroa.11.0, i64 -8
-  %22 = load ptr, ptr %add.ptr.i76, align 8, !noalias !122
+  %22 = load ptr, ptr %add.ptr.i76, align 8, !noalias !125
   %add.ptr6.i77 = getelementptr inbounds i8, ptr %22, i64 512
   %23 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i32, i64 64)
   %.pre247 = ptrtoint ptr %agg.tmp7.sroa.0.0 to i64
@@ -3191,7 +3191,7 @@ if.then.i.i.i.i40:                                ; preds = %if.end.i34, %if.end
   %add.ptr833.i44 = getelementptr inbounds ptr, ptr %__last.addr.013.i31, i64 %idx.neg31.i43
   %add.ptr8.idx.neg.i45 = shl nsw i64 %.sroa.speculated29.i41, 3
   %add.ptr.i.i.i.i47 = getelementptr inbounds ptr, ptr %__rend.028.i42, i64 %idx.neg31.i43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i47, ptr nonnull align 8 %add.ptr833.i44, i64 %add.ptr8.idx.neg.i45, i1 false), !noalias !122
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i47, ptr nonnull align 8 %add.ptr833.i44, i64 %add.ptr8.idx.neg.i45, i1 false), !noalias !125
   %add.i.i.i54 = sub nsw i64 %.pre21.i53.pre-phi, %.sroa.speculated29.i41
   %cmp.i.i.i55 = icmp sgt i64 %add.i.i.i54, -1
   br i1 %cmp.i.i.i55, label %land.lhs.true.i.i.i69, label %cond.false.i.i.i56
@@ -3215,7 +3215,7 @@ cond.false.i.i.i56:                               ; preds = %if.then.i.i.i.i40
 cond.end.i.i.i58:                                 ; preds = %cond.false.i.i.i56, %cond.true.i.i.i71
   %cond.i.i.i59 = phi i64 [ %div911.i.i.i72, %cond.true.i.i.i71 ], [ %sub10.i.i.i57, %cond.false.i.i.i56 ]
   %add.ptr11.i.i.i60 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i.i59
-  %24 = load ptr, ptr %add.ptr11.i.i.i60, align 8, !noalias !122
+  %24 = load ptr, ptr %add.ptr11.i.i.i60, align 8, !noalias !125
   %add.ptr.i.i.i7.i61 = getelementptr inbounds i8, ptr %24, i64 512
   %mul.i.i.i62 = shl nsw i64 %cond.i.i.i59, 6
   %sub14.i.i.i63 = sub nsw i64 %add.i.i.i54, %mul.i.i.i62
@@ -3229,7 +3229,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %storemerge.i.i.i66 = phi ptr [ %add.ptr.i.i.i74, %if.then.i.i.i73 ], [ %add.ptr15.i.i.i64, %cond.end.i.i.i58 ]
   %sub.i67 = sub nsw i64 %storemerge12.i32, %.sroa.speculated29.i41
   %cmp.i68 = icmp sgt i64 %sub.i67, 0
-  br i1 %cmp.i68, label %while.body.i30, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit78, !llvm.loop !121
+  br i1 %cmp.i68, label %while.body.i30, label %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit78, !llvm.loop !124
 
 _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit78: ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i65
   store ptr %storemerge.i.i.i66, ptr %__result, align 8
@@ -3239,7 +3239,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfo
   %__node.0 = getelementptr inbounds i8, ptr %__node.0235, i64 -8
   %25 = load ptr, ptr %_M_node, align 8
   %cmp4.not = icmp eq ptr %__node.0, %25
-  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !125
+  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !128
 
 for.end:                                          ; preds = %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit78, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit
   %26 = phi ptr [ %agg.tmp.sroa.12.2, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %agg.tmp7.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit78 ]
@@ -3268,7 +3268,7 @@ while.body.i103:                                  ; preds = %for.end, %_ZNSt15_D
 
 if.end.thread.i148:                               ; preds = %while.body.i103
   %add.ptr.i149 = getelementptr inbounds i8, ptr %agg.tmp9.sroa.12.0, i64 -8
-  %33 = load ptr, ptr %add.ptr.i149, align 8, !noalias !126
+  %33 = load ptr, ptr %add.ptr.i149, align 8, !noalias !129
   %add.ptr6.i150 = getelementptr inbounds i8, ptr %33, i64 512
   %34 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i105, i64 64)
   %.pre243 = ptrtoint ptr %agg.tmp9.sroa.0.0 to i64
@@ -3293,7 +3293,7 @@ if.then.i.i.i.i113:                               ; preds = %if.end.i107, %if.en
   %add.ptr833.i117 = getelementptr inbounds ptr, ptr %__last.addr.013.i104, i64 %idx.neg31.i116
   %add.ptr8.idx.neg.i118 = shl nsw i64 %.sroa.speculated29.i114, 3
   %add.ptr.i.i.i.i120 = getelementptr inbounds ptr, ptr %__rend.028.i115, i64 %idx.neg31.i116
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i120, ptr nonnull align 8 %add.ptr833.i117, i64 %add.ptr8.idx.neg.i118, i1 false), !noalias !126
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i120, ptr nonnull align 8 %add.ptr833.i117, i64 %add.ptr8.idx.neg.i118, i1 false), !noalias !129
   %add.i.i.i127 = sub nsw i64 %.pre21.i126.pre-phi, %.sroa.speculated29.i114
   %cmp.i.i.i128 = icmp sgt i64 %add.i.i.i127, -1
   br i1 %cmp.i.i.i128, label %land.lhs.true.i.i.i142, label %cond.false.i.i.i129
@@ -3317,7 +3317,7 @@ cond.false.i.i.i129:                              ; preds = %if.then.i.i.i.i113
 cond.end.i.i.i131:                                ; preds = %cond.false.i.i.i129, %cond.true.i.i.i144
   %cond.i.i.i132 = phi i64 [ %div911.i.i.i145, %cond.true.i.i.i144 ], [ %sub10.i.i.i130, %cond.false.i.i.i129 ]
   %add.ptr11.i.i.i133 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i.i132
-  %35 = load ptr, ptr %add.ptr11.i.i.i133, align 8, !noalias !126
+  %35 = load ptr, ptr %add.ptr11.i.i.i133, align 8, !noalias !129
   %add.ptr.i.i.i7.i134 = getelementptr inbounds i8, ptr %35, i64 512
   %mul.i.i.i135 = shl nsw i64 %cond.i.i.i132, 6
   %sub14.i.i.i136 = sub nsw i64 %add.i.i.i127, %mul.i.i.i135
@@ -3331,7 +3331,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %storemerge.i.i.i139 = phi ptr [ %add.ptr.i.i.i147, %if.then.i.i.i146 ], [ %add.ptr15.i.i.i137, %cond.end.i.i.i131 ]
   %sub.i140 = sub nsw i64 %storemerge12.i105, %.sroa.speculated29.i114
   %cmp.i141 = icmp sgt i64 %sub.i140, 0
-  br i1 %cmp.i141, label %while.body.i103, label %return, !llvm.loop !121
+  br i1 %cmp.i141, label %while.body.i103, label %return, !llvm.loop !124
 
 if.end:                                           ; preds = %entry
   %36 = load ptr, ptr %__first, align 8
@@ -3362,7 +3362,7 @@ while.body.i176:                                  ; preds = %if.end, %_ZNSt15_De
 
 if.end.thread.i221:                               ; preds = %while.body.i176
   %add.ptr.i222 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.12.0, i64 -8
-  %43 = load ptr, ptr %add.ptr.i222, align 8, !noalias !129
+  %43 = load ptr, ptr %add.ptr.i222, align 8, !noalias !132
   %add.ptr6.i223 = getelementptr inbounds i8, ptr %43, i64 512
   %44 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i178, i64 64)
   %.pre = ptrtoint ptr %agg.tmp12.sroa.0.0 to i64
@@ -3387,7 +3387,7 @@ if.then.i.i.i.i186:                               ; preds = %if.end.i180, %if.en
   %add.ptr833.i190 = getelementptr inbounds ptr, ptr %__last.addr.013.i177, i64 %idx.neg31.i189
   %add.ptr8.idx.neg.i191 = shl nsw i64 %.sroa.speculated29.i187, 3
   %add.ptr.i.i.i.i193 = getelementptr inbounds ptr, ptr %__rend.028.i188, i64 %idx.neg31.i189
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i193, ptr nonnull align 8 %add.ptr833.i190, i64 %add.ptr8.idx.neg.i191, i1 false), !noalias !129
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i193, ptr nonnull align 8 %add.ptr833.i190, i64 %add.ptr8.idx.neg.i191, i1 false), !noalias !132
   %add.i.i.i200 = sub nsw i64 %.pre21.i199.pre-phi, %.sroa.speculated29.i187
   %cmp.i.i.i201 = icmp sgt i64 %add.i.i.i200, -1
   br i1 %cmp.i.i.i201, label %land.lhs.true.i.i.i215, label %cond.false.i.i.i202
@@ -3411,7 +3411,7 @@ cond.false.i.i.i202:                              ; preds = %if.then.i.i.i.i186
 cond.end.i.i.i204:                                ; preds = %cond.false.i.i.i202, %cond.true.i.i.i217
   %cond.i.i.i205 = phi i64 [ %div911.i.i.i218, %cond.true.i.i.i217 ], [ %sub10.i.i.i203, %cond.false.i.i.i202 ]
   %add.ptr11.i.i.i206 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i.i205
-  %45 = load ptr, ptr %add.ptr11.i.i.i206, align 8, !noalias !129
+  %45 = load ptr, ptr %add.ptr11.i.i.i206, align 8, !noalias !132
   %add.ptr.i.i.i7.i207 = getelementptr inbounds i8, ptr %45, i64 512
   %mul.i.i.i208 = shl nsw i64 %cond.i.i.i205, 6
   %sub14.i.i.i209 = sub nsw i64 %add.i.i.i200, %mul.i.i.i208
@@ -3425,7 +3425,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %storemerge.i.i.i212 = phi ptr [ %add.ptr.i.i.i220, %if.then.i.i.i219 ], [ %add.ptr15.i.i.i210, %cond.end.i.i.i204 ]
   %sub.i213 = sub nsw i64 %storemerge12.i178, %.sroa.speculated29.i187
   %cmp.i214 = icmp sgt i64 %sub.i213, 0
-  br i1 %cmp.i214, label %while.body.i176, label %return, !llvm.loop !121
+  br i1 %cmp.i214, label %while.body.i176, label %return, !llvm.loop !124
 
 return:                                           ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i138, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i211, %if.end, %for.end
   %.sink251 = phi ptr [ %29, %for.end ], [ %38, %if.end ], [ %storemerge.i.i.i212, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i211 ], [ %storemerge.i.i.i139, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i138 ]
@@ -3491,7 +3491,7 @@ while.body.i:                                     ; preds = %if.then, %_ZNSt15_D
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i
   %add.ptr.idx.i = shl nsw i64 %.sroa.speculated.i, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp.sroa.0.0, ptr align 8 %__first.addr.016.i, i64 %add.ptr.idx.i, i1 false), !noalias !132
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp.sroa.0.0, ptr align 8 %__first.addr.016.i, i64 %add.ptr.idx.i, i1 false), !noalias !135
   br label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i: ; preds = %if.then.i.i.i.i, %while.body.i
@@ -3521,7 +3521,7 @@ cond.false.i.i:                                   ; preds = %_ZSt14__copy_move_a
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i
-  %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !132
+  %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !135
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 512
   %mul.i.i = shl nsw i64 %cond.i.i, 6
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
@@ -3535,7 +3535,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
   %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr15.i.i, %cond.end.i.i ]
   %sub.i = sub nsw i64 %storemerge15.i, %.sroa.speculated.i
   %cmp.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp.i, label %while.body.i, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit, !llvm.loop !135
+  br i1 %cmp.i, label %while.body.i, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit, !llvm.loop !138
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit: ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i, %if.then
   %agg.tmp.sroa.8.2 = phi ptr [ %6, %if.then ], [ %agg.tmp.sroa.8.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i ]
@@ -3579,7 +3579,7 @@ while.body.i29:                                   ; preds = %_ZNSt15_Deque_itera
 
 if.then.i.i.i.i39:                                ; preds = %while.body.i29
   %add.ptr.idx.i40 = shl nsw i64 %.sroa.speculated.i36, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp7.sroa.0.0, ptr align 8 %__first.addr.016.i30, i64 %add.ptr.idx.i40, i1 false), !noalias !136
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp7.sroa.0.0, ptr align 8 %__first.addr.016.i30, i64 %add.ptr.idx.i40, i1 false), !noalias !139
   br label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i43
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i43: ; preds = %if.then.i.i.i.i39, %while.body.i29
@@ -3609,7 +3609,7 @@ cond.false.i.i50:                                 ; preds = %_ZSt14__copy_move_a
 cond.end.i.i52:                                   ; preds = %cond.false.i.i50, %cond.true.i.i65
   %cond.i.i53 = phi i64 [ %div911.i.i66, %cond.true.i.i65 ], [ %sub10.i.i51, %cond.false.i.i50 ]
   %add.ptr11.i.i54 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i53
-  %18 = load ptr, ptr %add.ptr11.i.i54, align 8, !noalias !136
+  %18 = load ptr, ptr %add.ptr11.i.i54, align 8, !noalias !139
   %add.ptr.i.i.i55 = getelementptr inbounds i8, ptr %18, i64 512
   %mul.i.i56 = shl nsw i64 %cond.i.i53, 6
   %sub14.i.i57 = sub nsw i64 %add.i.i48, %mul.i.i56
@@ -3623,7 +3623,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
   %storemerge.i.i60 = phi ptr [ %add.ptr.i.i68, %if.then.i.i67 ], [ %add.ptr15.i.i58, %cond.end.i.i52 ]
   %sub.i61 = sub nsw i64 %storemerge15.i31, %.sroa.speculated.i36
   %cmp.i62 = icmp sgt i64 %sub.i61, 0
-  br i1 %cmp.i62, label %while.body.i29, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit69, !llvm.loop !135
+  br i1 %cmp.i62, label %while.body.i29, label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit69, !llvm.loop !138
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit69: ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i59
   store ptr %storemerge.i.i60, ptr %__result, align 8
@@ -3633,7 +3633,7 @@ _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__
   %__node.0 = getelementptr inbounds i8, ptr %__node.0210, i64 8
   %19 = load ptr, ptr %_M_node1, align 8
   %cmp4.not = icmp eq ptr %__node.0, %19
-  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !139
+  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !142
 
 for.end:                                          ; preds = %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit69, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit
   %20 = phi ptr [ %agg.tmp.sroa.12.2, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %agg.tmp7.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit69 ]
@@ -3668,7 +3668,7 @@ while.body.i94:                                   ; preds = %for.end, %_ZNSt15_D
 
 if.then.i.i.i.i104:                               ; preds = %while.body.i94
   %add.ptr.idx.i105 = shl nsw i64 %.sroa.speculated.i101, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp9.sroa.0.0, ptr align 8 %__first.addr.016.i95, i64 %add.ptr.idx.i105, i1 false), !noalias !140
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp9.sroa.0.0, ptr align 8 %__first.addr.016.i95, i64 %add.ptr.idx.i105, i1 false), !noalias !143
   br label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i108
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i108: ; preds = %if.then.i.i.i.i104, %while.body.i94
@@ -3698,7 +3698,7 @@ cond.false.i.i115:                                ; preds = %_ZSt14__copy_move_a
 cond.end.i.i117:                                  ; preds = %cond.false.i.i115, %cond.true.i.i130
   %cond.i.i118 = phi i64 [ %div911.i.i131, %cond.true.i.i130 ], [ %sub10.i.i116, %cond.false.i.i115 ]
   %add.ptr11.i.i119 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i118
-  %26 = load ptr, ptr %add.ptr11.i.i119, align 8, !noalias !140
+  %26 = load ptr, ptr %add.ptr11.i.i119, align 8, !noalias !143
   %add.ptr.i.i.i120 = getelementptr inbounds i8, ptr %26, i64 512
   %mul.i.i121 = shl nsw i64 %cond.i.i118, 6
   %sub14.i.i122 = sub nsw i64 %add.i.i113, %mul.i.i121
@@ -3712,7 +3712,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
   %storemerge.i.i125 = phi ptr [ %add.ptr.i.i133, %if.then.i.i132 ], [ %add.ptr15.i.i123, %cond.end.i.i117 ]
   %sub.i126 = sub nsw i64 %storemerge15.i96, %.sroa.speculated.i101
   %cmp.i127 = icmp sgt i64 %sub.i126, 0
-  br i1 %cmp.i127, label %while.body.i94, label %return, !llvm.loop !135
+  br i1 %cmp.i127, label %while.body.i94, label %return, !llvm.loop !138
 
 if.end:                                           ; preds = %entry
   %27 = load ptr, ptr %__last, align 8
@@ -3747,7 +3747,7 @@ while.body.i159:                                  ; preds = %if.end, %_ZNSt15_De
 
 if.then.i.i.i.i169:                               ; preds = %while.body.i159
   %add.ptr.idx.i170 = shl nsw i64 %.sroa.speculated.i166, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp12.sroa.0.0, ptr align 8 %__first.addr.016.i160, i64 %add.ptr.idx.i170, i1 false), !noalias !143
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp12.sroa.0.0, ptr align 8 %__first.addr.016.i160, i64 %add.ptr.idx.i170, i1 false), !noalias !146
   br label %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i173
 
 _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES5_ET1_T0_S7_S6_.exit.i173: ; preds = %if.then.i.i.i.i169, %while.body.i159
@@ -3777,7 +3777,7 @@ cond.false.i.i180:                                ; preds = %_ZSt14__copy_move_a
 cond.end.i.i182:                                  ; preds = %cond.false.i.i180, %cond.true.i.i195
   %cond.i.i183 = phi i64 [ %div911.i.i196, %cond.true.i.i195 ], [ %sub10.i.i181, %cond.false.i.i180 ]
   %add.ptr11.i.i184 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i183
-  %32 = load ptr, ptr %add.ptr11.i.i184, align 8, !noalias !143
+  %32 = load ptr, ptr %add.ptr11.i.i184, align 8, !noalias !146
   %add.ptr.i.i.i185 = getelementptr inbounds i8, ptr %32, i64 512
   %mul.i.i186 = shl nsw i64 %cond.i.i183, 6
   %sub14.i.i187 = sub nsw i64 %add.i.i178, %mul.i.i186
@@ -3791,7 +3791,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
   %storemerge.i.i190 = phi ptr [ %add.ptr.i.i198, %if.then.i.i197 ], [ %add.ptr15.i.i188, %cond.end.i.i182 ]
   %sub.i191 = sub nsw i64 %storemerge15.i161, %.sroa.speculated.i166
   %cmp.i192 = icmp sgt i64 %sub.i191, 0
-  br i1 %cmp.i192, label %while.body.i159, label %return, !llvm.loop !135
+  br i1 %cmp.i192, label %while.body.i159, label %return, !llvm.loop !138
 
 return:                                           ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i124, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i189, %if.end, %for.end
   %.sink211 = phi ptr [ %23, %for.end ], [ %28, %if.end ], [ %storemerge.i.i190, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i189 ], [ %storemerge.i.i125, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i124 ]
@@ -4088,7 +4088,7 @@ _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE17_M_push_fron
   store ptr %add.ptr12.i, ptr %_M_start, align 8
   %13 = load ptr, ptr %__args, align 8
   store ptr %13, ptr %add.ptr12.i, align 8
-  %.pre = load ptr, ptr %_M_start, align 8, !noalias !146
+  %.pre = load ptr, ptr %_M_start, align 8, !noalias !149
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE17_M_push_front_auxIJS4_EEEvDpOT_.exit, %if.then
@@ -4231,60 +4231,63 @@ attributes #18 = { noreturn nounwind }
 !89 = distinct !{!89, !90, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: %agg.result"}
 !90 = distinct !{!90, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZSt13move_backwardISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_: %agg.result"}
-!93 = distinct !{!93, !"_ZSt13move_backwardISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_"}
-!94 = !{!95, !92}
-!95 = distinct !{!95, !96, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_: %agg.result"}
-!96 = distinct !{!96, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_"}
-!97 = !{!98, !95, !92}
-!98 = distinct !{!98, !99, !"_ZSt23__copy_move_backward_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_: %agg.result"}
-!99 = distinct !{!99, !"_ZSt23__copy_move_backward_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_"}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: %agg.result"}
-!102 = distinct !{!102, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!92 = distinct !{!92, !93, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: %agg.result"}
+!93 = distinct !{!93, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZSt13move_backwardISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_: %agg.result"}
+!96 = distinct !{!96, !"_ZSt13move_backwardISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_"}
+!97 = !{!98, !95}
+!98 = distinct !{!98, !99, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_: %agg.result"}
+!99 = distinct !{!99, !"_ZSt22__copy_move_backward_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_"}
+!100 = !{!101, !98, !95}
+!101 = distinct !{!101, !102, !"_ZSt23__copy_move_backward_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_: %agg.result"}
+!102 = distinct !{!102, !"_ZSt23__copy_move_backward_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_"}
 !103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZSt4moveISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_: %agg.result"}
-!105 = distinct !{!105, !"_ZSt4moveISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_"}
-!106 = !{!107, !104}
-!107 = distinct !{!107, !108, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_: %agg.result"}
-!108 = distinct !{!108, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_"}
-!109 = !{!110, !107, !104}
-!110 = distinct !{!110, !111, !"_ZSt14__copy_move_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_: %agg.result"}
-!111 = distinct !{!111, !"_ZSt14__copy_move_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_"}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: %agg.result"}
-!114 = distinct !{!114, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
+!104 = distinct !{!104, !105, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: %agg.result"}
+!105 = distinct !{!105, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"_ZSt4moveISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_: %agg.result"}
+!108 = distinct !{!108, !"_ZSt4moveISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET0_T_SA_S9_"}
+!109 = !{!110, !107}
+!110 = distinct !{!110, !111, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_: %agg.result"}
+!111 = distinct !{!111, !"_ZSt13__copy_move_aILb1ESt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_ES8_ET1_T0_SA_S9_"}
+!112 = !{!113, !110, !107}
+!113 = distinct !{!113, !114, !"_ZSt14__copy_move_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_: %agg.result"}
+!114 = distinct !{!114, !"_ZSt14__copy_move_a1ILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_S4_ESt15_Deque_iteratorIT3_RS8_PS8_ES7_IT0_T1_T2_ESF_SB_"}
 !115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_El: %agg.result"}
-!117 = distinct !{!117, !"_ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_El"}
+!116 = distinct !{!116, !117, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: %agg.result"}
+!117 = distinct !{!117, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
 !118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
-!120 = distinct !{!120, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!121 = distinct !{!121, !6}
-!122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
-!124 = distinct !{!124, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!125 = distinct !{!125, !6}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
-!128 = distinct !{!128, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!119 = distinct !{!119, !120, !"_ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_El: %agg.result"}
+!120 = distinct !{!120, !"_ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_El"}
+!121 = !{!122}
+!122 = distinct !{!122, !123, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
+!123 = distinct !{!123, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!124 = distinct !{!124, !6}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
+!127 = distinct !{!127, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!128 = distinct !{!128, !6}
 !129 = !{!130}
 !130 = distinct !{!130, !131, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
 !131 = distinct !{!131, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
 !132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
-!134 = distinct !{!134, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!135 = distinct !{!135, !6}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
-!138 = distinct !{!138, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
-!139 = distinct !{!139, !6}
-!140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
-!142 = distinct !{!142, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!133 = distinct !{!133, !134, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
+!134 = distinct !{!134, !"_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
+!137 = distinct !{!137, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!138 = distinct !{!138, !6}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
+!141 = distinct !{!141, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!142 = distinct !{!142, !6}
 !143 = !{!144}
 !144 = distinct !{!144, !145, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
 !145 = distinct !{!145, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
 !146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: %agg.result"}
-!148 = distinct !{!148, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
+!147 = distinct !{!147, !148, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
+!148 = distinct !{!148, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: %agg.result"}
+!151 = distinct !{!151, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}

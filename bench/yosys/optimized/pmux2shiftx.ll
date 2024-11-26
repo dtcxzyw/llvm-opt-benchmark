@@ -4693,9 +4693,9 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairINS2_7SigSpecENS2_5ConstEENS0_8h
           to label %1930 unwind label %.loopexit2658
 
 1930:                                             ; preds = %.loopexit2609
-  %1931 = load ptr, ptr %1929, align 8
+  %1931 = load ptr, ptr %1929, align 8, !noalias !45
   %1932 = getelementptr inbounds i8, ptr %1929, i64 8
-  %1933 = load ptr, ptr %1932, align 8
+  %1933 = load ptr, ptr %1932, align 8, !noalias !45
   %1934 = icmp eq ptr %1931, %1933
   br i1 %1934, label %.loopexit.i824.thread, label %1936
 
@@ -4726,8 +4726,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairINS2_7SigSpecENS2_5ConstEENS0_8h
           to label %.noexc828 unwind label %.loopexit2658
 
 .noexc828:                                        ; preds = %1952
-  %1953 = load ptr, ptr %1929, align 8
-  %1954 = load ptr, ptr %1932, align 8
+  %1953 = load ptr, ptr %1929, align 8, !noalias !45
+  %1954 = load ptr, ptr %1932, align 8, !noalias !45
   %1955 = icmp eq ptr %1953, %1954
   br i1 %1955, label %._crit_edge.i.i823, label %1956
 
@@ -26966,8 +26966,8 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i: ; preds = %_ZN5Yosys7hashlib8
   store ptr %1397, ptr %107, align 8, !alias.scope !216
   store ptr %1396, ptr %108, align 8, !alias.scope !216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false), !noalias !216
-  %1402 = load ptr, ptr %965, align 8
-  %1403 = load ptr, ptr %969, align 8
+  %1402 = load ptr, ptr %965, align 8, !noalias !219
+  %1403 = load ptr, ptr %969, align 8, !noalias !219
   %1404 = icmp eq ptr %1402, %1403
   br i1 %1404, label %.loopexit626.thread, label %1405
 
@@ -26986,8 +26986,8 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i: ; preds = %_ZN5Yosys7hashlib8
 
 .noexc289:                                        ; preds = %1407
   %.pre.i.i.i.i = load i64, ptr %109, align 8, !noalias !219
-  %.pre.i.i = load ptr, ptr %969, align 8
-  %.pre2.i.i = load ptr, ptr %965, align 8
+  %.pre.i.i = load ptr, ptr %969, align 8, !noalias !219
+  %.pre2.i.i = load ptr, ptr %965, align 8, !noalias !219
   br label %_ZNK5Yosys7hashlib4poolINS_5RTLIL7SigSpecENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i
 
 _ZNK5Yosys7hashlib4poolINS_5RTLIL7SigSpecENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i: ; preds = %1405, %.noexc289

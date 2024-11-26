@@ -144,7 +144,7 @@ common.resume:                                    ; preds = %86, %.body
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !48
   %.pre.i.i.i.i.i.i.i.i = load i64, ptr %5, align 8, !range !47, !noalias !48
   %34 = trunc nuw i64 %.pre.i.i.i.i.i.i.i.i to i1
-  %.pre.i.i.i.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i.i.i.i, align 8, !noalias !59
+  %.pre.i.i.i.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i.i.i.i, align 8, !noalias !48
   br i1 %34, label %.loopexit107.i, label %35
 
 35:                                               ; preds = %.noexc49.i
@@ -165,14 +165,14 @@ common.resume:                                    ; preds = %86, %.body
 
 .body54.i:                                        ; preds = %71, %.body.i, %50, %.loopexit.split-lp.i, %.loopexit.i
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %51, %50 ], [ %72, %71 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  %39 = load ptr, ptr %10, align 8, !alias.scope !78, !noalias !32, !nonnull !4, !noundef !4
-  %40 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !79
+  call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  %39 = load ptr, ptr %10, align 8, !alias.scope !77, !noalias !32, !nonnull !4, !noundef !4
+  %40 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !78
   %41 = icmp eq i64 %40, 1
   br i1 %41, label %42, label %.body
 
@@ -193,14 +193,14 @@ common.resume:                                    ; preds = %86, %.body
 
 .loopexit108.i:                                   ; preds = %.noexc.i, %.noexc50.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !34
-  call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %43 = load ptr, ptr %10, align 8, !alias.scope !98, !noalias !32, !nonnull !4, !noundef !4
-  %44 = atomicrmw sub ptr %43, i64 1 release, align 8, !noalias !99
+  call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  call void @llvm.experimental.noalias.scope.decl(metadata !85)
+  call void @llvm.experimental.noalias.scope.decl(metadata !88)
+  call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  %43 = load ptr, ptr %10, align 8, !alias.scope !97, !noalias !32, !nonnull !4, !noundef !4
+  %44 = atomicrmw sub ptr %43, i64 1 release, align 8, !noalias !98
   %45 = icmp eq i64 %44, 1
   br i1 %45, label %46, label %"_ZN4core3ptr298drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$diesel_migrations..file_based_migrations..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb39c78e11f758daaE.exit52.i"
 
@@ -223,7 +223,7 @@ common.resume:                                    ; preds = %86, %.body
   br label %85
 
 48:                                               ; preds = %35
-  %.sroa.7.8.copyload2.i.i.i.i.i.i = load ptr, ptr %.sroa.7.8..phi.trans.insert.i.sroa_idx.i.i.i.i.i.i, align 8, !noalias !59
+  %.sroa.7.8.copyload2.i.i.i.i.i.i = load ptr, ptr %.sroa.7.8..phi.trans.insert.i.sroa_idx.i.i.i.i.i.i, align 8, !noalias !99
   %.sroa.8.i.i.i.i.sroa.0.0.copyload.i.i = load ptr, ptr %.sroa.8.8..phi.trans.insert.i.sroa_idx.i.i.i.i.i.i, align 8, !noalias !100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.i.i.i.i.sroa.4.0..sroa.8.8..phi.trans.insert.i.sroa_idx.i.i.i.i.sroa_idx.i.i, i64 16, i1 false), !noalias !32
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !48
@@ -566,47 +566,47 @@ attributes #8 = { cold noreturn nounwind }
 !56 = distinct !{!56, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h1db19fe093d4848dE"}
 !57 = distinct !{!57, !56, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h1db19fe093d4848dE: argument 1"}
 !58 = !{!49, !52, !54, !55, !57, !35, !37, !38, !40, !41, !43, !44, !46, !24, !30}
-!59 = !{!51, !54, !55, !57, !35, !37, !38, !40, !41, !43, !44, !46, !24, !30}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN4core3ptr298drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$diesel_migrations..file_based_migrations..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb39c78e11f758daaE: argument 0"}
-!62 = distinct !{!62, !"_ZN4core3ptr298drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$diesel_migrations..file_based_migrations..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb39c78e11f758daaE"}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZN4core3ptr164drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h943e6e2ed5e10bd9E.llvm.1191848617827839331: argument 0"}
-!65 = distinct !{!65, !"_ZN4core3ptr164drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h943e6e2ed5e10bd9E.llvm.1191848617827839331"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17hfec1c570dd45172eE.llvm.1191848617827839331: argument 0"}
-!68 = distinct !{!68, !"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17hfec1c570dd45172eE.llvm.1191848617827839331"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN4core3ptr48drop_in_place$LT$std..sys..unix..fs..ReadDir$GT$17hc9f764c1db73611aE.llvm.1191848617827839331: argument 0"}
-!71 = distinct !{!71, !"_ZN4core3ptr48drop_in_place$LT$std..sys..unix..fs..ReadDir$GT$17hc9f764c1db73611aE.llvm.1191848617827839331"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$std..sys..unix..fs..InnerReadDir$GT$$GT$17he366816b1d0e8cc5E.llvm.1191848617827839331: argument 0"}
-!74 = distinct !{!74, !"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$std..sys..unix..fs..InnerReadDir$GT$$GT$17he366816b1d0e8cc5E.llvm.1191848617827839331"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc55456b2521bc4f4E.llvm.1191848617827839331: argument 0"}
-!77 = distinct !{!77, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc55456b2521bc4f4E.llvm.1191848617827839331"}
-!78 = !{!76, !73, !70, !67, !64, !61}
-!79 = !{!76, !73, !70, !67, !64, !61, !24}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZN4core3ptr298drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$diesel_migrations..file_based_migrations..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb39c78e11f758daaE: argument 0"}
-!82 = distinct !{!82, !"_ZN4core3ptr298drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$diesel_migrations..file_based_migrations..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb39c78e11f758daaE"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZN4core3ptr164drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h943e6e2ed5e10bd9E.llvm.1191848617827839331: argument 0"}
-!85 = distinct !{!85, !"_ZN4core3ptr164drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h943e6e2ed5e10bd9E.llvm.1191848617827839331"}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17hfec1c570dd45172eE.llvm.1191848617827839331: argument 0"}
-!88 = distinct !{!88, !"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17hfec1c570dd45172eE.llvm.1191848617827839331"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN4core3ptr48drop_in_place$LT$std..sys..unix..fs..ReadDir$GT$17hc9f764c1db73611aE.llvm.1191848617827839331: argument 0"}
-!91 = distinct !{!91, !"_ZN4core3ptr48drop_in_place$LT$std..sys..unix..fs..ReadDir$GT$17hc9f764c1db73611aE.llvm.1191848617827839331"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$std..sys..unix..fs..InnerReadDir$GT$$GT$17he366816b1d0e8cc5E.llvm.1191848617827839331: argument 0"}
-!94 = distinct !{!94, !"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$std..sys..unix..fs..InnerReadDir$GT$$GT$17he366816b1d0e8cc5E.llvm.1191848617827839331"}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc55456b2521bc4f4E.llvm.1191848617827839331: argument 0"}
-!97 = distinct !{!97, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc55456b2521bc4f4E.llvm.1191848617827839331"}
-!98 = !{!96, !93, !90, !87, !84, !81}
-!99 = !{!96, !93, !90, !87, !84, !81, !24}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN4core3ptr298drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$diesel_migrations..file_based_migrations..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb39c78e11f758daaE: argument 0"}
+!61 = distinct !{!61, !"_ZN4core3ptr298drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$diesel_migrations..file_based_migrations..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb39c78e11f758daaE"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZN4core3ptr164drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h943e6e2ed5e10bd9E.llvm.1191848617827839331: argument 0"}
+!64 = distinct !{!64, !"_ZN4core3ptr164drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h943e6e2ed5e10bd9E.llvm.1191848617827839331"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17hfec1c570dd45172eE.llvm.1191848617827839331: argument 0"}
+!67 = distinct !{!67, !"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17hfec1c570dd45172eE.llvm.1191848617827839331"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN4core3ptr48drop_in_place$LT$std..sys..unix..fs..ReadDir$GT$17hc9f764c1db73611aE.llvm.1191848617827839331: argument 0"}
+!70 = distinct !{!70, !"_ZN4core3ptr48drop_in_place$LT$std..sys..unix..fs..ReadDir$GT$17hc9f764c1db73611aE.llvm.1191848617827839331"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$std..sys..unix..fs..InnerReadDir$GT$$GT$17he366816b1d0e8cc5E.llvm.1191848617827839331: argument 0"}
+!73 = distinct !{!73, !"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$std..sys..unix..fs..InnerReadDir$GT$$GT$17he366816b1d0e8cc5E.llvm.1191848617827839331"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc55456b2521bc4f4E.llvm.1191848617827839331: argument 0"}
+!76 = distinct !{!76, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc55456b2521bc4f4E.llvm.1191848617827839331"}
+!77 = !{!75, !72, !69, !66, !63, !60}
+!78 = !{!75, !72, !69, !66, !63, !60, !24}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZN4core3ptr298drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$diesel_migrations..file_based_migrations..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb39c78e11f758daaE: argument 0"}
+!81 = distinct !{!81, !"_ZN4core3ptr298drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$diesel_migrations..file_based_migrations..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb39c78e11f758daaE"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN4core3ptr164drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h943e6e2ed5e10bd9E.llvm.1191848617827839331: argument 0"}
+!84 = distinct !{!84, !"_ZN4core3ptr164drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$std..fs..ReadDir$C$migrations_internals..migrations_directories..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h943e6e2ed5e10bd9E.llvm.1191848617827839331"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17hfec1c570dd45172eE.llvm.1191848617827839331: argument 0"}
+!87 = distinct !{!87, !"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17hfec1c570dd45172eE.llvm.1191848617827839331"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZN4core3ptr48drop_in_place$LT$std..sys..unix..fs..ReadDir$GT$17hc9f764c1db73611aE.llvm.1191848617827839331: argument 0"}
+!90 = distinct !{!90, !"_ZN4core3ptr48drop_in_place$LT$std..sys..unix..fs..ReadDir$GT$17hc9f764c1db73611aE.llvm.1191848617827839331"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$std..sys..unix..fs..InnerReadDir$GT$$GT$17he366816b1d0e8cc5E.llvm.1191848617827839331: argument 0"}
+!93 = distinct !{!93, !"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$std..sys..unix..fs..InnerReadDir$GT$$GT$17he366816b1d0e8cc5E.llvm.1191848617827839331"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc55456b2521bc4f4E.llvm.1191848617827839331: argument 0"}
+!96 = distinct !{!96, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc55456b2521bc4f4E.llvm.1191848617827839331"}
+!97 = !{!95, !92, !89, !86, !83, !80}
+!98 = !{!95, !92, !89, !86, !83, !80, !24}
+!99 = !{!51, !54, !55, !57, !35, !37, !38, !40, !41, !43, !44, !46, !24, !30}
 !100 = !{!38, !40, !41, !43, !44, !46, !24, !30}
 !101 = !{!102}
 !102 = distinct !{!102, !103, !"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17hb75531c770f5f2f3E: argument 0"}

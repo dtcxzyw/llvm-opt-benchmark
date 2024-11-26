@@ -537,7 +537,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs21IsSi
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !noalias !8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %11, i64 %16
   %.not24.i.i = icmp eq i32 %15, 0
@@ -564,13 +564,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs21IsSi
   %26 = add nuw i32 %15, 1
   store i32 %26, ptr %14, align 4, !noalias !8
   store ptr %1, ptr %17, align 8, !noalias !8
-  %27 = load i32, ptr %14, align 4
+  %27 = load i32, ptr %14, align 4, !noalias !8
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
 
 28:                                               ; preds = %._crit_edge.i.i, %4
   %29 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull %1) #11, !noalias !8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 4
+  %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !8
   %30 = extractvalue { ptr, i8 } %29, 1
   %31 = trunc i8 %30 to i1
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
@@ -706,7 +706,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs14IsDe
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !noalias !13
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds ptr, ptr %10, i64 %15
   %.not24.i.i = icmp eq i32 %14, 0
@@ -733,13 +733,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs14IsDe
   %25 = add nuw i32 %14, 1
   store i32 %25, ptr %13, align 4, !noalias !13
   store ptr %1, ptr %16, align 8, !noalias !13
-  %26 = load i32, ptr %13, align 4
+  %26 = load i32, ptr %13, align 4, !noalias !13
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
 
 27:                                               ; preds = %._crit_edge.i.i, %3
   %28 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull %1) #11, !noalias !13
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 4
+  %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !13
   %29 = extractvalue { ptr, i8 } %28, 1
   %30 = trunc i8 %29 to i1
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit

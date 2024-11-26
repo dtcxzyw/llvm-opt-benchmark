@@ -3217,7 +3217,7 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit.i.i58: ; preds = %654
 698:                                              ; preds = %683, %.preheader.i.i
   %.sink.i.i.i34.i.i = phi ptr [ %684, %683 ], [ null, %.preheader.i.i ]
   %699 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEbLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_bEEEES3_bS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %.sink.i.i.i34.i.i), !noalias !67
-  %700 = load ptr, ptr %41, align 8
+  %700 = load ptr, ptr %41, align 8, !noalias !67
   store ptr %700, ptr %699, align 8, !noalias !67
   %701 = getelementptr inbounds nuw i8, ptr %699, i64 8
   store i8 0, ptr %701, align 1, !noalias !67
@@ -11987,7 +11987,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyE
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !260
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !260
   store ptr %96, ptr %95, align 8, !noalias !260
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #19
@@ -13101,7 +13101,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_3UseELb1EE9push_backES2_.exit126: ; preds 
 
 _ZNK4llvm8CallBase14doesNotCaptureEj.exit:        ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %162 = load i32, ptr %161, align 8
+  %162 = load i32, ptr %161, align 8, !noalias !280
   %163 = sub i32 %107, %162
   %164 = load i32, ptr %97, align 4, !noalias !280
   %165 = and i32 %164, 134217727
@@ -13833,7 +13833,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8CallBase15onlyReadsMemo
 
 _ZNK4llvm8CallBase25dataOperandHasImpliedAttrEjNS_9Attribute8AttrKindE.exit: ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %25 = load i32, ptr %24, align 8
+  %25 = load i32, ptr %24, align 8, !noalias !286
   %26 = sub i32 %1, %25
   %27 = load i32, ptr %4, align 4, !noalias !286
   %28 = and i32 %27, 134217727
@@ -13911,7 +13911,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8CallBase25dataOperandHa
   %24 = sub nsw i64 0, %23
   %25 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %27 = load i32, ptr %26, align 8
+  %27 = load i32, ptr %26, align 8, !noalias !289
   %28 = zext i32 %27 to i64
   %.idx6.i.i = shl nuw nsw i64 %28, 5
   %29 = getelementptr inbounds i8, ptr %25, i64 %.idx6.i.i
@@ -20970,7 +20970,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !332
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !332
   store ptr %96, ptr %95, align 8, !noalias !332
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #19

@@ -1132,7 +1132,7 @@ if.end:                                           ; preds = %if.then13.i.i165, %
 
 if.then.i.i.i168:                                 ; preds = %if.end
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %71 = load ptr, ptr %p, align 8
+  %71 = load ptr, ptr %p, align 8, !noalias !7
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i168
@@ -1164,7 +1164,7 @@ call2.i.i.i.i.noexc:                              ; preds = %if.end15.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %call2.i.i.i.i.noexc
   %76 = load ptr, ptr %75, align 8, !noalias !7
-  %77 = load ptr, ptr %p, align 8
+  %77 = load ptr, ptr %p, align 8, !noalias !7
   %add.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %76, i64 8
   %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %76, i64 24
   %78 = load i64, ptr %add.ptr.i9.i.i.i.i.i, align 8, !noalias !7

@@ -7798,7 +7798,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %1, %30, %33
 46:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !40
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 8, !alias.scope !40
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %50 = load ptr, ptr %49, align 8, !alias.scope !40
   %.not.i.i5.i = icmp eq ptr %48, %50

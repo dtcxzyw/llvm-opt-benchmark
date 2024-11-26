@@ -14660,7 +14660,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core17LbCostBinMetadata9ValueTypeELm1ESaIS5_EE6AssignINS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvT_m(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %values.coerce, i64 noundef %new_size) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %this, align 8, !noalias !189
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -14893,7 +14893,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl12lts_2023080223inlined_vector_internal7StorageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1ESaIS8_EE6AssignINS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvT_m(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %values.coerce, i64 noundef %new_size) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %this, align 8, !noalias !193
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -16929,7 +16929,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !220
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17026,7 +17026,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !229
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17121,7 +17121,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !238
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17216,7 +17216,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !247
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17311,7 +17311,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !256
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17406,7 +17406,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !265
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17501,7 +17501,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !274
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17596,7 +17596,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !283
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17691,7 +17691,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !292
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17786,7 +17786,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !301
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17881,7 +17881,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !310
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -17976,7 +17976,7 @@ entry:
   %ref.tmp.sroa.8 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %1 = load ptr, ptr %value, align 8
+  %1 = load ptr, ptr %value, align 8, !noalias !319
   %magicptr.i = ptrtoint ptr %1 to i64
   %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
   %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
@@ -18694,11 +18694,11 @@ lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core11RetryFilter14LegacyCallData17CachedSendMessageELm3ESaIS6_EE11EmplaceBackIJS6_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %this, align 8, !noalias !334
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %data_.i1.i, align 8
+  %1 = load ptr, ptr %data_.i1.i, align 8, !noalias !334
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !334
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
@@ -18747,7 +18747,7 @@ for.inc.i.i:                                      ; preds = %_ZN4absl12lts_20230
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0.i, i64 16
   %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %.sink.i
-  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !335
+  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !337
 
 invoke.cont21.i:                                  ; preds = %for.inc.i.i, %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core11RetryFilter14LegacyCallData17CachedSendMessageEELb0EE8AllocateERS7_m.exit.i.i
   br i1 %tobool.i.not.i, label %_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core11RetryFilter14LegacyCallData17CachedSendMessageELm3ESaIS6_EE15EmplaceBackSlowIJS6_EEERS6_DpOT_.exit, label %if.then.i.i
@@ -18802,7 +18802,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i
-  %2 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !336
+  %2 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !338
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i
 
@@ -18852,7 +18852,7 @@ if.then.i3:                                       ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.i.i.i.i.i.i.i.i4, label %if.then.i.i.i.i.i.i.i.i19, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i.i.i19:                        ; preds = %if.then.i3
-  %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8, !noalias !341
+  %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8, !noalias !343
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i20 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i5
 
@@ -18925,16 +18925,16 @@ if.then.i33:                                      ; preds = %_ZNK9grpc_core5Tabl
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %28 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i = zext i32 %28 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i), !noalias !346
-  %call.i.i.i.i.i.i.i = call noundef i32 @_Z8gpr_ltoalPc(i64 noundef %conv.i.i.i.i.i.i, ptr noundef nonnull %buffer.i.i.i.i.i.i.i), !noalias !349
-  %call.i.i.i.i.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i.i.i.i.i.i.i) #31, !noalias !352
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i), !noalias !352
-  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %buffer.i.i.i.i.i.i.i, i64 noundef %call.i.i.i.i.i.i.i.i), !noalias !355
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i), !noalias !348
+  %call.i.i.i.i.i.i.i = call noundef i32 @_Z8gpr_ltoalPc(i64 noundef %conv.i.i.i.i.i.i, ptr noundef nonnull %buffer.i.i.i.i.i.i.i), !noalias !351
+  %call.i.i.i.i.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i.i.i.i.i.i.i) #31, !noalias !354
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i), !noalias !354
+  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %buffer.i.i.i.i.i.i.i, i64 noundef %call.i.i.i.i.i.i.i.i), !noalias !357
   %ref.tmp3.sroa.0.0.copyload.i.i.i.i.i34 = load ptr, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, align 8
   %ref.tmp3.sroa.3.0.ref.tmp.i.i.i.i.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 8
   %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i35 = load i64, ptr %ref.tmp3.sroa.3.0.ref.tmp.i.i.i.i.sroa_idx.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i), !noalias !352
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i), !noalias !346
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i), !noalias !354
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i), !noalias !348
   %tobool.not.i.i.i.i.i.i.i36 = icmp eq ptr %ref.tmp3.sroa.0.0.copyload.i.i.i.i.i34, null
   %conv.i.i.i.i.i.i.i37 = and i64 %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i35, 255
   %cond.i.i.i.i.i.i.i38 = select i1 %tobool.not.i.i.i.i.i.i.i36, i64 %conv.i.i.i.i.i.i.i37, i64 %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i35
@@ -19033,7 +19033,7 @@ if.then.i76:                                      ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS0_20TransportSizeEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i76
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str.114, i32 noundef 112, ptr noundef nonnull @.str.115) #29, !noalias !358
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str.114, i32 noundef 112, ptr noundef nonnull @.str.115) #29, !noalias !360
   unreachable
 
 _ZN9grpc_core15metadata_detail13EncodeWrapperINS0_20TransportSizeEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i: ; preds = %if.then.i76
@@ -19056,12 +19056,12 @@ if.then.i83:                                      ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.not.i.i.i.i.i.i84, label %if.then.i.i.i.i.i.i87, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS0_20TransportSizeEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i
 
 if.then.i.i.i.i.i.i87:                            ; preds = %if.then.i83
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str.114, i32 noundef 215, ptr noundef nonnull @.str.118) #29, !noalias !361
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str.114, i32 noundef 215, ptr noundef nonnull @.str.118) #29, !noalias !363
   unreachable
 
 _ZN9grpc_core15metadata_detail13EncodeWrapperINS0_20TransportSizeEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i: ; preds = %if.then.i83
-  %call.i.i.i.i.i.i = call noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef %54), !noalias !361
-  %call.i.i.i.i.i.i.i85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i.i) #31, !noalias !364
+  %call.i.i.i.i.i.i = call noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef %54), !noalias !363
+  %call.i.i.i.i.i.i.i85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i.i) #31, !noalias !366
   %55 = load i32, ptr %f.coerce, align 4
   %56 = trunc i64 %call.i.i.i.i.i.i.i85 to i32
   %57 = add i32 %56, 45
@@ -19083,12 +19083,12 @@ if.then.i93:                                      ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.not.i.i.i.i.i.i94, label %if.then.i.i.i.i.i.i98, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS0_20TransportSizeEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i
 
 if.then.i.i.i.i.i.i98:                            ; preds = %if.then.i93
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str.114, i32 noundef 215, ptr noundef nonnull @.str.118) #29, !noalias !367
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str.114, i32 noundef 215, ptr noundef nonnull @.str.118) #29, !noalias !369
   unreachable
 
 _ZN9grpc_core15metadata_detail13EncodeWrapperINS0_20TransportSizeEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i: ; preds = %if.then.i93
-  %call.i.i.i.i.i.i95 = call noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef %59), !noalias !367
-  %call.i.i.i.i.i.i.i96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i.i95) #31, !noalias !370
+  %call.i.i.i.i.i.i95 = call noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef %59), !noalias !369
+  %call.i.i.i.i.i.i.i96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i.i95) #31, !noalias !372
   %60 = load i32, ptr %f.coerce, align 4
   %61 = trunc i64 %call.i.i.i.i.i.i.i96 to i32
   %62 = add i32 %61, 62
@@ -19108,7 +19108,7 @@ if.then.i106:                                     ; preds = %_ZNK9grpc_core5Tabl
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i.i.i102)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i8, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i.i.i.i.i.i)
-  store i8 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, ptr %x.i.i.i.i.i.i, align 1, !noalias !373
+  store i8 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, ptr %x.i.i.i.i.i.i, align 1, !noalias !375
   call void @_ZNK9grpc_core23CompressionAlgorithmSet7ToSliceEv(ptr nonnull sret(%"class.grpc_core::Slice") align 8 %ref.tmp3.i.i.i.i.i102, ptr noundef nonnull align 1 dereferenceable(1) %x.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i.i.i.i.i.i)
   %64 = load ptr, ptr %ref.tmp3.i.i.i.i.i102, align 8
@@ -19158,16 +19158,16 @@ if.then.i124:                                     ; preds = %_ZNK9grpc_core5Tabl
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %74 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i125 = sext i32 %74 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i120), !noalias !376
-  %call.i.i.i.i.i.i.i126 = call noundef i32 @_Z8gpr_ltoalPc(i64 noundef %conv.i.i.i.i.i.i125, ptr noundef nonnull %buffer.i.i.i.i.i.i.i120), !noalias !379
-  %call.i.i.i.i.i.i.i.i127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i.i.i.i.i.i.i120) #31, !noalias !382
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i119), !noalias !382
-  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i.i.i.i.i119, ptr noundef nonnull %buffer.i.i.i.i.i.i.i120, i64 noundef %call.i.i.i.i.i.i.i.i127), !noalias !385
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i120), !noalias !378
+  %call.i.i.i.i.i.i.i126 = call noundef i32 @_Z8gpr_ltoalPc(i64 noundef %conv.i.i.i.i.i.i125, ptr noundef nonnull %buffer.i.i.i.i.i.i.i120), !noalias !381
+  %call.i.i.i.i.i.i.i.i127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i.i.i.i.i.i.i120) #31, !noalias !384
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i119), !noalias !384
+  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i.i.i.i.i119, ptr noundef nonnull %buffer.i.i.i.i.i.i.i120, i64 noundef %call.i.i.i.i.i.i.i.i127), !noalias !387
   %ref.tmp3.sroa.0.0.copyload.i.i.i.i.i128 = load ptr, ptr %ref.tmp.i.i.i.i.i.i.i.i.i119, align 8
   %ref.tmp3.sroa.3.0.ref.tmp.i.i.i.i.sroa_idx.i.i.i.i.i129 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i119, i64 8
   %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i130 = load i64, ptr %ref.tmp3.sroa.3.0.ref.tmp.i.i.i.i.sroa_idx.i.i.i.i.i129, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i119), !noalias !382
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i120), !noalias !376
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i119), !noalias !384
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i120), !noalias !378
   %tobool.not.i.i.i.i.i.i.i131 = icmp eq ptr %ref.tmp3.sroa.0.0.copyload.i.i.i.i.i128, null
   %conv.i.i.i.i.i.i.i132 = and i64 %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i130, 255
   %cond.i.i.i.i.i.i.i133 = select i1 %tobool.not.i.i.i.i.i.i.i131, i64 %conv.i.i.i.i.i.i.i132, i64 %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i130
@@ -19253,16 +19253,16 @@ if.then.i165:                                     ; preds = %_ZNK9grpc_core5Tabl
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %93 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i166 = zext i32 %93 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i161), !noalias !388
-  %call.i.i.i.i.i.i.i167 = call noundef i32 @_Z8gpr_ltoalPc(i64 noundef %conv.i.i.i.i.i.i166, ptr noundef nonnull %buffer.i.i.i.i.i.i.i161), !noalias !391
-  %call.i.i.i.i.i.i.i.i168 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i.i.i.i.i.i.i161) #31, !noalias !394
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i160), !noalias !394
-  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i.i.i.i.i160, ptr noundef nonnull %buffer.i.i.i.i.i.i.i161, i64 noundef %call.i.i.i.i.i.i.i.i168), !noalias !397
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i161), !noalias !390
+  %call.i.i.i.i.i.i.i167 = call noundef i32 @_Z8gpr_ltoalPc(i64 noundef %conv.i.i.i.i.i.i166, ptr noundef nonnull %buffer.i.i.i.i.i.i.i161), !noalias !393
+  %call.i.i.i.i.i.i.i.i168 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i.i.i.i.i.i.i161) #31, !noalias !396
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i160), !noalias !396
+  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i.i.i.i.i160, ptr noundef nonnull %buffer.i.i.i.i.i.i.i161, i64 noundef %call.i.i.i.i.i.i.i.i168), !noalias !399
   %ref.tmp3.sroa.0.0.copyload.i.i.i.i.i169 = load ptr, ptr %ref.tmp.i.i.i.i.i.i.i.i.i160, align 8
   %ref.tmp3.sroa.3.0.ref.tmp.i.i.i.i.sroa_idx.i.i.i.i.i170 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i160, i64 8
   %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i171 = load i64, ptr %ref.tmp3.sroa.3.0.ref.tmp.i.i.i.i.sroa_idx.i.i.i.i.i170, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i160), !noalias !394
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i161), !noalias !388
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i160), !noalias !396
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i161), !noalias !390
   %tobool.not.i.i.i.i.i.i.i172 = icmp eq ptr %ref.tmp3.sroa.0.0.copyload.i.i.i.i.i169, null
   %conv.i.i.i.i.i.i.i173 = and i64 %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i171, 255
   %cond.i.i.i.i.i.i.i174 = select i1 %tobool.not.i.i.i.i.i.i.i172, i64 %conv.i.i.i.i.i.i.i173, i64 %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i171
@@ -19301,16 +19301,16 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
 if.then.i188:                                     ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_183
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i189 = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i185), !noalias !400
-  %call.i.i.i.i.i.i.i190 = call noundef i32 @_Z8gpr_ltoalPc(i64 noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i189, ptr noundef nonnull %buffer.i.i.i.i.i.i.i185), !noalias !403
-  %call.i.i.i.i.i.i.i.i191 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i.i.i.i.i.i.i185) #31, !noalias !406
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i184), !noalias !406
-  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i.i.i.i.i184, ptr noundef nonnull %buffer.i.i.i.i.i.i.i185, i64 noundef %call.i.i.i.i.i.i.i.i191), !noalias !409
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i185), !noalias !402
+  %call.i.i.i.i.i.i.i190 = call noundef i32 @_Z8gpr_ltoalPc(i64 noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i189, ptr noundef nonnull %buffer.i.i.i.i.i.i.i185), !noalias !405
+  %call.i.i.i.i.i.i.i.i191 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i.i.i.i.i.i.i185) #31, !noalias !408
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i184), !noalias !408
+  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i.i.i.i.i.i.i184, ptr noundef nonnull %buffer.i.i.i.i.i.i.i185, i64 noundef %call.i.i.i.i.i.i.i.i191), !noalias !411
   %ref.tmp3.sroa.0.0.copyload.i.i.i.i.i192 = load ptr, ptr %ref.tmp.i.i.i.i.i.i.i.i.i184, align 8
   %ref.tmp3.sroa.3.0.ref.tmp.i.i.i.i.sroa_idx.i.i.i.i.i193 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i184, i64 8
   %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i194 = load i64, ptr %ref.tmp3.sroa.3.0.ref.tmp.i.i.i.i.sroa_idx.i.i.i.i.i193, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i184), !noalias !406
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i185), !noalias !400
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i184), !noalias !408
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i185), !noalias !402
   %tobool.not.i.i.i.i.i.i.i195 = icmp eq ptr %ref.tmp3.sroa.0.0.copyload.i.i.i.i.i192, null
   %conv.i.i.i.i.i.i.i196 = and i64 %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i194, 255
   %cond.i.i.i.i.i.i.i197 = select i1 %tobool.not.i.i.i.i.i.i.i195, i64 %conv.i.i.i.i.i.i.i196, i64 %ref.tmp3.sroa.3.0.copyload.i.i.i.i.i194
@@ -19353,7 +19353,7 @@ if.then.i209:                                     ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.i.i.i.i.i.i.i.i210, label %if.then.i.i.i.i.i.i.i.i225, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i211
 
 if.then.i.i.i.i.i.i.i.i225:                       ; preds = %if.then.i209
-  %111 = atomicrmw add ptr %110, i64 1 monotonic, align 8, !noalias !412
+  %111 = atomicrmw add ptr %110, i64 1 monotonic, align 8, !noalias !414
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i226 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i211
 
@@ -19403,7 +19403,7 @@ if.then.i231:                                     ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.i.i.i.i.i.i.i.i232, label %if.then.i.i.i.i.i.i.i.i247, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i233
 
 if.then.i.i.i.i.i.i.i.i247:                       ; preds = %if.then.i231
-  %121 = atomicrmw add ptr %120, i64 1 monotonic, align 8, !noalias !417
+  %121 = atomicrmw add ptr %120, i64 1 monotonic, align 8, !noalias !419
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i248 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i233
 
@@ -19453,7 +19453,7 @@ if.then.i253:                                     ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.i.i.i.i.i.i.i.i254, label %if.then.i.i.i.i.i.i.i.i269, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i255
 
 if.then.i.i.i.i.i.i.i.i269:                       ; preds = %if.then.i253
-  %131 = atomicrmw add ptr %130, i64 1 monotonic, align 8, !noalias !422
+  %131 = atomicrmw add ptr %130, i64 1 monotonic, align 8, !noalias !424
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i270 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i255
 
@@ -19503,7 +19503,7 @@ if.then.i275:                                     ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.i.i.i.i.i.i.i.i276, label %if.then.i.i.i.i.i.i.i.i291, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i277
 
 if.then.i.i.i.i.i.i.i.i291:                       ; preds = %if.then.i275
-  %141 = atomicrmw add ptr %140, i64 1 monotonic, align 8, !noalias !427
+  %141 = atomicrmw add ptr %140, i64 1 monotonic, align 8, !noalias !429
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i292 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i277
 
@@ -19553,7 +19553,7 @@ if.then.i297:                                     ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.i.i.i.i.i.i.i.i298, label %if.then.i.i.i.i.i.i.i.i313, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i299
 
 if.then.i.i.i.i.i.i.i.i313:                       ; preds = %if.then.i297
-  %151 = atomicrmw add ptr %150, i64 1 monotonic, align 8, !noalias !432
+  %151 = atomicrmw add ptr %150, i64 1 monotonic, align 8, !noalias !434
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i314 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i299
 
@@ -19603,7 +19603,7 @@ if.then.i319:                                     ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.i.i.i.i.i.i.i.i320, label %if.then.i.i.i.i.i.i.i.i335, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i321
 
 if.then.i.i.i.i.i.i.i.i335:                       ; preds = %if.then.i319
-  %161 = atomicrmw add ptr %160, i64 1 monotonic, align 8, !noalias !437
+  %161 = atomicrmw add ptr %160, i64 1 monotonic, align 8, !noalias !439
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i336 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i321
 
@@ -19653,7 +19653,7 @@ if.then.i341:                                     ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.i.i.i.i.i.i.i.i342, label %if.then.i.i.i.i.i.i.i.i357, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i343
 
 if.then.i.i.i.i.i.i.i.i357:                       ; preds = %if.then.i341
-  %171 = atomicrmw add ptr %170, i64 1 monotonic, align 8, !noalias !442
+  %171 = atomicrmw add ptr %170, i64 1 monotonic, align 8, !noalias !444
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i358 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i343
 
@@ -19781,7 +19781,7 @@ if.then.i386:                                     ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.i.i.i.i.i.i.i.i387, label %if.then.i.i.i.i.i.i.i.i402, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i388
 
 if.then.i.i.i.i.i.i.i.i402:                       ; preds = %if.then.i386
-  %194 = atomicrmw add ptr %193, i64 1 monotonic, align 8, !noalias !447
+  %194 = atomicrmw add ptr %193, i64 1 monotonic, align 8, !noalias !449
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i403 = load ptr, ptr %u.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i388
 
@@ -19831,7 +19831,7 @@ if.then.i408:                                     ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.i.i.i.i.i.i.i.i409, label %if.then.i.i.i.i.i.i.i.i424, label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i410
 
 if.then.i.i.i.i.i.i.i.i424:                       ; preds = %if.then.i408
-  %204 = atomicrmw add ptr %203, i64 1 monotonic, align 8, !noalias !452
+  %204 = atomicrmw add ptr %203, i64 1 monotonic, align 8, !noalias !454
   %ref.tmp3.sroa.0.0.copyload.pr.i.i.i.i.i425 = load ptr, ptr %u.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i410
 
@@ -20023,7 +20023,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %15, %invoke.cont2.i
   store i64 0, ptr %error_data.i.i.i.i.i.i.i, align 8
   %call_combiner_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 424
   %20 = load ptr, ptr %call_combiner_.i.i.i.i.i.i, align 8
-  store i64 0, ptr %agg.tmp.i.i.i.i.i.i, align 8, !alias.scope !457
+  store i64 0, ptr %agg.tmp.i.i.i.i.i.i, align 8, !alias.scope !459
   invoke void @_ZN9grpc_core12CallCombiner5StartEP12grpc_closureN4absl12lts_202308026StatusEPKc(ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull %retry_closure_.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull @.str.97)
           to label %invoke.cont.i6.i.i.i.i.i unwind label %lpad.i5.i.i.i.i.i
 
@@ -20595,129 +20595,131 @@ attributes #31 = { nounwind willreturn memory(read) }
 !331 = !{!332}
 !332 = distinct !{!332, !333, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
 !333 = distinct !{!333, !"_ZN4absl12lts_202308028OkStatusEv"}
-!334 = !{}
-!335 = distinct !{!335, !11}
-!336 = !{!337, !339}
-!337 = distinct !{!337, !338, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!338 = distinct !{!338, !"_ZNK9grpc_core5Slice3RefEv"}
-!339 = distinct !{!339, !340, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!340 = distinct !{!340, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!341 = !{!342, !344}
-!342 = distinct !{!342, !343, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!343 = distinct !{!343, !"_ZNK9grpc_core5Slice3RefEv"}
-!344 = distinct !{!344, !345, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!345 = distinct !{!345, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!346 = !{!347}
-!347 = distinct !{!347, !348, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseIjE6EncodeEj: %agg.result"}
-!348 = distinct !{!348, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseIjE6EncodeEj"}
-!349 = !{!350, !347}
-!350 = distinct !{!350, !351, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El: %agg.result"}
-!351 = distinct !{!351, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El"}
-!352 = !{!353, !350, !347}
-!353 = distinct !{!353, !354, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc: %agg.result"}
-!354 = distinct !{!354, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc"}
-!355 = !{!356, !353, !350, !347}
-!356 = distinct !{!356, !357, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm: %agg.result"}
-!357 = distinct !{!357, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm"}
-!358 = !{!359}
-!359 = distinct !{!359, !360, !"_ZN9grpc_core10TeMetadata6EncodeENS0_9ValueTypeE: %agg.result"}
-!360 = distinct !{!360, !"_ZN9grpc_core10TeMetadata6EncodeENS0_9ValueTypeE"}
-!361 = !{!362}
-!362 = distinct !{!362, !363, !"_ZN9grpc_core33CompressionAlgorithmBasedMetadata6EncodeE26grpc_compression_algorithm: %agg.result"}
-!363 = distinct !{!363, !"_ZN9grpc_core33CompressionAlgorithmBasedMetadata6EncodeE26grpc_compression_algorithm"}
-!364 = !{!365, !362}
-!365 = distinct !{!365, !366, !"_ZN9grpc_core12slice_detail18StaticConstructorsINS_5SliceEE16FromStaticStringEPKc: %agg.result"}
-!366 = distinct !{!366, !"_ZN9grpc_core12slice_detail18StaticConstructorsINS_5SliceEE16FromStaticStringEPKc"}
-!367 = !{!368}
-!368 = distinct !{!368, !369, !"_ZN9grpc_core33CompressionAlgorithmBasedMetadata6EncodeE26grpc_compression_algorithm: %agg.result"}
-!369 = distinct !{!369, !"_ZN9grpc_core33CompressionAlgorithmBasedMetadata6EncodeE26grpc_compression_algorithm"}
-!370 = !{!371, !368}
-!371 = distinct !{!371, !372, !"_ZN9grpc_core12slice_detail18StaticConstructorsINS_5SliceEE16FromStaticStringEPKc: %agg.result"}
-!372 = distinct !{!372, !"_ZN9grpc_core12slice_detail18StaticConstructorsINS_5SliceEE16FromStaticStringEPKc"}
-!373 = !{!374}
-!374 = distinct !{!374, !375, !"_ZN9grpc_core26GrpcAcceptEncodingMetadata6EncodeENS_23CompressionAlgorithmSetE: %agg.result"}
-!375 = distinct !{!375, !"_ZN9grpc_core26GrpcAcceptEncodingMetadata6EncodeENS_23CompressionAlgorithmSetE"}
-!376 = !{!377}
-!377 = distinct !{!377, !378, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseI16grpc_status_codeE6EncodeES1_: %agg.result"}
-!378 = distinct !{!378, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseI16grpc_status_codeE6EncodeES1_"}
-!379 = !{!380, !377}
-!380 = distinct !{!380, !381, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El: %agg.result"}
-!381 = distinct !{!381, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El"}
-!382 = !{!383, !380, !377}
-!383 = distinct !{!383, !384, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc: %agg.result"}
-!384 = distinct !{!384, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc"}
-!385 = !{!386, !383, !380, !377}
-!386 = distinct !{!386, !387, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm: %agg.result"}
-!387 = distinct !{!387, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm"}
-!388 = !{!389}
-!389 = distinct !{!389, !390, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseIjE6EncodeEj: %agg.result"}
-!390 = distinct !{!390, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseIjE6EncodeEj"}
-!391 = !{!392, !389}
-!392 = distinct !{!392, !393, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El: %agg.result"}
-!393 = distinct !{!393, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El"}
-!394 = !{!395, !392, !389}
-!395 = distinct !{!395, !396, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc: %agg.result"}
-!396 = distinct !{!396, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc"}
-!397 = !{!398, !395, !392, !389}
-!398 = distinct !{!398, !399, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm: %agg.result"}
-!399 = distinct !{!399, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm"}
-!400 = !{!401}
-!401 = distinct !{!401, !402, !"_ZN9grpc_core27GrpcRetryPushbackMsMetadata6EncodeENS_8DurationE: %agg.result"}
-!402 = distinct !{!402, !"_ZN9grpc_core27GrpcRetryPushbackMsMetadata6EncodeENS_8DurationE"}
-!403 = !{!404, !401}
-!404 = distinct !{!404, !405, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El: %agg.result"}
-!405 = distinct !{!405, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El"}
-!406 = !{!407, !404, !401}
-!407 = distinct !{!407, !408, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc: %agg.result"}
-!408 = distinct !{!408, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc"}
-!409 = !{!410, !407, !404, !401}
-!410 = distinct !{!410, !411, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm: %agg.result"}
-!411 = distinct !{!411, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm"}
-!412 = !{!413, !415}
-!413 = distinct !{!413, !414, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!414 = distinct !{!414, !"_ZNK9grpc_core5Slice3RefEv"}
-!415 = distinct !{!415, !416, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!416 = distinct !{!416, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!417 = !{!418, !420}
-!418 = distinct !{!418, !419, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!419 = distinct !{!419, !"_ZNK9grpc_core5Slice3RefEv"}
-!420 = distinct !{!420, !421, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!421 = distinct !{!421, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!422 = !{!423, !425}
-!423 = distinct !{!423, !424, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!424 = distinct !{!424, !"_ZNK9grpc_core5Slice3RefEv"}
-!425 = distinct !{!425, !426, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!426 = distinct !{!426, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!427 = !{!428, !430}
-!428 = distinct !{!428, !429, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!429 = distinct !{!429, !"_ZNK9grpc_core5Slice3RefEv"}
-!430 = distinct !{!430, !431, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!431 = distinct !{!431, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!432 = !{!433, !435}
-!433 = distinct !{!433, !434, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!434 = distinct !{!434, !"_ZNK9grpc_core5Slice3RefEv"}
-!435 = distinct !{!435, !436, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!436 = distinct !{!436, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!437 = !{!438, !440}
-!438 = distinct !{!438, !439, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!439 = distinct !{!439, !"_ZNK9grpc_core5Slice3RefEv"}
-!440 = distinct !{!440, !441, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!441 = distinct !{!441, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!442 = !{!443, !445}
-!443 = distinct !{!443, !444, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!444 = distinct !{!444, !"_ZNK9grpc_core5Slice3RefEv"}
-!445 = distinct !{!445, !446, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!446 = distinct !{!446, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!447 = !{!448, !450}
-!448 = distinct !{!448, !449, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!449 = distinct !{!449, !"_ZNK9grpc_core5Slice3RefEv"}
-!450 = distinct !{!450, !451, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!451 = distinct !{!451, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!452 = !{!453, !455}
-!453 = distinct !{!453, !454, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!454 = distinct !{!454, !"_ZNK9grpc_core5Slice3RefEv"}
-!455 = distinct !{!455, !456, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
-!456 = distinct !{!456, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
-!457 = !{!458}
-!458 = distinct !{!458, !459, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
-!459 = distinct !{!459, !"_ZN4absl12lts_202308028OkStatusEv"}
+!334 = !{!335}
+!335 = distinct !{!335, !336, !"_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core11RetryFilter14LegacyCallData17CachedSendMessageELm3ESaIS6_EE15MakeStorageViewEv: %agg.result"}
+!336 = distinct !{!336, !"_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core11RetryFilter14LegacyCallData17CachedSendMessageELm3ESaIS6_EE15MakeStorageViewEv"}
+!337 = distinct !{!337, !11}
+!338 = !{!339, !341}
+!339 = distinct !{!339, !340, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!340 = distinct !{!340, !"_ZNK9grpc_core5Slice3RefEv"}
+!341 = distinct !{!341, !342, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!342 = distinct !{!342, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!343 = !{!344, !346}
+!344 = distinct !{!344, !345, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!345 = distinct !{!345, !"_ZNK9grpc_core5Slice3RefEv"}
+!346 = distinct !{!346, !347, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!347 = distinct !{!347, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!348 = !{!349}
+!349 = distinct !{!349, !350, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseIjE6EncodeEj: %agg.result"}
+!350 = distinct !{!350, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseIjE6EncodeEj"}
+!351 = !{!352, !349}
+!352 = distinct !{!352, !353, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El: %agg.result"}
+!353 = distinct !{!353, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El"}
+!354 = !{!355, !352, !349}
+!355 = distinct !{!355, !356, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc: %agg.result"}
+!356 = distinct !{!356, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc"}
+!357 = !{!358, !355, !352, !349}
+!358 = distinct !{!358, !359, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm: %agg.result"}
+!359 = distinct !{!359, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm"}
+!360 = !{!361}
+!361 = distinct !{!361, !362, !"_ZN9grpc_core10TeMetadata6EncodeENS0_9ValueTypeE: %agg.result"}
+!362 = distinct !{!362, !"_ZN9grpc_core10TeMetadata6EncodeENS0_9ValueTypeE"}
+!363 = !{!364}
+!364 = distinct !{!364, !365, !"_ZN9grpc_core33CompressionAlgorithmBasedMetadata6EncodeE26grpc_compression_algorithm: %agg.result"}
+!365 = distinct !{!365, !"_ZN9grpc_core33CompressionAlgorithmBasedMetadata6EncodeE26grpc_compression_algorithm"}
+!366 = !{!367, !364}
+!367 = distinct !{!367, !368, !"_ZN9grpc_core12slice_detail18StaticConstructorsINS_5SliceEE16FromStaticStringEPKc: %agg.result"}
+!368 = distinct !{!368, !"_ZN9grpc_core12slice_detail18StaticConstructorsINS_5SliceEE16FromStaticStringEPKc"}
+!369 = !{!370}
+!370 = distinct !{!370, !371, !"_ZN9grpc_core33CompressionAlgorithmBasedMetadata6EncodeE26grpc_compression_algorithm: %agg.result"}
+!371 = distinct !{!371, !"_ZN9grpc_core33CompressionAlgorithmBasedMetadata6EncodeE26grpc_compression_algorithm"}
+!372 = !{!373, !370}
+!373 = distinct !{!373, !374, !"_ZN9grpc_core12slice_detail18StaticConstructorsINS_5SliceEE16FromStaticStringEPKc: %agg.result"}
+!374 = distinct !{!374, !"_ZN9grpc_core12slice_detail18StaticConstructorsINS_5SliceEE16FromStaticStringEPKc"}
+!375 = !{!376}
+!376 = distinct !{!376, !377, !"_ZN9grpc_core26GrpcAcceptEncodingMetadata6EncodeENS_23CompressionAlgorithmSetE: %agg.result"}
+!377 = distinct !{!377, !"_ZN9grpc_core26GrpcAcceptEncodingMetadata6EncodeENS_23CompressionAlgorithmSetE"}
+!378 = !{!379}
+!379 = distinct !{!379, !380, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseI16grpc_status_codeE6EncodeES1_: %agg.result"}
+!380 = distinct !{!380, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseI16grpc_status_codeE6EncodeES1_"}
+!381 = !{!382, !379}
+!382 = distinct !{!382, !383, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El: %agg.result"}
+!383 = distinct !{!383, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El"}
+!384 = !{!385, !382, !379}
+!385 = distinct !{!385, !386, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc: %agg.result"}
+!386 = distinct !{!386, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc"}
+!387 = !{!388, !385, !382, !379}
+!388 = distinct !{!388, !389, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm: %agg.result"}
+!389 = distinct !{!389, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm"}
+!390 = !{!391}
+!391 = distinct !{!391, !392, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseIjE6EncodeEj: %agg.result"}
+!392 = distinct !{!392, !"_ZN9grpc_core26SimpleIntBasedMetadataBaseIjE6EncodeEj"}
+!393 = !{!394, !391}
+!394 = distinct !{!394, !395, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El: %agg.result"}
+!395 = distinct !{!395, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El"}
+!396 = !{!397, !394, !391}
+!397 = distinct !{!397, !398, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc: %agg.result"}
+!398 = distinct !{!398, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc"}
+!399 = !{!400, !397, !394, !391}
+!400 = distinct !{!400, !401, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm: %agg.result"}
+!401 = distinct !{!401, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm"}
+!402 = !{!403}
+!403 = distinct !{!403, !404, !"_ZN9grpc_core27GrpcRetryPushbackMsMetadata6EncodeENS_8DurationE: %agg.result"}
+!404 = distinct !{!404, !"_ZN9grpc_core27GrpcRetryPushbackMsMetadata6EncodeENS_8DurationE"}
+!405 = !{!406, !403}
+!406 = distinct !{!406, !407, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El: %agg.result"}
+!407 = distinct !{!407, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE9FromInt64El"}
+!408 = !{!409, !406, !403}
+!409 = distinct !{!409, !410, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc: %agg.result"}
+!410 = distinct !{!410, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringEPKc"}
+!411 = !{!412, !409, !406, !403}
+!412 = distinct !{!412, !413, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm: %agg.result"}
+!413 = distinct !{!413, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm"}
+!414 = !{!415, !417}
+!415 = distinct !{!415, !416, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!416 = distinct !{!416, !"_ZNK9grpc_core5Slice3RefEv"}
+!417 = distinct !{!417, !418, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!418 = distinct !{!418, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!419 = !{!420, !422}
+!420 = distinct !{!420, !421, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!421 = distinct !{!421, !"_ZNK9grpc_core5Slice3RefEv"}
+!422 = distinct !{!422, !423, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!423 = distinct !{!423, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!424 = !{!425, !427}
+!425 = distinct !{!425, !426, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!426 = distinct !{!426, !"_ZNK9grpc_core5Slice3RefEv"}
+!427 = distinct !{!427, !428, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!428 = distinct !{!428, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!429 = !{!430, !432}
+!430 = distinct !{!430, !431, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!431 = distinct !{!431, !"_ZNK9grpc_core5Slice3RefEv"}
+!432 = distinct !{!432, !433, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!433 = distinct !{!433, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!434 = !{!435, !437}
+!435 = distinct !{!435, !436, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!436 = distinct !{!436, !"_ZNK9grpc_core5Slice3RefEv"}
+!437 = distinct !{!437, !438, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!438 = distinct !{!438, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!439 = !{!440, !442}
+!440 = distinct !{!440, !441, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!441 = distinct !{!441, !"_ZNK9grpc_core5Slice3RefEv"}
+!442 = distinct !{!442, !443, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!443 = distinct !{!443, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!444 = !{!445, !447}
+!445 = distinct !{!445, !446, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!446 = distinct !{!446, !"_ZNK9grpc_core5Slice3RefEv"}
+!447 = distinct !{!447, !448, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!448 = distinct !{!448, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!449 = !{!450, !452}
+!450 = distinct !{!450, !451, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!451 = distinct !{!451, !"_ZNK9grpc_core5Slice3RefEv"}
+!452 = distinct !{!452, !453, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!453 = distinct !{!453, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!454 = !{!455, !457}
+!455 = distinct !{!455, !456, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!456 = distinct !{!456, !"_ZNK9grpc_core5Slice3RefEv"}
+!457 = distinct !{!457, !458, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE: %agg.result"}
+!458 = distinct !{!458, !"_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE"}
+!459 = !{!460}
+!460 = distinct !{!460, !461, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
+!461 = distinct !{!461, !"_ZN4absl12lts_202308028OkStatusEv"}

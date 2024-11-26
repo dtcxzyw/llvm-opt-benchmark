@@ -964,8 +964,8 @@ define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15ston
   %.val.i.i.i.i.i.i.i.i.i = load i32, ptr %.014.i.i.i.i, align 4, !noalias !6
   %12 = add nsw i32 %.val.i.i.i.i.i.i.i.i.i, 1
   %13 = sext i32 %12 to i64
-  %14 = load ptr, ptr %0, align 8
-  %15 = load i64, ptr %7, align 8
+  %14 = load ptr, ptr %0, align 8, !noalias !17
+  %15 = load i64, ptr %7, align 8, !noalias !17
   %16 = lshr i64 %13, 7
   %17 = ptrtoint ptr %14 to i64
   %18 = lshr i64 %17, 12
@@ -975,7 +975,7 @@ define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15ston
   %22 = and i8 %21, 127
   %23 = insertelement <16 x i8> poison, i8 %22, i64 0
   %24 = shufflevector <16 x i8> %23, <16 x i8> poison, <16 x i32> zeroinitializer
-  %25 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %6, align 8, !noalias !17
   br label %26
 
 26:                                               ; preds = %43, %10
@@ -1467,8 +1467,8 @@ define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15ston
   %.val.i.i.i.i.i.i.i.i.i = load i32, ptr %.014.i.i.i.i, align 4, !noalias !25
   %12 = add nsw i32 %.val.i.i.i.i.i.i.i.i.i, 1
   %13 = sext i32 %12 to i64
-  %14 = load ptr, ptr %0, align 8
-  %15 = load i64, ptr %7, align 8
+  %14 = load ptr, ptr %0, align 8, !noalias !36
+  %15 = load i64, ptr %7, align 8, !noalias !36
   %16 = lshr i64 %13, 7
   %17 = ptrtoint ptr %14 to i64
   %18 = lshr i64 %17, 12
@@ -1478,7 +1478,7 @@ define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15ston
   %22 = and i8 %21, 127
   %23 = insertelement <16 x i8> poison, i8 %22, i64 0
   %24 = shufflevector <16 x i8> %23, <16 x i8> poison, <16 x i32> zeroinitializer
-  %25 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %6, align 8, !noalias !36
   br label %26
 
 26:                                               ; preds = %43, %10

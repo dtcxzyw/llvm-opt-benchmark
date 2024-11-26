@@ -4456,20 +4456,20 @@ define linkonce_odr void @_ZN7rocksdb19BlobContentsCreator6CreateEPSt10unique_pt
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
   %size_.i.i = getelementptr inbounds i8, ptr %contents, i64 8
-  %1 = load i64, ptr %size_.i.i, align 8
+  %1 = load i64, ptr %size_.i.i, align 8, !noalias !54
   %tobool.not.i.i = icmp eq ptr %alloc, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !54
+  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !57
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 152
-  %2 = load ptr, ptr %vfn.i.i, align 8, !noalias !54
+  %2 = load ptr, ptr %vfn.i.i, align 8, !noalias !57
   %call.i.i5 = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(32) %alloc, i64 noundef %1)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %if.then.i.i
   %3 = ptrtoint ptr %alloc to i64
-  %.pr.i = load i64, ptr %size_.i.i, align 8
+  %.pr.i = load i64, ptr %size_.i.i, align 8, !noalias !54
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -4484,8 +4484,8 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i: ; preds = %if.end.i.i
   br i1 %cmp.i.i, label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
-  %5 = load ptr, ptr %contents, align 8, !noalias !59
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %5, i64 %4, i1 false), !noalias !59
+  %5 = load ptr, ptr %contents, align 8, !noalias !54
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %5, i64 %4, i1 false), !noalias !54
   %.pre = load i64, ptr %size_.i.i, align 8
   br label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit
 
@@ -5012,7 +5012,7 @@ invoke.cont11:                                    ; preds = %invoke.cont11.lr.ph
   %retval.0.i.i44 = select i1 %cmp.i.i39, ptr %arrayidx.i.i41, ptr %add.ptr.i.i.i43
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i44, ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i, i64 48, i1 false)
   %cmp = icmp slt i64 %spec.select, %div
-  br i1 %cmp, label %invoke.cont11, label %while.end, !llvm.loop !73
+  br i1 %cmp, label %invoke.cont11, label %while.end, !llvm.loop !75
 
 while.end:                                        ; preds = %invoke.cont11, %entry
   %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %invoke.cont11 ]
@@ -5029,9 +5029,9 @@ land.lhs.true:                                    ; preds = %while.end
 invoke.cont30:                                    ; preds = %land.lhs.true
   %add20 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub23 = or disjoint i64 %add20, 1
-  %10 = load ptr, ptr %__first, align 8, !noalias !72
+  %10 = load ptr, ptr %__first, align 8, !noalias !76
   %index_.i45 = getelementptr inbounds i8, ptr %__first, i64 8
-  %11 = load i64, ptr %index_.i45, align 8, !noalias !72
+  %11 = load i64, ptr %index_.i45, align 8, !noalias !76
   %add.i46 = add i64 %11, %sub23
   %cmp.i.i49 = icmp ult i64 %add.i46, 8
   %values_.i.i50 = getelementptr inbounds i8, ptr %10, i64 392
@@ -5093,7 +5093,7 @@ invoke.cont10.i:                                  ; preds = %cleanup.done.i
   %retval.0.i.i25.i = select i1 %cmp.i.i20.i, ptr %arrayidx.i.i22.i, ptr %add.ptr.i.i.i24.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i25.i, ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i.i, i64 48, i1 false)
   %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
-  br i1 %cmp.i, label %cleanup.done.i, label %invoke.cont39, !llvm.loop !74
+  br i1 %cmp.i, label %cleanup.done.i, label %invoke.cont39, !llvm.loop !79
 
 invoke.cont39:                                    ; preds = %invoke.cont10.i, %cleanup.done.i, %if.end35
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.04.i, %cleanup.done.i ], [ %__parent.05.i, %invoke.cont10.i ]
@@ -5137,7 +5137,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.not37, label %for.end, label %invoke.cont4.lr.ph
 
 invoke.cont4.lr.ph:                               ; preds = %if.end
-  %2 = load ptr, ptr %__first, align 8, !noalias !75
+  %2 = load ptr, ptr %__first, align 8, !noalias !80
   %3 = getelementptr i8, ptr %2, i64 392
   %4 = getelementptr i8, ptr %2, i64 400
   br label %invoke.cont4
@@ -5186,9 +5186,9 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %__n.014.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %dec.i.i.i.i.i.i = add i64 %agg.tmp1.sroa.2.0.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %dec.i.i.i.i.i.i, 8
-  %11 = load ptr, ptr %3, align 8, !noalias !78
+  %11 = load ptr, ptr %3, align 8, !noalias !83
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::BlobReadRequest", ptr %11, i64 %dec.i.i.i.i.i.i
-  %12 = load ptr, ptr %4, align 8, !noalias !78
+  %12 = load ptr, ptr %4, align 8, !noalias !83
   %13 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %12, i64 %dec.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr i8, ptr %13, i64 -384
   %retval.0.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i
@@ -5198,10 +5198,10 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %14 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %12, i64 %dec.i5.i.i.i.i.i
   %add.ptr.i.i.i11.i.i.i.i.i = getelementptr i8, ptr %14, i64 -384
   %retval.0.i.i12.i.i.i.i.i = select i1 %cmp.i.i7.i.i.i.i.i, ptr %arrayidx.i.i9.i.i.i.i.i, ptr %add.ptr.i.i.i11.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i12.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i.i.i.i.i, i64 48, i1 false), !noalias !78
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i12.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i.i.i.i.i, i64 48, i1 false), !noalias !83
   %dec.i.i.i.i.i = add nsw i64 %__n.014.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.014.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont17.loopexit, !llvm.loop !89
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont17.loopexit, !llvm.loop !94
 
 invoke.cont17.loopexit:                           ; preds = %for.body.i.i.i.i.i
   %.pre = load ptr, ptr %__first, align 8
@@ -5285,7 +5285,7 @@ for.inc:                                          ; preds = %invoke.cont17, %inv
   %__i.sroa.6.0 = add i64 %__i.sroa.6.039, 1
   %31 = load i64, ptr %index_2.i, align 8
   %cmp.i.i.not = icmp eq i64 %__i.sroa.6.0, %31
-  br i1 %cmp.i.i.not, label %for.end, label %invoke.cont4, !llvm.loop !90
+  br i1 %cmp.i.i.not, label %for.end, label %invoke.cont4, !llvm.loop !95
 
 for.end:                                          ; preds = %for.inc, %if.end, %entry
   ret void
@@ -5349,7 +5349,7 @@ _ZNSt4pairIPN7rocksdb15BlobReadRequestESt10unique_ptrINS0_12BlobContentsESt14def
   store ptr null, ptr %second.i, align 8
   %9 = load i64, ptr %this, align 8
   %cmp.not = icmp eq i64 %9, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !91
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !96
 
 while.end:                                        ; preds = %_ZNSt4pairIPN7rocksdb15BlobReadRequestESt10unique_ptrINS0_12BlobContentsESt14default_deleteIS4_EEED2Ev.exit, %entry
   %vect_ = getelementptr inbounds i8, ptr %this, i64 144
@@ -5528,12 +5528,12 @@ attributes #24 = { noreturn nounwind }
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !53 = distinct !{!53, !"_ZN7rocksdb6Status2OKEv"}
-!54 = !{!55, !57}
-!55 = distinct !{!55, !56, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
-!56 = distinct !{!56, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
-!57 = distinct !{!57, !58, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
-!58 = distinct !{!58, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
-!59 = !{!57}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
+!56 = distinct !{!56, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
+!57 = !{!58, !55}
+!58 = distinct !{!58, !59, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
+!59 = distinct !{!59, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
 !60 = distinct !{!60, !5}
 !61 = distinct !{!61, !5}
 !62 = !{!63}
@@ -5546,23 +5546,28 @@ attributes #24 = { noreturn nounwind }
 !69 = distinct !{!69, !5}
 !70 = distinct !{!70, !5}
 !71 = distinct !{!71, !5}
-!72 = !{}
-!73 = distinct !{!73, !5}
-!74 = distinct !{!74, !5}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZNK7rocksdb10autovectorINS_15BlobReadRequestELm8EE13iterator_implIS2_S1_EplEl: %agg.result"}
-!77 = distinct !{!77, !"_ZNK7rocksdb10autovectorINS_15BlobReadRequestELm8EE13iterator_implIS2_S1_EplEl"}
-!78 = !{!79, !81, !83, !85, !87}
-!79 = distinct !{!79, !80, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN7rocksdb10autovectorINS3_15BlobReadRequestELm8EE13iterator_implIS6_S5_EES8_EET0_T_SA_S9_: %agg.result"}
-!80 = distinct !{!80, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN7rocksdb10autovectorINS3_15BlobReadRequestELm8EE13iterator_implIS6_S5_EES8_EET0_T_SA_S9_"}
-!81 = distinct !{!81, !82, !"_ZSt23__copy_move_backward_a2ILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_: %agg.result"}
-!82 = distinct !{!82, !"_ZSt23__copy_move_backward_a2ILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_"}
-!83 = distinct !{!83, !84, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_: %agg.result"}
-!84 = distinct !{!84, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_"}
-!85 = distinct !{!85, !86, !"_ZSt22__copy_move_backward_aILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_: %agg.result"}
-!86 = distinct !{!86, !"_ZSt22__copy_move_backward_aILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_"}
-!87 = distinct !{!87, !88, !"_ZSt13move_backwardIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET0_T_S7_S6_: %agg.result"}
-!88 = distinct !{!88, !"_ZSt13move_backwardIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET0_T_S7_S6_"}
-!89 = distinct !{!89, !5}
-!90 = distinct !{!90, !5}
-!91 = distinct !{!91, !5}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNK7rocksdb10autovectorINS_15BlobReadRequestELm8EE13iterator_implIS2_S1_EplEl: %agg.result"}
+!74 = distinct !{!74, !"_ZNK7rocksdb10autovectorINS_15BlobReadRequestELm8EE13iterator_implIS2_S1_EplEl"}
+!75 = distinct !{!75, !5}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK7rocksdb10autovectorINS_15BlobReadRequestELm8EE13iterator_implIS2_S1_EplEl: %agg.result"}
+!78 = distinct !{!78, !"_ZNK7rocksdb10autovectorINS_15BlobReadRequestELm8EE13iterator_implIS2_S1_EplEl"}
+!79 = distinct !{!79, !5}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZNK7rocksdb10autovectorINS_15BlobReadRequestELm8EE13iterator_implIS2_S1_EplEl: %agg.result"}
+!82 = distinct !{!82, !"_ZNK7rocksdb10autovectorINS_15BlobReadRequestELm8EE13iterator_implIS2_S1_EplEl"}
+!83 = !{!84, !86, !88, !90, !92}
+!84 = distinct !{!84, !85, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN7rocksdb10autovectorINS3_15BlobReadRequestELm8EE13iterator_implIS6_S5_EES8_EET0_T_SA_S9_: %agg.result"}
+!85 = distinct !{!85, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN7rocksdb10autovectorINS3_15BlobReadRequestELm8EE13iterator_implIS6_S5_EES8_EET0_T_SA_S9_"}
+!86 = distinct !{!86, !87, !"_ZSt23__copy_move_backward_a2ILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_: %agg.result"}
+!87 = distinct !{!87, !"_ZSt23__copy_move_backward_a2ILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_"}
+!88 = distinct !{!88, !89, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_: %agg.result"}
+!89 = distinct !{!89, !"_ZSt23__copy_move_backward_a1ILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_"}
+!90 = distinct !{!90, !91, !"_ZSt22__copy_move_backward_aILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_: %agg.result"}
+!91 = distinct !{!91, !"_ZSt22__copy_move_backward_aILb1EN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET1_T0_S7_S6_"}
+!92 = distinct !{!92, !93, !"_ZSt13move_backwardIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET0_T_S7_S6_: %agg.result"}
+!93 = distinct !{!93, !"_ZSt13move_backwardIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EES5_ET0_T_S7_S6_"}
+!94 = distinct !{!94, !5}
+!95 = distinct !{!95, !5}
+!96 = distinct !{!96, !5}

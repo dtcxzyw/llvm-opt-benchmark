@@ -172,7 +172,7 @@ _RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQ
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define noundef i64 @_RNvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque8iter_mutINtB5_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator10advance_byB1j_(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !7, !noundef !7
+  %4 = load ptr, ptr %3, align 8, !alias.scope !23, !nonnull !7, !noundef !7
   %5 = load ptr, ptr %0, align 8, !alias.scope !23, !nonnull !7, !noundef !7
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -386,7 +386,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %switch.load32 = load i32, ptr %switch.gep31, align 4
   call void @_RNvMs1_NtCsbYUTfhIhMOk_7ratatui5styleNtB5_5Style5reset(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 2 dereferenceable(16) %3)
   %21 = getelementptr inbounds i8, ptr %0, i64 33
-  %22 = load i8, ptr %21, align 1, !noundef !7
+  %22 = load i8, ptr %21, align 1, !alias.scope !46, !noundef !7
   %23 = and i8 %22, 1
   %.not = icmp eq i8 %23, 0
   br i1 %.not, label %24, label %26
@@ -427,7 +427,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %43 = and i8 %22, 8
   %44 = icmp ne i8 %43, 0
   %45 = getelementptr inbounds i8, ptr %0, i64 24
-  %46 = load i8, ptr %45, align 4, !range !46, !alias.scope !47
+  %46 = load i8, ptr %45, align 4, !range !51, !alias.scope !52
   %47 = trunc nuw i8 %46 to i1
   %.sroa.0.0.i = select i1 %44, i1 true, i1 %47
   br i1 %.sroa.0.0.i, label %59, label %55
@@ -620,7 +620,12 @@ attributes #20 = { cold noreturn nounwind }
 !43 = !{!44}
 !44 = distinct !{!44, !45, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell7bgcolor: argument 0"}
 !45 = distinct !{!45, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell7bgcolor"}
-!46 = !{i8 0, i8 2}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell7inverse: argument 0"}
-!49 = distinct !{!49, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell7inverse"}
+!46 = !{!47, !49}
+!47 = distinct !{!47, !48, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs4bold: argument 0"}
+!48 = distinct !{!48, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs4bold"}
+!49 = distinct !{!49, !50, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell4bold: argument 0"}
+!50 = distinct !{!50, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell4bold"}
+!51 = !{i8 0, i8 2}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell7inverse: argument 0"}
+!54 = distinct !{!54, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell7inverse"}

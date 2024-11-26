@@ -1485,13 +1485,13 @@ define internal fastcc i32 @_ZNK12_GLOBAL__N_115FixupBWInstPass21getSuperRegDest
   %17 = load ptr, ptr %10, align 8, !noalias !18
   %18 = zext i32 %9 to i64
   %19 = getelementptr inbounds %"struct.llvm::MCRegisterDesc", ptr %17, i64 %18, i32 4
-  %20 = load i32, ptr %19, align 4, !noalias !19
+  %20 = load i32, ptr %19, align 4, !noalias !21
   %21 = lshr i32 %20, 12
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds i16, ptr %16, i64 %22
   %24 = and i32 %20, 4095
   %25 = getelementptr inbounds %"struct.llvm::MCRegisterDesc", ptr %17, i64 %14, i32 4
-  %26 = load i32, ptr %25, align 4, !noalias !22
+  %26 = load i32, ptr %25, align 4, !noalias !18
   %27 = lshr i32 %26, 12
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds i16, ptr %16, i64 %28
@@ -1513,10 +1513,10 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i:     ; preds = %33, %_ZN4llvm17MCRe
   %.05.i.i.i.i = phi i64 [ %37, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i ], [ 0, %33 ]
   %34 = phi ptr [ %35, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i ], [ %.sroa.487.0157, %33 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 2
-  %36 = load i16, ptr %34, align 2, !noalias !25
+  %36 = load i16, ptr %34, align 2, !noalias !24
   %.not.i.i.i.i.i.i = icmp eq i16 %36, 0
   %37 = add nuw nsw i64 %.05.i.i.i.i, 1
-  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i, !llvm.loop !30
+  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i, !llvm.loop !29
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i, %55
   %.sroa.74.0.i = phi ptr [ %.sroa.74.1.i, %55 ], [ %.sroa.487.0157, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i ]
@@ -1536,13 +1536,13 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i:     ; preds = %33, %_ZN4llvm17MCRe
   %42 = phi i32 [ %47, %.lr.ph.i.i.i.i ], [ %.sroa.0.04950.i.i, %.lr.ph.i.i ]
   %43 = add nsw i64 %.02.i.i.i.i, -1
   %44 = getelementptr inbounds i8, ptr %41, i64 2
-  %45 = load i16, ptr %41, align 2, !noalias !25
+  %45 = load i16, ptr %41, align 2, !noalias !24
   %46 = sext i16 %45 to i32
   %47 = add i32 %42, %46
   %.not.i.i.i.i6.i.i = icmp eq i16 %45, 0
   %spec.select45.i.i = select i1 %.not.i.i.i.i6.i.i, ptr null, ptr %44
   %.not.i.i8.i.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i8.i.i, label %_ZSt7advanceIN4llvm17MCRegUnitIteratorElEvRT_T0_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i8.i.i, label %_ZSt7advanceIN4llvm17MCRegUnitIteratorElEvRT_T0_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !30
 
 _ZSt7advanceIN4llvm17MCRegUnitIteratorElEvRT_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.sroa.516.1.i.i = phi ptr [ %38, %.lr.ph.i.i ], [ %spec.select45.i.i, %.lr.ph.i.i.i.i ]
@@ -1553,7 +1553,7 @@ _ZSt7advanceIN4llvm17MCRegUnitIteratorElEvRT_T0_.exit.i.i: ; preds = %.lr.ph.i.i
 
 _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i:         ; preds = %_ZSt7advanceIN4llvm17MCRegUnitIteratorElEvRT_T0_.exit.i.i
   %49 = getelementptr inbounds i8, ptr %.sroa.516.1.i.i, i64 2
-  %50 = load i16, ptr %.sroa.516.1.i.i, align 2, !noalias !25
+  %50 = load i16, ptr %.sroa.516.1.i.i, align 2, !noalias !24
   %51 = sext i16 %50 to i32
   %52 = add i32 %.sroa.0.0.i.i, %51
   %.not.i.i9.i.i = icmp eq i16 %50, 0
@@ -1571,7 +1571,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i:         ; preds = %_ZSt7advanceIN4llvm
   %.sroa.0.048.i.i = phi i32 [ %52, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i ], [ %.sroa.0.04950.i.i, %_ZSt7advanceIN4llvm17MCRegUnitIteratorElEvRT_T0_.exit.i.i ]
   %.1.i.i = phi i64 [ %54, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i ], [ %40, %_ZSt7advanceIN4llvm17MCRegUnitIteratorElEvRT_T0_.exit.i.i ]
   %58 = icmp sgt i64 %.1.i.i, 0
-  br i1 %58, label %.lr.ph.i.i, label %_ZSt11lower_boundIN4llvm17MCRegUnitIteratorEjET_S2_S2_RKT0_.exit, !llvm.loop !32
+  br i1 %58, label %.lr.ph.i.i, label %_ZSt11lower_boundIN4llvm17MCRegUnitIteratorEjET_S2_S2_RKT0_.exit, !llvm.loop !31
 
 _ZSt11lower_boundIN4llvm17MCRegUnitIteratorEjET_S2_S2_RKT0_.exit: ; preds = %55
   %59 = icmp eq ptr %.sroa.74.1.i, null
@@ -1655,13 +1655,13 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit:             ; preds = %60, %_ZSt11lower_bo
   br i1 %97, label %.critedge7, label %99
 
 99:                                               ; preds = %98
-  %100 = load ptr, ptr %15, align 8, !noalias !33
-  %101 = load ptr, ptr %10, align 8, !noalias !33
+  %100 = load ptr, ptr %15, align 8, !noalias !32
+  %101 = load ptr, ptr %10, align 8, !noalias !32
   %102 = getelementptr inbounds %"struct.llvm::MCRegisterDesc", ptr %101, i64 %14, i32 2
-  %103 = load i32, ptr %102, align 4, !noalias !33
+  %103 = load i32, ptr %102, align 4, !noalias !32
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds i16, ptr %100, i64 %104
-  %106 = load i16, ptr %105, align 2, !noalias !33
+  %106 = load i16, ptr %105, align 2, !noalias !32
   %.not.i.i.i.i.i.i54 = icmp eq i16 %106, 0
   br i1 %.not.i.i.i.i.i.i54, label %.critedge7, label %.lr.ph.i.i.i.i.preheader.i.i
 
@@ -1679,24 +1679,24 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit:             ; preds = %60, %_ZSt11lower_bo
 
 _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %112 = getelementptr inbounds i8, ptr %.pn.i.i, i64 2
-  %113 = load i16, ptr %112, align 2, !noalias !36
+  %113 = load i16, ptr %112, align 2, !noalias !35
   %114 = zext i16 %113 to i32
   %115 = add i32 %109, %114
   %.not.i.i.i.i.i.i.i.i = icmp eq i16 %113, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.critedge7, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !43
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.critedge7, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !42
 
 .critedge.thread138:                              ; preds = %93
   br i1 %97, label %.critedge7, label %116
 
 116:                                              ; preds = %.critedge.thread138
-  %117 = load ptr, ptr %15, align 8, !noalias !44
-  %118 = load ptr, ptr %10, align 8, !noalias !44
+  %117 = load ptr, ptr %15, align 8, !noalias !43
+  %118 = load ptr, ptr %10, align 8, !noalias !43
   %119 = zext i32 %96 to i64
   %120 = getelementptr inbounds %"struct.llvm::MCRegisterDesc", ptr %118, i64 %119, i32 2
-  %121 = load i32, ptr %120, align 4, !noalias !44
+  %121 = load i32, ptr %120, align 4, !noalias !43
   %122 = zext i32 %121 to i64
   %123 = getelementptr inbounds i16, ptr %117, i64 %122
-  %124 = load i16, ptr %123, align 2, !noalias !44
+  %124 = load i16, ptr %123, align 2, !noalias !43
   %.not.i.i.i.i.i.i.i = icmp eq i16 %124, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
@@ -1714,11 +1714,11 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
 
 _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %130 = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 2
-  %131 = load i16, ptr %130, align 2, !noalias !47
+  %131 = load i16, ptr %130, align 2, !noalias !46
   %132 = zext i16 %131 to i32
   %133 = add i32 %127, %132
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i16 %131, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !43
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !42
 
 _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit: ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i, %116
   %134 = icmp eq i32 %9, %96
@@ -1786,12 +1786,12 @@ _ZNK4llvm19MachineInstrBuilder13setPCSectionsEPNS_6MDNodeE.exit: ; preds = %_ZN4
 _ZNK4llvm19MachineInstrBuilder15setMMRAMetadataEPNS_6MDNodeE.exit: ; preds = %_ZNK4llvm19MachineInstrBuilder13setPCSectionsEPNS_6MDNodeE.exit, %16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %17, align 8, !alias.scope !54
+  store ptr null, ptr %17, align 8, !alias.scope !53
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %3, ptr %18, align 4, !alias.scope !54
+  store i32 %3, ptr %18, align 4, !alias.scope !53
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !alias.scope !54
-  store i32 16777216, ptr %5, align 8, !alias.scope !54
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !alias.scope !53
+  store i32 16777216, ptr %5, align 8, !alias.scope !53
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %10, ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %20 = load ptr, ptr %6, align 8
@@ -2058,42 +2058,41 @@ attributes #17 = { builtin nounwind }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK4llvm14MCRegisterInfo8regunitsENS_10MCRegisterE: argument 0"}
-!21 = distinct !{!21, !"_ZNK4llvm14MCRegisterInfo8regunitsENS_10MCRegisterE"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNK4llvm14MCRegisterInfo8regunitsENS_10MCRegisterE: argument 0"}
-!24 = distinct !{!24, !"_ZNK4llvm14MCRegisterInfo8regunitsENS_10MCRegisterE"}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"_ZSt13__lower_boundIN4llvm17MCRegUnitIteratorEjN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_: argument 0"}
-!27 = distinct !{!27, !"_ZSt13__lower_boundIN4llvm17MCRegUnitIteratorEjN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_"}
-!28 = distinct !{!28, !29, !"_ZSt11lower_boundIN4llvm17MCRegUnitIteratorEjET_S2_S2_RKT0_: argument 0"}
-!29 = distinct !{!29, !"_ZSt11lower_boundIN4llvm17MCRegUnitIteratorEjET_S2_S2_RKT0_"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK4llvm14MCRegisterInfo8regunitsENS_10MCRegisterE: argument 0"}
+!20 = distinct !{!20, !"_ZNK4llvm14MCRegisterInfo8regunitsENS_10MCRegisterE"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZNK4llvm14MCRegisterInfo8regunitsENS_10MCRegisterE: argument 0"}
+!23 = distinct !{!23, !"_ZNK4llvm14MCRegisterInfo8regunitsENS_10MCRegisterE"}
+!24 = !{!25, !27}
+!25 = distinct !{!25, !26, !"_ZSt13__lower_boundIN4llvm17MCRegUnitIteratorEjN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_: argument 0"}
+!26 = distinct !{!26, !"_ZSt13__lower_boundIN4llvm17MCRegUnitIteratorEjN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_"}
+!27 = distinct !{!27, !28, !"_ZSt11lower_boundIN4llvm17MCRegUnitIteratorEjET_S2_S2_RKT0_: argument 0"}
+!28 = distinct !{!28, !"_ZSt11lower_boundIN4llvm17MCRegUnitIteratorEjET_S2_S2_RKT0_"}
+!29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNK4llvm14MCRegisterInfo9superregsENS_10MCRegisterE: argument 0"}
-!35 = distinct !{!35, !"_ZNK4llvm14MCRegisterInfo9superregsENS_10MCRegisterE"}
-!36 = !{!37, !39, !41}
-!37 = distinct !{!37, !38, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_St18input_iterator_tag: argument 0"}
-!38 = distinct !{!38, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_St18input_iterator_tag"}
-!39 = distinct !{!39, !40, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_: argument 0"}
-!40 = distinct !{!40, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_"}
-!41 = distinct !{!41, !42, !"_ZSt4findIN4llvm18MCSuperRegIteratorENS0_10MCRegisterEET_S3_S3_RKT0_: argument 0"}
-!42 = distinct !{!42, !"_ZSt4findIN4llvm18MCSuperRegIteratorENS0_10MCRegisterEET_S3_S3_RKT0_"}
-!43 = distinct !{!43, !5}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZNK4llvm14MCRegisterInfo9superregsENS_10MCRegisterE: argument 0"}
-!46 = distinct !{!46, !"_ZNK4llvm14MCRegisterInfo9superregsENS_10MCRegisterE"}
-!47 = !{!48, !50, !52}
-!48 = distinct !{!48, !49, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_St18input_iterator_tag: argument 0"}
-!49 = distinct !{!49, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_St18input_iterator_tag"}
-!50 = distinct !{!50, !51, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_: argument 0"}
-!51 = distinct !{!51, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_"}
-!52 = distinct !{!52, !53, !"_ZSt4findIN4llvm18MCSuperRegIteratorENS0_10MCRegisterEET_S3_S3_RKT0_: argument 0"}
-!53 = distinct !{!53, !"_ZSt4findIN4llvm18MCSuperRegIteratorENS0_10MCRegisterEET_S3_S3_RKT0_"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb: argument 0"}
-!56 = distinct !{!56, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZNK4llvm14MCRegisterInfo9superregsENS_10MCRegisterE: argument 0"}
+!34 = distinct !{!34, !"_ZNK4llvm14MCRegisterInfo9superregsENS_10MCRegisterE"}
+!35 = !{!36, !38, !40}
+!36 = distinct !{!36, !37, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_St18input_iterator_tag: argument 0"}
+!37 = distinct !{!37, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_St18input_iterator_tag"}
+!38 = distinct !{!38, !39, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_: argument 0"}
+!39 = distinct !{!39, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_"}
+!40 = distinct !{!40, !41, !"_ZSt4findIN4llvm18MCSuperRegIteratorENS0_10MCRegisterEET_S3_S3_RKT0_: argument 0"}
+!41 = distinct !{!41, !"_ZSt4findIN4llvm18MCSuperRegIteratorENS0_10MCRegisterEET_S3_S3_RKT0_"}
+!42 = distinct !{!42, !5}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZNK4llvm14MCRegisterInfo9superregsENS_10MCRegisterE: argument 0"}
+!45 = distinct !{!45, !"_ZNK4llvm14MCRegisterInfo9superregsENS_10MCRegisterE"}
+!46 = !{!47, !49, !51}
+!47 = distinct !{!47, !48, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_St18input_iterator_tag: argument 0"}
+!48 = distinct !{!48, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_St18input_iterator_tag"}
+!49 = distinct !{!49, !50, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_: argument 0"}
+!50 = distinct !{!50, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10MCRegisterEEEET_S8_S8_T0_"}
+!51 = distinct !{!51, !52, !"_ZSt4findIN4llvm18MCSuperRegIteratorENS0_10MCRegisterEET_S3_S3_RKT0_: argument 0"}
+!52 = distinct !{!52, !"_ZSt4findIN4llvm18MCSuperRegIteratorENS0_10MCRegisterEET_S3_S3_RKT0_"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb: argument 0"}
+!55 = distinct !{!55, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb"}

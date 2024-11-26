@@ -1899,7 +1899,7 @@ if.end64:                                         ; preds = %land.lhs.true59, %l
 
 cond.true.i.i100:                                 ; preds = %if.end64
   %first_child.i.i = getelementptr inbounds i8, ptr %11, i64 32
-  %12 = load ptr, ptr %first_child.i.i, align 8, !noalias !14
+  %12 = load ptr, ptr %first_child.i.i, align 8, !noalias !13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %if.then77, label %if.end81
 
@@ -1922,13 +1922,13 @@ if.then82:                                        ; preds = %if.end81
           to label %invoke.cont83 unwind label %lpad2
 
 invoke.cont83:                                    ; preds = %if.then82
-  %15 = load ptr, ptr %node, align 8, !noalias !17
+  %15 = load ptr, ptr %node, align 8, !noalias !16
   %tobool.not.i.i115 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i115, label %for.end170, label %invoke.cont86
 
 invoke.cont86:                                    ; preds = %invoke.cont83
   %first_child.i.i117 = getelementptr inbounds i8, ptr %15, i64 32
-  %16 = load ptr, ptr %first_child.i.i117, align 8, !noalias !17
+  %16 = load ptr, ptr %first_child.i.i117, align 8, !noalias !16
   %cmp.not.i134.not481 = icmp eq ptr %16, null
   br i1 %cmp.not.i134.not481, label %for.end170, label %if.end.i139.lr.ph
 
@@ -2410,7 +2410,7 @@ for.end170:                                       ; preds = %if.end166, %invoke.
 
 cond.true.i.i319:                                 ; preds = %if.end81
   %first_attribute.i.i320 = getelementptr inbounds i8, ptr %11, i64 56
-  %87 = load ptr, ptr %first_attribute.i.i320, align 8, !noalias !20
+  %87 = load ptr, ptr %first_attribute.i.i320, align 8, !noalias !19
   %cmp.not.i337.not494 = icmp eq ptr %87, null
   br i1 %cmp.not.i337.not494, label %if.then283, label %if.end.i342.lr.ph
 
@@ -2735,7 +2735,7 @@ while.body.i.i.i.i:                               ; preds = %arraydestroy.done2,
   %1 = load ptr, ptr %__cur.05.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #22
   %cmp.not.i.i.i.i = icmp eq ptr %1, %Child.i
-  br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !22
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %arraydestroy.done2
   %ID.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2771,7 +2771,7 @@ while.body.i.i.i.i.i:                             ; preds = %arraydestroy.done2.
   %1 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #22
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, %Child.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN8AMFColorD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN8AMFColorD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !22
 
 _ZN8AMFColorD2Ev.exit:                            ; preds = %while.body.i.i.i.i.i, %arraydestroy.done2.i
   %ID.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2794,7 +2794,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %1 = load ptr, ptr %__cur.05.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #22
   %cmp.not.i.i.i = icmp eq ptr %1, %Child
-  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !22
 
 _ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EED2Ev.exit: ; preds = %while.body.i.i.i, %entry
   %ID = getelementptr inbounds i8, ptr %this, i64 16
@@ -2816,7 +2816,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %1 = load ptr, ptr %__cur.05.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #22
   %cmp.not.i.i.i.i = icmp eq ptr %1, %Child.i
-  br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !22
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %entry
   %ID.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2914,7 +2914,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %1 = load ptr, ptr %__cur.05.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #22
   %cmp.not.i.i.i.i = icmp eq ptr %1, %Child.i
-  br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !22
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %entry
   %ID.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2936,7 +2936,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
   %1 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #22
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, %Child.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN11AMFMaterialD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN11AMFMaterialD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !22
 
 _ZN11AMFMaterialD2Ev.exit:                        ; preds = %while.body.i.i.i.i.i, %entry
   %ID.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2959,7 +2959,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %2 = and i8 %1, 8
   %tobool.not = icmp eq i8 %2, 0
   %incdec.ptr = getelementptr inbounds i8, ptr %s.0, i64 1
-  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !24
+  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !23
 
 while.end:                                        ; preds = %while.cond
   %cmp = icmp eq i8 %0, 45
@@ -2990,7 +2990,7 @@ while.cond14:                                     ; preds = %while.cond14, %if.t
   %6 = load i8, ptr %s.1, align 1
   %cmp16 = icmp eq i8 %6, 48
   %incdec.ptr18 = getelementptr inbounds i8, ptr %s.1, i64 1
-  br i1 %cmp16, label %while.cond14, label %for.cond, !llvm.loop !25
+  br i1 %cmp16, label %while.cond14, label %for.cond, !llvm.loop !24
 
 for.cond:                                         ; preds = %while.cond14, %if.end37
   %7 = phi i8 [ %.pre, %if.end37 ], [ %6, %while.cond14 ]
@@ -3022,7 +3022,7 @@ if.end37:                                         ; preds = %if.then29, %if.then
   %result.1 = phi i32 [ %add, %if.then22 ], [ %add35, %if.then29 ]
   %incdec.ptr38 = getelementptr inbounds i8, ptr %s.2, i64 1
   %.pre = load i8, ptr %incdec.ptr38, align 1
-  br label %for.cond, !llvm.loop !26
+  br label %for.cond, !llvm.loop !25
 
 for.end:                                          ; preds = %if.else
   %sub.ptr.lhs.cast = ptrtoint ptr %s.2 to i64
@@ -3036,7 +3036,7 @@ while.cond42:                                     ; preds = %while.cond42.prehea
   %8 = load i8, ptr %s.3, align 1
   %cmp44 = icmp eq i8 %8, 48
   %incdec.ptr46 = getelementptr inbounds i8, ptr %s.3, i64 1
-  br i1 %cmp44, label %while.cond42, label %for.cond49.preheader, !llvm.loop !27
+  br i1 %cmp44, label %while.cond42, label %for.cond49.preheader, !llvm.loop !26
 
 for.cond49.preheader:                             ; preds = %while.cond42
   %conv5040 = sext i8 %8 to i32
@@ -3055,7 +3055,7 @@ if.then53:                                        ; preds = %for.cond49.preheade
   %conv50 = sext i8 %9 to i32
   %sub51 = add nsw i32 %conv50, -48
   %cmp52 = icmp ult i32 %sub51, 10
-  br i1 %cmp52, label %if.then53, label %for.end61, !llvm.loop !28
+  br i1 %cmp52, label %if.then53, label %for.end61, !llvm.loop !27
 
 for.end61:                                        ; preds = %if.then53, %for.cond49.preheader
   %s.4.lcssa = phi ptr [ %s.3, %for.cond49.preheader ], [ %incdec.ptr60, %if.then53 ]
@@ -3128,7 +3128,7 @@ while.body.i.i.i.i:                               ; preds = %_ZNSt6vectorIhSaIhE
   %2 = load ptr, ptr %__cur.05.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #22
   %cmp.not.i.i.i.i = icmp eq ptr %2, %Child.i
-  br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !22
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %_ZNSt6vectorIhSaIhEED2Ev.exit
   %ID.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3161,7 +3161,7 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIhSaIhE
   %2 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #22
   %cmp.not.i.i.i.i.i = icmp eq ptr %2, %Child.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN10AMFTextureD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN10AMFTextureD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !22
 
 _ZN10AMFTextureD2Ev.exit:                         ; preds = %while.body.i.i.i.i.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.i
   %ID.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3193,7 +3193,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %1 = load ptr, ptr %__cur.05.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #22
   %cmp.not.i.i.i.i = icmp eq ptr %1, %Child.i
-  br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i, label %_ZN18AMFNodeElementBaseD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !22
 
 _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i, %entry
   %ID.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3224,7 +3224,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
   %1 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #22
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, %Child.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN9AMFTexMapD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN9AMFTexMapD2Ev.exit, label %while.body.i.i.i.i.i, !llvm.loop !22
 
 _ZN9AMFTexMapD2Ev.exit:                           ; preds = %while.body.i.i.i.i.i, %entry
   %ID.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3403,19 +3403,18 @@ attributes #22 = { builtin nounwind }
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZNK4pugi8xml_node8childrenEv: %agg.result"}
 !12 = distinct !{!12, !"_ZNK4pugi8xml_node8childrenEv"}
-!13 = !{}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNK4pugi8xml_node8childrenEv: %agg.result"}
-!16 = distinct !{!16, !"_ZNK4pugi8xml_node8childrenEv"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK4pugi8xml_node8childrenEv: %agg.result"}
-!19 = distinct !{!19, !"_ZNK4pugi8xml_node8childrenEv"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK4pugi8xml_node10attributesEv: %agg.result"}
-!22 = distinct !{!22, !"_ZNK4pugi8xml_node10attributesEv"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK4pugi8xml_node8childrenEv: %agg.result"}
+!15 = distinct !{!15, !"_ZNK4pugi8xml_node8childrenEv"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNK4pugi8xml_node8childrenEv: %agg.result"}
+!18 = distinct !{!18, !"_ZNK4pugi8xml_node8childrenEv"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNK4pugi8xml_node10attributesEv: %agg.result"}
+!21 = distinct !{!21, !"_ZNK4pugi8xml_node10attributesEv"}
+!22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

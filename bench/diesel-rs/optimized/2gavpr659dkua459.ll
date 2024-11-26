@@ -378,7 +378,7 @@ define hidden void @"_ZN247_$LT$diesel..query_builder..select_statement..SelectS
   %10 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  %12 = load i64, ptr %2, align 8, !range !65, !noalias !14, !noundef !14
+  %12 = load i64, ptr %2, align 8, !range !65, !alias.scope !62, !noalias !66, !noundef !14
   switch i64 %12, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit" [
     i64 0, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread"
     i64 4, label %.thread226
@@ -427,8 +427,8 @@ define hidden void @"_ZN247_$LT$diesel..query_builder..select_statement..SelectS
   %25 = getelementptr inbounds i8, ptr %1, i64 72
   %.sroa.6.0.in.i221 = getelementptr inbounds i8, ptr %2, i64 8
   %26 = getelementptr inbounds i8, ptr %2, i64 32
-  %.sroa.6.0.i116 = load ptr, ptr %.sroa.6.0.in.i221, align 8, !noalias !14, !nonnull !14, !align !74, !noundef !14
-  %27 = load ptr, ptr %26, align 8, !noalias !14, !nonnull !14, !align !74, !noundef !14
+  %.sroa.6.0.i116 = load ptr, ptr %.sroa.6.0.in.i221, align 8, !alias.scope !69, !noalias !72, !nonnull !14, !align !74, !noundef !14
+  %27 = load ptr, ptr %26, align 8, !alias.scope !69, !noalias !72, !nonnull !14, !align !74, !noundef !14
   store i64 %12, ptr %10, align 8, !alias.scope !72, !noalias !69
   %.sroa.6.0..sroa_idx.i117 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %.sroa.6.0.i116, ptr %.sroa.6.0..sroa_idx.i117, align 8, !alias.scope !72, !noalias !69
@@ -650,7 +650,7 @@ define hidden void @"_ZN247_$LT$diesel..query_builder..select_statement..SelectS
   %10 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  %12 = load i64, ptr %2, align 8, !range !65, !noalias !14, !noundef !14
+  %12 = load i64, ptr %2, align 8, !range !65, !alias.scope !104, !noalias !107, !noundef !14
   switch i64 %12, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit" [
     i64 0, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread"
     i64 4, label %.thread223
@@ -699,8 +699,8 @@ define hidden void @"_ZN247_$LT$diesel..query_builder..select_statement..SelectS
   %25 = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.6.0.in.i218 = getelementptr inbounds i8, ptr %2, i64 8
   %26 = getelementptr inbounds i8, ptr %2, i64 32
-  %.sroa.6.0.i116 = load ptr, ptr %.sroa.6.0.in.i218, align 8, !noalias !14, !nonnull !14, !align !74, !noundef !14
-  %27 = load ptr, ptr %26, align 8, !noalias !14, !nonnull !14, !align !74, !noundef !14
+  %.sroa.6.0.i116 = load ptr, ptr %.sroa.6.0.in.i218, align 8, !alias.scope !109, !noalias !112, !nonnull !14, !align !74, !noundef !14
+  %27 = load ptr, ptr %26, align 8, !alias.scope !109, !noalias !112, !nonnull !14, !align !74, !noundef !14
   store i64 %12, ptr %10, align 8, !alias.scope !112, !noalias !109
   %.sroa.6.0..sroa_idx.i117 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %.sroa.6.0.i116, ptr %.sroa.6.0..sroa_idx.i117, align 8, !alias.scope !112, !noalias !109

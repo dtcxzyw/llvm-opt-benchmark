@@ -15699,8 +15699,8 @@ _ZL10cacheDIVarRN12_GLOBAL__N_113FrameDataInfoERN4llvm8DenseMapIPNS2_5ValueEPNS2
   store ptr @.str.19, ptr %6558, align 8
   %6559 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store i64 12, ptr %6559, align 8
-  %6560 = load ptr, ptr %75, align 8, !noalias !4
-  %6561 = load i32, ptr %6554, align 8, !noalias !4
+  %6560 = load ptr, ptr %75, align 8, !noalias !227
+  %6561 = load i32, ptr %6554, align 8, !noalias !227
   %6562 = icmp eq i32 %6561, 0
   br i1 %6562, label %6585, label %6563
 
@@ -16100,8 +16100,8 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit.i550: ; preds = %6749, %._crit_e
   store i32 1, ptr %95, align 4
   %6756 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i64 34359738376, ptr %6756, align 4
-  %6757 = load ptr, ptr %93, align 8, !noalias !4
-  %6758 = load i32, ptr %6751, align 8, !noalias !4
+  %6757 = load ptr, ptr %93, align 8, !noalias !259
+  %6758 = load i32, ptr %6751, align 8, !noalias !259
   %6759 = icmp eq i32 %6758, 0
   br i1 %6759, label %6783, label %6760
 
@@ -26697,7 +26697,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116AllocaUseVisitor13visitCallBaseE
 
 _ZNK4llvm8CallBase14doesNotCaptureEj.exit:        ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %52 = load i32, ptr %51, align 8
+  %52 = load i32, ptr %51, align 8, !noalias !447
   %53 = sub i32 %42, %52
   %54 = load i32, ptr %4, align 4, !noalias !447
   %55 = and i32 %54, 134217727
@@ -28359,7 +28359,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !469
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !469
   store ptr %96, ptr %95, align 8, !noalias !469
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #19
@@ -36476,7 +36476,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8CallBase15onlyReadsMemo
 
 _ZNK4llvm8CallBase25dataOperandHasImpliedAttrEjNS_9Attribute8AttrKindE.exit: ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %25 = load i32, ptr %24, align 8
+  %25 = load i32, ptr %24, align 8, !noalias !550
   %26 = sub i32 %1, %25
   %27 = load i32, ptr %4, align 4, !noalias !550
   %28 = and i32 %27, 134217727

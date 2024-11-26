@@ -5378,7 +5378,7 @@ if.then110:                                       ; preds = %if.else107
   %idxprom.i.i = zext i1 %cmp.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i
   %25 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !52
-  %bf.load.i.i.i = load i64, ptr %25, align 8
+  %bf.load.i.i.i = load i64, ptr %25, align 8, !noalias !52
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %26 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %26, 1048575
@@ -11360,7 +11360,7 @@ for.body:                                         ; preds = %invoke.cont26, %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   %26 = load ptr, ptr %__begin6.sroa.0.0179, align 8, !noalias !107
   store ptr %26, ptr %ref.tmp31, align 8, !alias.scope !107
-  %bf.load.i.i.i105 = load i64, ptr %26, align 8
+  %bf.load.i.i.i105 = load i64, ptr %26, align 8, !noalias !107
   %bf.lshr.i.i.i106 = lshr i64 %bf.load.i.i.i105, 40
   %27 = trunc nuw nsw i64 %bf.lshr.i.i.i106 to i32
   %bf.cast.i.i.i107 = and i32 %27, 1048575

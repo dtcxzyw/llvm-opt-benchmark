@@ -244,15 +244,15 @@ define void @_ZNK5boost4urls19params_encoded_base9find_implENS0_6detail16params_
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %42 = load ptr, ptr %17, align 8, !tbaa !32, !noalias !34
-  %43 = load i8, ptr %26, align 8, !tbaa !35, !range !36, !noalias !29, !noundef !34
+  %42 = load ptr, ptr %17, align 8, !tbaa !32, !noalias !29
+  %43 = load i8, ptr %26, align 8, !tbaa !34, !range !35, !noalias !29, !noundef !36
   store ptr %42, ptr %6, align 8, !tbaa !37, !alias.scope !29
   store ptr %42, ptr %27, align 8, !tbaa !39, !alias.scope !29
   store i8 %43, ptr %28, align 8, !tbaa !40, !alias.scope !29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %44 = load ptr, ptr %19, align 8, !tbaa !32, !noalias !34
-  %45 = load i8, ptr %29, align 8, !tbaa !35, !range !36, !noalias !41, !noundef !34
+  %44 = load ptr, ptr %19, align 8, !tbaa !32, !noalias !41
+  %45 = load i8, ptr %29, align 8, !tbaa !34, !range !35, !noalias !41, !noundef !36
   store ptr %44, ptr %7, align 8, !tbaa !37, !alias.scope !41
   store ptr %44, ptr %30, align 8, !tbaa !39, !alias.scope !41
   store i8 %45, ptr %31, align 8, !tbaa !40, !alias.scope !41
@@ -460,15 +460,15 @@ define void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16p
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %44 = load ptr, ptr %17, align 8, !tbaa !32, !noalias !34
-  %45 = load i8, ptr %26, align 8, !tbaa !35, !range !36, !noalias !67, !noundef !34
+  %44 = load ptr, ptr %17, align 8, !tbaa !32, !noalias !67
+  %45 = load i8, ptr %26, align 8, !tbaa !34, !range !35, !noalias !67, !noundef !36
   store ptr %44, ptr %6, align 8, !tbaa !37, !alias.scope !67
   store ptr %44, ptr %27, align 8, !tbaa !39, !alias.scope !67
   store i8 %45, ptr %28, align 8, !tbaa !40, !alias.scope !67
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %46 = load ptr, ptr %19, align 8, !tbaa !32, !noalias !34
-  %47 = load i8, ptr %29, align 8, !tbaa !35, !range !36, !noalias !70, !noundef !34
+  %46 = load ptr, ptr %19, align 8, !tbaa !32, !noalias !70
+  %47 = load i8, ptr %29, align 8, !tbaa !34, !range !35, !noalias !70, !noundef !36
   store ptr %46, ptr %7, align 8, !tbaa !37, !alias.scope !70
   store ptr %46, ptr %30, align 8, !tbaa !39, !alias.scope !70
   store i8 %47, ptr %31, align 8, !tbaa !40, !alias.scope !70
@@ -623,9 +623,9 @@ attributes #8 = { nounwind }
 !31 = distinct !{!31, !"_ZNK5boost4urls11decode_view5beginEv"}
 !32 = !{!33, !9, i64 0}
 !33 = !{!"_ZTSN5boost4urls11decode_viewE", !9, i64 0, !12, i64 8, !12, i64 16, !13, i64 24}
-!34 = !{}
-!35 = !{!33, !13, i64 24}
-!36 = !{i8 0, i8 2}
+!34 = !{!33, !13, i64 24}
+!35 = !{i8 0, i8 2}
+!36 = !{}
 !37 = !{!38, !9, i64 0}
 !38 = !{!"_ZTSN5boost4urls11decode_view8iteratorE", !9, i64 0, !9, i64 8, !13, i64 16}
 !39 = !{!38, !9, i64 8}

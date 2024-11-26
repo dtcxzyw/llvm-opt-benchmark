@@ -3829,7 +3829,7 @@ lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #46, !noalias !210
-  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60
+  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60, !alias.scope !210
   %cmp.i.i.i = icmp ult i8 %1, 64
   br i1 %cmp.i.i.i, label %common.resume, label %if.end.i.i.i
 
@@ -12998,7 +12998,7 @@ entry:
           to label %invoke.cont9.i unwind label %lpad.i
 
 invoke.cont9.i:                                   ; preds = %entry
-  %2 = load i8, ptr %arrayidx.i.i.i.i, align 1, !tbaa !60
+  %2 = load i8, ptr %arrayidx.i.i.i.i, align 1, !tbaa !60, !noalias !487
   %cmp.i.i12.i = icmp ult i8 %2, 64
   br i1 %cmp.i.i12.i, label %_ZN5folly23makeSystemErrorExplicitIJRiRA48_KciRA9_S2_PS2_EEESt12system_erroriDpOT_.exit, label %if.end.i.i.i
 
@@ -13021,7 +13021,7 @@ if.end.sink.split.i:                              ; preds = %if.else.i, %if.end.
 lpad.i:                                           ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = load i8, ptr %arrayidx.i.i.i.i, align 1, !tbaa !60
+  %6 = load i8, ptr %arrayidx.i.i.i.i, align 1, !tbaa !60, !noalias !487
   %cmp.i.i14.i = icmp ult i8 %6, 64
   br i1 %cmp.i.i14.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit16.i, label %if.end.i.i15.i
 
@@ -13405,7 +13405,7 @@ lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #46, !noalias !491
-  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60
+  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60, !alias.scope !491
   %cmp.i.i.i = icmp ult i8 %1, 64
   br i1 %cmp.i.i.i, label %common.resume, label %if.end.i.i.i
 
@@ -14152,7 +14152,7 @@ lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #46, !noalias !503
-  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60
+  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60, !alias.scope !503
   %cmp.i.i.i = icmp ult i8 %1, 64
   br i1 %cmp.i.i.i, label %common.resume, label %if.end.i.i.i
 
@@ -14337,7 +14337,7 @@ lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #46, !noalias !506
-  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60
+  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60, !alias.scope !506
   %cmp.i.i.i = icmp ult i8 %1, 64
   br i1 %cmp.i.i.i, label %common.resume, label %if.end.i.i.i
 
@@ -14522,7 +14522,7 @@ lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #46, !noalias !509
-  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60
+  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60, !alias.scope !509
   %cmp.i.i.i = icmp ult i8 %1, 64
   br i1 %cmp.i.i.i, label %common.resume, label %if.end.i.i.i
 
@@ -14932,7 +14932,7 @@ lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #46, !noalias !513
-  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60
+  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60, !alias.scope !513
   %cmp.i.i.i = icmp ult i8 %1, 64
   br i1 %cmp.i.i.i, label %common.resume, label %if.end.i.i.i
 
@@ -15226,7 +15226,7 @@ lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #46, !noalias !516
-  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60
+  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60, !alias.scope !516
   %cmp.i.i.i = icmp ult i8 %1, 64
   br i1 %cmp.i.i.i, label %common.resume, label %if.end.i.i.i
 
@@ -15542,7 +15542,7 @@ lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #46, !noalias !519
-  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60
+  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !60, !alias.scope !519
   %cmp.i.i.i = icmp ult i8 %1, 64
   br i1 %cmp.i.i.i, label %common.resume, label %if.end.i.i.i
 

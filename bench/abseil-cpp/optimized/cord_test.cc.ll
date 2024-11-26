@@ -70792,7 +70792,7 @@ init.end5.init.end10_crit_edge:                   ; preds = %init.end5
 init.check7:                                      ; preds = %init.end5
   %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ24TestConstinitConstructorIN4absl16strings_internal14StringConstantI9ShortViewEEEvT_E16init_exit_tester) #32
   %tobool8.not = icmp eq i32 %6, 0
-  %agg.tmp.sroa.0.0.copyload.i.i.pre221 = load i64, ptr %expected, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.pre221 = load i64, ptr %expected, align 8, !noalias !957
   br i1 %tobool8.not, label %init.end10, label %init9
 
 init9:                                            ; preds = %init.check7
@@ -71872,7 +71872,7 @@ init.end5.init.end10_crit_edge:                   ; preds = %init.end5
 init.check7:                                      ; preds = %init.end5
   %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ24TestConstinitConstructorIN4absl16strings_internal14StringConstantI8LongViewEEEvT_E16init_exit_tester) #32
   %tobool8.not = icmp eq i32 %6, 0
-  %agg.tmp.sroa.0.0.copyload.i.i.pre222 = load i64, ptr %expected, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.pre222 = load i64, ptr %expected, align 8, !noalias !984
   br i1 %tobool8.not, label %init.end10, label %init9
 
 init9:                                            ; preds = %init.check7
@@ -99577,7 +99577,7 @@ invoke.cont37.i:                                  ; preds = %invoke.cont34.i
           to label %while.cond39.i unwind label %lpad33.i
 
 while.cond39.i:                                   ; preds = %invoke.cont37.i
-  %36 = load i8, ptr %blob, align 8
+  %36 = load i8, ptr %blob, align 8, !noalias !1429
   %37 = and i8 %36, 1
   %cmp.i.i.not.i.i54.i = icmp eq i8 %37, 0
   br i1 %cmp.i.i.not.i.i54.i, label %cond.false.i.i58.i, label %cond.true.i.i55.i

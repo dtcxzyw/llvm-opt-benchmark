@@ -2004,7 +2004,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento12ExplodedNodeELb1EE9push_backES
 76:                                               ; preds = %40, %65
   %.sink.i.i.i.i = phi ptr [ %66, %65 ], [ null, %40 ]
   %77 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E20InsertIntoBucketImplIS6_EEPSC_RKS6_RKT_SG_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %.sink.i.i.i.i), !noalias !8
-  %78 = load ptr, ptr %11, align 8
+  %78 = load ptr, ptr %11, align 8, !noalias !8
   store ptr %78, ptr %77, align 8, !noalias !8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %80 = load i64, ptr %79, align 8

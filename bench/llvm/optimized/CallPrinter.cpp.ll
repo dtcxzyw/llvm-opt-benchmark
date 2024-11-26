@@ -944,12 +944,12 @@ define linkonce_odr hidden void @_ZN4llvm16CallGraphDOTInfoC2EPNS_6ModuleEPNS_9C
 35:                                               ; preds = %.lr.ph
   %36 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %32) #20
   %37 = load ptr, ptr %17, align 8, !noalias !25
-  %38 = load ptr, ptr %6, align 8
+  %38 = load ptr, ptr %6, align 8, !noalias !25
   %39 = icmp eq ptr %37, %38
   br i1 %39, label %40, label %54
 
 40:                                               ; preds = %35
-  %41 = load i32, ptr %19, align 4
+  %41 = load i32, ptr %19, align 4, !noalias !25
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds ptr, ptr %38, i64 %42
   %.not24.i.i = icmp eq i32 %41, 0
@@ -975,21 +975,21 @@ define linkonce_odr hidden void @_ZN4llvm16CallGraphDOTInfoC2EPNS_6ModuleEPNS_9C
   %51 = add nuw i32 %41, 1
   store i32 %51, ptr %19, align 4, !noalias !25
   store ptr %36, ptr %43, align 8, !noalias !25
-  %52 = load ptr, ptr %6, align 8
-  %53 = load i32, ptr %19, align 4
+  %52 = load ptr, ptr %6, align 8, !noalias !25
+  %53 = load i32, ptr %19, align 4, !noalias !25
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 54:                                               ; preds = %._crit_edge.i.i, %35
   %55 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef %36) #20, !noalias !25
-  %.pre.i = load ptr, ptr %6, align 8
-  %.pre6.i = load i32, ptr %19, align 4
+  %.pre.i = load ptr, ptr %6, align 8, !noalias !25
+  %.pre6.i = load i32, ptr %19, align 4, !noalias !25
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %54, %50
   %56 = phi ptr [ %52, %50 ], [ %.pre.i, %54 ], [ %37, %.lr.ph.i.i ]
   %57 = phi i32 [ %53, %50 ], [ %.pre6.i, %54 ], [ %41, %.lr.ph.i.i ]
-  %58 = load ptr, ptr %17, align 8
-  %59 = load i32, ptr %18, align 8
+  %58 = load ptr, ptr %17, align 8, !noalias !25
+  %59 = load i32, ptr %18, align 8, !noalias !25
   br label %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %.lr.ph
@@ -1337,13 +1337,13 @@ define linkonce_odr hidden void @_ZN4llvm16CallGraphDOTInfo19removeParallelEdges
   %41 = add nuw i32 %24, 1
   store i32 %41, ptr %11, align 4, !noalias !35
   store ptr %30, ptr %34, align 8, !noalias !35
-  %42 = load ptr, ptr %2, align 8
+  %42 = load ptr, ptr %2, align 8, !noalias !35
   %43 = load i32, ptr %11, align 4, !noalias !35
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 44:                                               ; preds = %._crit_edge.i.i, %21
   %45 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %30) #20, !noalias !35
-  %.pre.i = load ptr, ptr %2, align 8
+  %.pre.i = load ptr, ptr %2, align 8, !noalias !35
   %.pre6.i = load i32, ptr %11, align 4, !noalias !35
   %46 = extractvalue { ptr, i8 } %45, 1
   %47 = trunc i8 %46 to i1
@@ -1415,7 +1415,7 @@ _ZN4llvm8SmallSetIPNS_8FunctionELj16ESt4lessIS2_EED2Ev.exit: ; preds = %_ZN4llvm
 
 76:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %77 = load i32, ptr %10, align 8, !noalias !35
-  %78 = load ptr, ptr %9, align 8
+  %78 = load ptr, ptr %9, align 8, !noalias !35
   %79 = getelementptr inbounds i8, ptr %.sroa.012.024, i64 40
   %.not19 = icmp eq ptr %79, %19
   br i1 %.not19, label %.critedge9, label %21, !llvm.loop !38

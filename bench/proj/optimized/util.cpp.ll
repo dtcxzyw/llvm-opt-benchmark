@@ -547,7 +547,7 @@ define hidden void @_ZNK5osgeo4proj4util10BaseObject16shared_from_thisEv(ptr dea
   br i1 %14, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i, label %10, !llvm.loop !10
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i: ; preds = %11
-  %16 = load atomic i32, ptr %8 monotonic, align 8
+  %16 = load atomic i32, ptr %8 monotonic, align 8, !noalias !7
   %.fr.i.i.i = freeze i32 %16
   %.not.i.i.i = icmp eq i32 %.fr.i.i.i, 0
   %17 = load ptr, ptr %4, align 8, !noalias !7

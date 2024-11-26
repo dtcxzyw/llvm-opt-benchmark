@@ -2189,7 +2189,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call4.val1, i64 8
-  %2 = load i8, ptr @__libc_single_threaded, align 1
+  %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !23
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i.i4, label %if.then.i.i.i.i4.thread
 

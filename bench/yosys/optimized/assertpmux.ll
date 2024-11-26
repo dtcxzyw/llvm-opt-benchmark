@@ -4737,9 +4737,9 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %1988, %.lr.ph1460
           to label %1999 unwind label %.loopexit972.i
 
 1999:                                             ; preds = %1996
-  %2000 = load ptr, ptr %1998, align 8
+  %2000 = load ptr, ptr %1998, align 8, !noalias !43
   %2001 = getelementptr inbounds i8, ptr %1998, i64 8
-  %2002 = load ptr, ptr %2001, align 8
+  %2002 = load ptr, ptr %2001, align 8, !noalias !43
   %2003 = icmp eq ptr %2000, %2002
   br i1 %2003, label %._ZNK5Yosys7hashlib4poolISt5tupleIJPNS_5RTLIL4CellEiiEENS0_8hash_opsIS6_EEE7do_hashERKS6_.exit.i.thread.thread.i_crit_edge, label %2004
 

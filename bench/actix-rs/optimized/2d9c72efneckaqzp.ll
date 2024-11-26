@@ -4204,7 +4204,7 @@ define hidden void @_ZN7tracing4span4Span8in_scope17h23584988eeb9039eE(ptr noali
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
-  %10 = load i64, ptr %0, align 8, !range !122, !noundef !4
+  %10 = load i64, ptr %0, align 8, !range !122, !alias.scope !352, !noundef !4
   %11 = icmp eq i64 %10, 2
   br i1 %11, label %.critedge.i, label %12
 
@@ -4360,7 +4360,7 @@ define hidden { i1, i64 } @_ZN7tracing4span4Span8in_scope17hbf2283afc230f67aE(pt
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
-  %10 = load i64, ptr %0, align 8, !range !122, !noundef !4
+  %10 = load i64, ptr %0, align 8, !range !122, !alias.scope !379, !noundef !4
   %11 = icmp eq i64 %10, 2
   br i1 %11, label %.critedge.i, label %12
 

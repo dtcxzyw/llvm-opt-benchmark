@@ -21516,8 +21516,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_120It
   store ptr %138, ptr %208, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %209, i8 0, i64 24, i1 false)
-  %.val9.i.i.pre = load ptr, ptr %69, align 8
-  %.val10.i.i.pre = load i32, ptr %70, align 8
+  %.val9.i.i.pre = load ptr, ptr %69, align 8, !noalias !323
+  %.val10.i.i.pre = load i32, ptr %70, align 8, !noalias !323
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_120ItaniumVTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixERKS5_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_120ItaniumVTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixERKS5_.exit: ; preds = %199, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_120ItaniumVTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit.i.i
@@ -23520,7 +23520,7 @@ _ZN4llvm6detail12DenseSetImplIPKN5clang13CXXRecordDeclENS_8DenseMapIS5_NS0_13Den
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !356
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !356
   store ptr %96, ptr %95, align 8, !noalias !356
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #26
@@ -24033,7 +24033,7 @@ _ZN5clang12CXXBasePathsC2Ebbb.exit.i:             ; preds = %.lr.ph.i.i.i.i.i
   %64 = load ptr, ptr %58, align 8, !noalias !391
   call fastcc void @_ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclERKNS0_11CXXBasePathE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(23096) %64, ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(128) %63)
   %65 = load i64, ptr %59, align 8, !alias.scope !391
-  %66 = load ptr, ptr %60, align 8
+  %66 = load ptr, ptr %60, align 8, !alias.scope !391
   %.not.i = icmp eq ptr %66, null
   br i1 %.not.i, label %72, label %67
 

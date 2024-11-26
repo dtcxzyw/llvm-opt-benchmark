@@ -335,7 +335,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h37fd206f7b9f84fdE
 define hidden void @"_ZN4core3ptr104drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$alloc..string..String$C$bool$RP$$GT$$GT$17he8427dc47d19a8daE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !12, !noundef !12
+  %3 = load ptr, ptr %2, align 8, !alias.scope !91, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !91, !noundef !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)

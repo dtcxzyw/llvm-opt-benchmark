@@ -1032,12 +1032,12 @@ _ZNSt5queueIdSt5dequeIdSaIdEEE3popEv.exit:        ; preds = %44, %46
 
 62:                                               ; preds = %53
   call void @_ZNSt5dequeIdSaIdEE16_M_push_back_auxIJdEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre5 = load ptr, ptr %10, align 8
+  %.pre5 = load ptr, ptr %10, align 8, !noalias !8
   br label %_ZNSt5queueIdSt5dequeIdSaIdEEE4pushEOd.exit
 
 _ZNSt5queueIdSt5dequeIdSaIdEEE4pushEOd.exit:      ; preds = %59, %62
   %63 = phi ptr [ %61, %59 ], [ %.pre5, %62 ]
-  %64 = load ptr, ptr %24, align 8
+  %64 = load ptr, ptr %24, align 8, !noalias !8
   %65 = icmp eq ptr %63, %64
   br i1 %65, label %66, label %_ZNSt5queueIdSt5dequeIdSaIdEEE4backEv.exit
 
@@ -1052,7 +1052,7 @@ _ZNSt5queueIdSt5dequeIdSaIdEEE4backEv.exit:       ; preds = %_ZNSt5queueIdSt5deq
   %71 = phi ptr [ %70, %66 ], [ %63, %_ZNSt5queueIdSt5dequeIdSaIdEEE4pushEOd.exit ]
   %72 = getelementptr inbounds i8, ptr %71, i64 -8
   %73 = load double, ptr %72, align 8
-  %74 = load ptr, ptr %11, align 8
+  %74 = load ptr, ptr %11, align 8, !noalias !11
   %75 = load double, ptr %74, align 8
   %76 = fcmp une double %73, %75
   br i1 %76, label %77, label %109
@@ -1170,7 +1170,7 @@ define linkonce_odr dso_local void @_ZN13StatusPrinterD2Ev(ptr noundef nonnull a
   tail call void @_ZdlPv(ptr noundef %11) #19
   %12 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i, i64 8
   %13 = icmp ult ptr %.06.i.i.i.i.i, %8
-  br i1 %13, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIdSaIdEE16_M_destroy_nodesEPPdS3_.exit.loopexit.i.i.i.i, !llvm.loop !11
+  br i1 %13, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIdSaIdEE16_M_destroy_nodesEPPdS3_.exit.loopexit.i.i.i.i, !llvm.loop !14
 
 _ZNSt11_Deque_baseIdSaIdEE16_M_destroy_nodesEPPdS3_.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i.i.i = load ptr, ptr %2, align 8
@@ -1212,7 +1212,7 @@ define linkonce_odr dso_local void @_ZN13StatusPrinterD0Ev(ptr noundef nonnull a
   tail call void @_ZdlPv(ptr noundef %11) #19
   %12 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i, i64 8
   %13 = icmp ult ptr %.06.i.i.i.i.i.i, %8
-  br i1 %13, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIdSaIdEE16_M_destroy_nodesEPPdS3_.exit.loopexit.i.i.i.i.i, !llvm.loop !11
+  br i1 %13, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIdSaIdEE16_M_destroy_nodesEPPdS3_.exit.loopexit.i.i.i.i.i, !llvm.loop !14
 
 _ZNSt11_Deque_baseIdSaIdEE16_M_destroy_nodesEPPdS3_.exit.loopexit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i.i.i.i.i = load ptr, ptr %2, align 8
@@ -1262,7 +1262,7 @@ _ZNSt11_Deque_baseIdSaIdEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
   store ptr %12, ptr %.011.i, align 8
   %13 = getelementptr inbounds i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIdSaIdEE15_M_create_nodesEPPdS3_.exit, !llvm.loop !12
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIdSaIdEE15_M_create_nodesEPPdS3_.exit, !llvm.loop !15
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -1278,7 +1278,7 @@ _ZNSt11_Deque_baseIdSaIdEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
   tail call void @_ZdlPv(ptr noundef %20) #19
   %21 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
   %22 = icmp ult ptr %21, %.011.i
-  br i1 %22, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIdSaIdEE16_M_destroy_nodesEPPdS3_.exit.i, !llvm.loop !11
+  br i1 %22, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIdSaIdEE16_M_destroy_nodesEPPdS3_.exit.i, !llvm.loop !14
 
 _ZNSt11_Deque_baseIdSaIdEE16_M_destroy_nodesEPPdS3_.exit.i: ; preds = %.lr.ph.i.i, %15
   invoke void @__cxa_rethrow() #18
@@ -1743,5 +1743,8 @@ attributes #21 = { noreturn nounwind }
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZNSt5dequeIdSaIdEE3endEv: argument 0"}
 !10 = distinct !{!10, !"_ZNSt5dequeIdSaIdEE3endEv"}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZNSt5dequeIdSaIdEE5beginEv: argument 0"}
+!13 = distinct !{!13, !"_ZNSt5dequeIdSaIdEE5beginEv"}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}

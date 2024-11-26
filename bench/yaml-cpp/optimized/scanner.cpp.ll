@@ -3838,9 +3838,9 @@ entry:
   %ref.tmp = alloca %"struct.YAML::Token", align 8
   %ref.tmp11 = alloca %"struct.YAML::Token", align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !53
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 352
-  %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !53
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -5040,7 +5040,7 @@ if.end.i:                                         ; preds = %for.body.i57
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.i55 = icmp ult i64 %inc.i, %sub.ptr.div.i
-  br i1 %cmp.i55, label %for.body.i57, label %common.ret, !llvm.loop !77
+  br i1 %cmp.i55, label %for.body.i57, label %common.ret, !llvm.loop !79
 
 sw.bb10:                                          ; preds = %entry
   %m_params.i61 = getelementptr inbounds i8, ptr %this, i64 8
@@ -5191,7 +5191,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
-  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !78
+  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !80
 
 lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
@@ -5319,7 +5319,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
-  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !79
+  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !81
 
 lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
@@ -5438,7 +5438,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
-  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !80
+  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !82
 
 lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
@@ -5558,7 +5558,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
-  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !81
+  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !83
 
 lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
@@ -6691,9 +6691,11 @@ attributes #26 = { noreturn nounwind }
 !73 = !{!74}
 !74 = distinct !{!74, !75, !"_ZStplRKSt15_Deque_iteratorIcRcPcEl: %agg.result"}
 !75 = distinct !{!75, !"_ZStplRKSt15_Deque_iteratorIcRcPcEl"}
-!76 = !{}
-!77 = distinct !{!77, !5}
-!78 = distinct !{!78, !5}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZStplRKSt15_Deque_iteratorIcRcPcEl: %agg.result"}
+!78 = distinct !{!78, !"_ZStplRKSt15_Deque_iteratorIcRcPcEl"}
 !79 = distinct !{!79, !5}
 !80 = distinct !{!80, !5}
 !81 = distinct !{!81, !5}
+!82 = distinct !{!82, !5}
+!83 = distinct !{!83, !5}

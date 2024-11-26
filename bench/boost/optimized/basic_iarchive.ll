@@ -632,7 +632,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %48 = load i16, ptr %47, align 2, !tbaa !17
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %50 = sext i16 %48 to i64
-  %51 = load ptr, ptr %49, align 8, !tbaa !67
+  %51 = load ptr, ptr %49, align 8, !tbaa !67, !noalias !76
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !82, !noalias !76
   %54 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %51, i64 %50, i32 1
@@ -1054,7 +1054,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %89 = load i16, ptr %88, align 2, !tbaa !17
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %91 = sext i16 %89 to i64
-  %92 = load ptr, ptr %90, align 8, !tbaa !67
+  %92 = load ptr, ptr %90, align 8, !tbaa !67, !noalias !90
   %93 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !82, !noalias !90
   %95 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %92, i64 %91, i32 1

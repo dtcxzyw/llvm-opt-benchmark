@@ -43,7 +43,7 @@ define hidden void @"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %9 = sub nuw i64 %7, %8
   %10 = lshr exact i64 %9, 3
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !noundef !4
+  %12 = load i64, ptr %11, align 8, !alias.scope !12, !noundef !4
   %13 = load i64, ptr %0, align 8, !alias.scope !12, !noundef !4
   %14 = sub i64 %13, %12
   %15 = icmp ugt i64 %10, %14
@@ -161,7 +161,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hcdbc9a9
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8, !alias.scope !23, !noalias !32, !noundef !4
-  %.promoted.i.i.i52 = load ptr, ptr %9, align 8
+  %.promoted.i.i.i52 = load ptr, ptr %9, align 8, !alias.scope !23, !noalias !32
   %12 = icmp eq ptr %.promoted.i.i.i52, %11
   br i1 %12, label %.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6edb278a0fb23aceE.exit.lr.ph.i.i.i.lr.ph"
 
@@ -430,7 +430,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hcdbc9a9
   store i64 %102, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %103 = load ptr, ptr %10, align 8, !alias.scope !126, !noalias !129, !noundef !4
-  %.promoted.i.i.i = load ptr, ptr %9, align 8
+  %.promoted.i.i.i = load ptr, ptr %9, align 8, !alias.scope !126, !noalias !129
   %104 = icmp eq ptr %.promoted.i.i.i, %103
   br i1 %104, label %.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6edb278a0fb23aceE.exit.lr.ph.i.i.i"
 

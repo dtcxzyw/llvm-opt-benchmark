@@ -238,10 +238,11 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit: ; preds = %63, %66, %69
   br label %.critedge
 
 86:                                               ; preds = %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit
+  call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !10
   call void @_ZN4llvm18BinaryStreamReader9readBytesERNS_8ArrayRefIhEEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 8) #15
-  %87 = load ptr, ptr %0, align 8
+  %87 = load ptr, ptr %0, align 8, !alias.scope !10
   %.not.i = icmp eq ptr %87, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm18BinaryStreamReader10readObjectINS_8codeview17CrossModuleImportEEENS_5ErrorERPKT_.exit.thread
 

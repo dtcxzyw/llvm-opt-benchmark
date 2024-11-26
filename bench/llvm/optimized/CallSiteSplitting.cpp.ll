@@ -744,7 +744,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i.i.i: ; preds 
 265:                                              ; preds = %263
   call fastcc void @_ZL15recordConditionRN4llvm8CallBaseEPNS_10BasicBlockES3_RNS_11SmallVectorISt4pairIPNS_8ICmpInstEjELj2EEE(ptr noundef nonnull align 8 dereferenceable(88) %91, ptr noundef nonnull %264, ptr noundef nonnull %.025.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %23), !noalias !7
   %266 = load ptr, ptr %44, align 8, !noalias !34
-  %267 = load ptr, ptr %20, align 8, !noalias !7
+  %267 = load ptr, ptr %20, align 8, !noalias !34
   %268 = icmp eq ptr %266, %267
   br i1 %268, label %269, label %282
 
@@ -775,17 +775,17 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i.i.i: ; preds 
   %280 = add nuw i32 %270, 1
   store i32 %280, ptr %46, align 4, !noalias !34
   store ptr %264, ptr %272, align 8, !noalias !34
-  %281 = load ptr, ptr %20, align 8, !noalias !7
+  %281 = load ptr, ptr %20, align 8, !noalias !34
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i
 
 282:                                              ; preds = %._crit_edge.i.i20.i.i.i.i, %265
   %283 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %20, ptr noundef nonnull %264) #14, !noalias !34
-  %.pre.i16.i.i.i.i = load ptr, ptr %20, align 8, !noalias !7
+  %.pre.i16.i.i.i.i = load ptr, ptr %20, align 8, !noalias !34
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i18.i.i.i.i, %282, %279
   %.pre2935.i.i.i.i = phi ptr [ %281, %279 ], [ %.pre.i16.i.i.i.i, %282 ], [ %266, %.lr.ph.i.i18.i.i.i.i ]
-  %284 = load ptr, ptr %44, align 8, !noalias !7
+  %284 = load ptr, ptr %44, align 8, !noalias !34
   %.not.i.i.i35.i = icmp eq ptr %264, %230
   br i1 %.not.i.i.i35.i, label %.critedge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
 

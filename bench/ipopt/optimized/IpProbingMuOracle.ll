@@ -820,39 +820,39 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit55:      ; preds = %_ZN5Ipopt14Iterates
   %286 = load ptr, ptr %14, align 8
   %287 = getelementptr inbounds i8, ptr %286, i64 208
   %288 = load ptr, ptr %287, align 8, !noalias !7
-  %289 = load ptr, ptr %288, align 8, !noalias !8
+  %289 = load ptr, ptr %288, align 8, !noalias !7
   %.not.i.i.i = icmp eq ptr %289, null
   br i1 %.not.i.i.i, label %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i
 
 _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i: ; preds = %284
   %290 = getelementptr inbounds i8, ptr %286, i64 232
-  %291 = load ptr, ptr %290, align 8, !noalias !8
-  %292 = load ptr, ptr %291, align 8, !noalias !8
+  %291 = load ptr, ptr %290, align 8, !noalias !7
+  %292 = load ptr, ptr %291, align 8, !noalias !7
   %.not3.i.i.i = icmp eq ptr %292, null
   br i1 %.not3.i.i.i, label %_ZNK5Ipopt14IteratesVector1xEv.exit, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i, %284
   %.0.i3.i.i.i = phi ptr [ %289, %284 ], [ %292, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i ]
   %293 = getelementptr inbounds i8, ptr %.0.i3.i.i.i, i64 8
-  %294 = load i32, ptr %293, align 8, !noalias !13
+  %294 = load i32, ptr %293, align 8, !noalias !12
   %295 = add nsw i32 %294, 1
-  store i32 %295, ptr %293, align 8, !noalias !13
-  %.pre = load ptr, ptr %287, align 8, !noalias !16
+  store i32 %295, ptr %293, align 8, !noalias !12
+  %.pre = load ptr, ptr %287, align 8, !noalias !15
   br label %_ZNK5Ipopt14IteratesVector1xEv.exit
 
 _ZNK5Ipopt14IteratesVector1xEv.exit:              ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i
   %296 = phi ptr [ %288, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i ], [ %.pre, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i ]
   %storemerge.i.i = phi ptr [ null, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i ], [ %.0.i3.i.i.i, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i ]
   %297 = getelementptr inbounds i8, ptr %296, i64 8
-  %298 = load ptr, ptr %297, align 8, !noalias !16
+  %298 = load ptr, ptr %297, align 8, !noalias !15
   %.not.i.i.i74 = icmp eq ptr %298, null
   br i1 %.not.i.i.i74, label %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i78, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i75
 
 _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i78: ; preds = %_ZNK5Ipopt14IteratesVector1xEv.exit
   %299 = getelementptr inbounds i8, ptr %286, i64 232
-  %300 = load ptr, ptr %299, align 8, !noalias !16
+  %300 = load ptr, ptr %299, align 8, !noalias !15
   %301 = getelementptr inbounds i8, ptr %300, i64 8
-  %302 = load ptr, ptr %301, align 8, !noalias !16, !nonnull !7, !noundef !7
+  %302 = load ptr, ptr %301, align 8, !noalias !15, !nonnull !20, !noundef !20
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i75
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i75: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i78, %_ZNK5Ipopt14IteratesVector1xEv.exit
@@ -897,7 +897,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit81:      ; preds = %311, %307
   %324 = load ptr, ptr %42, align 8
   %325 = load ptr, ptr %14, align 8
   %326 = getelementptr inbounds i8, ptr %325, i64 208
-  %327 = load ptr, ptr %326, align 8, !noalias !7
+  %327 = load ptr, ptr %326, align 8, !noalias !24
   %328 = getelementptr inbounds i8, ptr %327, i64 32
   %329 = load ptr, ptr %328, align 8, !noalias !24
   %.not.i.i.i84 = icmp eq ptr %329, null
@@ -917,7 +917,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i85: ; preds = %_ZNK5Ipop
   %335 = load i32, ptr %334, align 8, !noalias !29
   %336 = add nsw i32 %335, 1
   store i32 %336, ptr %334, align 8, !noalias !29
-  %.pre174 = load ptr, ptr %326, align 8, !noalias !7
+  %.pre174 = load ptr, ptr %326, align 8, !noalias !32
   br label %_ZNK5Ipopt14IteratesVector3z_LEv.exit
 
 _ZNK5Ipopt14IteratesVector3z_LEv.exit:            ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i85, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i88
@@ -942,7 +942,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i91: ; preds = %_ZNK5Ipop
   %345 = load i32, ptr %344, align 8, !noalias !37
   %346 = add nsw i32 %345, 1
   store i32 %346, ptr %344, align 8, !noalias !37
-  %.pre175 = load ptr, ptr %326, align 8, !noalias !7
+  %.pre175 = load ptr, ptr %326, align 8, !noalias !40
   br label %_ZNK5Ipopt14IteratesVector3z_UEv.exit
 
 _ZNK5Ipopt14IteratesVector3z_UEv.exit:            ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i91, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i94
@@ -982,7 +982,7 @@ _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i106: ; preds = %_ZNK5Ipopt14Ite
   %360 = getelementptr inbounds i8, ptr %325, i64 232
   %361 = load ptr, ptr %360, align 8, !noalias !48
   %362 = getelementptr inbounds i8, ptr %361, i64 56
-  %363 = load ptr, ptr %362, align 8, !noalias !48, !nonnull !7, !noundef !7
+  %363 = load ptr, ptr %362, align 8, !noalias !48, !nonnull !20, !noundef !20
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i103
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i103: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i106, %_ZNK5Ipopt14IteratesVector3v_LEv.exit
@@ -1777,7 +1777,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit:      ; preds = %163, %_ZNK5Ipopt6Ve
 _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i91: ; preds = %168
   %172 = getelementptr inbounds i8, ptr %3, i64 232
   %173 = load ptr, ptr %172, align 8, !noalias !103
-  %174 = load ptr, ptr %173, align 8, !noalias !103, !nonnull !7, !noundef !7
+  %174 = load ptr, ptr %173, align 8, !noalias !103, !nonnull !20, !noundef !20
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i88
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i88: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i91, %168
@@ -1841,7 +1841,7 @@ _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i102: ; preds = %198
   %202 = getelementptr inbounds i8, ptr %3, i64 232
   %203 = load ptr, ptr %202, align 8, !noalias !111
   %204 = getelementptr inbounds i8, ptr %203, i64 32
-  %205 = load ptr, ptr %204, align 8, !noalias !111, !nonnull !7, !noundef !7
+  %205 = load ptr, ptr %204, align 8, !noalias !111, !nonnull !20, !noundef !20
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i99
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i99: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i102, %198
@@ -2119,7 +2119,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit136:   ; preds = %326, %321, %320
 _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i141: ; preds = %331
   %335 = getelementptr inbounds i8, ptr %3, i64 232
   %336 = load ptr, ptr %335, align 8, !noalias !119
-  %337 = load ptr, ptr %336, align 8, !noalias !119, !nonnull !7, !noundef !7
+  %337 = load ptr, ptr %336, align 8, !noalias !119, !nonnull !20, !noundef !20
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i138
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i138: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i141, %331
@@ -2203,7 +2203,7 @@ _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i157: ; preds = %372
   %376 = getelementptr inbounds i8, ptr %3, i64 232
   %377 = load ptr, ptr %376, align 8, !noalias !127
   %378 = getelementptr inbounds i8, ptr %377, i64 40
-  %379 = load ptr, ptr %378, align 8, !noalias !127, !nonnull !7, !noundef !7
+  %379 = load ptr, ptr %378, align 8, !noalias !127, !nonnull !20, !noundef !20
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i154
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i154: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i157, %372
@@ -2468,7 +2468,7 @@ _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i196: ; preds = %499
   %504 = getelementptr inbounds i8, ptr %3, i64 232
   %505 = load ptr, ptr %504, align 8, !noalias !135
   %506 = getelementptr inbounds i8, ptr %505, i64 8
-  %507 = load ptr, ptr %506, align 8, !noalias !135, !nonnull !7, !noundef !7
+  %507 = load ptr, ptr %506, align 8, !noalias !135, !nonnull !20, !noundef !20
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i193
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i193: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i196, %499
@@ -2551,7 +2551,7 @@ _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i211: ; preds = %541
   %545 = getelementptr inbounds i8, ptr %3, i64 232
   %546 = load ptr, ptr %545, align 8, !noalias !143
   %547 = getelementptr inbounds i8, ptr %546, i64 48
-  %548 = load ptr, ptr %547, align 8, !noalias !143, !nonnull !7, !noundef !7
+  %548 = load ptr, ptr %547, align 8, !noalias !143, !nonnull !20, !noundef !20
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i208
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i208: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i211, %541
@@ -2816,7 +2816,7 @@ _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i250: ; preds = %668
   %673 = getelementptr inbounds i8, ptr %3, i64 232
   %674 = load ptr, ptr %673, align 8, !noalias !151
   %675 = getelementptr inbounds i8, ptr %674, i64 8
-  %676 = load ptr, ptr %675, align 8, !noalias !151, !nonnull !7, !noundef !7
+  %676 = load ptr, ptr %675, align 8, !noalias !151, !nonnull !20, !noundef !20
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i247
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i247: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i250, %668
@@ -2900,7 +2900,7 @@ _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i266: ; preds = %711
   %715 = getelementptr inbounds i8, ptr %3, i64 232
   %716 = load ptr, ptr %715, align 8, !noalias !159
   %717 = getelementptr inbounds i8, ptr %716, i64 56
-  %718 = load ptr, ptr %717, align 8, !noalias !159, !nonnull !7, !noundef !7
+  %718 = load ptr, ptr %717, align 8, !noalias !159, !nonnull !20, !noundef !20
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i263
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i263: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i266, %711
@@ -5211,21 +5211,21 @@ attributes #24 = { noreturn }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZNK5Ipopt9IpoptData4currEv: argument 0"}
 !6 = distinct !{!6, !"_ZNK5Ipopt9IpoptData4currEv"}
-!7 = !{}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"_ZNK5Ipopt14IteratesVector18GetIterateFromCompEi: argument 0"}
-!10 = distinct !{!10, !"_ZNK5Ipopt14IteratesVector18GetIterateFromCompEi"}
-!11 = distinct !{!11, !12, !"_ZNK5Ipopt14IteratesVector1xEv: argument 0"}
-!12 = distinct !{!12, !"_ZNK5Ipopt14IteratesVector1xEv"}
-!13 = !{!14, !9, !11}
-!14 = distinct !{!14, !15, !"_ZNK5Ipopt14CompoundVector7GetCompEi: argument 0"}
-!15 = distinct !{!15, !"_ZNK5Ipopt14CompoundVector7GetCompEi"}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"_ZNK5Ipopt14IteratesVector18GetIterateFromCompEi: argument 0"}
-!18 = distinct !{!18, !"_ZNK5Ipopt14IteratesVector18GetIterateFromCompEi"}
-!19 = distinct !{!19, !20, !"_ZNK5Ipopt14IteratesVector1sEv: argument 0"}
-!20 = distinct !{!20, !"_ZNK5Ipopt14IteratesVector1sEv"}
-!21 = !{!22, !17, !19}
+!7 = !{!8, !10}
+!8 = distinct !{!8, !9, !"_ZNK5Ipopt14IteratesVector18GetIterateFromCompEi: argument 0"}
+!9 = distinct !{!9, !"_ZNK5Ipopt14IteratesVector18GetIterateFromCompEi"}
+!10 = distinct !{!10, !11, !"_ZNK5Ipopt14IteratesVector1xEv: argument 0"}
+!11 = distinct !{!11, !"_ZNK5Ipopt14IteratesVector1xEv"}
+!12 = !{!13, !8, !10}
+!13 = distinct !{!13, !14, !"_ZNK5Ipopt14CompoundVector7GetCompEi: argument 0"}
+!14 = distinct !{!14, !"_ZNK5Ipopt14CompoundVector7GetCompEi"}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"_ZNK5Ipopt14IteratesVector18GetIterateFromCompEi: argument 0"}
+!17 = distinct !{!17, !"_ZNK5Ipopt14IteratesVector18GetIterateFromCompEi"}
+!18 = distinct !{!18, !19, !"_ZNK5Ipopt14IteratesVector1sEv: argument 0"}
+!19 = distinct !{!19, !"_ZNK5Ipopt14IteratesVector1sEv"}
+!20 = !{}
+!21 = !{!22, !16, !18}
 !22 = distinct !{!22, !23, !"_ZNK5Ipopt14CompoundVector7GetCompEi: argument 0"}
 !23 = distinct !{!23, !"_ZNK5Ipopt14CompoundVector7GetCompEi"}
 !24 = !{!25, !27}

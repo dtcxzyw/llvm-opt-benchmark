@@ -6112,7 +6112,7 @@ define dso_local noundef ptr @_ZN4llvm9MCContext18getELFNamedSectionERKNS_5Twine
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 33
   store i8 %.sink, ptr %.sroa.5.0..sroa_idx, align 1
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %20 = load i8, ptr %19, align 8
+  %20 = load i8, ptr %19, align 8, !noalias !183
   switch i8 %20, label %_ZN4llvmplERKNS_5TwineES2_.exit20.thread31 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit20.thread33
     i8 1, label %_ZN4llvmplERKNS_5TwineES2_.exit20.thread

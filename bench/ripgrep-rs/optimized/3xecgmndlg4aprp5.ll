@@ -83,7 +83,7 @@ define hidden void @_ZN10grep_regex6config13ConfiguredHIR3new17hc55ef79fea154375
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %50 = getelementptr inbounds i8, ptr %1, i64 24
-  %51 = load i8, ptr %50, align 8, !range !10, !noalias !4, !noundef !4
+  %51 = load i8, ptr %50, align 8, !range !10, !alias.scope !5, !noalias !8, !noundef !4
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread, label %53
 

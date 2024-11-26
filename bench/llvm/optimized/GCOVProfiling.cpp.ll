@@ -1272,7 +1272,7 @@ _ZN4llvm8DebugLocD2Ev.exit112.i.i:                ; preds = %322, %_ZN4llvm11Ins
   br i1 %325, label %352, label %326
 
 326:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit112.i.i
-  %327 = load ptr, ptr %13, align 8
+  %327 = load ptr, ptr %13, align 8, !noalias !14
   %328 = ptrtoint ptr %327 to i64
   %329 = trunc i64 %328 to i32
   %330 = lshr i32 %329, 4
@@ -1317,7 +1317,7 @@ _ZN4llvm8DebugLocD2Ev.exit112.i.i:                ; preds = %322, %_ZN4llvm11Ins
 352:                                              ; preds = %341, %_ZN4llvm8DebugLocD2Ev.exit112.i.i
   %.sink.i.i.i.i.i.i = phi ptr [ %342, %341 ], [ null, %_ZN4llvm8DebugLocD2Ev.exit112.i.i ]
   %353 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %281, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %.sink.i.i.i.i.i.i), !noalias !14
-  %354 = load ptr, ptr %13, align 8
+  %354 = load ptr, ptr %13, align 8, !noalias !14
   store ptr %354, ptr %353, align 8, !noalias !14
   br label %_ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit.i.i
 

@@ -7872,9 +7872,9 @@ entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %inputs = alloca %"class.std::vector.201", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %0 = load ptr, ptr %args, align 8
+  %0 = load ptr, ptr %args, align 8, !noalias !94
   %_M_finish.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %1 = load ptr, ptr %_M_finish.i.i, align 8
+  %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !94
   %cmp.i.not6.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not6.i, label %_ZN5arrow6StatusD2Ev.exit.thread, label %for.body.i
 

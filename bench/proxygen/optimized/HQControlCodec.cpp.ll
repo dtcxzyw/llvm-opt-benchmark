@@ -2488,7 +2488,7 @@ invoke.cont14:                                    ; preds = %invoke.cont13
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %q, i64 24
   %2 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !38
   %cachePtr_.i.i.i = getelementptr inbounds i8, ptr %q, i64 32
-  %3 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !35
+  %3 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !38
   %4 = load ptr, ptr %3, align 8, !noalias !38
   %cmp.not.i.i.i = icmp eq ptr %2, %4
   br i1 %cmp.not.i.i.i, label %invoke.cont15, label %if.then.i.i.i

@@ -763,7 +763,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$12st
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !144
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5bdca9f7a5890604E"(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %8), !noalias !146
-  %9 = load i64, ptr %5, align 8, !range !69, !noalias !13, !noundef !13
+  %9 = load i64, ptr %5, align 8, !range !69, !noalias !144, !noundef !13
   %10 = icmp eq i64 %9, -9223372036854775807
   br i1 %10, label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$12next_element17h634fc89b9a510f69E.exit.thread", label %15
 
@@ -1243,7 +1243,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
           to label %.noexc unwind label %71
 
 .noexc:                                           ; preds = %67
-  %68 = load i64, ptr %13, align 8, !range !69, !noundef !13
+  %68 = load i64, ptr %13, align 8, !range !69, !noalias !237, !noundef !13
   %69 = icmp eq i64 %68, -9223372036854775807
   br i1 %69, label %.thread101, label %73
 
@@ -1773,7 +1773,7 @@ define hidden noundef i64 @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !344
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5bdca9f7a5890604E"(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %11), !noalias !346
-  %12 = load i64, ptr %5, align 8, !range !69, !noalias !13, !noundef !13
+  %12 = load i64, ptr %5, align 8, !range !69, !noalias !344, !noundef !13
   %13 = icmp eq i64 %12, -9223372036854775807
   br i1 %13, label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$12next_element17h634fc89b9a510f69E.exit.thread", label %17
 

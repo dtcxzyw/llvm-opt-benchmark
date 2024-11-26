@@ -1305,9 +1305,9 @@ entry:
 define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor4postERKNS_15ComponentRepeatE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !13
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !13
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then.i.i
 

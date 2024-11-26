@@ -1681,7 +1681,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp15.i)
   call void @_PyRuntime_Initialize(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i) #14, !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp.i, i64 32, i1 false)
-  %0 = load i32, ptr %status, align 8
+  %0 = load i32, ptr %status, align 8, !alias.scope !5
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %if.end.i, label %pymain_init.exit
 
@@ -1689,7 +1689,7 @@ if.end.i:                                         ; preds = %entry
   call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig.i) #14, !noalias !5
   call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %preconfig.i, ptr noundef nonnull %args) #14, !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp1.i, i64 32, i1 false)
-  %1 = load i32, ptr %status, align 8
+  %1 = load i32, ptr %status, align 8, !alias.scope !5
   %cmp3.not.i = icmp eq i32 %1, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %pymain_init.exit
 
@@ -1716,14 +1716,14 @@ if.else.i:                                        ; preds = %if.end5.i
 if.end10.i:                                       ; preds = %if.else.i, %if.then6.i
   %tmp8.sink.i = phi ptr [ %tmp8.i, %if.else.i ], [ %tmp7.i, %if.then6.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp8.sink.i, i64 32, i1 false)
-  %6 = load i32, ptr %status, align 8
+  %6 = load i32, ptr %status, align 8, !alias.scope !5
   %cmp12.not.i = icmp eq i32 %6, 0
   br i1 %cmp12.not.i, label %if.end14.i, label %done.i
 
 if.end14.i:                                       ; preds = %if.end10.i
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %tmp15.i, ptr noundef nonnull %config.i) #14, !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp15.i, i64 32, i1 false)
-  %7 = load i32, ptr %status, align 8
+  %7 = load i32, ptr %status, align 8, !alias.scope !5
   %cmp17.not.i = icmp eq i32 %7, 0
   br i1 %cmp17.not.i, label %if.end19.i, label %done.i
 

@@ -248,7 +248,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !66, !noundef !9
   %13 = add i64 %12, %5
-  %14 = load i64, ptr %1, align 8, !noundef !9
+  %14 = load i64, ptr %1, align 8, !alias.scope !66, !noundef !9
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
   %.0.i = sub nuw i64 %13, %15
@@ -352,7 +352,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4ite
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !82, !noalias !85, !noundef !9
   %13 = add i64 %12, %6
-  %14 = load i64, ptr %1, align 8, !alias.scope !86, !noalias !85, !noundef !9
+  %14 = load i64, ptr %1, align 8, !alias.scope !82, !noalias !85, !noundef !9
   %.not.i.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i.i, i64 0, i64 %14
   %.0.i.i.i = sub nuw i64 %13, %15
@@ -401,8 +401,8 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h40940cd0a3ebf611E.llvm.5948079992002130543"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17h514d5c73a72afe22E(i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d7770d6b948dd2a685b0c3e8b5942d56.1.llvm.5948079992002130543), !noalias !90
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
+  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17h514d5c73a72afe22E(i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d7770d6b948dd2a685b0c3e8b5942d56.1.llvm.5948079992002130543), !noalias !89
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   %8 = sub i64 %7, %6
@@ -411,9 +411,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 16
-  %12 = load i64, ptr %11, align 8, !alias.scope !92, !noalias !95, !noundef !9
+  %12 = load i64, ptr %11, align 8, !alias.scope !91, !noalias !94, !noundef !9
   %13 = add i64 %12, %6
-  %14 = load i64, ptr %1, align 8, !alias.scope !87, !noalias !95, !noundef !9
+  %14 = load i64, ptr %1, align 8, !alias.scope !91, !noalias !94, !noundef !9
   %.not.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i, i64 0, i64 %14
   %.0.i.i = sub nuw i64 %13, %15
@@ -462,7 +462,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !9
   %10 = add i64 %9, 1
-  %11 = load i64, ptr %1, align 8, !alias.scope !96, !noundef !9
+  %11 = load i64, ptr %1, align 8, !alias.scope !95, !noundef !9
   %.not.i = icmp ult i64 %10, %11
   %12 = select i1 %.not.i, i64 0, i64 %11
   %.0.i = sub nuw i64 %10, %12
@@ -668,16 +668,15 @@ attributes #18 = { cold }
 !83 = distinct !{!83, !84, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17h02b87d51c9074552E.llvm.5948079992002130543: argument 0"}
 !84 = distinct !{!84, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17h02b87d51c9074552E.llvm.5948079992002130543"}
 !85 = !{!81, !76}
-!86 = !{!78, !73}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h3a428a2fdf5bedcaE: argument 1"}
-!89 = distinct !{!89, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h3a428a2fdf5bedcaE"}
-!90 = !{!91, !88}
-!91 = distinct !{!91, !89, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h3a428a2fdf5bedcaE: argument 0"}
-!92 = !{!93, !88}
-!93 = distinct !{!93, !94, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17h02b87d51c9074552E.llvm.5948079992002130543: argument 0"}
-!94 = distinct !{!94, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17h02b87d51c9074552E.llvm.5948079992002130543"}
-!95 = !{!91}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17h02b87d51c9074552E.llvm.5948079992002130543: argument 0"}
-!98 = distinct !{!98, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17h02b87d51c9074552E.llvm.5948079992002130543"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h3a428a2fdf5bedcaE: argument 1"}
+!88 = distinct !{!88, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h3a428a2fdf5bedcaE"}
+!89 = !{!90, !87}
+!90 = distinct !{!90, !88, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h3a428a2fdf5bedcaE: argument 0"}
+!91 = !{!92, !87}
+!92 = distinct !{!92, !93, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17h02b87d51c9074552E.llvm.5948079992002130543: argument 0"}
+!93 = distinct !{!93, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17h02b87d51c9074552E.llvm.5948079992002130543"}
+!94 = !{!90}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17h02b87d51c9074552E.llvm.5948079992002130543: argument 0"}
+!97 = distinct !{!97, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$15to_physical_idx17h02b87d51c9074552E.llvm.5948079992002130543"}

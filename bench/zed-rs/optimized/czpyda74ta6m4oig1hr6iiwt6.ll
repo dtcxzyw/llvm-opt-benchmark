@@ -1323,7 +1323,7 @@ default.unreachable22:                            ; preds = %2
 
 19:                                               ; preds = %2, %13
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load i8, ptr %20, align 8, !range !127, !noundef !16
+  %21 = load i8, ptr %20, align 8, !range !127, !alias.scope !350, !noalias !353, !noundef !16
   %trunc.i = trunc nuw i8 %21 to i1
   br i1 %trunc.i, label %25, label %22
 
@@ -1699,16 +1699,17 @@ define void @_ZN7session10AppSession3new17ha51a7d42fbd1003cE(ptr dead_on_unwind 
   br label %15
 
 18:                                               ; preds = %3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
   %19 = getelementptr inbounds i8, ptr %2, i64 8
-  %20 = load i32, ptr %19, align 8, !range !58, !noundef !16
+  %20 = load i32, ptr %19, align 8, !range !58, !alias.scope !434, !noundef !16
   %21 = getelementptr inbounds i8, ptr %2, i64 12
-  %22 = load i32, ptr %21, align 4, !noundef !16
+  %22 = load i32, ptr %21, align 4, !alias.scope !434, !noundef !16
   %23 = getelementptr inbounds i8, ptr %2, i64 24
-  %24 = load i64, ptr %23, align 8, !noundef !16
+  %24 = load i64, ptr %23, align 8, !alias.scope !434, !noundef !16
   %25 = getelementptr inbounds i8, ptr %2, i64 32
-  %26 = load i64, ptr %25, align 8, !noundef !16
+  %26 = load i64, ptr %25, align 8, !alias.scope !434, !noundef !16
   %27 = getelementptr inbounds i8, ptr %2, i64 16
-  %.val.i = load ptr, ptr %27, align 8, !nonnull !16, !noundef !16
+  %.val.i = load ptr, ptr %27, align 8, !alias.scope !434, !nonnull !16, !noundef !16
   %28 = icmp eq ptr %.val.i, inttoptr (i64 -1 to ptr)
   br i1 %28, label %"_ZN69_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbc907c3e546d6950E.exit.i", label %29
 
@@ -1724,7 +1725,7 @@ define void @_ZN7session10AppSession3new17ha51a7d42fbd1003cE(ptr dead_on_unwind 
 
 "_ZN69_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbc907c3e546d6950E.exit.i": ; preds = %29, %18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !434
-  %34 = load ptr, ptr %2, align 8, !nonnull !16, !align !103, !noundef !16
+  %34 = load ptr, ptr %2, align 8, !alias.scope !434, !nonnull !16, !align !103, !noundef !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !434
   store i32 %20, ptr %8, align 8, !noalias !434
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 4

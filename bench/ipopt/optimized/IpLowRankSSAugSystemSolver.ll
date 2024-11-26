@@ -1261,15 +1261,15 @@ define noundef i32 @_ZN5Ipopt24LowRankSSAugSystemSolver18UpdateExtendedDataEPKNS
   %30 = getelementptr inbounds i8, ptr %1, i64 80
   %31 = load ptr, ptr %30, align 8, !noalias !7
   %32 = getelementptr inbounds i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8, !noalias !8
+  %33 = load ptr, ptr %32, align 8, !noalias !10
   %.not.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i.i, label %_ZNK5Ipopt22LowRankUpdateSymMatrix9P_LowRankEv.exit, label %34
 
 34:                                               ; preds = %17
   %35 = getelementptr inbounds i8, ptr %33, i64 8
-  %36 = load i32, ptr %35, align 8, !noalias !8
+  %36 = load i32, ptr %35, align 8, !noalias !10
   %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %35, align 8, !noalias !8
+  store i32 %37, ptr %35, align 8, !noalias !10
   %.pre = load ptr, ptr %30, align 8, !noalias !13
   br label %_ZNK5Ipopt22LowRankUpdateSymMatrix9P_LowRankEv.exit
 
@@ -3944,12 +3944,12 @@ attributes #20 = { noreturn nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN5Ipopt14CompoundVector15GetCompNonConstEi: argument 0"}
 !6 = distinct !{!6, !"_ZN5Ipopt14CompoundVector15GetCompNonConstEi"}
-!7 = !{}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"_ZNK5Ipopt27LowRankUpdateSymMatrixSpace9P_LowRankEv: argument 0"}
-!10 = distinct !{!10, !"_ZNK5Ipopt27LowRankUpdateSymMatrixSpace9P_LowRankEv"}
-!11 = distinct !{!11, !12, !"_ZNK5Ipopt22LowRankUpdateSymMatrix9P_LowRankEv: argument 0"}
-!12 = distinct !{!12, !"_ZNK5Ipopt22LowRankUpdateSymMatrix9P_LowRankEv"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK5Ipopt22LowRankUpdateSymMatrix9P_LowRankEv: argument 0"}
+!9 = distinct !{!9, !"_ZNK5Ipopt22LowRankUpdateSymMatrix9P_LowRankEv"}
+!10 = !{!11, !8}
+!11 = distinct !{!11, !12, !"_ZNK5Ipopt27LowRankUpdateSymMatrixSpace9P_LowRankEv: argument 0"}
+!12 = distinct !{!12, !"_ZNK5Ipopt27LowRankUpdateSymMatrixSpace9P_LowRankEv"}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZNK5Ipopt22LowRankUpdateSymMatrix18LowRankVectorSpaceEv: argument 0"}
 !15 = distinct !{!15, !"_ZNK5Ipopt22LowRankUpdateSymMatrix18LowRankVectorSpaceEv"}

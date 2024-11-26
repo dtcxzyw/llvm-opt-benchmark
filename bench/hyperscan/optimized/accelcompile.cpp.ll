@@ -12,7 +12,7 @@ define hidden noundef zeroext i1 @_ZN3ue214buildDvermMaskERKNS_8flat_setISt4pair
 entry:
   %0 = load ptr, ptr %escape_set, align 8, !noalias !5
   %m_size.i.i.i = getelementptr inbounds i8, ptr %escape_set, i64 8
-  %1 = load i64, ptr %m_size.i.i.i, align 8
+  %1 = load i64, ptr %m_size.i.i.i, align 8, !noalias !12
   %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %1
   %cmp.i.i.i.i.not30 = icmp eq i64 %1, 0
   br i1 %cmp.i.i.i.i.not30, label %for.end, label %for.body
@@ -183,11 +183,11 @@ if.then4.i:                                       ; preds = %if.end.i
   store i8 3, ptr %aux, align 16
   %offset5.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i, ptr %offset5.i, align 1
-  %13 = load ptr, ptr %double_stop2.i, align 8, !noalias !6
+  %13 = load ptr, ptr %double_stop2.i, align 8, !noalias !19
   %14 = load i8, ptr %13, align 1
   %c1.i = getelementptr inbounds i8, ptr %aux, i64 2
   store i8 %14, ptr %c1.i, align 2
-  %15 = load ptr, ptr %double_stop2.i, align 8, !noalias !13
+  %15 = load ptr, ptr %double_stop2.i, align 8, !noalias !26
   %second.i = getelementptr inbounds i8, ptr %15, i64 1
   %16 = load i8, ptr %second.i, align 1
   %c2.i = getelementptr inbounds i8, ptr %aux, i64 3
@@ -211,7 +211,7 @@ for.body.preheader.i.i:                           ; preds = %land.lhs.true15.i
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %it.sroa.0.05.add.i.i = add nuw nsw i64 %it.sroa.0.05.idx.i.i, 2
   %cmp.i.i.i.i.not.i.i = icmp eq i64 %it.sroa.0.05.add.i.i, 8
-  br i1 %cmp.i.i.i.i.not.i.i, label %if.then18.i, label %for.body.i.i11, !llvm.loop !20
+  br i1 %cmp.i.i.i.i.not.i.i, label %if.then18.i, label %for.body.i.i11, !llvm.loop !33
 
 for.body.i.i11:                                   ; preds = %for.cond.i.i, %for.body.preheader.i.i
   %it.sroa.0.05.idx.i.i = phi i64 [ %it.sroa.0.05.add.i.i, %for.cond.i.i ], [ 0, %for.body.preheader.i.i ]
@@ -234,12 +234,12 @@ if.then18.i:                                      ; preds = %for.cond.i.i
   store i8 4, ptr %aux, align 16
   %offset19.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i, ptr %offset19.i, align 1
-  %25 = load ptr, ptr %double_stop2.i, align 8, !noalias !22
+  %25 = load ptr, ptr %double_stop2.i, align 8, !noalias !35
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, -33
   %c125.i = getelementptr inbounds i8, ptr %aux, i64 2
   store i8 %27, ptr %c125.i, align 2
-  %28 = load ptr, ptr %double_stop2.i, align 8, !noalias !29
+  %28 = load ptr, ptr %double_stop2.i, align 8, !noalias !42
   %second29.i = getelementptr inbounds i8, ptr %28, i64 1
   %29 = load i8, ptr %second29.i, align 1
   %30 = and i8 %29, -33
@@ -310,12 +310,12 @@ if.then41.i:                                      ; preds = %for.end.i.i
   store i8 17, ptr %aux, align 16
   %offset42.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i, ptr %offset42.i, align 1
-  %36 = load ptr, ptr %double_stop2.i, align 8, !noalias !36
+  %36 = load ptr, ptr %double_stop2.i, align 8, !noalias !49
   %37 = load i8, ptr %36, align 1
   %and4943.i = and i8 %37, %33
   %c151.i = getelementptr inbounds i8, ptr %aux, i64 2
   store i8 %and4943.i, ptr %c151.i, align 2
-  %38 = load ptr, ptr %double_stop2.i, align 8, !noalias !43
+  %38 = load ptr, ptr %double_stop2.i, align 8, !noalias !56
   %second55.i = getelementptr inbounds i8, ptr %38, i64 1
   %39 = load i8, ptr %second55.i, align 1
   %and5844.i = and i8 %39, %34
@@ -359,7 +359,7 @@ for.body.i.i.i.preheader:                         ; preds = %_ZN3ue29verify_u8Ij
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNK3ue29CharReach3allEv.exit.i, label %for.body.i.i.i, !llvm.loop !50
+  br i1 %exitcond.not.i.i.i, label %_ZNK3ue29CharReach3allEv.exit.i, label %for.body.i.i.i, !llvm.loop !63
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader, %for.cond.i.i.i
   %i.04.i.i.i = phi i64 [ %inc.i.i.i, %for.cond.i.i.i ], [ 0, %for.body.i.i.i.preheader ]
@@ -423,7 +423,7 @@ if.then.i.i.i19:                                  ; preds = %for.body.i.i26.i
 for.inc.i.i.i:                                    ; preds = %for.body.i.i26.i
   %inc.i.i30.i = add nuw nsw i64 %i.06.i.i.i, 1
   %exitcond.not.i.i31.i = icmp eq i64 %inc.i.i30.i, 4
-  br i1 %exitcond.not.i.i31.i, label %_ZNK3ue29CharReach10find_firstEv.exit.i, label %for.body.i.i26.i, !llvm.loop !51
+  br i1 %exitcond.not.i.i31.i, label %_ZNK3ue29CharReach10find_firstEv.exit.i, label %for.body.i.i26.i, !llvm.loop !64
 
 _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %for.inc.i.i.i, %if.then.i.i.i19
   %retval.0.i.i29.i = phi i8 [ %54, %if.then.i.i.i19 ], [ 0, %for.inc.i.i.i ]
@@ -460,7 +460,7 @@ if.then.i.i36.i:                                  ; preds = %for.body.i.i32.i
 for.inc.i.i40.i:                                  ; preds = %for.body.i.i32.i
   %inc.i.i41.i = add nuw nsw i64 %i.06.i.i33.i, 1
   %exitcond.not.i.i42.i = icmp eq i64 %inc.i.i41.i, 4
-  br i1 %exitcond.not.i.i42.i, label %_ZNK3ue29CharReach10find_firstEv.exit43.i, label %for.body.i.i32.i, !llvm.loop !51
+  br i1 %exitcond.not.i.i42.i, label %_ZNK3ue29CharReach10find_firstEv.exit43.i, label %for.body.i.i32.i, !llvm.loop !64
 
 _ZNK3ue29CharReach10find_firstEv.exit43.i:        ; preds = %for.inc.i.i40.i, %if.then.i.i36.i
   %retval.0.i.i39.i = phi i8 [ %58, %if.then.i.i36.i ], [ 0, %for.inc.i.i40.i ]
@@ -554,50 +554,63 @@ attributes #8 = { noreturn }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{}
-!6 = !{!7, !9, !11}
-!7 = distinct !{!7, !8, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
-!8 = distinct !{!8, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!9 = distinct !{!9, !10, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
-!10 = distinct !{!10, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!11 = distinct !{!11, !12, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
-!12 = distinct !{!12, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!13 = !{!14, !16, !18}
-!14 = distinct !{!14, !15, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
-!15 = distinct !{!15, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!16 = distinct !{!16, !17, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
-!17 = distinct !{!17, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!18 = distinct !{!18, !19, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
-!19 = distinct !{!19, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !25, !27}
-!23 = distinct !{!23, !24, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
-!24 = distinct !{!24, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!25 = distinct !{!25, !26, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
-!26 = distinct !{!26, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!27 = distinct !{!27, !28, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
-!28 = distinct !{!28, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!29 = !{!30, !32, !34}
-!30 = distinct !{!30, !31, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
-!31 = distinct !{!31, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!32 = distinct !{!32, !33, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
-!33 = distinct !{!33, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!34 = distinct !{!34, !35, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
-!35 = distinct !{!35, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!36 = !{!37, !39, !41}
-!37 = distinct !{!37, !38, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
-!38 = distinct !{!38, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!39 = distinct !{!39, !40, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
-!40 = distinct !{!40, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!41 = distinct !{!41, !42, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
-!42 = distinct !{!42, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!43 = !{!44, !46, !48}
-!44 = distinct !{!44, !45, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
-!45 = distinct !{!45, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!46 = distinct !{!46, !47, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
-!47 = distinct !{!47, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!48 = distinct !{!48, !49, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
-!49 = distinct !{!49, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!50 = distinct !{!50, !21}
-!51 = distinct !{!51, !21}
+!5 = !{!6, !8, !10}
+!6 = distinct !{!6, !7, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
+!7 = distinct !{!7, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!8 = distinct !{!8, !9, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
+!9 = distinct !{!9, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!10 = distinct !{!10, !11, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
+!11 = distinct !{!11, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!12 = !{!13, !15, !17}
+!13 = distinct !{!13, !14, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE4cendEv: %agg.result"}
+!14 = distinct !{!14, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE4cendEv"}
+!15 = distinct !{!15, !16, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE4cendEv: %agg.result"}
+!16 = distinct !{!16, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE4cendEv"}
+!17 = distinct !{!17, !18, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE3endEv: %agg.result"}
+!18 = distinct !{!18, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE3endEv"}
+!19 = !{!20, !22, !24}
+!20 = distinct !{!20, !21, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
+!21 = distinct !{!21, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!22 = distinct !{!22, !23, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
+!23 = distinct !{!23, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!24 = distinct !{!24, !25, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
+!25 = distinct !{!25, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!26 = !{!27, !29, !31}
+!27 = distinct !{!27, !28, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
+!28 = distinct !{!28, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!29 = distinct !{!29, !30, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
+!30 = distinct !{!30, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!31 = distinct !{!31, !32, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
+!32 = distinct !{!32, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = !{!36, !38, !40}
+!36 = distinct !{!36, !37, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
+!37 = distinct !{!37, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!38 = distinct !{!38, !39, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
+!39 = distinct !{!39, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!40 = distinct !{!40, !41, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
+!41 = distinct !{!41, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!42 = !{!43, !45, !47}
+!43 = distinct !{!43, !44, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
+!44 = distinct !{!44, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!45 = distinct !{!45, !46, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
+!46 = distinct !{!46, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!47 = distinct !{!47, !48, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
+!48 = distinct !{!48, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!49 = !{!50, !52, !54}
+!50 = distinct !{!50, !51, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
+!51 = distinct !{!51, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!52 = distinct !{!52, !53, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
+!53 = distinct !{!53, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!54 = distinct !{!54, !55, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
+!55 = distinct !{!55, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!56 = !{!57, !59, !61}
+!57 = distinct !{!57, !58, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: %agg.result"}
+!58 = distinct !{!58, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!59 = distinct !{!59, !60, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: %agg.result"}
+!60 = distinct !{!60, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!61 = distinct !{!61, !62, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: %agg.result"}
+!62 = distinct !{!62, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!63 = distinct !{!63, !34}
+!64 = distinct !{!64, !34}

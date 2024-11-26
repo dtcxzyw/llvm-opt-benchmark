@@ -410,9 +410,9 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder3new17h7507b8ba43c3233a
 define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3ab2E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i64, i64, ptr, { { i8, [1 x i8] } }, { { i8, [1 x i8] } }, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, { ptr, i8, i8, i8, i8, [4 x i8] }, { i64, { { { i64, ptr, {} }, i64 } } }, { i64, { { { { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] }, { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, i64, i64, i64 } } }, { i64, { { { i64, ptr, {} }, i64 } } } }) align 8 dereferenceable(248) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { { i64, ptr, {} }, i64 } } }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 40
-  %5 = load i8, ptr %4, align 8, !range !21, !noalias !5, !noundef !5
+  %5 = load i8, ptr %4, align 8, !range !21, !alias.scope !55, !noalias !58, !noundef !5
   %6 = getelementptr inbounds i8, ptr %1, i64 41
-  %7 = load i8, ptr %6, align 1, !noalias !5
+  %7 = load i8, ptr %6, align 1, !alias.scope !55, !noalias !58
   %8 = getelementptr inbounds i8, ptr %1, i64 44
   %9 = load i8, ptr %8, align 4, !range !21, !alias.scope !55, !noalias !58, !noundef !5
   %10 = getelementptr inbounds i8, ptr %1, i64 16
@@ -423,21 +423,21 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
   %15 = load i8, ptr %14, align 1, !range !21, !alias.scope !55, !noalias !58, !noundef !5
   %16 = getelementptr inbounds i8, ptr %1, i64 46
   %17 = load i8, ptr %16, align 2, !range !21, !alias.scope !55, !noalias !58, !noundef !5
-  %18 = load i64, ptr %1, align 8, !range !60, !noalias !5, !noundef !5
+  %18 = load i64, ptr %1, align 8, !range !60, !alias.scope !55, !noalias !58, !noundef !5
   %19 = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 8, !noalias !5
+  %20 = load i64, ptr %19, align 8, !alias.scope !55, !noalias !58
   %21 = getelementptr inbounds i8, ptr %1, i64 47
   %22 = load i8, ptr %21, align 1, !range !21, !alias.scope !55, !noalias !58, !noundef !5
   %23 = getelementptr inbounds i8, ptr %1, i64 42
-  %24 = load i8, ptr %23, align 2, !range !15, !noalias !5, !noundef !5
+  %24 = load i8, ptr %23, align 2, !range !15, !alias.scope !55, !noalias !58, !noundef !5
   %25 = getelementptr inbounds i8, ptr %1, i64 43
-  %26 = load i8, ptr %25, align 1, !noalias !5
+  %26 = load i8, ptr %25, align 1, !alias.scope !55, !noalias !58
   %27 = getelementptr inbounds i8, ptr %1, i64 48
   %28 = load i8, ptr %27, align 8, !range !21, !alias.scope !55, !noalias !58, !noundef !5
   %29 = getelementptr inbounds i8, ptr %1, i64 32
-  %30 = load ptr, ptr %29, align 8, !noundef !5
+  %30 = load ptr, ptr %29, align 8, !alias.scope !55, !noalias !58, !noundef !5
   %31 = getelementptr inbounds i8, ptr %1, i64 49
-  %32 = load i8, ptr %31, align 1, !range !21, !noundef !5
+  %32 = load i8, ptr %31, align 1, !range !21, !alias.scope !55, !noalias !58, !noundef !5
   %33 = getelementptr inbounds i8, ptr %1, i64 50
   %34 = load i8, ptr %33, align 2, !range !21, !alias.scope !55, !noalias !58, !noundef !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)

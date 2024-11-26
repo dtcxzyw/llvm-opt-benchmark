@@ -186,7 +186,7 @@ define noundef i64 @_ZN5boost4urls6detail12pct_vmeasureERKNS0_7grammar9lut_chars
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 %.fr6.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #4, !noalias !19
   call void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %52) #4, !noalias !19
-  %53 = load i32, ptr %15, align 8, !tbaa !23
+  %53 = load i32, ptr %15, align 8, !tbaa !23, !noalias !19
   %54 = icmp ne i32 %53, 1
   %55 = load ptr, ptr %7, align 8, !noalias !19
   %.not.i71 = icmp eq ptr %55, %52
@@ -464,7 +464,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 %.fr6.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #4, !noalias !60
   call void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %62) #4, !noalias !60
-  %63 = load i32, ptr %15, align 8, !tbaa !23
+  %63 = load i32, ptr %15, align 8, !tbaa !23, !noalias !60
   %64 = icmp ne i32 %63, 1
   %65 = load ptr, ptr %7, align 8, !noalias !60
   %.not.i71 = icmp eq ptr %65, %62

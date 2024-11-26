@@ -1013,31 +1013,31 @@ if.end:                                           ; preds = %if.then, %entry
   %add8.i32 = fadd float %localHalfExtents.sroa.0.4.vec.extract, %call26
   %localHalfExtents.sroa.9.8.vec.extract = extractelement <2 x float> %localHalfExtents.sroa.9.0, i64 0
   %add13.i = fadd float %localHalfExtents.sroa.9.8.vec.extract, %call30
-  %10 = load float, ptr %trans, align 4
+  %10 = load float, ptr %trans, align 4, !noalias !11
   %11 = tail call noundef float @llvm.fabs.f32(float %10)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %trans, i64 4
-  %12 = load float, ptr %arrayidx.i.i, align 4
+  %12 = load float, ptr %arrayidx.i.i, align 4, !noalias !11
   %13 = tail call noundef float @llvm.fabs.f32(float %12)
   %arrayidx.i1.i = getelementptr inbounds i8, ptr %trans, i64 8
-  %14 = load float, ptr %arrayidx.i1.i, align 4
+  %14 = load float, ptr %arrayidx.i1.i, align 4, !noalias !11
   %15 = tail call noundef float @llvm.fabs.f32(float %14)
   %arrayidx15.i = getelementptr inbounds i8, ptr %trans, i64 16
-  %16 = load float, ptr %arrayidx15.i, align 4
+  %16 = load float, ptr %arrayidx15.i, align 4, !noalias !11
   %17 = tail call noundef float @llvm.fabs.f32(float %16)
   %arrayidx.i2.i = getelementptr inbounds i8, ptr %trans, i64 20
-  %18 = load float, ptr %arrayidx.i2.i, align 4
+  %18 = load float, ptr %arrayidx.i2.i, align 4, !noalias !11
   %19 = tail call noundef float @llvm.fabs.f32(float %18)
   %arrayidx.i3.i = getelementptr inbounds i8, ptr %trans, i64 24
-  %20 = load float, ptr %arrayidx.i3.i, align 4
+  %20 = load float, ptr %arrayidx.i3.i, align 4, !noalias !11
   %21 = tail call noundef float @llvm.fabs.f32(float %20)
   %arrayidx30.i = getelementptr inbounds i8, ptr %trans, i64 32
-  %22 = load float, ptr %arrayidx30.i, align 4
+  %22 = load float, ptr %arrayidx30.i, align 4, !noalias !11
   %23 = tail call noundef float @llvm.fabs.f32(float %22)
   %arrayidx.i4.i = getelementptr inbounds i8, ptr %trans, i64 36
-  %24 = load float, ptr %arrayidx.i4.i, align 4
+  %24 = load float, ptr %arrayidx.i4.i, align 4, !noalias !11
   %25 = tail call noundef float @llvm.fabs.f32(float %24)
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %trans, i64 40
-  %26 = load float, ptr %arrayidx.i5.i, align 4
+  %26 = load float, ptr %arrayidx.i5.i, align 4, !noalias !11
   %27 = tail call noundef float @llvm.fabs.f32(float %26)
   %localCenter.sroa.0.0.vec.extract = extractelement <2 x float> %localCenter.sroa.0.0, i64 0
   %localCenter.sroa.0.4.vec.extract = extractelement <2 x float> %localCenter.sroa.0.0, i64 1
@@ -1189,7 +1189,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = fadd float %totalMass.0304, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %entry
   %center.sroa.0.0.lcssa = phi float [ 0.000000e+00, %entry ], [ %add.i, %for.body ]
@@ -1264,15 +1264,15 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i33, i64 8
   %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i33, i64 24
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i33, i64 40
-  %22 = load float, ptr %arrayidx.i33, align 4, !noalias !12
-  %23 = load float, ptr %arrayidx3.i42, align 4, !noalias !12
-  %24 = load float, ptr %arrayidx6.i, align 4, !noalias !12
-  %25 = load float, ptr %arrayidx.i.i, align 4, !noalias !12
-  %26 = load float, ptr %arrayidx.i1.i, align 4, !noalias !12
-  %27 = load float, ptr %arrayidx.i2.i, align 4, !noalias !12
-  %28 = load float, ptr %arrayidx.i3.i, align 4, !noalias !12
-  %29 = load float, ptr %arrayidx.i4.i, align 4, !noalias !12
-  %30 = load float, ptr %arrayidx.i5.i, align 4, !noalias !12
+  %22 = load float, ptr %arrayidx.i33, align 4, !noalias !15
+  %23 = load float, ptr %arrayidx3.i42, align 4, !noalias !15
+  %24 = load float, ptr %arrayidx6.i, align 4, !noalias !15
+  %25 = load float, ptr %arrayidx.i.i, align 4, !noalias !15
+  %26 = load float, ptr %arrayidx.i1.i, align 4, !noalias !15
+  %27 = load float, ptr %arrayidx.i2.i, align 4, !noalias !15
+  %28 = load float, ptr %arrayidx.i3.i, align 4, !noalias !15
+  %29 = load float, ptr %arrayidx.i4.i, align 4, !noalias !15
+  %30 = load float, ptr %arrayidx.i5.i, align 4, !noalias !15
   %31 = load float, ptr %i, align 4
   %mul.i46 = fmul float %22, %31
   %mul4.i48 = fmul float %23, %31
@@ -1363,7 +1363,7 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   store float %add13.i224, ptr %arrayidx5.i5.i.i, align 4
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next313, %wide.trip.count315
-  br i1 %exitcond316.not, label %for.end119, label %for.body24, !llvm.loop !13
+  br i1 %exitcond316.not, label %for.end119, label %for.body24, !llvm.loop !18
 
 for.end119:                                       ; preds = %for.body24, %for.end
   call void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noundef nonnull align 4 dereferenceable(48) %tensor, ptr noundef nonnull align 4 dereferenceable(48) %principal, float noundef 0x3EE4F8B580000000, i32 noundef 20)
@@ -1533,12 +1533,12 @@ for.body154:                                      ; preds = %if.end83, %for.body
   store float %29, ptr %arrayidx161, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.inc173, label %for.body154, !llvm.loop !14
+  br i1 %exitcond.not, label %for.inc173, label %for.body154, !llvm.loop !19
 
 for.inc173:                                       ; preds = %for.body154
   %dec = add nsw i32 %step.1, -1
   %cmp = icmp sgt i32 %step.1, 1
-  br i1 %cmp, label %for.body, label %for.end174, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.end174, !llvm.loop !20
 
 for.end174:                                       ; preds = %for.inc173, %if.then35, %entry
   ret void
@@ -1681,7 +1681,7 @@ _ZN15btCompoundShape20updateChildTransformEiRK11btTransformb.exit: ; preds = %fo
   %33 = load i32, ptr %m_size.i, align 4
   %34 = sext i32 %33 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %34
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %_ZN15btCompoundShape20updateChildTransformEiRK11btTransformb.exit, %entry
   %m_localScaling23 = getelementptr inbounds i8, ptr %this, i64 112
@@ -1739,7 +1739,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load i32, ptr %m_size.i, align 4
   %8 = sext i32 %7 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %8
-  br i1 %cmp, label %for.body, label %if.end, !llvm.loop !17
+  br i1 %cmp, label %for.body, label %if.end, !llvm.loop !22
 
 if.end:                                           ; preds = %for.body, %if.then, %entry
   ret void
@@ -1864,12 +1864,12 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   store float %28, ptr %arrayidx4.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i, label %for.body.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i, label %for.body.i.i.i, !llvm.loop !23
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i: ; preds = %for.body.i.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i, label %for.body.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %_ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i, label %for.body.i.i, !llvm.loop !24
 
 _ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i: ; preds = %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i
   %m_origin.i = getelementptr inbounds i8, ptr %arrayidx.i53, i64 48
@@ -1884,7 +1884,7 @@ for.body.i2.i:                                    ; preds = %for.body.i2.i, %_ZN
   store float %29, ptr %arrayidx4.i5.i, align 4
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i7.i = icmp eq i64 %indvars.iv.next.i6.i, 4
-  br i1 %exitcond.not.i7.i, label %_ZNK11btTransform14serializeFloatER20btTransformFloatData.exit, label %for.body.i2.i, !llvm.loop !18
+  br i1 %exitcond.not.i7.i, label %_ZNK11btTransform14serializeFloatER20btTransformFloatData.exit, label %for.body.i2.i, !llvm.loop !23
 
 _ZNK11btTransform14serializeFloatER20btTransformFloatData.exit: ; preds = %for.body.i2.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1892,7 +1892,7 @@ _ZNK11btTransform14serializeFloatER20btTransformFloatData.exit: ; preds = %for.b
   %30 = load i32, ptr %m_numChildShapes, align 8
   %31 = sext i32 %30 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %31
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !20
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %_ZNK11btTransform14serializeFloatER20btTransformFloatData.exit, %if.then
   %32 = load ptr, ptr %m_oldPtr, align 8
@@ -2000,13 +2000,18 @@ attributes #13 = { noreturn nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = !{}
-!13 = distinct !{!13, !6}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZNK11btMatrix3x38absoluteEv: %agg.result"}
+!13 = distinct !{!13, !"_ZNK11btMatrix3x38absoluteEv"}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK11btMatrix3x39transposeEv: %agg.result"}
+!17 = distinct !{!17, !"_ZNK11btMatrix3x39transposeEv"}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}

@@ -4162,7 +4162,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %7 = load ptr, ptr %vfn.i11.us, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %conv, ptr noundef nonnull align 8 dereferenceable(16) %buf) #22
   %cmp.not.us = icmp eq i32 %sub.us, 0
-  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !39
+  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !41
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %len.014 = phi i32 [ %sub, %while.body ], [ %size, %while.body.lr.ph ]
@@ -4188,7 +4188,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %13 = load ptr, ptr %vfn.i11, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %conv, ptr noundef nonnull align 8 dereferenceable(16) %buf) #22
   %cmp.not = icmp eq i32 %sub, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !39
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !41
 
 while.end:                                        ; preds = %while.body, %while.body.us, %entry
   ret i32 0
@@ -4538,7 +4538,7 @@ while.body.us.i:                                  ; preds = %while.body.lr.ph.i,
   %7 = load ptr, ptr %vfn.i11.us.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %conv.i, ptr noundef nonnull align 8 dereferenceable(16) %buf.i) #22
   %cmp.not.us.i = icmp eq i32 %sub.us.i, 0
-  br i1 %cmp.not.us.i, label %_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream15WriteAsciiChunkEPci.exit, label %while.body.us.i, !llvm.loop !39
+  br i1 %cmp.not.us.i, label %_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream15WriteAsciiChunkEPci.exit, label %while.body.us.i, !llvm.loop !41
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
   %len.014.i = phi i32 [ %sub.i, %while.body.i ], [ %size, %while.body.lr.ph.i ]
@@ -4564,7 +4564,7 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   %13 = load ptr, ptr %vfn.i11.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %conv.i, ptr noundef nonnull align 8 dereferenceable(16) %buf.i) #22
   %cmp.not.i = icmp eq i32 %sub.i, 0
-  br i1 %cmp.not.i, label %_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream15WriteAsciiChunkEPci.exit, label %while.body.i, !llvm.loop !39
+  br i1 %cmp.not.i, label %_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream15WriteAsciiChunkEPci.exit, label %while.body.i, !llvm.loop !41
 
 _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream15WriteAsciiChunkEPci.exit: ; preds = %while.body.i, %while.body.us.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
@@ -4755,5 +4755,7 @@ attributes #27 = { cold }
 !35 = distinct !{!35, !6}
 !36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
-!38 = !{}
-!39 = distinct !{!39, !6}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!40 = distinct !{!40, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!41 = distinct !{!41, !6}

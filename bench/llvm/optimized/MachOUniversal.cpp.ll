@@ -1655,7 +1655,7 @@ define dso_local void @_ZNK4llvm6object20MachOUniversalBinary21getMachOObjectFor
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %11 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %6, align 8, !noalias !110
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %13
 
@@ -1731,7 +1731,7 @@ define dso_local void @_ZNK4llvm6object20MachOUniversalBinary18getIRObjectForArc
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %12 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %7, align 8, !noalias !119
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %14
 
@@ -1802,7 +1802,7 @@ define dso_local void @_ZNK4llvm6object20MachOUniversalBinary17getArchiveForArch
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %11 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %6, align 8, !noalias !128
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %13
 

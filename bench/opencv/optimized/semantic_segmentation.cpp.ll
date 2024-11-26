@@ -2482,7 +2482,7 @@ _ZN12_GLOBAL__N_18isNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
           to label %.noexc155 unwind label %767
 
 .noexc155:                                        ; preds = %607
-  %609 = load ptr, ptr %71, align 8
+  %609 = load ptr, ptr %71, align 8, !alias.scope !40
   %610 = icmp eq ptr %609, null
   %611 = getelementptr inbounds i8, ptr %609, i64 8
   br i1 %610, label %.thread, label %612
@@ -10813,7 +10813,7 @@ define linkonce_odr hidden void @_ZN2cv6detail10MetaHelperIN6custom14PostProcess
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = getelementptr inbounds i8, ptr %4, i64 32
   %10 = load ptr, ptr %9, align 8, !noalias !93
-  %11 = load ptr, ptr %8, align 8
+  %11 = load ptr, ptr %8, align 8, !noalias !93
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13

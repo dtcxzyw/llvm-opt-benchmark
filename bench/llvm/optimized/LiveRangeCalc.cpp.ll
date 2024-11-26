@@ -2033,7 +2033,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIjNS_11SmallVec
 29:                                               ; preds = %18, %2
   %.sink.i.i.i.i = phi ptr [ %19, %18 ], [ null, %2 ]
   %30 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E20InsertIntoBucketImplIjEEPS7_RKjRKT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %.sink.i.i.i.i), !noalias !23
-  %31 = load i32, ptr %1, align 4
+  %31 = load i32, ptr %1, align 4, !noalias !23
   store i32 %31, ptr %30, align 4, !noalias !23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #12

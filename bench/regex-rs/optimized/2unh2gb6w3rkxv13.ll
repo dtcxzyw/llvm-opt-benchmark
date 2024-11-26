@@ -520,7 +520,7 @@ define hidden void @_ZN5regex8builders7Builder16build_one_string17hf82c4a9885309
   store ptr %134, ptr %6, align 8, !noalias !51
   %136 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %135, ptr %136, align 8, !noalias !51
-  %137 = load i64, ptr %10, align 8, !range !52, !alias.scope !53, !noundef !5
+  %137 = load i64, ptr %10, align 8, !range !52, !alias.scope !49, !noalias !46, !noundef !5
   %.not.i = icmp eq i64 %137, -9223372036854775806
   %138 = getelementptr inbounds i8, ptr %10, i64 8
   %139 = load ptr, ptr %138, align 8, !alias.scope !53
@@ -957,7 +957,7 @@ define hidden void @_ZN5regex8builders7Builder15build_one_bytes17hfc277fc41c11dd
   store ptr %134, ptr %6, align 8, !noalias !129
   %136 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %135, ptr %136, align 8, !noalias !129
-  %137 = load i64, ptr %10, align 8, !range !52, !alias.scope !130, !noundef !5
+  %137 = load i64, ptr %10, align 8, !range !52, !alias.scope !127, !noalias !124, !noundef !5
   %.not.i = icmp eq i64 %137, -9223372036854775806
   %138 = getelementptr inbounds i8, ptr %10, i64 8
   %139 = load ptr, ptr %138, align 8, !alias.scope !130
@@ -1340,7 +1340,7 @@ define hidden void @_ZN5regex8builders7Builder17build_many_string17hec7233caad9e
   store ptr %115, ptr %5, align 8, !noalias !203
   %117 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %116, ptr %117, align 8, !noalias !203
-  %118 = load i64, ptr %8, align 8, !range !52, !alias.scope !204, !noundef !5
+  %118 = load i64, ptr %8, align 8, !range !52, !alias.scope !201, !noalias !198, !noundef !5
   %.not.i = icmp eq i64 %118, -9223372036854775806
   %119 = getelementptr inbounds i8, ptr %8, i64 8
   %120 = load ptr, ptr %119, align 8, !alias.scope !204
@@ -1723,7 +1723,7 @@ define hidden void @_ZN5regex8builders7Builder16build_many_bytes17ha4436740a89e8
   store ptr %115, ptr %5, align 8, !noalias !277
   %117 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %116, ptr %117, align 8, !noalias !277
-  %118 = load i64, ptr %8, align 8, !range !52, !alias.scope !278, !noundef !5
+  %118 = load i64, ptr %8, align 8, !range !52, !alias.scope !275, !noalias !272, !noundef !5
   %.not.i = icmp eq i64 %118, -9223372036854775806
   %119 = getelementptr inbounds i8, ptr %8, i64 8
   %120 = load ptr, ptr %119, align 8, !alias.scope !278

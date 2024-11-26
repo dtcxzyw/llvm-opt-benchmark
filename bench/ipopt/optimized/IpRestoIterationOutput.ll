@@ -2910,7 +2910,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit565:     ; preds = %1102, %1097
 1273:                                             ; preds = %1272
   %1274 = load ptr, ptr %129, align 8
   %1275 = getelementptr inbounds i8, ptr %1274, i64 40
-  %1276 = load ptr, ptr %1275, align 8, !noalias !79
+  %1276 = load ptr, ptr %1275, align 8, !noalias !174
   %.not.i.i.i.i600 = icmp eq ptr %1276, null
   br i1 %.not.i.i.i.i600, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit603.thread, label %1277
 
@@ -6063,7 +6063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1083: 
 2607:                                             ; preds = %2603, %2598, %2596
   %2608 = load ptr, ptr %129, align 8
   %2609 = getelementptr inbounds i8, ptr %2608, i64 40
-  %2610 = load ptr, ptr %2609, align 8, !noalias !79
+  %2610 = load ptr, ptr %2609, align 8, !noalias !353
   %.not.i.i.i.i1086 = icmp eq ptr %2610, null
   br i1 %.not.i.i.i.i1086, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit1089.thread, label %2611
 

@@ -1003,7 +1003,7 @@ _ZN4llvm23early_inc_iterator_implINS_19MachineRegisterInfo26defusechain_instr_it
 
 _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.thread.i.i178: ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i.i.i, i64 32
-  %129 = load ptr, ptr %128, align 8
+  %129 = load ptr, ptr %128, align 8, !noalias !7
   %130 = getelementptr inbounds i8, ptr %129, i64 32
   store ptr %129, ptr %3, align 8, !alias.scope !7
   store ptr %130, ptr %.sroa.2.0..sroa_idx.i.i.i179, align 8, !alias.scope !7
@@ -1384,7 +1384,7 @@ _ZNK4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb0EL
 
 _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.thread.i.i.i: ; preds = %290
   %294 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i.i36.i, i64 32
-  %295 = load ptr, ptr %294, align 8
+  %295 = load ptr, ptr %294, align 8, !noalias !16
   %296 = getelementptr inbounds i8, ptr %295, i64 32
   store ptr %295, ptr %16, align 8, !alias.scope !16
   store ptr %296, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !alias.scope !16
@@ -3682,7 +3682,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit.thread.i.i117: ; preds = %1
 
 _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.thread.i.i.i152: ; preds = %1410
   %1413 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i.i.i.i76, i64 32
-  %1414 = load ptr, ptr %1413, align 8
+  %1414 = load ptr, ptr %1413, align 8, !noalias !55
   %1415 = getelementptr inbounds i8, ptr %1414, i64 32
   store ptr %1414, ptr %5, align 8, !alias.scope !55
   store ptr %1415, ptr %.sroa.2.0..sroa_idx.i.i.i.i65, align 8, !alias.scope !55
@@ -7234,7 +7234,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113InlineSpiller17fol
   %28 = load ptr, ptr %27, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 68
-  %30 = load i16, ptr %29, align 4
+  %30 = load i16, ptr %29, align 4, !noalias !114
   %31 = icmp eq i16 %30, 19
   br i1 %31, label %32, label %37
 
@@ -11603,7 +11603,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit: ; preds = %_ZNK4llvm9LiveR
 
 _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.thread.i.i: ; preds = %259
   %262 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i.i, i64 32
-  %263 = load ptr, ptr %262, align 8
+  %263 = load ptr, ptr %262, align 8, !noalias !157
   %264 = getelementptr inbounds i8, ptr %263, i64 32
   store ptr %263, ptr %4, align 8, !alias.scope !157
   store ptr %264, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !157
@@ -16755,7 +16755,7 @@ _ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyEN
 84:                                               ; preds = %73, %57
   %.sink.i.i.i.i = phi ptr [ %74, %73 ], [ null, %57 ]
   %85 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E20InsertIntoBucketImplIS2_EEPS8_RKS2_RKT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %.sink.i.i.i.i), !noalias !223
-  %86 = load i32, ptr %1, align 4
+  %86 = load i32, ptr %1, align 4, !noalias !223
   store i32 %86, ptr %85, align 4, !noalias !223
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %88 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %87) #16

@@ -12561,7 +12561,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p) #30
   %stateProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
-  %8 = load ptr, ptr %stateProcess_, align 8, !tbaa !147
+  %8 = load ptr, ptr %stateProcess_, align 8, !tbaa !147, !noalias !204
   %9 = icmp eq ptr %8, null
   br i1 %9, label %cond.false.i24, label %dynamic_cast.end3.i
 

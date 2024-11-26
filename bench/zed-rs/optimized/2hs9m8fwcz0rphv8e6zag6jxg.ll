@@ -559,9 +559,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %106 = getelementptr inbounds i8, ptr %7, i64 16
   %107 = load ptr, ptr %106, align 8, !alias.scope !97, !nonnull !4, !noundef !4
   %108 = getelementptr inbounds i8, ptr %7, i64 24
-  %109 = load i64, ptr %108, align 8, !alias.scope !98, !noundef !4
+  %109 = load i64, ptr %108, align 8, !alias.scope !97, !noundef !4
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17hb7b7fe5ab3316d83E.llvm.11369269461568982580"(ptr noalias noundef nonnull align 8 %107, i64 noundef %109) #17
-          to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h114cb4be5c338f03E.llvm.11369269461568982580.exit.i.i.i" unwind label %110, !noalias !97
+          to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h114cb4be5c338f03E.llvm.11369269461568982580.exit.i.i.i" unwind label %110, !noalias !100
 
 110:                                              ; preds = %104
   %111 = landingpad { ptr, i32 }
@@ -1024,10 +1024,10 @@ attributes #17 = { "function-inline-cost-multiplier"="2" }
 !94 = !{!95}
 !95 = distinct !{!95, !96, !"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hc7a8132288d40ac4E: argument 0"}
 !96 = distinct !{!96, !"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hc7a8132288d40ac4E"}
-!97 = !{!95, !83, !79}
-!98 = !{!99, !95, !83, !79}
-!99 = distinct !{!99, !100, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h114cb4be5c338f03E.llvm.11369269461568982580: argument 0"}
-!100 = distinct !{!100, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h114cb4be5c338f03E.llvm.11369269461568982580"}
+!97 = !{!98, !95, !83, !79}
+!98 = distinct !{!98, !99, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h114cb4be5c338f03E.llvm.11369269461568982580: argument 0"}
+!99 = distinct !{!99, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h114cb4be5c338f03E.llvm.11369269461568982580"}
+!100 = !{!95, !83, !79}
 !101 = !{!102}
 !102 = distinct !{!102, !103, !"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_json..value..Value$GT$$GT$17h65afa6f3c280d5c8E.llvm.11369269461568982580: argument 0"}
 !103 = distinct !{!103, !"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_json..value..Value$GT$$GT$17h65afa6f3c280d5c8E.llvm.11369269461568982580"}

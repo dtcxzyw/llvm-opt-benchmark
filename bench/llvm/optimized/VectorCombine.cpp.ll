@@ -6164,7 +6164,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE8containsEPKS1_.exit.i: ; preds = %.lr.ph
 
 2501:                                             ; preds = %2499
   %2502 = load ptr, ptr %2434, align 8, !noalias !49
-  %2503 = load ptr, ptr %17, align 8
+  %2503 = load ptr, ptr %17, align 8, !noalias !49
   %2504 = icmp eq ptr %2502, %2503
   br i1 %2504, label %2505, label %2518
 
@@ -6195,18 +6195,18 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE8containsEPKS1_.exit.i: ; preds = %.lr.ph
   %2516 = add nuw i32 %2506, 1
   store i32 %2516, ptr %2436, align 4, !noalias !49
   store ptr %2460, ptr %2508, align 8, !noalias !49
-  %2517 = load ptr, ptr %17, align 8
+  %2517 = load ptr, ptr %17, align 8, !noalias !49
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
 2518:                                             ; preds = %._crit_edge.i.i88.i, %2501
   %2519 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %17, ptr noundef %2460) #22, !noalias !49
-  %.pre.i84.i = load ptr, ptr %17, align 8
+  %.pre.i84.i = load ptr, ptr %17, align 8, !noalias !49
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %.lr.ph.i.i86.i, %2518, %2515
   %.pre198203.i = phi ptr [ %2517, %2515 ], [ %.pre.i84.i, %2518 ], [ %2503, %.lr.ph.i.i86.i ]
   %2520 = phi ptr [ %2517, %2515 ], [ %.pre.i84.i, %2518 ], [ %2502, %.lr.ph.i.i86.i ]
-  %2521 = load ptr, ptr %2434, align 8
+  %2521 = load ptr, ptr %2434, align 8, !noalias !49
   %2522 = load i8, ptr %2460, align 8
   %2523 = icmp ult i8 %2522, 29
   br i1 %2523, label %.loopexit.i279, label %2524
@@ -22943,7 +22943,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !240
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !240
   store ptr %96, ptr %95, align 8, !noalias !240
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #22

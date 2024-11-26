@@ -1795,7 +1795,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit: ; preds = %_ZNK32pxr
 
 .noexc17:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %100 = load ptr, ptr %99, align 8
+  %100 = load ptr, ptr %99, align 8, !alias.scope !14
   %.not.i.i.i.i.i.i = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i.i.i, label %.critedge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
 

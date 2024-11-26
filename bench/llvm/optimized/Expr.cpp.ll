@@ -4591,7 +4591,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread: ; preds = %93, %86
   %.sroa.6363.0 = phi i32 [ %.sroa.6363.0.copyload, %95 ], [ 0, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread ], [ 0, %70 ], [ 0, %66 ]
   call void @_ZN5clang13MangleContext10mangleNameENS_10GlobalDeclERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(128) %54, i64 %.sroa.0362.0, i32 %.sroa.6363.0, ptr noundef nonnull align 8 dereferenceable(48) %13) #28
   %98 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #28
-  %.pre494 = load ptr, ptr %12, align 8
+  %.pre494 = load ptr, ptr %12, align 8, !noalias !24
   br i1 %98, label %113, label %99
 
 99:                                               ; preds = %97

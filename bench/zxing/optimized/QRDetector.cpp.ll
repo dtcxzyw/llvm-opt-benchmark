@@ -144,7 +144,7 @@ define void @_ZN5ZXing6QRCode11FindPatternERKNS_11PatternViewE(ptr dead_on_unwin
 
 8:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %9 = load ptr, ptr %1, align 8, !noalias !4
+  %9 = load ptr, ptr %1, align 8, !noalias !10
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8, !noalias !10
   %12 = getelementptr inbounds i8, ptr %1, i64 24

@@ -6925,7 +6925,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit26: ; preds = %20, %22
   call void @_ZN5clang4ento16CallEventManager19getCXXAllocatorCallEPKNS_10CXXNewExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextENS_8CFGBlock14ElementRefImplILb1EEE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::CallEventRef.760") align 8 %8, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef %4, ptr noundef nonnull byval(%"class.clang::CFGBlock::ElementRefImpl") align 8 %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %23 = load ptr, ptr %8, align 8
+  %23 = load ptr, ptr %8, align 8, !noalias !66
   store ptr %23, ptr %0, align 8, !alias.scope !66
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %_ZN5clang4ento12CallEventRefINS0_16CXXAllocatorCallEED2Ev.exit, label %24
@@ -6960,7 +6960,7 @@ _ZN5clang4ento12CallEventRefINS0_16CXXAllocatorCallEED2Ev.exit: ; preds = %_ZN4l
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit31: ; preds = %30, %32
   call void @_ZN5clang4ento16CallEventManager21getCXXDeallocatorCallEPKNS_13CXXDeleteExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextENS_8CFGBlock14ElementRefImplILb1EEE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::CallEventRef.762") align 8 %10, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %2, ptr noundef nonnull %11, ptr noundef %4, ptr noundef nonnull byval(%"class.clang::CFGBlock::ElementRefImpl") align 8 %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  %33 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %10, align 8, !noalias !69
   store ptr %33, ptr %0, align 8, !alias.scope !69
   %.not.i.i.i.i32 = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i32, label %_ZN5clang4ento12CallEventRefINS0_18CXXDeallocatorCallEED2Ev.exit, label %34
@@ -6995,7 +6995,7 @@ _ZN5clang4ento12CallEventRefINS0_18CXXDeallocatorCallEED2Ev.exit: ; preds = %_ZN
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit38: ; preds = %40, %42
   call void @_ZN5clang4ento16CallEventManager17getObjCMethodCallEPKNS_15ObjCMessageExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextENS_8CFGBlock14ElementRefImplILb1EEE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::CallEventRef.764") align 8 %12, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull byval(%"class.clang::CFGBlock::ElementRefImpl") align 8 %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %43 = load ptr, ptr %12, align 8
+  %43 = load ptr, ptr %12, align 8, !noalias !72
   store ptr %43, ptr %0, align 8, !alias.scope !72
   %.not.i.i.i.i39 = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i39, label %_ZN5clang4ento12CallEventRefINS0_14ObjCMethodCallEED2Ev.exit, label %44
@@ -11396,11 +11396,11 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZN4llvm9ErrorList2IDE) #18
-  %.pre52 = load ptr, ptr %2, align 8, !noalias !82
+  %.pre52 = load ptr, ptr %2, align 8, !noalias !93
   br i1 %23, label %24, label %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread
 
 24:                                               ; preds = %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
-  store ptr null, ptr %2, align 8, !noalias !93
+  store ptr null, ptr %2, align 8, !noalias !96
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
@@ -11452,9 +11452,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %24, %._
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
   %44 = phi ptr [ null, %17 ], [ %.pre52, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  store ptr %44, ptr %4, align 8, !alias.scope !96
-  store ptr null, ptr %2, align 8, !noalias !96
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
+  store ptr %44, ptr %4, align 8, !alias.scope !93
+  store ptr null, ptr %2, align 8, !noalias !93
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24

@@ -8618,8 +8618,8 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i: ; preds = %3310, %.lr.ph.i
   %3319 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %3312, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %3319, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  %3320 = load ptr, ptr %1001, align 8
-  %3321 = load ptr, ptr %1002, align 8
+  %3320 = load ptr, ptr %1001, align 8, !noalias !220
+  %3321 = load ptr, ptr %1002, align 8, !noalias !220
   %3322 = icmp eq ptr %3320, %3321
   br i1 %3322, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i.i, label %3323
 
@@ -8655,7 +8655,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %3340 = urem i32 %.0.i.i.i.i.i, %3339
   store i32 %3340, ptr %25, align 4, !noalias !220
   %3341 = load ptr, ptr %1005, align 8, !noalias !220
-  %3342 = load ptr, ptr %1004, align 8
+  %3342 = load ptr, ptr %1004, align 8, !noalias !220
   %3343 = ptrtoint ptr %3341 to i64
   %3344 = ptrtoint ptr %3342 to i64
   %3345 = sub i64 %3343, %3344
@@ -10644,8 +10644,8 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i: ; preds = %_ZN5Yosys7hashlib8
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit165.i
 
 _ZNK5Yosys6SigMapclEPNS_5RTLIL4WireE.exit144.i:   ; preds = %_ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i, %.noexc141.i
-  %4245 = load ptr, ptr %30, align 8
-  %4246 = load ptr, ptr %1021, align 8
+  %4245 = load ptr, ptr %30, align 8, !noalias !229
+  %4246 = load ptr, ptr %1021, align 8, !noalias !229
   %4247 = icmp eq ptr %4245, %4246
   br i1 %4247, label %.loopexit1270.thread, label %4248
 
@@ -10664,8 +10664,8 @@ _ZNK5Yosys6SigMapclEPNS_5RTLIL4WireE.exit144.i:   ; preds = %_ZNK5Yosys6SigMap5a
 
 .noexc147.i:                                      ; preds = %4250
   %.pre.i.i.i.i.i = load i64, ptr %1022, align 8, !noalias !229
-  %.pre.i.i.i = load ptr, ptr %1021, align 8
-  %.pre2.i.i.i = load ptr, ptr %30, align 8
+  %.pre.i.i.i = load ptr, ptr %1021, align 8, !noalias !229
+  %.pre2.i.i.i = load ptr, ptr %30, align 8, !noalias !229
   br label %_ZNK5Yosys7hashlib4poolINS_5RTLIL7SigSpecENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.i
 
 _ZNK5Yosys7hashlib4poolINS_5RTLIL7SigSpecENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.i: ; preds = %4248, %.noexc147.i

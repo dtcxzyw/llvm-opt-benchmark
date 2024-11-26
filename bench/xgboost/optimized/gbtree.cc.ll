@@ -22037,7 +22037,7 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %._ZNSt5stackIiSt5de
 
 29:                                               ; preds = %.lr.ph, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit20
   %30 = phi ptr [ %15, %.lr.ph ], [ %119, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit20 ]
-  %31 = load ptr, ptr %19, align 8
+  %31 = load ptr, ptr %19, align 8, !noalias !250
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %36, label %33
 
@@ -22682,7 +22682,7 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %._ZNSt5stackIiSt5de
 
 28:                                               ; preds = %.lr.ph, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit20
   %29 = phi ptr [ %15, %.lr.ph ], [ %120, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit20 ]
-  %30 = load ptr, ptr %19, align 8
+  %30 = load ptr, ptr %19, align 8, !noalias !256
   %31 = icmp eq ptr %29, %30
   br i1 %31, label %35, label %32
 
@@ -22972,7 +22972,7 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %._ZNSt5stackIiSt5de
 
 28:                                               ; preds = %.lr.ph, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit20
   %29 = phi ptr [ %15, %.lr.ph ], [ %120, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit20 ]
-  %30 = load ptr, ptr %19, align 8
+  %30 = load ptr, ptr %19, align 8, !noalias !260
   %31 = icmp eq ptr %29, %30
   br i1 %31, label %35, label %32
 

@@ -2772,9 +2772,9 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %280 = load i8, ptr %279, align 1
   %281 = getelementptr inbounds i8, ptr %.sroa.5350.0, i64 %268
   store i8 %280, ptr %281, align 1
-  %282 = load ptr, ptr %47, align 8
+  %282 = load ptr, ptr %47, align 8, !noalias !15
   %283 = getelementptr inbounds i8, ptr %282, i64 20
-  %284 = load i32, ptr %283, align 4
+  %284 = load i32, ptr %283, align 4, !noalias !15
   %285 = mul i32 %284, %267
   %286 = load ptr, ptr %117, align 8, !noalias !15
   %287 = load ptr, ptr %116, align 8, !noalias !15
@@ -3431,9 +3431,9 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %517 = load i8, ptr %516, align 1
   %518 = getelementptr inbounds i8, ptr %.sroa.5350.0, i64 %506
   store i8 %517, ptr %518, align 1
-  %519 = load ptr, ptr %47, align 8
+  %519 = load ptr, ptr %47, align 8, !noalias !25
   %520 = getelementptr inbounds i8, ptr %519, i64 20
-  %521 = load i32, ptr %520, align 4
+  %521 = load i32, ptr %520, align 4, !noalias !25
   %522 = mul i32 %521, %505
   %523 = load ptr, ptr %355, align 8, !noalias !25
   %524 = load ptr, ptr %354, align 8, !noalias !25

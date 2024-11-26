@@ -203,7 +203,7 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %p, i64 16
-  %0 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %0 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !5
   %cmp.i.i = icmp ult i64 %0, 256
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -332,7 +332,7 @@ lpad.i112:                                        ; preds = %_ZNSt12_Vector_base
   store i8 0, ptr %9, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i157)
   %10 = load i64, ptr %_M_string_length.i.i.i158, align 8
-  %11 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !5
+  %11 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !12
   %cmp.i439 = icmp ult i64 %11, 256
   br i1 %cmp.i439, label %if.then.i468, label %if.else.i440
 
@@ -549,7 +549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #22
   %_M_string_length.i204 = getelementptr inbounds i8, ptr %buffer10, i64 8
   %28 = load i64, ptr %_M_string_length.i204, align 8
-  %29 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !12
+  %29 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !19
   %cmp.i395 = icmp ult i64 %29, 256
   br i1 %cmp.i395, label %if.then.i424, label %if.else.i396
 
@@ -753,7 +753,7 @@ if.then.i.i284:                                   ; preds = %invoke.cont15
 
 .noexc384:                                        ; preds = %if.then.i.i284, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i285
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer10) #22
-  %46 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %46 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !26
   %cmp.i351 = icmp ult i64 %46, 256
   br i1 %cmp.i351, label %.noexc721, label %_ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i303
 
@@ -765,7 +765,7 @@ _ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2EL
 .noexc721:                                        ; preds = %.noexc384, %_ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i303
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer21) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer21, i8 0, i64 24, i1 false)
-  %47 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %47 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !33
   %cmp.i.i683 = icmp ult i64 %47, 256
   br i1 %cmp.i.i683, label %if.then.i.i717, label %if.else.i.i684
 
@@ -885,7 +885,7 @@ lpad.i168:                                        ; preds = %_ZNSt12_Vector_base
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer2) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer2, i8 0, i64 24, i1 false)
   %_M_finish.i388 = getelementptr inbounds i8, ptr %buffer2, i64 8
-  %55 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %55 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !40
   %cmp.i.i567 = icmp ult i64 %55, 256
   br i1 %cmp.i.i567, label %if.then.i.i601, label %if.else.i.i568
 
@@ -1025,7 +1025,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit468:                 ; preds = %_ZNSt6vectorIcSaIcE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer38, i8 0, i64 24, i1 false)
   %_M_finish.i469 = getelementptr inbounds i8, ptr %buffer38, i64 8
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %p232, i64 16
-  %64 = load i64, ptr %_M_string_length.i.i, align 8
+  %64 = load i64, ptr %_M_string_length.i.i, align 8, !noalias !47
   %cmp.i861 = icmp ult i64 %64, 256
   br i1 %cmp.i861, label %if.then.i890, label %if.else.i862
 
@@ -1162,7 +1162,7 @@ if.then.i.i.i514:                                 ; preds = %_ZNSt6vectorIcSaIcE
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %name34) #22
   %call.i = call noalias ptr @fopen(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6)
   store ptr %call.i, ptr %writer, align 8
-  %75 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !19
+  %75 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !52
   %cmp.i338 = icmp ult i64 %75, 256
   br i1 %cmp.i338, label %if.then.i339, label %if.else.i
 
@@ -1197,7 +1197,7 @@ _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serializ
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer46) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer46, i8 0, i64 24, i1 false)
   %_M_finish.i523 = getelementptr inbounds i8, ptr %buffer46, i64 8
-  %78 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %78 = load i64, ptr %_M_string_length.i.i.i, align 8, !noalias !59
   %cmp.i.i626 = icmp ult i64 %78, 256
   br i1 %cmp.i.i626, label %if.then.i.i660, label %if.else.i.i627
 
@@ -1706,7 +1706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i671:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer57, i8 0, i64 24, i1 false)
   %_M_finish.i676 = getelementptr inbounds i8, ptr %buffer57, i64 8
   %_M_string_length.i.i682 = getelementptr inbounds i8, ptr %p2, i64 16
-  %135 = load i64, ptr %_M_string_length.i.i682, align 8
+  %135 = load i64, ptr %_M_string_length.i.i682, align 8, !noalias !66
   %cmp.i812 = icmp ult i64 %135, 256
   br i1 %cmp.i812, label %if.then.i841, label %if.else.i813
 
@@ -2037,7 +2037,7 @@ if.then.i.i.i802:                                 ; preds = %_ZN2tl8expectedISt5
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer71) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer71, i8 0, i64 24, i1 false)
   %_M_finish.i807 = getelementptr inbounds i8, ptr %buffer71, i64 8
-  %172 = load i64, ptr %_M_string_length.i.i682, align 8
+  %172 = load i64, ptr %_M_string_length.i.i682, align 8, !noalias !71
   %cmp.i785 = icmp ult i64 %172, 256
   br i1 %cmp.i785, label %if.then.i793, label %if.else.i786
 
@@ -3861,7 +3861,7 @@ for.body:                                         ; preds = %for.cond
   %5 = load ptr, ptr %3, align 8
   %call.i12 = tail call i64 @fread(ptr noundef %add.ptr, i64 noundef %spec.select, i64 noundef 1, ptr noundef %5)
   %cmp.i13 = icmp eq i64 %call.i12, 1
-  br i1 %cmp.i13, label %for.cond, label %if.then13, !llvm.loop !26
+  br i1 %cmp.i13, label %for.cond, label %if.then13, !llvm.loop !76
 
 if.then13:                                        ; preds = %for.body
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %item, i64 8
@@ -4238,7 +4238,7 @@ for.body:                                         ; preds = %for.cond
   %6 = load ptr, ptr %4, align 8
   %call.i15 = tail call i64 @fread(ptr noundef %add.ptr, i64 noundef %spec.select, i64 noundef 1, ptr noundef %6)
   %cmp.i16 = icmp eq i64 %call.i15, 1
-  br i1 %cmp.i16, label %for.cond, label %if.then23, !llvm.loop !28
+  br i1 %cmp.i16, label %for.cond, label %if.then23, !llvm.loop !78
 
 if.then23:                                        ; preds = %for.body
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %item, i64 8
@@ -5103,6 +5103,56 @@ attributes #26 = { noreturn nounwind }
 !23 = distinct !{!23, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
 !24 = distinct !{!24, !25, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_: %agg.result"}
 !25 = distinct !{!25, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_"}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
+!26 = !{!27, !29, !31}
+!27 = distinct !{!27, !28, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!28 = distinct !{!28, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!29 = distinct !{!29, !30, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!30 = distinct !{!30, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!31 = distinct !{!31, !32, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_: %agg.result"}
+!32 = distinct !{!32, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_"}
+!33 = !{!34, !36, !38}
+!34 = distinct !{!34, !35, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!35 = distinct !{!35, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!36 = distinct !{!36, !37, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!37 = distinct !{!37, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!38 = distinct !{!38, !39, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_: %agg.result"}
+!39 = distinct !{!39, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_"}
+!40 = !{!41, !43, !45}
+!41 = distinct !{!41, !42, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!42 = distinct !{!42, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!43 = distinct !{!43, !44, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!44 = distinct !{!44, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!45 = distinct !{!45, !46, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_: %agg.result"}
+!46 = distinct !{!46, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_"}
+!47 = !{!48, !50}
+!48 = distinct !{!48, !49, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!49 = distinct !{!49, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!50 = distinct !{!50, !51, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!51 = distinct !{!51, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!52 = !{!53, !55, !57}
+!53 = distinct !{!53, !54, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!54 = distinct !{!54, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!55 = distinct !{!55, !56, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!56 = distinct !{!56, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!57 = distinct !{!57, !58, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_: %agg.result"}
+!58 = distinct !{!58, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_"}
+!59 = !{!60, !62, !64}
+!60 = distinct !{!60, !61, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!61 = distinct !{!61, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!62 = distinct !{!62, !63, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!63 = distinct !{!63, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!64 = distinct !{!64, !65, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_: %agg.result"}
+!65 = distinct !{!65, !"_ZN11struct_pack6detail18calculate_one_sizeI6personLm0EEE9size_infoRKT_"}
+!66 = !{!67, !69}
+!67 = distinct !{!67, !68, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!68 = distinct !{!68, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!69 = distinct !{!69, !70, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!70 = distinct !{!70, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!71 = !{!72, !74}
+!72 = distinct !{!72, !73, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_: %agg.result"}
+!73 = distinct !{!73, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
+!74 = distinct !{!74, !75, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
+!75 = distinct !{!75, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
+!76 = distinct !{!76, !77}
+!77 = !{!"llvm.loop.mustprogress"}
+!78 = distinct !{!78, !77}

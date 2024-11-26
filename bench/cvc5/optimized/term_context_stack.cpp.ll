@@ -359,7 +359,7 @@ cond.end:
   %arrayidx.i.i416 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i415
   %4 = load ptr, ptr %arrayidx.i.i416, align 8, !noalias !6
   store ptr %4, ptr %ref.tmp29, align 8, !alias.scope !6
-  %bf.load.i.i.i = load i64, ptr %4, align 8
+  %bf.load.i.i.i = load i64, ptr %4, align 8, !noalias !6
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %5 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %5, 1048575
@@ -1114,7 +1114,7 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 -16
   %1 = load ptr, ptr %add.ptr.i.i.i, align 8, !noalias !10
   store ptr %1, ptr %curr, align 8, !alias.scope !10
-  %bf.load.i.i.i.i = load i64, ptr %1, align 8
+  %bf.load.i.i.i.i = load i64, ptr %1, align 8, !noalias !10
   %bf.lshr.i.i.i.i = lshr i64 %bf.load.i.i.i.i, 40
   %2 = trunc nuw nsw i64 %bf.lshr.i.i.i.i to i32
   %bf.cast.i.i.i.i = and i32 %2, 1048575

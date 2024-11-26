@@ -398,7 +398,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %25 = getelementptr inbounds i8, ptr %1, i64 40
   %.val179 = load ptr, ptr %25, align 8, !nonnull !14, !noundef !14
   %26 = getelementptr inbounds i8, ptr %.val179, i64 24
-  %27 = load ptr, ptr %26, align 8, !invariant.load !14, !noalias !14, !nonnull !14
+  %27 = load ptr, ptr %26, align 8, !invariant.load !14, !noalias !124, !nonnull !14
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 1 %.val178, ptr noalias noundef nonnull readonly align 1 @anon.b1f18bcfaa6eebcdd00c9bf773d8bb51.12, i64 noundef 14), !noalias !124
   br i1 %28, label %85, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180
 

@@ -2388,13 +2388,13 @@ _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %4
   store i64 %258, ptr %50, align 8
   store i8 0, ptr %213, align 8
   call void @_ZNK4llvm20IndexedMemProfReader16getMemProfRecordEm(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.334") align 8 %52, ptr noundef nonnull align 8 dereferenceable(288) %214, i64 noundef %258) #19
-  %259 = load i8, ptr %215, align 8
+  %259 = load i8, ptr %215, align 8, !noalias !63
   %260 = trunc i8 %259 to i1
   br i1 %260, label %263, label %261
 
 261:                                              ; preds = %251
   %262 = call noundef nonnull align 8 dereferenceable(272) ptr @_ZNSt8optionalIN4llvm7memprof13MemProfRecordEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_(ptr noundef nonnull align 8 dereferenceable(272) %51, ptr noundef nonnull align 8 dereferenceable(265) %52), !noalias !63
-  %.pre.i.i = load i8, ptr %215, align 8
+  %.pre.i.i = load i8, ptr %215, align 8, !noalias !66
   br label %263
 
 263:                                              ; preds = %261, %251
@@ -8246,11 +8246,11 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZN4llvm9ErrorList2IDE) #19
-  %.pre52 = load ptr, ptr %2, align 8, !noalias !10
+  %.pre52 = load ptr, ptr %2, align 8, !noalias !97
   br i1 %23, label %24, label %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread
 
 24:                                               ; preds = %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
-  store ptr null, ptr %2, align 8, !noalias !97
+  store ptr null, ptr %2, align 8, !noalias !100
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
@@ -8302,9 +8302,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %24, %._
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
   %44 = phi ptr [ null, %17 ], [ %.pre52, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  store ptr %44, ptr %4, align 8, !alias.scope !100
-  store ptr null, ptr %2, align 8, !noalias !100
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  store ptr %44, ptr %4, align 8, !alias.scope !97
+  store ptr null, ptr %2, align 8, !noalias !97
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24

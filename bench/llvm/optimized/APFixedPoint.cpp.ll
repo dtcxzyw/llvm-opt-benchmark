@@ -568,7 +568,7 @@ _ZN4llvm6APSIntD2Ev.exit31:                       ; preds = %65, %62, %_ZNK4llvm
 
 77:                                               ; preds = %_ZN4llvm6APSIntD2Ev.exit31
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %13, i64 noundef 0, i1 noundef zeroext false) #16
-  %.pre.i = load i32, ptr %74, align 8
+  %.pre.i = load i32, ptr %74, align 8, !alias.scope !10
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %77, %76
@@ -804,7 +804,7 @@ _ZN4llvm5APIntD2Ev.exit38:                        ; preds = %_ZN4llvm6APSIntaSEN
   %175 = load i32, ptr %2, align 4
   %176 = and i32 %175, 536870912
   %.not80 = icmp eq i32 %176, 0
-  %.pre88 = load i8, ptr %25, align 4
+  %.pre88 = load i8, ptr %25, align 4, !noalias !19
   br i1 %.not80, label %177, label %_ZN4llvm6APSIntaSEm.exit
 
 177:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit38
@@ -1015,7 +1015,7 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit:          ; preds = %2, %17
   %18 = phi i32 [ %.pre.i, %17 ], [ %15, %2 ]
   %.pre1.i = load i64, ptr %.sink.i, align 8, !noalias !22
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i32, ptr %19, align 8
+  %20 = load i32, ptr %19, align 8, !noalias !22
   %21 = and i32 %20, 536870912
   %.not.i = icmp eq i32 %21, 0
   %22 = zext i1 %.not.i to i8
@@ -1049,7 +1049,7 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit25:        ; preds = %_ZNK4llvm12APFixedP
   %33 = phi i32 [ %.pre.i21, %29 ], [ %27, %_ZNK4llvm12APFixedPoint8getValueEv.exit ]
   %.pre1.i23 = load i64, ptr %.sink.i22, align 8, !noalias !25
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load i32, ptr %34, align 8
+  %35 = load i32, ptr %34, align 8, !noalias !25
   %36 = and i32 %35, 536870912
   %.not.i24 = icmp eq i32 %36, 0
   %37 = zext i1 %.not.i24 to i8
@@ -1442,7 +1442,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i:     ; preds = %21
 
 _ZN4llvm5APInt10getAllOnesEj.exit.i.i:            ; preds = %21
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %4, i64 noundef -1, i1 noundef zeroext true) #16, !noalias !40
-  %.pre.i.i = load i32, ptr %10, align 8, !noalias !40
+  %.pre.i.i = load i32, ptr %10, align 8, !alias.scope !43, !noalias !40
   %31 = icmp ult i32 %.pre.i.i, 65
   %32 = add nsw i32 %9, -1
   %33 = and i32 %32, 63
@@ -1837,7 +1837,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19FixedPointSemantics20fitsInFloat
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8
+  %12 = load i32, ptr %11, align 8, !noalias !55
   store i32 %12, ptr %10, align 8, !noalias !55
   %13 = icmp ult i32 %12, 65
   br i1 %13, label %_ZNK4llvm12APFixedPoint8getValueEv.exit, label %14
@@ -1922,7 +1922,7 @@ _ZN4llvm7APFloat16convertFromAPIntERKNS_5APIntEbNS_12RoundingModeE.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %45 = load i32, ptr %44, align 8
+  %45 = load i32, ptr %44, align 8, !noalias !58
   store i32 %45, ptr %43, align 8, !noalias !58
   %46 = icmp ult i32 %45, 65
   br i1 %46, label %_ZNK4llvm12APFixedPoint8getValueEv.exit11, label %47
@@ -4556,7 +4556,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i.i:                ; preds = %_ZN4llvm5APIntD2Ev.exit
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(13) %13) #16, !noalias !118
-  %.pr.i.i.i = load i32, ptr %53, align 8, !noalias !118
+  %.pr.i.i.i = load i32, ptr %53, align 8, !alias.scope !121, !noalias !118
   %55 = icmp ult i32 %.pr.i.i.i, 65
   br i1 %55, label %_ZN4llvm5APIntC2ERKS0_.exit.i.i.i._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i.i_crit_edge, label %67
 
@@ -5036,7 +5036,7 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit:          ; preds = %2, %22
   %23 = phi i32 [ %.pre.i, %22 ], [ %20, %2 ]
   %.pre1.i = load i64, ptr %.sink.i, align 8, !noalias !138
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i32, ptr %24, align 8
+  %25 = load i32, ptr %24, align 8, !noalias !138
   %26 = and i32 %25, 536870912
   %.not.i = icmp eq i32 %26, 0
   %27 = zext i1 %.not.i to i8
@@ -5662,7 +5662,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i:             ; preds = %10
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %10
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1) #16
-  %.pr.i = load i32, ptr %11, align 8
+  %.pr.i = load i32, ptr %11, align 8, !alias.scope !164
   %15 = icmp ult i32 %.pr.i, 65
   br i1 %15, label %16, label %23
 
@@ -5693,7 +5693,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %10
 
 _ZN4llvm5APIntC2ERKS0_.exit.i5:                   ; preds = %24
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %1) #16
-  %.pr.i6 = load i32, ptr %25, align 8
+  %.pr.i6 = load i32, ptr %25, align 8, !alias.scope !167
   %28 = icmp ult i32 %.pr.i6, 65
   br i1 %28, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, label %42
 

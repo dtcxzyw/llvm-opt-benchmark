@@ -7743,7 +7743,7 @@ entry:
   call void @_ZN4llvh6detail9IEEEFloatC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %u, ptr noundef nonnull align 8 dereferenceable(24) %extended)
   %call2 = call noundef i32 @_ZN4llvh6detail9IEEEFloat7convertERKNS_12fltSemanticsENS_11APFloatBase12roundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24) %u, ptr noundef nonnull align 4 dereferenceable(12) @_ZN4llvhL13semIEEEdoubleE, i32 noundef 0, ptr noundef nonnull %losesInfo)
   %category.i.i.i.i = getelementptr inbounds i8, ptr %u, i64 18
-  %bf.load.i.i.i.i = load i8, ptr %category.i.i.i.i, align 2
+  %bf.load.i.i.i.i = load i8, ptr %category.i.i.i.i, align 2, !noalias !42
   %bf.clear.i.i.i.i = and i8 %bf.load.i.i.i.i, 6
   %1 = icmp ne i8 %bf.clear.i.i.i.i, 0
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i.i, 7

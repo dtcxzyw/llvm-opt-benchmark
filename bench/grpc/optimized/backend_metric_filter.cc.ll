@@ -3064,19 +3064,19 @@ entry:
   call void %2(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i.i, ptr noundef nonnull %arg.i.i.i), !noalias !34
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %3 = load i8, ptr %ref.tmp.i.i, align 8, !noalias !34
+  %3 = load i8, ptr %ref.tmp.i.i, align 8, !noalias !41
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   %frombool.i.i.i.i.i = and i8 %3, 1
-  store i8 %frombool.i.i.i.i.i, ptr %r.i, align 8, !alias.scope !41, !noalias !28
+  store i8 %frombool.i.i.i.i.i, ptr %r.i, align 8, !alias.scope !42, !noalias !28
   br i1 %tobool.i.i.i.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %r.i, i64 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %6 = load i8, ptr %5, align 8, !noalias !42
-  store i8 %6, ptr %4, align 8, !alias.scope !41, !noalias !28
+  %6 = load i8, ptr %5, align 8, !noalias !41
+  store i8 %6, ptr %4, align 8, !alias.scope !42, !noalias !28
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %7 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !42
+  %7 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i), !noalias !28
   %fn_.i = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %6, ptr %agg.tmp.i, align 8, !noalias !28
@@ -3475,8 +3475,8 @@ attributes #25 = { builtin nounwind }
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN9grpc_core14promise_detail11PollWrapperINS_4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEE4WrapEOS8_: %agg.result"}
 !40 = distinct !{!40, !"_ZN9grpc_core14promise_detail11PollWrapperINS_4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEE4WrapEOS8_"}
-!41 = !{!39, !36, !26}
-!42 = !{!39, !36, !26, !29}
+!41 = !{!39, !36, !26, !29}
+!42 = !{!39, !36, !26}
 !43 = !{!44, !29}
 !44 = distinct !{!44, !45, !"_ZZN9grpc_core19BackendMetricFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEENK3$_0clES8_: %agg.result"}
 !45 = distinct !{!45, !"_ZZN9grpc_core19BackendMetricFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEENK3$_0clES8_"}

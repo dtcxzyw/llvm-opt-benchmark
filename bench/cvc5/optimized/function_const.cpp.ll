@@ -4955,7 +4955,7 @@ call2.i.i.i779.noexc:                             ; preds = %cond.true131
   %idxprom.i.i784 = zext i1 %cmp.i.i780 to i64
   %arrayidx.i.i785 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i783, i64 0, i64 %idxprom.i.i784
   %97 = load ptr, ptr %arrayidx.i.i785, align 8, !noalias !107
-  %bf.load.i.i.i786 = load i64, ptr %97, align 8
+  %bf.load.i.i.i786 = load i64, ptr %97, align 8, !noalias !107
   %bf.lshr.i.i.i787 = lshr i64 %bf.load.i.i.i786, 40
   %98 = trunc nuw nsw i64 %bf.lshr.i.i.i787 to i32
   %bf.cast.i.i.i788 = and i32 %98, 1048575
@@ -6931,7 +6931,7 @@ lpad.i.i2292:                                     ; preds = %init.i.i2290
 _ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit2298: ; preds = %if.end450, %init.check.i.i2288, %invoke.cont.i.i2293
   %277 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %277, ptr %curr_index, align 8
-  %.pre4593 = load ptr, ptr %index_eq, align 8, !noalias !119
+  %.pre4593 = load ptr, ptr %index_eq, align 8, !noalias !141
   %d_kind.i.i.i.i2299 = getelementptr inbounds i8, ptr %.pre4593, i64 8
   %d_children.i.i2309 = getelementptr inbounds i8, ptr %.pre4593, i64 16
   br label %for.body454

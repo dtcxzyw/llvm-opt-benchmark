@@ -8227,8 +8227,8 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i: ; preds =
           to label %.noexc1047 unwind label %.loopexit.split-lp.loopexit
 
 .noexc1047:                                       ; preds = %3336
-  %3337 = load ptr, ptr %146, align 8
-  %3338 = load ptr, ptr %3304, align 8
+  %3337 = load ptr, ptr %146, align 8, !noalias !166
+  %3338 = load ptr, ptr %3304, align 8, !noalias !166
   %3339 = icmp eq ptr %3337, %3338
   br i1 %3339, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i.i, label %3340
 
@@ -8259,7 +8259,7 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i.i: ; preds = %334
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i
   %3354 = load ptr, ptr %3305, align 8, !noalias !166
-  %3355 = load i32, ptr %150, align 4
+  %3355 = load i32, ptr %150, align 4, !noalias !166
   br label %3356
 
 3356:                                             ; preds = %3361, %.lr.ph.i.i
@@ -8423,8 +8423,8 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i1062: ; pre
           to label %.noexc1063 unwind label %.loopexit.split-lp.loopexit
 
 .noexc1063:                                       ; preds = %3431
-  %3432 = load ptr, ptr %146, align 8
-  %3433 = load ptr, ptr %3304, align 8
+  %3432 = load ptr, ptr %146, align 8, !noalias !170
+  %3433 = load ptr, ptr %3304, align 8, !noalias !170
   %3434 = icmp eq ptr %3432, %3433
   br i1 %3434, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i.i1060, label %3435
 
@@ -8493,8 +8493,8 @@ _ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE6insertERKi.exit1065: ; preds = %3451,
 
 3467:                                             ; preds = %3461
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %3468 = load ptr, ptr %146, align 8
-  %3469 = load ptr, ptr %3304, align 8
+  %3468 = load ptr, ptr %146, align 8, !noalias !173
+  %3469 = load ptr, ptr %3304, align 8, !noalias !173
   %3470 = icmp eq ptr %3468, %3469
   br i1 %3470, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i1075, label %3471
 
@@ -8523,8 +8523,8 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i1075: ; pre
           to label %.noexc1076 unwind label %.loopexit.split-lp.loopexit
 
 .noexc1076:                                       ; preds = %3484
-  %3485 = load ptr, ptr %146, align 8
-  %3486 = load ptr, ptr %3304, align 8
+  %3485 = load ptr, ptr %146, align 8, !noalias !173
+  %3486 = load ptr, ptr %3304, align 8, !noalias !173
   %3487 = icmp eq ptr %3485, %3486
   br i1 %3487, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i.i1073, label %3488
 

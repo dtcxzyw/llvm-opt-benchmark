@@ -13217,7 +13217,7 @@ do.body:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp15.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp31.i)
   call void @_ZN5arrow8internal7ListDirERKNS0_16PlatformFilenameE(ptr nonnull sret(%"class.arrow::Result.20") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %path), !noalias !353
-  %0 = load ptr, ptr %ref.tmp.i, align 8
+  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !353
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %invoke.cont6.i, label %cond.false.i
 
@@ -13317,7 +13317,7 @@ lpad16.i.body:                                    ; preds = %lpad.i134, %lpad16.
 
 _ZN5arrow6StatusD2Ev.exit174:                     ; preds = %_ZN5arrow6StatusD2Ev.exit212
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i132)
-  %14 = load i32, ptr %st_mode.i, align 8
+  %14 = load i32, ptr %st_mode.i, align 8, !noalias !364
   %and.i = and i32 %14, 61440
   %cmp.i133 = icmp eq i32 %and.i, 16384
   br i1 %cmp.i133, label %if.then.i136, label %if.end.i

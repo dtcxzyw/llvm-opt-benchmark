@@ -1520,7 +1520,7 @@ _ZNK5clang4ento10ExprEngine16getCFGElementRefEv.exit401: ; preds = %_ZN4llvm18In
   %418 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %417, ptr %418, align 8
   call void @_ZN5clang4ento16CallEventManager21getCXXConstructorCallEPKNS_16CXXConstructExprEPKNS0_9MemRegionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextENS_8CFGBlock14ElementRefImplILb1EEE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::CallEventRef.647") align 8 %26, ptr noundef nonnull align 8 dereferenceable(88) %376, ptr noundef nonnull %372, ptr noundef null, ptr noundef nonnull %27, ptr noundef %4, ptr noundef nonnull byval(%"class.clang::CFGBlock::ElementRefImpl") align 8 %28)
-  %419 = load ptr, ptr %26, align 8
+  %419 = load ptr, ptr %26, align 8, !noalias !7
   %.not.i.i.i.i = icmp eq ptr %419, null
   br i1 %.not.i.i.i.i, label %_ZN5clang4ento12CallEventRefINS0_18CXXConstructorCallEED2Ev.exit, label %420
 
@@ -1605,7 +1605,7 @@ _ZNK5clang4ento10ExprEngine16getCFGElementRefEv.exit417: ; preds = %_ZN4llvm18In
   %448 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 %447, ptr %448, align 8
   call void @_ZN5clang4ento16CallEventManager17getObjCMethodCallEPKNS_15ObjCMessageExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextENS_8CFGBlock14ElementRefImplILb1EEE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::CallEventRef.649") align 8 %31, ptr noundef nonnull align 8 dereferenceable(88) %376, ptr noundef nonnull %372, ptr noundef nonnull %32, ptr noundef %4, ptr noundef nonnull byval(%"class.clang::CFGBlock::ElementRefImpl") align 8 %33)
-  %449 = load ptr, ptr %31, align 8
+  %449 = load ptr, ptr %31, align 8, !noalias !10
   %.not.i.i.i.i418 = icmp eq ptr %449, null
   br i1 %.not.i.i.i.i418, label %_ZN5clang4ento12CallEventRefINS0_14ObjCMethodCallEED2Ev.exit, label %450
 
@@ -7694,7 +7694,7 @@ _ZN4llvm6detail12DenseSetImplIPN5clang4ento12ExplodedNodeENS_8DenseMapIS5_NS0_13
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ento12ExplodedNodeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !70
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !70
   store ptr %96, ptr %95, align 8, !noalias !70
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #14

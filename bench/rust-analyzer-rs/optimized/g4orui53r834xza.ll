@@ -189,7 +189,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$text_edit..TextEdit$GT$17h2a
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !alias.scope !119, !nonnull !4, !noundef !4
+  %3 = load ptr, ptr %2, align 8, !alias.scope !125, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !125, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
@@ -309,7 +309,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$text_edit..TextEditBuilder$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !alias.scope !210, !nonnull !4, !noundef !4
+  %3 = load ptr, ptr %2, align 8, !alias.scope !216, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !216, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
@@ -446,7 +446,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$
 define hidden void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$text_edit..Indel$GT$$GT$17hd08795472a68013aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
+  %3 = load ptr, ptr %2, align 8, !alias.scope !264, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !264, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)

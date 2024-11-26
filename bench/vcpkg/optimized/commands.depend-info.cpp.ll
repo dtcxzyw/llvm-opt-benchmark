@@ -3014,7 +3014,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
           to label %"_ZZN12_GLOBAL__N_119extract_depend_infoERKSt6vectorIPKN5vcpkg17InstallPlanActionESaIS4_EEiENK3$_0clB5cxx11ERKNS1_11PackageSpecE.exit.i" unwind label %.loopexit.i
 
 "_ZZN12_GLOBAL__N_119extract_depend_infoERKSt6vectorIPKN5vcpkg17InstallPlanActionESaIS4_EEiENK3$_0clB5cxx11ERKNS1_11PackageSpecE.exit.i": ; preds = %.noexc.i
-  %58 = load ptr, ptr %25, align 8
+  %58 = load ptr, ptr %25, align 8, !alias.scope !55
   %59 = load ptr, ptr %24, align 8, !alias.scope !55
   %.not.i.i = icmp eq ptr %58, %59
   br i1 %.not.i.i, label %63, label %60

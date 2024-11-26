@@ -5372,7 +5372,7 @@ _ZSteqIPN4llvm17MachineBasicBlockESt8optionalIPS2_EEbRKSt4pairIT_T0_ESB_.exit.i.
 .thread.i.i:                                      ; preds = %1187, %1160
   %.sink.i.i.i.i.i.i = phi ptr [ %1188, %1187 ], [ null, %1160 ]
   %1198 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sink.i.i.i.i.i.i), !noalias !87
-  %1199 = load ptr, ptr %10, align 8
+  %1199 = load ptr, ptr %10, align 8, !noalias !87
   store ptr %1199, ptr %1198, align 8, !noalias !87
   br label %_ZN4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit.i.i
 
@@ -5451,7 +5451,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13Dens
 .thread164.i.i:                                   ; preds = %1231, %1203
   %.sink.i.i.i.i88.i.i = phi ptr [ %1232, %1231 ], [ null, %1203 ]
   %1242 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sink.i.i.i.i88.i.i), !noalias !93
-  %1243 = load ptr, ptr %10, align 8
+  %1243 = load ptr, ptr %10, align 8, !noalias !93
   store ptr %1243, ptr %1242, align 8, !noalias !93
   br label %_ZNK4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit73.i.i
 
@@ -17540,7 +17540,7 @@ _ZN4llvm20filter_iterator_implIPNS_14MachineOperandESt8functionIFbRS1_EESt26bidi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.16..sroa_idx, i8 0, i64 24, i1 false), !noalias !277
   %102 = load ptr, ptr %101, align 8, !noalias !277
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %104 = load ptr, ptr %103, align 8
+  %104 = load ptr, ptr %103, align 8, !noalias !277
   %.not.i.i.not.i.i.i.i = icmp eq ptr %104, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm20filter_iterator_implIPNS_14MachineOperandESt8functionIFbRS1_EESt26bidirectional_iterator_tagEC2EOS8_.exit.i, label %105
 
@@ -17558,7 +17558,7 @@ _ZN4llvm20filter_iterator_implIPNS_14MachineOperandESt8functionIFbRS1_EESt26bidi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i, i8 0, i64 16, i1 false), !noalias !277
   %111 = load ptr, ptr %110, align 8, !noalias !277
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %113 = load ptr, ptr %112, align 8
+  %113 = load ptr, ptr %112, align 8, !noalias !277
   %.not.i.i.not.i.i.i1.i = icmp eq ptr %113, null
   br i1 %.not.i.i.not.i.i.i1.i, label %_ZN4llvm20filter_iterator_implIPNS_14MachineOperandESt8functionIFbRS1_EESt26bidirectional_iterator_tagEC2EOS8_.exit2.i, label %114
 

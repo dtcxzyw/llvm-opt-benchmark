@@ -1834,7 +1834,7 @@ if.end11:                                         ; preds = %cleanup.cont
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %23 = load ptr, ptr %files_.i, align 8
+  %23 = load ptr, ptr %files_.i, align 8, !noalias !32
   %capacity_.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 24
   %24 = load i64, ptr %capacity_.i.i.i.i.i10, align 8, !noalias !32
   %shr.i.i.i.i.i.i11 = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -2173,7 +2173,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %files_.i, align 8, !noalias !42
+  %1 = load ptr, ptr %files_.i, align 8, !noalias !55
   %capacity_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %2 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !55
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7

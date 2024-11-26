@@ -1128,7 +1128,7 @@ _ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc10, %121
           to label %.noexc13 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc13:                                         ; preds = %.noexc12
-  %134 = load ptr, ptr %15, align 8, !noalias !11
+  %134 = load ptr, ptr %15, align 8, !alias.scope !17, !noalias !11
   %135 = icmp eq ptr %134, null
   %136 = icmp eq i64 %133, 0
   %or.cond.i.i.i.i = or i1 %136, %135
@@ -1302,7 +1302,7 @@ _ZN2cv3Mat5beginINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.no
           to label %.noexc20 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc20:                                         ; preds = %.noexc19
-  %197 = load ptr, ptr %18, align 8, !noalias !11
+  %197 = load ptr, ptr %18, align 8, !alias.scope !25, !noalias !11
   %198 = icmp eq ptr %197, null
   %199 = icmp eq i64 %196, 0
   %or.cond.i.i.i40.i = or i1 %199, %198

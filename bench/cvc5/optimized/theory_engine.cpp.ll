@@ -14665,7 +14665,7 @@ if.end15.i.i.i:                                   ; preds = %if.end304
 call.i.i.i.i.i.noexc:                             ; preds = %if.end15.i.i.i
   %xor.i.i.i.i.i.i = xor i64 %call.i.i.i.i.i1163, -3750763034362895579
   %add10.i.i.i.i.i.i = mul i64 %xor.i.i.i.i.i.i, 1099511628211
-  %141 = load i32, ptr %d_theory.i, align 8
+  %141 = load i32, ptr %d_theory.i, align 8, !noalias !90
   %conv.i.i.i.i.i = zext i32 %141 to i64
   %xor.i2.i.i.i.i.i = xor i64 %add10.i.i.i.i.i.i, %conv.i.i.i.i.i
   %add10.i3.i.i.i.i.i = mul i64 %xor.i2.i.i.i.i.i, 1099511628211
@@ -19052,7 +19052,7 @@ call2.i.i.i.noexc52:                              ; preds = %invoke.cont
   %spec.select.i.i = select i1 %cmp.i.i34, i64 2, i64 1
   %arrayidx.i.i38 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %spec.select.i.i
   %8 = load ptr, ptr %arrayidx.i.i38, align 8, !noalias !125
-  %bf.load.i.i.i39 = load i64, ptr %8, align 8
+  %bf.load.i.i.i39 = load i64, ptr %8, align 8, !noalias !125
   %bf.lshr.i.i.i40 = lshr i64 %bf.load.i.i.i39, 40
   %9 = trunc nuw nsw i64 %bf.lshr.i.i.i40 to i32
   %bf.cast.i.i.i41 = and i32 %9, 1048575
@@ -19747,7 +19747,7 @@ call2.i.i.i.noexc455:                             ; preds = %invoke.cont102
   %idxprom.i.i440 = zext i1 %cmp.i.i436 to i64
   %arrayidx.i.i441 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i380, i64 0, i64 %idxprom.i.i440
   %75 = load ptr, ptr %arrayidx.i.i441, align 8, !noalias !155
-  %bf.load.i.i.i442 = load i64, ptr %75, align 8
+  %bf.load.i.i.i442 = load i64, ptr %75, align 8, !noalias !155
   %bf.lshr.i.i.i443 = lshr i64 %bf.load.i.i.i442, 40
   %76 = trunc nuw nsw i64 %bf.lshr.i.i.i443 to i32
   %bf.cast.i.i.i444 = and i32 %76, 1048575
@@ -22804,7 +22804,7 @@ if.then62:                                        ; preds = %land.lhs.true
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %34 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !185
   store ptr %34, ptr %ref.tmp64, align 8, !alias.scope !185
-  %bf.load.i.i.i124 = load i64, ptr %34, align 8
+  %bf.load.i.i.i124 = load i64, ptr %34, align 8, !noalias !185
   %bf.lshr.i.i.i125 = lshr i64 %bf.load.i.i.i124, 40
   %35 = trunc nuw nsw i64 %bf.lshr.i.i.i125 to i32
   %bf.cast.i.i.i126 = and i32 %35, 1048575
@@ -23085,7 +23085,7 @@ if.else84:                                        ; preds = %for.end
   call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %58 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !193
   store ptr %58, ptr %ref.tmp86, align 8, !alias.scope !193
-  %bf.load.i.i.i215 = load i64, ptr %58, align 8
+  %bf.load.i.i.i215 = load i64, ptr %58, align 8, !noalias !193
   %bf.lshr.i.i.i216 = lshr i64 %bf.load.i.i.i215, 40
   %59 = trunc nuw nsw i64 %bf.lshr.i.i.i216 to i32
   %bf.cast.i.i.i217 = and i32 %59, 1048575
@@ -23957,7 +23957,7 @@ for.end230:                                       ; preds = %_ZN4cvc58internal12
   call void @llvm.experimental.noalias.scope.decl(metadata !209)
   %153 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !209
   store ptr %153, ptr %ref.tmp232, align 8, !alias.scope !209
-  %bf.load.i.i.i557 = load i64, ptr %153, align 8
+  %bf.load.i.i.i557 = load i64, ptr %153, align 8, !noalias !209
   %bf.lshr.i.i.i558 = lshr i64 %bf.load.i.i.i557, 40
   %154 = trunc nuw nsw i64 %bf.lshr.i.i.i558 to i32
   %bf.cast.i.i.i559 = and i32 %154, 1048575

@@ -6416,7 +6416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
   %131 = getelementptr inbounds i8, ptr %130, i64 %114
   store i8 0, ptr %131, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %132 = load i64, ptr %36, align 8
+  %132 = load i64, ptr %36, align 8, !alias.scope !40
   %133 = icmp eq i64 %132, 9223372036854775807
   br i1 %133, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
 
@@ -6430,7 +6430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %.noexc
   %135 = add nsw i64 %132, 1
-  %136 = load ptr, ptr %14, align 8
+  %136 = load ptr, ptr %14, align 8, !alias.scope !40
   %137 = icmp eq ptr %136, %35
   br i1 %137, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.thread
 
@@ -6441,7 +6441,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; 
   br i1 %.not.i.i.i41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %140
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
-  %139 = load i64, ptr %35, align 8
+  %139 = load i64, ptr %35, align 8, !alias.scope !40
   %.not.i.i.i41280 = icmp ugt i64 %135, %139
   br i1 %.not.i.i.i41280, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %140
 

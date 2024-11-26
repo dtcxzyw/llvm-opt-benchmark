@@ -80044,7 +80044,7 @@ _ZN5osgeo4proj4util8optionalINS0_6common9DataEpochEEC2Ev.exit877: ; preds = %_ZN
   %2804 = getelementptr inbounds i8, ptr %2801, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation39MyPROJStringExportableHorizNullVerticalE, i64 16), ptr %2804, align 8, !noalias !239
   %2805 = getelementptr inbounds i8, ptr %2801, i64 24
-  %2806 = load ptr, ptr %.sroa.01076.01449, align 8, !noalias !233
+  %2806 = load ptr, ptr %.sroa.01076.01449, align 8, !noalias !239
   store ptr %2806, ptr %2805, align 8, !noalias !239
   %2807 = getelementptr inbounds i8, ptr %2801, i64 32
   %2808 = getelementptr inbounds i8, ptr %.sroa.01076.01449, i64 8

@@ -54566,7 +54566,7 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i22: ; preds = %55
 .preheader.i:                                     ; preds = %61
   %65 = load i64, ptr %20, align 8
   %66 = icmp sgt i64 %65, 0
-  %.pre89 = load ptr, ptr %18, align 8
+  %.pre89 = load ptr, ptr %18, align 8, !noalias !462
   br i1 %66, label %.lr.ph.i, label %.loopexit87
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -176985,7 +176985,7 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i22: ; preds = %55
 .preheader.i:                                     ; preds = %61
   %65 = load i64, ptr %20, align 8
   %66 = icmp sgt i64 %65, 0
-  %.pre89 = load ptr, ptr %18, align 8
+  %.pre89 = load ptr, ptr %18, align 8, !noalias !1447
   br i1 %66, label %.lr.ph.i, label %.loopexit87
 
 .lr.ph.i:                                         ; preds = %.preheader.i

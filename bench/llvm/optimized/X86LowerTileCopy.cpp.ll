@@ -525,7 +525,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit: ; preds = %164
   %199 = load ptr, ptr %67, align 8
   %200 = zext nneg i32 %191 to i64
   %201 = call noundef i32 @_ZN4llvm16MachineFrameInfo22CreateSpillStackObjectEmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(696) %199, i64 noundef %200, i8 %198) #12
-  %202 = load i32, ptr %68, align 8
+  %202 = load i32, ptr %68, align 8, !noalias !6
   %203 = icmp eq i32 %202, 0
   br i1 %203, label %.thread, label %204
 

@@ -9602,7 +9602,7 @@ _ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit: ; preds = %6, %7
 10:                                               ; preds = %_ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit
   call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %11 = call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !alias.scope !222
   %13 = icmp eq ptr %12, null
   %14 = icmp eq i64 %11, 0
   %or.cond.i.i.i = or i1 %14, %13

@@ -1307,7 +1307,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4ac2941b72d59395E(ptr dea
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h81ab5b6194e0ca2dE"(ptr noalias noundef align 8 dereferenceable(168) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
-  %4 = load i64, ptr %3, align 8, !noundef !4
+  %4 = load i64, ptr %3, align 8, !alias.scope !223, !noalias !226, !noundef !4
   %5 = icmp ugt i64 %4, 4
   %6 = load ptr, ptr %0, align 8, !alias.scope !223, !noalias !226, !nonnull !4
   %7 = getelementptr inbounds i8, ptr %0, i64 8

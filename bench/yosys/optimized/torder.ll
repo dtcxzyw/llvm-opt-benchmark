@@ -643,7 +643,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i
   %147 = load ptr, ptr %121, align 8, !noalias !12
-  %148 = load i32, ptr %36, align 4
+  %148 = load i32, ptr %36, align 4, !noalias !12
   br label %149
 
 149:                                              ; preds = %154, %.lr.ph.i.i
@@ -3873,9 +3873,9 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %1573, %.lr.ph2194
           to label %1584 unwind label %.loopexit1482
 
 1584:                                             ; preds = %1581
-  %1585 = load ptr, ptr %1583, align 8
+  %1585 = load ptr, ptr %1583, align 8, !noalias !42
   %1586 = getelementptr inbounds i8, ptr %1583, i64 8
-  %1587 = load ptr, ptr %1586, align 8
+  %1587 = load ptr, ptr %1586, align 8, !noalias !42
   %1588 = icmp eq ptr %1585, %1587
   br i1 %1588, label %.loopexit.i212.thread, label %1589
 
@@ -3890,7 +3890,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %1573, %.lr.ph2194
   %1597 = getelementptr inbounds i8, ptr %1583, i64 24
   %1598 = getelementptr inbounds i8, ptr %1583, i64 32
   %1599 = load ptr, ptr %1598, align 8, !noalias !42
-  %1600 = load ptr, ptr %1597, align 8
+  %1600 = load ptr, ptr %1597, align 8, !noalias !42
   %1601 = ptrtoint ptr %1599 to i64
   %1602 = ptrtoint ptr %1600 to i64
   %1603 = sub i64 %1601, %1602
@@ -4117,13 +4117,13 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   br i1 %1707, label %.lr.ph.i523, label %.noexc221.loopexit, !llvm.loop !26
 
 .noexc221.loopexit:                               ; preds = %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i525
-  %.pre2568 = load ptr, ptr %1586, align 8
+  %.pre2568 = load ptr, ptr %1586, align 8, !noalias !42
   br label %.noexc221
 
 .noexc221:                                        ; preds = %.noexc221.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i522
   %1708 = phi ptr [ %1702, %.noexc221.loopexit ], [ %1674, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i522 ]
   %1709 = phi ptr [ %.pre2568, %.noexc221.loopexit ], [ %1672, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i522 ]
-  %1710 = load ptr, ptr %1583, align 8
+  %1710 = load ptr, ptr %1583, align 8, !noalias !42
   %1711 = icmp eq ptr %1710, %1709
   br i1 %1711, label %._crit_edge.i.i211, label %1712
 
@@ -5658,9 +5658,9 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i293: ; preds = %2351, %.lr.ph2
           to label %2362 unwind label %.loopexit
 
 2362:                                             ; preds = %2359
-  %2363 = load ptr, ptr %2361, align 8
+  %2363 = load ptr, ptr %2361, align 8, !noalias !50
   %2364 = getelementptr inbounds i8, ptr %2361, i64 8
-  %2365 = load ptr, ptr %2364, align 8
+  %2365 = load ptr, ptr %2364, align 8, !noalias !50
   %2366 = icmp eq ptr %2363, %2365
   br i1 %2366, label %.loopexit.i299.thread, label %2367
 
@@ -5675,7 +5675,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i293: ; preds = %2351, %.lr.ph2
   %2375 = getelementptr inbounds i8, ptr %2361, i64 24
   %2376 = getelementptr inbounds i8, ptr %2361, i64 32
   %2377 = load ptr, ptr %2376, align 8, !noalias !50
-  %2378 = load ptr, ptr %2375, align 8
+  %2378 = load ptr, ptr %2375, align 8, !noalias !50
   %2379 = ptrtoint ptr %2377 to i64
   %2380 = ptrtoint ptr %2378 to i64
   %2381 = sub i64 %2379, %2380
@@ -5902,13 +5902,13 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   br i1 %2485, label %.lr.ph.i603, label %.noexc308.loopexit, !llvm.loop !26
 
 .noexc308.loopexit:                               ; preds = %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i605
-  %.pre2581 = load ptr, ptr %2364, align 8
+  %.pre2581 = load ptr, ptr %2364, align 8, !noalias !50
   br label %.noexc308
 
 .noexc308:                                        ; preds = %.noexc308.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i602
   %2486 = phi ptr [ %2480, %.noexc308.loopexit ], [ %2452, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i602 ]
   %2487 = phi ptr [ %.pre2581, %.noexc308.loopexit ], [ %2450, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i602 ]
-  %2488 = load ptr, ptr %2361, align 8
+  %2488 = load ptr, ptr %2361, align 8, !noalias !50
   %2489 = icmp eq ptr %2488, %2487
   br i1 %2489, label %._crit_edge.i.i298, label %2490
 

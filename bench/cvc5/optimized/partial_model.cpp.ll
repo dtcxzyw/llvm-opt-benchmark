@@ -2310,7 +2310,7 @@ for.inc:                                          ; preds = %invoke.cont6
 
 call.i.noexc:                                     ; preds = %for.inc
   %9 = load ptr, ptr %i, align 8, !noalias !23
-  %bf.load.i.i.i.i.i = load i64, ptr %9, align 8
+  %bf.load.i.i.i.i.i = load i64, ptr %9, align 8, !noalias !23
   %bf.lshr.i.i.i.i.i = lshr i64 %bf.load.i.i.i.i.i, 40
   %10 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i to i32
   %bf.cast.i.i.i.i.i = and i32 %10, 1048575
@@ -7634,7 +7634,7 @@ for.inc:                                          ; preds = %_ZN4cvc58internal6t
 
 call.i.noexc:                                     ; preds = %for.inc
   %17 = load ptr, ptr %i, align 8, !noalias !59
-  %bf.load.i.i.i.i.i = load i64, ptr %17, align 8
+  %bf.load.i.i.i.i.i = load i64, ptr %17, align 8, !noalias !59
   %bf.lshr.i.i.i.i.i = lshr i64 %bf.load.i.i.i.i.i, 40
   %18 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i to i32
   %bf.cast.i.i.i.i.i = and i32 %18, 1048575

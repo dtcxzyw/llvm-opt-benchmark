@@ -16352,8 +16352,8 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEEaSERKS4_.exit: ; preds = %_ZSt4copyIPKPKN4
 _ZSt9make_pairIRN4llvm11SmallVectorIPKNS0_4SCEVELj4EEERmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_.exit: ; preds = %_ZN4llvm4sortIRNS_11SmallVectorIPKNS_4SCEVELj4EEEEEvOT_.exit, %_ZN4llvm15SmallVectorImplIPKNS_4SCEVEEaSERKS4_.exit
   store i64 %.0196226, ptr %49, align 8, !alias.scope !221
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14), !noalias !224
-  %.val9.i.i = load ptr, ptr %18, align 8
-  %.val10.i.i = load i32, ptr %50, align 8
+  %.val9.i.i = load ptr, ptr %18, align 8, !noalias !227
+  %.val10.i.i = load i32, ptr %50, align 8, !noalias !227
   %351 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11SmallVectorIPKNS_4SCEVELj4EEEmN12_GLOBAL__N_122UniquifierDenseMapInfoENS_6detail12DenseMapPairIS6_mEEEES6_mS8_SB_E15LookupBucketForIS6_EEbRKT_RPSB_(ptr %.val9.i.i, i32 %.val10.i.i, ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(8) %14), !noalias !227
   %352 = load ptr, ptr %14, align 8, !noalias !227
   br i1 %351, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11SmallVectorIPKNS_4SCEVELj4EEEmN12_GLOBAL__N_122UniquifierDenseMapInfoENS_6detail12DenseMapPairIS6_mEEEES6_mS8_SB_E6insertEOSt4pairIS6_mE.exit, label %353
@@ -16792,8 +16792,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_11SmallVectorIPKNS_4SCEVELj4EEEmN12_GLOBA
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11SmallVectorIPKNS_4SCEVELj4EEEmN12_GLOBAL__N_122UniquifierDenseMapInfoENS_6detail12DenseMapPairIS6_mEEEES6_mS8_SB_E4growEj.exit.i.i.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_11SmallVectorIPKNS_4SCEVELj4EEEmN12_GLOBAL__N_122UniquifierDenseMapInfoENS_6detail12DenseMapPairIS6_mEEEES6_mS8_SB_E4growEj.exit.i.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11SmallVectorIPKNS_4SCEVELj4EEEmN12_GLOBAL__N_122UniquifierDenseMapInfoENS_6detail12DenseMapPairIS6_mEEEES6_mS8_SB_E18moveFromOldBucketsEPSB_SE_.exit.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11SmallVectorIPKNS_4SCEVELj4EEEmN12_GLOBAL__N_122UniquifierDenseMapInfoENS_6detail12DenseMapPairIS6_mEEEES6_mS8_SB_E9initEmptyEv.exit115
-  %.val11.i.i.i.i = load ptr, ptr %18, align 8
-  %.val12.i.i.i.i = load i32, ptr %50, align 8
+  %.val11.i.i.i.i = load ptr, ptr %18, align 8, !noalias !227
+  %.val12.i.i.i.i = load i32, ptr %50, align 8, !noalias !227
   %519 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11SmallVectorIPKNS_4SCEVELj4EEEmN12_GLOBAL__N_122UniquifierDenseMapInfoENS_6detail12DenseMapPairIS6_mEEEES6_mS8_SB_E15LookupBucketForIS6_EEbRKT_RPSB_(ptr %.val11.i.i.i.i, i32 %.val12.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(8) %12), !noalias !227
   %.val.i.i.pre.i.i.i = load i32, ptr %51, align 8, !noalias !227
   %.pre.i.i.i = load ptr, ptr %12, align 8, !noalias !227
@@ -29192,7 +29192,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_4TypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_1
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4TypeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !362
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !362
   store ptr %96, ptr %95, align 8, !noalias !362
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #21
@@ -29386,7 +29386,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_4SCEVENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !373
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !373
   store ptr %96, ptr %95, align 8, !noalias !373
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #21

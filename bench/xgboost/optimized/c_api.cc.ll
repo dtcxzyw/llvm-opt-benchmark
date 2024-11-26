@@ -31758,21 +31758,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   unreachable
 
 56:                                               ; preds = %51
+  call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %57 = getelementptr inbounds i8, ptr %11, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %57, align 8, !noalias !132
   %58 = getelementptr inbounds i8, ptr %12, i64 8
   %59 = getelementptr inbounds i8, ptr %12, i64 16
-  store i64 %4, ptr %59, align 8, !alias.scope !133
+  store i64 %4, ptr %59, align 8, !alias.scope !135
   %60 = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr %2, ptr %60, align 8, !alias.scope !133
+  store ptr %2, ptr %60, align 8, !alias.scope !135
   %61 = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr %2, ptr %61, align 8, !alias.scope !133
+  store ptr %2, ptr %61, align 8, !alias.scope !135
   %62 = getelementptr inbounds i8, ptr %12, i64 40
   %63 = getelementptr inbounds i8, ptr %12, i64 48
-  store i32 %.sroa.0.0.copyload.i.i, ptr %63, align 8, !alias.scope !133
-  store i64 %4, ptr %58, align 8, !alias.scope !133
-  store i64 1, ptr %12, align 8, !alias.scope !133
-  store i64 %4, ptr %62, align 8, !alias.scope !133
+  store i32 %.sroa.0.0.copyload.i.i, ptr %63, align 8, !alias.scope !135
+  store i64 %4, ptr %58, align 8, !alias.scope !135
+  store i64 1, ptr %12, align 8, !alias.scope !135
+  store i64 %4, ptr %62, align 8, !alias.scope !135
   %64 = icmp ne ptr %3, null
   %65 = or i1 %64, %53
   br i1 %65, label %67, label %66
@@ -179541,12 +179542,12 @@ attributes #39 = { nounwind willreturn memory(none) }
 !129 = distinct !{!129, !6}
 !130 = distinct !{!130, !6}
 !131 = distinct !{!131, !6}
-!132 = !{}
-!133 = !{!134, !136}
-!134 = distinct !{!134, !135, !"_ZN7xgboost6linalg14MakeTensorViewIfLm18446744073709551615EJRmEEEDaNS_9DeviceOrdENS_6common4SpanIT_XT0_EEEDpOT1_: argument 0"}
-!135 = distinct !{!135, !"_ZN7xgboost6linalg14MakeTensorViewIfLm18446744073709551615EJRmEEEDaNS_9DeviceOrdENS_6common4SpanIT_XT0_EEEDpOT1_"}
-!136 = distinct !{!136, !137, !"_ZN7xgboost6linalg14MakeTensorViewIfLm18446744073709551615EJRmEEEDaPKNS_7ContextENS_6common4SpanIT_XT0_EEEDpOT1_: argument 0"}
-!137 = distinct !{!137, !"_ZN7xgboost6linalg14MakeTensorViewIfLm18446744073709551615EJRmEEEDaPKNS_7ContextENS_6common4SpanIT_XT0_EEEDpOT1_"}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZN7xgboost6linalg14MakeTensorViewIfLm18446744073709551615EJRmEEEDaPKNS_7ContextENS_6common4SpanIT_XT0_EEEDpOT1_: argument 0"}
+!134 = distinct !{!134, !"_ZN7xgboost6linalg14MakeTensorViewIfLm18446744073709551615EJRmEEEDaPKNS_7ContextENS_6common4SpanIT_XT0_EEEDpOT1_"}
+!135 = !{!136, !133}
+!136 = distinct !{!136, !137, !"_ZN7xgboost6linalg14MakeTensorViewIfLm18446744073709551615EJRmEEEDaNS_9DeviceOrdENS_6common4SpanIT_XT0_EEEDpOT1_: argument 0"}
+!137 = distinct !{!137, !"_ZN7xgboost6linalg14MakeTensorViewIfLm18446744073709551615EJRmEEEDaNS_9DeviceOrdENS_6common4SpanIT_XT0_EEEDpOT1_"}
 !138 = !{!139, !141}
 !139 = distinct !{!139, !140, !"_ZN7xgboost6linalg14MakeTensorViewIfLm18446744073709551615EJRmEEEDaNS_9DeviceOrdENS_6common4SpanIT_XT0_EEEDpOT1_: argument 0"}
 !140 = distinct !{!140, !"_ZN7xgboost6linalg14MakeTensorViewIfLm18446744073709551615EJRmEEEDaNS_9DeviceOrdENS_6common4SpanIT_XT0_EEEDpOT1_"}

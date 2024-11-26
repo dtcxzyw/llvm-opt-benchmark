@@ -22605,9 +22605,9 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread71:  ; preds = %58, %_ZNK4llvm9Stri
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
 66:                                               ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread71
-  %67 = load i64, ptr %17, align 8
+  %67 = load i64, ptr %17, align 8, !noalias !325
   %68 = call i64 @llvm.umin.i64(i64 %63, i64 %67)
-  %69 = load ptr, ptr %6, align 8
+  %69 = load ptr, ptr %6, align 8, !noalias !325
   %70 = add nuw i64 %63, 1
   %.sroa.speculated5.i.i.i = call i64 @llvm.umin.i64(i64 %67, i64 %70)
   %71 = getelementptr inbounds i8, ptr %69, i64 %.sroa.speculated5.i.i.i

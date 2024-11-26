@@ -1119,7 +1119,7 @@ _ZN12_GLOBAL__N_122UnreachableCodeChecker13isInvalidPathEPKN5clang8CFGBlockERKNS
   %247 = trunc i64 %.0.copyload.i.i.i.i.i.i141.i to i32
   %248 = shl i32 %247, 2
   %249 = and i32 %248, 12
-  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %245, align 8
+  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %245, align 8, !noalias !15
   %250 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i to i32
   %251 = and i32 %250, 3
   %252 = add nuw nsw i32 %251, -6
@@ -1175,7 +1175,7 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %2
   %273 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i to i32
   %274 = shl i32 %273, 2
   %275 = and i32 %274, 12
-  %.0.copyload.i.i.i3.i.i.i.i.i = load i64, ptr %271, align 8
+  %.0.copyload.i.i.i3.i.i.i.i.i = load i64, ptr %271, align 8, !noalias !33
   %276 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i.i to i32
   %277 = and i32 %276, 3
   %278 = add nuw nsw i32 %277, -6

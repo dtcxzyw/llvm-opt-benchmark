@@ -13953,7 +13953,7 @@ define internal void @_ZN5clang4ento5check13BeginFunction19_checkBeginFunctionIN
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !noalias !309
   %25 = and i32 %24, 127
   %26 = add nsw i32 %25, -37
   %27 = icmp ult i32 %26, -6
@@ -14542,3 +14542,6 @@ attributes #23 = { nounwind willreturn memory(read) }
 !306 = distinct !{!306, !"_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_116NullabilityStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv"}
 !307 = distinct !{!307, !5}
 !308 = distinct !{!308, !5}
+!309 = !{!310}
+!310 = distinct !{!310, !311, !"_ZN5clang7AnyCall7forDeclEPKNS_4DeclE: argument 0"}
+!311 = distinct !{!311, !"_ZN5clang7AnyCall7forDeclEPKNS_4DeclE"}

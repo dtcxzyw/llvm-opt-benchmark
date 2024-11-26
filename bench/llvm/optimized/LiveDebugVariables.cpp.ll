@@ -6170,7 +6170,7 @@ _ZN4llvm15IntervalMapImpl4Path7setRootEPvjj.exit.i: ; preds = %1100, %._crit_edg
   %1104 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %280) #20
   %1105 = add i64 %1104, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(80) %280, i64 noundef %1105) #20
-  %.val.i.i.i.i.i.i = load ptr, ptr %8, align 8
+  %.val.i.i.i.i.i.i = load ptr, ptr %8, align 8, !alias.scope !65
   %1106 = getelementptr i8, ptr %.val.i.i.i.i.i.i, i64 160
   %.val.val.i.i.i.i.i.i = load i32, ptr %1106, align 8
   %.not.i.i.i.i.i37.i = icmp eq i32 %.val.val.i.i.i.i.i.i, 0
@@ -8565,7 +8565,7 @@ _ZN12_GLOBAL__N_19UserValue16rewriteLocationsERN4llvm10VirtRegMapERKNS1_15Machin
   %839 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i130.i, i64 164
   %840 = load i32, ptr %839, align 4
   call void @_ZN4llvm15IntervalMapImpl4Path7setRootEPvjj(ptr noundef nonnull align 8 dereferenceable(80) %100, ptr noundef nonnull %.val.sink.i.i.i.i134.i, i32 noundef %840, i32 noundef 0)
-  %.val.i.i.i135.i = load ptr, ptr %24, align 8
+  %.val.i.i.i135.i = load ptr, ptr %24, align 8, !alias.scope !144
   %841 = getelementptr i8, ptr %.val.i.i.i135.i, i64 160
   %.val.val.i.i.i136.i = load i32, ptr %841, align 8
   %.not.i.i.i137.i = icmp eq i32 %.val.val.i.i.i136.i, 0
@@ -16269,7 +16269,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19UserValue16computeIntervalsERN4ll
   %35 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 164
   %36 = load i32, ptr %35, align 4
   call void @_ZN4llvm15IntervalMapImpl4Path7setRootEPvjj(ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef nonnull %.val.sink.i.i.i, i32 noundef %36, i32 noundef 0)
-  %.val.i.i = load ptr, ptr %20, align 8
+  %.val.i.i = load ptr, ptr %20, align 8, !alias.scope !219
   %37 = getelementptr i8, ptr %.val.i.i, i64 160
   %.val.val.i.i = load i32, ptr %37, align 8
   %.not.i.i = icmp eq i32 %.val.val.i.i, 0

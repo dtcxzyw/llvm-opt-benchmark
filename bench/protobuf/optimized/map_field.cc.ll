@@ -6232,7 +6232,7 @@ entry:
   %index_of_first_non_null_.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %index_of_first_non_null_.i.i.i, align 4, !noalias !42
   %num_buckets_.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
-  %2 = load i32, ptr %num_buckets_.i.i.i, align 4
+  %2 = load i32, ptr %num_buckets_.i.i.i, align 4, !noalias !42
   %cmp.i.i.i = icmp eq i32 %1, %2
   br i1 %cmp.i.i.i, label %for.end, label %if.else.i.i.i
 

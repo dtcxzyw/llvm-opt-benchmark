@@ -912,27 +912,27 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__n
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %142, label %.thread.i.i.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i.i:                          ; preds = %135
-  %138 = load i32, ptr %136, align 4, !noalias !30
+  %138 = load i32, ptr %136, align 4, !noalias !29
   %139 = add nsw i32 %138, 1
-  store i32 %139, ptr %136, align 4, !noalias !30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !29
+  store i32 %139, ptr %136, align 4, !noalias !29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !36
   %140 = load i64, ptr %53, align 8, !noalias !37
   store ptr %.val1.val.i.i.i.i.i.i.i, ptr %49, align 8, !noalias !37
   store ptr %.val1.val2.i.i.i.i.i.i.i, ptr %131, align 8, !noalias !37
   br label %146
 
 _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.i.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !36
   %141 = load i64, ptr %53, align 8, !noalias !37
   store ptr %.val1.val.i.i.i.i.i.i.i, ptr %49, align 8, !noalias !37
   store ptr null, ptr %131, align 8, !noalias !37
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i
 
 142:                                              ; preds = %135
-  %143 = atomicrmw volatile add ptr %136, i32 1 acq_rel, align 4, !noalias !30
+  %143 = atomicrmw volatile add ptr %136, i32 1 acq_rel, align 4, !noalias !29
   %.pre.i.i.i.i.i.i.i.i = load i8, ptr @__libc_single_threaded, align 1, !noalias !37
   %144 = icmp eq i8 %.pre.i.i.i.i.i.i.i.i, 0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !36
   %145 = load i64, ptr %53, align 8, !noalias !37
   store ptr %.val1.val.i.i.i.i.i.i.i, ptr %49, align 8, !noalias !37
   store ptr %.val1.val2.i.i.i.i.i.i.i, ptr %131, align 8, !noalias !37
@@ -1024,31 +1024,31 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %150, %146
   br label %.body.i.i.i.i.i.i.i.i
 
 _ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE8metadataERKNS_6HandleINS_4NodeEEE.exit.i.i.i.i.i.i.i.i.i: ; preds = %166, %164, %154
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49), !noalias !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48), !noalias !29
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %132, align 8, !noalias !29
-  store ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %48, align 8, !noalias !29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49), !noalias !36
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48), !noalias !36
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %132, align 8, !noalias !36
+  store ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %48, align 8, !noalias !36
   %187 = invoke noundef zeroext i1 @_ZNK3ade7details8Metadata8containsERKNS0_10MetadataIdE(ptr noundef nonnull align 8 dereferenceable(64) %153, ptr noundef nonnull align 8 dereferenceable(8) %48)
-          to label %188 unwind label %203, !noalias !29
+          to label %188 unwind label %203, !noalias !36
 
 188:                                              ; preds = %_ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE8metadataERKNS_6HandleINS_4NodeEEE.exit.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48), !noalias !29
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48), !noalias !36
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKN3ade5GraphEE3$_0EclINS5_4util5Range13IterableRangeINSD_8MapRangeINSD_9IterRangeINS_17__normal_iteratorIPKSt10shared_ptrINS5_4NodeEESt6vectorISK_SaISK_EEEESQ_EENS6_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i.i.i.i.i.i", label %189
 
 189:                                              ; preds = %188
   %190 = getelementptr inbounds i8, ptr %.val1.val2.i.i.i.i.i.i.i, i64 12
-  %191 = load i8, ptr @__libc_single_threaded, align 1, !noalias !29
+  %191 = load i8, ptr @__libc_single_threaded, align 1, !noalias !36
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %191, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %195, label %192
 
 192:                                              ; preds = %189
-  %193 = load i32, ptr %190, align 4, !noalias !29
+  %193 = load i32, ptr %190, align 4, !noalias !36
   %194 = add nsw i32 %193, -1
-  store i32 %194, ptr %190, align 4, !noalias !29
+  store i32 %194, ptr %190, align 4, !noalias !36
   br label %197
 
 195:                                              ; preds = %189
-  %196 = atomicrmw volatile add ptr %190, i32 -1 acq_rel, align 4, !noalias !29
+  %196 = atomicrmw volatile add ptr %190, i32 -1 acq_rel, align 4, !noalias !36
   br label %197
 
 197:                                              ; preds = %195, %192
@@ -1057,10 +1057,10 @@ _ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS
   br i1 %198, label %199, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKN3ade5GraphEE3$_0EclINS5_4util5Range13IterableRangeINSD_8MapRangeINSD_9IterRangeINS_17__normal_iteratorIPKSt10shared_ptrINS5_4NodeEESt6vectorISK_SaISK_EEEESQ_EENS6_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i.i.i.i.i.i"
 
 199:                                              ; preds = %197
-  %200 = load ptr, ptr %.val1.val2.i.i.i.i.i.i.i, align 8, !noalias !29
+  %200 = load ptr, ptr %.val1.val2.i.i.i.i.i.i.i, align 8, !noalias !36
   %201 = getelementptr inbounds i8, ptr %200, i64 24
-  %202 = load ptr, ptr %201, align 8, !noalias !29
-  call void %202(ptr noundef nonnull align 8 dereferenceable(16) %.val1.val2.i.i.i.i.i.i.i) #22, !noalias !29
+  %202 = load ptr, ptr %201, align 8, !noalias !36
+  call void %202(ptr noundef nonnull align 8 dereferenceable(16) %.val1.val2.i.i.i.i.i.i.i) #22, !noalias !36
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKN3ade5GraphEE3$_0EclINS5_4util5Range13IterableRangeINSD_8MapRangeINSD_9IterRangeINS_17__normal_iteratorIPKSt10shared_ptrINS5_4NodeEESt6vectorISK_SaISK_EEEESQ_EENS6_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i.i.i.i.i.i"
 
 203:                                              ; preds = %_ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE8metadataERKNS_6HandleINS_4NodeEEE.exit.i.i.i.i.i.i.i.i.i
@@ -1074,18 +1074,18 @@ _ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS
 
 205:                                              ; preds = %.body.i.i.i.i.i.i.i.i
   %206 = getelementptr inbounds i8, ptr %.val1.val2.i.i.i.i.i.i.i, i64 12
-  %207 = load i8, ptr @__libc_single_threaded, align 1, !noalias !29
+  %207 = load i8, ptr @__libc_single_threaded, align 1, !noalias !36
   %.not.i.i.i.i.i6.i.i.i.i.i.i.i.i = icmp eq i8 %207, 0
   br i1 %.not.i.i.i.i.i6.i.i.i.i.i.i.i.i, label %211, label %208
 
 208:                                              ; preds = %205
-  %209 = load i32, ptr %206, align 4, !noalias !29
+  %209 = load i32, ptr %206, align 4, !noalias !36
   %210 = add nsw i32 %209, -1
-  store i32 %210, ptr %206, align 4, !noalias !29
+  store i32 %210, ptr %206, align 4, !noalias !36
   br label %213
 
 211:                                              ; preds = %205
-  %212 = atomicrmw volatile add ptr %206, i32 -1 acq_rel, align 4, !noalias !29
+  %212 = atomicrmw volatile add ptr %206, i32 -1 acq_rel, align 4, !noalias !36
   br label %213
 
 213:                                              ; preds = %211, %208
@@ -1094,10 +1094,10 @@ _ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS
   br i1 %214, label %215, label %.body
 
 215:                                              ; preds = %213
-  %216 = load ptr, ptr %.val1.val2.i.i.i.i.i.i.i, align 8, !noalias !29
+  %216 = load ptr, ptr %.val1.val2.i.i.i.i.i.i.i, align 8, !noalias !36
   %217 = getelementptr inbounds i8, ptr %216, i64 24
-  %218 = load ptr, ptr %217, align 8, !noalias !29
-  call void %218(ptr noundef nonnull align 8 dereferenceable(16) %.val1.val2.i.i.i.i.i.i.i) #22, !noalias !29
+  %218 = load ptr, ptr %217, align 8, !noalias !36
+  call void %218(ptr noundef nonnull align 8 dereferenceable(16) %.val1.val2.i.i.i.i.i.i.i) #22, !noalias !36
   br label %.body
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKN3ade5GraphEE3$_0EclINS5_4util5Range13IterableRangeINSD_8MapRangeINSD_9IterRangeINS_17__normal_iteratorIPKSt10shared_ptrINS5_4NodeEESt6vectorISK_SaISK_EEEESQ_EENS6_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i.i.i.i.i.i": ; preds = %199, %197, %188
@@ -36315,14 +36315,14 @@ attributes #25 = { noreturn nounwind }
 !26 = distinct !{!26, !"_ZSt9__find_ifIN3ade4util5Range13IterableRangeINS2_8MapRangeINS2_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS0_4NodeEESt6vectorISA_SaISA_EEEESG_EENS0_5Graph12HandleMapperEEEE8iteratorENS6_5__ops10_Iter_predIZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKSI_E3$_0EEET_SW_SW_T0_"}
 !27 = distinct !{!27, !28, !"_ZSt7find_ifIN3ade4util5Range13IterableRangeINS2_8MapRangeINS2_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS0_4NodeEESt6vectorISA_SaISA_EEEESG_EENS0_5Graph12HandleMapperEEEE8iteratorEZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKSI_E3$_0ET_ST_ST_T0_: argument 0"}
 !28 = distinct !{!28, !"_ZSt7find_ifIN3ade4util5Range13IterableRangeINS2_8MapRangeINS2_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS0_4NodeEESt6vectorISA_SaISA_EEEESG_EENS0_5Graph12HandleMapperEEEE8iteratorEZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKSI_E3$_0ET_ST_ST_T0_"}
-!29 = !{!23, !25, !27}
-!30 = !{!31, !33, !35, !23, !25, !27}
-!31 = distinct !{!31, !32, !"_ZNK3ade5Graph12HandleMapperclINS_4NodeEEENS_6HandleIT_EERKSt10shared_ptrIS5_E: argument 0"}
-!32 = distinct !{!32, !"_ZNK3ade5Graph12HandleMapperclINS_4NodeEEENS_6HandleIT_EERKSt10shared_ptrIS5_E"}
-!33 = distinct !{!33, !34, !"_ZN3ade4util5Range8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS8_SaIS8_EEEESE_EENS_5Graph12HandleMapperEE5frontEv: argument 0"}
-!34 = distinct !{!34, !"_ZN3ade4util5Range8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS8_SaIS8_EEEESE_EENS_5Graph12HandleMapperEE5frontEv"}
-!35 = distinct !{!35, !36, !"_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratordeEv: argument 0"}
-!36 = distinct !{!36, !"_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratordeEv"}
+!29 = !{!30, !32, !34, !23, !25, !27}
+!30 = distinct !{!30, !31, !"_ZNK3ade5Graph12HandleMapperclINS_4NodeEEENS_6HandleIT_EERKSt10shared_ptrIS5_E: argument 0"}
+!31 = distinct !{!31, !"_ZNK3ade5Graph12HandleMapperclINS_4NodeEEENS_6HandleIT_EERKSt10shared_ptrIS5_E"}
+!32 = distinct !{!32, !33, !"_ZN3ade4util5Range8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS8_SaIS8_EEEESE_EENS_5Graph12HandleMapperEE5frontEv: argument 0"}
+!33 = distinct !{!33, !"_ZN3ade4util5Range8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS8_SaIS8_EEEESE_EENS_5Graph12HandleMapperEE5frontEv"}
+!34 = distinct !{!34, !35, !"_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratordeEv: argument 0"}
+!35 = distinct !{!35, !"_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratordeEv"}
+!36 = !{!23, !25, !27}
 !37 = !{!38, !23, !25, !27}
 !38 = distinct !{!38, !39, !"_ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE8metadataERKNS_6HandleINS_4NodeEEE: argument 0"}
 !39 = distinct !{!39, !"_ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE8metadataERKNS_6HandleINS_4NodeEEE"}

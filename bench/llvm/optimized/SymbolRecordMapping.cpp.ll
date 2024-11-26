@@ -2296,10 +2296,11 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %21, %13
   br label %32
 
 _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %25, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !noalias !73
   call void @_ZN4llvm18BinaryStreamReader9readBytesERNS_8ArrayRefIhEEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 4) #16
-  %28 = load ptr, ptr %0, align 8
+  %28 = load ptr, ptr %0, align 8, !alias.scope !73
   %.not.i9 = icmp eq ptr %28, null
   br i1 %.not.i9, label %_ZN4llvm12ErrorSuccessD2Ev.exit10, label %29
 
@@ -2734,10 +2735,11 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %21, %13
   br label %32
 
 _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %25, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !noalias !93
   call void @_ZN4llvm18BinaryStreamReader9readBytesERNS_8ArrayRefIhEEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2) #16
-  %28 = load ptr, ptr %0, align 8
+  %28 = load ptr, ptr %0, align 8, !alias.scope !93
   %.not.i9 = icmp eq ptr %28, null
   br i1 %.not.i9, label %_ZN4llvm12ErrorSuccessD2Ev.exit10, label %29
 
@@ -2960,10 +2962,11 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %21, %13
   br label %32
 
 _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %25, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !noalias !102
   call void @_ZN4llvm18BinaryStreamReader9readBytesERNS_8ArrayRefIhEEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 4) #16
-  %28 = load ptr, ptr %0, align 8
+  %28 = load ptr, ptr %0, align 8, !alias.scope !102
   %.not.i9 = icmp eq ptr %28, null
   br i1 %.not.i9, label %_ZN4llvm12ErrorSuccessD2Ev.exit10, label %29
 

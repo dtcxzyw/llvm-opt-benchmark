@@ -10439,7 +10439,7 @@ _ZN7QStringD2Ev.exit48:                           ; preds = %49, %_ZN9QtPrivate8
 55:                                               ; preds = %_ZN7QStringD2Ev.exit48
   store ptr %54, ptr %14, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %15, align 8
-  %56 = load ptr, ptr %22, align 8, !noalias !10
+  %56 = load ptr, ptr %22, align 8, !noalias !49
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = getelementptr inbounds i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8, !noalias !49
@@ -17872,7 +17872,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i.i.i:                ; preds = %381, %.lr.ph.i.i.i.
 _ZN9QtPrivate21qMakeForeachContainerIR11QStringListEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS5_.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i.i, %.noexc118
   %385 = getelementptr inbounds i8, ptr %11, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %386 = load ptr, ptr %11, align 8, !alias.scope !116, !noalias !10
+  %386 = load ptr, ptr %11, align 8, !alias.scope !116, !noalias !120
   %387 = getelementptr inbounds i8, ptr %386, i64 16
   %388 = getelementptr inbounds i8, ptr %386, i64 8
   %389 = load i32, ptr %388, align 8, !noalias !120

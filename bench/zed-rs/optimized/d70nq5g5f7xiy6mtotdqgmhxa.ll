@@ -122,7 +122,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hac89babae4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !28
   call void @_ZN4gpui3app10entity_map12AnyWeakModel7upgrade17h60c5a235dd6ff1d5E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !noalias !32
-  %6 = load i32, ptr %4, align 8, !noalias !33, !noundef !5
+  %6 = load i32, ptr %4, align 8, !noalias !28, !noundef !5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %8
 

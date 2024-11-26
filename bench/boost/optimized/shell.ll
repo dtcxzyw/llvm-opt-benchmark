@@ -16623,7 +16623,7 @@ _ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.
 21:                                               ; preds = %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit.thread, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit
   %22 = phi i32 [ %10, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit.thread ], [ 0, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit ]
   %23 = phi i64 [ %20, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit.thread ], [ 0, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit ]
-  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !180
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !180, !noalias !371
   %25 = and i64 %24, -2
   %switch.i.i.i.i = icmp eq i64 %25, -5572340897628102704
   br i1 %switch.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit
@@ -16636,7 +16636,7 @@ _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIX
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !172
   %.pre80 = load i32, ptr %2, align 8
-  %.pre81.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !180
+  %.pre81.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !180, !noalias !374
   br label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread
 
 _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %21

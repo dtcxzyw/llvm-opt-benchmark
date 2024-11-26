@@ -253,7 +253,7 @@ default.unreachable:                              ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN14wasmtime_types11WasmValType15is_vmgcref_type17hb1e1e64d04ff511aE(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #2 {
-  %2 = load i32, ptr %0, align 4, !range !4, !noundef !5
+  %2 = load i32, ptr %0, align 4, !range !4, !alias.scope !12, !noundef !5
   %3 = icmp samesign ult i32 %2, 10
   br i1 %3, label %4, label %8
 
@@ -301,7 +301,7 @@ _ZN14wasmtime_types11WasmRefType15is_gc_heap_type17hf5f27248142866f0E.exit:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN14wasmtime_types11WasmRefType15is_gc_heap_type17hf5f27248142866f0E(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = load i32, ptr %0, align 4, !range !12, !alias.scope !13, !noundef !5
+  %1 = load i32, ptr %0, align 4, !range !15, !alias.scope !16, !noundef !5
   %2 = add nsw i32 %1, -3
   %3 = icmp ult i32 %2, 7
   %narrow.i = select i1 %3, i32 %2, i32 2
@@ -320,12 +320,12 @@ define noundef zeroext i1 @"_ZN66_$LT$wasmtime_types..WasmRefType$u20$as$u20$cor
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load i8, ptr %9, align 4, !range !16, !noundef !5
+  %10 = load i8, ptr %9, align 4, !range !19, !noundef !5
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %27
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr %0, align 4, !range !12, !noundef !5
+  %13 = load i32, ptr %0, align 4, !range !15, !noundef !5
   switch i32 %13, label %.thread [
     i32 3, label %14
     i32 4, label %20
@@ -371,15 +371,15 @@ define noundef zeroext i1 @"_ZN66_$LT$wasmtime_types..WasmRefType$u20$as$u20$cor
   store ptr %0, ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN67_$LT$wasmtime_types..WasmHeapType$u20$as$u20$core..fmt..Display$GT$3fmt17h9d60745d6349ea1cE", ptr %28, align 8
-  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.24, ptr %4, align 8, !alias.scope !17, !noalias !20
+  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.24, ptr %4, align 8, !alias.scope !20, !noalias !23
   %29 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %29, align 8, !alias.scope !17, !noalias !20
+  store i64 2, ptr %29, align 8, !alias.scope !20, !noalias !23
   %30 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %30, align 8, !alias.scope !17, !noalias !20
+  store ptr null, ptr %30, align 8, !alias.scope !20, !noalias !23
   %31 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %31, align 8, !alias.scope !17, !noalias !20
+  store ptr %3, ptr %31, align 8, !alias.scope !20, !noalias !23
   %32 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %32, align 8, !alias.scope !17, !noalias !20
+  store i64 1, ptr %32, align 8, !alias.scope !20, !noalias !23
   %33 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -391,15 +391,15 @@ define noundef zeroext i1 @"_ZN66_$LT$wasmtime_types..WasmRefType$u20$as$u20$cor
   store ptr %0, ptr %5, align 8
   %34 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN67_$LT$wasmtime_types..WasmHeapType$u20$as$u20$core..fmt..Display$GT$3fmt17h9d60745d6349ea1cE", ptr %34, align 8
-  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.26, ptr %6, align 8, !alias.scope !23, !noalias !26
+  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.26, ptr %6, align 8, !alias.scope !26, !noalias !29
   %35 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 2, ptr %35, align 8, !alias.scope !23, !noalias !26
+  store i64 2, ptr %35, align 8, !alias.scope !26, !noalias !29
   %36 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr null, ptr %36, align 8, !alias.scope !23, !noalias !26
+  store ptr null, ptr %36, align 8, !alias.scope !26, !noalias !29
   %37 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %5, ptr %37, align 8, !alias.scope !23, !noalias !26
+  store ptr %5, ptr %37, align 8, !alias.scope !26, !noalias !29
   %38 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 1, ptr %38, align 8, !alias.scope !23, !noalias !26
+  store i64 1, ptr %38, align 8, !alias.scope !26, !noalias !29
   %39 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -423,7 +423,7 @@ define noundef zeroext i1 @"_ZN78_$LT$wasmtime_types..EngineOrModuleTypeIndex$u2
   %9 = alloca i32, align 4
   %10 = alloca [1 x { ptr, ptr }], align 8
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %12 = load i32, ptr %0, align 4, !range !29, !noundef !5
+  %12 = load i32, ptr %0, align 4, !range !32, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   switch i32 %12, label %default.unreachable5 [
     i32 0, label %14
@@ -443,15 +443,15 @@ default.unreachable5:                             ; preds = %2
   store ptr %9, ptr %10, align 8
   %16 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %16, align 8
-  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.28, ptr %11, align 8, !alias.scope !30, !noalias !33
+  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.28, ptr %11, align 8, !alias.scope !33, !noalias !36
   %17 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 2, ptr %17, align 8, !alias.scope !30, !noalias !33
+  store i64 2, ptr %17, align 8, !alias.scope !33, !noalias !36
   %18 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr null, ptr %18, align 8, !alias.scope !30, !noalias !33
+  store ptr null, ptr %18, align 8, !alias.scope !33, !noalias !36
   %19 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %10, ptr %19, align 8, !alias.scope !30, !noalias !33
+  store ptr %10, ptr %19, align 8, !alias.scope !33, !noalias !36
   %20 = getelementptr inbounds i8, ptr %11, i64 24
-  store i64 1, ptr %20, align 8, !alias.scope !30, !noalias !33
+  store i64 1, ptr %20, align 8, !alias.scope !33, !noalias !36
   %21 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -467,15 +467,15 @@ default.unreachable5:                             ; preds = %2
   store ptr %6, ptr %7, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %24, align 8
-  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.30, ptr %8, align 8, !alias.scope !36, !noalias !39
+  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.30, ptr %8, align 8, !alias.scope !39, !noalias !42
   %25 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 2, ptr %25, align 8, !alias.scope !36, !noalias !39
+  store i64 2, ptr %25, align 8, !alias.scope !39, !noalias !42
   %26 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr null, ptr %26, align 8, !alias.scope !36, !noalias !39
+  store ptr null, ptr %26, align 8, !alias.scope !39, !noalias !42
   %27 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %7, ptr %27, align 8, !alias.scope !36, !noalias !39
+  store ptr %7, ptr %27, align 8, !alias.scope !39, !noalias !42
   %28 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 1, ptr %28, align 8, !alias.scope !36, !noalias !39
+  store i64 1, ptr %28, align 8, !alias.scope !39, !noalias !42
   %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -491,15 +491,15 @@ default.unreachable5:                             ; preds = %2
   store ptr %3, ptr %4, align 8
   %32 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %32, align 8
-  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.32, ptr %5, align 8, !alias.scope !42, !noalias !45
+  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.32, ptr %5, align 8, !alias.scope !45, !noalias !48
   %33 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 2, ptr %33, align 8, !alias.scope !42, !noalias !45
+  store i64 2, ptr %33, align 8, !alias.scope !45, !noalias !48
   %34 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr null, ptr %34, align 8, !alias.scope !42, !noalias !45
+  store ptr null, ptr %34, align 8, !alias.scope !45, !noalias !48
   %35 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %4, ptr %35, align 8, !alias.scope !42, !noalias !45
+  store ptr %4, ptr %35, align 8, !alias.scope !45, !noalias !48
   %36 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 1, ptr %36, align 8, !alias.scope !42, !noalias !45
+  store i64 1, ptr %36, align 8, !alias.scope !45, !noalias !48
   %37 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -543,15 +543,15 @@ define noundef i32 @_ZN14wasmtime_types23EngineOrModuleTypeIndex24unwrap_engine_
   store ptr %5, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN76_$LT$wasmtime_types..EngineOrModuleTypeIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17hdd3df2ecbcdab109E", ptr %8, align 8
-  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.35, ptr %4, align 8, !alias.scope !48, !noalias !51
+  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.35, ptr %4, align 8, !alias.scope !51, !noalias !54
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %9, align 8, !alias.scope !48, !noalias !51
+  store i64 1, ptr %9, align 8, !alias.scope !51, !noalias !54
   %10 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %10, align 8, !alias.scope !48, !noalias !51
+  store ptr null, ptr %10, align 8, !alias.scope !51, !noalias !54
   %11 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %11, align 8, !alias.scope !48, !noalias !51
+  store ptr %3, ptr %11, align 8, !alias.scope !51, !noalias !54
   %12 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %12, align 8, !alias.scope !48, !noalias !51
+  store i64 1, ptr %12, align 8, !alias.scope !51, !noalias !54
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d0770ac5baad12efe6eadf34505a201d.37) #9
   unreachable
 
@@ -591,15 +591,15 @@ define noundef i32 @_ZN14wasmtime_types23EngineOrModuleTypeIndex24unwrap_module_
   store ptr %5, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN76_$LT$wasmtime_types..EngineOrModuleTypeIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17hdd3df2ecbcdab109E", ptr %8, align 8
-  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.39, ptr %4, align 8, !alias.scope !54, !noalias !57
+  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.39, ptr %4, align 8, !alias.scope !57, !noalias !60
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %9, align 8, !alias.scope !54, !noalias !57
+  store i64 1, ptr %9, align 8, !alias.scope !57, !noalias !60
   %10 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %10, align 8, !alias.scope !54, !noalias !57
+  store ptr null, ptr %10, align 8, !alias.scope !57, !noalias !60
   %11 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %11, align 8, !alias.scope !54, !noalias !57
+  store ptr %3, ptr %11, align 8, !alias.scope !57, !noalias !60
   %12 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %12, align 8, !alias.scope !54, !noalias !57
+  store i64 1, ptr %12, align 8, !alias.scope !57, !noalias !60
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d0770ac5baad12efe6eadf34505a201d.40) #9
   unreachable
 
@@ -639,15 +639,15 @@ define noundef i32 @_ZN14wasmtime_types23EngineOrModuleTypeIndex27unwrap_rec_gro
   store ptr %5, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN76_$LT$wasmtime_types..EngineOrModuleTypeIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17hdd3df2ecbcdab109E", ptr %8, align 8
-  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.42, ptr %4, align 8, !alias.scope !60, !noalias !63
+  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.42, ptr %4, align 8, !alias.scope !63, !noalias !66
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %9, align 8, !alias.scope !60, !noalias !63
+  store i64 1, ptr %9, align 8, !alias.scope !63, !noalias !66
   %10 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %10, align 8, !alias.scope !60, !noalias !63
+  store ptr null, ptr %10, align 8, !alias.scope !63, !noalias !66
   %11 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %11, align 8, !alias.scope !60, !noalias !63
+  store ptr %3, ptr %11, align 8, !alias.scope !63, !noalias !66
   %12 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %12, align 8, !alias.scope !60, !noalias !63
+  store i64 1, ptr %12, align 8, !alias.scope !63, !noalias !66
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d0770ac5baad12efe6eadf34505a201d.43) #9
   unreachable
 
@@ -666,7 +666,7 @@ define noundef zeroext i1 @"_ZN67_$LT$wasmtime_types..WasmHeapType$u20$as$u20$co
   %9 = alloca ptr, align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %12 = load i32, ptr %0, align 4, !range !12, !noundef !5
+  %12 = load i32, ptr %0, align 4, !range !15, !noundef !5
   %13 = add nsw i32 %12, -3
   %14 = icmp ult i32 %13, 7
   %narrow = select i1 %14, i32 %13, i32 2
@@ -721,15 +721,15 @@ define noundef zeroext i1 @"_ZN67_$LT$wasmtime_types..WasmHeapType$u20$as$u20$co
   store ptr %9, ptr %7, align 8
   %29 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17haae36b400961fe92E", ptr %29, align 8
-  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.17, ptr %8, align 8, !alias.scope !66, !noalias !69
+  store ptr @anon.d0770ac5baad12efe6eadf34505a201d.17, ptr %8, align 8, !alias.scope !69, !noalias !72
   %30 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 1, ptr %30, align 8, !alias.scope !66, !noalias !69
+  store i64 1, ptr %30, align 8, !alias.scope !69, !noalias !72
   %31 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr null, ptr %31, align 8, !alias.scope !66, !noalias !69
+  store ptr null, ptr %31, align 8, !alias.scope !69, !noalias !72
   %32 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %7, ptr %32, align 8, !alias.scope !66, !noalias !69
+  store ptr %7, ptr %32, align 8, !alias.scope !69, !noalias !72
   %33 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 1, ptr %33, align 8, !alias.scope !66, !noalias !69
+  store i64 1, ptr %33, align 8, !alias.scope !69, !noalias !72
   %34 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -804,7 +804,7 @@ define noundef zeroext i1 @"_ZN67_$LT$wasmtime_types..WasmHeapType$u20$as$u20$co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN14wasmtime_types12WasmHeapType15is_gc_heap_type17h00e7843592564991E(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #2 {
 switch.lookup:
-  %1 = load i32, ptr %0, align 4, !range !12, !noundef !5
+  %1 = load i32, ptr %0, align 4, !range !15, !noundef !5
   %2 = add nsw i32 %1, -3
   %3 = icmp ult i32 %2, 7
   %narrow = select i1 %3, i32 %2, i32 2
@@ -841,7 +841,7 @@ define { i32, i32 } @"_ZN102_$LT$wasmtime_types..EntityIndex$u20$as$u20$core..co
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 4 dereferenceable(16) ptr @_ZN14wasmtime_types10EntityType13unwrap_global17hd8de5b1b16298debE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %3 = load i64, ptr %0, align 8, !range !72, !noundef !5
+  %3 = load i64, ptr %0, align 8, !range !75, !noundef !5
   %4 = icmp eq i64 %3, 2
   br i1 %4, label %5, label %7
 
@@ -867,7 +867,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZN14wasmtime_types10Ent
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN14wasmtime_types10EntityType13unwrap_memory17h580fe37b9f9c63ebE(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %3 = load i64, ptr %0, align 8, !range !72, !noundef !5
+  %3 = load i64, ptr %0, align 8, !range !75, !noundef !5
   %4 = add nsw i64 %3, -2
   %5 = icmp ugt i64 %4, 4
   %6 = icmp eq i64 %4, 1
@@ -895,7 +895,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN14wasmtime_types10Ent
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZN14wasmtime_types10EntityType10unwrap_tag17hcebbfd211970657aE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %3 = load i64, ptr %0, align 8, !range !72, !noundef !5
+  %3 = load i64, ptr %0, align 8, !range !75, !noundef !5
   %4 = icmp eq i64 %3, 4
   br i1 %4, label %5, label %7
 
@@ -921,7 +921,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN14wasmtime_types10Enti
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 4 dereferenceable(24) ptr @_ZN14wasmtime_types10EntityType12unwrap_table17h63b1d39781e41effE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %3 = load i64, ptr %0, align 8, !range !72, !noundef !5
+  %3 = load i64, ptr %0, align 8, !range !75, !noundef !5
   %4 = icmp eq i64 %3, 5
   br i1 %4, label %5, label %7
 
@@ -947,13 +947,13 @@ define noundef nonnull align 4 dereferenceable(24) ptr @_ZN14wasmtime_types10Ent
 ; Function Attrs: nonlazybind uwtable
 define { i32, i32 } @_ZN14wasmtime_types10EntityType11unwrap_func17ha4caad5613c91942E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %3 = load i64, ptr %0, align 8, !range !72, !noundef !5
+  %3 = load i64, ptr %0, align 8, !range !75, !noundef !5
   %4 = icmp eq i64 %3, 6
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !range !29, !noundef !5
+  %7 = load i32, ptr %6, align 8, !range !32, !noundef !5
   %8 = getelementptr inbounds i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4, !noundef !5
   %10 = insertvalue { i32, i32 } poison, i32 %7, 0
@@ -979,13 +979,13 @@ define { i32, i32 } @_ZN14wasmtime_types10EntityType11unwrap_func17ha4caad5613c9
 define void @"_ZN114_$LT$wasmtime_types..Memory$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..MemoryType$GT$$GT$4from17hdca2a4f25b45df88E"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(32) initializes((0, 26)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = load i64, ptr %1, align 8, !range !73, !noundef !5
+  %5 = load i64, ptr %1, align 8, !range !76, !noundef !5
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 33
-  %9 = load i8, ptr %8, align 1, !range !16, !noundef !5
+  %9 = load i8, ptr %8, align 1, !range !19, !noundef !5
   %10 = getelementptr inbounds i8, ptr %1, i64 32
-  %11 = load i8, ptr %10, align 8, !range !16, !noundef !5
+  %11 = load i8, ptr %10, align 8, !range !19, !noundef !5
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %4, ptr %12, align 8
   store i64 %5, ptr %0, align 8
@@ -1032,7 +1032,7 @@ define internal noundef zeroext i1 @"_ZN76_$LT$wasmtime_types..EngineOrModuleTyp
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = load i32, ptr %0, align 4, !range !29, !noundef !5
+  %6 = load i32, ptr %0, align 4, !range !32, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   switch i32 %6, label %default.unreachable1 [
     i32 0, label %8
@@ -1380,65 +1380,68 @@ attributes #9 = { noreturn }
 !9 = !{!10, !11}
 !10 = distinct !{!10, !8, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !11 = distinct !{!11, !8, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!12 = !{i32 0, i32 10}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN14wasmtime_types12WasmHeapType15is_gc_heap_type17h00e7843592564991E: argument 0"}
-!15 = distinct !{!15, !"_ZN14wasmtime_types12WasmHeapType15is_gc_heap_type17h00e7843592564991E"}
-!16 = !{i8 0, i8 2}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!19 = distinct !{!19, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!20 = !{!21, !22}
-!21 = distinct !{!21, !19, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!22 = distinct !{!22, !19, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!25 = distinct !{!25, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!26 = !{!27, !28}
-!27 = distinct !{!27, !25, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!28 = distinct !{!28, !25, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!29 = !{i32 0, i32 3}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!32 = distinct !{!32, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!33 = !{!34, !35}
-!34 = distinct !{!34, !32, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!35 = distinct !{!35, !32, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!38 = distinct !{!38, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!39 = !{!40, !41}
-!40 = distinct !{!40, !38, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!41 = distinct !{!41, !38, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!44 = distinct !{!44, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!45 = !{!46, !47}
-!46 = distinct !{!46, !44, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!47 = distinct !{!47, !44, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!50 = distinct !{!50, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!51 = !{!52, !53}
-!52 = distinct !{!52, !50, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!53 = distinct !{!53, !50, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!56 = distinct !{!56, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!57 = !{!58, !59}
-!58 = distinct !{!58, !56, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!59 = distinct !{!59, !56, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!62 = distinct !{!62, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!63 = !{!64, !65}
-!64 = distinct !{!64, !62, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!65 = distinct !{!65, !62, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!68 = distinct !{!68, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!69 = !{!70, !71}
-!70 = distinct !{!70, !68, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!71 = distinct !{!71, !68, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!72 = !{i64 0, i64 7}
-!73 = !{i64 0, i64 2}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN14wasmtime_types11WasmValType15is_gc_heap_type17h242cf2c7e6376c07E: argument 0"}
+!14 = distinct !{!14, !"_ZN14wasmtime_types11WasmValType15is_gc_heap_type17h242cf2c7e6376c07E"}
+!15 = !{i32 0, i32 10}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN14wasmtime_types12WasmHeapType15is_gc_heap_type17h00e7843592564991E: argument 0"}
+!18 = distinct !{!18, !"_ZN14wasmtime_types12WasmHeapType15is_gc_heap_type17h00e7843592564991E"}
+!19 = !{i8 0, i8 2}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!22 = distinct !{!22, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!23 = !{!24, !25}
+!24 = distinct !{!24, !22, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!25 = distinct !{!25, !22, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!28 = distinct !{!28, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!29 = !{!30, !31}
+!30 = distinct !{!30, !28, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!31 = distinct !{!31, !28, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!32 = !{i32 0, i32 3}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!35 = distinct !{!35, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!36 = !{!37, !38}
+!37 = distinct !{!37, !35, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!38 = distinct !{!38, !35, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!41 = distinct !{!41, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!42 = !{!43, !44}
+!43 = distinct !{!43, !41, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!44 = distinct !{!44, !41, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!47 = distinct !{!47, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!48 = !{!49, !50}
+!49 = distinct !{!49, !47, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!50 = distinct !{!50, !47, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!53 = distinct !{!53, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!54 = !{!55, !56}
+!55 = distinct !{!55, !53, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!56 = distinct !{!56, !53, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!59 = distinct !{!59, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!60 = !{!61, !62}
+!61 = distinct !{!61, !59, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!62 = distinct !{!62, !59, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!65 = distinct !{!65, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!66 = !{!67, !68}
+!67 = distinct !{!67, !65, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!68 = distinct !{!68, !65, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!71 = distinct !{!71, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!72 = !{!73, !74}
+!73 = distinct !{!73, !71, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!74 = distinct !{!74, !71, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!75 = !{i64 0, i64 7}
+!76 = !{i64 0, i64 2}

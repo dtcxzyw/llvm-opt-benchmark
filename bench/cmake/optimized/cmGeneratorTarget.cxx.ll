@@ -12200,7 +12200,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i.i.i.i.i: ; preds = %136
   %.sroa.014.0.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNK17cmGeneratorTarget21GetLinkerTypePropertyERKS7_SH_E3$_0EEET_SK_SK_T0_.exit.i.i.i" ], [ %35, %._crit_edge.i.i.i.i.i ], [ %35, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i.i95.i.i.i.i.i ], [ %35, %124 ], [ %.sroa.014.2.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK17cmGeneratorTarget21GetLinkerTypePropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_0EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i" ]
   %144 = load ptr, ptr %34, align 8
   %.not.i.i.i.i = icmp eq ptr %.sroa.014.0.i.i.i, %144
-  %.pre28 = load ptr, ptr %11, align 8
+  %.pre28 = load ptr, ptr %11, align 8, !noalias !156
   br i1 %.not.i.i.i.i, label %"_ZN2cm8erase_ifIZNK17cmGeneratorTarget21GetLinkerTypePropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_E3$_0EEvR6cmListT_.exit", label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i.i: ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZNK17cmGeneratorTarget21GetLinkerTypePropertyERKS7_SF_E3$_0ET_SH_SH_T0_.exit.i"

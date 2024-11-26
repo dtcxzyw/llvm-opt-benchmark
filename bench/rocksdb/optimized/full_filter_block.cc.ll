@@ -930,8 +930,8 @@ if.end13:                                         ; preds = %if.end
   store ptr %buf_.i, ptr %values_.i, align 8
   %vect_.i = getelementptr inbounds i8, ptr %prefixes, i64 528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vect_.i, i8 0, i64 24, i1 false)
-  %12 = load i64, ptr %start_.i, align 8
-  %13 = load ptr, ptr %range, align 8
+  %12 = load i64, ptr %start_.i, align 8, !noalias !9
+  %13 = load ptr, ptr %range, align 8, !noalias !9
   %14 = load i64, ptr %end_.i.i, align 8, !noalias !9
   %cmp2.i.i17 = icmp ult i64 %12, %14
   br i1 %cmp2.i.i17, label %land.rhs.lr.ph.i.i18, label %invoke.cont19
@@ -940,10 +940,10 @@ land.rhs.lr.ph.i.i18:                             ; preds = %if.end13
   %skip_mask_.i.i19 = getelementptr inbounds i8, ptr %range, i64 24
   %invalid_mask_.i.i20 = getelementptr inbounds i8, ptr %range, i64 32
   %value_mask_.i.i21 = getelementptr inbounds i8, ptr %13, i64 3848
-  %15 = load i64, ptr %value_mask_.i.i21, align 8, !noalias !10
-  %16 = load i64, ptr %skip_mask_.i.i19, align 8, !noalias !10
+  %15 = load i64, ptr %value_mask_.i.i21, align 8, !noalias !9
+  %16 = load i64, ptr %skip_mask_.i.i19, align 8, !noalias !9
   %or.i.i22 = or i64 %16, %15
-  %17 = load i64, ptr %invalid_mask_.i.i20, align 8, !noalias !10
+  %17 = load i64, ptr %invalid_mask_.i.i20, align 8, !noalias !9
   %or10.i.i23 = or i64 %or.i.i22, %17
   br label %land.rhs.i.i24
 
@@ -981,7 +981,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
 
 land.rhs.lr.ph.i.i42:                             ; preds = %invoke.cont20
   %value_mask_.i.i45 = getelementptr inbounds i8, ptr %13, i64 3848
-  %22 = load i64, ptr %value_mask_.i.i45, align 8, !noalias !13
+  %22 = load i64, ptr %value_mask_.i.i45, align 8, !noalias !12
   %23 = or i64 %20, %22
   %or10.i.i47 = or i64 %23, %21
   br label %land.rhs.i.i48
@@ -1041,12 +1041,12 @@ land.rhs.i.us:                                    ; preds = %while.cond.i.us
   %or6.i.us.reass.reass = or i64 %28, %invariant.op269
   %and.i.us = and i64 %or6.i.us.reass.reass, %shl.i.us
   %tobool.not.i.us = icmp eq i64 %and.i.us, 0
-  br i1 %tobool.not.i.us, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit.us, label %while.cond.i.us, !llvm.loop !16
+  br i1 %tobool.not.i.us, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit.us, label %while.cond.i.us, !llvm.loop !15
 
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit.us: ; preds = %land.rhs.i.us, %while.cond.i.us
   %inc.i94.us.lcssa = phi i64 [ %inc.i94.us, %land.rhs.i.us ], [ %umax223, %while.cond.i.us ]
   %cmp.i62.not.us = icmp eq i64 %inc.i94.us.lcssa, %14
-  br i1 %cmp.i62.not.us, label %for.end.loopexit, label %for.body.us, !llvm.loop !17
+  br i1 %cmp.i62.not.us, label %for.end.loopexit, label %for.body.us, !llvm.loop !16
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   %num_keys.0216 = phi i32 [ %num_keys.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ 0, %for.body.lr.ph ]
@@ -1132,7 +1132,7 @@ if.then.i80:                                      ; preds = %invoke.cont42
   store ptr %35, ptr %arrayidx.i, align 8
   %ref.tmp36.sroa.4.0.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 %36, ptr %ref.tmp36.sroa.4.0.arrayidx.i.sroa_idx, align 8
-  %.pre = load ptr, ptr %_M_finish.i.i, align 8, !noalias !18
+  %.pre = load ptr, ptr %_M_finish.i.i, align 8, !noalias !17
   br label %invoke.cont45
 
 if.else.i76:                                      ; preds = %invoke.cont42
@@ -1192,11 +1192,11 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %42, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !20
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %39
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !25
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !24
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
@@ -1217,8 +1217,8 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__
 
 invoke.cont45:                                    ; preds = %if.then.i80, %if.then.i.i, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
   %44 = phi ptr [ %.pre, %if.then.i80 ], [ %incdec.ptr.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ]
-  %45 = load i64, ptr %prefixes, align 8, !noalias !18
-  %46 = load ptr, ptr %vect_.i, align 8
+  %45 = load i64, ptr %prefixes, align 8, !noalias !17
+  %46 = load ptr, ptr %vect_.i, align 8, !noalias !17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %44 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %46 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -1263,12 +1263,12 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %or6.i.reass.reass = or i64 %52, %invariant.op
   %and.i = and i64 %or6.i.reass.reass, %shl.i
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !15
 
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %while.cond.i, %land.rhs.i
   %inc.i94.lcssa = phi i64 [ %umax, %while.cond.i ], [ %inc.i94, %land.rhs.i ]
   %cmp.i62.not = icmp eq i64 %inc.i94.lcssa, %14
-  br i1 %cmp.i62.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %cmp.i62.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end.loopexit:                                 ; preds = %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit.us
   %53 = trunc nuw i64 %indvars.iv.next to i32
@@ -1293,7 +1293,7 @@ invoke.cont60:                                    ; preds = %for.end
 
 land.rhs.lr.ph.i.i101:                            ; preds = %invoke.cont60
   %value_mask_.i.i104 = getelementptr inbounds i8, ptr %13, i64 3848
-  %56 = load i64, ptr %value_mask_.i.i104, align 8, !noalias !26
+  %56 = load i64, ptr %value_mask_.i.i104, align 8, !noalias !25
   %57 = or i64 %54, %56
   %or10.i.i106 = or i64 %57, %filter_range.sroa.18.0.lcssa
   br label %land.rhs.i.i107
@@ -1392,12 +1392,12 @@ land.rhs.i137:                                    ; preds = %while.cond.i134
   %or6.i141.reass.reass = or i64 %70, %invariant.op270
   %and.i142 = and i64 %or6.i141.reass.reass, %shl.i138
   %tobool.not.i143 = icmp eq i64 %and.i142, 0
-  br i1 %tobool.not.i143, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit144, label %while.cond.i134, !llvm.loop !16
+  br i1 %tobool.not.i143, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit144, label %while.cond.i134, !llvm.loop !15
 
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit144: ; preds = %while.cond.i134, %land.rhs.i137
   %inc.i135.lcssa = phi i64 [ %umax226, %while.cond.i134 ], [ %inc.i135, %land.rhs.i137 ]
   %cmp.i122.not = icmp eq i64 %inc.i135.lcssa, %.sink.i203242
-  br i1 %cmp.i122.not, label %for.end86, label %for.body68, !llvm.loop !29
+  br i1 %cmp.i122.not, label %for.end86, label %for.body68, !llvm.loop !28
 
 for.end86:                                        ; preds = %while.cond.i.i112, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit144, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115
   %.pr.i.i145 = load i64, ptr %prefixes, align 8
@@ -1787,8 +1787,8 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr void @_ZN7rocksdb17FilterBlockReader17CacheDependenciesERKNS_11ReadOptionsEbPNS_18FilePrefetchBufferE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(154) %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i, align 8, !alias.scope !30
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !30
+  store ptr null, ptr %state_.i.i, align 8, !alias.scope !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !29
   ret void
 }
 
@@ -1885,10 +1885,10 @@ entry:
   %ukey_without_ts = alloca %"class.rocksdb::Slice", align 8
   %ikey = alloca %"class.rocksdb::Slice", align 8
   %start_.i = getelementptr inbounds i8, ptr %range, i64 8
-  %0 = load i64, ptr %start_.i, align 8, !noalias !33
-  %1 = load ptr, ptr %range, align 8, !noalias !33
+  %0 = load i64, ptr %start_.i, align 8, !noalias !32
+  %1 = load ptr, ptr %range, align 8, !noalias !32
   %end_.i.i = getelementptr inbounds i8, ptr %range, i64 16
-  %2 = load i64, ptr %end_.i.i, align 8, !noalias !9
+  %2 = load i64, ptr %end_.i.i, align 8, !noalias !32
   %cmp2.i.i = icmp ult i64 %0, %2
   br i1 %cmp2.i.i, label %land.rhs.lr.ph.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
 
@@ -1896,10 +1896,10 @@ land.rhs.lr.ph.i.i:                               ; preds = %entry
   %skip_mask_.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %invalid_mask_.i.i = getelementptr inbounds i8, ptr %range, i64 32
   %value_mask_.i.i = getelementptr inbounds i8, ptr %1, i64 3848
-  %3 = load i64, ptr %value_mask_.i.i, align 8, !noalias !33
-  %4 = load i64, ptr %skip_mask_.i.i, align 8, !noalias !33
+  %3 = load i64, ptr %value_mask_.i.i, align 8, !noalias !32
+  %4 = load i64, ptr %skip_mask_.i.i, align 8, !noalias !32
   %or.i.i = or i64 %4, %3
-  %5 = load i64, ptr %invalid_mask_.i.i, align 8, !noalias !33
+  %5 = load i64, ptr %invalid_mask_.i.i, align 8, !noalias !32
   %or10.i.i = or i64 %or.i.i, %5
   br label %land.rhs.i.i
 
@@ -1973,12 +1973,12 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %or6.i = or i64 %or.i, %17
   %and.i = and i64 %or6.i, %shl.i
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !15
 
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %while.cond.i, %land.rhs.i
   %inc.i.lcssa = phi i64 [ %umax, %while.cond.i ], [ %inc.i, %land.rhs.i ]
   %cmp.i.not = icmp eq i64 %inc.i.lcssa, %10
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %while.cond.i.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
   ret void
@@ -1991,10 +1991,10 @@ entry:
   %ikey = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %start_.i = getelementptr inbounds i8, ptr %range, i64 8
-  %0 = load i64, ptr %start_.i, align 8, !noalias !37
-  %1 = load ptr, ptr %range, align 8, !noalias !37
+  %0 = load i64, ptr %start_.i, align 8, !noalias !36
+  %1 = load ptr, ptr %range, align 8, !noalias !36
   %end_.i.i = getelementptr inbounds i8, ptr %range, i64 16
-  %2 = load i64, ptr %end_.i.i, align 8, !noalias !9
+  %2 = load i64, ptr %end_.i.i, align 8, !noalias !36
   %cmp2.i.i = icmp ult i64 %0, %2
   br i1 %cmp2.i.i, label %land.rhs.lr.ph.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
 
@@ -2002,10 +2002,10 @@ land.rhs.lr.ph.i.i:                               ; preds = %entry
   %skip_mask_.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %invalid_mask_.i.i = getelementptr inbounds i8, ptr %range, i64 32
   %value_mask_.i.i = getelementptr inbounds i8, ptr %1, i64 3848
-  %3 = load i64, ptr %value_mask_.i.i, align 8, !noalias !37
-  %4 = load i64, ptr %skip_mask_.i.i, align 8, !noalias !37
+  %3 = load i64, ptr %value_mask_.i.i, align 8, !noalias !36
+  %4 = load i64, ptr %skip_mask_.i.i, align 8, !noalias !36
   %or.i.i = or i64 %4, %3
-  %5 = load i64, ptr %invalid_mask_.i.i, align 8, !noalias !37
+  %5 = load i64, ptr %invalid_mask_.i.i, align 8, !noalias !36
   %or10.i.i = or i64 %or.i.i, %5
   br label %land.rhs.i.i
 
@@ -2095,12 +2095,12 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %or6.i = or i64 %or.i, %22
   %and.i = and i64 %or6.i, %shl.i
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !15
 
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %while.cond.i, %land.rhs.i
   %inc.i.lcssa = phi i64 [ %umax, %while.cond.i ], [ %inc.i, %land.rhs.i ]
   %cmp.i.not = icmp eq i64 %inc.i.lcssa, %15
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !40
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !39
 
 for.end:                                          ; preds = %while.cond.i.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
   ret void
@@ -2276,35 +2276,34 @@ attributes #23 = { noreturn }
 !6 = distinct !{!6, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
-!12 = distinct !{!12, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
-!15 = distinct !{!15, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
+!11 = distinct !{!11, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
+!14 = distinct !{!14, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
+!15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN7rocksdb10autovectorINS_5SliceELm32EE3endEv: %agg.result"}
-!20 = distinct !{!20, !"_ZN7rocksdb10autovectorINS_5SliceELm32EE3endEv"}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"_ZSt19__relocate_object_aIN7rocksdb5SliceES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!23 = distinct !{!23, !"_ZSt19__relocate_object_aIN7rocksdb5SliceES1_SaIS1_EEvPT_PT0_RT1_"}
-!24 = distinct !{!24, !23, !"_ZSt19__relocate_object_aIN7rocksdb5SliceES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!25 = distinct !{!25, !8}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
-!28 = distinct !{!28, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
-!29 = distinct !{!29, !8}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
-!32 = distinct !{!32, !"_ZN7rocksdb6Status2OKEv"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
-!35 = distinct !{!35, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
-!36 = distinct !{!36, !8}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
-!39 = distinct !{!39, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
-!40 = distinct !{!40, !8}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN7rocksdb10autovectorINS_5SliceELm32EE3endEv: %agg.result"}
+!19 = distinct !{!19, !"_ZN7rocksdb10autovectorINS_5SliceELm32EE3endEv"}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"_ZSt19__relocate_object_aIN7rocksdb5SliceES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!22 = distinct !{!22, !"_ZSt19__relocate_object_aIN7rocksdb5SliceES1_SaIS1_EEvPT_PT0_RT1_"}
+!23 = distinct !{!23, !22, !"_ZSt19__relocate_object_aIN7rocksdb5SliceES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!24 = distinct !{!24, !8}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
+!27 = distinct !{!27, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
+!28 = distinct !{!28, !8}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
+!31 = distinct !{!31, !"_ZN7rocksdb6Status2OKEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
+!34 = distinct !{!34, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
+!35 = distinct !{!35, !8}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
+!38 = distinct !{!38, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
+!39 = distinct !{!39, !8}

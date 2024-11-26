@@ -5535,7 +5535,7 @@ if.end93:                                         ; preds = %_ZN4cvc58internal8T
 
 if.then.i.i.i.i.i:                                ; preds = %if.end93
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 96
-  %30 = load ptr, ptr %_M_storage.i.i109, align 8
+  %30 = load ptr, ptr %_M_storage.i.i109, align 8, !noalias !36
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i

@@ -246,7 +246,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6d3d63fa2c3d28
   %6 = load ptr, ptr %1, align 8, !nonnull !4, !align !5
   %.sroa.04.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 25
   %.sroa.04.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load i64, ptr %4, align 8, !noundef !4
+  %7 = load i64, ptr %4, align 8, !alias.scope !62, !noalias !67, !noundef !4
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hf33bca270f723604E.exit.i.i", label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h554aae137b4a3e31E.llvm.11150301906922049042.exit.i"
 
@@ -285,7 +285,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6d3d63fa2c3d28
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !69
-  %19 = load i64, ptr %4, align 8, !noundef !4
+  %19 = load i64, ptr %4, align 8, !alias.scope !62, !noalias !67, !noundef !4
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hf33bca270f723604E.exit.i.i", label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h554aae137b4a3e31E.llvm.11150301906922049042.exit.i"
 

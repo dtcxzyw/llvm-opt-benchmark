@@ -5068,7 +5068,7 @@ call2.i.i.i.noexc:                                ; preds = %if.end664
   %idxprom.i.i1885 = zext i1 %cmp.i.i1881 to i64
   %arrayidx.i.i1886 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i1884, i64 0, i64 %idxprom.i.i1885
   %416 = load ptr, ptr %arrayidx.i.i1886, align 8, !noalias !88
-  %bf.load.i.i.i = load i64, ptr %416, align 8
+  %bf.load.i.i.i = load i64, ptr %416, align 8, !noalias !88
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %417 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %417, 1048575
@@ -9683,7 +9683,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %invoke.cont9
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
-  %3 = load ptr, ptr %fact, align 8
+  %3 = load ptr, ptr %fact, align 8, !noalias !130
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -9807,7 +9807,7 @@ if.then24:                                        ; preds = %invoke.cont22
 
 if.then.i.i.i77:                                  ; preds = %if.then24
   %_M_before_begin.i.i.i.i.i78 = getelementptr inbounds i8, ptr %this, i64 136
-  %25 = load ptr, ptr %factSym, align 8
+  %25 = load ptr, ptr %factSym, align 8, !noalias !133
   br label %for.cond.i.i.i79
 
 for.cond.i.i.i79:                                 ; preds = %for.body.i.i.i83, %if.then.i.i.i77

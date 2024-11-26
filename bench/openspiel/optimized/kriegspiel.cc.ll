@@ -3908,7 +3908,7 @@ define void @_ZNK10open_spiel10kriegspiel15KriegspielState7ReturnsEv(ptr dead_on
   store ptr %7, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %9 = load i8, ptr %3, align 8
+  %9 = load i8, ptr %3, align 8, !noalias !31
   %10 = trunc i8 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16

@@ -46412,14 +46412,14 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #13
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126AssignmentTrackingLowering12mapsAreEqualERKN4llvm9BitVectorERKNS1_11SmallVectorINS0_10AssignmentELj2EEES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, ptr nocapture readonly %.0.val, ptr nocapture readonly %.0.val1) unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load i32, ptr %2, align 8
+  %3 = load i32, ptr %2, align 8, !noalias !615
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZN4llvm6all_ofINS_14iterator_rangeINS_28const_set_bits_iterator_implINS_9BitVectorEEEEEZN12_GLOBAL__N_126AssignmentTrackingLowering12mapsAreEqualERKS3_RKNS_11SmallVectorINS7_10AssignmentELj2EEESE_EUljE_EEbOT_T0_.exit, label %5
 
 5:                                                ; preds = %1
   %6 = add i32 %3, -1
   %7 = lshr i32 %6, 6
-  %8 = load ptr, ptr %0, align 8
+  %8 = load ptr, ptr %0, align 8, !noalias !615
   %9 = and i32 %6, 63
   %10 = xor i32 %9, 63
   %11 = zext nneg i32 %10 to i64

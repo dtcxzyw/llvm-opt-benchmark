@@ -21395,9 +21395,9 @@ invoke.cont:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !735
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !735
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !735
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !735
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !735
@@ -25989,9 +25989,9 @@ invoke.cont:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !868
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !868
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !868
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !868
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !868

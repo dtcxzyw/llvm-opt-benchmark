@@ -4634,8 +4634,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4CellENS0_8hash_opsIS3_EEE7do_ha
 
 _ZN5Yosys5RTLIL6Module4cellERKNS0_8IdStringE.exit.i: ; preds = %1811, %1815, %._crit_edge.i.i.i.i, %1683
   %1818 = phi ptr [ %1817, %1815 ], [ null, %._crit_edge.i.i.i.i ], [ null, %1683 ], [ null, %1811 ]
-  %1819 = load ptr, ptr %134, align 8
-  %1820 = load ptr, ptr %138, align 8
+  %1819 = load ptr, ptr %134, align 8, !noalias !39
+  %1820 = load ptr, ptr %138, align 8, !noalias !39
   %1821 = icmp eq ptr %1819, %1820
   br i1 %1821, label %_ZN5Yosys5RTLIL6Module4cellERKNS0_8IdStringE.exit.i..loopexit.i256.thread.i_crit_edge, label %1822
 
@@ -4660,8 +4660,8 @@ _ZN5Yosys5RTLIL6Module4cellERKNS0_8IdStringE.exit.i..loopexit.i256.thread.i_crit
   %1831 = lshr exact i64 %1830, 2
   %1832 = trunc i64 %1831 to i32
   %1833 = urem i32 %1827, %1832
-  %1834 = load ptr, ptr %140, align 8
-  %1835 = load ptr, ptr %139, align 8
+  %1834 = load ptr, ptr %140, align 8, !noalias !39
+  %1835 = load ptr, ptr %139, align 8, !noalias !39
   %1836 = ptrtoint ptr %1834 to i64
   %1837 = ptrtoint ptr %1835 to i64
   %1838 = sub i64 %1836, %1837
@@ -4832,8 +4832,8 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.
   %1920 = phi ptr [ %1881, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i65 ], [ %1913, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i71 ]
   %1921 = phi ptr [ %1882, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i65 ], [ %1914, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i71 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  %1922 = load ptr, ptr %134, align 8
-  %1923 = load ptr, ptr %138, align 8
+  %1922 = load ptr, ptr %134, align 8, !noalias !39
+  %1923 = load ptr, ptr %138, align 8, !noalias !39
   %1924 = icmp eq ptr %1922, %1923
   br i1 %1924, label %._crit_edge.i.i255.i, label %1925
 
@@ -4863,7 +4863,7 @@ _ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i.i260.i: ; p
   %1939 = phi ptr [ %1819, %1826 ], [ %1922, %.noexc262.i ], [ %1922, %_ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i.i260.i ]
   %1940 = sext i32 %.0.i to i64
   %1941 = getelementptr inbounds i32, ptr %1939, i64 %1940
-  %1942 = load i32, ptr %1941, align 4
+  %1942 = load i32, ptr %1941, align 4, !noalias !39
   %1943 = icmp sgt i32 %1942, -1
   br i1 %1943, label %.lr.ph.i.i257.i, label %.loopexit.i256.i
 

@@ -421,7 +421,7 @@ define hidden void @"_ZN4core3ptr225drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = load ptr, ptr %3, align 8, !invariant.load !4
   %.not = icmp eq ptr %4, null
-  %.pre = load ptr, ptr %0, align 8
+  %.pre = load ptr, ptr %0, align 8, !alias.scope !49
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
@@ -429,17 +429,18 @@ define hidden void @"_ZN4core3ptr225drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
           to label %6 unwind label %14
 
 6:                                                ; preds = %5, %1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = load i64, ptr %7, align 8, !range !49, !invariant.load !4, !noalias !50
+  %8 = load i64, ptr %7, align 8, !range !52, !invariant.load !4, !noalias !49
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = load i64, ptr %9, align 8, !range !53, !invariant.load !4, !noalias !50
+  %10 = load i64, ptr %9, align 8, !range !53, !invariant.load !4, !noalias !49
   %11 = icmp ult i64 %10, -9223372036854775807
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i64 %8, 0
   br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa2a27332f47ef5aE.llvm.11807424318162992724.exit", label %13
 
 13:                                               ; preds = %6
-  tail call void @__rust_dealloc(ptr noundef nonnull %.pre, i64 noundef range(i64 1, -9223372036854775808) %8, i64 noundef range(i64 1, -9223372036854775807) %10) #31, !noalias !50
+  tail call void @__rust_dealloc(ptr noundef nonnull %.pre, i64 noundef range(i64 1, -9223372036854775808) %8, i64 noundef range(i64 1, -9223372036854775807) %10) #31, !noalias !49
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa2a27332f47ef5aE.llvm.11807424318162992724.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa2a27332f47ef5aE.llvm.11807424318162992724.exit": ; preds = %6, %13
@@ -449,7 +450,7 @@ define hidden void @"_ZN4core3ptr225drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = getelementptr inbounds i8, ptr %3, i64 8
-  %17 = load i64, ptr %16, align 8, !range !49, !invariant.load !4, !noalias !54
+  %17 = load i64, ptr %16, align 8, !range !52, !invariant.load !4, !noalias !54
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = load i64, ptr %18, align 8, !range !53, !invariant.load !4, !noalias !54
   %20 = icmp ult i64 %19, -9223372036854775807
@@ -471,7 +472,7 @@ define hidden void @"_ZN4core3ptr236drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = load ptr, ptr %3, align 8, !invariant.load !4
   %.not = icmp eq ptr %4, null
-  %.pre = load ptr, ptr %0, align 8
+  %.pre = load ptr, ptr %0, align 8, !alias.scope !57
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
@@ -479,8 +480,9 @@ define hidden void @"_ZN4core3ptr236drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
           to label %6 unwind label %14
 
 6:                                                ; preds = %5, %1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = load i64, ptr %7, align 8, !range !49, !invariant.load !4, !noalias !57
+  %8 = load i64, ptr %7, align 8, !range !52, !invariant.load !4, !noalias !57
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !range !53, !invariant.load !4, !noalias !57
   %11 = icmp ult i64 %10, -9223372036854775807
@@ -499,7 +501,7 @@ define hidden void @"_ZN4core3ptr236drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = getelementptr inbounds i8, ptr %3, i64 8
-  %17 = load i64, ptr %16, align 8, !range !49, !invariant.load !4, !noalias !60
+  %17 = load i64, ptr %16, align 8, !range !52, !invariant.load !4, !noalias !60
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = load i64, ptr %18, align 8, !range !53, !invariant.load !4, !noalias !60
   %20 = icmp ult i64 %19, -9223372036854775807
@@ -538,7 +540,7 @@ define hidden void @"_ZN4core3ptr253drop_in_place$LT$core..option..Option$LT$all
 
 9:                                                ; preds = %8, %4
   %10 = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = load i64, ptr %10, align 8, !range !49, !invariant.load !4, !noalias !66
+  %11 = load i64, ptr %10, align 8, !range !52, !invariant.load !4, !noalias !66
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load i64, ptr %12, align 8, !range !53, !invariant.load !4, !noalias !66
   %14 = icmp ult i64 %13, -9223372036854775807
@@ -554,7 +556,7 @@ define hidden void @"_ZN4core3ptr253drop_in_place$LT$core..option..Option$LT$all
   %18 = landingpad { ptr, i32 }
           cleanup
   %19 = getelementptr inbounds i8, ptr %6, i64 8
-  %20 = load i64, ptr %19, align 8, !range !49, !invariant.load !4, !noalias !69
+  %20 = load i64, ptr %19, align 8, !range !52, !invariant.load !4, !noalias !69
   %21 = getelementptr inbounds i8, ptr %6, i64 16
   %22 = load i64, ptr %21, align 8, !range !53, !invariant.load !4, !noalias !69
   %23 = icmp ult i64 %22, -9223372036854775807
@@ -593,7 +595,7 @@ define hidden void @"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$all
 
 9:                                                ; preds = %8, %4
   %10 = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = load i64, ptr %10, align 8, !range !49, !invariant.load !4, !noalias !75
+  %11 = load i64, ptr %10, align 8, !range !52, !invariant.load !4, !noalias !75
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load i64, ptr %12, align 8, !range !53, !invariant.load !4, !noalias !75
   %14 = icmp ult i64 %13, -9223372036854775807
@@ -609,7 +611,7 @@ define hidden void @"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$all
   %18 = landingpad { ptr, i32 }
           cleanup
   %19 = getelementptr inbounds i8, ptr %6, i64 8
-  %20 = load i64, ptr %19, align 8, !range !49, !invariant.load !4, !noalias !78
+  %20 = load i64, ptr %19, align 8, !range !52, !invariant.load !4, !noalias !78
   %21 = getelementptr inbounds i8, ptr %6, i64 16
   %22 = load i64, ptr %21, align 8, !range !53, !invariant.load !4, !noalias !78
   %23 = icmp ult i64 %22, -9223372036854775807
@@ -2227,7 +2229,7 @@ define hidden void @_ZN4gpui5style5Style5paint17hd79d1d28ad6a255aE.llvm.11807424
   %55 = landingpad { ptr, i32 }
           cleanup
   %56 = getelementptr inbounds i8, ptr %46, i64 8
-  %57 = load i64, ptr %56, align 8, !range !49, !invariant.load !4, !alias.scope !244, !noalias !252
+  %57 = load i64, ptr %56, align 8, !range !52, !invariant.load !4, !alias.scope !244, !noalias !252
   %58 = getelementptr inbounds i8, ptr %46, i64 16
   %59 = load i64, ptr %58, align 8, !range !53, !invariant.load !4, !alias.scope !244, !noalias !252
   %60 = icmp ult i64 %59, -9223372036854775807
@@ -2241,7 +2243,7 @@ define hidden void @_ZN4gpui5style5Style5paint17hd79d1d28ad6a255aE.llvm.11807424
 
 62:                                               ; preds = %49
   %63 = getelementptr inbounds i8, ptr %46, i64 8
-  %64 = load i64, ptr %63, align 8, !range !49, !invariant.load !4, !alias.scope !244, !noalias !250
+  %64 = load i64, ptr %63, align 8, !range !52, !invariant.load !4, !alias.scope !244, !noalias !250
   %65 = getelementptr inbounds i8, ptr %46, i64 16
   %66 = load i64, ptr %65, align 8, !range !53, !invariant.load !4, !alias.scope !244, !noalias !250
   %67 = icmp ult i64 %66, -9223372036854775807
@@ -5792,7 +5794,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !5, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !range !49, !invariant.load !4
+  %6 = load i64, ptr %5, align 8, !range !52, !invariant.load !4
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8, !range !53, !invariant.load !4
   %9 = icmp ult i64 %8, -9223372036854775807
@@ -5814,7 +5816,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !5, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !range !49, !invariant.load !4
+  %6 = load i64, ptr %5, align 8, !range !52, !invariant.load !4
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8, !range !53, !invariant.load !4
   %9 = icmp ult i64 %8, -9223372036854775807
@@ -6273,7 +6275,7 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h73c27aa498
 
 "_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h88f59c9b7d6b1760E.llvm.11807424318162992724.exit": ; preds = %4
   %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8, !nonnull !4
+  %16 = load ptr, ptr %15, align 8, !alias.scope !667, !nonnull !4
   %17 = extractvalue { i32, i32 } %10, 0
   %18 = getelementptr inbounds { { [490 x i64] }, i32, [1 x i32] }, ptr %16, i64 %14, i32 1
   %19 = load i32, ptr %18, align 8, !alias.scope !670, !noalias !675, !noundef !4
@@ -6450,7 +6452,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$gpui..elements..canvas..Canvas$LT$T
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = getelementptr inbounds i8, ptr %10, i64 8
-  %21 = load i64, ptr %20, align 8, !range !49, !invariant.load !4, !alias.scope !686, !noalias !694
+  %21 = load i64, ptr %20, align 8, !range !52, !invariant.load !4, !alias.scope !686, !noalias !694
   %22 = getelementptr inbounds i8, ptr %10, i64 16
   %23 = load i64, ptr %22, align 8, !range !53, !invariant.load !4, !alias.scope !686, !noalias !694
   %24 = icmp ult i64 %23, -9223372036854775807
@@ -6464,7 +6466,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$gpui..elements..canvas..Canvas$LT$T
 
 26:                                               ; preds = %13
   %27 = getelementptr inbounds i8, ptr %10, i64 8
-  %28 = load i64, ptr %27, align 8, !range !49, !invariant.load !4, !alias.scope !686, !noalias !692
+  %28 = load i64, ptr %27, align 8, !range !52, !invariant.load !4, !alias.scope !686, !noalias !692
   %29 = getelementptr inbounds i8, ptr %10, i64 16
   %30 = load i64, ptr %29, align 8, !range !53, !invariant.load !4, !alias.scope !686, !noalias !692
   %31 = icmp ult i64 %30, -9223372036854775807
@@ -6960,10 +6962,10 @@ attributes #32 = { noreturn }
 !46 = !{!39, !42, !34, !30}
 !47 = !{!44, !42}
 !48 = !{!39, !34, !37, !30, !32}
-!49 = !{i64 0, i64 -9223372036854775808}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa2a27332f47ef5aE.llvm.11807424318162992724: argument 0"}
-!52 = distinct !{!52, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa2a27332f47ef5aE.llvm.11807424318162992724"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa2a27332f47ef5aE.llvm.11807424318162992724: argument 0"}
+!51 = distinct !{!51, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa2a27332f47ef5aE.llvm.11807424318162992724"}
+!52 = !{i64 0, i64 -9223372036854775808}
 !53 = !{i64 1, i64 0}
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa2a27332f47ef5aE.llvm.11807424318162992724: argument 0"}

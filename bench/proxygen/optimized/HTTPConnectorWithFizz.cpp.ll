@@ -14229,7 +14229,7 @@ invoke.cont14:                                    ; preds = %if.then10
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %this, i64 2024
   %12 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !71
   %cachePtr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 2032
-  %13 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !76
+  %13 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !71
   %14 = load ptr, ptr %13, align 8, !noalias !71
   %cmp.not.i.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %if.then.i.i.i16

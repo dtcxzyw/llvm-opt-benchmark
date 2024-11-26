@@ -411,7 +411,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit18:    ; preds = %_ZNK5Ipopt6Vector7M
 
 35:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit18
   %36 = getelementptr inbounds i8, ptr %34, i64 8
-  %37 = load i32, ptr %36, align 8, !noalias !5
+  %37 = load i32, ptr %36, align 8, !noalias !4
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.thread
 
@@ -422,16 +422,16 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %35
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(205) %34) #12
   %.pre = load ptr, ptr %31, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
-  %.pre92 = load ptr, ptr %.phi.trans.insert, align 8, !noalias !10
+  %.pre92 = load ptr, ptr %.phi.trans.insert, align 8, !noalias !9
   %.not.i.i.i.i20 = icmp eq ptr %.pre92, null
   br i1 %.not.i.i.i.i20, label %_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv.exit21, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.thread
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.thread: ; preds = %35, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
   %42 = phi ptr [ %.pre92, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit ], [ %34, %35 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = load i32, ptr %43, align 8, !noalias !10
+  %44 = load i32, ptr %43, align 8, !noalias !9
   %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %43, align 8, !noalias !10
+  store i32 %45, ptr %43, align 8, !noalias !9
   br label %_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv.exit21
 
 _ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv.exit21: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.thread, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
@@ -507,13 +507,13 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit24:      ; preds = %_ZN5Ipopt8SmartPtrI
 _ZNK5Ipopt6Matrix10MultVectorEdRKNS_6VectorEdRS1_.exit: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit24
   %79 = load ptr, ptr %31, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 24
-  %81 = load ptr, ptr %80, align 8, !noalias !4
+  %81 = load ptr, ptr %80, align 8, !noalias !14
   %.not.i.i.i.i30 = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i30, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit40, label %82
 
 82:                                               ; preds = %_ZNK5Ipopt6Matrix10MultVectorEdRKNS_6VectorEdRS1_.exit
   %83 = getelementptr inbounds i8, ptr %81, i64 8
-  %84 = load i32, ptr %83, align 8, !noalias !15
+  %84 = load i32, ptr %83, align 8, !noalias !14
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit33, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit33.thread
 
@@ -524,16 +524,16 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit33:      ; preds = %82
   tail call void %88(ptr noundef nonnull align 8 dereferenceable(205) %81) #12
   %.pre93 = load ptr, ptr %31, align 8
   %.phi.trans.insert94 = getelementptr inbounds i8, ptr %.pre93, i64 24
-  %.pre95 = load ptr, ptr %.phi.trans.insert94, align 8, !noalias !20
+  %.pre95 = load ptr, ptr %.phi.trans.insert94, align 8, !noalias !19
   %.not.i.i.i.i34 = icmp eq ptr %.pre95, null
   br i1 %.not.i.i.i.i34, label %_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv.exit35, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit33.thread
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit33.thread: ; preds = %82, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit33
   %89 = phi ptr [ %.pre95, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit33 ], [ %81, %82 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 8
-  %91 = load i32, ptr %90, align 8, !noalias !20
+  %91 = load i32, ptr %90, align 8, !noalias !19
   %92 = add nsw i32 %91, 1
-  store i32 %92, ptr %90, align 8, !noalias !20
+  store i32 %92, ptr %90, align 8, !noalias !19
   br label %_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv.exit35
 
 _ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv.exit35: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit33.thread, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit33
@@ -915,15 +915,15 @@ define void @_ZNK5Ipopt15SymScaledMatrix9PrintImplERKNS_10JournalistENS_13EJourn
   %26 = getelementptr inbounds i8, ptr %0, i64 96
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = load ptr, ptr %28, align 8, !noalias !25
+  %29 = load ptr, ptr %28, align 8, !noalias !24
   %.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i, label %34, label %30
 
 30:                                               ; preds = %7
   %31 = getelementptr inbounds i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 8, !noalias !25
+  %32 = load i32, ptr %31, align 8, !noalias !24
   %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %31, align 8, !noalias !25
+  store i32 %33, ptr %31, align 8, !noalias !24
   br label %34
 
 34:                                               ; preds = %7, %30
@@ -1263,7 +1263,7 @@ define linkonce_odr void @_ZN5Ipopt7SubjectD2Ev(ptr noundef nonnull align 8 dere
   %33 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 32
   %34 = add nsw i64 %.052.i.i.i.i, -1
   %35 = icmp sgt i64 %.052.i.i.i.i, 1
-  br i1 %35, label %17, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !30
+  br i1 %35, label %17, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !29
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %32
   %.pre59.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
@@ -1352,7 +1352,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_E
   %67 = getelementptr inbounds i8, ptr %.sroa.02.014, i64 8
   %68 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %67, %68
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %64
   %.pre = load ptr, ptr %2, align 8
@@ -1693,32 +1693,31 @@ attributes #15 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{}
-!5 = !{!6, !8}
-!6 = distinct !{!6, !7, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE: argument 0"}
-!7 = distinct !{!7, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE"}
-!8 = distinct !{!8, !9, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv: argument 0"}
-!9 = distinct !{!9, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv"}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE: argument 0"}
-!12 = distinct !{!12, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE"}
-!13 = distinct !{!13, !14, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv: argument 0"}
-!14 = distinct !{!14, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv"}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE: argument 0"}
-!17 = distinct !{!17, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE"}
-!18 = distinct !{!18, !19, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv: argument 0"}
-!19 = distinct !{!19, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv"}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE: argument 0"}
-!22 = distinct !{!22, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE"}
-!23 = distinct !{!23, !24, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv: argument 0"}
-!24 = distinct !{!24, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv"}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE: argument 0"}
-!27 = distinct !{!27, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE"}
-!28 = distinct !{!28, !29, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv: argument 0"}
-!29 = distinct !{!29, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv"}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
+!4 = !{!5, !7}
+!5 = distinct !{!5, !6, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE: argument 0"}
+!6 = distinct !{!6, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE"}
+!7 = distinct !{!7, !8, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv: argument 0"}
+!8 = distinct !{!8, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv"}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE: argument 0"}
+!11 = distinct !{!11, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE"}
+!12 = distinct !{!12, !13, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv: argument 0"}
+!13 = distinct !{!13, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv"}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE: argument 0"}
+!16 = distinct !{!16, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE"}
+!17 = distinct !{!17, !18, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv: argument 0"}
+!18 = distinct !{!18, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv"}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE: argument 0"}
+!21 = distinct !{!21, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE"}
+!22 = distinct !{!22, !23, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv: argument 0"}
+!23 = distinct !{!23, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv"}
+!24 = !{!25, !27}
+!25 = distinct !{!25, !26, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE: argument 0"}
+!26 = distinct !{!26, !"_ZN5Ipopt8ConstPtrINS_6VectorEEENS_8SmartPtrIKT_EERKNS2_IS3_EE"}
+!27 = distinct !{!27, !28, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv: argument 0"}
+!28 = distinct !{!28, !"_ZNK5Ipopt20SymScaledMatrixSpace13RowColScalingEv"}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = distinct !{!31, !30}

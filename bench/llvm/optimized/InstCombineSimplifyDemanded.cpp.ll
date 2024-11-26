@@ -13354,7 +13354,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i:             ; preds = %118
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %118
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %8) #19
-  %.pr.i = load i32, ptr %119, align 8
+  %.pr.i = load i32, ptr %119, align 8, !alias.scope !160
   %123 = icmp ult i32 %.pr.i, 65
   br i1 %123, label %_ZNK4llvm5APInt4lshrEj.exit.thread, label %_ZNK4llvm5APInt4lshrEj.exit
 
@@ -13417,7 +13417,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i:     ; preds = %_ZNK4llvm5APInt4lsh
 
 _ZN4llvm5APIntC2ERKS0_.exit.i87:                  ; preds = %143
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %8) #19
-  %.pr.i88 = load i32, ptr %144, align 8
+  %.pr.i88 = load i32, ptr %144, align 8, !alias.scope !173
   %147 = icmp ult i32 %.pr.i88, 65
   br i1 %147, label %_ZNK4llvm5APInt4ashrEj.exit.thread, label %_ZNK4llvm5APInt4ashrEj.exit
 
@@ -20019,7 +20019,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !252
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !252
   store ptr %96, ptr %95, align 8, !noalias !252
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #19

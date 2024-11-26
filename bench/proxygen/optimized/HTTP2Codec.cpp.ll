@@ -6441,7 +6441,7 @@ lpad83:                                           ; preds = %if.then81
 
 if.else85:                                        ; preds = %invoke.cont79
   %35 = load ptr, ptr %tailStart_.i13, align 8, !noalias !46
-  %36 = load ptr, ptr %cachePtr_.i12, align 8, !noalias !51
+  %36 = load ptr, ptr %cachePtr_.i12, align 8, !noalias !46
   %37 = load ptr, ptr %36, align 8, !noalias !46
   %cmp.not.i.i.i.i = icmp eq ptr %35, %37
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly10IOBufQueue4moveEv.exit.i, label %if.then.i.i.i.i
@@ -8473,7 +8473,7 @@ if.end275:                                        ; preds = %if.end146
 if.then.i162:                                     ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit96, %invoke.cont252, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit159, %if.end275
   %102 = phi ptr [ null, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit ], [ %33, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit96 ], [ null, %invoke.cont252 ], [ null, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit159 ], [ null, %if.end275 ]
   %103 = load ptr, ptr %tailStart_.i.i, align 8, !noalias !84
-  %104 = load ptr, ptr %cachePtr_.i.i, align 8, !noalias !89
+  %104 = load ptr, ptr %cachePtr_.i.i, align 8, !noalias !84
   %105 = load ptr, ptr %104, align 8, !noalias !84
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %103, %105
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5folly10IOBufQueue4moveEv.exit.i.i.i, label %if.then.i.i.i.i.i.i
@@ -9947,7 +9947,7 @@ if.then:                                          ; preds = %entry
   %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 728
   %0 = load ptr, ptr %tailStart_.i.i.i.i.i, align 8, !noalias !91
   %cachePtr_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 736
-  %1 = load ptr, ptr %cachePtr_.i.i.i.i.i, align 8, !noalias !96
+  %1 = load ptr, ptr %cachePtr_.i.i.i.i.i, align 8, !noalias !91
   %2 = load ptr, ptr %1, align 8, !noalias !91
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, %2
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5folly10IOBufQueue4moveEv.exit.i.i, label %if.then.i.i.i.i.i
@@ -13614,7 +13614,7 @@ _ZNK5folly10IOBufQueue11chainLengthEv.exit:       ; preds = %if.then
   call void @_ZN5folly10IOBufQueue5splitEmb(ptr nonnull sret(%"class.std::unique_ptr") align 8 %head, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %sub13, i1 noundef zeroext true)
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   %9 = load ptr, ptr %tailStart_.i, align 8, !noalias !138
-  %10 = load ptr, ptr %cachePtr_.i, align 8, !noalias !135
+  %10 = load ptr, ptr %cachePtr_.i, align 8, !noalias !138
   %11 = load ptr, ptr %10, align 8, !noalias !138
   %cmp.not.i.i.i = icmp eq ptr %9, %11
   br i1 %cmp.not.i.i.i, label %invoke.cont16, label %if.then.i.i.i
@@ -16024,7 +16024,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %writeBuf, i64 24
   %5 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !155
   %cachePtr_.i.i.i = getelementptr inbounds i8, ptr %writeBuf, i64 32
-  %6 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !152
+  %6 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !155
   %7 = load ptr, ptr %6, align 8, !noalias !155
   %cmp.not.i.i.i = icmp eq ptr %5, %7
   br i1 %cmp.not.i.i.i, label %invoke.cont6, label %if.then.i.i.i

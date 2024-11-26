@@ -4197,12 +4197,12 @@ _ZL18OptimizeGlobalVarsRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformIn
   %1640 = add nuw i32 %1630, 1
   store i32 %1640, ptr %112, align 4, !noalias !41
   store ptr %1627, ptr %1632, align 8, !noalias !41
-  %1641 = load ptr, ptr %24, align 8
+  %1641 = load ptr, ptr %24, align 8, !noalias !41
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i
 
 1642:                                             ; preds = %._crit_edge.i.i.i.i.i.i153, %.lr.ph.i.i.i.i138
   %1643 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef %1627) #19, !noalias !41
-  %.pre.i.i.i.i.i = load ptr, ptr %24, align 8
+  %.pre.i.i.i.i.i = load ptr, ptr %24, align 8, !noalias !41
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i151, %1642, %1639
@@ -4273,12 +4273,12 @@ _ZN4llvm11SmallPtrSetIPNS_11GlobalValueELj4EED2Ev.exit.i.i: ; preds = %1648, %_Z
   %1669 = add nuw i32 %1659, 1
   store i32 %1669, ptr %119, align 4, !noalias !45
   store ptr %1656, ptr %1661, align 8, !noalias !45
-  %1670 = load ptr, ptr %25, align 8
+  %1670 = load ptr, ptr %25, align 8, !noalias !45
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i7.i.i
 
 1671:                                             ; preds = %._crit_edge.i.i.i.i13.i.i, %.lr.ph.i.i4.i.i
   %1672 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef %1656) #19, !noalias !45
-  %.pre.i.i.i6.i.i = load ptr, ptr %25, align 8
+  %.pre.i.i.i6.i.i = load ptr, ptr %25, align 8, !noalias !45
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i7.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i7.i.i: ; preds = %.lr.ph.i.i.i.i10.i.i, %1671, %1668
@@ -5985,7 +5985,7 @@ define internal fastcc noundef zeroext i1 @_ZL15hasChangeableCCPN4llvm8FunctionE
 38:                                               ; preds = %27, %2
   %.sink.i.i.i = phi ptr [ %28, %27 ], [ null, %2 ]
   %39 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8FunctionEbLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_bEEEES3_bS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i), !noalias !63
-  %40 = load ptr, ptr %3, align 8
+  %40 = load ptr, ptr %3, align 8, !noalias !63
   store ptr %40, ptr %39, align 8, !noalias !63
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i8 0, ptr %41, align 1, !noalias !63

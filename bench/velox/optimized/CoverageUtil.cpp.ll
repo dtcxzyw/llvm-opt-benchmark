@@ -870,7 +870,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   br label %_ZN8facebook5velox9functions16TableCellTracker3addEii.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i
-  %45 = load ptr, ptr %veloxCellTracker, align 8
+  %45 = load ptr, ptr %veloxCellTracker, align 8, !noalias !20
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %42 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %45 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i

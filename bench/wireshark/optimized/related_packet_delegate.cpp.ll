@@ -1780,7 +1780,7 @@ define void @_ZN21RelatedPacketDelegate15setCurrentFrameEj(ptr noundef nonnull a
 
 _ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i:  ; preds = %9
   %11 = atomicrmw add ptr %8, i32 1 seq_cst, align 4, !noalias !6
-  %.pr.pre.i.i = load ptr, ptr %5, align 8
+  %.pr.pre.i.i = load ptr, ptr %5, align 8, !alias.scope !6
   %.not.i2.i.i = icmp eq ptr %.pr.pre.i.i, null
   br i1 %.not.i2.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i
 

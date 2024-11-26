@@ -1412,7 +1412,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit46:        ; preds = %55, %58
 60:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit46
   %61 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   call void @_ZNK3gmx21FileNameOptionStorage10extensionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.36") align 8 %10, ptr noundef nonnull align 8 dereferenceable(244) %1)
-  %62 = load ptr, ptr %10, align 8
+  %62 = load ptr, ptr %10, align 8, !noalias !11
   %63 = getelementptr inbounds i8, ptr %10, i64 8
   %64 = load ptr, ptr %63, align 8, !noalias !11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !11
@@ -1559,7 +1559,7 @@ _ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit: ; preds = %89, %95, %_ZN3gm
 _ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit.thread72: ; preds = %98, %_ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit
   %103 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   call void @_ZNK3gmx21FileNameOptionStorage10extensionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.36") align 8 %16, ptr noundef nonnull align 8 dereferenceable(244) %1)
-  %104 = load ptr, ptr %16, align 8
+  %104 = load ptr, ptr %16, align 8, !noalias !14
   %105 = getelementptr inbounds i8, ptr %16, i64 8
   %106 = load ptr, ptr %105, align 8, !noalias !14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !14

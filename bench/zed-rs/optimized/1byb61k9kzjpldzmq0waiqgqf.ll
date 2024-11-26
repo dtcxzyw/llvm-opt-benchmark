@@ -169,7 +169,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message1
 13:                                               ; preds = %20, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !34
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17ha207b2cadce71bc6E.llvm.14954593157978714893"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 %12), !noalias !34
-  %14 = load i64, ptr %6, align 8, !range !37, !noundef !5
+  %14 = load i64, ptr %6, align 8, !range !37, !noalias !34, !noundef !5
   %15 = add i64 %14, 9223372036854775807
   %16 = icmp ult i64 %15, 2
   %17 = xor i64 %14, -9223372036854775808

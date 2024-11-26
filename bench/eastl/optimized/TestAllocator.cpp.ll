@@ -1591,7 +1591,7 @@ if.end:                                           ; preds = %sw.bb2
 sw.bb8:                                           ; preds = %entry
   %13 = load ptr, ptr %i1, align 8
   store ptr %13, ptr %agg.result, align 8
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !noalias !93
   %15 = load ptr, ptr %end2, align 8
   %cmp.i23.not75 = icmp eq ptr %14, %15
   br i1 %cmp.i23.not75, label %if.then17, label %for.body
@@ -1617,7 +1617,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %22 = phi ptr [ %17, %for.body ], [ %current.sroa.0.076, %if.then13 ]
   %23 = load ptr, ptr %current.sroa.0.076, align 8
   %cmp.i23.not = icmp eq ptr %23, %15
-  br i1 %cmp.i23.not, label %for.end, label %for.body, !llvm.loop !93
+  br i1 %cmp.i23.not, label %for.end, label %for.body, !llvm.loop !96
 
 for.end:                                          ; preds = %for.inc
   %cmp.i27 = icmp eq ptr %21, %13
@@ -1686,9 +1686,9 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %n.addr.08.i.i.i.i = phi i64 [ %div17, %sw.epilog ], [ %dec.i.i.i.i, %while.body.i.i.i.i ]
   %41 = phi ptr [ %40, %sw.epilog ], [ %42, %while.body.i.i.i.i ]
   %dec.i.i.i.i = add nsw i64 %n.addr.08.i.i.i.i, -1
-  %42 = load ptr, ptr %41, align 8, !noalias !94
+  %42 = load ptr, ptr %41, align 8, !noalias !97
   %tobool.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !97
+  br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !100
 
 _ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit: ; preds = %while.body.i.i.i.i
   store ptr %40, ptr %agg.tmp32, align 8
@@ -1725,7 +1725,7 @@ land.rhs:                                         ; preds = %while.cond
   %mValue.i44 = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 16
   %51 = load i32, ptr %mValue.i44, align 4
   %cmp.i46 = icmp slt i32 %51, %48
-  br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !98
+  br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !101
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 8
@@ -1790,7 +1790,7 @@ land.rhs64:                                       ; preds = %while.cond62
   %mValue.i55 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 16
   %64 = load i32, ptr %mValue.i55, align 4
   %cmp.i57 = icmp slt i32 %64, %63
-  br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !99
+  br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !102
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
   %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 8
@@ -1823,7 +1823,7 @@ for.inc82:                                        ; preds = %for.body56, %while.
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %i1, align 8
   %cmp.i49.not = icmp eq ptr %storemerge, %end1.sroa.0.3
-  br i1 %cmp.i49.not, label %return, label %land.rhs53, !llvm.loop !100
+  br i1 %cmp.i49.not, label %return, label %land.rhs53, !llvm.loop !103
 
 return:                                           ; preds = %for.inc82, %land.rhs53, %if.end49, %if.end22, %if.then27, %if.end, %if.then, %sw.bb
   ret void
@@ -1894,7 +1894,7 @@ if.end:                                           ; preds = %sw.bb2
 sw.bb8:                                           ; preds = %entry
   %13 = load ptr, ptr %i1, align 8
   store ptr %13, ptr %agg.result, align 8
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !noalias !104
   %15 = load ptr, ptr %end2, align 8
   %cmp.i23.not75 = icmp eq ptr %14, %15
   br i1 %cmp.i23.not75, label %if.then17, label %for.body
@@ -1920,7 +1920,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %22 = phi ptr [ %17, %for.body ], [ %current.sroa.0.076, %if.then13 ]
   %23 = load ptr, ptr %current.sroa.0.076, align 8
   %cmp.i23.not = icmp eq ptr %23, %15
-  br i1 %cmp.i23.not, label %for.end, label %for.body, !llvm.loop !101
+  br i1 %cmp.i23.not, label %for.end, label %for.body, !llvm.loop !107
 
 for.end:                                          ; preds = %for.inc
   %cmp.i27 = icmp eq ptr %21, %13
@@ -1989,9 +1989,9 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %n.addr.08.i.i.i.i = phi i64 [ %div17, %sw.epilog ], [ %dec.i.i.i.i, %while.body.i.i.i.i ]
   %41 = phi ptr [ %40, %sw.epilog ], [ %42, %while.body.i.i.i.i ]
   %dec.i.i.i.i = add nsw i64 %n.addr.08.i.i.i.i, -1
-  %42 = load ptr, ptr %41, align 8, !noalias !102
+  %42 = load ptr, ptr %41, align 8, !noalias !108
   %tobool.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !97
+  br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !100
 
 _ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit: ; preds = %while.body.i.i.i.i
   store ptr %40, ptr %agg.tmp32, align 8
@@ -2028,7 +2028,7 @@ land.rhs:                                         ; preds = %while.cond
   %mValue.i44 = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 16
   %51 = load i32, ptr %mValue.i44, align 4
   %cmp.i46 = icmp slt i32 %51, %48
-  br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !105
+  br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !111
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 8
@@ -2093,7 +2093,7 @@ land.rhs64:                                       ; preds = %while.cond62
   %mValue.i55 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 16
   %64 = load i32, ptr %mValue.i55, align 4
   %cmp.i57 = icmp slt i32 %64, %63
-  br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !106
+  br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !112
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
   %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 8
@@ -2126,7 +2126,7 @@ for.inc82:                                        ; preds = %for.body56, %while.
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %i1, align 8
   %cmp.i49.not = icmp eq ptr %storemerge, %end1.sroa.0.3
-  br i1 %cmp.i49.not, label %return, label %land.rhs53, !llvm.loop !107
+  br i1 %cmp.i49.not, label %return, label %land.rhs53, !llvm.loop !113
 
 return:                                           ; preds = %for.inc82, %land.rhs53, %if.end49, %if.end22, %if.then27, %if.end, %if.then, %sw.bb
   ret void
@@ -2259,18 +2259,24 @@ attributes #13 = { nounwind allocsize(0) }
 !90 = distinct !{!90, !"_ZN5eastl4listIiNS_29fixed_allocator_with_overflowEE5eraseENS_12ListIteratorIiPKiRS4_EES7_"}
 !91 = distinct !{!91, !9}
 !92 = distinct !{!92, !9}
-!93 = distinct !{!93, !9}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE: %agg.result"}
-!96 = distinct !{!96, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE"}
-!97 = distinct !{!97, !9}
-!98 = distinct !{!98, !9}
-!99 = distinct !{!99, !9}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZNK5eastl12ListIteratorIiPiRiE4nextEv: %agg.result"}
+!95 = distinct !{!95, !"_ZNK5eastl12ListIteratorIiPiRiE4nextEv"}
+!96 = distinct !{!96, !9}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE: %agg.result"}
+!99 = distinct !{!99, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE"}
 !100 = distinct !{!100, !9}
 !101 = distinct !{!101, !9}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE: %agg.result"}
-!104 = distinct !{!104, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE"}
-!105 = distinct !{!105, !9}
-!106 = distinct !{!106, !9}
+!102 = distinct !{!102, !9}
+!103 = distinct !{!103, !9}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZNK5eastl12ListIteratorIiPiRiE4nextEv: %agg.result"}
+!106 = distinct !{!106, !"_ZNK5eastl12ListIteratorIiPiRiE4nextEv"}
 !107 = distinct !{!107, !9}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE: %agg.result"}
+!110 = distinct !{!110, !"_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE"}
+!111 = distinct !{!111, !9}
+!112 = distinct !{!112, !9}
+!113 = distinct !{!113, !9}

@@ -1004,7 +1004,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   %75 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %76 = getelementptr inbounds i8, ptr %0, i64 184
-  %77 = load ptr, ptr %76, align 8, !nonnull !18, !noundef !18
+  %77 = load ptr, ptr %76, align 8, !alias.scope !283, !nonnull !18, !noundef !18
   %78 = getelementptr inbounds i8, ptr %0, i64 192
   %79 = load i64, ptr %78, align 8, !alias.scope !283, !noundef !18
   br label %80
@@ -1258,7 +1258,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..raw_vec..RawVec$LT$cl
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..command..Command$GT$$GT$17haaed55ae7a596f5aE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !18, !noundef !18
+  %3 = load ptr, ptr %2, align 8, !alias.scope !337, !nonnull !18, !noundef !18
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !337, !noundef !18
   br label %6

@@ -440,7 +440,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$uu_join..State$GT$17h3ea8aee
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !alias.scope !114, !nonnull !5, !noundef !5
+  %23 = load ptr, ptr %22, align 8, !alias.scope !120, !nonnull !5, !noundef !5
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8, !alias.scope !120, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
@@ -1415,7 +1415,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$uucore..mods..error..USimple
 define hidden void @"_ZN4core3ptr57drop_in_place$LT$alloc..vec..Vec$LT$uu_join..Line$GT$$GT$17hc067770f763ebcf3E.llvm.17869906768699351913"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !485)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !485, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !485, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
@@ -2084,7 +2084,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   %135 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !852)
   %136 = getelementptr inbounds i8, ptr %0, i64 184
-  %137 = load ptr, ptr %136, align 8, !nonnull !5, !noundef !5
+  %137 = load ptr, ptr %136, align 8, !alias.scope !852, !nonnull !5, !noundef !5
   %138 = getelementptr inbounds i8, ptr %0, i64 192
   %139 = load i64, ptr %138, align 8, !alias.scope !852, !noundef !5
   br label %140
@@ -2708,7 +2708,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$clap_builder..builder..value
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1054)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1057)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !alias.scope !1054, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1060, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1060, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1061)
@@ -2943,7 +2943,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$$u5b$clap_builder..builder..
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..command..Command$GT$$GT$17hdc23b974a9881d40E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1207, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1207, !noundef !5
   br label %6
@@ -3237,7 +3237,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$std..io..buffered..bufwriter
 define hidden void @"_ZN4core3ptr96drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..possible_value..PossibleValue$GT$$GT$17h906f958ead7b7bb6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1287)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1287, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1287, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1290)

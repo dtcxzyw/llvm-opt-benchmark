@@ -643,7 +643,7 @@ define hidden void @zim_Fiber_start(ptr noundef %0, ptr nocapture noundef writeo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %50, i8 0, i64 17, i1 false)
   store i32 1, ptr %52, align 8, !alias.scope !9
   call void @zend_fiber_switch_context(ptr noundef nonnull %3)
-  %53 = load i8, ptr %51, align 8
+  %53 = load i8, ptr %51, align 8, !alias.scope !9
   %54 = and i8 %53, 2
   %.not73 = icmp eq i8 %54, 0
   br i1 %.not73, label %56, label %55
@@ -927,7 +927,7 @@ define hidden void @zim_Fiber_suspend(ptr nocapture noundef readonly %0, ptr noc
 
 56:                                               ; preds = %45, %51, %54
   call void @zend_fiber_switch_context(ptr noundef nonnull %3)
-  %57 = load i8, ptr %44, align 8
+  %57 = load i8, ptr %44, align 8, !alias.scope !15
   %58 = zext i8 %57 to i32
   %59 = and i32 %58, 2
   %.not80 = icmp eq i32 %59, 0
@@ -1065,7 +1065,7 @@ define hidden void @zim_Fiber_resume(ptr nocapture noundef readonly %0, ptr noca
 
 52:                                               ; preds = %41, %47, %50
   call void @zend_fiber_switch_context(ptr noundef nonnull %3)
-  %53 = load i8, ptr %40, align 8
+  %53 = load i8, ptr %40, align 8, !alias.scope !21
   %54 = and i8 %53, 2
   %.not80 = icmp eq i8 %54, 0
   br i1 %.not80, label %56, label %55
@@ -1240,7 +1240,7 @@ thread-pre-split:                                 ; preds = %20
 
 67:                                               ; preds = %53, %64
   call void @zend_fiber_switch_context(ptr noundef nonnull %3)
-  %68 = load i8, ptr %59, align 8
+  %68 = load i8, ptr %59, align 8, !alias.scope !27
   %69 = and i8 %68, 2
   %.not101 = icmp eq i8 %69, 0
   br i1 %.not101, label %71, label %70

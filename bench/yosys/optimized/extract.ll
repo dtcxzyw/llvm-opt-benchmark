@@ -8153,8 +8153,8 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i1162: ; preds = %_ZN5Yosys7hash
           to label %.noexc985 unwind label %.loopexit1593
 
 .noexc985:                                        ; preds = %.loopexit1569
-  %2875 = load ptr, ptr %1879, align 8
-  %2876 = load ptr, ptr %1878, align 8
+  %2875 = load ptr, ptr %1879, align 8, !noalias !112
+  %2876 = load ptr, ptr %1878, align 8, !noalias !112
   %2877 = ptrtoint ptr %2875 to i64
   %2878 = ptrtoint ptr %2876 to i64
   %2879 = sub i64 %2877, %2878

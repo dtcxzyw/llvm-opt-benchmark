@@ -1779,7 +1779,7 @@ define hidden void @_ZN4llvm24AggressiveAntiDepBreaker18PrescanInstructionERNS_1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !noalias !24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %11 = load i24, ptr %10, align 8
+  %11 = load i24, ptr %10, align 8, !noalias !24
   %12 = zext i24 %11 to i64
   %13 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %9, i64 %12
   %.not1.i.i.i.i.i = icmp eq i24 %11, 0

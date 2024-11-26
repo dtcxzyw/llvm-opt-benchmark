@@ -537,7 +537,7 @@ if.then:                                          ; preds = %_ZNSt4pairIKN4cvc58
 
 if.then.i.i.i.i.i:                                ; preds = %if.then
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 96
-  %6 = load ptr, ptr %p, align 8
+  %6 = load ptr, ptr %p, align 8, !noalias !7
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i

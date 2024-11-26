@@ -3901,7 +3901,7 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit:      ; preds = %86
 123:                                              ; preds = %112, %93
   %.sink.i.i.i.i = phi ptr [ %113, %112 ], [ null, %93 ]
   %124 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.sink.i.i.i.i), !noalias !69
-  %125 = load ptr, ptr %7, align 8
+  %125 = load ptr, ptr %7, align 8, !noalias !69
   store ptr %125, ptr %124, align 8, !noalias !69
   store i8 1, ptr %8, align 1
   %126 = load ptr, ptr %15, align 8
@@ -4218,7 +4218,7 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit:     ; preds = %239
 276:                                              ; preds = %265, %246
   %.sink.i.i.i.i142 = phi ptr [ %266, %265 ], [ null, %246 ]
   %277 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %.sink.i.i.i.i142), !noalias !85
-  %278 = load ptr, ptr %11, align 8
+  %278 = load ptr, ptr %11, align 8, !noalias !85
   store ptr %278, ptr %277, align 8, !noalias !85
   store i8 1, ptr %12, align 1
   store ptr %192, ptr %13, align 8
@@ -4342,7 +4342,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEm
   br i1 %326, label %327, label %341
 
 327:                                              ; preds = %.lr.ph270
-  %328 = load i32, ptr %26, align 4
+  %328 = load i32, ptr %26, align 4, !noalias !92
   %329 = zext i32 %328 to i64
   %330 = getelementptr inbounds ptr, ptr %323, i64 %329
   %.not24.i.i161 = icmp eq i32 %328, 0
@@ -4368,21 +4368,21 @@ _ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEm
   %338 = add nuw i32 %328, 1
   store i32 %338, ptr %26, align 4, !noalias !92
   store ptr %325, ptr %330, align 8, !noalias !92
-  %339 = load ptr, ptr %5, align 8
-  %340 = load i32, ptr %26, align 4
+  %339 = load ptr, ptr %5, align 8, !noalias !92
+  %340 = load i32, ptr %26, align 4, !noalias !92
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i147
 
 341:                                              ; preds = %._crit_edge.i.i165, %.lr.ph270
   %342 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef %325) #18, !noalias !92
-  %.pre.i144 = load ptr, ptr %5, align 8
-  %.pre6.i146 = load i32, ptr %26, align 4
+  %.pre.i144 = load ptr, ptr %5, align 8, !noalias !92
+  %.pre6.i146 = load i32, ptr %26, align 4, !noalias !92
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i147
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i147: ; preds = %.lr.ph.i.i162, %341, %337
   %343 = phi ptr [ %339, %337 ], [ %.pre.i144, %341 ], [ %323, %.lr.ph.i.i162 ]
   %344 = phi i32 [ %340, %337 ], [ %.pre6.i146, %341 ], [ %328, %.lr.ph.i.i162 ]
-  %345 = load ptr, ptr %24, align 8
-  %346 = load i32, ptr %25, align 8
+  %345 = load ptr, ptr %24, align 8, !noalias !92
+  %346 = load i32, ptr %25, align 8, !noalias !92
   %347 = getelementptr inbounds i8, ptr %.sroa.0180.0269, i64 8
   %.not5.i3.i.i = icmp eq ptr %347, %319
   br i1 %.not5.i3.i.i, label %_ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit, label %.lr.ph.i4.i.i
@@ -4603,7 +4603,7 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit:      ; preds = %18
 56:                                               ; preds = %45, %26
   %.sink.i.i.i.i = phi ptr [ %46, %45 ], [ null, %26 ]
   %57 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i), !noalias !100
-  %58 = load ptr, ptr %5, align 8
+  %58 = load ptr, ptr %5, align 8, !noalias !100
   store ptr %58, ptr %57, align 8, !noalias !100
   %59 = load ptr, ptr %13, align 8
   call void @_ZN4llvm3cfg6UpdateIPNS_10BasicBlockEEC1ENS0_10UpdateKindES3_S3_(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 noundef zeroext 0, ptr noundef %59, ptr noundef %58) #18
@@ -5854,7 +5854,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKNS_10BasicBl
 33:                                               ; preds = %22, %2
   %.sink.i.i.i.i = phi ptr [ %23, %22 ], [ null, %2 ]
   %34 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !126
-  %35 = load ptr, ptr %1, align 8
+  %35 = load ptr, ptr %1, align 8, !noalias !126
   store ptr %35, ptr %34, align 8, !noalias !126
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #18
@@ -6498,7 +6498,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKPN4llvm4LoopESt6ve
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %91 = load ptr, ptr %90, align 8
+  %91 = load ptr, ptr %90, align 8, !noalias !156
   %92 = ptrtoint ptr %91 to i64
   %93 = ptrtoint ptr %10 to i64
   %94 = sub i64 %92, %93
@@ -6510,8 +6510,8 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKPN4llvm4LoopESt6ve
 98:                                               ; preds = %89
   %99 = sub nuw nsw i64 %9, %96
   tail call void @_ZNSt5dequeIPKN4llvm4LoopESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %99), !noalias !156
-  %.pre.i12 = load ptr, ptr %86, align 8
-  %.pre6.i13 = load ptr, ptr %90, align 8
+  %.pre.i12 = load ptr, ptr %86, align 8, !noalias !159
+  %.pre6.i13 = load ptr, ptr %90, align 8, !noalias !159
   %.pre7.i14 = ptrtoint ptr %.pre.i12 to i64
   br label %100
 
@@ -6520,9 +6520,9 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKPN4llvm4LoopESt6ve
   %101 = phi ptr [ %.pre6.i13, %98 ], [ %91, %89 ]
   %102 = phi ptr [ %.pre.i12, %98 ], [ %87, %89 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %104 = load ptr, ptr %103, align 8
+  %104 = load ptr, ptr %103, align 8, !noalias !159
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %106 = load ptr, ptr %105, align 8
+  %106 = load ptr, ptr %105, align 8, !noalias !159
   %107 = ptrtoint ptr %104 to i64
   %108 = sub i64 %.pre-phi.i, %107
   %109 = ashr exact i64 %108, 3
@@ -6743,7 +6743,7 @@ define linkonce_odr void @_ZNSt5dequeIPKN4llvm4LoopESaIS3_EE13_M_insert_auxIN9__
 
 78:                                               ; preds = %5
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %80 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %79, align 8, !noalias !175
   %81 = ptrtoint ptr %80 to i64
   %82 = sub i64 %54, %81
   %83 = ashr exact i64 %82, 3
@@ -6753,14 +6753,14 @@ define linkonce_odr void @_ZNSt5dequeIPKN4llvm4LoopESaIS3_EE13_M_insert_auxIN9__
 85:                                               ; preds = %78
   %86 = sub nuw i64 %4, %83
   tail call void @_ZNSt5dequeIPKN4llvm4LoopESaIS3_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %86), !noalias !175
-  %.pre.i = load ptr, ptr %30, align 8
-  %.pre6.i = load ptr, ptr %79, align 8
+  %.pre.i = load ptr, ptr %30, align 8, !noalias !178
+  %.pre6.i = load ptr, ptr %79, align 8, !noalias !178
   %.pre7.i = ptrtoint ptr %.pre.i to i64
   %.pre8.i = ptrtoint ptr %.pre6.i to i64
   %.pre10.i = sub i64 %.pre7.i, %.pre8.i
   %.pre12.i = ashr exact i64 %.pre10.i, 3
-  %.pre322 = load ptr, ptr %50, align 8
-  %.pre323 = load ptr, ptr %33, align 8
+  %.pre322 = load ptr, ptr %50, align 8, !noalias !178
+  %.pre323 = load ptr, ptr %33, align 8, !noalias !178
   br label %87
 
 87:                                               ; preds = %85, %78
@@ -6853,10 +6853,10 @@ _ZStplRKSt15_Deque_iteratorIPKN4llvm4LoopERS3_PS3_El.exit: ; preds = %119, %125
   br i1 %.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPN4llvm4LoopESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit, label %133
 
 133:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIPKN4llvm4LoopERS3_PS3_El.exit
-  %134 = load ptr, ptr %30, align 8
-  %135 = load ptr, ptr %79, align 8
-  %136 = load ptr, ptr %50, align 8
-  %137 = load ptr, ptr %33, align 8
+  %134 = load ptr, ptr %30, align 8, !noalias !184
+  %135 = load ptr, ptr %79, align 8, !noalias !184
+  %136 = load ptr, ptr %50, align 8, !noalias !184
+  %137 = load ptr, ptr %33, align 8, !noalias !184
   %138 = ptrtoint ptr %134 to i64
   %139 = ptrtoint ptr %135 to i64
   %140 = sub i64 %138, %139
@@ -7288,7 +7288,7 @@ _ZNSt15_Deque_iteratorIPKN4llvm4LoopERS3_PS3_EpLEl.exit.i.i.i49: ; preds = %333,
 
 343:                                              ; preds = %5
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %345 = load ptr, ptr %344, align 8
+  %345 = load ptr, ptr %344, align 8, !noalias !265
   %346 = ptrtoint ptr %345 to i64
   %347 = sub i64 %346, %70
   %348 = ashr exact i64 %347, 3
@@ -7299,11 +7299,11 @@ _ZNSt15_Deque_iteratorIPKN4llvm4LoopERS3_PS3_EpLEl.exit.i.i.i49: ; preds = %333,
 351:                                              ; preds = %343
   %352 = sub nuw i64 %4, %349
   tail call void @_ZNSt5dequeIPKN4llvm4LoopESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %352), !noalias !265
-  %.pre.i60 = load ptr, ptr %58, align 8
-  %.pre6.i61 = load ptr, ptr %344, align 8
+  %.pre.i60 = load ptr, ptr %58, align 8, !noalias !268
+  %.pre6.i61 = load ptr, ptr %344, align 8, !noalias !268
   %.pre7.i62 = ptrtoint ptr %.pre.i60 to i64
-  %.pre = load ptr, ptr %68, align 8
-  %.pre321 = load ptr, ptr %59, align 8
+  %.pre = load ptr, ptr %68, align 8, !noalias !268
+  %.pre321 = load ptr, ptr %59, align 8, !noalias !268
   %.pre324 = ptrtoint ptr %.pre to i64
   %.pre325 = sub i64 %.pre7.i62, %.pre324
   %.pre327 = ashr exact i64 %.pre325, 3
@@ -7400,10 +7400,10 @@ _ZStmiRKSt15_Deque_iteratorIPKN4llvm4LoopERS3_PS3_El.exit64: ; preds = %385, %39
   br i1 %399, label %400, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPN4llvm4LoopESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit91
 
 400:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorIPKN4llvm4LoopERS3_PS3_El.exit64
-  %401 = load ptr, ptr %58, align 8
-  %402 = load ptr, ptr %68, align 8
-  %403 = load ptr, ptr %344, align 8
-  %404 = load ptr, ptr %59, align 8
+  %401 = load ptr, ptr %58, align 8, !noalias !274
+  %402 = load ptr, ptr %68, align 8, !noalias !274
+  %403 = load ptr, ptr %344, align 8, !noalias !274
+  %404 = load ptr, ptr %59, align 8, !noalias !274
   %405 = sub nsw i64 0, %4
   %406 = ptrtoint ptr %401 to i64
   %407 = ptrtoint ptr %402 to i64

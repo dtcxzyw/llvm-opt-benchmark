@@ -247,7 +247,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15
 define hidden { i32, i32 } @_ZN4http10extensions10Extensions6insert17h95e64050422aa1daE(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, i32 noundef %1, i32 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %5 = load ptr, ptr %0, align 8, !noundef !7
+  %5 = load ptr, ptr %0, align 8, !alias.scope !28, !noundef !7
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8291473234f291e8E.llvm.6213349532840121425.exit"
 
@@ -329,7 +329,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.6213349532840121425.ex
 define hidden { i64, i32 } @_ZN4http10extensions10Extensions6insert17hb5225755895bb336E(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %5 = load ptr, ptr %0, align 8, !noundef !7
+  %5 = load ptr, ptr %0, align 8, !alias.scope !34, !noundef !7
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8291473234f291e8E.llvm.6213349532840121425.exit"
 

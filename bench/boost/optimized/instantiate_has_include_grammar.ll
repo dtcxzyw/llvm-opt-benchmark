@@ -9144,10 +9144,11 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS2_INS1_6act
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
   %7 = load ptr, ptr %1, align 8, !tbaa !151, !noalias !251
   tail call void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !251
   call void @_ZNK5boost6spirit7classic6actionINS2_INS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_19ref_const_ref_actorIbbNS1_13assign_actionEEEE5parseINS1_7scannerINSC_20unput_queue_iteratorISt14_List_iteratorISP_ESP_SU_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS11_T_E4typeERKS1J_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %8 = load i64, ptr %3, align 8, !tbaa !158
+  %8 = load i64, ptr %3, align 8, !tbaa !158, !alias.scope !251
   %.not.not.i = icmp sgt i64 %8, -1
   br i1 %.not.not.i, label %9, label %_ZNK5boost6spirit7classic6actionINS2_INS2_INS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_19ref_const_ref_actorIbbNS1_13assign_actionEEEEES10_E5parseINS1_7scannerINSC_20unput_queue_iteratorISt14_List_iteratorISP_ESP_SU_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS12_T_E4typeERKS1K_.exit
 
@@ -9243,7 +9244,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_6actionIN
   %4 = load ptr, ptr %1, align 8, !tbaa !151, !noalias !257
   tail call void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !257
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %5 = load i64, ptr %3, align 8, !tbaa !158
+  %5 = load i64, ptr %3, align 8, !tbaa !158, !alias.scope !257
   %.not.not.i = icmp sgt i64 %5, -1
   br i1 %.not.not.i, label %6, label %25
 
@@ -9393,7 +9394,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11kleene_starINS1_6acti
   %10 = load ptr, ptr %1, align 8, !tbaa !151, !noalias !262
   call void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !262
   call void @_ZNK5boost6spirit7classic11char_parserINS1_19negated_char_parserINS1_5chlitINS_4wave8token_idEEEEEE5parseINS1_7scannerINS5_4util20unput_queue_iteratorISt14_List_iteratorINS5_8cpplexer9lex_tokenINSC_13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSL_EEPcEEEEEEEEEST_NSt7__cxx114listIST_NS_19fast_pool_allocatorIST_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS7_S7_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS8_T_E4typeERKS1E_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %11 = load i64, ptr %3, align 8, !tbaa !158
+  %11 = load i64, ptr %3, align 8, !tbaa !158, !alias.scope !262
   %.not.not.i = icmp sgt i64 %11, -1
   br i1 %.not.not.i, label %12, label %28
 
@@ -9949,7 +9950,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_
   %4 = load ptr, ptr %2, align 8, !tbaa !151, !noalias !268
   tail call void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2), !noalias !268
   tail call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind writable sret(%"class.boost::spirit::classic::match.75") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %5 = load i64, ptr %0, align 8, !tbaa !158
+  %5 = load i64, ptr %0, align 8, !tbaa !158, !alias.scope !268
   %.not.not.i = icmp sgt i64 %5, -1
   br i1 %.not.not.i, label %6, label %.thread
 
@@ -10989,7 +10990,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS2_INS1_6act
   %7 = load ptr, ptr %1, align 8, !tbaa !151, !noalias !277
   tail call void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !277
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %8 = load i64, ptr %3, align 8, !tbaa !158
+  %8 = load i64, ptr %3, align 8, !tbaa !158, !alias.scope !277
   %.not.not.i = icmp sgt i64 %8, -1
   br i1 %.not.not.i, label %9, label %28
 
@@ -11121,7 +11122,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_6actionIN
   %4 = load ptr, ptr %1, align 8, !tbaa !151, !noalias !280
   tail call void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !280
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %5 = load i64, ptr %3, align 8, !tbaa !158
+  %5 = load i64, ptr %3, align 8, !tbaa !158, !alias.scope !280
   %.not.not.i = icmp sgt i64 %5, -1
   br i1 %.not.not.i, label %6, label %25
 
@@ -12714,7 +12715,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 
 67:                                               ; preds = %54
   %68 = atomicrmw add ptr %63, i32 1 acq_rel, align 4, !noalias !313
-  %.pre.i.i = load ptr, ptr %61, align 8, !tbaa !316
+  %.pre.i.i = load ptr, ptr %61, align 8, !tbaa !316, !alias.scope !313
   br label %_ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEC2ERKSR_.exit.i.i
 
 _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEC2ERKSR_.exit.i.i: ; preds = %67, %54
@@ -12723,8 +12724,8 @@ _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_t
   %71 = load ptr, ptr %14, align 8, !tbaa !291, !noalias !313
   store ptr %71, ptr %70, align 8, !tbaa !17, !alias.scope !313
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !291
-  %74 = load ptr, ptr %73, align 8, !tbaa !48
+  %73 = load ptr, ptr %72, align 8, !tbaa !291, !noalias !313
+  %74 = load ptr, ptr %73, align 8, !tbaa !48, !noalias !313
   %75 = icmp eq ptr %74, %73
   br i1 %75, label %76, label %._crit_edge.i.i.i.i.i.i.i.i
 
@@ -15040,7 +15041,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 
 68:                                               ; preds = %55
   %69 = atomicrmw add ptr %64, i32 1 acq_rel, align 4, !noalias !355
-  %.pre.i.i = load ptr, ptr %62, align 8, !tbaa !311
+  %.pre.i.i = load ptr, ptr %62, align 8, !tbaa !311, !alias.scope !355
   br label %_ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEC2ERKSR_.exit.i.i
 
 _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEC2ERKSR_.exit.i.i: ; preds = %68, %55
@@ -15049,8 +15050,8 @@ _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_t
   %72 = load ptr, ptr %15, align 8, !tbaa !291, !noalias !355
   store ptr %72, ptr %71, align 8, !tbaa !17, !alias.scope !355
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !291
-  %75 = load ptr, ptr %74, align 8, !tbaa !48
+  %74 = load ptr, ptr %73, align 8, !tbaa !291, !noalias !355
+  %75 = load ptr, ptr %74, align 8, !tbaa !48, !noalias !355
   %76 = icmp eq ptr %75, %74
   br i1 %76, label %77, label %._crit_edge.i.i.i.i.i.i.i.i
 
@@ -17316,7 +17317,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 
 72:                                               ; preds = %59
   %73 = atomicrmw add ptr %68, i32 1 acq_rel, align 4, !noalias !374
-  %.pre.i.i = load ptr, ptr %66, align 8, !tbaa !311
+  %.pre.i.i = load ptr, ptr %66, align 8, !tbaa !311, !alias.scope !374
   br label %_ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEC2ERKSR_.exit.i.i
 
 _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEC2ERKSR_.exit.i.i: ; preds = %72, %59
@@ -17325,8 +17326,8 @@ _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_t
   %76 = load ptr, ptr %16, align 8, !tbaa !291, !noalias !374
   store ptr %76, ptr %75, align 8, !tbaa !17, !alias.scope !374
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !291
-  %79 = load ptr, ptr %78, align 8, !tbaa !48
+  %78 = load ptr, ptr %77, align 8, !tbaa !291, !noalias !374
+  %79 = load ptr, ptr %78, align 8, !tbaa !48, !noalias !374
   %80 = icmp eq ptr %79, %78
   br i1 %80, label %81, label %._crit_edge.i.i.i.i.i.i.i.i
 
@@ -18781,7 +18782,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 
 62:                                               ; preds = %49
   %63 = atomicrmw add ptr %58, i32 1 acq_rel, align 4, !noalias !380
-  %.pre.i.i = load ptr, ptr %56, align 8, !tbaa !311
+  %.pre.i.i = load ptr, ptr %56, align 8, !tbaa !311, !alias.scope !380
   br label %_ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEC2ERKSR_.exit.i.i
 
 _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEC2ERKSR_.exit.i.i: ; preds = %62, %49
@@ -18790,8 +18791,8 @@ _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_t
   %66 = load ptr, ptr %15, align 8, !tbaa !291, !noalias !380
   store ptr %66, ptr %65, align 8, !tbaa !17, !alias.scope !380
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !291
-  %69 = load ptr, ptr %68, align 8, !tbaa !48
+  %68 = load ptr, ptr %67, align 8, !tbaa !291, !noalias !380
+  %69 = load ptr, ptr %68, align 8, !tbaa !48, !noalias !380
   %70 = icmp eq ptr %69, %68
   br i1 %70, label %71, label %._crit_edge.i.i.i.i.i.i.i.i
 

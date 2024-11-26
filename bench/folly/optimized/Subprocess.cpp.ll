@@ -6634,7 +6634,7 @@ lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #41, !noalias !235
-  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !20
+  %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !20, !alias.scope !235
   %cmp.i.i.i = icmp ult i8 %1, 64
   br i1 %cmp.i.i.i, label %common.resume, label %if.end.i.i.i
 

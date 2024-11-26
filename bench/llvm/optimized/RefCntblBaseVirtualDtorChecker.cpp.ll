@@ -42753,7 +42753,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKN5clang13CXX
 33:                                               ; preds = %22, %2
   %.sink.i.i.i.i = phi ptr [ %23, %22 ], [ null, %2 ]
   %34 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !124
-  %35 = load ptr, ptr %1, align 8
+  %35 = load ptr, ptr %1, align 8, !noalias !124
   store ptr %35, ptr %34, align 8, !noalias !124
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #21
@@ -43880,7 +43880,7 @@ define internal fastcc range(i16 0, 512) i16 @_ZN12_GLOBAL__N_126DerefFuncDelete
 39:                                               ; preds = %28, %8
   %.sink.i.i.i.i.i = phi ptr [ %29, %28 ], [ null, %8 ]
   %40 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i.i), !noalias !136
-  %41 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %3, align 8, !noalias !136
   store ptr %41, ptr %40, align 8, !noalias !136
   %42 = call fastcc noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_126DerefFuncDeleteExprVisitorEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %41)
   %43 = zext i1 %42 to i16
@@ -45812,7 +45812,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126DerefFuncDeleteExp
 51:                                               ; preds = %40, %20
   %.sink.i.i.i.i.i = phi ptr [ %41, %40 ], [ null, %20 ]
   %52 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i.i), !noalias !144
-  %53 = load ptr, ptr %3, align 8
+  %53 = load ptr, ptr %3, align 8, !noalias !144
   store ptr %53, ptr %52, align 8, !noalias !144
   %54 = call fastcc noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_126DerefFuncDeleteExprVisitorEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %53)
   br label %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor9VisitBodyEPKN5clang4StmtE.exit

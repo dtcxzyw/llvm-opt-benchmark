@@ -1292,7 +1292,7 @@ define internal void @_ZN12_GLOBAL__N_132gtest_AllZipfTest_EvalGenerator_Ev(ptr 
 entry:
   %ref.tmp = alloca %"class.std::vector.80", align 8
   call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias align 8 %ref.tmp)
-  %0 = load ptr, ptr %ref.tmp, align 8
+  %0 = load ptr, ptr %ref.tmp, align 8, !noalias !7
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !7
   invoke void @_ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKN4absl17zipf_distributionImE10param_typeESt6vectorIS6_SaIS6_EEEEEENS_8internal14ParamGeneratorINSt15iterator_traitsIT_E10value_typeEEESG_SG_(ptr sret(%"class.testing::internal::ParamGenerator") align 8 %agg.result, ptr %0, ptr %1)
@@ -1333,7 +1333,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias align 8 %ref.tmp1)
-  %0 = load ptr, ptr %ref.tmp1, align 8
+  %0 = load ptr, ptr %ref.tmp1, align 8, !noalias !10
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !10
   invoke void @_ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKN4absl17zipf_distributionImE10param_typeESt6vectorIS6_SaIS6_EEEEEENS_8internal14ParamGeneratorINSt15iterator_traitsIT_E10value_typeEEESG_SG_(ptr nonnull sret(%"class.testing::internal::ParamGenerator") align 8 %ref.tmp, ptr %0, ptr %1)
@@ -13304,9 +13304,9 @@ entry:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !276
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !276
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !276
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !276
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !276
@@ -18453,9 +18453,9 @@ entry:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !420
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !420
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !420
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !420
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !420
@@ -24909,9 +24909,9 @@ entry:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !567
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !567
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !567
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !567
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !567
@@ -29428,9 +29428,9 @@ entry:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !695
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !695
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !695
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !695
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !695
@@ -33933,9 +33933,9 @@ entry:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !823
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !823
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !823
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !823
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !823
@@ -38440,9 +38440,9 @@ entry:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !951
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !951
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !951
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !951
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !951
@@ -42947,9 +42947,9 @@ entry:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !1079
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !1079
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !1079
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !1079
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !1079
@@ -47346,9 +47346,9 @@ entry:
   %call6.i.i = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5.i.i, i8 noundef signext %call.i), !noalias !1207
   store i8 %call6.i.i, ptr %fill_.i.i, align 4, !alias.scope !1207
   %precision_.i.i = getelementptr inbounds i8, ptr %saver, i64 16
-  %vtable7.i.i = load ptr, ptr %os, align 8
+  %vtable7.i.i = load ptr, ptr %os, align 8, !noalias !1207
   %vbase.offset.ptr8.i.i = getelementptr i8, ptr %vtable7.i.i, i64 -24
-  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8
+  %vbase.offset9.i.i = load i64, ptr %vbase.offset.ptr8.i.i, align 8, !noalias !1207
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset9.i.i
   %_M_precision.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 8
   %1 = load i64, ptr %_M_precision.i.i.i, align 8, !noalias !1207

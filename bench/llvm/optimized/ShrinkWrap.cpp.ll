@@ -1710,8 +1710,8 @@ _ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread.i: ; preds = %459, %_Z
 
 486:                                              ; preds = %482
   store ptr %.sroa.0138.0205.i, ptr %9, align 8
-  %487 = load ptr, ptr %8, align 8
-  %488 = load i32, ptr %481, align 8
+  %487 = load ptr, ptr %8, align 8, !noalias !18
+  %488 = load i32, ptr %481, align 8, !noalias !18
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %515, label %490
 
@@ -1776,8 +1776,8 @@ _ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread.i: ; preds = %459, %_Z
 
 521:                                              ; preds = %.lr.ph203.i
   store ptr %.sroa.0138.0205.i, ptr %10, align 8
-  %522 = load ptr, ptr %8, align 8
-  %523 = load i32, ptr %481, align 8
+  %522 = load ptr, ptr %8, align 8, !noalias !24
+  %523 = load i32, ptr %481, align 8, !noalias !24
   %524 = icmp eq i32 %523, 0
   br i1 %524, label %550, label %525
 
@@ -6385,7 +6385,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 85:                                               ; preds = %74, %58
   %.sink.i.i.i.i = phi ptr [ %75, %74 ], [ null, %58 ]
   %86 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E20InsertIntoBucketImplIjEEPS7_RKjRKT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %.sink.i.i.i.i), !noalias !103
-  %87 = load i32, ptr %1, align 4
+  %87 = load i32, ptr %1, align 4, !noalias !103
   store i32 %87, ptr %86, align 4, !noalias !103
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #18
@@ -6946,7 +6946,7 @@ define internal fastcc noundef zeroext i1 @_ZL27isSaveReachableThroughCleanPKN4l
 49:                                               ; preds = %38, %20
   %.sink.i.i.i.i = phi ptr [ %39, %38 ], [ null, %20 ]
   %50 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink.i.i.i.i), !noalias !110
-  %51 = load ptr, ptr %6, align 8
+  %51 = load ptr, ptr %6, align 8, !noalias !110
   store ptr %51, ptr %50, align 8, !noalias !110
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %52) #18

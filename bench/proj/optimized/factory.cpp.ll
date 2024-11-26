@@ -26240,7 +26240,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  %99 = load ptr, ptr %.sroa.0198.0217, align 8, !noalias !112
+  %99 = load ptr, ptr %.sroa.0198.0217, align 8, !noalias !144
   %100 = icmp eq ptr %99, null
   br i1 %100, label %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj5datum22GeodeticReferenceFrameENS4_5DatumEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit.thread53.i, label %101
 
@@ -47126,7 +47126,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_6common12ObjectDomainEEERKN7dropbox6o
 
 57:                                               ; preds = %._crit_edge
   %58 = getelementptr inbounds i8, ptr %56, i64 8
-  %59 = load i8, ptr @__libc_single_threaded, align 1
+  %59 = load i8, ptr @__libc_single_threaded, align 1, !noalias !218
   %.not.i.i.i.i.i17 = icmp eq i8 %59, 0
   %60 = getelementptr inbounds i8, ptr %12, i64 8
   br i1 %.not.i.i.i.i.i17, label %67, label %.thread
@@ -50846,7 +50846,7 @@ _ZN5osgeo4proj2io16AuthorityFactory7Private16runWithCodeParamEPKcRKNSt7__cxx1112
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds i8, ptr %86, i64 8
-  %89 = load i8, ptr @__libc_single_threaded, align 1
+  %89 = load i8, ptr @__libc_single_threaded, align 1, !noalias !237
   %.not.i.i.i.i.i = icmp eq i8 %89, 0
   br i1 %.not.i.i.i.i.i, label %92, label %.thread225
 
@@ -51044,7 +51044,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 180:                                              ; preds = %176
   %181 = getelementptr inbounds i8, ptr %179, i64 8
-  %182 = load i8, ptr @__libc_single_threaded, align 1
+  %182 = load i8, ptr @__libc_single_threaded, align 1, !noalias !240
   %.not.i.i.i.i.i70 = icmp eq i8 %182, 0
   br i1 %.not.i.i.i.i.i70, label %185, label %.thread227
 
@@ -51237,7 +51237,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 271:                                              ; preds = %267
   %272 = getelementptr inbounds i8, ptr %270, i64 8
-  %273 = load i8, ptr @__libc_single_threaded, align 1
+  %273 = load i8, ptr @__libc_single_threaded, align 1, !noalias !243
   %.not.i.i.i.i.i88 = icmp eq i8 %273, 0
   br i1 %.not.i.i.i.i.i88, label %276, label %.thread229
 
@@ -51430,7 +51430,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 362:                                              ; preds = %358
   %363 = getelementptr inbounds i8, ptr %361, i64 8
-  %364 = load i8, ptr @__libc_single_threaded, align 1
+  %364 = load i8, ptr @__libc_single_threaded, align 1, !noalias !246
   %.not.i.i.i.i.i106 = icmp eq i8 %364, 0
   br i1 %.not.i.i.i.i.i106, label %367, label %.thread231
 
@@ -51629,7 +51629,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 456:                                              ; preds = %452
   %457 = getelementptr inbounds i8, ptr %455, i64 8
-  %458 = load i8, ptr @__libc_single_threaded, align 1
+  %458 = load i8, ptr @__libc_single_threaded, align 1, !noalias !249
   %.not.i.i.i.i.i124 = icmp eq i8 %458, 0
   %459 = getelementptr inbounds i8, ptr %15, i64 8
   br i1 %.not.i.i.i.i.i124, label %463, label %.thread233
@@ -51688,7 +51688,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BaseObjectEEEON7dropbox6oxygen2nnIS
 
 477:                                              ; preds = %473
   %478 = getelementptr inbounds i8, ptr %476, i64 8
-  %479 = load i8, ptr @__libc_single_threaded, align 1
+  %479 = load i8, ptr @__libc_single_threaded, align 1, !noalias !252
   %.not.i.i.i.i.i129 = icmp eq i8 %479, 0
   %480 = getelementptr inbounds i8, ptr %17, i64 8
   br i1 %.not.i.i.i.i.i129, label %484, label %.thread235
@@ -51757,7 +51757,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BaseObjectEEEON7dropbox6oxygen2nnIS
 
 504:                                              ; preds = %500
   %505 = getelementptr inbounds i8, ptr %503, i64 8
-  %506 = load i8, ptr @__libc_single_threaded, align 1
+  %506 = load i8, ptr @__libc_single_threaded, align 1, !noalias !255
   %.not.i.i.i.i.i134 = icmp eq i8 %506, 0
   %507 = getelementptr inbounds i8, ptr %19, i64 8
   br i1 %.not.i.i.i.i.i134, label %511, label %.thread237
@@ -51816,7 +51816,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BaseObjectEEEON7dropbox6oxygen2nnIS
 
 525:                                              ; preds = %521
   %526 = getelementptr inbounds i8, ptr %524, i64 8
-  %527 = load i8, ptr @__libc_single_threaded, align 1
+  %527 = load i8, ptr @__libc_single_threaded, align 1, !noalias !258
   %.not.i.i.i.i.i140 = icmp eq i8 %527, 0
   %528 = getelementptr inbounds i8, ptr %21, i64 8
   br i1 %.not.i.i.i.i.i140, label %532, label %.thread239
@@ -51892,7 +51892,7 @@ _ZNK5osgeo4proj2io16AuthorityFactory17createGeodeticCRSERKNSt7__cxx1112basic_str
 
 556:                                              ; preds = %552
   %557 = getelementptr inbounds i8, ptr %555, i64 8
-  %558 = load i8, ptr @__libc_single_threaded, align 1
+  %558 = load i8, ptr @__libc_single_threaded, align 1, !noalias !261
   %.not.i.i.i.i.i145 = icmp eq i8 %558, 0
   %559 = getelementptr inbounds i8, ptr %23, i64 8
   br i1 %.not.i.i.i.i.i145, label %564, label %.thread241
@@ -51968,7 +51968,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BaseObjectEEEON7dropbox6oxygen2nnIS
 
 589:                                              ; preds = %585
   %590 = getelementptr inbounds i8, ptr %588, i64 8
-  %591 = load i8, ptr @__libc_single_threaded, align 1
+  %591 = load i8, ptr @__libc_single_threaded, align 1, !noalias !264
   %.not.i.i.i.i.i150 = icmp eq i8 %591, 0
   %592 = getelementptr inbounds i8, ptr %25, i64 8
   br i1 %.not.i.i.i.i.i150, label %597, label %.thread243
@@ -52032,7 +52032,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BaseObjectEEEON7dropbox6oxygen2nnIS
 
 614:                                              ; preds = %610
   %615 = getelementptr inbounds i8, ptr %613, i64 8
-  %616 = load i8, ptr @__libc_single_threaded, align 1
+  %616 = load i8, ptr @__libc_single_threaded, align 1, !noalias !267
   %.not.i.i.i.i.i155 = icmp eq i8 %616, 0
   %617 = icmp eq ptr %611, null
   %618 = getelementptr inbounds i8, ptr %611, i64 32
@@ -52103,7 +52103,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BaseObjectEEEON7dropbox6oxygen2nnIS
 
 643:                                              ; preds = %639
   %644 = getelementptr inbounds i8, ptr %642, i64 8
-  %645 = load i8, ptr @__libc_single_threaded, align 1
+  %645 = load i8, ptr @__libc_single_threaded, align 1, !noalias !270
   %.not.i.i.i.i.i160 = icmp eq i8 %645, 0
   %646 = getelementptr inbounds i8, ptr %29, i64 8
   br i1 %.not.i.i.i.i.i160, label %651, label %.thread249
@@ -52179,7 +52179,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BaseObjectEEEON7dropbox6oxygen2nnIS
 
 676:                                              ; preds = %672
   %677 = getelementptr inbounds i8, ptr %675, i64 8
-  %678 = load i8, ptr @__libc_single_threaded, align 1
+  %678 = load i8, ptr @__libc_single_threaded, align 1, !noalias !273
   %.not.i.i.i.i.i165 = icmp eq i8 %678, 0
   %679 = getelementptr inbounds i8, ptr %31, i64 8
   br i1 %.not.i.i.i.i.i165, label %684, label %.thread251
@@ -52258,7 +52258,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BaseObjectEEEON7dropbox6oxygen2nnIS
 
 710:                                              ; preds = %706
   %711 = getelementptr inbounds i8, ptr %709, i64 8
-  %712 = load i8, ptr @__libc_single_threaded, align 1
+  %712 = load i8, ptr @__libc_single_threaded, align 1, !noalias !276
   %.not.i.i.i.i.i170 = icmp eq i8 %712, 0
   %713 = getelementptr inbounds i8, ptr %33, i64 8
   br i1 %.not.i.i.i.i.i170, label %718, label %.thread253

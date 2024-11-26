@@ -14815,7 +14815,7 @@ define linkonce_odr dso_local void @_ZNKSt10filesystem7__cxx114path14generic_str
 _ZNKSt10filesystem7__cxx114path5beginEv.exit:     ; preds = %15
   %20 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #22, !noalias !195
   %21 = zext i1 %20 to i8
-  %22 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %5, align 8, !noalias !198
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 3
   %25 = icmp eq i64 %24, 0
@@ -14823,7 +14823,7 @@ _ZNKSt10filesystem7__cxx114path5beginEv.exit:     ; preds = %15
 
 _ZNKSt10filesystem7__cxx114path5beginEv.exit.thread: ; preds = %15
   %26 = call noundef ptr @_ZNKSt10filesystem7__cxx114path5_List5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #22, !noalias !195
-  %27 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %5, align 8, !noalias !198
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 3
   %30 = icmp eq i64 %29, 0

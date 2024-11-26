@@ -6091,7 +6091,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry14FindSchemaInfoERKNS_7T
   %154 = ptrtoint ptr %153 to i64
   %155 = mul i64 %154, -7046029254386353067
   %156 = call noundef i64 @llvm.bswap.i64(i64 %155)
-  %157 = load i64, ptr %42, align 8
+  %157 = load i64, ptr %42, align 8, !alias.scope !45
   %158 = urem i64 %156, %157
   %159 = load ptr, ptr %12, align 8, !alias.scope !45
   %160 = getelementptr inbounds ptr, ptr %159, i64 %158

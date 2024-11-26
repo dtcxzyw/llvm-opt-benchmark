@@ -24,7 +24,7 @@ define hidden void @"_ZN4core3ptr34drop_in_place$LT$glob..Pattern$GT$17h481fc8fc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !alias.scope !23, !nonnull !21, !noundef !21
+  %8 = load ptr, ptr %7, align 8, !alias.scope !29, !nonnull !21, !noundef !21
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8, !alias.scope !29, !noundef !21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
@@ -1172,7 +1172,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   %75 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
   %76 = getelementptr inbounds i8, ptr %0, i64 184
-  %77 = load ptr, ptr %76, align 8, !nonnull !21, !noundef !21
+  %77 = load ptr, ptr %76, align 8, !alias.scope !343, !nonnull !21, !noundef !21
   %78 = getelementptr inbounds i8, ptr %0, i64 192
   %79 = load i64, ptr %78, align 8, !alias.scope !343, !noundef !21
   br label %80
@@ -1321,7 +1321,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
 define hidden void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$glob..PatternToken$GT$$GT$17h7cfae62990e9a232E.llvm.13617165977743876990"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !359)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !21, !noundef !21
+  %3 = load ptr, ptr %2, align 8, !alias.scope !359, !nonnull !21, !noundef !21
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !359, !noundef !21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !362)
@@ -1435,7 +1435,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..build
 define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9cfbd3f30a1e272cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !21, !noundef !21
+  %3 = load ptr, ptr %2, align 8, !alias.scope !382, !nonnull !21, !noundef !21
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !382, !noundef !21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
@@ -1539,7 +1539,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$al
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..command..Command$GT$$GT$17h21d771aca811f090E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !21, !noundef !21
+  %3 = load ptr, ptr %2, align 8, !alias.scope !452, !nonnull !21, !noundef !21
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !452, !noundef !21
   br label %6

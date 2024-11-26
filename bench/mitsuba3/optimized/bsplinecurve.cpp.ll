@@ -3018,7 +3018,7 @@ define weak_odr void @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfL
   %36 = getelementptr inbounds i8, ptr %1, i64 480
   %37 = zext i32 %35 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 488
-  %39 = load i64, ptr %38, align 8
+  %39 = load i64, ptr %38, align 8, !noalias !47
   %40 = icmp eq i64 %39, 1
   %spec.store.select.i.i = select i1 %40, i64 0, i64 %37
   %41 = load ptr, ptr %36, align 16, !noalias !47

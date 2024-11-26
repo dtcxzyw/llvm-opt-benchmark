@@ -1286,7 +1286,7 @@ _ZNKSt14default_deleteIN3gmx3Any8IContentEEclEPS2_.exit.i.i.i5.i: ; preds = %33
   br label %73
 
 ._crit_edge:                                      ; preds = %41
-  %.pre = load ptr, ptr %10, align 8
+  %.pre = load ptr, ptr %10, align 8, !noalias !36
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %49 = getelementptr inbounds i8, ptr %0, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.pre, null

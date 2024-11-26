@@ -292,7 +292,7 @@ define hidden i32 @VP8GetSignedValue(ptr nocapture noundef %0, i32 noundef %1) l
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %.promoted.i = load i32, ptr %4, align 8, !alias.scope !19
   %.promoted7.i = load i32, ptr %5, align 4, !alias.scope !19
-  %.promoted9.i = load i64, ptr %0, align 8
+  %.promoted9.i = load i64, ptr %0, align 8, !alias.scope !19
   br label %10
 
 10:                                               ; preds = %VP8GetBit.exit.i, %.lr.ph.i

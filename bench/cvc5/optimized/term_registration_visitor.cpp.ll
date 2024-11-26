@@ -822,7 +822,7 @@ if.end:                                           ; preds = %cond.end, %land.end
 
 if.then.i.i.i:                                    ; preds = %if.end
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %13 = load ptr, ptr %current, align 8
+  %13 = load ptr, ptr %current, align 8, !noalias !8
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -851,7 +851,7 @@ if.end15.i.i.i:                                   ; preds = %if.end
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end15.i.i.i
   %18 = load ptr, ptr %17, align 8, !noalias !8
-  %19 = load ptr, ptr %current, align 8
+  %19 = load ptr, ptr %current, align 8, !noalias !8
   %add.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load i64, ptr %add.ptr.i9.i.i.i.i.i, align 8, !noalias !8

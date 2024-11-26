@@ -983,7 +983,7 @@ define noundef ptr @_ZN6assets6Assets10load_fonts17h654d4edfc3742184E(ptr noalia
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %101 = load ptr, ptr %20, align 8, !alias.scope !92, !nonnull !5, !noundef !5
+  %101 = load ptr, ptr %20, align 8, !alias.scope !98, !nonnull !5, !noundef !5
   %102 = load i64, ptr %21, align 8, !alias.scope !98, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   %103 = icmp eq i64 %102, 0

@@ -1326,13 +1326,13 @@ _ZNK2cv11_InputArray6getMatEi.exit324:            ; preds = %435, %438
 
 .loopexit:                                        ; preds = %476, %.loopexit.loopexit675
   %481 = load double, ptr %41, align 8, !noalias !68
-  %482 = load double, ptr %46, align 8
+  %482 = load double, ptr %46, align 8, !noalias !68
   %483 = load double, ptr %441, align 8, !noalias !68
-  %484 = load double, ptr %442, align 8
+  %484 = load double, ptr %442, align 8, !noalias !68
   %485 = fmul double %483, %484
   %486 = call double @llvm.fmuladd.f64(double %481, double %482, double %485)
   %487 = load double, ptr %443, align 8, !noalias !68
-  %488 = load double, ptr %444, align 8
+  %488 = load double, ptr %444, align 8, !noalias !68
   %489 = call double @llvm.fmuladd.f64(double %487, double %488, double %486)
   %490 = load double, ptr %400, align 8, !noalias !68
   %491 = fadd double %489, %490

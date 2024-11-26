@@ -5880,21 +5880,21 @@ define dso_local void @_ZN4llvm8GVNHoist8raMPHIuwEPNS_14MemoryUseOrDefE(ptr noca
   %28 = add nuw i32 %11, 1
   store i32 %28, ptr %7, align 4, !noalias !110
   store ptr %15, ptr %21, align 8, !noalias !110
-  %29 = load ptr, ptr %3, align 8
-  %30 = load i32, ptr %7, align 4
+  %29 = load ptr, ptr %3, align 8, !noalias !110
+  %30 = load i32, ptr %7, align 4, !noalias !110
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 31:                                               ; preds = %._crit_edge.i.i, %17
   %32 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull %15) #21, !noalias !110
-  %.pre.i = load ptr, ptr %3, align 8
-  %.pre6.i = load i32, ptr %7, align 4
+  %.pre.i = load ptr, ptr %3, align 8, !noalias !110
+  %.pre6.i = load i32, ptr %7, align 4, !noalias !110
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %31, %27
   %33 = phi i32 [ %30, %27 ], [ %.pre6.i, %31 ], [ %11, %.lr.ph.i.i ]
   %34 = phi ptr [ %29, %27 ], [ %.pre.i, %31 ], [ %12, %.lr.ph.i.i ]
-  %35 = load ptr, ptr %5, align 8
-  %36 = load i32, ptr %6, align 8
+  %35 = load ptr, ptr %5, align 8, !noalias !110
+  %36 = load i32, ptr %6, align 8, !noalias !110
   br label %_ZN4llvm15SmallPtrSetImplIPNS_9MemoryPhiEE6insertES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_9MemoryPhiEE6insertES2_.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %.lr.ph

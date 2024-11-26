@@ -644,7 +644,7 @@ if.else:                                          ; preds = %if.then
 if.end8:                                          ; preds = %if.then3, %if.else, %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   store ptr null, ptr %use_list, align 8, !alias.scope !6
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !6
   %m_to_simplify.i = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load ptr, ptr %m_to_simplify.i, align 8, !noalias !6
   %cmp.i.i.i = icmp eq ptr %1, null
@@ -685,7 +685,7 @@ common.resume:                                    ; preds = %lpad.loopexit.i, %l
   resume { ptr, i32 } %common.resume.op
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
-  %.pre.i = load ptr, ptr %this, align 8
+  %.pre.i = load ptr, ptr %this, align 8, !noalias !6
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i, %if.end8
@@ -1239,7 +1239,7 @@ invoke.cont26:                                    ; preds = %if.then.i.i53, %_ZN
 land.lhs.true:                                    ; preds = %invoke.cont26
   %21 = load ptr, ptr %m.i.i, align 8, !noalias !17
   %22 = load i32, ptr %p, align 8, !noalias !17
-  %23 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %21, align 8, !noalias !17
   %idxprom.i.i.i61 = zext i32 %22 to i64
   %m_hi.i.i = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %23, i64 %idxprom.i.i.i61, i32 2
   %24 = load i32, ptr %m_hi.i.i, align 4, !noalias !17
@@ -1280,7 +1280,7 @@ invoke.cont32:                                    ; preds = %land.rhs.i.i.i
   br i1 %cmp3.i.i.i, label %land.rhs, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont30, %invoke.cont32
-  %29 = load ptr, ptr %18, align 8
+  %29 = load ptr, ptr %18, align 8, !noalias !20
   %m_hi.i.i79 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %29, i64 %idxprom.i.i.i.i36, i32 2
   %30 = load i32, ptr %m_hi.i.i79, align 4, !noalias !20
   %idxprom.i.i.i.i81 = zext i32 %30 to i64
@@ -1325,7 +1325,7 @@ land.rhs:                                         ; preds = %land.rhs.i.i.i98, %
   %ref.tmp34.sroa.0.2 = phi i32 [ %ref.tmp34.sroa.0.0442, %invoke.cont32 ], [ %30, %invoke.cont38 ], [ %ref.tmp34.sroa.0.0442, %land.rhs.i.i.i ], [ %30, %land.rhs.i.i.i98 ]
   %35 = load ptr, ptr %m.i.i, align 8, !noalias !23
   %36 = load i32, ptr %p, align 8, !noalias !23
-  %37 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %35, align 8, !noalias !23
   %idxprom.i.i.i106 = zext i32 %36 to i64
   %m_lo.i.i107 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %37, i64 %idxprom.i.i.i106, i32 1
   %38 = load i32, ptr %m_lo.i.i107, align 4, !noalias !23
@@ -4825,7 +4825,7 @@ entry:
   %sc77 = alloca %"struct.dd::solver::scoped_update", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   store ptr null, ptr %use_list, align 8, !alias.scope !43
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !43
   %m_to_simplify.i = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load ptr, ptr %m_to_simplify.i, align 8, !noalias !43
   %cmp.i.i.i = icmp eq ptr %1, null
@@ -4866,7 +4866,7 @@ common.resume:                                    ; preds = %lpad.loopexit.i, %l
   resume { ptr, i32 } %common.resume.op
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
-  %.pre.i = load ptr, ptr %this, align 8
+  %.pre.i = load ptr, ptr %this, align 8, !noalias !43
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i, %entry
@@ -5014,7 +5014,7 @@ invoke.cont15:                                    ; preds = %invoke.cont12
   br i1 %cmp.i.i.i26, label %if.else67, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %invoke.cont15
-  %26 = load ptr, ptr %19, align 8
+  %26 = load ptr, ptr %19, align 8, !noalias !46
   %m_hi.i.i = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %26, i64 %idxprom.i.i.i.i, i32 2
   %27 = load i32, ptr %m_hi.i.i, align 4, !noalias !46
   %idxprom.i.i.i.i29 = zext i32 %27 to i64
@@ -8736,7 +8736,7 @@ invoke.cont199:                                   ; preds = %if.else198
 
 _ZN10bit_matrix3endEv.exit:                       ; preds = %invoke.cont185, %invoke.cont199, %invoke.cont195
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %85 = load ptr, ptr %m_rows.i, align 8
+  %85 = load ptr, ptr %m_rows.i, align 8, !noalias !72
   %86 = load ptr, ptr %85, align 8, !noalias !72
   store ptr %bm, ptr %__begin1206, align 8, !alias.scope !72
   %r3.i.i.i = getelementptr inbounds i8, ptr %__begin1206, i64 8

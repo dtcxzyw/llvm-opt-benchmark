@@ -3576,7 +3576,7 @@ _ZNK4llvm8CallBase14doesNotCaptureEj.exit.thread: ; preds = %89
 
 _ZNK4llvm8CallBase14doesNotCaptureEj.exit:        ; preds = %89
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %96 = load i32, ptr %95, align 8
+  %96 = load i32, ptr %95, align 8, !noalias !41
   %97 = sub i32 %74, %96
   %98 = load i32, ptr %29, align 4, !noalias !41
   %99 = and i32 %98, 134217727

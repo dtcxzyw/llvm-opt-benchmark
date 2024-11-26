@@ -1174,7 +1174,7 @@ define void @_ZN3gmx29adjustKeyValueTreeFromOptionsERKNS_18KeyValueTreeObjectERK
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %8, align 8, !noalias !13
   %.not.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit, label %19
 

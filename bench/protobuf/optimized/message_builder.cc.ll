@@ -3464,7 +3464,7 @@ for.end.i:                                        ; preds = %_ZNSt11char_traitsI
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pop.i)
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %agg.tmp3.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %195 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %195 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !87
   %196 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !87
   %cmp.not.i.i.i = icmp eq ptr %195, %196
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i481, label %if.then.i.i.i478
@@ -3693,7 +3693,7 @@ _ZNK6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGenera
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pop.i508)
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %agg.tmp3.i509)
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  %224 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %224 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !100
   %225 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !100
   %cmp.not.i.i.i512 = icmp eq ptr %224, %225
   br i1 %cmp.not.i.i.i512, label %if.else.i.i.i532, label %if.then.i.i.i513
@@ -3880,7 +3880,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pop.i538)
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %agg.tmp3.i539)
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %242 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %242 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !112
   %243 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !112
   %cmp.not.i.i.i542 = icmp eq ptr %242, %243
   br i1 %cmp.not.i.i.i542, label %if.else.i.i.i562, label %if.then.i.i.i543
@@ -7665,7 +7665,7 @@ while.cond.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %iter.sroa.7.0.i.i.i.i.i = phi i32 [ %conv.i.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i.i.i ], [ %conv3.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %iter.sroa.0.0.i2.i.i.i.i = phi ptr [ %iter.sroa.0.0.i.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i.i.i ], [ %6, %while.body.i.i.i.i.i ]
   %arrayidx.i.i3.i.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i2.i.i.i.i, i64 10
-  %4 = load i8, ptr %arrayidx.i.i3.i.i.i.i, align 1, !noalias !329
+  %4 = load i8, ptr %arrayidx.i.i3.i.i.i.i, align 1, !noalias !324
   %conv.i4.i.i.i.i = zext i8 %4 to i32
   %cmp.i.i.i.i.i = icmp eq i32 %iter.sroa.7.0.i.i.i.i.i, %conv.i4.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.loopexit.i.i.i
@@ -7684,7 +7684,7 @@ cond.false.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   %rightmost_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %rightmost_.i.i.i.i.i.i, align 8, !noalias !324
   %arrayidx.i.i.i2.i.i.i = getelementptr i8, ptr %8, i64 10
-  %9 = load i8, ptr %arrayidx.i.i.i2.i.i.i, align 1, !noalias !329
+  %9 = load i8, ptr %arrayidx.i.i.i2.i.i.i, align 1, !noalias !324
   %conv.i.i3.i.i.i = zext i8 %9 to i32
   br label %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKiPSD_EE.exit.i.i.i
 
@@ -9973,7 +9973,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !389
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !389
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -10536,7 +10536,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE4findIS7_EENSF_14const_iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %hash) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !413
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !413
   %shr.i.i.i.i = lshr i64 %hash, 7
@@ -10716,7 +10716,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !417
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !417
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -11031,7 +11031,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !422
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !422
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -11126,7 +11126,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !426
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !426
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -11562,7 +11562,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE4findIS7_EENSJ_14const_iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %hash) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !450
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !450
   %shr.i.i.i.i = lshr i64 %hash, 7

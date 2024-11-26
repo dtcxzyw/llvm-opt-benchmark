@@ -252,15 +252,15 @@ if.else.i14:                                      ; preds = %nfaExecLimEx512_Com
 if.then8.i:                                       ; preds = %if.else.i14
   %compressMask.i = getelementptr inbounds i8, ptr %n, i64 960
   call void @llvm.assume(i1 true) [ "align"(ptr %compressMask.i, i64 16) ], !noalias !28
-  %44 = load <2 x i64>, ptr %compressMask.i, align 16, !noalias !31
+  %44 = load <2 x i64>, ptr %compressMask.i, align 16, !noalias !28
   %add.ptr.i248 = getelementptr inbounds i8, ptr %n, i64 976
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i248, i64 16) ], !noalias !28
-  %45 = load <2 x i64>, ptr %add.ptr.i248, align 16, !noalias !31
+  %45 = load <2 x i64>, ptr %add.ptr.i248, align 16, !noalias !28
   %add.ptr.i57 = getelementptr inbounds i8, ptr %n, i64 992
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i57, i64 16) ], !noalias !32
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i57, i64 16) ], !noalias !31
   %46 = load <2 x i64>, ptr %add.ptr.i57, align 16, !noalias !31
   %add.ptr.i243 = getelementptr inbounds i8, ptr %n, i64 1008
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i243, i64 16) ], !noalias !32
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i243, i64 16) ], !noalias !31
   %47 = load <2 x i64>, ptr %add.ptr.i243, align 16, !noalias !31
   %and.i454 = and <2 x i64> %44, %a_src.i.sroa.0.sroa.0.0.copyload.pre
   %and.i457 = and <2 x i64> %45, %a_src.i.sroa.0.sroa.3.0.copyload.pre
@@ -290,10 +290,10 @@ if.then10.i:                                      ; preds = %if.then8.i
   br label %moNfaCompressState512.exit
 
 if.end.i16:                                       ; preds = %if.then8.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %compressMask.i, i64 16) ], !noalias !35
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i248, i64 16) ], !noalias !35
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i57, i64 16) ], !noalias !38
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i243, i64 16) ], !noalias !38
+  call void @llvm.assume(i1 true) [ "align"(ptr %compressMask.i, i64 16) ], !noalias !34
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i248, i64 16) ], !noalias !34
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i57, i64 16) ], !noalias !37
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i243, i64 16) ], !noalias !37
   %and.i466 = and <2 x i64> %44, %40
   %and.i469 = and <2 x i64> %45, %41
   store <2 x i64> %and.i466, ptr %mask.i, align 64
@@ -346,46 +346,46 @@ if.else.i:                                        ; preds = %entry
   %add.ptr.i86 = getelementptr inbounds i8, ptr %n, i64 1984
   %idxprom.i82 = zext i8 %key to i64
   %arrayidx.i83 = getelementptr inbounds [256 x i8], ptr %add.ptr, i64 0, i64 %idxprom.i82
-  %2 = load i8, ptr %arrayidx.i83, align 1, !noalias !41
+  %2 = load i8, ptr %arrayidx.i83, align 1, !noalias !40
   %idxprom1.i = zext i8 %2 to i64
   %arrayidx2.i = getelementptr inbounds %struct.m512, ptr %add.ptr.i86, i64 %idxprom1.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx2.i, i64 16) ], !noalias !44
-  %3 = load <2 x i64>, ptr %arrayidx2.i, align 16, !noalias !44
-  store <2 x i64> %3, ptr %reachmask.i, align 64, !alias.scope !44
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx2.i, i64 16) ], !noalias !43
+  %3 = load <2 x i64>, ptr %arrayidx2.i, align 16, !noalias !43
+  store <2 x i64> %3, ptr %reachmask.i, align 64, !alias.scope !43
   %hi.i205 = getelementptr inbounds i8, ptr %reachmask.i, i64 16
   %add.ptr.i206 = getelementptr inbounds i8, ptr %arrayidx2.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i206, i64 16) ], !noalias !44
-  %4 = load <2 x i64>, ptr %add.ptr.i206, align 16, !noalias !44
-  store <2 x i64> %4, ptr %hi.i205, align 16, !alias.scope !44
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i206, i64 16) ], !noalias !43
+  %4 = load <2 x i64>, ptr %add.ptr.i206, align 16, !noalias !43
+  store <2 x i64> %4, ptr %hi.i205, align 16, !alias.scope !43
   %hi.i.i = getelementptr inbounds i8, ptr %reachmask.i, i64 32
   %add.ptr.i.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 16) ], !noalias !47
-  %5 = load <2 x i64>, ptr %add.ptr.i.i, align 16, !noalias !47
-  store <2 x i64> %5, ptr %hi.i.i, align 32, !alias.scope !47
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 16) ], !noalias !46
+  %5 = load <2 x i64>, ptr %add.ptr.i.i, align 16, !noalias !46
+  store <2 x i64> %5, ptr %hi.i.i, align 32, !alias.scope !46
   %hi.i201 = getelementptr inbounds i8, ptr %reachmask.i, i64 48
   %add.ptr.i202 = getelementptr inbounds i8, ptr %arrayidx2.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i202, i64 16) ], !noalias !47
-  %6 = load <2 x i64>, ptr %add.ptr.i202, align 16, !noalias !47
-  store <2 x i64> %6, ptr %hi.i201, align 16, !alias.scope !47
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i202, i64 16) ], !noalias !46
+  %6 = load <2 x i64>, ptr %add.ptr.i202, align 16, !noalias !46
+  store <2 x i64> %6, ptr %hi.i201, align 16, !alias.scope !46
   %and6.i = and i32 %0, 2
   %tobool7.i.not = icmp eq i32 %and6.i, 0
   br i1 %tobool7.i.not, label %if.else12.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.else.i
   %compressMask.i = getelementptr inbounds i8, ptr %n, i64 960
-  call void @llvm.assume(i1 true) [ "align"(ptr %compressMask.i, i64 16) ], !noalias !50
-  %7 = load <2 x i64>, ptr %compressMask.i, align 16, !noalias !50
+  call void @llvm.assume(i1 true) [ "align"(ptr %compressMask.i, i64 16) ], !noalias !49
+  %7 = load <2 x i64>, ptr %compressMask.i, align 16, !noalias !49
   %add.ptr.i216 = getelementptr inbounds i8, ptr %n, i64 976
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i216, i64 16) ], !noalias !50
-  %8 = load <2 x i64>, ptr %add.ptr.i216, align 16, !noalias !50
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i216, i64 16) ], !noalias !49
+  %8 = load <2 x i64>, ptr %add.ptr.i216, align 16, !noalias !49
   %add.ptr.i43 = getelementptr inbounds i8, ptr %n, i64 992
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i43, i64 16) ], !noalias !53
-  %9 = load <2 x i64>, ptr %add.ptr.i43, align 16, !noalias !53
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i43, i64 16) ], !noalias !52
+  %9 = load <2 x i64>, ptr %add.ptr.i43, align 16, !noalias !52
   %add.ptr.i211 = getelementptr inbounds i8, ptr %n, i64 1008
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i211, i64 16) ], !noalias !53
-  %10 = load <2 x i64>, ptr %add.ptr.i211, align 16, !noalias !53
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i211, i64 16) ], !noalias !52
+  %10 = load <2 x i64>, ptr %add.ptr.i211, align 16, !noalias !52
   %and.i391 = and <2 x i64> %7, %3
   %and.i394 = and <2 x i64> %8, %4
   store <2 x i64> %and.i391, ptr %mask.i, align 64
@@ -401,17 +401,17 @@ if.then8.i:                                       ; preds = %if.else.i
   %11 = load i32, ptr %stateSize9.i, align 4
   call void @loadcompressed512(ptr noundef %dest, ptr noundef %src, ptr noundef nonnull %mask.i, i32 noundef %11) #11
   %initDS.i = getelementptr inbounds i8, ptr %n, i64 512
-  call void @llvm.assume(i1 true) [ "align"(ptr %initDS.i, i64 16) ], !noalias !56
-  %12 = load <2 x i64>, ptr %initDS.i, align 16, !noalias !56
+  call void @llvm.assume(i1 true) [ "align"(ptr %initDS.i, i64 16) ], !noalias !55
+  %12 = load <2 x i64>, ptr %initDS.i, align 16, !noalias !55
   %add.ptr.i226 = getelementptr inbounds i8, ptr %n, i64 528
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i226, i64 16) ], !noalias !56
-  %13 = load <2 x i64>, ptr %add.ptr.i226, align 16, !noalias !56
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i226, i64 16) ], !noalias !55
+  %13 = load <2 x i64>, ptr %add.ptr.i226, align 16, !noalias !55
   %add.ptr.i40 = getelementptr inbounds i8, ptr %n, i64 544
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i40, i64 16) ], !noalias !59
-  %14 = load <2 x i64>, ptr %add.ptr.i40, align 16, !noalias !59
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i40, i64 16) ], !noalias !58
+  %14 = load <2 x i64>, ptr %add.ptr.i40, align 16, !noalias !58
   %add.ptr.i221 = getelementptr inbounds i8, ptr %n, i64 560
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i221, i64 16) ], !noalias !59
-  %15 = load <2 x i64>, ptr %add.ptr.i221, align 16, !noalias !59
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i221, i64 16) ], !noalias !58
+  %15 = load <2 x i64>, ptr %add.ptr.i221, align 16, !noalias !58
   %.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %dest, align 1
   %.sroa.0.sroa.2.0.dest.addr.i.0.8.sroa_idx = getelementptr inbounds i8, ptr %dest, i64 16
   %.sroa.0.sroa.2.0.copyload = load <2 x i64>, ptr %.sroa.0.sroa.2.0.dest.addr.i.0.8.sroa_idx, align 1
@@ -443,17 +443,17 @@ moNfaExpandState512.exit:                         ; preds = %if.then8.i, %if.els
 
 if.end.i7:                                        ; preds = %moNfaExpandState512.exit
   %repeatCyclicMask.i = getelementptr inbounds i8, ptr %n, i64 1088
-  call void @llvm.assume(i1 true) [ "align"(ptr %repeatCyclicMask.i, i64 16) ], !noalias !62
-  %18 = load <2 x i64>, ptr %repeatCyclicMask.i, align 16, !noalias !62
+  call void @llvm.assume(i1 true) [ "align"(ptr %repeatCyclicMask.i, i64 16) ], !noalias !61
+  %18 = load <2 x i64>, ptr %repeatCyclicMask.i, align 16, !noalias !61
   %add.ptr.i236 = getelementptr inbounds i8, ptr %n, i64 1104
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i236, i64 16) ], !noalias !62
-  %19 = load <2 x i64>, ptr %add.ptr.i236, align 16, !noalias !62
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i236, i64 16) ], !noalias !61
+  %19 = load <2 x i64>, ptr %add.ptr.i236, align 16, !noalias !61
   %add.ptr.i37 = getelementptr inbounds i8, ptr %n, i64 1120
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i37, i64 16) ], !noalias !65
-  %20 = load <2 x i64>, ptr %add.ptr.i37, align 16, !noalias !65
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i37, i64 16) ], !noalias !64
+  %20 = load <2 x i64>, ptr %add.ptr.i37, align 16, !noalias !64
   %add.ptr.i231 = getelementptr inbounds i8, ptr %n, i64 1136
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i231, i64 16) ], !noalias !65
-  %21 = load <2 x i64>, ptr %add.ptr.i231, align 16, !noalias !65
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i231, i64 16) ], !noalias !64
+  %21 = load <2 x i64>, ptr %add.ptr.i231, align 16, !noalias !64
   %.sroa.0.sroa.084.0.copyload = load <2 x i64>, ptr %dest, align 1
   %.sroa.0.sroa.285.0.dest.addr.i2.0..sroa_idx = getelementptr inbounds i8, ptr %dest, i64 16
   %.sroa.0.sroa.285.0.copyload = load <2 x i64>, ptr %.sroa.0.sroa.285.0.dest.addr.i2.0..sroa_idx, align 1
@@ -526,17 +526,17 @@ testbit512.exit:                                  ; preds = %if.else5.i, %if.els
   br i1 %tobool.i71.not, label %if.end20.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %testbit512.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr10.i, i64 16) ], !noalias !68
-  %34 = load <2 x i64>, ptr %add.ptr10.i, align 16, !noalias !68
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr10.i, i64 16) ], !noalias !67
+  %34 = load <2 x i64>, ptr %add.ptr10.i, align 16, !noalias !67
   %add.ptr.i246 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i246, i64 16) ], !noalias !68
-  %35 = load <2 x i64>, ptr %add.ptr.i246, align 16, !noalias !68
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i246, i64 16) ], !noalias !67
+  %35 = load <2 x i64>, ptr %add.ptr.i246, align 16, !noalias !67
   %add.ptr.i34 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i34, i64 16) ], !noalias !71
-  %36 = load <2 x i64>, ptr %add.ptr.i34, align 16, !noalias !71
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i34, i64 16) ], !noalias !70
+  %36 = load <2 x i64>, ptr %add.ptr.i34, align 16, !noalias !70
   %add.ptr.i241 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i241, i64 16) ], !noalias !71
-  %37 = load <2 x i64>, ptr %add.ptr.i241, align 16, !noalias !71
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i241, i64 16) ], !noalias !70
+  %37 = load <2 x i64>, ptr %add.ptr.i241, align 16, !noalias !70
   %and.i415 = and <2 x i64> %34, %and.i403
   %and.i418 = and <2 x i64> %35, %and.i406
   %and.i409 = and <2 x i64> %36, %and.i397
@@ -566,7 +566,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = zext i32 %42 to i64
   %cmp.i = icmp samesign ult i64 %indvars.iv.next, %43
-  br i1 %cmp.i, label %for.body.i, label %nfaExecLimEx512_Expand_Repeats.exit, !llvm.loop !74
+  br i1 %cmp.i, label %for.body.i, label %nfaExecLimEx512_Expand_Repeats.exit, !llvm.loop !73
 
 nfaExecLimEx512_Expand_Repeats.exit:              ; preds = %for.inc.i, %if.end.i7, %moNfaExpandState512.exit
   ret i8 0
@@ -593,7 +593,7 @@ for.body:                                         ; preds = %entry, %for.body
   %3 = load i32, ptr %repeatCount, align 4
   %4 = zext i32 %3 to i64
   %cmp = icmp samesign ult i64 %indvars.iv.next, %4
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !75
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !74
 
 for.end:                                          ; preds = %for.body, %entry
   ret i8 0
@@ -617,26 +617,26 @@ entry:
   %tobool.not = icmp eq i64 %offset, 0
   %cond.i.v = select i1 %tobool.not, i64 448, i64 512
   %cond.i = getelementptr inbounds i8, ptr %n, i64 %cond.i.v
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  call void @llvm.assume(i1 true) [ "align"(ptr %cond.i, i64 16) ], !noalias !76
-  %0 = load <2 x i64>, ptr %cond.i, align 16, !noalias !76
-  store <2 x i64> %0, ptr %s, align 64, !alias.scope !76
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  call void @llvm.assume(i1 true) [ "align"(ptr %cond.i, i64 16) ], !noalias !75
+  %0 = load <2 x i64>, ptr %cond.i, align 16, !noalias !75
+  store <2 x i64> %0, ptr %s, align 64, !alias.scope !75
   %hi.i145 = getelementptr inbounds i8, ptr %s, i64 16
   %add.ptr.i146 = getelementptr inbounds i8, ptr %cond.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i146, i64 16) ], !noalias !76
-  %1 = load <2 x i64>, ptr %add.ptr.i146, align 16, !noalias !76
-  store <2 x i64> %1, ptr %hi.i145, align 16, !alias.scope !76
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i146, i64 16) ], !noalias !75
+  %1 = load <2 x i64>, ptr %add.ptr.i146, align 16, !noalias !75
+  store <2 x i64> %1, ptr %hi.i145, align 16, !alias.scope !75
   %hi.i26 = getelementptr inbounds i8, ptr %s, i64 32
   %add.ptr.i27 = getelementptr inbounds i8, ptr %cond.i, i64 32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i27, i64 16) ], !noalias !79
-  %2 = load <2 x i64>, ptr %add.ptr.i27, align 16, !noalias !79
-  store <2 x i64> %2, ptr %hi.i26, align 32, !alias.scope !79
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i27, i64 16) ], !noalias !78
+  %2 = load <2 x i64>, ptr %add.ptr.i27, align 16, !noalias !78
+  store <2 x i64> %2, ptr %hi.i26, align 32, !alias.scope !78
   %hi.i140 = getelementptr inbounds i8, ptr %s, i64 48
   %add.ptr.i141 = getelementptr inbounds i8, ptr %cond.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i141, i64 16) ], !noalias !79
-  %3 = load <2 x i64>, ptr %add.ptr.i141, align 16, !noalias !79
-  store <2 x i64> %3, ptr %hi.i140, align 16, !alias.scope !79
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i141, i64 16) ], !noalias !78
+  %3 = load <2 x i64>, ptr %add.ptr.i141, align 16, !noalias !78
+  store <2 x i64> %3, ptr %hi.i140, align 16, !alias.scope !78
   %or.i82 = or <2 x i64> %1, %0
   %4 = or <2 x i64> %or.i82, %2
   %or.i85 = or <2 x i64> %4, %3
@@ -671,46 +671,46 @@ if.else.i:                                        ; preds = %if.end
   %add.ptr.i55 = getelementptr inbounds i8, ptr %n, i64 1984
   %idxprom.i51 = zext i8 %key to i64
   %arrayidx.i52 = getelementptr inbounds [256 x i8], ptr %add.ptr, i64 0, i64 %idxprom.i51
-  %10 = load i8, ptr %arrayidx.i52, align 1, !noalias !82
+  %10 = load i8, ptr %arrayidx.i52, align 1, !noalias !81
   %idxprom1.i = zext i8 %10 to i64
   %arrayidx2.i = getelementptr inbounds %struct.m512, ptr %add.ptr.i55, i64 %idxprom1.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx2.i, i64 16) ], !noalias !85
-  %11 = load <2 x i64>, ptr %arrayidx2.i, align 16, !noalias !85
-  store <2 x i64> %11, ptr %reachmask.i, align 64, !alias.scope !85
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx2.i, i64 16) ], !noalias !84
+  %11 = load <2 x i64>, ptr %arrayidx2.i, align 16, !noalias !84
+  store <2 x i64> %11, ptr %reachmask.i, align 64, !alias.scope !84
   %hi.i115 = getelementptr inbounds i8, ptr %reachmask.i, i64 16
   %add.ptr.i116 = getelementptr inbounds i8, ptr %arrayidx2.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i116, i64 16) ], !noalias !85
-  %12 = load <2 x i64>, ptr %add.ptr.i116, align 16, !noalias !85
-  store <2 x i64> %12, ptr %hi.i115, align 16, !alias.scope !85
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i116, i64 16) ], !noalias !84
+  %12 = load <2 x i64>, ptr %add.ptr.i116, align 16, !noalias !84
+  store <2 x i64> %12, ptr %hi.i115, align 16, !alias.scope !84
   %hi.i.i = getelementptr inbounds i8, ptr %reachmask.i, i64 32
   %add.ptr.i.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 16) ], !noalias !88
-  %13 = load <2 x i64>, ptr %add.ptr.i.i, align 16, !noalias !88
-  store <2 x i64> %13, ptr %hi.i.i, align 32, !alias.scope !88
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 16) ], !noalias !87
+  %13 = load <2 x i64>, ptr %add.ptr.i.i, align 16, !noalias !87
+  store <2 x i64> %13, ptr %hi.i.i, align 32, !alias.scope !87
   %hi.i111 = getelementptr inbounds i8, ptr %reachmask.i, i64 48
   %add.ptr.i112 = getelementptr inbounds i8, ptr %arrayidx2.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i112, i64 16) ], !noalias !88
-  %14 = load <2 x i64>, ptr %add.ptr.i112, align 16, !noalias !88
-  store <2 x i64> %14, ptr %hi.i111, align 16, !alias.scope !88
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i112, i64 16) ], !noalias !87
+  %14 = load <2 x i64>, ptr %add.ptr.i112, align 16, !noalias !87
+  store <2 x i64> %14, ptr %hi.i111, align 16, !alias.scope !87
   %and6.i = and i32 %8, 2
   %tobool7.i.not = icmp eq i32 %and6.i, 0
   br i1 %tobool7.i.not, label %if.else17.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.else.i
   %compressMask.i = getelementptr inbounds i8, ptr %n, i64 960
-  call void @llvm.assume(i1 true) [ "align"(ptr %compressMask.i, i64 16) ], !noalias !91
-  %15 = load <2 x i64>, ptr %compressMask.i, align 16, !noalias !31
+  call void @llvm.assume(i1 true) [ "align"(ptr %compressMask.i, i64 16) ], !noalias !90
+  %15 = load <2 x i64>, ptr %compressMask.i, align 16, !noalias !90
   %add.ptr.i126 = getelementptr inbounds i8, ptr %n, i64 976
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i126, i64 16) ], !noalias !91
-  %16 = load <2 x i64>, ptr %add.ptr.i126, align 16, !noalias !31
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i126, i64 16) ], !noalias !90
+  %16 = load <2 x i64>, ptr %add.ptr.i126, align 16, !noalias !90
   %add.ptr.i33 = getelementptr inbounds i8, ptr %n, i64 992
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i33, i64 16) ], !noalias !94
-  %17 = load <2 x i64>, ptr %add.ptr.i33, align 16, !noalias !31
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i33, i64 16) ], !noalias !93
+  %17 = load <2 x i64>, ptr %add.ptr.i33, align 16, !noalias !93
   %add.ptr.i121 = getelementptr inbounds i8, ptr %n, i64 1008
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i121, i64 16) ], !noalias !94
-  %18 = load <2 x i64>, ptr %add.ptr.i121, align 16, !noalias !31
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i121, i64 16) ], !noalias !93
+  %18 = load <2 x i64>, ptr %add.ptr.i121, align 16, !noalias !93
   %and.i253 = and <2 x i64> %15, %0
   %and.i256 = and <2 x i64> %16, %1
   store <2 x i64> %and.i253, ptr %s.i, align 64
@@ -739,10 +739,10 @@ if.then10.i:                                      ; preds = %if.then8.i
   br label %moNfaCompressState512.exit
 
 if.end.i:                                         ; preds = %if.then8.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %compressMask.i, i64 16) ], !noalias !97
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i126, i64 16) ], !noalias !97
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i33, i64 16) ], !noalias !100
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i121, i64 16) ], !noalias !100
+  call void @llvm.assume(i1 true) [ "align"(ptr %compressMask.i, i64 16) ], !noalias !96
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i126, i64 16) ], !noalias !96
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i33, i64 16) ], !noalias !99
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i121, i64 16) ], !noalias !99
   %and.i265 = and <2 x i64> %15, %11
   %and.i268 = and <2 x i64> %16, %12
   store <2 x i64> %and.i265, ptr %mask.i, align 64
@@ -800,7 +800,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %32 = load i32, ptr %repeatCount, align 4
   %33 = zext i32 %32 to i64
   %cmp = icmp samesign ult i64 %indvars.iv.next, %33
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !103
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !102
 
 return:                                           ; preds = %for.body, %moNfaCompressState512.exit, %entry
   %retval.0 = phi i8 [ 0, %entry ], [ 1, %moNfaCompressState512.exit ], [ 1, %for.body ]
@@ -845,17 +845,17 @@ if.then:                                          ; preds = %entry
   %s.i.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
   %s.i.sroa.3.0.copyload = load <2 x i64>, ptr %s.i.sroa.3.0..sroa_idx, align 16
   %accept.i = getelementptr inbounds i8, ptr %n, i64 576
-  call void @llvm.assume(i1 true) [ "align"(ptr %accept.i, i64 16) ], !noalias !104
-  %2 = load <2 x i64>, ptr %accept.i, align 16, !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr %accept.i, i64 16) ], !noalias !103
+  %2 = load <2 x i64>, ptr %accept.i, align 16, !noalias !103
   %add.ptr.i547 = getelementptr inbounds i8, ptr %n, i64 592
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i547, i64 16) ], !noalias !104
-  %3 = load <2 x i64>, ptr %add.ptr.i547, align 16, !noalias !104
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i547, i64 16) ], !noalias !103
+  %3 = load <2 x i64>, ptr %add.ptr.i547, align 16, !noalias !103
   %add.ptr.i149 = getelementptr inbounds i8, ptr %n, i64 608
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i149, i64 16) ], !noalias !107
-  %4 = load <2 x i64>, ptr %add.ptr.i149, align 16, !noalias !107
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i149, i64 16) ], !noalias !106
+  %4 = load <2 x i64>, ptr %add.ptr.i149, align 16, !noalias !106
   %add.ptr.i542 = getelementptr inbounds i8, ptr %n, i64 624
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i542, i64 16) ], !noalias !107
-  %5 = load <2 x i64>, ptr %add.ptr.i542, align 16, !noalias !107
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i542, i64 16) ], !noalias !106
+  %5 = load <2 x i64>, ptr %add.ptr.i542, align 16, !noalias !106
   %and.i756 = and <2 x i64> %2, %s.i.sroa.0.sroa.0.0.copyload
   %and.i759 = and <2 x i64> %3, %s.i.sroa.0.sroa.2.0.copyload
   %and.i750 = and <2 x i64> %4, %s.i.sroa.2.0.copyload
@@ -921,7 +921,7 @@ for.body.i.while.end.i_crit_edge.i:               ; preds = %for.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %while.cond.i.backedge.i
   %chunk.i.049.i = phi i64 [ %asmresult1.i.i, %while.cond.i.backedge.i ], [ %17, %for.body.i.i ]
-  %18 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !110
+  %18 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !109
   %asmresult.i.i = extractvalue { i64, i64 } %18, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %18, 1
   %19 = load i64, ptr %arrayidx26.i.phi.trans.insert.i, align 8
@@ -947,7 +947,7 @@ if.then.i9.i:                                     ; preds = %while.body.i.i
 
 while.cond.i.backedge.i:                          ; preds = %for.cond.i20.i, %if.end.i6.i, %if.then.i9.i
   %cmp3.i.not.i = icmp eq i64 %asmresult1.i.i, 0
-  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !111
+  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !110
 
 if.end.i6.i:                                      ; preds = %while.body.i.i
   %idx.ext.i7.i = zext i32 %22 to i64
@@ -960,7 +960,7 @@ for.cond.i20.i:                                   ; preds = %for.body.i23.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.047.i, i64 4
   %25 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i21.not.i = icmp eq i32 %25, -1
-  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !112
+  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !111
 
 for.body.i23.i:                                   ; preds = %if.end.i6.i, %for.cond.i20.i
   %26 = phi i32 [ %25, %for.cond.i20.i ], [ %24, %if.end.i6.i ]
@@ -976,7 +976,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.backed
   %add28.i.i = add i32 %base_index.i.051.i, %cast.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %moProcessAcceptsNoSquash512.exit, label %for.body.i.i, !llvm.loop !113
+  br i1 %exitcond.not.i, label %moProcessAcceptsNoSquash512.exit, label %for.body.i.i, !llvm.loop !112
 
 moProcessAcceptsNoSquash512.exit:                 ; preds = %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %chunks.i.i)
@@ -1219,14 +1219,14 @@ if.then8.i.i:                                     ; preds = %without_accel.i.i
   br i1 %cmp.i366.not2135.i, label %with_accel.i.i, label %if.end.i43.lr.ph.i
 
 if.end.i43.lr.ph.i:                               ; preds = %if.then8.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %shift.i44.i, i64 16) ], !noalias !114
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5189.i, i64 16) ], !noalias !114
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i119.i.i, i64 16) ], !noalias !117
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5184.i, i64 16) ], !noalias !117
-  call void @llvm.assume(i1 true) [ "align"(ptr %exceptionMask.i48.i, i64 16) ], !noalias !120
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5179.i, i64 16) ], !noalias !120
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i95.i.i, i64 16) ], !noalias !123
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5174.i, i64 16) ], !noalias !123
+  call void @llvm.assume(i1 true) [ "align"(ptr %shift.i44.i, i64 16) ], !noalias !113
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5189.i, i64 16) ], !noalias !113
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i119.i.i, i64 16) ], !noalias !116
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5184.i, i64 16) ], !noalias !116
+  call void @llvm.assume(i1 true) [ "align"(ptr %exceptionMask.i48.i, i64 16) ], !noalias !119
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5179.i, i64 16) ], !noalias !119
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i95.i.i, i64 16) ], !noalias !122
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5174.i, i64 16) ], !noalias !122
   br label %if.end.i43.i
 
 if.end.i43.i:                                     ; preds = %if.end84.i.i, %if.end.i43.lr.ph.i
@@ -1245,15 +1245,15 @@ if.end.i43.i:                                     ; preds = %if.end84.i.i, %if.e
   %s.i25.sroa.13.02123.i = phi <2 x i64> [ %s.i.sroa.22.0.i, %if.end.i43.lr.ph.i ], [ %and.i7288.i, %if.end84.i.i ]
   %s.i25.sroa.0.02122.i = phi <2 x i64> [ %s.i.sroa.0.0.i, %if.end.i43.lr.ph.i ], [ %and.i7285.i, %if.end84.i.i ]
   %i.i26.02121.i = phi i64 [ %i.i.0.i, %if.end.i43.lr.ph.i ], [ %inc.i52.i, %if.end84.i.i ]
-  %48 = load <2 x i64>, ptr %add.ptr.i5189.i, align 16, !noalias !114
-  %49 = load <2 x i64>, ptr %add.ptr.i119.i.i, align 16, !noalias !117
-  %50 = load <2 x i64>, ptr %add.ptr.i5184.i, align 16, !noalias !117
+  %48 = load <2 x i64>, ptr %add.ptr.i5189.i, align 16, !noalias !113
+  %49 = load <2 x i64>, ptr %add.ptr.i119.i.i, align 16, !noalias !116
+  %50 = load <2 x i64>, ptr %add.ptr.i5184.i, align 16, !noalias !116
   %and.i7300.i = and <2 x i64> %48, %s.i25.sroa.13.02123.i
   %and.i7291.i = and <2 x i64> %49, %s.i25.sroa.14.02124.i
   %and.i7294.i = and <2 x i64> %50, %s.i25.sroa.15.02125.i
   %51 = load i8, ptr %shiftAmount.i45.i, align 4
   %conv8.i.i = zext i8 %51 to i32
-  %52 = load <2 x i64>, ptr %shift.i44.i, align 16, !noalias !114
+  %52 = load <2 x i64>, ptr %shift.i44.i, align 16, !noalias !113
   %and.i7297.i = and <2 x i64> %52, %s.i25.sroa.0.02122.i
   %vecinit3.i2689.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv8.i.i, i64 0
   %53 = bitcast <4 x i32> %vecinit3.i2689.i to <2 x i64>
@@ -1279,14 +1279,14 @@ if.end.i43.i:                                     ; preds = %if.end84.i.i, %if.e
   ]
 
 sw.bb.i55.i:                                      ; preds = %if.end.i43.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx14.i.i, i64 16) ], !noalias !126
-  %62 = load <2 x i64>, ptr %arrayidx14.i.i, align 16, !noalias !126
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5099.i, i64 16) ], !noalias !126
-  %63 = load <2 x i64>, ptr %add.ptr.i5099.i, align 16, !noalias !126
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i116.i.i, i64 16) ], !noalias !129
-  %64 = load <2 x i64>, ptr %add.ptr.i116.i.i, align 16, !noalias !129
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094.i, i64 16) ], !noalias !129
-  %65 = load <2 x i64>, ptr %add.ptr.i5094.i, align 16, !noalias !129
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx14.i.i, i64 16) ], !noalias !125
+  %62 = load <2 x i64>, ptr %arrayidx14.i.i, align 16, !noalias !125
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5099.i, i64 16) ], !noalias !125
+  %63 = load <2 x i64>, ptr %add.ptr.i5099.i, align 16, !noalias !125
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i116.i.i, i64 16) ], !noalias !128
+  %64 = load <2 x i64>, ptr %add.ptr.i116.i.i, align 16, !noalias !128
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094.i, i64 16) ], !noalias !128
+  %65 = load <2 x i64>, ptr %add.ptr.i5094.i, align 16, !noalias !128
   %and.i7204.i = and <2 x i64> %63, %s.i25.sroa.13.02123.i
   %and.i7195.i = and <2 x i64> %64, %s.i25.sroa.14.02124.i
   %and.i7198.i = and <2 x i64> %65, %s.i25.sroa.15.02125.i
@@ -1316,14 +1316,14 @@ sw.bb18.i.i:                                      ; preds = %sw.bb.i55.i, %if.en
   %succ.i27.sroa.24.1.i = phi <2 x i64> [ %56, %if.end.i43.i ], [ %or.i435.i.i, %sw.bb.i55.i ]
   %succ.i27.sroa.48.1.i = phi <2 x i64> [ %58, %if.end.i43.i ], [ %or.i426.i.i, %sw.bb.i55.i ]
   %succ.i27.sroa.72.1.i = phi <2 x i64> [ %60, %if.end.i43.i ], [ %or.i429.i.i, %sw.bb.i55.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx24.i.i, i64 16) ], !noalias !132
-  %75 = load <2 x i64>, ptr %arrayidx24.i.i, align 16, !noalias !132
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5109.i, i64 16) ], !noalias !132
-  %76 = load <2 x i64>, ptr %add.ptr.i5109.i, align 16, !noalias !132
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i113.i.i, i64 16) ], !noalias !135
-  %77 = load <2 x i64>, ptr %add.ptr.i113.i.i, align 16, !noalias !135
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104.i, i64 16) ], !noalias !135
-  %78 = load <2 x i64>, ptr %add.ptr.i5104.i, align 16, !noalias !135
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx24.i.i, i64 16) ], !noalias !131
+  %75 = load <2 x i64>, ptr %arrayidx24.i.i, align 16, !noalias !131
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5109.i, i64 16) ], !noalias !131
+  %76 = load <2 x i64>, ptr %add.ptr.i5109.i, align 16, !noalias !131
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i113.i.i, i64 16) ], !noalias !134
+  %77 = load <2 x i64>, ptr %add.ptr.i113.i.i, align 16, !noalias !134
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104.i, i64 16) ], !noalias !134
+  %78 = load <2 x i64>, ptr %add.ptr.i5104.i, align 16, !noalias !134
   %and.i7216.i = and <2 x i64> %76, %s.i25.sroa.13.02123.i
   %and.i7207.i = and <2 x i64> %77, %s.i25.sroa.14.02124.i
   %and.i7210.i = and <2 x i64> %78, %s.i25.sroa.15.02125.i
@@ -1353,14 +1353,14 @@ sw.bb28.i.i:                                      ; preds = %sw.bb18.i.i, %if.en
   %succ.i27.sroa.24.2.i = phi <2 x i64> [ %56, %if.end.i43.i ], [ %or.i447.i.i, %sw.bb18.i.i ]
   %succ.i27.sroa.48.2.i = phi <2 x i64> [ %58, %if.end.i43.i ], [ %or.i438.i.i, %sw.bb18.i.i ]
   %succ.i27.sroa.72.2.i = phi <2 x i64> [ %60, %if.end.i43.i ], [ %or.i441.i.i, %sw.bb18.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx34.i.i, i64 16) ], !noalias !138
-  %88 = load <2 x i64>, ptr %arrayidx34.i.i, align 16, !noalias !138
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5119.i, i64 16) ], !noalias !138
-  %89 = load <2 x i64>, ptr %add.ptr.i5119.i, align 16, !noalias !138
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i110.i.i, i64 16) ], !noalias !141
-  %90 = load <2 x i64>, ptr %add.ptr.i110.i.i, align 16, !noalias !141
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114.i, i64 16) ], !noalias !141
-  %91 = load <2 x i64>, ptr %add.ptr.i5114.i, align 16, !noalias !141
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx34.i.i, i64 16) ], !noalias !137
+  %88 = load <2 x i64>, ptr %arrayidx34.i.i, align 16, !noalias !137
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5119.i, i64 16) ], !noalias !137
+  %89 = load <2 x i64>, ptr %add.ptr.i5119.i, align 16, !noalias !137
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i110.i.i, i64 16) ], !noalias !140
+  %90 = load <2 x i64>, ptr %add.ptr.i110.i.i, align 16, !noalias !140
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114.i, i64 16) ], !noalias !140
+  %91 = load <2 x i64>, ptr %add.ptr.i5114.i, align 16, !noalias !140
   %and.i7228.i = and <2 x i64> %89, %s.i25.sroa.13.02123.i
   %and.i7219.i = and <2 x i64> %90, %s.i25.sroa.14.02124.i
   %and.i7222.i = and <2 x i64> %91, %s.i25.sroa.15.02125.i
@@ -1390,14 +1390,14 @@ sw.bb38.i.i:                                      ; preds = %sw.bb28.i.i, %if.en
   %succ.i27.sroa.24.3.i = phi <2 x i64> [ %56, %if.end.i43.i ], [ %or.i459.i.i, %sw.bb28.i.i ]
   %succ.i27.sroa.48.3.i = phi <2 x i64> [ %58, %if.end.i43.i ], [ %or.i450.i.i, %sw.bb28.i.i ]
   %succ.i27.sroa.72.3.i = phi <2 x i64> [ %60, %if.end.i43.i ], [ %or.i453.i.i, %sw.bb28.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx44.i.i, i64 16) ], !noalias !144
-  %101 = load <2 x i64>, ptr %arrayidx44.i.i, align 16, !noalias !144
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5129.i, i64 16) ], !noalias !144
-  %102 = load <2 x i64>, ptr %add.ptr.i5129.i, align 16, !noalias !144
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i107.i.i, i64 16) ], !noalias !147
-  %103 = load <2 x i64>, ptr %add.ptr.i107.i.i, align 16, !noalias !147
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124.i, i64 16) ], !noalias !147
-  %104 = load <2 x i64>, ptr %add.ptr.i5124.i, align 16, !noalias !147
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx44.i.i, i64 16) ], !noalias !143
+  %101 = load <2 x i64>, ptr %arrayidx44.i.i, align 16, !noalias !143
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5129.i, i64 16) ], !noalias !143
+  %102 = load <2 x i64>, ptr %add.ptr.i5129.i, align 16, !noalias !143
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i107.i.i, i64 16) ], !noalias !146
+  %103 = load <2 x i64>, ptr %add.ptr.i107.i.i, align 16, !noalias !146
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124.i, i64 16) ], !noalias !146
+  %104 = load <2 x i64>, ptr %add.ptr.i5124.i, align 16, !noalias !146
   %and.i7240.i = and <2 x i64> %102, %s.i25.sroa.13.02123.i
   %and.i7231.i = and <2 x i64> %103, %s.i25.sroa.14.02124.i
   %and.i7234.i = and <2 x i64> %104, %s.i25.sroa.15.02125.i
@@ -1427,14 +1427,14 @@ sw.bb48.i.i:                                      ; preds = %sw.bb38.i.i, %if.en
   %succ.i27.sroa.24.4.i = phi <2 x i64> [ %56, %if.end.i43.i ], [ %or.i471.i.i, %sw.bb38.i.i ]
   %succ.i27.sroa.48.4.i = phi <2 x i64> [ %58, %if.end.i43.i ], [ %or.i462.i.i, %sw.bb38.i.i ]
   %succ.i27.sroa.72.4.i = phi <2 x i64> [ %60, %if.end.i43.i ], [ %or.i465.i.i, %sw.bb38.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx54.i.i, i64 16) ], !noalias !150
-  %114 = load <2 x i64>, ptr %arrayidx54.i.i, align 16, !noalias !150
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5139.i, i64 16) ], !noalias !150
-  %115 = load <2 x i64>, ptr %add.ptr.i5139.i, align 16, !noalias !150
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i104.i.i, i64 16) ], !noalias !153
-  %116 = load <2 x i64>, ptr %add.ptr.i104.i.i, align 16, !noalias !153
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134.i, i64 16) ], !noalias !153
-  %117 = load <2 x i64>, ptr %add.ptr.i5134.i, align 16, !noalias !153
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx54.i.i, i64 16) ], !noalias !149
+  %114 = load <2 x i64>, ptr %arrayidx54.i.i, align 16, !noalias !149
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5139.i, i64 16) ], !noalias !149
+  %115 = load <2 x i64>, ptr %add.ptr.i5139.i, align 16, !noalias !149
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i104.i.i, i64 16) ], !noalias !152
+  %116 = load <2 x i64>, ptr %add.ptr.i104.i.i, align 16, !noalias !152
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134.i, i64 16) ], !noalias !152
+  %117 = load <2 x i64>, ptr %add.ptr.i5134.i, align 16, !noalias !152
   %and.i7252.i = and <2 x i64> %115, %s.i25.sroa.13.02123.i
   %and.i7243.i = and <2 x i64> %116, %s.i25.sroa.14.02124.i
   %and.i7246.i = and <2 x i64> %117, %s.i25.sroa.15.02125.i
@@ -1464,14 +1464,14 @@ sw.bb58.i.i:                                      ; preds = %sw.bb48.i.i, %if.en
   %succ.i27.sroa.24.5.i = phi <2 x i64> [ %56, %if.end.i43.i ], [ %or.i483.i.i, %sw.bb48.i.i ]
   %succ.i27.sroa.48.5.i = phi <2 x i64> [ %58, %if.end.i43.i ], [ %or.i474.i.i, %sw.bb48.i.i ]
   %succ.i27.sroa.72.5.i = phi <2 x i64> [ %60, %if.end.i43.i ], [ %or.i477.i.i, %sw.bb48.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx64.i.i, i64 16) ], !noalias !156
-  %127 = load <2 x i64>, ptr %arrayidx64.i.i, align 16, !noalias !156
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5149.i, i64 16) ], !noalias !156
-  %128 = load <2 x i64>, ptr %add.ptr.i5149.i, align 16, !noalias !156
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i101.i.i, i64 16) ], !noalias !159
-  %129 = load <2 x i64>, ptr %add.ptr.i101.i.i, align 16, !noalias !159
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144.i, i64 16) ], !noalias !159
-  %130 = load <2 x i64>, ptr %add.ptr.i5144.i, align 16, !noalias !159
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx64.i.i, i64 16) ], !noalias !155
+  %127 = load <2 x i64>, ptr %arrayidx64.i.i, align 16, !noalias !155
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5149.i, i64 16) ], !noalias !155
+  %128 = load <2 x i64>, ptr %add.ptr.i5149.i, align 16, !noalias !155
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i101.i.i, i64 16) ], !noalias !158
+  %129 = load <2 x i64>, ptr %add.ptr.i101.i.i, align 16, !noalias !158
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144.i, i64 16) ], !noalias !158
+  %130 = load <2 x i64>, ptr %add.ptr.i5144.i, align 16, !noalias !158
   %and.i7264.i = and <2 x i64> %128, %s.i25.sroa.13.02123.i
   %and.i7255.i = and <2 x i64> %129, %s.i25.sroa.14.02124.i
   %and.i7258.i = and <2 x i64> %130, %s.i25.sroa.15.02125.i
@@ -1501,14 +1501,14 @@ sw.bb68.i.i:                                      ; preds = %sw.bb58.i.i, %if.en
   %succ.i27.sroa.24.6.i = phi <2 x i64> [ %56, %if.end.i43.i ], [ %or.i495.i.i, %sw.bb58.i.i ]
   %succ.i27.sroa.48.6.i = phi <2 x i64> [ %58, %if.end.i43.i ], [ %or.i486.i.i, %sw.bb58.i.i ]
   %succ.i27.sroa.72.6.i = phi <2 x i64> [ %60, %if.end.i43.i ], [ %or.i489.i.i, %sw.bb58.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx74.i53.i, i64 16) ], !noalias !162
-  %140 = load <2 x i64>, ptr %arrayidx74.i53.i, align 16, !noalias !162
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5159.i, i64 16) ], !noalias !162
-  %141 = load <2 x i64>, ptr %add.ptr.i5159.i, align 16, !noalias !162
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i98.i.i, i64 16) ], !noalias !165
-  %142 = load <2 x i64>, ptr %add.ptr.i98.i.i, align 16, !noalias !165
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154.i, i64 16) ], !noalias !165
-  %143 = load <2 x i64>, ptr %add.ptr.i5154.i, align 16, !noalias !165
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx74.i53.i, i64 16) ], !noalias !161
+  %140 = load <2 x i64>, ptr %arrayidx74.i53.i, align 16, !noalias !161
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5159.i, i64 16) ], !noalias !161
+  %141 = load <2 x i64>, ptr %add.ptr.i5159.i, align 16, !noalias !161
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i98.i.i, i64 16) ], !noalias !164
+  %142 = load <2 x i64>, ptr %add.ptr.i98.i.i, align 16, !noalias !164
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154.i, i64 16) ], !noalias !164
+  %143 = load <2 x i64>, ptr %add.ptr.i5154.i, align 16, !noalias !164
   %and.i7276.i = and <2 x i64> %141, %s.i25.sroa.13.02123.i
   %and.i7267.i = and <2 x i64> %142, %s.i25.sroa.14.02124.i
   %and.i7270.i = and <2 x i64> %143, %s.i25.sroa.15.02125.i
@@ -1538,10 +1538,10 @@ sw.epilog.i47.i:                                  ; preds = %sw.bb68.i.i, %if.en
   %succ.i27.sroa.24.0.i = phi <2 x i64> [ %56, %if.end.i43.i ], [ %or.i507.i.i, %sw.bb68.i.i ]
   %succ.i27.sroa.48.0.i = phi <2 x i64> [ %58, %if.end.i43.i ], [ %or.i498.i.i, %sw.bb68.i.i ]
   %succ.i27.sroa.72.0.i = phi <2 x i64> [ %60, %if.end.i43.i ], [ %or.i501.i.i, %sw.bb68.i.i ]
-  %153 = load <2 x i64>, ptr %exceptionMask.i48.i, align 16, !noalias !120
-  %154 = load <2 x i64>, ptr %add.ptr.i5179.i, align 16, !noalias !120
-  %155 = load <2 x i64>, ptr %add.ptr.i95.i.i, align 16, !noalias !123
-  %156 = load <2 x i64>, ptr %add.ptr.i5174.i, align 16, !noalias !123
+  %153 = load <2 x i64>, ptr %exceptionMask.i48.i, align 16, !noalias !119
+  %154 = load <2 x i64>, ptr %add.ptr.i5179.i, align 16, !noalias !119
+  %155 = load <2 x i64>, ptr %add.ptr.i95.i.i, align 16, !noalias !122
+  %156 = load <2 x i64>, ptr %add.ptr.i5174.i, align 16, !noalias !122
   %and.i7057.i = and <2 x i64> %153, %s.i25.sroa.0.02122.i
   %and.i7060.i = and <2 x i64> %154, %s.i25.sroa.13.02123.i
   %and.i7051.i = and <2 x i64> %155, %s.i25.sroa.14.02124.i
@@ -1622,7 +1622,7 @@ for.cond.i.i3440.i:                               ; preds = %for.body.i.i3450.i
   %incdec.ptr.i.i3454.i = getelementptr inbounds i8, ptr %reports.addr.i.i3320.02116.i, i64 4
   %186 = load i32, ptr %incdec.ptr.i.i3454.i, align 4
   %cmp.i.i3441.not.not.i = icmp eq i32 %186, -1
-  br i1 %cmp.i.i3441.not.not.i, label %if.end84.i.i, label %for.body.i.i3450.i, !llvm.loop !112
+  br i1 %cmp.i.i3441.not.not.i, label %if.end84.i.i, label %for.body.i.i3450.i, !llvm.loop !111
 
 for.body.i.i3450.i:                               ; preds = %if.then3.i3436.i, %for.cond.i.i3440.i
   %187 = phi i32 [ %186, %for.cond.i.i3440.i ], [ %185, %if.then3.i3436.i ]
@@ -1657,7 +1657,7 @@ for.body.i3530.i:                                 ; preds = %for.body.i3530.i, %
   %arrayidx25.i3540.i = getelementptr inbounds [8 x i32], ptr %base_index.i3401.i, i64 0, i64 %indvars.iv.next.i221
   store i32 %add.i3537.i, ptr %arrayidx25.i3540.i, align 4
   %exitcond.not.i222 = icmp eq i64 %indvars.iv.next.i221, 7
-  br i1 %exitcond.not.i222, label %do.body26.i3465.preheader.i, label %for.body.i3530.i, !llvm.loop !168
+  br i1 %exitcond.not.i222, label %do.body26.i3465.preheader.i, label %for.body.i3530.i, !llvm.loop !167
 
 do.body26.i3465.i:                                ; preds = %do.end45.i3492.i, %do.body26.i3465.preheader.i
   %ctx.sroa.43.sroa.0.11 = phi <2 x i64> [ zeroinitializer, %do.body26.i3465.preheader.i ], [ %ctx.sroa.43.sroa.0.13, %do.end45.i3492.i ]
@@ -1672,7 +1672,7 @@ do.body26.i3465.i:                                ; preds = %do.end45.i3492.i, %
   %cacheable.i3398.0.i = phi i32 [ 1, %do.body26.i3465.preheader.i ], [ %cacheable.i3398.3.ph.i, %do.end45.i3492.i ]
   %new_cache.i3397.sroa.0.5.i = phi i8 [ 0, %do.body26.i3465.preheader.i ], [ %new_cache.i3397.sroa.0.8.ph.i, %do.end45.i3492.i ]
   %new_cache.i3397.sroa.31555.5.i = phi ptr [ null, %do.body26.i3465.preheader.i ], [ %new_cache.i3397.sroa.31555.7.ph.i, %do.end45.i3492.i ]
-  %192 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3387.0.i) #12, !srcloc !169
+  %192 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3387.0.i) #12, !srcloc !168
   %asmresult.i3926.i = extractvalue { i32, i32 } %192, 0
   %asmresult1.i3927.i = extractvalue { i32, i32 } %192, 1
   %shr.i3467.i = lshr i32 %asmresult.i3926.i, 1
@@ -1696,7 +1696,7 @@ do.body30.i3470.i:                                ; preds = %if.end43.i3490.i, %
   %cacheable.i3398.1.i = phi i32 [ %cacheable.i3398.0.i, %do.body26.i3465.i ], [ %cacheable.i3398.3.ph.i, %if.end43.i3490.i ]
   %new_cache.i3397.sroa.0.6.i = phi i8 [ %new_cache.i3397.sroa.0.5.i, %do.body26.i3465.i ], [ %new_cache.i3397.sroa.0.8.ph.i, %if.end43.i3490.i ]
   %new_cache.i3397.sroa.31555.6.i = phi ptr [ %new_cache.i3397.sroa.31555.5.i, %do.body26.i3465.i ], [ %new_cache.i3397.sroa.31555.7.ph.i, %if.end43.i3490.i ]
-  %194 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3404.0.i) #12, !srcloc !110
+  %194 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3404.0.i) #12, !srcloc !109
   %asmresult.i.i3471.i = extractvalue { i64, i64 } %194, 0
   %asmresult1.i.i3472.i = extractvalue { i64, i64 } %194, 1
   %195 = load i64, ptr %arrayidx33.i3475.i, align 8
@@ -1869,17 +1869,17 @@ repeatHasMatch.exit4771.i:                        ; preds = %sw.bb11.i4756.i, %s
   ]
 
 if.then21.i4204.i:                                ; preds = %repeatHasMatch.exit4771.i, %if.end.i4847.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i3486.i, i64 16) ], !noalias !170
-  %212 = load <2 x i64>, ptr %arrayidx39.i3486.i, align 16, !noalias !170
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i3486.i, i64 16) ], !noalias !169
+  %212 = load <2 x i64>, ptr %arrayidx39.i3486.i, align 16, !noalias !169
   %add.ptr.i4909.i = getelementptr inbounds i8, ptr %arrayidx39.i3486.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4909.i, i64 16) ], !noalias !170
-  %213 = load <2 x i64>, ptr %add.ptr.i4909.i, align 16, !noalias !170
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4909.i, i64 16) ], !noalias !169
+  %213 = load <2 x i64>, ptr %add.ptr.i4909.i, align 16, !noalias !169
   %add.ptr.i103.i4206.i = getelementptr inbounds i8, ptr %arrayidx39.i3486.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i103.i4206.i, i64 16) ], !noalias !173
-  %214 = load <2 x i64>, ptr %add.ptr.i103.i4206.i, align 16, !noalias !173
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i103.i4206.i, i64 16) ], !noalias !172
+  %214 = load <2 x i64>, ptr %add.ptr.i103.i4206.i, align 16, !noalias !172
   %add.ptr.i4904.i = getelementptr inbounds i8, ptr %arrayidx39.i3486.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4904.i, i64 16) ], !noalias !173
-  %215 = load <2 x i64>, ptr %add.ptr.i4904.i, align 16, !noalias !173
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4904.i, i64 16) ], !noalias !172
+  %215 = load <2 x i64>, ptr %add.ptr.i4904.i, align 16, !noalias !172
   %and.i6973.i = and <2 x i64> %212, %succ.i27.sroa.0.10.i
   %and.i6976.i = and <2 x i64> %213, %succ.i27.sroa.24.10.i
   %and.i6967.i = and <2 x i64> %214, %succ.i27.sroa.48.10.i
@@ -1916,7 +1916,7 @@ for.cond.i.i4148.i:                               ; preds = %for.body.i.i4170.i
   %incdec.ptr.i.i4174.i = getelementptr inbounds i8, ptr %reports.addr.i.i4010.02119.i, i64 4
   %219 = load i32, ptr %incdec.ptr.i.i4174.i, align 4
   %cmp.i157.i4149.not.not.i = icmp eq i32 %219, -1
-  br i1 %cmp.i157.i4149.not.not.i, label %if.end52.i4156.i, label %for.body.i.i4170.i, !llvm.loop !112
+  br i1 %cmp.i157.i4149.not.not.i, label %if.end52.i4156.i, label %for.body.i.i4170.i, !llvm.loop !111
 
 for.body.i.i4170.i:                               ; preds = %if.then38.i4142.i, %for.cond.i.i4148.i
   %220 = phi i32 [ %219, %for.cond.i.i4148.i ], [ %218, %if.then38.i4142.i ]
@@ -1946,17 +1946,17 @@ if.end76.i4093.i:                                 ; preds = %land.lhs.true70.i41
   %cacheable.i3398.4.i = phi i32 [ %cacheable.i3398.2.i, %if.end52.i4156.i ], [ %cacheable.i3398.2.i, %if.end32.i4090.i ], [ %spec.select.i, %land.lhs.true70.i4139.i ], [ %spec.select1893.i, %if.then55.i4159.i ]
   %new_cache.i3397.sroa.31555.8.i = phi ptr [ %new_cache.i3397.sroa.31555.6.i, %if.end52.i4156.i ], [ %new_cache.i3397.sroa.31555.6.i, %if.end32.i4090.i ], [ %new_cache.i3397.sroa.31555.6.i, %land.lhs.true70.i4139.i ], [ %spec.select1894.i, %if.then55.i4159.i ]
   %successors.i4096.i = getelementptr inbounds i8, ptr %arrayidx39.i3486.i, i64 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %successors.i4096.i, i64 16) ], !noalias !176
-  %221 = load <2 x i64>, ptr %successors.i4096.i, align 16, !noalias !176
+  call void @llvm.assume(i1 true) [ "align"(ptr %successors.i4096.i, i64 16) ], !noalias !175
+  %221 = load <2 x i64>, ptr %successors.i4096.i, align 16, !noalias !175
   %add.ptr.i4929.i = getelementptr inbounds i8, ptr %arrayidx39.i3486.i, i64 80
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4929.i, i64 16) ], !noalias !176
-  %222 = load <2 x i64>, ptr %add.ptr.i4929.i, align 16, !noalias !176
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4929.i, i64 16) ], !noalias !175
+  %222 = load <2 x i64>, ptr %add.ptr.i4929.i, align 16, !noalias !175
   %add.ptr.i100.i4098.i = getelementptr inbounds i8, ptr %arrayidx39.i3486.i, i64 96
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i100.i4098.i, i64 16) ], !noalias !179
-  %223 = load <2 x i64>, ptr %add.ptr.i100.i4098.i, align 16, !noalias !179
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i100.i4098.i, i64 16) ], !noalias !178
+  %223 = load <2 x i64>, ptr %add.ptr.i100.i4098.i, align 16, !noalias !178
   %add.ptr.i4924.i = getelementptr inbounds i8, ptr %arrayidx39.i3486.i, i64 112
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4924.i, i64 16) ], !noalias !179
-  %224 = load <2 x i64>, ptr %add.ptr.i4924.i, align 16, !noalias !179
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4924.i, i64 16) ], !noalias !178
+  %224 = load <2 x i64>, ptr %add.ptr.i4924.i, align 16, !noalias !178
   %or.i153.i4099.i = or <2 x i64> %221, %ctx.sroa.43.sroa.0.12
   %or.i156.i4102.i = or <2 x i64> %222, %ctx.sroa.43.sroa.15.12
   %or.i.i4107.i = or <2 x i64> %223, %ctx.sroa.43.sroa.27.12
@@ -1969,17 +1969,17 @@ if.end76.i4093.i:                                 ; preds = %land.lhs.true70.i41
   ]
 
 if.then88.i4120.i:                                ; preds = %if.end76.i4093.i, %if.end76.i4093.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i3486.i, i64 16) ], !noalias !182
-  %226 = load <2 x i64>, ptr %arrayidx39.i3486.i, align 16, !noalias !182
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i3486.i, i64 16) ], !noalias !181
+  %226 = load <2 x i64>, ptr %arrayidx39.i3486.i, align 16, !noalias !181
   %add.ptr.i4919.i = getelementptr inbounds i8, ptr %arrayidx39.i3486.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4919.i, i64 16) ], !noalias !182
-  %227 = load <2 x i64>, ptr %add.ptr.i4919.i, align 16, !noalias !182
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4919.i, i64 16) ], !noalias !181
+  %227 = load <2 x i64>, ptr %add.ptr.i4919.i, align 16, !noalias !181
   %add.ptr.i97.i4122.i = getelementptr inbounds i8, ptr %arrayidx39.i3486.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i97.i4122.i, i64 16) ], !noalias !185
-  %228 = load <2 x i64>, ptr %add.ptr.i97.i4122.i, align 16, !noalias !185
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i97.i4122.i, i64 16) ], !noalias !184
+  %228 = load <2 x i64>, ptr %add.ptr.i97.i4122.i, align 16, !noalias !184
   %add.ptr.i4914.i = getelementptr inbounds i8, ptr %arrayidx39.i3486.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4914.i, i64 16) ], !noalias !185
-  %229 = load <2 x i64>, ptr %add.ptr.i4914.i, align 16, !noalias !185
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4914.i, i64 16) ], !noalias !184
+  %229 = load <2 x i64>, ptr %add.ptr.i4914.i, align 16, !noalias !184
   %and.i6985.i = and <2 x i64> %226, %succ.i27.sroa.0.10.i
   %and.i6988.i = and <2 x i64> %227, %succ.i27.sroa.24.10.i
   %and.i6979.i = and <2 x i64> %228, %succ.i27.sroa.48.10.i
@@ -2001,11 +2001,11 @@ if.end43.i3490.i:                                 ; preds = %if.then88.i4120.i, 
   %new_cache.i3397.sroa.0.8.ph.i = phi i8 [ %new_cache.i3397.sroa.0.7.i, %if.end76.i4093.i ], [ %new_cache.i3397.sroa.0.7.i, %if.then88.i4120.i ], [ %new_cache.i3397.sroa.0.6.i, %if.else.i4192.i ], [ %new_cache.i3397.sroa.0.6.i, %repeatHasMatch.exit4771.i ], [ %new_cache.i3397.sroa.0.6.i, %if.then21.i4204.i ], [ %new_cache.i3397.sroa.0.6.i, %sw.bb3.i4764.i ], [ %new_cache.i3397.sroa.0.6.i, %sw.bb1.i4766.i ]
   %new_cache.i3397.sroa.31555.7.ph.i = phi ptr [ %new_cache.i3397.sroa.31555.8.i, %if.end76.i4093.i ], [ %new_cache.i3397.sroa.31555.8.i, %if.then88.i4120.i ], [ %new_cache.i3397.sroa.31555.6.i, %if.else.i4192.i ], [ %new_cache.i3397.sroa.31555.6.i, %repeatHasMatch.exit4771.i ], [ %new_cache.i3397.sroa.31555.6.i, %if.then21.i4204.i ], [ %new_cache.i3397.sroa.31555.6.i, %sw.bb3.i4764.i ], [ %new_cache.i3397.sroa.31555.6.i, %sw.bb1.i4766.i ]
   %tobool44.i3491.not.i = icmp eq i64 %asmresult1.i.i3472.i, 0
-  br i1 %tobool44.i3491.not.i, label %do.end45.i3492.i, label %do.body30.i3470.i, !llvm.loop !188
+  br i1 %tobool44.i3491.not.i, label %do.end45.i3492.i, label %do.body30.i3470.i, !llvm.loop !187
 
 do.end45.i3492.i:                                 ; preds = %if.end43.i3490.i
   %tobool47.i3493.not.i = icmp eq i32 %asmresult1.i3927.i, 0
-  br i1 %tobool47.i3493.not.i, label %do.end48.i3494.i, label %do.body26.i3465.i, !llvm.loop !189
+  br i1 %tobool47.i3493.not.i, label %do.end48.i3494.i, label %do.body26.i3465.i, !llvm.loop !188
 
 do.end48.i3494.i:                                 ; preds = %do.end45.i3492.i
   %or.i140.i3496.i = or <2 x i64> %succ.i27.sroa.0.11.ph.i, %ctx.sroa.43.sroa.0.13
@@ -2049,24 +2049,24 @@ if.end84.i.i:                                     ; preds = %for.cond.i.i3440.i,
   %231 = load i8, ptr %arrayidx88.i.i, align 1
   %idxprom89.i.i = zext i8 %231 to i64
   %arrayidx90.i.i = getelementptr inbounds %struct.m512, ptr %add.ptr.i309.i.i, i64 %idxprom89.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx90.i.i, i64 16) ], !noalias !190
-  %232 = load <2 x i64>, ptr %arrayidx90.i.i, align 16, !noalias !190
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx90.i.i, i64 16) ], !noalias !189
+  %232 = load <2 x i64>, ptr %arrayidx90.i.i, align 16, !noalias !189
   %add.ptr.i5169.i = getelementptr inbounds i8, ptr %arrayidx90.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5169.i, i64 16) ], !noalias !190
-  %233 = load <2 x i64>, ptr %add.ptr.i5169.i, align 16, !noalias !190
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5169.i, i64 16) ], !noalias !189
+  %233 = load <2 x i64>, ptr %add.ptr.i5169.i, align 16, !noalias !189
   %add.ptr.i.i50.i = getelementptr inbounds i8, ptr %arrayidx90.i.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i50.i, i64 16) ], !noalias !193
-  %234 = load <2 x i64>, ptr %add.ptr.i.i50.i, align 16, !noalias !193
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i50.i, i64 16) ], !noalias !192
+  %234 = load <2 x i64>, ptr %add.ptr.i.i50.i, align 16, !noalias !192
   %add.ptr.i5164.i = getelementptr inbounds i8, ptr %arrayidx90.i.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5164.i, i64 16) ], !noalias !193
-  %235 = load <2 x i64>, ptr %add.ptr.i5164.i, align 16, !noalias !193
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5164.i, i64 16) ], !noalias !192
+  %235 = load <2 x i64>, ptr %add.ptr.i5164.i, align 16, !noalias !192
   %and.i7285.i = and <2 x i64> %232, %succ.i27.sroa.0.7.ph.i
   %and.i7288.i = and <2 x i64> %233, %succ.i27.sroa.24.7.ph.i
   %and.i7279.i = and <2 x i64> %234, %succ.i27.sroa.48.7.ph.i
   %and.i7282.i = and <2 x i64> %235, %succ.i27.sroa.72.7.ph.i
   %inc.i52.i = add i64 %i.i26.02121.i, 1
   %cmp.i38.not.not.i = icmp eq i64 %inc.i52.i, %min_accel_offset.i.0.i
-  br i1 %cmp.i38.not.not.i, label %with_accel.i.i, label %if.end.i43.i, !llvm.loop !196
+  br i1 %cmp.i38.not.not.i, label %with_accel.i.i, label %if.end.i43.i, !llvm.loop !195
 
 if.else13.i.i:                                    ; preds = %without_accel.i.i
   br i1 %cmp.i366.not2135.i, label %with_accel.i.i, label %land.lhs.true.i569.i
@@ -2097,14 +2097,14 @@ land.lhs.true.i569.i:                             ; preds = %if.else13.i.i, %if.
   br i1 %tobool.i.i580.not.i, label %with_accel.i.i, label %if.end.i371.i
 
 if.end.i371.i:                                    ; preds = %land.lhs.true.i569.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %shift.i44.i, i64 16) ], !noalias !197
-  %240 = load <2 x i64>, ptr %shift.i44.i, align 16, !noalias !197
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5189.i, i64 16) ], !noalias !197
-  %241 = load <2 x i64>, ptr %add.ptr.i5189.i, align 16, !noalias !197
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i119.i.i, i64 16) ], !noalias !200
-  %242 = load <2 x i64>, ptr %add.ptr.i119.i.i, align 16, !noalias !200
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5184.i, i64 16) ], !noalias !200
-  %243 = load <2 x i64>, ptr %add.ptr.i5184.i, align 16, !noalias !200
+  call void @llvm.assume(i1 true) [ "align"(ptr %shift.i44.i, i64 16) ], !noalias !196
+  %240 = load <2 x i64>, ptr %shift.i44.i, align 16, !noalias !196
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5189.i, i64 16) ], !noalias !196
+  %241 = load <2 x i64>, ptr %add.ptr.i5189.i, align 16, !noalias !196
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i119.i.i, i64 16) ], !noalias !199
+  %242 = load <2 x i64>, ptr %add.ptr.i119.i.i, align 16, !noalias !199
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5184.i, i64 16) ], !noalias !199
+  %243 = load <2 x i64>, ptr %add.ptr.i5184.i, align 16, !noalias !199
   %and.i7192.i = and <2 x i64> %241, %s.i323.sroa.13.02138.i
   %and.i7183.i = and <2 x i64> %242, %s.i323.sroa.14.02139.i
   %and.i7186.i = and <2 x i64> %243, %s.i323.sroa.15.02140.i
@@ -2135,14 +2135,14 @@ if.end.i371.i:                                    ; preds = %land.lhs.true.i569.
   ]
 
 sw.bb.i545.i:                                     ; preds = %if.end.i371.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx14.i.i, i64 16) ], !noalias !203
-  %254 = load <2 x i64>, ptr %arrayidx14.i.i, align 16, !noalias !203
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5099.i, i64 16) ], !noalias !203
-  %255 = load <2 x i64>, ptr %add.ptr.i5099.i, align 16, !noalias !203
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i116.i.i, i64 16) ], !noalias !206
-  %256 = load <2 x i64>, ptr %add.ptr.i116.i.i, align 16, !noalias !206
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094.i, i64 16) ], !noalias !206
-  %257 = load <2 x i64>, ptr %add.ptr.i5094.i, align 16, !noalias !206
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx14.i.i, i64 16) ], !noalias !202
+  %254 = load <2 x i64>, ptr %arrayidx14.i.i, align 16, !noalias !202
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5099.i, i64 16) ], !noalias !202
+  %255 = load <2 x i64>, ptr %add.ptr.i5099.i, align 16, !noalias !202
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i116.i.i, i64 16) ], !noalias !205
+  %256 = load <2 x i64>, ptr %add.ptr.i116.i.i, align 16, !noalias !205
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094.i, i64 16) ], !noalias !205
+  %257 = load <2 x i64>, ptr %add.ptr.i5094.i, align 16, !noalias !205
   %and.i7096.i = and <2 x i64> %255, %s.i323.sroa.13.02138.i
   %and.i7087.i = and <2 x i64> %256, %s.i323.sroa.14.02139.i
   %and.i7090.i = and <2 x i64> %257, %s.i323.sroa.15.02140.i
@@ -2172,14 +2172,14 @@ sw.bb18.i521.i:                                   ; preds = %sw.bb.i545.i, %if.e
   %succ.i325.sroa.24.1.i = phi <2 x i64> [ %248, %if.end.i371.i ], [ %or.i435.i559.i, %sw.bb.i545.i ]
   %succ.i325.sroa.48.1.i = phi <2 x i64> [ %250, %if.end.i371.i ], [ %or.i426.i564.i, %sw.bb.i545.i ]
   %succ.i325.sroa.72.1.i = phi <2 x i64> [ %252, %if.end.i371.i ], [ %or.i429.i567.i, %sw.bb.i545.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx24.i.i, i64 16) ], !noalias !209
-  %267 = load <2 x i64>, ptr %arrayidx24.i.i, align 16, !noalias !209
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5109.i, i64 16) ], !noalias !209
-  %268 = load <2 x i64>, ptr %add.ptr.i5109.i, align 16, !noalias !209
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i113.i.i, i64 16) ], !noalias !212
-  %269 = load <2 x i64>, ptr %add.ptr.i113.i.i, align 16, !noalias !212
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104.i, i64 16) ], !noalias !212
-  %270 = load <2 x i64>, ptr %add.ptr.i5104.i, align 16, !noalias !212
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx24.i.i, i64 16) ], !noalias !208
+  %267 = load <2 x i64>, ptr %arrayidx24.i.i, align 16, !noalias !208
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5109.i, i64 16) ], !noalias !208
+  %268 = load <2 x i64>, ptr %add.ptr.i5109.i, align 16, !noalias !208
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i113.i.i, i64 16) ], !noalias !211
+  %269 = load <2 x i64>, ptr %add.ptr.i113.i.i, align 16, !noalias !211
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104.i, i64 16) ], !noalias !211
+  %270 = load <2 x i64>, ptr %add.ptr.i5104.i, align 16, !noalias !211
   %and.i7108.i = and <2 x i64> %268, %s.i323.sroa.13.02138.i
   %and.i7099.i = and <2 x i64> %269, %s.i323.sroa.14.02139.i
   %and.i7102.i = and <2 x i64> %270, %s.i323.sroa.15.02140.i
@@ -2209,14 +2209,14 @@ sw.bb28.i497.i:                                   ; preds = %sw.bb18.i521.i, %if
   %succ.i325.sroa.24.2.i = phi <2 x i64> [ %248, %if.end.i371.i ], [ %or.i447.i535.i, %sw.bb18.i521.i ]
   %succ.i325.sroa.48.2.i = phi <2 x i64> [ %250, %if.end.i371.i ], [ %or.i438.i540.i, %sw.bb18.i521.i ]
   %succ.i325.sroa.72.2.i = phi <2 x i64> [ %252, %if.end.i371.i ], [ %or.i441.i543.i, %sw.bb18.i521.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx34.i.i, i64 16) ], !noalias !215
-  %280 = load <2 x i64>, ptr %arrayidx34.i.i, align 16, !noalias !215
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5119.i, i64 16) ], !noalias !215
-  %281 = load <2 x i64>, ptr %add.ptr.i5119.i, align 16, !noalias !215
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i110.i.i, i64 16) ], !noalias !218
-  %282 = load <2 x i64>, ptr %add.ptr.i110.i.i, align 16, !noalias !218
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114.i, i64 16) ], !noalias !218
-  %283 = load <2 x i64>, ptr %add.ptr.i5114.i, align 16, !noalias !218
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx34.i.i, i64 16) ], !noalias !214
+  %280 = load <2 x i64>, ptr %arrayidx34.i.i, align 16, !noalias !214
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5119.i, i64 16) ], !noalias !214
+  %281 = load <2 x i64>, ptr %add.ptr.i5119.i, align 16, !noalias !214
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i110.i.i, i64 16) ], !noalias !217
+  %282 = load <2 x i64>, ptr %add.ptr.i110.i.i, align 16, !noalias !217
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114.i, i64 16) ], !noalias !217
+  %283 = load <2 x i64>, ptr %add.ptr.i5114.i, align 16, !noalias !217
   %and.i7120.i = and <2 x i64> %281, %s.i323.sroa.13.02138.i
   %and.i7111.i = and <2 x i64> %282, %s.i323.sroa.14.02139.i
   %and.i7114.i = and <2 x i64> %283, %s.i323.sroa.15.02140.i
@@ -2246,14 +2246,14 @@ sw.bb38.i473.i:                                   ; preds = %sw.bb28.i497.i, %if
   %succ.i325.sroa.24.3.i = phi <2 x i64> [ %248, %if.end.i371.i ], [ %or.i459.i511.i, %sw.bb28.i497.i ]
   %succ.i325.sroa.48.3.i = phi <2 x i64> [ %250, %if.end.i371.i ], [ %or.i450.i516.i, %sw.bb28.i497.i ]
   %succ.i325.sroa.72.3.i = phi <2 x i64> [ %252, %if.end.i371.i ], [ %or.i453.i519.i, %sw.bb28.i497.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx44.i.i, i64 16) ], !noalias !221
-  %293 = load <2 x i64>, ptr %arrayidx44.i.i, align 16, !noalias !221
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5129.i, i64 16) ], !noalias !221
-  %294 = load <2 x i64>, ptr %add.ptr.i5129.i, align 16, !noalias !221
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i107.i.i, i64 16) ], !noalias !224
-  %295 = load <2 x i64>, ptr %add.ptr.i107.i.i, align 16, !noalias !224
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124.i, i64 16) ], !noalias !224
-  %296 = load <2 x i64>, ptr %add.ptr.i5124.i, align 16, !noalias !224
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx44.i.i, i64 16) ], !noalias !220
+  %293 = load <2 x i64>, ptr %arrayidx44.i.i, align 16, !noalias !220
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5129.i, i64 16) ], !noalias !220
+  %294 = load <2 x i64>, ptr %add.ptr.i5129.i, align 16, !noalias !220
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i107.i.i, i64 16) ], !noalias !223
+  %295 = load <2 x i64>, ptr %add.ptr.i107.i.i, align 16, !noalias !223
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124.i, i64 16) ], !noalias !223
+  %296 = load <2 x i64>, ptr %add.ptr.i5124.i, align 16, !noalias !223
   %and.i7132.i = and <2 x i64> %294, %s.i323.sroa.13.02138.i
   %and.i7123.i = and <2 x i64> %295, %s.i323.sroa.14.02139.i
   %and.i7126.i = and <2 x i64> %296, %s.i323.sroa.15.02140.i
@@ -2283,14 +2283,14 @@ sw.bb48.i449.i:                                   ; preds = %sw.bb38.i473.i, %if
   %succ.i325.sroa.24.4.i = phi <2 x i64> [ %248, %if.end.i371.i ], [ %or.i471.i487.i, %sw.bb38.i473.i ]
   %succ.i325.sroa.48.4.i = phi <2 x i64> [ %250, %if.end.i371.i ], [ %or.i462.i492.i, %sw.bb38.i473.i ]
   %succ.i325.sroa.72.4.i = phi <2 x i64> [ %252, %if.end.i371.i ], [ %or.i465.i495.i, %sw.bb38.i473.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx54.i.i, i64 16) ], !noalias !227
-  %306 = load <2 x i64>, ptr %arrayidx54.i.i, align 16, !noalias !227
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5139.i, i64 16) ], !noalias !227
-  %307 = load <2 x i64>, ptr %add.ptr.i5139.i, align 16, !noalias !227
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i104.i.i, i64 16) ], !noalias !230
-  %308 = load <2 x i64>, ptr %add.ptr.i104.i.i, align 16, !noalias !230
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134.i, i64 16) ], !noalias !230
-  %309 = load <2 x i64>, ptr %add.ptr.i5134.i, align 16, !noalias !230
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx54.i.i, i64 16) ], !noalias !226
+  %306 = load <2 x i64>, ptr %arrayidx54.i.i, align 16, !noalias !226
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5139.i, i64 16) ], !noalias !226
+  %307 = load <2 x i64>, ptr %add.ptr.i5139.i, align 16, !noalias !226
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i104.i.i, i64 16) ], !noalias !229
+  %308 = load <2 x i64>, ptr %add.ptr.i104.i.i, align 16, !noalias !229
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134.i, i64 16) ], !noalias !229
+  %309 = load <2 x i64>, ptr %add.ptr.i5134.i, align 16, !noalias !229
   %and.i7144.i = and <2 x i64> %307, %s.i323.sroa.13.02138.i
   %and.i7135.i = and <2 x i64> %308, %s.i323.sroa.14.02139.i
   %and.i7138.i = and <2 x i64> %309, %s.i323.sroa.15.02140.i
@@ -2320,14 +2320,14 @@ sw.bb58.i425.i:                                   ; preds = %sw.bb48.i449.i, %if
   %succ.i325.sroa.24.5.i = phi <2 x i64> [ %248, %if.end.i371.i ], [ %or.i483.i463.i, %sw.bb48.i449.i ]
   %succ.i325.sroa.48.5.i = phi <2 x i64> [ %250, %if.end.i371.i ], [ %or.i474.i468.i, %sw.bb48.i449.i ]
   %succ.i325.sroa.72.5.i = phi <2 x i64> [ %252, %if.end.i371.i ], [ %or.i477.i471.i, %sw.bb48.i449.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx64.i.i, i64 16) ], !noalias !233
-  %319 = load <2 x i64>, ptr %arrayidx64.i.i, align 16, !noalias !233
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5149.i, i64 16) ], !noalias !233
-  %320 = load <2 x i64>, ptr %add.ptr.i5149.i, align 16, !noalias !233
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i101.i.i, i64 16) ], !noalias !236
-  %321 = load <2 x i64>, ptr %add.ptr.i101.i.i, align 16, !noalias !236
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144.i, i64 16) ], !noalias !236
-  %322 = load <2 x i64>, ptr %add.ptr.i5144.i, align 16, !noalias !236
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx64.i.i, i64 16) ], !noalias !232
+  %319 = load <2 x i64>, ptr %arrayidx64.i.i, align 16, !noalias !232
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5149.i, i64 16) ], !noalias !232
+  %320 = load <2 x i64>, ptr %add.ptr.i5149.i, align 16, !noalias !232
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i101.i.i, i64 16) ], !noalias !235
+  %321 = load <2 x i64>, ptr %add.ptr.i101.i.i, align 16, !noalias !235
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144.i, i64 16) ], !noalias !235
+  %322 = load <2 x i64>, ptr %add.ptr.i5144.i, align 16, !noalias !235
   %and.i7156.i = and <2 x i64> %320, %s.i323.sroa.13.02138.i
   %and.i7147.i = and <2 x i64> %321, %s.i323.sroa.14.02139.i
   %and.i7150.i = and <2 x i64> %322, %s.i323.sroa.15.02140.i
@@ -2357,14 +2357,14 @@ sw.bb68.i401.i:                                   ; preds = %sw.bb58.i425.i, %if
   %succ.i325.sroa.24.6.i = phi <2 x i64> [ %248, %if.end.i371.i ], [ %or.i495.i439.i, %sw.bb58.i425.i ]
   %succ.i325.sroa.48.6.i = phi <2 x i64> [ %250, %if.end.i371.i ], [ %or.i486.i444.i, %sw.bb58.i425.i ]
   %succ.i325.sroa.72.6.i = phi <2 x i64> [ %252, %if.end.i371.i ], [ %or.i489.i447.i, %sw.bb58.i425.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx74.i53.i, i64 16) ], !noalias !239
-  %332 = load <2 x i64>, ptr %arrayidx74.i53.i, align 16, !noalias !239
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5159.i, i64 16) ], !noalias !239
-  %333 = load <2 x i64>, ptr %add.ptr.i5159.i, align 16, !noalias !239
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i98.i.i, i64 16) ], !noalias !242
-  %334 = load <2 x i64>, ptr %add.ptr.i98.i.i, align 16, !noalias !242
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154.i, i64 16) ], !noalias !242
-  %335 = load <2 x i64>, ptr %add.ptr.i5154.i, align 16, !noalias !242
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx74.i53.i, i64 16) ], !noalias !238
+  %332 = load <2 x i64>, ptr %arrayidx74.i53.i, align 16, !noalias !238
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5159.i, i64 16) ], !noalias !238
+  %333 = load <2 x i64>, ptr %add.ptr.i5159.i, align 16, !noalias !238
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i98.i.i, i64 16) ], !noalias !241
+  %334 = load <2 x i64>, ptr %add.ptr.i98.i.i, align 16, !noalias !241
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154.i, i64 16) ], !noalias !241
+  %335 = load <2 x i64>, ptr %add.ptr.i5154.i, align 16, !noalias !241
   %and.i7168.i = and <2 x i64> %333, %s.i323.sroa.13.02138.i
   %and.i7159.i = and <2 x i64> %334, %s.i323.sroa.14.02139.i
   %and.i7162.i = and <2 x i64> %335, %s.i323.sroa.15.02140.i
@@ -2394,14 +2394,14 @@ sw.epilog.i382.i:                                 ; preds = %sw.bb68.i401.i, %if
   %succ.i325.sroa.24.0.i = phi <2 x i64> [ %248, %if.end.i371.i ], [ %or.i507.i415.i, %sw.bb68.i401.i ]
   %succ.i325.sroa.48.0.i = phi <2 x i64> [ %250, %if.end.i371.i ], [ %or.i498.i420.i, %sw.bb68.i401.i ]
   %succ.i325.sroa.72.0.i = phi <2 x i64> [ %252, %if.end.i371.i ], [ %or.i501.i423.i, %sw.bb68.i401.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %exceptionMask.i48.i, i64 16) ], !noalias !245
-  %345 = load <2 x i64>, ptr %exceptionMask.i48.i, align 16, !noalias !245
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5179.i, i64 16) ], !noalias !245
-  %346 = load <2 x i64>, ptr %add.ptr.i5179.i, align 16, !noalias !245
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i95.i.i, i64 16) ], !noalias !248
-  %347 = load <2 x i64>, ptr %add.ptr.i95.i.i, align 16, !noalias !248
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5174.i, i64 16) ], !noalias !248
-  %348 = load <2 x i64>, ptr %add.ptr.i5174.i, align 16, !noalias !248
+  call void @llvm.assume(i1 true) [ "align"(ptr %exceptionMask.i48.i, i64 16) ], !noalias !244
+  %345 = load <2 x i64>, ptr %exceptionMask.i48.i, align 16, !noalias !244
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5179.i, i64 16) ], !noalias !244
+  %346 = load <2 x i64>, ptr %add.ptr.i5179.i, align 16, !noalias !244
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i95.i.i, i64 16) ], !noalias !247
+  %347 = load <2 x i64>, ptr %add.ptr.i95.i.i, align 16, !noalias !247
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5174.i, i64 16) ], !noalias !247
+  %348 = load <2 x i64>, ptr %add.ptr.i5174.i, align 16, !noalias !247
   %and.i7081.i = and <2 x i64> %345, %s.i323.sroa.0.02137.i
   %and.i7084.i = and <2 x i64> %346, %s.i323.sroa.13.02138.i
   %and.i7075.i = and <2 x i64> %347, %s.i323.sroa.14.02139.i
@@ -2482,7 +2482,7 @@ for.cond.i.i3666.i:                               ; preds = %for.body.i.i3676.i
   %incdec.ptr.i.i3680.i = getelementptr inbounds i8, ptr %reports.addr.i.i3546.02131.i, i64 4
   %378 = load i32, ptr %incdec.ptr.i.i3680.i, align 4
   %cmp.i.i3667.not.not.i = icmp eq i32 %378, -1
-  br i1 %cmp.i.i3667.not.not.i, label %if.end84.i388.i, label %for.body.i.i3676.i, !llvm.loop !112
+  br i1 %cmp.i.i3667.not.not.i, label %if.end84.i388.i, label %for.body.i.i3676.i, !llvm.loop !111
 
 for.body.i.i3676.i:                               ; preds = %if.then3.i3662.i, %for.cond.i.i3666.i
   %379 = phi i32 [ %378, %for.cond.i.i3666.i ], [ %377, %if.then3.i3662.i ]
@@ -2517,7 +2517,7 @@ for.body.i3756.i:                                 ; preds = %for.body.i3756.i, %
   %arrayidx25.i3766.i = getelementptr inbounds [8 x i32], ptr %base_index.i3627.i, i64 0, i64 %indvars.iv.next2192.i
   store i32 %add.i3763.i, ptr %arrayidx25.i3766.i, align 4
   %exitcond2194.not.i = icmp eq i64 %indvars.iv.next2192.i, 7
-  br i1 %exitcond2194.not.i, label %do.body26.i3691.preheader.i, label %for.body.i3756.i, !llvm.loop !168
+  br i1 %exitcond2194.not.i, label %do.body26.i3691.preheader.i, label %for.body.i3756.i, !llvm.loop !167
 
 do.body26.i3691.i:                                ; preds = %do.end45.i3718.i, %do.body26.i3691.preheader.i
   %ctx.sroa.43.sroa.0.16 = phi <2 x i64> [ zeroinitializer, %do.body26.i3691.preheader.i ], [ %ctx.sroa.43.sroa.0.18, %do.end45.i3718.i ]
@@ -2532,7 +2532,7 @@ do.body26.i3691.i:                                ; preds = %do.end45.i3718.i, %
   %cacheable.i3624.0.i = phi i32 [ 1, %do.body26.i3691.preheader.i ], [ %cacheable.i3624.3.ph.i, %do.end45.i3718.i ]
   %new_cache.i3623.sroa.0.5.i = phi i8 [ 0, %do.body26.i3691.preheader.i ], [ %new_cache.i3623.sroa.0.8.ph.i, %do.end45.i3718.i ]
   %new_cache.i3623.sroa.31562.5.i = phi ptr [ null, %do.body26.i3691.preheader.i ], [ %new_cache.i3623.sroa.31562.7.ph.i, %do.end45.i3718.i ]
-  %384 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3613.0.i) #12, !srcloc !169
+  %384 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3613.0.i) #12, !srcloc !168
   %asmresult.i.i223 = extractvalue { i32, i32 } %384, 0
   %asmresult1.i.i224 = extractvalue { i32, i32 } %384, 1
   %shr.i3693.i = lshr i32 %asmresult.i.i223, 1
@@ -2556,7 +2556,7 @@ do.body30.i3696.i:                                ; preds = %if.end43.i3716.i, %
   %cacheable.i3624.1.i = phi i32 [ %cacheable.i3624.0.i, %do.body26.i3691.i ], [ %cacheable.i3624.3.ph.i, %if.end43.i3716.i ]
   %new_cache.i3623.sroa.0.6.i = phi i8 [ %new_cache.i3623.sroa.0.5.i, %do.body26.i3691.i ], [ %new_cache.i3623.sroa.0.8.ph.i, %if.end43.i3716.i ]
   %new_cache.i3623.sroa.31562.6.i = phi ptr [ %new_cache.i3623.sroa.31562.5.i, %do.body26.i3691.i ], [ %new_cache.i3623.sroa.31562.7.ph.i, %if.end43.i3716.i ]
-  %386 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3630.0.i) #12, !srcloc !110
+  %386 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3630.0.i) #12, !srcloc !109
   %asmresult.i.i3697.i = extractvalue { i64, i64 } %386, 0
   %asmresult1.i.i3698.i = extractvalue { i64, i64 } %386, 1
   %387 = load i64, ptr %arrayidx33.i3701.i, align 8
@@ -2729,17 +2729,17 @@ repeatHasMatch.exit.i:                            ; preds = %sw.bb11.i.i, %sw.bb
   ]
 
 if.then21.i.i:                                    ; preds = %repeatHasMatch.exit.i, %if.end.i4864.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i3712.i, i64 16) ], !noalias !251
-  %404 = load <2 x i64>, ptr %arrayidx39.i3712.i, align 16, !noalias !251
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i3712.i, i64 16) ], !noalias !250
+  %404 = load <2 x i64>, ptr %arrayidx39.i3712.i, align 16, !noalias !250
   %add.ptr.i4939.i = getelementptr inbounds i8, ptr %arrayidx39.i3712.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4939.i, i64 16) ], !noalias !251
-  %405 = load <2 x i64>, ptr %add.ptr.i4939.i, align 16, !noalias !251
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4939.i, i64 16) ], !noalias !250
+  %405 = load <2 x i64>, ptr %add.ptr.i4939.i, align 16, !noalias !250
   %add.ptr.i103.i.i = getelementptr inbounds i8, ptr %arrayidx39.i3712.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i103.i.i, i64 16) ], !noalias !254
-  %406 = load <2 x i64>, ptr %add.ptr.i103.i.i, align 16, !noalias !254
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i103.i.i, i64 16) ], !noalias !253
+  %406 = load <2 x i64>, ptr %add.ptr.i103.i.i, align 16, !noalias !253
   %add.ptr.i4934.i = getelementptr inbounds i8, ptr %arrayidx39.i3712.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4934.i, i64 16) ], !noalias !254
-  %407 = load <2 x i64>, ptr %add.ptr.i4934.i, align 16, !noalias !254
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4934.i, i64 16) ], !noalias !253
+  %407 = load <2 x i64>, ptr %add.ptr.i4934.i, align 16, !noalias !253
   %and.i6997.i = and <2 x i64> %404, %succ.i325.sroa.0.10.i
   %and.i7000.i = and <2 x i64> %405, %succ.i325.sroa.24.10.i
   %and.i6991.i = and <2 x i64> %406, %succ.i325.sroa.48.10.i
@@ -2776,7 +2776,7 @@ for.cond.i.i3979.i:                               ; preds = %for.body.i.i3986.i
   %incdec.ptr.i.i3988.i = getelementptr inbounds i8, ptr %reports.addr.i.i3934.02134.i, i64 4
   %411 = load i32, ptr %incdec.ptr.i.i3988.i, align 4
   %cmp.i157.i.not.not.i = icmp eq i32 %411, -1
-  br i1 %cmp.i157.i.not.not.i, label %if.end52.i.i, label %for.body.i.i3986.i, !llvm.loop !112
+  br i1 %cmp.i157.i.not.not.i, label %if.end52.i.i, label %for.body.i.i3986.i, !llvm.loop !111
 
 for.body.i.i3986.i:                               ; preds = %if.then38.i.i, %for.cond.i.i3979.i
   %412 = phi i32 [ %411, %for.cond.i.i3979.i ], [ %410, %if.then38.i.i ]
@@ -2806,17 +2806,17 @@ if.end76.i.i:                                     ; preds = %land.lhs.true70.i.i
   %cacheable.i3624.4.i = phi i32 [ %cacheable.i3624.2.i, %if.end52.i.i ], [ %cacheable.i3624.2.i, %if.end32.i.i ], [ %spec.select1881.i, %land.lhs.true70.i.i ], [ %spec.select1895.i, %if.then55.i.i ]
   %new_cache.i3623.sroa.31562.8.i = phi ptr [ %new_cache.i3623.sroa.31562.6.i, %if.end52.i.i ], [ %new_cache.i3623.sroa.31562.6.i, %if.end32.i.i ], [ %new_cache.i3623.sroa.31562.6.i, %land.lhs.true70.i.i ], [ %spec.select1896.i, %if.then55.i.i ]
   %successors.i.i = getelementptr inbounds i8, ptr %arrayidx39.i3712.i, i64 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %successors.i.i, i64 16) ], !noalias !257
-  %413 = load <2 x i64>, ptr %successors.i.i, align 16, !noalias !257
+  call void @llvm.assume(i1 true) [ "align"(ptr %successors.i.i, i64 16) ], !noalias !256
+  %413 = load <2 x i64>, ptr %successors.i.i, align 16, !noalias !256
   %add.ptr.i4959.i = getelementptr inbounds i8, ptr %arrayidx39.i3712.i, i64 80
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4959.i, i64 16) ], !noalias !257
-  %414 = load <2 x i64>, ptr %add.ptr.i4959.i, align 16, !noalias !257
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4959.i, i64 16) ], !noalias !256
+  %414 = load <2 x i64>, ptr %add.ptr.i4959.i, align 16, !noalias !256
   %add.ptr.i100.i.i = getelementptr inbounds i8, ptr %arrayidx39.i3712.i, i64 96
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i100.i.i, i64 16) ], !noalias !260
-  %415 = load <2 x i64>, ptr %add.ptr.i100.i.i, align 16, !noalias !260
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i100.i.i, i64 16) ], !noalias !259
+  %415 = load <2 x i64>, ptr %add.ptr.i100.i.i, align 16, !noalias !259
   %add.ptr.i4954.i = getelementptr inbounds i8, ptr %arrayidx39.i3712.i, i64 112
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4954.i, i64 16) ], !noalias !260
-  %416 = load <2 x i64>, ptr %add.ptr.i4954.i, align 16, !noalias !260
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4954.i, i64 16) ], !noalias !259
+  %416 = load <2 x i64>, ptr %add.ptr.i4954.i, align 16, !noalias !259
   %or.i153.i.i = or <2 x i64> %413, %ctx.sroa.43.sroa.0.17
   %or.i156.i.i = or <2 x i64> %414, %ctx.sroa.43.sroa.15.17
   %or.i.i3968.i = or <2 x i64> %415, %ctx.sroa.43.sroa.27.17
@@ -2829,17 +2829,17 @@ if.end76.i.i:                                     ; preds = %land.lhs.true70.i.i
   ]
 
 if.then88.i.i:                                    ; preds = %if.end76.i.i, %if.end76.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i3712.i, i64 16) ], !noalias !263
-  %418 = load <2 x i64>, ptr %arrayidx39.i3712.i, align 16, !noalias !263
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i3712.i, i64 16) ], !noalias !262
+  %418 = load <2 x i64>, ptr %arrayidx39.i3712.i, align 16, !noalias !262
   %add.ptr.i4949.i = getelementptr inbounds i8, ptr %arrayidx39.i3712.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4949.i, i64 16) ], !noalias !263
-  %419 = load <2 x i64>, ptr %add.ptr.i4949.i, align 16, !noalias !263
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4949.i, i64 16) ], !noalias !262
+  %419 = load <2 x i64>, ptr %add.ptr.i4949.i, align 16, !noalias !262
   %add.ptr.i97.i.i = getelementptr inbounds i8, ptr %arrayidx39.i3712.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i97.i.i, i64 16) ], !noalias !266
-  %420 = load <2 x i64>, ptr %add.ptr.i97.i.i, align 16, !noalias !266
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i97.i.i, i64 16) ], !noalias !265
+  %420 = load <2 x i64>, ptr %add.ptr.i97.i.i, align 16, !noalias !265
   %add.ptr.i4944.i = getelementptr inbounds i8, ptr %arrayidx39.i3712.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4944.i, i64 16) ], !noalias !266
-  %421 = load <2 x i64>, ptr %add.ptr.i4944.i, align 16, !noalias !266
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4944.i, i64 16) ], !noalias !265
+  %421 = load <2 x i64>, ptr %add.ptr.i4944.i, align 16, !noalias !265
   %and.i7009.i = and <2 x i64> %418, %succ.i325.sroa.0.10.i
   %and.i7012.i = and <2 x i64> %419, %succ.i325.sroa.24.10.i
   %and.i7003.i = and <2 x i64> %420, %succ.i325.sroa.48.10.i
@@ -2861,11 +2861,11 @@ if.end43.i3716.i:                                 ; preds = %if.then88.i.i, %if.
   %new_cache.i3623.sroa.0.8.ph.i = phi i8 [ %new_cache.i3623.sroa.0.7.i, %if.end76.i.i ], [ %new_cache.i3623.sroa.0.7.i, %if.then88.i.i ], [ %new_cache.i3623.sroa.0.6.i, %if.else.i3996.i ], [ %new_cache.i3623.sroa.0.6.i, %repeatHasMatch.exit.i ], [ %new_cache.i3623.sroa.0.6.i, %if.then21.i.i ], [ %new_cache.i3623.sroa.0.6.i, %sw.bb3.i4744.i ], [ %new_cache.i3623.sroa.0.6.i, %sw.bb1.i4745.i ]
   %new_cache.i3623.sroa.31562.7.ph.i = phi ptr [ %new_cache.i3623.sroa.31562.8.i, %if.end76.i.i ], [ %new_cache.i3623.sroa.31562.8.i, %if.then88.i.i ], [ %new_cache.i3623.sroa.31562.6.i, %if.else.i3996.i ], [ %new_cache.i3623.sroa.31562.6.i, %repeatHasMatch.exit.i ], [ %new_cache.i3623.sroa.31562.6.i, %if.then21.i.i ], [ %new_cache.i3623.sroa.31562.6.i, %sw.bb3.i4744.i ], [ %new_cache.i3623.sroa.31562.6.i, %sw.bb1.i4745.i ]
   %tobool44.i3717.not.i = icmp eq i64 %asmresult1.i.i3698.i, 0
-  br i1 %tobool44.i3717.not.i, label %do.end45.i3718.i, label %do.body30.i3696.i, !llvm.loop !188
+  br i1 %tobool44.i3717.not.i, label %do.end45.i3718.i, label %do.body30.i3696.i, !llvm.loop !187
 
 do.end45.i3718.i:                                 ; preds = %if.end43.i3716.i
   %tobool47.i3719.not.i = icmp eq i32 %asmresult1.i.i224, 0
-  br i1 %tobool47.i3719.not.i, label %do.end48.i3720.i, label %do.body26.i3691.i, !llvm.loop !189
+  br i1 %tobool47.i3719.not.i, label %do.end48.i3720.i, label %do.body26.i3691.i, !llvm.loop !188
 
 do.end48.i3720.i:                                 ; preds = %do.end45.i3718.i
   %or.i140.i3722.i = or <2 x i64> %succ.i325.sroa.0.11.ph.i, %ctx.sroa.43.sroa.0.18
@@ -2909,24 +2909,24 @@ if.end84.i388.i:                                  ; preds = %for.cond.i.i3666.i,
   %423 = load i8, ptr %arrayidx88.i391.i, align 1
   %idxprom89.i392.i = zext i8 %423 to i64
   %arrayidx90.i393.i = getelementptr inbounds %struct.m512, ptr %add.ptr.i309.i.i, i64 %idxprom89.i392.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx90.i393.i, i64 16) ], !noalias !269
-  %424 = load <2 x i64>, ptr %arrayidx90.i393.i, align 16, !noalias !269
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx90.i393.i, i64 16) ], !noalias !268
+  %424 = load <2 x i64>, ptr %arrayidx90.i393.i, align 16, !noalias !268
   %add.ptr.i5069.i = getelementptr inbounds i8, ptr %arrayidx90.i393.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5069.i, i64 16) ], !noalias !269
-  %425 = load <2 x i64>, ptr %add.ptr.i5069.i, align 16, !noalias !269
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5069.i, i64 16) ], !noalias !268
+  %425 = load <2 x i64>, ptr %add.ptr.i5069.i, align 16, !noalias !268
   %add.ptr.i.i395.i = getelementptr inbounds i8, ptr %arrayidx90.i393.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i395.i, i64 16) ], !noalias !272
-  %426 = load <2 x i64>, ptr %add.ptr.i.i395.i, align 16, !noalias !272
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i395.i, i64 16) ], !noalias !271
+  %426 = load <2 x i64>, ptr %add.ptr.i.i395.i, align 16, !noalias !271
   %add.ptr.i5064.i = getelementptr inbounds i8, ptr %arrayidx90.i393.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5064.i, i64 16) ], !noalias !272
-  %427 = load <2 x i64>, ptr %add.ptr.i5064.i, align 16, !noalias !272
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5064.i, i64 16) ], !noalias !271
+  %427 = load <2 x i64>, ptr %add.ptr.i5064.i, align 16, !noalias !271
   %and.i7177.i = and <2 x i64> %424, %succ.i325.sroa.0.7.ph.i
   %and.i7180.i = and <2 x i64> %425, %succ.i325.sroa.24.7.ph.i
   %and.i7171.i = and <2 x i64> %426, %succ.i325.sroa.48.7.ph.i
   %and.i7174.i = and <2 x i64> %427, %succ.i325.sroa.72.7.ph.i
   %inc.i399.i = add i64 %i.i324.02136.i, 1
   %cmp.i366.not.i = icmp eq i64 %inc.i399.i, %min_accel_offset.i.0.i
-  br i1 %cmp.i366.not.i, label %with_accel.i.i, label %land.lhs.true.i569.i, !llvm.loop !196
+  br i1 %cmp.i366.not.i, label %with_accel.i.i, label %land.lhs.true.i569.i, !llvm.loop !195
 
 with_accel.i.i:                                   ; preds = %if.end84.i.i, %if.end84.i388.i, %land.lhs.true.i569.i, %if.else13.i.i, %if.then8.i.i, %do.end37
   %ctx.sroa.116.sroa.12.2 = phi <2 x i64> [ %ctx.sroa.116.sroa.12.6, %if.else13.i.i ], [ %ctx.sroa.116.sroa.12.6, %if.then8.i.i ], [ %ctx.sroa.116.sroa.12.0492, %do.end37 ], [ %ctx.sroa.116.sroa.12.10, %if.end84.i388.i ], [ %ctx.sroa.116.sroa.12.9, %land.lhs.true.i569.i ], [ %ctx.sroa.116.sroa.12.8, %if.end84.i.i ]
@@ -2969,14 +2969,14 @@ for.body.i.i212:                                  ; preds = %with_accel.i.i, %if
   br i1 %cmp24.i.not.i, label %if.end60.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i212
-  call void @llvm.assume(i1 true) [ "align"(ptr %accel_and_friends.i.i, i64 16) ], !noalias !275
-  %428 = load <2 x i64>, ptr %accel_and_friends.i.i, align 16, !noalias !275
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5219.i, i64 16) ], !noalias !275
-  %429 = load <2 x i64>, ptr %add.ptr.i5219.i, align 16, !noalias !275
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i234.i.i, i64 16) ], !noalias !278
-  %430 = load <2 x i64>, ptr %add.ptr.i234.i.i, align 16, !noalias !278
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5214.i, i64 16) ], !noalias !278
-  %431 = load <2 x i64>, ptr %add.ptr.i5214.i, align 16, !noalias !278
+  call void @llvm.assume(i1 true) [ "align"(ptr %accel_and_friends.i.i, i64 16) ], !noalias !274
+  %428 = load <2 x i64>, ptr %accel_and_friends.i.i, align 16, !noalias !274
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5219.i, i64 16) ], !noalias !274
+  %429 = load <2 x i64>, ptr %add.ptr.i5219.i, align 16, !noalias !274
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i234.i.i, i64 16) ], !noalias !277
+  %430 = load <2 x i64>, ptr %add.ptr.i234.i.i, align 16, !noalias !277
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5214.i, i64 16) ], !noalias !277
+  %431 = load <2 x i64>, ptr %add.ptr.i5214.i, align 16, !noalias !277
   %not.i1045.i = xor <2 x i64> %428, splat (i64 -1)
   %and.i1046.i = and <2 x i64> %s.i.sroa.0.42158.i, %not.i1045.i
   %not.i1049.i = xor <2 x i64> %429, splat (i64 -1)
@@ -3004,14 +3004,14 @@ if.then29.i.i:                                    ; preds = %land.lhs.true.i.i
   br i1 %cmp34.i.not.i, label %if.end39.i.i, label %if.then36.i.i
 
 if.then36.i.i:                                    ; preds = %if.then29.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %accel.i.i, i64 16) ], !noalias !281
-  %435 = load <2 x i64>, ptr %accel.i.i, align 16, !noalias !281
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5209.i, i64 16) ], !noalias !281
-  %436 = load <2 x i64>, ptr %add.ptr.i5209.i, align 16, !noalias !281
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i231.i.i, i64 16) ], !noalias !284
-  %437 = load <2 x i64>, ptr %add.ptr.i231.i.i, align 16, !noalias !284
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5204.i, i64 16) ], !noalias !284
-  %438 = load <2 x i64>, ptr %add.ptr.i5204.i, align 16, !noalias !284
+  call void @llvm.assume(i1 true) [ "align"(ptr %accel.i.i, i64 16) ], !noalias !280
+  %435 = load <2 x i64>, ptr %accel.i.i, align 16, !noalias !280
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5209.i, i64 16) ], !noalias !280
+  %436 = load <2 x i64>, ptr %add.ptr.i5209.i, align 16, !noalias !280
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i231.i.i, i64 16) ], !noalias !283
+  %437 = load <2 x i64>, ptr %add.ptr.i231.i.i, align 16, !noalias !283
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5204.i, i64 16) ], !noalias !283
+  %438 = load <2 x i64>, ptr %add.ptr.i5204.i, align 16, !noalias !283
   %and.i7309.i = and <2 x i64> %435, %s.i.sroa.0.42158.i
   %and.i7312.i = and <2 x i64> %436, %s.i.sroa.22.42159.i
   %and.i7303.i = and <2 x i64> %437, %s.i.sroa.40.42160.i
@@ -3040,14 +3040,14 @@ if.end39.i.i.without_accel.i.i_crit_edge:         ; preds = %if.end39.i.i
   br label %without_accel.i.i
 
 if.end60.i.i:                                     ; preds = %land.lhs.true.i.i, %for.body.i.i212
-  call void @llvm.assume(i1 true) [ "align"(ptr %shift.i44.i, i64 16) ], !noalias !287
-  %439 = load <2 x i64>, ptr %shift.i44.i, align 16, !noalias !287
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5189.i, i64 16) ], !noalias !287
-  %440 = load <2 x i64>, ptr %add.ptr.i5189.i, align 16, !noalias !287
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i119.i.i, i64 16) ], !noalias !290
-  %441 = load <2 x i64>, ptr %add.ptr.i119.i.i, align 16, !noalias !290
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5184.i, i64 16) ], !noalias !290
-  %442 = load <2 x i64>, ptr %add.ptr.i5184.i, align 16, !noalias !290
+  call void @llvm.assume(i1 true) [ "align"(ptr %shift.i44.i, i64 16) ], !noalias !286
+  %439 = load <2 x i64>, ptr %shift.i44.i, align 16, !noalias !286
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5189.i, i64 16) ], !noalias !286
+  %440 = load <2 x i64>, ptr %add.ptr.i5189.i, align 16, !noalias !286
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i119.i.i, i64 16) ], !noalias !289
+  %441 = load <2 x i64>, ptr %add.ptr.i119.i.i, align 16, !noalias !289
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5184.i, i64 16) ], !noalias !289
+  %442 = load <2 x i64>, ptr %add.ptr.i5184.i, align 16, !noalias !289
   %and.i7420.i = and <2 x i64> %440, %s.i.sroa.22.42159.i
   %and.i7411.i = and <2 x i64> %441, %s.i.sroa.40.42160.i
   %and.i7414.i = and <2 x i64> %442, %s.i.sroa.58.42161.i
@@ -3078,14 +3078,14 @@ if.end60.i.i:                                     ; preds = %land.lhs.true.i.i, 
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end60.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx14.i.i, i64 16) ], !noalias !293
-  %453 = load <2 x i64>, ptr %arrayidx14.i.i, align 16, !noalias !293
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5099.i, i64 16) ], !noalias !293
-  %454 = load <2 x i64>, ptr %add.ptr.i5099.i, align 16, !noalias !293
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i116.i.i, i64 16) ], !noalias !296
-  %455 = load <2 x i64>, ptr %add.ptr.i116.i.i, align 16, !noalias !296
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094.i, i64 16) ], !noalias !296
-  %456 = load <2 x i64>, ptr %add.ptr.i5094.i, align 16, !noalias !296
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx14.i.i, i64 16) ], !noalias !292
+  %453 = load <2 x i64>, ptr %arrayidx14.i.i, align 16, !noalias !292
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5099.i, i64 16) ], !noalias !292
+  %454 = load <2 x i64>, ptr %add.ptr.i5099.i, align 16, !noalias !292
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i116.i.i, i64 16) ], !noalias !295
+  %455 = load <2 x i64>, ptr %add.ptr.i116.i.i, align 16, !noalias !295
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094.i, i64 16) ], !noalias !295
+  %456 = load <2 x i64>, ptr %add.ptr.i5094.i, align 16, !noalias !295
   %and.i7324.i = and <2 x i64> %454, %s.i.sroa.22.42159.i
   %and.i7315.i = and <2 x i64> %455, %s.i.sroa.40.42160.i
   %and.i7318.i = and <2 x i64> %456, %s.i.sroa.58.42161.i
@@ -3115,14 +3115,14 @@ sw.bb76.i.i:                                      ; preds = %sw.bb.i.i, %if.end6
   %succ.i.sroa.24.1.i = phi <2 x i64> [ %447, %if.end60.i.i ], [ %or.i582.i.i, %sw.bb.i.i ]
   %succ.i.sroa.48.1.i = phi <2 x i64> [ %449, %if.end60.i.i ], [ %or.i573.i.i, %sw.bb.i.i ]
   %succ.i.sroa.72.1.i = phi <2 x i64> [ %451, %if.end60.i.i ], [ %or.i576.i.i, %sw.bb.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx24.i.i, i64 16) ], !noalias !299
-  %466 = load <2 x i64>, ptr %arrayidx24.i.i, align 16, !noalias !299
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5109.i, i64 16) ], !noalias !299
-  %467 = load <2 x i64>, ptr %add.ptr.i5109.i, align 16, !noalias !299
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i113.i.i, i64 16) ], !noalias !302
-  %468 = load <2 x i64>, ptr %add.ptr.i113.i.i, align 16, !noalias !302
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104.i, i64 16) ], !noalias !302
-  %469 = load <2 x i64>, ptr %add.ptr.i5104.i, align 16, !noalias !302
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx24.i.i, i64 16) ], !noalias !298
+  %466 = load <2 x i64>, ptr %arrayidx24.i.i, align 16, !noalias !298
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5109.i, i64 16) ], !noalias !298
+  %467 = load <2 x i64>, ptr %add.ptr.i5109.i, align 16, !noalias !298
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i113.i.i, i64 16) ], !noalias !301
+  %468 = load <2 x i64>, ptr %add.ptr.i113.i.i, align 16, !noalias !301
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104.i, i64 16) ], !noalias !301
+  %469 = load <2 x i64>, ptr %add.ptr.i5104.i, align 16, !noalias !301
   %and.i7336.i = and <2 x i64> %467, %s.i.sroa.22.42159.i
   %and.i7327.i = and <2 x i64> %468, %s.i.sroa.40.42160.i
   %and.i7330.i = and <2 x i64> %469, %s.i.sroa.58.42161.i
@@ -3152,14 +3152,14 @@ sw.bb86.i.i:                                      ; preds = %sw.bb76.i.i, %if.en
   %succ.i.sroa.24.2.i = phi <2 x i64> [ %447, %if.end60.i.i ], [ %or.i594.i.i, %sw.bb76.i.i ]
   %succ.i.sroa.48.2.i = phi <2 x i64> [ %449, %if.end60.i.i ], [ %or.i585.i.i, %sw.bb76.i.i ]
   %succ.i.sroa.72.2.i = phi <2 x i64> [ %451, %if.end60.i.i ], [ %or.i588.i.i, %sw.bb76.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx34.i.i, i64 16) ], !noalias !305
-  %479 = load <2 x i64>, ptr %arrayidx34.i.i, align 16, !noalias !305
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5119.i, i64 16) ], !noalias !305
-  %480 = load <2 x i64>, ptr %add.ptr.i5119.i, align 16, !noalias !305
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i110.i.i, i64 16) ], !noalias !308
-  %481 = load <2 x i64>, ptr %add.ptr.i110.i.i, align 16, !noalias !308
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114.i, i64 16) ], !noalias !308
-  %482 = load <2 x i64>, ptr %add.ptr.i5114.i, align 16, !noalias !308
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx34.i.i, i64 16) ], !noalias !304
+  %479 = load <2 x i64>, ptr %arrayidx34.i.i, align 16, !noalias !304
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5119.i, i64 16) ], !noalias !304
+  %480 = load <2 x i64>, ptr %add.ptr.i5119.i, align 16, !noalias !304
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i110.i.i, i64 16) ], !noalias !307
+  %481 = load <2 x i64>, ptr %add.ptr.i110.i.i, align 16, !noalias !307
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114.i, i64 16) ], !noalias !307
+  %482 = load <2 x i64>, ptr %add.ptr.i5114.i, align 16, !noalias !307
   %and.i7348.i = and <2 x i64> %480, %s.i.sroa.22.42159.i
   %and.i7339.i = and <2 x i64> %481, %s.i.sroa.40.42160.i
   %and.i7342.i = and <2 x i64> %482, %s.i.sroa.58.42161.i
@@ -3189,14 +3189,14 @@ sw.bb96.i.i:                                      ; preds = %sw.bb86.i.i, %if.en
   %succ.i.sroa.24.3.i = phi <2 x i64> [ %447, %if.end60.i.i ], [ %or.i606.i.i, %sw.bb86.i.i ]
   %succ.i.sroa.48.3.i = phi <2 x i64> [ %449, %if.end60.i.i ], [ %or.i597.i.i, %sw.bb86.i.i ]
   %succ.i.sroa.72.3.i = phi <2 x i64> [ %451, %if.end60.i.i ], [ %or.i600.i.i, %sw.bb86.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx44.i.i, i64 16) ], !noalias !311
-  %492 = load <2 x i64>, ptr %arrayidx44.i.i, align 16, !noalias !311
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5129.i, i64 16) ], !noalias !311
-  %493 = load <2 x i64>, ptr %add.ptr.i5129.i, align 16, !noalias !311
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i107.i.i, i64 16) ], !noalias !314
-  %494 = load <2 x i64>, ptr %add.ptr.i107.i.i, align 16, !noalias !314
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124.i, i64 16) ], !noalias !314
-  %495 = load <2 x i64>, ptr %add.ptr.i5124.i, align 16, !noalias !314
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx44.i.i, i64 16) ], !noalias !310
+  %492 = load <2 x i64>, ptr %arrayidx44.i.i, align 16, !noalias !310
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5129.i, i64 16) ], !noalias !310
+  %493 = load <2 x i64>, ptr %add.ptr.i5129.i, align 16, !noalias !310
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i107.i.i, i64 16) ], !noalias !313
+  %494 = load <2 x i64>, ptr %add.ptr.i107.i.i, align 16, !noalias !313
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124.i, i64 16) ], !noalias !313
+  %495 = load <2 x i64>, ptr %add.ptr.i5124.i, align 16, !noalias !313
   %and.i7360.i = and <2 x i64> %493, %s.i.sroa.22.42159.i
   %and.i7351.i = and <2 x i64> %494, %s.i.sroa.40.42160.i
   %and.i7354.i = and <2 x i64> %495, %s.i.sroa.58.42161.i
@@ -3226,14 +3226,14 @@ sw.bb106.i.i:                                     ; preds = %sw.bb96.i.i, %if.en
   %succ.i.sroa.24.4.i = phi <2 x i64> [ %447, %if.end60.i.i ], [ %or.i618.i.i, %sw.bb96.i.i ]
   %succ.i.sroa.48.4.i = phi <2 x i64> [ %449, %if.end60.i.i ], [ %or.i609.i.i, %sw.bb96.i.i ]
   %succ.i.sroa.72.4.i = phi <2 x i64> [ %451, %if.end60.i.i ], [ %or.i612.i.i, %sw.bb96.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx54.i.i, i64 16) ], !noalias !317
-  %505 = load <2 x i64>, ptr %arrayidx54.i.i, align 16, !noalias !317
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5139.i, i64 16) ], !noalias !317
-  %506 = load <2 x i64>, ptr %add.ptr.i5139.i, align 16, !noalias !317
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i104.i.i, i64 16) ], !noalias !320
-  %507 = load <2 x i64>, ptr %add.ptr.i104.i.i, align 16, !noalias !320
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134.i, i64 16) ], !noalias !320
-  %508 = load <2 x i64>, ptr %add.ptr.i5134.i, align 16, !noalias !320
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx54.i.i, i64 16) ], !noalias !316
+  %505 = load <2 x i64>, ptr %arrayidx54.i.i, align 16, !noalias !316
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5139.i, i64 16) ], !noalias !316
+  %506 = load <2 x i64>, ptr %add.ptr.i5139.i, align 16, !noalias !316
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i104.i.i, i64 16) ], !noalias !319
+  %507 = load <2 x i64>, ptr %add.ptr.i104.i.i, align 16, !noalias !319
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134.i, i64 16) ], !noalias !319
+  %508 = load <2 x i64>, ptr %add.ptr.i5134.i, align 16, !noalias !319
   %and.i7372.i = and <2 x i64> %506, %s.i.sroa.22.42159.i
   %and.i7363.i = and <2 x i64> %507, %s.i.sroa.40.42160.i
   %and.i7366.i = and <2 x i64> %508, %s.i.sroa.58.42161.i
@@ -3263,14 +3263,14 @@ sw.bb116.i.i:                                     ; preds = %sw.bb106.i.i, %if.e
   %succ.i.sroa.24.5.i = phi <2 x i64> [ %447, %if.end60.i.i ], [ %or.i630.i.i, %sw.bb106.i.i ]
   %succ.i.sroa.48.5.i = phi <2 x i64> [ %449, %if.end60.i.i ], [ %or.i621.i.i, %sw.bb106.i.i ]
   %succ.i.sroa.72.5.i = phi <2 x i64> [ %451, %if.end60.i.i ], [ %or.i624.i.i, %sw.bb106.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx64.i.i, i64 16) ], !noalias !323
-  %518 = load <2 x i64>, ptr %arrayidx64.i.i, align 16, !noalias !323
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5149.i, i64 16) ], !noalias !323
-  %519 = load <2 x i64>, ptr %add.ptr.i5149.i, align 16, !noalias !323
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i101.i.i, i64 16) ], !noalias !326
-  %520 = load <2 x i64>, ptr %add.ptr.i101.i.i, align 16, !noalias !326
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144.i, i64 16) ], !noalias !326
-  %521 = load <2 x i64>, ptr %add.ptr.i5144.i, align 16, !noalias !326
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx64.i.i, i64 16) ], !noalias !322
+  %518 = load <2 x i64>, ptr %arrayidx64.i.i, align 16, !noalias !322
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5149.i, i64 16) ], !noalias !322
+  %519 = load <2 x i64>, ptr %add.ptr.i5149.i, align 16, !noalias !322
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i101.i.i, i64 16) ], !noalias !325
+  %520 = load <2 x i64>, ptr %add.ptr.i101.i.i, align 16, !noalias !325
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144.i, i64 16) ], !noalias !325
+  %521 = load <2 x i64>, ptr %add.ptr.i5144.i, align 16, !noalias !325
   %and.i7384.i = and <2 x i64> %519, %s.i.sroa.22.42159.i
   %and.i7375.i = and <2 x i64> %520, %s.i.sroa.40.42160.i
   %and.i7378.i = and <2 x i64> %521, %s.i.sroa.58.42161.i
@@ -3300,14 +3300,14 @@ sw.bb126.i.i:                                     ; preds = %sw.bb116.i.i, %if.e
   %succ.i.sroa.24.6.i = phi <2 x i64> [ %447, %if.end60.i.i ], [ %or.i642.i.i, %sw.bb116.i.i ]
   %succ.i.sroa.48.6.i = phi <2 x i64> [ %449, %if.end60.i.i ], [ %or.i633.i.i, %sw.bb116.i.i ]
   %succ.i.sroa.72.6.i = phi <2 x i64> [ %451, %if.end60.i.i ], [ %or.i636.i.i, %sw.bb116.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx74.i53.i, i64 16) ], !noalias !329
-  %531 = load <2 x i64>, ptr %arrayidx74.i53.i, align 16, !noalias !329
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5159.i, i64 16) ], !noalias !329
-  %532 = load <2 x i64>, ptr %add.ptr.i5159.i, align 16, !noalias !329
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i98.i.i, i64 16) ], !noalias !332
-  %533 = load <2 x i64>, ptr %add.ptr.i98.i.i, align 16, !noalias !332
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154.i, i64 16) ], !noalias !332
-  %534 = load <2 x i64>, ptr %add.ptr.i5154.i, align 16, !noalias !332
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx74.i53.i, i64 16) ], !noalias !328
+  %531 = load <2 x i64>, ptr %arrayidx74.i53.i, align 16, !noalias !328
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5159.i, i64 16) ], !noalias !328
+  %532 = load <2 x i64>, ptr %add.ptr.i5159.i, align 16, !noalias !328
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i98.i.i, i64 16) ], !noalias !331
+  %533 = load <2 x i64>, ptr %add.ptr.i98.i.i, align 16, !noalias !331
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154.i, i64 16) ], !noalias !331
+  %534 = load <2 x i64>, ptr %add.ptr.i5154.i, align 16, !noalias !331
   %and.i7396.i = and <2 x i64> %532, %s.i.sroa.22.42159.i
   %and.i7387.i = and <2 x i64> %533, %s.i.sroa.40.42160.i
   %and.i7390.i = and <2 x i64> %534, %s.i.sroa.58.42161.i
@@ -3337,14 +3337,14 @@ sw.epilog.i.i:                                    ; preds = %sw.bb126.i.i, %if.e
   %succ.i.sroa.24.0.i = phi <2 x i64> [ %447, %if.end60.i.i ], [ %or.i654.i.i, %sw.bb126.i.i ]
   %succ.i.sroa.48.0.i = phi <2 x i64> [ %449, %if.end60.i.i ], [ %or.i645.i.i, %sw.bb126.i.i ]
   %succ.i.sroa.72.0.i = phi <2 x i64> [ %451, %if.end60.i.i ], [ %or.i648.i.i, %sw.bb126.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %exceptionMask.i48.i, i64 16) ], !noalias !335
-  %544 = load <2 x i64>, ptr %exceptionMask.i48.i, align 16, !noalias !335
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5179.i, i64 16) ], !noalias !335
-  %545 = load <2 x i64>, ptr %add.ptr.i5179.i, align 16, !noalias !335
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i95.i.i, i64 16) ], !noalias !338
-  %546 = load <2 x i64>, ptr %add.ptr.i95.i.i, align 16, !noalias !338
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5174.i, i64 16) ], !noalias !338
-  %547 = load <2 x i64>, ptr %add.ptr.i5174.i, align 16, !noalias !338
+  call void @llvm.assume(i1 true) [ "align"(ptr %exceptionMask.i48.i, i64 16) ], !noalias !334
+  %544 = load <2 x i64>, ptr %exceptionMask.i48.i, align 16, !noalias !334
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5179.i, i64 16) ], !noalias !334
+  %545 = load <2 x i64>, ptr %add.ptr.i5179.i, align 16, !noalias !334
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i95.i.i, i64 16) ], !noalias !337
+  %546 = load <2 x i64>, ptr %add.ptr.i95.i.i, align 16, !noalias !337
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5174.i, i64 16) ], !noalias !337
+  %547 = load <2 x i64>, ptr %add.ptr.i5174.i, align 16, !noalias !337
   %and.i7033.i = and <2 x i64> %544, %s.i.sroa.0.42158.i
   %and.i7036.i = and <2 x i64> %545, %s.i.sroa.22.42159.i
   %and.i7027.i = and <2 x i64> %546, %s.i.sroa.40.42160.i
@@ -3425,7 +3425,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %reports.addr.i.i.02152.i, i64 4
   %577 = load i32, ptr %incdec.ptr.i.i.i, align 4
   %cmp.i.i3294.not.not.i = icmp eq i32 %577, -1
-  br i1 %cmp.i.i3294.not.not.i, label %if.end142.i.i, label %for.body.i.i.i, !llvm.loop !112
+  br i1 %cmp.i.i3294.not.not.i, label %if.end142.i.i, label %for.body.i.i.i, !llvm.loop !111
 
 for.body.i.i.i:                                   ; preds = %if.then3.i.i, %for.cond.i.i.i
   %578 = phi i32 [ %577, %for.cond.i.i.i ], [ %576, %if.then3.i.i ]
@@ -3460,7 +3460,7 @@ for.body.i3313.i:                                 ; preds = %for.body.i3313.i, %
   %arrayidx25.i.i = getelementptr inbounds [8 x i32], ptr %base_index.i.i, i64 0, i64 %indvars.iv.next2196.i
   store i32 %add.i3315.i, ptr %arrayidx25.i.i, align 4
   %exitcond2198.not.i = icmp eq i64 %indvars.iv.next2196.i, 7
-  br i1 %exitcond2198.not.i, label %do.body26.i.preheader.i, label %for.body.i3313.i, !llvm.loop !168
+  br i1 %exitcond2198.not.i, label %do.body26.i.preheader.i, label %for.body.i3313.i, !llvm.loop !167
 
 do.body26.i.i:                                    ; preds = %do.end45.i.i, %do.body26.i.preheader.i
   %ctx.sroa.43.sroa.0.4 = phi <2 x i64> [ zeroinitializer, %do.body26.i.preheader.i ], [ %ctx.sroa.43.sroa.0.6, %do.end45.i.i ]
@@ -3475,7 +3475,7 @@ do.body26.i.i:                                    ; preds = %do.end45.i.i, %do.b
   %cacheable.i.0.i = phi i32 [ 1, %do.body26.i.preheader.i ], [ %cacheable.i.3.ph.i, %do.end45.i.i ]
   %new_cache.i.sroa.0.5.i = phi i8 [ 0, %do.body26.i.preheader.i ], [ %new_cache.i.sroa.0.8.ph.i, %do.end45.i.i ]
   %new_cache.i.sroa.31548.5.i = phi ptr [ null, %do.body26.i.preheader.i ], [ %new_cache.i.sroa.31548.7.ph.i, %do.end45.i.i ]
-  %583 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i.0.i) #12, !srcloc !169
+  %583 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i.0.i) #12, !srcloc !168
   %asmresult.i3931.i = extractvalue { i32, i32 } %583, 0
   %asmresult1.i3932.i = extractvalue { i32, i32 } %583, 1
   %shr.i3305.i = lshr i32 %asmresult.i3931.i, 1
@@ -3499,7 +3499,7 @@ do.body30.i.i:                                    ; preds = %if.end43.i.i, %do.b
   %cacheable.i.1.i = phi i32 [ %cacheable.i.0.i, %do.body26.i.i ], [ %cacheable.i.3.ph.i, %if.end43.i.i ]
   %new_cache.i.sroa.0.6.i = phi i8 [ %new_cache.i.sroa.0.5.i, %do.body26.i.i ], [ %new_cache.i.sroa.0.8.ph.i, %if.end43.i.i ]
   %new_cache.i.sroa.31548.6.i = phi ptr [ %new_cache.i.sroa.31548.5.i, %do.body26.i.i ], [ %new_cache.i.sroa.31548.7.ph.i, %if.end43.i.i ]
-  %585 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i.0.i) #12, !srcloc !110
+  %585 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i.0.i) #12, !srcloc !109
   %asmresult.i.i.i = extractvalue { i64, i64 } %585, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %585, 1
   %586 = load i64, ptr %arrayidx33.i.i, align 8
@@ -3672,17 +3672,17 @@ repeatHasMatch.exit4794.i:                        ; preds = %sw.bb11.i4779.i, %s
   ]
 
 if.then21.i4436.i:                                ; preds = %repeatHasMatch.exit4794.i, %if.end.i4834.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i.i, i64 16) ], !noalias !341
-  %603 = load <2 x i64>, ptr %arrayidx39.i.i, align 16, !noalias !341
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i.i, i64 16) ], !noalias !340
+  %603 = load <2 x i64>, ptr %arrayidx39.i.i, align 16, !noalias !340
   %add.ptr.i4879.i = getelementptr inbounds i8, ptr %arrayidx39.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4879.i, i64 16) ], !noalias !341
-  %604 = load <2 x i64>, ptr %add.ptr.i4879.i, align 16, !noalias !341
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4879.i, i64 16) ], !noalias !340
+  %604 = load <2 x i64>, ptr %add.ptr.i4879.i, align 16, !noalias !340
   %add.ptr.i103.i4438.i = getelementptr inbounds i8, ptr %arrayidx39.i.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i103.i4438.i, i64 16) ], !noalias !344
-  %605 = load <2 x i64>, ptr %add.ptr.i103.i4438.i, align 16, !noalias !344
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i103.i4438.i, i64 16) ], !noalias !343
+  %605 = load <2 x i64>, ptr %add.ptr.i103.i4438.i, align 16, !noalias !343
   %add.ptr.i4875.i = getelementptr inbounds i8, ptr %arrayidx39.i.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4875.i, i64 16) ], !noalias !344
-  %606 = load <2 x i64>, ptr %add.ptr.i4875.i, align 16, !noalias !344
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4875.i, i64 16) ], !noalias !343
+  %606 = load <2 x i64>, ptr %add.ptr.i4875.i, align 16, !noalias !343
   %and.i6949.i = and <2 x i64> %603, %succ.i.sroa.0.10.i
   %and.i6952.i = and <2 x i64> %604, %succ.i.sroa.24.10.i
   %and.i6943.i = and <2 x i64> %605, %succ.i.sroa.48.10.i
@@ -3719,7 +3719,7 @@ for.cond.i.i4380.i:                               ; preds = %for.body.i.i4402.i
   %incdec.ptr.i.i4406.i = getelementptr inbounds i8, ptr %reports.addr.i.i4242.02155.i, i64 4
   %610 = load i32, ptr %incdec.ptr.i.i4406.i, align 4
   %cmp.i157.i4381.not.not.i = icmp eq i32 %610, -1
-  br i1 %cmp.i157.i4381.not.not.i, label %if.end52.i4388.i, label %for.body.i.i4402.i, !llvm.loop !112
+  br i1 %cmp.i157.i4381.not.not.i, label %if.end52.i4388.i, label %for.body.i.i4402.i, !llvm.loop !111
 
 for.body.i.i4402.i:                               ; preds = %if.then38.i4374.i, %for.cond.i.i4380.i
   %611 = phi i32 [ %610, %for.cond.i.i4380.i ], [ %609, %if.then38.i4374.i ]
@@ -3749,17 +3749,17 @@ if.end76.i4325.i:                                 ; preds = %land.lhs.true70.i43
   %cacheable.i.4.i = phi i32 [ %cacheable.i.2.i, %if.end52.i4388.i ], [ %cacheable.i.2.i, %if.end32.i4322.i ], [ %spec.select1890.i, %land.lhs.true70.i4371.i ], [ %spec.select1897.i, %if.then55.i4391.i ]
   %new_cache.i.sroa.31548.8.i = phi ptr [ %new_cache.i.sroa.31548.6.i, %if.end52.i4388.i ], [ %new_cache.i.sroa.31548.6.i, %if.end32.i4322.i ], [ %new_cache.i.sroa.31548.6.i, %land.lhs.true70.i4371.i ], [ %spec.select1898.i, %if.then55.i4391.i ]
   %successors.i4328.i = getelementptr inbounds i8, ptr %arrayidx39.i.i, i64 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %successors.i4328.i, i64 16) ], !noalias !347
-  %612 = load <2 x i64>, ptr %successors.i4328.i, align 16, !noalias !347
+  call void @llvm.assume(i1 true) [ "align"(ptr %successors.i4328.i, i64 16) ], !noalias !346
+  %612 = load <2 x i64>, ptr %successors.i4328.i, align 16, !noalias !346
   %add.ptr.i4899.i = getelementptr inbounds i8, ptr %arrayidx39.i.i, i64 80
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4899.i, i64 16) ], !noalias !347
-  %613 = load <2 x i64>, ptr %add.ptr.i4899.i, align 16, !noalias !347
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4899.i, i64 16) ], !noalias !346
+  %613 = load <2 x i64>, ptr %add.ptr.i4899.i, align 16, !noalias !346
   %add.ptr.i100.i4330.i = getelementptr inbounds i8, ptr %arrayidx39.i.i, i64 96
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i100.i4330.i, i64 16) ], !noalias !350
-  %614 = load <2 x i64>, ptr %add.ptr.i100.i4330.i, align 16, !noalias !350
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i100.i4330.i, i64 16) ], !noalias !349
+  %614 = load <2 x i64>, ptr %add.ptr.i100.i4330.i, align 16, !noalias !349
   %add.ptr.i4894.i = getelementptr inbounds i8, ptr %arrayidx39.i.i, i64 112
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4894.i, i64 16) ], !noalias !350
-  %615 = load <2 x i64>, ptr %add.ptr.i4894.i, align 16, !noalias !350
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4894.i, i64 16) ], !noalias !349
+  %615 = load <2 x i64>, ptr %add.ptr.i4894.i, align 16, !noalias !349
   %or.i153.i4331.i = or <2 x i64> %612, %ctx.sroa.43.sroa.0.5
   %or.i156.i4334.i = or <2 x i64> %613, %ctx.sroa.43.sroa.15.5
   %or.i.i4339.i = or <2 x i64> %614, %ctx.sroa.43.sroa.27.5
@@ -3772,17 +3772,17 @@ if.end76.i4325.i:                                 ; preds = %land.lhs.true70.i43
   ]
 
 if.then88.i4352.i:                                ; preds = %if.end76.i4325.i, %if.end76.i4325.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i.i, i64 16) ], !noalias !353
-  %617 = load <2 x i64>, ptr %arrayidx39.i.i, align 16, !noalias !353
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx39.i.i, i64 16) ], !noalias !352
+  %617 = load <2 x i64>, ptr %arrayidx39.i.i, align 16, !noalias !352
   %add.ptr.i4889.i = getelementptr inbounds i8, ptr %arrayidx39.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4889.i, i64 16) ], !noalias !353
-  %618 = load <2 x i64>, ptr %add.ptr.i4889.i, align 16, !noalias !353
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4889.i, i64 16) ], !noalias !352
+  %618 = load <2 x i64>, ptr %add.ptr.i4889.i, align 16, !noalias !352
   %add.ptr.i97.i4354.i = getelementptr inbounds i8, ptr %arrayidx39.i.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i97.i4354.i, i64 16) ], !noalias !356
-  %619 = load <2 x i64>, ptr %add.ptr.i97.i4354.i, align 16, !noalias !356
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i97.i4354.i, i64 16) ], !noalias !355
+  %619 = load <2 x i64>, ptr %add.ptr.i97.i4354.i, align 16, !noalias !355
   %add.ptr.i4884.i = getelementptr inbounds i8, ptr %arrayidx39.i.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4884.i, i64 16) ], !noalias !356
-  %620 = load <2 x i64>, ptr %add.ptr.i4884.i, align 16, !noalias !356
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4884.i, i64 16) ], !noalias !355
+  %620 = load <2 x i64>, ptr %add.ptr.i4884.i, align 16, !noalias !355
   %and.i6961.i = and <2 x i64> %617, %succ.i.sroa.0.10.i
   %and.i6964.i = and <2 x i64> %618, %succ.i.sroa.24.10.i
   %and.i6955.i = and <2 x i64> %619, %succ.i.sroa.48.10.i
@@ -3804,11 +3804,11 @@ if.end43.i.i:                                     ; preds = %if.then88.i4352.i, 
   %new_cache.i.sroa.0.8.ph.i = phi i8 [ %new_cache.i.sroa.0.7.i, %if.end76.i4325.i ], [ %new_cache.i.sroa.0.7.i, %if.then88.i4352.i ], [ %new_cache.i.sroa.0.6.i, %if.else.i4424.i ], [ %new_cache.i.sroa.0.6.i, %repeatHasMatch.exit4794.i ], [ %new_cache.i.sroa.0.6.i, %if.then21.i4436.i ], [ %new_cache.i.sroa.0.6.i, %sw.bb3.i4787.i ], [ %new_cache.i.sroa.0.6.i, %sw.bb1.i4789.i ]
   %new_cache.i.sroa.31548.7.ph.i = phi ptr [ %new_cache.i.sroa.31548.8.i, %if.end76.i4325.i ], [ %new_cache.i.sroa.31548.8.i, %if.then88.i4352.i ], [ %new_cache.i.sroa.31548.6.i, %if.else.i4424.i ], [ %new_cache.i.sroa.31548.6.i, %repeatHasMatch.exit4794.i ], [ %new_cache.i.sroa.31548.6.i, %if.then21.i4436.i ], [ %new_cache.i.sroa.31548.6.i, %sw.bb3.i4787.i ], [ %new_cache.i.sroa.31548.6.i, %sw.bb1.i4789.i ]
   %tobool44.i.not.i = icmp eq i64 %asmresult1.i.i.i, 0
-  br i1 %tobool44.i.not.i, label %do.end45.i.i, label %do.body30.i.i, !llvm.loop !188
+  br i1 %tobool44.i.not.i, label %do.end45.i.i, label %do.body30.i.i, !llvm.loop !187
 
 do.end45.i.i:                                     ; preds = %if.end43.i.i
   %tobool47.i.not.i = icmp eq i32 %asmresult1.i3932.i, 0
-  br i1 %tobool47.i.not.i, label %do.end48.i.i, label %do.body26.i.i, !llvm.loop !189
+  br i1 %tobool47.i.not.i, label %do.end48.i.i, label %do.body26.i.i, !llvm.loop !188
 
 do.end48.i.i:                                     ; preds = %do.end45.i.i
   %or.i140.i.i = or <2 x i64> %succ.i.sroa.0.11.ph.i, %ctx.sroa.43.sroa.0.6
@@ -3852,24 +3852,24 @@ if.end142.i.i:                                    ; preds = %for.cond.i.i.i, %if
   %622 = load i8, ptr %arrayidx146.i.i, align 1
   %idxprom147.i.i = zext i8 %622 to i64
   %arrayidx148.i.i = getelementptr inbounds %struct.m512, ptr %add.ptr.i309.i.i, i64 %idxprom147.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx148.i.i, i64 16) ], !noalias !359
-  %623 = load <2 x i64>, ptr %arrayidx148.i.i, align 16, !noalias !359
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx148.i.i, i64 16) ], !noalias !358
+  %623 = load <2 x i64>, ptr %arrayidx148.i.i, align 16, !noalias !358
   %add.ptr.i5299.i = getelementptr inbounds i8, ptr %arrayidx148.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5299.i, i64 16) ], !noalias !359
-  %624 = load <2 x i64>, ptr %add.ptr.i5299.i, align 16, !noalias !359
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5299.i, i64 16) ], !noalias !358
+  %624 = load <2 x i64>, ptr %add.ptr.i5299.i, align 16, !noalias !358
   %add.ptr.i198.i.i = getelementptr inbounds i8, ptr %arrayidx148.i.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i198.i.i, i64 16) ], !noalias !362
-  %625 = load <2 x i64>, ptr %add.ptr.i198.i.i, align 16, !noalias !362
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i198.i.i, i64 16) ], !noalias !361
+  %625 = load <2 x i64>, ptr %add.ptr.i198.i.i, align 16, !noalias !361
   %add.ptr.i5294.i = getelementptr inbounds i8, ptr %arrayidx148.i.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5294.i, i64 16) ], !noalias !362
-  %626 = load <2 x i64>, ptr %add.ptr.i5294.i, align 16, !noalias !362
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5294.i, i64 16) ], !noalias !361
+  %626 = load <2 x i64>, ptr %add.ptr.i5294.i, align 16, !noalias !361
   %and.i7405.i = and <2 x i64> %623, %succ.i.sroa.0.7.ph.i
   %and.i7408.i = and <2 x i64> %624, %succ.i.sroa.24.7.ph.i
   %and.i7399.i = and <2 x i64> %625, %succ.i.sroa.48.7.ph.i
   %and.i7402.i = and <2 x i64> %626, %succ.i.sroa.72.7.ph.i
   %inc.i.i = add i64 %i.i.42157.i, 1
   %cmp22.i.not.i = icmp eq i64 %inc.i.i, %sub
-  br i1 %cmp22.i.not.i, label %for.end.i.i, label %for.body.i.i212, !llvm.loop !365
+  br i1 %cmp22.i.not.i, label %for.end.i.i, label %for.body.i.i212, !llvm.loop !364
 
 for.end.i.i:                                      ; preds = %if.end142.i.i, %if.end39.i.i, %with_accel.i.i
   %ctx.sroa.116.sroa.12.5 = phi <2 x i64> [ %ctx.sroa.116.sroa.12.2, %with_accel.i.i ], [ %ctx.sroa.116.sroa.12.3, %if.end39.i.i ], [ %ctx.sroa.116.sroa.12.4, %if.end142.i.i ]
@@ -3895,14 +3895,14 @@ for.end.i.i:                                      ; preds = %if.end142.i.i, %if.
   br i1 %tobool157.i.not.i, label %scan_done.sink.split, label %if.then158.i.i
 
 if.then158.i.i:                                   ; preds = %for.end.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %accept.i.i, i64 16) ], !noalias !366
-  %628 = load <2 x i64>, ptr %accept.i.i, align 16, !noalias !366
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5329.i, i64 16) ], !noalias !366
-  %629 = load <2 x i64>, ptr %add.ptr.i5329.i, align 16, !noalias !366
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i, i64 16) ], !noalias !369
-  %630 = load <2 x i64>, ptr %add.ptr.i.i.i, align 16, !noalias !369
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5324.i, i64 16) ], !noalias !369
-  %631 = load <2 x i64>, ptr %add.ptr.i5324.i, align 16, !noalias !369
+  call void @llvm.assume(i1 true) [ "align"(ptr %accept.i.i, i64 16) ], !noalias !365
+  %628 = load <2 x i64>, ptr %accept.i.i, align 16, !noalias !365
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5329.i, i64 16) ], !noalias !365
+  %629 = load <2 x i64>, ptr %add.ptr.i5329.i, align 16, !noalias !365
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i, i64 16) ], !noalias !368
+  %630 = load <2 x i64>, ptr %add.ptr.i.i.i, align 16, !noalias !368
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5324.i, i64 16) ], !noalias !368
+  %631 = load <2 x i64>, ptr %add.ptr.i5324.i, align 16, !noalias !368
   %632 = load i32, ptr %acceptOffset.i.i, align 8
   %idx.ext159.i.i = zext i32 %632 to i64
   %add.ptr160.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext159.i.i
@@ -3947,7 +3947,7 @@ for.body.i.while.end.i_crit_edge.i.i:             ; preds = %for.body.i.i1899.i
 
 while.body.i.i.i:                                 ; preds = %for.body.i.i1899.i, %if.end24.i.i.i
   %chunk.i.0124.i.i = phi i64 [ %asmresult1.i.i1902.i, %if.end24.i.i.i ], [ %637, %for.body.i.i1899.i ]
-  %638 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.0124.i.i) #12, !srcloc !110
+  %638 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.0124.i.i) #12, !srcloc !109
   %asmresult.i.i1901.i = extractvalue { i64, i64 } %638, 0
   %asmresult1.i.i1902.i = extractvalue { i64, i64 } %638, 1
   %639 = load i64, ptr %arrayidx26.i.phi.trans.insert.i.i, align 8
@@ -3977,7 +3977,7 @@ for.cond.i20.i.i:                                 ; preds = %for.body.i23.i.i
   %incdec.ptr.i.i1910.i = getelementptr inbounds i8, ptr %reports.addr.i.0118.i.i, i64 4
   %644 = load i32, ptr %incdec.ptr.i.i1910.i, align 4
   %cmp.i21.not.i.i = icmp eq i32 %644, -1
-  br i1 %cmp.i21.not.i.i, label %land.lhs.true.i.i.i, label %for.body.i23.i.i, !llvm.loop !112
+  br i1 %cmp.i21.not.i.i, label %land.lhs.true.i.i.i, label %for.body.i23.i.i, !llvm.loop !111
 
 for.body.i23.i.i:                                 ; preds = %if.end.i6.i.i, %for.cond.i20.i.i
   %645 = phi i32 [ %644, %for.cond.i20.i.i ], [ %643, %if.end.i6.i.i ]
@@ -4000,18 +4000,18 @@ land.lhs.true.i.i.i:                              ; preds = %for.cond.i20.i.i, %
 if.then20.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %idx.ext.i.i.i = zext i32 %646 to i64
   %add.ptr.i.i1907.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i1907.i, i64 16) ], !noalias !372
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i1907.i, i64 16) ], !noalias !371
   %add.ptr.i149.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1907.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i149.i.i, i64 16) ], !noalias !372
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i149.i.i, i64 16) ], !noalias !371
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1907.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i.i, i64 16) ], !noalias !375
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i.i, i64 16) ], !noalias !374
   %add.ptr.i145.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1907.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i145.i.i, i64 16) ], !noalias !375
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i145.i.i, i64 16) ], !noalias !374
   br label %if.end24.i.i.i
 
 if.end24.i.i.i:                                   ; preds = %if.then20.i.i.i, %land.lhs.true.i.i.i
   %cmp3.i.not.i.i = icmp eq i64 %asmresult1.i.i1902.i, 0
-  br i1 %cmp3.i.not.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !111
+  br i1 %cmp3.i.not.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !110
 
 while.end.i.i.i:                                  ; preds = %if.end24.i.i.i, %for.body.i.while.end.i_crit_edge.i.i
   %647 = phi i64 [ %.pre.i.i, %for.body.i.while.end.i_crit_edge.i.i ], [ %639, %if.end24.i.i.i ]
@@ -4020,7 +4020,7 @@ while.end.i.i.i:                                  ; preds = %if.end24.i.i.i, %fo
   %add28.i.i.i = add i32 %base_index.i.0133.i.i, %cast.i.i1908.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nfaExecLimEx512_Stream_CB.exit, label %for.body.i.i1899.i, !llvm.loop !113
+  br i1 %exitcond.not.i.i, label %nfaExecLimEx512_Stream_CB.exit, label %for.body.i.i1899.i, !llvm.loop !112
 
 nfaExecLimEx512_Stream_CB.exit.thread400:         ; preds = %limexRunAccept.exit.i.i, %for.body.i23.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %chunks.i.i.i)
@@ -4121,7 +4121,7 @@ sw.bb.i:                                          ; preds = %if.end76
 
 sw.default.i:                                     ; preds = %if.end76
   %sub.i = add i32 %654, -4
-  %655 = load i32, ptr %topOffset.i, align 64, !noalias !378
+  %655 = load i32, ptr %topOffset.i, align 64, !noalias !377
   %idx.ext.i468 = zext i32 %655 to i64
   %add.ptr.i469 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i468
   %idxprom.i470 = zext i32 %sub.i to i64
@@ -4130,17 +4130,17 @@ sw.default.i:                                     ; preds = %if.end76
 
 nfaExecLimEx512_HandleEvent.exit.sink.split:      ; preds = %sw.bb.i, %sw.default.i
   %cond.i.i.sink = phi ptr [ %cond.i.i, %sw.bb.i ], [ %arrayidx.i471, %sw.default.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %cond.i.i.sink, i64 16) ], !noalias !31
-  %.sink669 = load <2 x i64>, ptr %cond.i.i.sink, align 16, !noalias !31
+  call void @llvm.assume(i1 true) [ "align"(ptr %cond.i.i.sink, i64 16) ], !noalias !380
+  %.sink669 = load <2 x i64>, ptr %cond.i.i.sink, align 16, !noalias !380
   %add.ptr.i527 = getelementptr inbounds i8, ptr %cond.i.i.sink, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i527, i64 16) ], !noalias !31
-  %656 = load <2 x i64>, ptr %add.ptr.i527, align 16, !noalias !31
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i527, i64 16) ], !noalias !380
+  %656 = load <2 x i64>, ptr %add.ptr.i527, align 16, !noalias !380
   %add.ptr.i.i473 = getelementptr inbounds i8, ptr %cond.i.i.sink, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i473, i64 16) ], !noalias !31
-  %657 = load <2 x i64>, ptr %add.ptr.i.i473, align 16, !noalias !31
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i473, i64 16) ], !noalias !380
+  %657 = load <2 x i64>, ptr %add.ptr.i.i473, align 16, !noalias !380
   %add.ptr.i523 = getelementptr inbounds i8, ptr %cond.i.i.sink, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i523, i64 16) ], !noalias !31
-  %658 = load <2 x i64>, ptr %add.ptr.i523, align 16, !noalias !31
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i523, i64 16) ], !noalias !380
+  %658 = load <2 x i64>, ptr %add.ptr.i523, align 16, !noalias !380
   %or.i30.i474 = or <2 x i64> %.sink669, %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0..sroa.0.sroa.0128.0.copyload
   %or.i33.i477 = or <2 x i64> %656, %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16..sroa.0.sroa.2129.0.copyload
   %or.i.i482 = or <2 x i64> %657, %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32..sroa.2126.0.copyload
@@ -4574,7 +4574,7 @@ for.body.i.while.end.i_crit_edge.i:               ; preds = %for.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %while.cond.i.backedge.i
   %chunk.i.049.i = phi i64 [ %asmresult1.i.i, %while.cond.i.backedge.i ], [ %17, %for.body.i.i ]
-  %18 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !110
+  %18 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !109
   %asmresult.i.i = extractvalue { i64, i64 } %18, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %18, 1
   %19 = load i64, ptr %arrayidx26.i.phi.trans.insert.i, align 8
@@ -4600,7 +4600,7 @@ if.then.i9.i:                                     ; preds = %while.body.i.i
 
 while.cond.i.backedge.i:                          ; preds = %for.cond.i20.i, %if.end.i6.i, %if.then.i9.i
   %cmp3.i.not.i = icmp eq i64 %asmresult1.i.i, 0
-  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !111
+  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !110
 
 if.end.i6.i:                                      ; preds = %while.body.i.i
   %idx.ext.i7.i = zext i32 %22 to i64
@@ -4613,7 +4613,7 @@ for.cond.i20.i:                                   ; preds = %for.body.i23.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.047.i, i64 4
   %25 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i21.not.i = icmp eq i32 %25, -1
-  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !112
+  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !111
 
 for.body.i23.i:                                   ; preds = %if.end.i6.i, %for.cond.i20.i
   %26 = phi i32 [ %25, %for.cond.i20.i ], [ %24, %if.end.i6.i ]
@@ -4629,7 +4629,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.backed
   %add28.i.i = add i32 %base_index.i.051.i, %cast.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %moProcessAcceptsNoSquash512.exit, label %for.body.i.i, !llvm.loop !113
+  br i1 %exitcond.not.i, label %moProcessAcceptsNoSquash512.exit, label %for.body.i.i, !llvm.loop !112
 
 moProcessAcceptsNoSquash512.exit:                 ; preds = %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %chunks.i.i)
@@ -5761,7 +5761,7 @@ for.body.i3530:                                   ; preds = %if.end14.i3456, %fo
   %arrayidx25.i3540 = getelementptr inbounds [8 x i32], ptr %base_index.i3401, i64 0, i64 %indvars.iv.next
   store i32 %add.i3537, ptr %arrayidx25.i3540, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %do.body26.i3465, label %for.body.i3530, !llvm.loop !168
+  br i1 %exitcond.not, label %do.body26.i3465, label %for.body.i3530, !llvm.loop !167
 
 do.body26.i3465:                                  ; preds = %for.body.i3530, %do.end45.i3492
   %succ.i27.sroa.0.9 = phi <2 x i64> [ %succ.i27.sroa.0.11, %do.end45.i3492 ], [ %succ.i27.sroa.0.0, %for.body.i3530 ]
@@ -5771,7 +5771,7 @@ do.body26.i3465:                                  ; preds = %for.body.i3530, %do
   %diffmask.addr.i3387.0 = phi i32 [ %asmresult1.i3927, %do.end45.i3492 ], [ %and.i3258, %for.body.i3530 ]
   %cacheable.i3398.0 = phi i32 [ %cacheable.i3398.3, %do.end45.i3492 ], [ 1, %for.body.i3530 ]
   %new_cache.i3397.sroa.0.5 = phi i8 [ %new_cache.i3397.sroa.0.8, %do.end45.i3492 ], [ 0, %for.body.i3530 ]
-  %148 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3387.0) #12, !srcloc !169
+  %148 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3387.0) #12, !srcloc !168
   %asmresult.i3926 = extractvalue { i32, i32 } %148, 0
   %shr.i3467 = lshr i32 %asmresult.i3926, 1
   %idxprom28.i3468 = zext nneg i32 %shr.i3467 to i64
@@ -5789,7 +5789,7 @@ do.body30.i3470:                                  ; preds = %if.end43.i3490, %do
   %word.i3404.0 = phi i64 [ %149, %do.body26.i3465 ], [ %asmresult1.i.i3472, %if.end43.i3490 ]
   %cacheable.i3398.1 = phi i32 [ %cacheable.i3398.0, %do.body26.i3465 ], [ %cacheable.i3398.3, %if.end43.i3490 ]
   %new_cache.i3397.sroa.0.6 = phi i8 [ %new_cache.i3397.sroa.0.5, %do.body26.i3465 ], [ %new_cache.i3397.sroa.0.8, %if.end43.i3490 ]
-  %150 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3404.0) #12, !srcloc !110
+  %150 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3404.0) #12, !srcloc !109
   %asmresult.i.i3471 = extractvalue { i64, i64 } %150, 0
   %asmresult1.i.i3472 = extractvalue { i64, i64 } %150, 1
   %151 = load i64, ptr %arrayidx33.i3475, align 8
@@ -6058,12 +6058,12 @@ if.end43.i3490:                                   ; preds = %sw.bb1.i4766, %if.e
   %cacheable.i3398.3 = phi i32 [ 2, %if.then21.i4204 ], [ %cacheable.i3398.4, %if.end32.i4090 ], [ %spec.select, %if.then88.i4120 ], [ 2, %repeatHasMatch.exit4771 ], [ 2, %sw.bb3.i4764 ], [ 2, %if.else.i4192 ], [ 2, %sw.bb1.i4766 ]
   %new_cache.i3397.sroa.0.8 = phi i8 [ %new_cache.i3397.sroa.0.6, %if.then21.i4204 ], [ %new_cache.i3397.sroa.0.7, %if.end32.i4090 ], [ %new_cache.i3397.sroa.0.7, %if.then88.i4120 ], [ %new_cache.i3397.sroa.0.6, %repeatHasMatch.exit4771 ], [ %new_cache.i3397.sroa.0.6, %sw.bb3.i4764 ], [ %new_cache.i3397.sroa.0.6, %if.else.i4192 ], [ %new_cache.i3397.sroa.0.6, %sw.bb1.i4766 ]
   %tobool44.i3491.not = icmp eq i64 %asmresult1.i.i3472, 0
-  br i1 %tobool44.i3491.not, label %do.end45.i3492, label %do.body30.i3470, !llvm.loop !188
+  br i1 %tobool44.i3491.not, label %do.end45.i3492, label %do.body30.i3470, !llvm.loop !187
 
 do.end45.i3492:                                   ; preds = %if.end43.i3490
   %asmresult1.i3927 = extractvalue { i32, i32 } %148, 1
   %tobool47.i3493.not = icmp eq i32 %asmresult1.i3927, 0
-  br i1 %tobool47.i3493.not, label %do.end48.i3494, label %do.body26.i3465, !llvm.loop !189
+  br i1 %tobool47.i3493.not, label %do.end48.i3494, label %do.body26.i3465, !llvm.loop !188
 
 do.end48.i3494:                                   ; preds = %do.end45.i3492
   %local_succ5070.i3383.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %local_succ.i3457, align 1
@@ -6127,7 +6127,7 @@ if.end84.i:                                       ; preds = %sw.epilog.i47, %if.
   %and.i7282 = and <2 x i64> %191, %succ.i27.sroa.72.7.ph
   %inc.i52 = add i64 %i.i26.01994, 1
   %cmp.i38.not.not = icmp eq i64 %inc.i52, %min_accel_offset.i.0
-  br i1 %cmp.i38.not.not, label %with_accel.i, label %if.end.i43, !llvm.loop !196
+  br i1 %cmp.i38.not.not, label %with_accel.i, label %if.end.i43, !llvm.loop !195
 
 if.else13.i:                                      ; preds = %without_accel.i
   br i1 %cmp.i366.not2005, label %with_accel.i, label %land.lhs.true.i569.lr.ph
@@ -6643,7 +6643,7 @@ for.body.i3756:                                   ; preds = %if.end14.i3682, %fo
   %arrayidx25.i3766 = getelementptr inbounds [8 x i32], ptr %base_index.i3627, i64 0, i64 %indvars.iv.next2057
   store i32 %add.i3763, ptr %arrayidx25.i3766, align 4
   %exitcond2059.not = icmp eq i64 %indvars.iv.next2057, 7
-  br i1 %exitcond2059.not, label %do.body26.i3691, label %for.body.i3756, !llvm.loop !168
+  br i1 %exitcond2059.not, label %do.body26.i3691, label %for.body.i3756, !llvm.loop !167
 
 do.body26.i3691:                                  ; preds = %for.body.i3756, %do.end45.i3718
   %succ.i325.sroa.0.9 = phi <2 x i64> [ %succ.i325.sroa.0.11, %do.end45.i3718 ], [ %succ.i325.sroa.0.0, %for.body.i3756 ]
@@ -6653,7 +6653,7 @@ do.body26.i3691:                                  ; preds = %for.body.i3756, %do
   %diffmask.addr.i3613.0 = phi i32 [ %asmresult1.i, %do.end45.i3718 ], [ %and.i3265, %for.body.i3756 ]
   %cacheable.i3624.0 = phi i32 [ %cacheable.i3624.3, %do.end45.i3718 ], [ 1, %for.body.i3756 ]
   %new_cache.i3623.sroa.0.5 = phi i8 [ %new_cache.i3623.sroa.0.8, %do.end45.i3718 ], [ 0, %for.body.i3756 ]
-  %338 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3613.0) #12, !srcloc !169
+  %338 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3613.0) #12, !srcloc !168
   %asmresult.i = extractvalue { i32, i32 } %338, 0
   %shr.i3693 = lshr i32 %asmresult.i, 1
   %idxprom28.i3694 = zext nneg i32 %shr.i3693 to i64
@@ -6671,7 +6671,7 @@ do.body30.i3696:                                  ; preds = %if.end43.i3716, %do
   %word.i3630.0 = phi i64 [ %339, %do.body26.i3691 ], [ %asmresult1.i.i3698, %if.end43.i3716 ]
   %cacheable.i3624.1 = phi i32 [ %cacheable.i3624.0, %do.body26.i3691 ], [ %cacheable.i3624.3, %if.end43.i3716 ]
   %new_cache.i3623.sroa.0.6 = phi i8 [ %new_cache.i3623.sroa.0.5, %do.body26.i3691 ], [ %new_cache.i3623.sroa.0.8, %if.end43.i3716 ]
-  %340 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3630.0) #12, !srcloc !110
+  %340 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3630.0) #12, !srcloc !109
   %asmresult.i.i3697 = extractvalue { i64, i64 } %340, 0
   %asmresult1.i.i3698 = extractvalue { i64, i64 } %340, 1
   %341 = load i64, ptr %arrayidx33.i3701, align 8
@@ -6940,12 +6940,12 @@ if.end43.i3716:                                   ; preds = %sw.bb1.i4745, %if.e
   %cacheable.i3624.3 = phi i32 [ 2, %if.then21.i ], [ %cacheable.i3624.4, %if.end32.i ], [ %spec.select1878, %if.then88.i ], [ 2, %repeatHasMatch.exit ], [ 2, %sw.bb3.i4744 ], [ 2, %if.else.i3996 ], [ 2, %sw.bb1.i4745 ]
   %new_cache.i3623.sroa.0.8 = phi i8 [ %new_cache.i3623.sroa.0.6, %if.then21.i ], [ %new_cache.i3623.sroa.0.7, %if.end32.i ], [ %new_cache.i3623.sroa.0.7, %if.then88.i ], [ %new_cache.i3623.sroa.0.6, %repeatHasMatch.exit ], [ %new_cache.i3623.sroa.0.6, %sw.bb3.i4744 ], [ %new_cache.i3623.sroa.0.6, %if.else.i3996 ], [ %new_cache.i3623.sroa.0.6, %sw.bb1.i4745 ]
   %tobool44.i3717.not = icmp eq i64 %asmresult1.i.i3698, 0
-  br i1 %tobool44.i3717.not, label %do.end45.i3718, label %do.body30.i3696, !llvm.loop !188
+  br i1 %tobool44.i3717.not, label %do.end45.i3718, label %do.body30.i3696, !llvm.loop !187
 
 do.end45.i3718:                                   ; preds = %if.end43.i3716
   %asmresult1.i = extractvalue { i32, i32 } %338, 1
   %tobool47.i3719.not = icmp eq i32 %asmresult1.i, 0
-  br i1 %tobool47.i3719.not, label %do.end48.i3720, label %do.body26.i3691, !llvm.loop !189
+  br i1 %tobool47.i3719.not, label %do.end48.i3720, label %do.body26.i3691, !llvm.loop !188
 
 do.end48.i3720:                                   ; preds = %do.end45.i3718
   %local_succ5070.i3609.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %local_succ.i3683, align 1
@@ -7009,7 +7009,7 @@ if.end84.i388:                                    ; preds = %sw.epilog.i382, %if
   %and.i7174 = and <2 x i64> %381, %succ.i325.sroa.72.7.ph
   %inc.i399 = add i64 %i.i324.02006, 1
   %cmp.i366.not = icmp eq i64 %inc.i399, %min_accel_offset.i.0
-  br i1 %cmp.i366.not, label %with_accel.i, label %land.lhs.true.i569, !llvm.loop !196
+  br i1 %cmp.i366.not, label %with_accel.i, label %land.lhs.true.i569, !llvm.loop !195
 
 with_accel.i:                                     ; preds = %if.end84.i, %land.lhs.true.i569, %if.end84.i388, %if.then8.i, %if.else13.i, %entry
   %i.i.1 = phi i64 [ 0, %entry ], [ %i.i.0, %if.else13.i ], [ %i.i.0, %if.then8.i ], [ %i.i324.02006, %land.lhs.true.i569 ], [ %min_accel_offset.i.0, %if.end84.i388 ], [ %min_accel_offset.i.0, %if.end84.i ]
@@ -7605,7 +7605,7 @@ for.body.i3313:                                   ; preds = %if.end14.i, %for.bo
   %arrayidx25.i = getelementptr inbounds [8 x i32], ptr %base_index.i, i64 0, i64 %indvars.iv.next2061
   store i32 %add.i3315, ptr %arrayidx25.i, align 4
   %exitcond2063.not = icmp eq i64 %indvars.iv.next2061, 7
-  br i1 %exitcond2063.not, label %do.body26.i, label %for.body.i3313, !llvm.loop !168
+  br i1 %exitcond2063.not, label %do.body26.i, label %for.body.i3313, !llvm.loop !167
 
 do.body26.i:                                      ; preds = %for.body.i3313, %do.end45.i
   %succ.i.sroa.0.9 = phi <2 x i64> [ %succ.i.sroa.0.11, %do.end45.i ], [ %succ.i.sroa.0.0, %for.body.i3313 ]
@@ -7615,7 +7615,7 @@ do.body26.i:                                      ; preds = %for.body.i3313, %do
   %diffmask.addr.i.0 = phi i32 [ %asmresult1.i3932, %do.end45.i ], [ %and.i3251, %for.body.i3313 ]
   %cacheable.i.0 = phi i32 [ %cacheable.i.3, %do.end45.i ], [ 1, %for.body.i3313 ]
   %new_cache.i.sroa.0.5 = phi i8 [ %new_cache.i.sroa.0.8, %do.end45.i ], [ 0, %for.body.i3313 ]
-  %535 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i.0) #12, !srcloc !169
+  %535 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i.0) #12, !srcloc !168
   %asmresult.i3931 = extractvalue { i32, i32 } %535, 0
   %shr.i3305 = lshr i32 %asmresult.i3931, 1
   %idxprom28.i = zext nneg i32 %shr.i3305 to i64
@@ -7633,7 +7633,7 @@ do.body30.i:                                      ; preds = %if.end43.i, %do.bod
   %succ.i.sroa.72.10 = phi <2 x i64> [ %succ.i.sroa.72.9, %do.body26.i ], [ %succ.i.sroa.72.11, %if.end43.i ]
   %cacheable.i.1 = phi i32 [ %cacheable.i.0, %do.body26.i ], [ %cacheable.i.3, %if.end43.i ]
   %new_cache.i.sroa.0.6 = phi i8 [ %new_cache.i.sroa.0.5, %do.body26.i ], [ %new_cache.i.sroa.0.8, %if.end43.i ]
-  %537 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i.0) #12, !srcloc !110
+  %537 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i.0) #12, !srcloc !109
   %asmresult.i.i = extractvalue { i64, i64 } %537, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %537, 1
   %538 = load i64, ptr %arrayidx33.i, align 8
@@ -7902,12 +7902,12 @@ if.end43.i:                                       ; preds = %sw.bb1.i4789, %if.e
   %cacheable.i.3 = phi i32 [ 2, %if.then21.i4436 ], [ %cacheable.i.4, %if.end32.i4322 ], [ %spec.select1885, %if.then88.i4352 ], [ 2, %repeatHasMatch.exit4794 ], [ 2, %sw.bb3.i4787 ], [ 2, %if.else.i4424 ], [ 2, %sw.bb1.i4789 ]
   %new_cache.i.sroa.0.8 = phi i8 [ %new_cache.i.sroa.0.6, %if.then21.i4436 ], [ %new_cache.i.sroa.0.7, %if.end32.i4322 ], [ %new_cache.i.sroa.0.7, %if.then88.i4352 ], [ %new_cache.i.sroa.0.6, %repeatHasMatch.exit4794 ], [ %new_cache.i.sroa.0.6, %sw.bb3.i4787 ], [ %new_cache.i.sroa.0.6, %if.else.i4424 ], [ %new_cache.i.sroa.0.6, %sw.bb1.i4789 ]
   %tobool44.i.not = icmp eq i64 %asmresult1.i.i, 0
-  br i1 %tobool44.i.not, label %do.end45.i, label %do.body30.i, !llvm.loop !188
+  br i1 %tobool44.i.not, label %do.end45.i, label %do.body30.i, !llvm.loop !187
 
 do.end45.i:                                       ; preds = %if.end43.i
   %asmresult1.i3932 = extractvalue { i32, i32 } %535, 1
   %tobool47.i.not = icmp eq i32 %asmresult1.i3932, 0
-  br i1 %tobool47.i.not, label %do.end48.i, label %do.body26.i, !llvm.loop !189
+  br i1 %tobool47.i.not, label %do.end48.i, label %do.body26.i, !llvm.loop !188
 
 do.end48.i:                                       ; preds = %do.end45.i
   %local_succ5070.i.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %local_succ.i, align 1
@@ -7971,7 +7971,7 @@ if.end142.i:                                      ; preds = %sw.epilog.i, %if.th
   %and.i7402 = and <2 x i64> %578, %succ.i.sroa.72.7.ph
   %inc.i = add i64 %i.i.42024, 1
   %cmp22.i.not = icmp eq i64 %inc.i, %length
-  br i1 %cmp22.i.not, label %for.end.i, label %for.body.i, !llvm.loop !365
+  br i1 %cmp22.i.not, label %for.end.i, label %for.body.i, !llvm.loop !364
 
 for.end.i:                                        ; preds = %if.end142.i, %with_accel.i, %if.end39.i
   %s.i.sroa.0.5 = phi <2 x i64> [ %s.i.sroa.0.6, %if.end39.i ], [ %s.i.sroa.0.1, %with_accel.i ], [ %and.i7405, %if.end142.i ]
@@ -8757,7 +8757,7 @@ for.body.i105.while.end.i_crit_edge:              ; preds = %for.body.i105
 
 while.body.i:                                     ; preds = %for.body.i105, %while.cond.i.backedge
   %chunk.i.0291 = phi i64 [ %asmresult1.i, %while.cond.i.backedge ], [ %99, %for.body.i105 ]
-  %100 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.0291) #12, !srcloc !110
+  %100 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.0291) #12, !srcloc !109
   %asmresult.i = extractvalue { i64, i64 } %100, 0
   %asmresult1.i = extractvalue { i64, i64 } %100, 1
   %101 = load i64, ptr %arrayidx22.i.phi.trans.insert, align 8
@@ -9370,7 +9370,7 @@ for.body.i3530:                                   ; preds = %if.end14.i3456, %fo
   %arrayidx25.i3540 = getelementptr inbounds [8 x i32], ptr %base_index.i3401, i64 0, i64 %indvars.iv.next
   store i32 %add.i3537, ptr %arrayidx25.i3540, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %do.body26.i3465, label %for.body.i3530, !llvm.loop !168
+  br i1 %exitcond.not, label %do.body26.i3465, label %for.body.i3530, !llvm.loop !167
 
 do.body26.i3465:                                  ; preds = %for.body.i3530, %do.end45.i3492
   %succ.i27.sroa.0.9 = phi <2 x i64> [ %succ.i27.sroa.0.11, %do.end45.i3492 ], [ %succ.i27.sroa.0.0, %for.body.i3530 ]
@@ -9380,7 +9380,7 @@ do.body26.i3465:                                  ; preds = %for.body.i3530, %do
   %diffmask.addr.i3387.0 = phi i32 [ %asmresult1.i3927, %do.end45.i3492 ], [ %and.i3258, %for.body.i3530 ]
   %cacheable.i3398.0 = phi i32 [ %cacheable.i3398.3, %do.end45.i3492 ], [ 1, %for.body.i3530 ]
   %new_cache.i3397.sroa.0.5 = phi i8 [ %new_cache.i3397.sroa.0.8, %do.end45.i3492 ], [ 0, %for.body.i3530 ]
-  %141 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3387.0) #12, !srcloc !169
+  %141 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3387.0) #12, !srcloc !168
   %asmresult.i3926 = extractvalue { i32, i32 } %141, 0
   %shr.i3467 = lshr i32 %asmresult.i3926, 1
   %idxprom28.i3468 = zext nneg i32 %shr.i3467 to i64
@@ -9398,7 +9398,7 @@ do.body30.i3470:                                  ; preds = %if.end43.i3490, %do
   %word.i3404.0 = phi i64 [ %142, %do.body26.i3465 ], [ %asmresult1.i.i3472, %if.end43.i3490 ]
   %cacheable.i3398.1 = phi i32 [ %cacheable.i3398.0, %do.body26.i3465 ], [ %cacheable.i3398.3, %if.end43.i3490 ]
   %new_cache.i3397.sroa.0.6 = phi i8 [ %new_cache.i3397.sroa.0.5, %do.body26.i3465 ], [ %new_cache.i3397.sroa.0.8, %if.end43.i3490 ]
-  %143 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3404.0) #12, !srcloc !110
+  %143 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3404.0) #12, !srcloc !109
   %asmresult.i.i3471 = extractvalue { i64, i64 } %143, 0
   %asmresult1.i.i3472 = extractvalue { i64, i64 } %143, 1
   %144 = load i64, ptr %arrayidx33.i3475, align 8
@@ -9667,12 +9667,12 @@ if.end43.i3490:                                   ; preds = %sw.bb1.i4766, %if.e
   %cacheable.i3398.3 = phi i32 [ 2, %if.then21.i4204 ], [ %cacheable.i3398.4, %if.end32.i4090 ], [ %spec.select, %if.then88.i4120 ], [ 2, %repeatHasMatch.exit4771 ], [ 2, %sw.bb3.i4764 ], [ 2, %if.else.i4192 ], [ 2, %sw.bb1.i4766 ]
   %new_cache.i3397.sroa.0.8 = phi i8 [ %new_cache.i3397.sroa.0.6, %if.then21.i4204 ], [ %new_cache.i3397.sroa.0.7, %if.end32.i4090 ], [ %new_cache.i3397.sroa.0.7, %if.then88.i4120 ], [ %new_cache.i3397.sroa.0.6, %repeatHasMatch.exit4771 ], [ %new_cache.i3397.sroa.0.6, %sw.bb3.i4764 ], [ %new_cache.i3397.sroa.0.6, %if.else.i4192 ], [ %new_cache.i3397.sroa.0.6, %sw.bb1.i4766 ]
   %tobool44.i3491.not = icmp eq i64 %asmresult1.i.i3472, 0
-  br i1 %tobool44.i3491.not, label %do.end45.i3492, label %do.body30.i3470, !llvm.loop !188
+  br i1 %tobool44.i3491.not, label %do.end45.i3492, label %do.body30.i3470, !llvm.loop !187
 
 do.end45.i3492:                                   ; preds = %if.end43.i3490
   %asmresult1.i3927 = extractvalue { i32, i32 } %141, 1
   %tobool47.i3493.not = icmp eq i32 %asmresult1.i3927, 0
-  br i1 %tobool47.i3493.not, label %do.end48.i3494, label %do.body26.i3465, !llvm.loop !189
+  br i1 %tobool47.i3493.not, label %do.end48.i3494, label %do.body26.i3465, !llvm.loop !188
 
 do.end48.i3494:                                   ; preds = %do.end45.i3492
   %local_succ5070.i3383.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %local_succ.i3457, align 1
@@ -9736,7 +9736,7 @@ if.end84.i:                                       ; preds = %sw.epilog.i47, %if.
   %and.i7282 = and <2 x i64> %184, %succ.i27.sroa.72.7
   %inc.i52 = add i64 %i.i26.01941, 1
   %cmp.i38.not = icmp eq i64 %inc.i52, %min_accel_offset.i.0
-  br i1 %cmp.i38.not, label %with_accel.i, label %if.end.i43, !llvm.loop !196
+  br i1 %cmp.i38.not, label %with_accel.i, label %if.end.i43, !llvm.loop !195
 
 if.else13.i:                                      ; preds = %without_accel.i
   br i1 %cmp.i366.not1951, label %with_accel.i, label %land.lhs.true.i569.lr.ph
@@ -10223,7 +10223,7 @@ for.body.i3756:                                   ; preds = %if.end14.i3682, %fo
   %arrayidx25.i3766 = getelementptr inbounds [8 x i32], ptr %base_index.i3627, i64 0, i64 %indvars.iv.next1986
   store i32 %add.i3763, ptr %arrayidx25.i3766, align 4
   %exitcond1988.not = icmp eq i64 %indvars.iv.next1986, 7
-  br i1 %exitcond1988.not, label %do.body26.i3691, label %for.body.i3756, !llvm.loop !168
+  br i1 %exitcond1988.not, label %do.body26.i3691, label %for.body.i3756, !llvm.loop !167
 
 do.body26.i3691:                                  ; preds = %for.body.i3756, %do.end45.i3718
   %succ.i325.sroa.0.9 = phi <2 x i64> [ %succ.i325.sroa.0.11, %do.end45.i3718 ], [ %succ.i325.sroa.0.0, %for.body.i3756 ]
@@ -10233,7 +10233,7 @@ do.body26.i3691:                                  ; preds = %for.body.i3756, %do
   %diffmask.addr.i3613.0 = phi i32 [ %asmresult1.i, %do.end45.i3718 ], [ %and.i3265, %for.body.i3756 ]
   %cacheable.i3624.0 = phi i32 [ %cacheable.i3624.3, %do.end45.i3718 ], [ 1, %for.body.i3756 ]
   %new_cache.i3623.sroa.0.5 = phi i8 [ %new_cache.i3623.sroa.0.8, %do.end45.i3718 ], [ 0, %for.body.i3756 ]
-  %324 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3613.0) #12, !srcloc !169
+  %324 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i3613.0) #12, !srcloc !168
   %asmresult.i = extractvalue { i32, i32 } %324, 0
   %shr.i3693 = lshr i32 %asmresult.i, 1
   %idxprom28.i3694 = zext nneg i32 %shr.i3693 to i64
@@ -10251,7 +10251,7 @@ do.body30.i3696:                                  ; preds = %if.end43.i3716, %do
   %word.i3630.0 = phi i64 [ %325, %do.body26.i3691 ], [ %asmresult1.i.i3698, %if.end43.i3716 ]
   %cacheable.i3624.1 = phi i32 [ %cacheable.i3624.0, %do.body26.i3691 ], [ %cacheable.i3624.3, %if.end43.i3716 ]
   %new_cache.i3623.sroa.0.6 = phi i8 [ %new_cache.i3623.sroa.0.5, %do.body26.i3691 ], [ %new_cache.i3623.sroa.0.8, %if.end43.i3716 ]
-  %326 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3630.0) #12, !srcloc !110
+  %326 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i3630.0) #12, !srcloc !109
   %asmresult.i.i3697 = extractvalue { i64, i64 } %326, 0
   %asmresult1.i.i3698 = extractvalue { i64, i64 } %326, 1
   %327 = load i64, ptr %arrayidx33.i3701, align 8
@@ -10520,12 +10520,12 @@ if.end43.i3716:                                   ; preds = %sw.bb1.i4745, %if.e
   %cacheable.i3624.3 = phi i32 [ 2, %if.then21.i ], [ %cacheable.i3624.4, %if.end32.i ], [ %spec.select1878, %if.then88.i ], [ 2, %repeatHasMatch.exit ], [ 2, %sw.bb3.i4744 ], [ 2, %if.else.i3996 ], [ 2, %sw.bb1.i4745 ]
   %new_cache.i3623.sroa.0.8 = phi i8 [ %new_cache.i3623.sroa.0.6, %if.then21.i ], [ %new_cache.i3623.sroa.0.7, %if.end32.i ], [ %new_cache.i3623.sroa.0.7, %if.then88.i ], [ %new_cache.i3623.sroa.0.6, %repeatHasMatch.exit ], [ %new_cache.i3623.sroa.0.6, %sw.bb3.i4744 ], [ %new_cache.i3623.sroa.0.6, %if.else.i3996 ], [ %new_cache.i3623.sroa.0.6, %sw.bb1.i4745 ]
   %tobool44.i3717.not = icmp eq i64 %asmresult1.i.i3698, 0
-  br i1 %tobool44.i3717.not, label %do.end45.i3718, label %do.body30.i3696, !llvm.loop !188
+  br i1 %tobool44.i3717.not, label %do.end45.i3718, label %do.body30.i3696, !llvm.loop !187
 
 do.end45.i3718:                                   ; preds = %if.end43.i3716
   %asmresult1.i = extractvalue { i32, i32 } %324, 1
   %tobool47.i3719.not = icmp eq i32 %asmresult1.i, 0
-  br i1 %tobool47.i3719.not, label %do.end48.i3720, label %do.body26.i3691, !llvm.loop !189
+  br i1 %tobool47.i3719.not, label %do.end48.i3720, label %do.body26.i3691, !llvm.loop !188
 
 do.end48.i3720:                                   ; preds = %do.end45.i3718
   %local_succ5070.i3609.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %local_succ.i3683, align 1
@@ -10589,7 +10589,7 @@ if.end84.i388:                                    ; preds = %sw.epilog.i382, %if
   %and.i7174 = and <2 x i64> %367, %succ.i325.sroa.72.7
   %inc.i399 = add i64 %i.i324.01952, 1
   %cmp.i366.not = icmp eq i64 %inc.i399, %min_accel_offset.i.0
-  br i1 %cmp.i366.not, label %with_accel.i, label %land.lhs.true.i569, !llvm.loop !196
+  br i1 %cmp.i366.not, label %with_accel.i, label %land.lhs.true.i569, !llvm.loop !195
 
 with_accel.i:                                     ; preds = %if.end84.i, %if.end84.i388, %land.lhs.true.i569, %if.then8.i, %if.else13.i, %entry
   %i.i.1 = phi i64 [ 0, %entry ], [ %i.i.0, %if.else13.i ], [ %i.i.0, %if.then8.i ], [ %min_accel_offset.i.0, %if.end84.i388 ], [ %i.i324.01952, %land.lhs.true.i569 ], [ %min_accel_offset.i.0, %if.end84.i ]
@@ -11156,7 +11156,7 @@ for.body.i3313:                                   ; preds = %if.end14.i, %for.bo
   %arrayidx25.i = getelementptr inbounds [8 x i32], ptr %base_index.i, i64 0, i64 %indvars.iv.next1990
   store i32 %add.i3315, ptr %arrayidx25.i, align 4
   %exitcond1992.not = icmp eq i64 %indvars.iv.next1990, 7
-  br i1 %exitcond1992.not, label %do.body26.i, label %for.body.i3313, !llvm.loop !168
+  br i1 %exitcond1992.not, label %do.body26.i, label %for.body.i3313, !llvm.loop !167
 
 do.body26.i:                                      ; preds = %for.body.i3313, %do.end45.i
   %succ.i.sroa.0.9 = phi <2 x i64> [ %succ.i.sroa.0.11, %do.end45.i ], [ %succ.i.sroa.0.0, %for.body.i3313 ]
@@ -11166,7 +11166,7 @@ do.body26.i:                                      ; preds = %for.body.i3313, %do
   %diffmask.addr.i.0 = phi i32 [ %asmresult1.i3932, %do.end45.i ], [ %and.i3251, %for.body.i3313 ]
   %cacheable.i.0 = phi i32 [ %cacheable.i.3, %do.end45.i ], [ 1, %for.body.i3313 ]
   %new_cache.i.sroa.0.5 = phi i8 [ %new_cache.i.sroa.0.8, %do.end45.i ], [ 0, %for.body.i3313 ]
-  %514 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i.0) #12, !srcloc !169
+  %514 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i.0) #12, !srcloc !168
   %asmresult.i3931 = extractvalue { i32, i32 } %514, 0
   %shr.i3305 = lshr i32 %asmresult.i3931, 1
   %idxprom28.i = zext nneg i32 %shr.i3305 to i64
@@ -11184,7 +11184,7 @@ do.body30.i:                                      ; preds = %if.end43.i, %do.bod
   %succ.i.sroa.72.10 = phi <2 x i64> [ %succ.i.sroa.72.9, %do.body26.i ], [ %succ.i.sroa.72.11, %if.end43.i ]
   %cacheable.i.1 = phi i32 [ %cacheable.i.0, %do.body26.i ], [ %cacheable.i.3, %if.end43.i ]
   %new_cache.i.sroa.0.6 = phi i8 [ %new_cache.i.sroa.0.5, %do.body26.i ], [ %new_cache.i.sroa.0.8, %if.end43.i ]
-  %516 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i.0) #12, !srcloc !110
+  %516 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i.0) #12, !srcloc !109
   %asmresult.i.i = extractvalue { i64, i64 } %516, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %516, 1
   %517 = load i64, ptr %arrayidx33.i, align 8
@@ -11453,12 +11453,12 @@ if.end43.i:                                       ; preds = %sw.bb1.i4789, %if.e
   %cacheable.i.3 = phi i32 [ 2, %if.then21.i4436 ], [ %cacheable.i.4, %if.end32.i4322 ], [ %spec.select1885, %if.then88.i4352 ], [ 2, %repeatHasMatch.exit4794 ], [ 2, %sw.bb3.i4787 ], [ 2, %if.else.i4424 ], [ 2, %sw.bb1.i4789 ]
   %new_cache.i.sroa.0.8 = phi i8 [ %new_cache.i.sroa.0.6, %if.then21.i4436 ], [ %new_cache.i.sroa.0.7, %if.end32.i4322 ], [ %new_cache.i.sroa.0.7, %if.then88.i4352 ], [ %new_cache.i.sroa.0.6, %repeatHasMatch.exit4794 ], [ %new_cache.i.sroa.0.6, %sw.bb3.i4787 ], [ %new_cache.i.sroa.0.6, %if.else.i4424 ], [ %new_cache.i.sroa.0.6, %sw.bb1.i4789 ]
   %tobool44.i.not = icmp eq i64 %asmresult1.i.i, 0
-  br i1 %tobool44.i.not, label %do.end45.i, label %do.body30.i, !llvm.loop !188
+  br i1 %tobool44.i.not, label %do.end45.i, label %do.body30.i, !llvm.loop !187
 
 do.end45.i:                                       ; preds = %if.end43.i
   %asmresult1.i3932 = extractvalue { i32, i32 } %514, 1
   %tobool47.i.not = icmp eq i32 %asmresult1.i3932, 0
-  br i1 %tobool47.i.not, label %do.end48.i, label %do.body26.i, !llvm.loop !189
+  br i1 %tobool47.i.not, label %do.end48.i, label %do.body26.i, !llvm.loop !188
 
 do.end48.i:                                       ; preds = %do.end45.i
   %local_succ5070.i.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %local_succ.i, align 1
@@ -11522,7 +11522,7 @@ if.end142.i:                                      ; preds = %sw.epilog.i, %if.th
   %and.i7402 = and <2 x i64> %557, %succ.i.sroa.72.7
   %inc.i = add i64 %i.i.41969, 1
   %cmp22.i.not = icmp eq i64 %inc.i, %length
-  br i1 %cmp22.i.not, label %for.end.i, label %for.body.i, !llvm.loop !365
+  br i1 %cmp22.i.not, label %for.end.i, label %for.body.i, !llvm.loop !364
 
 for.end.i:                                        ; preds = %if.end142.i, %with_accel.i, %if.end39.i
   %s.i.sroa.0.5 = phi <2 x i64> [ %s.i.sroa.0.6, %if.end39.i ], [ %s.i.sroa.0.1, %with_accel.i ], [ %and.i7405, %if.end142.i ]
@@ -11798,7 +11798,7 @@ for.body.i.while.end.i_crit_edge.i:               ; preds = %for.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %while.cond.i.backedge.i
   %chunk.i.049.i = phi i64 [ %asmresult1.i.i, %while.cond.i.backedge.i ], [ %27, %for.body.i.i ]
-  %28 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !110
+  %28 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !109
   %asmresult.i.i = extractvalue { i64, i64 } %28, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %28, 1
   %29 = load i64, ptr %arrayidx26.i.phi.trans.insert.i, align 8
@@ -11824,7 +11824,7 @@ if.then.i9.i:                                     ; preds = %while.body.i.i
 
 while.cond.i.backedge.i:                          ; preds = %for.cond.i20.i, %if.end.i6.i, %if.then.i9.i
   %cmp3.i.not.i = icmp eq i64 %asmresult1.i.i, 0
-  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !111
+  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !110
 
 if.end.i6.i:                                      ; preds = %while.body.i.i
   %idx.ext.i7.i = zext i32 %32 to i64
@@ -11837,7 +11837,7 @@ for.cond.i20.i:                                   ; preds = %for.body.i23.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.047.i, i64 4
   %35 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i21.not.i = icmp eq i32 %35, -1
-  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !112
+  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !111
 
 for.body.i23.i:                                   ; preds = %if.end.i6.i, %for.cond.i20.i
   %36 = phi i32 [ %35, %for.cond.i20.i ], [ %34, %if.end.i6.i ]
@@ -11853,7 +11853,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.backed
   %add28.i.i = add i32 %base_index.i.051.i, %cast.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %moNfaTestEod512.exit.sink.split, label %for.body.i.i, !llvm.loop !113
+  br i1 %exitcond.not.i, label %moNfaTestEod512.exit.sink.split, label %for.body.i.i, !llvm.loop !112
 
 moNfaTestEod512.exit.sink.split:                  ; preds = %while.end.i.i, %if.then.i9.i, %for.body.i23.i
   %retval.i.0.ph = phi i8 [ 0, %for.body.i23.i ], [ 0, %if.then.i9.i ], [ 1, %while.end.i.i ]
@@ -11958,7 +11958,7 @@ for.body.i.while.end.i_crit_edge.i:               ; preds = %for.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %while.cond.i.backedge.i
   %chunk.i.049.i = phi i64 [ %asmresult1.i.i, %while.cond.i.backedge.i ], [ %16, %for.body.i.i ]
-  %17 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !110
+  %17 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !109
   %asmresult.i.i = extractvalue { i64, i64 } %17, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %17, 1
   %18 = load i64, ptr %arrayidx26.i.phi.trans.insert.i, align 8
@@ -11984,7 +11984,7 @@ if.then.i9.i:                                     ; preds = %while.body.i.i
 
 while.cond.i.backedge.i:                          ; preds = %for.cond.i20.i, %if.end.i6.i, %if.then.i9.i
   %cmp3.i.not.i = icmp eq i64 %asmresult1.i.i, 0
-  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !111
+  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !110
 
 if.end.i6.i:                                      ; preds = %while.body.i.i
   %idx.ext.i7.i = zext i32 %21 to i64
@@ -11997,7 +11997,7 @@ for.cond.i20.i:                                   ; preds = %for.body.i23.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.047.i, i64 4
   %24 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i21.not.i = icmp eq i32 %24, -1
-  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !112
+  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !111
 
 for.body.i23.i:                                   ; preds = %if.end.i6.i, %for.cond.i20.i
   %25 = phi i32 [ %24, %for.cond.i20.i ], [ %23, %if.end.i6.i ]
@@ -12013,7 +12013,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.backed
   %add28.i.i = add i32 %base_index.i.051.i, %cast.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %moProcessAcceptsNoSquash512.exit, label %for.body.i.i, !llvm.loop !113
+  br i1 %exitcond.not.i, label %moProcessAcceptsNoSquash512.exit, label %for.body.i.i, !llvm.loop !112
 
 moProcessAcceptsNoSquash512.exit:                 ; preds = %while.end.i.i, %if.then.i9.i, %for.body.i23.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %chunks.i.i)
@@ -12313,7 +12313,7 @@ for.body.i.while.end.i_crit_edge.i:               ; preds = %for.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %while.cond.i.backedge.i
   %chunk.i.049.i = phi i64 [ %asmresult1.i.i, %while.cond.i.backedge.i ], [ %29, %for.body.i.i ]
-  %30 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !110
+  %30 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !109
   %asmresult.i.i = extractvalue { i64, i64 } %30, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %30, 1
   %31 = load i64, ptr %arrayidx26.i.phi.trans.insert.i, align 8
@@ -12339,7 +12339,7 @@ if.then.i9.i:                                     ; preds = %while.body.i.i
 
 while.cond.i.backedge.i:                          ; preds = %for.cond.i20.i, %if.end.i6.i, %if.then.i9.i
   %cmp3.i.not.i = icmp eq i64 %asmresult1.i.i, 0
-  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !111
+  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !110
 
 if.end.i6.i:                                      ; preds = %while.body.i.i
   %idx.ext.i7.i = zext i32 %34 to i64
@@ -12352,7 +12352,7 @@ for.cond.i20.i:                                   ; preds = %for.body.i23.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.047.i, i64 4
   %37 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i21.not.i = icmp eq i32 %37, -1
-  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !112
+  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !111
 
 for.body.i23.i:                                   ; preds = %if.end.i6.i, %for.cond.i20.i
   %38 = phi i32 [ %37, %for.cond.i20.i ], [ %36, %if.end.i6.i ]
@@ -12368,7 +12368,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.backed
   %add28.i.i = add i32 %base_index.i.051.i, %cast.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %moProcessAcceptsNoSquash512.exit, label %for.body.i.i, !llvm.loop !113
+  br i1 %exitcond.not.i, label %moProcessAcceptsNoSquash512.exit, label %for.body.i.i, !llvm.loop !112
 
 moProcessAcceptsNoSquash512.exit:                 ; preds = %while.end.i.i, %if.then.i9.i, %for.body.i23.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %chunks.i.i)
@@ -12878,7 +12878,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.i.0664, i64 4
   %141 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i.i1397.not.not = icmp eq i32 %141, -1
-  br i1 %cmp.i.i1397.not.not, label %if.end84, label %for.body.i.i, !llvm.loop !112
+  br i1 %cmp.i.i1397.not.not, label %if.end84, label %for.body.i.i, !llvm.loop !111
 
 for.body.i.i:                                     ; preds = %if.then3.i, %for.cond.i.i
   %142 = phi i32 [ %141, %for.cond.i.i ], [ %140, %if.then3.i ]
@@ -12909,7 +12909,7 @@ for.body.i:                                       ; preds = %if.end14.i, %for.bo
   %arrayidx25.i = getelementptr inbounds [8 x i32], ptr %base_index.i, i64 0, i64 %indvars.iv.next
   store i32 %add.i1407, ptr %arrayidx25.i, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %do.body26.i, label %for.body.i, !llvm.loop !168
+  br i1 %exitcond.not, label %do.body26.i, label %for.body.i, !llvm.loop !167
 
 do.body26.i:                                      ; preds = %for.body.i, %do.end45.i
   %succ.sroa.0.9 = phi <2 x i64> [ %succ.sroa.0.11.ph, %do.end45.i ], [ %succ.sroa.0.6, %for.body.i ]
@@ -12919,7 +12919,7 @@ do.body26.i:                                      ; preds = %for.body.i, %do.end
   %diffmask.addr.i.0 = phi i32 [ %asmresult1.i, %do.end45.i ], [ %and.i, %for.body.i ]
   %cacheable.i.0 = phi i32 [ %cacheable.i.3.ph, %do.end45.i ], [ 1, %for.body.i ]
   %new_cache.i.sroa.3523.3 = phi ptr [ %new_cache.i.sroa.3523.6, %do.end45.i ], [ null, %for.body.i ]
-  %146 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i.0) #12, !srcloc !169
+  %146 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %diffmask.addr.i.0) #12, !srcloc !168
   %asmresult.i = extractvalue { i32, i32 } %146, 0
   %asmresult1.i = extractvalue { i32, i32 } %146, 1
   %shr.i1403 = lshr i32 %asmresult.i, 1
@@ -12938,7 +12938,7 @@ do.body30.i:                                      ; preds = %if.end43.i, %do.bod
   %word.i.0 = phi i64 [ %147, %do.body26.i ], [ %asmresult1.i.i, %if.end43.i ]
   %cacheable.i.1 = phi i32 [ %cacheable.i.0, %do.body26.i ], [ %cacheable.i.3.ph, %if.end43.i ]
   %new_cache.i.sroa.3523.4 = phi ptr [ %new_cache.i.sroa.3523.3, %do.body26.i ], [ %new_cache.i.sroa.3523.6, %if.end43.i ]
-  %148 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i.0) #12, !srcloc !110
+  %148 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %word.i.0) #12, !srcloc !109
   %asmresult.i.i = extractvalue { i64, i64 } %148, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %148, 1
   %149 = load i64, ptr %arrayidx33.i, align 8
@@ -12970,7 +12970,7 @@ for.cond.i.i1479:                                 ; preds = %for.body.i.i1484
   %incdec.ptr.i.i1486 = getelementptr inbounds i8, ptr %reports.addr.i.i1441.0667, i64 4
   %156 = load i32, ptr %incdec.ptr.i.i1486, align 4
   %cmp.i157.i.not.not = icmp eq i32 %156, -1
-  br i1 %cmp.i157.i.not.not, label %if.end52.i, label %for.body.i.i1484, !llvm.loop !112
+  br i1 %cmp.i157.i.not.not, label %if.end52.i, label %for.body.i.i1484, !llvm.loop !111
 
 for.body.i.i1484:                                 ; preds = %if.then38.i, %for.cond.i.i1479
   %157 = phi i32 [ %156, %for.cond.i.i1479 ], [ %155, %if.then38.i ]
@@ -13050,11 +13050,11 @@ if.end43.i:                                       ; preds = %if.end76.i, %if.the
   %succ.sroa.72.11.ph = phi <2 x i64> [ %and.i2307, %if.then88.i ], [ %succ.sroa.72.10, %if.end76.i ]
   %cacheable.i.3.ph = phi i32 [ 0, %if.then88.i ], [ %cacheable.i.4, %if.end76.i ]
   %tobool44.i.not = icmp eq i64 %asmresult1.i.i, 0
-  br i1 %tobool44.i.not, label %do.end45.i, label %do.body30.i, !llvm.loop !188
+  br i1 %tobool44.i.not, label %do.end45.i, label %do.body30.i, !llvm.loop !187
 
 do.end45.i:                                       ; preds = %if.end43.i
   %tobool47.i.not = icmp eq i32 %asmresult1.i, 0
-  br i1 %tobool47.i.not, label %do.end48.i, label %do.body26.i, !llvm.loop !189
+  br i1 %tobool47.i.not, label %do.end48.i, label %do.body26.i, !llvm.loop !188
 
 do.end48.i:                                       ; preds = %do.end45.i
   %or.i140.i = or <2 x i64> %or.i153.i, %succ.sroa.0.11.ph
@@ -13181,7 +13181,7 @@ for.body.i.while.end.i_crit_edge.i:               ; preds = %for.body.i.i601
 
 while.body.i.i:                                   ; preds = %for.body.i.i601, %while.cond.i.backedge.i
   %chunk.i.049.i = phi i64 [ %asmresult1.i.i603, %while.cond.i.backedge.i ], [ %185, %for.body.i.i601 ]
-  %186 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !110
+  %186 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.049.i) #12, !srcloc !109
   %asmresult.i.i602 = extractvalue { i64, i64 } %186, 0
   %asmresult1.i.i603 = extractvalue { i64, i64 } %186, 1
   %187 = load i64, ptr %arrayidx26.i.phi.trans.insert.i, align 8
@@ -13207,7 +13207,7 @@ if.then.i9.i:                                     ; preds = %while.body.i.i
 
 while.cond.i.backedge.i:                          ; preds = %for.cond.i20.i, %if.end.i6.i, %if.then.i9.i
   %cmp3.i.not.i = icmp eq i64 %asmresult1.i.i603, 0
-  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !111
+  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !110
 
 if.end.i6.i:                                      ; preds = %while.body.i.i
   %idx.ext.i7.i = zext i32 %190 to i64
@@ -13220,7 +13220,7 @@ for.cond.i20.i:                                   ; preds = %for.body.i23.i
   %incdec.ptr.i.i609 = getelementptr inbounds i8, ptr %reports.addr.i.047.i, i64 4
   %193 = load i32, ptr %incdec.ptr.i.i609, align 4
   %cmp.i21.not.i = icmp eq i32 %193, -1
-  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !112
+  br i1 %cmp.i21.not.i, label %while.cond.i.backedge.i, label %for.body.i23.i, !llvm.loop !111
 
 for.body.i23.i:                                   ; preds = %if.end.i6.i, %for.cond.i20.i
   %194 = phi i32 [ %193, %for.cond.i20.i ], [ %192, %if.end.i6.i ]
@@ -13236,7 +13236,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.backed
   %add28.i.i = add i32 %base_index.i.051.i, %cast.i.i607
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %moProcessAcceptsNoSquash512.exit, label %for.body.i.i601, !llvm.loop !113
+  br i1 %exitcond.not.i, label %moProcessAcceptsNoSquash512.exit, label %for.body.i.i601, !llvm.loop !112
 
 moProcessAcceptsNoSquash512.exit.thread:          ; preds = %if.then.i9.i, %for.body.i23.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %chunks.i.i)
@@ -13517,7 +13517,7 @@ for.body.i.while.end.i_crit_edge:                 ; preds = %for.body.i
 
 while.body.i:                                     ; preds = %for.body.i, %while.cond.i.backedge
   %chunk.i.099 = phi i64 [ %asmresult1.i, %while.cond.i.backedge ], [ %32, %for.body.i ]
-  %33 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.099) #12, !srcloc !110
+  %33 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %chunk.i.099) #12, !srcloc !109
   %asmresult.i = extractvalue { i64, i64 } %33, 0
   %asmresult1.i = extractvalue { i64, i64 } %33, 1
   %34 = load i64, ptr %arrayidx22.i.phi.trans.insert, align 8
@@ -14154,356 +14154,356 @@ attributes #12 = { nounwind memory(none) }
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"load256: %agg.result"}
 !30 = distinct !{!30, !"load256"}
-!31 = !{}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"load256: %agg.result"}
-!34 = distinct !{!34, !"load256"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"load256: %agg.result"}
-!37 = distinct !{!37, !"load256"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"load256: %agg.result"}
-!40 = distinct !{!40, !"load256"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"moNfaReachMask512: %agg.result"}
-!43 = distinct !{!43, !"moNfaReachMask512"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"load256: %agg.result"}
-!46 = distinct !{!46, !"load256"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"load256: %agg.result"}
-!49 = distinct !{!49, !"load256"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"load256: %agg.result"}
-!52 = distinct !{!52, !"load256"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"load256: %agg.result"}
-!55 = distinct !{!55, !"load256"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"load256: %agg.result"}
-!58 = distinct !{!58, !"load256"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"load256: %agg.result"}
-!61 = distinct !{!61, !"load256"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"load256: %agg.result"}
-!64 = distinct !{!64, !"load256"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"load256: %agg.result"}
-!67 = distinct !{!67, !"load256"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"load256: %agg.result"}
-!70 = distinct !{!70, !"load256"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"load256: %agg.result"}
-!73 = distinct !{!73, !"load256"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"load256: %agg.result"}
+!33 = distinct !{!33, !"load256"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"load256: %agg.result"}
+!36 = distinct !{!36, !"load256"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"load256: %agg.result"}
+!39 = distinct !{!39, !"load256"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"moNfaReachMask512: %agg.result"}
+!42 = distinct !{!42, !"moNfaReachMask512"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"load256: %agg.result"}
+!45 = distinct !{!45, !"load256"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"load256: %agg.result"}
+!48 = distinct !{!48, !"load256"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"load256: %agg.result"}
+!51 = distinct !{!51, !"load256"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"load256: %agg.result"}
+!54 = distinct !{!54, !"load256"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"load256: %agg.result"}
+!57 = distinct !{!57, !"load256"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"load256: %agg.result"}
+!60 = distinct !{!60, !"load256"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"load256: %agg.result"}
+!63 = distinct !{!63, !"load256"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"load256: %agg.result"}
+!66 = distinct !{!66, !"load256"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"load256: %agg.result"}
+!69 = distinct !{!69, !"load256"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"load256: %agg.result"}
+!72 = distinct !{!72, !"load256"}
+!73 = distinct !{!73, !18}
 !74 = distinct !{!74, !18}
-!75 = distinct !{!75, !18}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"load256: %agg.result"}
-!78 = distinct !{!78, !"load256"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"load256: %agg.result"}
-!81 = distinct !{!81, !"load256"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"moNfaReachMask512: %agg.result"}
-!84 = distinct !{!84, !"moNfaReachMask512"}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"load256: %agg.result"}
-!87 = distinct !{!87, !"load256"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"load256: %agg.result"}
-!90 = distinct !{!90, !"load256"}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"load256: %agg.result"}
-!93 = distinct !{!93, !"load256"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"load256: %agg.result"}
-!96 = distinct !{!96, !"load256"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"load256: %agg.result"}
-!99 = distinct !{!99, !"load256"}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"load256: %agg.result"}
-!102 = distinct !{!102, !"load256"}
-!103 = distinct !{!103, !18}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"load256: %agg.result"}
-!106 = distinct !{!106, !"load256"}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"load256: %agg.result"}
-!109 = distinct !{!109, !"load256"}
-!110 = !{i64 4036806, i64 4036836}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"load256: %agg.result"}
+!77 = distinct !{!77, !"load256"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"load256: %agg.result"}
+!80 = distinct !{!80, !"load256"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"moNfaReachMask512: %agg.result"}
+!83 = distinct !{!83, !"moNfaReachMask512"}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"load256: %agg.result"}
+!86 = distinct !{!86, !"load256"}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"load256: %agg.result"}
+!89 = distinct !{!89, !"load256"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"load256: %agg.result"}
+!92 = distinct !{!92, !"load256"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"load256: %agg.result"}
+!95 = distinct !{!95, !"load256"}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"load256: %agg.result"}
+!98 = distinct !{!98, !"load256"}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"load256: %agg.result"}
+!101 = distinct !{!101, !"load256"}
+!102 = distinct !{!102, !18}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"load256: %agg.result"}
+!105 = distinct !{!105, !"load256"}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"load256: %agg.result"}
+!108 = distinct !{!108, !"load256"}
+!109 = !{i64 4036806, i64 4036836}
+!110 = distinct !{!110, !18}
 !111 = distinct !{!111, !18}
 !112 = distinct !{!112, !18}
-!113 = distinct !{!113, !18}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"load256: %agg.result"}
-!116 = distinct !{!116, !"load256"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"load256: %agg.result"}
-!119 = distinct !{!119, !"load256"}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"load256: %agg.result"}
-!122 = distinct !{!122, !"load256"}
-!123 = !{!124}
-!124 = distinct !{!124, !125, !"load256: %agg.result"}
-!125 = distinct !{!125, !"load256"}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"load256: %agg.result"}
-!128 = distinct !{!128, !"load256"}
-!129 = !{!130}
-!130 = distinct !{!130, !131, !"load256: %agg.result"}
-!131 = distinct !{!131, !"load256"}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"load256: %agg.result"}
-!134 = distinct !{!134, !"load256"}
-!135 = !{!136}
-!136 = distinct !{!136, !137, !"load256: %agg.result"}
-!137 = distinct !{!137, !"load256"}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"load256: %agg.result"}
-!140 = distinct !{!140, !"load256"}
-!141 = !{!142}
-!142 = distinct !{!142, !143, !"load256: %agg.result"}
-!143 = distinct !{!143, !"load256"}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"load256: %agg.result"}
-!146 = distinct !{!146, !"load256"}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"load256: %agg.result"}
-!149 = distinct !{!149, !"load256"}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"load256: %agg.result"}
-!152 = distinct !{!152, !"load256"}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"load256: %agg.result"}
-!155 = distinct !{!155, !"load256"}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"load256: %agg.result"}
-!158 = distinct !{!158, !"load256"}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"load256: %agg.result"}
-!161 = distinct !{!161, !"load256"}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"load256: %agg.result"}
-!164 = distinct !{!164, !"load256"}
-!165 = !{!166}
-!166 = distinct !{!166, !167, !"load256: %agg.result"}
-!167 = distinct !{!167, !"load256"}
-!168 = distinct !{!168, !18}
-!169 = !{i64 4036328, i64 4036357}
-!170 = !{!171}
-!171 = distinct !{!171, !172, !"load256: %agg.result"}
-!172 = distinct !{!172, !"load256"}
-!173 = !{!174}
-!174 = distinct !{!174, !175, !"load256: %agg.result"}
-!175 = distinct !{!175, !"load256"}
-!176 = !{!177}
-!177 = distinct !{!177, !178, !"load256: %agg.result"}
-!178 = distinct !{!178, !"load256"}
-!179 = !{!180}
-!180 = distinct !{!180, !181, !"load256: %agg.result"}
-!181 = distinct !{!181, !"load256"}
-!182 = !{!183}
-!183 = distinct !{!183, !184, !"load256: %agg.result"}
-!184 = distinct !{!184, !"load256"}
-!185 = !{!186}
-!186 = distinct !{!186, !187, !"load256: %agg.result"}
-!187 = distinct !{!187, !"load256"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"load256: %agg.result"}
+!115 = distinct !{!115, !"load256"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"load256: %agg.result"}
+!118 = distinct !{!118, !"load256"}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"load256: %agg.result"}
+!121 = distinct !{!121, !"load256"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"load256: %agg.result"}
+!124 = distinct !{!124, !"load256"}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"load256: %agg.result"}
+!127 = distinct !{!127, !"load256"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"load256: %agg.result"}
+!130 = distinct !{!130, !"load256"}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"load256: %agg.result"}
+!133 = distinct !{!133, !"load256"}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"load256: %agg.result"}
+!136 = distinct !{!136, !"load256"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"load256: %agg.result"}
+!139 = distinct !{!139, !"load256"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"load256: %agg.result"}
+!142 = distinct !{!142, !"load256"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"load256: %agg.result"}
+!145 = distinct !{!145, !"load256"}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"load256: %agg.result"}
+!148 = distinct !{!148, !"load256"}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"load256: %agg.result"}
+!151 = distinct !{!151, !"load256"}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"load256: %agg.result"}
+!154 = distinct !{!154, !"load256"}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"load256: %agg.result"}
+!157 = distinct !{!157, !"load256"}
+!158 = !{!159}
+!159 = distinct !{!159, !160, !"load256: %agg.result"}
+!160 = distinct !{!160, !"load256"}
+!161 = !{!162}
+!162 = distinct !{!162, !163, !"load256: %agg.result"}
+!163 = distinct !{!163, !"load256"}
+!164 = !{!165}
+!165 = distinct !{!165, !166, !"load256: %agg.result"}
+!166 = distinct !{!166, !"load256"}
+!167 = distinct !{!167, !18}
+!168 = !{i64 4036328, i64 4036357}
+!169 = !{!170}
+!170 = distinct !{!170, !171, !"load256: %agg.result"}
+!171 = distinct !{!171, !"load256"}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"load256: %agg.result"}
+!174 = distinct !{!174, !"load256"}
+!175 = !{!176}
+!176 = distinct !{!176, !177, !"load256: %agg.result"}
+!177 = distinct !{!177, !"load256"}
+!178 = !{!179}
+!179 = distinct !{!179, !180, !"load256: %agg.result"}
+!180 = distinct !{!180, !"load256"}
+!181 = !{!182}
+!182 = distinct !{!182, !183, !"load256: %agg.result"}
+!183 = distinct !{!183, !"load256"}
+!184 = !{!185}
+!185 = distinct !{!185, !186, !"load256: %agg.result"}
+!186 = distinct !{!186, !"load256"}
+!187 = distinct !{!187, !18}
 !188 = distinct !{!188, !18}
-!189 = distinct !{!189, !18}
-!190 = !{!191}
-!191 = distinct !{!191, !192, !"load256: %agg.result"}
-!192 = distinct !{!192, !"load256"}
-!193 = !{!194}
-!194 = distinct !{!194, !195, !"load256: %agg.result"}
-!195 = distinct !{!195, !"load256"}
-!196 = distinct !{!196, !18}
-!197 = !{!198}
-!198 = distinct !{!198, !199, !"load256: %agg.result"}
-!199 = distinct !{!199, !"load256"}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"load256: %agg.result"}
-!202 = distinct !{!202, !"load256"}
-!203 = !{!204}
-!204 = distinct !{!204, !205, !"load256: %agg.result"}
-!205 = distinct !{!205, !"load256"}
-!206 = !{!207}
-!207 = distinct !{!207, !208, !"load256: %agg.result"}
-!208 = distinct !{!208, !"load256"}
-!209 = !{!210}
-!210 = distinct !{!210, !211, !"load256: %agg.result"}
-!211 = distinct !{!211, !"load256"}
-!212 = !{!213}
-!213 = distinct !{!213, !214, !"load256: %agg.result"}
-!214 = distinct !{!214, !"load256"}
-!215 = !{!216}
-!216 = distinct !{!216, !217, !"load256: %agg.result"}
-!217 = distinct !{!217, !"load256"}
-!218 = !{!219}
-!219 = distinct !{!219, !220, !"load256: %agg.result"}
-!220 = distinct !{!220, !"load256"}
-!221 = !{!222}
-!222 = distinct !{!222, !223, !"load256: %agg.result"}
-!223 = distinct !{!223, !"load256"}
-!224 = !{!225}
-!225 = distinct !{!225, !226, !"load256: %agg.result"}
-!226 = distinct !{!226, !"load256"}
-!227 = !{!228}
-!228 = distinct !{!228, !229, !"load256: %agg.result"}
-!229 = distinct !{!229, !"load256"}
-!230 = !{!231}
-!231 = distinct !{!231, !232, !"load256: %agg.result"}
-!232 = distinct !{!232, !"load256"}
-!233 = !{!234}
-!234 = distinct !{!234, !235, !"load256: %agg.result"}
-!235 = distinct !{!235, !"load256"}
-!236 = !{!237}
-!237 = distinct !{!237, !238, !"load256: %agg.result"}
-!238 = distinct !{!238, !"load256"}
-!239 = !{!240}
-!240 = distinct !{!240, !241, !"load256: %agg.result"}
-!241 = distinct !{!241, !"load256"}
-!242 = !{!243}
-!243 = distinct !{!243, !244, !"load256: %agg.result"}
-!244 = distinct !{!244, !"load256"}
-!245 = !{!246}
-!246 = distinct !{!246, !247, !"load256: %agg.result"}
-!247 = distinct !{!247, !"load256"}
-!248 = !{!249}
-!249 = distinct !{!249, !250, !"load256: %agg.result"}
-!250 = distinct !{!250, !"load256"}
-!251 = !{!252}
-!252 = distinct !{!252, !253, !"load256: %agg.result"}
-!253 = distinct !{!253, !"load256"}
-!254 = !{!255}
-!255 = distinct !{!255, !256, !"load256: %agg.result"}
-!256 = distinct !{!256, !"load256"}
-!257 = !{!258}
-!258 = distinct !{!258, !259, !"load256: %agg.result"}
-!259 = distinct !{!259, !"load256"}
-!260 = !{!261}
-!261 = distinct !{!261, !262, !"load256: %agg.result"}
-!262 = distinct !{!262, !"load256"}
-!263 = !{!264}
-!264 = distinct !{!264, !265, !"load256: %agg.result"}
-!265 = distinct !{!265, !"load256"}
-!266 = !{!267}
-!267 = distinct !{!267, !268, !"load256: %agg.result"}
-!268 = distinct !{!268, !"load256"}
-!269 = !{!270}
-!270 = distinct !{!270, !271, !"load256: %agg.result"}
-!271 = distinct !{!271, !"load256"}
-!272 = !{!273}
-!273 = distinct !{!273, !274, !"load256: %agg.result"}
-!274 = distinct !{!274, !"load256"}
-!275 = !{!276}
-!276 = distinct !{!276, !277, !"load256: %agg.result"}
-!277 = distinct !{!277, !"load256"}
-!278 = !{!279}
-!279 = distinct !{!279, !280, !"load256: %agg.result"}
-!280 = distinct !{!280, !"load256"}
-!281 = !{!282}
-!282 = distinct !{!282, !283, !"load256: %agg.result"}
-!283 = distinct !{!283, !"load256"}
-!284 = !{!285}
-!285 = distinct !{!285, !286, !"load256: %agg.result"}
-!286 = distinct !{!286, !"load256"}
-!287 = !{!288}
-!288 = distinct !{!288, !289, !"load256: %agg.result"}
-!289 = distinct !{!289, !"load256"}
-!290 = !{!291}
-!291 = distinct !{!291, !292, !"load256: %agg.result"}
-!292 = distinct !{!292, !"load256"}
-!293 = !{!294}
-!294 = distinct !{!294, !295, !"load256: %agg.result"}
-!295 = distinct !{!295, !"load256"}
-!296 = !{!297}
-!297 = distinct !{!297, !298, !"load256: %agg.result"}
-!298 = distinct !{!298, !"load256"}
-!299 = !{!300}
-!300 = distinct !{!300, !301, !"load256: %agg.result"}
-!301 = distinct !{!301, !"load256"}
-!302 = !{!303}
-!303 = distinct !{!303, !304, !"load256: %agg.result"}
-!304 = distinct !{!304, !"load256"}
-!305 = !{!306}
-!306 = distinct !{!306, !307, !"load256: %agg.result"}
-!307 = distinct !{!307, !"load256"}
-!308 = !{!309}
-!309 = distinct !{!309, !310, !"load256: %agg.result"}
-!310 = distinct !{!310, !"load256"}
-!311 = !{!312}
-!312 = distinct !{!312, !313, !"load256: %agg.result"}
-!313 = distinct !{!313, !"load256"}
-!314 = !{!315}
-!315 = distinct !{!315, !316, !"load256: %agg.result"}
-!316 = distinct !{!316, !"load256"}
-!317 = !{!318}
-!318 = distinct !{!318, !319, !"load256: %agg.result"}
-!319 = distinct !{!319, !"load256"}
-!320 = !{!321}
-!321 = distinct !{!321, !322, !"load256: %agg.result"}
-!322 = distinct !{!322, !"load256"}
-!323 = !{!324}
-!324 = distinct !{!324, !325, !"load256: %agg.result"}
-!325 = distinct !{!325, !"load256"}
-!326 = !{!327}
-!327 = distinct !{!327, !328, !"load256: %agg.result"}
-!328 = distinct !{!328, !"load256"}
-!329 = !{!330}
-!330 = distinct !{!330, !331, !"load256: %agg.result"}
-!331 = distinct !{!331, !"load256"}
-!332 = !{!333}
-!333 = distinct !{!333, !334, !"load256: %agg.result"}
-!334 = distinct !{!334, !"load256"}
-!335 = !{!336}
-!336 = distinct !{!336, !337, !"load256: %agg.result"}
-!337 = distinct !{!337, !"load256"}
-!338 = !{!339}
-!339 = distinct !{!339, !340, !"load256: %agg.result"}
-!340 = distinct !{!340, !"load256"}
-!341 = !{!342}
-!342 = distinct !{!342, !343, !"load256: %agg.result"}
-!343 = distinct !{!343, !"load256"}
-!344 = !{!345}
-!345 = distinct !{!345, !346, !"load256: %agg.result"}
-!346 = distinct !{!346, !"load256"}
-!347 = !{!348}
-!348 = distinct !{!348, !349, !"load256: %agg.result"}
-!349 = distinct !{!349, !"load256"}
-!350 = !{!351}
-!351 = distinct !{!351, !352, !"load256: %agg.result"}
-!352 = distinct !{!352, !"load256"}
-!353 = !{!354}
-!354 = distinct !{!354, !355, !"load256: %agg.result"}
-!355 = distinct !{!355, !"load256"}
-!356 = !{!357}
-!357 = distinct !{!357, !358, !"load256: %agg.result"}
-!358 = distinct !{!358, !"load256"}
-!359 = !{!360}
-!360 = distinct !{!360, !361, !"load256: %agg.result"}
-!361 = distinct !{!361, !"load256"}
-!362 = !{!363}
-!363 = distinct !{!363, !364, !"load256: %agg.result"}
-!364 = distinct !{!364, !"load256"}
-!365 = distinct !{!365, !18}
-!366 = !{!367}
-!367 = distinct !{!367, !368, !"load256: %agg.result"}
-!368 = distinct !{!368, !"load256"}
-!369 = !{!370}
-!370 = distinct !{!370, !371, !"load256: %agg.result"}
-!371 = distinct !{!371, !"load256"}
-!372 = !{!373}
-!373 = distinct !{!373, !374, !"load256: %agg.result"}
-!374 = distinct !{!374, !"load256"}
-!375 = !{!376}
-!376 = distinct !{!376, !377, !"load256: %agg.result"}
-!377 = distinct !{!377, !"load256"}
-!378 = !{!379}
-!379 = distinct !{!379, !380, !"moNfaTopN512: %agg.result"}
-!380 = distinct !{!380, !"moNfaTopN512"}
+!189 = !{!190}
+!190 = distinct !{!190, !191, !"load256: %agg.result"}
+!191 = distinct !{!191, !"load256"}
+!192 = !{!193}
+!193 = distinct !{!193, !194, !"load256: %agg.result"}
+!194 = distinct !{!194, !"load256"}
+!195 = distinct !{!195, !18}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"load256: %agg.result"}
+!198 = distinct !{!198, !"load256"}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"load256: %agg.result"}
+!201 = distinct !{!201, !"load256"}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"load256: %agg.result"}
+!204 = distinct !{!204, !"load256"}
+!205 = !{!206}
+!206 = distinct !{!206, !207, !"load256: %agg.result"}
+!207 = distinct !{!207, !"load256"}
+!208 = !{!209}
+!209 = distinct !{!209, !210, !"load256: %agg.result"}
+!210 = distinct !{!210, !"load256"}
+!211 = !{!212}
+!212 = distinct !{!212, !213, !"load256: %agg.result"}
+!213 = distinct !{!213, !"load256"}
+!214 = !{!215}
+!215 = distinct !{!215, !216, !"load256: %agg.result"}
+!216 = distinct !{!216, !"load256"}
+!217 = !{!218}
+!218 = distinct !{!218, !219, !"load256: %agg.result"}
+!219 = distinct !{!219, !"load256"}
+!220 = !{!221}
+!221 = distinct !{!221, !222, !"load256: %agg.result"}
+!222 = distinct !{!222, !"load256"}
+!223 = !{!224}
+!224 = distinct !{!224, !225, !"load256: %agg.result"}
+!225 = distinct !{!225, !"load256"}
+!226 = !{!227}
+!227 = distinct !{!227, !228, !"load256: %agg.result"}
+!228 = distinct !{!228, !"load256"}
+!229 = !{!230}
+!230 = distinct !{!230, !231, !"load256: %agg.result"}
+!231 = distinct !{!231, !"load256"}
+!232 = !{!233}
+!233 = distinct !{!233, !234, !"load256: %agg.result"}
+!234 = distinct !{!234, !"load256"}
+!235 = !{!236}
+!236 = distinct !{!236, !237, !"load256: %agg.result"}
+!237 = distinct !{!237, !"load256"}
+!238 = !{!239}
+!239 = distinct !{!239, !240, !"load256: %agg.result"}
+!240 = distinct !{!240, !"load256"}
+!241 = !{!242}
+!242 = distinct !{!242, !243, !"load256: %agg.result"}
+!243 = distinct !{!243, !"load256"}
+!244 = !{!245}
+!245 = distinct !{!245, !246, !"load256: %agg.result"}
+!246 = distinct !{!246, !"load256"}
+!247 = !{!248}
+!248 = distinct !{!248, !249, !"load256: %agg.result"}
+!249 = distinct !{!249, !"load256"}
+!250 = !{!251}
+!251 = distinct !{!251, !252, !"load256: %agg.result"}
+!252 = distinct !{!252, !"load256"}
+!253 = !{!254}
+!254 = distinct !{!254, !255, !"load256: %agg.result"}
+!255 = distinct !{!255, !"load256"}
+!256 = !{!257}
+!257 = distinct !{!257, !258, !"load256: %agg.result"}
+!258 = distinct !{!258, !"load256"}
+!259 = !{!260}
+!260 = distinct !{!260, !261, !"load256: %agg.result"}
+!261 = distinct !{!261, !"load256"}
+!262 = !{!263}
+!263 = distinct !{!263, !264, !"load256: %agg.result"}
+!264 = distinct !{!264, !"load256"}
+!265 = !{!266}
+!266 = distinct !{!266, !267, !"load256: %agg.result"}
+!267 = distinct !{!267, !"load256"}
+!268 = !{!269}
+!269 = distinct !{!269, !270, !"load256: %agg.result"}
+!270 = distinct !{!270, !"load256"}
+!271 = !{!272}
+!272 = distinct !{!272, !273, !"load256: %agg.result"}
+!273 = distinct !{!273, !"load256"}
+!274 = !{!275}
+!275 = distinct !{!275, !276, !"load256: %agg.result"}
+!276 = distinct !{!276, !"load256"}
+!277 = !{!278}
+!278 = distinct !{!278, !279, !"load256: %agg.result"}
+!279 = distinct !{!279, !"load256"}
+!280 = !{!281}
+!281 = distinct !{!281, !282, !"load256: %agg.result"}
+!282 = distinct !{!282, !"load256"}
+!283 = !{!284}
+!284 = distinct !{!284, !285, !"load256: %agg.result"}
+!285 = distinct !{!285, !"load256"}
+!286 = !{!287}
+!287 = distinct !{!287, !288, !"load256: %agg.result"}
+!288 = distinct !{!288, !"load256"}
+!289 = !{!290}
+!290 = distinct !{!290, !291, !"load256: %agg.result"}
+!291 = distinct !{!291, !"load256"}
+!292 = !{!293}
+!293 = distinct !{!293, !294, !"load256: %agg.result"}
+!294 = distinct !{!294, !"load256"}
+!295 = !{!296}
+!296 = distinct !{!296, !297, !"load256: %agg.result"}
+!297 = distinct !{!297, !"load256"}
+!298 = !{!299}
+!299 = distinct !{!299, !300, !"load256: %agg.result"}
+!300 = distinct !{!300, !"load256"}
+!301 = !{!302}
+!302 = distinct !{!302, !303, !"load256: %agg.result"}
+!303 = distinct !{!303, !"load256"}
+!304 = !{!305}
+!305 = distinct !{!305, !306, !"load256: %agg.result"}
+!306 = distinct !{!306, !"load256"}
+!307 = !{!308}
+!308 = distinct !{!308, !309, !"load256: %agg.result"}
+!309 = distinct !{!309, !"load256"}
+!310 = !{!311}
+!311 = distinct !{!311, !312, !"load256: %agg.result"}
+!312 = distinct !{!312, !"load256"}
+!313 = !{!314}
+!314 = distinct !{!314, !315, !"load256: %agg.result"}
+!315 = distinct !{!315, !"load256"}
+!316 = !{!317}
+!317 = distinct !{!317, !318, !"load256: %agg.result"}
+!318 = distinct !{!318, !"load256"}
+!319 = !{!320}
+!320 = distinct !{!320, !321, !"load256: %agg.result"}
+!321 = distinct !{!321, !"load256"}
+!322 = !{!323}
+!323 = distinct !{!323, !324, !"load256: %agg.result"}
+!324 = distinct !{!324, !"load256"}
+!325 = !{!326}
+!326 = distinct !{!326, !327, !"load256: %agg.result"}
+!327 = distinct !{!327, !"load256"}
+!328 = !{!329}
+!329 = distinct !{!329, !330, !"load256: %agg.result"}
+!330 = distinct !{!330, !"load256"}
+!331 = !{!332}
+!332 = distinct !{!332, !333, !"load256: %agg.result"}
+!333 = distinct !{!333, !"load256"}
+!334 = !{!335}
+!335 = distinct !{!335, !336, !"load256: %agg.result"}
+!336 = distinct !{!336, !"load256"}
+!337 = !{!338}
+!338 = distinct !{!338, !339, !"load256: %agg.result"}
+!339 = distinct !{!339, !"load256"}
+!340 = !{!341}
+!341 = distinct !{!341, !342, !"load256: %agg.result"}
+!342 = distinct !{!342, !"load256"}
+!343 = !{!344}
+!344 = distinct !{!344, !345, !"load256: %agg.result"}
+!345 = distinct !{!345, !"load256"}
+!346 = !{!347}
+!347 = distinct !{!347, !348, !"load256: %agg.result"}
+!348 = distinct !{!348, !"load256"}
+!349 = !{!350}
+!350 = distinct !{!350, !351, !"load256: %agg.result"}
+!351 = distinct !{!351, !"load256"}
+!352 = !{!353}
+!353 = distinct !{!353, !354, !"load256: %agg.result"}
+!354 = distinct !{!354, !"load256"}
+!355 = !{!356}
+!356 = distinct !{!356, !357, !"load256: %agg.result"}
+!357 = distinct !{!357, !"load256"}
+!358 = !{!359}
+!359 = distinct !{!359, !360, !"load256: %agg.result"}
+!360 = distinct !{!360, !"load256"}
+!361 = !{!362}
+!362 = distinct !{!362, !363, !"load256: %agg.result"}
+!363 = distinct !{!363, !"load256"}
+!364 = distinct !{!364, !18}
+!365 = !{!366}
+!366 = distinct !{!366, !367, !"load256: %agg.result"}
+!367 = distinct !{!367, !"load256"}
+!368 = !{!369}
+!369 = distinct !{!369, !370, !"load256: %agg.result"}
+!370 = distinct !{!370, !"load256"}
+!371 = !{!372}
+!372 = distinct !{!372, !373, !"load256: %agg.result"}
+!373 = distinct !{!373, !"load256"}
+!374 = !{!375}
+!375 = distinct !{!375, !376, !"load256: %agg.result"}
+!376 = distinct !{!376, !"load256"}
+!377 = !{!378}
+!378 = distinct !{!378, !379, !"moNfaTopN512: %agg.result"}
+!379 = distinct !{!379, !"moNfaTopN512"}
+!380 = !{}
 !381 = distinct !{!381, !18}
 !382 = !{!383}
 !383 = distinct !{!383, !384, !"load256: %agg.result"}

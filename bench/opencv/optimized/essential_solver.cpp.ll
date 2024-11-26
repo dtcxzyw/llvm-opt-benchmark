@@ -1590,6 +1590,7 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   br i1 %exitcond666.not, label %662, label %.preheader583, !llvm.loop !103
 
 662:                                              ; preds = %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit
+  call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %663 = load double, ptr %190, align 16, !noalias !104
   %664 = load double, ptr %218, align 16, !noalias !104
   %665 = fmul double %663, %664
@@ -1620,48 +1621,49 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %690 = fmul double %674, %685
   %691 = call double @llvm.fmuladd.f64(double %676, double %683, double %690)
   %692 = fmul double %683, %685
-  store double %665, ptr %56, align 8, !alias.scope !105
+  store double %665, ptr %56, align 8, !alias.scope !104
   %.sroa.2.0..sroa_idx.i398 = getelementptr inbounds i8, ptr %56, i64 8
-  store double %671, ptr %.sroa.2.0..sroa_idx.i398, align 8, !alias.scope !105
+  store double %671, ptr %.sroa.2.0..sroa_idx.i398, align 8, !alias.scope !104
   %.sroa.3.0..sroa_idx.i399 = getelementptr inbounds i8, ptr %56, i64 16
-  store double %672, ptr %.sroa.3.0..sroa_idx.i399, align 8, !alias.scope !105
+  store double %672, ptr %.sroa.3.0..sroa_idx.i399, align 8, !alias.scope !104
   %.sroa.4.0..sroa_idx.i400 = getelementptr inbounds i8, ptr %56, i64 24
-  store double %678, ptr %.sroa.4.0..sroa_idx.i400, align 8, !alias.scope !105
+  store double %678, ptr %.sroa.4.0..sroa_idx.i400, align 8, !alias.scope !104
   %.sroa.5.0..sroa_idx.i401 = getelementptr inbounds i8, ptr %56, i64 32
-  store double %680, ptr %.sroa.5.0..sroa_idx.i401, align 8, !alias.scope !105
+  store double %680, ptr %.sroa.5.0..sroa_idx.i401, align 8, !alias.scope !104
   %.sroa.6.0..sroa_idx.i402 = getelementptr inbounds i8, ptr %56, i64 40
-  store double %681, ptr %.sroa.6.0..sroa_idx.i402, align 8, !alias.scope !105
+  store double %681, ptr %.sroa.6.0..sroa_idx.i402, align 8, !alias.scope !104
   %.sroa.7.0..sroa_idx.i403 = getelementptr inbounds i8, ptr %56, i64 48
-  store double %687, ptr %.sroa.7.0..sroa_idx.i403, align 8, !alias.scope !105
+  store double %687, ptr %.sroa.7.0..sroa_idx.i403, align 8, !alias.scope !104
   %.sroa.8.0..sroa_idx.i404 = getelementptr inbounds i8, ptr %56, i64 56
-  store double %689, ptr %.sroa.8.0..sroa_idx.i404, align 8, !alias.scope !105
+  store double %689, ptr %.sroa.8.0..sroa_idx.i404, align 8, !alias.scope !104
   %.sroa.9.0..sroa_idx.i405 = getelementptr inbounds i8, ptr %56, i64 64
-  store double %691, ptr %.sroa.9.0..sroa_idx.i405, align 8, !alias.scope !105
+  store double %691, ptr %.sroa.9.0..sroa_idx.i405, align 8, !alias.scope !104
   %.sroa.10.0..sroa_idx.i406 = getelementptr inbounds i8, ptr %56, i64 72
-  store double %692, ptr %.sroa.10.0..sroa_idx.i406, align 8, !alias.scope !105
-  %693 = load double, ptr %197, align 16, !noalias !104
-  %694 = load double, ptr %211, align 16, !noalias !104
+  store double %692, ptr %.sroa.10.0..sroa_idx.i406, align 8, !alias.scope !104
+  call void @llvm.experimental.noalias.scope.decl(metadata !107)
+  %693 = load double, ptr %197, align 16, !noalias !107
+  %694 = load double, ptr %211, align 16, !noalias !107
   %695 = fmul double %693, %694
   %696 = getelementptr inbounds i8, ptr %29, i64 136
-  %697 = load double, ptr %696, align 8, !noalias !104
+  %697 = load double, ptr %696, align 8, !noalias !107
   %698 = getelementptr inbounds i8, ptr %29, i64 72
-  %699 = load double, ptr %698, align 8, !noalias !104
+  %699 = load double, ptr %698, align 8, !noalias !107
   %700 = fmul double %694, %699
   %701 = call double @llvm.fmuladd.f64(double %693, double %697, double %700)
   %702 = fmul double %697, %699
   %703 = getelementptr inbounds i8, ptr %29, i64 144
-  %704 = load double, ptr %703, align 16, !noalias !104
+  %704 = load double, ptr %703, align 16, !noalias !107
   %705 = getelementptr inbounds i8, ptr %29, i64 80
-  %706 = load double, ptr %705, align 16, !noalias !104
+  %706 = load double, ptr %705, align 16, !noalias !107
   %707 = fmul double %694, %706
   %708 = call double @llvm.fmuladd.f64(double %693, double %704, double %707)
   %709 = fmul double %697, %706
   %710 = call double @llvm.fmuladd.f64(double %699, double %704, double %709)
   %711 = fmul double %704, %706
   %712 = getelementptr inbounds i8, ptr %29, i64 152
-  %713 = load double, ptr %712, align 8, !noalias !104
+  %713 = load double, ptr %712, align 8, !noalias !107
   %714 = getelementptr inbounds i8, ptr %29, i64 88
-  %715 = load double, ptr %714, align 8, !noalias !104
+  %715 = load double, ptr %714, align 8, !noalias !107
   %716 = fmul double %694, %715
   %717 = call double @llvm.fmuladd.f64(double %693, double %713, double %716)
   %718 = fmul double %697, %715
@@ -1669,75 +1671,75 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %720 = fmul double %704, %715
   %721 = call double @llvm.fmuladd.f64(double %706, double %713, double %720)
   %722 = fmul double %713, %715
-  store double %695, ptr %57, align 8, !alias.scope !108
+  store double %695, ptr %57, align 8, !alias.scope !107
   %.sroa.2.0..sroa_idx.i407 = getelementptr inbounds i8, ptr %57, i64 8
-  store double %701, ptr %.sroa.2.0..sroa_idx.i407, align 8, !alias.scope !108
+  store double %701, ptr %.sroa.2.0..sroa_idx.i407, align 8, !alias.scope !107
   %.sroa.3.0..sroa_idx.i408 = getelementptr inbounds i8, ptr %57, i64 16
-  store double %702, ptr %.sroa.3.0..sroa_idx.i408, align 8, !alias.scope !108
+  store double %702, ptr %.sroa.3.0..sroa_idx.i408, align 8, !alias.scope !107
   %.sroa.4.0..sroa_idx.i409 = getelementptr inbounds i8, ptr %57, i64 24
-  store double %708, ptr %.sroa.4.0..sroa_idx.i409, align 8, !alias.scope !108
+  store double %708, ptr %.sroa.4.0..sroa_idx.i409, align 8, !alias.scope !107
   %.sroa.5.0..sroa_idx.i410 = getelementptr inbounds i8, ptr %57, i64 32
-  store double %710, ptr %.sroa.5.0..sroa_idx.i410, align 8, !alias.scope !108
+  store double %710, ptr %.sroa.5.0..sroa_idx.i410, align 8, !alias.scope !107
   %.sroa.6.0..sroa_idx.i411 = getelementptr inbounds i8, ptr %57, i64 40
-  store double %711, ptr %.sroa.6.0..sroa_idx.i411, align 8, !alias.scope !108
+  store double %711, ptr %.sroa.6.0..sroa_idx.i411, align 8, !alias.scope !107
   %.sroa.7.0..sroa_idx.i412 = getelementptr inbounds i8, ptr %57, i64 48
-  store double %717, ptr %.sroa.7.0..sroa_idx.i412, align 8, !alias.scope !108
+  store double %717, ptr %.sroa.7.0..sroa_idx.i412, align 8, !alias.scope !107
   %.sroa.8.0..sroa_idx.i413 = getelementptr inbounds i8, ptr %57, i64 56
-  store double %719, ptr %.sroa.8.0..sroa_idx.i413, align 8, !alias.scope !108
+  store double %719, ptr %.sroa.8.0..sroa_idx.i413, align 8, !alias.scope !107
   %.sroa.9.0..sroa_idx.i414 = getelementptr inbounds i8, ptr %57, i64 64
-  store double %721, ptr %.sroa.9.0..sroa_idx.i414, align 8, !alias.scope !108
+  store double %721, ptr %.sroa.9.0..sroa_idx.i414, align 8, !alias.scope !107
   %.sroa.10.0..sroa_idx.i415 = getelementptr inbounds i8, ptr %57, i64 72
-  store double %722, ptr %.sroa.10.0..sroa_idx.i415, align 8, !alias.scope !108
-  call void @llvm.experimental.noalias.scope.decl(metadata !111)
+  store double %722, ptr %.sroa.10.0..sroa_idx.i415, align 8, !alias.scope !107
+  call void @llvm.experimental.noalias.scope.decl(metadata !110)
   br label %723
 
 723:                                              ; preds = %723, %662
   %indvars.iv.i.i416 = phi i64 [ 0, %662 ], [ %indvars.iv.next.i.i417, %723 ]
   %724 = getelementptr inbounds [10 x double], ptr %56, i64 0, i64 %indvars.iv.i.i416
-  %725 = load double, ptr %724, align 8, !noalias !111
+  %725 = load double, ptr %724, align 8, !noalias !110
   %726 = getelementptr inbounds [10 x double], ptr %57, i64 0, i64 %indvars.iv.i.i416
-  %727 = load double, ptr %726, align 8, !noalias !111
+  %727 = load double, ptr %726, align 8, !noalias !110
   %728 = fsub double %725, %727
   %729 = getelementptr inbounds [10 x double], ptr %55, i64 0, i64 %indvars.iv.i.i416
-  store double %728, ptr %729, align 8, !alias.scope !111
+  store double %728, ptr %729, align 8, !alias.scope !110
   %indvars.iv.next.i.i417 = add nuw nsw i64 %indvars.iv.i.i416, 1
   %exitcond.not.i.i418 = icmp eq i64 %indvars.iv.next.i.i417, 10
   br i1 %exitcond.not.i.i418, label %730, label %723, !llvm.loop !76
 
 730:                                              ; preds = %723
-  call void @llvm.experimental.noalias.scope.decl(metadata !114)
-  %731 = load double, ptr %55, align 8, !noalias !114
-  %732 = load double, ptr %225, align 16, !noalias !114
+  call void @llvm.experimental.noalias.scope.decl(metadata !113)
+  %731 = load double, ptr %55, align 8, !noalias !113
+  %732 = load double, ptr %225, align 16, !noalias !113
   %733 = fmul double %731, %732
   %734 = getelementptr inbounds i8, ptr %55, i64 16
-  %735 = load double, ptr %734, align 8, !noalias !114
+  %735 = load double, ptr %734, align 8, !noalias !113
   %736 = getelementptr inbounds i8, ptr %29, i64 200
-  %737 = load double, ptr %736, align 8, !noalias !114
+  %737 = load double, ptr %736, align 8, !noalias !113
   %738 = fmul double %735, %737
   %739 = getelementptr inbounds i8, ptr %55, i64 8
-  %740 = load double, ptr %739, align 8, !noalias !114
+  %740 = load double, ptr %739, align 8, !noalias !113
   %741 = fmul double %732, %740
   %742 = call double @llvm.fmuladd.f64(double %731, double %737, double %741)
   %743 = fmul double %732, %735
   %744 = call double @llvm.fmuladd.f64(double %740, double %737, double %743)
   %745 = getelementptr inbounds i8, ptr %29, i64 208
-  %746 = load double, ptr %745, align 16, !noalias !114
+  %746 = load double, ptr %745, align 16, !noalias !113
   %747 = getelementptr inbounds i8, ptr %55, i64 24
-  %748 = load double, ptr %747, align 8, !noalias !114
+  %748 = load double, ptr %747, align 8, !noalias !113
   %749 = fmul double %732, %748
   %750 = call double @llvm.fmuladd.f64(double %731, double %746, double %749)
   %751 = getelementptr inbounds i8, ptr %29, i64 216
-  %752 = load double, ptr %751, align 8, !noalias !114
+  %752 = load double, ptr %751, align 8, !noalias !113
   %753 = getelementptr inbounds i8, ptr %55, i64 48
-  %754 = load double, ptr %753, align 8, !noalias !114
+  %754 = load double, ptr %753, align 8, !noalias !113
   %755 = fmul double %732, %754
   %756 = call double @llvm.fmuladd.f64(double %731, double %752, double %755)
   %757 = getelementptr inbounds i8, ptr %55, i64 32
-  %758 = load double, ptr %757, align 8, !noalias !114
+  %758 = load double, ptr %757, align 8, !noalias !113
   %759 = fmul double %737, %758
   %760 = call double @llvm.fmuladd.f64(double %735, double %746, double %759)
   %761 = getelementptr inbounds i8, ptr %55, i64 56
-  %762 = load double, ptr %761, align 8, !noalias !114
+  %762 = load double, ptr %761, align 8, !noalias !113
   %763 = fmul double %737, %762
   %764 = call double @llvm.fmuladd.f64(double %735, double %752, double %763)
   %765 = fmul double %737, %748
@@ -1747,16 +1749,16 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %769 = call double @llvm.fmuladd.f64(double %740, double %752, double %768)
   %770 = call double @llvm.fmuladd.f64(double %762, double %732, double %769)
   %771 = getelementptr inbounds i8, ptr %55, i64 40
-  %772 = load double, ptr %771, align 8, !noalias !114
+  %772 = load double, ptr %771, align 8, !noalias !113
   %773 = fmul double %732, %772
   %774 = call double @llvm.fmuladd.f64(double %748, double %746, double %773)
   %775 = fmul double %746, %754
   %776 = call double @llvm.fmuladd.f64(double %748, double %752, double %775)
   %777 = getelementptr inbounds i8, ptr %55, i64 64
-  %778 = load double, ptr %777, align 8, !noalias !114
+  %778 = load double, ptr %777, align 8, !noalias !113
   %779 = call double @llvm.fmuladd.f64(double %778, double %732, double %776)
   %780 = getelementptr inbounds i8, ptr %55, i64 72
-  %781 = load double, ptr %780, align 8, !noalias !114
+  %781 = load double, ptr %780, align 8, !noalias !113
   %782 = fmul double %732, %781
   %783 = call double @llvm.fmuladd.f64(double %754, double %752, double %782)
   %784 = fmul double %737, %772
@@ -1772,61 +1774,62 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %794 = fmul double %746, %781
   %795 = call double @llvm.fmuladd.f64(double %778, double %752, double %794)
   %796 = fmul double %752, %781
-  store double %733, ptr %54, align 8, !alias.scope !114
+  store double %733, ptr %54, align 8, !alias.scope !113
   %.sroa.2.0..sroa_idx.i420 = getelementptr inbounds i8, ptr %54, i64 8
-  store double %738, ptr %.sroa.2.0..sroa_idx.i420, align 8, !alias.scope !114
+  store double %738, ptr %.sroa.2.0..sroa_idx.i420, align 8, !alias.scope !113
   %.sroa.3.0..sroa_idx.i421 = getelementptr inbounds i8, ptr %54, i64 16
-  store double %742, ptr %.sroa.3.0..sroa_idx.i421, align 8, !alias.scope !114
+  store double %742, ptr %.sroa.3.0..sroa_idx.i421, align 8, !alias.scope !113
   %.sroa.4.0..sroa_idx.i422 = getelementptr inbounds i8, ptr %54, i64 24
-  store double %744, ptr %.sroa.4.0..sroa_idx.i422, align 8, !alias.scope !114
+  store double %744, ptr %.sroa.4.0..sroa_idx.i422, align 8, !alias.scope !113
   %.sroa.5.0..sroa_idx.i423 = getelementptr inbounds i8, ptr %54, i64 32
-  store double %750, ptr %.sroa.5.0..sroa_idx.i423, align 8, !alias.scope !114
+  store double %750, ptr %.sroa.5.0..sroa_idx.i423, align 8, !alias.scope !113
   %.sroa.6.0..sroa_idx.i424 = getelementptr inbounds i8, ptr %54, i64 40
-  store double %756, ptr %.sroa.6.0..sroa_idx.i424, align 8, !alias.scope !114
+  store double %756, ptr %.sroa.6.0..sroa_idx.i424, align 8, !alias.scope !113
   %.sroa.7.0..sroa_idx.i425 = getelementptr inbounds i8, ptr %54, i64 48
-  store double %760, ptr %.sroa.7.0..sroa_idx.i425, align 8, !alias.scope !114
+  store double %760, ptr %.sroa.7.0..sroa_idx.i425, align 8, !alias.scope !113
   %.sroa.8.0..sroa_idx.i426 = getelementptr inbounds i8, ptr %54, i64 56
-  store double %764, ptr %.sroa.8.0..sroa_idx.i426, align 8, !alias.scope !114
+  store double %764, ptr %.sroa.8.0..sroa_idx.i426, align 8, !alias.scope !113
   %.sroa.9.0..sroa_idx.i427 = getelementptr inbounds i8, ptr %54, i64 64
-  store double %767, ptr %.sroa.9.0..sroa_idx.i427, align 8, !alias.scope !114
+  store double %767, ptr %.sroa.9.0..sroa_idx.i427, align 8, !alias.scope !113
   %.sroa.10.0..sroa_idx.i428 = getelementptr inbounds i8, ptr %54, i64 72
-  store double %770, ptr %.sroa.10.0..sroa_idx.i428, align 8, !alias.scope !114
+  store double %770, ptr %.sroa.10.0..sroa_idx.i428, align 8, !alias.scope !113
   %.sroa.11.0..sroa_idx.i429 = getelementptr inbounds i8, ptr %54, i64 80
-  store double %774, ptr %.sroa.11.0..sroa_idx.i429, align 8, !alias.scope !114
+  store double %774, ptr %.sroa.11.0..sroa_idx.i429, align 8, !alias.scope !113
   %.sroa.12.0..sroa_idx.i430 = getelementptr inbounds i8, ptr %54, i64 88
-  store double %779, ptr %.sroa.12.0..sroa_idx.i430, align 8, !alias.scope !114
+  store double %779, ptr %.sroa.12.0..sroa_idx.i430, align 8, !alias.scope !113
   %.sroa.13.0..sroa_idx.i431 = getelementptr inbounds i8, ptr %54, i64 96
-  store double %783, ptr %.sroa.13.0..sroa_idx.i431, align 8, !alias.scope !114
+  store double %783, ptr %.sroa.13.0..sroa_idx.i431, align 8, !alias.scope !113
   %.sroa.14.0..sroa_idx.i432 = getelementptr inbounds i8, ptr %54, i64 104
-  store double %785, ptr %.sroa.14.0..sroa_idx.i432, align 8, !alias.scope !114
+  store double %785, ptr %.sroa.14.0..sroa_idx.i432, align 8, !alias.scope !113
   %.sroa.15.0..sroa_idx.i433 = getelementptr inbounds i8, ptr %54, i64 112
-  store double %788, ptr %.sroa.15.0..sroa_idx.i433, align 8, !alias.scope !114
+  store double %788, ptr %.sroa.15.0..sroa_idx.i433, align 8, !alias.scope !113
   %.sroa.16.0..sroa_idx.i434 = getelementptr inbounds i8, ptr %54, i64 120
-  store double %790, ptr %.sroa.16.0..sroa_idx.i434, align 8, !alias.scope !114
+  store double %790, ptr %.sroa.16.0..sroa_idx.i434, align 8, !alias.scope !113
   %.sroa.17.0..sroa_idx.i435 = getelementptr inbounds i8, ptr %54, i64 128
-  store double %791, ptr %.sroa.17.0..sroa_idx.i435, align 8, !alias.scope !114
+  store double %791, ptr %.sroa.17.0..sroa_idx.i435, align 8, !alias.scope !113
   %.sroa.18.0..sroa_idx.i436 = getelementptr inbounds i8, ptr %54, i64 136
-  store double %793, ptr %.sroa.18.0..sroa_idx.i436, align 8, !alias.scope !114
+  store double %793, ptr %.sroa.18.0..sroa_idx.i436, align 8, !alias.scope !113
   %.sroa.19.0..sroa_idx.i437 = getelementptr inbounds i8, ptr %54, i64 144
-  store double %795, ptr %.sroa.19.0..sroa_idx.i437, align 8, !alias.scope !114
+  store double %795, ptr %.sroa.19.0..sroa_idx.i437, align 8, !alias.scope !113
   %.sroa.20.0..sroa_idx.i438 = getelementptr inbounds i8, ptr %54, i64 152
-  store double %796, ptr %.sroa.20.0..sroa_idx.i438, align 8, !alias.scope !114
-  %797 = load double, ptr %204, align 16, !noalias !104
+  store double %796, ptr %.sroa.20.0..sroa_idx.i438, align 8, !alias.scope !113
+  call void @llvm.experimental.noalias.scope.decl(metadata !116)
+  %797 = load double, ptr %204, align 16, !noalias !116
   %798 = fmul double %693, %797
   %799 = getelementptr inbounds i8, ptr %29, i64 104
-  %800 = load double, ptr %799, align 8, !noalias !104
+  %800 = load double, ptr %799, align 8, !noalias !116
   %801 = fmul double %699, %797
   %802 = call double @llvm.fmuladd.f64(double %693, double %800, double %801)
   %803 = fmul double %699, %800
   %804 = getelementptr inbounds i8, ptr %29, i64 112
-  %805 = load double, ptr %804, align 16, !noalias !104
+  %805 = load double, ptr %804, align 16, !noalias !116
   %806 = fmul double %706, %797
   %807 = call double @llvm.fmuladd.f64(double %693, double %805, double %806)
   %808 = fmul double %706, %800
   %809 = call double @llvm.fmuladd.f64(double %699, double %805, double %808)
   %810 = fmul double %706, %805
   %811 = getelementptr inbounds i8, ptr %29, i64 120
-  %812 = load double, ptr %811, align 8, !noalias !104
+  %812 = load double, ptr %811, align 8, !noalias !116
   %813 = fmul double %715, %797
   %814 = call double @llvm.fmuladd.f64(double %693, double %812, double %813)
   %815 = fmul double %715, %800
@@ -1834,41 +1837,42 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %817 = fmul double %715, %805
   %818 = call double @llvm.fmuladd.f64(double %706, double %812, double %817)
   %819 = fmul double %715, %812
-  store double %798, ptr %60, align 8, !alias.scope !117
+  store double %798, ptr %60, align 8, !alias.scope !116
   %.sroa.2.0..sroa_idx.i439 = getelementptr inbounds i8, ptr %60, i64 8
-  store double %802, ptr %.sroa.2.0..sroa_idx.i439, align 8, !alias.scope !117
+  store double %802, ptr %.sroa.2.0..sroa_idx.i439, align 8, !alias.scope !116
   %.sroa.3.0..sroa_idx.i440 = getelementptr inbounds i8, ptr %60, i64 16
-  store double %803, ptr %.sroa.3.0..sroa_idx.i440, align 8, !alias.scope !117
+  store double %803, ptr %.sroa.3.0..sroa_idx.i440, align 8, !alias.scope !116
   %.sroa.4.0..sroa_idx.i441 = getelementptr inbounds i8, ptr %60, i64 24
-  store double %807, ptr %.sroa.4.0..sroa_idx.i441, align 8, !alias.scope !117
+  store double %807, ptr %.sroa.4.0..sroa_idx.i441, align 8, !alias.scope !116
   %.sroa.5.0..sroa_idx.i442 = getelementptr inbounds i8, ptr %60, i64 32
-  store double %809, ptr %.sroa.5.0..sroa_idx.i442, align 8, !alias.scope !117
+  store double %809, ptr %.sroa.5.0..sroa_idx.i442, align 8, !alias.scope !116
   %.sroa.6.0..sroa_idx.i443 = getelementptr inbounds i8, ptr %60, i64 40
-  store double %810, ptr %.sroa.6.0..sroa_idx.i443, align 8, !alias.scope !117
+  store double %810, ptr %.sroa.6.0..sroa_idx.i443, align 8, !alias.scope !116
   %.sroa.7.0..sroa_idx.i444 = getelementptr inbounds i8, ptr %60, i64 48
-  store double %814, ptr %.sroa.7.0..sroa_idx.i444, align 8, !alias.scope !117
+  store double %814, ptr %.sroa.7.0..sroa_idx.i444, align 8, !alias.scope !116
   %.sroa.8.0..sroa_idx.i445 = getelementptr inbounds i8, ptr %60, i64 56
-  store double %816, ptr %.sroa.8.0..sroa_idx.i445, align 8, !alias.scope !117
+  store double %816, ptr %.sroa.8.0..sroa_idx.i445, align 8, !alias.scope !116
   %.sroa.9.0..sroa_idx.i446 = getelementptr inbounds i8, ptr %60, i64 64
-  store double %818, ptr %.sroa.9.0..sroa_idx.i446, align 8, !alias.scope !117
+  store double %818, ptr %.sroa.9.0..sroa_idx.i446, align 8, !alias.scope !116
   %.sroa.10.0..sroa_idx.i447 = getelementptr inbounds i8, ptr %60, i64 72
-  store double %819, ptr %.sroa.10.0..sroa_idx.i447, align 8, !alias.scope !117
-  %820 = load double, ptr %29, align 16, !noalias !104
+  store double %819, ptr %.sroa.10.0..sroa_idx.i447, align 8, !alias.scope !116
+  call void @llvm.experimental.noalias.scope.decl(metadata !119)
+  %820 = load double, ptr %29, align 16, !noalias !119
   %821 = fmul double %664, %820
   %822 = getelementptr inbounds i8, ptr %29, i64 8
-  %823 = load double, ptr %822, align 8, !noalias !104
+  %823 = load double, ptr %822, align 8, !noalias !119
   %824 = fmul double %664, %823
   %825 = call double @llvm.fmuladd.f64(double %820, double %667, double %824)
   %826 = fmul double %667, %823
   %827 = getelementptr inbounds i8, ptr %29, i64 16
-  %828 = load double, ptr %827, align 16, !noalias !104
+  %828 = load double, ptr %827, align 16, !noalias !119
   %829 = fmul double %664, %828
   %830 = call double @llvm.fmuladd.f64(double %820, double %674, double %829)
   %831 = fmul double %667, %828
   %832 = call double @llvm.fmuladd.f64(double %823, double %674, double %831)
   %833 = fmul double %674, %828
   %834 = getelementptr inbounds i8, ptr %29, i64 24
-  %835 = load double, ptr %834, align 8, !noalias !104
+  %835 = load double, ptr %834, align 8, !noalias !119
   %836 = fmul double %664, %835
   %837 = call double @llvm.fmuladd.f64(double %820, double %683, double %836)
   %838 = fmul double %667, %835
@@ -1876,75 +1880,75 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %840 = fmul double %674, %835
   %841 = call double @llvm.fmuladd.f64(double %828, double %683, double %840)
   %842 = fmul double %683, %835
-  store double %821, ptr %61, align 8, !alias.scope !120
+  store double %821, ptr %61, align 8, !alias.scope !119
   %.sroa.2.0..sroa_idx.i448 = getelementptr inbounds i8, ptr %61, i64 8
-  store double %825, ptr %.sroa.2.0..sroa_idx.i448, align 8, !alias.scope !120
+  store double %825, ptr %.sroa.2.0..sroa_idx.i448, align 8, !alias.scope !119
   %.sroa.3.0..sroa_idx.i449 = getelementptr inbounds i8, ptr %61, i64 16
-  store double %826, ptr %.sroa.3.0..sroa_idx.i449, align 8, !alias.scope !120
+  store double %826, ptr %.sroa.3.0..sroa_idx.i449, align 8, !alias.scope !119
   %.sroa.4.0..sroa_idx.i450 = getelementptr inbounds i8, ptr %61, i64 24
-  store double %830, ptr %.sroa.4.0..sroa_idx.i450, align 8, !alias.scope !120
+  store double %830, ptr %.sroa.4.0..sroa_idx.i450, align 8, !alias.scope !119
   %.sroa.5.0..sroa_idx.i451 = getelementptr inbounds i8, ptr %61, i64 32
-  store double %832, ptr %.sroa.5.0..sroa_idx.i451, align 8, !alias.scope !120
+  store double %832, ptr %.sroa.5.0..sroa_idx.i451, align 8, !alias.scope !119
   %.sroa.6.0..sroa_idx.i452 = getelementptr inbounds i8, ptr %61, i64 40
-  store double %833, ptr %.sroa.6.0..sroa_idx.i452, align 8, !alias.scope !120
+  store double %833, ptr %.sroa.6.0..sroa_idx.i452, align 8, !alias.scope !119
   %.sroa.7.0..sroa_idx.i453 = getelementptr inbounds i8, ptr %61, i64 48
-  store double %837, ptr %.sroa.7.0..sroa_idx.i453, align 8, !alias.scope !120
+  store double %837, ptr %.sroa.7.0..sroa_idx.i453, align 8, !alias.scope !119
   %.sroa.8.0..sroa_idx.i454 = getelementptr inbounds i8, ptr %61, i64 56
-  store double %839, ptr %.sroa.8.0..sroa_idx.i454, align 8, !alias.scope !120
+  store double %839, ptr %.sroa.8.0..sroa_idx.i454, align 8, !alias.scope !119
   %.sroa.9.0..sroa_idx.i455 = getelementptr inbounds i8, ptr %61, i64 64
-  store double %841, ptr %.sroa.9.0..sroa_idx.i455, align 8, !alias.scope !120
+  store double %841, ptr %.sroa.9.0..sroa_idx.i455, align 8, !alias.scope !119
   %.sroa.10.0..sroa_idx.i456 = getelementptr inbounds i8, ptr %61, i64 72
-  store double %842, ptr %.sroa.10.0..sroa_idx.i456, align 8, !alias.scope !120
-  call void @llvm.experimental.noalias.scope.decl(metadata !123)
+  store double %842, ptr %.sroa.10.0..sroa_idx.i456, align 8, !alias.scope !119
+  call void @llvm.experimental.noalias.scope.decl(metadata !122)
   br label %843
 
 843:                                              ; preds = %843, %730
   %indvars.iv.i.i457 = phi i64 [ 0, %730 ], [ %indvars.iv.next.i.i458, %843 ]
   %844 = getelementptr inbounds [10 x double], ptr %60, i64 0, i64 %indvars.iv.i.i457
-  %845 = load double, ptr %844, align 8, !noalias !123
+  %845 = load double, ptr %844, align 8, !noalias !122
   %846 = getelementptr inbounds [10 x double], ptr %61, i64 0, i64 %indvars.iv.i.i457
-  %847 = load double, ptr %846, align 8, !noalias !123
+  %847 = load double, ptr %846, align 8, !noalias !122
   %848 = fsub double %845, %847
   %849 = getelementptr inbounds [10 x double], ptr %59, i64 0, i64 %indvars.iv.i.i457
-  store double %848, ptr %849, align 8, !alias.scope !123
+  store double %848, ptr %849, align 8, !alias.scope !122
   %indvars.iv.next.i.i458 = add nuw nsw i64 %indvars.iv.i.i457, 1
   %exitcond.not.i.i459 = icmp eq i64 %indvars.iv.next.i.i458, 10
   br i1 %exitcond.not.i.i459, label %850, label %843, !llvm.loop !76
 
 850:                                              ; preds = %843
-  call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  %851 = load double, ptr %59, align 8, !noalias !126
-  %852 = load double, ptr %232, align 16, !noalias !126
+  call void @llvm.experimental.noalias.scope.decl(metadata !125)
+  %851 = load double, ptr %59, align 8, !noalias !125
+  %852 = load double, ptr %232, align 16, !noalias !125
   %853 = fmul double %851, %852
   %854 = getelementptr inbounds i8, ptr %59, i64 16
-  %855 = load double, ptr %854, align 8, !noalias !126
+  %855 = load double, ptr %854, align 8, !noalias !125
   %856 = getelementptr inbounds i8, ptr %29, i64 232
-  %857 = load double, ptr %856, align 8, !noalias !126
+  %857 = load double, ptr %856, align 8, !noalias !125
   %858 = fmul double %855, %857
   %859 = getelementptr inbounds i8, ptr %59, i64 8
-  %860 = load double, ptr %859, align 8, !noalias !126
+  %860 = load double, ptr %859, align 8, !noalias !125
   %861 = fmul double %852, %860
   %862 = call double @llvm.fmuladd.f64(double %851, double %857, double %861)
   %863 = fmul double %852, %855
   %864 = call double @llvm.fmuladd.f64(double %860, double %857, double %863)
   %865 = getelementptr inbounds i8, ptr %29, i64 240
-  %866 = load double, ptr %865, align 16, !noalias !126
+  %866 = load double, ptr %865, align 16, !noalias !125
   %867 = getelementptr inbounds i8, ptr %59, i64 24
-  %868 = load double, ptr %867, align 8, !noalias !126
+  %868 = load double, ptr %867, align 8, !noalias !125
   %869 = fmul double %852, %868
   %870 = call double @llvm.fmuladd.f64(double %851, double %866, double %869)
   %871 = getelementptr inbounds i8, ptr %29, i64 248
-  %872 = load double, ptr %871, align 8, !noalias !126
+  %872 = load double, ptr %871, align 8, !noalias !125
   %873 = getelementptr inbounds i8, ptr %59, i64 48
-  %874 = load double, ptr %873, align 8, !noalias !126
+  %874 = load double, ptr %873, align 8, !noalias !125
   %875 = fmul double %852, %874
   %876 = call double @llvm.fmuladd.f64(double %851, double %872, double %875)
   %877 = getelementptr inbounds i8, ptr %59, i64 32
-  %878 = load double, ptr %877, align 8, !noalias !126
+  %878 = load double, ptr %877, align 8, !noalias !125
   %879 = fmul double %857, %878
   %880 = call double @llvm.fmuladd.f64(double %855, double %866, double %879)
   %881 = getelementptr inbounds i8, ptr %59, i64 56
-  %882 = load double, ptr %881, align 8, !noalias !126
+  %882 = load double, ptr %881, align 8, !noalias !125
   %883 = fmul double %857, %882
   %884 = call double @llvm.fmuladd.f64(double %855, double %872, double %883)
   %885 = fmul double %857, %868
@@ -1954,16 +1958,16 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %889 = call double @llvm.fmuladd.f64(double %860, double %872, double %888)
   %890 = call double @llvm.fmuladd.f64(double %882, double %852, double %889)
   %891 = getelementptr inbounds i8, ptr %59, i64 40
-  %892 = load double, ptr %891, align 8, !noalias !126
+  %892 = load double, ptr %891, align 8, !noalias !125
   %893 = fmul double %852, %892
   %894 = call double @llvm.fmuladd.f64(double %868, double %866, double %893)
   %895 = fmul double %866, %874
   %896 = call double @llvm.fmuladd.f64(double %868, double %872, double %895)
   %897 = getelementptr inbounds i8, ptr %59, i64 64
-  %898 = load double, ptr %897, align 8, !noalias !126
+  %898 = load double, ptr %897, align 8, !noalias !125
   %899 = call double @llvm.fmuladd.f64(double %898, double %852, double %896)
   %900 = getelementptr inbounds i8, ptr %59, i64 72
-  %901 = load double, ptr %900, align 8, !noalias !126
+  %901 = load double, ptr %900, align 8, !noalias !125
   %902 = fmul double %852, %901
   %903 = call double @llvm.fmuladd.f64(double %874, double %872, double %902)
   %904 = fmul double %857, %892
@@ -1979,57 +1983,57 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %914 = fmul double %866, %901
   %915 = call double @llvm.fmuladd.f64(double %898, double %872, double %914)
   %916 = fmul double %872, %901
-  store double %853, ptr %58, align 8, !alias.scope !126
+  store double %853, ptr %58, align 8, !alias.scope !125
   %.sroa.2.0..sroa_idx.i461 = getelementptr inbounds i8, ptr %58, i64 8
-  store double %858, ptr %.sroa.2.0..sroa_idx.i461, align 8, !alias.scope !126
+  store double %858, ptr %.sroa.2.0..sroa_idx.i461, align 8, !alias.scope !125
   %.sroa.3.0..sroa_idx.i462 = getelementptr inbounds i8, ptr %58, i64 16
-  store double %862, ptr %.sroa.3.0..sroa_idx.i462, align 8, !alias.scope !126
+  store double %862, ptr %.sroa.3.0..sroa_idx.i462, align 8, !alias.scope !125
   %.sroa.4.0..sroa_idx.i463 = getelementptr inbounds i8, ptr %58, i64 24
-  store double %864, ptr %.sroa.4.0..sroa_idx.i463, align 8, !alias.scope !126
+  store double %864, ptr %.sroa.4.0..sroa_idx.i463, align 8, !alias.scope !125
   %.sroa.5.0..sroa_idx.i464 = getelementptr inbounds i8, ptr %58, i64 32
-  store double %870, ptr %.sroa.5.0..sroa_idx.i464, align 8, !alias.scope !126
+  store double %870, ptr %.sroa.5.0..sroa_idx.i464, align 8, !alias.scope !125
   %.sroa.6.0..sroa_idx.i465 = getelementptr inbounds i8, ptr %58, i64 40
-  store double %876, ptr %.sroa.6.0..sroa_idx.i465, align 8, !alias.scope !126
+  store double %876, ptr %.sroa.6.0..sroa_idx.i465, align 8, !alias.scope !125
   %.sroa.7.0..sroa_idx.i466 = getelementptr inbounds i8, ptr %58, i64 48
-  store double %880, ptr %.sroa.7.0..sroa_idx.i466, align 8, !alias.scope !126
+  store double %880, ptr %.sroa.7.0..sroa_idx.i466, align 8, !alias.scope !125
   %.sroa.8.0..sroa_idx.i467 = getelementptr inbounds i8, ptr %58, i64 56
-  store double %884, ptr %.sroa.8.0..sroa_idx.i467, align 8, !alias.scope !126
+  store double %884, ptr %.sroa.8.0..sroa_idx.i467, align 8, !alias.scope !125
   %.sroa.9.0..sroa_idx.i468 = getelementptr inbounds i8, ptr %58, i64 64
-  store double %887, ptr %.sroa.9.0..sroa_idx.i468, align 8, !alias.scope !126
+  store double %887, ptr %.sroa.9.0..sroa_idx.i468, align 8, !alias.scope !125
   %.sroa.10.0..sroa_idx.i469 = getelementptr inbounds i8, ptr %58, i64 72
-  store double %890, ptr %.sroa.10.0..sroa_idx.i469, align 8, !alias.scope !126
+  store double %890, ptr %.sroa.10.0..sroa_idx.i469, align 8, !alias.scope !125
   %.sroa.11.0..sroa_idx.i470 = getelementptr inbounds i8, ptr %58, i64 80
-  store double %894, ptr %.sroa.11.0..sroa_idx.i470, align 8, !alias.scope !126
+  store double %894, ptr %.sroa.11.0..sroa_idx.i470, align 8, !alias.scope !125
   %.sroa.12.0..sroa_idx.i471 = getelementptr inbounds i8, ptr %58, i64 88
-  store double %899, ptr %.sroa.12.0..sroa_idx.i471, align 8, !alias.scope !126
+  store double %899, ptr %.sroa.12.0..sroa_idx.i471, align 8, !alias.scope !125
   %.sroa.13.0..sroa_idx.i472 = getelementptr inbounds i8, ptr %58, i64 96
-  store double %903, ptr %.sroa.13.0..sroa_idx.i472, align 8, !alias.scope !126
+  store double %903, ptr %.sroa.13.0..sroa_idx.i472, align 8, !alias.scope !125
   %.sroa.14.0..sroa_idx.i473 = getelementptr inbounds i8, ptr %58, i64 104
-  store double %905, ptr %.sroa.14.0..sroa_idx.i473, align 8, !alias.scope !126
+  store double %905, ptr %.sroa.14.0..sroa_idx.i473, align 8, !alias.scope !125
   %.sroa.15.0..sroa_idx.i474 = getelementptr inbounds i8, ptr %58, i64 112
-  store double %908, ptr %.sroa.15.0..sroa_idx.i474, align 8, !alias.scope !126
+  store double %908, ptr %.sroa.15.0..sroa_idx.i474, align 8, !alias.scope !125
   %.sroa.16.0..sroa_idx.i475 = getelementptr inbounds i8, ptr %58, i64 120
-  store double %910, ptr %.sroa.16.0..sroa_idx.i475, align 8, !alias.scope !126
+  store double %910, ptr %.sroa.16.0..sroa_idx.i475, align 8, !alias.scope !125
   %.sroa.17.0..sroa_idx.i476 = getelementptr inbounds i8, ptr %58, i64 128
-  store double %911, ptr %.sroa.17.0..sroa_idx.i476, align 8, !alias.scope !126
+  store double %911, ptr %.sroa.17.0..sroa_idx.i476, align 8, !alias.scope !125
   %.sroa.18.0..sroa_idx.i477 = getelementptr inbounds i8, ptr %58, i64 136
-  store double %913, ptr %.sroa.18.0..sroa_idx.i477, align 8, !alias.scope !126
+  store double %913, ptr %.sroa.18.0..sroa_idx.i477, align 8, !alias.scope !125
   %.sroa.19.0..sroa_idx.i478 = getelementptr inbounds i8, ptr %58, i64 144
-  store double %915, ptr %.sroa.19.0..sroa_idx.i478, align 8, !alias.scope !126
+  store double %915, ptr %.sroa.19.0..sroa_idx.i478, align 8, !alias.scope !125
   %.sroa.20.0..sroa_idx.i479 = getelementptr inbounds i8, ptr %58, i64 152
-  store double %916, ptr %.sroa.20.0..sroa_idx.i479, align 8, !alias.scope !126
-  call void @llvm.experimental.noalias.scope.decl(metadata !129)
+  store double %916, ptr %.sroa.20.0..sroa_idx.i479, align 8, !alias.scope !125
+  call void @llvm.experimental.noalias.scope.decl(metadata !128)
   br label %917
 
 917:                                              ; preds = %917, %850
   %indvars.iv.i.i480 = phi i64 [ 0, %850 ], [ %indvars.iv.next.i.i481, %917 ]
   %918 = getelementptr inbounds [20 x double], ptr %54, i64 0, i64 %indvars.iv.i.i480
-  %919 = load double, ptr %918, align 8, !noalias !129
+  %919 = load double, ptr %918, align 8, !noalias !128
   %920 = getelementptr inbounds [20 x double], ptr %58, i64 0, i64 %indvars.iv.i.i480
-  %921 = load double, ptr %920, align 8, !noalias !129
+  %921 = load double, ptr %920, align 8, !noalias !128
   %922 = fadd double %919, %921
   %923 = getelementptr inbounds [20 x double], ptr %53, i64 0, i64 %indvars.iv.i.i480
-  store double %922, ptr %923, align 8, !alias.scope !129
+  store double %922, ptr %923, align 8, !alias.scope !128
   %indvars.iv.next.i.i481 = add nuw nsw i64 %indvars.iv.i.i480, 1
   %exitcond.not.i.i482 = icmp eq i64 %indvars.iv.next.i.i481, 20
   br i1 %exitcond.not.i.i482, label %924, label %917, !llvm.loop !89
@@ -2051,25 +2055,25 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %938 = fmul double %704, %835
   %939 = call double @llvm.fmuladd.f64(double %828, double %713, double %938)
   %940 = fmul double %713, %835
-  store double %925, ptr %64, align 8, !alias.scope !132
+  store double %925, ptr %64, align 8, !alias.scope !131
   %.sroa.2.0..sroa_idx.i484 = getelementptr inbounds i8, ptr %64, i64 8
-  store double %927, ptr %.sroa.2.0..sroa_idx.i484, align 8, !alias.scope !132
+  store double %927, ptr %.sroa.2.0..sroa_idx.i484, align 8, !alias.scope !131
   %.sroa.3.0..sroa_idx.i485 = getelementptr inbounds i8, ptr %64, i64 16
-  store double %928, ptr %.sroa.3.0..sroa_idx.i485, align 8, !alias.scope !132
+  store double %928, ptr %.sroa.3.0..sroa_idx.i485, align 8, !alias.scope !131
   %.sroa.4.0..sroa_idx.i486 = getelementptr inbounds i8, ptr %64, i64 24
-  store double %930, ptr %.sroa.4.0..sroa_idx.i486, align 8, !alias.scope !132
+  store double %930, ptr %.sroa.4.0..sroa_idx.i486, align 8, !alias.scope !131
   %.sroa.5.0..sroa_idx.i487 = getelementptr inbounds i8, ptr %64, i64 32
-  store double %932, ptr %.sroa.5.0..sroa_idx.i487, align 8, !alias.scope !132
+  store double %932, ptr %.sroa.5.0..sroa_idx.i487, align 8, !alias.scope !131
   %.sroa.6.0..sroa_idx.i488 = getelementptr inbounds i8, ptr %64, i64 40
-  store double %933, ptr %.sroa.6.0..sroa_idx.i488, align 8, !alias.scope !132
+  store double %933, ptr %.sroa.6.0..sroa_idx.i488, align 8, !alias.scope !131
   %.sroa.7.0..sroa_idx.i489 = getelementptr inbounds i8, ptr %64, i64 48
-  store double %935, ptr %.sroa.7.0..sroa_idx.i489, align 8, !alias.scope !132
+  store double %935, ptr %.sroa.7.0..sroa_idx.i489, align 8, !alias.scope !131
   %.sroa.8.0..sroa_idx.i490 = getelementptr inbounds i8, ptr %64, i64 56
-  store double %937, ptr %.sroa.8.0..sroa_idx.i490, align 8, !alias.scope !132
+  store double %937, ptr %.sroa.8.0..sroa_idx.i490, align 8, !alias.scope !131
   %.sroa.9.0..sroa_idx.i491 = getelementptr inbounds i8, ptr %64, i64 64
-  store double %939, ptr %.sroa.9.0..sroa_idx.i491, align 8, !alias.scope !132
+  store double %939, ptr %.sroa.9.0..sroa_idx.i491, align 8, !alias.scope !131
   %.sroa.10.0..sroa_idx.i492 = getelementptr inbounds i8, ptr %64, i64 72
-  store double %940, ptr %.sroa.10.0..sroa_idx.i492, align 8, !alias.scope !132
+  store double %940, ptr %.sroa.10.0..sroa_idx.i492, align 8, !alias.scope !131
   %941 = fmul double %663, %797
   %942 = fmul double %669, %797
   %943 = call double @llvm.fmuladd.f64(double %663, double %800, double %942)
@@ -2086,75 +2090,75 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %954 = fmul double %685, %805
   %955 = call double @llvm.fmuladd.f64(double %676, double %812, double %954)
   %956 = fmul double %685, %812
-  store double %941, ptr %65, align 8, !alias.scope !135
+  store double %941, ptr %65, align 8, !alias.scope !134
   %.sroa.2.0..sroa_idx.i493 = getelementptr inbounds i8, ptr %65, i64 8
-  store double %943, ptr %.sroa.2.0..sroa_idx.i493, align 8, !alias.scope !135
+  store double %943, ptr %.sroa.2.0..sroa_idx.i493, align 8, !alias.scope !134
   %.sroa.3.0..sroa_idx.i494 = getelementptr inbounds i8, ptr %65, i64 16
-  store double %944, ptr %.sroa.3.0..sroa_idx.i494, align 8, !alias.scope !135
+  store double %944, ptr %.sroa.3.0..sroa_idx.i494, align 8, !alias.scope !134
   %.sroa.4.0..sroa_idx.i495 = getelementptr inbounds i8, ptr %65, i64 24
-  store double %946, ptr %.sroa.4.0..sroa_idx.i495, align 8, !alias.scope !135
+  store double %946, ptr %.sroa.4.0..sroa_idx.i495, align 8, !alias.scope !134
   %.sroa.5.0..sroa_idx.i496 = getelementptr inbounds i8, ptr %65, i64 32
-  store double %948, ptr %.sroa.5.0..sroa_idx.i496, align 8, !alias.scope !135
+  store double %948, ptr %.sroa.5.0..sroa_idx.i496, align 8, !alias.scope !134
   %.sroa.6.0..sroa_idx.i497 = getelementptr inbounds i8, ptr %65, i64 40
-  store double %949, ptr %.sroa.6.0..sroa_idx.i497, align 8, !alias.scope !135
+  store double %949, ptr %.sroa.6.0..sroa_idx.i497, align 8, !alias.scope !134
   %.sroa.7.0..sroa_idx.i498 = getelementptr inbounds i8, ptr %65, i64 48
-  store double %951, ptr %.sroa.7.0..sroa_idx.i498, align 8, !alias.scope !135
+  store double %951, ptr %.sroa.7.0..sroa_idx.i498, align 8, !alias.scope !134
   %.sroa.8.0..sroa_idx.i499 = getelementptr inbounds i8, ptr %65, i64 56
-  store double %953, ptr %.sroa.8.0..sroa_idx.i499, align 8, !alias.scope !135
+  store double %953, ptr %.sroa.8.0..sroa_idx.i499, align 8, !alias.scope !134
   %.sroa.9.0..sroa_idx.i500 = getelementptr inbounds i8, ptr %65, i64 64
-  store double %955, ptr %.sroa.9.0..sroa_idx.i500, align 8, !alias.scope !135
+  store double %955, ptr %.sroa.9.0..sroa_idx.i500, align 8, !alias.scope !134
   %.sroa.10.0..sroa_idx.i501 = getelementptr inbounds i8, ptr %65, i64 72
-  store double %956, ptr %.sroa.10.0..sroa_idx.i501, align 8, !alias.scope !135
-  call void @llvm.experimental.noalias.scope.decl(metadata !138)
+  store double %956, ptr %.sroa.10.0..sroa_idx.i501, align 8, !alias.scope !134
+  call void @llvm.experimental.noalias.scope.decl(metadata !137)
   br label %957
 
 957:                                              ; preds = %957, %924
   %indvars.iv.i.i502 = phi i64 [ 0, %924 ], [ %indvars.iv.next.i.i503, %957 ]
   %958 = getelementptr inbounds [10 x double], ptr %64, i64 0, i64 %indvars.iv.i.i502
-  %959 = load double, ptr %958, align 8, !noalias !138
+  %959 = load double, ptr %958, align 8, !noalias !137
   %960 = getelementptr inbounds [10 x double], ptr %65, i64 0, i64 %indvars.iv.i.i502
-  %961 = load double, ptr %960, align 8, !noalias !138
+  %961 = load double, ptr %960, align 8, !noalias !137
   %962 = fsub double %959, %961
   %963 = getelementptr inbounds [10 x double], ptr %63, i64 0, i64 %indvars.iv.i.i502
-  store double %962, ptr %963, align 8, !alias.scope !138
+  store double %962, ptr %963, align 8, !alias.scope !137
   %indvars.iv.next.i.i503 = add nuw nsw i64 %indvars.iv.i.i502, 1
   %exitcond.not.i.i504 = icmp eq i64 %indvars.iv.next.i.i503, 10
   br i1 %exitcond.not.i.i504, label %964, label %957, !llvm.loop !76
 
 964:                                              ; preds = %957
-  call void @llvm.experimental.noalias.scope.decl(metadata !141)
-  %965 = load double, ptr %63, align 8, !noalias !141
-  %966 = load double, ptr %239, align 16, !noalias !141
+  call void @llvm.experimental.noalias.scope.decl(metadata !140)
+  %965 = load double, ptr %63, align 8, !noalias !140
+  %966 = load double, ptr %239, align 16, !noalias !140
   %967 = fmul double %965, %966
   %968 = getelementptr inbounds i8, ptr %63, i64 16
-  %969 = load double, ptr %968, align 8, !noalias !141
+  %969 = load double, ptr %968, align 8, !noalias !140
   %970 = getelementptr inbounds i8, ptr %29, i64 264
-  %971 = load double, ptr %970, align 8, !noalias !141
+  %971 = load double, ptr %970, align 8, !noalias !140
   %972 = fmul double %969, %971
   %973 = getelementptr inbounds i8, ptr %63, i64 8
-  %974 = load double, ptr %973, align 8, !noalias !141
+  %974 = load double, ptr %973, align 8, !noalias !140
   %975 = fmul double %966, %974
   %976 = call double @llvm.fmuladd.f64(double %965, double %971, double %975)
   %977 = fmul double %966, %969
   %978 = call double @llvm.fmuladd.f64(double %974, double %971, double %977)
   %979 = getelementptr inbounds i8, ptr %29, i64 272
-  %980 = load double, ptr %979, align 16, !noalias !141
+  %980 = load double, ptr %979, align 16, !noalias !140
   %981 = getelementptr inbounds i8, ptr %63, i64 24
-  %982 = load double, ptr %981, align 8, !noalias !141
+  %982 = load double, ptr %981, align 8, !noalias !140
   %983 = fmul double %966, %982
   %984 = call double @llvm.fmuladd.f64(double %965, double %980, double %983)
   %985 = getelementptr inbounds i8, ptr %29, i64 280
-  %986 = load double, ptr %985, align 8, !noalias !141
+  %986 = load double, ptr %985, align 8, !noalias !140
   %987 = getelementptr inbounds i8, ptr %63, i64 48
-  %988 = load double, ptr %987, align 8, !noalias !141
+  %988 = load double, ptr %987, align 8, !noalias !140
   %989 = fmul double %966, %988
   %990 = call double @llvm.fmuladd.f64(double %965, double %986, double %989)
   %991 = getelementptr inbounds i8, ptr %63, i64 32
-  %992 = load double, ptr %991, align 8, !noalias !141
+  %992 = load double, ptr %991, align 8, !noalias !140
   %993 = fmul double %971, %992
   %994 = call double @llvm.fmuladd.f64(double %969, double %980, double %993)
   %995 = getelementptr inbounds i8, ptr %63, i64 56
-  %996 = load double, ptr %995, align 8, !noalias !141
+  %996 = load double, ptr %995, align 8, !noalias !140
   %997 = fmul double %971, %996
   %998 = call double @llvm.fmuladd.f64(double %969, double %986, double %997)
   %999 = fmul double %971, %982
@@ -2164,16 +2168,16 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %1003 = call double @llvm.fmuladd.f64(double %974, double %986, double %1002)
   %1004 = call double @llvm.fmuladd.f64(double %996, double %966, double %1003)
   %1005 = getelementptr inbounds i8, ptr %63, i64 40
-  %1006 = load double, ptr %1005, align 8, !noalias !141
+  %1006 = load double, ptr %1005, align 8, !noalias !140
   %1007 = fmul double %966, %1006
   %1008 = call double @llvm.fmuladd.f64(double %982, double %980, double %1007)
   %1009 = fmul double %980, %988
   %1010 = call double @llvm.fmuladd.f64(double %982, double %986, double %1009)
   %1011 = getelementptr inbounds i8, ptr %63, i64 64
-  %1012 = load double, ptr %1011, align 8, !noalias !141
+  %1012 = load double, ptr %1011, align 8, !noalias !140
   %1013 = call double @llvm.fmuladd.f64(double %1012, double %966, double %1010)
   %1014 = getelementptr inbounds i8, ptr %63, i64 72
-  %1015 = load double, ptr %1014, align 8, !noalias !141
+  %1015 = load double, ptr %1014, align 8, !noalias !140
   %1016 = fmul double %966, %1015
   %1017 = call double @llvm.fmuladd.f64(double %988, double %986, double %1016)
   %1018 = fmul double %971, %1006
@@ -2189,57 +2193,57 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %656
   %1028 = fmul double %980, %1015
   %1029 = call double @llvm.fmuladd.f64(double %1012, double %986, double %1028)
   %1030 = fmul double %986, %1015
-  store double %967, ptr %62, align 8, !alias.scope !141
+  store double %967, ptr %62, align 8, !alias.scope !140
   %.sroa.2.0..sroa_idx.i506 = getelementptr inbounds i8, ptr %62, i64 8
-  store double %972, ptr %.sroa.2.0..sroa_idx.i506, align 8, !alias.scope !141
+  store double %972, ptr %.sroa.2.0..sroa_idx.i506, align 8, !alias.scope !140
   %.sroa.3.0..sroa_idx.i507 = getelementptr inbounds i8, ptr %62, i64 16
-  store double %976, ptr %.sroa.3.0..sroa_idx.i507, align 8, !alias.scope !141
+  store double %976, ptr %.sroa.3.0..sroa_idx.i507, align 8, !alias.scope !140
   %.sroa.4.0..sroa_idx.i508 = getelementptr inbounds i8, ptr %62, i64 24
-  store double %978, ptr %.sroa.4.0..sroa_idx.i508, align 8, !alias.scope !141
+  store double %978, ptr %.sroa.4.0..sroa_idx.i508, align 8, !alias.scope !140
   %.sroa.5.0..sroa_idx.i509 = getelementptr inbounds i8, ptr %62, i64 32
-  store double %984, ptr %.sroa.5.0..sroa_idx.i509, align 8, !alias.scope !141
+  store double %984, ptr %.sroa.5.0..sroa_idx.i509, align 8, !alias.scope !140
   %.sroa.6.0..sroa_idx.i510 = getelementptr inbounds i8, ptr %62, i64 40
-  store double %990, ptr %.sroa.6.0..sroa_idx.i510, align 8, !alias.scope !141
+  store double %990, ptr %.sroa.6.0..sroa_idx.i510, align 8, !alias.scope !140
   %.sroa.7.0..sroa_idx.i511 = getelementptr inbounds i8, ptr %62, i64 48
-  store double %994, ptr %.sroa.7.0..sroa_idx.i511, align 8, !alias.scope !141
+  store double %994, ptr %.sroa.7.0..sroa_idx.i511, align 8, !alias.scope !140
   %.sroa.8.0..sroa_idx.i512 = getelementptr inbounds i8, ptr %62, i64 56
-  store double %998, ptr %.sroa.8.0..sroa_idx.i512, align 8, !alias.scope !141
+  store double %998, ptr %.sroa.8.0..sroa_idx.i512, align 8, !alias.scope !140
   %.sroa.9.0..sroa_idx.i513 = getelementptr inbounds i8, ptr %62, i64 64
-  store double %1001, ptr %.sroa.9.0..sroa_idx.i513, align 8, !alias.scope !141
+  store double %1001, ptr %.sroa.9.0..sroa_idx.i513, align 8, !alias.scope !140
   %.sroa.10.0..sroa_idx.i514 = getelementptr inbounds i8, ptr %62, i64 72
-  store double %1004, ptr %.sroa.10.0..sroa_idx.i514, align 8, !alias.scope !141
+  store double %1004, ptr %.sroa.10.0..sroa_idx.i514, align 8, !alias.scope !140
   %.sroa.11.0..sroa_idx.i515 = getelementptr inbounds i8, ptr %62, i64 80
-  store double %1008, ptr %.sroa.11.0..sroa_idx.i515, align 8, !alias.scope !141
+  store double %1008, ptr %.sroa.11.0..sroa_idx.i515, align 8, !alias.scope !140
   %.sroa.12.0..sroa_idx.i516 = getelementptr inbounds i8, ptr %62, i64 88
-  store double %1013, ptr %.sroa.12.0..sroa_idx.i516, align 8, !alias.scope !141
+  store double %1013, ptr %.sroa.12.0..sroa_idx.i516, align 8, !alias.scope !140
   %.sroa.13.0..sroa_idx.i517 = getelementptr inbounds i8, ptr %62, i64 96
-  store double %1017, ptr %.sroa.13.0..sroa_idx.i517, align 8, !alias.scope !141
+  store double %1017, ptr %.sroa.13.0..sroa_idx.i517, align 8, !alias.scope !140
   %.sroa.14.0..sroa_idx.i518 = getelementptr inbounds i8, ptr %62, i64 104
-  store double %1019, ptr %.sroa.14.0..sroa_idx.i518, align 8, !alias.scope !141
+  store double %1019, ptr %.sroa.14.0..sroa_idx.i518, align 8, !alias.scope !140
   %.sroa.15.0..sroa_idx.i519 = getelementptr inbounds i8, ptr %62, i64 112
-  store double %1022, ptr %.sroa.15.0..sroa_idx.i519, align 8, !alias.scope !141
+  store double %1022, ptr %.sroa.15.0..sroa_idx.i519, align 8, !alias.scope !140
   %.sroa.16.0..sroa_idx.i520 = getelementptr inbounds i8, ptr %62, i64 120
-  store double %1024, ptr %.sroa.16.0..sroa_idx.i520, align 8, !alias.scope !141
+  store double %1024, ptr %.sroa.16.0..sroa_idx.i520, align 8, !alias.scope !140
   %.sroa.17.0..sroa_idx.i521 = getelementptr inbounds i8, ptr %62, i64 128
-  store double %1025, ptr %.sroa.17.0..sroa_idx.i521, align 8, !alias.scope !141
+  store double %1025, ptr %.sroa.17.0..sroa_idx.i521, align 8, !alias.scope !140
   %.sroa.18.0..sroa_idx.i522 = getelementptr inbounds i8, ptr %62, i64 136
-  store double %1027, ptr %.sroa.18.0..sroa_idx.i522, align 8, !alias.scope !141
+  store double %1027, ptr %.sroa.18.0..sroa_idx.i522, align 8, !alias.scope !140
   %.sroa.19.0..sroa_idx.i523 = getelementptr inbounds i8, ptr %62, i64 144
-  store double %1029, ptr %.sroa.19.0..sroa_idx.i523, align 8, !alias.scope !141
+  store double %1029, ptr %.sroa.19.0..sroa_idx.i523, align 8, !alias.scope !140
   %.sroa.20.0..sroa_idx.i524 = getelementptr inbounds i8, ptr %62, i64 152
-  store double %1030, ptr %.sroa.20.0..sroa_idx.i524, align 8, !alias.scope !141
-  call void @llvm.experimental.noalias.scope.decl(metadata !144)
+  store double %1030, ptr %.sroa.20.0..sroa_idx.i524, align 8, !alias.scope !140
+  call void @llvm.experimental.noalias.scope.decl(metadata !143)
   br label %1031
 
 1031:                                             ; preds = %1031, %964
   %indvars.iv.i.i525 = phi i64 [ 0, %964 ], [ %indvars.iv.next.i.i526, %1031 ]
   %1032 = getelementptr inbounds [20 x double], ptr %53, i64 0, i64 %indvars.iv.i.i525
-  %1033 = load double, ptr %1032, align 8, !noalias !144
+  %1033 = load double, ptr %1032, align 8, !noalias !143
   %1034 = getelementptr inbounds [20 x double], ptr %62, i64 0, i64 %indvars.iv.i.i525
-  %1035 = load double, ptr %1034, align 8, !noalias !144
+  %1035 = load double, ptr %1034, align 8, !noalias !143
   %1036 = fadd double %1033, %1035
   %1037 = getelementptr inbounds [20 x double], ptr %52, i64 0, i64 %indvars.iv.i.i525
-  store double %1036, ptr %1037, align 8, !alias.scope !144
+  store double %1036, ptr %1037, align 8, !alias.scope !143
   %indvars.iv.next.i.i526 = add nuw nsw i64 %indvars.iv.i.i525, 1
   %exitcond.not.i.i527 = icmp eq i64 %indvars.iv.next.i.i526, 20
   br i1 %exitcond.not.i.i527, label %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528, label %1031, !llvm.loop !89
@@ -2286,10 +2290,10 @@ _ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528: ; preds = %1031
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  store i32 0, ptr %10, align 4, !noalias !147
+  store i32 0, ptr %10, align 4, !noalias !146
   %1050 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 1, ptr %1050, align 4, !noalias !147
-  store i64 9223372034707292160, ptr %11, align 8, !noalias !147
+  store i32 1, ptr %1050, align 4, !noalias !146
+  store i64 9223372034707292160, ptr %11, align 8, !noalias !146
   invoke void @_ZN2cv3MatC2ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %67, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
           to label %1051 unwind label %1069
 
@@ -2309,10 +2313,10 @@ _ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528: ; preds = %1031
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %51) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store i64 9223372034707292160, ptr %8, align 8, !noalias !150
-  store i32 0, ptr %9, align 4, !noalias !150
+  store i64 9223372034707292160, ptr %8, align 8, !noalias !149
+  store i32 0, ptr %9, align 4, !noalias !149
   %1055 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 10, ptr %1055, align 4, !noalias !150
+  store i32 10, ptr %1055, align 4, !noalias !149
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %69, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
           to label %1056 unwind label %.loopexit.split-lp585
 
@@ -2326,10 +2330,10 @@ _ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528: ; preds = %1031
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store i64 9223372034707292160, ptr %6, align 8, !noalias !153
-  store i32 10, ptr %7, align 4, !noalias !153
+  store i64 9223372034707292160, ptr %6, align 8, !noalias !152
+  store i32 10, ptr %7, align 4, !noalias !152
   %1058 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 20, ptr %1058, align 4, !noalias !153
+  store i32 20, ptr %1058, align 4, !noalias !152
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %71, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
           to label %1059 unwind label %.loopexit.split-lp585
 
@@ -2450,12 +2454,12 @@ _ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528: ; preds = %1031
   store double %1107, ptr %1109, align 8
   %indvars.iv.next668 = add nuw nsw i64 %indvars.iv667, 1
   %exitcond670.not = icmp eq i64 %indvars.iv.next668, 13
-  br i1 %exitcond670.not, label %1110, label %1086, !llvm.loop !156
+  br i1 %exitcond670.not, label %1110, label %1086, !llvm.loop !155
 
 1110:                                             ; preds = %1105
   %indvars.iv.next672 = add nuw nsw i64 %indvars.iv671, 1
   %exitcond674.not = icmp eq i64 %indvars.iv.next672, 3
-  br i1 %exitcond674.not, label %1111, label %.preheader578, !llvm.loop !157
+  br i1 %exitcond674.not, label %1111, label %.preheader578, !llvm.loop !156
 
 1111:                                             ; preds = %1110
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
@@ -3199,7 +3203,7 @@ _ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528: ; preds = %1031
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i) #20
   %1821 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i.i = icmp eq ptr %1821, %1819
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !158
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !157
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %1816
   %.not.i.i.i.i.i = icmp eq ptr %1817, null
@@ -3248,7 +3252,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull align 16 dereferenceable(72) %80, i64 72, i1 false)
   %1844 = call double @sqrt(double noundef %1892) #20
   %1845 = fdiv double 1.000000e+00, %1844
-  call void @llvm.experimental.noalias.scope.decl(metadata !159)
+  call void @llvm.experimental.noalias.scope.decl(metadata !158)
   br label %1897
 
 1846:                                             ; preds = %1837, %1846
@@ -3307,7 +3311,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %1892 = fadd double %.0219616, %1891
   %indvars.iv.next676 = add nuw nsw i64 %indvars.iv675, 1
   %exitcond678.not = icmp eq i64 %indvars.iv.next676, 3
-  br i1 %exitcond678.not, label %.preheader, label %1846, !llvm.loop !162
+  br i1 %exitcond678.not, label %.preheader, label %1846, !llvm.loop !161
 
 1893:                                             ; preds = %1111
   %1894 = landingpad { ptr, i32 }
@@ -3332,13 +3336,13 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 1897:                                             ; preds = %1897, %.preheader
   %indvars.iv.i.i543 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i.i544, %1897 ]
   %1898 = getelementptr inbounds [9 x double], ptr %81, i64 0, i64 %indvars.iv.i.i543
-  %1899 = load double, ptr %1898, align 8, !noalias !159
+  %1899 = load double, ptr %1898, align 8, !noalias !158
   %1900 = fmul double %1845, %1899
   %1901 = getelementptr inbounds [9 x double], ptr %84, i64 0, i64 %indvars.iv.i.i543
-  store double %1900, ptr %1901, align 8, !alias.scope !159
+  store double %1900, ptr %1901, align 8, !alias.scope !158
   %indvars.iv.next.i.i544 = add nuw nsw i64 %indvars.iv.i.i543, 1
   %exitcond.not.i.i545 = icmp eq i64 %indvars.iv.next.i.i544, 9
-  br i1 %exitcond.not.i.i545, label %_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit, label %1897, !llvm.loop !163
+  br i1 %exitcond.not.i.i545, label %_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit, label %1897, !llvm.loop !162
 
 _ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit: ; preds = %1897
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
@@ -3394,7 +3398,7 @@ _ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit: ; preds = %1897
   store double %1916, ptr %1914, align 8
   %indvars.iv.next.i550 = add nuw nsw i64 %indvars.iv.i549, 1
   %exitcond.not.i551 = icmp eq i64 %indvars.iv.next.i550, 3
-  br i1 %exitcond.not.i551, label %_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit, label %1913, !llvm.loop !164
+  br i1 %exitcond.not.i551, label %_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit, label %1913, !llvm.loop !163
 
 _ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit:      ; preds = %1913
   %1917 = load double, ptr %1835, align 8
@@ -3442,7 +3446,7 @@ _ZN2cv4Mat_IdEC2Eii.exit553:                      ; preds = %1922
   store double %1944, ptr %1945, align 8
   %indvars.iv.next680 = add nuw nsw i64 %indvars.iv679, 1
   %exitcond682.not = icmp eq i64 %indvars.iv.next680, 9
-  br i1 %exitcond682.not, label %1948, label %1929, !llvm.loop !165
+  br i1 %exitcond682.not, label %1948, label %1929, !llvm.loop !164
 
 1946:                                             ; preds = %1954, %1951
   %1947 = landingpad { ptr, i32 }
@@ -3477,7 +3481,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE12emplace_backIJRNS0_4Mat_IdEEEEEvDpOT_.exit: ; pr
 1955:                                             ; preds = %_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit, %_ZNSt6vectorIN2cv3MatESaIS1_EE12emplace_backIJRNS0_4Mat_IdEEEEEvDpOT_.exit
   %indvars.iv.next684 = add nuw nsw i64 %indvars.iv683, 1
   %exitcond686.not = icmp eq i64 %indvars.iv.next684, %wide.trip.count
-  br i1 %exitcond686.not, label %._crit_edge621, label %1837, !llvm.loop !166
+  br i1 %exitcond686.not, label %._crit_edge621, label %1837, !llvm.loop !165
 
 ._crit_edge621:                                   ; preds = %1955, %.preheader577
   %1956 = getelementptr inbounds i8, ptr %79, i64 8
@@ -3773,7 +3777,7 @@ define linkonce_odr hidden void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIdLi10ELi10
   store double %33, ptr %34, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 100
-  br i1 %exitcond.not.i, label %_ZN2cv4MatxIdLi10ELi10EEC2EPKd.exit, label %.preheader, !llvm.loop !167
+  br i1 %exitcond.not.i, label %_ZN2cv4MatxIdLi10ELi10EEC2EPKd.exit, label %.preheader, !llvm.loop !166
 
 35:                                               ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(800) %0, i8 0, i64 800, i1 false)
@@ -3851,7 +3855,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE11_M_allocateEm.exit: ; preds = %5
   %20 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 96
   %21 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %20, %15
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !168
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !167
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
   %.pre = load ptr, ptr %0, align 8
@@ -4049,7 +4053,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRNS0_4Mat_IdEEEEEvRS2_PT_Dp
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 96
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !168
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !167
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRNS0_4Mat_IdEEEEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRNS0_4Mat_IdEEEEEvRS2_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
@@ -4065,7 +4069,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 96
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 96
   %.not.i.i.i.i30 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !168
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !167
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %27, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %29, %.lr.ph.i.i.i.i27 ]
@@ -4287,68 +4291,67 @@ attributes #23 = { noreturn }
 !101 = distinct !{!101, !"_ZNK2cv4Mat_IdE3rowEi"}
 !102 = distinct !{!102, !10}
 !103 = distinct !{!103, !10}
-!104 = !{}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
-!107 = distinct !{!107, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
-!110 = distinct !{!110, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_: argument 0"}
-!113 = distinct !{!113, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_"}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_: argument 0"}
-!116 = distinct !{!116, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
-!119 = distinct !{!119, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
-!122 = distinct !{!122, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
-!123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_: argument 0"}
-!125 = distinct !{!125, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_"}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_: argument 0"}
-!128 = distinct !{!128, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_"}
-!129 = !{!130}
-!130 = distinct !{!130, !131, !"_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_: argument 0"}
-!131 = distinct !{!131, !"_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_"}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
-!134 = distinct !{!134, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
-!135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
-!137 = distinct !{!137, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_: argument 0"}
-!140 = distinct !{!140, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_"}
-!141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_: argument 0"}
-!143 = distinct !{!143, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_"}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_: argument 0"}
-!146 = distinct !{!146, !"_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_"}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZNK2cv4Mat_IdE3rowEi: argument 0"}
-!149 = distinct !{!149, !"_ZNK2cv4Mat_IdE3rowEi"}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZNK2cv3Mat8colRangeEii: argument 0"}
-!152 = distinct !{!152, !"_ZNK2cv3Mat8colRangeEii"}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZNK2cv3Mat8colRangeEii: argument 0"}
-!155 = distinct !{!155, !"_ZNK2cv3Mat8colRangeEii"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
+!106 = distinct !{!106, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
+!109 = distinct !{!109, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_: argument 0"}
+!112 = distinct !{!112, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_: argument 0"}
+!115 = distinct !{!115, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
+!118 = distinct !{!118, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
+!121 = distinct !{!121, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_: argument 0"}
+!124 = distinct !{!124, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_"}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_: argument 0"}
+!127 = distinct !{!127, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_: argument 0"}
+!130 = distinct !{!130, !"_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_"}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
+!133 = distinct !{!133, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_: argument 0"}
+!136 = distinct !{!136, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl15multPolysDegOneEPKdS3_"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_: argument 0"}
+!139 = distinct !{!139, !"_ZN2cvmiIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_: argument 0"}
+!142 = distinct !{!142, !"_ZN2cv4usac30EssentialMinimalSolver5ptsImpl27multPolysDegOneAndTwoNisterEPKdS3_"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_: argument 0"}
+!145 = distinct !{!145, !"_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_"}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"_ZNK2cv4Mat_IdE3rowEi: argument 0"}
+!148 = distinct !{!148, !"_ZNK2cv4Mat_IdE3rowEi"}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZNK2cv3Mat8colRangeEii: argument 0"}
+!151 = distinct !{!151, !"_ZNK2cv3Mat8colRangeEii"}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"_ZNK2cv3Mat8colRangeEii: argument 0"}
+!154 = distinct !{!154, !"_ZNK2cv3Mat8colRangeEii"}
+!155 = distinct !{!155, !10}
 !156 = distinct !{!156, !10}
 !157 = distinct !{!157, !10}
-!158 = distinct !{!158, !10}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d: argument 0"}
-!161 = distinct !{!161, !"_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d"}
+!158 = !{!159}
+!159 = distinct !{!159, !160, !"_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d: argument 0"}
+!160 = distinct !{!160, !"_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d"}
+!161 = distinct !{!161, !10}
 !162 = distinct !{!162, !10}
 !163 = distinct !{!163, !10}
 !164 = distinct !{!164, !10}
 !165 = distinct !{!165, !10}
 !166 = distinct !{!166, !10}
 !167 = distinct !{!167, !10}
-!168 = distinct !{!168, !10}

@@ -29,7 +29,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %8 = getelementptr inbounds i8, ptr %1, i64 2120
   %9 = load i64, ptr %8, align 8, !alias.scope !4, !noalias !7, !noundef !9
   %10 = getelementptr inbounds i8, ptr %1, i64 2128
-  %11 = load i64, ptr %10, align 8, !noundef !9
+  %11 = load i64, ptr %10, align 8, !alias.scope !4, !noalias !7, !noundef !9
   %12 = icmp eq i64 %9, %11
   br i1 %12, label %13, label %19
 
@@ -96,15 +96,15 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %35 = getelementptr inbounds i8, ptr %5, i64 2120
   %36 = getelementptr inbounds i8, ptr %5, i64 2128
   %37 = load i64, ptr %35, align 8, !alias.scope !27, !noalias !30, !noundef !9
-  %38 = load i64, ptr %36, align 8, !alias.scope !32, !noalias !33, !noundef !9
+  %38 = load i64, ptr %36, align 8, !alias.scope !27, !noalias !30, !noundef !9
   %.not.not8.i.i = icmp eq i64 %37, %38
   br i1 %.not.not8.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h40ae9ed8d0fdf7edE.exit.i", label %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4aacf14964b9f6E.exit.lr.ph.i.i"
 
 "_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4aacf14964b9f6E.exit.lr.ph.i.i": ; preds = %33
   %39 = getelementptr inbounds i8, ptr %5, i64 2112
-  %40 = load i64, ptr %39, align 8, !alias.scope !34, !noalias !37, !noundef !9
+  %40 = load i64, ptr %39, align 8, !alias.scope !32, !noalias !35, !noundef !9
   %41 = icmp ugt i64 %40, 16
-  %42 = load ptr, ptr %5, align 8, !alias.scope !34, !noalias !37, !nonnull !9
+  %42 = load ptr, ptr %5, align 8, !alias.scope !32, !noalias !35, !nonnull !9
   %.sink12.i.i.i.i = select i1 %41, ptr %42, ptr %5
   br label %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4aacf14964b9f6E.exit.i.i"
 
@@ -116,16 +116,16 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 %46, ptr %35, align 8, !alias.scope !27, !noalias !30
   %47 = getelementptr inbounds { { i32, [128 x i8] } }, ptr %.sink12.i.i.i.i, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %3, ptr noundef nonnull align 4 dereferenceable(132) %47, i64 132, i1 false)
-  %48 = load i64, ptr %7, align 8, !alias.scope !33, !noalias !32, !noundef !9
+  %48 = load i64, ptr %7, align 8, !alias.scope !37, !noalias !38, !noundef !9
   %49 = icmp eq i64 %44, %48
   br i1 %49, label %56, label %50
 
 50:                                               ; preds = %._crit_edge, %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4aacf14964b9f6E.exit.i.i"
   %51 = phi ptr [ %.pre, %._crit_edge ], [ %43, %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4aacf14964b9f6E.exit.i.i" ]
   %52 = getelementptr inbounds { { i32, [128 x i8] } }, ptr %51, i64 %44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %52, ptr noundef nonnull align 4 dereferenceable(132) %3, i64 132, i1 false), !noalias !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %52, ptr noundef nonnull align 4 dereferenceable(132) %3, i64 132, i1 false), !noalias !38
   %53 = add i64 %44, 1
-  store i64 %53, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !33, !noalias !32
+  store i64 %53, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !37, !noalias !38
   %.not.not.i.i = icmp eq i64 %46, %38
   br i1 %.not.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h40ae9ed8d0fdf7edE.exit.i", label %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4aacf14964b9f6E.exit.i.i"
 
@@ -139,10 +139,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %57 = sub i64 %38, %46
   %58 = call i64 @llvm.uadd.sat.i64(i64 %57, i64 1)
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hd5d89296d422e765E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %44, i64 noundef %58)
-          to label %._crit_edge unwind label %54, !noalias !32
+          to label %._crit_edge unwind label %54, !noalias !38
 
 ._crit_edge:                                      ; preds = %56
-  %.pre = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !33, !noalias !32
+  %.pre = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !37, !noalias !38
   br label %50
 
 59:                                               ; preds = %54
@@ -1619,13 +1619,13 @@ attributes #22 = { nounwind }
 !29 = distinct !{!29, !"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4aacf14964b9f6E"}
 !30 = !{!31, !23, !18}
 !31 = distinct !{!31, !29, !"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4aacf14964b9f6E: argument 0"}
-!32 = !{!26, !21}
-!33 = !{!23, !18}
-!34 = !{!35, !28, !26, !21}
-!35 = distinct !{!35, !36, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h573d5bd21d477c28E: argument 1"}
-!36 = distinct !{!36, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h573d5bd21d477c28E"}
-!37 = !{!38, !31, !23, !18}
-!38 = distinct !{!38, !36, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h573d5bd21d477c28E: argument 0"}
+!32 = !{!33, !28, !26, !21}
+!33 = distinct !{!33, !34, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h573d5bd21d477c28E: argument 1"}
+!34 = distinct !{!34, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h573d5bd21d477c28E"}
+!35 = !{!36, !31, !23, !18}
+!36 = distinct !{!36, !34, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h573d5bd21d477c28E: argument 0"}
+!37 = !{!23, !18}
+!38 = !{!26, !21}
 !39 = !{!40}
 !40 = distinct !{!40, !41, !"_ZN4core3ptr55drop_in_place$LT$alloc..vec..Vec$LT$rope..Chunk$GT$$GT$17haca5b2478db2bea4E: argument 0"}
 !41 = distinct !{!41, !"_ZN4core3ptr55drop_in_place$LT$alloc..vec..Vec$LT$rope..Chunk$GT$$GT$17haca5b2478db2bea4E"}

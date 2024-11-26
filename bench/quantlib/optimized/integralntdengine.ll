@@ -583,7 +583,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %__begin1.sroa.0.0384 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %coupon) #26
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %12 = load ptr, ptr %__begin1.sroa.0.0384, align 8, !tbaa !70
+  %12 = load ptr, ptr %__begin1.sroa.0.0384, align 8, !tbaa !70, !noalias !73
   %13 = icmp eq ptr %12, null
   br i1 %13, label %cond.false.i39, label %dynamic_cast.end3.i
 

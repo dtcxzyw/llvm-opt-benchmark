@@ -4074,7 +4074,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %289, %292
 337:                                              ; preds = %325, %300
   %.sink.i.i.i.i.i = phi ptr [ %326, %325 ], [ null, %300 ]
   %338 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E20InsertIntoBucketImplIS2_EEPS8_RKS2_RKT_SC_(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %.sink.i.i.i.i.i), !noalias !66
-  %339 = load i64, ptr %54, align 8
+  %339 = load i64, ptr %54, align 8, !noalias !66
   store i64 %339, ptr %338, align 8, !noalias !66
   %340 = load ptr, ptr %107, align 8
   %341 = load ptr, ptr %108, align 8
@@ -8591,7 +8591,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i489: ; preds = %2290, %22
 2333:                                             ; preds = %2321, %2307
   %.sink.i.i.i.i.i510 = phi ptr [ %2322, %2321 ], [ null, %2307 ]
   %2334 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E20InsertIntoBucketImplIS2_EEPS8_RKS2_RKT_SC_(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.024.0714, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.024.0714, ptr noundef %.sink.i.i.i.i.i510), !noalias !141
-  %2335 = load i64, ptr %.sroa.024.0714, align 8
+  %2335 = load i64, ptr %.sroa.024.0714, align 8, !noalias !141
   store i64 %2335, ptr %2334, align 8, !noalias !141
   %2336 = load ptr, ptr %2303, align 8
   %2337 = load ptr, ptr %2304, align 8
@@ -8749,7 +8749,7 @@ _ZN4llvm9SetVectorINS_9ValueInfoESt6vectorIS1_SaIS1_EENS_8DenseSetIS1_NS_12Dense
 2406:                                             ; preds = %2394, %2379
   %.sink.i.i.i.i.i526 = phi ptr [ %2395, %2394 ], [ null, %2379 ]
   %2407 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E20InsertIntoBucketImplIS2_EEPS8_RKS2_RKT_SC_(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.020.0718, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.020.0718, ptr noundef %.sink.i.i.i.i.i526), !noalias !151
-  %2408 = load i64, ptr %.sroa.020.0718, align 8
+  %2408 = load i64, ptr %.sroa.020.0718, align 8, !noalias !151
   store i64 %2408, ptr %2407, align 8, !noalias !151
   %2409 = load ptr, ptr %2366, align 8
   %2410 = load ptr, ptr %2378, align 8
@@ -8908,7 +8908,7 @@ _ZN4llvm9SetVectorINS_9ValueInfoESt6vectorIS1_SaIS1_EENS_8DenseSetIS1_NS_12Dense
 2470:                                             ; preds = %2458, %2444
   %.sink.i.i.i.i.i542 = phi ptr [ %2459, %2458 ], [ null, %2444 ]
   %2471 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E20InsertIntoBucketImplIS2_EEPS8_RKS2_RKT_SC_(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.016.0723, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.016.0723, ptr noundef %.sink.i.i.i.i.i542), !noalias !161
-  %2472 = load i64, ptr %.sroa.016.0723, align 8
+  %2472 = load i64, ptr %.sroa.016.0723, align 8, !noalias !161
   store i64 %2472, ptr %2471, align 8, !noalias !161
   %2473 = load ptr, ptr %2366, align 8
   %2474 = load ptr, ptr %2443, align 8
@@ -12196,7 +12196,7 @@ _ZN4llvm18ModuleSummaryIndex19getOrInsertValuePtrEm.exit: ; preds = %.thread.i, 
 180:                                              ; preds = %168, %_ZN4llvm18ModuleSummaryIndex19getOrInsertValuePtrEm.exit
   %.sink.i.i.i.i.i = phi ptr [ %169, %168 ], [ null, %_ZN4llvm18ModuleSummaryIndex19getOrInsertValuePtrEm.exit ]
   %181 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E20InsertIntoBucketImplIS2_EEPS8_RKS2_RKT_SC_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i.i), !noalias !221
-  %182 = load i64, ptr %8, align 8
+  %182 = load i64, ptr %8, align 8, !noalias !221
   store i64 %182, ptr %181, align 8, !noalias !221
   %183 = load ptr, ptr %54, align 8
   %184 = load ptr, ptr %55, align 8
@@ -12427,7 +12427,7 @@ _ZN4llvm9SetVectorINS_9ValueInfoESt6vectorIS1_SaIS1_EENS_8DenseSetIS1_NS_12Dense
 287:                                              ; preds = %275, %253
   %.sink.i.i.i.i.i91 = phi ptr [ %276, %275 ], [ null, %253 ]
   %288 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E20InsertIntoBucketImplIS2_EEPS8_RKS2_RKT_SC_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %.sink.i.i.i.i.i91), !noalias !234
-  %289 = load i64, ptr %11, align 8
+  %289 = load i64, ptr %11, align 8, !noalias !234
   store i64 %289, ptr %288, align 8, !noalias !234
   %290 = load ptr, ptr %250, align 8
   %291 = load ptr, ptr %251, align 8
@@ -14360,7 +14360,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorImSt6vectorImSa
 32:                                               ; preds = %21, %2
   %.sink.i.i.i.i = phi ptr [ %22, %21 ], [ null, %2 ]
   %33 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E20InsertIntoBucketImplImEEPS7_RKmRKT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !263
-  %34 = load i64, ptr %1, align 8
+  %34 = load i64, ptr %1, align 8, !noalias !263
   store i64 %34, ptr %33, align 8, !noalias !263
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32

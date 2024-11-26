@@ -3779,7 +3779,7 @@ if.then.i12.i.i:                                  ; preds = %_ZN8facebook5velox1
   unreachable
 
 _ZN8facebook5velox13AlignedBuffer8allocateIiEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit.i: ; preds = %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i
-  %12 = load ptr, ptr %indices, align 8
+  %12 = load ptr, ptr %indices, align 8, !alias.scope !26
   %vtable.i3.i = load ptr, ptr %12, align 8, !noalias !26
   %vfn.i4.i = getelementptr inbounds i8, ptr %vtable.i3.i, i64 24
   %13 = load ptr, ptr %vfn.i4.i, align 8, !noalias !26
@@ -3878,7 +3878,7 @@ if.then.i12.i.i.i:                                ; preds = %call6.i.i.i.noexc
   unreachable
 
 _ZN8facebook5velox13AlignedBuffer8allocateIbEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit.i: ; preds = %call6.i.i.i.noexc
-  %26 = load ptr, ptr %nulls, align 8
+  %26 = load ptr, ptr %nulls, align 8, !alias.scope !33
   %vtable.i.i5 = load ptr, ptr %26, align 8, !noalias !33
   %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 24
   %27 = load ptr, ptr %vfn.i.i6, align 8, !noalias !33

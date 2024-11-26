@@ -4747,7 +4747,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 define void @_ZN7rocksdb12SuperVersionD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %to_delete = getelementptr inbounds i8, ptr %this, i64 648
-  %0 = load i64, ptr %to_delete, align 8
+  %0 = load i64, ptr %to_delete, align 8, !noalias !46
   %vect_.i.i = getelementptr inbounds i8, ptr %this, i64 728
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !46
@@ -9286,7 +9286,7 @@ entry:
   %vect_.i.i = getelementptr inbounds i8, ptr %vstorage, i64 3520
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %vstorage, i64 3528
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !69
-  %2 = load ptr, ptr %vect_.i.i, align 8
+  %2 = load ptr, ptr %vect_.i.i, align 8, !noalias !69
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -10840,7 +10840,7 @@ entry:
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
-  %1 = load i64, ptr %sv_ptrs, align 8
+  %1 = load i64, ptr %sv_ptrs, align 8, !noalias !76
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %sv_ptrs, i64 88
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !76
   %3 = load ptr, ptr %vect_.i, align 8, !noalias !76
@@ -16889,7 +16889,7 @@ declare void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 derefe
 define linkonce_odr void @_ZN7rocksdb19SuperVersionContext5CleanEv(ptr noundef nonnull align 8 dereferenceable(536) %this) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %write_stall_notifications = getelementptr inbounds i8, ptr %this, i64 104
-  %0 = load i64, ptr %write_stall_notifications, align 8
+  %0 = load i64, ptr %write_stall_notifications, align 8, !noalias !114
   %vect_.i.i = getelementptr inbounds i8, ptr %this, i64 504
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 512
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !114
@@ -16948,7 +16948,7 @@ invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i.i.i.
   br label %_ZN7rocksdb10autovectorINS_19SuperVersionContext22WriteStallNotificationELm8EE5clearEv.exit
 
 _ZN7rocksdb10autovectorINS_19SuperVersionContext22WriteStallNotificationELm8EE5clearEv.exit: ; preds = %while.end.i, %invoke.cont.i.i.i
-  %9 = load i64, ptr %this, align 8
+  %9 = load i64, ptr %this, align 8, !noalias !117
   %vect_.i.i13 = getelementptr inbounds i8, ptr %this, i64 80
   %_M_finish.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 88
   %10 = load ptr, ptr %_M_finish.i.i.i14, align 8, !noalias !117

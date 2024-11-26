@@ -1849,7 +1849,7 @@ RB_FL_TEST.exit303:                               ; preds = %568, %RB_FL_TEST.ex
 600:                                              ; preds = %596
   tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, i64 noundef 21)
   %601 = inttoptr i64 %598 to ptr
-  %602 = load i64, ptr %601, align 8, !noalias !6
+  %602 = load i64, ptr %601, align 8, !noalias !9
   %603 = and i64 %602, 8192
   %.not.i.i309 = icmp eq i64 %603, 0
   %604 = getelementptr inbounds i8, ptr %601, i64 24
@@ -2721,7 +2721,7 @@ buffer_append.exit428:                            ; preds = %dump_flush.exit.i.i
   %993 = phi i64 [ %968, %buffer_append.exit420 ], [ %991, %buffer_append.exit428 ]
   %994 = add nuw i64 %.0554, 1
   %exitcond.not = icmp eq i64 %994, %863
-  br i1 %exitcond.not, label %995, label %890, !llvm.loop !7
+  br i1 %exitcond.not, label %995, label %890, !llvm.loop !12
 
 995:                                              ; preds = %992
   %996 = add i64 %993, -4095
@@ -2942,7 +2942,7 @@ define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unn
   store i8 %8, ptr %.ptr13.i, align 1
   %9 = lshr i64 %.017.i, 4
   %.not.i = icmp ult i64 %.017.i, 16
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.ptr13.i.le = getelementptr inbounds i8, ptr %3, i64 %.011.add12.i
@@ -3430,7 +3430,7 @@ RSTRING_PTR.exit:                                 ; preds = %86, %89
 92:                                               ; preds = %.lr.ph.i
   %93 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %93, %90
-  br i1 %exitcond.not.i, label %dump_string_ascii_only.exit.thread43, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %dump_string_ascii_only.exit.thread43, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit, %92
   %.06.i = phi i64 [ %93, %92 ], [ 0, %RSTRING_PTR.exit ]
@@ -4007,7 +4007,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   %31 = add i64 %30, 1
   store i64 %31, ptr %3, align 8
   %32 = inttoptr i64 %1 to ptr
-  %33 = load i64, ptr %32, align 8, !noalias !11
+  %33 = load i64, ptr %32, align 8, !noalias !16
   %34 = and i64 %33, 8192
   %.not.i.i = icmp eq i64 %34, 0
   %35 = getelementptr inbounds i8, ptr %32, i64 24
@@ -4599,7 +4599,7 @@ dump_append_c.exit:                               ; preds = %buffer_ensure_capa.
   %284 = add nuw nsw i64 %.0102, 1
   %285 = load i64, ptr %37, align 8
   %286 = icmp slt i64 %284, %285
-  br i1 %286, label %42, label %._crit_edge, !llvm.loop !14
+  br i1 %286, label %42, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %dump_append_c.exit, %RSTRING_PTR.exit
   %287 = phi i64 [ %31, %RSTRING_PTR.exit ], [ %283, %dump_append_c.exit ]
@@ -5850,7 +5850,7 @@ define internal noundef i32 @heap_i(ptr noundef %0, ptr noundef %1, i64 noundef 
 16:                                               ; preds = %12, %15
   %17 = add i64 %.018, %2
   %.not = icmp eq i64 %17, %5
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %16, %4
   ret i32 0
@@ -5897,13 +5897,18 @@ attributes #14 = { cold noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"rbimpl_rstring_getmem: argument 0"}
-!13 = distinct !{!13, !"rbimpl_rstring_getmem"}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"rbimpl_rstring_getmem: argument 0"}
+!8 = distinct !{!8, !"rbimpl_rstring_getmem"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"rbimpl_rstring_getmem: argument 0"}
+!11 = distinct !{!11, !"rbimpl_rstring_getmem"}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"rbimpl_rstring_getmem: argument 0"}
+!18 = distinct !{!18, !"rbimpl_rstring_getmem"}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}

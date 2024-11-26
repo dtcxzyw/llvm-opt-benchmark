@@ -436,7 +436,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..Er
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  %3 = load ptr, ptr %2, align 8, !alias.scope !136, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !142, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8, !alias.scope !142, !noundef !5
   %6 = icmp eq i64 %5, 0
@@ -1226,7 +1226,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_c
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..error..inner..PayloadEntry$GT$$GT$17hf68dc2ef8889a17eE.llvm.12192176430880052379"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
-  %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
+  %2 = load ptr, ptr %0, align 8, !alias.scope !408, !nonnull !5, !noundef !5
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !408, !noundef !5
   %5 = icmp eq i64 %4, 0
@@ -1260,7 +1260,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$ockam_cor
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..error..inner..LocalPayloadEntry$GT$$GT$17h2e5fb02292739e9aE.llvm.12192176430880052379"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !423)
-  %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
+  %2 = load ptr, ptr %0, align 8, !alias.scope !423, !nonnull !5, !noundef !5
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !423, !noundef !5
   br label %5

@@ -457,7 +457,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfType4FindINS_16UsdGeomBoundableEEERKS0_v
   br label %139
 
 139:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__6TfType4FindINS_16UsdGeomBoundableEEERKS0_v.exit.i.i, %134, %131
-  %140 = load ptr, ptr %14, align 8
+  %140 = load ptr, ptr %14, align 8, !alias.scope !6
   %141 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %142 = load ptr, ptr %141, align 8, !alias.scope !6
   %143 = ptrtoint ptr %142 to i64
@@ -592,7 +592,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__6TfTypeESt6vectorIS3_SaIS3_EEEEZNKS2_12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKS3_EUlSC_E_ET_SE_SE_T0_.exit.i.i: ; preds = %178, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__6TfTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKS3_EUlSE_E_EEET_SH_SH_T0_.exit.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   %.sroa.012.0.i.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__6TfTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKS3_EUlSE_E_EEET_SH_SH_T0_.exit.i.i.i.i ], [ %142, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.012.2.i.i.i.i, %178 ]
-  %179 = load ptr, ptr %141, align 8
+  %179 = load ptr, ptr %141, align 8, !alias.scope !6
   %.not.i.i14.i.i = icmp eq ptr %.sroa.012.0.i.i.i.i, %179
   %.pre.i = load ptr, ptr %14, align 8
   br i1 %.not.i.i14.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKNS_6TfTypeE.exit.i, label %._crit_edge.i.i.i.i

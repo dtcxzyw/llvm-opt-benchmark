@@ -8954,7 +8954,7 @@ _ZN4llvm8CallBase7arg_endEv.exit91:               ; preds = %_ZNK4llvm8CallBase1
 
 _ZNK4llvm8CallBase25dataOperandHasImpliedAttrEjNS_9Attribute8AttrKindE.exit.i: ; preds = %177
   %183 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %184 = load i32, ptr %183, align 8
+  %184 = load i32, ptr %183, align 8, !noalias !68
   %185 = sub i32 %.051132, %184
   %186 = load i32, ptr %109, align 4, !noalias !68
   %187 = and i32 %186, 134217727
@@ -11893,7 +11893,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4l
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %45 = load i32, ptr %44, align 8
+  %45 = load i32, ptr %44, align 8, !noalias !95
   %46 = sub i32 %22, %45
   %47 = load i32, ptr %12, align 4, !noalias !95
   %48 = and i32 %47, 134217727

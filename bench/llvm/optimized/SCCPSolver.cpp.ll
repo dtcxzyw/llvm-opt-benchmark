@@ -1764,21 +1764,21 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit:      ; preds = %29
   %103 = add nuw i32 %47, 1
   store i32 %103, ptr %24, align 4, !noalias !33
   store ptr %50, ptr %96, align 8, !noalias !33
-  %104 = load ptr, ptr %5, align 8
-  %105 = load i32, ptr %24, align 4
+  %104 = load ptr, ptr %5, align 8, !noalias !33
+  %105 = load i32, ptr %24, align 4, !noalias !33
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 106:                                              ; preds = %._crit_edge.i.i, %.loopexit
   %107 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef %50) #17, !noalias !33
-  %.pre.i = load ptr, ptr %5, align 8
-  %.pre6.i = load i32, ptr %24, align 4
+  %.pre.i = load ptr, ptr %5, align 8, !noalias !33
+  %.pre6.i = load i32, ptr %24, align 4, !noalias !33
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %106, %102
   %108 = phi i32 [ %105, %102 ], [ %.pre6.i, %106 ], [ %47, %.lr.ph.i.i ]
   %109 = phi ptr [ %104, %102 ], [ %.pre.i, %106 ], [ %48, %.lr.ph.i.i ]
-  %110 = load ptr, ptr %22, align 8
-  %111 = load i32, ptr %23, align 8
+  %110 = load ptr, ptr %22, align 8, !noalias !33
+  %111 = load i32, ptr %23, align 8, !noalias !33
   br label %_ZNK4llvm10SCCPSolver14isEdgeFeasibleEPNS_10BasicBlockES2_.exit
 
 _ZNK4llvm10SCCPSolver14isEdgeFeasibleEPNS_10BasicBlockES2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %.lr.ph.split
@@ -23899,7 +23899,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_4UserENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_1
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4UserENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !235
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !235
   store ptr %96, ptr %95, align 8, !noalias !235
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #17

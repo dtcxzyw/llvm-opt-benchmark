@@ -8548,7 +8548,7 @@ define hidden noundef zeroext i1 @_ZN4llvm11SplitEditor14transferValuesEv(ptr no
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 188
   %14 = load i32, ptr %13, align 4
   call void @_ZN4llvm15IntervalMapImpl4Path7setRootEPvjj(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull %.sink.i.i.i, i32 noundef %14, i32 noundef 0)
-  %15 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %5, align 8, !alias.scope !88
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 184
   %17 = load i32, ptr %16, align 8
   %.not.i.i = icmp eq i32 %17, 0

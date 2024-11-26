@@ -19173,7 +19173,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2096
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2093, !noalias !2098, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2096
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -19668,7 +19668,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2139
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2136, !noalias !2141, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2139
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -20163,7 +20163,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2181
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2178, !noalias !2183, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2181
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -20658,7 +20658,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2223
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2220, !noalias !2225, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2223
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -21153,7 +21153,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2265
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2262, !noalias !2267, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2265
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -21648,7 +21648,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2307
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2304, !noalias !2309, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2307
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -22143,7 +22143,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2349
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2346, !noalias !2351, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2349
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -22638,7 +22638,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2391
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2388, !noalias !2393, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2391
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -23133,7 +23133,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2433
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2430, !noalias !2435, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2433
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -23628,7 +23628,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2475
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2472, !noalias !2477, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2475
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -24123,7 +24123,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2517
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2514, !noalias !2519, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2517
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -24618,7 +24618,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2559
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2556, !noalias !2561, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2559
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -25113,7 +25113,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2601
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2598, !noalias !2603, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2601
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -25608,7 +25608,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2643
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2640, !noalias !2645, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2643
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -26103,7 +26103,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2685
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2682, !noalias !2687, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2685
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -26598,7 +26598,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2727
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2724, !noalias !2729, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2727
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -27093,7 +27093,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2769
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2766, !noalias !2771, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2769
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -27588,7 +27588,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2811
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2808, !noalias !2813, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2811
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -28083,7 +28083,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2853
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2850, !noalias !2855, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2853
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -28578,7 +28578,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2895
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2892, !noalias !2897, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2895
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -29073,7 +29073,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2937
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2934, !noalias !2939, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2937
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -29568,7 +29568,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !2979
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !2976, !noalias !2981, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !2979
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -30063,7 +30063,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3021
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3018, !noalias !3023, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3021
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -30558,7 +30558,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3063
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3060, !noalias !3065, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3063
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -31053,7 +31053,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3105
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3102, !noalias !3107, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3105
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -31548,7 +31548,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3147
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3144, !noalias !3149, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3147
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -32043,7 +32043,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3189
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3186, !noalias !3191, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3189
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -32538,7 +32538,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3231
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3228, !noalias !3233, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3231
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -33033,7 +33033,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3273
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3270, !noalias !3275, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3273
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -33528,7 +33528,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3315
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3312, !noalias !3317, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3315
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -34023,7 +34023,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3357
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3354, !noalias !3359, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3357
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -34518,7 +34518,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3399
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3396, !noalias !3401, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3399
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -35013,7 +35013,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3441
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3438, !noalias !3443, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3441
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -35508,7 +35508,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3483
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3480, !noalias !3485, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3483
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -36003,7 +36003,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3525
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3522, !noalias !3527, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3525
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -36498,7 +36498,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3567
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3564, !noalias !3569, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3567
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71
@@ -36993,7 +36993,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !3609
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !12
+  %69 = load i64, ptr %68, align 8, !alias.scope !3606, !noalias !3611, !noundef !12
   store i64 %69, ptr %16, align 8, !noalias !3609
   %70 = icmp ult i64 %69, %61
   br i1 %70, label %75, label %71

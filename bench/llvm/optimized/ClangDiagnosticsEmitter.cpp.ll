@@ -3580,7 +3580,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113InferPedantic7computeEN4llvm12Po
   br i1 %62, label %89, label %63
 
 63:                                               ; preds = %59
-  %64 = load ptr, ptr %13, align 8
+  %64 = load ptr, ptr %13, align 8, !noalias !69
   %65 = ptrtoint ptr %64 to i64
   %66 = trunc i64 %65 to i32
   %67 = lshr i32 %66, 4
@@ -3625,7 +3625,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113InferPedantic7computeEN4llvm12Po
 89:                                               ; preds = %78, %59
   %.sink.i.i.i.i = phi ptr [ %79, %78 ], [ null, %59 ]
   %90 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %.sink.i.i.i.i), !noalias !69
-  %91 = load ptr, ptr %13, align 8
+  %91 = load ptr, ptr %13, align 8, !noalias !69
   store ptr %91, ptr %90, align 8, !noalias !69
   br label %_ZN4llvm6detail12DenseSetImplIPKNS_6RecordENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit
 

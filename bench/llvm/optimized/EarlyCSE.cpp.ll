@@ -901,7 +901,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18EarlyCSE3runEv(ptr 
 137:                                              ; preds = %.lr.ph, %1672
   %.val17181 = phi ptr [ %.val17179, %.lr.ph ], [ %.val17, %1672 ]
   %.0180 = phi i1 [ false, %.lr.ph ], [ %.1, %1672 ]
-  %138 = load ptr, ptr %38, align 8
+  %138 = load ptr, ptr %38, align 8, !noalias !13
   %139 = icmp eq ptr %.val17181, %138
   br i1 %139, label %140, label %_ZNSt5dequeIPN12_GLOBAL__N_18EarlyCSE9StackNodeESaIS3_EE4backEv.exit
 

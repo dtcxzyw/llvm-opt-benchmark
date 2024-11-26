@@ -2210,7 +2210,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @load_encoding(ptr noundef
   %5 = tail call ptr @rb_ruby_debug_ptr() #20
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %4 to ptr
-  %8 = load i64, ptr %7, align 8, !noalias !14
+  %8 = load i64, ptr %7, align 8, !noalias !16
   %9 = and i64 %8, 8192
   %.not.i.i = icmp eq i64 %9, 0
   %10 = getelementptr inbounds i8, ptr %7, i64 24
@@ -2264,7 +2264,7 @@ RSTRING_END.exit:                                 ; preds = %RSTRING_PTR.exit.th
 29:                                               ; preds = %.sink.split, %24
   %30 = getelementptr i8, ptr %.02232, i64 1
   %31 = icmp ult ptr %30, %16
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %29, %RSTRING_END.exit
   %32 = tail call i64 @rb_fstring(i64 noundef %4) #20
@@ -2445,7 +2445,7 @@ define hidden range(i64 1, 0) i64 @rb_id_encoding() local_unnamed_addr #0 {
   %1 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 8) #20
   store i64 %1, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !17
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !20
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %0
   %.lcssa.i = phi i64 [ %.pr.i, %0 ], [ %1, %.lr.ph.i ]
@@ -2498,7 +2498,7 @@ define dso_local i32 @rb_enc_get_index(i64 noundef %0) local_unnamed_addr #0 {
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 8) #20
   store i64 %21, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not.i.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %rb_id_encoding.exit.i, !llvm.loop !17
+  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %rb_id_encoding.exit.i, !llvm.loop !20
 
 rb_id_encoding.exit.i:                            ; preds = %.lr.ph.i.i.i, %20
   %.lcssa.i.i.i = phi i64 [ %.pr.i.i.i, %20 ], [ %21, %.lr.ph.i.i.i ]
@@ -2533,7 +2533,7 @@ rb_num2int_inline.exit.i:                         ; preds = %28, %26
   %32 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 17) #20
   store i64 %32, ptr @rb_enc_get_index.rbimpl_id, align 8
   %.not.i = icmp eq i64 %32, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !17
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !20
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %31
   %.lcssa.i = phi i64 [ %.pr.i, %31 ], [ %32, %.lr.ph.i ]
@@ -2550,7 +2550,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %31
   %36 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 17) #20
   store i64 %36, ptr @rb_enc_get_index.rbimpl_id.6, align 8
   %.not.i44 = icmp eq i64 %36, 0
-  br i1 %.not.i44, label %.lr.ph.i43, label %rbimpl_intern_const.exit45, !llvm.loop !17
+  br i1 %.not.i44, label %.lr.ph.i43, label %rbimpl_intern_const.exit45, !llvm.loop !20
 
 rbimpl_intern_const.exit45:                       ; preds = %.lr.ph.i43, %35
   %.lcssa.i42 = phi i64 [ %.pr.i40, %35 ], [ %36, %.lr.ph.i43 ]
@@ -2759,7 +2759,7 @@ enc_capable.exit.thread:                          ; preds = %17, %7, %7, %7, %7,
   %35 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 8) #20
   store i64 %35, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %rb_id_encoding.exit, !llvm.loop !17
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %rb_id_encoding.exit, !llvm.loop !20
 
 rb_id_encoding.exit:                              ; preds = %.lr.ph.i.i, %31
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %31 ], [ %35, %.lr.ph.i.i ]
@@ -2897,7 +2897,7 @@ define hidden nonnull ptr @rb_enc_check_str(i64 noundef %0, i64 noundef %1) loca
   %10 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 8) #20
   store i64 %10, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %rb_id_encoding.exit.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %rb_id_encoding.exit.i.i, !llvm.loop !20
 
 rb_id_encoding.exit.i.i:                          ; preds = %.lr.ph.i.i.i.i, %9
   %.lcssa.i.i.i.i = phi i64 [ %.pr.i.i.i.i, %9 ], [ %10, %.lr.ph.i.i.i.i ]
@@ -2942,7 +2942,7 @@ enc_get_index_str.exit.i:                         ; preds = %rb_num2int_inline.e
   %27 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 8) #20
   store i64 %27, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not.i.i.i23.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i.i23.i, label %.lr.ph.i.i.i22.i, label %rb_id_encoding.exit.i17.i, !llvm.loop !17
+  br i1 %.not.i.i.i23.i, label %.lr.ph.i.i.i22.i, label %rb_id_encoding.exit.i17.i, !llvm.loop !20
 
 rb_id_encoding.exit.i17.i:                        ; preds = %.lr.ph.i.i.i22.i, %26
   %.lcssa.i.i.i18.i = phi i64 [ %.pr.i.i.i15.i, %26 ], [ %27, %.lr.ph.i.i.i22.i ]
@@ -4120,7 +4120,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   %51 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rb_class_of.exit
   %54 = load i64, ptr @rb_cEncoding, align 8
@@ -5141,6 +5141,9 @@ attributes #26 = { noreturn }
 !13 = distinct !{!13, !8}
 !14 = !{}
 !15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"rbimpl_rstring_getmem: argument 0"}
+!18 = distinct !{!18, !"rbimpl_rstring_getmem"}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}

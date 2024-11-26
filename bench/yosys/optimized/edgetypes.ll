@@ -5654,8 +5654,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 2497:                                             ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %2496) #22
-  %2498 = load ptr, ptr %25, align 8
-  %2499 = load ptr, ptr %100, align 8
+  %2498 = load ptr, ptr %25, align 8, !noalias !31
+  %2499 = load ptr, ptr %100, align 8, !noalias !31
   %2500 = icmp eq ptr %2498, %2499
   br i1 %2500, label %.loopexit1157.thread, label %2501
 
@@ -5678,8 +5678,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 _ZNK5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i: ; preds = %.lr.ph.i.i.i, %2501
   %.0.lcssa.i.i.i = phi i32 [ 0, %2501 ], [ %2507, %.lr.ph.i.i.i ]
-  %2509 = load ptr, ptr %100, align 8
-  %2510 = load ptr, ptr %25, align 8
+  %2509 = load ptr, ptr %100, align 8, !noalias !31
+  %2510 = load ptr, ptr %25, align 8, !noalias !31
   %2511 = ptrtoint ptr %2509 to i64
   %2512 = ptrtoint ptr %2510 to i64
   %2513 = sub i64 %2511, %2512

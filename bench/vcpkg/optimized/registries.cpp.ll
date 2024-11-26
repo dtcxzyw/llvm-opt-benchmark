@@ -10661,8 +10661,9 @@ _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: 
 define internal void @_ZNK12_GLOBAL__N_120BuiltinFilesRegistry36try_append_all_port_names_no_networkERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ExpectedT.59") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::ExpectedT.15", align 8
   call void @_ZNK12_GLOBAL__N_120BuiltinFilesRegistry21append_all_port_namesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.15") align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @llvm.experimental.noalias.scope.decl(metadata !230)
   %5 = getelementptr inbounds i8, ptr %4, i64 32
-  %6 = load i8, ptr %5, align 8
+  %6 = load i8, ptr %5, align 8, !noalias !230
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %9
 
@@ -20571,8 +20572,9 @@ define internal void @_ZNK12_GLOBAL__N_118BuiltinGitRegistry36try_append_all_por
 
 _ZNK12_GLOBAL__N_118BuiltinGitRegistry21append_all_port_namesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %15, %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.experimental.noalias.scope.decl(metadata !414)
   %20 = getelementptr inbounds i8, ptr %5, i64 32
-  %21 = load i8, ptr %20, align 8
+  %21 = load i8, ptr %20, align 8, !noalias !414
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %24
 
@@ -22902,8 +22904,9 @@ define internal void @_ZNK12_GLOBAL__N_118FilesystemRegistry36try_append_all_por
 _ZNK12_GLOBAL__N_118FilesystemRegistry21append_all_port_namesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.experimental.noalias.scope.decl(metadata !508)
   %11 = getelementptr inbounds i8, ptr %5, i64 32
-  %12 = load i8, ptr %11, align 8
+  %12 = load i8, ptr %11, align 8, !noalias !508
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %15
 

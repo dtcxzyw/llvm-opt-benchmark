@@ -916,8 +916,8 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxr
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %6, ptr %.sroa.2.0..sroa_idx, align 8
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %27 = load ptr, ptr %26, align 8, !noalias !14
-  %28 = load ptr, ptr %27, align 8, !noalias !14
+  %27 = load ptr, ptr %26, align 8, !noalias !17
+  %28 = load ptr, ptr %27, align 8, !noalias !17
   %29 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %28, i64 %6, i32 3, i32 2
   %30 = load i16, ptr %29, align 4, !noalias !17
   %31 = zext i16 %30 to i64

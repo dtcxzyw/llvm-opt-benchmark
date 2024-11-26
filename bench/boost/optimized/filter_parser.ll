@@ -2827,7 +2827,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %15 = load ptr, ptr %14, align 8, !tbaa !59
+  %15 = load ptr, ptr %14, align 8, !tbaa !59, !noalias !111
   %16 = icmp eq ptr %10, %15
   br i1 %16, label %20, label %17
 
@@ -3468,7 +3468,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %15 = load ptr, ptr %14, align 8, !tbaa !59
+  %15 = load ptr, ptr %14, align 8, !tbaa !59, !noalias !123
   %16 = icmp eq ptr %10, %15
   br i1 %16, label %20, label %17
 
@@ -7241,7 +7241,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %15 = load ptr, ptr %14, align 8, !tbaa !59
+  %15 = load ptr, ptr %14, align 8, !tbaa !59, !noalias !165
   %16 = icmp eq ptr %10, %15
   br i1 %16, label %20, label %17
 
@@ -7882,7 +7882,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %15 = load ptr, ptr %14, align 8, !tbaa !59
+  %15 = load ptr, ptr %14, align 8, !tbaa !59, !noalias !177
   %16 = icmp eq ptr %10, %15
   br i1 %16, label %20, label %17
 

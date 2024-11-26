@@ -5055,7 +5055,7 @@ _ZL26extractBranchProbabilitiesPN4llvm11InstructionERNS_17BranchProbabilityES3_.
 62:                                               ; preds = %51, %32
   %.sink.i.i.i.i.i = phi ptr [ %52, %51 ], [ null, %32 ]
   %63 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6RegionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink.i.i.i.i.i), !noalias !71
-  %64 = load ptr, ptr %6, align 8
+  %64 = load ptr, ptr %6, align 8, !noalias !71
   store ptr %64, ptr %63, align 8, !noalias !71
   br label %_ZN4llvm6detail12DenseSetImplIPNS_6RegionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit.i
 
@@ -5165,7 +5165,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_6RegionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS
 126:                                              ; preds = %115, %96
   %.sink.i.i.i.i32.i = phi ptr [ %116, %115 ], [ null, %96 ]
   %127 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6RegionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink.i.i.i.i32.i), !noalias !78
-  %128 = load ptr, ptr %6, align 8
+  %128 = load ptr, ptr %6, align 8, !noalias !78
   store ptr %128, ptr %127, align 8, !noalias !78
   br label %_ZN4llvm6detail12DenseSetImplIPNS_6RegionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit33.i
 
@@ -5766,7 +5766,7 @@ _ZL17checkBiasedSelectPN4llvm10SelectInstEPNS_6RegionERNS_8DenseSetIS1_NS_12Dens
 78:                                               ; preds = %67, %49
   %.sink.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ null, %49 ]
   %79 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10SelectInstENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i.i), !noalias !90
-  %80 = load ptr, ptr %4, align 8
+  %80 = load ptr, ptr %4, align 8, !noalias !90
   store ptr %80, ptr %79, align 8, !noalias !90
   br label %_ZN4llvm6detail12DenseSetImplIPNS_10SelectInstENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit.i.i
 
@@ -5874,7 +5874,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10SelectInstENS_8DenseMapIS3_NS0_13DenseSetEmp
 140:                                              ; preds = %129, %111
   %.sink.i.i.i.i32.i.i = phi ptr [ %130, %129 ], [ null, %111 ]
   %141 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10SelectInstENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i32.i.i), !noalias !97
-  %142 = load ptr, ptr %4, align 8
+  %142 = load ptr, ptr %4, align 8, !noalias !97
   store ptr %142, ptr %141, align 8, !noalias !97
   br label %_ZN4llvm6detail12DenseSetImplIPNS_10SelectInstENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit33.i.i
 
@@ -8829,7 +8829,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEbNS_12DenseMapInfoIS3_vEEN
 125:                                              ; preds = %114, %95
   %.sink.i.i.i.i49 = phi ptr [ %115, %114 ], [ null, %95 ]
   %126 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.sink.i.i.i.i49), !noalias !155
-  %127 = load ptr, ptr %7, align 8
+  %127 = load ptr, ptr %7, align 8, !noalias !155
   store ptr %127, ptr %126, align 8, !noalias !155
   br label %_ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit
 
@@ -10722,8 +10722,8 @@ _ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_
   %176 = load ptr, ptr %.037.i, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 -96
   %178 = load ptr, ptr %177, align 8
-  %179 = load ptr, ptr %21, align 8, !noalias !186
-  %180 = load i32, ptr %92, align 8, !noalias !186
+  %179 = load ptr, ptr %21, align 8, !alias.scope !177, !noalias !186
+  %180 = load i32, ptr %92, align 8, !alias.scope !177, !noalias !186
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %207, label %182
 
@@ -24559,7 +24559,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !347
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !347
   store ptr %96, ptr %95, align 8, !noalias !347
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #22

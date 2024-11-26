@@ -2840,7 +2840,7 @@ define range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %0, ptr 
 
 26:                                               ; preds = %23
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 2) #29
-  %.pre = load i16, ptr %4, align 2
+  %.pre = load i16, ptr %4, align 2, !alias.scope !49, !noalias !52
   br label %27
 
 27:                                               ; preds = %26, %23, %21

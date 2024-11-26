@@ -2531,7 +2531,7 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime22GetRuntimeProtocolListE
   br i1 %19, label %20, label %53
 
 20:                                               ; preds = %13
-  %21 = load ptr, ptr %5, align 8
+  %21 = load ptr, ptr %5, align 8, !noalias !70
   %22 = load i32, ptr %12, align 8, !noalias !70
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %50, label %24
@@ -2798,7 +2798,7 @@ _ZN4llvm6detail12DenseSetImplIPKN5clang16ObjCProtocolDeclENS_8DenseMapIS5_NS0_13
 135:                                              ; preds = %124, %103
   %.sink.i.i.i.i32 = phi ptr [ %125, %124 ], [ null, %103 ]
   %136 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang16ObjCProtocolDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %.sink.i.i.i.i32), !noalias !78
-  %137 = load ptr, ptr %9, align 8
+  %137 = load ptr, ptr %9, align 8, !noalias !78
   store ptr %137, ptr %136, align 8, !noalias !78
   br label %_ZN4llvm6detail12DenseSetImplIPKN5clang16ObjCProtocolDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertERKS5_.exit33
 

@@ -266,7 +266,7 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %104 = getelementptr inbounds i8, ptr %2, i64 24
   %105 = load i64, ptr %104, align 8, !noalias !13
   %106 = getelementptr inbounds i8, ptr %2, i64 16
-  %107 = load i64, ptr %106, align 8
+  %107 = load i64, ptr %106, align 8, !noalias !13
   %108 = getelementptr inbounds i8, ptr %6, i64 32
   %109 = getelementptr inbounds i8, ptr %6, i64 16
   %110 = sext i32 %97 to i64

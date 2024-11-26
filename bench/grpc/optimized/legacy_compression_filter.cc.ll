@@ -5726,7 +5726,7 @@ entry:
   call void @_ZN9grpc_core14promise_detail23TwoPartyPrioritizedRaceIZNS_5LatchISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE4WaitEvEUlvE_NS0_15PrioritizedRaceIJNS_12ArenaPromiseIS7_EEEEEEclEv(ptr nonnull sret(%"class.grpc_core::Poll.201") align 8 %agg.tmp, ptr noundef nonnull align 16 dereferenceable(48) %0)
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  %1 = load i8, ptr %agg.tmp, align 8
+  %1 = load i8, ptr %agg.tmp, align 8, !noalias !108
   %tobool.i.i.i = trunc i8 %1 to i1
   %frombool.i.i.i = and i8 %1, 1
   store i8 %frombool.i.i.i, ptr %agg.result, align 8, !alias.scope !108

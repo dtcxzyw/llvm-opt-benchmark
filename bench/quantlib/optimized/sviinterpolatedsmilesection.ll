@@ -16010,7 +16010,7 @@ invoke.cont23.i:                                  ; preds = %if.else.i, %if.then
   br i1 %tobool.i.i.i.i20.not.i, label %if.else28.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %invoke.cont23.i
-  %14 = load ptr, ptr %params_, align 8, !tbaa !63
+  %14 = load ptr, ptr %params_, align 8, !tbaa !63, !noalias !276
   %15 = load double, ptr %14, align 8, !tbaa !81, !noalias !276
   br label %_ZN8QuantLib6detail8SviSpecs6directERKNS_5ArrayERKSt6vectorIbSaIbEERKS5_IdSaIdEEd.exit
 
@@ -16194,7 +16194,7 @@ invoke.cont23.i:                                  ; preds = %if.else.i, %if.then
   br i1 %tobool.i.i.i.i20.not.i, label %if.else28.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %invoke.cont23.i
-  %14 = load ptr, ptr %params_, align 8, !tbaa !63
+  %14 = load ptr, ptr %params_, align 8, !tbaa !63, !noalias !280
   %15 = load double, ptr %14, align 8, !tbaa !81, !noalias !280
   br label %_ZN8QuantLib6detail8SviSpecs6directERKNS_5ArrayERKSt6vectorIbSaIbEERKS5_IdSaIdEEd.exit
 

@@ -976,7 +976,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont3
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %.pre = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  %.pre = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !10
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit
@@ -1055,7 +1055,7 @@ _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %if.t
   store ptr %storemerge.i.i, ptr %_M_finish.i.i, align 8
   %21 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i4 = icmp eq ptr %storemerge.i.i, %21
-  br i1 %cmp.i.i.i4, label %if.end13, label %while.body, !llvm.loop !11
+  br i1 %cmp.i.i.i4, label %if.end13, label %while.body, !llvm.loop !13
 
 if.end13:                                         ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit, %invoke.cont3, %entry
   ret void
@@ -1226,13 +1226,13 @@ _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
-  %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !12
-  %6 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !12
+  %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !14
+  %6 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !14
   %cmp.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i, label %if.then.i.i.i53, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit
 
 if.then.i.i.i53:                                  ; preds = %for.cond
-  %7 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !12
+  %7 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !14
   %add.ptr.i.i.i54 = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load ptr, ptr %add.ptr.i.i.i54, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 504
@@ -1363,7 +1363,7 @@ if.then61:                                        ; preds = %land.lhs.true54
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.then61, %if.then.i.i.i63, %if.else.i.i.i65, %if.end125
-  br label %for.cond, !llvm.loop !15
+  br label %for.cond, !llvm.loop !17
 
 if.else77:                                        ; preds = %land.lhs.true54, %if.then50.if.else77_crit_edge
   %30 = phi ptr [ %.pre, %if.then50.if.else77_crit_edge ], [ %23, %land.lhs.true54 ]
@@ -1453,7 +1453,7 @@ if.end109:                                        ; preds = %_ZNSt5stackIN3re29W
   br i1 %cmp.i.i.i73, label %if.then.i.i.i75, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
 
 if.then.i.i.i75:                                  ; preds = %if.end109
-  %47 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !16
+  %47 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !18
   %add.ptr.i.i.i77 = getelementptr inbounds i8, ptr %47, i64 -8
   %48 = load ptr, ptr %add.ptr.i.i.i77, align 8
   %add.ptr.i.i.i.i78 = getelementptr inbounds i8, ptr %48, i64 504
@@ -1742,12 +1742,14 @@ attributes #21 = { cold }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{}
-!11 = distinct !{!11, !5}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE3endEv: %agg.result"}
-!14 = distinct !{!14, !"_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE3endEv"}
-!15 = distinct !{!15, !5}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE3endEv: %agg.result"}
-!18 = distinct !{!18, !"_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE3endEv"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE3endEv: %agg.result"}
+!12 = distinct !{!12, !"_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE3endEv"}
+!13 = distinct !{!13, !5}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE3endEv: %agg.result"}
+!16 = distinct !{!16, !"_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE3endEv"}
+!17 = distinct !{!17, !5}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE3endEv: %agg.result"}
+!20 = distinct !{!20, !"_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE3endEv"}

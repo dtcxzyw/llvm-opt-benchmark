@@ -2479,7 +2479,7 @@ if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
 _ZN4llvh9BitVector4flipEv.exit:                   ; preds = %if.end.i.i.i, %if.then8.i.i.i
   %call4 = tail call noundef zeroext i1 @_ZN6hermes2vm6GCBase9IDTracker13isTrackingIDsEv(ptr noundef nonnull align 8 dereferenceable(192) %tracker) #16
   %19 = load i32, ptr %Size.i7.i, align 8
-  %20 = load i32, ptr %Size.i.i, align 8
+  %20 = load i32, ptr %Size.i.i, align 8, !noalias !13
   %cmp.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %cmp.i.i.i.i.i, label %for.end, label %if.end.i.i.i.i.i
 

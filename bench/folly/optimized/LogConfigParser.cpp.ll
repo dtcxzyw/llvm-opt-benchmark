@@ -8959,7 +8959,7 @@ invoke.cont180.i:                                 ; preds = %if.end177.i
           to label %invoke.cont184.i unwind label %lpad183.i
 
 invoke.cont184.i:                                 ; preds = %invoke.cont180.i
-  %108 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !tbaa !13
+  %108 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !tbaa !13, !alias.scope !217
   %109 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !67, !alias.scope !217
   %cmp.not.i.i.i254 = icmp eq ptr %108, %109
   br i1 %cmp.not.i.i.i254, label %if.else.i.i342.i, label %if.then.i.i341.i

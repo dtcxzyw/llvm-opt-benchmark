@@ -16890,7 +16890,7 @@ entry:
   %cond7 = select i1 %cmp.i, ptr %1, ptr %this
   %d_literal.i = getelementptr inbounds i8, ptr %cond, i64 80
   %2 = load ptr, ptr %d_literal.i, align 8, !noalias !157
-  %bf.load.i.i.i = load i64, ptr %2, align 8
+  %bf.load.i.i.i = load i64, ptr %2, align 8, !noalias !157
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %3 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %3, 1048575

@@ -9689,7 +9689,7 @@ declare i64 @rb_ull2inum(i64 noundef) local_unnamed_addr #1
 define internal fastcc i64 @string_to_r_strict(i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
   tail call void @rb_must_asciicompat(i64 noundef %0) #16
   %3 = inttoptr i64 %0 to ptr
-  %4 = load i64, ptr %3, align 8, !noalias !15
+  %4 = load i64, ptr %3, align 8, !noalias !18
   %5 = and i64 %4, 8192
   %.not.i.i = icmp eq i64 %5, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
@@ -9894,4 +9894,9 @@ attributes #21 = { noreturn nounwind }
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = !{ptr @rb_inspect, ptr @rb_obj_as_string}
-!15 = !{}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"rbimpl_rstring_getmem: argument 0"}
+!17 = distinct !{!17, !"rbimpl_rstring_getmem"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"rbimpl_rstring_getmem: argument 0"}
+!20 = distinct !{!20, !"rbimpl_rstring_getmem"}

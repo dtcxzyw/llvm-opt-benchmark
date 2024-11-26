@@ -1572,7 +1572,7 @@ define linkonce_odr hidden void @_ZN4llvm13GISelWorkListILj128EE6insertEPNS_12Ma
 35:                                               ; preds = %24, %2
   %.sink.i.i.i = phi ptr [ %25, %24 ], [ null, %2 ]
   %36 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i), !noalias !30
-  %37 = load ptr, ptr %3, align 8
+  %37 = load ptr, ptr %3, align 8, !noalias !30
   store ptr %37, ptr %36, align 8, !noalias !30
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = trunc i64 %5 to i32
@@ -2030,7 +2030,7 @@ define linkonce_odr hidden void @_ZN4llvm13GISelWorkListILj256EE6insertEPNS_12Ma
 35:                                               ; preds = %24, %2
   %.sink.i.i.i = phi ptr [ %25, %24 ], [ null, %2 ]
   %36 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i), !noalias !37
-  %37 = load ptr, ptr %3, align 8
+  %37 = load ptr, ptr %3, align 8, !noalias !37
   store ptr %37, ptr %36, align 8, !noalias !37
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = trunc i64 %5 to i32

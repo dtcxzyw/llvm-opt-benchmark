@@ -440,9 +440,9 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !64
-  %9 = load ptr, ptr %1, align 8, !alias.scope !58, !noalias !66, !nonnull !4, !align !15, !noundef !4
+  %9 = load ptr, ptr %1, align 8, !alias.scope !66, !noalias !67, !nonnull !4, !align !15, !noundef !4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load i64, ptr %10, align 8, !alias.scope !67, !noalias !66, !noundef !4
+  %11 = load i64, ptr %10, align 8, !alias.scope !66, !noalias !67, !noundef !4
   %12 = tail call { i64, i64 } @"_ZN97_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h6fa7abb433d65b39E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, i64 noundef %11), !noalias !64
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %12, 0
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
@@ -455,7 +455,7 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
 "_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit.i": ; preds = %2
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %12, 1
   store i64 %.fca.1.extract.i.i, ptr %4, align 8, !noalias !64
-  %13 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h44ca41d4c469df83E.llvm.13821364776674032361(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !66
+  %13 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h44ca41d4c469df83E.llvm.13821364776674032361(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !64
   br i1 %13, label %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17hbb93f8af6491a5d9E.exit", label %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17hbb93f8af6491a5d9E.exit.thread"
 
@@ -789,8 +789,8 @@ attributes #14 = { cold noreturn nounwind }
 !63 = distinct !{!63, !"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361"}
 !64 = !{!62, !65, !59}
 !65 = distinct !{!65, !60, !"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17hbb93f8af6491a5d9E: argument 0"}
-!66 = !{!65}
-!67 = !{!62, !59}
+!66 = !{!62, !59}
+!67 = !{!65}
 !68 = !{!69}
 !69 = distinct !{!69, !70, !"_ZN6diesel11deserialize7FromSql17from_nullable_sql17h48824ed7ab2679dfE: argument 0"}
 !70 = distinct !{!70, !"_ZN6diesel11deserialize7FromSql17from_nullable_sql17h48824ed7ab2679dfE"}

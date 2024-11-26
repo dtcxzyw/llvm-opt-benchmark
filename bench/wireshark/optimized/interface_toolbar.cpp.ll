@@ -2007,7 +2007,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %35, %41
   %.sroa.02.06.i.i.i = phi ptr [ %116, %.noexc.i.i ], [ %49, %47 ]
   %51 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i.i, i64 32
   %52 = load i32, ptr %51, align 8
-  %53 = load i64, ptr %23, align 8
+  %53 = load i64, ptr %23, align 8, !alias.scope !50
   %54 = load ptr, ptr %5, align 8
   %.not.i.i48 = icmp eq ptr %54, null
   br i1 %.not.i.i48, label %.critedge.i, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i
@@ -10568,7 +10568,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %50, %57
   %.sroa.02.06.i.i.i = phi ptr [ %132, %.noexc.i.i ], [ %65, %63 ]
   %67 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i.i, i64 32
   %68 = load i32, ptr %67, align 8
-  %69 = load i64, ptr %36, align 8
+  %69 = load i64, ptr %36, align 8, !alias.scope !150
   %70 = load ptr, ptr %8, align 8
   %.not.i.i41 = icmp eq ptr %70, null
   br i1 %.not.i.i41, label %.critedge.i, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i
@@ -12221,7 +12221,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %57, %64
   %.sroa.02.06.i.i.i = phi ptr [ %173, %.noexc.i.i ], [ %106, %104 ]
   %108 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i.i, i64 32
   %109 = load i32, ptr %108, align 8
-  %110 = load i64, ptr %39, align 8
+  %110 = load i64, ptr %39, align 8, !alias.scope !188
   %111 = load ptr, ptr %10, align 8
   %.not.i.i176 = icmp eq ptr %111, null
   br i1 %.not.i.i176, label %.critedge.i, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i

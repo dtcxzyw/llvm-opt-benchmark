@@ -1416,7 +1416,7 @@ declare void @hb_draw_funcs_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN26hb_paint_extents_context_t9pop_groupE25hb_paint_composite_mode_t(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !noalias !19
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit.thread, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit
 

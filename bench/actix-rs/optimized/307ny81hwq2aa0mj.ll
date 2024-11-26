@@ -106,7 +106,7 @@ common.resume.i:                                  ; preds = %26
 30:                                               ; preds = %16
   %31 = getelementptr inbounds i8, ptr %3, i64 16
   %32 = getelementptr inbounds i8, ptr %0, i64 48
-  %33 = load i64, ptr %32, align 16, !alias.scope !5, !noalias !13, !noundef !4
+  %33 = load i64, ptr %32, align 16, !alias.scope !26, !noalias !27, !noundef !4
   store i64 %33, ptr %6, align 8, !alias.scope !26, !noalias !27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull readonly align 16 dereferenceable(48) %31, i64 48, i1 false), !noalias !13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !11
@@ -401,7 +401,7 @@ common.resume:                                    ; preds = %15
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %4, i64 16
   %21 = getelementptr inbounds i8, ptr %0, i64 48
-  %22 = load i64, ptr %21, align 16, !noundef !4
+  %22 = load i64, ptr %21, align 16, !alias.scope !70, !noalias !81, !noundef !4
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %22, ptr %23, align 8, !alias.scope !70, !noalias !81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull readonly align 16 dereferenceable(48) %20, i64 48, i1 false)
@@ -849,7 +849,7 @@ define void @_ZN15actix_multipart4test50create_form_data_payload_and_headers_wit
   %96 = load ptr, ptr %56, align 8, !alias.scope !141, !noalias !146, !nonnull !4, !noundef !4
   %97 = getelementptr inbounds i8, ptr %96, i64 %95
   store i16 11565, ptr %97, align 1
-  %98 = load i64, ptr %76, align 8, !noalias !4, !noundef !4
+  %98 = load i64, ptr %76, align 8, !alias.scope !141, !noalias !146, !noundef !4
   %99 = load i64, ptr %75, align 8, !alias.scope !141, !noalias !146, !noundef !4
   %100 = sub i64 %98, %99
   %101 = icmp ult i64 %100, 2
@@ -896,7 +896,7 @@ define void @_ZN15actix_multipart4test50create_form_data_payload_and_headers_wit
   %111 = load ptr, ptr %56, align 8, !alias.scope !149, !noalias !154, !nonnull !4, !noundef !4
   %112 = getelementptr inbounds i8, ptr %111, i64 %110
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %112, ptr nonnull readonly align 1 %87, i64 %89, i1 false)
-  %113 = load i64, ptr %76, align 8, !noalias !4, !noundef !4
+  %113 = load i64, ptr %76, align 8, !alias.scope !149, !noalias !154, !noundef !4
   %114 = load i64, ptr %75, align 8, !alias.scope !149, !noalias !154, !noundef !4
   %115 = sub i64 %113, %114
   %116 = icmp ugt i64 %89, %115
@@ -1537,7 +1537,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit171: ; preds = %265
   %314 = load ptr, ptr %56, align 8, !alias.scope !314, !noalias !319, !nonnull !4, !noundef !4
   %315 = getelementptr inbounds i8, ptr %314, i64 %313
   store i16 2573, ptr %315, align 1
-  %316 = load i64, ptr %76, align 8, !noalias !4, !noundef !4
+  %316 = load i64, ptr %76, align 8, !alias.scope !314, !noalias !319, !noundef !4
   %317 = load i64, ptr %75, align 8, !alias.scope !314, !noalias !319, !noundef !4
   %318 = sub i64 %316, %317
   %319 = icmp ult i64 %318, 2
@@ -1563,7 +1563,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit171: ; preds = %265
   %326 = load ptr, ptr %56, align 8, !alias.scope !322, !noalias !327, !nonnull !4, !noundef !4
   %327 = getelementptr inbounds i8, ptr %326, i64 %325
   store i16 11565, ptr %327, align 1
-  %328 = load i64, ptr %76, align 8, !noalias !4, !noundef !4
+  %328 = load i64, ptr %76, align 8, !alias.scope !322, !noalias !327, !noundef !4
   %329 = load i64, ptr %75, align 8, !alias.scope !322, !noalias !327, !noundef !4
   %330 = sub i64 %328, %329
   %331 = icmp ult i64 %330, 2
@@ -1592,7 +1592,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit171: ; preds = %265
   %338 = load ptr, ptr %56, align 8, !alias.scope !330, !noalias !335, !nonnull !4, !noundef !4
   %339 = getelementptr inbounds i8, ptr %338, i64 %337
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %339, ptr nonnull readonly align 1 %87, i64 %89, i1 false)
-  %340 = load i64, ptr %76, align 8, !noalias !4, !noundef !4
+  %340 = load i64, ptr %76, align 8, !alias.scope !330, !noalias !335, !noundef !4
   %341 = load i64, ptr %75, align 8, !alias.scope !330, !noalias !335, !noundef !4
   %342 = sub i64 %340, %341
   %343 = icmp ugt i64 %89, %342
@@ -1623,7 +1623,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit171: ; preds = %265
   %351 = load ptr, ptr %56, align 8, !alias.scope !338, !noalias !343, !nonnull !4, !noundef !4
   %352 = getelementptr inbounds i8, ptr %351, i64 %350
   store i16 11565, ptr %352, align 1
-  %353 = load i64, ptr %76, align 8, !noalias !4, !noundef !4
+  %353 = load i64, ptr %76, align 8, !alias.scope !338, !noalias !343, !noundef !4
   %354 = load i64, ptr %75, align 8, !alias.scope !338, !noalias !343, !noundef !4
   %355 = sub i64 %353, %354
   %356 = icmp ult i64 %355, 2
@@ -1846,7 +1846,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit241: ; preds = %385
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !402
   store i64 %415, ptr %15, align 8, !noalias !409
   %423 = getelementptr inbounds i8, ptr %17, i64 16
-  %424 = load i64, ptr %423, align 8, !noalias !402, !noundef !4
+  %424 = load i64, ptr %423, align 8, !alias.scope !406, !noalias !402, !noundef !4
   %.not.i.i = icmp ugt i64 %415, %424
   br i1 %.not.i.i, label %425, label %441
 

@@ -748,7 +748,7 @@ define hidden void @"_ZN60_$LT$syn..token..Underscore$u20$as$u20$syn..parse..Par
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.03.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %16 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !111, !noundef !4
+  %16 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !114, !noundef !4
   %17 = icmp ne i32 %16, 4
   %18 = icmp eq ptr %.0.i.i.i.i, %10
   %or.cond.i.i.i.i = or i1 %18, %17
@@ -960,7 +960,7 @@ _ZN3syn6buffer6Cursor5ident17he943c8405b28ecffE.exit: ; preds = %36
 .preheader.i.i36:                                 ; preds = %.lr.ph.i.i33, %.preheader.i.i36
   %.pn.i.i.i37 = phi ptr [ %.0.i.i.i.i38, %.preheader.i.i36 ], [ %.sroa.0.0.i, %.lr.ph.i.i33 ]
   %.0.i.i.i.i38 = getelementptr inbounds i8, ptr %.pn.i.i.i37, i64 40
-  %81 = load i32, ptr %.0.i.i.i.i38, align 8, !range !104, !noalias !169, !noundef !4
+  %81 = load i32, ptr %.0.i.i.i.i38, align 8, !range !104, !noalias !172, !noundef !4
   %82 = icmp ne i32 %81, 4
   %83 = icmp eq ptr %.0.i.i.i.i38, %10
   %or.cond.i.i.i.i39 = or i1 %83, %82
@@ -1061,7 +1061,7 @@ define hidden noundef zeroext i1 @_ZN3syn5token7parsing12peek_keyword17h298c6523
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.03.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %15 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !176, !noundef !4
+  %15 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !179, !noundef !4
   %16 = icmp ne i32 %15, 4
   %17 = icmp eq ptr %.0.i.i.i.i, %1
   %or.cond.i.i.i.i = or i1 %17, %16
@@ -1310,7 +1310,7 @@ define noundef zeroext i1 @_ZN3syn5token7parsing10peek_punct17hb0dfc428ddeb4f9cE
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.0.0.i12, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %53 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !222, !noundef !4
+  %53 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !225, !noundef !4
   %54 = icmp ne i32 %53, 4
   %55 = icmp eq ptr %.0.i.i.i.i, %1
   %or.cond.i.i.i.i = or i1 %55, %54
@@ -2671,7 +2671,7 @@ define hidden void @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$syn..ext..IdentExt$
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.03.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %12 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !387, !noundef !4
+  %12 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !390, !noundef !4
   %13 = icmp ne i32 %12, 4
   %14 = icmp eq ptr %.0.i.i.i.i, %6
   %or.cond.i.i.i.i = or i1 %14, %13
@@ -2956,7 +2956,7 @@ define hidden void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.03.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %17 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !417, !noundef !4
+  %17 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !420, !noundef !4
   %18 = icmp ne i32 %17, 4
   %19 = icmp eq ptr %.0.i.i.i.i, %11
   %or.cond.i.i.i.i = or i1 %19, %18
@@ -3235,7 +3235,7 @@ define hidden void @"_ZN3syn3lit7parsing61_$LT$impl$u20$syn..parse..Parse$u20$fo
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.03.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %20 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !466, !noundef !4
+  %20 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !469, !noundef !4
   %21 = icmp ne i32 %20, 4
   %22 = icmp eq ptr %.0.i.i.i.i, %14
   %or.cond.i.i.i.i = or i1 %22, %21
@@ -3324,7 +3324,7 @@ _ZN3syn6buffer6Cursor7literal17h56201320c761e7bfE.exit: ; preds = %33
 .preheader.i.i42:                                 ; preds = %.lr.ph.i.i38, %.preheader.i.i42
   %.pn.i.i.i43 = phi ptr [ %.0.i.i.i.i44, %.preheader.i.i42 ], [ %.sroa.03.0.i39, %.lr.ph.i.i38 ]
   %.0.i.i.i.i44 = getelementptr inbounds i8, ptr %.pn.i.i.i43, i64 40
-  %43 = load i32, ptr %.0.i.i.i.i44, align 8, !range !104, !noalias !479, !noundef !4
+  %43 = load i32, ptr %.0.i.i.i.i44, align 8, !range !104, !noalias !482, !noundef !4
   %44 = icmp ne i32 %43, 4
   %45 = icmp eq ptr %.0.i.i.i.i44, %14
   %or.cond.i.i.i.i45 = or i1 %45, %44
@@ -3550,7 +3550,7 @@ _ZN3syn6buffer6Cursor5ident17he943c8405b28ecffE.exit: ; preds = %63
 .preheader.i.i61:                                 ; preds = %.lr.ph.i.i58, %.preheader.i.i61
   %.pn.i.i.i62 = phi ptr [ %.0.i.i.i.i63, %.preheader.i.i61 ], [ %.sroa.0.0.i, %.lr.ph.i.i58 ]
   %.0.i.i.i.i63 = getelementptr inbounds i8, ptr %.pn.i.i.i62, i64 40
-  %111 = load i32, ptr %.0.i.i.i.i63, align 8, !range !104, !noalias !536, !noundef !4
+  %111 = load i32, ptr %.0.i.i.i.i63, align 8, !range !104, !noalias !539, !noundef !4
   %112 = icmp ne i32 %111, 4
   %113 = icmp eq ptr %.0.i.i.i.i63, %14
   %or.cond.i.i.i.i64 = or i1 %113, %112
@@ -4795,7 +4795,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17h40b000af27158f69E(ptr noal
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.pn.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i ]
   %.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 40
-  %14 = load i32, ptr %.0.i.i.i.i.i, align 8, !range !104, !noalias !676, !noundef !4
+  %14 = load i32, ptr %.0.i.i.i.i.i, align 8, !range !104, !noalias !682, !noundef !4
   %15 = icmp ne i32 %14, 4
   %16 = icmp eq ptr %.0.i.i.i.i.i, %8
   %or.cond.i.i.i.i.i = or i1 %16, %15
@@ -4994,7 +4994,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17h696240ddf0b3fecfE(ptr noal
   %8 = load ptr, ptr %7, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !687
   call void @_ZN3syn6buffer6Cursor10token_tree17ha4003cffc1b7b4d0E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %3, ptr noundef %6, ptr noundef %8), !noalias !687
-  %9 = load i64, ptr %3, align 8, !range !543, !noalias !691, !noundef !4
+  %9 = load i64, ptr %3, align 8, !range !543, !noalias !687, !noundef !4
   %10 = icmp eq i64 %9, -9223372036854775803
   br i1 %10, label %16, label %11
 
@@ -5091,7 +5091,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17h80f0ec66ce93d366E(ptr noal
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.pn.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.03.0.i.i, %.lr.ph.i.i.i ]
   %.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 40
-  %14 = load i32, ptr %.0.i.i.i.i.i, align 8, !range !104, !noalias !697, !noundef !4
+  %14 = load i32, ptr %.0.i.i.i.i.i, align 8, !range !104, !noalias !703, !noundef !4
   %15 = icmp ne i32 %14, 4
   %16 = icmp eq ptr %.0.i.i.i.i.i, %8
   %or.cond.i.i.i.i.i = or i1 %16, %15
@@ -5366,7 +5366,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17h98729fb9c4ee70d2E.llvm.858
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.pn.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.03.0.i.i, %.lr.ph.i.i.i ]
   %.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 40
-  %22 = load i32, ptr %.0.i.i.i.i.i, align 8, !range !104, !noalias !727, !noundef !4
+  %22 = load i32, ptr %.0.i.i.i.i.i, align 8, !range !104, !noalias !734, !noundef !4
   %23 = icmp ne i32 %22, 4
   %24 = icmp eq ptr %.0.i.i.i.i.i, %16
   %or.cond.i.i.i.i.i = or i1 %24, %23
@@ -5667,7 +5667,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17hc12c539cc564aa43E(ptr noal
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.pn.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.03.0.i.i, %.lr.ph.i.i.i ]
   %.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 40
-  %14 = load i32, ptr %.0.i.i.i.i.i, align 8, !range !104, !noalias !802, !noundef !4
+  %14 = load i32, ptr %.0.i.i.i.i.i, align 8, !range !104, !noalias !808, !noundef !4
   %15 = icmp ne i32 %14, 4
   %16 = icmp eq ptr %.0.i.i.i.i.i, %8
   %or.cond.i.i.i.i.i = or i1 %16, %15
@@ -5822,7 +5822,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17hc40df14f00d41194E(ptr noal
   %8 = load ptr, ptr %7, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @_ZN3syn6buffer6Cursor8lifetime17h948d1028d054f195E(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %3, ptr noundef %6, ptr noundef %8), !noalias !820
-  %9 = load i64, ptr %3, align 8, !range !465, !noalias !824, !noundef !4
+  %9 = load i64, ptr %3, align 8, !range !465, !noalias !820, !noundef !4
   %10 = icmp eq i64 %9, -9223372036854775807
   br i1 %10, label %12, label %11
 
@@ -5994,7 +5994,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17hc7eb6887829ee83fE.llvm.858
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.pn.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.0.0.i18.i, %.lr.ph.i.i.i ]
   %.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 40
-  %67 = load i32, ptr %.0.i.i.i.i.i, align 8, !range !104, !noalias !838, !noundef !4
+  %67 = load i32, ptr %.0.i.i.i.i.i, align 8, !range !104, !noalias !841, !noundef !4
   %68 = icmp ne i32 %67, 4
   %69 = icmp eq ptr %.0.i.i.i.i.i, %13
   %or.cond.i.i.i.i.i = or i1 %69, %68
@@ -6416,7 +6416,7 @@ define hidden void @"_ZN56_$LT$proc_macro2..Punct$u20$as$u20$syn..parse..Parse$G
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.0.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %12 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !885, !noundef !4
+  %12 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !888, !noundef !4
   %13 = icmp ne i32 %12, 4
   %14 = icmp eq ptr %.0.i.i.i.i, %6
   %or.cond.i.i.i.i = or i1 %14, %13
@@ -6507,7 +6507,7 @@ define hidden void @"_ZN58_$LT$proc_macro2..Literal$u20$as$u20$syn..parse..Parse
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.03.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %12 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !891, !noundef !4
+  %12 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !894, !noundef !4
   %13 = icmp ne i32 %12, 4
   %14 = icmp eq ptr %.0.i.i.i.i, %6
   %or.cond.i.i.i.i = or i1 %14, %13
@@ -7072,7 +7072,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread2: ; preds
 20:                                               ; preds = %20, %16
   %.sroa.0.0.ph.pn.i.i = phi ptr [ %9, %16 ], [ %.0.i.i.i, %20 ]
   %.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.ph.pn.i.i, i64 40
-  %21 = load i32, ptr %.0.i.i.i, align 8, !range !104, !noalias !4, !noundef !4
+  %21 = load i32, ptr %.0.i.i.i, align 8, !range !104, !noalias !984, !noundef !4
   %22 = icmp ne i32 %21, 4
   %23 = icmp eq ptr %.0.i.i.i, %19
   %or.cond.i.i.i = or i1 %23, %22
@@ -7323,7 +7323,7 @@ define noundef zeroext i1 @"_ZN3syn4expr7parsing2kw1_94_$LT$impl$u20$syn..token.
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.03.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %11 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !1023, !noundef !4
+  %11 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !1026, !noundef !4
   %12 = icmp ne i32 %11, 4
   %13 = icmp eq ptr %.0.i.i.i.i, %1
   %or.cond.i.i.i.i = or i1 %13, %12
@@ -7502,7 +7502,7 @@ define void @"_ZN3syn4expr7parsing2kw1_79_$LT$impl$u20$syn..parse..Parse$u20$for
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %.preheader.i.i.i.i
   %.pn.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.sroa.03.0.i.i.i, %.lr.ph.i.i.i.i ]
   %.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i, i64 40
-  %18 = load i32, ptr %.0.i.i.i.i.i.i, align 8, !range !104, !noalias !1065, !noundef !4
+  %18 = load i32, ptr %.0.i.i.i.i.i.i, align 8, !range !104, !noalias !1071, !noundef !4
   %19 = icmp ne i32 %18, 4
   %20 = icmp eq ptr %.0.i.i.i.i.i.i, %12
   %or.cond.i.i.i.i.i.i = or i1 %20, %19
@@ -7750,7 +7750,7 @@ define noundef zeroext i1 @"_ZN3syn4expr7parsing2kw1_90_$LT$impl$u20$syn..token.
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.03.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %11 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !1129, !noundef !4
+  %11 = load i32, ptr %.0.i.i.i.i, align 8, !range !104, !noalias !1132, !noundef !4
   %12 = icmp ne i32 %11, 4
   %13 = icmp eq ptr %.0.i.i.i.i, %1
   %or.cond.i.i.i.i = or i1 %13, %12
@@ -7929,7 +7929,7 @@ define void @"_ZN3syn4expr7parsing2kw1_75_$LT$impl$u20$syn..parse..Parse$u20$for
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %.preheader.i.i.i.i
   %.pn.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.sroa.03.0.i.i.i, %.lr.ph.i.i.i.i ]
   %.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i, i64 40
-  %18 = load i32, ptr %.0.i.i.i.i.i.i, align 8, !range !104, !noalias !1171, !noundef !4
+  %18 = load i32, ptr %.0.i.i.i.i.i.i, align 8, !range !104, !noalias !1177, !noundef !4
   %19 = icmp ne i32 %18, 4
   %20 = icmp eq ptr %.0.i.i.i.i.i.i, %12
   %or.cond.i.i.i.i.i.i = or i1 %20, %19

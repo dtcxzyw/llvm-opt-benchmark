@@ -10489,7 +10489,7 @@ define noundef zeroext i1 @_ZNK13sentencepiece7unigram5Model23VerifyOutputsEquiv
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   %13 = getelementptr inbounds i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !86
-  %15 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %8, align 8, !noalias !86
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17

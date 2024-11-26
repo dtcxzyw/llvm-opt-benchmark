@@ -3159,7 +3159,7 @@ if.then:                                          ; preds = %entry
 
 if.then8:                                         ; preds = %if.then
   %mpBegin3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %mpBegin3.i.i, align 8
+  %14 = load ptr, ptr %mpBegin3.i.i, align 8, !noalias !95
   %sub.ptr.rhs.cast.i.i35 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i36 = sub i64 %sub.ptr.rhs.cast8.i30, %sub.ptr.rhs.cast.i.i35
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i36, 2

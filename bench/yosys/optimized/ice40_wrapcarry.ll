@@ -4216,9 +4216,9 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   store ptr %1780, ptr %312, align 8, !alias.scope !48
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1778, ptr align 1 %.sroa.4.5, i64 %1776, i1 false), !noalias !48
   store ptr %1780, ptr %311, align 8, !alias.scope !48
-  %1781 = load ptr, ptr %371, align 8
+  %1781 = load ptr, ptr %371, align 8, !noalias !51
   %1782 = getelementptr inbounds i8, ptr %371, i64 8
-  %1783 = load ptr, ptr %1782, align 8
+  %1783 = load ptr, ptr %1782, align 8, !noalias !51
   %1784 = icmp eq ptr %1781, %1783
   br i1 %1784, label %.loopexit.i617.us.thread, label %1785
 
@@ -4252,8 +4252,8 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
           to label %.noexc622.us unwind label %.split6307.us
 
 .noexc622.us:                                     ; preds = %1803
-  %1804 = load ptr, ptr %371, align 8
-  %1805 = load ptr, ptr %1782, align 8
+  %1804 = load ptr, ptr %371, align 8, !noalias !51
+  %1805 = load ptr, ptr %1782, align 8, !noalias !51
   %1806 = icmp eq ptr %1804, %1805
   br i1 %1806, label %._crit_edge.i.i616.us, label %1807
 
@@ -4434,9 +4434,9 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   store ptr %1892, ptr %316, align 8, !alias.scope !54
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1890, ptr align 1 %.sroa.4.5, i64 %1776, i1 false), !noalias !54
   store ptr %1892, ptr %315, align 8, !alias.scope !54
-  %1893 = load ptr, ptr %954, align 8
+  %1893 = load ptr, ptr %954, align 8, !noalias !57
   %1894 = getelementptr inbounds i8, ptr %954, i64 8
-  %1895 = load ptr, ptr %1894, align 8
+  %1895 = load ptr, ptr %1894, align 8, !noalias !57
   %1896 = icmp eq ptr %1893, %1895
   br i1 %1896, label %.loopexit.i636.us.thread, label %1897
 
@@ -4470,8 +4470,8 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
           to label %.noexc646.us unwind label %.split6336.us
 
 .noexc646.us:                                     ; preds = %1915
-  %1916 = load ptr, ptr %954, align 8
-  %1917 = load ptr, ptr %1894, align 8
+  %1916 = load ptr, ptr %954, align 8, !noalias !57
+  %1917 = load ptr, ptr %1894, align 8, !noalias !57
   %1918 = icmp eq ptr %1916, %1917
   br i1 %1918, label %._crit_edge.i.i635.us, label %1919
 
@@ -10687,8 +10687,8 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.th
   store ptr %4366, ptr %40, align 8
   store i32 2, ptr %213, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
-  %4367 = load ptr, ptr %132, align 8
-  %4368 = load ptr, ptr %214, align 8
+  %4367 = load ptr, ptr %132, align 8, !noalias !110
+  %4368 = load ptr, ptr %214, align 8, !noalias !110
   %4369 = icmp eq ptr %4367, %4368
   br i1 %4369, label %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.i, label %4370
 
@@ -10715,7 +10715,7 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit
   %4381 = urem i32 %4375, %4380
   store i32 %4381, ptr %31, align 4, !noalias !110
   %4382 = load ptr, ptr %216, align 8, !noalias !110
-  %4383 = load ptr, ptr %215, align 8
+  %4383 = load ptr, ptr %215, align 8, !noalias !110
   %4384 = ptrtoint ptr %4382 to i64
   %4385 = ptrtoint ptr %4383 to i64
   %4386 = sub i64 %4384, %4385

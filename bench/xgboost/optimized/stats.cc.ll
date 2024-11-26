@@ -298,7 +298,7 @@ _ZN7xgboost6common9cuda_impl6MedianEPKNS_7ContextENS_6linalg10TensorViewIKfLi2EE
   %46 = load i64, ptr %37, align 8, !noalias !20
   store i64 %46, ptr %40, align 8, !alias.scope !20
   %47 = getelementptr inbounds i8, ptr %1, i64 16
-  %48 = load i64, ptr %47, align 8
+  %48 = load i64, ptr %47, align 8, !noalias !20
   store i64 %48, ptr %.ptr13.i7.i.i, align 8, !alias.scope !20
   switch i8 %39, label %51 [
     i8 0, label %49

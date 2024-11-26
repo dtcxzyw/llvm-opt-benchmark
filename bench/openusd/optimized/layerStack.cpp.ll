@@ -9327,7 +9327,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseEES
 
 131:                                              ; preds = %.lr.ph, %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseEESaIS3_EE9push_backERKS3_.exit
   %.sroa.089.0122 = phi ptr [ %129, %.lr.ph ], [ %197, %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseEESaIS3_EE9push_backERKS3_.exit ]
-  %132 = load ptr, ptr %.sroa.089.0122, align 8
+  %132 = load ptr, ptr %.sroa.089.0122, align 8, !noalias !62
   %133 = icmp eq ptr %132, null
   br i1 %133, label %_ZSt20dynamic_pointer_castISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22PcpErrorRelocationBaseEENS1_12PcpErrorBaseEES0_IT_ERKS0_IT0_E.exit.thread.thread, label %134
 

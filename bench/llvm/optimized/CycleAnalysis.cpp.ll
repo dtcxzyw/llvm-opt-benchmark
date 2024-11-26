@@ -2627,7 +2627,7 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit:      ; preds = %.loopexit, %49, %_Z
   br i1 %62, label %89, label %63
 
 63:                                               ; preds = %_ZN4llvm10successorsEPNS_10BasicBlockE.exit
-  %64 = load ptr, ptr %6, align 8
+  %64 = load ptr, ptr %6, align 8, !noalias !88
   %65 = ptrtoint ptr %64 to i64
   %66 = trunc i64 %65 to i32
   %67 = lshr i32 %66, 4
@@ -2672,7 +2672,7 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit:      ; preds = %.loopexit, %49, %_Z
 89:                                               ; preds = %78, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit
   %.sink.i.i.i1 = phi ptr [ %79, %78 ], [ null, %_ZN4llvm10successorsEPNS_10BasicBlockE.exit ]
   %90 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_23GenericCycleInfoComputeINS_17GenericSSAContextINS_8FunctionEEEE7DFSInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E20InsertIntoBucketImplIS3_EEPSE_RKS3_RKT_SI_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink.i.i.i1), !noalias !88
-  %91 = load ptr, ptr %6, align 8
+  %91 = load ptr, ptr %6, align 8, !noalias !88
   store ptr %91, ptr %90, align 8, !noalias !88
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i32 %59, ptr %92, align 4, !noalias !88
@@ -3391,7 +3391,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEm
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !102
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !102
   store ptr %96, ptr %95, align 8, !noalias !102
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #16

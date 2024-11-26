@@ -7610,7 +7610,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %123
 
 _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %123
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %11, i64 noundef 0, i1 noundef zeroext false) #16
-  %.pre.i = load i32, ptr %143, align 8
+  %.pre.i = load i32, ptr %143, align 8, !alias.scope !74
   %148 = icmp ult i32 %.pre.i, 65
   %149 = and i32 %142, 63
   %150 = zext nneg i32 %149 to i64

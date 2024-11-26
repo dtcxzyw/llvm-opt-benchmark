@@ -6849,7 +6849,7 @@ for.inc25:                                        ; preds = %for.inc, %for.body1
   br i1 %cmp16, label %for.cond17.preheader, label %invoke.cont28.loopexit, !llvm.loop !66
 
 invoke.cont28.loopexit:                           ; preds = %for.inc25
-  %.pre = load i64, ptr %to_finish_eviction, align 8
+  %.pre = load i64, ptr %to_finish_eviction, align 8, !noalias !67
   %.pre132 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !67
   %.pre133 = load ptr, ptr %vect_.i, align 8, !noalias !67
   br label %invoke.cont28

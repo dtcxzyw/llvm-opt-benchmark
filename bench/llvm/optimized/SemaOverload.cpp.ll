@@ -22474,7 +22474,7 @@ _ZNK5clang10ASTContext13getObjCIdTypeEv.exit:     ; preds = %27, %30
 _ZNK5clang10ASTContext13getObjCIdTypeEv.exit.i:   ; preds = %39, %36
   %.sroa.0.0.i.i.i = phi i64 [ %40, %39 ], [ %38, %36 ]
   call fastcc void @_ZL21TryImplicitConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeEbNS0_15AllowedExplicitEbbbb(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %.0.ph, i64 %.sroa.0.0.i.i.i, i1 noundef zeroext false, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true)
-  %41 = load i32, ptr %3, align 8
+  %41 = load i32, ptr %3, align 8, !alias.scope !75
   %42 = and i32 %41, 2147483647
   switch i32 %42, label %_ZL35TryContextuallyConvertToObjCPointerRN5clang4SemaEPNS_4ExprE.exit.thread [
     i32 0, label %50
@@ -35187,7 +35187,7 @@ _ZNK5clang4Type12isObjectTypeEv.exit.thread.i84:  ; preds = %_ZNK5clang8QualType
   %1125 = or i64 %1123, %1124
   %1126 = inttoptr i64 %1125 to ptr
   %1127 = load ptr, ptr %1106, align 8, !noalias !187
-  %1128 = load ptr, ptr %32, align 8
+  %1128 = load ptr, ptr %32, align 8, !noalias !187
   %1129 = icmp eq ptr %1127, %1128
   br i1 %1129, label %1130, label %_ZN4llvm15SmallPtrSetImplIN5clang8QualTypeEE6insertES2_.exit.i
 
@@ -35263,7 +35263,7 @@ _ZN4llvm15SmallPtrSetImplIN5clang8QualTypeEE6insertES2_.exit.i.thread277: ; pred
   %1161 = or i64 %1159, %1160
   %1162 = inttoptr i64 %1161 to ptr
   %1163 = load ptr, ptr %1106, align 8, !noalias !190
-  %1164 = load ptr, ptr %32, align 8
+  %1164 = load ptr, ptr %32, align 8, !noalias !190
   %1165 = icmp eq ptr %1163, %1164
   br i1 %1165, label %1166, label %_ZN4llvm15SmallPtrSetImplIN5clang8QualTypeEE6insertES2_.exit48.i
 
@@ -38659,7 +38659,7 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit.thread: ; preds = %148, %_ZNK5clan
   %181 = or i64 %179, %180
   %182 = inttoptr i64 %181 to ptr
   %183 = load ptr, ptr %101, align 8, !noalias !238
-  %184 = load ptr, ptr %7, align 8
+  %184 = load ptr, ptr %7, align 8, !noalias !238
   %185 = icmp eq ptr %183, %184
   br i1 %185, label %186, label %_ZN4llvm15SmallPtrSetImplIN5clang8QualTypeEE6insertES2_.exit104
 
@@ -74144,7 +74144,7 @@ _ZN4llvm6detail12DenseSetImplIN5clang8QualTypeENS_8DenseMapIS3_NS0_13DenseSetEmp
 80:                                               ; preds = %70, %55
   %.sink.i.i.i.i = phi ptr [ %71, %70 ], [ null, %55 ]
   %81 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8QualTypeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !383
-  %82 = load i64, ptr %1, align 8
+  %82 = load i64, ptr %1, align 8, !noalias !383
   store i64 %82, ptr %81, align 8, !noalias !383
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #26
@@ -74824,7 +74824,7 @@ _ZN4llvm6detail12DenseSetImplIN5clang7CanQualINS2_4TypeEEENS_8DenseMapIS5_NS0_13
 80:                                               ; preds = %70, %55
   %.sink.i.i.i.i = phi ptr [ %71, %70 ], [ null, %55 ]
   %81 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang7CanQualINS2_4TypeEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !397
-  %82 = load i64, ptr %1, align 8
+  %82 = load i64, ptr %1, align 8, !noalias !397
   store i64 %82, ptr %81, align 8, !noalias !397
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #26
@@ -82812,7 +82812,7 @@ _ZN4llvm6detail12DenseSetImplIPN5clang11DeclContextENS_8DenseMapIS4_NS0_13DenseS
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang11DeclContextENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !438
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !438
   store ptr %96, ptr %95, align 8, !noalias !438
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #26

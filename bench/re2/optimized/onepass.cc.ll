@@ -1631,11 +1631,11 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN4absl7debian223inlined_vector_internal7StorageIhLm2048ESaIhEE6InsertINS1_16CopyValueAdapterIS3_EEEEPhPKhT_m(ptr noundef nonnull align 8 dereferenceable(2056) %this, ptr noundef %pos, ptr %values.coerce, i64 noundef %insert_count) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %this, align 8, !noalias !15
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %data_.i1.i, align 8
+  %1 = load ptr, ptr %data_.i1.i, align 8, !noalias !15
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !15
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1

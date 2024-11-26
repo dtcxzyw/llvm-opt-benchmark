@@ -232,7 +232,7 @@ entry:
   %3 = load i32, ptr %curChunkIndex_.i.i, align 8
   %4 = load ptr, ptr %args, align 8, !noalias !4
   %argCount_.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %5 = load i32, ptr %argCount_.i.i, align 8, !noalias !7
+  %5 = load i32, ptr %argCount_.i.i, align 8, !noalias !9
   %conv.i.i = zext i32 %5 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i.i
   %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 %idx.neg.i.i.i
@@ -329,9 +329,9 @@ entry:
   %2 = load ptr, ptr %next_.i.i, align 8
   %curChunkIndex_.i.i = getelementptr inbounds i8, ptr %1, i64 208
   %3 = load i32, ptr %curChunkIndex_.i.i, align 8
-  %4 = load ptr, ptr %args, align 8, !noalias !10
+  %4 = load ptr, ptr %args, align 8, !noalias !12
   %argCount_.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %5 = load i32, ptr %argCount_.i.i, align 8, !noalias !13
+  %5 = load i32, ptr %argCount_.i.i, align 8, !noalias !17
   %conv.i.i = zext i32 %5 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i.i
   %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 %idx.neg.i.i.i
@@ -531,7 +531,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   store i64 %add.i, ptr %arrayidx7.i, align 8
   %inc.i = add nuw nsw i64 %__i.09.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 312
-  br i1 %exitcond.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE4seedEm.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE4seedEm.exit, label %for.body.i, !llvm.loop !20
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE4seedEm.exit: ; preds = %for.body.i
   %_M_p.i = getelementptr inbounds i8, ptr %2, i64 2496
@@ -562,7 +562,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %conv16.i.i.i.i = fptrunc x86_fp80 %mul.i.i.i.i to double
   %dec.i.i.i.i = add i64 %__k.013.i.i.i.i, -1
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !18
+  br i1 %cmp.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !22
 
 for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %div17.i.i.i.i = fdiv double %5, %conv16.i.i.i.i
@@ -657,14 +657,14 @@ if.then.i:                                        ; preds = %entry
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %coerced, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv, i64 noundef 8) #10
   %.pre = load ptr, ptr %next_.i, align 8
   %.pre55 = load i32, ptr %curChunkIndex_.i, align 8
-  %.pre56 = load i32, ptr %argCount_.i, align 8, !noalias !19
+  %.pre56 = load i32, ptr %argCount_.i, align 8, !noalias !23
   br label %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit
 
 _ZN4llvh15SmallVectorImplIdE7reserveEm.exit:      ; preds = %entry, %if.then.i
   %3 = phi i32 [ %2, %entry ], [ %.pre56, %if.then.i ]
   %4 = phi i32 [ 0, %entry ], [ %.pre55, %if.then.i ]
   %5 = phi ptr [ %inlineStorage_.i, %entry ], [ %.pre, %if.then.i ]
-  %6 = load ptr, ptr %args, align 8, !noalias !24
+  %6 = load ptr, ptr %args, align 8, !noalias !28
   %conv.i.i15 = zext i32 %3 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i.i15
   %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %6, i64 %idx.neg.i.i.i
@@ -960,7 +960,7 @@ for.body5.i.i.i.i:                                ; preds = %for.body5.i.i.i.i, 
   store i32 14, ptr %cur2.012.i.ptr.i.i.i, align 4
   %cur2.012.i.add.i.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i.i, 4
   %cmp4.not.i.i.i.i = icmp eq i64 %cur2.012.i.add.i.i.i, 40
-  br i1 %cmp4.not.i.i.i.i, label %_ZN6hermes2vm12SingleObjectILNS0_8CellKindE60EE6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit, label %for.body5.i.i.i.i, !llvm.loop !25
+  br i1 %cmp4.not.i.i.i.i, label %_ZN6hermes2vm12SingleObjectILNS0_8CellKindE60EE6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit, label %for.body5.i.i.i.i, !llvm.loop !31
 
 _ZN6hermes2vm12SingleObjectILNS0_8CellKindE60EE6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit: ; preds = %for.body5.i.i.i.i
   %3 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
@@ -1171,7 +1171,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %xor9.i = xor i64 %xor.i, %cond.i
   store i64 %xor9.i, ptr %arrayidx.i, align 8
   %exitcond.not.i = icmp eq i64 %add.i, 156
-  br i1 %exitcond.not.i, label %for.body15.preheader.i, label %for.body.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %for.body15.preheader.i, label %for.body.i, !llvm.loop !32
 
 for.body15.preheader.i:                           ; preds = %for.body.i
   %arrayidx18.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 1248
@@ -1199,7 +1199,7 @@ for.body15.i:                                     ; preds = %for.body15.i, %for.
   %xor33.i = xor i64 %xor29.i, %cond32.i
   store i64 %xor33.i, ptr %arrayidx18.i, align 8
   %exitcond16.not.i = icmp eq i64 %add21.i, 311
-  br i1 %exitcond16.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %for.body15.i, !llvm.loop !27
+  br i1 %exitcond16.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %for.body15.i, !llvm.loop !33
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit: ; preds = %for.body15.i
   %arrayidx41.i = getelementptr inbounds i8, ptr %this, i64 2488
@@ -1277,27 +1277,33 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZNK6hermes2vm10NativeArgs7handlesEv: %agg.result"}
-!6 = distinct !{!6, !"_ZNK6hermes2vm10NativeArgs7handlesEv"}
-!7 = !{!8, !5}
-!8 = distinct !{!8, !9, !"_ZNK6hermes2vm10NativeArgs3endEv: %agg.result"}
-!9 = distinct !{!9, !"_ZNK6hermes2vm10NativeArgs3endEv"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK6hermes2vm10NativeArgs7handlesEv: %agg.result"}
-!12 = distinct !{!12, !"_ZNK6hermes2vm10NativeArgs7handlesEv"}
-!13 = !{!14, !11}
-!14 = distinct !{!14, !15, !"_ZNK6hermes2vm10NativeArgs3endEv: %agg.result"}
-!15 = distinct !{!15, !"_ZNK6hermes2vm10NativeArgs3endEv"}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"_ZNK6hermes2vm10NativeArgs3endEv: %agg.result"}
-!21 = distinct !{!21, !"_ZNK6hermes2vm10NativeArgs3endEv"}
-!22 = distinct !{!22, !23, !"_ZNK6hermes2vm10NativeArgs7handlesEv: %agg.result"}
-!23 = distinct !{!23, !"_ZNK6hermes2vm10NativeArgs7handlesEv"}
-!24 = !{!22}
-!25 = distinct !{!25, !17}
-!26 = distinct !{!26, !17}
-!27 = distinct !{!27, !17}
+!4 = !{!5, !7}
+!5 = distinct !{!5, !6, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!6 = distinct !{!6, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!7 = distinct !{!7, !8, !"_ZNK6hermes2vm10NativeArgs7handlesEv: %agg.result"}
+!8 = distinct !{!8, !"_ZNK6hermes2vm10NativeArgs7handlesEv"}
+!9 = !{!10, !7}
+!10 = distinct !{!10, !11, !"_ZNK6hermes2vm10NativeArgs3endEv: %agg.result"}
+!11 = distinct !{!11, !"_ZNK6hermes2vm10NativeArgs3endEv"}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!14 = distinct !{!14, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!15 = distinct !{!15, !16, !"_ZNK6hermes2vm10NativeArgs7handlesEv: %agg.result"}
+!16 = distinct !{!16, !"_ZNK6hermes2vm10NativeArgs7handlesEv"}
+!17 = !{!18, !15}
+!18 = distinct !{!18, !19, !"_ZNK6hermes2vm10NativeArgs3endEv: %agg.result"}
+!19 = distinct !{!19, !"_ZNK6hermes2vm10NativeArgs3endEv"}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !21}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"_ZNK6hermes2vm10NativeArgs3endEv: %agg.result"}
+!25 = distinct !{!25, !"_ZNK6hermes2vm10NativeArgs3endEv"}
+!26 = distinct !{!26, !27, !"_ZNK6hermes2vm10NativeArgs7handlesEv: %agg.result"}
+!27 = distinct !{!27, !"_ZNK6hermes2vm10NativeArgs7handlesEv"}
+!28 = !{!29, !26}
+!29 = distinct !{!29, !30, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!30 = distinct !{!30, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!31 = distinct !{!31, !21}
+!32 = distinct !{!32, !21}
+!33 = distinct !{!33, !21}

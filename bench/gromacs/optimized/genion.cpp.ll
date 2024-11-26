@@ -1152,7 +1152,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt12_Vector_base
   br i1 %413, label %414, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit.i
 
 414:                                              ; preds = %407
-  %415 = load ptr, ptr %39, align 8
+  %415 = load ptr, ptr %39, align 8, !alias.scope !14
   %416 = ptrtoint ptr %.0.i.i.i.i267 to i64
   %417 = ptrtoint ptr %415 to i64
   %418 = sub i64 %416, %417

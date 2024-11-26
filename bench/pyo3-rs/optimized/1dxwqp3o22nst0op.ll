@@ -3419,7 +3419,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br label %206
 
 226:                                              ; preds = %211
-  %227 = load i64, ptr %76, align 8
+  %227 = load i64, ptr %76, align 8, !noalias !6
   %228 = icmp eq i64 %227, -9223372036854775808
   br i1 %228, label %206, label %229
 
@@ -3708,7 +3708,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
           to label %327 unwind label %199, !noalias !6
 
 327:                                              ; preds = %325
-  %328 = load i64, ptr %75, align 8
+  %328 = load i64, ptr %75, align 8, !noalias !6
   %329 = icmp eq i64 %328, -9223372036854775808
   br i1 %329, label %330, label %332
 

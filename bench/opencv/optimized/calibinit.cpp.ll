@@ -6281,7 +6281,7 @@ _ZNSt5stackIPN2cv14ChessBoardQuadESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit: ; preds
   %.0137270 = phi i32 [ 0, %.lr.ph272 ], [ %.1138, %.loopexit231 ]
   %.0139269 = phi i32 [ 0, %.lr.ph272 ], [ %spec.select, %.loopexit231 ]
   %.0144268 = phi i32 [ 0, %.lr.ph272 ], [ %.1145, %.loopexit231 ]
-  %70 = load ptr, ptr %63, align 8
+  %70 = load ptr, ptr %63, align 8, !noalias !92
   %71 = icmp eq ptr %69, %70
   br i1 %71, label %75, label %72
 
@@ -8132,7 +8132,7 @@ _ZNSt6vectorIPN2cv14ChessBoardQuadESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZN
 
 79:                                               ; preds = %.lr.ph47, %.loopexit
   %80 = phi ptr [ %71, %.lr.ph47 ], [ %76, %.loopexit ]
-  %81 = load ptr, ptr %74, align 8
+  %81 = load ptr, ptr %74, align 8, !noalias !118
   %82 = icmp eq ptr %80, %81
   br i1 %82, label %_ZNSt5stackIPN2cv14ChessBoardQuadESt5dequeIS2_SaIS2_EEE3topEv.exit, label %_ZNSt5stackIPN2cv14ChessBoardQuadESt5dequeIS2_SaIS2_EEE3topEv.exit.thread
 

@@ -859,7 +859,7 @@ terminate.lpad.i280:                              ; preds = %if.then2.i.i.i279
 _ZN7obj_refI4expr11ast_managerED2Ev.exit281:      ; preds = %invoke.cont116, %if.then.i.i.i274, %if.then2.i.i.i279
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   store ptr %call.i1.i53, ptr %ref.tmp118, align 8, !alias.scope !16
-  %120 = load ptr, ptr %m_manager.i, align 8
+  %120 = load ptr, ptr %m_manager.i, align 8, !noalias !16
   store ptr %120, ptr %m_manager.i.i.i, align 8, !alias.scope !16
   br i1 %tobool.not.i, label %_ZN7obj_refI4expr11ast_managerEC2ERKS2_.exit.i.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i
 

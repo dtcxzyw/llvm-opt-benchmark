@@ -862,9 +862,9 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !140
-  %8 = load ptr, ptr %1, align 8, !alias.scope !134, !noalias !142, !nonnull !12, !align !88, !noundef !12
+  %8 = load ptr, ptr %1, align 8, !alias.scope !142, !noalias !143, !nonnull !12, !align !88, !noundef !12
   %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !alias.scope !143, !noalias !142, !noundef !12
+  %10 = load i64, ptr %9, align 8, !alias.scope !142, !noalias !143, !noundef !12
   %11 = tail call { i64, i64 } @"_ZN97_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h6fa7abb433d65b39E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, i64 noundef %10), !noalias !140
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %11, 0
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
@@ -877,7 +877,7 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
 "_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h5ff1fd81231d2d58E.llvm.7328133534139293026.exit.i": ; preds = %2
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %11, 1
   store i64 %.fca.1.extract.i.i, ptr %3, align 8, !noalias !140
-  %12 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h67dde0519ae18b89E.llvm.7328133534139293026(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !142
+  %12 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h67dde0519ae18b89E.llvm.7328133534139293026(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !143
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !140
   br i1 %12, label %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h8b5b90ad1721e821E.exit", label %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h8b5b90ad1721e821E.exit.thread"
 
@@ -966,9 +966,9 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !181
-  %8 = load ptr, ptr %1, align 8, !alias.scope !175, !noalias !183, !nonnull !12, !align !88, !noundef !12
+  %8 = load ptr, ptr %1, align 8, !alias.scope !183, !noalias !184, !nonnull !12, !align !88, !noundef !12
   %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !alias.scope !184, !noalias !183, !noundef !12
+  %10 = load i64, ptr %9, align 8, !alias.scope !183, !noalias !184, !noundef !12
   %11 = tail call { i64, i64 } @"_ZN97_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h6fa7abb433d65b39E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, i64 noundef %10), !noalias !181
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %11, 0
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
@@ -981,7 +981,7 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
 "_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h5ff1fd81231d2d58E.llvm.7328133534139293026.exit.i": ; preds = %2
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %11, 1
   store i64 %.fca.1.extract.i.i, ptr %3, align 8, !noalias !181
-  %12 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h67dde0519ae18b89E.llvm.7328133534139293026(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !183
+  %12 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h67dde0519ae18b89E.llvm.7328133534139293026(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !184
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !181
   br i1 %12, label %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h8b5b90ad1721e821E.exit", label %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h8b5b90ad1721e821E.exit.thread"
 
@@ -1304,8 +1304,8 @@ attributes #15 = { noreturn }
 !139 = distinct !{!139, !"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h5ff1fd81231d2d58E.llvm.7328133534139293026"}
 !140 = !{!138, !141, !135}
 !141 = distinct !{!141, !136, !"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h8b5b90ad1721e821E: argument 0"}
-!142 = !{!141}
-!143 = !{!138, !135}
+!142 = !{!138, !135}
+!143 = !{!141}
 !144 = !{!145}
 !145 = distinct !{!145, !146, !"_ZN6diesel11deserialize7FromSql17from_nullable_sql17hbeb22bebe3505bd0E.llvm.4954628886280041253: argument 0"}
 !146 = distinct !{!146, !"_ZN6diesel11deserialize7FromSql17from_nullable_sql17hbeb22bebe3505bd0E.llvm.4954628886280041253"}
@@ -1345,8 +1345,8 @@ attributes #15 = { noreturn }
 !180 = distinct !{!180, !"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h5ff1fd81231d2d58E.llvm.7328133534139293026"}
 !181 = !{!179, !182, !176}
 !182 = distinct !{!182, !177, !"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h8b5b90ad1721e821E: argument 0"}
-!183 = !{!182}
-!184 = !{!179, !176}
+!183 = !{!179, !176}
+!184 = !{!182}
 !185 = !{!186}
 !186 = distinct !{!186, !187, !"_ZN6diesel11deserialize7FromSql17from_nullable_sql17habb20ee4fb75a373E.llvm.4954628886280041253: argument 0"}
 !187 = distinct !{!187, !"_ZN6diesel11deserialize7FromSql17from_nullable_sql17habb20ee4fb75a373E.llvm.4954628886280041253"}

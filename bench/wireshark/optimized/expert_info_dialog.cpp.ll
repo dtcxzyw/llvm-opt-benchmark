@@ -451,7 +451,7 @@ _ZN7QStringD2Ev.exit77:                           ; preds = %158, %_ZN17QArrayDa
           to label %163 unwind label %121
 
 163:                                              ; preds = %_ZN7QStringD2Ev.exit77
-  %164 = load ptr, ptr %17, align 8
+  %164 = load ptr, ptr %17, align 8, !noalias !10
   %165 = getelementptr inbounds i8, ptr %17, i64 8
   %166 = load ptr, ptr %165, align 8, !noalias !10
   %167 = getelementptr inbounds i8, ptr %17, i64 16
@@ -609,7 +609,7 @@ _ZN7QStringD2Ev.exit100:                          ; preds = %207, %_ZN17QArrayDa
           to label %212 unwind label %121
 
 212:                                              ; preds = %_ZN7QStringD2Ev.exit100
-  %213 = load ptr, ptr %20, align 8
+  %213 = load ptr, ptr %20, align 8, !noalias !15
   %214 = getelementptr inbounds i8, ptr %20, i64 8
   %215 = load ptr, ptr %214, align 8, !noalias !15
   %216 = getelementptr inbounds i8, ptr %20, i64 16

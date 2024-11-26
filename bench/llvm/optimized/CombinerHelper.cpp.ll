@@ -3110,13 +3110,13 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit72: ; preds = %131, %13
   %.val = load i16, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %150 = load i64, ptr %2, align 8
+  %150 = load i64, ptr %2, align 8, !noalias !11
   %151 = and i64 %150, -7
   %spec.select.i.not.i = icmp eq i64 %151, 0
   br i1 %spec.select.i.not.i, label %152, label %157
 
 152:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit72
-  %153 = load i32, ptr %.sroa.2124.0..sroa_idx, align 8
+  %153 = load i32, ptr %.sroa.2124.0..sroa_idx, align 8, !noalias !11
   %154 = icmp eq i32 %153, %149
   %155 = icmp eq i32 %153, 126
   %or.cond36.i = or i1 %154, %155
@@ -3129,7 +3129,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit72: ; preds = %131, %13
 
 157:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit72
   %158 = icmp ne i16 %148, 126
-  %159 = load i32, ptr %.sroa.2124.0..sroa_idx, align 8
+  %159 = load i32, ptr %.sroa.2124.0..sroa_idx, align 8, !noalias !11
   %.not.i73 = icmp eq i32 %159, 126
   %or.cond38.i = select i1 %158, i1 true, i1 %.not.i73
   br i1 %or.cond38.i, label %161, label %160
@@ -20662,7 +20662,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_18OneNonDBGUse_matchINS0_14Bi
 
 _ZN4llvm12getOpcodeDefINS_9GZExtLoadEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.i: ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  %61 = load i64, ptr %60, align 8
+  %61 = load i64, ptr %60, align 8, !noalias !118
   %62 = icmp ugt i64 %61, 7
   call void @llvm.assume(i1 %62)
   %63 = and i64 %61, 7
@@ -21703,7 +21703,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_12MachineInstrENS_8DenseMapIS4_NS0_13DenseSet
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !142
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !142
   store ptr %96, ptr %95, align 8, !noalias !142
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #27
@@ -22431,12 +22431,12 @@ _ZNK4llvm19MachineRegisterInfo21use_instr_nodbg_beginENS_8RegisterE.exit: ; pred
 
 82:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %83 = load ptr, ptr %58, align 8, !noalias !151
-  %84 = load ptr, ptr %4, align 8
+  %84 = load ptr, ptr %4, align 8, !noalias !151
   %85 = icmp eq ptr %83, %84
   br i1 %85, label %86, label %100
 
 86:                                               ; preds = %82
-  %87 = load i32, ptr %60, align 4
+  %87 = load i32, ptr %60, align 4, !noalias !151
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds ptr, ptr %84, i64 %88
   %.not24.i.i = icmp eq i32 %87, 0
@@ -22462,20 +22462,20 @@ _ZNK4llvm19MachineRegisterInfo21use_instr_nodbg_beginENS_8RegisterE.exit: ; pred
   %97 = add nuw i32 %87, 1
   store i32 %97, ptr %60, align 4, !noalias !151
   store ptr %79, ptr %89, align 8, !noalias !151
-  %98 = load ptr, ptr %4, align 8
-  %99 = load i32, ptr %60, align 4
+  %98 = load ptr, ptr %4, align 8, !noalias !151
+  %99 = load i32, ptr %60, align 4, !noalias !151
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 100:                                              ; preds = %._crit_edge.i.i, %82
   %101 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull %79) #27, !noalias !151
-  %.pre.i = load ptr, ptr %4, align 8
-  %.pre6.i = load i32, ptr %60, align 4
+  %.pre.i = load ptr, ptr %4, align 8, !noalias !151
+  %.pre6.i = load i32, ptr %60, align 4, !noalias !151
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %100, %96
   %.pre3235 = phi ptr [ %98, %96 ], [ %.pre.i, %100 ], [ %83, %.lr.ph.i.i ]
   %102 = phi i32 [ %99, %96 ], [ %.pre6.i, %100 ], [ %87, %.lr.ph.i.i ]
-  %103 = load ptr, ptr %58, align 8
+  %103 = load ptr, ptr %58, align 8, !noalias !151
   %104 = load i32, ptr %61, align 8
   %105 = sub i32 %102, %104
   %106 = icmp ult i32 %105, 3
@@ -23073,7 +23073,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12MachineInstrENS_8DenseMapIS3_NS0_13DenseSetE
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !173
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !173
   store ptr %96, ptr %95, align 8, !noalias !173
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #27

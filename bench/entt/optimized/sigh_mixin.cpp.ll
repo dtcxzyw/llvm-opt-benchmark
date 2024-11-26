@@ -3431,7 +3431,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 cleanup.cont122:                                  ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1406, %cleanup.cont122.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar93) #24
-  %103 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %103 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !91
   %104 = load ptr, ptr %construction.i, align 8, !tbaa !74, !noalias !91
   %tobool.not15.i.i.i = icmp eq ptr %103, %104
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -3554,7 +3554,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont127:                                   ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 128
   %_M_finish.i.i.i.i1418 = getelementptr inbounds i8, ptr %pool, i64 136
-  %117 = load ptr, ptr %_M_finish.i.i.i.i1418, align 8, !tbaa !55
+  %117 = load ptr, ptr %_M_finish.i.i.i.i1418, align 8, !tbaa !55, !noalias !103
   %118 = load ptr, ptr %destruction.i, align 8, !tbaa !74, !noalias !103
   %tobool.not15.i.i.i1419 = icmp eq ptr %117, %118
   br i1 %tobool.not15.i.i.i1419, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i1434, label %for.body.lr.ph.i.i.i1420
@@ -8512,7 +8512,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont3
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 112
-  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !180
   %9 = load ptr, ptr %construction.i, align 8, !tbaa !74, !noalias !180
   %tobool.not15.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test14pointer_stableEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -8635,7 +8635,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 128
   %_M_finish.i.i.i.i1098 = getelementptr inbounds i8, ptr %pool, i64 136
-  %22 = load ptr, ptr %_M_finish.i.i.i.i1098, align 8, !tbaa !55
+  %22 = load ptr, ptr %_M_finish.i.i.i.i1098, align 8, !tbaa !55, !noalias !188
   %23 = load ptr, ptr %destruction.i, align 8, !tbaa !74, !noalias !188
   %tobool.not15.i.i.i1099 = icmp eq ptr %22, %23
   br i1 %tobool.not15.i.i.i1099, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test14pointer_stableEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i1114, label %for.body.lr.ph.i.i.i1100
@@ -13327,7 +13327,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont3
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 112
-  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !257
   %9 = load ptr, ptr %construction.i, align 8, !tbaa !74, !noalias !257
   %tobool.not15.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test25non_default_constructibleEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -13450,7 +13450,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 128
   %_M_finish.i.i.i.i881 = getelementptr inbounds i8, ptr %pool, i64 136
-  %22 = load ptr, ptr %_M_finish.i.i.i.i881, align 8, !tbaa !55
+  %22 = load ptr, ptr %_M_finish.i.i.i.i881, align 8, !tbaa !55, !noalias !265
   %23 = load ptr, ptr %destruction.i, align 8, !tbaa !74, !noalias !265
   %tobool.not15.i.i.i882 = icmp eq ptr %22, %23
   br i1 %tobool.not15.i.i.i882, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test25non_default_constructibleEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i897, label %for.body.lr.ph.i.i.i883
@@ -17313,7 +17313,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont3
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 80
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 88
-  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !318
   %9 = load ptr, ptr %construction.i, align 8, !tbaa !74, !noalias !318
   %tobool.not15.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIvEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -17436,7 +17436,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i357 = getelementptr inbounds i8, ptr %pool, i64 112
-  %22 = load ptr, ptr %_M_finish.i.i.i.i357, align 8, !tbaa !55
+  %22 = load ptr, ptr %_M_finish.i.i.i.i357, align 8, !tbaa !55, !noalias !326
   %23 = load ptr, ptr %destruction.i, align 8, !tbaa !74, !noalias !326
   %tobool.not15.i.i.i358 = icmp eq ptr %22, %23
   br i1 %tobool.not15.i.i.i358, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIvEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i373, label %for.body.lr.ph.i.i.i359
@@ -19591,7 +19591,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont3
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 80
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 88
-  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !358
   %9 = load ptr, ptr %construction.i, align 8, !tbaa !74, !noalias !358
   %tobool.not15.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSD_11entity_typeEEEJSC_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -19714,7 +19714,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i1025 = getelementptr inbounds i8, ptr %pool, i64 112
-  %22 = load ptr, ptr %_M_finish.i.i.i.i1025, align 8, !tbaa !55
+  %22 = load ptr, ptr %_M_finish.i.i.i.i1025, align 8, !tbaa !55, !noalias !366
   %23 = load ptr, ptr %destruction.i, align 8, !tbaa !74, !noalias !366
   %tobool.not15.i.i.i1026 = icmp eq ptr %22, %23
   br i1 %tobool.not15.i.i.i1026, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSD_11entity_typeEEEJSC_EEEvDpOT0_.exit.i1041, label %for.body.lr.ph.i.i.i1027
@@ -28091,7 +28091,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont3
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 112
-  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !497
   %9 = load ptr, ptr %construction.i, align 8, !tbaa !74, !noalias !497
   %tobool.not15.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test13throwing_typeEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -28214,7 +28214,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 128
   %_M_finish.i.i.i.i1559 = getelementptr inbounds i8, ptr %pool, i64 136
-  %22 = load ptr, ptr %_M_finish.i.i.i.i1559, align 8, !tbaa !55
+  %22 = load ptr, ptr %_M_finish.i.i.i.i1559, align 8, !tbaa !55, !noalias !505
   %23 = load ptr, ptr %destruction.i, align 8, !tbaa !74, !noalias !505
   %tobool.not15.i.i.i1560 = icmp eq ptr %22, %23
   br i1 %tobool.not15.i.i.i1560, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test13throwing_typeEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i1575, label %for.body.lr.ph.i.i.i1561
@@ -47088,7 +47088,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont3
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 112
-  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !761
   %9 = load ptr, ptr %construction.i, align 8, !tbaa !74, !noalias !761
   %tobool.not15.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -47211,7 +47211,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 128
   %_M_finish.i.i.i.i847 = getelementptr inbounds i8, ptr %pool, i64 136
-  %22 = load ptr, ptr %_M_finish.i.i.i.i847, align 8, !tbaa !55
+  %22 = load ptr, ptr %_M_finish.i.i.i.i847, align 8, !tbaa !55, !noalias !768
   %23 = load ptr, ptr %destruction.i, align 8, !tbaa !74, !noalias !768
   %tobool.not15.i.i.i848 = icmp eq ptr %22, %23
   br i1 %tobool.not15.i.i.i848, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i863, label %for.body.lr.ph.i.i.i849
@@ -50883,7 +50883,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont3
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 112
-  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !798
   %9 = load ptr, ptr %construction.i, align 8, !tbaa !74, !noalias !798
   %tobool.not15.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test14pointer_stableEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -51006,7 +51006,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 128
   %_M_finish.i.i.i.i849 = getelementptr inbounds i8, ptr %pool, i64 136
-  %22 = load ptr, ptr %_M_finish.i.i.i.i849, align 8, !tbaa !55
+  %22 = load ptr, ptr %_M_finish.i.i.i.i849, align 8, !tbaa !55, !noalias !805
   %23 = load ptr, ptr %destruction.i, align 8, !tbaa !74, !noalias !805
   %tobool.not15.i.i.i850 = icmp eq ptr %22, %23
   br i1 %tobool.not15.i.i.i850, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test14pointer_stableEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i865, label %for.body.lr.ph.i.i.i851
@@ -56166,7 +56166,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont5
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 112
-  %10 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %10 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !882
   %11 = load ptr, ptr %construction.i, align 8, !tbaa !74, !noalias !882
   %tobool.not15.i.i.i = icmp eq ptr %10, %11
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -56289,7 +56289,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont7:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 128
   %_M_finish.i.i.i.i509 = getelementptr inbounds i8, ptr %pool, i64 136
-  %24 = load ptr, ptr %_M_finish.i.i.i.i509, align 8, !tbaa !55
+  %24 = load ptr, ptr %_M_finish.i.i.i.i509, align 8, !tbaa !55, !noalias !889
   %25 = load ptr, ptr %destruction.i, align 8, !tbaa !74, !noalias !889
   %tobool.not15.i.i.i510 = icmp eq ptr %24, %25
   br i1 %tobool.not15.i.i.i510, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i525, label %for.body.lr.ph.i.i.i511
@@ -56457,7 +56457,7 @@ terminate.lpad.i557:                              ; preds = %if.then.i555
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit558:        ; preds = %if.then.i555, %invoke.cont15
   %construction.i559 = getelementptr inbounds i8, ptr %other, i64 104
   %_M_finish.i.i.i.i561 = getelementptr inbounds i8, ptr %other, i64 112
-  %44 = load ptr, ptr %_M_finish.i.i.i.i561, align 8, !tbaa !55
+  %44 = load ptr, ptr %_M_finish.i.i.i.i561, align 8, !tbaa !55, !noalias !899
   %45 = load ptr, ptr %construction.i559, align 8, !tbaa !74, !noalias !899
   %tobool.not15.i.i.i562 = icmp eq ptr %44, %45
   br i1 %tobool.not15.i.i.i562, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i577, label %for.body.lr.ph.i.i.i563
@@ -56580,7 +56580,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont21:                                    ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit229, %if.then.i.i5.i582
   %destruction.i594 = getelementptr inbounds i8, ptr %other, i64 128
   %_M_finish.i.i.i.i596 = getelementptr inbounds i8, ptr %other, i64 136
-  %58 = load ptr, ptr %_M_finish.i.i.i.i596, align 8, !tbaa !55
+  %58 = load ptr, ptr %_M_finish.i.i.i.i596, align 8, !tbaa !55, !noalias !906
   %59 = load ptr, ptr %destruction.i594, align 8, !tbaa !74, !noalias !906
   %tobool.not15.i.i.i597 = icmp eq ptr %58, %59
   br i1 %tobool.not15.i.i.i597, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i612, label %for.body.lr.ph.i.i.i598
@@ -59524,7 +59524,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont5
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 112
-  %10 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %10 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !947
   %11 = load ptr, ptr %construction.i, align 8, !tbaa !74, !noalias !947
   %tobool.not15.i.i.i = icmp eq ptr %10, %11
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test14pointer_stableEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -59647,7 +59647,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont7:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 128
   %_M_finish.i.i.i.i510 = getelementptr inbounds i8, ptr %pool, i64 136
-  %24 = load ptr, ptr %_M_finish.i.i.i.i510, align 8, !tbaa !55
+  %24 = load ptr, ptr %_M_finish.i.i.i.i510, align 8, !tbaa !55, !noalias !954
   %25 = load ptr, ptr %destruction.i, align 8, !tbaa !74, !noalias !954
   %tobool.not15.i.i.i511 = icmp eq ptr %24, %25
   br i1 %tobool.not15.i.i.i511, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test14pointer_stableEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i526, label %for.body.lr.ph.i.i.i512
@@ -59815,7 +59815,7 @@ terminate.lpad.i558:                              ; preds = %if.then.i556
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit559:        ; preds = %if.then.i556, %invoke.cont15
   %construction.i560 = getelementptr inbounds i8, ptr %other, i64 104
   %_M_finish.i.i.i.i562 = getelementptr inbounds i8, ptr %other, i64 112
-  %44 = load ptr, ptr %_M_finish.i.i.i.i562, align 8, !tbaa !55
+  %44 = load ptr, ptr %_M_finish.i.i.i.i562, align 8, !tbaa !55, !noalias !964
   %45 = load ptr, ptr %construction.i560, align 8, !tbaa !74, !noalias !964
   %tobool.not15.i.i.i563 = icmp eq ptr %44, %45
   br i1 %tobool.not15.i.i.i563, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test14pointer_stableEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i578, label %for.body.lr.ph.i.i.i564
@@ -59938,7 +59938,7 @@ _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEE
 invoke.cont21:                                    ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit228, %if.then.i.i5.i583
   %destruction.i595 = getelementptr inbounds i8, ptr %other, i64 128
   %_M_finish.i.i.i.i597 = getelementptr inbounds i8, ptr %other, i64 136
-  %58 = load ptr, ptr %_M_finish.i.i.i.i597, align 8, !tbaa !55
+  %58 = load ptr, ptr %_M_finish.i.i.i.i597, align 8, !tbaa !55, !noalias !971
   %59 = load ptr, ptr %destruction.i595, align 8, !tbaa !74, !noalias !971
   %tobool.not15.i.i.i598 = icmp eq ptr %58, %59
   br i1 %tobool.not15.i.i.i598, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test14pointer_stableEEEEE10disconnectITnDaXadL_Z8listenerIS5_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i613, label %for.body.lr.ph.i.i.i599
@@ -63567,8 +63567,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont3
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 112
-  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
-  %9 = load ptr, ptr %construction.i, align 8, !tbaa !1038, !noalias !1040
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !1038
+  %9 = load ptr, ptr %construction.i, align 8, !tbaa !1041, !noalias !1038
   %tobool.not15.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaIiEEEE10disconnectITnDaXadL_Z8listenerIS2_EvRmRT_NSD_11entity_typeEEEJSC_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
 
@@ -63583,22 +63583,22 @@ for.body.i.i.i:                                   ; preds = %if.end.i.i.i, %for.
   %10 = phi ptr [ %8, %for.body.lr.ph.i.i.i ], [ %16, %if.end.i.i.i ]
   %pos.016.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %for.body.lr.ph.i.i.i ], [ %sub.i.i.i, %if.end.i.i.i ]
   %sub.i.i.i = add i64 %pos.016.i.i.i, -1
-  %11 = load ptr, ptr %construction.i, align 8, !tbaa !1038, !noalias !1040
+  %11 = load ptr, ptr %construction.i, align 8, !tbaa !1041, !noalias !1038
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.entt::delegate.282", ptr %11, i64 %sub.i.i.i
   %fn.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
-  %12 = load ptr, ptr %fn.i.i.i.i.i, align 8, !tbaa !1043, !noalias !1040
+  %12 = load ptr, ptr %fn.i.i.i.i.i, align 8, !tbaa !1043, !noalias !1038
   %cmp.i.i.i.i.i = icmp eq ptr %12, @_ZZN4entt8delegateIFvR15custom_registryN4test13custom_entityEEE7connectITnDaXadL_Z8listenerIS1_EvRmRT_NSA_11entity_typeEEEmEEvRT0_ENUlPKvS2_S4_E_8__invokeESG_S2_S4_
-  %13 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !1040
+  %13 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !1038
   %cmp4.i.i.i.i.i = icmp eq ptr %13, %on_construct
   %14 = select i1 %cmp.i.i.i.i.i, i1 %cmp4.i.i.i.i.i, i1 false
   br i1 %14, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !94, !noalias !1040
-  %15 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045, !noalias !1040
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !94, !noalias !1038
+  %15 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045, !noalias !1038
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -16
-  store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045, !noalias !1040
+  store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045, !noalias !1038
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %for.body.i.i.i
@@ -63609,17 +63609,17 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %for
 _ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaIiEEEE10disconnectITnDaXadL_Z8listenerIS2_EvRmRT_NSD_11entity_typeEEEJSC_EEEvDpOT0_.exit.i: ; preds = %if.end.i.i.i, %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit
   %17 = phi ptr [ %8, %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit ], [ %16, %if.end.i.i.i ]
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %pool, i64 120
-  %18 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1047, !noalias !1040
+  %18 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1047, !noalias !1038
   %cmp.not.i.i.i = icmp eq ptr %17, %18
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaIiEEEE10disconnectITnDaXadL_Z8listenerIS2_EvRmRT_NSD_11entity_typeEEEJSC_EEEvDpOT0_.exit.i
-  store ptr %on_construct, ptr %17, align 8, !tbaa !55, !noalias !1040
+  store ptr %on_construct, ptr %17, align 8, !tbaa !55, !noalias !1038
   %call.i165.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr @_ZZN4entt8delegateIFvR15custom_registryN4test13custom_entityEEE7connectITnDaXadL_Z8listenerIS1_EvRmRT_NSA_11entity_typeEEEmEEvRT0_ENUlPKvS2_S4_E_8__invokeESG_S2_S4_, ptr %call.i165.sroa.5.0..sroa_idx, align 8, !tbaa !55, !noalias !1040
-  %19 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045, !noalias !1040
+  store ptr @_ZZN4entt8delegateIFvR15custom_registryN4test13custom_entityEEE7connectITnDaXadL_Z8listenerIS1_EvRmRT_NSA_11entity_typeEEEmEEvRT0_ENUlPKvS2_S4_E_8__invokeESG_S2_S4_, ptr %call.i165.sroa.5.0..sroa_idx, align 8, !tbaa !55, !noalias !1038
+  %19 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045, !noalias !1038
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045, !noalias !1040
+  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045, !noalias !1038
   br label %invoke.cont5
 
 if.else.i.i.i:                                    ; preds = %_ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaIiEEEE10disconnectITnDaXadL_Z8listenerIS2_EvRmRT_NSD_11entity_typeEEEJSC_EEEvDpOT0_.exit.i
@@ -63681,7 +63681,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit
 
 _ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit40.i, %if.then.i41.i
-  store ptr %cond.i31.i, ptr %construction.i, align 8, !tbaa !1038
+  store ptr %cond.i31.i, ptr %construction.i, align 8, !tbaa !1041
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045
   %add.ptr19.i = getelementptr inbounds %"class.entt::delegate.282", ptr %cond.i31.i, i64 %cond.i.i49
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1047
@@ -63690,8 +63690,8 @@ _ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 128
   %_M_finish.i.i.i.i167 = getelementptr inbounds i8, ptr %pool, i64 136
-  %22 = load ptr, ptr %_M_finish.i.i.i.i167, align 8, !tbaa !55
-  %23 = load ptr, ptr %destruction.i, align 8, !tbaa !1038, !noalias !1053
+  %22 = load ptr, ptr %_M_finish.i.i.i.i167, align 8, !tbaa !55, !noalias !1053
+  %23 = load ptr, ptr %destruction.i, align 8, !tbaa !1041, !noalias !1053
   %tobool.not15.i.i.i168 = icmp eq ptr %22, %23
   br i1 %tobool.not15.i.i.i168, label %_ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaIiEEEE10disconnectITnDaXadL_Z8listenerIS2_EvRmRT_NSD_11entity_typeEEEJSC_EEEvDpOT0_.exit.i183, label %for.body.lr.ph.i.i.i169
 
@@ -63706,7 +63706,7 @@ for.body.i.i.i174:                                ; preds = %if.end.i.i.i181, %f
   %24 = phi ptr [ %22, %for.body.lr.ph.i.i.i169 ], [ %30, %if.end.i.i.i181 ]
   %pos.016.i.i.i175 = phi i64 [ %sub.ptr.div.i.i.i.i173, %for.body.lr.ph.i.i.i169 ], [ %sub.i.i.i176, %if.end.i.i.i181 ]
   %sub.i.i.i176 = add i64 %pos.016.i.i.i175, -1
-  %25 = load ptr, ptr %destruction.i, align 8, !tbaa !1038, !noalias !1053
+  %25 = load ptr, ptr %destruction.i, align 8, !tbaa !1041, !noalias !1053
   %add.ptr.i.i.i.i177 = getelementptr inbounds %"class.entt::delegate.282", ptr %25, i64 %sub.i.i.i176
   %fn.i.i.i.i.i178 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i177, i64 8
   %26 = load ptr, ptr %fn.i.i.i.i.i178, align 8, !tbaa !1043, !noalias !1053
@@ -63804,7 +63804,7 @@ if.then.i41.i96:                                  ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit103
 
 _ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit103: ; preds = %_ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit40.i93, %if.then.i41.i96
-  store ptr %cond.i31.i74, ptr %destruction.i, align 8, !tbaa !1038
+  store ptr %cond.i31.i74, ptr %destruction.i, align 8, !tbaa !1041
   store ptr %incdec.ptr.i85, ptr %_M_finish.i.i.i.i167, align 8, !tbaa !1045
   %add.ptr19.i98 = getelementptr inbounds %"class.entt::delegate.282", ptr %cond.i31.i74, i64 %cond.i.i66
   store ptr %add.ptr19.i98, ptr %_M_end_of_storage.i.i.i186, align 8, !tbaa !1047
@@ -63817,7 +63817,7 @@ invoke.cont11:                                    ; preds = %_ZNSt6vectorIN4entt
 call.i.i.noexc:                                   ; preds = %invoke.cont11
   %36 = load ptr, ptr %owner.i.i, align 8, !tbaa !1060
   %37 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045
-  %38 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %38 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %tobool.not8.i.i = icmp eq ptr %37, %38
   br i1 %tobool.not8.i.i, label %invoke.cont12, label %for.body.preheader.i.i
 
@@ -63831,7 +63831,7 @@ for.body.preheader.i.i:                           ; preds = %call.i.i.noexc
 for.body.i.i:                                     ; preds = %.noexc206, %for.body.preheader.i.i
   %pos.09.i.i = phi i64 [ %sub.i.i, %.noexc206 ], [ %sub.ptr.div.i.i.i, %for.body.preheader.i.i ]
   %sub.i.i = add i64 %pos.09.i.i, -1
-  %39 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %39 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %add.ptr.i.i.i = getelementptr inbounds %"class.entt::delegate.282", ptr %39, i64 %sub.i.i
   %fn.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %40 = load ptr, ptr %fn.i.i.i, align 8, !tbaa !1043
@@ -63850,7 +63850,7 @@ invoke.cont12:                                    ; preds = %.noexc206, %call.i.
 call.i.i.noexc231:                                ; preds = %invoke.cont12
   %42 = load ptr, ptr %owner.i.i, align 8, !tbaa !1060
   %43 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045
-  %44 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %44 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %tobool.not8.i.i210 = icmp eq ptr %43, %44
   br i1 %tobool.not8.i.i210, label %invoke.cont14, label %for.body.preheader.i.i211
 
@@ -63864,7 +63864,7 @@ for.body.preheader.i.i211:                        ; preds = %call.i.i.noexc231
 for.body.i.i216:                                  ; preds = %.noexc233, %for.body.preheader.i.i211
   %pos.09.i.i217 = phi i64 [ %sub.i.i218, %.noexc233 ], [ %sub.ptr.div.i.i.i215, %for.body.preheader.i.i211 ]
   %sub.i.i218 = add i64 %pos.09.i.i217, -1
-  %45 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %45 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %add.ptr.i.i.i219 = getelementptr inbounds %"class.entt::delegate.282", ptr %45, i64 %sub.i.i218
   %fn.i.i.i220 = getelementptr inbounds i8, ptr %add.ptr.i.i.i219, i64 8
   %46 = load ptr, ptr %fn.i.i.i220, align 8, !tbaa !1043
@@ -64574,7 +64574,7 @@ cleanup123:                                       ; preds = %_ZN7testing15Assert
   call void @_ZN4entt14basic_registryIN4test13custom_entityESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(320) %registry) #24
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %registry) #24
   %update.i = getelementptr inbounds i8, ptr %pool, i64 152
-  %131 = load ptr, ptr %update.i, align 8, !tbaa !1038
+  %131 = load ptr, ptr %update.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i.i = icmp eq ptr %131, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit.i, label %if.then.i.i.i.i.i379
 
@@ -64583,7 +64583,7 @@ if.then.i.i.i.i.i379:                             ; preds = %cleanup123
   br label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit.i
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i379, %cleanup123
-  %132 = load ptr, ptr %destruction.i, align 8, !tbaa !1038
+  %132 = load ptr, ptr %destruction.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i2.i = icmp eq ptr %132, null
   br i1 %tobool.not.i.i.i.i2.i, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit4.i, label %if.then.i.i.i.i3.i
 
@@ -64592,7 +64592,7 @@ if.then.i.i.i.i3.i:                               ; preds = %_ZN4entt4sighIFvR15
   br label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit4.i
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit4.i: ; preds = %if.then.i.i.i.i3.i, %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit.i
-  %133 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %133 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i5.i = icmp eq ptr %133, null
   br i1 %tobool.not.i.i.i.i5.i, label %_ZN4entt16basic_sigh_mixinINS_13basic_storageIiN4test13custom_entityESaIiEvEE15custom_registryED2Ev.exit, label %if.then.i.i.i.i6.i
 
@@ -65052,7 +65052,7 @@ _ZN4entt8internal16registry_contextISaIN4test13custom_entityEEED2Ev.exit: ; pred
 define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIiN4test13custom_entityESaIiEvEE15custom_registryED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %update = getelementptr inbounds i8, ptr %this, i64 152
-  %0 = load ptr, ptr %update, align 8, !tbaa !1038
+  %0 = load ptr, ptr %update, align 8, !tbaa !1041
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit, label %if.then.i.i.i.i
 
@@ -65062,7 +65062,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit: ; preds = %if.then.i.i.i.i, %entry
   %destruction = getelementptr inbounds i8, ptr %this, i64 128
-  %1 = load ptr, ptr %destruction, align 8, !tbaa !1038
+  %1 = load ptr, ptr %destruction, align 8, !tbaa !1041
   %tobool.not.i.i.i.i2 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i2, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit4, label %if.then.i.i.i.i3
 
@@ -65072,7 +65072,7 @@ if.then.i.i.i.i3:                                 ; preds = %_ZN4entt4sighIFvR15
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit4: ; preds = %if.then.i.i.i.i3, %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit
   %construction = getelementptr inbounds i8, ptr %this, i64 104
-  %2 = load ptr, ptr %construction, align 8, !tbaa !1038
+  %2 = load ptr, ptr %construction, align 8, !tbaa !1041
   %tobool.not.i.i.i.i5 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i5, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit7, label %if.then.i.i.i.i6
 
@@ -65220,7 +65220,7 @@ for.body:                                         ; preds = %invoke.cont11.lr.ph
   %add.ptr.i.i = getelementptr i8, ptr %17, i64 -4
   %18 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !1098
   %19 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1045
-  %20 = load ptr, ptr %destruction, align 8, !tbaa !1038
+  %20 = load ptr, ptr %destruction, align 8, !tbaa !1041
   %tobool.not8.i = icmp eq ptr %19, %20
   br i1 %tobool.not8.i, label %_ZNK4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEE7publishES2_S4_.exit, label %for.body.preheader.i
 
@@ -65234,7 +65234,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.09.i = phi i64 [ %sub.i15, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i15 = add i64 %pos.09.i, -1
-  %21 = load ptr, ptr %destruction, align 8, !tbaa !1038
+  %21 = load ptr, ptr %destruction, align 8, !tbaa !1041
   %add.ptr.i.i16 = getelementptr inbounds %"class.entt::delegate.282", ptr %21, i64 %sub.i15
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i16, i64 8
   %22 = load ptr, ptr %fn.i.i, align 8, !tbaa !1043
@@ -65384,7 +65384,7 @@ for.body:                                         ; preds = %_ZNK4entt16basic_sp
   %add.ptr.i.i = getelementptr i8, ptr %8, i64 -4
   %9 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !1098
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1045
-  %11 = load ptr, ptr %destruction, align 8, !tbaa !1038
+  %11 = load ptr, ptr %destruction, align 8, !tbaa !1041
   %tobool.not8.i = icmp eq ptr %10, %11
   br i1 %tobool.not8.i, label %_ZNK4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEE7publishES2_S4_.exit, label %for.body.preheader.i
 
@@ -65398,7 +65398,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.09.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.09.i, -1
-  %12 = load ptr, ptr %destruction, align 8, !tbaa !1038
+  %12 = load ptr, ptr %destruction, align 8, !tbaa !1041
   %add.ptr.i.i12 = getelementptr inbounds %"class.entt::delegate.282", ptr %12, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i12, i64 8
   %13 = load ptr, ptr %fn.i.i, align 8, !tbaa !1043
@@ -65501,7 +65501,7 @@ if.then:                                          ; preds = %_ZN4entt13basic_sto
   %5 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !1098
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %6 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !1045
-  %7 = load ptr, ptr %construction, align 8, !tbaa !1038
+  %7 = load ptr, ptr %construction, align 8, !tbaa !1041
   %tobool.not8.i = icmp eq ptr %6, %7
   br i1 %tobool.not8.i, label %if.end, label %for.body.preheader.i
 
@@ -65515,7 +65515,7 @@ for.body.preheader.i:                             ; preds = %if.then
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.09.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.09.i, -1
-  %8 = load ptr, ptr %construction, align 8, !tbaa !1038
+  %8 = load ptr, ptr %construction, align 8, !tbaa !1041
   %add.ptr.i.i7 = getelementptr inbounds %"class.entt::delegate.282", ptr %8, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i7, i64 8
   %9 = load ptr, ptr %fn.i.i, align 8, !tbaa !1043
@@ -65532,7 +65532,7 @@ if.end:                                           ; preds = %for.body.i, %if.the
 define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIiN4test13custom_entityESaIiEvEE15custom_registryED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %update.i = getelementptr inbounds i8, ptr %this, i64 152
-  %0 = load ptr, ptr %update.i, align 8, !tbaa !1038
+  %0 = load ptr, ptr %update.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit.i, label %if.then.i.i.i.i.i
 
@@ -65542,7 +65542,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %entry
   %destruction.i = getelementptr inbounds i8, ptr %this, i64 128
-  %1 = load ptr, ptr %destruction.i, align 8, !tbaa !1038
+  %1 = load ptr, ptr %destruction.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i2.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i2.i, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit4.i, label %if.then.i.i.i.i3.i
 
@@ -65552,7 +65552,7 @@ if.then.i.i.i.i3.i:                               ; preds = %_ZN4entt4sighIFvR15
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit4.i: ; preds = %if.then.i.i.i.i3.i, %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEED2Ev.exit.i
   %construction.i = getelementptr inbounds i8, ptr %this, i64 104
-  %2 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %2 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i5.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i5.i, label %_ZN4entt16basic_sigh_mixinINS_13basic_storageIiN4test13custom_entityESaIiEvEE15custom_registryED2Ev.exit, label %if.then.i.i.i.i6.i
 
@@ -69702,8 +69702,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.cont3
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 104
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 112
-  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
-  %9 = load ptr, ptr %construction.i, align 8, !tbaa !1038, !noalias !1169
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !1169
+  %9 = load ptr, ptr %construction.i, align 8, !tbaa !1041, !noalias !1169
   %tobool.not15.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaINS4_14pointer_stableEEEEE10disconnectITnDaXadL_Z8listenerIS2_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
 
@@ -69718,7 +69718,7 @@ for.body.i.i.i:                                   ; preds = %if.end.i.i.i, %for.
   %10 = phi ptr [ %8, %for.body.lr.ph.i.i.i ], [ %16, %if.end.i.i.i ]
   %pos.016.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %for.body.lr.ph.i.i.i ], [ %sub.i.i.i, %if.end.i.i.i ]
   %sub.i.i.i = add i64 %pos.016.i.i.i, -1
-  %11 = load ptr, ptr %construction.i, align 8, !tbaa !1038, !noalias !1169
+  %11 = load ptr, ptr %construction.i, align 8, !tbaa !1041, !noalias !1169
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.entt::delegate.282", ptr %11, i64 %sub.i.i.i
   %fn.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   %12 = load ptr, ptr %fn.i.i.i.i.i, align 8, !tbaa !1043, !noalias !1169
@@ -69816,7 +69816,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit
 
 _ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit40.i, %if.then.i41.i
-  store ptr %cond.i31.i, ptr %construction.i, align 8, !tbaa !1038
+  store ptr %cond.i31.i, ptr %construction.i, align 8, !tbaa !1041
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045
   %add.ptr19.i = getelementptr inbounds %"class.entt::delegate.282", ptr %cond.i31.i, i64 %cond.i.i49
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1047
@@ -69825,8 +69825,8 @@ _ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, %if.then.i.i5.i
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 128
   %_M_finish.i.i.i.i167 = getelementptr inbounds i8, ptr %pool, i64 136
-  %22 = load ptr, ptr %_M_finish.i.i.i.i167, align 8, !tbaa !55
-  %23 = load ptr, ptr %destruction.i, align 8, !tbaa !1038, !noalias !1177
+  %22 = load ptr, ptr %_M_finish.i.i.i.i167, align 8, !tbaa !55, !noalias !1177
+  %23 = load ptr, ptr %destruction.i, align 8, !tbaa !1041, !noalias !1177
   %tobool.not15.i.i.i168 = icmp eq ptr %22, %23
   br i1 %tobool.not15.i.i.i168, label %_ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaINS4_14pointer_stableEEEEE10disconnectITnDaXadL_Z8listenerIS2_EvRmRT_NSE_11entity_typeEEEJSD_EEEvDpOT0_.exit.i183, label %for.body.lr.ph.i.i.i169
 
@@ -69841,7 +69841,7 @@ for.body.i.i.i174:                                ; preds = %if.end.i.i.i181, %f
   %24 = phi ptr [ %22, %for.body.lr.ph.i.i.i169 ], [ %30, %if.end.i.i.i181 ]
   %pos.016.i.i.i175 = phi i64 [ %sub.ptr.div.i.i.i.i173, %for.body.lr.ph.i.i.i169 ], [ %sub.i.i.i176, %if.end.i.i.i181 ]
   %sub.i.i.i176 = add i64 %pos.016.i.i.i175, -1
-  %25 = load ptr, ptr %destruction.i, align 8, !tbaa !1038, !noalias !1177
+  %25 = load ptr, ptr %destruction.i, align 8, !tbaa !1041, !noalias !1177
   %add.ptr.i.i.i.i177 = getelementptr inbounds %"class.entt::delegate.282", ptr %25, i64 %sub.i.i.i176
   %fn.i.i.i.i.i178 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i177, i64 8
   %26 = load ptr, ptr %fn.i.i.i.i.i178, align 8, !tbaa !1043, !noalias !1177
@@ -69939,7 +69939,7 @@ if.then.i41.i96:                                  ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit103
 
 _ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit103: ; preds = %_ZNSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit40.i93, %if.then.i41.i96
-  store ptr %cond.i31.i74, ptr %destruction.i, align 8, !tbaa !1038
+  store ptr %cond.i31.i74, ptr %destruction.i, align 8, !tbaa !1041
   store ptr %incdec.ptr.i85, ptr %_M_finish.i.i.i.i167, align 8, !tbaa !1045
   %add.ptr19.i98 = getelementptr inbounds %"class.entt::delegate.282", ptr %cond.i31.i74, i64 %cond.i.i66
   store ptr %add.ptr19.i98, ptr %_M_end_of_storage.i.i.i186, align 8, !tbaa !1047
@@ -69952,7 +69952,7 @@ invoke.cont11:                                    ; preds = %_ZNSt6vectorIN4entt
 call.i.i.noexc:                                   ; preds = %invoke.cont11
   %36 = load ptr, ptr %owner.i.i, align 8, !tbaa !1184
   %37 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045
-  %38 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %38 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %tobool.not8.i.i = icmp eq ptr %37, %38
   br i1 %tobool.not8.i.i, label %invoke.cont12, label %for.body.preheader.i.i
 
@@ -69966,7 +69966,7 @@ for.body.preheader.i.i:                           ; preds = %call.i.i.noexc
 for.body.i.i:                                     ; preds = %.noexc206, %for.body.preheader.i.i
   %pos.09.i.i = phi i64 [ %sub.i.i, %.noexc206 ], [ %sub.ptr.div.i.i.i, %for.body.preheader.i.i ]
   %sub.i.i = add i64 %pos.09.i.i, -1
-  %39 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %39 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %add.ptr.i.i.i = getelementptr inbounds %"class.entt::delegate.282", ptr %39, i64 %sub.i.i
   %fn.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %40 = load ptr, ptr %fn.i.i.i, align 8, !tbaa !1043
@@ -69985,7 +69985,7 @@ invoke.cont12:                                    ; preds = %.noexc206, %call.i.
 call.i.i.noexc231:                                ; preds = %invoke.cont12
   %42 = load ptr, ptr %owner.i.i, align 8, !tbaa !1184
   %43 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1045
-  %44 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %44 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %tobool.not8.i.i210 = icmp eq ptr %43, %44
   br i1 %tobool.not8.i.i210, label %invoke.cont14, label %for.body.preheader.i.i211
 
@@ -69999,7 +69999,7 @@ for.body.preheader.i.i211:                        ; preds = %call.i.i.noexc231
 for.body.i.i216:                                  ; preds = %.noexc233, %for.body.preheader.i.i211
   %pos.09.i.i217 = phi i64 [ %sub.i.i218, %.noexc233 ], [ %sub.ptr.div.i.i.i215, %for.body.preheader.i.i211 ]
   %sub.i.i218 = add i64 %pos.09.i.i217, -1
-  %45 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %45 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %add.ptr.i.i.i219 = getelementptr inbounds %"class.entt::delegate.282", ptr %45, i64 %sub.i.i218
   %fn.i.i.i220 = getelementptr inbounds i8, ptr %add.ptr.i.i.i219, i64 8
   %46 = load ptr, ptr %fn.i.i.i220, align 8, !tbaa !1043
@@ -70709,7 +70709,7 @@ cleanup123:                                       ; preds = %_ZN7testing15Assert
   call void @_ZN4entt14basic_registryIN4test13custom_entityESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(320) %registry) #24
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %registry) #24
   %update.i = getelementptr inbounds i8, ptr %pool, i64 152
-  %131 = load ptr, ptr %update.i, align 8, !tbaa !1038
+  %131 = load ptr, ptr %update.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i.i = icmp eq ptr %131, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit.i, label %if.then.i.i.i.i.i379
 
@@ -70718,7 +70718,7 @@ if.then.i.i.i.i.i379:                             ; preds = %cleanup123
   br label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit.i
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i379, %cleanup123
-  %132 = load ptr, ptr %destruction.i, align 8, !tbaa !1038
+  %132 = load ptr, ptr %destruction.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i2.i = icmp eq ptr %132, null
   br i1 %tobool.not.i.i.i.i2.i, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit4.i, label %if.then.i.i.i.i3.i
 
@@ -70727,7 +70727,7 @@ if.then.i.i.i.i3.i:                               ; preds = %_ZN4entt4sighIFvR15
   br label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit4.i
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit4.i: ; preds = %if.then.i.i.i.i3.i, %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit.i
-  %133 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %133 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i5.i = icmp eq ptr %133, null
   br i1 %tobool.not.i.i.i.i5.i, label %_ZN4entt16basic_sigh_mixinINS_13basic_storageIN4test14pointer_stableENS2_13custom_entityESaIS3_EvEE15custom_registryED2Ev.exit, label %if.then.i.i.i.i6.i
 
@@ -70874,7 +70874,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i7, %_ZN4en
 define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIN4test14pointer_stableENS2_13custom_entityESaIS3_EvEE15custom_registryED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %update = getelementptr inbounds i8, ptr %this, i64 152
-  %0 = load ptr, ptr %update, align 8, !tbaa !1038
+  %0 = load ptr, ptr %update, align 8, !tbaa !1041
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit, label %if.then.i.i.i.i
 
@@ -70884,7 +70884,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit: ; preds = %if.then.i.i.i.i, %entry
   %destruction = getelementptr inbounds i8, ptr %this, i64 128
-  %1 = load ptr, ptr %destruction, align 8, !tbaa !1038
+  %1 = load ptr, ptr %destruction, align 8, !tbaa !1041
   %tobool.not.i.i.i.i2 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i2, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit4, label %if.then.i.i.i.i3
 
@@ -70894,7 +70894,7 @@ if.then.i.i.i.i3:                                 ; preds = %_ZN4entt4sighIFvR15
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit4: ; preds = %if.then.i.i.i.i3, %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit
   %construction = getelementptr inbounds i8, ptr %this, i64 104
-  %2 = load ptr, ptr %construction, align 8, !tbaa !1038
+  %2 = load ptr, ptr %construction, align 8, !tbaa !1041
   %tobool.not.i.i.i.i5 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i5, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit7, label %if.then.i.i.i.i6
 
@@ -71086,7 +71086,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr.i.i = getelementptr i8, ptr %18, i64 -4
   %19 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !1098
   %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1045
-  %21 = load ptr, ptr %destruction, align 8, !tbaa !1038
+  %21 = load ptr, ptr %destruction, align 8, !tbaa !1041
   %tobool.not8.i = icmp eq ptr %20, %21
   br i1 %tobool.not8.i, label %_ZNK4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEE7publishES2_S4_.exit, label %for.body.preheader.i
 
@@ -71100,7 +71100,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i14:                                     ; preds = %for.body.i14, %for.body.preheader.i
   %pos.09.i = phi i64 [ %sub.i, %for.body.i14 ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.09.i, -1
-  %22 = load ptr, ptr %destruction, align 8, !tbaa !1038
+  %22 = load ptr, ptr %destruction, align 8, !tbaa !1041
   %add.ptr.i.i15 = getelementptr inbounds %"class.entt::delegate.282", ptr %22, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i15, i64 8
   %23 = load ptr, ptr %fn.i.i, align 8, !tbaa !1043
@@ -71224,7 +71224,7 @@ for.body:                                         ; preds = %_ZNK4entt16basic_sp
 
 if.then8:                                         ; preds = %for.body
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1045
-  %11 = load ptr, ptr %destruction, align 8, !tbaa !1038
+  %11 = load ptr, ptr %destruction, align 8, !tbaa !1041
   %tobool.not8.i = icmp eq ptr %10, %11
   br i1 %tobool.not8.i, label %if.end, label %for.body.preheader.i
 
@@ -71238,7 +71238,7 @@ for.body.preheader.i:                             ; preds = %if.then8
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.09.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.09.i, -1
-  %12 = load ptr, ptr %destruction, align 8, !tbaa !1038
+  %12 = load ptr, ptr %destruction, align 8, !tbaa !1041
   %add.ptr.i.i17 = getelementptr inbounds %"class.entt::delegate.282", ptr %12, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i17, i64 8
   %13 = load ptr, ptr %fn.i.i, align 8, !tbaa !1043
@@ -71339,7 +71339,7 @@ if.then:                                          ; preds = %_ZN4entt13basic_sto
   %5 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !1098
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %6 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !1045
-  %7 = load ptr, ptr %construction, align 8, !tbaa !1038
+  %7 = load ptr, ptr %construction, align 8, !tbaa !1041
   %tobool.not8.i = icmp eq ptr %6, %7
   br i1 %tobool.not8.i, label %if.end, label %for.body.preheader.i
 
@@ -71353,7 +71353,7 @@ for.body.preheader.i:                             ; preds = %if.then
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.09.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.09.i, -1
-  %8 = load ptr, ptr %construction, align 8, !tbaa !1038
+  %8 = load ptr, ptr %construction, align 8, !tbaa !1041
   %add.ptr.i.i7 = getelementptr inbounds %"class.entt::delegate.282", ptr %8, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i7, i64 8
   %9 = load ptr, ptr %fn.i.i, align 8, !tbaa !1043
@@ -71370,7 +71370,7 @@ if.end:                                           ; preds = %for.body.i, %if.the
 define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIN4test14pointer_stableENS2_13custom_entityESaIS3_EvEE15custom_registryED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %update.i = getelementptr inbounds i8, ptr %this, i64 152
-  %0 = load ptr, ptr %update.i, align 8, !tbaa !1038
+  %0 = load ptr, ptr %update.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit.i, label %if.then.i.i.i.i.i
 
@@ -71380,7 +71380,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %entry
   %destruction.i = getelementptr inbounds i8, ptr %this, i64 128
-  %1 = load ptr, ptr %destruction.i, align 8, !tbaa !1038
+  %1 = load ptr, ptr %destruction.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i2.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i2.i, label %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit4.i, label %if.then.i.i.i.i3.i
 
@@ -71390,7 +71390,7 @@ if.then.i.i.i.i3.i:                               ; preds = %_ZN4entt4sighIFvR15
 
 _ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit4.i: ; preds = %if.then.i.i.i.i3.i, %_ZN4entt4sighIFvR15custom_registryN4test13custom_entityEESaINS3_14pointer_stableEEED2Ev.exit.i
   %construction.i = getelementptr inbounds i8, ptr %this, i64 104
-  %2 = load ptr, ptr %construction.i, align 8, !tbaa !1038
+  %2 = load ptr, ptr %construction.i, align 8, !tbaa !1041
   %tobool.not.i.i.i.i5.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i5.i, label %_ZN4entt16basic_sigh_mixinINS_13basic_storageIN4test14pointer_stableENS2_13custom_entityESaIS3_EvEE15custom_registryED2Ev.exit, label %if.then.i.i.i.i6.i
 
@@ -73291,8 +73291,8 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 176
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 200
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 208
-  %19 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
-  %20 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248, !noalias !1250
+  %19 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !1248
+  %20 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251, !noalias !1248
   %tobool.not16.i.i.i = icmp eq ptr %19, %20
   br i1 %tobool.not16.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
 
@@ -73307,22 +73307,22 @@ for.body.i.i.i:                                   ; preds = %if.end.i.i.i, %for.
   %21 = phi ptr [ %19, %for.body.lr.ph.i.i.i ], [ %.pre.i, %if.end.i.i.i ]
   %pos.017.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %for.body.lr.ph.i.i.i ], [ %sub.i.i.i, %if.end.i.i.i ]
   %sub.i.i.i = add i64 %pos.017.i.i.i, -1
-  %22 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248, !noalias !1250
+  %22 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251, !noalias !1248
   %add.ptr2.i.i.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %22, i64 %sub.i.i.i
   %fn.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i.i.i, i64 8
-  %23 = load ptr, ptr %fn.i.i.i.i.i, align 8, !tbaa !1253, !noalias !1250
+  %23 = load ptr, ptr %fn.i.i.i.i.i, align 8, !tbaa !1253, !noalias !1248
   %cmp.i.i.i.i.i = icmp eq ptr %23, @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_EE7connectITnDaXadL_Z8listenerIS6_EvRmRT_NSD_11entity_typeEEEmEEvRT0_ENUlPKvS7_S2_E_8__invokeESJ_S7_S2_
-  %24 = load ptr, ptr %add.ptr2.i.i.i.i, align 8, !noalias !1250
+  %24 = load ptr, ptr %add.ptr2.i.i.i.i, align 8, !noalias !1248
   %cmp4.i.i.i.i.i = icmp eq ptr %24, %on_construct
   %25 = select i1 %cmp.i.i.i.i.i, i1 %cmp4.i.i.i.i.i, i1 false
   br i1 %25, label %if.then.i.i.i828, label %if.end.i.i.i
 
 if.then.i.i.i828:                                 ; preds = %for.body.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 -16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !94, !noalias !1250
-  %26 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255, !noalias !1250
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !94, !noalias !1248
+  %26 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255, !noalias !1248
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 -16
-  store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255, !noalias !1250
+  store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255, !noalias !1248
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i828, %for.body.i.i.i
@@ -73333,17 +73333,17 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i828, %
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i: ; preds = %if.end.i.i.i, %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit
   %27 = phi ptr [ %19, %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit ], [ %.pre.i, %if.end.i.i.i ]
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %pool, i64 216
-  %28 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1257, !noalias !1250
+  %28 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1257, !noalias !1248
   %cmp.not.i.i.i827 = icmp eq ptr %27, %28
   br i1 %cmp.not.i.i.i827, label %if.else.i.i.i, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i
-  store ptr %on_construct, ptr %27, align 8, !tbaa !55, !noalias !1250
+  store ptr %on_construct, ptr %27, align 8, !tbaa !55, !noalias !1248
   %call.i826.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_EE7connectITnDaXadL_Z8listenerIS6_EvRmRT_NSD_11entity_typeEEEmEEvRT0_ENUlPKvS7_S2_E_8__invokeESJ_S7_S2_, ptr %call.i826.sroa.5.0..sroa_idx, align 8, !tbaa !55, !noalias !1250
-  %29 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255, !noalias !1250
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_EE7connectITnDaXadL_Z8listenerIS6_EvRmRT_NSD_11entity_typeEEEmEEvRT0_ENUlPKvS7_S2_E_8__invokeESJ_S7_S2_, ptr %call.i826.sroa.5.0..sroa_idx, align 8, !tbaa !55, !noalias !1248
+  %29 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255, !noalias !1248
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255, !noalias !1250
+  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255, !noalias !1248
   br label %invoke.cont10
 
 if.else.i.i.i:                                    ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i
@@ -73404,7 +73404,7 @@ if.then.i47.i:                                    ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit
 
 _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_S_relocateEPSA_SD_SD_RSB_.exit46.i, %if.then.i47.i
-  store ptr %cond.i37.i, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  store ptr %cond.i37.i, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255
   %add.ptr24.i = getelementptr inbounds %"class.entt::delegate.419", ptr %cond.i37.i, i64 %cond.i.i134
   store ptr %add.ptr24.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1257
@@ -73414,8 +73414,8 @@ invoke.cont10:                                    ; preds = %_ZNSt6vectorIN4entt
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 224
   %add.ptr.i.i.i.i830 = getelementptr inbounds i8, ptr %pool, i64 248
   %_M_finish.i.i.i.i831 = getelementptr inbounds i8, ptr %pool, i64 256
-  %32 = load ptr, ptr %_M_finish.i.i.i.i831, align 8, !tbaa !55
-  %33 = load ptr, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1248, !noalias !1263
+  %32 = load ptr, ptr %_M_finish.i.i.i.i831, align 8, !tbaa !55, !noalias !1263
+  %33 = load ptr, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1251, !noalias !1263
   %tobool.not16.i.i.i832 = icmp eq ptr %32, %33
   br i1 %tobool.not16.i.i.i832, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i851, label %for.body.lr.ph.i.i.i833
 
@@ -73430,7 +73430,7 @@ for.body.i.i.i838:                                ; preds = %if.end.i.i.i846, %f
   %34 = phi ptr [ %32, %for.body.lr.ph.i.i.i833 ], [ %.pre.i850, %if.end.i.i.i846 ]
   %pos.017.i.i.i839 = phi i64 [ %sub.ptr.div.i.i.i.i837, %for.body.lr.ph.i.i.i833 ], [ %sub.i.i.i840, %if.end.i.i.i846 ]
   %sub.i.i.i840 = add i64 %pos.017.i.i.i839, -1
-  %35 = load ptr, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1248, !noalias !1263
+  %35 = load ptr, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1251, !noalias !1263
   %add.ptr2.i.i.i.i842 = getelementptr inbounds %"class.entt::delegate.419", ptr %35, i64 %sub.i.i.i840
   %fn.i.i.i.i.i843 = getelementptr inbounds i8, ptr %add.ptr2.i.i.i.i842, i64 8
   %36 = load ptr, ptr %fn.i.i.i.i.i843, align 8, !tbaa !1253, !noalias !1263
@@ -73527,7 +73527,7 @@ if.then.i47.i184:                                 ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit191
 
 _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit191: ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_S_relocateEPSA_SD_SD_RSB_.exit46.i181, %if.then.i47.i184
-  store ptr %cond.i37.i162, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1248
+  store ptr %cond.i37.i162, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1251
   store ptr %incdec.ptr.i173, ptr %_M_finish.i.i.i.i831, align 8, !tbaa !1255
   %add.ptr24.i186 = getelementptr inbounds %"class.entt::delegate.419", ptr %cond.i37.i162, i64 %cond.i.i155
   store ptr %add.ptr24.i186, ptr %_M_end_of_storage.i.i.i853, align 8, !tbaa !1257
@@ -73854,7 +73854,7 @@ call.i.i.noexc:                                   ; preds = %cleanup.cont
   %owner.i.i = getelementptr inbounds i8, ptr %pool, i64 168
   %86 = load ptr, ptr %owner.i.i, align 8, !tbaa !1284
   %87 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255
-  %88 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %88 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i.i = icmp eq ptr %87, %88
   br i1 %tobool.not9.i.i, label %invoke.cont47, label %for.body.preheader.i.i
 
@@ -73868,7 +73868,7 @@ for.body.preheader.i.i:                           ; preds = %call.i.i.noexc
 for.body.i.i:                                     ; preds = %.noexc905, %for.body.preheader.i.i
   %pos.010.i.i = phi i64 [ %sub.i.i, %.noexc905 ], [ %sub.ptr.div.i.i.i, %for.body.preheader.i.i ]
   %sub.i.i = add i64 %pos.010.i.i, -1
-  %89 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %89 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %89, i64 %sub.i.i
   %fn.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i.i, i64 8
   %90 = load ptr, ptr %fn.i.i.i, align 8, !tbaa !1253
@@ -73887,7 +73887,7 @@ invoke.cont47:                                    ; preds = %.noexc905, %call.i.
 call.i.i.noexc929:                                ; preds = %invoke.cont47
   %92 = load ptr, ptr %owner.i.i, align 8, !tbaa !1284
   %93 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255
-  %94 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %94 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i.i909 = icmp eq ptr %93, %94
   br i1 %tobool.not9.i.i909, label %invoke.cont49, label %for.body.preheader.i.i910
 
@@ -73901,7 +73901,7 @@ for.body.preheader.i.i910:                        ; preds = %call.i.i.noexc929
 for.body.i.i915:                                  ; preds = %.noexc931, %for.body.preheader.i.i910
   %pos.010.i.i916 = phi i64 [ %sub.i.i917, %.noexc931 ], [ %sub.ptr.div.i.i.i914, %for.body.preheader.i.i910 ]
   %sub.i.i917 = add i64 %pos.010.i.i916, -1
-  %95 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %95 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i.i918 = getelementptr inbounds %"class.entt::delegate.419", ptr %95, i64 %sub.i.i917
   %fn.i.i.i919 = getelementptr inbounds i8, ptr %add.ptr2.i.i.i918, i64 8
   %96 = load ptr, ptr %fn.i.i.i919, align 8, !tbaa !1253
@@ -77737,7 +77737,7 @@ _ZN4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE4swapERS5_.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i, i8 0, i64 24, i1 false)
   tail call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %construction, ptr noundef nonnull align 8 dereferenceable(48) %construction3) #24
   call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %construction3, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i) #24
-  %12 = load ptr, ptr %9, align 8, !tbaa !1248
+  %12 = load ptr, ptr %9, align 8, !tbaa !1251
   %tobool.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %if.then.i.i.i.i.i
 
@@ -77818,7 +77818,7 @@ _ZSt4swapIN4entt4sighIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_alloc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i15, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %destruction, ptr noundef nonnull align 8 dereferenceable(48) %destruction4) #24
   call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %destruction4, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i10) #24
-  %24 = load ptr, ptr %21, align 8, !tbaa !1248
+  %24 = load ptr, ptr %21, align 8, !tbaa !1251
   %tobool.not.i.i.i.i.i20 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i.i.i20, label %invoke.cont.i.i.i.i22, label %if.then.i.i.i.i.i21
 
@@ -77899,7 +77899,7 @@ _ZSt4swapIN4entt4sighIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_alloc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i48, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %update, ptr noundef nonnull align 8 dereferenceable(48) %update5) #24
   call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %update5, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i43) #24
-  %36 = load ptr, ptr %33, align 8, !tbaa !1248
+  %36 = load ptr, ptr %33, align 8, !tbaa !1251
   %tobool.not.i.i.i.i.i53 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i.i.i53, label %invoke.cont.i.i.i.i55, label %if.then.i.i.i.i.i54
 
@@ -77965,7 +77965,7 @@ _ZSt4swapIN4entt4sighIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_alloc
 define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvEENS_14basic_registryIS2_NS4_IS2_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 296
-  %0 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1248
+  %0 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1251
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
 
@@ -78025,7 +78025,7 @@ if.then7.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_IiEEED2Ev.exit: ; preds = %if.then7.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
   %add.ptr.i.i2 = getelementptr inbounds i8, ptr %this, i64 248
-  %8 = load ptr, ptr %add.ptr.i.i2, align 8, !tbaa !1248
+  %8 = load ptr, ptr %add.ptr.i.i2, align 8, !tbaa !1251
   %tobool.not.i.i.i.i3 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i3, label %invoke.cont.i.i.i5, label %if.then.i.i.i.i4
 
@@ -78085,7 +78085,7 @@ if.then7.i.i.i.i.i.i.i18:                         ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_IiEEED2Ev.exit26: ; preds = %if.then7.i.i.i.i.i.i.i18, %invoke.cont.i.i.i.i.i.i.i15, %if.then.i.i.i.i.i.i.i20, %invoke.cont.i.i.i5
   %add.ptr.i.i27 = getelementptr inbounds i8, ptr %this, i64 200
-  %16 = load ptr, ptr %add.ptr.i.i27, align 8, !tbaa !1248
+  %16 = load ptr, ptr %add.ptr.i.i27, align 8, !tbaa !1251
   %tobool.not.i.i.i.i28 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i28, label %invoke.cont.i.i.i30, label %if.then.i.i.i.i29
 
@@ -78907,7 +78907,7 @@ for.body:                                         ; preds = %_ZNK4entt16basic_sp
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 -4
   %5 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !60
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1255
-  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %6, %7
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_IiEEE7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -78921,7 +78921,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %8 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %8 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %8, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %9 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -79027,7 +79027,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr.i.i = getelementptr i8, ptr %8, i64 -4
   %9 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !60
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1255
-  %11 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %11 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %10, %11
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_IiEEE7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -79041,7 +79041,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %12 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %12 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %12, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %13 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -79092,7 +79092,7 @@ if.then:                                          ; preds = %_ZN4entt13basic_sto
   %add.ptr.i.i7 = getelementptr inbounds i8, ptr %this, i64 200
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %6 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !1255
-  %7 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1248
+  %7 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %6, %7
   br i1 %tobool.not9.i, label %if.end, label %for.body.preheader.i
 
@@ -79106,7 +79106,7 @@ for.body.preheader.i:                             ; preds = %if.then
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %8 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1248
+  %8 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %8, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %9 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -82043,7 +82043,7 @@ _ZNKSt12_Vector_baseIN4entt6entityEN4test18throwing_allocatorIS1_EEE13get_alloca
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont11
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35
+  %4 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !1410
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %4, 0
   %config.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
@@ -86000,7 +86000,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit28:         ; preds = %if.then.i25, %_ZN4e
 define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageINS_6entityES2_N4test18throwing_allocatorIS2_EEvEENS_14basic_registryIS2_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 248
-  %0 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1248
+  %0 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1251
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
 
@@ -86060,7 +86060,7 @@ if.then7.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ES5_ED2Ev.exit: ; preds = %if.then7.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
   %add.ptr.i.i2 = getelementptr inbounds i8, ptr %this, i64 200
-  %8 = load ptr, ptr %add.ptr.i.i2, align 8, !tbaa !1248
+  %8 = load ptr, ptr %add.ptr.i.i2, align 8, !tbaa !1251
   %tobool.not.i.i.i.i3 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i3, label %invoke.cont.i.i.i5, label %if.then.i.i.i.i4
 
@@ -86120,7 +86120,7 @@ if.then7.i.i.i.i.i.i.i18:                         ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ES5_ED2Ev.exit26: ; preds = %if.then7.i.i.i.i.i.i.i18, %invoke.cont.i.i.i.i.i.i.i15, %if.then.i.i.i.i.i.i.i20, %invoke.cont.i.i.i5
   %add.ptr.i.i27 = getelementptr inbounds i8, ptr %this, i64 152
-  %16 = load ptr, ptr %add.ptr.i.i27, align 8, !tbaa !1248
+  %16 = load ptr, ptr %add.ptr.i.i27, align 8, !tbaa !1251
   %tobool.not.i.i.i.i28 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i28, label %invoke.cont.i.i.i30, label %if.then.i.i.i.i29
 
@@ -87576,7 +87576,7 @@ for.body:                                         ; preds = %_ZNK4entt16basic_sp
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 -4
   %5 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !60
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1255
-  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %6, %7
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ES5_E7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -87590,7 +87590,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %8 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %8 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %8, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %9 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -87696,7 +87696,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr.i.i = getelementptr i8, ptr %8, i64 -4
   %9 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !60
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1255
-  %11 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %11 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %10, %11
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ES5_E7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -87710,7 +87710,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %12 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %12 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %12, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %13 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -87776,7 +87776,7 @@ _ZN4entt13basic_storageINS_6entityES1_N4test18throwing_allocatorIS1_EEvE11try_em
   %add.ptr.i.i7 = getelementptr inbounds i8, ptr %this, i64 152
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %8 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !1255
-  %9 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1248
+  %9 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %8, %9
   br i1 %tobool.not9.i, label %if.end, label %for.body.preheader.i
 
@@ -87790,7 +87790,7 @@ for.body.preheader.i:                             ; preds = %_ZN4entt13basic_sto
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %10 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1248
+  %10 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %10, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %11 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -89927,7 +89927,7 @@ if.then7.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
 _ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEED2Ev.exit: ; preds = %if.then7.i.i.i.i, %invoke.cont.i.i.i.i, %if.then.i.i.i.i, %entry
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 24
   %add.ptr3 = getelementptr inbounds i8, ptr %__x, i64 24
-  %13 = load ptr, ptr %add.ptr, align 8, !tbaa !1248
+  %13 = load ptr, ptr %add.ptr, align 8, !tbaa !1251
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %14 = load <2 x ptr>, ptr %add.ptr3, align 8, !tbaa !55
   store <2 x ptr> %14, ptr %add.ptr, align 8, !tbaa !55
@@ -92702,8 +92702,8 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 176
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 200
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 208
-  %19 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
-  %20 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248, !noalias !1606
+  %19 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !1606
+  %20 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251, !noalias !1606
   %tobool.not16.i.i.i = icmp eq ptr %19, %20
   br i1 %tobool.not16.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_14pointer_stableEEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSH_11entity_typeEEEJSG_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
 
@@ -92718,7 +92718,7 @@ for.body.i.i.i:                                   ; preds = %if.end.i.i.i, %for.
   %21 = phi ptr [ %19, %for.body.lr.ph.i.i.i ], [ %.pre.i, %if.end.i.i.i ]
   %pos.017.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %for.body.lr.ph.i.i.i ], [ %sub.i.i.i, %if.end.i.i.i ]
   %sub.i.i.i = add i64 %pos.017.i.i.i, -1
-  %22 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248, !noalias !1606
+  %22 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251, !noalias !1606
   %add.ptr2.i.i.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %22, i64 %sub.i.i.i
   %fn.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i.i.i, i64 8
   %23 = load ptr, ptr %fn.i.i.i.i.i, align 8, !tbaa !1253, !noalias !1606
@@ -92815,7 +92815,7 @@ if.then.i47.i:                                    ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit
 
 _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_S_relocateEPSA_SD_SD_RSB_.exit46.i, %if.then.i47.i
-  store ptr %cond.i37.i, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  store ptr %cond.i37.i, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255
   %add.ptr24.i = getelementptr inbounds %"class.entt::delegate.419", ptr %cond.i37.i, i64 %cond.i.i134
   store ptr %add.ptr24.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1257
@@ -92825,8 +92825,8 @@ invoke.cont10:                                    ; preds = %_ZNSt6vectorIN4entt
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 224
   %add.ptr.i.i.i.i830 = getelementptr inbounds i8, ptr %pool, i64 248
   %_M_finish.i.i.i.i831 = getelementptr inbounds i8, ptr %pool, i64 256
-  %32 = load ptr, ptr %_M_finish.i.i.i.i831, align 8, !tbaa !55
-  %33 = load ptr, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1248, !noalias !1614
+  %32 = load ptr, ptr %_M_finish.i.i.i.i831, align 8, !tbaa !55, !noalias !1614
+  %33 = load ptr, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1251, !noalias !1614
   %tobool.not16.i.i.i832 = icmp eq ptr %32, %33
   br i1 %tobool.not16.i.i.i832, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_14pointer_stableEEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSH_11entity_typeEEEJSG_EEEvDpOT0_.exit.i851, label %for.body.lr.ph.i.i.i833
 
@@ -92841,7 +92841,7 @@ for.body.i.i.i838:                                ; preds = %if.end.i.i.i846, %f
   %34 = phi ptr [ %32, %for.body.lr.ph.i.i.i833 ], [ %.pre.i850, %if.end.i.i.i846 ]
   %pos.017.i.i.i839 = phi i64 [ %sub.ptr.div.i.i.i.i837, %for.body.lr.ph.i.i.i833 ], [ %sub.i.i.i840, %if.end.i.i.i846 ]
   %sub.i.i.i840 = add i64 %pos.017.i.i.i839, -1
-  %35 = load ptr, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1248, !noalias !1614
+  %35 = load ptr, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1251, !noalias !1614
   %add.ptr2.i.i.i.i842 = getelementptr inbounds %"class.entt::delegate.419", ptr %35, i64 %sub.i.i.i840
   %fn.i.i.i.i.i843 = getelementptr inbounds i8, ptr %add.ptr2.i.i.i.i842, i64 8
   %36 = load ptr, ptr %fn.i.i.i.i.i843, align 8, !tbaa !1253, !noalias !1614
@@ -92938,7 +92938,7 @@ if.then.i47.i184:                                 ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit191
 
 _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit191: ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_S_relocateEPSA_SD_SD_RSB_.exit46.i181, %if.then.i47.i184
-  store ptr %cond.i37.i162, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1248
+  store ptr %cond.i37.i162, ptr %add.ptr.i.i.i.i830, align 8, !tbaa !1251
   store ptr %incdec.ptr.i173, ptr %_M_finish.i.i.i.i831, align 8, !tbaa !1255
   %add.ptr24.i186 = getelementptr inbounds %"class.entt::delegate.419", ptr %cond.i37.i162, i64 %cond.i.i155
   store ptr %add.ptr24.i186, ptr %_M_end_of_storage.i.i.i853, align 8, !tbaa !1257
@@ -93265,7 +93265,7 @@ call.i.i.noexc:                                   ; preds = %cleanup.cont
   %owner.i.i = getelementptr inbounds i8, ptr %pool, i64 168
   %86 = load ptr, ptr %owner.i.i, align 8, !tbaa !1631
   %87 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255
-  %88 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %88 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i.i = icmp eq ptr %87, %88
   br i1 %tobool.not9.i.i, label %invoke.cont47, label %for.body.preheader.i.i
 
@@ -93279,7 +93279,7 @@ for.body.preheader.i.i:                           ; preds = %call.i.i.noexc
 for.body.i.i:                                     ; preds = %.noexc905, %for.body.preheader.i.i
   %pos.010.i.i = phi i64 [ %sub.i.i, %.noexc905 ], [ %sub.ptr.div.i.i.i, %for.body.preheader.i.i ]
   %sub.i.i = add i64 %pos.010.i.i, -1
-  %89 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %89 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %89, i64 %sub.i.i
   %fn.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i.i, i64 8
   %90 = load ptr, ptr %fn.i.i.i, align 8, !tbaa !1253
@@ -93298,7 +93298,7 @@ invoke.cont47:                                    ; preds = %.noexc905, %call.i.
 call.i.i.noexc929:                                ; preds = %invoke.cont47
   %92 = load ptr, ptr %owner.i.i, align 8, !tbaa !1631
   %93 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255
-  %94 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %94 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i.i909 = icmp eq ptr %93, %94
   br i1 %tobool.not9.i.i909, label %invoke.cont49, label %for.body.preheader.i.i910
 
@@ -93312,7 +93312,7 @@ for.body.preheader.i.i910:                        ; preds = %call.i.i.noexc929
 for.body.i.i915:                                  ; preds = %.noexc931, %for.body.preheader.i.i910
   %pos.010.i.i916 = phi i64 [ %sub.i.i917, %.noexc931 ], [ %sub.ptr.div.i.i.i914, %for.body.preheader.i.i910 ]
   %sub.i.i917 = add i64 %pos.010.i.i916, -1
-  %95 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %95 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i.i918 = getelementptr inbounds %"class.entt::delegate.419", ptr %95, i64 %sub.i.i917
   %fn.i.i.i919 = getelementptr inbounds i8, ptr %add.ptr2.i.i.i918, i64 8
   %96 = load ptr, ptr %fn.i.i.i919, align 8, !tbaa !1253
@@ -97010,7 +97010,7 @@ _ZN4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocat
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i, i8 0, i64 24, i1 false)
   tail call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %construction, ptr noundef nonnull align 8 dereferenceable(48) %construction3) #24
   call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %construction3, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i) #24
-  %12 = load ptr, ptr %9, align 8, !tbaa !1248
+  %12 = load ptr, ptr %9, align 8, !tbaa !1251
   %tobool.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %if.then.i.i.i.i.i
 
@@ -97091,7 +97091,7 @@ _ZSt4swapIN4entt4sighIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_alloc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i15, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %destruction, ptr noundef nonnull align 8 dereferenceable(48) %destruction4) #24
   call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %destruction4, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i10) #24
-  %24 = load ptr, ptr %21, align 8, !tbaa !1248
+  %24 = load ptr, ptr %21, align 8, !tbaa !1251
   %tobool.not.i.i.i.i.i20 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i.i.i20, label %invoke.cont.i.i.i.i22, label %if.then.i.i.i.i.i21
 
@@ -97172,7 +97172,7 @@ _ZSt4swapIN4entt4sighIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_alloc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i48, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %update, ptr noundef nonnull align 8 dereferenceable(48) %update5) #24
   call void @_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE14_M_move_assignEOSC_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(48) %update5, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i43) #24
-  %36 = load ptr, ptr %33, align 8, !tbaa !1248
+  %36 = load ptr, ptr %33, align 8, !tbaa !1251
   %tobool.not.i.i.i.i.i53 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i.i.i53, label %invoke.cont.i.i.i.i55, label %if.then.i.i.i.i.i54
 
@@ -97238,7 +97238,7 @@ _ZSt4swapIN4entt4sighIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_alloc
 define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIN4test14pointer_stableENS_6entityENS2_18throwing_allocatorIS3_EEvEENS_14basic_registryIS4_NS5_IS4_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 296
-  %0 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1248
+  %0 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1251
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
 
@@ -97298,7 +97298,7 @@ if.then7.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_INS3_14pointer_stableEEEED2Ev.exit: ; preds = %if.then7.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
   %add.ptr.i.i2 = getelementptr inbounds i8, ptr %this, i64 248
-  %8 = load ptr, ptr %add.ptr.i.i2, align 8, !tbaa !1248
+  %8 = load ptr, ptr %add.ptr.i.i2, align 8, !tbaa !1251
   %tobool.not.i.i.i.i3 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i3, label %invoke.cont.i.i.i5, label %if.then.i.i.i.i4
 
@@ -97358,7 +97358,7 @@ if.then7.i.i.i.i.i.i.i18:                         ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_INS3_14pointer_stableEEEED2Ev.exit26: ; preds = %if.then7.i.i.i.i.i.i.i18, %invoke.cont.i.i.i.i.i.i.i15, %if.then.i.i.i.i.i.i.i20, %invoke.cont.i.i.i5
   %add.ptr.i.i27 = getelementptr inbounds i8, ptr %this, i64 200
-  %16 = load ptr, ptr %add.ptr.i.i27, align 8, !tbaa !1248
+  %16 = load ptr, ptr %add.ptr.i.i27, align 8, !tbaa !1251
   %tobool.not.i.i.i.i28 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i28, label %invoke.cont.i.i.i30, label %if.then.i.i.i.i29
 
@@ -97876,7 +97876,7 @@ for.body:                                         ; preds = %_ZNK4entt16basic_sp
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 -4
   %5 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !60
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1255
-  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %6, %7
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_INS3_14pointer_stableEEEE7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -97890,7 +97890,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %8 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %8 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %8, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %9 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -98000,7 +98000,7 @@ for.body:                                         ; preds = %if.end, %for.body.l
 
 if.then8:                                         ; preds = %for.body
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1255
-  %11 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %11 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %10, %11
   br i1 %tobool.not9.i, label %if.end, label %for.body.preheader.i
 
@@ -98014,7 +98014,7 @@ for.body.preheader.i:                             ; preds = %if.then8
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %12 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %12 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %12, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %13 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -98065,7 +98065,7 @@ if.then:                                          ; preds = %_ZN4entt13basic_sto
   %add.ptr.i.i7 = getelementptr inbounds i8, ptr %this, i64 200
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %6 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !1255
-  %7 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1248
+  %7 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %6, %7
   br i1 %tobool.not9.i, label %if.end, label %for.body.preheader.i
 
@@ -98079,7 +98079,7 @@ for.body.preheader.i:                             ; preds = %if.then
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %8 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1248
+  %8 = load ptr, ptr %add.ptr.i.i7, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %8, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %9 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -102500,8 +102500,8 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 176
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 200
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 208
-  %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
-  %7 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248, !noalias !1753
+  %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !1753
+  %7 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251, !noalias !1753
   %tobool.not16.i.i.i = icmp eq ptr %6, %7
   br i1 %tobool.not16.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
 
@@ -102516,7 +102516,7 @@ for.body.i.i.i:                                   ; preds = %if.end.i.i.i, %for.
   %8 = phi ptr [ %6, %for.body.lr.ph.i.i.i ], [ %.pre.i, %if.end.i.i.i ]
   %pos.017.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %for.body.lr.ph.i.i.i ], [ %sub.i.i.i, %if.end.i.i.i ]
   %sub.i.i.i = add i64 %pos.017.i.i.i, -1
-  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248, !noalias !1753
+  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251, !noalias !1753
   %add.ptr2.i.i.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %9, i64 %sub.i.i.i
   %fn.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i.i.i, i64 8
   %10 = load ptr, ptr %fn.i.i.i.i.i, align 8, !tbaa !1253, !noalias !1753
@@ -102613,7 +102613,7 @@ if.then.i47.i:                                    ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit
 
 _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_S_relocateEPSA_SD_SD_RSB_.exit46.i, %if.then.i47.i
-  store ptr %cond.i37.i, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  store ptr %cond.i37.i, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255
   %add.ptr24.i = getelementptr inbounds %"class.entt::delegate.419", ptr %cond.i37.i, i64 %cond.i.i156
   store ptr %add.ptr24.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1257
@@ -102623,8 +102623,8 @@ invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 224
   %add.ptr.i.i.i.i1557 = getelementptr inbounds i8, ptr %pool, i64 248
   %_M_finish.i.i.i.i1558 = getelementptr inbounds i8, ptr %pool, i64 256
-  %19 = load ptr, ptr %_M_finish.i.i.i.i1558, align 8, !tbaa !55
-  %20 = load ptr, ptr %add.ptr.i.i.i.i1557, align 8, !tbaa !1248, !noalias !1760
+  %19 = load ptr, ptr %_M_finish.i.i.i.i1558, align 8, !tbaa !55, !noalias !1760
+  %20 = load ptr, ptr %add.ptr.i.i.i.i1557, align 8, !tbaa !1251, !noalias !1760
   %tobool.not16.i.i.i1559 = icmp eq ptr %19, %20
   br i1 %tobool.not16.i.i.i1559, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEEvDpOT0_.exit.i1578, label %for.body.lr.ph.i.i.i1560
 
@@ -102639,7 +102639,7 @@ for.body.i.i.i1565:                               ; preds = %if.end.i.i.i1573, %
   %21 = phi ptr [ %19, %for.body.lr.ph.i.i.i1560 ], [ %.pre.i1577, %if.end.i.i.i1573 ]
   %pos.017.i.i.i1566 = phi i64 [ %sub.ptr.div.i.i.i.i1564, %for.body.lr.ph.i.i.i1560 ], [ %sub.i.i.i1567, %if.end.i.i.i1573 ]
   %sub.i.i.i1567 = add i64 %pos.017.i.i.i1566, -1
-  %22 = load ptr, ptr %add.ptr.i.i.i.i1557, align 8, !tbaa !1248, !noalias !1760
+  %22 = load ptr, ptr %add.ptr.i.i.i.i1557, align 8, !tbaa !1251, !noalias !1760
   %add.ptr2.i.i.i.i1569 = getelementptr inbounds %"class.entt::delegate.419", ptr %22, i64 %sub.i.i.i1567
   %fn.i.i.i.i.i1570 = getelementptr inbounds i8, ptr %add.ptr2.i.i.i.i1569, i64 8
   %23 = load ptr, ptr %fn.i.i.i.i.i1570, align 8, !tbaa !1253, !noalias !1760
@@ -102736,7 +102736,7 @@ if.then.i47.i205:                                 ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit212
 
 _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit212: ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_S_relocateEPSA_SD_SD_RSB_.exit46.i202, %if.then.i47.i205
-  store ptr %cond.i37.i183, ptr %add.ptr.i.i.i.i1557, align 8, !tbaa !1248
+  store ptr %cond.i37.i183, ptr %add.ptr.i.i.i.i1557, align 8, !tbaa !1251
   store ptr %incdec.ptr.i194, ptr %_M_finish.i.i.i.i1558, align 8, !tbaa !1255
   %add.ptr24.i207 = getelementptr inbounds %"class.entt::delegate.419", ptr %cond.i37.i183, i64 %cond.i.i176
   store ptr %add.ptr24.i207, ptr %_M_end_of_storage.i.i.i1580, align 8, !tbaa !1257
@@ -104621,7 +104621,7 @@ call.i.i.noexc:                                   ; preds = %if.then302
   %owner.i.i = getelementptr inbounds i8, ptr %pool, i64 168
   %291 = load ptr, ptr %owner.i.i, align 8, !tbaa !1284
   %292 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255
-  %293 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %293 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i.i = icmp eq ptr %292, %293
   br i1 %tobool.not9.i.i, label %invoke.cont305, label %for.body.preheader.i.i
 
@@ -104635,7 +104635,7 @@ for.body.preheader.i.i:                           ; preds = %call.i.i.noexc
 for.body.i.i:                                     ; preds = %.noexc224, %for.body.preheader.i.i
   %pos.010.i.i = phi i64 [ %sub.i.i, %.noexc224 ], [ %sub.ptr.div.i.i.i218, %for.body.preheader.i.i ]
   %sub.i.i = add i64 %pos.010.i.i, -1
-  %294 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %294 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i.i219 = getelementptr inbounds %"class.entt::delegate.419", ptr %294, i64 %sub.i.i
   %fn.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i.i219, i64 8
   %295 = load ptr, ptr %fn.i.i.i, align 8, !tbaa !1253
@@ -108213,7 +108213,7 @@ entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !1255
-  %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1248
+  %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %1, %2
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_IiEEE7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -108227,7 +108227,7 @@ for.body.preheader.i:                             ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %3 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1248
+  %3 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %3, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %4 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -108408,7 +108408,7 @@ for.body:                                         ; preds = %_ZN4entt13basic_sto
   %first.addr.011 = phi ptr [ %incdec.ptr, %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_IiEEE7publishES7_S2_.exit ], [ %first, %_ZN4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE6insertIPKS1_EENS_8internal16storage_iteratorISt6vectorIPiNS3_ISC_EEELm1024EEET_SG_RKi.exit ]
   %4 = load i32, ptr %first.addr.011, align 4, !tbaa !60
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1255
-  %6 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %6 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %5, %6
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_IiEEE7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -108422,7 +108422,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i9:                                      ; preds = %for.body.i9, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i9 ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %7, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %8 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -108474,7 +108474,7 @@ for.body:                                         ; preds = %_ZN4entt13basic_sto
   %first.addr.011 = phi ptr [ %incdec.ptr, %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_IiEEE7publishES7_S2_.exit ], [ %first, %_ZN4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE6insertIPKS1_PKivEENS_8internal16storage_iteratorISt6vectorIPiNS3_ISE_EEELm1024EEET_SI_T0_.exit ]
   %5 = load i32, ptr %first.addr.011, align 4, !tbaa !60
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1255
-  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %6, %7
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_IiEEE7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -108488,7 +108488,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i9:                                      ; preds = %for.body.i9, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i9 ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %8 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %8 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %8, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %9 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -109378,8 +109378,8 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %invoke.
   %construction.i = getelementptr inbounds i8, ptr %pool, i64 176
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 200
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %pool, i64 208
-  %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
-  %7 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248, !noalias !1830
+  %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55, !noalias !1830
+  %7 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251, !noalias !1830
   %tobool.not16.i.i.i = icmp eq ptr %6, %7
   br i1 %tobool.not16.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_14pointer_stableEEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSH_11entity_typeEEEJSG_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
 
@@ -109394,7 +109394,7 @@ for.body.i.i.i:                                   ; preds = %if.end.i.i.i, %for.
   %8 = phi ptr [ %6, %for.body.lr.ph.i.i.i ], [ %.pre.i, %if.end.i.i.i ]
   %pos.017.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %for.body.lr.ph.i.i.i ], [ %sub.i.i.i, %if.end.i.i.i ]
   %sub.i.i.i = add i64 %pos.017.i.i.i, -1
-  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248, !noalias !1830
+  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251, !noalias !1830
   %add.ptr2.i.i.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %9, i64 %sub.i.i.i
   %fn.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i.i.i, i64 8
   %10 = load ptr, ptr %fn.i.i.i.i.i, align 8, !tbaa !1253, !noalias !1830
@@ -109491,7 +109491,7 @@ if.then.i47.i:                                    ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit
 
 _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_S_relocateEPSA_SD_SD_RSB_.exit46.i, %if.then.i47.i
-  store ptr %cond.i37.i, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  store ptr %cond.i37.i, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255
   %add.ptr24.i = getelementptr inbounds %"class.entt::delegate.419", ptr %cond.i37.i, i64 %cond.i.i156
   store ptr %add.ptr24.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1257
@@ -109501,8 +109501,8 @@ invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4entt
   %destruction.i = getelementptr inbounds i8, ptr %pool, i64 224
   %add.ptr.i.i.i.i1559 = getelementptr inbounds i8, ptr %pool, i64 248
   %_M_finish.i.i.i.i1560 = getelementptr inbounds i8, ptr %pool, i64 256
-  %19 = load ptr, ptr %_M_finish.i.i.i.i1560, align 8, !tbaa !55
-  %20 = load ptr, ptr %add.ptr.i.i.i.i1559, align 8, !tbaa !1248, !noalias !1837
+  %19 = load ptr, ptr %_M_finish.i.i.i.i1560, align 8, !tbaa !55, !noalias !1837
+  %20 = load ptr, ptr %add.ptr.i.i.i.i1559, align 8, !tbaa !1251, !noalias !1837
   %tobool.not16.i.i.i1561 = icmp eq ptr %19, %20
   br i1 %tobool.not16.i.i.i1561, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_14pointer_stableEEEEEE10disconnectITnDaXadL_Z8listenerIS7_EvRmRT_NSH_11entity_typeEEEJSG_EEEvDpOT0_.exit.i1580, label %for.body.lr.ph.i.i.i1562
 
@@ -109517,7 +109517,7 @@ for.body.i.i.i1567:                               ; preds = %if.end.i.i.i1575, %
   %21 = phi ptr [ %19, %for.body.lr.ph.i.i.i1562 ], [ %.pre.i1579, %if.end.i.i.i1575 ]
   %pos.017.i.i.i1568 = phi i64 [ %sub.ptr.div.i.i.i.i1566, %for.body.lr.ph.i.i.i1562 ], [ %sub.i.i.i1569, %if.end.i.i.i1575 ]
   %sub.i.i.i1569 = add i64 %pos.017.i.i.i1568, -1
-  %22 = load ptr, ptr %add.ptr.i.i.i.i1559, align 8, !tbaa !1248, !noalias !1837
+  %22 = load ptr, ptr %add.ptr.i.i.i.i1559, align 8, !tbaa !1251, !noalias !1837
   %add.ptr2.i.i.i.i1571 = getelementptr inbounds %"class.entt::delegate.419", ptr %22, i64 %sub.i.i.i1569
   %fn.i.i.i.i.i1572 = getelementptr inbounds i8, ptr %add.ptr2.i.i.i.i1571, i64 8
   %23 = load ptr, ptr %fn.i.i.i.i.i1572, align 8, !tbaa !1253, !noalias !1837
@@ -109614,7 +109614,7 @@ if.then.i47.i205:                                 ; preds = %_ZNSt6vectorIN4entt
   br label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit212
 
 _ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit212: ; preds = %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_S_relocateEPSA_SD_SD_RSB_.exit46.i202, %if.then.i47.i205
-  store ptr %cond.i37.i183, ptr %add.ptr.i.i.i.i1559, align 8, !tbaa !1248
+  store ptr %cond.i37.i183, ptr %add.ptr.i.i.i.i1559, align 8, !tbaa !1251
   store ptr %incdec.ptr.i194, ptr %_M_finish.i.i.i.i1560, align 8, !tbaa !1255
   %add.ptr24.i207 = getelementptr inbounds %"class.entt::delegate.419", ptr %cond.i37.i183, i64 %cond.i.i176
   store ptr %add.ptr24.i207, ptr %_M_end_of_storage.i.i.i1582, align 8, !tbaa !1257
@@ -111500,7 +111500,7 @@ call.i.i.noexc:                                   ; preds = %if.then302
   %owner.i.i = getelementptr inbounds i8, ptr %pool, i64 168
   %291 = load ptr, ptr %owner.i.i, align 8, !tbaa !1631
   %292 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1255
-  %293 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %293 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i.i = icmp eq ptr %292, %293
   br i1 %tobool.not9.i.i, label %if.then369.critedge, label %for.body.preheader.i.i
 
@@ -111514,7 +111514,7 @@ for.body.preheader.i.i:                           ; preds = %call.i.i.noexc
 for.body.i.i:                                     ; preds = %.noexc224, %for.body.preheader.i.i
   %pos.010.i.i = phi i64 [ %sub.i.i, %.noexc224 ], [ %sub.ptr.div.i.i.i218, %for.body.preheader.i.i ]
   %sub.i.i = add i64 %pos.010.i.i, -1
-  %294 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1248
+  %294 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i.i219 = getelementptr inbounds %"class.entt::delegate.419", ptr %294, i64 %sub.i.i
   %fn.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i.i219, i64 8
   %295 = load ptr, ptr %fn.i.i.i, align 8, !tbaa !1253
@@ -115090,7 +115090,7 @@ entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !1255
-  %3 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1248
+  %3 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %2, %3
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_INS3_14pointer_stableEEEE7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -115104,7 +115104,7 @@ for.body.preheader.i:                             ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1248
+  %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %4, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %5 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -115164,7 +115164,7 @@ for.body:                                         ; preds = %_ZN4entt13basic_sto
   %first.addr.011 = phi ptr [ %incdec.ptr, %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_INS3_14pointer_stableEEEE7publishES7_S2_.exit ], [ %first, %_ZN4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE6insertIPKS3_EENS_8internal16storage_iteratorISt6vectorIPS2_NS4_ISD_EEELm1024EEET_SH_RKS2_.exit ]
   %4 = load i32, ptr %first.addr.011, align 4, !tbaa !60
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1255
-  %6 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %6 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %5, %6
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_INS3_14pointer_stableEEEE7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -115178,7 +115178,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i9:                                      ; preds = %for.body.i9, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i9 ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %7, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %8 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -115230,7 +115230,7 @@ for.body:                                         ; preds = %_ZN4entt13basic_sto
   %first.addr.011 = phi ptr [ %incdec.ptr, %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_INS3_14pointer_stableEEEE7publishES7_S2_.exit ], [ %first, %_ZN4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE6insertIPKS3_PKS2_vEENS_8internal16storage_iteratorISt6vectorIPS2_NS4_ISF_EEELm1024EEET_SJ_T0_.exit ]
   %5 = load i32, ptr %first.addr.011, align 4, !tbaa !60
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1255
-  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %tobool.not9.i = icmp eq ptr %6, %7
   br i1 %tobool.not9.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_INS3_14pointer_stableEEEE7publishES7_S2_.exit, label %for.body.preheader.i
 
@@ -115244,7 +115244,7 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i9:                                      ; preds = %for.body.i9, %for.body.preheader.i
   %pos.010.i = phi i64 [ %sub.i, %for.body.i9 ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.010.i, -1
-  %8 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1248
+  %8 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !1251
   %add.ptr2.i.i = getelementptr inbounds %"class.entt::delegate.419", ptr %8, i64 %sub.i
   %fn.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   %9 = load ptr, ptr %fn.i.i, align 8, !tbaa !1253
@@ -119559,16 +119559,16 @@ attributes #29 = { nounwind willreturn memory(read) }
 !1035 = !{!1036}
 !1036 = distinct !{!1036, !1037, !"_ZN4entt14forward_as_anyILm16ELm8ERNS_14basic_registryIN4test13custom_entityESaIS3_EEEEENS_9basic_anyIXT_EXT0_EEEOT1_: %agg.result"}
 !1037 = distinct !{!1037, !"_ZN4entt14forward_as_anyILm16ELm8ERNS_14basic_registryIN4test13custom_entityESaIS3_EEEEENS_9basic_anyIXT_EXT0_EEEOT1_"}
-!1038 = !{!1039, !13, i64 0}
-!1039 = !{!"_ZTSNSt12_Vector_baseIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_Vector_impl_dataE", !13, i64 0, !13, i64 8, !13, i64 16}
-!1040 = !{!1041}
-!1041 = distinct !{!1041, !1042, !"_ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaIiEEEE7connectITnDaXadL_Z8listenerIS2_EvRmRT_NSD_11entity_typeEEEJSC_EEENS_10connectionEDpOT0_: %agg.result"}
-!1042 = distinct !{!1042, !"_ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaIiEEEE7connectITnDaXadL_Z8listenerIS2_EvRmRT_NSD_11entity_typeEEEJSC_EEENS_10connectionEDpOT0_"}
+!1038 = !{!1039}
+!1039 = distinct !{!1039, !1040, !"_ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaIiEEEE7connectITnDaXadL_Z8listenerIS2_EvRmRT_NSD_11entity_typeEEEJSC_EEENS_10connectionEDpOT0_: %agg.result"}
+!1040 = distinct !{!1040, !"_ZN4entt4sinkINS_4sighIFvR15custom_registryN4test13custom_entityEESaIiEEEE7connectITnDaXadL_Z8listenerIS2_EvRmRT_NSD_11entity_typeEEEJSC_EEENS_10connectionEDpOT0_"}
+!1041 = !{!1042, !13, i64 0}
+!1042 = !{!"_ZTSNSt12_Vector_baseIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE17_Vector_impl_dataE", !13, i64 0, !13, i64 8, !13, i64 16}
 !1043 = !{!1044, !13, i64 8}
 !1044 = !{!"_ZTSN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEE", !13, i64 0, !13, i64 8}
-!1045 = !{!1039, !13, i64 8}
+!1045 = !{!1042, !13, i64 8}
 !1046 = distinct !{!1046, !79}
-!1047 = !{!1039, !13, i64 16}
+!1047 = !{!1042, !13, i64 16}
 !1048 = !{!1049, !1051}
 !1049 = distinct !{!1049, !1050, !"_ZSt19__relocate_object_aIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEES7_SaIS7_EEvPT_PT0_RT1_: %__dest"}
 !1050 = distinct !{!1050, !"_ZSt19__relocate_object_aIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEES7_SaIS7_EEvPT_PT0_RT1_"}
@@ -119587,7 +119587,7 @@ attributes #29 = { nounwind willreturn memory(read) }
 !1063 = !{!"_ZTSN4entt4sighIFvR15custom_registryN4test13custom_entityEESaIiEEE", !1064, i64 0}
 !1064 = !{!"_ZTSSt6vectorIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE", !1065, i64 0}
 !1065 = !{!"_ZTSSt12_Vector_baseIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE", !1066, i64 0}
-!1066 = !{!"_ZTSNSt12_Vector_baseIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE12_Vector_implE", !1039, i64 0}
+!1066 = !{!"_ZTSNSt12_Vector_baseIN4entt8delegateIFvR15custom_registryN4test13custom_entityEEEESaIS7_EE12_Vector_implE", !1042, i64 0}
 !1067 = !{!1044, !13, i64 0}
 !1068 = distinct !{!1068, !79}
 !1069 = !{!1070, !1072}
@@ -119769,16 +119769,16 @@ attributes #29 = { nounwind willreturn memory(read) }
 !1245 = !{!1246}
 !1246 = distinct !{!1246, !1247, !"_ZN4entt14forward_as_anyILm16ELm8ERNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEEEENS_9basic_anyIXT_EXT0_EEEOT1_: %agg.result"}
 !1247 = distinct !{!1247, !"_ZN4entt14forward_as_anyILm16ELm8ERNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEEEENS_9basic_anyIXT_EXT0_EEEOT1_"}
-!1248 = !{!1249, !13, i64 0}
-!1249 = !{!"_ZTSNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_Vector_impl_dataE", !13, i64 0, !13, i64 8, !13, i64 16}
-!1250 = !{!1251}
-!1251 = distinct !{!1251, !1252, !"_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE7connectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEENS_10connectionEDpOT0_: %agg.result"}
-!1252 = distinct !{!1252, !"_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE7connectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEENS_10connectionEDpOT0_"}
+!1248 = !{!1249}
+!1249 = distinct !{!1249, !1250, !"_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE7connectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEENS_10connectionEDpOT0_: %agg.result"}
+!1250 = distinct !{!1250, !"_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_IiEEEEE7connectITnDaXadL_Z8listenerIS7_EvRmRT_NSG_11entity_typeEEEJSF_EEENS_10connectionEDpOT0_"}
+!1251 = !{!1252, !13, i64 0}
+!1252 = !{!"_ZTSNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE17_Vector_impl_dataE", !13, i64 0, !13, i64 8, !13, i64 16}
 !1253 = !{!1254, !13, i64 8}
 !1254 = !{!"_ZTSN4entt8delegateIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_EEE", !13, i64 0, !13, i64 8}
-!1255 = !{!1249, !13, i64 8}
+!1255 = !{!1252, !13, i64 8}
 !1256 = distinct !{!1256, !79}
-!1257 = !{!1249, !13, i64 16}
+!1257 = !{!1252, !13, i64 16}
 !1258 = !{!1259, !1261}
 !1259 = distinct !{!1259, !1260, !"_ZSt19__relocate_object_aIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEESA_NS5_ISA_EEEvPT_PT0_RT1_: %__dest"}
 !1260 = distinct !{!1260, !"_ZSt19__relocate_object_aIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEESA_NS5_ISA_EEEvPT_PT0_RT1_"}
@@ -119829,7 +119829,7 @@ attributes #29 = { nounwind willreturn memory(read) }
 !1305 = !{!"_ZTSN4entt4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_ENS4_IiEEEE", !1306, i64 0}
 !1306 = !{!"_ZTSSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE", !1307, i64 0}
 !1307 = !{!"_ZTSSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE", !1308, i64 0}
-!1308 = !{!"_ZTSNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_Vector_implE", !1309, i64 0, !1249, i64 24}
+!1308 = !{!"_ZTSNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_Vector_implE", !1309, i64 0, !1252, i64 24}
 !1309 = !{!"_ZTSN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEEE", !1310, i64 0, !1293, i64 8}
 !1310 = !{!"_ZTSSaIN4entt8delegateIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_EEEE"}
 !1311 = !{!1254, !13, i64 0}

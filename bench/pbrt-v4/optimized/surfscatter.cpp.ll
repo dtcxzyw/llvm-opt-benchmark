@@ -4369,9 +4369,9 @@ entry:
   %agg.tmp4.sroa.2.0.copyload.i = load float, ptr %agg.tmp4.sroa.2.0.n.sroa_idx.i, align 4, !noalias !56
   %uv.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %dudx.i = getelementptr inbounds i8, ptr %ctx, i64 92
-  %0 = load float, ptr %dudx.i, align 4
+  %0 = load float, ptr %dudx.i, align 4, !noalias !56
   %dudy.i = getelementptr inbounds i8, ptr %ctx, i64 96
-  %1 = load float, ptr %dudy.i, align 4
+  %1 = load float, ptr %dudy.i, align 4, !noalias !56
   %dvdx.i = getelementptr inbounds i8, ptr %ctx, i64 100
   %2 = load float, ptr %dvdx.i, align 4, !noalias !56
   %dvdy.i = getelementptr inbounds i8, ptr %ctx, i64 104
@@ -13089,9 +13089,9 @@ entry:
   %agg.tmp4.sroa.2.0.copyload.i = load float, ptr %agg.tmp4.sroa.2.0.n.sroa_idx.i, align 4, !noalias !211
   %uv.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %dudx.i = getelementptr inbounds i8, ptr %ctx, i64 92
-  %0 = load float, ptr %dudx.i, align 4
+  %0 = load float, ptr %dudx.i, align 4, !noalias !211
   %dudy.i = getelementptr inbounds i8, ptr %ctx, i64 96
-  %1 = load float, ptr %dudy.i, align 4
+  %1 = load float, ptr %dudy.i, align 4, !noalias !211
   %dvdx.i = getelementptr inbounds i8, ptr %ctx, i64 100
   %2 = load float, ptr %dvdx.i, align 4, !noalias !211
   %dvdy.i = getelementptr inbounds i8, ptr %ctx, i64 104

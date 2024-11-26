@@ -212,7 +212,7 @@ for.end:                                          ; preds = %_ZN8proxygen12HPACK
   %tailStart_.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !10
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
-  %11 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !13
+  %11 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !10
   %12 = load ptr, ptr %11, align 8, !noalias !10
   %cmp.not.i.i.i.i = icmp eq ptr %10, %12
   br i1 %cmp.not.i.i.i.i, label %_ZN8proxygen17HPACKEncodeBuffer7releaseEv.exit, label %if.then.i.i.i.i

@@ -10085,7 +10085,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !97
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !97
   store ptr %96, ptr %95, align 8, !noalias !97
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #28
@@ -14663,8 +14663,8 @@ _ZN4llvm4User8operandsEv.exit.i.i.i.i154:         ; preds = %2297, %2294
 
 2306:                                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_8ConstantENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupEPKS2_.exit92.thread.thread.i.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  %2307 = load ptr, ptr %64, align 8, !noalias !15
-  %2308 = load i32, ptr %65, align 8, !noalias !15
+  %2307 = load ptr, ptr %64, align 8, !noalias !134
+  %2308 = load i32, ptr %65, align 8, !noalias !134
   %2309 = icmp eq i32 %2308, 0
   br i1 %2309, label %.loopexit.i.i.i, label %2310
 

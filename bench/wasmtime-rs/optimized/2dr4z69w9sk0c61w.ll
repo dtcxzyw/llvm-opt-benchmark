@@ -5259,7 +5259,7 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Iovec$u20$as$u
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %8, i64 40
-  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !85, !nonnull !5
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 1 %6, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !85
   br i1 %19, label %23, label %21
 
@@ -5616,7 +5616,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Ciovec$u20$as$
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %8, i64 40
-  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !101, !nonnull !5
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 1 %6, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !101
   br i1 %19, label %23, label %21
 
@@ -7033,7 +7033,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Dirent$u20$as$
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %10, i64 32
-  %21 = load ptr, ptr %20, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %21 = load ptr, ptr %20, align 8, !invariant.load !5, !noalias !161, !nonnull !5
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 1 %8, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !161
   br i1 %22, label %25, label %24
 
@@ -7367,7 +7367,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Dirent$u20$as$
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %11, i64 40
-  %22 = load ptr, ptr %21, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %22 = load ptr, ptr %21, align 8, !invariant.load !5, !noalias !173, !nonnull !5
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 1 %9, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !173
   br i1 %23, label %27, label %25
 
@@ -8858,7 +8858,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Fdstat$u20$as$
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %12, i64 40
-  %36 = load ptr, ptr %35, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %36 = load ptr, ptr %35, align 8, !invariant.load !5, !noalias !226, !nonnull !5
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 1 %10, i32 noundef %.sroa.522.0.copyload.i.i, i32 noundef %.sroa.623.0.copyload.i.i), !noalias !226
   br i1 %37, label %42, label %39
 
@@ -9886,7 +9886,7 @@ define void @"_ZN100_$LT$wasi_common..snapshots..preview_0..types..Filestat$u20$
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %19, i64 32
-  %30 = load ptr, ptr %29, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %30 = load ptr, ptr %29, align 8, !invariant.load !5, !noalias !279, !nonnull !5
   %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 1 %17, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !279
   br i1 %31, label %34, label %33
 
@@ -10409,7 +10409,7 @@ define void @"_ZN100_$LT$wasi_common..snapshots..preview_0..types..Filestat$u20$
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %20, i64 40
-  %31 = load ptr, ptr %30, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %31 = load ptr, ptr %30, align 8, !invariant.load !5, !noalias !287, !nonnull !5
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 1 %18, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !287
   br i1 %32, label %36, label %34
 
@@ -11649,7 +11649,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types..EventFdReadwr
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %9, i64 40
-  %19 = load ptr, ptr %18, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %19 = load ptr, ptr %18, align 8, !invariant.load !5, !noalias !328, !nonnull !5
   %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 1 %7, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !328
   br i1 %20, label %24, label %22
 
@@ -11859,7 +11859,7 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Event$u20$as$u
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %11, i64 32
-  %22 = load ptr, ptr %21, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %22 = load ptr, ptr %21, align 8, !invariant.load !5, !noalias !339, !nonnull !5
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 1 %9, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !339
   br i1 %23, label %26, label %25
 
@@ -12694,7 +12694,7 @@ define void @"_ZN109_$LT$wasi_common..snapshots..preview_0..types..SubscriptionC
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %12, i64 32
-  %23 = load ptr, ptr %22, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %23 = load ptr, ptr %22, align 8, !invariant.load !5, !noalias !368, !nonnull !5
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 1 %10, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !368
   br i1 %24, label %27, label %26
 
@@ -13106,7 +13106,7 @@ define void @"_ZN109_$LT$wasi_common..snapshots..preview_0..types..SubscriptionC
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %14, i64 40
-  %25 = load ptr, ptr %24, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %25 = load ptr, ptr %24, align 8, !invariant.load !5, !noalias !383, !nonnull !5
   %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 1 %12, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !383
   br i1 %26, label %30, label %28
 
@@ -13618,7 +13618,7 @@ define void @"_ZN105_$LT$wasi_common..snapshots..preview_0..types..SubscriptionU
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %10, i64 32
-  %20 = load ptr, ptr %19, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %20 = load ptr, ptr %19, align 8, !invariant.load !5, !noalias !403, !nonnull !5
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 1 %8, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !403
   br i1 %21, label %25, label %23
 
@@ -14049,7 +14049,7 @@ define void @"_ZN105_$LT$wasi_common..snapshots..preview_0..types..SubscriptionU
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %41, i64 40
-  %51 = load ptr, ptr %50, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %51 = load ptr, ptr %50, align 8, !invariant.load !5, !noalias !432, !nonnull !5
   %52 = tail call noundef zeroext i1 %51(ptr noundef nonnull align 1 %39, i32 noundef %.sroa.522.0.copyload.i238, i32 noundef %.sroa.623.0.copyload.i240), !noalias !432
   br i1 %52, label %90, label %54
 
@@ -14106,7 +14106,7 @@ define void @"_ZN105_$LT$wasi_common..snapshots..preview_0..types..SubscriptionU
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %60, i64 40
-  %70 = load ptr, ptr %69, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %70 = load ptr, ptr %69, align 8, !invariant.load !5, !noalias !436, !nonnull !5
   %71 = tail call noundef zeroext i1 %70(ptr noundef nonnull align 1 %58, i32 noundef %.sroa.522.0.copyload.i267, i32 noundef %.sroa.623.0.copyload.i269), !noalias !436
   br i1 %71, label %109, label %73
 
@@ -18703,7 +18703,7 @@ define void @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Prestat$u20$as
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %7, i64 32
-  %17 = load ptr, ptr %16, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %17 = load ptr, ptr %16, align 8, !invariant.load !5, !noalias !645, !nonnull !5
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 1 %5, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !645
   br i1 %18, label %22, label %20
 
@@ -18900,7 +18900,7 @@ define void @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Prestat$u20$as
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %8, i64 40
-  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !656, !nonnull !5
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 1 %6, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !656
   br i1 %19, label %23, label %21
 

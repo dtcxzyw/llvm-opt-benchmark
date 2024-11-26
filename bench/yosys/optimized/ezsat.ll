@@ -15520,7 +15520,7 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %127, %_ZSt4copyIN9_
   %163 = sext i32 %3 to i64
   %164 = sext i32 %2 to i64
   %.pre315 = load ptr, ptr %145, align 8, !noalias !68
-  %.pre316 = load ptr, ptr %17, align 8
+  %.pre316 = load ptr, ptr %17, align 8, !noalias !68
   br label %165
 
 165:                                              ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit98
@@ -15712,7 +15712,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %.promoted226 = phi ptr [ %197, %195 ], [ %182, %.lr.ph.i ], [ %182, %_ZNSt6vectorIiSaIiEE2atEm.exit34.i ], [ %200, %201 ], [ %200, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i ]
   %217 = phi ptr [ %183, %195 ], [ %183, %.lr.ph.i ], [ %183, %_ZNSt6vectorIiSaIiEE2atEm.exit34.i ], [ %198, %201 ], [ %198, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i ]
   %218 = load ptr, ptr %145, align 8, !noalias !68
-  %219 = load ptr, ptr %17, align 8
+  %219 = load ptr, ptr %17, align 8, !noalias !68
   %220 = ptrtoint ptr %218 to i64
   %221 = ptrtoint ptr %219 to i64
   %222 = sub i64 %220, %221
@@ -15819,7 +15819,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit48.i:      ; preds = %_ZNSt6vectorIiSaIiE
   %262 = getelementptr inbounds i8, ptr %.pn248, i64 4
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
   %263 = load ptr, ptr %145, align 8, !noalias !68
-  %264 = load ptr, ptr %17, align 8
+  %264 = load ptr, ptr %17, align 8, !noalias !68
   %265 = ptrtoint ptr %263 to i64
   %266 = ptrtoint ptr %264 to i64
   %267 = sub i64 %265, %266

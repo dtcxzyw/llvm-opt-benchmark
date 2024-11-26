@@ -2237,8 +2237,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrESt4pairIjlENS_12DenseMapI
   ]
 
 155:                                              ; preds = %152, %152
-  %156 = load ptr, ptr %22, align 8
-  %157 = load ptr, ptr %6, align 8
+  %156 = load ptr, ptr %22, align 8, !noalias !19
+  %157 = load ptr, ptr %6, align 8, !noalias !19
   %158 = icmp eq ptr %156, %157
   br i1 %158, label %159, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
@@ -14934,7 +14934,7 @@ define dso_local noundef ptr @_ZN4llvm22ModuloScheduleExpander13findDefInLoopEj(
 
 16:                                               ; preds = %13, %13
   %17 = load ptr, ptr %5, align 8, !noalias !122
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !noalias !122
   %19 = icmp eq ptr %17, %18
   br i1 %19, label %20, label %33
 
@@ -14965,12 +14965,12 @@ define dso_local noundef ptr @_ZN4llvm22ModuloScheduleExpander13findDefInLoopEj(
   %31 = add nuw i32 %21, 1
   store i32 %31, ptr %7, align 4, !noalias !122
   store ptr %.0, ptr %23, align 8, !noalias !122
-  %32 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8, !noalias !122
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 33:                                               ; preds = %._crit_edge.i.i, %16
   %34 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull %.0) #18, !noalias !122
-  %.pre.i = load ptr, ptr %3, align 8
+  %.pre.i = load ptr, ptr %3, align 8, !noalias !122
   %35 = extractvalue { ptr, i8 } %34, 1
   %36 = trunc i8 %35 to i1
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
@@ -15019,7 +15019,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %33
   br label %13, !llvm.loop !24
 
 split.loopexit:                                   ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  %59 = load ptr, ptr %5, align 8
+  %59 = load ptr, ptr %5, align 8, !noalias !122
   br label %split
 
 split:                                            ; preds = %split.loopexit, %._crit_edge

@@ -2657,7 +2657,7 @@ _ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scat
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %13, ptr noundef nonnull align 16 dereferenceable(256) %29, i64 256, i1 false), !noalias !19
-  %602 = load float, ptr %31, align 16
+  %602 = load float, ptr %31, align 16, !noalias !19
   %603 = insertelement <4 x float> poison, float %602, i64 0
   %604 = shufflevector <4 x float> %603, <4 x float> poison, <4 x i32> zeroinitializer
   %605 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %604, <4 x float> zeroinitializer, i8 -1)

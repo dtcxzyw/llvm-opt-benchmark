@@ -1005,7 +1005,7 @@ define internal void @_ZN5clang4ento5check7ASTDeclINS_22ObjCImplementationDeclEE
 
 .lr.ph.i6.i14.i11.i.i.i.i.i.i.i:                  ; preds = %106, %.critedge2.i8.i16.i14.i.i.i.i.i.i.i
   %.sroa.0.2.i12.i.i.i.i.i.i.i = phi ptr [ %108, %.critedge2.i8.i16.i14.i.i.i.i.i.i.i ], [ %.val8.i.i.i.i.i.i.i, %106 ]
-  %107 = load ptr, ptr %.sroa.0.2.i12.i.i.i.i.i.i.i, align 8
+  %107 = load ptr, ptr %.sroa.0.2.i12.i.i.i.i.i.i.i, align 8, !noalias !20
   %magicptr.i7.i15.i13.i.i.i.i.i.i.i = ptrtoint ptr %107 to i64
   switch i64 %magicptr.i7.i15.i13.i.i.i.i.i.i.i, label %_ZN4llvm16make_first_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127IvarInvalidationCheckerImpl16InvalidationInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEEEEDaOT_.exit.i.i.i [
     i64 -4096, label %.critedge2.i8.i16.i14.i.i.i.i.i.i.i
@@ -1942,7 +1942,7 @@ _ZN4llvm8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127IvarInvalidationCheck
 
 .lr.ph.i6.i14.i11.i.i.i.i.i.i:                    ; preds = %531, %.critedge2.i8.i16.i14.i.i.i.i.i.i
   %.sroa.0.2.i12.i.i.i.i.i.i = phi ptr [ %533, %.critedge2.i8.i16.i14.i.i.i.i.i.i ], [ %.pre2.i.pre291.i.i, %531 ]
-  %532 = load ptr, ptr %.sroa.0.2.i12.i.i.i.i.i.i, align 8
+  %532 = load ptr, ptr %.sroa.0.2.i12.i.i.i.i.i.i, align 8, !noalias !33
   %magicptr.i7.i15.i13.i.i.i.i.i.i = ptrtoint ptr %532 to i64
   switch i64 %magicptr.i7.i15.i13.i.i.i.i.i.i, label %_ZN4llvm16make_first_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127IvarInvalidationCheckerImpl16InvalidationInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEEEEDaOT_.exit.i.i [
     i64 -4096, label %.critedge2.i8.i16.i14.i.i.i.i.i.i
@@ -2083,7 +2083,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127Iva
 
 .lr.ph.i6.i14.i11.i.i.i.i134.i.i:                 ; preds = %569, %.critedge2.i8.i16.i14.i.i.i.i137.i.i
   %.sroa.0.2.i12.i.i.i.i135.i.i = phi ptr [ %571, %.critedge2.i8.i16.i14.i.i.i.i137.i.i ], [ %.val8.i.i.i.i131.i.i, %569 ]
-  %570 = load ptr, ptr %.sroa.0.2.i12.i.i.i.i135.i.i, align 8
+  %570 = load ptr, ptr %.sroa.0.2.i12.i.i.i.i135.i.i, align 8, !noalias !38
   %magicptr.i7.i15.i13.i.i.i.i136.i.i = ptrtoint ptr %570 to i64
   switch i64 %magicptr.i7.i15.i13.i.i.i.i136.i.i, label %_ZN4llvm16make_first_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127IvarInvalidationCheckerImpl16InvalidationInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEEEEDaOT_.exit144.i.i [
     i64 -4096, label %.critedge2.i8.i16.i14.i.i.i.i137.i.i
@@ -6711,7 +6711,7 @@ _ZN4llvm6detail12DenseSetImplIPKN5clang14ObjCMethodDeclENS_8DenseMapIS5_NS0_13De
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14ObjCMethodDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !65
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !65
   store ptr %96, ptr %95, align 8, !noalias !65
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #20

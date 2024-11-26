@@ -9157,9 +9157,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN5Yosys3AST7AstNodeESt6vectorIS5_SaIS
           to label %3076 unwind label %.loopexit.split-lp4835.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 3076:                                             ; preds = %.lr.ph6051
-  %3077 = load ptr, ptr %3075, align 8
+  %3077 = load ptr, ptr %3075, align 8, !noalias !52
   %3078 = getelementptr inbounds i8, ptr %3075, i64 8
-  %3079 = load ptr, ptr %3078, align 8
+  %3079 = load ptr, ptr %3078, align 8, !noalias !52
   %3080 = icmp eq ptr %3077, %3079
   br i1 %3080, label %.loopexit.i2931.thread, label %3082
 
@@ -9177,7 +9177,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN5Yosys3AST7AstNodeESt6vectorIS5_SaIS
   %3089 = getelementptr inbounds i8, ptr %3075, i64 24
   %3090 = getelementptr inbounds i8, ptr %3075, i64 32
   %3091 = load ptr, ptr %3090, align 8, !noalias !52
-  %3092 = load ptr, ptr %3089, align 8
+  %3092 = load ptr, ptr %3089, align 8, !noalias !52
   %3093 = ptrtoint ptr %3091 to i64
   %3094 = ptrtoint ptr %3092 to i64
   %3095 = sub i64 %3093, %3094
@@ -9404,13 +9404,13 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3877: ; preds = %3
   br i1 %3199, label %.lr.ph.i3876, label %.noexc2934.loopexit, !llvm.loop !56
 
 .noexc2934.loopexit:                              ; preds = %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i3877
-  %.pre6899 = load ptr, ptr %3078, align 8
+  %.pre6899 = load ptr, ptr %3078, align 8, !noalias !52
   br label %.noexc2934
 
 .noexc2934:                                       ; preds = %.noexc2934.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
   %3200 = phi ptr [ %3194, %.noexc2934.loopexit ], [ %3166, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ]
   %3201 = phi ptr [ %.pre6899, %.noexc2934.loopexit ], [ %3164, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ]
-  %3202 = load ptr, ptr %3075, align 8
+  %3202 = load ptr, ptr %3075, align 8, !noalias !52
   %3203 = icmp eq ptr %3202, %3201
   br i1 %3203, label %._crit_edge.i.i2930, label %3204
 

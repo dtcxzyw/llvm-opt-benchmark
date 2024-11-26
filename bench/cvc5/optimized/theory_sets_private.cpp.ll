@@ -4187,7 +4187,7 @@ if.then:                                          ; preds = %_ZN4cvc58internal8T
 
 if.then.i.i.i:                                    ; preds = %if.then
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %5 = load ptr, ptr %eq, align 8
+  %5 = load ptr, ptr %eq, align 8, !noalias !39
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -4219,7 +4219,7 @@ call2.i.i.i.i.noexc:                              ; preds = %if.end15.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %call2.i.i.i.i.noexc
   %10 = load ptr, ptr %9, align 8, !noalias !39
-  %11 = load ptr, ptr %eq, align 8
+  %11 = load ptr, ptr %eq, align 8, !noalias !39
   %add.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load i64, ptr %add.ptr.i9.i.i.i.i.i, align 8, !noalias !39
@@ -5518,7 +5518,7 @@ call2.i.i.i.noexc:                                ; preds = %if.end166
   %idxprom.i.i402 = zext i1 %cmp.i.i400 to i64
   %arrayidx.i.i403 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i402
   %99 = load ptr, ptr %arrayidx.i.i403, align 8, !noalias !50
-  %bf.load.i.i.i = load i64, ptr %99, align 8
+  %bf.load.i.i.i = load i64, ptr %99, align 8, !noalias !50
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %100 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %100, 1048575
@@ -6622,7 +6622,7 @@ call2.i.i.i.noexc:                                ; preds = %invoke.cont36
   %d_children.i.i = getelementptr inbounds i8, ptr %28, i64 16
   %arrayidx.i.i98 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %spec.select.i.i
   %29 = load ptr, ptr %arrayidx.i.i98, align 8, !noalias !55
-  %bf.load.i.i.i = load i64, ptr %29, align 8
+  %bf.load.i.i.i = load i64, ptr %29, align 8, !noalias !55
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %30 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %30, 1048575
@@ -8797,7 +8797,7 @@ if.else.i:                                        ; preds = %if.else.i.i.i, %if.
           to label %invoke.cont151 unwind label %lpad150
 
 invoke.cont151:                                   ; preds = %if.else.i
-  %.pre = load ptr, ptr %term, align 8
+  %.pre = load ptr, ptr %term, align 8, !noalias !87
   %d_kind.i.i.i.i686.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %bf.load.i.i.i.i687.pre = load i16, ptr %d_kind.i.i.i.i686.phi.trans.insert, align 8, !noalias !87
   %44 = load ptr, ptr %d_state, align 8
@@ -10761,7 +10761,7 @@ if.else.i1603:                                    ; preds = %invoke.cont392
           to label %invoke.cont401 unwind label %lpad400
 
 invoke.cont401:                                   ; preds = %if.else.i1603
-  %.pre2745 = load ptr, ptr %term, align 8
+  %.pre2745 = load ptr, ptr %term, align 8, !noalias !127
   %d_kind.i.i.i.i1607.phi.trans.insert = getelementptr inbounds i8, ptr %.pre2745, i64 8
   %bf.load.i.i.i.i1608.pre = load i16, ptr %d_kind.i.i.i.i1607.phi.trans.insert, align 8, !noalias !127
   %259 = load ptr, ptr %d_state, align 8
@@ -12426,7 +12426,7 @@ call2.i.i.i.noexc2295:                            ; preds = %invoke.cont597
   %d_children.i.i2279 = getelementptr inbounds i8, ptr %.pre2759, i64 16
   %arrayidx.i.i2281 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i2279, i64 0, i64 %spec.select.i.i2278
   %445 = load ptr, ptr %arrayidx.i.i2281, align 8, !noalias !140
-  %bf.load.i.i.i2282 = load i64, ptr %445, align 8
+  %bf.load.i.i.i2282 = load i64, ptr %445, align 8, !noalias !140
   %bf.lshr.i.i.i2283 = lshr i64 %bf.load.i.i.i2282, 40
   %446 = trunc nuw nsw i64 %bf.lshr.i.i.i2283 to i32
   %bf.cast.i.i.i2284 = and i32 %446, 1048575
@@ -18673,7 +18673,7 @@ for.body:                                         ; preds = %entry, %_ZN4cvc58in
   %add.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.027, i64 8
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !285
   store ptr %2, ptr %ref.tmp, align 8, !alias.scope !285
-  %bf.load.i.i.i = load i64, ptr %2, align 8
+  %bf.load.i.i.i = load i64, ptr %2, align 8, !noalias !285
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %3 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %3, 1048575

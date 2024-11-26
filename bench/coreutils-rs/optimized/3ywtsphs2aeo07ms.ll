@@ -208,7 +208,7 @@ define hidden noundef range(i8 -1, 3) i8 @_ZN4core4iter6traits8iterator12iter_co
 
 11:                                               ; preds = %8
   %12 = extractvalue { i1, i8 } %9, 1
-  %13 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
+  %13 = load ptr, ptr %7, align 8, !invariant.load !5, !noalias !18, !nonnull !5
   %14 = tail call { i1, i8 } %13(ptr noundef nonnull align 1 %2), !noalias !18
   %15 = extractvalue { i1, i8 } %14, 0
   %16 = extractvalue { i1, i8 } %14, 1
@@ -248,7 +248,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
 
 11:                                               ; preds = %8
   %12 = extractvalue { i1, i8 } %9, 1
-  %13 = load ptr, ptr %7, align 8, !invariant.load !5, !alias.scope !24, !noalias !21, !nonnull !5
+  %13 = load ptr, ptr %7, align 8, !invariant.load !5, !alias.scope !24, !noalias !30, !nonnull !5
   %14 = tail call { i1, i8 } %13(ptr noundef nonnull align 1 %2), !noalias !29
   %15 = extractvalue { i1, i8 } %14, 0
   %16 = extractvalue { i1, i8 } %14, 1
@@ -258,7 +258,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread.i: ; preds = %8
   %.pre.i = load ptr, ptr %7, align 8, !invariant.load !5, !alias.scope !24, !noalias !21
-  %18 = tail call { i1, i8 } %.pre.i(ptr noundef nonnull align 1 %2), !noalias !30
+  %18 = tail call { i1, i8 } %.pre.i(ptr noundef nonnull align 1 %2), !noalias !31
   %19 = extractvalue { i1, i8 } %18, 0
   %20 = xor i1 %19, true
   br label %_ZN4core4iter6traits8iterator12iter_compare17hb675cb207326a688E.llvm.2392520393932681634.exit
@@ -270,7 +270,7 @@ _ZN4core4iter6traits8iterator12iter_compare17hb675cb207326a688E.llvm.23925203939
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h475b2eb5a1a32e86E.llvm.2392520393932681634"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !31, !noundef !5
+  %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !32, !noundef !5
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
@@ -280,7 +280,7 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hff277af8ff64ad3fE.llvm.2392520393932681634"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !31, !noundef !5
+  %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !32, !noundef !5
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
@@ -388,5 +388,6 @@ attributes #12 = { cold noreturn nounwind }
 !27 = distinct !{!27, !28, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h868e80c8d99a3b0fE: argument 0"}
 !28 = distinct !{!28, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h868e80c8d99a3b0fE"}
 !29 = !{!27, !22, !25}
-!30 = !{!22, !25}
-!31 = !{i64 1}
+!30 = !{!27, !22}
+!31 = !{!22, !25}
+!32 = !{i64 1}

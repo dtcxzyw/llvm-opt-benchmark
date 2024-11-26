@@ -633,7 +633,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit._Z
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %89, i8 0, i64 %88, i1 false), !noalias !8
   %90 = getelementptr inbounds i8, ptr %0, i64 72
   %91 = getelementptr inbounds i8, ptr %0, i64 76
-  %.pre.i = load i32, ptr %7, align 8
+  %.pre.i = load i32, ptr %7, align 8, !noalias !8
   %92 = load i32, ptr %90, align 8, !noalias !8
   %93 = zext i32 %92 to i64
   %94 = load i8, ptr %91, align 4, !noalias !8

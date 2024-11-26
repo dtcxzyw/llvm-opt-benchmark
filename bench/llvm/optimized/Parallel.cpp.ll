@@ -1659,8 +1659,8 @@ _ZNK4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutor18hasSequentialTasksE
 
 46:                                               ; preds = %_ZNK4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutor18hasSequentialTasksEv.exit
   store atomic i8 1, ptr %16 seq_cst, align 1
-  %47 = load ptr, ptr %14, align 8
-  %48 = load ptr, ptr %17, align 8
+  %47 = load ptr, ptr %14, align 8, !noalias !38
+  %48 = load ptr, ptr %17, align 8, !noalias !38
   %49 = icmp eq ptr %47, %48
   br i1 %49, label %50, label %_ZNSt5dequeISt8functionIFvvEESaIS2_EE4backEv.exit
 
@@ -1765,8 +1765,8 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %_ZNSt11unique_lockI
   br label %135
 
 .critedge:                                        ; preds = %40, %_ZNK4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutor18hasSequentialTasksEv.exit
-  %91 = load ptr, ptr %13, align 8
-  %92 = load ptr, ptr %22, align 8
+  %91 = load ptr, ptr %13, align 8, !noalias !41
+  %92 = load ptr, ptr %22, align 8, !noalias !41
   %93 = icmp eq ptr %91, %92
   br i1 %93, label %94, label %_ZNSt5dequeISt8functionIFvvEESaIS2_EE4backEv.exit10
 

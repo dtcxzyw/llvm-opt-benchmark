@@ -15471,8 +15471,8 @@ invoke.cont48:                                    ; preds = %cleanup.done40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !32
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
-  %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %10 = load ptr, ptr %ref.tmp45, align 8
+  %9 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !32
+  %10 = load ptr, ptr %ref.tmp45, align 8, !noalias !32
   %cmp5.not.i = icmp eq ptr %9, %10
   br i1 %cmp5.not.i, label %invoke.cont50, label %for.body.lr.ph.i
 
@@ -18055,8 +18055,8 @@ invoke.cont50:                                    ; preds = %cleanup.done42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !42
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
-  %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %11 = load ptr, ptr %ref.tmp47, align 8
+  %10 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !42
+  %11 = load ptr, ptr %ref.tmp47, align 8, !noalias !42
   %cmp5.not.i = icmp eq ptr %10, %11
   br i1 %cmp5.not.i, label %invoke.cont52, label %for.body.lr.ph.i
 
@@ -21142,8 +21142,8 @@ invoke.cont48:                                    ; preds = %cleanup.done41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !66
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp46, i64 8
-  %11 = load ptr, ptr %_M_finish.i.i, align 8
-  %12 = load ptr, ptr %ref.tmp46, align 8
+  %11 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !66
+  %12 = load ptr, ptr %ref.tmp46, align 8, !noalias !66
   %cmp5.not.i = icmp eq ptr %11, %12
   br i1 %cmp5.not.i, label %invoke.cont50, label %for.body.lr.ph.i
 
@@ -26904,8 +26904,8 @@ invoke.cont48:                                    ; preds = %cleanup.done40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !90
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
-  %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %10 = load ptr, ptr %ref.tmp45, align 8
+  %9 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !90
+  %10 = load ptr, ptr %ref.tmp45, align 8, !noalias !90
   %cmp5.not.i = icmp eq ptr %9, %10
   br i1 %cmp5.not.i, label %invoke.cont50, label %for.body.lr.ph.i
 
@@ -78490,8 +78490,8 @@ invoke.cont45:                                    ; preds = %cleanup.done39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !207
   %_M_finish.i.i = getelementptr inbounds i8, ptr %params, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %4 = load ptr, ptr %params, align 8
+  %3 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !207
+  %4 = load ptr, ptr %params, align 8, !noalias !207
   %cmp5.not.i = icmp eq ptr %3, %4
   br i1 %cmp5.not.i, label %invoke.cont47, label %for.body.lr.ph.i
 
@@ -145215,9 +145215,9 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !337)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !337
-  %2 = load ptr, ptr %assertions, align 8
+  %2 = load ptr, ptr %assertions, align 8, !noalias !337
   %_M_finish.i.i = getelementptr inbounds i8, ptr %assertions, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i, align 8
+  %3 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !337
   %cmp.i.not5.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not5.i, label %invoke.cont3.thread, label %for.body.lr.ph.i
 
@@ -150299,9 +150299,9 @@ invoke.cont45:                                    ; preds = %cleanup.done38
   call void @llvm.experimental.noalias.scope.decl(metadata !440)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !440
-  %6 = load ptr, ptr %lemmas, align 8
+  %6 = load ptr, ptr %lemmas, align 8, !noalias !440
   %_M_finish.i.i = getelementptr inbounds i8, ptr %lemmas, i64 8
-  %7 = load ptr, ptr %_M_finish.i.i, align 8
+  %7 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !440
   %cmp.i.not5.i = icmp eq ptr %6, %7
   br i1 %cmp.i.not5.i, label %invoke.cont47.thread, label %for.body.lr.ph.i
 
@@ -153603,9 +153603,9 @@ invoke.cont55:                                    ; preds = %cleanup.done48
   call void @llvm.experimental.noalias.scope.decl(metadata !451)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !451
-  %8 = load ptr, ptr %lits, align 8
+  %8 = load ptr, ptr %lits, align 8, !noalias !451
   %_M_finish.i.i = getelementptr inbounds i8, ptr %lits, i64 8
-  %9 = load ptr, ptr %_M_finish.i.i, align 8
+  %9 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !451
   %cmp.i.not5.i = icmp eq ptr %8, %9
   br i1 %cmp.i.not5.i, label %invoke.cont57.thread, label %for.body.lr.ph.i
 
@@ -164761,8 +164761,8 @@ call2.i.noexc:                                    ; preds = %do.end
   %wellFormedChecking.i = getelementptr inbounds i8, ptr %16, i64 2
   %17 = load i8, ptr %wellFormedChecking.i, align 1
   %tobool.i = trunc i8 %17 to i1
-  %.pre73 = load ptr, ptr %terms, align 8
-  %.pre75 = load ptr, ptr %_M_finish.i.i, align 8
+  %.pre73 = load ptr, ptr %terms, align 8, !noalias !468
+  %.pre75 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !468
   br i1 %tobool.i, label %if.then.i, label %invoke.cont150
 
 if.then.i:                                        ; preds = %call2.i.noexc
@@ -164771,7 +164771,7 @@ if.then.i:                                        ; preds = %call2.i.noexc
 
 invoke.cont150.thread:                            ; preds = %if.then.i
   %18 = load ptr, ptr %d_slv, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp153, i8 0, i64 24, i1 false), !alias.scope !468
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp153, i8 0, i64 24, i1 false), !alias.scope !471
   br label %invoke.cont154
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc
@@ -164785,16 +164785,16 @@ for.body.i:                                       ; preds = %if.then.i, %.noexc
   br i1 %cmp.i.not.i, label %invoke.cont150.loopexit, label %for.body.i
 
 invoke.cont150.loopexit:                          ; preds = %.noexc
-  %.pre72 = load ptr, ptr %terms, align 8, !noalias !471
-  %.pre74 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !471
+  %.pre72 = load ptr, ptr %terms, align 8, !noalias !468
+  %.pre74 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !468
   br label %invoke.cont150
 
 invoke.cont150:                                   ; preds = %invoke.cont150.loopexit, %call2.i.noexc
   %19 = phi ptr [ %.pre74, %invoke.cont150.loopexit ], [ %.pre75, %call2.i.noexc ]
   %20 = phi ptr [ %.pre72, %invoke.cont150.loopexit ], [ %.pre73, %call2.i.noexc ]
   %21 = load ptr, ptr %d_slv, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !471)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp153, i8 0, i64 24, i1 false), !alias.scope !471
+  call void @llvm.experimental.noalias.scope.decl(metadata !468)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp153, i8 0, i64 24, i1 false), !alias.scope !468
   %cmp.i.not7.i = icmp eq ptr %20, %19
   br i1 %cmp.i.not7.i, label %invoke.cont154, label %for.body.lr.ph.i
 
@@ -164807,8 +164807,8 @@ for.body.i28:                                     ; preds = %for.inc.i, %for.bod
   %__begin1.sroa.0.08.i = phi ptr [ %20, %for.body.lr.ph.i ], [ %incdec.ptr.i4.i, %for.inc.i ]
   %d_node.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.i, i64 8
   %22 = load ptr, ptr %d_node.i.i, align 8
-  %23 = load ptr, ptr %_M_finish.i2.i, align 8, !alias.scope !471
-  %24 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !alias.scope !471
+  %23 = load ptr, ptr %_M_finish.i2.i, align 8, !alias.scope !468
+  %24 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !alias.scope !468
   %cmp.not.i.i = icmp eq ptr %23, %24
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -164841,9 +164841,9 @@ if.then13.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i
           to label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i unwind label %lpad.i
 
 _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %if.then13.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %27 = load ptr, ptr %_M_finish.i2.i, align 8, !alias.scope !471
+  %27 = load ptr, ptr %_M_finish.i2.i, align 8, !alias.scope !468
   %incdec.ptr.i.i29 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %incdec.ptr.i.i29, ptr %_M_finish.i2.i, align 8, !alias.scope !471
+  store ptr %incdec.ptr.i.i29, ptr %_M_finish.i2.i, align 8, !alias.scope !468
   br label %for.inc.i
 
 if.else.i.i:                                      ; preds = %for.body.i28
@@ -170569,9 +170569,9 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !474)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !474
-  %2 = load ptr, ptr %constraints, align 8
+  %2 = load ptr, ptr %constraints, align 8, !noalias !474
   %_M_finish.i.i = getelementptr inbounds i8, ptr %constraints, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i, align 8
+  %3 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !474
   %cmp.i.not5.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not5.i, label %invoke.cont3.thread, label %for.body.lr.ph.i
 
@@ -171536,9 +171536,9 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !477)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !477
-  %2 = load ptr, ptr %assumptions, align 8
+  %2 = load ptr, ptr %assumptions, align 8, !noalias !477
   %_M_finish.i.i = getelementptr inbounds i8, ptr %assumptions, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i, align 8
+  %3 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !477
   %cmp.i.not5.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not5.i, label %invoke.cont3.thread, label %for.body.lr.ph.i
 
@@ -188104,7 +188104,7 @@ invoke.cont55:                                    ; preds = %if.end51
 for.body:                                         ; preds = %invoke.cont55, %for.inc
   %it.sroa.0.0142 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %spec.select.i.i, %invoke.cont55 ]
   %46 = load ptr, ptr %it.sroa.0.0142, align 8, !noalias !580
-  %bf.load.i.i.i = load i64, ptr %46, align 8
+  %bf.load.i.i.i = load i64, ptr %46, align 8, !noalias !580
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %47 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %47, 1048575
@@ -198469,10 +198469,10 @@ attributes #37 = { nounwind willreturn memory(read) }
 !466 = distinct !{!466, !"_ZN4cvc54Sort21sortVectorToTypeNodesERKSt6vectorIS0_SaIS0_EE"}
 !467 = distinct !{!467, !5}
 !468 = !{!469}
-!469 = distinct !{!469, !470, !"_ZN4cvc54Term17termVectorToNodesERKSt6vectorIS0_SaIS0_EE: %agg.result:thread"}
+!469 = distinct !{!469, !470, !"_ZN4cvc54Term17termVectorToNodesERKSt6vectorIS0_SaIS0_EE: %agg.result"}
 !470 = distinct !{!470, !"_ZN4cvc54Term17termVectorToNodesERKSt6vectorIS0_SaIS0_EE"}
 !471 = !{!472}
-!472 = distinct !{!472, !470, !"_ZN4cvc54Term17termVectorToNodesERKSt6vectorIS0_SaIS0_EE: %agg.result"}
+!472 = distinct !{!472, !470, !"_ZN4cvc54Term17termVectorToNodesERKSt6vectorIS0_SaIS0_EE: %agg.result:thread"}
 !473 = distinct !{!473, !5}
 !474 = !{!475}
 !475 = distinct !{!475, !476, !"_ZN4cvc54Term17nodeVectorToTermsEPNS_8internal11NodeManagerERKSt6vectorINS1_12NodeTemplateILb1EEESaIS6_EE: %agg.result"}

@@ -2616,7 +2616,7 @@ if.end127.i118.i:                                 ; preds = %if.then121.i162.i, 
   br i1 %cmp144.i150.i, label %if.then148.i153.i, label %if.end151.i124.i
 
 if.then148.i153.i:                                ; preds = %if.end127.i118.i
-  %101 = load i32, ptr %bitsConsumed.i6.i.i, align 8
+  %101 = load i32, ptr %bitsConsumed.i6.i.i, align 8, !noalias !22
   %cmp.i868.i = icmp ugt i32 %101, 64
   br i1 %cmp.i868.i, label %if.then.i913.i, label %if.end.i871.i
 
@@ -2625,7 +2625,7 @@ if.then.i913.i:                                   ; preds = %if.then148.i153.i
   br label %if.end151.i124.i
 
 if.end.i871.i:                                    ; preds = %if.then148.i153.i
-  %102 = load ptr, ptr %ptr.i.i.i, align 8
+  %102 = load ptr, ptr %ptr.i.i.i, align 8, !noalias !22
   %103 = load ptr, ptr %limitPtr.i.i, align 8, !noalias !22
   %cmp4.i874.not.i = icmp ult ptr %102, %103
   br i1 %cmp4.i874.not.i, label %if.end7.i875.i, label %if.then6.i911.i
@@ -2643,7 +2643,7 @@ if.then6.i911.i:                                  ; preds = %if.end.i871.i
   br label %if.end151.i124.i
 
 if.end7.i875.i:                                   ; preds = %if.end.i871.i
-  %104 = load ptr, ptr %start.i.i, align 8
+  %104 = load ptr, ptr %start.i.i, align 8, !noalias !22
   %cmp9.i878.i = icmp eq ptr %102, %104
   br i1 %cmp9.i878.i, label %if.end151.i124.i, label %if.end18.i879.i
 
@@ -2740,7 +2740,7 @@ if.then.i1075.i:                                  ; preds = %if.then169.i132.i
   br label %ZSTD_decodeSequence.exit225.i
 
 if.end.i1033.i:                                   ; preds = %if.then169.i132.i
-  %110 = load ptr, ptr %ptr.i.i.i, align 8
+  %110 = load ptr, ptr %ptr.i.i.i, align 8, !noalias !22
   %111 = load ptr, ptr %limitPtr.i.i, align 8, !noalias !22
   %cmp4.i1036.not.i = icmp ult ptr %110, %111
   br i1 %cmp4.i1036.not.i, label %if.end7.i1037.i, label %if.then6.i1073.i
@@ -2758,7 +2758,7 @@ if.then6.i1073.i:                                 ; preds = %if.end.i1033.i
   br label %ZSTD_decodeSequence.exit225.i
 
 if.end7.i1037.i:                                  ; preds = %if.end.i1033.i
-  %112 = load ptr, ptr %start.i.i, align 8
+  %112 = load ptr, ptr %start.i.i, align 8, !noalias !22
   %cmp9.i1040.i = icmp eq ptr %110, %112
   br i1 %cmp9.i1040.i, label %ZSTD_decodeSequence.exit225.i, label %if.end18.i1041.i
 
@@ -8838,7 +8838,7 @@ if.end127.i118:                                   ; preds = %if.then121.i162, %i
   br i1 %cmp144.i150, label %if.then148.i153, label %if.end151.i124
 
 if.then148.i153:                                  ; preds = %if.end127.i118
-  %100 = load i32, ptr %bitsConsumed.i6.i, align 8
+  %100 = load i32, ptr %bitsConsumed.i6.i, align 8, !noalias !62
   %cmp.i868 = icmp ugt i32 %100, 64
   br i1 %cmp.i868, label %if.then.i913, label %if.end.i871
 
@@ -8847,7 +8847,7 @@ if.then.i913:                                     ; preds = %if.then148.i153
   br label %if.end151.i124
 
 if.end.i871:                                      ; preds = %if.then148.i153
-  %101 = load ptr, ptr %ptr.i.i, align 8
+  %101 = load ptr, ptr %ptr.i.i, align 8, !noalias !62
   %102 = load ptr, ptr %limitPtr.i, align 8, !noalias !62
   %cmp4.i874.not = icmp ult ptr %101, %102
   br i1 %cmp4.i874.not, label %if.end7.i875, label %if.then6.i911
@@ -8865,7 +8865,7 @@ if.then6.i911:                                    ; preds = %if.end.i871
   br label %if.end151.i124
 
 if.end7.i875:                                     ; preds = %if.end.i871
-  %103 = load ptr, ptr %start.i, align 8
+  %103 = load ptr, ptr %start.i, align 8, !noalias !62
   %cmp9.i878 = icmp eq ptr %101, %103
   br i1 %cmp9.i878, label %if.end151.i124, label %if.end18.i879
 
@@ -8962,7 +8962,7 @@ if.then.i1075:                                    ; preds = %if.then169.i132
   br label %ZSTD_decodeSequence.exit225
 
 if.end.i1033:                                     ; preds = %if.then169.i132
-  %109 = load ptr, ptr %ptr.i.i, align 8
+  %109 = load ptr, ptr %ptr.i.i, align 8, !noalias !62
   %110 = load ptr, ptr %limitPtr.i, align 8, !noalias !62
   %cmp4.i1036.not = icmp ult ptr %109, %110
   br i1 %cmp4.i1036.not, label %if.end7.i1037, label %if.then6.i1073
@@ -8980,7 +8980,7 @@ if.then6.i1073:                                   ; preds = %if.end.i1033
   br label %ZSTD_decodeSequence.exit225
 
 if.end7.i1037:                                    ; preds = %if.end.i1033
-  %111 = load ptr, ptr %start.i, align 8
+  %111 = load ptr, ptr %start.i, align 8, !noalias !62
   %cmp9.i1040 = icmp eq ptr %109, %111
   br i1 %cmp9.i1040, label %ZSTD_decodeSequence.exit225, label %if.end18.i1041
 

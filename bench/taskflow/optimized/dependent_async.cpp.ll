@@ -1996,7 +1996,7 @@ if.else.i9.i.i:                                   ; preds = %add_successor.i.i.i
 invoke.cont12.i.i:                                ; preds = %if.else.i9.i.i
   %106 = atomicrmw sub ptr %_join_counter.i.i.i.i129, i64 1 acq_rel, align 8, !noalias !42
   %cmp.i.i = icmp eq i64 %106, 1
-  %.pre8.i.i = load ptr, ptr %task.i.i19, align 8, !noalias !42
+  %.pre8.i.i = load ptr, ptr %task.i.i19, align 8, !noalias !58
   br i1 %cmp.i.i, label %if.then.i.i150, label %invoke.cont7
 
 if.then.i.i150:                                   ; preds = %invoke.cont12.i.i
@@ -2576,7 +2576,7 @@ if.else.i9.i.i346:                                ; preds = %add_successor.i.i.i
 invoke.cont12.i.i348:                             ; preds = %if.else.i9.i.i346
   %169 = atomicrmw sub ptr %_join_counter.i.i.i.i321, i64 1 acq_rel, align 8, !noalias !68
   %cmp.i.i349 = icmp eq i64 %169, 1
-  %.pre8.i.i350 = load ptr, ptr %task.i.i210, align 8, !noalias !68
+  %.pre8.i.i350 = load ptr, ptr %task.i.i210, align 8, !noalias !84
   br i1 %cmp.i.i349, label %if.then.i.i354, label %invoke.cont12
 
 if.then.i.i354:                                   ; preds = %invoke.cont12.i.i348
@@ -3239,7 +3239,7 @@ acqrel.i.i20.i.i:                                 ; preds = %if.else.i18.i.i
 invoke.cont16.i.i:                                ; preds = %acqrel.i.i20.i.i, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE9push_backERKS2_.exit.i44.i.i
   %num_dependents.1.i.i = phi i64 [ %num_dependents.0.i.i, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE9push_backERKS2_.exit.i44.i.i ], [ %sub.i22.i.i, %acqrel.i.i20.i.i ]
   %cmp.i.i573 = icmp eq i64 %num_dependents.1.i.i, 0
-  %.pre.i.i574 = load ptr, ptr %task.i.i443, align 8, !noalias !94
+  %.pre.i.i574 = load ptr, ptr %task.i.i443, align 8, !noalias !110
   br i1 %cmp.i.i573, label %if.then.i.i577, label %invoke.cont17
 
 if.then.i.i577:                                   ; preds = %invoke.cont16.i.i
@@ -3326,17 +3326,17 @@ ehcleanup.i447:                                   ; preds = %lpad5.body.i, %lpad
   br label %ehcleanup49
 
 invoke.cont17:                                    ; preds = %if.else.i52.i.i, %if.then.i51.i.i, %invoke.cont16.i.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  store ptr %.pre.i.i574, ptr %3, align 8, !alias.scope !113
+  call void @llvm.experimental.noalias.scope.decl(metadata !113)
+  store ptr %.pre.i.i574, ptr %3, align 8, !alias.scope !110
   %second.i.i56.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %254 = load ptr, ptr %fu.i.i442, align 8, !noalias !113
-  store ptr %254, ptr %second.i.i56.i.i, align 8, !alias.scope !113
+  %254 = load ptr, ptr %fu.i.i442, align 8, !noalias !110
+  store ptr %254, ptr %second.i.i56.i.i, align 8, !alias.scope !110
   %_M_refcount.i.i.i.i.i.i.i.i575 = getelementptr inbounds i8, ptr %3, i64 16
   %_M_refcount4.i.i.i.i.i.i.i.i576 = getelementptr inbounds i8, ptr %fu.i.i442, i64 8
-  %255 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i576, align 8, !noalias !113
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i576, align 8, !noalias !113
-  store ptr %255, ptr %_M_refcount.i.i.i.i.i.i.i.i575, align 8, !alias.scope !113
-  store ptr null, ptr %fu.i.i442, align 8, !noalias !113
+  %255 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i576, align 8, !noalias !110
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i576, align 8, !noalias !110
+  store ptr %255, ptr %_M_refcount.i.i.i.i.i.i.i.i575, align 8, !alias.scope !110
+  store ptr null, ptr %fu.i.i442, align 8, !noalias !110
   call void @_ZNSt13packaged_taskIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %p.i.i441) #34, !noalias !94
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %p.i.i441), !noalias !88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fu.i.i442), !noalias !88
@@ -20127,9 +20127,9 @@ if.then.i:                                        ; preds = %entry
   %.pre = load ptr, ptr %_stacks, align 8
   %add.ptr.i37.phi.trans.insert = getelementptr inbounds %"class.std::stack", ptr %.pre, i64 %0
   %_M_finish.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i37.phi.trans.insert, i64 48
-  %.pre75 = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8
+  %.pre75 = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8, !noalias !314
   %_M_first3.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i37.phi.trans.insert, i64 56
-  %.pre76 = load ptr, ptr %_M_first3.i.i.i.i.phi.trans.insert, align 8
+  %.pre76 = load ptr, ptr %_M_first3.i.i.i.i.phi.trans.insert, align 8, !noalias !314
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %entry
@@ -26149,10 +26149,10 @@ attributes #42 = { cold }
 !107 = distinct !{!107, !"_ZN2tf8make_mocISt13packaged_taskIFvvEEEEDaOT_"}
 !108 = !{!106, !92, !89}
 !109 = distinct !{!109, !6}
-!110 = !{!111}
+!110 = !{!111, !92, !89}
 !111 = distinct !{!111, !112, !"_ZSt9make_pairIN2tf9AsyncTaskESt6futureIvEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: %agg.result"}
 !112 = distinct !{!112, !"_ZSt9make_pairIN2tf9AsyncTaskESt6futureIvEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
-!113 = !{!111, !92, !89}
+!113 = !{!111}
 !114 = !{!115}
 !115 = distinct !{!115, !116, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_4JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES4_OT_DpOS6_: %agg.result"}
 !116 = distinct !{!116, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_4JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES4_OT_DpOS6_"}

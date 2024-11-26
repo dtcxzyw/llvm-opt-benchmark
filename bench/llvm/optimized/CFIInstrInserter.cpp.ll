@@ -4134,7 +4134,7 @@ _ZN4llvm9BitVector6resizeEjb.exit.i.i:            ; preds = %1849, %_ZN4llvm9Bit
   %1881 = load i64, ptr %1880, align 8
   %1882 = and i64 %1881, %1876
   store i64 %1882, ptr %1880, align 8
-  %.pr285.i = load i32, ptr %1658, align 8
+  %.pr285.i = load i32, ptr %1658, align 8, !noalias !55
   br label %"_ZN4llvm9BitVector5applyIZN12_GLOBAL__N_116CFIInstrInserter15insertCFIInstrsERNS_15MachineFunctionEE3$_0JS0_EEERS0_OT_S7_RKS0_DpRKT0_.exit.i"
 
 "_ZN4llvm9BitVector5applyIZN12_GLOBAL__N_116CFIInstrInserter15insertCFIInstrsERNS_15MachineFunctionEE3$_0JS0_EEERS0_OT_S7_RKS0_DpRKT0_.exit.i": ; preds = %1873, %._crit_edge.i.i41

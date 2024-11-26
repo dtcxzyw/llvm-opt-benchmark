@@ -50139,7 +50139,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i.i:            ; preds = %_ZNK4llvm7SDValue24
 
 _ZN4llvm5APIntC2Ejmbb.exit.i.i:                   ; preds = %_ZNK4llvm7SDValue24getScalarValueSizeInBitsEv.exit
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %25, i64 noundef 0, i1 noundef zeroext false) #33
-  %.pre.i.i = load i32, ptr %238, align 8
+  %.pre.i.i = load i32, ptr %238, align 8, !alias.scope !216
   %243 = icmp ult i32 %.pre.i.i, 65
   %244 = add i32 %237, -1
   %245 = and i32 %244, 63
@@ -61610,7 +61610,7 @@ _ZN4llvmanENS_5APIntERKS0_.exit.thread.i:         ; preds = %_ZN4llvm5APIntC2ERK
   %.sink.i = phi ptr [ %32, %_ZN4llvm5APIntC2Ejmbb.exit.i ], [ %34, %_ZN4llvm5APIntC2ERKS0_.exit.i ]
   %633 = phi i32 [ %630, %_ZN4llvm5APIntC2Ejmbb.exit.i ], [ %.pr.i, %_ZN4llvm5APIntC2ERKS0_.exit.i ]
   %.pre.i = load i64, ptr %.sink.i, align 8
-  %634 = load i64, ptr %31, align 8
+  %634 = load i64, ptr %31, align 8, !noalias !279
   %635 = and i64 %634, %.pre.i
   store i64 %635, ptr %34, align 8, !noalias !279
   store i32 %633, ptr %578, align 8, !alias.scope !279
@@ -75184,7 +75184,7 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %18, %19
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i:                  ; preds = %20
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %12) #33
-  %.pr.i.i = load i32, ptr %21, align 8
+  %.pr.i.i = load i32, ptr %21, align 8, !alias.scope !370
   %25 = icmp ult i32 %.pr.i.i, 65
   br i1 %25, label %_ZNK4llvm5APInt4lshrEj.exit.thread.i, label %_ZNK4llvm5APInt4lshrEj.exit.i
 
@@ -75226,7 +75226,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i18.i:         ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntC2ERKS0_.exit.i16.i:                ; preds = %_ZN4llvm5APIntD2Ev.exit.i
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %12) #33
-  %.pr.i17.i = load i32, ptr %32, align 8
+  %.pr.i17.i = load i32, ptr %32, align 8, !alias.scope !373
   %36 = icmp ult i32 %.pr.i17.i, 65
   br i1 %36, label %37, label %_ZNK4llvm5APInt4lshrEj.exit19.i
 
@@ -75303,7 +75303,7 @@ _ZN4llvm5APIntD2Ev.exit21.i:                      ; preds = %51, %_ZNK4llvm5APIn
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i15:                ; preds = %60
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %12) #33
-  %.pr.i.i16 = load i32, ptr %61, align 8
+  %.pr.i.i16 = load i32, ptr %61, align 8, !alias.scope !376
   %65 = icmp ult i32 %.pr.i.i16, 65
   br i1 %65, label %_ZNK4llvm5APInt4lshrEj.exit.thread.i42, label %_ZNK4llvm5APInt4lshrEj.exit.i17
 
@@ -75345,7 +75345,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i18.i41:       ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntC2ERKS0_.exit.i16.i25:              ; preds = %_ZN4llvm5APIntD2Ev.exit.i23
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %12) #33
-  %.pr.i17.i26 = load i32, ptr %72, align 8
+  %.pr.i17.i26 = load i32, ptr %72, align 8, !alias.scope !379
   %76 = icmp ult i32 %.pr.i17.i26, 65
   br i1 %76, label %77, label %_ZNK4llvm5APInt4lshrEj.exit19.i27
 
@@ -75431,7 +75431,7 @@ _ZNK4llvm3EVTeqES0_.exit49.thread:                ; preds = %_ZNK4llvm7APFloat14
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i53:                ; preds = %105
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %12) #33
-  %.pr.i.i54 = load i32, ptr %106, align 8
+  %.pr.i.i54 = load i32, ptr %106, align 8, !alias.scope !382
   %110 = icmp ult i32 %.pr.i.i54, 65
   br i1 %110, label %_ZNK4llvm5APInt4lshrEj.exit.thread.i69, label %_ZNK4llvm5APInt4lshrEj.exit.i55
 
@@ -75473,7 +75473,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i15.i:         ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntC2ERKS0_.exit.i13.i:                ; preds = %_ZN4llvm5APIntD2Ev.exit.i60
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %12) #33
-  %.pr.i14.i = load i32, ptr %117, align 8
+  %.pr.i14.i = load i32, ptr %117, align 8, !alias.scope !385
   %121 = icmp ult i32 %.pr.i14.i, 65
   br i1 %121, label %122, label %_ZNK4llvm5APInt4lshrEj.exit16.i
 
@@ -89783,7 +89783,7 @@ _ZNK4llvm3EVT13is64BitVectorEv.exit.thread.thread142: ; preds = %_ZNK4llvm3EVT14
   br i1 %.not1.i.i.i.i.i.i, label %_ZN4llvm21getPerfectShuffleCostENS_8ArrayRefIiEE.exit.thread, label %.lr.ph.i.preheader.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %60
-  %63 = load i32, ptr %1, align 4, !noalias !18
+  %63 = load i32, ptr %1, align 4, !noalias !453
   %.not2.i.i6.i.i.i.i.i = icmp sgt i32 %63, 0
   br i1 %.not2.i.i6.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i11.i, label %.lr.ph.i.i.i.i.i
 
@@ -158480,7 +158480,7 @@ define internal fastcc noundef zeroext i1 @_ZL31areLoadedOffsetButOtherwiseSameN
   br i1 %36, label %37, label %170
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr %13, align 8, !noalias !18
+  %38 = load ptr, ptr %13, align 8, !noalias !680
   %39 = load ptr, ptr %14, align 8, !noalias !680
   %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %13) #33, !noalias !691
   %41 = getelementptr inbounds ptr, ptr %38, i64 %40
@@ -159463,7 +159463,7 @@ _ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit.i.i.i: ; preds = %83, %_Z
   %91 = extractvalue { i16, ptr } %89, 1
   %92 = getelementptr inbounds i8, ptr %13, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull %92, i64 noundef 3) #33
-  %93 = load ptr, ptr %8, align 8, !noalias !18
+  %93 = load ptr, ptr %8, align 8, !noalias !712
   %94 = load ptr, ptr %9, align 8, !noalias !712
   %95 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %8) #33, !noalias !717
   %96 = getelementptr inbounds ptr, ptr %93, i64 %95

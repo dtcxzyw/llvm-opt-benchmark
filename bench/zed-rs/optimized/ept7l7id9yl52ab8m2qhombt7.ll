@@ -2227,9 +2227,9 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
   br label %30
 
 47:                                               ; preds = %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c23ed1111542a3fE.llvm.11796837120844898689.exit"
-  %48 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
+  %48 = load ptr, ptr %20, align 8, !alias.scope !336, !nonnull !4, !noundef !4
   %49 = load i64, ptr %21, align 8, !alias.scope !336, !noundef !4
-  %50 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
+  %50 = load ptr, ptr %23, align 8, !alias.scope !339, !nonnull !4, !noundef !4
   %51 = load i64, ptr %24, align 8, !alias.scope !339, !noundef !4
   invoke void @_ZN3std10sys_common7process10CommandEnv3set17ha180f30fcd71de41E(ptr noalias noundef nonnull align 8 dereferenceable(32) %19, ptr noalias noundef nonnull readonly align 1 %48, i64 noundef %49, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %51)
           to label %52 unwind label %45

@@ -32574,7 +32574,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 
 116:                                              ; preds = %.lr.ph285, %_ZN7xgboost4JsonD2Ev.exit
   %117 = phi ptr [ %79, %.lr.ph285 ], [ %406, %_ZN7xgboost4JsonD2Ev.exit ]
-  %118 = load ptr, ptr %82, align 8
+  %118 = load ptr, ptr %82, align 8, !noalias !238
   %119 = icmp eq ptr %117, %118
   br i1 %119, label %120, label %_ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3topEv.exit
 

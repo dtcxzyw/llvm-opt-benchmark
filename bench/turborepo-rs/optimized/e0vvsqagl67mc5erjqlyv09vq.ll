@@ -41,7 +41,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEEB1h_(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
+  %3 = load ptr, ptr %2, align 8, !alias.scope !4, !nonnull !7, !noundef !7
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !4, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
@@ -322,7 +322,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15tu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !alias.scope !133, !nonnull !7, !noundef !7
+  %4 = load ptr, ptr %3, align 8, !alias.scope !139, !nonnull !7, !noundef !7
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8, !alias.scope !139, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)

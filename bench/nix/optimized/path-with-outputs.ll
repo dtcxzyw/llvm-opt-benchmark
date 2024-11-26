@@ -2225,7 +2225,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZNKSt
   store ptr %2, ptr %.sroa.216.0..sroa_idx, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = getelementptr inbounds i8, ptr %5, i64 16
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !noalias !108
   %.not.i.i.i.i.i.i12 = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i.i12, label %34, label %24
 

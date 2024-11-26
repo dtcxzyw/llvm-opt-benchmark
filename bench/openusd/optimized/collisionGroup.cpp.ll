@@ -2700,7 +2700,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorppEv.exit: ; preds =
   %146 = load ptr, ptr %133, align 8
   %147 = load ptr, ptr %131, align 8
   %148 = icmp eq ptr %146, %147
-  %.pr.pre = load ptr, ptr %10, align 8
+  %.pr.pre = load ptr, ptr %10, align 8, !noalias !15
   %149 = load ptr, ptr %11, align 8
   %150 = icmp eq ptr %.pr.pre, %149
   %or.cond = select i1 %148, i1 %150, i1 false
@@ -2841,14 +2841,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit87: ; preds
   br label %.body90
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorneERKS1_.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorppEv.exit, %151, %153, %157, %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorneERKS1_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !15
-  store ptr %.pr.pre, ptr %6, align 8, !noalias !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !20
+  store ptr %.pr.pre, ptr %6, align 8, !noalias !15
   %.not.i.i.i.i.i88 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i.i.i88, label %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE.exit.i.i, label %225
 
 225:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorneERKS1_.exit.thread
   %226 = getelementptr inbounds nuw i8, ptr %.pr.pre, i64 48
-  %227 = atomicrmw add ptr %226, i64 1 monotonic, align 8, !noalias !18
+  %227 = atomicrmw add ptr %226, i64 1 monotonic, align 8, !noalias !15
   br label %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE.exit.i.i: ; preds = %225, %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorneERKS1_.exit.thread
@@ -2856,7 +2856,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE.exit.i.i unwind label %233
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE.exit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE.exit.i.i
-  %228 = load ptr, ptr %6, align 8, !noalias !18
+  %228 = load ptr, ptr %6, align 8, !noalias !15
   %.not.i.i.i2.i.i = icmp eq ptr %228, null
   br i1 %.not.i.i.i2.i.i, label %235, label %229
 
@@ -2878,7 +2878,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7
   br label %.body90
 
 235:                                              ; preds = %232, %229, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !20
   %236 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsCollisionGroup16_GetStaticTfTypeEvE6tfType acquire, align 8
   %237 = icmp eq i8 %236, 0
   br i1 %237, label %238, label %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry14FindSchemaInfoINS_24UsdPhysicsCollisionGroupEEEPKNS0_10SchemaInfoEv.exit.i, !prof !4
@@ -10867,12 +10867,12 @@ attributes #24 = { nounwind willreturn memory(read) }
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange3endEv: argument 0"}
 !14 = distinct !{!14, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange3endEv"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratordeEv: argument 0"}
-!17 = distinct !{!17, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratordeEv"}
-!18 = !{!19, !16}
-!19 = distinct !{!19, !20, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator11dereferenceEv: argument 0"}
-!20 = distinct !{!20, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator11dereferenceEv"}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator11dereferenceEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator11dereferenceEv"}
+!18 = distinct !{!18, !19, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratordeEv: argument 0"}
+!19 = distinct !{!19, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratordeEv"}
+!20 = !{!18}
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPathEv: argument 0"}
 !23 = distinct !{!23, !"_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPathEv"}

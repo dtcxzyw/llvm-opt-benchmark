@@ -1198,7 +1198,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK2dd3fdd7var2pos
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZNK2dd3fdd7var2posEj.exit
   %m_free_nodes.i.i.i = getelementptr inbounds i8, ptr %4, i64 112
-  %12 = load ptr, ptr %m_free_nodes.i.i.i, align 8
+  %12 = load ptr, ptr %m_free_nodes.i.i.i, align 8, !noalias !17
   %cmp.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK2dd3bdd2loEv.exit, label %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i
 
@@ -1321,7 +1321,7 @@ if.then.i.i.i39:                                  ; preds = %if.else
 
 if.end.i.i.i44:                                   ; preds = %if.then.i.i.i39, %if.else
   %m_free_nodes.i.i.i45 = getelementptr inbounds i8, ptr %24, i64 112
-  %28 = load ptr, ptr %m_free_nodes.i.i.i45, align 8
+  %28 = load ptr, ptr %m_free_nodes.i.i.i45, align 8, !noalias !20
   %cmp.i.i.i.i.i.i46 = icmp eq ptr %28, null
   br i1 %cmp.i.i.i.i.i.i46, label %_ZNK2dd3bdd2hiEv.exit, label %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i47
 
@@ -1974,7 +1974,7 @@ if.then.i.i.i:                                    ; preds = %land.rhs
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %land.rhs
   %m_free_nodes.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
-  %19 = load ptr, ptr %m_free_nodes.i.i.i, align 8
+  %19 = load ptr, ptr %m_free_nodes.i.i.i, align 8, !noalias !30
   %cmp.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.i.i.i.i.i.i, label %cleanup.action, label %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i
 
@@ -2082,8 +2082,8 @@ if.end:                                           ; preds = %cleanup.done.if.end
   br i1 %tobool17, label %if.end33, label %land.rhs18
 
 land.rhs18:                                       ; preds = %if.end
-  %32 = load ptr, ptr %m.i, align 8
-  %33 = load i32, ptr %b, align 8
+  %32 = load ptr, ptr %m.i, align 8, !noalias !33
+  %33 = load i32, ptr %b, align 8, !noalias !33
   %m_nodes.i.i45 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load ptr, ptr %m_nodes.i.i45, align 8, !noalias !33
   %idxprom.i.i.i46 = zext i32 %33 to i64
@@ -2106,7 +2106,7 @@ if.then.i.i.i53:                                  ; preds = %land.rhs18
 
 if.end.i.i.i58:                                   ; preds = %if.then.i.i.i53, %land.rhs18
   %m_free_nodes.i.i.i59 = getelementptr inbounds i8, ptr %32, i64 112
-  %36 = load ptr, ptr %m_free_nodes.i.i.i59, align 8
+  %36 = load ptr, ptr %m_free_nodes.i.i.i59, align 8, !noalias !33
   %cmp.i.i.i.i.i.i60 = icmp eq ptr %36, null
   br i1 %cmp.i.i.i.i.i.i60, label %cleanup.action27, label %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i61
 

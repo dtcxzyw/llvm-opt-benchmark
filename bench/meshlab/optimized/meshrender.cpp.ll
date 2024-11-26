@@ -1599,7 +1599,7 @@ define void @_ZN22MeshShaderRenderPlugin11loadShadersERK4QDir(ptr noundef nonnul
           to label %14 unwind label %64
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %4, align 8
+  %15 = load ptr, ptr %4, align 8, !noalias !20
   %16 = load atomic i32, ptr %15 monotonic, align 4, !noalias !20
   %17 = icmp ugt i32 %16, 1
   br i1 %17, label %18, label %21
@@ -1611,7 +1611,7 @@ define void @_ZN22MeshShaderRenderPlugin11loadShadersERK4QDir(ptr noundef nonnul
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %18
-  %.pre.i = load ptr, ptr %4, align 8
+  %.pre.i = load ptr, ptr %4, align 8, !noalias !20
   br label %21
 
 21:                                               ; preds = %.noexc, %14
@@ -1632,7 +1632,7 @@ define void @_ZN22MeshShaderRenderPlugin11loadShadersERK4QDir(ptr noundef nonnul
           to label %.noexc23 unwind label %.loopexit.split-lp
 
 .noexc23:                                         ; preds = %30
-  %.pre.i22 = load ptr, ptr %4, align 8
+  %.pre.i22 = load ptr, ptr %4, align 8, !noalias !23
   br label %_ZN5QListI7QStringE3endEv.exit
 
 _ZN5QListI7QStringE3endEv.exit:                   ; preds = %21, %.noexc23

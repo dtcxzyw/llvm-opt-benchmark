@@ -155,7 +155,7 @@ _ZNKSt3mapIN4cvc58internal12NodeTemplateILb0EEENS1_16NodeTemplateTrieILb0EEESt4l
 
 if.then:                                          ; preds = %for.body, %_ZNKSt8_Rb_treeIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_16NodeTemplateTrieILb0EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4cvc58internal12NodeTemplateILb0EEENS1_16NodeTemplateTrieILb0EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit
   %6 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !6
-  %bf.load.i.i.i = load i64, ptr %6, align 8
+  %bf.load.i.i.i = load i64, ptr %6, align 8, !noalias !6
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %7 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %7, 1048575
@@ -223,7 +223,7 @@ for.end:                                          ; preds = %if.end, %entry
 
 if.then18:                                        ; preds = %for.end
   %12 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !9
-  %bf.load.i.i.i7 = load i64, ptr %12, align 8
+  %bf.load.i.i.i7 = load i64, ptr %12, align 8, !noalias !9
   %bf.lshr.i.i.i8 = lshr i64 %bf.load.i.i.i7, 40
   %13 = trunc nuw nsw i64 %bf.lshr.i.i.i8 to i32
   %bf.cast.i.i.i9 = and i32 %13, 1048575

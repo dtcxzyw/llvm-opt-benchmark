@@ -6532,7 +6532,7 @@ _ZN5Ipopt22BacktrackingLineSearch19CurrentIsAcceptableEv.exit306.thread: ; preds
   %1029 = load double, ptr %1028, align 8
   %1030 = load ptr, ptr %2, align 8
   %1031 = getelementptr inbounds i8, ptr %1030, i64 208
-  %1032 = load ptr, ptr %1031, align 8, !noalias !51
+  %1032 = load ptr, ptr %1031, align 8, !noalias !79
   %1033 = getelementptr inbounds i8, ptr %1032, i64 32
   %1034 = load ptr, ptr %1033, align 8, !noalias !79
   %.not.i.i.i307 = icmp eq ptr %1034, null
@@ -6552,7 +6552,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i308: ; preds = %_ZNK5Ipo
   %1040 = load i32, ptr %1039, align 8, !noalias !84
   %1041 = add nsw i32 %1040, 1
   store i32 %1041, ptr %1039, align 8, !noalias !84
-  %.pre524 = load ptr, ptr %1031, align 8, !noalias !51
+  %.pre524 = load ptr, ptr %1031, align 8, !noalias !87
   br label %_ZNK5Ipopt14IteratesVector3z_LEv.exit
 
 _ZNK5Ipopt14IteratesVector3z_LEv.exit:            ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i308, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i311
@@ -6577,7 +6577,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i314: ; preds = %_ZNK5Ipo
   %1050 = load i32, ptr %1049, align 8, !noalias !92
   %1051 = add nsw i32 %1050, 1
   store i32 %1051, ptr %1049, align 8, !noalias !92
-  %.pre525 = load ptr, ptr %1031, align 8, !noalias !51
+  %.pre525 = load ptr, ptr %1031, align 8, !noalias !95
   br label %_ZNK5Ipopt14IteratesVector3z_UEv.exit
 
 _ZNK5Ipopt14IteratesVector3z_UEv.exit:            ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i314, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i317
@@ -8638,7 +8638,7 @@ define noundef zeroext i1 @_ZN5Ipopt22BacktrackingLineSearch16TrySoftRestoStepER
   %17 = load double, ptr %16, align 8
   %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 208
-  %20 = load ptr, ptr %19, align 8, !noalias !51
+  %20 = load ptr, ptr %19, align 8, !noalias !189
   %21 = load ptr, ptr %20, align 8, !noalias !189
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i
@@ -8722,7 +8722,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit75:      ; preds = %_ZN5Ipopt8SmartPtrI
   %59 = load double, ptr %58, align 8
   %60 = load ptr, ptr %1, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 208
-  %62 = load ptr, ptr %61, align 8, !noalias !51
+  %62 = load ptr, ptr %61, align 8, !noalias !205
   %63 = getelementptr inbounds i8, ptr %62, i64 32
   %64 = load ptr, ptr %63, align 8, !noalias !205
   %.not.i.i.i76 = icmp eq ptr %64, null
@@ -8744,7 +8744,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i77: ; preds = %_ZNK5Ipop
   store i32 %71, ptr %69, align 8, !noalias !210
   %.pre214 = load ptr, ptr %1, align 8
   %.phi.trans.insert215 = getelementptr inbounds i8, ptr %.pre214, i64 208
-  %.pre216 = load ptr, ptr %.phi.trans.insert215, align 8, !noalias !51
+  %.pre216 = load ptr, ptr %.phi.trans.insert215, align 8, !noalias !213
   br label %_ZNK5Ipopt14IteratesVector3z_LEv.exit
 
 _ZNK5Ipopt14IteratesVector3z_LEv.exit:            ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i80, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i77
@@ -8772,7 +8772,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i83: ; preds = %_ZNK5Ipop
   store i32 %82, ptr %80, align 8, !noalias !218
   %.pre217 = load ptr, ptr %1, align 8
   %.phi.trans.insert218 = getelementptr inbounds i8, ptr %.pre217, i64 208
-  %.pre219 = load ptr, ptr %.phi.trans.insert218, align 8, !noalias !51
+  %.pre219 = load ptr, ptr %.phi.trans.insert218, align 8, !noalias !221
   br label %_ZNK5Ipopt14IteratesVector3z_UEv.exit
 
 _ZNK5Ipopt14IteratesVector3z_UEv.exit:            ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i83, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i86
@@ -8903,7 +8903,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit107:     ; preds = %_ZN5Ipopt8SmartPtrI
   %145 = load ptr, ptr %14, align 8
   %146 = load ptr, ptr %1, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 208
-  %148 = load ptr, ptr %147, align 8, !noalias !51
+  %148 = load ptr, ptr %147, align 8, !noalias !237
   %149 = load ptr, ptr %148, align 8, !noalias !237
   %.not.i.i.i108 = icmp eq ptr %149, null
   br i1 %.not.i.i.i108, label %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i112, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i109
@@ -9382,7 +9382,7 @@ define noundef zeroext i1 @_ZN5Ipopt22BacktrackingLineSearch24DoBacktrackingLine
   %20 = load double, ptr %19, align 8
   %21 = load ptr, ptr %7, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 208
-  %23 = load ptr, ptr %22, align 8, !noalias !51
+  %23 = load ptr, ptr %22, align 8, !noalias !254
   %24 = load ptr, ptr %23, align 8, !noalias !254
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i
@@ -9571,7 +9571,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit114:     ; preds = %74, %69
   %125 = load double, ptr %2, align 8
   %126 = load ptr, ptr %7, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 208
-  %128 = load ptr, ptr %127, align 8, !noalias !51
+  %128 = load ptr, ptr %127, align 8, !noalias !270
   %129 = load ptr, ptr %128, align 8, !noalias !270
   %.not.i.i.i117 = icmp eq ptr %129, null
   br i1 %.not.i.i.i117, label %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i121, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i118
@@ -10430,7 +10430,7 @@ define void @_ZN5Ipopt22BacktrackingLineSearch15PerformDualStepEddRNS_8SmartPtrI
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 208
-  %16 = load ptr, ptr %15, align 8, !noalias !51
+  %16 = load ptr, ptr %15, align 8, !noalias !290
   %17 = getelementptr inbounds i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8, !noalias !290
   %.not.i.i.i = icmp eq ptr %18, null
@@ -10452,7 +10452,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i: ; preds = %_ZNK5Ipopt1
   store i32 %25, ptr %23, align 8, !noalias !295
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 208
-  %.pre484 = load ptr, ptr %.phi.trans.insert, align 8, !noalias !51
+  %.pre484 = load ptr, ptr %.phi.trans.insert, align 8, !noalias !298
   br label %_ZNK5Ipopt14IteratesVector3z_LEv.exit
 
 _ZNK5Ipopt14IteratesVector3z_LEv.exit:            ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i
@@ -10480,7 +10480,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i85: ; preds = %_ZNK5Ipop
   store i32 %36, ptr %34, align 8, !noalias !303
   %.pre485 = load ptr, ptr %3, align 8
   %.phi.trans.insert486 = getelementptr inbounds i8, ptr %.pre485, i64 208
-  %.pre487 = load ptr, ptr %.phi.trans.insert486, align 8, !noalias !51
+  %.pre487 = load ptr, ptr %.phi.trans.insert486, align 8, !noalias !306
   br label %_ZNK5Ipopt14IteratesVector3z_UEv.exit
 
 _ZNK5Ipopt14IteratesVector3z_UEv.exit:            ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i85, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i88
@@ -12258,7 +12258,7 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit: ; preds = %_ZN5Ipopt8SmartPtr
   %898 = load ptr, ptr %12, align 8
   %899 = load ptr, ptr %3, align 8
   %900 = getelementptr inbounds i8, ptr %899, i64 208
-  %901 = load ptr, ptr %900, align 8, !noalias !51
+  %901 = load ptr, ptr %900, align 8, !noalias !425
   %902 = getelementptr inbounds i8, ptr %901, i64 16
   %903 = load ptr, ptr %902, align 8, !noalias !425
   %.not.i.i.i337 = icmp eq ptr %903, null

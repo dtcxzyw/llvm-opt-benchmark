@@ -8840,7 +8840,7 @@ for.body.i.preheader.i.i:                         ; preds = %call.i.noexc126
           to label %call.i.i.i124.noexc unwind label %lpad72
 
 call.i.i.i124.noexc:                              ; preds = %for.body.i.preheader.i.i
-  %72 = load ptr, ptr %p, align 8, !tbaa !3
+  %72 = load ptr, ptr %p, align 8, !tbaa !3, !noalias !150
   %add.ptr.i.i.i125 = getelementptr inbounds nuw double, ptr %72, i64 %68
   br label %for.body.i.i.i
 
@@ -10789,7 +10789,7 @@ invoke.cont423:                                   ; preds = %invoke.cont421
           to label %call.i615.noexc unwind label %lpad425
 
 call.i615.noexc:                                  ; preds = %invoke.cont423
-  %357 = load i64, ptr %n_.i1039, align 8, !tbaa !128
+  %357 = load i64, ptr %n_.i1039, align 8, !tbaa !128, !noalias !181
   %cmp.not.i.i.i617 = icmp eq i64 %357, 0
   br i1 %cmp.not.i.i.i617, label %call.i615.noexc.invoke.cont426_crit_edge, label %for.body.i.preheader.i.i618
 
@@ -10805,7 +10805,7 @@ for.body.i.preheader.i.i618:                      ; preds = %call.i615.noexc
           to label %call.i.i.i619.noexc unwind label %lpad425
 
 call.i.i.i619.noexc:                              ; preds = %for.body.i.preheader.i.i618
-  %361 = load ptr, ptr %p, align 8, !tbaa !3
+  %361 = load ptr, ptr %p, align 8, !tbaa !3, !noalias !181
   %add.ptr.i.i.i621 = getelementptr inbounds nuw double, ptr %361, i64 %357
   br label %for.body.i.i.i622
 

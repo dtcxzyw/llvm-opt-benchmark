@@ -11162,7 +11162,7 @@ entry:
 
 _ZN3net12_GLOBAL__N_125FrameSerializationVisitorD2Ev.exit: ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %1 = load ptr, ptr %frame_.i, align 8
+  %1 = load ptr, ptr %frame_.i, align 8, !noalias !30
   store ptr %1, ptr %agg.result, align 8, !alias.scope !30
   %size_.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %2 = load i64, ptr %size_.i.i, align 8, !noalias !30

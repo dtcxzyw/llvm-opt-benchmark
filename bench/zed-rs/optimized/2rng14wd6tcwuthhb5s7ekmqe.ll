@@ -174,7 +174,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !alias.scope !16, !nonnull !4, !noundef !4
+  %21 = load ptr, ptr %20, align 8, !alias.scope !19, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !alias.scope !19, !noundef !4
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17he0e18a4cd5f9b988E.llvm.12416308318850438941"(ptr noalias noundef nonnull align 8 %21, i64 noundef %23) #23
@@ -222,7 +222,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Optio
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !alias.scope !46, !nonnull !4, !noundef !4
+  %6 = load ptr, ptr %5, align 8, !alias.scope !49, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !49, !noundef !4
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17he0e18a4cd5f9b988E.llvm.12416308318850438941"(ptr noalias noundef nonnull align 8 %6, i64 noundef %8) #23
@@ -970,7 +970,7 @@ define internal fastcc void @_ZN9anthropic10get_header17h8ecd7fd9eb231eb8E(ptr d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !107
   call void @_ZN4http6header4name7HdrName10from_bytes17h46058772e303730eE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %3), !noalias !114
-  %10 = load i64, ptr %5, align 8, !range !115, !noalias !116, !noundef !4
+  %10 = load i64, ptr %5, align 8, !range !115, !noalias !107, !noundef !4
   %11 = icmp eq i64 %10, 2
   br i1 %11, label %"_ZN69_$LT$$RF$str$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find17heb5f3a2a16f96a79E.llvm.2499367797053029812.exit.thread.i.i", label %"_ZN69_$LT$$RF$str$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find17heb5f3a2a16f96a79E.llvm.2499367797053029812.exit.i.i"
 

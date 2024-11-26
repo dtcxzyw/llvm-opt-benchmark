@@ -14395,7 +14395,7 @@ invoke.cont12:                                    ; preds = %if.else.i.i, %if.th
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i271, label %if.end15.i.i.i
 
 if.then.i.i.i271:                                 ; preds = %invoke.cont12
-  %8 = load ptr, ptr %ref.tmp11, align 8
+  %8 = load ptr, ptr %ref.tmp11, align 8, !noalias !110
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i271
@@ -14430,7 +14430,7 @@ call2.i.i.i.i.noexc:                              ; preds = %if.end15.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %call2.i.i.i.i.noexc
   %14 = load ptr, ptr %13, align 8, !noalias !110
-  %15 = load ptr, ptr %ref.tmp11, align 8
+  %15 = load ptr, ptr %ref.tmp11, align 8, !noalias !110
   %add.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load i64, ptr %add.ptr.i9.i.i.i.i.i, align 8, !noalias !110
@@ -14521,7 +14521,7 @@ invoke.cont25:                                    ; preds = %if.else.i.i286, %if
   br i1 %cmp.not.not.i.i.i298, label %if.then.i.i.i325, label %if.end15.i.i.i299
 
 if.then.i.i.i325:                                 ; preds = %invoke.cont25
-  %31 = load ptr, ptr %ref.tmp24, align 8
+  %31 = load ptr, ptr %ref.tmp24, align 8, !noalias !115
   br label %for.cond.i.i.i327
 
 for.cond.i.i.i327:                                ; preds = %for.body.i.i.i331, %if.then.i.i.i325
@@ -14557,7 +14557,7 @@ call2.i.i.i.i.noexc334:                           ; preds = %if.end15.i.i.i299
 
 if.end.i.i.i.i.i305:                              ; preds = %call2.i.i.i.i.noexc334
   %37 = load ptr, ptr %36, align 8, !noalias !115
-  %38 = load ptr, ptr %ref.tmp24, align 8
+  %38 = load ptr, ptr %ref.tmp24, align 8, !noalias !115
   %add.ptr8.i.i.i.i.i306 = getelementptr inbounds i8, ptr %37, i64 8
   %add.ptr.i9.i.i.i.i.i307 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load i64, ptr %add.ptr.i9.i.i.i.i.i307, align 8, !noalias !115
@@ -14638,7 +14638,7 @@ invoke.cont40:                                    ; preds = %if.else.i.i341, %if
   br i1 %cmp.not.not.i.i.i353, label %if.then.i.i.i380, label %if.end15.i.i.i354
 
 if.then.i.i.i380:                                 ; preds = %invoke.cont40
-  %52 = load ptr, ptr %ref.tmp39, align 8
+  %52 = load ptr, ptr %ref.tmp39, align 8, !noalias !120
   br label %for.cond.i.i.i382
 
 for.cond.i.i.i382:                                ; preds = %for.body.i.i.i386, %if.then.i.i.i380
@@ -14668,7 +14668,7 @@ call2.i.i.i.i.noexc389:                           ; preds = %if.end15.i.i.i354
 
 if.end.i.i.i.i.i360:                              ; preds = %call2.i.i.i.i.noexc389
   %57 = load ptr, ptr %56, align 8, !noalias !120
-  %58 = load ptr, ptr %ref.tmp39, align 8
+  %58 = load ptr, ptr %ref.tmp39, align 8, !noalias !120
   %add.ptr8.i.i.i.i.i361 = getelementptr inbounds i8, ptr %57, i64 8
   %add.ptr.i9.i.i.i.i.i362 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load i64, ptr %add.ptr.i9.i.i.i.i.i362, align 8, !noalias !120
@@ -14855,7 +14855,7 @@ invoke.cont65:                                    ; preds = %if.else.i.i451, %if
   br i1 %cmp.not.not.i.i.i463, label %if.then.i.i.i490, label %if.end15.i.i.i464
 
 if.then.i.i.i490:                                 ; preds = %invoke.cont65
-  %90 = load ptr, ptr %ref.tmp64, align 8
+  %90 = load ptr, ptr %ref.tmp64, align 8, !noalias !130
   br label %for.cond.i.i.i492
 
 for.cond.i.i.i492:                                ; preds = %for.body.i.i.i496, %if.then.i.i.i490
@@ -22251,7 +22251,7 @@ invoke.cont1753:                                  ; preds = %if.else.i.i2687, %i
 
 if.then.i.i.i2726:                                ; preds = %invoke.cont1753
   %_M_before_begin.i.i.i.i.i2727 = getelementptr inbounds i8, ptr %this, i64 360
-  %894 = load ptr, ptr %ref.tmp1752, align 8
+  %894 = load ptr, ptr %ref.tmp1752, align 8, !noalias !367
   br label %for.cond.i.i.i2728
 
 for.cond.i.i.i2728:                               ; preds = %for.body.i.i.i2732, %if.then.i.i.i2726
@@ -22542,7 +22542,7 @@ invoke.cont1778:                                  ; preds = %if.else.i.i2835, %i
 
 if.then.i.i.i2874:                                ; preds = %invoke.cont1778
   %_M_before_begin.i.i.i.i.i2875 = getelementptr inbounds i8, ptr %this, i64 584
-  %941 = load ptr, ptr %ref.tmp1777, align 8
+  %941 = load ptr, ptr %ref.tmp1777, align 8, !noalias !374
   br label %for.cond.i.i.i2876
 
 for.cond.i.i.i2876:                               ; preds = %for.body.i.i.i2880, %if.then.i.i.i2874
@@ -22833,7 +22833,7 @@ invoke.cont1803:                                  ; preds = %if.else.i.i2984, %i
 
 if.then.i.i.i3023:                                ; preds = %invoke.cont1803
   %_M_before_begin.i.i.i.i.i3024 = getelementptr inbounds i8, ptr %this, i64 472
-  %988 = load ptr, ptr %ref.tmp1802, align 8
+  %988 = load ptr, ptr %ref.tmp1802, align 8, !noalias !380
   br label %for.cond.i.i.i3025
 
 for.cond.i.i.i3025:                               ; preds = %for.body.i.i.i3029, %if.then.i.i.i3023
@@ -34068,7 +34068,7 @@ invoke.cont18:                                    ; preds = %if.else.i.i20, %if.
 
 if.then.i.i.i59:                                  ; preds = %invoke.cont18
   %_M_before_begin.i.i.i.i.i60 = getelementptr inbounds i8, ptr %this, i64 136
-  %30 = load ptr, ptr %ref.tmp17, align 8
+  %30 = load ptr, ptr %ref.tmp17, align 8, !noalias !396
   br label %for.cond.i.i.i61
 
 for.cond.i.i.i61:                                 ; preds = %for.body.i.i.i65, %if.then.i.i.i59
@@ -37423,7 +37423,7 @@ call2.i.i.i.noexc:                                ; preds = %if.then19
   %d_children.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %arrayidx.i.i = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %spec.select.i.i
   %28 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !430
-  %bf.load.i.i.i = load i64, ptr %28, align 8
+  %bf.load.i.i.i = load i64, ptr %28, align 8, !noalias !430
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %29 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %29, 1048575
@@ -37878,7 +37878,7 @@ call2.i.i.i.noexc291:                             ; preds = %if.else72
   %spec.select.i.i274 = select i1 %cmp.i.i272, i64 3, i64 2
   %arrayidx.i.i277 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %spec.select.i.i274
   %71 = load ptr, ptr %arrayidx.i.i277, align 8, !noalias !445
-  %bf.load.i.i.i278 = load i64, ptr %71, align 8
+  %bf.load.i.i.i278 = load i64, ptr %71, align 8, !noalias !445
   %bf.lshr.i.i.i279 = lshr i64 %bf.load.i.i.i278, 40
   %72 = trunc nuw nsw i64 %bf.lshr.i.i.i279 to i32
   %bf.cast.i.i.i280 = and i32 %72, 1048575
@@ -38265,7 +38265,7 @@ call2.i.i.i.noexc468:                             ; preds = %if.then122
   %d_children.i.i452 = getelementptr inbounds i8, ptr %4, i64 16
   %arrayidx.i.i454 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i452, i64 0, i64 %spec.select.i.i451
   %106 = load ptr, ptr %arrayidx.i.i454, align 8, !noalias !457
-  %bf.load.i.i.i455 = load i64, ptr %106, align 8
+  %bf.load.i.i.i455 = load i64, ptr %106, align 8, !noalias !457
   %bf.lshr.i.i.i456 = lshr i64 %bf.load.i.i.i455, 40
   %107 = trunc nuw nsw i64 %bf.lshr.i.i.i456 to i32
   %bf.cast.i.i.i457 = and i32 %107, 1048575
@@ -38791,7 +38791,7 @@ call2.i.i.i.noexc685:                             ; preds = %if.else183
   %spec.select.i.i668 = select i1 %cmp.i.i666, i64 3, i64 2
   %arrayidx.i.i671 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i452, i64 0, i64 %spec.select.i.i668
   %157 = load ptr, ptr %arrayidx.i.i671, align 8, !noalias !475
-  %bf.load.i.i.i672 = load i64, ptr %157, align 8
+  %bf.load.i.i.i672 = load i64, ptr %157, align 8, !noalias !475
   %bf.lshr.i.i.i673 = lshr i64 %bf.load.i.i.i672, 40
   %158 = trunc nuw nsw i64 %bf.lshr.i.i.i673 to i32
   %bf.cast.i.i.i674 = and i32 %158, 1048575
@@ -39769,7 +39769,7 @@ call2.i.i.i.noexc:                                ; preds = %if.then17
   %d_children.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %arrayidx.i.i = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %spec.select.i.i
   %28 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !490
-  %bf.load.i.i.i = load i64, ptr %28, align 8
+  %bf.load.i.i.i = load i64, ptr %28, align 8, !noalias !490
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %29 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %29, 1048575
@@ -40224,7 +40224,7 @@ call2.i.i.i.noexc291:                             ; preds = %if.else67
   %spec.select.i.i274 = select i1 %cmp.i.i272, i64 3, i64 2
   %arrayidx.i.i277 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %spec.select.i.i274
   %71 = load ptr, ptr %arrayidx.i.i277, align 8, !noalias !505
-  %bf.load.i.i.i278 = load i64, ptr %71, align 8
+  %bf.load.i.i.i278 = load i64, ptr %71, align 8, !noalias !505
   %bf.lshr.i.i.i279 = lshr i64 %bf.load.i.i.i278, 40
   %72 = trunc nuw nsw i64 %bf.lshr.i.i.i279 to i32
   %bf.cast.i.i.i280 = and i32 %72, 1048575
@@ -40611,7 +40611,7 @@ call2.i.i.i.noexc468:                             ; preds = %if.then113
   %d_children.i.i452 = getelementptr inbounds i8, ptr %4, i64 16
   %arrayidx.i.i454 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i452, i64 0, i64 %spec.select.i.i451
   %106 = load ptr, ptr %arrayidx.i.i454, align 8, !noalias !517
-  %bf.load.i.i.i455 = load i64, ptr %106, align 8
+  %bf.load.i.i.i455 = load i64, ptr %106, align 8, !noalias !517
   %bf.lshr.i.i.i456 = lshr i64 %bf.load.i.i.i455, 40
   %107 = trunc nuw nsw i64 %bf.lshr.i.i.i456 to i32
   %bf.cast.i.i.i457 = and i32 %107, 1048575
@@ -41137,7 +41137,7 @@ call2.i.i.i.noexc685:                             ; preds = %if.else171
   %spec.select.i.i668 = select i1 %cmp.i.i666, i64 3, i64 2
   %arrayidx.i.i671 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i452, i64 0, i64 %spec.select.i.i668
   %157 = load ptr, ptr %arrayidx.i.i671, align 8, !noalias !535
-  %bf.load.i.i.i672 = load i64, ptr %157, align 8
+  %bf.load.i.i.i672 = load i64, ptr %157, align 8, !noalias !535
   %bf.lshr.i.i.i673 = lshr i64 %bf.load.i.i.i672, 40
   %158 = trunc nuw nsw i64 %bf.lshr.i.i.i673 to i32
   %bf.cast.i.i.i674 = and i32 %158, 1048575
@@ -46230,7 +46230,7 @@ call2.i.i.i.noexc:                                ; preds = %if.then17
   %d_children.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %arrayidx.i.i = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %spec.select.i.i
   %28 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !590
-  %bf.load.i.i.i = load i64, ptr %28, align 8
+  %bf.load.i.i.i = load i64, ptr %28, align 8, !noalias !590
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %29 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %29, 1048575
@@ -46685,7 +46685,7 @@ call2.i.i.i.noexc291:                             ; preds = %if.else67
   %spec.select.i.i274 = select i1 %cmp.i.i272, i64 3, i64 2
   %arrayidx.i.i277 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %spec.select.i.i274
   %71 = load ptr, ptr %arrayidx.i.i277, align 8, !noalias !605
-  %bf.load.i.i.i278 = load i64, ptr %71, align 8
+  %bf.load.i.i.i278 = load i64, ptr %71, align 8, !noalias !605
   %bf.lshr.i.i.i279 = lshr i64 %bf.load.i.i.i278, 40
   %72 = trunc nuw nsw i64 %bf.lshr.i.i.i279 to i32
   %bf.cast.i.i.i280 = and i32 %72, 1048575
@@ -47072,7 +47072,7 @@ call2.i.i.i.noexc468:                             ; preds = %if.then113
   %d_children.i.i452 = getelementptr inbounds i8, ptr %4, i64 16
   %arrayidx.i.i454 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i452, i64 0, i64 %spec.select.i.i451
   %106 = load ptr, ptr %arrayidx.i.i454, align 8, !noalias !617
-  %bf.load.i.i.i455 = load i64, ptr %106, align 8
+  %bf.load.i.i.i455 = load i64, ptr %106, align 8, !noalias !617
   %bf.lshr.i.i.i456 = lshr i64 %bf.load.i.i.i455, 40
   %107 = trunc nuw nsw i64 %bf.lshr.i.i.i456 to i32
   %bf.cast.i.i.i457 = and i32 %107, 1048575
@@ -47598,7 +47598,7 @@ call2.i.i.i.noexc685:                             ; preds = %if.else171
   %spec.select.i.i668 = select i1 %cmp.i.i666, i64 3, i64 2
   %arrayidx.i.i671 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i452, i64 0, i64 %spec.select.i.i668
   %157 = load ptr, ptr %arrayidx.i.i671, align 8, !noalias !635
-  %bf.load.i.i.i672 = load i64, ptr %157, align 8
+  %bf.load.i.i.i672 = load i64, ptr %157, align 8, !noalias !635
   %bf.lshr.i.i.i673 = lshr i64 %bf.load.i.i.i672, 40
   %158 = trunc nuw nsw i64 %bf.lshr.i.i.i673 to i32
   %bf.cast.i.i.i674 = and i32 %158, 1048575

@@ -18194,7 +18194,7 @@ _ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit:     ; preds = %26, %_ZNSt6vectorIP
 
 94:                                               ; preds = %1
   %95 = getelementptr inbounds i8, ptr %0, i64 144
-  %96 = load ptr, ptr %95, align 8
+  %96 = load ptr, ptr %95, align 8, !noalias !101
   %97 = icmp eq ptr %13, %96
   br i1 %97, label %101, label %98
 

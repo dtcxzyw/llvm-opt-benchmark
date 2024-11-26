@@ -34955,7 +34955,7 @@ invoke.cont455:                                   ; preds = %invoke.cont446
   %element.i = getelementptr inbounds i8, ptr %field, i64 204
   %147 = load i32, ptr %element.i, align 4, !noalias !439
   %struct_def.i470 = getelementptr inbounds i8, ptr %field, i64 208
-  %148 = load ptr, ptr %struct_def.i470, align 8
+  %148 = load ptr, ptr %struct_def.i470, align 8, !noalias !439
   %cmp = icmp eq i32 %147, 15
   br i1 %cmp, label %land.lhs.true457, label %cleanup
 

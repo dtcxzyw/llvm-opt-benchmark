@@ -203,31 +203,31 @@ entry:
   %mul.i.i19.i = fmul float %add.i8.i, 5.000000e-01
   %mul4.i.i21.i = fmul float %add8.i11.i, 5.000000e-01
   %mul8.i.i23.i = fmul float %add14.i.i, 5.000000e-01
-  %1 = load float, ptr %t, align 4
+  %1 = load float, ptr %t, align 4, !noalias !5
   %2 = tail call noundef float @llvm.fabs.f32(float %1)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %t, i64 4
-  %3 = load float, ptr %arrayidx.i.i.i, align 4
+  %3 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !5
   %4 = tail call noundef float @llvm.fabs.f32(float %3)
   %arrayidx.i1.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  %5 = load float, ptr %arrayidx.i1.i.i, align 4
+  %5 = load float, ptr %arrayidx.i1.i.i, align 4, !noalias !5
   %6 = tail call noundef float @llvm.fabs.f32(float %5)
   %arrayidx15.i.i = getelementptr inbounds i8, ptr %t, i64 16
-  %7 = load float, ptr %arrayidx15.i.i, align 4
+  %7 = load float, ptr %arrayidx15.i.i, align 4, !noalias !5
   %8 = tail call noundef float @llvm.fabs.f32(float %7)
   %arrayidx.i2.i.i = getelementptr inbounds i8, ptr %t, i64 20
-  %9 = load float, ptr %arrayidx.i2.i.i, align 4
+  %9 = load float, ptr %arrayidx.i2.i.i, align 4, !noalias !5
   %10 = tail call noundef float @llvm.fabs.f32(float %9)
   %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %t, i64 24
-  %11 = load float, ptr %arrayidx.i3.i.i, align 4
+  %11 = load float, ptr %arrayidx.i3.i.i, align 4, !noalias !5
   %12 = tail call noundef float @llvm.fabs.f32(float %11)
   %arrayidx30.i.i = getelementptr inbounds i8, ptr %t, i64 32
-  %13 = load float, ptr %arrayidx30.i.i, align 4
+  %13 = load float, ptr %arrayidx30.i.i, align 4, !noalias !5
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
   %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %t, i64 36
-  %15 = load float, ptr %arrayidx.i4.i.i, align 4
+  %15 = load float, ptr %arrayidx.i4.i.i, align 4, !noalias !5
   %16 = tail call noundef float @llvm.fabs.f32(float %15)
   %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %t, i64 40
-  %17 = load float, ptr %arrayidx.i5.i.i, align 4
+  %17 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !5
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
   %mul8.i.i.i.i = fmul float %mul4.i.i21.i, %3
   %19 = tail call float @llvm.fmuladd.f32(float %mul.i.i19.i, float %1, float %mul8.i.i.i.i)
@@ -458,7 +458,7 @@ _ZN20btAlignedObjectArrayIjED2Ev.exit.i.i.i:      ; preds = %if.then3.i.i.i.i.i.
   store i32 0, ptr %m_capacity.i.i.i.i.i.i, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %6 = icmp eq i64 %indvars.iv.next.i.i.i, %zext.i.i
-  br i1 %6, label %_ZN20btAlignedObjectArrayIS_IjEE7destroyEii.exit.i.i, label %for.body.i.i.i, !llvm.loop !5
+  br i1 %6, label %_ZN20btAlignedObjectArrayIS_IjEE7destroyEii.exit.i.i, label %for.body.i.i.i, !llvm.loop !8
 
 _ZN20btAlignedObjectArrayIS_IjEE7destroyEii.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIjED2Ev.exit.i.i.i, %entry
   %m_data.i1.i.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -536,7 +536,7 @@ _ZN20btAlignedObjectArrayI8btCell32ED2Ev.exit.i.i.i: ; preds = %if.then3.i.i.i.i
   store i32 0, ptr %m_capacity.i.i.i.i.i.i25, align 8
   %indvars.iv.next.i.i.i26 = add nuw nsw i64 %indvars.iv.i.i.i16, 1
   %17 = icmp eq i64 %indvars.iv.next.i.i.i26, %zext.i.i14
-  br i1 %17, label %_ZN20btAlignedObjectArrayIS_I8btCell32EE7destroyEii.exit.i.i, label %for.body.i.i.i15, !llvm.loop !7
+  br i1 %17, label %_ZN20btAlignedObjectArrayIS_I8btCell32EE7destroyEii.exit.i.i, label %for.body.i.i.i15, !llvm.loop !10
 
 _ZN20btAlignedObjectArrayIS_I8btCell32EE7destroyEii.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayI8btCell32ED2Ev.exit.i.i.i, %_ZN20btAlignedObjectArrayIS_IjEED2Ev.exit
   %m_data.i1.i.i3 = getelementptr inbounds i8, ptr %this, i64 152
@@ -614,7 +614,7 @@ _ZN20btAlignedObjectArrayIdED2Ev.exit.i.i.i:      ; preds = %if.then3.i.i.i.i.i.
   store i32 0, ptr %m_capacity.i.i.i.i.i.i53, align 8
   %indvars.iv.next.i.i.i54 = add nuw nsw i64 %indvars.iv.i.i.i44, 1
   %28 = icmp eq i64 %indvars.iv.next.i.i.i54, %zext.i.i42
-  br i1 %28, label %_ZN20btAlignedObjectArrayIS_IdEE7destroyEii.exit.i.i, label %for.body.i.i.i43, !llvm.loop !8
+  br i1 %28, label %_ZN20btAlignedObjectArrayIS_IdEE7destroyEii.exit.i.i, label %for.body.i.i.i43, !llvm.loop !11
 
 _ZN20btAlignedObjectArrayIS_IdEE7destroyEii.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIdED2Ev.exit.i.i.i, %_ZN20btAlignedObjectArrayIS_I8btCell32EED2Ev.exit
   %m_data.i1.i.i31 = getelementptr inbounds i8, ptr %this, i64 120
@@ -684,7 +684,10 @@ attributes #17 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"_ZNK11btMatrix3x38absoluteEv: %agg.result"}
+!7 = distinct !{!7, !"_ZNK11btMatrix3x38absoluteEv"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

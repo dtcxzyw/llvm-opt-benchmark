@@ -3497,8 +3497,8 @@ _ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEjED2Ev.exit: ; preds = %invoke.co
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i32, label %if.end15.i.i.i
 
 if.then.i.i.i32:                                  ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEjED2Ev.exit
-  %21 = load ptr, ptr %cur, align 8
-  %22 = load i32, ptr %second.i, align 8
+  %21 = load ptr, ptr %cur, align 8, !noalias !36
+  %22 = load i32, ptr %second.i, align 8, !noalias !36
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i32
@@ -3525,7 +3525,7 @@ if.end15.i.i.i:                                   ; preds = %_ZNSt4pairIN4cvc58i
 call.i.i.i.i.i.noexc:                             ; preds = %if.end15.i.i.i
   %xor.i.i.i.i.i.i = xor i64 %call.i.i.i.i.i33, -3750763034362895579
   %add10.i.i.i.i.i.i = mul i64 %xor.i.i.i.i.i.i, 1099511628211
-  %26 = load i32, ptr %second.i, align 8
+  %26 = load i32, ptr %second.i, align 8, !noalias !36
   %conv.i.i.i.i.i.i = zext i32 %26 to i64
   %xor.i2.i.i.i.i.i = xor i64 %add10.i.i.i.i.i.i, %conv.i.i.i.i.i.i
   %add10.i3.i.i.i.i.i = mul i64 %xor.i2.i.i.i.i.i, 1099511628211
@@ -3540,7 +3540,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %if.end15.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %call.i.i.i.i.i.noexc
   %30 = load ptr, ptr %29, align 8, !noalias !36
-  %31 = load ptr, ptr %cur, align 8
+  %31 = load ptr, ptr %cur, align 8, !noalias !36
   %add.ptr.i.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 32
   %.pre.i.i.i.i.i = load i64, ptr %add.ptr.i.phi.trans.insert.i.i.i.i.i, align 8, !noalias !36
   br label %for.cond.i.i.i.i.i
@@ -5678,7 +5678,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %if.then.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 96
-  %9 = load ptr, ptr %ref.tmp4, align 8
+  %9 = load ptr, ptr %ref.tmp4, align 8, !noalias !55
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i

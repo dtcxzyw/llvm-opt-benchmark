@@ -3228,7 +3228,7 @@ if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQu
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 24
   %126 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !40
-  %127 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !37
+  %127 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !40
   %128 = load ptr, ptr %127, align 8, !noalias !40
   %cmp.not.i.i.i = icmp eq ptr %126, %128
   br i1 %cmp.not.i.i.i, label %invoke.cont10, label %if.then.i.i.i25
@@ -6064,7 +6064,7 @@ if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQu
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 24
   %126 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !67
-  %127 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !64
+  %127 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !67
   %128 = load ptr, ptr %127, align 8, !noalias !67
   %cmp.not.i.i.i = icmp eq ptr %126, %128
   br i1 %cmp.not.i.i.i, label %invoke.cont10, label %if.then.i.i.i25
@@ -7111,7 +7111,7 @@ if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQu
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 24
   %126 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !79
-  %127 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !76
+  %127 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !79
   %128 = load ptr, ptr %127, align 8, !noalias !79
   %cmp.not.i.i.i = icmp eq ptr %126, %128
   br i1 %cmp.not.i.i.i, label %invoke.cont10, label %if.then.i.i.i25
@@ -7816,7 +7816,7 @@ invoke.cont13:                                    ; preds = %_ZN5folly10IOBufQue
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 24
   %71 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !92
-  %72 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !89
+  %72 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !92
   %73 = load ptr, ptr %72, align 8, !noalias !92
   %cmp.not.i.i.i = icmp eq ptr %71, %73
   br i1 %cmp.not.i.i.i, label %invoke.cont16, label %if.then.i.i.i
@@ -8465,7 +8465,7 @@ invoke.cont13:                                    ; preds = %_ZN5folly10IOBufQue
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 24
   %71 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !104
-  %72 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !101
+  %72 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !104
   %73 = load ptr, ptr %72, align 8, !noalias !104
   %cmp.not.i.i.i = icmp eq ptr %71, %73
   br i1 %cmp.not.i.i.i, label %invoke.cont16, label %if.then.i.i.i

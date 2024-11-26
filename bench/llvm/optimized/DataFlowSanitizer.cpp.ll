@@ -910,13 +910,13 @@ _ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit.thread.thread: ; preds = %22, %_ZN
   %65 = add nuw i32 %16, 1
   store i32 %65, ptr %12, align 4, !noalias !10
   store ptr %.2, ptr %58, align 8, !noalias !10
-  %66 = load ptr, ptr %2, align 8
+  %66 = load ptr, ptr %2, align 8, !noalias !10
   %67 = load i32, ptr %12, align 4, !noalias !10
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i8
 
 68:                                               ; preds = %._crit_edge.i.i26, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit.thread.thread
   %69 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %.2) #19, !noalias !10
-  %.pre.i5 = load ptr, ptr %2, align 8
+  %.pre.i5 = load ptr, ptr %2, align 8, !noalias !10
   %.pre6.i7 = load i32, ptr %12, align 4, !noalias !10
   %70 = extractvalue { ptr, i8 } %69, 1
   %71 = trunc i8 %70 to i1
@@ -926,7 +926,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i8: ; preds = %.lr.ph.i.i23, 
   %72 = phi i32 [ %67, %64 ], [ %.pre6.i7, %68 ], [ %16, %.lr.ph.i.i23 ]
   %73 = phi ptr [ %66, %64 ], [ %.pre.i5, %68 ], [ %17, %.lr.ph.i.i23 ]
   %.fca.1.insert.merged.i.i9 = phi i1 [ true, %64 ], [ %71, %68 ], [ false, %.lr.ph.i.i23 ]
-  %74 = load ptr, ptr %10, align 8
+  %74 = load ptr, ptr %10, align 8, !noalias !10
   %75 = load i32, ptr %11, align 8, !noalias !10
   br i1 %.fca.1.insert.merged.i.i9, label %14, label %76, !llvm.loop !14
 

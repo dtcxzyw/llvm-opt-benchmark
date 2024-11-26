@@ -10708,7 +10708,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg26DefaultFeatureDeserializer12visi
   call void @_ZNK5vcpkg30DefaultFeatureNameDeserializer12visit_stringB5cxx11ERNS_4Json6ReaderENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.39") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN5vcpkg30DefaultFeatureNameDeserializer8instanceE, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !216)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  %8 = load i8, ptr %7, align 8
+  %8 = load i8, ptr %7, align 8, !noalias !216
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %15
 
@@ -11059,7 +11059,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg29DependencyFeatureDeserializer12v
   call void @_ZNK5vcpkg33DependencyFeatureNameDeserializer12visit_stringB5cxx11ERNS_4Json6ReaderENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.39") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN5vcpkg33DependencyFeatureNameDeserializer8instanceE, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !219)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  %8 = load i8, ptr %7, align 8
+  %8 = load i8, ptr %7, align 8, !noalias !219
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %15
 

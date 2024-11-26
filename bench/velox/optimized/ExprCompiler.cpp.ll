@@ -1406,7 +1406,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEED2Ev.exit.i
 
 _ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %invoke.cont.i
-  %20 = load ptr, ptr %rewritten, align 8
+  %20 = load ptr, ptr %rewritten, align 8, !alias.scope !21
   %cmp.i11.not.i = icmp eq ptr %20, null
   br i1 %cmp.i11.not.i, label %nrvo.unused.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_117rewriteExpressionERKSt10shared_ptrIKNS0_4core10ITypedExprEE.exit
 
@@ -1630,7 +1630,7 @@ if.end:                                           ; preds = %_ZNSt16allocator_tr
           to label %.noexc14 unwind label %lpad
 
 .noexc14:                                         ; preds = %if.end
-  %49 = load ptr, ptr %alreadyCompiled.i, align 8
+  %49 = load ptr, ptr %alreadyCompiled.i, align 8, !noalias !27
   %cmp.i949.not = icmp eq ptr %49, null
   br i1 %cmp.i949.not, label %if.end12.i, label %if.then.i13
 

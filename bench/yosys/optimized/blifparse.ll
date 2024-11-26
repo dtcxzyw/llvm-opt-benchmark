@@ -1156,7 +1156,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %529, %535, %542
 .lr.ph2829:                                       ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit842
   %.04562828 = phi i32 [ %824, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit842 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
-  %550 = load i32, ptr %29, align 4
+  %550 = load i32, ptr %29, align 4, !noalias !11
   %551 = sext i32 %550 to i64
   %552 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !11
   %553 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !11

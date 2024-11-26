@@ -2080,7 +2080,7 @@ define dso_local noundef zeroext i1 @_ZN5clang12ast_matchers11MatchFinder17addDy
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 12, i1 false), !noalias !61
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %36 = load ptr, ptr %35, align 8, !noalias !61
+  %36 = load ptr, ptr %35, align 8, !noalias !67
   store ptr %36, ptr %34, align 8, !alias.scope !64, !noalias !61
   %.not.i.i.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEEC2INS_4TypeEEERKNS2_IT_EEPNSt9enable_ifIXaaL_ZNSt17integral_constantIbLb1EE5valueEEsr3std7is_sameIS7_S6_EE5valueEvE4typeE.exit.thread.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEEC2INS_4TypeEEERKNS2_IT_EEPNSt9enable_ifIXaaL_ZNSt17integral_constantIbLb1EE5valueEEsr3std7is_sameIS7_S6_EE5valueEvE4typeE.exit.i

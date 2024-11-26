@@ -1424,7 +1424,7 @@ if.end.i:                                         ; preds = %if.then8
   store i64 %2, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 77840), align 8, !noalias !10
   store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 77832), align 8, !noalias !10
   call void @_PyObject_InitState(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)) #14, !noalias !10
-  %5 = load i32, ptr %status.i, align 8
+  %5 = load i32, ptr %status.i, align 8, !noalias !10
   %cmp387.not.i = icmp eq i32 %5, 0
   br i1 %cmp387.not.i, label %if.end389.i, label %if.then388.i
 
@@ -1624,7 +1624,7 @@ if.then4.i:                                       ; preds = %if.end.i37
 
 if.end385.i:                                      ; preds = %if.then4.i, %if.end.i37
   call void @_PyObject_InitState(ptr nonnull sret(%struct.PyStatus) align 8 %status.i31, ptr noundef nonnull %call.i) #14, !noalias !13
-  %7 = load i32, ptr %status.i31, align 8
+  %7 = load i32, ptr %status.i31, align 8, !noalias !13
   %cmp387.not.i38 = icmp eq i32 %7, 0
   br i1 %cmp387.not.i38, label %if.end389.i40, label %if.then388.i39
 

@@ -5060,7 +5060,7 @@ define dso_local void @xlog_outdesc(ptr noundef %0, ptr noundef %1) local_unname
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !noalias !30
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %GetRmgr.exit
 

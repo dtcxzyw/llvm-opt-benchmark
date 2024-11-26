@@ -652,26 +652,27 @@ for.body4.i29:                                    ; preds = %for.body4.i29.backe
   %indvars.iv.i30 = phi i64 [ 1, %for.cond1.preheader.i27 ], [ %indvars.iv.i30.be, %for.body4.i29.backedge ]
   %add.ptr.i.i31 = getelementptr inbounds %"class.ue2::CharReach", ptr %rev_info.val10, i64 %indvars.iv.i30
   %add.ptr.i44.i = getelementptr inbounds %"class.ue2::CharReach", ptr %1, i64 %indvars.iv.i30
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %add.ptr.i.i31, i64 32, i1 false)
   %104 = load i64, ptr %add.ptr.i44.i, align 8, !noalias !14
-  %105 = load i64, ptr %cr.i, align 8, !alias.scope !15
+  %105 = load i64, ptr %cr.i, align 8, !alias.scope !14
   %or.i.i.i = or i64 %105, %104
-  store i64 %or.i.i.i, ptr %cr.i, align 8, !alias.scope !15
+  store i64 %or.i.i.i, ptr %cr.i, align 8, !alias.scope !14
   %arrayidx.i.i19.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i44.i, i64 8
   %106 = load i64, ptr %arrayidx.i.i19.i.i.i, align 8, !noalias !14
-  %107 = load i64, ptr %arrayidx.i.i20.i.i.i, align 8, !alias.scope !15
+  %107 = load i64, ptr %arrayidx.i.i20.i.i.i, align 8, !alias.scope !14
   %or10.i.i.i = or i64 %107, %106
-  store i64 %or10.i.i.i, ptr %arrayidx.i.i20.i.i.i, align 8, !alias.scope !15
+  store i64 %or10.i.i.i, ptr %arrayidx.i.i20.i.i.i, align 8, !alias.scope !14
   %arrayidx.i.i21.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i44.i, i64 16
   %108 = load i64, ptr %arrayidx.i.i21.i.i.i, align 8, !noalias !14
-  %109 = load i64, ptr %arrayidx.i.i22.i.i.i, align 8, !alias.scope !15
+  %109 = load i64, ptr %arrayidx.i.i22.i.i.i, align 8, !alias.scope !14
   %or17.i.i.i = or i64 %109, %108
-  store i64 %or17.i.i.i, ptr %arrayidx.i.i22.i.i.i, align 8, !alias.scope !15
+  store i64 %or17.i.i.i, ptr %arrayidx.i.i22.i.i.i, align 8, !alias.scope !14
   %arrayidx.i.i23.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i44.i, i64 24
   %110 = load i64, ptr %arrayidx.i.i23.i.i.i, align 8, !noalias !14
-  %111 = load i64, ptr %arrayidx.i.i24.i.i.i, align 8, !alias.scope !15
+  %111 = load i64, ptr %arrayidx.i.i24.i.i.i, align 8, !alias.scope !14
   %or24.i.i.i = or i64 %111, %110
-  store i64 %or24.i.i.i, ptr %arrayidx.i.i24.i.i.i, align 8, !alias.scope !15
+  store i64 %or24.i.i.i, ptr %arrayidx.i.i24.i.i.i, align 8, !alias.scope !14
   %gep.i = getelementptr %"class.ue2::CharReach", ptr %invariant.gep.i, i64 %indvars.iv.i30
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr2.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %gep.i, i64 32, i1 false)
@@ -968,10 +969,10 @@ for.inc.thread.i:                                 ; preds = %land.lhs.true32.i
 
 for.body4.i29.backedge:                           ; preds = %for.inc.thread.i, %for.inc.i61
   %indvars.iv.i30.be = phi i64 [ %indvars.iv.next100.i, %for.inc.thread.i ], [ %indvars.iv.next.i62, %for.inc.i61 ]
-  br label %for.body4.i29, !llvm.loop !18
+  br label %for.body4.i29, !llvm.loop !17
 
 for.inc65.i64:                                    ; preds = %for.inc.i61
-  br i1 %tobool.not.i28, label %for.cond1.preheader.i27, label %single.i56, !llvm.loop !19
+  br i1 %tobool.not.i28, label %for.cond1.preheader.i27, label %single.i56, !llvm.loop !18
 
 single.i56:                                       ; preds = %for.inc65.i64, %for.inc.thread.i, %if.then41.i, %if.then.i71
   %arrayidx.i.i20.i.i151.i = getelementptr inbounds i8, ptr %cr78.i, i64 8
@@ -987,27 +988,27 @@ for.body77.us.i59:                                ; preds = %for.cond74.preheade
   %indvars.iv93.i = phi i64 [ %indvars.iv.next94.i, %for.inc124.us.i ], [ 0, %for.cond74.preheader.i57 ]
   %add.ptr.i147.us.i = getelementptr inbounds %"class.ue2::CharReach", ptr %rev_info.val10, i64 %indvars.iv93.i
   %add.ptr.i148.us.i = getelementptr inbounds %"class.ue2::CharReach", ptr %1, i64 %indvars.iv93.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr78.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %add.ptr.i147.us.i, i64 32, i1 false)
-  %160 = load i64, ptr %add.ptr.i148.us.i, align 8, !noalias !20
-  %161 = load i64, ptr %cr78.i, align 8, !alias.scope !20
+  %160 = load i64, ptr %add.ptr.i148.us.i, align 8, !noalias !19
+  %161 = load i64, ptr %cr78.i, align 8, !alias.scope !19
   %or.i.i149.us.i = or i64 %161, %160
-  store i64 %or.i.i149.us.i, ptr %cr78.i, align 8, !alias.scope !20
+  store i64 %or.i.i149.us.i, ptr %cr78.i, align 8, !alias.scope !19
   %arrayidx.i.i19.i.i150.us.i = getelementptr inbounds i8, ptr %add.ptr.i148.us.i, i64 8
-  %162 = load i64, ptr %arrayidx.i.i19.i.i150.us.i, align 8, !noalias !20
-  %163 = load i64, ptr %arrayidx.i.i20.i.i151.i, align 8, !alias.scope !20
+  %162 = load i64, ptr %arrayidx.i.i19.i.i150.us.i, align 8, !noalias !19
+  %163 = load i64, ptr %arrayidx.i.i20.i.i151.i, align 8, !alias.scope !19
   %or10.i.i152.us.i = or i64 %163, %162
-  store i64 %or10.i.i152.us.i, ptr %arrayidx.i.i20.i.i151.i, align 8, !alias.scope !20
+  store i64 %or10.i.i152.us.i, ptr %arrayidx.i.i20.i.i151.i, align 8, !alias.scope !19
   %arrayidx.i.i21.i.i153.us.i = getelementptr inbounds i8, ptr %add.ptr.i148.us.i, i64 16
-  %164 = load i64, ptr %arrayidx.i.i21.i.i153.us.i, align 8, !noalias !20
-  %165 = load i64, ptr %arrayidx.i.i22.i.i154.i, align 8, !alias.scope !20
+  %164 = load i64, ptr %arrayidx.i.i21.i.i153.us.i, align 8, !noalias !19
+  %165 = load i64, ptr %arrayidx.i.i22.i.i154.i, align 8, !alias.scope !19
   %or17.i.i155.us.i = or i64 %165, %164
-  store i64 %or17.i.i155.us.i, ptr %arrayidx.i.i22.i.i154.i, align 8, !alias.scope !20
+  store i64 %or17.i.i155.us.i, ptr %arrayidx.i.i22.i.i154.i, align 8, !alias.scope !19
   %arrayidx.i.i23.i.i156.us.i = getelementptr inbounds i8, ptr %add.ptr.i148.us.i, i64 24
-  %166 = load i64, ptr %arrayidx.i.i23.i.i156.us.i, align 8, !noalias !20
-  %167 = load i64, ptr %arrayidx.i.i24.i.i157.i, align 8, !alias.scope !20
+  %166 = load i64, ptr %arrayidx.i.i23.i.i156.us.i, align 8, !noalias !19
+  %167 = load i64, ptr %arrayidx.i.i24.i.i157.i, align 8, !alias.scope !19
   %or24.i.i158.us.i = or i64 %167, %166
-  store i64 %or24.i.i158.us.i, ptr %arrayidx.i.i24.i.i157.i, align 8, !alias.scope !20
+  store i64 %or24.i.i158.us.i, ptr %arrayidx.i.i24.i.i157.i, align 8, !alias.scope !19
   %168 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or.i.i149.us.i)
   %169 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or10.i.i152.us.i)
   %add9.i.i160.us.i = add nuw nsw i64 %169, %168
@@ -1021,33 +1022,33 @@ for.body77.us.i59:                                ; preds = %for.cond74.preheade
 for.inc124.us.i:                                  ; preds = %for.body77.us.i59
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 16
-  br i1 %exitcond96.not.i, label %for.inc127.i, label %for.body77.us.i59, !llvm.loop !23
+  br i1 %exitcond96.not.i, label %for.inc127.i, label %for.body77.us.i59, !llvm.loop !22
 
 for.body77.i58:                                   ; preds = %for.cond74.preheader.i57, %for.inc124.i
   %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %for.inc124.i ], [ 0, %for.cond74.preheader.i57 ]
   %add.ptr.i147.i = getelementptr inbounds %"class.ue2::CharReach", ptr %rev_info.val10, i64 %indvars.iv89.i
   %add.ptr.i148.i = getelementptr inbounds %"class.ue2::CharReach", ptr %1, i64 %indvars.iv89.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr78.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %add.ptr.i147.i, i64 32, i1 false)
-  %172 = load i64, ptr %add.ptr.i148.i, align 8, !noalias !20
-  %173 = load i64, ptr %cr78.i, align 8, !alias.scope !20
+  %172 = load i64, ptr %add.ptr.i148.i, align 8, !noalias !19
+  %173 = load i64, ptr %cr78.i, align 8, !alias.scope !19
   %or.i.i149.i = or i64 %173, %172
-  store i64 %or.i.i149.i, ptr %cr78.i, align 8, !alias.scope !20
+  store i64 %or.i.i149.i, ptr %cr78.i, align 8, !alias.scope !19
   %arrayidx.i.i19.i.i150.i = getelementptr inbounds i8, ptr %add.ptr.i148.i, i64 8
-  %174 = load i64, ptr %arrayidx.i.i19.i.i150.i, align 8, !noalias !20
-  %175 = load i64, ptr %arrayidx.i.i20.i.i151.i, align 8, !alias.scope !20
+  %174 = load i64, ptr %arrayidx.i.i19.i.i150.i, align 8, !noalias !19
+  %175 = load i64, ptr %arrayidx.i.i20.i.i151.i, align 8, !alias.scope !19
   %or10.i.i152.i = or i64 %175, %174
-  store i64 %or10.i.i152.i, ptr %arrayidx.i.i20.i.i151.i, align 8, !alias.scope !20
+  store i64 %or10.i.i152.i, ptr %arrayidx.i.i20.i.i151.i, align 8, !alias.scope !19
   %arrayidx.i.i21.i.i153.i = getelementptr inbounds i8, ptr %add.ptr.i148.i, i64 16
-  %176 = load i64, ptr %arrayidx.i.i21.i.i153.i, align 8, !noalias !20
-  %177 = load i64, ptr %arrayidx.i.i22.i.i154.i, align 8, !alias.scope !20
+  %176 = load i64, ptr %arrayidx.i.i21.i.i153.i, align 8, !noalias !19
+  %177 = load i64, ptr %arrayidx.i.i22.i.i154.i, align 8, !alias.scope !19
   %or17.i.i155.i = or i64 %177, %176
-  store i64 %or17.i.i155.i, ptr %arrayidx.i.i22.i.i154.i, align 8, !alias.scope !20
+  store i64 %or17.i.i155.i, ptr %arrayidx.i.i22.i.i154.i, align 8, !alias.scope !19
   %arrayidx.i.i23.i.i156.i = getelementptr inbounds i8, ptr %add.ptr.i148.i, i64 24
-  %178 = load i64, ptr %arrayidx.i.i23.i.i156.i, align 8, !noalias !20
-  %179 = load i64, ptr %arrayidx.i.i24.i.i157.i, align 8, !alias.scope !20
+  %178 = load i64, ptr %arrayidx.i.i23.i.i156.i, align 8, !noalias !19
+  %179 = load i64, ptr %arrayidx.i.i24.i.i157.i, align 8, !alias.scope !19
   %or24.i.i158.i = or i64 %179, %178
-  store i64 %or24.i.i158.i, ptr %arrayidx.i.i24.i.i157.i, align 8, !alias.scope !20
+  store i64 %or24.i.i158.i, ptr %arrayidx.i.i24.i.i157.i, align 8, !alias.scope !19
   %180 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or.i.i149.i)
   %181 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or10.i.i152.i)
   %add9.i.i.i178.i = add nuw nsw i64 %181, %180
@@ -1188,10 +1189,10 @@ _ZNK3ue29CharReach10find_firstEv.exit224.i:       ; preds = %for.inc.i.i221.i, %
 for.inc124.i:                                     ; preds = %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit212.i, %_ZNK3ue29CharReach10find_firstEv.exit.i188.i, %for.body77.i58
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
   %exitcond92.not.i = icmp eq i64 %indvars.iv.next90.i, 16
-  br i1 %exitcond92.not.i, label %for.inc127.i, label %for.body77.i58, !llvm.loop !23
+  br i1 %exitcond92.not.i, label %for.inc127.i, label %for.body77.i58, !llvm.loop !22
 
 for.inc127.i:                                     ; preds = %for.inc124.i, %for.inc124.us.i
-  br i1 %tobool85.not.i, label %for.cond74.preheader.i57, label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit, !llvm.loop !24
+  br i1 %tobool85.not.i, label %for.cond74.preheader.i57, label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit, !llvm.loop !23
 
 return.sink.split.i54:                            ; preds = %_ZNK3ue29CharReach10find_firstEv.exit224.i, %_ZNK3ue29CharReach10find_firstEv.exit176.i, %_ZNK3ue29CharReach10find_firstEv.exit146.i, %_ZNK3ue29CharReach10find_firstEv.exit74.i
   %add117.sink.i = phi i8 [ %add117.i, %_ZNK3ue29CharReach10find_firstEv.exit224.i ], [ %add.i, %_ZNK3ue29CharReach10find_firstEv.exit176.i ], [ %151, %_ZNK3ue29CharReach10find_firstEv.exit146.i ], [ %124, %_ZNK3ue29CharReach10find_firstEv.exit74.i ]
@@ -1406,7 +1407,7 @@ cond.end.i.i:                                     ; preds = %if.then.i.i.i.i
 
 while.body.i.i.backedge:                          ; preds = %cond.end.i.i, %cond.end.i.i.thread
   %__x.034.i.i.be = phi ptr [ %__x.0.i.i, %cond.end.i.i ], [ %__x.0.i.i94, %cond.end.i.i.thread ]
-  br label %while.body.i.i, !llvm.loop !25
+  br label %while.body.i.i, !llvm.loop !24
 
 cond.end.i.i.thread:                              ; preds = %while.body.i.i, %if.then.i.i.i.i
   %_M_right.i.i.i93 = getelementptr inbounds i8, ptr %__x.034.i.i, i64 24
@@ -1584,7 +1585,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 16
-  br i1 %exitcond90.not, label %for.end75, label %for.body13, !llvm.loop !26
+  br i1 %exitcond90.not, label %for.end75, label %for.body13, !llvm.loop !25
 
 for.end75:                                        ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit44
   %49 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -1691,7 +1692,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i64 %or24.i.i23, ptr %arrayidx.i.i24.i.i22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -1776,7 +1777,7 @@ while.body.us.i:                                  ; preds = %while.body.lr.ph.i,
   %cond.in.us.i = getelementptr inbounds i8, ptr %__x.034.us.i, i64 %cond.in.us.v.i
   %__x.0.us.i = load ptr, ptr %cond.in.us.i, align 8
   %cmp.not.us.i = icmp eq ptr %__x.0.us.i, null
-  br i1 %cmp.not.us.i, label %while.end.i, label %while.body.us.i, !llvm.loop !25
+  br i1 %cmp.not.us.i, label %while.end.i, label %while.body.us.i, !llvm.loop !24
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %cond.end.i
   %__x.034.i = phi ptr [ %__x.0.i, %cond.end.i ], [ %__x.032.i, %while.body.lr.ph.i ]
@@ -1800,7 +1801,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.t
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.034.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !25
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !24
 
 while.end.i:                                      ; preds = %cond.end.i, %while.body.us.i
   %__y.0.lcssa.i = phi ptr [ %__x.034.us.i, %while.body.us.i ], [ %__x.034.i, %cond.end.i ]
@@ -1918,7 +1919,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #19
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !28
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !27
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -1976,18 +1977,17 @@ attributes #19 = { builtin nounwind }
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZNK3ue29CharReachorERKS0_: %agg.result"}
 !13 = distinct !{!13, !"_ZNK3ue29CharReachorERKS0_"}
-!14 = !{}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNK3ue29CharReachorERKS0_: %agg.result"}
-!17 = distinct !{!17, !"_ZNK3ue29CharReachorERKS0_"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNK3ue29CharReachorERKS0_: %agg.result"}
+!16 = distinct !{!16, !"_ZNK3ue29CharReachorERKS0_"}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK3ue29CharReachorERKS0_: %agg.result"}
-!22 = distinct !{!22, !"_ZNK3ue29CharReachorERKS0_"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNK3ue29CharReachorERKS0_: %agg.result"}
+!21 = distinct !{!21, !"_ZNK3ue29CharReachorERKS0_"}
+!22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}

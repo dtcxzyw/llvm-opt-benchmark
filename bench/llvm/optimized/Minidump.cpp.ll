@@ -1587,7 +1587,7 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %_ZNK4llvm12DenseMap
   %49 = load ptr, ptr %46, align 8, !noalias !359
   %50 = getelementptr inbounds %"struct.llvm::minidump::Directory", ptr %49, i64 %48
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %51, align 8
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %51, align 8, !noalias !359
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %52, align 1, !noalias !359

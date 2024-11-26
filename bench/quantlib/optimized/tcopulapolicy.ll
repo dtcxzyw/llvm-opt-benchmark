@@ -15418,11 +15418,11 @@ if.end:                                           ; preds = %entry
   %conv = fpext double %call1 to x86_fp80
   %1 = load i64, ptr %max_iter, align 8, !tbaa !40
   %a.i = getelementptr inbounds nuw i8, ptr %f, i64 16
-  %2 = load x86_fp80, ptr %a.i, align 16, !tbaa !155
-  %3 = load x86_fp80, ptr %f, align 16, !tbaa !157
+  %2 = load x86_fp80, ptr %a.i, align 16, !tbaa !155, !noalias !157
+  %3 = load x86_fp80, ptr %f, align 16, !tbaa !160, !noalias !157
   %sub.i44 = fsub x86_fp80 0xK3FFF8000000000000000, %guess
-  %call.i.i45 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %guess) #31, !tbaa !7, !noalias !158
-  %call.i4.i46 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %sub.i44) #31, !tbaa !7, !noalias !158
+  %call.i.i45 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %guess) #31, !tbaa !7, !noalias !157
+  %call.i4.i46 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %sub.i44) #31, !tbaa !7, !noalias !157
   %4 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %2, x86_fp80 %call.i4.i46, x86_fp80 %call.i.i45)
   %add.i47 = fadd x86_fp80 %4, %3
   %dec51 = add i64 %1, -1
@@ -15437,8 +15437,8 @@ if.end8.preheader:                                ; preds = %if.end
 
 do.body:                                          ; preds = %land.rhs
   %sub.i = fsub x86_fp80 0xK3FFF8000000000000000, %result.2
-  %call.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %result.2) #31, !tbaa !7, !noalias !158
-  %call.i4.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %sub.i) #31, !tbaa !7, !noalias !158
+  %call.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %result.2) #31, !tbaa !7, !noalias !157
+  %call.i4.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %sub.i) #31, !tbaa !7, !noalias !157
   %5 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %2, x86_fp80 %call.i4.i, x86_fp80 %call.i.i)
   %add.i = fadd x86_fp80 %5, %3
   %div.i = fdiv x86_fp80 0xK3FFF8000000000000000, %result.2
@@ -16489,7 +16489,7 @@ if.end:                                           ; preds = %entry
   store i64 %2, ptr %count, align 8, !tbaa !40
   %invert.i = getelementptr inbounds nuw i8, ptr %f, i64 32
   %p.i = getelementptr inbounds i8, ptr %f, i64 16
-  %.pre159 = load x86_fp80, ptr %f, align 16, !tbaa !166
+  %.pre159 = load x86_fp80, ptr %f, align 16, !tbaa !166, !noalias !168
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end
@@ -16568,7 +16568,7 @@ try.cont.thread:                                  ; preds = %lpad
   %dec107 = add i64 %17, -1
   store i64 %dec107, ptr %count, align 8, !tbaa !40
   %cmp9108 = fcmp oeq x86_fp80 %.pr, 0xK00000000000000000000
-  %.pre = load x86_fp80, ptr %f, align 16, !tbaa !166
+  %.pre = load x86_fp80, ptr %f, align 16, !tbaa !166, !noalias !168
   br i1 %cmp9108, label %do.end, label %if.then13
 
 if.end11:                                         ; preds = %try.cont
@@ -21117,7 +21117,7 @@ if.end:                                           ; preds = %entry
   %b.i = getelementptr inbounds nuw i8, ptr %f, i64 16
   %invert.i = getelementptr inbounds nuw i8, ptr %f, i64 48
   %target.i = getelementptr inbounds i8, ptr %f, i64 32
-  %.pre157 = load x86_fp80, ptr %f, align 16, !tbaa !211
+  %.pre157 = load x86_fp80, ptr %f, align 16, !tbaa !211, !noalias !213
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end
@@ -21195,7 +21195,7 @@ try.cont.thread:                                  ; preds = %lpad
   %dec105 = add i64 %19, -1
   store i64 %dec105, ptr %count, align 8, !tbaa !40
   %cmp9106 = fcmp oeq x86_fp80 %.pr, 0xK00000000000000000000
-  %.pre = load x86_fp80, ptr %f, align 16, !tbaa !211
+  %.pre = load x86_fp80, ptr %f, align 16, !tbaa !211, !noalias !213
   br i1 %cmp9106, label %do.end, label %if.then13
 
 if.end11:                                         ; preds = %try.cont
@@ -25381,10 +25381,10 @@ attributes #38 = { memory(none) }
 !154 = distinct !{!154, !30}
 !155 = !{!156, !51, i64 16}
 !156 = !{!"_ZTSN5boost4math6detail17temme_root_finderIeEE", !51, i64 0, !51, i64 16}
-!157 = !{!156, !51, i64 0}
-!158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZN5boost4math6detail17temme_root_finderIeEclEe: %agg.result"}
-!160 = distinct !{!160, !"_ZN5boost4math6detail17temme_root_finderIeEclEe"}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"_ZN5boost4math6detail17temme_root_finderIeEclEe: %agg.result"}
+!159 = distinct !{!159, !"_ZN5boost4math6detail17temme_root_finderIeEclEe"}
+!160 = !{!156, !51, i64 0}
 !161 = distinct !{!161, !30}
 !162 = !{!163}
 !163 = distinct !{!163, !164, !"_ZN5boost4math6detail17temme_root_finderIeEclEe: %agg.result"}

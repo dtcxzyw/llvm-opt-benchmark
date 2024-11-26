@@ -2638,7 +2638,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
           to label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit28 unwind label %lpad31
 
 _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit28: ; preds = %invoke.cont32
-  %30 = load i8, ptr %agg.tmp21, align 8
+  %30 = load i8, ptr %agg.tmp21, align 8, !noalias !38
   %add.ptr.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %agg.tmp21, i64 8
   %31 = load i64, ptr %add.ptr.i.i.i.i.i.i22, align 8, !noalias !38
   store ptr null, ptr %add.ptr.i.i.i.i.i.i22, align 8

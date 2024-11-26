@@ -2972,12 +2972,12 @@ _ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit.threa
   %451 = add nuw i32 %441, 1
   store i32 %451, ptr %432, align 4, !noalias !67
   store ptr %438, ptr %443, align 8, !noalias !67
-  %452 = load ptr, ptr %30, align 8
+  %452 = load ptr, ptr %30, align 8, !noalias !67
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
 453:                                              ; preds = %._crit_edge.i.i.i, %.lr.ph.i
   %454 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %30, ptr noundef %438) #17, !noalias !67
-  %.pre.i.i = load ptr, ptr %30, align 8
+  %.pre.i.i = load ptr, ptr %30, align 8, !noalias !67
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %.lr.ph.i.i.i222, %453, %450
@@ -6782,7 +6782,7 @@ define dso_local void @_ZN4llvm28setProfileInfoAfterUnrollingEPNS_4LoopES1_S1_m(
 define weak_odr void @_ZN4llvm21appendLoopsToWorklistIRNS_8ArrayRefIPNS_4LoopEEEEEvOT_RNS_21SmallPriorityWorklistIS3_Lj4EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #0 comdat {
   %3 = alloca %"class.llvm::iterator_range.538", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  %4 = load ptr, ptr %0, align 8, !noalias !115
+  %4 = load ptr, ptr %0, align 8, !noalias !118
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !118
   %7 = getelementptr inbounds ptr, ptr %4, i64 %6
@@ -11885,7 +11885,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !216
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !216
   store ptr %96, ptr %95, align 8, !noalias !216
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #17

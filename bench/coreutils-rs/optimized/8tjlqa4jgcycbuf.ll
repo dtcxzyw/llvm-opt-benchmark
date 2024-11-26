@@ -280,7 +280,7 @@ select.unfold.i.i:                                ; preds = %"_ZN97_$LT$core..st
           to label %.noexc11 unwind label %127
 
 .noexc11:                                         ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc5b67a76ba77dbd9E.exit.i"
-  %92 = load i64, ptr %7, align 8, !range !84, !alias.scope !85, !noalias !89, !noundef !5
+  %92 = load i64, ptr %7, align 8, !range !84, !alias.scope !85, !noalias !88, !noundef !5
   %93 = getelementptr inbounds i8, ptr %7, i64 8
   %94 = load ptr, ptr %93, align 8, !noalias !37
   %.sroa.1037.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 32
@@ -293,7 +293,7 @@ select.unfold.i.i:                                ; preds = %"_ZN97_$LT$core..st
           to label %.noexc.i unwind label %108
 
 .noexc.i:                                         ; preds = %.noexc11
-  %95 = load i64, ptr %6, align 8, !range !84, !alias.scope !94, !noalias !98, !noundef !5
+  %95 = load i64, ptr %6, align 8, !range !84, !alias.scope !94, !noalias !97, !noundef !5
   %96 = getelementptr inbounds i8, ptr %6, i64 8
   %97 = load ptr, ptr %96, align 8, !noalias !37
   %.sroa.843.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 32
@@ -1113,20 +1113,20 @@ attributes #9 = { cold noreturn nounwind }
 !82 = distinct !{!82, !"_ZN3std2fs8metadata17h0fe64875d21d66a3E"}
 !83 = distinct !{!83, !82, !"_ZN3std2fs8metadata17h0fe64875d21d66a3E: argument 1"}
 !84 = !{i64 0, i64 3}
-!85 = !{!86, !88}
+!85 = !{!86}
 !86 = distinct !{!86, !87, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3c17b3de868c136E.llvm.14105977826165655300: argument 1"}
 !87 = distinct !{!87, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3c17b3de868c136E.llvm.14105977826165655300"}
-!88 = distinct !{!88, !87, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3c17b3de868c136E.llvm.14105977826165655300: argument 0"}
-!89 = !{!83, !33}
+!88 = !{!89, !81, !83, !33}
+!89 = distinct !{!89, !87, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3c17b3de868c136E.llvm.14105977826165655300: argument 0"}
 !90 = !{!91, !93, !33}
 !91 = distinct !{!91, !92, !"_ZN3std2fs8metadata17h7024287a1b1243e8E: argument 0"}
 !92 = distinct !{!92, !"_ZN3std2fs8metadata17h7024287a1b1243e8E"}
 !93 = distinct !{!93, !92, !"_ZN3std2fs8metadata17h7024287a1b1243e8E: argument 1"}
-!94 = !{!95, !97}
+!94 = !{!95}
 !95 = distinct !{!95, !96, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3c17b3de868c136E.llvm.14105977826165655300: argument 1"}
 !96 = distinct !{!96, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3c17b3de868c136E.llvm.14105977826165655300"}
-!97 = distinct !{!97, !96, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3c17b3de868c136E.llvm.14105977826165655300: argument 0"}
-!98 = !{!93, !33}
+!97 = !{!98, !91, !93, !33}
+!98 = distinct !{!98, !96, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc3c17b3de868c136E.llvm.14105977826165655300: argument 0"}
 !99 = !{!100}
 !100 = distinct !{!100, !101, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc5b67a76ba77dbd9E: argument 0"}
 !101 = distinct !{!101, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc5b67a76ba77dbd9E"}

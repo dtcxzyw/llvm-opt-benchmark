@@ -1047,19 +1047,19 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit.i.i.i: ; preds = %7, %2
   %8 = phi double [ %.pre.i.i.i.i, %7 ], [ %5, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load double, ptr %9, align 8
+  %10 = load double, ptr %9, align 8, !noalias !8
   %11 = fcmp uno double %10, 0.000000e+00
   br i1 %11, label %12, label %_ZNK32pxrInternal_v0_24__pxrReserved__21UsdUtilsTimeCodeRange5emptyEv.exit
 
 12:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit.i.i.i
   tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode28_IssueGetValueOnDefaultErrorEv(ptr noundef nonnull align 8 dereferenceable(8) %9), !noalias !8
-  %.pre.i6.i.i.i = load double, ptr %9, align 8
+  %.pre.i6.i.i.i = load double, ptr %9, align 8, !noalias !8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21UsdUtilsTimeCodeRange5emptyEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21UsdUtilsTimeCodeRange5emptyEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit.i.i.i, %12
   %.sroa.0.0.copyload.i15 = phi double [ %.pre.i6.i.i.i, %12 ], [ %10, %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit.i.i.i ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load double, ptr %13, align 8
+  %14 = load double, ptr %13, align 8, !noalias !8
   %15 = fsub double %.sroa.0.0.copyload.i15, %8
   %16 = fadd double %15, %14
   %17 = fdiv double %16, %14

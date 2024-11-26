@@ -365,27 +365,27 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
           to label %41 unwind label %.loopexit.split-lp
 
 41:                                               ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i.i.i.i, %.lr.ph48, %_ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i
-  %42 = load ptr, ptr %3, align 8, !noalias !10
+  %42 = load ptr, ptr %3, align 8, !noalias !7
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = getelementptr inbounds i8, ptr %42, i64 8
-  %45 = load i32, ptr %44, align 8, !noalias !10
+  %45 = load i32, ptr %44, align 8, !noalias !7
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds ptr, ptr %43, i64 %46
-  %48 = load atomic i32, ptr %42 monotonic, align 4, !noalias !11
+  %48 = load atomic i32, ptr %42 monotonic, align 4, !noalias !10
   %49 = icmp ugt i32 %48, 1
   br i1 %49, label %50, label %_ZN5QListIP7QActionE3endEv.exit
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds i8, ptr %42, i64 4
-  %52 = load i32, ptr %51, align 4, !noalias !11
+  %52 = load i32, ptr %51, align 4, !noalias !10
   %53 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %52)
           to label %.noexc22 unwind label %.loopexit.split-lp
 
 .noexc22:                                         ; preds = %50
-  %54 = load ptr, ptr %3, align 8, !noalias !11
+  %54 = load ptr, ptr %3, align 8, !noalias !10
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = getelementptr inbounds i8, ptr %54, i64 8
-  %57 = load i32, ptr %56, align 8, !noalias !11
+  %57 = load i32, ptr %56, align 8, !noalias !10
   %58 = sext i32 %57 to i64
   %.idx7.i.i.i.i15 = shl nsw i64 %58, 3
   %59 = getelementptr inbounds i8, ptr %55, i64 %.idx7.i.i.i.i15
@@ -394,7 +394,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
 
 60:                                               ; preds = %.noexc22
   %61 = getelementptr inbounds i8, ptr %54, i64 12
-  %62 = load i32, ptr %61, align 4, !noalias !11
+  %62 = load i32, ptr %61, align 4, !noalias !10
   %63 = sext i32 %62 to i64
   %64 = sub nsw i64 %63, %58
   %65 = icmp sgt i64 %64, 0
@@ -402,18 +402,18 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
 
 66:                                               ; preds = %60
   %gepdiff.i.i.i.i21 = shl nuw nsw i64 %64, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %47, i64 %gepdiff.i.i.i.i21, i1 false), !noalias !11
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %47, i64 %gepdiff.i.i.i.i21, i1 false), !noalias !10
   br label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i.i.i.i17
 
 _ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i.i.i.i17: ; preds = %66, %60, %.noexc22
-  %67 = load atomic i32, ptr %53 monotonic, align 4, !noalias !11
+  %67 = load atomic i32, ptr %53 monotonic, align 4, !noalias !10
   switch i32 %67, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i19 [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i18
     i32 -1, label %_ZN5QListIP7QActionE3endEv.exit
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i19:    ; preds = %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i.i.i.i17
-  %68 = atomicrmw sub ptr %53, i32 1 seq_cst, align 4, !noalias !11
+  %68 = atomicrmw sub ptr %53, i32 1 seq_cst, align 4, !noalias !10
   %.not.i.i.i.i20 = icmp eq i32 %68, 1
   br i1 %.not.i.i.i.i20, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i18, label %_ZN5QListIP7QActionE3endEv.exit
 
@@ -422,10 +422,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i18: ; preds = %_ZN9QtPrivate8
           to label %_ZN5QListIP7QActionE3endEv.exit unwind label %.loopexit.split-lp
 
 _ZN5QListIP7QActionE3endEv.exit:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i18, %41, %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i.i.i.i17, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i19
-  %69 = load ptr, ptr %3, align 8
+  %69 = load ptr, ptr %3, align 8, !noalias !10
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = getelementptr inbounds i8, ptr %69, i64 12
-  %72 = load i32, ptr %71, align 4, !noalias !11
+  %72 = load i32, ptr %71, align 4, !noalias !10
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds ptr, ptr %70, i64 %73
   %.not3638 = icmp eq ptr %47, %74
@@ -635,7 +635,6 @@ attributes #22 = { builtin nounwind }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN5QListIP7QActionE5beginEv: argument 0"}
 !9 = distinct !{!9, !"_ZN5QListIP7QActionE5beginEv"}
-!10 = !{}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN5QListIP7QActionE3endEv: argument 0"}
-!13 = distinct !{!13, !"_ZN5QListIP7QActionE3endEv"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN5QListIP7QActionE3endEv: argument 0"}
+!12 = distinct !{!12, !"_ZN5QListIP7QActionE3endEv"}

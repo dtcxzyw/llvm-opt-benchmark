@@ -613,7 +613,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %default_authority_ = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load ptr, ptr %default_authority_, align 8
+  %3 = load ptr, ptr %default_authority_, align 8, !noalias !10
   %cmp.i.i = icmp ugt ptr %3, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK9grpc_core5Slice3RefEv.exit
 

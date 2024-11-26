@@ -2778,7 +2778,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
 _ZN5boost6nowide4test8test_monEv.exit17:          ; preds = %41, %44, %46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
   call void @_ZN5boost6nowide4test18create_random_dataB5cxx11EmNS1_9data_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.1") align 8 %6, i64 noundef 100, i32 noundef 0)
-  %48 = load ptr, ptr %6, align 8, !tbaa !18
+  %48 = load ptr, ptr %6, align 8, !tbaa !18, !alias.scope !62
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !21, !alias.scope !62
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 %50

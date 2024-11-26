@@ -7854,7 +7854,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorppEv.exit: ; preds =
   %.031 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange5beginEv.exit ], [ %.132, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
   %128 = load ptr, ptr %114, align 8
   %129 = icmp eq ptr %128, %7
-  %.pre = load ptr, ptr %9, align 8
+  %.pre = load ptr, ptr %9, align 8, !noalias !88
   %130 = load ptr, ptr %113, align 8
   %131 = icmp eq ptr %.pre, %130
   %or.cond = select i1 %129, i1 %131, i1 false
@@ -7929,14 +7929,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit48: ; preds
   br label %.body49
 
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit.thread: ; preds = %135, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorppEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !88
-  store ptr %.pre, ptr %5, align 8, !noalias !91
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !93
+  store ptr %.pre, ptr %5, align 8, !noalias !88
   %.not.i.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE.exit.i.i, label %166
 
 166:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit.thread
   %167 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %168 = atomicrmw add ptr %167, i64 1 monotonic, align 8, !noalias !91
+  %168 = atomicrmw add ptr %167, i64 1 monotonic, align 8, !noalias !88
   br label %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE.exit.i.i: ; preds = %166, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit.thread
@@ -7944,7 +7944,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE.exit.i.i unwind label %174
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE.exit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE.exit.i.i
-  %169 = load ptr, ptr %5, align 8, !noalias !91
+  %169 = load ptr, ptr %5, align 8, !noalias !88
   %.not.i.i.i2.i.i = icmp eq ptr %169, null
   br i1 %.not.i.i.i2.i.i, label %176, label %170
 
@@ -7966,7 +7966,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7
   br label %.body49
 
 176:                                              ; preds = %173, %170, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !88
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !93
   %177 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12IsPseudoRootEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %178 unwind label %215
 
@@ -24028,12 +24028,12 @@ attributes #27 = { nounwind willreturn memory(read) }
 !85 = !{!86}
 !86 = distinct !{!86, !87, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange5beginEv: argument 0"}
 !87 = distinct !{!87, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange5beginEv"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratordeEv: argument 0"}
-!90 = distinct !{!90, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratordeEv"}
-!91 = !{!92, !89}
-!92 = distinct !{!92, !93, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator11dereferenceEv: argument 0"}
-!93 = distinct !{!93, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator11dereferenceEv"}
+!88 = !{!89, !91}
+!89 = distinct !{!89, !90, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator11dereferenceEv: argument 0"}
+!90 = distinct !{!90, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator11dereferenceEv"}
+!91 = distinct !{!91, !92, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratordeEv: argument 0"}
+!92 = distinct !{!92, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratordeEv"}
+!93 = !{!91}
 !94 = !{!95}
 !95 = distinct !{!95, !96, !"_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv: argument 0"}
 !96 = distinct !{!96, !"_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv"}

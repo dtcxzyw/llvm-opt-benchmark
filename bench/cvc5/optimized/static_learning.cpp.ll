@@ -651,7 +651,7 @@ invoke.cont22:                                    ; preds = %if.else.i.i, %if.th
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont22
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 96
-  %7 = load ptr, ptr %ref.tmp20, align 8
+  %7 = load ptr, ptr %ref.tmp20, align 8, !noalias !11
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i

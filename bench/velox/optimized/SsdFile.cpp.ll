@@ -3844,7 +3844,7 @@ _ZN8facebook5velox5cache6SsdRunC2Emj.exit:        ; preds = %if.end.i93
   %shr.i.i.i.i = lshr i64 %57, 24
   %or.i.i.i.i = or i64 %shr.i.i.i.i, 128
   %add.i.i.i.i = add i64 %mul6.i.i.i.i.i.i, %57
-  %58 = load i32, ptr %sizeAndPackedBegin_.i.i, align 4
+  %58 = load i32, ptr %sizeAndPackedBegin_.i.i, align 4, !noalias !29
   %cmp.not.i115 = icmp eq i32 %58, 0
   %.pre = load i32, ptr %chunkMask_.i.i, align 8
   %.pre289 = load ptr, ptr %chunks_.i.i, align 8
@@ -3865,7 +3865,7 @@ for.body.i.i:                                     ; preds = %if.end20.i.i, %if.t
   %tries.i.055.i = phi i64 [ 0, %if.then.i116 ], [ %inc.i.i, %if.end20.i.i ]
   %and.i.i118 = and i64 %index.i.056.i, %conv.i.i
   %add.ptr.i.i119 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %.pre289, i64 %and.i.i118
-  %60 = load <16 x i8>, ptr %add.ptr.i.i119, align 16, !noalias !30
+  %60 = load <16 x i8>, ptr %add.ptr.i.i119, align 16, !noalias !29
   %cmp.i.i.i120 = icmp eq <16 x i8> %60, %vecinit15.i.i.i
   %61 = bitcast <16 x i1> %cmp.i.i.i120 to i16
   %62 = and i16 %61, 4095
@@ -3889,10 +3889,10 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %idxprom.i.i = zext i32 %65 to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.std::pair", ptr %59, i64 %idxprom.i.i
   %offset2.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %66 = load i64, ptr %offset2.i.i.i.i, align 8, !noalias !30
+  %66 = load i64, ptr %offset2.i.i.i.i, align 8, !noalias !29
   %cmp.i.i.i.i = icmp eq i64 %55, %66
   %id_.i2.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %67 = load i64, ptr %id_.i2.i.i.i.i, align 8, !noalias !30
+  %67 = load i64, ptr %id_.i2.i.i.i.i, align 8, !noalias !29
   %cmp5.i.i.i.i = icmp eq i64 %54, %67
   %68 = select i1 %cmp.i.i.i.i, i1 %cmp5.i.i.i.i, i1 false
   br i1 %68, label %invoke.cont128, label %while.cond.i.i, !llvm.loop !14
@@ -3975,8 +3975,8 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache
           to label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit.i..noexc127_crit_edge unwind label %lpad126.loopexit
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit.i..noexc127_crit_edge: ; preds = %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit.i
-  %.pre290 = load ptr, ptr %chunks_.i.i, align 8, !noalias !30
-  %.pre291 = load i32, ptr %chunkMask_.i.i, align 8, !noalias !30
+  %.pre290 = load ptr, ptr %chunks_.i.i, align 8, !noalias !29
+  %.pre291 = load i32, ptr %chunkMask_.i.i, align 8, !noalias !29
   br label %.noexc127
 
 .noexc127:                                        ; preds = %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit.i..noexc127_crit_edge, %if.end9.i
@@ -3985,7 +3985,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache
   %conv.i121 = zext i32 %73 to i64
   %and.i = and i64 %add.i.i.i.i, %conv.i121
   %add.ptr.i122 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %74, i64 %and.i
-  %75 = load <16 x i8>, ptr %add.ptr.i122, align 16, !noalias !30
+  %75 = load <16 x i8>, ptr %add.ptr.i122, align 16, !noalias !29
   %76 = icmp slt <16 x i8> %75, zeroinitializer
   %77 = bitcast <16 x i1> %76 to i16
   %78 = and i16 %77, 4095
@@ -4003,15 +4003,15 @@ do.body.i:                                        ; preds = %_ZN5folly3f146detai
   %chunk.1.i = phi ptr [ %add.ptr.i122, %if.then12.i ], [ %add.ptr19.i, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ]
   %index.0.i = phi i64 [ %add.i.i.i.i, %if.then12.i ], [ %add.i126, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ]
   %outboundOverflowCount_.i34.i = getelementptr inbounds i8, ptr %chunk.1.i, i64 15
-  %81 = load i8, ptr %outboundOverflowCount_.i34.i, align 1, !noalias !30
+  %81 = load i8, ptr %outboundOverflowCount_.i34.i, align 1, !noalias !29
   %cmp.not.i.i = icmp eq i8 %81, -1
   br i1 %cmp.not.i.i, label %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i, label %if.then.i.i124
 
 if.then.i.i124:                                   ; preds = %do.body.i
   %inc.i35.i = add nuw i8 %81, 1
-  store i8 %inc.i35.i, ptr %outboundOverflowCount_.i34.i, align 1, !noalias !30
-  %.pre.i125 = load ptr, ptr %chunks_.i.i, align 8, !noalias !30
-  %.pre58.i = load i32, ptr %chunkMask_.i.i, align 8, !noalias !30
+  store i8 %inc.i35.i, ptr %outboundOverflowCount_.i34.i, align 1, !noalias !29
+  %.pre.i125 = load ptr, ptr %chunks_.i.i, align 8, !noalias !29
+  %.pre58.i = load i32, ptr %chunkMask_.i.i, align 8, !noalias !29
   br label %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i
 
 _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = %if.then.i.i124, %do.body.i
@@ -4021,18 +4021,18 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %conv17.i = zext i32 %82 to i64
   %and18.i = and i64 %add.i126, %conv17.i
   %add.ptr19.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %83, i64 %and18.i
-  %84 = load <16 x i8>, ptr %add.ptr19.i, align 16, !noalias !30
+  %84 = load <16 x i8>, ptr %add.ptr19.i, align 16, !noalias !29
   %85 = icmp slt <16 x i8> %84, zeroinitializer
   %86 = bitcast <16 x i1> %85 to i16
   %87 = and i16 %86, 4095
   %cmp.i37.not.i = icmp eq i16 %87, 4095
-  br i1 %cmp.i37.not.i, label %do.body.i, label %do.end.i, !llvm.loop !33
+  br i1 %cmp.i37.not.i, label %do.body.i, label %do.end.i, !llvm.loop !32
 
 do.end.i:                                         ; preds = %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i
   %88 = extractelement <16 x i8> %84, i64 14
   %control_.i.i = getelementptr inbounds i8, ptr %add.ptr19.i, i64 14
   %add.i38.i = add i8 %88, 16
-  store i8 %add.i38.i, ptr %control_.i.i, align 2, !noalias !30
+  store i8 %add.i38.i, ptr %control_.i.i, align 2, !noalias !29
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %do.end.i, %.noexc127
@@ -4042,39 +4042,39 @@ if.end24.i:                                       ; preds = %do.end.i, %.noexc12
   %89 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in.i, i1 true)
   %conv26.i = zext nneg i16 %89 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %chunk.0.i, i64 0, i64 %conv26.i
-  %90 = load i8, ptr %arrayidx.i.i.i.i, align 1, !noalias !30
+  %90 = load i8, ptr %arrayidx.i.i.i.i, align 1, !noalias !29
   %cmp.i40.i = icmp eq i8 %90, 0
   br i1 %cmp.i40.i, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i, label %if.then.i41.i
 
 if.then.i41.i:                                    ; preds = %if.end24.i
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkIjE6setTagEmmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.42) #41, !noalias !30
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkIjE6setTagEmmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.42) #41, !noalias !29
   unreachable
 
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i: ; preds = %if.end24.i
   %conv4.i.i = trunc nuw i64 %or.i.i.i.i to i8
-  store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i, align 1, !noalias !30
+  store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i, align 1, !noalias !29
   %rawItems_.i.i.i42.i = getelementptr inbounds i8, ptr %chunk.0.i, i64 16
   %arrayidx.i.i.i.i.i43.i = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i42.i, i64 0, i64 %conv26.i
-  %91 = load i32, ptr %sizeAndPackedBegin_.i.i, align 4, !noalias !30
-  store i32 %91, ptr %arrayidx.i.i.i.i.i43.i, align 4, !noalias !30
-  %92 = load ptr, ptr %entries_, align 8, !noalias !30, !nonnull !29, !noundef !29
+  %91 = load i32, ptr %sizeAndPackedBegin_.i.i, align 4, !noalias !29
+  store i32 %91, ptr %arrayidx.i.i.i.i.i43.i, align 4, !noalias !29
+  %92 = load ptr, ptr %entries_, align 8, !noalias !29, !nonnull !33, !noundef !33
   %idxprom.i.i.i = zext i32 %91 to i64
   %arrayidx.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %92, i64 %idxprom.i.i.i
   %id_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
-  %93 = load ptr, ptr %key, align 8, !noalias !30
-  store ptr %93, ptr %arrayidx.i.i.i, align 8, !noalias !30
-  %94 = load i64, ptr %id_.i, align 8, !noalias !30
-  store i64 %94, ptr %id_.i.i.i.i.i.i.i.i.i, align 8, !noalias !30
-  store ptr null, ptr %key, align 8, !noalias !30
-  store i64 -1, ptr %id_.i, align 8, !noalias !30
+  %93 = load ptr, ptr %key, align 8, !noalias !29
+  store ptr %93, ptr %arrayidx.i.i.i, align 8, !noalias !29
+  %94 = load i64, ptr %id_.i, align 8, !noalias !29
+  store i64 %94, ptr %id_.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  store ptr null, ptr %key, align 8, !noalias !29
+  store i64 -1, ptr %id_.i, align 8, !noalias !29
   %offset.i.i.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
-  %95 = load i64, ptr %offset120, align 8, !noalias !30
-  store i64 %95, ptr %offset.i.i.i.i.i.i.i.i123, align 8, !noalias !30
+  %95 = load i64, ptr %offset120, align 8, !noalias !29
+  store i64 %95, ptr %offset.i.i.i.i.i.i.i.i123, align 8, !noalias !29
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 24
-  store i64 0, ptr %second.i.i.i.i.i.i.i, align 8, !noalias !30
-  %96 = load i32, ptr %sizeAndPackedBegin_.i.i, align 4, !noalias !30
+  store i64 0, ptr %second.i.i.i.i.i.i.i, align 8, !noalias !29
+  %96 = load i32, ptr %sizeAndPackedBegin_.i.i, align 4, !noalias !29
   %inc.i.i.i = add i32 %96, 1
-  store i32 %inc.i.i.i, ptr %sizeAndPackedBegin_.i.i, align 4, !noalias !30
+  store i32 %inc.i.i.i, ptr %sizeAndPackedBegin_.i.i, align 4, !noalias !29
   %.pre292 = load ptr, ptr %entries_, align 8, !noalias !34
   %.pre293 = load i32, ptr %arrayidx.i.i.i.i.i43.i, align 4, !noalias !34
   %.pre294 = zext i32 %.pre293 to i64
@@ -7385,8 +7385,8 @@ invoke.cont108:                                   ; preds = %if.then.i.invoke.co
           to label %invoke.cont111 unwind label %lpad110
 
 invoke.cont111:                                   ; preds = %invoke.cont108
-  %58 = load ptr, ptr %rv.i.i, align 8, !noalias !78, !nonnull !29, !noundef !29
-  %59 = load ptr, ptr %entries_, align 8, !noalias !78, !nonnull !29, !noundef !29
+  %58 = load ptr, ptr %rv.i.i, align 8, !noalias !78, !nonnull !33, !noundef !33
+  %59 = load ptr, ptr %entries_, align 8, !noalias !78, !nonnull !33, !noundef !33
   %60 = load i32, ptr %58, align 4, !noalias !78
   %idx.ext8.i.i.i = zext i32 %60 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i)
@@ -9859,7 +9859,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit: ; preds = %d
   %28 = bitcast <16 x i1> %27 to i16
   %29 = and i16 %28, 4095
   %cmp.i37.not = icmp eq i16 %29, 4095
-  br i1 %cmp.i37.not, label %do.body, label %do.end, !llvm.loop !33
+  br i1 %cmp.i37.not, label %do.body, label %do.end, !llvm.loop !32
 
 do.end:                                           ; preds = %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit
   %30 = extractelement <16 x i8> %26, i64 14
@@ -9890,7 +9890,7 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %if.end24
   %arrayidx.i.i.i.i.i43 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i42, i64 0, i64 %conv26
   %33 = load i32, ptr %sizeAndPackedBegin_.i, align 4
   store i32 %33, ptr %arrayidx.i.i.i.i.i43, align 4
-  %34 = load ptr, ptr %this, align 8, !nonnull !29, !noundef !29
+  %34 = load ptr, ptr %this, align 8, !nonnull !33, !noundef !33
   %idxprom.i.i = zext i32 %33 to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.std::pair", ptr %34, i64 %idxprom.i.i
   %35 = load i64, ptr %args1, align 8
@@ -14595,11 +14595,11 @@ attributes #42 = { cold nounwind }
 !26 = distinct !{!26, !11}
 !27 = distinct !{!27, !11}
 !28 = distinct !{!28, !11}
-!29 = !{}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS7_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESH_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESL_ImmERKT_DpOT0_: %agg.result"}
-!32 = distinct !{!32, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS7_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESH_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESL_ImmERKT_DpOT0_"}
-!33 = distinct !{!33, !11}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS7_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESH_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESL_ImmERKT_DpOT0_: %agg.result"}
+!31 = distinct !{!31, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS7_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESH_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESL_ImmERKT_DpOT0_"}
+!32 = distinct !{!32, !11}
+!33 = !{}
 !34 = !{!35}
 !35 = distinct !{!35, !36, !"_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE11try_emplaceIJEEESt4pairINS1_23VectorContainerIteratorIPSE_IKS7_S8_EEEbEOS7_DpOT_: %agg.result"}
 !36 = distinct !{!36, !"_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE11try_emplaceIJEEESt4pairINS1_23VectorContainerIteratorIPSE_IKS7_S8_EEEbEOS7_DpOT_"}

@@ -22502,10 +22502,11 @@ define dso_local noundef zeroext i1 @_ZN2c43yml6Parser11_handle_unkEv(ptr nounde
   br i1 %.not652, label %183, label %48
 
 48:                                               ; preds = %1
-  %49 = load ptr, ptr %24, align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
+  %49 = load ptr, ptr %24, align 8, !noalias !135
   %.not653 = icmp eq ptr %49, null
   %50 = getelementptr inbounds i8, ptr %24, i64 8
-  %51 = load i64, ptr %50, align 8
+  %51 = load i64, ptr %50, align 8, !noalias !135
   br i1 %.not653, label %60, label %52
 
 52:                                               ; preds = %48
@@ -50348,10 +50349,11 @@ _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit: 
 
 .thread207:                                       ; preds = %.thread
   %77 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %7, i64 %1, i32 1, i32 1
-  %78 = load ptr, ptr %77, align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
+  %78 = load ptr, ptr %77, align 8, !noalias !257
   %.not218 = icmp eq ptr %78, null
   %79 = getelementptr inbounds i8, ptr %77, i64 8
-  %80 = load i64, ptr %79, align 8
+  %80 = load i64, ptr %79, align 8, !noalias !257
   br i1 %.not218, label %88, label %81
 
 81:                                               ; preds = %.thread207

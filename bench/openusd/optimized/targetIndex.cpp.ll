@@ -6210,8 +6210,8 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L32_Che
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 56
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 16
-  %22 = load ptr, ptr %21, align 8, !noalias !55
-  %23 = load ptr, ptr %22, align 8, !noalias !55
+  %22 = load ptr, ptr %21, align 8, !noalias !58
+  %23 = load ptr, ptr %22, align 8, !noalias !58
   %24 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %23, i64 %.sroa.2.0.copyload.i, i32 3, i32 2
   %25 = load i16, ptr %24, align 4, !noalias !58
   %26 = zext i16 %25 to i64

@@ -3139,7 +3139,7 @@ define void @_ZN19pyo3_macros_backend6module22pymodule_function_impl17h420385ba0
           to label %.thread52.i unwind label %171, !noalias !16
 
 158:                                              ; preds = %155
-  %159 = load i64, ptr %6, align 8, !noalias !13
+  %159 = load i64, ptr %6, align 8, !noalias !16
   %160 = icmp eq i64 %159, -9223372036854775808
   br i1 %160, label %161, label %split
 
@@ -3177,7 +3177,7 @@ define void @_ZN19pyo3_macros_backend6module22pymodule_function_impl17h420385ba0
           to label %168 unwind label %156, !noalias !16
 
 168:                                              ; preds = %167
-  %169 = load i64, ptr %5, align 8, !noalias !13
+  %169 = load i64, ptr %5, align 8, !noalias !16
   %170 = icmp eq i64 %169, -9223372036854775808
   br i1 %170, label %174, label %split
 

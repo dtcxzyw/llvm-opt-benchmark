@@ -3160,7 +3160,7 @@ _ZSt10_ConstructIN2cv3PtrINS0_6dynafu8WarpNodeEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i
   br i1 %.not.i.i.i.i.i102, label %.loopexit.loopexit, label %.lr.ph.i.i.i.i.i96, !llvm.loop !21
 
 .loopexit.loopexit:                               ; preds = %_ZSt10_ConstructIN2cv3PtrINS0_6dynafu8WarpNodeEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i101
-  %.pre = load ptr, ptr %24, align 8
+  %.pre = load ptr, ptr %24, align 8, !noalias !22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.noexc106.thread
@@ -6134,7 +6134,7 @@ _ZSt10_ConstructIN2cv3PtrINS0_6dynafu8WarpNodeEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i
   br i1 %.not.i.i.i.i.i63, label %.loopexit319.loopexit, label %.lr.ph.i.i.i.i.i57, !llvm.loop !21
 
 .loopexit319.loopexit:                            ; preds = %_ZSt10_ConstructIN2cv3PtrINS0_6dynafu8WarpNodeEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i62
-  %.pre439 = load ptr, ptr %8, align 8
+  %.pre439 = load ptr, ptr %8, align 8, !noalias !62
   br label %.loopexit319
 
 .loopexit319:                                     ; preds = %.loopexit319.loopexit, %.noexc67.thread
@@ -6143,6 +6143,7 @@ _ZSt10_ConstructIN2cv3PtrINS0_6dynafu8WarpNodeEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i
   %89 = phi ptr [ %65, %.noexc67.thread ], [ %70, %.loopexit319.loopexit ]
   %.0.lcssa.i.i.i.i.i64 = phi ptr [ null, %.noexc67.thread ], [ %86, %.loopexit319.loopexit ]
   store ptr %.0.lcssa.i.i.i.i.i64, ptr %89, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %90 = ptrtoint ptr %.0.lcssa.i.i.i.i.i64 to i64
   %91 = ptrtoint ptr %88 to i64
   %92 = sub i64 %90, %91
@@ -6152,7 +6153,7 @@ _ZSt10_ConstructIN2cv3PtrINS0_6dynafu8WarpNodeEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i
           to label %.noexc69 unwind label %520
 
 .noexc69:                                         ; preds = %.loopexit319
-  %95 = load ptr, ptr %89, align 8
+  %95 = load ptr, ptr %89, align 8, !noalias !62
   %96 = ptrtoint ptr %95 to i64
   %97 = sub i64 %96, %91
   %98 = lshr exact i64 %97, 4
@@ -6696,13 +6697,14 @@ _ZSt10_ConstructIN2cv3PtrINS0_6dynafu8WarpNodeEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i
   br i1 %.not.i.i.i.i.i119, label %.loopexit307.loopexit, label %.lr.ph.i.i.i.i.i113, !llvm.loop !21
 
 .loopexit307.loopexit:                            ; preds = %_ZSt10_ConstructIN2cv3PtrINS0_6dynafu8WarpNodeEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i118
-  %.pre445 = load ptr, ptr %16, align 8
+  %.pre445 = load ptr, ptr %16, align 8, !noalias !65
   br label %.loopexit307
 
 .loopexit307:                                     ; preds = %.loopexit307.loopexit, %.noexc123.thread
   %333 = phi ptr [ null, %.noexc123.thread ], [ %.pre445, %.loopexit307.loopexit ]
   %334 = phi ptr [ null, %.noexc123.thread ], [ %332, %.loopexit307.loopexit ]
   store ptr %334, ptr %186, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %335 = ptrtoint ptr %334 to i64
   %336 = ptrtoint ptr %333 to i64
   %337 = sub i64 %335, %336

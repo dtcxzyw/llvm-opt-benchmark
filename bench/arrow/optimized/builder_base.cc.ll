@@ -12531,7 +12531,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %new_size.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  %0 = load i64, ptr %size_.i.i.i, align 8, !noalias !833
+  %0 = load i64, ptr %size_.i.i.i, align 8, !noalias !1284
   %add.i = add nsw i64 %0, %elements
   store i64 %add.i, ptr %new_size.i, align 8, !noalias !1284
   %cmp.i = icmp sgt i64 %add.i, 2147483646
@@ -12650,7 +12650,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %new_size.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  %0 = load i64, ptr %size_.i.i.i, align 8, !noalias !833
+  %0 = load i64, ptr %size_.i.i.i, align 8, !noalias !1308
   %add.i = add nsw i64 %0, %elements
   store i64 %add.i, ptr %new_size.i, align 8, !noalias !1308
   %cmp.i = icmp eq i64 %add.i, 9223372036854775807

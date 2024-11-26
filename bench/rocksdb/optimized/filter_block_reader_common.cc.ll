@@ -1765,7 +1765,7 @@ entry:
   %0 = load i64, ptr %start_.i, align 8, !noalias !11
   %1 = load ptr, ptr %range, align 8, !noalias !11
   %end_.i.i = getelementptr inbounds i8, ptr %range, i64 16
-  %2 = load i64, ptr %end_.i.i, align 8, !noalias !14
+  %2 = load i64, ptr %end_.i.i, align 8, !noalias !11
   %cmp2.i.i = icmp ult i64 %0, %2
   br i1 %cmp2.i.i, label %land.rhs.lr.ph.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
 
@@ -1783,7 +1783,7 @@ land.rhs.lr.ph.i.i:                               ; preds = %entry
 while.cond.i.i:                                   ; preds = %land.rhs.i.i
   %inc.i.i = add i64 %iter.sroa.6.1, 1
   %exitcond.not.i = icmp eq i64 %inc.i.i, %2
-  br i1 %exitcond.not.i, label %for.end, label %land.rhs.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %for.end, label %land.rhs.i.i, !llvm.loop !14
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i, %land.rhs.lr.ph.i.i
   %iter.sroa.6.1 = phi i64 [ %0, %land.rhs.lr.ph.i.i ], [ %inc.i.i, %while.cond.i.i ]
@@ -1850,12 +1850,12 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %or6.i = or i64 %or.i, %17
   %and.i = and i64 %or6.i, %shl.i
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !17
+  br i1 %tobool.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !16
 
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %while.cond.i, %land.rhs.i
   %inc.i.lcssa = phi i64 [ %umax, %while.cond.i ], [ %inc.i, %land.rhs.i ]
   %cmp.i.not = icmp eq i64 %inc.i.lcssa, %10
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %while.cond.i.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
   ret void
@@ -1868,10 +1868,10 @@ entry:
   %ikey = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %start_.i = getelementptr inbounds i8, ptr %range, i64 8
-  %0 = load i64, ptr %start_.i, align 8, !noalias !19
-  %1 = load ptr, ptr %range, align 8, !noalias !19
+  %0 = load i64, ptr %start_.i, align 8, !noalias !18
+  %1 = load ptr, ptr %range, align 8, !noalias !18
   %end_.i.i = getelementptr inbounds i8, ptr %range, i64 16
-  %2 = load i64, ptr %end_.i.i, align 8, !noalias !14
+  %2 = load i64, ptr %end_.i.i, align 8, !noalias !18
   %cmp2.i.i = icmp ult i64 %0, %2
   br i1 %cmp2.i.i, label %land.rhs.lr.ph.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
 
@@ -1879,17 +1879,17 @@ land.rhs.lr.ph.i.i:                               ; preds = %entry
   %skip_mask_.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %invalid_mask_.i.i = getelementptr inbounds i8, ptr %range, i64 32
   %value_mask_.i.i = getelementptr inbounds i8, ptr %1, i64 3848
-  %3 = load i64, ptr %value_mask_.i.i, align 8, !noalias !19
-  %4 = load i64, ptr %skip_mask_.i.i, align 8, !noalias !19
+  %3 = load i64, ptr %value_mask_.i.i, align 8, !noalias !18
+  %4 = load i64, ptr %skip_mask_.i.i, align 8, !noalias !18
   %or.i.i = or i64 %4, %3
-  %5 = load i64, ptr %invalid_mask_.i.i, align 8, !noalias !19
+  %5 = load i64, ptr %invalid_mask_.i.i, align 8, !noalias !18
   %or10.i.i = or i64 %or.i.i, %5
   br label %land.rhs.i.i
 
 while.cond.i.i:                                   ; preds = %land.rhs.i.i
   %inc.i.i = add i64 %iter.sroa.6.1, 1
   %exitcond.not.i = icmp eq i64 %inc.i.i, %2
-  br i1 %exitcond.not.i, label %for.end, label %land.rhs.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %for.end, label %land.rhs.i.i, !llvm.loop !14
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i, %land.rhs.lr.ph.i.i
   %iter.sroa.6.1 = phi i64 [ %0, %land.rhs.lr.ph.i.i ], [ %inc.i.i, %while.cond.i.i ]
@@ -1972,12 +1972,12 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %or6.i = or i64 %or.i, %22
   %and.i = and i64 %or6.i, %shl.i
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !17
+  br i1 %tobool.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !16
 
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %while.cond.i, %land.rhs.i
   %inc.i.lcssa = phi i64 [ %umax, %while.cond.i ], [ %inc.i, %land.rhs.i ]
   %cmp.i.not = icmp eq i64 %inc.i.lcssa, %15
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %while.cond.i.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
   ret void
@@ -2024,8 +2024,8 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr void @_ZN7rocksdb17FilterBlockReader17CacheDependenciesERKNS_11ReadOptionsEbPNS_18FilePrefetchBufferE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(154) %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i, align 8, !alias.scope !23
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !23
+  store ptr null, ptr %state_.i.i, align 8, !alias.scope !22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !22
   ret void
 }
 
@@ -2332,15 +2332,14 @@ attributes #18 = { noreturn nounwind }
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
 !13 = distinct !{!13, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
-!14 = !{}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
-!21 = distinct !{!21, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
-!22 = distinct !{!22, !16}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
-!25 = distinct !{!25, !"_ZN7rocksdb6Status2OKEv"}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv: %agg.result"}
+!20 = distinct !{!20, !"_ZNK7rocksdb15MultiGetContext5Range5beginEv"}
+!21 = distinct !{!21, !15}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
+!24 = distinct !{!24, !"_ZN7rocksdb6Status2OKEv"}

@@ -1553,14 +1553,15 @@ common.resume:                                    ; preds = %57, %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !340)
-  %63 = load ptr, ptr %62, align 8, !alias.scope !343, !nonnull !14, !noundef !14
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
+  %63 = load ptr, ptr %62, align 8, !alias.scope !346, !nonnull !14, !noundef !14
   %64 = getelementptr inbounds i8, ptr %63, i64 440
-  %65 = load i8, ptr %64, align 8, !range !344, !noalias !345, !noundef !14
+  %65 = load i8, ptr %64, align 8, !range !347, !noalias !346, !noundef !14
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hf624e1e44b98d374E.exit.i.i.i", label %67
 
 67:                                               ; preds = %"_ZN4core3ptr131drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h82653e47c5ddba52E.exit"
-  store i8 1, ptr %64, align 8, !noalias !345
+  store i8 1, ptr %64, align 8, !noalias !346
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hf624e1e44b98d374E.exit.i.i.i"
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hf624e1e44b98d374E.exit.i.i.i": ; preds = %67, %"_ZN4core3ptr131drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h82653e47c5ddba52E.exit"
@@ -2482,7 +2483,7 @@ default.unreachable:                              ; preds = %"_ZN5tokio7runtime4
           to label %18 unwind label %20, !noalias !529
 
 18:                                               ; preds = %10
-  %19 = load i8, ptr %7, align 8, !range !344, !noalias !523, !noundef !14
+  %19 = load i8, ptr %7, align 8, !range !347, !noalias !523, !noundef !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !523
   %trunc.i.i.i = trunc nuw i8 %19 to i1
   br i1 %trunc.i.i.i, label %57, label %27
@@ -2793,7 +2794,7 @@ default.unreachable:                              ; preds = %"_ZN5tokio7runtime4
           to label %18 unwind label %20, !noalias !580
 
 18:                                               ; preds = %10
-  %19 = load i8, ptr %7, align 8, !range !344, !noalias !574, !noundef !14
+  %19 = load i8, ptr %7, align 8, !range !347, !noalias !574, !noundef !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !574
   %trunc.i.i.i = trunc nuw i8 %19 to i1
   br i1 %trunc.i.i.i, label %57, label %27
@@ -5281,11 +5282,11 @@ attributes #25 = { noreturn }
 !340 = !{!341}
 !341 = distinct !{!341, !342, !"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6f0044159f8e6ef4E.llvm.14780125840797112574: argument 0"}
 !342 = distinct !{!342, !"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6f0044159f8e6ef4E.llvm.14780125840797112574"}
-!343 = !{!341, !338, !335}
-!344 = !{i8 0, i8 2}
-!345 = !{!346, !341, !338, !335}
-!346 = distinct !{!346, !347, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hf624e1e44b98d374E: argument 0"}
-!347 = distinct !{!347, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hf624e1e44b98d374E"}
+!343 = !{!344}
+!344 = distinct !{!344, !345, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hf624e1e44b98d374E: argument 0"}
+!345 = distinct !{!345, !"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17hf624e1e44b98d374E"}
+!346 = !{!344, !341, !338, !335}
+!347 = !{i8 0, i8 2}
 !348 = !{!338, !335}
 !349 = !{!350}
 !350 = distinct !{!350, !351, !"_ZN4core3ptr210drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mpsc..chan..Chan$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$C$tokio..sync..mpsc..bounded..Semaphore$GT$$GT$$GT$17hf4340f96a930e0cbE.llvm.14780125840797112574: argument 0"}

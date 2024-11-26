@@ -332,7 +332,7 @@ _ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidire
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.16..sroa_idx, i8 0, i64 24, i1 false), !noalias !6
   %120 = load ptr, ptr %119, align 8, !noalias !6
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %122 = load ptr, ptr %121, align 8
+  %122 = load ptr, ptr %121, align 8, !noalias !6
   %.not.i.i.not.i.i.i.i = icmp eq ptr %122, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit.i, label %123
 
@@ -350,7 +350,7 @@ _ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidire
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i, i8 0, i64 16, i1 false), !noalias !6
   %129 = load ptr, ptr %128, align 8, !noalias !6
   %130 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %131 = load ptr, ptr %130, align 8
+  %131 = load ptr, ptr %130, align 8, !noalias !6
   %.not.i.i.not.i.i.i1.i = icmp eq ptr %131, null
   br i1 %.not.i.i.not.i.i.i1.i, label %_ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit2.i, label %132
 

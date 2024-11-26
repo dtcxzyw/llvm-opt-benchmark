@@ -1380,7 +1380,7 @@ _ZNK2cv5utils5trace7details23TraceManagerThreadLocal16stackTopLocationEv.exit: ;
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds i8, ptr %36, i64 80
-  %73 = load ptr, ptr %72, align 8, !noalias !5
+  %73 = load ptr, ptr %72, align 8, !noalias !8
   %74 = icmp eq ptr %68, %73
   br i1 %74, label %80, label %78
 
@@ -1395,7 +1395,7 @@ _ZNK2cv5utils5trace7details23TraceManagerThreadLocal16stackTopLocationEv.exit: ;
 
 80:                                               ; preds = %71
   %81 = getelementptr inbounds i8, ptr %36, i64 96
-  %82 = load ptr, ptr %81, align 8, !noalias !5
+  %82 = load ptr, ptr %81, align 8, !noalias !8
   %83 = getelementptr inbounds i8, ptr %82, i64 -8
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 480
@@ -2027,12 +2027,12 @@ _ZN2cv5utils5trace7details15getTraceManagerEv.exit: ; preds = %1, %4, %7
   br label %_ZNK2cv5utils5trace7details23TraceManagerThreadLocal22stackTopBeginTimestampEv.exit
 
 49:                                               ; preds = %_ZN2cv5utils5trace7details15getTraceManagerEv.exit
-  %50 = load ptr, ptr %27, align 8, !noalias !6
+  %50 = load ptr, ptr %27, align 8, !noalias !11
   %51 = icmp eq ptr %44, %50
   br i1 %51, label %52, label %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i18
 
 52:                                               ; preds = %49
-  %53 = load ptr, ptr %15, align 8, !noalias !6
+  %53 = load ptr, ptr %15, align 8, !noalias !11
   %54 = getelementptr inbounds i8, ptr %53, i64 -8
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 504
@@ -2307,7 +2307,7 @@ _ZN2cv3PtrINS_5utils5trace7details12TraceStorageEED2Ev.exit: ; preds = %1, %20, 
   tail call void @_ZdlPv(ptr noundef %47) #22
   %48 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 8
   %49 = icmp ult ptr %.06.i.i.i, %44
-  br i1 %49, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i, !llvm.loop !9
+  br i1 %49, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i, !llvm.loop !14
 
 _ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
   %.pre.i.i = load ptr, ptr %38, align 8
@@ -2407,17 +2407,17 @@ define hidden void @_ZNK2cv5utils5trace7details23TraceManagerThreadLocal9dumpSta
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !noalias !11
+  %7 = load ptr, ptr %6, align 8, !noalias !16
   %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = load ptr, ptr %8, align 8, !noalias !14
+  %9 = load ptr, ptr %8, align 8, !noalias !19
   %.not1920 = icmp eq ptr %7, %9
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = load ptr, ptr %10, align 8, !noalias !11
+  %11 = load ptr, ptr %10, align 8, !noalias !16
   %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !noalias !11
+  %13 = load ptr, ptr %12, align 8, !noalias !16
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -2499,7 +2499,7 @@ _ZNSt15_Deque_iteratorIN2cv5utils5trace7details23TraceManagerThreadLocal10StackE
   %.sroa.8.1.us = phi ptr [ %55, %52 ], [ %.sroa.8.022.us, %49 ]
   %.sroa.11.1.us = phi ptr [ %53, %52 ], [ %.sroa.11.023.us, %49 ]
   %.not19.us = icmp eq ptr %.sroa.016.1.us, %9
-  br i1 %.not19.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not19.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
 
 .loopexit.split.us:                               ; preds = %45, %43, %36, %32, %28, %21
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -2571,7 +2571,7 @@ _ZNSt15_Deque_iteratorIN2cv5utils5trace7details23TraceManagerThreadLocal10StackE
   %.sroa.8.1 = phi ptr [ %80, %77 ], [ %.sroa.8.022, %74 ]
   %.sroa.11.1 = phi ptr [ %78, %77 ], [ %.sroa.11.023, %74 ]
   %.not19 = icmp eq ptr %.sroa.016.1, %9
-  br i1 %.not19, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
+  br i1 %.not19, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryERKS5_PS6_EppEv.exit, %_ZNSt15_Deque_iteratorIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryERKS5_PS6_EppEv.exit.us, %3
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(128) %4)
@@ -3051,7 +3051,7 @@ define void @_ZN2cv5utils5trace7details12TraceManagerD2Ev(ptr noundef nonnull al
   %.1 = phi i64 [ %31, %27 ], [ %.02639, %.lr.ph ]
   %36 = add nuw i64 %.03037, 1
   %exitcond.not = icmp eq i64 %36, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %35
   %.not = icmp eq i64 %.1, 0
@@ -3496,7 +3496,7 @@ _ZNSt6vectorIPN2cv5utils5trace7details23TraceManagerThreadLocalESaIS5_EE9push_ba
   %99 = getelementptr inbounds i8, ptr %.sroa.022.028, i64 8
   %100 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %99, %100
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %87
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -3940,13 +3940,13 @@ _ZN2cv5utils5trace7details15getTraceManagerEv.exit: ; preds = %1, %5, %8
 
 50:                                               ; preds = %42
   %51 = getelementptr inbounds i8, ptr %41, i64 80
-  %52 = load ptr, ptr %51, align 8, !noalias !20
+  %52 = load ptr, ptr %51, align 8, !noalias !25
   %53 = icmp eq ptr %45, %52
   br i1 %53, label %54, label %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i28
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds i8, ptr %41, i64 96
-  %56 = load ptr, ptr %55, align 8, !noalias !20
+  %56 = load ptr, ptr %55, align 8, !noalias !25
   %57 = getelementptr inbounds i8, ptr %56, i64 -8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 504
@@ -4010,7 +4010,7 @@ _ZNK2cv5utils5trace7details23TraceManagerThreadLocal14stackTopRegionEv.exit: ; p
   %.sroa.036.1 = phi i32 [ %.sroa.036.041, %39 ], [ %.sroa.036.041, %_ZNK2cv5utils5trace7details23TraceManagerThreadLocal14stackTopRegionEv.exit ], [ %67, %.sink.split ]
   %78 = add nuw i64 %.043, 1
   %exitcond.not = icmp eq i64 %78, %umax
-  br i1 %exitcond.not, label %._crit_edge.thread, label %39, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.thread, label %39, !llvm.loop !28
 
 ._crit_edge.thread:                               ; preds = %77
   %79 = getelementptr inbounds i8, ptr %13, i64 112
@@ -5404,7 +5404,7 @@ _ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntry
   store ptr %13, ptr %.011.i, align 8
   %14 = getelementptr inbounds i8, ptr %.011.i, i64 8
   %15 = icmp ult ptr %14, %12
-  br i1 %15, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE15_M_create_nodesEPPS5_S9_.exit, !llvm.loop !24
+  br i1 %15, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE15_M_create_nodesEPPS5_S9_.exit, !llvm.loop !29
 
 16:                                               ; preds = %.lr.ph.i
   %17 = landingpad { ptr, i32 }
@@ -5420,7 +5420,7 @@ _ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntry
   tail call void @_ZdlPv(ptr noundef %21) #22
   %22 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
   %23 = icmp ult ptr %22, %.011.i
-  br i1 %23, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i, !llvm.loop !9
+  br i1 %23, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i, !llvm.loop !14
 
 _ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i: ; preds = %.lr.ph.i.i, %16
   invoke void @__cxa_rethrow() #20
@@ -5531,7 +5531,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %1
   %14 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 8
   %15 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %14, %15
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %.noexc
   %.pre.i = load ptr, ptr %6, align 8
@@ -5563,7 +5563,7 @@ _ZN2cv18TLSDataAccumulatorINS_5utils5trace7details23TraceManagerThreadLocalEE20_
   %25 = getelementptr inbounds i8, ptr %.sroa.01.06.i4, i64 8
   %26 = load ptr, ptr %19, align 8
   %.not.i5 = icmp eq ptr %25, %26
-  br i1 %.not.i5, label %._crit_edge.i6, label %.lr.ph.i3, !llvm.loop !26
+  br i1 %.not.i5, label %._crit_edge.i6, label %.lr.ph.i3, !llvm.loop !31
 
 ._crit_edge.i6:                                   ; preds = %.noexc9
   %.pre.i7 = load ptr, ptr %17, align 8
@@ -5831,25 +5831,30 @@ attributes #24 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = !{}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv: argument 0"}
-!8 = distinct !{!8, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv: argument 0"}
+!7 = distinct !{!7, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv: argument 0"}
+!10 = distinct !{!10, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE5beginEv: argument 0"}
-!13 = distinct !{!13, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE5beginEv"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv: argument 0"}
-!16 = distinct !{!16, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv"}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv: argument 0"}
-!22 = distinct !{!22, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv"}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
+!12 = distinct !{!12, !13, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv: argument 0"}
+!13 = distinct !{!13, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv"}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE5beginEv: argument 0"}
+!18 = distinct !{!18, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE5beginEv"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv: argument 0"}
+!21 = distinct !{!21, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv"}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv: argument 0"}
+!27 = distinct !{!27, !"_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE3endEv"}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = distinct !{!30, !15}
+!31 = distinct !{!31, !15}

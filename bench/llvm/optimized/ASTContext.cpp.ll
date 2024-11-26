@@ -2973,7 +2973,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclEPKNS2_10RawCommentENS_12Dense
 74:                                               ; preds = %63, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclEPKNS2_10RawCommentENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E11try_emplaceIJS8_EEESt4pairINS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEEbEOS5_DpOT_.exit
   %.sink.i.i.i19 = phi ptr [ %64, %63 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclEPKNS2_10RawCommentENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E11try_emplaceIJS8_EEESt4pairINS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEEbEOS5_DpOT_.exit ]
   %75 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclES5_NS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S5_EEEES5_S5_S7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i19), !noalias !13
-  %76 = load ptr, ptr %5, align 8
+  %76 = load ptr, ptr %5, align 8, !noalias !13
   store ptr %76, ptr %75, align 8, !noalias !13
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %1, ptr %77, align 8, !noalias !13
@@ -98374,7 +98374,7 @@ _ZNK4llvm6detail12DenseSetImplIPKN5clang12FunctionDeclENS_13SmallDenseMapIS5_NS0
 _ZNK4llvm6detail12DenseSetImplIPKN5clang12FunctionDeclENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit.thread.thread: ; preds = %51, %83
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %51 ]
   %94 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang12FunctionDeclENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink.i.i.i.i), !noalias !291
-  %95 = load ptr, ptr %6, align 8
+  %95 = load ptr, ptr %6, align 8, !noalias !291
   store ptr %95, ptr %94, align 8, !noalias !291
   br label %_ZN4llvm6detail12DenseSetImplIPKN5clang12FunctionDeclENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertERKS5_.exit
 

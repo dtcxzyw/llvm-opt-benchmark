@@ -406,7 +406,7 @@ if.end:                                           ; preds = %invoke.cont24, %if.
 if.then30:                                        ; preds = %if.else.i
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %26 = load ptr, ptr %tailStart_.i, align 8, !noalias !10
-  %27 = load ptr, ptr %cachePtr_.i, align 8, !noalias !7
+  %27 = load ptr, ptr %cachePtr_.i, align 8, !noalias !10
   %28 = load ptr, ptr %27, align 8, !noalias !10
   %cmp.not.i.i.i = icmp eq ptr %26, %28
   br i1 %cmp.not.i.i.i, label %_ZN5folly10IOBufQueue4moveEv.exit, label %if.then.i.i.i
@@ -1104,7 +1104,7 @@ invoke.cont199:                                   ; preds = %invoke.cont197
   call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp196) #20
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %127 = load ptr, ptr %tailStart_.i.i.i150, align 8, !noalias !31
-  %128 = load ptr, ptr %cachePtr_.i.i.i151, align 8, !noalias !28
+  %128 = load ptr, ptr %cachePtr_.i.i.i151, align 8, !noalias !31
   %129 = load ptr, ptr %128, align 8, !noalias !31
   %cmp.not.i.i.i152 = icmp eq ptr %127, %129
   br i1 %cmp.not.i.i.i152, label %invoke.cont203, label %if.then.i.i.i153
@@ -1170,7 +1170,7 @@ land.lhs.true210:                                 ; preds = %call4.i.noexc173, %
 if.then213:                                       ; preds = %land.lhs.true210
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %141 = load ptr, ptr %tailStart_.i171, align 8, !noalias !37
-  %142 = load ptr, ptr %cachePtr_.i170, align 8, !noalias !34
+  %142 = load ptr, ptr %cachePtr_.i170, align 8, !noalias !37
   %143 = load ptr, ptr %142, align 8, !noalias !37
   %cmp.not.i.i.i178 = icmp eq ptr %141, %143
   br i1 %cmp.not.i.i.i178, label %invoke.cont216, label %if.then.i.i.i179
@@ -1377,7 +1377,7 @@ cleanup.action302:                                ; preds = %lpad274, %lpad285
 if.end304:                                        ; preds = %cond.false261, %cond.end263, %cleanup.action291, %invoke.cont251
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %171 = load ptr, ptr %tailStart_.i, align 8, !noalias !43
-  %172 = load ptr, ptr %cachePtr_.i, align 8, !noalias !40
+  %172 = load ptr, ptr %cachePtr_.i, align 8, !noalias !43
   %173 = load ptr, ptr %172, align 8, !noalias !43
   %cmp.not.i.i.i214 = icmp eq ptr %171, %173
   br i1 %cmp.not.i.i.i214, label %_ZN5folly10IOBufQueue4moveEv.exit226, label %if.then.i.i.i215

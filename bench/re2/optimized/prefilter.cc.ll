@@ -4009,7 +4009,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont3
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %.pre = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  %.pre = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !41
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit
@@ -4088,7 +4088,7 @@ _ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.e
   store ptr %storemerge.i.i, ptr %_M_finish.i.i, align 8
   %21 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i4 = icmp eq ptr %storemerge.i.i, %21
-  br i1 %cmp.i.i.i4, label %if.end13, label %while.body, !llvm.loop !42
+  br i1 %cmp.i.i.i4, label %if.end13, label %while.body, !llvm.loop !44
 
 if.end13:                                         ; preds = %_ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit, %invoke.cont3, %entry
   ret void
@@ -4270,7 +4270,7 @@ cond.end:                                         ; preds = %_ZNK3re29Prefilter1
   %_M_right.i = getelementptr inbounds i8, ptr %__x.037, i64 %.sink
   %__x.0 = load ptr, ptr %_M_right.i, align 8
   %cmp.not = icmp eq ptr %__x.0, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !43
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !45
 
 while.end:                                        ; preds = %cond.end
   br i1 %2, label %if.then, label %if.end12
@@ -4780,13 +4780,13 @@ _ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE4pushEOS
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE4pushEOS5_.exit
-  %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !44
-  %6 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !44
+  %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !46
+  %6 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !46
   %cmp.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i, label %if.then.i.i.i53, label %_ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit
 
 if.then.i.i.i53:                                  ; preds = %for.cond
-  %7 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !44
+  %7 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !46
   %add.ptr.i.i.i54 = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load ptr, ptr %add.ptr.i.i.i54, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 480
@@ -4913,7 +4913,7 @@ if.then52:                                        ; preds = %land.lhs.true45
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.then52, %if.then.i.i.i62, %if.else.i.i.i64, %if.end105
-  br label %for.cond, !llvm.loop !47
+  br label %for.cond, !llvm.loop !49
 
 if.else66:                                        ; preds = %land.lhs.true45, %if.then41.if.else66_crit_edge
   %31 = phi ptr [ %.pre, %if.then41.if.else66_crit_edge ], [ %24, %land.lhs.true45 ]
@@ -5000,7 +5000,7 @@ if.end93:                                         ; preds = %_ZNSt5stackIN3re29W
   br i1 %cmp.i.i.i72, label %if.then.i.i.i74, label %_ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit78
 
 if.then.i.i.i74:                                  ; preds = %if.end93
-  %48 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !48
+  %48 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !50
   %add.ptr.i.i.i76 = getelementptr inbounds i8, ptr %48, i64 -8
   %49 = load ptr, ptr %add.ptr.i.i.i76, align 8
   %add.ptr.i.i.i.i77 = getelementptr inbounds i8, ptr %49, i64 480
@@ -5321,13 +5321,15 @@ attributes #23 = { cold }
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = !{}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZNSt5dequeIN3re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE3endEv: %agg.result"}
-!46 = distinct !{!46, !"_ZNSt5dequeIN3re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE3endEv"}
-!47 = distinct !{!47, !5}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZNSt5dequeIN3re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE3endEv: %agg.result"}
-!50 = distinct !{!50, !"_ZNSt5dequeIN3re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE3endEv"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZNSt5dequeIN3re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE3endEv: %agg.result"}
+!43 = distinct !{!43, !"_ZNSt5dequeIN3re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE3endEv"}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !5}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZNSt5dequeIN3re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE3endEv: %agg.result"}
+!48 = distinct !{!48, !"_ZNSt5dequeIN3re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE3endEv"}
+!49 = distinct !{!49, !5}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZNSt5dequeIN3re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE3endEv: %agg.result"}
+!52 = distinct !{!52, !"_ZNSt5dequeIN3re29WalkStateIPNS0_9Prefilter4InfoEEESaIS5_EE3endEv"}

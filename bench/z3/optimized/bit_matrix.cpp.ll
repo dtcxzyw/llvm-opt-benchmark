@@ -407,14 +407,14 @@ _ZN10bit_matrix3endEv.exit:
   store i64 %call.i.i.i, ptr %m_watch.i, align 8
   store i8 1, ptr %m_running.i.i, align 8
   %m_rows.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load ptr, ptr %m_rows.i.i, align 8
+  %1 = load ptr, ptr %m_rows.i.i, align 8, !noalias !8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
-  %2 = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !8
+  %2 = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !11
   %cmp.i.not63 = icmp eq i32 %2, 0
   br i1 %cmp.i.not63, label %for.end31, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN10bit_matrix3endEv.exit
-  %3 = load ptr, ptr %1, align 8, !noalias !11
+  %3 = load ptr, ptr %1, align 8, !noalias !8
   %m_num_columns.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %m_num_chunks4.i = getelementptr inbounds i8, ptr %this, i64 44
   %4 = zext i32 %2 to i64
@@ -482,7 +482,7 @@ invoke.cont7:                                     ; preds = %land.rhs.i.i.i, %wh
 
 _ZN10bit_matrix3endEv.exit22:                     ; preds = %invoke.cont7
   %arrayidx.i.i.i19 = getelementptr inbounds i8, ptr %5, i64 -4
-  %10 = load i32, ptr %arrayidx.i.i.i19, align 4, !noalias !18
+  %10 = load i32, ptr %arrayidx.i.i.i19, align 4, !noalias !20
   %cmp.i25.not60 = icmp eq i32 %10, 0
   br i1 %cmp.i25.not60, label %for.inc28.thread, label %for.body17.lr.ph
 
@@ -491,7 +491,7 @@ for.inc28.thread:                                 ; preds = %_ZN10bit_matrix3end
   br label %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i42
 
 for.body17.lr.ph:                                 ; preds = %_ZN10bit_matrix3endEv.exit22
-  %11 = load ptr, ptr %5, align 8, !noalias !21
+  %11 = load ptr, ptr %5, align 8, !noalias !23
   %shr.i = lshr i32 %ci.sroa.3.1, 6
   %idxprom.i = zext nneg i32 %shr.i to i64
   %and.i = and i32 %ci.sroa.3.1, 63
@@ -748,14 +748,14 @@ terminate.lpad:                                   ; preds = %invoke.cont45, %inv
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN10bit_matrix7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out) local_unnamed_addr #6 align 2 {
 _ZN10bit_matrix3endEv.exit:
   %m_rows.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load ptr, ptr %m_rows.i.i, align 8, !noalias !17
+  %0 = load ptr, ptr %m_rows.i.i, align 8, !noalias !26
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
-  %1 = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !24
+  %1 = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !29
   %cmp.i.not15 = icmp eq i32 %1, 0
   br i1 %cmp.i.not15, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN10bit_matrix3endEv.exit
-  %2 = load ptr, ptr %0, align 8, !noalias !27
+  %2 = load ptr, ptr %0, align 8, !noalias !26
   %m_num_columns4.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = zext i32 %1 to i64
   br label %for.body
@@ -948,7 +948,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i32 %19, ptr %arrayidx5.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6vectorIjLb0EjE7reverseEv.exit, label %for.body.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZN6vectorIjLb0EjE7reverseEv.exit, label %for.body.i, !llvm.loop !32
 
 _ZN6vectorIjLb0EjE7reverseEv.exit:                ; preds = %for.body.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
   br i1 %cmp.i.i.i.i.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i35.thread.preheader, label %_ZN6vectorIjLb0EjE3endEv.exit
@@ -1537,25 +1537,27 @@ attributes #19 = { noreturn }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN10bit_matrix3endEv: %agg.result"}
-!10 = distinct !{!10, !"_ZN10bit_matrix3endEv"}
+!9 = distinct !{!9, !10, !"_ZN10bit_matrix5beginEv: %agg.result"}
+!10 = distinct !{!10, !"_ZN10bit_matrix5beginEv"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN10bit_matrix5beginEv: %agg.result"}
-!13 = distinct !{!13, !"_ZN10bit_matrix5beginEv"}
+!12 = distinct !{!12, !13, !"_ZN10bit_matrix3endEv: %agg.result"}
+!13 = distinct !{!13, !"_ZN10bit_matrix3endEv"}
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZNK10bit_matrix3row5beginEv: %agg.result"}
 !16 = distinct !{!16, !"_ZNK10bit_matrix3row5beginEv"}
-!17 = !{}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN10bit_matrix3endEv: %agg.result"}
-!20 = distinct !{!20, !"_ZN10bit_matrix3endEv"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN10bit_matrix5beginEv: %agg.result"}
-!23 = distinct !{!23, !"_ZN10bit_matrix5beginEv"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN10bit_matrix3endEv: %agg.result"}
-!26 = distinct !{!26, !"_ZN10bit_matrix3endEv"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN10bit_matrix5beginEv: %agg.result"}
-!29 = distinct !{!29, !"_ZN10bit_matrix5beginEv"}
-!30 = distinct !{!30, !5}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZNK10bit_matrix3row3endEv: %agg.result"}
+!19 = distinct !{!19, !"_ZNK10bit_matrix3row3endEv"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN10bit_matrix3endEv: %agg.result"}
+!22 = distinct !{!22, !"_ZN10bit_matrix3endEv"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN10bit_matrix5beginEv: %agg.result"}
+!25 = distinct !{!25, !"_ZN10bit_matrix5beginEv"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN10bit_matrix5beginEv: %agg.result"}
+!28 = distinct !{!28, !"_ZN10bit_matrix5beginEv"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN10bit_matrix3endEv: %agg.result"}
+!31 = distinct !{!31, !"_ZN10bit_matrix3endEv"}
+!32 = distinct !{!32, !5}

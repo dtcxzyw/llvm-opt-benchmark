@@ -492,8 +492,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__36Pcp_TraverseIns
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %8, ptr %.sroa.2.0..sroa_idx, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !8
-  %15 = load ptr, ptr %14, align 8, !noalias !8
+  %14 = load ptr, ptr %13, align 8, !noalias !11
+  %15 = load ptr, ptr %14, align 8, !noalias !11
   %16 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %15, i64 %8, i32 3, i32 2
   %17 = load i16, ptr %16, align 4, !noalias !11
   %18 = zext i16 %17 to i64
@@ -1849,8 +1849,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Pcp_ChildNodeIsInstanceableERKNS_10PcpNod
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 16
-  %20 = load ptr, ptr %19, align 8, !noalias !20
-  %21 = load ptr, ptr %20, align 8, !noalias !20
+  %20 = load ptr, ptr %19, align 8, !noalias !23
+  %21 = load ptr, ptr %20, align 8, !noalias !23
   %22 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %21, i64 %.sroa.2.0.copyload.i, i32 3, i32 2
   %23 = load i16, ptr %22, align 4, !noalias !23
   %24 = zext i16 %23 to i64

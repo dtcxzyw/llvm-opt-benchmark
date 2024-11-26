@@ -1001,7 +1001,7 @@ define dso_local void @_ZN4llvm7PHINode21removeIncomingValueIfENS_12function_ref
   br label %_ZN4llvm6detail12DenseSetImplIjNS_13SmallDenseMapIjNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E6insertERKj.exit
 
 15:                                               ; preds = %13
-  %16 = load i32, ptr %5, align 8
+  %16 = load i32, ptr %5, align 8, !noalias !7
   %17 = and i32 %16, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %17, 0
   %18 = load ptr, ptr %7, align 8, !noalias !7
@@ -1012,7 +1012,7 @@ define dso_local void @_ZN4llvm7PHINode21removeIncomingValueIfENS_12function_ref
   br i1 %22, label %45, label %23
 
 23:                                               ; preds = %15
-  %24 = load i32, ptr %6, align 4
+  %24 = load i32, ptr %6, align 4, !noalias !7
   %25 = mul i32 %24, 37
   %26 = add i32 %21, -1
   %.02533.i.i.i.i = and i32 %25, %26
@@ -1053,7 +1053,7 @@ define dso_local void @_ZN4llvm7PHINode21removeIncomingValueIfENS_12function_ref
 45:                                               ; preds = %34, %15
   %.sink.i.i.i.i = phi ptr [ %35, %34 ], [ null, %15 ]
   %46 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E20InsertIntoBucketImplIjEEPS7_RKjRKT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef %.sink.i.i.i.i), !noalias !7
-  %47 = load i32, ptr %6, align 4
+  %47 = load i32, ptr %6, align 4, !noalias !7
   store i32 %47, ptr %46, align 4, !noalias !7
   br label %_ZN4llvm6detail12DenseSetImplIjNS_13SmallDenseMapIjNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E6insertERKj.exit
 

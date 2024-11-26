@@ -5957,7 +5957,7 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Ve
   %500 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
   %501 = load i64, ptr %500, align 8, !noalias !66
   store i64 %501, ptr %81, align 8, !alias.scope !66, !noalias !63
-  %502 = load ptr, ptr %80, align 8
+  %502 = load ptr, ptr %80, align 8, !alias.scope !63
   %503 = load ptr, ptr %79, align 8, !alias.scope !63
   %.not.i.i = icmp eq ptr %502, %503
   br i1 %.not.i.i, label %509, label %504

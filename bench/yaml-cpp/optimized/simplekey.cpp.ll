@@ -764,7 +764,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
-  %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !21
   %cmp.i.i.i2 = icmp eq ptr %0, %2
   br i1 %cmp.i.i.i2, label %if.then.i.i.i, label %_ZNSt5stackIN4YAML7Scanner9SimpleKeyESt5dequeIS2_SaIS2_EEE3topEv.exit
 

@@ -788,7 +788,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %6 = ptrtoint ptr %1 to i64
   %7 = sub nuw i64 %5, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !noundef !27
+  %9 = load i64, ptr %8, align 8, !alias.scope !236, !noundef !27
   %10 = load i64, ptr %0, align 8, !alias.scope !236, !noundef !27
   %11 = sub i64 %10, %9
   %12 = icmp ugt i64 %7, %11
@@ -1570,7 +1570,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h4bcd6c6da
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 4
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !noundef !27
+  %11 = load i64, ptr %10, align 8, !alias.scope !368, !noundef !27
   %12 = load i64, ptr %0, align 8, !alias.scope !368, !noundef !27
   %13 = sub i64 %12, %11
   %14 = icmp ugt i64 %9, %13
@@ -1606,7 +1606,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd458e43b8
   %.val4 = load i64, ptr %6, align 8, !noundef !27
   %7 = sub nuw i64 %.val4, %.val
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !noundef !27
+  %9 = load i64, ptr %8, align 8, !alias.scope !376, !noundef !27
   %10 = load i64, ptr %0, align 8, !alias.scope !376, !noundef !27
   %11 = sub i64 %10, %9
   %12 = icmp ugt i64 %7, %11
@@ -1691,25 +1691,25 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd458e43b8
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h7877bc4fdbfca5f1E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !425, !noundef !27
-  %6 = load i64, ptr %0, align 8, !alias.scope !428, !noundef !27
+  %6 = load i64, ptr %0, align 8, !alias.scope !425, !noundef !27
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha7119e8c8b5559faE.llvm.9119161082928369629.exit"
 
 9:                                                ; preds = %3
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6050c57124d7d184E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %2)
-  %.pre.i = load i64, ptr %4, align 8, !alias.scope !425
+  %.pre.i = load i64, ptr %4, align 8, !alias.scope !430
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha7119e8c8b5559faE.llvm.9119161082928369629.exit"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha7119e8c8b5559faE.llvm.9119161082928369629.exit": ; preds = %3, %9
   %10 = phi i64 [ %5, %3 ], [ %.pre.i, %9 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !425, !nonnull !27, !noundef !27
+  %12 = load ptr, ptr %11, align 8, !alias.scope !430, !nonnull !27, !noundef !27
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %14 = load i64, ptr %4, align 8, !alias.scope !425, !noundef !27
+  %14 = load i64, ptr %4, align 8, !alias.scope !430, !noundef !27
   %15 = add i64 %14, %2
-  store i64 %15, ptr %4, align 8, !alias.scope !425
+  store i64 %15, ptr %4, align 8, !alias.scope !430
   ret void
 }
 
@@ -2101,7 +2101,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 4
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !alias.scope !518, !noundef !27
+  %11 = load i64, ptr %10, align 8, !alias.scope !521, !noundef !27
   %12 = load i64, ptr %0, align 8, !alias.scope !521, !noundef !27
   %13 = sub i64 %12, %11
   %14 = icmp ugt i64 %9, %13
@@ -2900,12 +2900,12 @@ attributes #18 = { noreturn }
 !422 = distinct !{!422, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1cebeabe2844399dE.llvm.3198229681775449705"}
 !423 = !{!421, !418, !415, !412, !409, !403}
 !424 = !{!421, !418, !415, !412, !409, !380, !382, !383, !385}
-!425 = !{!426}
-!426 = distinct !{!426, !427, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha7119e8c8b5559faE.llvm.9119161082928369629: argument 0"}
-!427 = distinct !{!427, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha7119e8c8b5559faE.llvm.9119161082928369629"}
-!428 = !{!429, !426}
-!429 = distinct !{!429, !430, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbe22c20852cb898dE.llvm.9119161082928369629: argument 0"}
-!430 = distinct !{!430, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbe22c20852cb898dE.llvm.9119161082928369629"}
+!425 = !{!426, !428}
+!426 = distinct !{!426, !427, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbe22c20852cb898dE.llvm.9119161082928369629: argument 0"}
+!427 = distinct !{!427, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbe22c20852cb898dE.llvm.9119161082928369629"}
+!428 = distinct !{!428, !429, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha7119e8c8b5559faE.llvm.9119161082928369629: argument 0"}
+!429 = distinct !{!429, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha7119e8c8b5559faE.llvm.9119161082928369629"}
+!430 = !{!428}
 !431 = !{!432, !434, !436}
 !432 = distinct !{!432, !433, !"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$indicatif..progress_bar..Ticker$GT$$GT$17h5910fc0ff44c3c91E.llvm.9508512976823631026: argument 0"}
 !433 = distinct !{!433, !"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$indicatif..progress_bar..Ticker$GT$$GT$17h5910fc0ff44c3c91E.llvm.9508512976823631026"}

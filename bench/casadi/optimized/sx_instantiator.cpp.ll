@@ -59517,7 +59517,7 @@ _ZNSt5stackIPN6casadi6SXNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %._
 
 115:                                              ; preds = %.lr.ph722, %.backedge
   %116 = phi ptr [ %96, %.lr.ph722 ], [ %144, %.backedge ]
-  %117 = load ptr, ptr %100, align 8
+  %117 = load ptr, ptr %100, align 8, !noalias !751
   %118 = icmp eq ptr %116, %117
   br i1 %118, label %119, label %_ZNSt5stackIPN6casadi6SXNodeESt5dequeIS2_SaIS2_EEE3topEv.exit
 

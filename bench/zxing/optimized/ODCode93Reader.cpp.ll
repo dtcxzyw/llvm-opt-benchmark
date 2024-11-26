@@ -93,7 +93,7 @@ define void @_ZNK5ZXing4OneD12Code93Reader13decodePatternEiRNS_11PatternViewERSt
 
 24:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %25 = load ptr, ptr %3, align 8, !noalias !4
+  %25 = load ptr, ptr %3, align 8, !noalias !10
   %26 = getelementptr inbounds i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !10
   %28 = getelementptr inbounds i8, ptr %3, i64 24
@@ -619,9 +619,9 @@ _ZN5ZXing6ResultC2Ev.exit33:                      ; preds = %234
   br label %340
 
 252:                                              ; preds = %230
-  %253 = load ptr, ptr %3, align 8
-  %254 = load ptr, ptr %128, align 8
-  %255 = load ptr, ptr %133, align 8
+  %253 = load ptr, ptr %3, align 8, !noalias !17
+  %254 = load ptr, ptr %128, align 8, !noalias !17
+  %255 = load ptr, ptr %133, align 8, !noalias !17
   store i32 7, ptr %20, align 8
   %.not.i.i34 = icmp ne ptr %253, null
   %.not1.i.i35 = icmp uge ptr %253, %254
@@ -886,17 +886,17 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader19OneToFourBitPatternIL
   %2 = alloca %"struct.std::array.8", align 4
   %3 = alloca %"struct.std::array.9", align 8
   %4 = alloca %"struct.std::array.8", align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  %5 = load ptr, ptr %0, align 8, !noalias !17
+  %5 = load ptr, ptr %0, align 8, !noalias !20
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %1
   %.08.i.i.i.idx.i = phi i64 [ %.08.i.i.i.add.i, %.lr.ph.i.i.i.i ], [ 0, %1 ]
   %.057.i.i.i.i = phi i16 [ %7, %.lr.ph.i.i.i.i ], [ 0, %1 ]
   %.08.i.i.i.ptr.i = getelementptr inbounds i8, ptr %5, i64 %.08.i.i.i.idx.i
-  %6 = load i16, ptr %.08.i.i.i.ptr.i, align 2, !noalias !17
+  %6 = load i16, ptr %.08.i.i.i.ptr.i, align 2, !noalias !20
   %7 = add i16 %6, %.057.i.i.i.i
   %.08.i.i.i.add.i = add nuw nsw i64 %.08.i.i.i.idx.i, 2
   %.not.i.i.i.i = icmp eq i64 %.08.i.i.i.add.i, 12
@@ -911,21 +911,21 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
   %indvars.iv.i = phi i64 [ 0, %_ZNK5ZXing11PatternView3sumEi.exit.i ], [ %indvars.iv.next.i, %10 ]
   %.033.i = phi i32 [ 9, %_ZNK5ZXing11PatternView3sumEi.exit.i ], [ %21, %10 ]
   %11 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv.i
-  %12 = load i16, ptr %11, align 2, !noalias !17
+  %12 = load i16, ptr %11, align 2, !noalias !20
   %13 = uitofp i16 %12 to double
   %14 = fdiv double %13, %9
   %15 = fadd double %14, 5.000000e-01
   %16 = fptosi double %15 to i32
   %17 = getelementptr inbounds [6 x i32], ptr %2, i64 0, i64 %indvars.iv.i
-  store i32 %16, ptr %17, align 4, !noalias !17
+  store i32 %16, ptr %17, align 4, !noalias !20
   %18 = sitofp i32 %16 to double
   %19 = fsub double %14, %18
   %20 = getelementptr inbounds [6 x double], ptr %3, i64 0, i64 %indvars.iv.i
-  store double %19, ptr %20, align 8, !noalias !17
+  store double %19, ptr %20, align 8, !noalias !20
   %21 = sub nsw i32 %.033.i, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %22, label %10, !llvm.loop !20
+  br i1 %exitcond.not.i, label %22, label %10, !llvm.loop !23
 
 22:                                               ; preds = %10
   %23 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
@@ -933,7 +933,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !20
   br label %_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE.exit
 
 26:                                               ; preds = %22
@@ -942,7 +942,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
 
 27:                                               ; preds = %26
   %28 = icmp sgt i32 %21, 0
-  %.pre.i.i.i = load double, ptr %3, align 8, !noalias !17
+  %.pre.i.i.i = load double, ptr %3, align 8, !noalias !20
   br i1 %28, label %.lr.ph.i.i.i, label %.lr.ph.i.i21.i
 
 .lr.ph.i.i.i:                                     ; preds = %27, %.lr.ph.i.i.i
@@ -950,26 +950,26 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
   %.idx27.i = phi i64 [ %.add28.i, %.lr.ph.i.i.i ], [ 8, %27 ]
   %.018.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %3, %27 ]
   %.ptr29.i = getelementptr inbounds i8, ptr %3, i64 %.idx27.i
-  %30 = load double, ptr %.ptr29.i, align 8, !noalias !17
+  %30 = load double, ptr %.ptr29.i, align 8, !noalias !20
   %31 = fcmp olt double %29, %30
   %32 = select i1 %31, double %30, double %29
   %spec.select.i.i.i = select i1 %31, ptr %.ptr29.i, ptr %.018.i.i.i
   %.add28.i = add nuw nsw i64 %.idx27.i, 8
   %.not.i.i.i = icmp eq i64 %.add28.i, 48
-  br i1 %.not.i.i.i, label %_ZSt11max_elementIPdET_S1_S1_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !21
+  br i1 %.not.i.i.i, label %_ZSt11max_elementIPdET_S1_S1_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !24
 
 .lr.ph.i.i21.i:                                   ; preds = %27, %.lr.ph.i.i21.i
   %33 = phi double [ %36, %.lr.ph.i.i21.i ], [ %.pre.i.i.i, %27 ]
   %.idx.i = phi i64 [ %.add.i, %.lr.ph.i.i21.i ], [ 8, %27 ]
   %.018.i.i22.i = phi ptr [ %spec.select.i.i23.i, %.lr.ph.i.i21.i ], [ %3, %27 ]
   %.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.idx.i
-  %34 = load double, ptr %.ptr.i, align 8, !noalias !17
+  %34 = load double, ptr %.ptr.i, align 8, !noalias !20
   %35 = fcmp olt double %34, %33
   %36 = select i1 %35, double %34, double %33
   %spec.select.i.i23.i = select i1 %35, ptr %.ptr.i, ptr %.018.i.i22.i
   %.add.i = add nuw nsw i64 %.idx.i, 8
   %.not.i.i24.i = icmp eq i64 %.add.i, 48
-  br i1 %.not.i.i24.i, label %_ZSt11max_elementIPdET_S1_S1_.exit.i, label %.lr.ph.i.i21.i, !llvm.loop !22
+  br i1 %.not.i.i24.i, label %_ZSt11max_elementIPdET_S1_S1_.exit.i, label %.lr.ph.i.i21.i, !llvm.loop !25
 
 _ZSt11max_elementIPdET_S1_S1_.exit.i:             ; preds = %.lr.ph.i.i21.i, %.lr.ph.i.i.i
   %spec.select.i.i23.lcssa.sink.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %spec.select.i.i23.i, %.lr.ph.i.i21.i ]
@@ -978,9 +978,9 @@ _ZSt11max_elementIPdET_S1_S1_.exit.i:             ; preds = %.lr.ph.i.i21.i, %.l
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 3
   %41 = getelementptr inbounds [6 x i32], ptr %2, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4, !noalias !17
+  %42 = load i32, ptr %41, align 4, !noalias !20
   %43 = add nsw i32 %42, %21
-  store i32 %43, ptr %41, align 4, !noalias !17
+  store i32 %43, ptr %41, align 4, !noalias !20
   br label %44
 
 44:                                               ; preds = %_ZSt11max_elementIPdET_S1_S1_.exit.i, %26
@@ -1006,7 +1006,7 @@ _ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE.exit: 
   %53 = or i32 %52, %48
   %indvars.iv.next.i2 = add nuw nsw i64 %indvars.iv.i1, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i2, 6
-  br i1 %exitcond.not.i3, label %_ZN5ZXing5ToIntISt5arrayIiLm6EEvEEiRKT_.exit, label %45, !llvm.loop !23
+  br i1 %exitcond.not.i3, label %_ZN5ZXing5ToIntISt5arrayIiLm6EEvEEiRKT_.exit, label %45, !llvm.loop !26
 
 _ZN5ZXing5ToIntISt5arrayIiLm6EEvEEiRKT_.exit:     ; preds = %45
   ret i32 %53
@@ -1052,7 +1052,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing4OneDL14CheckChecksumsERKNSt
   %.not.i = icmp slt i32 %.01213.i, 20
   %spec.store.select.i = select i1 %.not.i, i32 %16, i32 1
   %17 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %17, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !24
+  br i1 %17, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !27
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %18 = srem i32 %15, 47
@@ -1098,7 +1098,7 @@ _ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.not.i13 = icmp slt i32 %.01213.i9, 15
   %spec.store.select.i14 = select i1 %.not.i13, i32 %39, i32 1
   %40 = icmp samesign ugt i64 %indvars.iv.i7, 1
-  br i1 %40, label %.lr.ph.i6, label %._crit_edge.loopexit.i15, !llvm.loop !24
+  br i1 %40, label %.lr.ph.i6, label %._crit_edge.loopexit.i15, !llvm.loop !27
 
 ._crit_edge.loopexit.i15:                         ; preds = %.lr.ph.i6
   %41 = srem i32 %38, 47
@@ -1371,10 +1371,13 @@ attributes #18 = { noreturn nounwind }
 !15 = distinct !{!15, !12}
 !16 = distinct !{!16, !12}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE: argument 0"}
-!19 = distinct !{!19, !"_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE"}
-!20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !12}
+!18 = distinct !{!18, !19, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
+!19 = distinct !{!19, !"_ZNK5ZXing11PatternView7subViewEii"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE: argument 0"}
+!22 = distinct !{!22, !"_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE"}
 !23 = distinct !{!23, !12}
 !24 = distinct !{!24, !12}
+!25 = distinct !{!25, !12}
+!26 = distinct !{!26, !12}
+!27 = distinct !{!27, !12}

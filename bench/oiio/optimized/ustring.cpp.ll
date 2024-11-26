@@ -483,7 +483,7 @@ _ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_t
 
 while.body:                                       ; preds = %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEE8iteratorD2Ev.exit100, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEE8lock_binERS9_.exit
   %num_rehashes.0 = phi i64 [ 0, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEE8lock_binERS9_.exit ], [ %inc, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEE8iteratorD2Ev.exit100 ]
-  %27 = load i64, ptr %hash, align 8
+  %27 = load i64, ptr %hash, align 8, !noalias !10
   %shr.i.i43 = lshr i64 %27, 56
   %arrayidx.i44 = getelementptr inbounds [256 x %"struct.OpenImageIO_v2_6_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO_v2_6_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin"], ptr getelementptr inbounds (i8, ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 0, i64 %shr.i.i43
   %_M_element_count.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i44, i64 32

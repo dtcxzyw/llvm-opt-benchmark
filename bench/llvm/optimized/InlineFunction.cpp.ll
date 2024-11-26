@@ -13833,12 +13833,12 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i1372: ; preds = %_ZN12_GLOBAL__N_122
 5280:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i1372
   %5281 = call noundef ptr @_ZNK4llvm10InvokeInst17getLandingPadInstEv(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i.i1373) #19
   %5282 = load ptr, ptr %5259, align 8, !noalias !222
-  %5283 = load ptr, ptr %27, align 8
+  %5283 = load ptr, ptr %27, align 8, !noalias !222
   %5284 = icmp eq ptr %5282, %5283
   br i1 %5284, label %5285, label %5299
 
 5285:                                             ; preds = %5280
-  %5286 = load i32, ptr %5261, align 4
+  %5286 = load i32, ptr %5261, align 4, !noalias !222
   %5287 = zext i32 %5286 to i64
   %5288 = getelementptr inbounds ptr, ptr %5283, i64 %5287
   %.not24.i.i.i1407 = icmp eq i32 %5286, 0
@@ -13864,21 +13864,21 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i1372: ; preds = %_ZN12_GLOBAL__N_122
   %5296 = add nuw i32 %5286, 1
   store i32 %5296, ptr %5261, align 4, !noalias !222
   store ptr %5281, ptr %5288, align 8, !noalias !222
-  %5297 = load ptr, ptr %27, align 8
-  %5298 = load i32, ptr %5261, align 4
+  %5297 = load ptr, ptr %27, align 8, !noalias !222
+  %5298 = load i32, ptr %5261, align 4, !noalias !222
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i1406
 
 5299:                                             ; preds = %._crit_edge.i.i.i1411, %5280
   %5300 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %27, ptr noundef %5281) #19, !noalias !222
-  %.pre.i.i1405 = load ptr, ptr %27, align 8
-  %.pre6.i.i = load i32, ptr %5261, align 4
+  %.pre.i.i1405 = load ptr, ptr %27, align 8, !noalias !222
+  %.pre6.i.i = load i32, ptr %5261, align 4, !noalias !222
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i1406
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i1406: ; preds = %.lr.ph.i.i.i1408, %5299, %5295
   %5301 = phi ptr [ %5297, %5295 ], [ %.pre.i.i1405, %5299 ], [ %5282, %.lr.ph.i.i.i1408 ]
   %5302 = phi i32 [ %5298, %5295 ], [ %.pre6.i.i, %5299 ], [ %5286, %.lr.ph.i.i.i1408 ]
-  %5303 = load ptr, ptr %5259, align 8
-  %5304 = load i32, ptr %5260, align 8
+  %5303 = load ptr, ptr %5259, align 8, !noalias !222
+  %5304 = load i32, ptr %5260, align 8, !noalias !222
   br label %_ZN4llvm15SmallPtrSetImplIPNS_14LandingPadInstEE6insertES2_.exit.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_14LandingPadInstEE6insertES2_.exit.i: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i1406, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i1372

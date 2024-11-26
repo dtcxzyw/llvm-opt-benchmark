@@ -1205,7 +1205,7 @@ invoke.cont4:                                     ; preds = %if.then
   store i32 0, ptr %len.i.i, align 8, !alias.scope !8
   %7 = load ptr, ptr %localeUnitCharString, align 8, !alias.scope !8
   store i8 0, ptr %7, align 1
-  %8 = load i32, ptr %internalMuStatus, align 4
+  %8 = load i32, ptr %internalMuStatus, align 4, !noalias !8
   %cmp.i.i = icmp slt i32 %8, 1
   br i1 %cmp.i.i, label %if.end.i, label %invoke.cont5.thread
 
@@ -1224,7 +1224,7 @@ invoke.cont1.i:                                   ; preds = %if.end.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont1.i
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink.i) #16
-  %10 = load i32, ptr %internalMuStatus, align 4
+  %10 = load i32, ptr %internalMuStatus, align 4, !noalias !8
   %cmp.i5.i = icmp slt i32 %10, 1
   %11 = load i32, ptr %len.i.i, align 8, !alias.scope !8
   %cmp.i8.not.i = icmp eq i32 %11, 0
@@ -1498,7 +1498,7 @@ invoke.cont52:                                    ; preds = %invoke.cont49
   store i32 0, ptr %len.i.i93, align 8, !alias.scope !11
   %55 = load ptr, ptr %localeSystem, align 8, !alias.scope !11
   store i8 0, ptr %55, align 1
-  %56 = load i32, ptr %internalMeasureTagStatus, align 4
+  %56 = load i32, ptr %internalMeasureTagStatus, align 4, !noalias !11
   %cmp.i.i94 = icmp slt i32 %56, 1
   br i1 %cmp.i.i94, label %if.end.i95, label %invoke.cont53.thread
 
@@ -1517,7 +1517,7 @@ invoke.cont1.i99:                                 ; preds = %if.end.i95
 
 invoke.cont3.i101:                                ; preds = %invoke.cont1.i99
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink.i92) #16
-  %58 = load i32, ptr %internalMeasureTagStatus, align 4
+  %58 = load i32, ptr %internalMeasureTagStatus, align 4, !noalias !11
   %cmp.i5.i102 = icmp slt i32 %58, 1
   %59 = load i32, ptr %len.i.i93, align 8, !alias.scope !11
   %cmp.i8.not.i103 = icmp eq i32 %59, 0

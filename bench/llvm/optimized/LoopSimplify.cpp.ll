@@ -650,12 +650,12 @@ _ZN4llvm15SmallVectorImplIPNS_4LoopEE6appendIN9__gnu_cxx17__normal_iteratorIPKS2
 
 160:                                              ; preds = %.lr.ph.i
   %161 = load ptr, ptr %43, align 8, !noalias !8
-  %162 = load ptr, ptr %19, align 8
+  %162 = load ptr, ptr %19, align 8, !noalias !8
   %163 = icmp eq ptr %161, %162
   br i1 %163, label %164, label %176
 
 164:                                              ; preds = %160
-  %165 = load i32, ptr %45, align 4
+  %165 = load i32, ptr %45, align 4, !noalias !8
   %166 = zext i32 %165 to i64
   %167 = getelementptr inbounds ptr, ptr %162, i64 %166
   %.not24.i.i.i = icmp eq i32 %165, 0
@@ -2597,7 +2597,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit224.i:  ; preds = %996
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(128) %25, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 32, i1 false), !alias.scope !35
-  %1023 = load ptr, ptr %84, align 8
+  %1023 = load ptr, ptr %84, align 8, !noalias !35
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %1023, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %_ZNK4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEE5beginEv.exit.i, label %1024
 
@@ -2605,7 +2605,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit224.i:  ; preds = %996
   %1025 = call noundef zeroext i1 %1023(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef 2) #16
   %1026 = load ptr, ptr %88, align 8, !noalias !35
   store ptr %1026, ptr %86, align 8, !alias.scope !35
-  %1027 = load ptr, ptr %84, align 8
+  %1027 = load ptr, ptr %84, align 8, !noalias !35
   store ptr %1027, ptr %87, align 8, !alias.scope !35
   br label %_ZNK4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEE5beginEv.exit.i
 
@@ -3370,7 +3370,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !60
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !60
   store ptr %96, ptr %95, align 8, !noalias !60
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #16

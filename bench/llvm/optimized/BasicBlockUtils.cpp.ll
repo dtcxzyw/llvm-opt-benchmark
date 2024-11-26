@@ -7237,7 +7237,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm35IsBlockFollowedByDeoptOrUnreachab
 
 11:                                               ; preds = %.lr.ph
   %12 = load ptr, ptr %4, align 8, !noalias !144
-  %13 = load ptr, ptr %2, align 8
+  %13 = load ptr, ptr %2, align 8, !noalias !144
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %15, label %_ZN4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE6insertES3_.exit
 
@@ -11227,7 +11227,7 @@ _ZN4llvm8succ_endEPNS_10BasicBlockE.exit:         ; preds = %41
   br i1 %50, label %51, label %64
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = load i32, ptr %30, align 4
+  %52 = load i32, ptr %30, align 4, !noalias !196
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds ptr, ptr %47, i64 %53
   %.not24.i.i.i = icmp eq i32 %52, 0
@@ -16172,7 +16172,7 @@ define internal fastcc void @_ZL14UpdatePHINodesPN4llvm10BasicBlockES1_NS_8Array
 .lr.ph.i.i:                                       ; preds = %6, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
   %18 = phi ptr [ %37, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ %13, %6 ]
   %.07.i.i = phi ptr [ %38, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ %2, %6 ]
-  %19 = load ptr, ptr %14, align 8
+  %19 = load ptr, ptr %14, align 8, !noalias !255
   %20 = load ptr, ptr %.07.i.i, align 8
   %21 = icmp eq ptr %19, %18
   br i1 %21, label %22, label %35
@@ -16204,12 +16204,12 @@ define internal fastcc void @_ZL14UpdatePHINodesPN4llvm10BasicBlockES1_NS_8Array
   %33 = add nuw i32 %23, 1
   store i32 %33, ptr %16, align 4, !noalias !255
   store ptr %20, ptr %25, align 8, !noalias !255
-  %34 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %8, align 8, !noalias !255
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
 35:                                               ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i.i
   %36 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(160) %8, ptr noundef %20) #21, !noalias !255
-  %.pre.i.i.i = load ptr, ptr %8, align 8
+  %.pre.i.i.i = load ptr, ptr %8, align 8, !noalias !255
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %35, %32

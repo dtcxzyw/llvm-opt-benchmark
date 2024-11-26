@@ -6738,17 +6738,17 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang9ValueDeclEE5countES4_.exit: ; preds = %.lr.
   %60 = add nuw i32 %44, 1
   store i32 %60, ptr %7, align 4, !noalias !193
   store ptr %23, ptr %53, align 8, !noalias !193
-  %61 = load ptr, ptr %3, align 8
+  %61 = load ptr, ptr %3, align 8, !noalias !193
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 62:                                               ; preds = %._crit_edge.i.i19, %48
   %63 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %23) #22, !noalias !193
-  %.pre.i15 = load ptr, ptr %3, align 8
+  %.pre.i15 = load ptr, ptr %3, align 8, !noalias !193
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i17, %62, %59
   %64 = phi ptr [ %61, %59 ], [ %.pre.i15, %62 ], [ %41, %.lr.ph.i.i17 ]
-  %65 = load ptr, ptr %5, align 8
+  %65 = load ptr, ptr %5, align 8, !noalias !193
   br label %_ZN4llvm15SmallPtrSetImplIPKN5clang9ValueDeclEE6insertES4_.exit
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang9ValueDeclEE6insertES4_.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang9ValueDeclEE5countES4_.exit

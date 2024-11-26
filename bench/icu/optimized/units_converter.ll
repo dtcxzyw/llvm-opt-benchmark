@@ -3233,7 +3233,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %12 = load i32, ptr %1, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %call.i = call noundef ptr @_ZNK6icu_755units15ConversionRates21extractConversionInfoENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr %11, i32 %12, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !17
-  %13 = load i32, ptr %status, align 4
+  %13 = load i32, ptr %status, align 4, !noalias !17
   %cmp.i.i = icmp slt i32 %13, 1
   br i1 %cmp.i.i, label %if.end.i, label %return
 

@@ -784,7 +784,7 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit: ; preds = %invoke.cont7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %allocator_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %4 = load ptr, ptr %allocator_.i.i, align 8
-  %5 = load i64, ptr %last_reference_list, align 8
+  %5 = load i64, ptr %last_reference_list, align 8, !noalias !10
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %last_reference_list, i64 88
   %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !10
   %7 = load ptr, ptr %vect_.i, align 8, !noalias !10
@@ -1240,7 +1240,7 @@ terminate.lpad.i16:                               ; preds = %while.end
   unreachable
 
 invoke.cont12:                                    ; preds = %while.end
-  %46 = load i64, ptr %last_reference_list, align 8
+  %46 = load i64, ptr %last_reference_list, align 8, !noalias !13
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %last_reference_list, i64 88
   %47 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !13
   %48 = load ptr, ptr %vect_.i, align 8, !noalias !13
@@ -2995,7 +2995,7 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit93: ; preds = %if.end48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %allocator_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %63 = load ptr, ptr %allocator_.i.i, align 8
-  %64 = load i64, ptr %last_reference_list, align 8
+  %64 = load i64, ptr %last_reference_list, align 8, !noalias !28
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %last_reference_list, i64 88
   %65 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !28
   %66 = load ptr, ptr %vect_.i, align 8, !noalias !28
@@ -3942,7 +3942,7 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit12: ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %allocator_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %14 = load ptr, ptr %allocator_.i.i, align 8
-  %15 = load i64, ptr %last_reference_list, align 8
+  %15 = load i64, ptr %last_reference_list, align 8, !noalias !31
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %last_reference_list, i64 88
   %16 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !31
   %17 = load ptr, ptr %vect_.i, align 8, !noalias !31

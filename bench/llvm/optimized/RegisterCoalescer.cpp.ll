@@ -17352,7 +17352,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb0ELb0ELb1ELb
 
 158:                                              ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb0ELb0ELb1ELb0EEppEi.exit
   %159 = load ptr, ptr %120, align 8, !noalias !165
-  %160 = load ptr, ptr %5, align 8
+  %160 = load ptr, ptr %5, align 8, !noalias !165
   %161 = icmp eq ptr %159, %160
   br i1 %161, label %162, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
 

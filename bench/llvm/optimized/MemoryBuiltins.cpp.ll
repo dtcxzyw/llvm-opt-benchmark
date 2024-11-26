@@ -3942,7 +3942,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i.i:                  ; preds = %55, %53
 65:                                               ; preds = %36, %11
   %.sink.i.i.i = phi ptr [ %37, %36 ], [ null, %11 ]
   %66 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionENS_15SizeOffsetAPIntELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i), !noalias !47
-  %67 = load ptr, ptr %8, align 8
+  %67 = load ptr, ptr %8, align 8, !noalias !47
   store ptr %67, ptr %66, align 8, !noalias !47
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16

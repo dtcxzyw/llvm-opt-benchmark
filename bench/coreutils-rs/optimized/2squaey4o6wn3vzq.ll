@@ -1751,7 +1751,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   %135 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !888)
   %136 = getelementptr inbounds i8, ptr %0, i64 184
-  %137 = load ptr, ptr %136, align 8, !nonnull !5, !noundef !5
+  %137 = load ptr, ptr %136, align 8, !alias.scope !888, !nonnull !5, !noundef !5
   %138 = getelementptr inbounds i8, ptr %0, i64 192
   %139 = load i64, ptr %138, align 8, !alias.scope !888, !noundef !5
   br label %140
@@ -2342,7 +2342,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$uucore..parser..shortcut_val
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1106)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1109)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !alias.scope !1106, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1112, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1112, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1113)
@@ -2485,7 +2485,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$$u5b$clap_builder..builder..
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..command..Command$GT$$GT$17h6521a5fe6c1e9c13E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1222, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1222, !noundef !5
   br label %6
@@ -2678,7 +2678,7 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap
 define hidden void @"_ZN4core3ptr96drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..possible_value..PossibleValue$GT$$GT$17h4ce5c810e43456aeE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1315)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1315, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1315, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1318)

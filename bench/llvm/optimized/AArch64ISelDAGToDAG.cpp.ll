@@ -31008,7 +31008,7 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %8, %9
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i:                  ; preds = %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %4) #22
-  %.pr.i.i = load i32, ptr %10, align 8
+  %.pr.i.i = load i32, ptr %10, align 8, !alias.scope !128
   %14 = icmp ult i32 %.pr.i.i, 65
   br i1 %14, label %_ZNK4llvm5APInt4lshrEj.exit.thread.i, label %_ZNK4llvm5APInt4lshrEj.exit.i
 
@@ -31054,7 +31054,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i15.i:         ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntC2ERKS0_.exit.i13.i:                ; preds = %_ZN4llvm5APIntD2Ev.exit.i
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #22
-  %.pr.i14.i = load i32, ptr %22, align 8
+  %.pr.i14.i = load i32, ptr %22, align 8, !alias.scope !131
   %26 = icmp ult i32 %.pr.i14.i, 65
   br i1 %26, label %27, label %_ZNK4llvm5APInt4lshrEj.exit16.i
 
@@ -31184,7 +31184,7 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %8, %9
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i:                  ; preds = %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %4) #22
-  %.pr.i.i = load i32, ptr %10, align 8
+  %.pr.i.i = load i32, ptr %10, align 8, !alias.scope !137
   %14 = icmp ult i32 %.pr.i.i, 65
   br i1 %14, label %_ZNK4llvm5APInt4lshrEj.exit.thread.i, label %_ZNK4llvm5APInt4lshrEj.exit.i
 
@@ -31229,7 +31229,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i18.i:         ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntC2ERKS0_.exit.i16.i:                ; preds = %_ZN4llvm5APIntD2Ev.exit.i
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #22
-  %.pr.i17.i = load i32, ptr %21, align 8
+  %.pr.i17.i = load i32, ptr %21, align 8, !alias.scope !140
   %25 = icmp ult i32 %.pr.i17.i, 65
   br i1 %25, label %26, label %_ZNK4llvm5APInt4lshrEj.exit19.i
 
@@ -31352,7 +31352,7 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %8, %9
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i:                  ; preds = %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %4) #22
-  %.pr.i.i = load i32, ptr %10, align 8
+  %.pr.i.i = load i32, ptr %10, align 8, !alias.scope !146
   %14 = icmp ult i32 %.pr.i.i, 65
   br i1 %14, label %_ZNK4llvm5APInt4lshrEj.exit.thread.i, label %_ZNK4llvm5APInt4lshrEj.exit.i
 
@@ -31397,7 +31397,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i18.i:         ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntC2ERKS0_.exit.i16.i:                ; preds = %_ZN4llvm5APIntD2Ev.exit.i
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #22
-  %.pr.i17.i = load i32, ptr %21, align 8
+  %.pr.i17.i = load i32, ptr %21, align 8, !alias.scope !149
   %25 = icmp ult i32 %.pr.i17.i, 65
   br i1 %25, label %26, label %_ZNK4llvm5APInt4lshrEj.exit19.i
 

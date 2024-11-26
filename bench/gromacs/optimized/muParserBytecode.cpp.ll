@@ -2455,8 +2455,8 @@ _ZNSt5stackIiSt5dequeIiSaIiEEEC2IS2_vEEv.exit.preheader: ; preds = %_ZNSt6vector
           to label %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit11 unwind label %79
 
 _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit11:   ; preds = %85, %88
-  %89 = load ptr, ptr %60, align 8
-  %90 = load ptr, ptr %61, align 8
+  %89 = load ptr, ptr %60, align 8, !noalias !7
+  %90 = load ptr, ptr %61, align 8, !noalias !7
   %91 = icmp eq ptr %89, %90
   br i1 %91, label %95, label %92
 
@@ -2495,8 +2495,8 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %92, %95
   br label %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit
 
 112:                                              ; preds = %64
-  %113 = load ptr, ptr %56, align 8
-  %114 = load ptr, ptr %57, align 8
+  %113 = load ptr, ptr %56, align 8, !noalias !10
+  %114 = load ptr, ptr %57, align 8, !noalias !10
   %115 = icmp eq ptr %113, %114
   br i1 %115, label %119, label %116
 

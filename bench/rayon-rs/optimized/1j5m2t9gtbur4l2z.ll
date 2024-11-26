@@ -63,8 +63,8 @@ define noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$rayon..range_inclusive..
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef range(i64 0, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$u8$GT$3len17h24f1b236d0b11d24E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
+define noundef range(i64 0, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$u8$GT$3len17h24f1b236d0b11d24E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !range !11, !alias.scope !15, !noalias !20, !noundef !10
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h17811fb508d3f4d3E.exit, label %4
@@ -72,8 +72,10 @@ define noundef range(i64 0, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$u20
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = getelementptr inbounds i8, ptr %0, i64 2
-  %7 = load i8, ptr %5, align 1, !alias.scope !15, !noalias !20, !noundef !10
-  %8 = load i8, ptr %6, align 1, !alias.scope !15, !noalias !20, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  %7 = load i8, ptr %5, align 1, !alias.scope !27, !noalias !28, !noundef !10
+  %8 = load i8, ptr %6, align 1, !alias.scope !29, !noalias !30, !noundef !10
   %.not.i.i = icmp ugt i8 %7, %8
   br i1 %.not.i.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h17811fb508d3f4d3E.exit, label %9
 
@@ -91,11 +93,11 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h17811fb508d3f4d3E.exit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u8$GT$7opt_len17hf1808324f612c7dbE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
-  %3 = load i8, ptr %2, align 1, !alias.scope !22, !noundef !10
+  %3 = load i8, ptr %2, align 1, !alias.scope !31, !noundef !10
   %4 = getelementptr inbounds i8, ptr %0, i64 2
-  %5 = load i8, ptr %4, align 1, !alias.scope !22, !noundef !10
+  %5 = load i8, ptr %4, align 1, !alias.scope !31, !noundef !10
   %.not.i = icmp ugt i8 %3, %5
-  %6 = load i8, ptr %0, align 1, !range !11, !alias.scope !22
+  %6 = load i8, ptr %0, align 1, !range !11, !alias.scope !31
   %7 = trunc nuw i8 %6 to i1
   %.not = select i1 %.not.i, i1 true, i1 %7
   br i1 %.not, label %15, label %8
@@ -124,26 +126,28 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u8$GT$17__rayon_private__17h1e9e7162c3fce76cE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u8$GT$17__rayon_private__17h1e9e7162c3fce76cE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$u8$GT$17__rayon_private__17ha101037e7e425dd8E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$u8$GT$17__rayon_private__17ha101037e7e425dd8E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #2 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef range(i64 0, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$u16$GT$3len17h6885ed00b2df05d0E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
+define noundef range(i64 0, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$u16$GT$3len17h6885ed00b2df05d0E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
-  %3 = load i8, ptr %2, align 2, !range !11, !alias.scope !25, !noalias !30, !noundef !10
+  %3 = load i8, ptr %2, align 2, !range !11, !alias.scope !34, !noalias !39, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 2
-  %7 = load i16, ptr %0, align 2, !alias.scope !25, !noalias !30, !noundef !10
-  %8 = load i16, ptr %6, align 2, !alias.scope !25, !noalias !30, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  %7 = load i16, ptr %0, align 2, !alias.scope !46, !noalias !47, !noundef !10
+  %8 = load i16, ptr %6, align 2, !alias.scope !48, !noalias !49, !noundef !10
   %.not.i.i = icmp ugt i16 %7, %8
   br i1 %.not.i.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE.exit, label %9
 
@@ -160,12 +164,12 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE.exit
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u16$GT$7opt_len17hbe3fab2b61ad69e5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i16, ptr %0, align 2, !alias.scope !32, !noundef !10
+  %2 = load i16, ptr %0, align 2, !alias.scope !50, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 2
-  %4 = load i16, ptr %3, align 2, !alias.scope !32, !noundef !10
+  %4 = load i16, ptr %3, align 2, !alias.scope !50, !noundef !10
   %.not.i = icmp ugt i16 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
-  %6 = load i8, ptr %5, align 2, !range !11, !alias.scope !32
+  %6 = load i8, ptr %5, align 2, !range !11, !alias.scope !50
   %.not27 = icmp ne i8 %6, 0
   %.not = select i1 %.not.i, i1 true, i1 %.not27
   br i1 %.not, label %14, label %7
@@ -194,30 +198,32 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u16$GT$17__rayon_private__17h2e2cadae04f718e0E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u16$GT$17__rayon_private__17h2e2cadae04f718e0E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$u16$GT$17__rayon_private__17hff0e01c9df038b7eE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$u16$GT$17__rayon_private__17hff0e01c9df038b7eE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i8$GT$3len17hc60ed8ceebeb0075E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #2 {
+define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i8$GT$3len17hc60ed8ceebeb0075E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #3 {
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca { i64, i64 }, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %5 = load i8, ptr %0, align 1, !range !11, !alias.scope !38, !noalias !41, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  %5 = load i8, ptr %0, align 1, !range !11, !alias.scope !56, !noalias !59, !noundef !10
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i", label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 1
   %9 = getelementptr inbounds i8, ptr %0, i64 2
-  %10 = load i8, ptr %8, align 1, !alias.scope !38, !noalias !41, !noundef !10
-  %11 = load i8, ptr %9, align 1, !alias.scope !38, !noalias !41, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  %10 = load i8, ptr %8, align 1, !alias.scope !66, !noalias !67, !noundef !10
+  %11 = load i8, ptr %9, align 1, !alias.scope !68, !noalias !69, !noundef !10
   %.not.i.i = icmp sgt i8 %10, %11
   br i1 %.not.i.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i", label %12
 
@@ -237,39 +243,39 @@ define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$
   %.sink11.i.i = phi i64 [ %16, %12 ], [ 0, %1 ], [ 0, %7 ]
   %.sroa.03.0.sink.i.i = phi i64 [ %.sroa.03.0.i.i, %12 ], [ 1, %1 ], [ 1, %7 ]
   %.sink.i.i = phi i64 [ %19, %12 ], [ 0, %1 ], [ 0, %7 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !35
-  store i64 %.sroa.03.0.sink.i.i, ptr %4, align 8, !noalias !35
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !53
+  store i64 %.sroa.03.0.sink.i.i, ptr %4, align 8, !noalias !53
   %20 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %.sink.i.i, ptr %20, align 8, !noalias !35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !35
+  store i64 %.sink.i.i, ptr %20, align 8, !noalias !53
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !53
   %21 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %.sink11.i.i, ptr %21, align 8, !noalias !35
-  store i64 1, ptr %3, align 8, !noalias !35
+  store i64 %.sink11.i.i, ptr %21, align 8, !noalias !53
+  store i64 1, ptr %3, align 8, !noalias !53
   %trunc.i = trunc nuw i64 %.sroa.03.0.sink.i.i to i1
   %22 = icmp eq i64 %.sink.i.i, %.sink11.i.i
   %.0.i = select i1 %trunc.i, i1 %22, i1 false
   br i1 %.0.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE.exit, label %23
 
 23:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !35
-  store ptr null, ptr %2, align 8, !noalias !35
-  call void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.97fc90d330a912cf015a353b43f9b78d.1) #10, !noalias !35
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !53
+  store ptr null, ptr %2, align 8, !noalias !53
+  call void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.97fc90d330a912cf015a353b43f9b78d.1) #11, !noalias !53
   unreachable
 
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !35
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !53
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !53
   ret i64 %.sink11.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i8$GT$7opt_len17h0dbcbe400fbdccb6E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
-  %3 = load i8, ptr %2, align 1, !alias.scope !43, !noundef !10
+  %3 = load i8, ptr %2, align 1, !alias.scope !70, !noundef !10
   %4 = getelementptr inbounds i8, ptr %0, i64 2
-  %5 = load i8, ptr %4, align 1, !alias.scope !43, !noundef !10
+  %5 = load i8, ptr %4, align 1, !alias.scope !70, !noundef !10
   %.not.i = icmp sgt i8 %3, %5
-  %6 = load i8, ptr %0, align 1, !range !11, !alias.scope !43
+  %6 = load i8, ptr %0, align 1, !range !11, !alias.scope !70
   %7 = trunc nuw i8 %6 to i1
   %.not = select i1 %.not.i, i1 true, i1 %7
   br i1 %.not, label %23, label %8
@@ -304,30 +310,32 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i8$GT$17__rayon_private__17h5ac8c5792c7d70edE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i8$GT$17__rayon_private__17h5ac8c5792c7d70edE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i8$GT$17__rayon_private__17hdc7365b6446112bcE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i8$GT$17__rayon_private__17hdc7365b6446112bcE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i16$GT$3len17h487f8141d8bab108E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #2 {
+define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i16$GT$3len17h487f8141d8bab108E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #3 {
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca { i64, i64 }, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %5 = getelementptr inbounds i8, ptr %0, i64 4
-  %6 = load i8, ptr %5, align 2, !range !11, !alias.scope !49, !noalias !52, !noundef !10
+  %6 = load i8, ptr %5, align 2, !range !11, !alias.scope !76, !noalias !79, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i", label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 2
-  %10 = load i16, ptr %0, align 2, !alias.scope !49, !noalias !52, !noundef !10
-  %11 = load i16, ptr %9, align 2, !alias.scope !49, !noalias !52, !noundef !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  %10 = load i16, ptr %0, align 2, !alias.scope !86, !noalias !87, !noundef !10
+  %11 = load i16, ptr %9, align 2, !alias.scope !88, !noalias !89, !noundef !10
   %.not.i.i = icmp sgt i16 %10, %11
   br i1 %.not.i.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i", label %12
 
@@ -347,39 +355,39 @@ define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$i
   %.sink11.i.i = phi i64 [ %16, %12 ], [ 0, %1 ], [ 0, %8 ]
   %.sroa.03.0.sink.i.i = phi i64 [ %.sroa.03.0.i.i, %12 ], [ 1, %1 ], [ 1, %8 ]
   %.sink.i.i = phi i64 [ %19, %12 ], [ 0, %1 ], [ 0, %8 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !46
-  store i64 %.sroa.03.0.sink.i.i, ptr %4, align 8, !noalias !46
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !73
+  store i64 %.sroa.03.0.sink.i.i, ptr %4, align 8, !noalias !73
   %20 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %.sink.i.i, ptr %20, align 8, !noalias !46
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !46
+  store i64 %.sink.i.i, ptr %20, align 8, !noalias !73
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !73
   %21 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %.sink11.i.i, ptr %21, align 8, !noalias !46
-  store i64 1, ptr %3, align 8, !noalias !46
+  store i64 %.sink11.i.i, ptr %21, align 8, !noalias !73
+  store i64 1, ptr %3, align 8, !noalias !73
   %trunc.i = trunc nuw i64 %.sroa.03.0.sink.i.i to i1
   %22 = icmp eq i64 %.sink.i.i, %.sink11.i.i
   %.0.i = select i1 %trunc.i, i1 %22, i1 false
   br i1 %.0.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E.exit, label %23
 
 23:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !46
-  store ptr null, ptr %2, align 8, !noalias !46
-  call void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.97fc90d330a912cf015a353b43f9b78d.1) #10, !noalias !46
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !73
+  store ptr null, ptr %2, align 8, !noalias !73
+  call void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.97fc90d330a912cf015a353b43f9b78d.1) #11, !noalias !73
   unreachable
 
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !46
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !73
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !73
   ret i64 %.sink11.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i16$GT$7opt_len17h5a6f0fdae9846c38E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i16, ptr %0, align 2, !alias.scope !54, !noundef !10
+  %2 = load i16, ptr %0, align 2, !alias.scope !90, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 2
-  %4 = load i16, ptr %3, align 2, !alias.scope !54, !noundef !10
+  %4 = load i16, ptr %3, align 2, !alias.scope !90, !noundef !10
   %.not.i = icmp sgt i16 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
-  %6 = load i8, ptr %5, align 2, !range !11, !alias.scope !54
+  %6 = load i8, ptr %5, align 2, !range !11, !alias.scope !90
   %.not26 = icmp ne i8 %6, 0
   %.not = select i1 %.not.i, i1 true, i1 %.not26
   br i1 %.not, label %22, label %7
@@ -414,23 +422,23 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i16$GT$17__rayon_private__17ha64471fbb13a626cE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i16$GT$17__rayon_private__17ha64471fbb13a626cE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i16$GT$17__rayon_private__17h4cdbbfe80474b945E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i16$GT$17__rayon_private__17h4cdbbfe80474b945E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$usize$GT$7opt_len17he40bc3c81bb0a12eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !alias.scope !57, !noalias !60, !noundef !10
+  %2 = load i64, ptr %0, align 8, !alias.scope !93, !noalias !96, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !57, !noalias !60, !noundef !10
+  %4 = load i64, ptr %3, align 8, !alias.scope !93, !noalias !96, !noundef !10
   %.not.i = icmp ule i64 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !57, !noalias !60
+  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !93, !noalias !96
   %.not.i.i = icmp eq i8 %6, 0
   %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread"
@@ -463,18 +471,18 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$usize$GT$17__rayon_private__17h78e1d991d66844c8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$usize$GT$17__rayon_private__17h78e1d991d66844c8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$isize$GT$7opt_len17h405ac9eaac9812c8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !alias.scope !62, !noalias !65, !noundef !10
+  %2 = load i64, ptr %0, align 8, !alias.scope !98, !noalias !101, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !62, !noalias !65, !noundef !10
+  %4 = load i64, ptr %3, align 8, !alias.scope !98, !noalias !101, !noundef !10
   %.not.i = icmp sle i64 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !62, !noalias !65
+  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !98, !noalias !101
   %.not.i.i = icmp eq i8 %6, 0
   %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread"
@@ -511,18 +519,18 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$isize$GT$17__rayon_private__17h4d862317d2b5bcf0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$isize$GT$17__rayon_private__17h4d862317d2b5bcf0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u32$GT$7opt_len17h15a5681ac020e255E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i32, ptr %0, align 4, !alias.scope !67, !noalias !70, !noundef !10
+  %2 = load i32, ptr %0, align 4, !alias.scope !103, !noalias !106, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !alias.scope !67, !noalias !70, !noundef !10
+  %4 = load i32, ptr %3, align 4, !alias.scope !103, !noalias !106, !noundef !10
   %.not.i = icmp ule i32 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !67, !noalias !70
+  %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !103, !noalias !106
   %.not.i.i = icmp eq i8 %6, 0
   %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread"
@@ -551,18 +559,18 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u32$GT$17__rayon_private__17h022db18dd731730bE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u32$GT$17__rayon_private__17h022db18dd731730bE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i32$GT$7opt_len17hc7871e4efa91ef7eE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i32, ptr %0, align 4, !alias.scope !72, !noalias !75, !noundef !10
+  %2 = load i32, ptr %0, align 4, !alias.scope !108, !noalias !111, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !alias.scope !72, !noalias !75, !noundef !10
+  %4 = load i32, ptr %3, align 4, !alias.scope !108, !noalias !111, !noundef !10
   %.not.i = icmp sle i32 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !72, !noalias !75
+  %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !108, !noalias !111
   %.not.i.i = icmp eq i8 %6, 0
   %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread"
@@ -597,18 +605,18 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i32$GT$17__rayon_private__17h15030ddf2ac397abE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i32$GT$17__rayon_private__17h15030ddf2ac397abE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u64$GT$7opt_len17h999c6bbe04843796E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !alias.scope !77, !noalias !80, !noundef !10
+  %2 = load i64, ptr %0, align 8, !alias.scope !113, !noalias !116, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !77, !noalias !80, !noundef !10
+  %4 = load i64, ptr %3, align 8, !alias.scope !113, !noalias !116, !noundef !10
   %.not.i = icmp ule i64 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !77, !noalias !80
+  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !113, !noalias !116
   %.not.i.i = icmp eq i8 %6, 0
   %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread"
@@ -641,18 +649,18 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u64$GT$17__rayon_private__17h1f361601a9ddc4d9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u64$GT$17__rayon_private__17h1f361601a9ddc4d9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i64$GT$7opt_len17ha2fab0e1f1aea774E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !alias.scope !82, !noalias !85, !noundef !10
+  %2 = load i64, ptr %0, align 8, !alias.scope !118, !noalias !121, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !82, !noalias !85, !noundef !10
+  %4 = load i64, ptr %3, align 8, !alias.scope !118, !noalias !121, !noundef !10
   %.not.i = icmp sle i64 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !82, !noalias !85
+  %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !118, !noalias !121
   %.not.i.i = icmp eq i8 %6, 0
   %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread"
@@ -689,19 +697,19 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i64$GT$17__rayon_private__17hb58f491cd9e9d119E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i64$GT$17__rayon_private__17hb58f491cd9e9d119E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u128$GT$7opt_len17hc352089400ed1535E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u128$GT$7opt_len17hc352089400ed1535E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE.exit.thread":
-  %1 = load i128, ptr %0, align 8, !alias.scope !87, !noalias !90, !noundef !10
+  %1 = load i128, ptr %0, align 8, !alias.scope !123, !noalias !126, !noundef !10
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load i128, ptr %2, align 8, !alias.scope !87, !noalias !90, !noundef !10
+  %3 = load i128, ptr %2, align 8, !alias.scope !123, !noalias !126, !noundef !10
   %.not.i = icmp ugt i128 %1, %3
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !87, !noalias !90
+  %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !123, !noalias !126
   %.not.i.i = icmp ne i8 %5, 0
   %or.cond.i.not = select i1 %.not.i, i1 true, i1 %.not.i.i
   tail call void @llvm.assume(i1 %or.cond.i.not)
@@ -709,19 +717,19 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u128$GT$17__rayon_private__17hfaf93a6b69f2526cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u128$GT$17__rayon_private__17hfaf93a6b69f2526cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i128$GT$7opt_len17h90156dd4ff398ddcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i128$GT$7opt_len17h90156dd4ff398ddcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E.exit.thread":
-  %1 = load i128, ptr %0, align 8, !alias.scope !92, !noalias !95, !noundef !10
+  %1 = load i128, ptr %0, align 8, !alias.scope !128, !noalias !131, !noundef !10
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load i128, ptr %2, align 8, !alias.scope !92, !noalias !95, !noundef !10
+  %3 = load i128, ptr %2, align 8, !alias.scope !128, !noalias !131, !noundef !10
   %.not.i = icmp sgt i128 %1, %3
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !92, !noalias !95
+  %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !128, !noalias !131
   %.not.i.i = icmp ne i8 %5, 0
   %or.cond.i.not = select i1 %.not.i, i1 true, i1 %.not.i.i
   tail call void @llvm.assume(i1 %or.cond.i.not)
@@ -729,78 +737,79 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i128$GT$17__rayon_private__17h9f6aac7f31852c77E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define void @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i128$GT$17__rayon_private__17h9f6aac7f31852c77E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.uadd.sat.i64(i64, i64) #4
+declare i64 @llvm.uadd.sat.i64(i64, i64) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #4
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #5
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare hidden void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef, ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
+declare hidden void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef, ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i8, i1 } @llvm.uadd.with.overflow.i8(i8, i8) #4
+declare { i8, i1 } @llvm.uadd.with.overflow.i8(i8, i8) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i16, i1 } @llvm.uadd.with.overflow.i16(i16, i16) #4
+declare { i16, i1 } @llvm.uadd.with.overflow.i16(i16, i16) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i8, i1 } @llvm.sadd.with.overflow.i8(i8, i8) #4
+declare { i8, i1 } @llvm.sadd.with.overflow.i8(i8, i8) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i16, i1 } @llvm.sadd.with.overflow.i16(i16, i16) #4
+declare { i16, i1 } @llvm.sadd.with.overflow.i16(i16, i16) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #4
+declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i32, i1 } @llvm.uadd.with.overflow.i32(i32, i32) #4
+declare { i32, i1 } @llvm.uadd.with.overflow.i32(i32, i32) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i32, i1 } @llvm.sadd.with.overflow.i32(i32, i32) #4
+declare { i32, i1 } @llvm.sadd.with.overflow.i32(i32, i32) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #2
+declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.usub.sat.i8(i8, i8) #8
+declare i8 @llvm.usub.sat.i8(i8, i8) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.usub.sat.i16(i16, i16) #8
+declare i16 @llvm.usub.sat.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #8
+declare i64 @llvm.usub.sat.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #8
+declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { noreturn }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}
@@ -828,77 +837,113 @@ attributes #10 = { noreturn }
 !20 = !{!21}
 !21 = distinct !{!21, !17, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h7533a41c8b7d6bdfE: argument 0"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h4fc433309486ffc5E: argument 0"}
-!24 = distinct !{!24, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h4fc433309486ffc5E"}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h5141b519a0d34a41E: argument 1"}
-!27 = distinct !{!27, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h5141b519a0d34a41E"}
-!28 = distinct !{!28, !29, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE: argument 0"}
-!29 = distinct !{!29, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE"}
-!30 = !{!31}
-!31 = distinct !{!31, !27, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h5141b519a0d34a41E: argument 0"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h048b98d0f067cd4fE: argument 0"}
-!34 = distinct !{!34, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h048b98d0f067cd4fE"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE: argument 0"}
-!37 = distinct !{!37, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE"}
-!38 = !{!39, !36}
-!39 = distinct !{!39, !40, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE: argument 1"}
-!40 = distinct !{!40, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE"}
+!23 = distinct !{!23, !24, !"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u8$GT$2le17hcd573609a743f5f5E: argument 0"}
+!24 = distinct !{!24, !"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u8$GT$2le17hcd573609a743f5f5E"}
+!25 = !{!26}
+!26 = distinct !{!26, !24, !"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u8$GT$2le17hcd573609a743f5f5E: argument 1"}
+!27 = !{!23, !16, !18}
+!28 = !{!26, !21}
+!29 = !{!26, !16, !18}
+!30 = !{!23, !21}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h4fc433309486ffc5E: argument 0"}
+!33 = distinct !{!33, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h4fc433309486ffc5E"}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h5141b519a0d34a41E: argument 1"}
+!36 = distinct !{!36, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h5141b519a0d34a41E"}
+!37 = distinct !{!37, !38, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE: argument 0"}
+!38 = distinct !{!38, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE"}
+!39 = !{!40}
+!40 = distinct !{!40, !36, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h5141b519a0d34a41E: argument 0"}
 !41 = !{!42}
-!42 = distinct !{!42, !40, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE: argument 0"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hb6b180cfc4e99448E: argument 0"}
-!45 = distinct !{!45, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hb6b180cfc4e99448E"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E: argument 0"}
-!48 = distinct !{!48, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E"}
-!49 = !{!50, !47}
-!50 = distinct !{!50, !51, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E: argument 1"}
-!51 = distinct !{!51, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E"}
-!52 = !{!53}
-!53 = distinct !{!53, !51, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E: argument 0"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h9cfe14699643fe66E: argument 0"}
-!56 = distinct !{!56, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h9cfe14699643fe66E"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E: argument 1"}
-!59 = distinct !{!59, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E"}
-!60 = !{!61}
-!61 = distinct !{!61, !59, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E: argument 0"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E: argument 1"}
-!64 = distinct !{!64, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E"}
-!65 = !{!66}
-!66 = distinct !{!66, !64, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E: argument 0"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE: argument 1"}
-!69 = distinct !{!69, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE"}
+!42 = distinct !{!42, !43, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u16$GT$2le17h532bc52186aa9c8fE: argument 0"}
+!43 = distinct !{!43, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u16$GT$2le17h532bc52186aa9c8fE"}
+!44 = !{!45}
+!45 = distinct !{!45, !43, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u16$GT$2le17h532bc52186aa9c8fE: argument 1"}
+!46 = !{!42, !35, !37}
+!47 = !{!45, !40}
+!48 = !{!45, !35, !37}
+!49 = !{!42, !40}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h048b98d0f067cd4fE: argument 0"}
+!52 = distinct !{!52, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h048b98d0f067cd4fE"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE: argument 0"}
+!55 = distinct !{!55, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE"}
+!56 = !{!57, !54}
+!57 = distinct !{!57, !58, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE: argument 1"}
+!58 = distinct !{!58, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE"}
+!59 = !{!60}
+!60 = distinct !{!60, !58, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE: argument 0"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i8$GT$2le17h4c06eb00947df584E: argument 0"}
+!63 = distinct !{!63, !"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i8$GT$2le17h4c06eb00947df584E"}
+!64 = !{!65}
+!65 = distinct !{!65, !63, !"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i8$GT$2le17h4c06eb00947df584E: argument 1"}
+!66 = !{!62, !57, !54}
+!67 = !{!65, !60}
+!68 = !{!65, !57, !54}
+!69 = !{!62, !60}
 !70 = !{!71}
-!71 = distinct !{!71, !69, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE: argument 0"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE: argument 1"}
-!74 = distinct !{!74, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE"}
-!75 = !{!76}
-!76 = distinct !{!76, !74, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE: argument 0"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E: argument 1"}
-!79 = distinct !{!79, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E"}
-!80 = !{!81}
-!81 = distinct !{!81, !79, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E: argument 0"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE: argument 1"}
-!84 = distinct !{!84, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE"}
-!85 = !{!86}
-!86 = distinct !{!86, !84, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE: argument 0"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE: argument 1"}
-!89 = distinct !{!89, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE"}
+!71 = distinct !{!71, !72, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hb6b180cfc4e99448E: argument 0"}
+!72 = distinct !{!72, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hb6b180cfc4e99448E"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E: argument 0"}
+!75 = distinct !{!75, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E"}
+!76 = !{!77, !74}
+!77 = distinct !{!77, !78, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E: argument 1"}
+!78 = distinct !{!78, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E"}
+!79 = !{!80}
+!80 = distinct !{!80, !78, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E: argument 0"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i16$GT$2le17hc7ba33e383d3ba86E: argument 0"}
+!83 = distinct !{!83, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i16$GT$2le17hc7ba33e383d3ba86E"}
+!84 = !{!85}
+!85 = distinct !{!85, !83, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i16$GT$2le17hc7ba33e383d3ba86E: argument 1"}
+!86 = !{!82, !77, !74}
+!87 = !{!85, !80}
+!88 = !{!85, !77, !74}
+!89 = !{!82, !80}
 !90 = !{!91}
-!91 = distinct !{!91, !89, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE: argument 0"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E: argument 1"}
-!94 = distinct !{!94, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E"}
-!95 = !{!96}
-!96 = distinct !{!96, !94, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E: argument 0"}
+!91 = distinct !{!91, !92, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h9cfe14699643fe66E: argument 0"}
+!92 = distinct !{!92, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h9cfe14699643fe66E"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E: argument 1"}
+!95 = distinct !{!95, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E"}
+!96 = !{!97}
+!97 = distinct !{!97, !95, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E: argument 0"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E: argument 1"}
+!100 = distinct !{!100, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E"}
+!101 = !{!102}
+!102 = distinct !{!102, !100, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E: argument 0"}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE: argument 1"}
+!105 = distinct !{!105, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE"}
+!106 = !{!107}
+!107 = distinct !{!107, !105, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE: argument 0"}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE: argument 1"}
+!110 = distinct !{!110, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE"}
+!111 = !{!112}
+!112 = distinct !{!112, !110, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE: argument 0"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E: argument 1"}
+!115 = distinct !{!115, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E"}
+!116 = !{!117}
+!117 = distinct !{!117, !115, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E: argument 0"}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE: argument 1"}
+!120 = distinct !{!120, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE"}
+!121 = !{!122}
+!122 = distinct !{!122, !120, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE: argument 0"}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE: argument 1"}
+!125 = distinct !{!125, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE"}
+!126 = !{!127}
+!127 = distinct !{!127, !125, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE: argument 0"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E: argument 1"}
+!130 = distinct !{!130, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E"}
+!131 = !{!132}
+!132 = distinct !{!132, !130, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E: argument 0"}

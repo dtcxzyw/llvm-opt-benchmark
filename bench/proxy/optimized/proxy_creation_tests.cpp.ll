@@ -1167,7 +1167,7 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i: ; p
   %39 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.pre, ptr %39, align 8, !alias.scope !5
   %40 = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = load ptr, ptr %29, align 8
+  %41 = load ptr, ptr %29, align 8, !noalias !5
   store ptr %41, ptr %40, align 8, !alias.scope !5
   store i64 ptrtoint (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEN12_GLOBAL__N_111SboObserverEEEEE7storageINS0_11inplace_ptrINSM_15LifetimeTracker7SessionEEEEE to i64), ptr %4, align 8, !alias.scope !5
   invoke void @_ZN5utils9to_stringB5cxx11ERKNS_15LifetimeTracker7SessionE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %39)
@@ -18937,7 +18937,7 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i: ; p
   %39 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.pre, ptr %39, align 8, !alias.scope !348
   %40 = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = load ptr, ptr %29, align 8
+  %41 = load ptr, ptr %29, align 8, !noalias !348
   store ptr %41, ptr %40, align 8, !alias.scope !348
   store i64 ptrtoint (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEN12_GLOBAL__N_111SboObserverEEEEE7storageINS0_11inplace_ptrINSM_15LifetimeTracker7SessionEEEEE to i64), ptr %4, align 8, !alias.scope !348
   invoke void @_ZN5utils9to_stringB5cxx11ERKNS_15LifetimeTracker7SessionE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %39)

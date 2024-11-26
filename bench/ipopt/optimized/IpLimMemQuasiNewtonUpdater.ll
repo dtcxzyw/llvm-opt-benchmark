@@ -12628,7 +12628,7 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit50:        ; preds = %29
 
 51:                                               ; preds = %.lr.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit66
   %indvars.iv115 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next116, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit66 ]
-  %52 = load ptr, ptr %47, align 8, !noalias !21
+  %52 = load ptr, ptr %47, align 8, !noalias !162
   %53 = getelementptr inbounds %"class.Ipopt::SmartPtr.19", ptr %52, i64 %48
   %54 = load ptr, ptr %53, align 8, !noalias !162
   %.not.i.i = icmp eq ptr %54, null
@@ -13588,7 +13588,7 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit41:        ; preds = %19
 
 43:                                               ; preds = %.lr.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit55
   %indvars.iv90 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next91, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit55 ]
-  %44 = load ptr, ptr %33, align 8, !noalias !21
+  %44 = load ptr, ptr %33, align 8, !noalias !190
   %45 = getelementptr inbounds %"class.Ipopt::SmartPtr.19", ptr %44, i64 %34
   %46 = load ptr, ptr %45, align 8, !noalias !190
   %.not.i.i = icmp eq ptr %46, null

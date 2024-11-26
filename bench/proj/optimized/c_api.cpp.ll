@@ -72825,7 +72825,7 @@ define noundef ptr @proj_create_operations(ptr noundef %0, ptr noundef %1, ptr n
 28:                                               ; preds = %23
   %29 = getelementptr inbounds i8, ptr %1, i64 640
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
-  %30 = load ptr, ptr %29, align 8, !noalias !135
+  %30 = load ptr, ptr %29, align 8, !noalias !132
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread.i, label %32
 
@@ -72872,7 +72872,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10share
   br i1 %45, label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split._crit_edge, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split._crit_edge: ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split
-  %.pre = load ptr, ptr %29, align 8, !noalias !136
+  %.pre = load ptr, ptr %29, align 8, !noalias !135
   br label %46
 
 46:                                               ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split._crit_edge, %.thread.i
@@ -72881,26 +72881,26 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10share
   br i1 %48, label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread, label %49
 
 49:                                               ; preds = %46
-  %50 = tail call ptr @__dynamic_cast(ptr nonnull %47, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj11coordinates18CoordinateMetadataE, i64 0) #29, !noalias !136
+  %50 = tail call ptr @__dynamic_cast(ptr nonnull %47, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj11coordinates18CoordinateMetadataE, i64 0) #29, !noalias !135
   %.not.i99 = icmp eq ptr %50, null
   br i1 %.not.i99, label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread, label %51
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %1, i64 648
-  %53 = load ptr, ptr %52, align 8, !noalias !136
+  %53 = load ptr, ptr %52, align 8, !noalias !135
   %.not.i.i.i.i100 = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i100, label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread, label %54
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds i8, ptr %53, i64 8
-  %56 = load i8, ptr @__libc_single_threaded, align 1, !noalias !136
+  %56 = load i8, ptr @__libc_single_threaded, align 1, !noalias !135
   %.not.i.i.i.i.i101 = icmp eq i8 %56, 0
   br i1 %.not.i.i.i.i.i101, label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit, label %57
 
 57:                                               ; preds = %54
-  %58 = load i32, ptr %55, align 4, !noalias !136
+  %58 = load i32, ptr %55, align 4, !noalias !135
   %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %55, align 4, !noalias !136
+  store i32 %59, ptr %55, align 4, !noalias !135
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread: ; preds = %51, %57, %49, %46
@@ -72912,7 +72912,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4ut
   br label %_ZNSt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEED2Ev.exit
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit: ; preds = %54
-  %61 = atomicrmw volatile add ptr %55, i32 1 acq_rel, align 4, !noalias !136
+  %61 = atomicrmw volatile add ptr %55, i32 1 acq_rel, align 4, !noalias !135
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
   %.pre343 = load ptr, ptr %.phi.trans.insert, align 8
   store ptr %50, ptr %6, align 8
@@ -73202,39 +73202,39 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit: ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i117, %188, %175, %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSERKS4_.exit, %_ZNSt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEED2Ev.exit.thread, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split
   %193 = getelementptr inbounds i8, ptr %2, i64 640
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  %194 = load ptr, ptr %193, align 8, !noalias !135
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
+  %194 = load ptr, ptr %193, align 8, !noalias !138
   %195 = icmp eq ptr %194, null
   br i1 %195, label %.thread.i121, label %196
 
 196:                                              ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
-  %197 = tail call ptr @__dynamic_cast(ptr nonnull %194, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs3CRSE, i64 0) #29, !noalias !139
+  %197 = tail call ptr @__dynamic_cast(ptr nonnull %194, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs3CRSE, i64 0) #29, !noalias !138
   %.not.i118 = icmp eq ptr %197, null
   br i1 %.not.i118, label %.thread.i121, label %198
 
 198:                                              ; preds = %196
-  store ptr %197, ptr %7, align 8, !alias.scope !139
+  store ptr %197, ptr %7, align 8, !alias.scope !138
   %199 = getelementptr inbounds i8, ptr %7, i64 8
   %200 = getelementptr inbounds i8, ptr %2, i64 648
-  %201 = load ptr, ptr %200, align 8, !noalias !139
-  store ptr %201, ptr %199, align 8, !alias.scope !139
+  %201 = load ptr, ptr %200, align 8, !noalias !138
+  store ptr %201, ptr %199, align 8, !alias.scope !138
   %.not.i.i.i.i119 = icmp eq ptr %201, null
   br i1 %.not.i.i.i.i119, label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit122thread-pre-split.thread, label %202
 
 202:                                              ; preds = %198
   %203 = getelementptr inbounds i8, ptr %201, i64 8
-  %204 = load i8, ptr @__libc_single_threaded, align 1, !noalias !139
+  %204 = load i8, ptr @__libc_single_threaded, align 1, !noalias !138
   %.not.i.i.i.i.i120 = icmp eq i8 %204, 0
   br i1 %.not.i.i.i.i.i120, label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit122thread-pre-split, label %205
 
 205:                                              ; preds = %202
-  %206 = load i32, ptr %203, align 4, !noalias !139
+  %206 = load i32, ptr %203, align 4, !noalias !138
   %207 = add nsw i32 %206, 1
-  store i32 %207, ptr %203, align 4, !noalias !139
+  store i32 %207, ptr %203, align 4, !noalias !138
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit122thread-pre-split.thread
 
 .thread.i121:                                     ; preds = %196, %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !139
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %210
 
@@ -73243,14 +73243,14 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10share
   br label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit162
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit122thread-pre-split: ; preds = %202
-  %208 = atomicrmw volatile add ptr %203, i32 1 acq_rel, align 4, !noalias !139
+  %208 = atomicrmw volatile add ptr %203, i32 1 acq_rel, align 4, !noalias !138
   %.pr298.pre = load ptr, ptr %7, align 8
   %209 = icmp eq ptr %.pr298.pre, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br i1 %209, label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit122thread-pre-split._crit_edge, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit162
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit122thread-pre-split._crit_edge: ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit122thread-pre-split
-  %.pre346 = load ptr, ptr %193, align 8, !noalias !142
+  %.pre346 = load ptr, ptr %193, align 8, !noalias !141
   br label %210
 
 210:                                              ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit122thread-pre-split._crit_edge, %.thread.i121
@@ -73259,26 +73259,26 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10share
   br i1 %212, label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit127.thread, label %213
 
 213:                                              ; preds = %210
-  %214 = tail call ptr @__dynamic_cast(ptr nonnull %211, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj11coordinates18CoordinateMetadataE, i64 0) #29, !noalias !142
+  %214 = tail call ptr @__dynamic_cast(ptr nonnull %211, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj11coordinates18CoordinateMetadataE, i64 0) #29, !noalias !141
   %.not.i123 = icmp eq ptr %214, null
   br i1 %.not.i123, label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit127.thread, label %215
 
 215:                                              ; preds = %213
   %216 = getelementptr inbounds i8, ptr %2, i64 648
-  %217 = load ptr, ptr %216, align 8, !noalias !142
+  %217 = load ptr, ptr %216, align 8, !noalias !141
   %.not.i.i.i.i124 = icmp eq ptr %217, null
   br i1 %.not.i.i.i.i124, label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit127.thread, label %218
 
 218:                                              ; preds = %215
   %219 = getelementptr inbounds i8, ptr %217, i64 8
-  %220 = load i8, ptr @__libc_single_threaded, align 1, !noalias !142
+  %220 = load i8, ptr @__libc_single_threaded, align 1, !noalias !141
   %.not.i.i.i.i.i125 = icmp eq i8 %220, 0
   br i1 %.not.i.i.i.i.i125, label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit127, label %221
 
 221:                                              ; preds = %218
-  %222 = load i32, ptr %219, align 4, !noalias !142
+  %222 = load i32, ptr %219, align 4, !noalias !141
   %223 = add nsw i32 %222, 1
-  store i32 %223, ptr %219, align 4, !noalias !142
+  store i32 %223, ptr %219, align 4, !noalias !141
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit127.thread
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit127.thread: ; preds = %215, %221, %213, %210
@@ -73290,7 +73290,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4ut
   br label %_ZNSt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEED2Ev.exit141
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit127: ; preds = %218
-  %225 = atomicrmw volatile add ptr %219, i32 1 acq_rel, align 4, !noalias !142
+  %225 = atomicrmw volatile add ptr %219, i32 1 acq_rel, align 4, !noalias !141
   %.phi.trans.insert347 = getelementptr inbounds i8, ptr %8, i64 8
   %.pre348 = load ptr, ptr %.phi.trans.insert347, align 8
   store ptr %214, ptr %8, align 8
@@ -74603,7 +74603,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEEEvPT_.exit.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %806, %793, %.lr.ph.i.i.i.i
   %811 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
   %.not.i.i.i.i241 = icmp eq ptr %811, %774
-  br i1 %.not.i.i.i.i241, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !145
+  br i1 %.not.i.i.i.i241, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !144
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %11, align 8
@@ -75278,7 +75278,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEEEvPT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %36, %23, %.lr.ph.i.i.i
   %41 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %41, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !145
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !144
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -78716,43 +78716,43 @@ define noundef ptr @proj_suggests_code_for(ptr noundef %0, ptr noundef readonly 
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %1, i64 640
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  %21 = load ptr, ptr %20, align 8, !noalias !146
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
+  %21 = load ptr, ptr %20, align 8, !noalias !145
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread.i, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj6common16IdentifiedObjectE, i64 0) #29, !noalias !146
+  %24 = tail call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj6common16IdentifiedObjectE, i64 0) #29, !noalias !145
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %.thread.i, label %25
 
 25:                                               ; preds = %23
-  store ptr %24, ptr %6, align 8, !alias.scope !146
+  store ptr %24, ptr %6, align 8, !alias.scope !145
   %26 = getelementptr inbounds i8, ptr %6, i64 8
   %27 = getelementptr inbounds i8, ptr %1, i64 648
-  %28 = load ptr, ptr %27, align 8, !noalias !146
-  store ptr %28, ptr %26, align 8, !alias.scope !146
+  %28 = load ptr, ptr %27, align 8, !noalias !145
+  store ptr %28, ptr %26, align 8, !alias.scope !145
   %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %28, i64 8
-  %31 = load i8, ptr @__libc_single_threaded, align 1, !noalias !146
+  %31 = load i8, ptr @__libc_single_threaded, align 1, !noalias !145
   %.not.i.i.i.i.i = icmp eq i8 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split, label %32
 
 32:                                               ; preds = %29
-  %33 = load i32, ptr %30, align 4, !noalias !146
+  %33 = load i32, ptr %30, align 4, !noalias !145
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %30, align 4, !noalias !146
+  store i32 %34, ptr %30, align 4, !noalias !145
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread
 
 .thread.i:                                        ; preds = %23, %19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !146
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !145
   br label %37
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split: ; preds = %29
-  %35 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4, !noalias !146
+  %35 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4, !noalias !145
   %.pr.pre = load ptr, ptr %6, align 8
   %36 = icmp eq ptr %.pr.pre, null
   br i1 %36, label %37, label %_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread
@@ -79198,43 +79198,43 @@ _ZZ26proj_get_insert_statementsEN17TempSessionHolderC2EP6pj_ctxP17PJ_INSERT_SESS
 
 38:                                               ; preds = %_ZZ26proj_get_insert_statementsEN17TempSessionHolderC2EP6pj_ctxP17PJ_INSERT_SESSION.exit.thread
   %39 = getelementptr inbounds i8, ptr %2, i64 640
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
-  %40 = load ptr, ptr %39, align 8, !noalias !149
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
+  %40 = load ptr, ptr %39, align 8, !noalias !148
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread.i, label %42
 
 42:                                               ; preds = %38
-  %43 = tail call ptr @__dynamic_cast(ptr nonnull %40, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj6common16IdentifiedObjectE, i64 0) #29, !noalias !149
+  %43 = tail call ptr @__dynamic_cast(ptr nonnull %40, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj6common16IdentifiedObjectE, i64 0) #29, !noalias !148
   %.not.i79 = icmp eq ptr %43, null
   br i1 %.not.i79, label %.thread.i, label %44
 
 44:                                               ; preds = %42
-  store ptr %43, ptr %10, align 8, !alias.scope !149
+  store ptr %43, ptr %10, align 8, !alias.scope !148
   %45 = getelementptr inbounds i8, ptr %10, i64 8
   %46 = getelementptr inbounds i8, ptr %2, i64 648
-  %47 = load ptr, ptr %46, align 8, !noalias !149
-  store ptr %47, ptr %45, align 8, !alias.scope !149
+  %47 = load ptr, ptr %46, align 8, !noalias !148
+  store ptr %47, ptr %45, align 8, !alias.scope !148
   %.not.i.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i, label %_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %47, i64 8
-  %50 = load i8, ptr @__libc_single_threaded, align 1, !noalias !149
+  %50 = load i8, ptr @__libc_single_threaded, align 1, !noalias !148
   %.not.i.i.i.i.i = icmp eq i8 %50, 0
   br i1 %.not.i.i.i.i.i, label %_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split, label %51
 
 51:                                               ; preds = %48
-  %52 = load i32, ptr %49, align 4, !noalias !149
+  %52 = load i32, ptr %49, align 4, !noalias !148
   %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %49, align 4, !noalias !149
+  store i32 %53, ptr %49, align 4, !noalias !148
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread
 
 .thread.i:                                        ; preds = %42, %38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !alias.scope !149
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !alias.scope !148
   br label %56
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split: ; preds = %48
-  %54 = atomicrmw volatile add ptr %49, i32 1 acq_rel, align 4, !noalias !149
+  %54 = atomicrmw volatile add ptr %49, i32 1 acq_rel, align 4, !noalias !148
   %.pr.pre = load ptr, ptr %10, align 8
   %55 = icmp eq ptr %.pr.pre, null
   br i1 %55, label %56, label %_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread
@@ -79296,7 +79296,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   %.01215.i.i.i.i.i.add = add nuw nsw i64 %.01215.i.i.i.i.i.idx, 32
   %68 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i116 = icmp eq i64 %.01215.i.i.i.i.i.add, 64
-  br i1 %.not.i.i.i.i.i116, label %82, label %.lr.ph.i.i.i.i.i114, !llvm.loop !152
+  br i1 %.not.i.i.i.i.i116, label %82, label %.lr.ph.i.i.i.i.i114, !llvm.loop !151
 
 69:                                               ; preds = %.lr.ph.i.i.i.i.i114
   %70 = landingpad { ptr, i32 }
@@ -79426,7 +79426,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %103 = getelementptr inbounds i8, ptr %.035136, i64 8
   %104 = load ptr, ptr %103, align 8
   %.not62 = icmp eq ptr %104, null
-  br i1 %.not62, label %.loopexit, label %.lr.ph, !llvm.loop !153
+  br i1 %.not62, label %.loopexit, label %.lr.ph, !llvm.loop !152
 
 .thread:                                          ; preds = %_ZL12getDBcontextP6pj_ctx.exit
   %105 = landingpad { ptr, i32 }
@@ -80132,7 +80132,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exi
 93:                                               ; preds = %92, %.lr.ph38.i
   %94 = add i64 %88, -1
   %.not.i = icmp eq i64 %94, 0
-  br i1 %.not.i, label %._crit_edge39.i, label %.lr.ph38.i, !llvm.loop !154
+  br i1 %.not.i, label %._crit_edge39.i, label %.lr.ph38.i, !llvm.loop !153
 
 ._crit_edge39.i:                                  ; preds = %93, %84
   call void @_ZdaPv(ptr noundef nonnull %68) #30
@@ -80385,43 +80385,43 @@ define noundef ptr @proj_coordinate_metadata_create(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %1, i64 640
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
-  %16 = load ptr, ptr %15, align 8, !noalias !155
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
+  %16 = load ptr, ptr %15, align 8, !noalias !154
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread.i, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call ptr @__dynamic_cast(ptr nonnull %16, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs3CRSE, i64 0) #29, !noalias !155
+  %19 = tail call ptr @__dynamic_cast(ptr nonnull %16, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj3crs3CRSE, i64 0) #29, !noalias !154
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %.thread.i, label %20
 
 20:                                               ; preds = %18
-  store ptr %19, ptr %4, align 8, !alias.scope !155
+  store ptr %19, ptr %4, align 8, !alias.scope !154
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = getelementptr inbounds i8, ptr %1, i64 648
-  %23 = load ptr, ptr %22, align 8, !noalias !155
-  store ptr %23, ptr %21, align 8, !alias.scope !155
+  %23 = load ptr, ptr %22, align 8, !noalias !154
+  store ptr %23, ptr %21, align 8, !alias.scope !154
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %23, i64 8
-  %26 = load i8, ptr @__libc_single_threaded, align 1, !noalias !155
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !noalias !154
   %.not.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i.i.i.i, label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split, label %27
 
 27:                                               ; preds = %24
-  %28 = load i32, ptr %25, align 4, !noalias !155
+  %28 = load i32, ptr %25, align 4, !noalias !154
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %25, align 4, !noalias !155
+  store i32 %29, ptr %25, align 4, !noalias !154
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread
 
 .thread.i:                                        ; preds = %18, %14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !155
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !154
   br label %32
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split: ; preds = %24
-  %30 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !155
+  %30 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !154
   %.pr.pre = load ptr, ptr %4, align 8
   %31 = icmp eq ptr %.pr.pre, null
   br i1 %31, label %32, label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread
@@ -81163,7 +81163,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEEEvPT_.exit.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %110, %97, %.lr.ph.i.i.i.i
   %115 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
   %.not.i.i.i.i29 = icmp eq ptr %115, %77
-  br i1 %.not.i.i.i.i29, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !158
+  br i1 %.not.i.i.i.i29, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !157
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %7, align 8
@@ -81674,7 +81674,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #29
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #30
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !159
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -81949,20 +81949,20 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18O
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_M_allocateEm.exit ]
   %.0911.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !163, !noalias !160
-  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !160, !noalias !163
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
+  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !162, !noalias !159
+  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !159, !noalias !162
   %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !163, !noalias !160
-  store ptr null, ptr %31, align 8, !alias.scope !163, !noalias !160
-  store ptr %32, ptr %30, align 8, !alias.scope !160, !noalias !163
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !163, !noalias !160
+  %32 = load ptr, ptr %31, align 8, !alias.scope !162, !noalias !159
+  store ptr null, ptr %31, align 8, !alias.scope !162, !noalias !159
+  store ptr %32, ptr %30, align 8, !alias.scope !159, !noalias !162
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !162, !noalias !159
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %33, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !165
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !164
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i.i ]
@@ -81973,20 +81973,20 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Operatio
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %41, %.lr.ph.i.i.i.i17 ], [ %35, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %40, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !169, !noalias !166
-  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !166, !noalias !169
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
+  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !168, !noalias !165
+  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !165, !noalias !168
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %39 = load ptr, ptr %38, align 8, !alias.scope !169, !noalias !166
-  store ptr null, ptr %38, align 8, !alias.scope !169, !noalias !166
-  store ptr %39, ptr %37, align 8, !alias.scope !166, !noalias !169
-  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !169, !noalias !166
+  %39 = load ptr, ptr %38, align 8, !alias.scope !168, !noalias !165
+  store ptr null, ptr %38, align 8, !alias.scope !168, !noalias !165
+  store ptr %39, ptr %37, align 8, !alias.scope !165, !noalias !168
+  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !168, !noalias !165
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
   %.not.i.i.i.i20 = icmp eq ptr %40, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !165
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !164
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %35, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ], [ %41, %.lr.ph.i.i.i.i17 ]
@@ -82056,20 +82056,20 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14P
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_M_allocateEm.exit ]
   %.0911.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
-  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !174, !noalias !171
-  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !171, !noalias !174
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
+  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !173, !noalias !170
+  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !170, !noalias !173
   %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !174, !noalias !171
-  store ptr null, ptr %31, align 8, !alias.scope !174, !noalias !171
-  store ptr %32, ptr %30, align 8, !alias.scope !171, !noalias !174
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !174, !noalias !171
+  %32 = load ptr, ptr %31, align 8, !alias.scope !173, !noalias !170
+  store ptr null, ptr %31, align 8, !alias.scope !173, !noalias !170
+  store ptr %32, ptr %30, align 8, !alias.scope !170, !noalias !173
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !173, !noalias !170
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %33, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !176
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !175
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i.i ]
@@ -82080,20 +82080,20 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Paramete
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %41, %.lr.ph.i.i.i.i17 ], [ %35, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %40, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
-  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !180, !noalias !177
-  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !177, !noalias !180
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
+  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !179, !noalias !176
+  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !176, !noalias !179
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %39 = load ptr, ptr %38, align 8, !alias.scope !180, !noalias !177
-  store ptr null, ptr %38, align 8, !alias.scope !180, !noalias !177
-  store ptr %39, ptr %37, align 8, !alias.scope !177, !noalias !180
-  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !180, !noalias !177
+  %39 = load ptr, ptr %38, align 8, !alias.scope !179, !noalias !176
+  store ptr null, ptr %38, align 8, !alias.scope !179, !noalias !176
+  store ptr %39, ptr %37, align 8, !alias.scope !176, !noalias !179
+  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !179, !noalias !176
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
   %.not.i.i.i.i20 = icmp eq ptr %40, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !176
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !175
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %35, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ], [ %41, %.lr.ph.i.i.i.i17 ]
@@ -82225,7 +82225,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5osgeo4proj9operation15GridDesc
   tail call void @_ZN5osgeo4proj9operation15GridDescriptionD1Ev(ptr noundef nonnull align 8 dereferenceable(131) %7) #29
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #30
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !182
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -82287,7 +82287,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !183
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !182
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
@@ -82303,7 +82303,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 32
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i20 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !183
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !182
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %29, %.lr.ph.i.i.i.i17 ]
@@ -82778,7 +82778,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyISt13move_iterator
   %77 = getelementptr inbounds i8, ptr %.sroa.08.012, i64 192
   %78 = getelementptr inbounds i8, ptr %.013, i64 192
   %.not = icmp eq ptr %77, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !184
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !183
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi ptr [ %2, %3 ], [ %78, %.lr.ph ]
@@ -82841,20 +82841,20 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16Iden
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_M_allocateEm.exit ]
   %.0911.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
-  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !188, !noalias !185
-  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !185, !noalias !188
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
+  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !187, !noalias !184
+  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !184, !noalias !187
   %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !188, !noalias !185
-  store ptr null, ptr %31, align 8, !alias.scope !188, !noalias !185
-  store ptr %32, ptr %30, align 8, !alias.scope !185, !noalias !188
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !188, !noalias !185
+  %32 = load ptr, ptr %31, align 8, !alias.scope !187, !noalias !184
+  store ptr null, ptr %31, align 8, !alias.scope !187, !noalias !184
+  store ptr %32, ptr %30, align 8, !alias.scope !184, !noalias !187
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !187, !noalias !184
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %33, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !190
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !189
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i.i ]
@@ -82865,20 +82865,20 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedO
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %41, %.lr.ph.i.i.i.i17 ], [ %35, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %40, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !194, !noalias !191
-  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !191, !noalias !194
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
+  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !193, !noalias !190
+  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !190, !noalias !193
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %39 = load ptr, ptr %38, align 8, !alias.scope !194, !noalias !191
-  store ptr null, ptr %38, align 8, !alias.scope !194, !noalias !191
-  store ptr %39, ptr %37, align 8, !alias.scope !191, !noalias !194
-  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !194, !noalias !191
+  %39 = load ptr, ptr %38, align 8, !alias.scope !193, !noalias !190
+  store ptr null, ptr %38, align 8, !alias.scope !193, !noalias !190
+  store ptr %39, ptr %37, align 8, !alias.scope !190, !noalias !193
+  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !193, !noalias !190
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
   %.not.i.i.i.i20 = icmp eq ptr %40, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !190
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !189
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %35, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ], [ %41, %.lr.ph.i.i.i.i17 ]
@@ -82966,20 +82966,20 @@ _ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6commo
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKS9_EEEvRSA_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKS9_EEEvRSA_PT_DpOT0_.exit ]
   %.0911.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKS9_EEEvRSA_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
-  %37 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !199, !noalias !196
-  store ptr %37, ptr %.012.i.i.i.i, align 8, !alias.scope !196, !noalias !199
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
+  %37 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !198, !noalias !195
+  store ptr %37, ptr %.012.i.i.i.i, align 8, !alias.scope !195, !noalias !198
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
   %39 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %40 = load ptr, ptr %39, align 8, !alias.scope !199, !noalias !196
-  store ptr null, ptr %39, align 8, !alias.scope !199, !noalias !196
-  store ptr %40, ptr %38, align 8, !alias.scope !196, !noalias !199
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !199, !noalias !196
+  %40 = load ptr, ptr %39, align 8, !alias.scope !198, !noalias !195
+  store ptr null, ptr %39, align 8, !alias.scope !198, !noalias !195
+  store ptr %40, ptr %38, align 8, !alias.scope !195, !noalias !198
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !198, !noalias !195
   %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %42 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %41, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !190
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !189
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKS9_EEEvRSA_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKS9_EEEvRSA_PT_DpOT0_.exit ], [ %42, %.lr.ph.i.i.i.i ]
@@ -82990,20 +82990,20 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedO
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %49, %.lr.ph.i.i.i.i17 ], [ %43, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %48, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
-  %44 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !204, !noalias !201
-  store ptr %44, ptr %.012.i.i.i.i18, align 8, !alias.scope !201, !noalias !204
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
+  %44 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !203, !noalias !200
+  store ptr %44, ptr %.012.i.i.i.i18, align 8, !alias.scope !200, !noalias !203
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
   %46 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %47 = load ptr, ptr %46, align 8, !alias.scope !204, !noalias !201
-  store ptr null, ptr %46, align 8, !alias.scope !204, !noalias !201
-  store ptr %47, ptr %45, align 8, !alias.scope !201, !noalias !204
-  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !204, !noalias !201
+  %47 = load ptr, ptr %46, align 8, !alias.scope !203, !noalias !200
+  store ptr null, ptr %46, align 8, !alias.scope !203, !noalias !200
+  store ptr %47, ptr %45, align 8, !alias.scope !200, !noalias !203
+  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !203, !noalias !200
   %48 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
   %49 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
   %.not.i.i.i.i20 = icmp eq ptr %48, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !190
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !189
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %43, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ], [ %49, %.lr.ph.i.i.i.i17 ]
@@ -83090,7 +83090,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !183
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !182
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
@@ -83106,7 +83106,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 32
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i30 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !183
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !182
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %29, %.lr.ph.i.i.i.i27 ]
@@ -83217,20 +83217,20 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18Po
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_M_allocateEm.exit ]
   %.0911.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
-  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !209, !noalias !206
-  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !206, !noalias !209
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
+  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !208, !noalias !205
+  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !205, !noalias !208
   %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !209, !noalias !206
-  store ptr null, ptr %31, align 8, !alias.scope !209, !noalias !206
-  store ptr %32, ptr %30, align 8, !alias.scope !206, !noalias !209
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !209, !noalias !206
+  %32 = load ptr, ptr %31, align 8, !alias.scope !208, !noalias !205
+  store ptr null, ptr %31, align 8, !alias.scope !208, !noalias !205
+  store ptr %32, ptr %30, align 8, !alias.scope !205, !noalias !208
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !208, !noalias !205
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %33, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !211
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !210
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i.i ]
@@ -83241,20 +83241,20 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18Positiona
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %41, %.lr.ph.i.i.i.i17 ], [ %35, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %40, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
-  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !215, !noalias !212
-  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !212, !noalias !215
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
+  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !214, !noalias !211
+  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !211, !noalias !214
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %39 = load ptr, ptr %38, align 8, !alias.scope !215, !noalias !212
-  store ptr null, ptr %38, align 8, !alias.scope !215, !noalias !212
-  store ptr %39, ptr %37, align 8, !alias.scope !212, !noalias !215
-  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !215, !noalias !212
+  %39 = load ptr, ptr %38, align 8, !alias.scope !214, !noalias !211
+  store ptr null, ptr %38, align 8, !alias.scope !214, !noalias !211
+  store ptr %39, ptr %37, align 8, !alias.scope !211, !noalias !214
+  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !214, !noalias !211
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
   %.not.i.i.i.i20 = icmp eq ptr %40, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !211
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !210
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %35, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ], [ %41, %.lr.ph.i.i.i.i17 ]
@@ -83326,20 +83326,20 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20Coordina
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_M_allocateEm.exit ]
   %.0911.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !220, !noalias !217
-  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !217, !noalias !220
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
+  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !219, !noalias !216
+  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !216, !noalias !219
   %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !220, !noalias !217
-  store ptr null, ptr %31, align 8, !alias.scope !220, !noalias !217
-  store ptr %32, ptr %30, align 8, !alias.scope !217, !noalias !220
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !220, !noalias !217
+  %32 = load ptr, ptr %31, align 8, !alias.scope !219, !noalias !216
+  store ptr null, ptr %31, align 8, !alias.scope !219, !noalias !216
+  store ptr %32, ptr %30, align 8, !alias.scope !216, !noalias !219
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !219, !noalias !216
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %33, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !222
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !221
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i.i ]
@@ -83350,20 +83350,20 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %41, %.lr.ph.i.i.i.i17 ], [ %35, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %40, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
-  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !226, !noalias !223
-  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !223, !noalias !226
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
+  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !225, !noalias !222
+  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !222, !noalias !225
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %39 = load ptr, ptr %38, align 8, !alias.scope !226, !noalias !223
-  store ptr null, ptr %38, align 8, !alias.scope !226, !noalias !223
-  store ptr %39, ptr %37, align 8, !alias.scope !223, !noalias !226
-  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !226, !noalias !223
+  %39 = load ptr, ptr %38, align 8, !alias.scope !225, !noalias !222
+  store ptr null, ptr %38, align 8, !alias.scope !225, !noalias !222
+  store ptr %39, ptr %37, align 8, !alias.scope !222, !noalias !225
+  store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !225, !noalias !222
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
   %.not.i.i.i.i20 = icmp eq ptr %40, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !222
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !221
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %35, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ], [ %41, %.lr.ph.i.i.i.i17 ]
@@ -83434,7 +83434,7 @@ _ZNSt16allocator_traitsISaIN5osgeo4proj9operation15GridDescriptionEEE9constructI
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 136
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 136
   %.not.i.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !228
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !227
 
 _ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN5osgeo4proj9operation15GridDescriptionEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN5osgeo4proj9operation15GridDescriptionEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
@@ -83450,7 +83450,7 @@ _ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE11_S_relocateEPS3_S
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 136
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 136
   %.not.i.i.i.i30 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !228
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !227
 
 _ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %27, %_ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %29, %.lr.ph.i.i.i.i27 ]
@@ -83569,7 +83569,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %29 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 64
   %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %29, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !229
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !228
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit ], [ %30, %.lr.ph.i.i.i.i ]
@@ -83589,7 +83589,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
   %34 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 64
   %35 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 64
   %.not.i.i.i.i20 = icmp eq ptr %34, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !229
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !228
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %31, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ], [ %35, %.lr.ph.i.i.i.i17 ]
@@ -83677,20 +83677,20 @@ _ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6commo
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEEvRSA_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEEvRSA_PT_DpOT0_.exit ]
   %.0911.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEEvRSA_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
-  %37 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !233, !noalias !230
-  store ptr %37, ptr %.012.i.i.i.i, align 8, !alias.scope !230, !noalias !233
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
+  %37 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !232, !noalias !229
+  store ptr %37, ptr %.012.i.i.i.i, align 8, !alias.scope !229, !noalias !232
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
   %39 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %40 = load ptr, ptr %39, align 8, !alias.scope !233, !noalias !230
-  store ptr null, ptr %39, align 8, !alias.scope !233, !noalias !230
-  store ptr %40, ptr %38, align 8, !alias.scope !230, !noalias !233
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !233, !noalias !230
+  %40 = load ptr, ptr %39, align 8, !alias.scope !232, !noalias !229
+  store ptr null, ptr %39, align 8, !alias.scope !232, !noalias !229
+  store ptr %40, ptr %38, align 8, !alias.scope !229, !noalias !232
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !232, !noalias !229
   %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %42 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %41, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !190
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !189
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEEvRSA_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEEvRSA_PT_DpOT0_.exit ], [ %42, %.lr.ph.i.i.i.i ]
@@ -83701,20 +83701,20 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedO
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %.lr.ph.i.i.i.i27
   %.012.i.i.i.i28 = phi ptr [ %49, %.lr.ph.i.i.i.i27 ], [ %43, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
   %.0911.i.i.i.i29 = phi ptr [ %48, %.lr.ph.i.i.i.i27 ], [ %1, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !238)
-  %44 = load ptr, ptr %.0911.i.i.i.i29, align 8, !alias.scope !238, !noalias !235
-  store ptr %44, ptr %.012.i.i.i.i28, align 8, !alias.scope !235, !noalias !238
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
+  %44 = load ptr, ptr %.0911.i.i.i.i29, align 8, !alias.scope !237, !noalias !234
+  store ptr %44, ptr %.012.i.i.i.i28, align 8, !alias.scope !234, !noalias !237
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 8
   %46 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 8
-  %47 = load ptr, ptr %46, align 8, !alias.scope !238, !noalias !235
-  store ptr null, ptr %46, align 8, !alias.scope !238, !noalias !235
-  store ptr %47, ptr %45, align 8, !alias.scope !235, !noalias !238
-  store ptr null, ptr %.0911.i.i.i.i29, align 8, !alias.scope !238, !noalias !235
+  %47 = load ptr, ptr %46, align 8, !alias.scope !237, !noalias !234
+  store ptr null, ptr %46, align 8, !alias.scope !237, !noalias !234
+  store ptr %47, ptr %45, align 8, !alias.scope !234, !noalias !237
+  store ptr null, ptr %.0911.i.i.i.i29, align 8, !alias.scope !237, !noalias !234
   %48 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 16
   %49 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 16
   %.not.i.i.i.i30 = icmp eq ptr %48, %5
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !190
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !189
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %43, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ], [ %49, %.lr.ph.i.i.i.i27 ]
@@ -83776,7 +83776,7 @@ _ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16PJ
   tail call void @_ZN5osgeo4proj9operation15GridDescriptionD1Ev(ptr noundef nonnull align 8 dereferenceable(131) %.05.i.i.i.i3) #29
   %13 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 136
   %.not.i.i.i.i4 = icmp eq ptr %13, %12
-  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !240
+  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !239
 
 _ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i2
   %.pr.i5 = load ptr, ptr %9, align 8
@@ -84103,7 +84103,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
   %32 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %31, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !183
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !182
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %30
   %.0.lcssa.i.i.i.i = phi ptr [ %24, %30 ], [ %32, %.lr.ph.i.i.i.i ]
@@ -84119,7 +84119,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   %34 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 32
   %35 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i30 = icmp eq ptr %34, %6
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !183
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !182
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %33, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %35, %.lr.ph.i.i.i.i27 ]
@@ -84369,109 +84369,108 @@ attributes #36 = { builtin nounwind allocsize(0) }
 !132 = !{!133}
 !133 = distinct !{!133, !134, !"_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
 !134 = distinct !{!134, !"_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
-!135 = !{}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
-!138 = distinct !{!138, !"_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
-!141 = distinct !{!141, !"_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
-!144 = distinct !{!144, !"_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
-!145 = distinct !{!145, !5}
-!146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
-!148 = distinct !{!148, !"_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
-!149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
-!151 = distinct !{!151, !"_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
+!137 = distinct !{!137, !"_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
+!140 = distinct !{!140, !"_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
+!141 = !{!142}
+!142 = distinct !{!142, !143, !"_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
+!143 = distinct !{!143, !"_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
+!144 = distinct !{!144, !5}
+!145 = !{!146}
+!146 = distinct !{!146, !147, !"_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
+!147 = distinct !{!147, !"_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
+!150 = distinct !{!150, !"_ZSt20dynamic_pointer_castIN5osgeo4proj6common16IdentifiedObjectENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
+!151 = distinct !{!151, !5}
 !152 = distinct !{!152, !5}
 !153 = distinct !{!153, !5}
-!154 = distinct !{!154, !5}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
-!157 = distinct !{!157, !"_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
+!154 = !{!155}
+!155 = distinct !{!155, !156, !"_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E: argument 0"}
+!156 = distinct !{!156, !"_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E"}
+!157 = distinct !{!157, !5}
 !158 = distinct !{!158, !5}
-!159 = distinct !{!159, !5}
-!160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!162 = distinct !{!162, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!163 = !{!164}
-!164 = distinct !{!164, !162, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!165 = distinct !{!165, !5}
-!166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!168 = distinct !{!168, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!169 = !{!170}
-!170 = distinct !{!170, !168, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!171 = !{!172}
-!172 = distinct !{!172, !173, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!173 = distinct !{!173, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!174 = !{!175}
-!175 = distinct !{!175, !173, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!176 = distinct !{!176, !5}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!179 = distinct !{!179, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!180 = !{!181}
-!181 = distinct !{!181, !179, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!159 = !{!160}
+!160 = distinct !{!160, !161, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!161 = distinct !{!161, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!162 = !{!163}
+!163 = distinct !{!163, !161, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!164 = distinct !{!164, !5}
+!165 = !{!166}
+!166 = distinct !{!166, !167, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!167 = distinct !{!167, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!168 = !{!169}
+!169 = distinct !{!169, !167, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!170 = !{!171}
+!171 = distinct !{!171, !172, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!172 = distinct !{!172, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!173 = !{!174}
+!174 = distinct !{!174, !172, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!175 = distinct !{!175, !5}
+!176 = !{!177}
+!177 = distinct !{!177, !178, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!178 = distinct !{!178, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!179 = !{!180}
+!180 = distinct !{!180, !178, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!181 = distinct !{!181, !5}
 !182 = distinct !{!182, !5}
 !183 = distinct !{!183, !5}
-!184 = distinct !{!184, !5}
-!185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!187 = distinct !{!187, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!188 = !{!189}
-!189 = distinct !{!189, !187, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!190 = distinct !{!190, !5}
-!191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!193 = distinct !{!193, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!194 = !{!195}
-!195 = distinct !{!195, !193, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!196 = !{!197}
-!197 = distinct !{!197, !198, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!198 = distinct !{!198, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!199 = !{!200}
-!200 = distinct !{!200, !198, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!201 = !{!202}
-!202 = distinct !{!202, !203, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!203 = distinct !{!203, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!204 = !{!205}
-!205 = distinct !{!205, !203, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!208 = distinct !{!208, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!209 = !{!210}
-!210 = distinct !{!210, !208, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!211 = distinct !{!211, !5}
-!212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!214 = distinct !{!214, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!215 = !{!216}
-!216 = distinct !{!216, !214, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!217 = !{!218}
-!218 = distinct !{!218, !219, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!219 = distinct !{!219, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!220 = !{!221}
-!221 = distinct !{!221, !219, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!222 = distinct !{!222, !5}
-!223 = !{!224}
-!224 = distinct !{!224, !225, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!225 = distinct !{!225, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!226 = !{!227}
-!227 = distinct !{!227, !225, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!184 = !{!185}
+!185 = distinct !{!185, !186, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!186 = distinct !{!186, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!187 = !{!188}
+!188 = distinct !{!188, !186, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!189 = distinct !{!189, !5}
+!190 = !{!191}
+!191 = distinct !{!191, !192, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!192 = distinct !{!192, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!193 = !{!194}
+!194 = distinct !{!194, !192, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!195 = !{!196}
+!196 = distinct !{!196, !197, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!197 = distinct !{!197, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!198 = !{!199}
+!199 = distinct !{!199, !197, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!200 = !{!201}
+!201 = distinct !{!201, !202, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!202 = distinct !{!202, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!203 = !{!204}
+!204 = distinct !{!204, !202, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!205 = !{!206}
+!206 = distinct !{!206, !207, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!207 = distinct !{!207, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!208 = !{!209}
+!209 = distinct !{!209, !207, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!210 = distinct !{!210, !5}
+!211 = !{!212}
+!212 = distinct !{!212, !213, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!213 = distinct !{!213, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!214 = !{!215}
+!215 = distinct !{!215, !213, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!216 = !{!217}
+!217 = distinct !{!217, !218, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!218 = distinct !{!218, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!219 = !{!220}
+!220 = distinct !{!220, !218, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!221 = distinct !{!221, !5}
+!222 = !{!223}
+!223 = distinct !{!223, !224, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!224 = distinct !{!224, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!225 = !{!226}
+!226 = distinct !{!226, !224, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!227 = distinct !{!227, !5}
 !228 = distinct !{!228, !5}
-!229 = distinct !{!229, !5}
-!230 = !{!231}
-!231 = distinct !{!231, !232, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!232 = distinct !{!232, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!233 = !{!234}
-!234 = distinct !{!234, !232, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!235 = !{!236}
-!236 = distinct !{!236, !237, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
-!237 = distinct !{!237, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
-!238 = !{!239}
-!239 = distinct !{!239, !237, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
-!240 = distinct !{!240, !5}
+!229 = !{!230}
+!230 = distinct !{!230, !231, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!231 = distinct !{!231, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!232 = !{!233}
+!233 = distinct !{!233, !231, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!234 = !{!235}
+!235 = distinct !{!235, !236, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!236 = distinct !{!236, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_"}
+!237 = !{!238}
+!238 = distinct !{!238, !236, !"_ZSt19__relocate_object_aIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
+!239 = distinct !{!239, !5}

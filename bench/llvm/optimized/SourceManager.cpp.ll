@@ -10083,7 +10083,7 @@ define dso_local i64 @_ZNK5clang13SourceManager24getDecomposedIncludedLocENS_6Fi
 33:                                               ; preds = %20, %7
   %.sink.i.i.i = phi ptr [ %21, %20 ], [ null, %7 ]
   %34 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt4pairIS3_jENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E20InsertIntoBucketImplIS3_EEPSA_RKS3_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef %.sink.i.i.i), !noalias !130
-  %35 = load i32, ptr %4, align 4
+  %35 = load i32, ptr %4, align 4, !noalias !130
   store i32 %35, ptr %34, align 4, !noalias !130
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 0, ptr %36, align 4, !noalias !130

@@ -9458,7 +9458,7 @@ _ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit: ; preds = %3, %11
   %.sroa.227.037 = phi i32 [ 0, %.lr.ph ], [ %50, %.critedge41 ]
   %25 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %.sroa.227.037) #27
   %26 = load ptr, ptr %16, align 8, !noalias !68
-  %27 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %4, align 8, !noalias !68
   %28 = icmp eq ptr %26, %27
   br i1 %28, label %29, label %_ZN4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE6insertES3_.exit
 
@@ -18599,7 +18599,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator22findUnwindDestinati
   %48 = getelementptr inbounds i8, ptr %17, i64 -8
   %49 = load ptr, ptr %48, align 8, !noalias !184
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 2
-  %51 = load i16, ptr %50, align 2
+  %51 = load i16, ptr %50, align 2, !noalias !184
   %52 = and i16 %51, 1
   %.not.i.i = icmp eq i16 %52, 0
   %spec.select.v.i.i = select i1 %.not.i.i, i64 32, i64 64

@@ -71593,18 +71593,19 @@ lpad.i:                                           ; preds = %invoke.cont.i, %.no
   br label %ehcleanup
 
 invoke.cont22:                                    ; preds = %invoke.cont.i
+  call void @llvm.experimental.noalias.scope.decl(metadata !312)
   invoke void @_ZN12inf_rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp14)
           to label %.noexc43 unwind label %lpad23
 
 .noexc43:                                         ; preds = %invoke.cont22
-  %15 = load i32, ptr %ref.tmp, align 8
+  %15 = load i32, ptr %ref.tmp, align 8, !alias.scope !312
   %cmp.i.i.i.i.i.i = icmp slt i32 %15, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %.noexc43
   %cmp.i.i.i.i1.i.i = icmp eq i32 %15, 0
   %m_second.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %16 = load i32, ptr %m_second.i.i, align 8
+  %16 = load i32, ptr %m_second.i.i, align 8, !alias.scope !312
   %cmp.i.i.i.i2.i.i = icmp slt i32 %16, 0
   %or.cond.i41 = select i1 %cmp.i.i.i.i1.i.i, i1 %cmp.i.i.i.i2.i.i, i1 false
   br i1 %or.cond.i41, label %if.then.i, label %invoke.cont24
@@ -71911,18 +71912,19 @@ lpad.i88:                                         ; preds = %invoke.cont.i89, %.
   br label %ehcleanup46
 
 invoke.cont41:                                    ; preds = %invoke.cont.i89
+  call void @llvm.experimental.noalias.scope.decl(metadata !318)
   invoke void @_ZN12inf_rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp33)
           to label %.noexc104 unwind label %lpad42
 
 .noexc104:                                        ; preds = %invoke.cont41
-  %73 = load i32, ptr %ref.tmp32, align 8
+  %73 = load i32, ptr %ref.tmp32, align 8, !alias.scope !318
   %cmp.i.i.i.i.i.i94 = icmp slt i32 %73, 0
   br i1 %cmp.i.i.i.i.i.i94, label %if.then.i100, label %lor.rhs.i.i95
 
 lor.rhs.i.i95:                                    ; preds = %.noexc104
   %cmp.i.i.i.i1.i.i96 = icmp eq i32 %73, 0
   %m_second.i.i97 = getelementptr inbounds i8, ptr %ref.tmp32, i64 32
-  %74 = load i32, ptr %m_second.i.i97, align 8
+  %74 = load i32, ptr %m_second.i.i97, align 8, !alias.scope !318
   %cmp.i.i.i.i2.i.i98 = icmp slt i32 %74, 0
   %or.cond.i99 = select i1 %cmp.i.i.i.i1.i.i96, i1 %cmp.i.i.i.i2.i.i98, i1 false
   br i1 %or.cond.i99, label %if.then.i100, label %invoke.cont43
@@ -105171,7 +105173,7 @@ cleanup.done:                                     ; preds = %.noexc.i
 
 cleanup.done.if.else18_crit_edge:                 ; preds = %cleanup.done
   %bf.load.i.i.i.i.i42.pre = load i8, ptr %m_kind.i.i.i.i.i31, align 4
-  %bf.load.i.i.i.i.i.i94.pre132.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !473
+  %bf.load.i.i.i.i.i.i94.pre132.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !514
   br label %if.else18
 
 if.else18:                                        ; preds = %cleanup.done.if.else18_crit_edge, %if.else10
@@ -105185,31 +105187,31 @@ if.else18:                                        ; preds = %cleanup.done.if.els
   br i1 %22, label %land.rhs20, label %if.else35
 
 land.rhs20:                                       ; preds = %if.else18
-  call void @llvm.experimental.noalias.scope.decl(metadata !514)
-  store i32 0, ptr %ref.tmp21, align 8, !alias.scope !514
-  %bf.load.i.i.i.i47 = load i8, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !514
+  call void @llvm.experimental.noalias.scope.decl(metadata !517)
+  store i32 0, ptr %ref.tmp21, align 8, !alias.scope !517
+  %bf.load.i.i.i.i47 = load i8, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !517
   %bf.clear3.i.i.i.i48 = and i8 %bf.load.i.i.i.i47, -4
-  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !514
-  store ptr null, ptr %m_ptr.i.i.i.i49, align 8, !alias.scope !514
-  store i32 1, ptr %m_den.i.i.i50, align 8, !alias.scope !514
-  %bf.load.i2.i.i.i52 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !514
+  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !517
+  store ptr null, ptr %m_ptr.i.i.i.i49, align 8, !alias.scope !517
+  store i32 1, ptr %m_den.i.i.i50, align 8, !alias.scope !517
+  %bf.load.i2.i.i.i52 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !517
   %bf.clear3.i3.i.i.i53 = and i8 %bf.load.i2.i.i.i52, -4
-  store i8 %bf.clear3.i3.i.i.i53, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !514
-  store ptr null, ptr %m_ptr.i4.i.i.i54, align 8, !alias.scope !514
-  %23 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !514
+  store i8 %bf.clear3.i3.i.i.i53, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !517
+  store ptr null, ptr %m_ptr.i4.i.i.i54, align 8, !alias.scope !517
+  %23 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !517
   %bf.clear.i.i.i.i.i.i57 = and i8 %bf.load.i.i.i.i.i.i94.pre132, 1
   %cmp.i.i.i.i.i.i58 = icmp eq i8 %bf.clear.i.i.i.i.i.i57, 0
   br i1 %cmp.i.i.i.i.i.i58, label %if.then.i.i.i.i.i70, label %if.else.i.i.i.i.i59
 
 if.then.i.i.i.i.i70:                              ; preds = %land.rhs20
-  %24 = load i32, ptr %__begin0.0124, align 8, !noalias !514
-  store i32 %24, ptr %ref.tmp21, align 8, !alias.scope !514
-  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !514
+  %24 = load i32, ptr %__begin0.0124, align 8, !noalias !517
+  store i32 %24, ptr %ref.tmp21, align 8, !alias.scope !517
+  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !517
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
 
 if.else.i.i.i.i.i59:                              ; preds = %land.rhs20
   call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %__begin0.0124)
-  %bf.load.i.i.i4.i.i.i63.pre = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !514
+  %bf.load.i.i.i4.i.i.i63.pre = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !517
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60: ; preds = %if.else.i.i.i.i.i59, %if.then.i.i.i.i.i70
@@ -105219,11 +105221,11 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60: ; preds = %if.else.i.i.i.i.i
   br i1 %cmp.i.i.i6.i.i.i65, label %if.then.i.i8.i.i.i67, label %if.else.i.i7.i.i.i66
 
 if.then.i.i8.i.i.i67:                             ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
-  %25 = load i32, ptr %m_den.i.i30, align 8, !noalias !514
-  store i32 %25, ptr %m_den.i.i.i50, align 8, !alias.scope !514
-  %bf.load.i.i10.i.i.i68 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !514
+  %25 = load i32, ptr %m_den.i.i30, align 8, !noalias !517
+  store i32 %25, ptr %m_den.i.i.i50, align 8, !alias.scope !517
+  %bf.load.i.i10.i.i.i68 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !517
   %bf.clear.i.i11.i.i.i69 = and i8 %bf.load.i.i10.i.i.i68, -2
-  store i8 %bf.clear.i.i11.i.i.i69, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !514
+  store i8 %bf.clear.i.i11.i.i.i69, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !517
   br label %cleanup.action28
 
 if.else.i.i7.i.i.i66:                             ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
@@ -105258,31 +105260,31 @@ cleanup.done29:                                   ; preds = %.noexc.i81
   br i1 %.not, label %for.inc.sink.split, label %cleanup.done29.if.else35_crit_edge
 
 cleanup.done29.if.else35_crit_edge:               ; preds = %cleanup.done29
-  %bf.load.i.i.i.i.i.i94.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !517
+  %bf.load.i.i.i.i.i.i94.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !514
   br label %if.else35
 
 if.else35:                                        ; preds = %cleanup.done29.if.else35_crit_edge, %if.else18
   %bf.load.i.i.i.i.i.i94 = phi i8 [ %bf.load.i.i.i.i.i.i94.pre, %cleanup.done29.if.else35_crit_edge ], [ %bf.load.i.i.i.i.i.i94.pre132, %if.else18 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !517)
-  store i32 0, ptr %ref.tmp36, align 8, !alias.scope !517
-  %bf.load.i.i.i.i85 = load i8, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !517
+  call void @llvm.experimental.noalias.scope.decl(metadata !514)
+  store i32 0, ptr %ref.tmp36, align 8, !alias.scope !514
+  %bf.load.i.i.i.i85 = load i8, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !514
   %bf.clear3.i.i.i.i86 = and i8 %bf.load.i.i.i.i85, -4
-  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !517
-  store ptr null, ptr %m_ptr.i.i.i.i87, align 8, !alias.scope !517
-  store i32 1, ptr %m_den.i.i.i88, align 8, !alias.scope !517
-  %bf.load.i2.i.i.i90 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !517
+  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !514
+  store ptr null, ptr %m_ptr.i.i.i.i87, align 8, !alias.scope !514
+  store i32 1, ptr %m_den.i.i.i88, align 8, !alias.scope !514
+  %bf.load.i2.i.i.i90 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !514
   %bf.clear3.i3.i.i.i91 = and i8 %bf.load.i2.i.i.i90, -4
-  store i8 %bf.clear3.i3.i.i.i91, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !517
-  store ptr null, ptr %m_ptr.i4.i.i.i92, align 8, !alias.scope !517
-  %31 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !517
+  store i8 %bf.clear3.i3.i.i.i91, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !514
+  store ptr null, ptr %m_ptr.i4.i.i.i92, align 8, !alias.scope !514
+  %31 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !514
   %bf.clear.i.i.i.i.i.i95 = and i8 %bf.load.i.i.i.i.i.i94, 1
   %cmp.i.i.i.i.i.i96 = icmp eq i8 %bf.clear.i.i.i.i.i.i95, 0
   br i1 %cmp.i.i.i.i.i.i96, label %if.then.i.i.i.i.i108, label %if.else.i.i.i.i.i97
 
 if.then.i.i.i.i.i108:                             ; preds = %if.else35
-  %32 = load i32, ptr %__begin0.0124, align 8, !noalias !517
-  store i32 %32, ptr %ref.tmp36, align 8, !alias.scope !517
-  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !517
+  %32 = load i32, ptr %__begin0.0124, align 8, !noalias !514
+  store i32 %32, ptr %ref.tmp36, align 8, !alias.scope !514
+  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !514
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
 
 if.else.i.i.i.i.i97:                              ; preds = %if.else35
@@ -105290,17 +105292,17 @@ if.else.i.i.i.i.i97:                              ; preds = %if.else35
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98: ; preds = %if.else.i.i.i.i.i97, %if.then.i.i.i.i.i108
-  %bf.load.i.i.i4.i.i.i101 = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !517
+  %bf.load.i.i.i4.i.i.i101 = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !514
   %bf.clear.i.i.i5.i.i.i102 = and i8 %bf.load.i.i.i4.i.i.i101, 1
   %cmp.i.i.i6.i.i.i103 = icmp eq i8 %bf.clear.i.i.i5.i.i.i102, 0
   br i1 %cmp.i.i.i6.i.i.i103, label %if.then.i.i8.i.i.i105, label %if.else.i.i7.i.i.i104
 
 if.then.i.i8.i.i.i105:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
-  %33 = load i32, ptr %m_den.i.i30, align 8, !noalias !517
-  store i32 %33, ptr %m_den.i.i.i88, align 8, !alias.scope !517
-  %bf.load.i.i10.i.i.i106 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !517
+  %33 = load i32, ptr %m_den.i.i30, align 8, !noalias !514
+  store i32 %33, ptr %m_den.i.i.i88, align 8, !alias.scope !514
+  %bf.load.i.i10.i.i.i106 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !514
   %bf.clear.i.i11.i.i.i107 = and i8 %bf.load.i.i10.i.i.i106, -2
-  store i8 %bf.clear.i.i11.i.i.i107, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !517
+  store i8 %bf.clear.i.i11.i.i.i107, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !514
   br label %invoke.cont38
 
 if.else.i.i7.i.i.i104:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
@@ -105693,7 +105695,7 @@ cleanup.done:                                     ; preds = %.noexc.i
 
 cleanup.done.if.else28_crit_edge:                 ; preds = %cleanup.done
   %bf.load.i.i.i.i.i95.pre = load i8, ptr %m_kind.i.i.i.i.i84, align 4
-  %bf.load.i.i.i.i.i.i147.pre278.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !473
+  %bf.load.i.i.i.i.i.i147.pre278.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !524
   br label %if.else28
 
 if.then26:                                        ; preds = %cleanup.done
@@ -105711,31 +105713,31 @@ if.else28:                                        ; preds = %cleanup.done.if.els
   br i1 %28, label %land.rhs30, label %if.else45
 
 land.rhs30:                                       ; preds = %if.else28
-  call void @llvm.experimental.noalias.scope.decl(metadata !524)
-  store i32 0, ptr %ref.tmp31, align 8, !alias.scope !524
-  %bf.load.i.i.i.i100 = load i8, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !524
+  call void @llvm.experimental.noalias.scope.decl(metadata !527)
+  store i32 0, ptr %ref.tmp31, align 8, !alias.scope !527
+  %bf.load.i.i.i.i100 = load i8, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !527
   %bf.clear3.i.i.i.i101 = and i8 %bf.load.i.i.i.i100, -4
-  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !524
-  store ptr null, ptr %m_ptr.i.i.i.i102, align 8, !alias.scope !524
-  store i32 1, ptr %m_den.i.i.i103, align 8, !alias.scope !524
-  %bf.load.i2.i.i.i105 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !524
+  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !527
+  store ptr null, ptr %m_ptr.i.i.i.i102, align 8, !alias.scope !527
+  store i32 1, ptr %m_den.i.i.i103, align 8, !alias.scope !527
+  %bf.load.i2.i.i.i105 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !527
   %bf.clear3.i3.i.i.i106 = and i8 %bf.load.i2.i.i.i105, -4
-  store i8 %bf.clear3.i3.i.i.i106, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !524
-  store ptr null, ptr %m_ptr.i4.i.i.i107, align 8, !alias.scope !524
-  %29 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !524
+  store i8 %bf.clear3.i3.i.i.i106, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !527
+  store ptr null, ptr %m_ptr.i4.i.i.i107, align 8, !alias.scope !527
+  %29 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !527
   %bf.clear.i.i.i.i.i.i110 = and i8 %bf.load.i.i.i.i.i.i147.pre278, 1
   %cmp.i.i.i.i.i.i111 = icmp eq i8 %bf.clear.i.i.i.i.i.i110, 0
   br i1 %cmp.i.i.i.i.i.i111, label %if.then.i.i.i.i.i123, label %if.else.i.i.i.i.i112
 
 if.then.i.i.i.i.i123:                             ; preds = %land.rhs30
-  %30 = load i32, ptr %__begin0.0237, align 8, !noalias !524
-  store i32 %30, ptr %ref.tmp31, align 8, !alias.scope !524
-  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !524
+  %30 = load i32, ptr %__begin0.0237, align 8, !noalias !527
+  store i32 %30, ptr %ref.tmp31, align 8, !alias.scope !527
+  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !527
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
 
 if.else.i.i.i.i.i112:                             ; preds = %land.rhs30
   call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %29, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(32) %__begin0.0237)
-  %bf.load.i.i.i4.i.i.i116.pre = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !524
+  %bf.load.i.i.i4.i.i.i116.pre = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !527
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113: ; preds = %if.else.i.i.i.i.i112, %if.then.i.i.i.i.i123
@@ -105745,11 +105747,11 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113: ; preds = %if.else.i.i.i.i.
   br i1 %cmp.i.i.i6.i.i.i118, label %if.then.i.i8.i.i.i120, label %if.else.i.i7.i.i.i119
 
 if.then.i.i8.i.i.i120:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
-  %31 = load i32, ptr %m_den.i.i83, align 8, !noalias !524
-  store i32 %31, ptr %m_den.i.i.i103, align 8, !alias.scope !524
-  %bf.load.i.i10.i.i.i121 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !524
+  %31 = load i32, ptr %m_den.i.i83, align 8, !noalias !527
+  store i32 %31, ptr %m_den.i.i.i103, align 8, !alias.scope !527
+  %bf.load.i.i10.i.i.i121 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !527
   %bf.clear.i.i11.i.i.i122 = and i8 %bf.load.i.i10.i.i.i121, -2
-  store i8 %bf.clear.i.i11.i.i.i122, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !524
+  store i8 %bf.clear.i.i11.i.i.i122, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !527
   br label %cleanup.action38
 
 if.else.i.i7.i.i.i119:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
@@ -105784,7 +105786,7 @@ cleanup.done39:                                   ; preds = %.noexc.i134
   br i1 %.not, label %if.then43, label %cleanup.done39.if.else45_crit_edge
 
 cleanup.done39.if.else45_crit_edge:               ; preds = %cleanup.done39
-  %bf.load.i.i.i.i.i.i147.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !527
+  %bf.load.i.i.i.i.i.i147.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !524
   br label %if.else45
 
 if.then43:                                        ; preds = %cleanup.done39
@@ -105793,26 +105795,26 @@ if.then43:                                        ; preds = %cleanup.done39
 
 if.else45:                                        ; preds = %cleanup.done39.if.else45_crit_edge, %if.else28
   %bf.load.i.i.i.i.i.i147 = phi i8 [ %bf.load.i.i.i.i.i.i147.pre, %cleanup.done39.if.else45_crit_edge ], [ %bf.load.i.i.i.i.i.i147.pre278, %if.else28 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !527)
-  store i32 0, ptr %ref.tmp46, align 8, !alias.scope !527
-  %bf.load.i.i.i.i138 = load i8, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !527
+  call void @llvm.experimental.noalias.scope.decl(metadata !524)
+  store i32 0, ptr %ref.tmp46, align 8, !alias.scope !524
+  %bf.load.i.i.i.i138 = load i8, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !524
   %bf.clear3.i.i.i.i139 = and i8 %bf.load.i.i.i.i138, -4
-  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !527
-  store ptr null, ptr %m_ptr.i.i.i.i140, align 8, !alias.scope !527
-  store i32 1, ptr %m_den.i.i.i141, align 8, !alias.scope !527
-  %bf.load.i2.i.i.i143 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !527
+  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !524
+  store ptr null, ptr %m_ptr.i.i.i.i140, align 8, !alias.scope !524
+  store i32 1, ptr %m_den.i.i.i141, align 8, !alias.scope !524
+  %bf.load.i2.i.i.i143 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !524
   %bf.clear3.i3.i.i.i144 = and i8 %bf.load.i2.i.i.i143, -4
-  store i8 %bf.clear3.i3.i.i.i144, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !527
-  store ptr null, ptr %m_ptr.i4.i.i.i145, align 8, !alias.scope !527
-  %37 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !527
+  store i8 %bf.clear3.i3.i.i.i144, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !524
+  store ptr null, ptr %m_ptr.i4.i.i.i145, align 8, !alias.scope !524
+  %37 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !524
   %bf.clear.i.i.i.i.i.i148 = and i8 %bf.load.i.i.i.i.i.i147, 1
   %cmp.i.i.i.i.i.i149 = icmp eq i8 %bf.clear.i.i.i.i.i.i148, 0
   br i1 %cmp.i.i.i.i.i.i149, label %if.then.i.i.i.i.i161, label %if.else.i.i.i.i.i150
 
 if.then.i.i.i.i.i161:                             ; preds = %if.else45
-  %38 = load i32, ptr %__begin0.0237, align 8, !noalias !527
-  store i32 %38, ptr %ref.tmp46, align 8, !alias.scope !527
-  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !527
+  %38 = load i32, ptr %__begin0.0237, align 8, !noalias !524
+  store i32 %38, ptr %ref.tmp46, align 8, !alias.scope !524
+  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !524
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
 
 if.else.i.i.i.i.i150:                             ; preds = %if.else45
@@ -105820,17 +105822,17 @@ if.else.i.i.i.i.i150:                             ; preds = %if.else45
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151: ; preds = %if.else.i.i.i.i.i150, %if.then.i.i.i.i.i161
-  %bf.load.i.i.i4.i.i.i154 = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !527
+  %bf.load.i.i.i4.i.i.i154 = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !524
   %bf.clear.i.i.i5.i.i.i155 = and i8 %bf.load.i.i.i4.i.i.i154, 1
   %cmp.i.i.i6.i.i.i156 = icmp eq i8 %bf.clear.i.i.i5.i.i.i155, 0
   br i1 %cmp.i.i.i6.i.i.i156, label %if.then.i.i8.i.i.i158, label %if.else.i.i7.i.i.i157
 
 if.then.i.i8.i.i.i158:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
-  %39 = load i32, ptr %m_den.i.i83, align 8, !noalias !527
-  store i32 %39, ptr %m_den.i.i.i141, align 8, !alias.scope !527
-  %bf.load.i.i10.i.i.i159 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !527
+  %39 = load i32, ptr %m_den.i.i83, align 8, !noalias !524
+  store i32 %39, ptr %m_den.i.i.i141, align 8, !alias.scope !524
+  %bf.load.i.i10.i.i.i159 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !524
   %bf.clear.i.i11.i.i.i160 = and i8 %bf.load.i.i10.i.i.i159, -2
-  store i8 %bf.clear.i.i11.i.i.i160, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !527
+  store i8 %bf.clear.i.i11.i.i.i160, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !524
   br label %invoke.cont48
 
 if.else.i.i7.i.i.i157:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
@@ -205994,7 +205996,7 @@ cleanup.done:                                     ; preds = %.noexc.i
 
 cleanup.done.if.else18_crit_edge:                 ; preds = %cleanup.done
   %bf.load.i.i.i.i.i42.pre = load i8, ptr %m_kind.i.i.i.i.i31, align 4
-  %bf.load.i.i.i.i.i.i94.pre132.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !473
+  %bf.load.i.i.i.i.i.i94.pre132.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !986
   br label %if.else18
 
 if.else18:                                        ; preds = %cleanup.done.if.else18_crit_edge, %if.else10
@@ -206008,31 +206010,31 @@ if.else18:                                        ; preds = %cleanup.done.if.els
   br i1 %22, label %land.rhs20, label %if.else35
 
 land.rhs20:                                       ; preds = %if.else18
-  call void @llvm.experimental.noalias.scope.decl(metadata !986)
-  store i32 0, ptr %ref.tmp21, align 8, !alias.scope !986
-  %bf.load.i.i.i.i47 = load i8, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !986
+  call void @llvm.experimental.noalias.scope.decl(metadata !989)
+  store i32 0, ptr %ref.tmp21, align 8, !alias.scope !989
+  %bf.load.i.i.i.i47 = load i8, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !989
   %bf.clear3.i.i.i.i48 = and i8 %bf.load.i.i.i.i47, -4
-  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !986
-  store ptr null, ptr %m_ptr.i.i.i.i49, align 8, !alias.scope !986
-  store i32 1, ptr %m_den.i.i.i50, align 8, !alias.scope !986
-  %bf.load.i2.i.i.i52 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !986
+  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !989
+  store ptr null, ptr %m_ptr.i.i.i.i49, align 8, !alias.scope !989
+  store i32 1, ptr %m_den.i.i.i50, align 8, !alias.scope !989
+  %bf.load.i2.i.i.i52 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !989
   %bf.clear3.i3.i.i.i53 = and i8 %bf.load.i2.i.i.i52, -4
-  store i8 %bf.clear3.i3.i.i.i53, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !986
-  store ptr null, ptr %m_ptr.i4.i.i.i54, align 8, !alias.scope !986
-  %23 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !986
+  store i8 %bf.clear3.i3.i.i.i53, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !989
+  store ptr null, ptr %m_ptr.i4.i.i.i54, align 8, !alias.scope !989
+  %23 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !989
   %bf.clear.i.i.i.i.i.i57 = and i8 %bf.load.i.i.i.i.i.i94.pre132, 1
   %cmp.i.i.i.i.i.i58 = icmp eq i8 %bf.clear.i.i.i.i.i.i57, 0
   br i1 %cmp.i.i.i.i.i.i58, label %if.then.i.i.i.i.i70, label %if.else.i.i.i.i.i59
 
 if.then.i.i.i.i.i70:                              ; preds = %land.rhs20
-  %24 = load i32, ptr %__begin0.0124, align 8, !noalias !986
-  store i32 %24, ptr %ref.tmp21, align 8, !alias.scope !986
-  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !986
+  %24 = load i32, ptr %__begin0.0124, align 8, !noalias !989
+  store i32 %24, ptr %ref.tmp21, align 8, !alias.scope !989
+  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !989
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
 
 if.else.i.i.i.i.i59:                              ; preds = %land.rhs20
   call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %__begin0.0124)
-  %bf.load.i.i.i4.i.i.i63.pre = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !986
+  %bf.load.i.i.i4.i.i.i63.pre = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !989
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60: ; preds = %if.else.i.i.i.i.i59, %if.then.i.i.i.i.i70
@@ -206042,11 +206044,11 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60: ; preds = %if.else.i.i.i.i.i
   br i1 %cmp.i.i.i6.i.i.i65, label %if.then.i.i8.i.i.i67, label %if.else.i.i7.i.i.i66
 
 if.then.i.i8.i.i.i67:                             ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
-  %25 = load i32, ptr %m_den.i.i30, align 8, !noalias !986
-  store i32 %25, ptr %m_den.i.i.i50, align 8, !alias.scope !986
-  %bf.load.i.i10.i.i.i68 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !986
+  %25 = load i32, ptr %m_den.i.i30, align 8, !noalias !989
+  store i32 %25, ptr %m_den.i.i.i50, align 8, !alias.scope !989
+  %bf.load.i.i10.i.i.i68 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !989
   %bf.clear.i.i11.i.i.i69 = and i8 %bf.load.i.i10.i.i.i68, -2
-  store i8 %bf.clear.i.i11.i.i.i69, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !986
+  store i8 %bf.clear.i.i11.i.i.i69, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !989
   br label %cleanup.action28
 
 if.else.i.i7.i.i.i66:                             ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
@@ -206081,31 +206083,31 @@ cleanup.done29:                                   ; preds = %.noexc.i81
   br i1 %.not, label %for.inc.sink.split, label %cleanup.done29.if.else35_crit_edge
 
 cleanup.done29.if.else35_crit_edge:               ; preds = %cleanup.done29
-  %bf.load.i.i.i.i.i.i94.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !989
+  %bf.load.i.i.i.i.i.i94.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !986
   br label %if.else35
 
 if.else35:                                        ; preds = %cleanup.done29.if.else35_crit_edge, %if.else18
   %bf.load.i.i.i.i.i.i94 = phi i8 [ %bf.load.i.i.i.i.i.i94.pre, %cleanup.done29.if.else35_crit_edge ], [ %bf.load.i.i.i.i.i.i94.pre132, %if.else18 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !989)
-  store i32 0, ptr %ref.tmp36, align 8, !alias.scope !989
-  %bf.load.i.i.i.i85 = load i8, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !989
+  call void @llvm.experimental.noalias.scope.decl(metadata !986)
+  store i32 0, ptr %ref.tmp36, align 8, !alias.scope !986
+  %bf.load.i.i.i.i85 = load i8, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !986
   %bf.clear3.i.i.i.i86 = and i8 %bf.load.i.i.i.i85, -4
-  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !989
-  store ptr null, ptr %m_ptr.i.i.i.i87, align 8, !alias.scope !989
-  store i32 1, ptr %m_den.i.i.i88, align 8, !alias.scope !989
-  %bf.load.i2.i.i.i90 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !989
+  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !986
+  store ptr null, ptr %m_ptr.i.i.i.i87, align 8, !alias.scope !986
+  store i32 1, ptr %m_den.i.i.i88, align 8, !alias.scope !986
+  %bf.load.i2.i.i.i90 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !986
   %bf.clear3.i3.i.i.i91 = and i8 %bf.load.i2.i.i.i90, -4
-  store i8 %bf.clear3.i3.i.i.i91, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !989
-  store ptr null, ptr %m_ptr.i4.i.i.i92, align 8, !alias.scope !989
-  %31 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !989
+  store i8 %bf.clear3.i3.i.i.i91, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !986
+  store ptr null, ptr %m_ptr.i4.i.i.i92, align 8, !alias.scope !986
+  %31 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !986
   %bf.clear.i.i.i.i.i.i95 = and i8 %bf.load.i.i.i.i.i.i94, 1
   %cmp.i.i.i.i.i.i96 = icmp eq i8 %bf.clear.i.i.i.i.i.i95, 0
   br i1 %cmp.i.i.i.i.i.i96, label %if.then.i.i.i.i.i108, label %if.else.i.i.i.i.i97
 
 if.then.i.i.i.i.i108:                             ; preds = %if.else35
-  %32 = load i32, ptr %__begin0.0124, align 8, !noalias !989
-  store i32 %32, ptr %ref.tmp36, align 8, !alias.scope !989
-  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !989
+  %32 = load i32, ptr %__begin0.0124, align 8, !noalias !986
+  store i32 %32, ptr %ref.tmp36, align 8, !alias.scope !986
+  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !986
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
 
 if.else.i.i.i.i.i97:                              ; preds = %if.else35
@@ -206113,17 +206115,17 @@ if.else.i.i.i.i.i97:                              ; preds = %if.else35
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98: ; preds = %if.else.i.i.i.i.i97, %if.then.i.i.i.i.i108
-  %bf.load.i.i.i4.i.i.i101 = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !989
+  %bf.load.i.i.i4.i.i.i101 = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !986
   %bf.clear.i.i.i5.i.i.i102 = and i8 %bf.load.i.i.i4.i.i.i101, 1
   %cmp.i.i.i6.i.i.i103 = icmp eq i8 %bf.clear.i.i.i5.i.i.i102, 0
   br i1 %cmp.i.i.i6.i.i.i103, label %if.then.i.i8.i.i.i105, label %if.else.i.i7.i.i.i104
 
 if.then.i.i8.i.i.i105:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
-  %33 = load i32, ptr %m_den.i.i30, align 8, !noalias !989
-  store i32 %33, ptr %m_den.i.i.i88, align 8, !alias.scope !989
-  %bf.load.i.i10.i.i.i106 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !989
+  %33 = load i32, ptr %m_den.i.i30, align 8, !noalias !986
+  store i32 %33, ptr %m_den.i.i.i88, align 8, !alias.scope !986
+  %bf.load.i.i10.i.i.i106 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !986
   %bf.clear.i.i11.i.i.i107 = and i8 %bf.load.i.i10.i.i.i106, -2
-  store i8 %bf.clear.i.i11.i.i.i107, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !989
+  store i8 %bf.clear.i.i11.i.i.i107, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !986
   br label %invoke.cont38
 
 if.else.i.i7.i.i.i104:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
@@ -206516,7 +206518,7 @@ cleanup.done:                                     ; preds = %.noexc.i
 
 cleanup.done.if.else28_crit_edge:                 ; preds = %cleanup.done
   %bf.load.i.i.i.i.i95.pre = load i8, ptr %m_kind.i.i.i.i.i84, align 4
-  %bf.load.i.i.i.i.i.i147.pre278.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !473
+  %bf.load.i.i.i.i.i.i147.pre278.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !996
   br label %if.else28
 
 if.then26:                                        ; preds = %cleanup.done
@@ -206534,31 +206536,31 @@ if.else28:                                        ; preds = %cleanup.done.if.els
   br i1 %28, label %land.rhs30, label %if.else45
 
 land.rhs30:                                       ; preds = %if.else28
-  call void @llvm.experimental.noalias.scope.decl(metadata !996)
-  store i32 0, ptr %ref.tmp31, align 8, !alias.scope !996
-  %bf.load.i.i.i.i100 = load i8, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !996
+  call void @llvm.experimental.noalias.scope.decl(metadata !999)
+  store i32 0, ptr %ref.tmp31, align 8, !alias.scope !999
+  %bf.load.i.i.i.i100 = load i8, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !999
   %bf.clear3.i.i.i.i101 = and i8 %bf.load.i.i.i.i100, -4
-  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !996
-  store ptr null, ptr %m_ptr.i.i.i.i102, align 8, !alias.scope !996
-  store i32 1, ptr %m_den.i.i.i103, align 8, !alias.scope !996
-  %bf.load.i2.i.i.i105 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !996
+  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !999
+  store ptr null, ptr %m_ptr.i.i.i.i102, align 8, !alias.scope !999
+  store i32 1, ptr %m_den.i.i.i103, align 8, !alias.scope !999
+  %bf.load.i2.i.i.i105 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !999
   %bf.clear3.i3.i.i.i106 = and i8 %bf.load.i2.i.i.i105, -4
-  store i8 %bf.clear3.i3.i.i.i106, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !996
-  store ptr null, ptr %m_ptr.i4.i.i.i107, align 8, !alias.scope !996
-  %29 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !996
+  store i8 %bf.clear3.i3.i.i.i106, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !999
+  store ptr null, ptr %m_ptr.i4.i.i.i107, align 8, !alias.scope !999
+  %29 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !999
   %bf.clear.i.i.i.i.i.i110 = and i8 %bf.load.i.i.i.i.i.i147.pre278, 1
   %cmp.i.i.i.i.i.i111 = icmp eq i8 %bf.clear.i.i.i.i.i.i110, 0
   br i1 %cmp.i.i.i.i.i.i111, label %if.then.i.i.i.i.i123, label %if.else.i.i.i.i.i112
 
 if.then.i.i.i.i.i123:                             ; preds = %land.rhs30
-  %30 = load i32, ptr %__begin0.0237, align 8, !noalias !996
-  store i32 %30, ptr %ref.tmp31, align 8, !alias.scope !996
-  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !996
+  %30 = load i32, ptr %__begin0.0237, align 8, !noalias !999
+  store i32 %30, ptr %ref.tmp31, align 8, !alias.scope !999
+  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !999
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
 
 if.else.i.i.i.i.i112:                             ; preds = %land.rhs30
   call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %29, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(32) %__begin0.0237)
-  %bf.load.i.i.i4.i.i.i116.pre = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !996
+  %bf.load.i.i.i4.i.i.i116.pre = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !999
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113: ; preds = %if.else.i.i.i.i.i112, %if.then.i.i.i.i.i123
@@ -206568,11 +206570,11 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113: ; preds = %if.else.i.i.i.i.
   br i1 %cmp.i.i.i6.i.i.i118, label %if.then.i.i8.i.i.i120, label %if.else.i.i7.i.i.i119
 
 if.then.i.i8.i.i.i120:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
-  %31 = load i32, ptr %m_den.i.i83, align 8, !noalias !996
-  store i32 %31, ptr %m_den.i.i.i103, align 8, !alias.scope !996
-  %bf.load.i.i10.i.i.i121 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !996
+  %31 = load i32, ptr %m_den.i.i83, align 8, !noalias !999
+  store i32 %31, ptr %m_den.i.i.i103, align 8, !alias.scope !999
+  %bf.load.i.i10.i.i.i121 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !999
   %bf.clear.i.i11.i.i.i122 = and i8 %bf.load.i.i10.i.i.i121, -2
-  store i8 %bf.clear.i.i11.i.i.i122, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !996
+  store i8 %bf.clear.i.i11.i.i.i122, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !999
   br label %cleanup.action38
 
 if.else.i.i7.i.i.i119:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
@@ -206607,7 +206609,7 @@ cleanup.done39:                                   ; preds = %.noexc.i134
   br i1 %.not, label %if.then43, label %cleanup.done39.if.else45_crit_edge
 
 cleanup.done39.if.else45_crit_edge:               ; preds = %cleanup.done39
-  %bf.load.i.i.i.i.i.i147.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !999
+  %bf.load.i.i.i.i.i.i147.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !996
   br label %if.else45
 
 if.then43:                                        ; preds = %cleanup.done39
@@ -206616,26 +206618,26 @@ if.then43:                                        ; preds = %cleanup.done39
 
 if.else45:                                        ; preds = %cleanup.done39.if.else45_crit_edge, %if.else28
   %bf.load.i.i.i.i.i.i147 = phi i8 [ %bf.load.i.i.i.i.i.i147.pre, %cleanup.done39.if.else45_crit_edge ], [ %bf.load.i.i.i.i.i.i147.pre278, %if.else28 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !999)
-  store i32 0, ptr %ref.tmp46, align 8, !alias.scope !999
-  %bf.load.i.i.i.i138 = load i8, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !999
+  call void @llvm.experimental.noalias.scope.decl(metadata !996)
+  store i32 0, ptr %ref.tmp46, align 8, !alias.scope !996
+  %bf.load.i.i.i.i138 = load i8, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !996
   %bf.clear3.i.i.i.i139 = and i8 %bf.load.i.i.i.i138, -4
-  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !999
-  store ptr null, ptr %m_ptr.i.i.i.i140, align 8, !alias.scope !999
-  store i32 1, ptr %m_den.i.i.i141, align 8, !alias.scope !999
-  %bf.load.i2.i.i.i143 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !999
+  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !996
+  store ptr null, ptr %m_ptr.i.i.i.i140, align 8, !alias.scope !996
+  store i32 1, ptr %m_den.i.i.i141, align 8, !alias.scope !996
+  %bf.load.i2.i.i.i143 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !996
   %bf.clear3.i3.i.i.i144 = and i8 %bf.load.i2.i.i.i143, -4
-  store i8 %bf.clear3.i3.i.i.i144, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !999
-  store ptr null, ptr %m_ptr.i4.i.i.i145, align 8, !alias.scope !999
-  %37 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !999
+  store i8 %bf.clear3.i3.i.i.i144, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !996
+  store ptr null, ptr %m_ptr.i4.i.i.i145, align 8, !alias.scope !996
+  %37 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !996
   %bf.clear.i.i.i.i.i.i148 = and i8 %bf.load.i.i.i.i.i.i147, 1
   %cmp.i.i.i.i.i.i149 = icmp eq i8 %bf.clear.i.i.i.i.i.i148, 0
   br i1 %cmp.i.i.i.i.i.i149, label %if.then.i.i.i.i.i161, label %if.else.i.i.i.i.i150
 
 if.then.i.i.i.i.i161:                             ; preds = %if.else45
-  %38 = load i32, ptr %__begin0.0237, align 8, !noalias !999
-  store i32 %38, ptr %ref.tmp46, align 8, !alias.scope !999
-  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !999
+  %38 = load i32, ptr %__begin0.0237, align 8, !noalias !996
+  store i32 %38, ptr %ref.tmp46, align 8, !alias.scope !996
+  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !996
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
 
 if.else.i.i.i.i.i150:                             ; preds = %if.else45
@@ -206643,17 +206645,17 @@ if.else.i.i.i.i.i150:                             ; preds = %if.else45
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151: ; preds = %if.else.i.i.i.i.i150, %if.then.i.i.i.i.i161
-  %bf.load.i.i.i4.i.i.i154 = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !999
+  %bf.load.i.i.i4.i.i.i154 = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !996
   %bf.clear.i.i.i5.i.i.i155 = and i8 %bf.load.i.i.i4.i.i.i154, 1
   %cmp.i.i.i6.i.i.i156 = icmp eq i8 %bf.clear.i.i.i5.i.i.i155, 0
   br i1 %cmp.i.i.i6.i.i.i156, label %if.then.i.i8.i.i.i158, label %if.else.i.i7.i.i.i157
 
 if.then.i.i8.i.i.i158:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
-  %39 = load i32, ptr %m_den.i.i83, align 8, !noalias !999
-  store i32 %39, ptr %m_den.i.i.i141, align 8, !alias.scope !999
-  %bf.load.i.i10.i.i.i159 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !999
+  %39 = load i32, ptr %m_den.i.i83, align 8, !noalias !996
+  store i32 %39, ptr %m_den.i.i.i141, align 8, !alias.scope !996
+  %bf.load.i.i10.i.i.i159 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !996
   %bf.clear.i.i11.i.i.i160 = and i8 %bf.load.i.i10.i.i.i159, -2
-  store i8 %bf.clear.i.i11.i.i.i160, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !999
+  store i8 %bf.clear.i.i11.i.i.i160, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !996
   br label %invoke.cont48
 
 if.else.i.i7.i.i.i157:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
@@ -273935,7 +273937,7 @@ invoke.cont21:                                    ; preds = %.noexc1.i
           to label %.noexc54 unwind label %lpad22
 
 .noexc54:                                         ; preds = %invoke.cont21
-  %18 = load i32, ptr %ref.tmp, align 8
+  %18 = load i32, ptr %ref.tmp, align 8, !alias.scope !1317
   %cmp.i.i.i.i.i.i = icmp slt i32 %18, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i, label %lor.rhs.i.i
 
@@ -274080,7 +274082,7 @@ invoke.cont40:                                    ; preds = %.noexc1.i83
           to label %.noexc105 unwind label %lpad41
 
 .noexc105:                                        ; preds = %invoke.cont40
-  %37 = load i32, ptr %ref.tmp31, align 8
+  %37 = load i32, ptr %ref.tmp31, align 8, !alias.scope !1323
   %cmp.i.i.i.i.i.i88 = icmp slt i32 %37, 0
   br i1 %cmp.i.i.i.i.i.i88, label %if.then.i99, label %lor.rhs.i.i89
 
@@ -305371,7 +305373,7 @@ cleanup.done:                                     ; preds = %.noexc.i
 
 cleanup.done.if.else18_crit_edge:                 ; preds = %cleanup.done
   %bf.load.i.i.i.i.i42.pre = load i8, ptr %m_kind.i.i.i.i.i31, align 4
-  %bf.load.i.i.i.i.i.i94.pre132.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !473
+  %bf.load.i.i.i.i.i.i94.pre132.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !1489
   br label %if.else18
 
 if.else18:                                        ; preds = %cleanup.done.if.else18_crit_edge, %if.else10
@@ -305385,31 +305387,31 @@ if.else18:                                        ; preds = %cleanup.done.if.els
   br i1 %22, label %land.rhs20, label %if.else35
 
 land.rhs20:                                       ; preds = %if.else18
-  call void @llvm.experimental.noalias.scope.decl(metadata !1489)
-  store i32 0, ptr %ref.tmp21, align 8, !alias.scope !1489
-  %bf.load.i.i.i.i47 = load i8, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !1489
+  call void @llvm.experimental.noalias.scope.decl(metadata !1492)
+  store i32 0, ptr %ref.tmp21, align 8, !alias.scope !1492
+  %bf.load.i.i.i.i47 = load i8, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !1492
   %bf.clear3.i.i.i.i48 = and i8 %bf.load.i.i.i.i47, -4
-  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !1489
-  store ptr null, ptr %m_ptr.i.i.i.i49, align 8, !alias.scope !1489
-  store i32 1, ptr %m_den.i.i.i50, align 8, !alias.scope !1489
-  %bf.load.i2.i.i.i52 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !1489
+  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !1492
+  store ptr null, ptr %m_ptr.i.i.i.i49, align 8, !alias.scope !1492
+  store i32 1, ptr %m_den.i.i.i50, align 8, !alias.scope !1492
+  %bf.load.i2.i.i.i52 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !1492
   %bf.clear3.i3.i.i.i53 = and i8 %bf.load.i2.i.i.i52, -4
-  store i8 %bf.clear3.i3.i.i.i53, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !1489
-  store ptr null, ptr %m_ptr.i4.i.i.i54, align 8, !alias.scope !1489
-  %23 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !1489
+  store i8 %bf.clear3.i3.i.i.i53, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !1492
+  store ptr null, ptr %m_ptr.i4.i.i.i54, align 8, !alias.scope !1492
+  %23 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !1492
   %bf.clear.i.i.i.i.i.i57 = and i8 %bf.load.i.i.i.i.i.i94.pre132, 1
   %cmp.i.i.i.i.i.i58 = icmp eq i8 %bf.clear.i.i.i.i.i.i57, 0
   br i1 %cmp.i.i.i.i.i.i58, label %if.then.i.i.i.i.i70, label %if.else.i.i.i.i.i59
 
 if.then.i.i.i.i.i70:                              ; preds = %land.rhs20
-  %24 = load i32, ptr %__begin0.0124, align 8, !noalias !1489
-  store i32 %24, ptr %ref.tmp21, align 8, !alias.scope !1489
-  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !1489
+  %24 = load i32, ptr %__begin0.0124, align 8, !noalias !1492
+  store i32 %24, ptr %ref.tmp21, align 8, !alias.scope !1492
+  store i8 %bf.clear3.i.i.i.i48, ptr %m_kind.i.i.i.i46, align 4, !alias.scope !1492
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
 
 if.else.i.i.i.i.i59:                              ; preds = %land.rhs20
   call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %__begin0.0124)
-  %bf.load.i.i.i4.i.i.i63.pre = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !1489
+  %bf.load.i.i.i4.i.i.i63.pre = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !1492
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60: ; preds = %if.else.i.i.i.i.i59, %if.then.i.i.i.i.i70
@@ -305419,11 +305421,11 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60: ; preds = %if.else.i.i.i.i.i
   br i1 %cmp.i.i.i6.i.i.i65, label %if.then.i.i8.i.i.i67, label %if.else.i.i7.i.i.i66
 
 if.then.i.i8.i.i.i67:                             ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
-  %25 = load i32, ptr %m_den.i.i30, align 8, !noalias !1489
-  store i32 %25, ptr %m_den.i.i.i50, align 8, !alias.scope !1489
-  %bf.load.i.i10.i.i.i68 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !1489
+  %25 = load i32, ptr %m_den.i.i30, align 8, !noalias !1492
+  store i32 %25, ptr %m_den.i.i.i50, align 8, !alias.scope !1492
+  %bf.load.i.i10.i.i.i68 = load i8, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !1492
   %bf.clear.i.i11.i.i.i69 = and i8 %bf.load.i.i10.i.i.i68, -2
-  store i8 %bf.clear.i.i11.i.i.i69, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !1489
+  store i8 %bf.clear.i.i11.i.i.i69, ptr %m_kind.i1.i.i.i51, align 4, !alias.scope !1492
   br label %cleanup.action28
 
 if.else.i.i7.i.i.i66:                             ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i60
@@ -305458,31 +305460,31 @@ cleanup.done29:                                   ; preds = %.noexc.i81
   br i1 %.not, label %for.inc.sink.split, label %cleanup.done29.if.else35_crit_edge
 
 cleanup.done29.if.else35_crit_edge:               ; preds = %cleanup.done29
-  %bf.load.i.i.i.i.i.i94.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !1492
+  %bf.load.i.i.i.i.i.i94.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !1489
   br label %if.else35
 
 if.else35:                                        ; preds = %cleanup.done29.if.else35_crit_edge, %if.else18
   %bf.load.i.i.i.i.i.i94 = phi i8 [ %bf.load.i.i.i.i.i.i94.pre, %cleanup.done29.if.else35_crit_edge ], [ %bf.load.i.i.i.i.i.i94.pre132, %if.else18 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !1492)
-  store i32 0, ptr %ref.tmp36, align 8, !alias.scope !1492
-  %bf.load.i.i.i.i85 = load i8, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !1492
+  call void @llvm.experimental.noalias.scope.decl(metadata !1489)
+  store i32 0, ptr %ref.tmp36, align 8, !alias.scope !1489
+  %bf.load.i.i.i.i85 = load i8, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !1489
   %bf.clear3.i.i.i.i86 = and i8 %bf.load.i.i.i.i85, -4
-  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !1492
-  store ptr null, ptr %m_ptr.i.i.i.i87, align 8, !alias.scope !1492
-  store i32 1, ptr %m_den.i.i.i88, align 8, !alias.scope !1492
-  %bf.load.i2.i.i.i90 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !1492
+  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !1489
+  store ptr null, ptr %m_ptr.i.i.i.i87, align 8, !alias.scope !1489
+  store i32 1, ptr %m_den.i.i.i88, align 8, !alias.scope !1489
+  %bf.load.i2.i.i.i90 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !1489
   %bf.clear3.i3.i.i.i91 = and i8 %bf.load.i2.i.i.i90, -4
-  store i8 %bf.clear3.i3.i.i.i91, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !1492
-  store ptr null, ptr %m_ptr.i4.i.i.i92, align 8, !alias.scope !1492
-  %31 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !1492
+  store i8 %bf.clear3.i3.i.i.i91, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !1489
+  store ptr null, ptr %m_ptr.i4.i.i.i92, align 8, !alias.scope !1489
+  %31 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !1489
   %bf.clear.i.i.i.i.i.i95 = and i8 %bf.load.i.i.i.i.i.i94, 1
   %cmp.i.i.i.i.i.i96 = icmp eq i8 %bf.clear.i.i.i.i.i.i95, 0
   br i1 %cmp.i.i.i.i.i.i96, label %if.then.i.i.i.i.i108, label %if.else.i.i.i.i.i97
 
 if.then.i.i.i.i.i108:                             ; preds = %if.else35
-  %32 = load i32, ptr %__begin0.0124, align 8, !noalias !1492
-  store i32 %32, ptr %ref.tmp36, align 8, !alias.scope !1492
-  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !1492
+  %32 = load i32, ptr %__begin0.0124, align 8, !noalias !1489
+  store i32 %32, ptr %ref.tmp36, align 8, !alias.scope !1489
+  store i8 %bf.clear3.i.i.i.i86, ptr %m_kind.i.i.i.i84, align 4, !alias.scope !1489
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
 
 if.else.i.i.i.i.i97:                              ; preds = %if.else35
@@ -305490,17 +305492,17 @@ if.else.i.i.i.i.i97:                              ; preds = %if.else35
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98: ; preds = %if.else.i.i.i.i.i97, %if.then.i.i.i.i.i108
-  %bf.load.i.i.i4.i.i.i101 = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !1492
+  %bf.load.i.i.i4.i.i.i101 = load i8, ptr %m_kind.i.i.i.i.i31, align 4, !noalias !1489
   %bf.clear.i.i.i5.i.i.i102 = and i8 %bf.load.i.i.i4.i.i.i101, 1
   %cmp.i.i.i6.i.i.i103 = icmp eq i8 %bf.clear.i.i.i5.i.i.i102, 0
   br i1 %cmp.i.i.i6.i.i.i103, label %if.then.i.i8.i.i.i105, label %if.else.i.i7.i.i.i104
 
 if.then.i.i8.i.i.i105:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
-  %33 = load i32, ptr %m_den.i.i30, align 8, !noalias !1492
-  store i32 %33, ptr %m_den.i.i.i88, align 8, !alias.scope !1492
-  %bf.load.i.i10.i.i.i106 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !1492
+  %33 = load i32, ptr %m_den.i.i30, align 8, !noalias !1489
+  store i32 %33, ptr %m_den.i.i.i88, align 8, !alias.scope !1489
+  %bf.load.i.i10.i.i.i106 = load i8, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !1489
   %bf.clear.i.i11.i.i.i107 = and i8 %bf.load.i.i10.i.i.i106, -2
-  store i8 %bf.clear.i.i11.i.i.i107, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !1492
+  store i8 %bf.clear.i.i11.i.i.i107, ptr %m_kind.i1.i.i.i89, align 4, !alias.scope !1489
   br label %invoke.cont38
 
 if.else.i.i7.i.i.i104:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i98
@@ -305893,7 +305895,7 @@ cleanup.done:                                     ; preds = %.noexc.i
 
 cleanup.done.if.else28_crit_edge:                 ; preds = %cleanup.done
   %bf.load.i.i.i.i.i95.pre = load i8, ptr %m_kind.i.i.i.i.i84, align 4
-  %bf.load.i.i.i.i.i.i147.pre278.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !473
+  %bf.load.i.i.i.i.i.i147.pre278.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !1499
   br label %if.else28
 
 if.then26:                                        ; preds = %cleanup.done
@@ -305911,31 +305913,31 @@ if.else28:                                        ; preds = %cleanup.done.if.els
   br i1 %28, label %land.rhs30, label %if.else45
 
 land.rhs30:                                       ; preds = %if.else28
-  call void @llvm.experimental.noalias.scope.decl(metadata !1499)
-  store i32 0, ptr %ref.tmp31, align 8, !alias.scope !1499
-  %bf.load.i.i.i.i100 = load i8, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !1499
+  call void @llvm.experimental.noalias.scope.decl(metadata !1502)
+  store i32 0, ptr %ref.tmp31, align 8, !alias.scope !1502
+  %bf.load.i.i.i.i100 = load i8, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !1502
   %bf.clear3.i.i.i.i101 = and i8 %bf.load.i.i.i.i100, -4
-  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !1499
-  store ptr null, ptr %m_ptr.i.i.i.i102, align 8, !alias.scope !1499
-  store i32 1, ptr %m_den.i.i.i103, align 8, !alias.scope !1499
-  %bf.load.i2.i.i.i105 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !1499
+  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !1502
+  store ptr null, ptr %m_ptr.i.i.i.i102, align 8, !alias.scope !1502
+  store i32 1, ptr %m_den.i.i.i103, align 8, !alias.scope !1502
+  %bf.load.i2.i.i.i105 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !1502
   %bf.clear3.i3.i.i.i106 = and i8 %bf.load.i2.i.i.i105, -4
-  store i8 %bf.clear3.i3.i.i.i106, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !1499
-  store ptr null, ptr %m_ptr.i4.i.i.i107, align 8, !alias.scope !1499
-  %29 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !1499
+  store i8 %bf.clear3.i3.i.i.i106, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !1502
+  store ptr null, ptr %m_ptr.i4.i.i.i107, align 8, !alias.scope !1502
+  %29 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !1502
   %bf.clear.i.i.i.i.i.i110 = and i8 %bf.load.i.i.i.i.i.i147.pre278, 1
   %cmp.i.i.i.i.i.i111 = icmp eq i8 %bf.clear.i.i.i.i.i.i110, 0
   br i1 %cmp.i.i.i.i.i.i111, label %if.then.i.i.i.i.i123, label %if.else.i.i.i.i.i112
 
 if.then.i.i.i.i.i123:                             ; preds = %land.rhs30
-  %30 = load i32, ptr %__begin0.0237, align 8, !noalias !1499
-  store i32 %30, ptr %ref.tmp31, align 8, !alias.scope !1499
-  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !1499
+  %30 = load i32, ptr %__begin0.0237, align 8, !noalias !1502
+  store i32 %30, ptr %ref.tmp31, align 8, !alias.scope !1502
+  store i8 %bf.clear3.i.i.i.i101, ptr %m_kind.i.i.i.i99, align 4, !alias.scope !1502
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
 
 if.else.i.i.i.i.i112:                             ; preds = %land.rhs30
   call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %29, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(32) %__begin0.0237)
-  %bf.load.i.i.i4.i.i.i116.pre = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !1499
+  %bf.load.i.i.i4.i.i.i116.pre = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !1502
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113: ; preds = %if.else.i.i.i.i.i112, %if.then.i.i.i.i.i123
@@ -305945,11 +305947,11 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113: ; preds = %if.else.i.i.i.i.
   br i1 %cmp.i.i.i6.i.i.i118, label %if.then.i.i8.i.i.i120, label %if.else.i.i7.i.i.i119
 
 if.then.i.i8.i.i.i120:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
-  %31 = load i32, ptr %m_den.i.i83, align 8, !noalias !1499
-  store i32 %31, ptr %m_den.i.i.i103, align 8, !alias.scope !1499
-  %bf.load.i.i10.i.i.i121 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !1499
+  %31 = load i32, ptr %m_den.i.i83, align 8, !noalias !1502
+  store i32 %31, ptr %m_den.i.i.i103, align 8, !alias.scope !1502
+  %bf.load.i.i10.i.i.i121 = load i8, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !1502
   %bf.clear.i.i11.i.i.i122 = and i8 %bf.load.i.i10.i.i.i121, -2
-  store i8 %bf.clear.i.i11.i.i.i122, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !1499
+  store i8 %bf.clear.i.i11.i.i.i122, ptr %m_kind.i1.i.i.i104, align 4, !alias.scope !1502
   br label %cleanup.action38
 
 if.else.i.i7.i.i.i119:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i113
@@ -305984,7 +305986,7 @@ cleanup.done39:                                   ; preds = %.noexc.i134
   br i1 %.not, label %if.then43, label %cleanup.done39.if.else45_crit_edge
 
 cleanup.done39.if.else45_crit_edge:               ; preds = %cleanup.done39
-  %bf.load.i.i.i.i.i.i147.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !1502
+  %bf.load.i.i.i.i.i.i147.pre = load i8, ptr %m_kind.i.i.i.i.i, align 4, !noalias !1499
   br label %if.else45
 
 if.then43:                                        ; preds = %cleanup.done39
@@ -305993,26 +305995,26 @@ if.then43:                                        ; preds = %cleanup.done39
 
 if.else45:                                        ; preds = %cleanup.done39.if.else45_crit_edge, %if.else28
   %bf.load.i.i.i.i.i.i147 = phi i8 [ %bf.load.i.i.i.i.i.i147.pre, %cleanup.done39.if.else45_crit_edge ], [ %bf.load.i.i.i.i.i.i147.pre278, %if.else28 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !1502)
-  store i32 0, ptr %ref.tmp46, align 8, !alias.scope !1502
-  %bf.load.i.i.i.i138 = load i8, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !1502
+  call void @llvm.experimental.noalias.scope.decl(metadata !1499)
+  store i32 0, ptr %ref.tmp46, align 8, !alias.scope !1499
+  %bf.load.i.i.i.i138 = load i8, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !1499
   %bf.clear3.i.i.i.i139 = and i8 %bf.load.i.i.i.i138, -4
-  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !1502
-  store ptr null, ptr %m_ptr.i.i.i.i140, align 8, !alias.scope !1502
-  store i32 1, ptr %m_den.i.i.i141, align 8, !alias.scope !1502
-  %bf.load.i2.i.i.i143 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !1502
+  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !1499
+  store ptr null, ptr %m_ptr.i.i.i.i140, align 8, !alias.scope !1499
+  store i32 1, ptr %m_den.i.i.i141, align 8, !alias.scope !1499
+  %bf.load.i2.i.i.i143 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !1499
   %bf.clear3.i3.i.i.i144 = and i8 %bf.load.i2.i.i.i143, -4
-  store i8 %bf.clear3.i3.i.i.i144, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !1502
-  store ptr null, ptr %m_ptr.i4.i.i.i145, align 8, !alias.scope !1502
-  %37 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !1502
+  store i8 %bf.clear3.i3.i.i.i144, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !1499
+  store ptr null, ptr %m_ptr.i4.i.i.i145, align 8, !alias.scope !1499
+  %37 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !1499
   %bf.clear.i.i.i.i.i.i148 = and i8 %bf.load.i.i.i.i.i.i147, 1
   %cmp.i.i.i.i.i.i149 = icmp eq i8 %bf.clear.i.i.i.i.i.i148, 0
   br i1 %cmp.i.i.i.i.i.i149, label %if.then.i.i.i.i.i161, label %if.else.i.i.i.i.i150
 
 if.then.i.i.i.i.i161:                             ; preds = %if.else45
-  %38 = load i32, ptr %__begin0.0237, align 8, !noalias !1502
-  store i32 %38, ptr %ref.tmp46, align 8, !alias.scope !1502
-  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !1502
+  %38 = load i32, ptr %__begin0.0237, align 8, !noalias !1499
+  store i32 %38, ptr %ref.tmp46, align 8, !alias.scope !1499
+  store i8 %bf.clear3.i.i.i.i139, ptr %m_kind.i.i.i.i137, align 4, !alias.scope !1499
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
 
 if.else.i.i.i.i.i150:                             ; preds = %if.else45
@@ -306020,17 +306022,17 @@ if.else.i.i.i.i.i150:                             ; preds = %if.else45
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151: ; preds = %if.else.i.i.i.i.i150, %if.then.i.i.i.i.i161
-  %bf.load.i.i.i4.i.i.i154 = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !1502
+  %bf.load.i.i.i4.i.i.i154 = load i8, ptr %m_kind.i.i.i.i.i84, align 4, !noalias !1499
   %bf.clear.i.i.i5.i.i.i155 = and i8 %bf.load.i.i.i4.i.i.i154, 1
   %cmp.i.i.i6.i.i.i156 = icmp eq i8 %bf.clear.i.i.i5.i.i.i155, 0
   br i1 %cmp.i.i.i6.i.i.i156, label %if.then.i.i8.i.i.i158, label %if.else.i.i7.i.i.i157
 
 if.then.i.i8.i.i.i158:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151
-  %39 = load i32, ptr %m_den.i.i83, align 8, !noalias !1502
-  store i32 %39, ptr %m_den.i.i.i141, align 8, !alias.scope !1502
-  %bf.load.i.i10.i.i.i159 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !1502
+  %39 = load i32, ptr %m_den.i.i83, align 8, !noalias !1499
+  store i32 %39, ptr %m_den.i.i.i141, align 8, !alias.scope !1499
+  %bf.load.i.i10.i.i.i159 = load i8, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !1499
   %bf.clear.i.i11.i.i.i160 = and i8 %bf.load.i.i10.i.i.i159, -2
-  store i8 %bf.clear.i.i11.i.i.i160, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !1502
+  store i8 %bf.clear.i.i11.i.i.i160, ptr %m_kind.i1.i.i.i142, align 4, !alias.scope !1499
   br label %invoke.cont48
 
 if.else.i.i7.i.i.i157:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i151

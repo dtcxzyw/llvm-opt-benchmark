@@ -6372,7 +6372,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_6MDNodeELb1EE9push_backES2_.exit.i: ; pred
 79:                                               ; preds = %65, %42
   %.sink.i.i.i.i.i = phi ptr [ %66, %65 ], [ null, %42 ]
   %80 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6MDNodeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i.i), !noalias !86
-  %81 = load ptr, ptr %5, align 8
+  %81 = load ptr, ptr %5, align 8, !noalias !86
   store ptr %81, ptr %80, align 8, !noalias !86
   %82 = getelementptr inbounds i8, ptr %81, i64 -16
   %83 = load i64, ptr %82, align 8
@@ -10383,7 +10383,7 @@ _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN4llvm8dyn_castINS_15MemTransferInstENS_11InstructionEEEDcPT0_.exit: ; preds = %170, %170, %170
   call void @llvm.experimental.noalias.scope.decl(metadata !137)
   %173 = getelementptr inbounds i8, ptr %.sroa.0149.0205, i64 -20
-  %174 = load i32, ptr %173, align 4
+  %174 = load i32, ptr %173, align 4, !noalias !137
   %175 = and i32 %174, 134217727
   %176 = zext nneg i32 %175 to i64
   %177 = sub nsw i64 0, %176

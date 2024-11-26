@@ -2301,7 +2301,7 @@ invoke.cont16:                                    ; preds = %if.else.i.i, %if.th
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i57, label %if.end15.i.i.i
 
 if.then.i.i.i57:                                  ; preds = %invoke.cont16
-  %19 = load ptr, ptr %ref.tmp15, align 8
+  %19 = load ptr, ptr %ref.tmp15, align 8, !noalias !21
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i57

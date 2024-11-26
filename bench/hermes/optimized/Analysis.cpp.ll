@@ -1365,7 +1365,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
 if.then:                                          ; preds = %while.body, %if.then12.i.i.i
   %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then12.i.i.i ], [ null, %while.body ]
   %call.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %discovered, ptr noundef nonnull align 8 dereferenceable(8) %BB, ptr noundef nonnull align 8 dereferenceable(8) %BB, ptr noundef %cond.sink.i.i.i), !noalias !14
-  %13 = load ptr, ptr %BB, align 8
+  %13 = load ptr, ptr %BB, align 8, !noalias !14
   store ptr %13, ptr %call.i.i, align 8, !noalias !14
   %second.i.i7.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i32 %dfsTime.0.ph1335, ptr %second.i.i7.i, align 4, !noalias !14

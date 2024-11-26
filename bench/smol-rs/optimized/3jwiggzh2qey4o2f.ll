@@ -162,7 +162,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %14 = getelementptr inbounds i8, ptr %0, i64 64
-  %15 = load i32, ptr %14, align 8, !range !72, !noundef !4
+  %15 = load i32, ptr %14, align 8, !range !72, !alias.scope !69, !noundef !4
   %16 = icmp eq i32 %15, 1000000000
   br i1 %16, label %17, label %"._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h1a2be5dc27f565aeE.exit_crit_edge"
 

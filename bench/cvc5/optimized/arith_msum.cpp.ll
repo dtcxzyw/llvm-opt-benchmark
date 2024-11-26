@@ -542,7 +542,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !13
-  %bf.load.i.i.i = load i64, ptr %0, align 8
+  %bf.load.i.i.i = load i64, ptr %0, align 8, !noalias !13
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %1 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %1, 1048575
@@ -909,7 +909,7 @@ if.then24:                                        ; preds = %cleanup.done
   %d_children.i.i98 = getelementptr inbounds i8, ptr %31, i64 16
   %arrayidx.i.i100 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i98, i64 0, i64 %spec.select.i.i97
   %32 = load ptr, ptr %arrayidx.i.i100, align 8, !noalias !27
-  %bf.load.i.i.i101 = load i64, ptr %32, align 8
+  %bf.load.i.i.i101 = load i64, ptr %32, align 8, !noalias !27
   %bf.lshr.i.i.i102 = lshr i64 %bf.load.i.i.i101, 40
   %33 = trunc nuw nsw i64 %bf.lshr.i.i.i102 to i32
   %bf.cast.i.i.i103 = and i32 %33, 1048575
@@ -6991,7 +6991,7 @@ call2.i.i.i18.noexc:                              ; preds = %for.body
   %idxprom.i.i22 = zext nneg i32 %spec.select.i.i to i64
   %arrayidx.i.i23 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i21, i64 0, i64 %idxprom.i.i22
   %8 = load ptr, ptr %arrayidx.i.i23, align 8, !noalias !103
-  %bf.load.i.i.i24 = load i64, ptr %8, align 8
+  %bf.load.i.i.i24 = load i64, ptr %8, align 8, !noalias !103
   %bf.lshr.i.i.i25 = lshr i64 %bf.load.i.i.i24, 40
   %9 = trunc nuw nsw i64 %bf.lshr.i.i.i25 to i32
   %bf.cast.i.i.i26 = and i32 %9, 1048575

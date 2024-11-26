@@ -2009,31 +2009,31 @@ _ZNK4i18n12phonenumbers11UnicodeText10UnsafeFindERKS1_NS1_14const_iteratorE.exit
   %3 = alloca %"class.i18n::phonenumbers::StringPiece", align 8
   %4 = alloca %"class.i18n::phonenumbers::StringPiece", align 8
   %5 = load ptr, ptr %1, align 8, !noalias !20
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 8, !noalias !21
+  %7 = load i32, ptr %6, align 8, !noalias !23
   %8 = sext i32 %7 to i64
-  store ptr %5, ptr %3, align 8, !noalias !21
+  store ptr %5, ptr %3, align 8, !noalias !23
   %9 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %8, ptr %9, align 8, !noalias !21
-  %10 = load ptr, ptr %2, align 8, !noalias !21
+  store i64 %8, ptr %9, align 8, !noalias !23
+  %10 = load ptr, ptr %2, align 8, !noalias !23
   %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !noalias !21
+  %12 = load i32, ptr %11, align 8, !noalias !23
   %13 = sext i32 %12 to i64
-  store ptr %10, ptr %4, align 8, !noalias !21
+  store ptr %10, ptr %4, align 8, !noalias !23
   %14 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %13, ptr %14, align 8, !noalias !21
-  %15 = call noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 0), !noalias !21
-  %16 = load i64, ptr @_ZN4i18n12phonenumbers11StringPiece4nposE, align 8, !noalias !21
+  store i64 %13, ptr %14, align 8, !noalias !23
+  %15 = call noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 0), !noalias !23
+  %16 = load i64, ptr @_ZN4i18n12phonenumbers11StringPiece4nposE, align 8, !noalias !23
   %17 = icmp eq i64 %15, %16
   %18 = load ptr, ptr %1, align 8
   %19 = load i32, ptr %6, align 8
   %20 = sext i32 %19 to i64
   %storemerge.i.v = select i1 %17, i64 %20, i64 %15
   %storemerge.i = getelementptr inbounds i8, ptr %18, i64 %storemerge.i.v
-  store ptr %storemerge.i, ptr %0, align 8, !alias.scope !21
+  store ptr %storemerge.i, ptr %0, align 8, !alias.scope !23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
@@ -2613,7 +2613,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phone
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %6 = icmp slt i8 %5, -64
-  br i1 %6, label %2, label %7, !llvm.loop !24
+  br i1 %6, label %2, label %7, !llvm.loop !26
 
 7:                                                ; preds = %2
   ret ptr %0
@@ -2937,8 +2937,10 @@ attributes #27 = { cold nounwind }
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZNK4i18n12phonenumbers11UnicodeText10UnsafeFindERKS1_NS1_14const_iteratorE: argument 0"}
 !19 = distinct !{!19, !"_ZNK4i18n12phonenumbers11UnicodeText10UnsafeFindERKS1_NS1_14const_iteratorE"}
-!20 = !{}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK4i18n12phonenumbers11UnicodeText10UnsafeFindERKS1_NS1_14const_iteratorE: argument 0"}
-!23 = distinct !{!23, !"_ZNK4i18n12phonenumbers11UnicodeText10UnsafeFindERKS1_NS1_14const_iteratorE"}
-!24 = distinct !{!24, !6}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNK4i18n12phonenumbers11UnicodeText5beginEv: argument 0"}
+!22 = distinct !{!22, !"_ZNK4i18n12phonenumbers11UnicodeText5beginEv"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZNK4i18n12phonenumbers11UnicodeText10UnsafeFindERKS1_NS1_14const_iteratorE: argument 0"}
+!25 = distinct !{!25, !"_ZNK4i18n12phonenumbers11UnicodeText10UnsafeFindERKS1_NS1_14const_iteratorE"}
+!26 = distinct !{!26, !6}

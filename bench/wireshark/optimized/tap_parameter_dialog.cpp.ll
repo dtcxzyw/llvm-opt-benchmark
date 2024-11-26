@@ -9118,7 +9118,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %37
 
 _ZN7QStringD2Ev.exit:                             ; preds = %37, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %40
   call void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind nonnull writable sret(%class.QList.36) align 8 %8, i32 noundef 0)
-  %42 = load ptr, ptr %8, align 8
+  %42 = load ptr, ptr %8, align 8, !noalias !117
   %43 = getelementptr inbounds i8, ptr %8, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !117
   %45 = getelementptr inbounds i8, ptr %8, i64 16
@@ -9278,7 +9278,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i85:    ; preds = %88
 
 _ZN7QStringD2Ev.exit87:                           ; preds = %88, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i85, %91
   call void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind nonnull writable sret(%class.QList.36) align 8 %11, i32 noundef 0)
-  %93 = load ptr, ptr %11, align 8
+  %93 = load ptr, ptr %11, align 8, !noalias !121
   %94 = getelementptr inbounds i8, ptr %11, i64 8
   %95 = load ptr, ptr %94, align 8, !noalias !121
   %96 = getelementptr inbounds i8, ptr %11, i64 16
@@ -9421,7 +9421,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i115:   ; preds = %133
 
 _ZN7QStringD2Ev.exit117:                          ; preds = %133, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i115, %136
   call void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind nonnull writable sret(%class.QList.36) align 8 %14, i32 noundef 3)
-  %138 = load ptr, ptr %14, align 8
+  %138 = load ptr, ptr %14, align 8, !noalias !125
   %139 = getelementptr inbounds i8, ptr %14, i64 8
   %140 = load ptr, ptr %139, align 8, !noalias !125
   %141 = getelementptr inbounds i8, ptr %14, i64 16
@@ -9564,7 +9564,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i145:   ; preds = %178
 
 _ZN7QStringD2Ev.exit147:                          ; preds = %178, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i145, %181
   call void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind nonnull writable sret(%class.QList.36) align 8 %17, i32 noundef 1)
-  %183 = load ptr, ptr %17, align 8
+  %183 = load ptr, ptr %17, align 8, !noalias !129
   %184 = getelementptr inbounds i8, ptr %17, i64 8
   %185 = load ptr, ptr %184, align 8, !noalias !129
   %186 = getelementptr inbounds i8, ptr %17, i64 16

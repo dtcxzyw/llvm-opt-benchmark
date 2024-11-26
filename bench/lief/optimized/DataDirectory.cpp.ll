@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZN4LIEF2PE23init_c_data_directoriesEP11Pe_Binary_tPNS0_6BinaryE(ptr nocapture noundef initializes((240, 248)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 352
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !noalias !4
   %5 = getelementptr inbounds i8, ptr %1, i64 360
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -61,7 +61,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14defau
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 3
   %41 = icmp ult i64 %34, %40
-  br i1 %41, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, label %._crit_edge.loopexit, !llvm.loop !4
+  br i1 %41, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %.pre = load ptr, ptr %11, align 8
@@ -94,7 +94,7 @@ define hidden void @_ZN4LIEF2PE24destroy_data_directoriesEP11Pe_Binary_t(ptr noc
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %2, align 8
@@ -122,6 +122,9 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN4LIEF2PE6Binary16data_directoriesEv: argument 0"}
+!6 = distinct !{!6, !"_ZN4LIEF2PE6Binary16data_directoriesEv"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

@@ -218,7 +218,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load ptr, ptr %q, align 8
+  %1 = load ptr, ptr %q, align 8, !noalias !4
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i

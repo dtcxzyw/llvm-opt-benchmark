@@ -3065,7 +3065,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   %14 = alloca { { ptr, i64, i64, i64, {} }, { i64, i64 } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !715)
   %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !noundef !4
+  %16 = load i64, ptr %15, align 8, !alias.scope !715, !noundef !4
   %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %1)
   %18 = extractvalue { i64, i1 } %17, 0
   %19 = extractvalue { i64, i1 } %17, 1
@@ -3077,7 +3077,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 22:                                               ; preds = %4
   %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load i64, ptr %23, align 8, !noundef !4
+  %24 = load i64, ptr %23, align 8, !alias.scope !715, !noundef !4
   %25 = icmp ult i64 %24, 8
   %26 = add i64 %24, 1
   %27 = lshr i64 %26, 3
@@ -3199,7 +3199,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   %74 = getelementptr inbounds i8, ptr %10, i64 24
   %75 = getelementptr inbounds i8, ptr %10, i64 8
   %76 = getelementptr inbounds i8, ptr %10, i64 16
-  %.pre62 = load ptr, ptr %0, align 8
+  %.pre62 = load ptr, ptr %0, align 8, !alias.scope !721
   %77 = load i64, ptr %2, align 8
   %78 = getelementptr inbounds i8, ptr %2, i64 8
   %79 = load i64, ptr %78, align 8
@@ -3415,7 +3415,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   store i8 %168, ptr %166, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %170
   store i8 %168, ptr %gep, align 1
-  %171 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %171 = load ptr, ptr %0, align 8, !alias.scope !721, !nonnull !4, !noundef !4
   %.neg.i.i = mul i64 %.sroa.011.0.i.i55, -48
   %172 = getelementptr i8, ptr %171, i64 %.neg.i.i
   %173 = getelementptr i8, ptr %172, i64 -48

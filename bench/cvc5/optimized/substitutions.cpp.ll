@@ -730,7 +730,7 @@ invoke.cont54:                                    ; preds = %if.else.i.i303, %if
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont54
-  %33 = load ptr, ptr %ref.tmp53, align 8
+  %33 = load ptr, ptr %ref.tmp53, align 8, !noalias !13
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i

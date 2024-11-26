@@ -24183,7 +24183,7 @@ _ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4lockEv.exit: ; preds = %1
 .noexc:                                           ; preds = %9
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = getelementptr inbounds i8, ptr %2, i64 16
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noalias !199
   %.not.i.i.i.i.i4 = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i4, label %27, label %14
 

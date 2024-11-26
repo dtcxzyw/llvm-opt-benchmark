@@ -2836,11 +2836,11 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl23inlined_vector_internal7StorageIPNS_7LogSinkELm16ESaIS3_EE11EmplaceBackIJRKS3_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %this, align 8, !noalias !12
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %data_.i1.i, align 8
+  %1 = load ptr, ptr %data_.i1.i, align 8, !noalias !12
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !12
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
@@ -2892,7 +2892,7 @@ for.inc.i.i:                                      ; preds = %_ZN4absl23inlined_v
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0.i, i64 8
   %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %.sink.i
-  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !15
 
 invoke.cont21.i:                                  ; preds = %for.inc.i.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIPNS_7LogSinkEELb0EE8AllocateERS4_m.exit.i.i
   br i1 %tobool.i.not.i, label %_ZN4absl23inlined_vector_internal7StorageIPNS_7LogSinkELm16ESaIS3_EE15EmplaceBackSlowIJRKS3_EEERS3_DpOT_.exit, label %if.then.i.i
@@ -2990,5 +2990,7 @@ attributes #32 = { cold nounwind }
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZSt11make_uniqueIN4absl12log_internal10LogMessage14LogMessageDataEJRPKcRiRNS0_11LogSeverityENS0_4TimeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !11 = distinct !{!11, !"_ZSt11make_uniqueIN4absl12log_internal10LogMessage14LogMessageDataEJRPKcRiRNS0_11LogSeverityENS0_4TimeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!12 = !{}
-!13 = distinct !{!13, !6}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN4absl23inlined_vector_internal7StorageIPNS_7LogSinkELm16ESaIS3_EE15MakeStorageViewEv: %agg.result"}
+!14 = distinct !{!14, !"_ZN4absl23inlined_vector_internal7StorageIPNS_7LogSinkELm16ESaIS3_EE15MakeStorageViewEv"}
+!15 = distinct !{!15, !6}

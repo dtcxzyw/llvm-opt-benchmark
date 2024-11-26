@@ -27294,7 +27294,7 @@ _ZL27isExtHandlingFromDiagsErrorRN5clang17DiagnosticsEngineE.exit.thread90.i: ; 
 
 .lr.ph.i6.i12.i3.i.i.i.i.i:                       ; preds = %329, %.critedge2.i8.i14.i9.i.i.i.i.i
   %.sroa.0.3.i4.i.i.i.i.i = phi ptr [ %331, %.critedge2.i8.i14.i9.i.i.i.i.i ], [ %324, %329 ]
-  %330 = load i32, ptr %.sroa.0.3.i4.i.i.i.i.i, align 4
+  %330 = load i32, ptr %.sroa.0.3.i4.i.i.i.i.i, align 4, !noalias !103
   %switch.i7.i13.i5.i.i.i.i.i = icmp ugt i32 %330, -3
   br i1 %switch.i7.i13.i5.i.i.i.i.i, label %.critedge2.i8.i14.i9.i.i.i.i.i, label %_ZNK5clang17DiagnosticsEngine21getDiagnosticMappingsEv.exit.i.i
 
@@ -31574,7 +31574,7 @@ _ZN4llvm6detail12DenseSetImplIN5clang12GlobalDeclIDENS_8DenseMapIS3_NS0_13DenseS
 110:                                              ; preds = %99, %_ZN4llvm6detail12DenseSetImplIN5clang12GlobalDeclIDENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertIPS3_EEvT_SE_.exit
   %.sink.i.i.i.i = phi ptr [ %100, %99 ], [ null, %_ZN4llvm6detail12DenseSetImplIN5clang12GlobalDeclIDENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertIPS3_EEvT_SE_.exit ]
   %111 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang12GlobalDeclIDENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !201
-  %112 = load i64, ptr %3, align 8
+  %112 = load i64, ptr %3, align 8, !noalias !201
   store i64 %112, ptr %111, align 8, !noalias !201
   %113 = load ptr, ptr %0, align 8
   %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %113) #35
@@ -57902,7 +57902,7 @@ _ZN4llvm6detail12DenseSetImplIN5clang12GlobalDeclIDENS_8DenseMapIS3_NS0_13DenseS
 90:                                               ; preds = %79, %60
   %.sink.i.i.i.i = phi ptr [ %80, %79 ], [ null, %60 ]
   %91 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang12GlobalDeclIDENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !1006
-  %92 = load i64, ptr %1, align 8
+  %92 = load i64, ptr %1, align 8, !noalias !1006
   store i64 %92, ptr %91, align 8, !noalias !1006
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %94 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %93) #35
@@ -58788,7 +58788,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPN5clang9Named
 33:                                               ; preds = %22, %2
   %.sink.i.i.i.i = phi ptr [ %23, %22 ], [ null, %2 ]
   %34 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang9NamedDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !1024
-  %35 = load ptr, ptr %1, align 8
+  %35 = load ptr, ptr %1, align 8, !noalias !1024
   store ptr %35, ptr %34, align 8, !noalias !1024
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #35
@@ -60707,7 +60707,7 @@ _ZN4llvm6detail12DenseSetImplIPN5clang6ModuleENS_8DenseMapIS4_NS0_13DenseSetEmpt
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang6ModuleENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !1065
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !1065
   store ptr %96, ptr %95, align 8, !noalias !1065
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #35
@@ -88180,7 +88180,7 @@ _ZNK4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE5emptyEv.exit.thre
 _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i:      ; preds = %14
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #35
-  %.0.copyload.i.i.i.i.i.i.i.i.i.pre126 = load i64, ptr %1, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.pre126 = load i64, ptr %1, align 8, !noalias !1346
   br i1 %18, label %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i
 
 _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i
@@ -88241,7 +88241,7 @@ _ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i:      ; preds = %20, %_ZNK4llvm13Tin
 .critedge2.i8.i14.i9.i:                           ; preds = %.lr.ph.i6.i12.i3.i
   %46 = getelementptr inbounds i8, ptr %.sroa.0.3.i4.i, i64 64
   %.not.i9.i15.i10.i = icmp eq ptr %46, %38
-  br i1 %.not.i9.i15.i10.i, label %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread, label %.lr.ph.i6.i12.i3.i, !llvm.loop !1346
+  br i1 %.not.i9.i15.i10.i, label %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread, label %.lr.ph.i6.i12.i3.i, !llvm.loop !1349
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang13serialization18DeclarationNameKeyENS_11SmallVectorINS2_12GlobalDeclIDELj4EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %39
   %.pn14.i = phi ptr [ %34, %39 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
@@ -88298,7 +88298,7 @@ _ZN5clang13serialization6reader29ASTDeclContextNameLookupTrait13MergeDataIntoERK
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i
   %67 = getelementptr inbounds i8, ptr %.sroa.089.1, i64 64
   %.not.i7.i = icmp eq ptr %67, %38
-  br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorIN5clang13serialization18DeclarationNameKeyENS_11SmallVectorINS1_12GlobalDeclIDELj4EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EELb0EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !1346
+  br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorIN5clang13serialization18DeclarationNameKeyENS_11SmallVectorINS1_12GlobalDeclIDELj4EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EELb0EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !1349
 
 _ZN4llvm16DenseMapIteratorIN5clang13serialization18DeclarationNameKeyENS_11SmallVectorINS1_12GlobalDeclIDELj4EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EELb0EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %_ZN5clang13serialization6reader29ASTDeclContextNameLookupTrait13MergeDataIntoERKN4llvm11SmallVectorINS_12GlobalDeclIDELj4EEERNS2_17data_type_builderE.exit
   %.sroa.089.2 = phi ptr [ %60, %_ZN5clang13serialization6reader29ASTDeclContextNameLookupTrait13MergeDataIntoERKN4llvm11SmallVectorINS_12GlobalDeclIDELj4EEERNS2_17data_type_builderE.exit ], [ %.sroa.089.1, %.lr.ph.i4.i ], [ %67, %.critedge2.i6.i ]
@@ -88306,7 +88306,7 @@ _ZN4llvm16DenseMapIteratorIN5clang13serialization18DeclarationNameKeyENS_11Small
   br i1 %.not98, label %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread.loopexit, label %.lr.ph
 
 _ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread.loopexit: ; preds = %_ZN4llvm16DenseMapIteratorIN5clang13serialization18DeclarationNameKeyENS_11SmallVectorINS1_12GlobalDeclIDELj4EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EELb0EEppEv.exit
-  %.0.copyload.i.i.i.i.i.i.i.i.i.pre = load i64, ptr %1, align 8, !noalias !1347
+  %.0.copyload.i.i.i.i.i.i.i.i.i.pre = load i64, ptr %1, align 8, !noalias !1346
   br label %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread
 
 _ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread: ; preds = %.critedge2.i8.i14.i9.i, %28, %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread.loopexit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang13serialization18DeclarationNameKeyENS_11SmallVectorINS2_12GlobalDeclIDELj4EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5beginEv.exit, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE5emptyEv.exit.thread, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i
@@ -88324,10 +88324,10 @@ _ZN4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i:     ; preds = %_ZNK5clang13seriali
 72:                                               ; preds = %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread
   %73 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
   %74 = inttoptr i64 %73 to ptr
-  %75 = load ptr, ptr %74, align 8, !noalias !1347
-  %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %74) #35, !noalias !1347
+  %75 = load ptr, ptr %74, align 8, !noalias !1346
+  %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %74) #35, !noalias !1346
   %77 = getelementptr inbounds ptr, ptr %75, i64 %76
-  %.0.copyload.i.i.i.i.i.i.pre.i = load i64, ptr %1, align 8, !noalias !1347
+  %.0.copyload.i.i.i.i.i.i.pre.i = load i64, ptr %1, align 8, !noalias !1346
   br label %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i
 
 _ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i:         ; preds = %72, %_ZN4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i
@@ -88347,11 +88347,11 @@ _ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i:         ; preds = %72, %_ZN4llvm13Tiny
 
 _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i.i:    ; preds = %78
   %81 = inttoptr i64 %80 to ptr
-  %82 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %81) #35, !noalias !1347
+  %82 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %81) #35, !noalias !1346
   br i1 %82, label %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE6tablesEv.exit, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i.i
 
 _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i.i
-  %.0.copyload.i.i.i.i.i.i.i.i.i.pre.i.i = load i64, ptr %1, align 8, !noalias !1347
+  %.0.copyload.i.i.i.i.i.i.i.i.i.pre.i.i = load i64, ptr %1, align 8, !noalias !1346
   %.pre6.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.pre.i.i, 2
   br label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i
 
@@ -88364,8 +88364,8 @@ _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i: ; preds = %_ZNK4llvm13Tin
 84:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3.i.i
   %85 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -4
   %86 = inttoptr i64 %85 to ptr
-  %87 = load ptr, ptr %86, align 8, !noalias !1347
-  %.pre.i.i = load ptr, ptr %87, align 8, !noalias !1347
+  %87 = load ptr, ptr %86, align 8, !noalias !1346
+  %.pre.i.i = load ptr, ptr %87, align 8, !noalias !1346
   %88 = ptrtoint ptr %.pre.i.i to i64
   br label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i
 
@@ -92837,7 +92837,7 @@ _ZN4llvm6detail12DenseSetImplIPKN5clang15TypedefNameDeclENS_8DenseMapIS5_NS0_13D
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang15TypedefNameDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !1417
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !1417
   store ptr %96, ptr %95, align 8, !noalias !1417
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #35
@@ -93155,7 +93155,7 @@ _ZN4llvm6detail12DenseSetImplIPN5clang4DeclENS_8DenseMapIS4_NS0_13DenseSetEmptyE
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !1428
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !1428
   store ptr %96, ptr %95, align 8, !noalias !1428
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #35
@@ -131367,7 +131367,7 @@ define internal fastcc void @_ZL23collectMacroDefinitionsRKN5clang19Preprocessor
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
 31:                                               ; preds = %19
-  %32 = load i64, ptr %15, align 8
+  %32 = load i64, ptr %15, align 8, !noalias !1835
   %33 = call i64 @llvm.umin.i64(i64 %28, i64 %32)
   %34 = load ptr, ptr %5, align 8, !noalias !1835
   %35 = add nuw i64 %28, 1
@@ -134448,11 +134448,11 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZN4llvm9ErrorList2IDE) #35
-  %.pre52 = load ptr, ptr %2, align 8, !noalias !1544
+  %.pre52 = load ptr, ptr %2, align 8, !noalias !1924
   br i1 %23, label %24, label %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread
 
 24:                                               ; preds = %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
-  store ptr null, ptr %2, align 8, !noalias !1924
+  store ptr null, ptr %2, align 8, !noalias !1927
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
@@ -134504,9 +134504,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %24, %._
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
   %44 = phi ptr [ null, %17 ], [ %.pre52, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1927)
-  store ptr %44, ptr %4, align 8, !alias.scope !1927
-  store ptr null, ptr %2, align 8, !noalias !1927
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1924)
+  store ptr %44, ptr %4, align 8, !alias.scope !1924
+  store ptr null, ptr %2, align 8, !noalias !1924
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -157590,7 +157590,7 @@ _ZN4llvm6detail12DenseSetImplIPN5clang13serialization10ModuleFileENS_8DenseMapIS
   br i1 %.not.i, label %_ZN4llvm6detail12DenseSetImplIPN5clang13serialization10ModuleFileENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertIPS5_EEvT_SG_.exit, label %15, !llvm.loop !2157
 
 _ZN4llvm6detail12DenseSetImplIPN5clang13serialization10ModuleFileENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertIPS5_EEvT_SG_.exit: ; preds = %_ZN4llvm6detail12DenseSetImplIPN5clang13serialization10ModuleFileENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertERKS5_.exit.i, %_ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8, !noalias !2158
   %49 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 2
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i, label %51
@@ -157600,7 +157600,7 @@ _ZN4llvm6detail12DenseSetImplIPN5clang13serialization10ModuleFileENS_8DenseMapIS
   %53 = inttoptr i64 %52 to ptr
   %54 = load ptr, ptr %53, align 8, !noalias !2158
   %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #35, !noalias !2158
-  %.0.copyload.i.i.i.i.i.i.pre.i = load i64, ptr %0, align 8
+  %.0.copyload.i.i.i.i.i.i.pre.i = load i64, ptr %0, align 8, !noalias !2158
   br label %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i
 
 _ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i:         ; preds = %_ZN4llvm6detail12DenseSetImplIPN5clang13serialization10ModuleFileENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertIPS5_EEvT_SG_.exit, %51
@@ -157873,7 +157873,7 @@ define linkonce_odr hidden void @_ZN5clang13serialization20MultiOnDiskHashTableI
 _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i:      ; preds = %6
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #35
-  %.0.copyload.i.i.i.i.i.i.i.i.i.pre.pre = load i64, ptr %0, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.pre.pre = load i64, ptr %0, align 8, !noalias !2163
   br i1 %10, label %_ZNK5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE14getMergedTableEv.exit.thread, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i
 
 _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread3_crit_edge.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i
@@ -173228,10 +173228,10 @@ attributes #42 = { cold nounwind }
 !1343 = distinct !{!1343, !12}
 !1344 = distinct !{!1344, !12}
 !1345 = distinct !{!1345, !12}
-!1346 = distinct !{!1346, !12}
-!1347 = !{!1348}
-!1348 = distinct !{!1348, !1349, !"_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE6tablesEv: argument 0"}
-!1349 = distinct !{!1349, !"_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE6tablesEv"}
+!1346 = !{!1347}
+!1347 = distinct !{!1347, !1348, !"_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE6tablesEv: argument 0"}
+!1348 = distinct !{!1348, !"_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE6tablesEv"}
+!1349 = distinct !{!1349, !12}
 !1350 = !{!1351}
 !1351 = distinct !{!1351, !1352, !"_ZN4llvm30OnDiskIterableChainedHashTableIN5clang13serialization6reader29ASTDeclContextNameLookupTraitEE10data_beginEv: argument 0"}
 !1352 = distinct !{!1352, !"_ZN4llvm30OnDiskIterableChainedHashTableIN5clang13serialization6reader29ASTDeclContextNameLookupTraitEE10data_beginEv"}

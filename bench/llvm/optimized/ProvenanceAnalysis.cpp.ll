@@ -284,7 +284,7 @@ _ZNK4llvm7PHINode15incoming_valuesEv.exit:        ; preds = %54, %57
   %.02538 = phi ptr [ %84, %.critedge ], [ %62, %_ZNK4llvm7PHINode15incoming_valuesEv.exit ]
   %64 = load ptr, ptr %.02538, align 8
   %65 = load ptr, ptr %47, align 8, !noalias !10
-  %66 = load ptr, ptr %4, align 8
+  %66 = load ptr, ptr %4, align 8, !noalias !10
   %67 = icmp eq ptr %65, %66
   br i1 %67, label %68, label %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit
 

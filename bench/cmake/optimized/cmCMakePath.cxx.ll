@@ -318,7 +318,7 @@ common.resume:                                    ; preds = %43, %17
   unreachable
 
 28:                                               ; preds = %19
-  %29 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %10, align 8, !noalias !11
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 3
   %32 = icmp eq i64 %31, 0
@@ -1032,7 +1032,7 @@ _ZNKSt10filesystem7__cxx114path3endEv.exit:       ; preds = %_ZNKSt10filesystem7
 _ZNKSt10filesystem7__cxx114path5beginEv.exit7:    ; preds = %24, %26
   %.sink1.i5 = phi ptr [ %25, %24 ], [ null, %26 ]
   %.sink.i6 = phi i8 [ 0, %24 ], [ %28, %26 ]
-  %29 = load ptr, ptr %19, align 8
+  %29 = load ptr, ptr %19, align 8, !noalias !38
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 3
   %32 = icmp eq i64 %31, 0
@@ -1396,7 +1396,7 @@ define linkonce_odr dso_local void @_ZNKSt10filesystem7__cxx114path14generic_str
 _ZNKSt10filesystem7__cxx114path5beginEv.exit:     ; preds = %15
   %20 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #12, !noalias !55
   %21 = zext i1 %20 to i8
-  %22 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %5, align 8, !noalias !58
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 3
   %25 = icmp eq i64 %24, 0
@@ -1404,7 +1404,7 @@ _ZNKSt10filesystem7__cxx114path5beginEv.exit:     ; preds = %15
 
 _ZNKSt10filesystem7__cxx114path5beginEv.exit.thread: ; preds = %15
   %26 = call noundef ptr @_ZNKSt10filesystem7__cxx114path5_List5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12, !noalias !55
-  %27 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %5, align 8, !noalias !58
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 3
   %30 = icmp eq i64 %29, 0

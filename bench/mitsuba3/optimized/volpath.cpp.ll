@@ -1696,7 +1696,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %779 = fcmp contract ogt float %778, 0.000000e+00
   %780 = zext i1 %779 to i8
   %781 = load <4 x i32>, ptr %222, align 16, !noalias !179
-  %782 = load <4 x float>, ptr %156, align 16
+  %782 = load <4 x float>, ptr %156, align 16, !noalias !179
   %783 = load <4 x float>, ptr %223, align 16, !noalias !179
   %784 = load float, ptr %220, align 4, !noalias !179
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.52315.48..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %221, i64 16, i1 false)
@@ -4421,7 +4421,7 @@ _ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_sc
 588:                                              ; preds = %585
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %58, ptr noundef nonnull align 16 dereferenceable(256) %48, i64 256, i1 false)
   %589 = load <4 x i32>, ptr %185, align 16, !noalias !476
-  %590 = load <4 x float>, ptr %177, align 16
+  %590 = load <4 x float>, ptr %177, align 16, !noalias !476
   %591 = load <4 x float>, ptr %186, align 16, !noalias !476
   %592 = load float, ptr %183, align 4, !noalias !476
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.48..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %184, i64 16, i1 false)
@@ -4843,7 +4843,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %150 = fadd contract float %149, 1.000000e+00
   %151 = fmul contract float %150, 0x3F17700000000000
   %152 = getelementptr inbounds i8, ptr %2, i64 48
-  %153 = load <4 x float>, ptr %152, align 16
+  %153 = load <4 x float>, ptr %152, align 16, !noalias !507
   %154 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %153, <4 x float> %143, i8 113)
   %bc.i.i = bitcast <4 x float> %154 to <4 x i32>
   %155 = extractelement <4 x i32> %bc.i.i, i64 0
@@ -5697,7 +5697,7 @@ _ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_sc
 598:                                              ; preds = %595
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %58, ptr noundef nonnull align 16 dereferenceable(256) %48, i64 256, i1 false)
   %599 = load <4 x i32>, ptr %195, align 16, !noalias !600
-  %600 = load <4 x float>, ptr %177, align 16
+  %600 = load <4 x float>, ptr %177, align 16, !noalias !600
   %601 = load <4 x float>, ptr %196, align 16, !noalias !600
   %602 = load float, ptr %193, align 4, !noalias !600
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.48..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %194, i64 16, i1 false)

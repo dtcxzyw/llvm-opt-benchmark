@@ -12033,7 +12033,7 @@ if.else:                                          ; preds = %entry
 
 if.then24:                                        ; preds = %if.else
   %_M_last.i6 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %11 = load ptr, ptr %_M_last.i6, align 8, !tbaa !139
+  %11 = load ptr, ptr %_M_last.i6, align 8, !tbaa !139, !noalias !164
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %0 to i64
   %12 = xor i64 %sub.ptr.rhs.cast.i8, -1
@@ -12044,8 +12044,8 @@ if.then24:                                        ; preds = %if.else
 if.then.i19:                                      ; preds = %if.then24
   %sub4.i = sub nuw i64 %sub.ptr.sub.i.i.i, %sub.i9
   tail call void @_ZNSt5dequeIcSaIcEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !164
-  %.pre.i20 = load ptr, ptr %_M_finish, align 8, !tbaa !103
-  %.pre4.i21 = load ptr, ptr %_M_last.i6, align 8, !tbaa !117
+  %.pre.i20 = load ptr, ptr %_M_finish, align 8, !tbaa !103, !noalias !167
+  %.pre4.i21 = load ptr, ptr %_M_last.i6, align 8, !tbaa !117, !noalias !167
   %.pre5.i22 = ptrtoint ptr %.pre.i20 to i64
   br label %if.end.i11
 
@@ -12054,9 +12054,9 @@ if.end.i11:                                       ; preds = %if.then.i19, %if.th
   %13 = phi ptr [ %.pre4.i21, %if.then.i19 ], [ %11, %if.then24 ]
   %14 = phi ptr [ %.pre.i20, %if.then.i19 ], [ %10, %if.then24 ]
   %_M_first3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %15 = load ptr, ptr %_M_first3.i.i.i, align 8, !tbaa !116
+  %15 = load ptr, ptr %_M_first3.i.i.i, align 8, !tbaa !116, !noalias !167
   %_M_node5.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %16 = load ptr, ptr %_M_node5.i.i.i15, align 8, !tbaa !108
+  %16 = load ptr, ptr %_M_node5.i.i.i15, align 8, !tbaa !108, !noalias !167
   %sub.ptr.rhs.cast.i.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi.i, %sub.ptr.rhs.cast.i.i.i16
   %add.i.i.i = add nsw i64 %sub.ptr.sub.i.i.i17, %sub.ptr.sub.i.i.i
@@ -12266,7 +12266,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_first.i23 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %10 = load ptr, ptr %_M_first.i23, align 8, !tbaa !137
+  %10 = load ptr, ptr %_M_first.i23, align 8, !tbaa !137, !noalias !183
   %sub.ptr.rhs.cast.i25 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i26 = sub i64 %sub.ptr.rhs.cast8.i, %sub.ptr.rhs.cast.i25
   %cmp.i = icmp ugt i64 %__n, %sub.ptr.sub.i26
@@ -12275,12 +12275,12 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %sub.i27 = sub nuw i64 %__n, %sub.ptr.sub.i26
   tail call void @_ZNSt5dequeIcSaIcEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i27), !noalias !183
-  %.pre.i = load ptr, ptr %_M_start, align 8, !tbaa !103
-  %.pre4.i = load ptr, ptr %_M_first.i23, align 8, !tbaa !116
+  %.pre.i = load ptr, ptr %_M_start, align 8, !tbaa !103, !noalias !186
+  %.pre4.i = load ptr, ptr %_M_first.i23, align 8, !tbaa !116, !noalias !186
   %.pre5.i = ptrtoint ptr %.pre.i to i64
   %.pre6.i = ptrtoint ptr %.pre4.i to i64
-  %.pre628 = load ptr, ptr %_M_last.i, align 8, !tbaa !117
-  %.pre629 = load ptr, ptr %_M_node1.i, align 8, !tbaa !108
+  %.pre628 = load ptr, ptr %_M_last.i, align 8, !tbaa !117, !noalias !186
+  %.pre629 = load ptr, ptr %_M_node1.i, align 8, !tbaa !108, !noalias !186
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -12373,10 +12373,10 @@ _ZStplRKSt15_Deque_iteratorIcRcPcEl.exit:         ; preds = %if.then.i.i, %cond.
   br i1 %cmp8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit
-  %18 = load ptr, ptr %_M_start, align 8, !tbaa !103
-  %19 = load ptr, ptr %_M_first.i23, align 8, !tbaa !116
-  %20 = load ptr, ptr %_M_last.i, align 8, !tbaa !117
-  %21 = load ptr, ptr %_M_node1.i, align 8, !tbaa !108
+  %18 = load ptr, ptr %_M_start, align 8, !tbaa !103, !noalias !192
+  %19 = load ptr, ptr %_M_first.i23, align 8, !tbaa !116, !noalias !192
+  %20 = load ptr, ptr %_M_last.i, align 8, !tbaa !117, !noalias !192
+  %21 = load ptr, ptr %_M_node1.i, align 8, !tbaa !108, !noalias !192
   %sub.ptr.lhs.cast.i.i45 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i46 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i45, %sub.ptr.rhs.cast.i.i46
@@ -12824,7 +12824,7 @@ lpad64:                                           ; preds = %_ZNSt11_Deque_baseI
 
 if.else69:                                        ; preds = %entry
   %_M_last.i237 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %51 = load ptr, ptr %_M_last.i237, align 8, !tbaa !139
+  %51 = load ptr, ptr %_M_last.i237, align 8, !tbaa !139, !noalias !273
   %sub.ptr.lhs.cast.i238 = ptrtoint ptr %51 to i64
   %52 = xor i64 %sub.ptr.lhs.cast3.i.i, -1
   %sub.i240 = add i64 %sub.ptr.lhs.cast.i238, %52
@@ -12834,11 +12834,11 @@ if.else69:                                        ; preds = %entry
 if.then.i267:                                     ; preds = %if.else69
   %sub4.i = sub nuw i64 %__n, %sub.i240
   tail call void @_ZNSt5dequeIcSaIcEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !273
-  %.pre.i268 = load ptr, ptr %_M_finish.i, align 8, !tbaa !103
-  %.pre4.i269 = load ptr, ptr %_M_last.i237, align 8, !tbaa !117
+  %.pre.i268 = load ptr, ptr %_M_finish.i, align 8, !tbaa !103, !noalias !276
+  %.pre4.i269 = load ptr, ptr %_M_last.i237, align 8, !tbaa !117, !noalias !276
   %.pre5.i270 = ptrtoint ptr %.pre.i268 to i64
-  %.pre = load ptr, ptr %_M_first.i.i, align 8, !tbaa !116
-  %.pre627 = load ptr, ptr %_M_node.i.i, align 8, !tbaa !108
+  %.pre = load ptr, ptr %_M_first.i.i, align 8, !tbaa !116, !noalias !276
+  %.pre627 = load ptr, ptr %_M_node.i.i, align 8, !tbaa !108, !noalias !276
   %.pre630 = ptrtoint ptr %.pre to i64
   br label %if.end.i242
 
@@ -12933,10 +12933,10 @@ _ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit304:      ; preds = %if.then.i.i.i302, %
   br i1 %cmp75, label %if.then76, label %invoke.cont113
 
 if.then76:                                        ; preds = %_ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit304
-  %60 = load ptr, ptr %_M_finish.i, align 8, !tbaa !103
-  %61 = load ptr, ptr %_M_first.i.i, align 8, !tbaa !116
-  %62 = load ptr, ptr %_M_last.i237, align 8, !tbaa !117
-  %63 = load ptr, ptr %_M_node.i.i, align 8, !tbaa !108
+  %60 = load ptr, ptr %_M_finish.i, align 8, !tbaa !103, !noalias !282
+  %61 = load ptr, ptr %_M_first.i.i, align 8, !tbaa !116, !noalias !282
+  %62 = load ptr, ptr %_M_last.i237, align 8, !tbaa !117, !noalias !282
+  %63 = load ptr, ptr %_M_node.i.i, align 8, !tbaa !108, !noalias !282
   %sub.ptr.lhs.cast.i.i.i312 = ptrtoint ptr %60 to i64
   %sub.ptr.rhs.cast.i.i.i313 = ptrtoint ptr %61 to i64
   %64 = add i64 %__n, %sub.ptr.rhs.cast.i.i.i313

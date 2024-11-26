@@ -759,7 +759,7 @@ _ZN4llvm9symbolize10SourceCode4loadENS_9StringRefERKSt8optionalIS2_E.exit.thread
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %23 = load i8, ptr %22, align 8
+  %23 = load i8, ptr %22, align 8, !noalias !9
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %26
 

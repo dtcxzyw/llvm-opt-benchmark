@@ -2570,7 +2570,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds i8, ptr %102, i64 98
-  %110 = load i16, ptr %109, align 2, !noalias !327, !noundef !4
+  %110 = load i16, ptr %109, align 2, !noalias !335, !noundef !4
   %.not.i.i.i = icmp eq i16 %110, 0
   br i1 %.not.i.i.i, label %111, label %130
 

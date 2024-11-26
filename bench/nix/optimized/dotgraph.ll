@@ -1929,10 +1929,10 @@ _ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_E
   store i32 %563, ptr %521, align 4, !noalias !18
   %564 = getelementptr inbounds i8, ptr %446, i64 24
   %565 = getelementptr inbounds i8, ptr %446, i64 40
-  %566 = load ptr, ptr %565, align 8
+  %566 = load ptr, ptr %565, align 8, !noalias !18
   %567 = getelementptr inbounds i8, ptr %446, i64 48
-  %568 = load i32, ptr %567, align 8
-  %569 = load ptr, ptr %564, align 8
+  %568 = load i32, ptr %567, align 8, !noalias !18
+  %569 = load ptr, ptr %564, align 8, !noalias !18
   %570 = ptrtoint ptr %566 to i64
   %571 = ptrtoint ptr %569 to i64
   %572 = sub i64 %570, %571
@@ -2091,7 +2091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
   store i32 0, ptr %521, align 4
   store i8 0, ptr %447, align 4
   %.not.i195 = icmp ne i64 %.pre-phi453, %.pre-phi457
-  %.pre443 = load i32, ptr %522, align 8
+  %.pre443 = load i32, ptr %522, align 8, !noalias !18
   %643 = icmp sgt i32 %.pre443, 0
   %or.cond = select i1 %.not.i195, i1 %643, i1 false
   br i1 %or.cond, label %.lr.ph19.preheader.i, label %.noexc147

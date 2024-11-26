@@ -27868,7 +27868,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit2072:                                    ; preds = %.lr.ph.i.i.i.i.i.i1344, %.noexc7.i
   %.0.lcssa.i.i.i.i.i.i1346 = phi ptr [ %2589, %.noexc7.i ], [ %2594, %.lr.ph.i.i.i.i.i.i1344 ]
   store ptr %.0.lcssa.i.i.i.i.i.i1346, ptr %331, align 8, !noalias !397
-  %2596 = load i32, ptr %14, align 8
+  %2596 = load i32, ptr %14, align 8, !noalias !397
   %.not15.i = icmp eq i32 %2596, 0
   br i1 %.not15.i, label %.loopexit2071, label %.lr.ph.i
 
@@ -30629,7 +30629,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit2056:                                    ; preds = %.lr.ph.i.i.i.i.i.i1434, %.noexc7.i1432
   %.0.lcssa.i.i.i.i.i.i1438 = phi ptr [ %3700, %.noexc7.i1432 ], [ %3705, %.lr.ph.i.i.i.i.i.i1434 ]
   store ptr %.0.lcssa.i.i.i.i.i.i1438, ptr %373, align 8, !noalias !411
-  %3707 = load i32, ptr %12, align 8
+  %3707 = load i32, ptr %12, align 8, !noalias !411
   %.not15.i1399 = icmp eq i32 %3707, 0
   br i1 %.not15.i1399, label %.loopexit2055, label %.lr.ph.i1400
 

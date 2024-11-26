@@ -246,31 +246,31 @@ entry:
   %mul.i.i41 = fmul float %add.i30, 5.000000e-01
   %mul4.i.i43 = fmul float %add8.i33, 5.000000e-01
   %mul8.i.i45 = fmul float %add14.i, 5.000000e-01
-  %5 = load float, ptr %trans, align 4
+  %5 = load float, ptr %trans, align 4, !noalias !5
   %6 = tail call noundef float @llvm.fabs.f32(float %5)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %trans, i64 4
-  %7 = load float, ptr %arrayidx.i.i, align 4
+  %7 = load float, ptr %arrayidx.i.i, align 4, !noalias !5
   %8 = tail call noundef float @llvm.fabs.f32(float %7)
   %arrayidx.i1.i = getelementptr inbounds i8, ptr %trans, i64 8
-  %9 = load float, ptr %arrayidx.i1.i, align 4
+  %9 = load float, ptr %arrayidx.i1.i, align 4, !noalias !5
   %10 = tail call noundef float @llvm.fabs.f32(float %9)
   %arrayidx15.i = getelementptr inbounds i8, ptr %trans, i64 16
-  %11 = load float, ptr %arrayidx15.i, align 4
+  %11 = load float, ptr %arrayidx15.i, align 4, !noalias !5
   %12 = tail call noundef float @llvm.fabs.f32(float %11)
   %arrayidx.i2.i = getelementptr inbounds i8, ptr %trans, i64 20
-  %13 = load float, ptr %arrayidx.i2.i, align 4
+  %13 = load float, ptr %arrayidx.i2.i, align 4, !noalias !5
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
   %arrayidx.i3.i = getelementptr inbounds i8, ptr %trans, i64 24
-  %15 = load float, ptr %arrayidx.i3.i, align 4
+  %15 = load float, ptr %arrayidx.i3.i, align 4, !noalias !5
   %16 = tail call noundef float @llvm.fabs.f32(float %15)
   %arrayidx30.i = getelementptr inbounds i8, ptr %trans, i64 32
-  %17 = load float, ptr %arrayidx30.i, align 4
+  %17 = load float, ptr %arrayidx30.i, align 4, !noalias !5
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
   %arrayidx.i4.i = getelementptr inbounds i8, ptr %trans, i64 36
-  %19 = load float, ptr %arrayidx.i4.i, align 4
+  %19 = load float, ptr %arrayidx.i4.i, align 4, !noalias !5
   %20 = tail call noundef float @llvm.fabs.f32(float %19)
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %trans, i64 40
-  %21 = load float, ptr %arrayidx.i5.i, align 4
+  %21 = load float, ptr %arrayidx.i5.i, align 4, !noalias !5
   %22 = tail call noundef float @llvm.fabs.f32(float %21)
   %mul8.i.i.i = fmul float %mul4.i.i43, %7
   %23 = tail call float @llvm.fmuladd.f32(float %mul.i.i41, float %5, float %mul8.i.i.i)
@@ -404,7 +404,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store float %2, ptr %arrayidx4.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !8
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %for.body.i
   ret ptr @.str.4
@@ -534,5 +534,8 @@ attributes #14 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"_ZNK11btMatrix3x38absoluteEv: %agg.result"}
+!7 = distinct !{!7, !"_ZNK11btMatrix3x38absoluteEv"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}

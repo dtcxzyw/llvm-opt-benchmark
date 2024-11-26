@@ -1994,7 +1994,7 @@ invoke.cont:                                      ; preds = %.noexc, %call5.i.i.
 invoke.cont4:                                     ; preds = %invoke.cont
   %construction.i.i50 = getelementptr inbounds i8, ptr %call.i51, i64 104
   %_M_finish.i.i.i.i52 = getelementptr inbounds i8, ptr %call.i51, i64 112
-  %15 = load ptr, ptr %_M_finish.i.i.i.i52, align 8, !tbaa !20
+  %15 = load ptr, ptr %_M_finish.i.i.i.i52, align 8, !tbaa !20, !noalias !80
   %16 = load ptr, ptr %construction.i.i50, align 8, !tbaa !18, !noalias !80
   %tobool.not15.i.i.i = icmp eq ptr %15, %16
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaI5clazzEEEE10disconnectITnDaXadL_ZNS_6invokeITnDaXadL_ZNS8_4funcES6_S3_EES5_EEvRT0_NSE_11entity_typeEEEJEEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -4248,7 +4248,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
 call.i.i.noexc:                                   ; preds = %cleanup.cont
   %construction.i.i.i = getelementptr inbounds i8, ptr %call.i.i296, i64 104
   %_M_finish.i.i.i.i.i287 = getelementptr inbounds i8, ptr %call.i.i296, i64 112
-  %34 = load ptr, ptr %_M_finish.i.i.i.i.i287, align 8, !tbaa !20
+  %34 = load ptr, ptr %_M_finish.i.i.i.i.i287, align 8, !tbaa !20, !noalias !159
   %35 = load ptr, ptr %construction.i.i.i, align 8, !tbaa !18, !noalias !159
   %tobool.not15.i.i.i.i = icmp eq ptr %34, %35
   br i1 %tobool.not15.i.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z13sigh_callbackRiEEJSC_EEEvDpOT0_.exit.i.i, label %for.body.lr.ph.i.i.i.i
@@ -4368,7 +4368,7 @@ invoke.cont32:                                    ; preds = %_ZNSt6vectorIN4entt
 call.i.i.noexc330:                                ; preds = %invoke.cont32
   %update.i.i.i = getelementptr inbounds i8, ptr %call.i.i331, i64 152
   %_M_finish.i.i.i.i.i300 = getelementptr inbounds i8, ptr %call.i.i331, i64 160
-  %48 = load ptr, ptr %_M_finish.i.i.i.i.i300, align 8, !tbaa !20
+  %48 = load ptr, ptr %_M_finish.i.i.i.i.i300, align 8, !tbaa !20, !noalias !167
   %49 = load ptr, ptr %update.i.i.i, align 8, !tbaa !18, !noalias !167
   %tobool.not15.i.i.i.i301 = icmp eq ptr %48, %49
   br i1 %tobool.not15.i.i.i.i301, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z13sigh_callbackRiEEJSC_EEEvDpOT0_.exit.i.i316, label %for.body.lr.ph.i.i.i.i302
@@ -4488,7 +4488,7 @@ invoke.cont34:                                    ; preds = %_ZNSt6vectorIN4entt
 call.i.i.noexc365:                                ; preds = %invoke.cont34
   %destruction.i.i.i = getelementptr inbounds i8, ptr %call.i.i366, i64 128
   %_M_finish.i.i.i.i.i335 = getelementptr inbounds i8, ptr %call.i.i366, i64 136
-  %62 = load ptr, ptr %_M_finish.i.i.i.i.i335, align 8, !tbaa !20
+  %62 = load ptr, ptr %_M_finish.i.i.i.i.i335, align 8, !tbaa !20, !noalias !174
   %63 = load ptr, ptr %destruction.i.i.i, align 8, !tbaa !18, !noalias !174
   %tobool.not15.i.i.i.i336 = icmp eq ptr %62, %63
   br i1 %tobool.not15.i.i.i.i336, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIiEEEE10disconnectITnDaXadL_Z13sigh_callbackRiEEJSC_EEEvDpOT0_.exit.i.i351, label %for.body.lr.ph.i.i.i.i337
@@ -5097,7 +5097,7 @@ cleanup.cont107:                                  ; preds = %_ZNKSt14default_del
 call.i.i.noexc540:                                ; preds = %cleanup.cont107
   %construction.i.i.i510 = getelementptr inbounds i8, ptr %call.i.i541, i64 104
   %_M_finish.i.i.i.i.i511 = getelementptr inbounds i8, ptr %call.i.i541, i64 112
-  %138 = load ptr, ptr %_M_finish.i.i.i.i.i511, align 8, !tbaa !20
+  %138 = load ptr, ptr %_M_finish.i.i.i.i.i511, align 8, !tbaa !20, !noalias !201
   %139 = load ptr, ptr %construction.i.i.i510, align 8, !tbaa !18, !noalias !201
   %tobool.not15.i.i.i.i512 = icmp eq ptr %138, %139
   br i1 %tobool.not15.i.i.i.i512, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIdEEEE10disconnectITnDaXadL_Z13sigh_callbackRiEEJSC_EEEvDpOT0_.exit.i.i, label %for.body.lr.ph.i.i.i.i513
@@ -5217,7 +5217,7 @@ invoke.cont116:                                   ; preds = %_ZNSt6vectorIN4entt
 call.i.i.noexc576:                                ; preds = %invoke.cont116
   %update.i.i.i545 = getelementptr inbounds i8, ptr %call.i.i577, i64 152
   %_M_finish.i.i.i.i.i546 = getelementptr inbounds i8, ptr %call.i.i577, i64 160
-  %152 = load ptr, ptr %_M_finish.i.i.i.i.i546, align 8, !tbaa !20
+  %152 = load ptr, ptr %_M_finish.i.i.i.i.i546, align 8, !tbaa !20, !noalias !209
   %153 = load ptr, ptr %update.i.i.i545, align 8, !tbaa !18, !noalias !209
   %tobool.not15.i.i.i.i547 = icmp eq ptr %152, %153
   br i1 %tobool.not15.i.i.i.i547, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIdEEEE10disconnectITnDaXadL_Z13sigh_callbackRiEEJSC_EEEvDpOT0_.exit.i.i562, label %for.body.lr.ph.i.i.i.i548
@@ -5337,7 +5337,7 @@ invoke.cont118:                                   ; preds = %_ZNSt6vectorIN4entt
 call.i.i.noexc612:                                ; preds = %invoke.cont118
   %destruction.i.i.i581 = getelementptr inbounds i8, ptr %call.i.i613, i64 128
   %_M_finish.i.i.i.i.i582 = getelementptr inbounds i8, ptr %call.i.i613, i64 136
-  %166 = load ptr, ptr %_M_finish.i.i.i.i.i582, align 8, !tbaa !20
+  %166 = load ptr, ptr %_M_finish.i.i.i.i.i582, align 8, !tbaa !20, !noalias !216
   %167 = load ptr, ptr %destruction.i.i.i581, align 8, !tbaa !18, !noalias !216
   %tobool.not15.i.i.i.i583 = icmp eq ptr %166, %167
   br i1 %tobool.not15.i.i.i.i583, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIdEEEE10disconnectITnDaXadL_Z13sigh_callbackRiEEJSC_EEEvDpOT0_.exit.i.i598, label %for.body.lr.ph.i.i.i.i584

@@ -1116,11 +1116,11 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_2023080223inlined_vector_internal7StorageI26grpc_compression_algorithmLm3ESaIS3_EE11EmplaceBackIJRKS3_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %args) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %this, align 8, !noalias !39
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %data_.i1.i, align 8
+  %1 = load ptr, ptr %data_.i1.i, align 8, !noalias !39
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !39
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
@@ -1172,7 +1172,7 @@ for.inc.i.i:                                      ; preds = %_ZN4absl12lts_20230
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0.i, i64 4
   %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %.sink.i
-  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !42
 
 invoke.cont21.i:                                  ; preds = %for.inc.i.i, %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaI26grpc_compression_algorithmELb0EE8AllocateERS4_m.exit.i.i
   br i1 %tobool.i.not.i, label %_ZN4absl12lts_2023080223inlined_vector_internal7StorageI26grpc_compression_algorithmLm3ESaIS3_EE15EmplaceBackSlowIJRKS3_EEERS3_DpOT_.exit, label %if.then.i.i
@@ -1291,13 +1291,13 @@ _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i: ; 
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.018.i.i, i64 1
   %4 = load i8, ptr %incdec.ptr.i.i, align 1
   %cmp15.not.i.i = icmp eq i8 %4, 0
-  br i1 %cmp15.not.i.i, label %for.inc17.i.i, label %for.body16.i.i, !llvm.loop !41
+  br i1 %cmp15.not.i.i, label %for.inc17.i.i, label %for.body16.i.i, !llvm.loop !43
 
 for.inc17.i.i:                                    ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i, %switch.lookup, %for.body7.i.i
   %text_buffer.4.i.i = phi ptr [ %text_buffer.119.i.i, %for.body7.i.i ], [ %text_buffer.2.i.i, %switch.lookup ], [ %incdec.ptr.i29.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ]
   %inc.i.i = add nuw nsw i64 %algorithm.020.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
-  br i1 %exitcond.not.i.i, label %for.end18.i.i, label %for.body7.i.i, !llvm.loop !42
+  br i1 %exitcond.not.i.i, label %for.end18.i.i, label %for.body7.i.i, !llvm.loop !44
 
 for.end18.i.i:                                    ; preds = %for.inc17.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %text_buffer.4.i.i to i64
@@ -1309,7 +1309,7 @@ for.end18.i.i:                                    ; preds = %for.inc17.i.i
   store ptr %text_buffer.021.i.i, ptr %ref.tmp.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
   %inc21.i.i = add nuw nsw i64 %list.022.i.i, 1
   %exitcond23.not.i.i = icmp eq i64 %inc21.i.i, 8
-  br i1 %exitcond23.not.i.i, label %for.end22.i.i, label %for.cond5.preheader.i.i, !llvm.loop !43
+  br i1 %exitcond23.not.i.i, label %for.end22.i.i, label %for.cond5.preheader.i.i, !llvm.loop !45
 
 for.end22.i.i:                                    ; preds = %for.end18.i.i
   %sub.ptr.sub27.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
@@ -1406,8 +1406,10 @@ attributes #27 = { builtin allocsize(0) }
 !36 = distinct !{!36, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_"}
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
-!39 = !{}
-!40 = distinct !{!40, !8}
-!41 = distinct !{!41, !8}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN4absl12lts_2023080223inlined_vector_internal7StorageI26grpc_compression_algorithmLm3ESaIS3_EE15MakeStorageViewEv: %agg.result"}
+!41 = distinct !{!41, !"_ZN4absl12lts_2023080223inlined_vector_internal7StorageI26grpc_compression_algorithmLm3ESaIS3_EE15MakeStorageViewEv"}
 !42 = distinct !{!42, !8}
 !43 = distinct !{!43, !8}
+!44 = distinct !{!44, !8}
+!45 = distinct !{!45, !8}

@@ -3362,7 +3362,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
 207:                                              ; preds = %203
   %208 = load i64, ptr %205, align 8, !noalias !75
   %209 = and i64 %208, -4
-  %210 = load i64, ptr @vmemmap_base, align 8
+  %210 = load i64, ptr @vmemmap_base, align 8, !noalias !75
   %211 = icmp eq i64 %209, %210
   %cond.fr = freeze i1 %211
   br i1 %cond.fr, label %.thread70, label %212

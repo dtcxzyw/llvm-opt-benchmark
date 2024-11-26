@@ -140,7 +140,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..Gues
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !noundef !5
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  %6 = load ptr, ptr %5, align 8, !alias.scope !6, !noundef !5
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %6)
           to label %"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$wiggle..error..GuestError$GT$$GT$17h82673ea8364d9116E.exit" unwind label %7, !noalias !6
 
@@ -5748,7 +5749,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Iovec$u20$as$u20$wiggle.
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %8, i64 40
-  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !174, !nonnull !5
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 1 %6, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !174
   br i1 %19, label %23, label %21
 
@@ -6105,7 +6106,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %8, i64 40
-  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !190, !nonnull !5
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 1 %6, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !190
   br i1 %19, label %23, label %21
 
@@ -7522,7 +7523,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %10, i64 32
-  %21 = load ptr, ptr %20, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %21 = load ptr, ptr %20, align 8, !invariant.load !5, !noalias !250, !nonnull !5
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 1 %8, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !250
   br i1 %22, label %25, label %24
 
@@ -7856,7 +7857,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %11, i64 40
-  %22 = load ptr, ptr %21, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %22 = load ptr, ptr %21, align 8, !invariant.load !5, !noalias !262, !nonnull !5
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 1 %9, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !262
   br i1 %23, label %27, label %25
 
@@ -9347,7 +9348,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %12, i64 40
-  %36 = load ptr, ptr %35, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %36 = load ptr, ptr %35, align 8, !invariant.load !5, !noalias !316, !nonnull !5
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 1 %10, i32 noundef %.sroa.522.0.copyload.i.i, i32 noundef %.sroa.623.0.copyload.i.i), !noalias !316
   br i1 %37, label %42, label %39
 
@@ -10375,7 +10376,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %19, i64 32
-  %30 = load ptr, ptr %29, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %30 = load ptr, ptr %29, align 8, !invariant.load !5, !noalias !369, !nonnull !5
   %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 1 %17, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !369
   br i1 %31, label %34, label %33
 
@@ -10933,7 +10934,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %20, i64 40
-  %31 = load ptr, ptr %30, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %31 = load ptr, ptr %30, align 8, !invariant.load !5, !noalias !377, !nonnull !5
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 1 %18, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !377
   br i1 %32, label %36, label %34
 
@@ -12173,7 +12174,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %9, i64 40
-  %19 = load ptr, ptr %18, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %19 = load ptr, ptr %18, align 8, !invariant.load !5, !noalias !418, !nonnull !5
   %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 1 %7, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !418
   br i1 %20, label %24, label %22
 
@@ -12383,7 +12384,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle.
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %11, i64 32
-  %22 = load ptr, ptr %21, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %22 = load ptr, ptr %21, align 8, !invariant.load !5, !noalias !429, !nonnull !5
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 1 %9, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !429
   br i1 %23, label %26, label %25
 
@@ -13209,7 +13210,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %10, i64 32
-  %20 = load ptr, ptr %19, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %20 = load ptr, ptr %19, align 8, !invariant.load !5, !noalias !458, !nonnull !5
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 1 %8, i32 noundef %.sroa.522.0.copyload.i.i, i32 noundef %.sroa.623.0.copyload.i.i), !noalias !458
   br i1 %21, label %25, label %23
 
@@ -13597,7 +13598,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %12, i64 40
-  %35 = load ptr, ptr %34, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %35 = load ptr, ptr %34, align 8, !invariant.load !5, !noalias !473, !nonnull !5
   %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 1 %10, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !473
   br i1 %36, label %41, label %38
 
@@ -14027,7 +14028,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %10, i64 32
-  %20 = load ptr, ptr %19, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %20 = load ptr, ptr %19, align 8, !invariant.load !5, !noalias !492, !nonnull !5
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 1 %8, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !492
   br i1 %21, label %25, label %23
 
@@ -14458,7 +14459,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %41, i64 40
-  %51 = load ptr, ptr %50, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %51 = load ptr, ptr %50, align 8, !invariant.load !5, !noalias !521, !nonnull !5
   %52 = tail call noundef zeroext i1 %51(ptr noundef nonnull align 1 %39, i32 noundef %.sroa.522.0.copyload.i238, i32 noundef %.sroa.623.0.copyload.i240), !noalias !521
   br i1 %52, label %90, label %54
 
@@ -14515,7 +14516,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %60, i64 40
-  %70 = load ptr, ptr %69, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %70 = load ptr, ptr %69, align 8, !invariant.load !5, !noalias !525, !nonnull !5
   %71 = tail call noundef zeroext i1 %70(ptr noundef nonnull align 1 %58, i32 noundef %.sroa.522.0.copyload.i267, i32 noundef %.sroa.623.0.copyload.i269), !noalias !525
   br i1 %71, label %109, label %73
 
@@ -19112,7 +19113,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggl
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %7, i64 32
-  %17 = load ptr, ptr %16, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %17 = load ptr, ptr %16, align 8, !invariant.load !5, !noalias !734, !nonnull !5
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 1 %5, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !734
   br i1 %18, label %22, label %20
 
@@ -19309,7 +19310,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggl
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %8, i64 40
-  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  %18 = load ptr, ptr %17, align 8, !invariant.load !5, !noalias !745, !nonnull !5
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 1 %6, i32 noundef %.sroa.522.0.copyload.i, i32 noundef %.sroa.623.0.copyload.i), !noalias !745
   br i1 %19, label %23, label %21
 

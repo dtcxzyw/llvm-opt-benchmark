@@ -634,7 +634,7 @@ define weak_odr void @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8Spectr
   %24 = insertelement <4 x float> poison, float %23, i64 0
   %25 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> zeroinitializer
   %26 = getelementptr inbounds i8, ptr %1, i64 40
-  %27 = load <4 x float>, ptr %26, align 8
+  %27 = load <4 x float>, ptr %26, align 8, !noalias !4
   %28 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> zeroinitializer
   %29 = fmul contract <4 x float> %27, %27
   %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> zeroinitializer
@@ -719,7 +719,7 @@ define weak_odr void @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8Spectr
   %100 = fsub contract <4 x float> %49, %99
   %101 = shufflevector <8 x i1> %93, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %102 = select contract <4 x i1> %101, <4 x float> %100, <4 x float> %49
-  br label %40, !llvm.loop !4
+  br label %40, !llvm.loop !7
 
 103:                                              ; preds = %40
   %104 = fdiv contract float 1.000000e+00, %7
@@ -1198,10 +1198,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 11:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit12
   %12 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i64 16), ptr %4, align 16, !alias.scope !6
-  store ptr %4, ptr %12, align 16, !alias.scope !6
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i64 16), ptr %4, align 16, !alias.scope !9
+  store ptr %4, ptr %12, align 16, !alias.scope !9
   %13 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr null, ptr %13, align 16, !alias.scope !9
+  store ptr null, ptr %13, align 16, !alias.scope !12
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.8, i64 noundef 0)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14 unwind label %.thread30
 
@@ -1777,11 +1777,14 @@ attributes #21 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv: argument 0"}
-!8 = distinct !{!8, !"_ZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11cdf_and_pdfIS4_EENSt3__14pairIT_SA_EESA_: argument 0"}
+!6 = distinct !{!6, !"_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11cdf_and_pdfIS4_EENSt3__14pairIT_SA_EESA_"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN7mitsuba6detail23get_unserialize_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv: argument 0"}
-!11 = distinct !{!11, !"_ZN7mitsuba6detail23get_unserialize_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv"}
+!10 = distinct !{!10, !11, !"_ZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv: argument 0"}
+!11 = distinct !{!11, !"_ZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN7mitsuba6detail23get_unserialize_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv: argument 0"}
+!14 = distinct !{!14, !"_ZN7mitsuba6detail23get_unserialize_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv"}

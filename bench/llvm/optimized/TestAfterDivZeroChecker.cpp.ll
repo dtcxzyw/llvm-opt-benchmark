@@ -3994,7 +3994,7 @@ define internal void @_ZN12_GLOBAL__N_117DivisionBRVisitor9VisitNodeEPKN5clang4e
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %16, align 8, !noalias !69
   %17 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.0.copyload.i.i.i5.i.i.i.i = load i64, ptr %18, align 8
+  %.0.copyload.i.i.i5.i.i.i.i = load i64, ptr %18, align 8, !noalias !69
   %19 = trunc i64 %.0.copyload.i.i.i5.i.i.i.i to i32
   %20 = shl i32 %17, 3
   %21 = and i32 %20, 48

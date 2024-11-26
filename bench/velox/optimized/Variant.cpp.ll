@@ -6010,7 +6010,7 @@ call.i76.noexc:                                   ; preds = %for.end
   store ptr %27, ptr %_M_right.i.i.i.i.i79, align 8, !noalias !52
   %_M_node_count.i.i.i.i.i80 = getelementptr inbounds i8, ptr %call.i7684, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i80, align 8, !noalias !52
-  %28 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  %28 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !noalias !52
   %cmp.not.i.i.i81 = icmp eq ptr %28, null
   br i1 %cmp.not.i.i.i81, label %invoke.cont44, label %if.then.i.i.i
 

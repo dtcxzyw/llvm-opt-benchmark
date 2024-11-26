@@ -1605,7 +1605,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %.noexc, %24, %30
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %32 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8, !alias.scope !9, !noalias !12
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = getelementptr inbounds i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !noalias !12

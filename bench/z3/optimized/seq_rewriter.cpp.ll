@@ -13602,7 +13602,7 @@ if.then126:                                       ; preds = %sw.bb124
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %m_autil.i = getelementptr inbounds i8, ptr %this, i64 136
   %call.i157 = tail call noundef ptr @_ZN10arith_util6mk_intEi(ptr noundef nonnull align 8 dereferenceable(16) %m_autil.i, i32 noundef 0), !noalias !34
-  %44 = load ptr, ptr %this, align 8
+  %44 = load ptr, ptr %this, align 8, !noalias !34
   store ptr %call.i157, ptr %ref.tmp, align 8, !alias.scope !34
   %m_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %44, ptr %m_manager.i.i, align 8, !alias.scope !34
@@ -29878,7 +29878,7 @@ invoke.cont406:                                   ; preds = %invoke.cont402
           to label %call.i.noexc792 unwind label %lpad403
 
 call.i.noexc792:                                  ; preds = %invoke.cont406
-  %234 = load ptr, ptr %this, align 8
+  %234 = load ptr, ptr %this, align 8, !noalias !141
   store ptr %call.i793, ptr %ref.tmp408, align 8, !alias.scope !141
   %m_manager.i.i787 = getelementptr inbounds i8, ptr %ref.tmp408, i64 8
   store ptr %234, ptr %m_manager.i.i787, align 8, !alias.scope !141
@@ -30176,7 +30176,7 @@ invoke.cont507:                                   ; preds = %invoke.cont505
           to label %call.i.noexc905 unwind label %lpad502
 
 call.i.noexc905:                                  ; preds = %invoke.cont507
-  %270 = load ptr, ptr %this, align 8
+  %270 = load ptr, ptr %this, align 8, !noalias !156
   store ptr %call.i906, ptr %ref.tmp509, align 8, !alias.scope !156
   %m_manager.i.i900 = getelementptr inbounds i8, ptr %ref.tmp509, i64 8
   store ptr %270, ptr %m_manager.i.i900, align 8, !alias.scope !156

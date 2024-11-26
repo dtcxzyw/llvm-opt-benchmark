@@ -962,8 +962,8 @@ default.unreachable:                              ; preds = %312, %1
   %144 = getelementptr inbounds i8, ptr %139, i64 24
   %145 = load i64, ptr %144, align 8, !alias.scope !184, !noalias !186, !noundef !7
   %146 = getelementptr inbounds i8, ptr %.val, i64 240
-  %147 = load i64, ptr %146, align 8, !alias.scope !181, !noalias !187, !noundef !7
-  %148 = load i64, ptr %118, align 8, !alias.scope !188, !noalias !187, !noundef !7
+  %147 = load i64, ptr %146, align 8, !alias.scope !187, !noalias !190, !noundef !7
+  %148 = load i64, ptr %118, align 8, !alias.scope !187, !noalias !190, !noundef !7
   %149 = sub i64 %148, %147
   %150 = icmp ugt i64 %145, %149
   br i1 %150, label %151, label %154
@@ -973,7 +973,7 @@ default.unreachable:                              ; preds = %312, %1
           to label %.noexc.i.i.i.i.i.i unwind label %152, !noalias !153
 
 .noexc.i.i.i.i.i.i:                               ; preds = %151
-  %.pre.i.i.i.i.i.i.i = load i64, ptr %146, align 8, !alias.scope !181, !noalias !187
+  %.pre.i.i.i.i.i.i.i = load i64, ptr %146, align 8, !alias.scope !181, !noalias !190
   br label %154
 
 152:                                              ; preds = %151
@@ -985,13 +985,13 @@ default.unreachable:                              ; preds = %312, %1
 154:                                              ; preds = %.noexc.i.i.i.i.i.i, %137
   %155 = phi i64 [ %147, %137 ], [ %.pre.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i ]
   %156 = getelementptr inbounds i8, ptr %.val, i64 232
-  %157 = load ptr, ptr %156, align 8, !alias.scope !181, !noalias !187, !nonnull !7, !noundef !7
+  %157 = load ptr, ptr %156, align 8, !alias.scope !181, !noalias !190, !nonnull !7, !noundef !7
   %158 = getelementptr inbounds { { { i32, i32 }, i32, i32 }, i32, i32, i32 }, ptr %157, i64 %155
   %159 = mul i64 %145, 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %158, ptr nonnull align 4 %143, i64 %159, i1 false), !noalias !191
-  %160 = load i64, ptr %146, align 8, !alias.scope !181, !noalias !187, !noundef !7
+  %160 = load i64, ptr %146, align 8, !alias.scope !181, !noalias !190, !noundef !7
   %161 = add i64 %160, %145
-  store i64 %161, ptr %146, align 8, !alias.scope !181, !noalias !187
+  store i64 %161, ptr %146, align 8, !alias.scope !181, !noalias !190
   store i64 0, ptr %144, align 8, !alias.scope !184, !noalias !186
   %162 = getelementptr inbounds i8, ptr %139, i64 4
   %163 = trunc nuw i8 %141 to i1
@@ -1299,8 +1299,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i.i: ; preds 
   %272 = load ptr, ptr %179, align 8, !alias.scope !223, !noalias !225, !nonnull !7, !noundef !7
   %273 = load i64, ptr %178, align 8, !alias.scope !223, !noalias !225, !noundef !7
   %274 = getelementptr inbounds i8, ptr %268, i64 24
-  %275 = load i64, ptr %274, align 8, !alias.scope !220, !noalias !226, !noundef !7
-  %276 = load i64, ptr %271, align 8, !alias.scope !227, !noalias !226, !noundef !7
+  %275 = load i64, ptr %274, align 8, !alias.scope !226, !noalias !229, !noundef !7
+  %276 = load i64, ptr %271, align 8, !alias.scope !226, !noalias !229, !noundef !7
   %277 = sub i64 %276, %275
   %278 = icmp ugt i64 %273, %277
   br i1 %278, label %279, label %282
@@ -1310,7 +1310,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i.i: ; preds 
           to label %.noexc123.i.i.i.i.i.i unwind label %280, !noalias !153
 
 .noexc123.i.i.i.i.i.i:                            ; preds = %279
-  %.pre.i122.i.i.i.i.i.i = load i64, ptr %274, align 8, !alias.scope !220, !noalias !226
+  %.pre.i122.i.i.i.i.i.i = load i64, ptr %274, align 8, !alias.scope !220, !noalias !229
   br label %282
 
 280:                                              ; preds = %279
@@ -1322,13 +1322,13 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i.i: ; preds 
 282:                                              ; preds = %.noexc123.i.i.i.i.i.i, %266
   %283 = phi i64 [ %275, %266 ], [ %.pre.i122.i.i.i.i.i.i, %.noexc123.i.i.i.i.i.i ]
   %284 = getelementptr inbounds i8, ptr %268, i64 16
-  %285 = load ptr, ptr %284, align 8, !alias.scope !220, !noalias !226, !nonnull !7, !noundef !7
+  %285 = load ptr, ptr %284, align 8, !alias.scope !220, !noalias !229, !nonnull !7, !noundef !7
   %286 = getelementptr inbounds { { { i32, i32 }, i32, i32 }, i32, i32, i32 }, ptr %285, i64 %283
   %287 = mul i64 %273, 28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %286, ptr nonnull align 4 %272, i64 %287, i1 false), !noalias !226
-  %288 = load i64, ptr %274, align 8, !alias.scope !220, !noalias !226, !noundef !7
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %286, ptr nonnull align 4 %272, i64 %287, i1 false), !noalias !229
+  %288 = load i64, ptr %274, align 8, !alias.scope !220, !noalias !229, !noundef !7
   %289 = add i64 %288, %273
-  store i64 %289, ptr %274, align 8, !alias.scope !220, !noalias !226
+  store i64 %289, ptr %274, align 8, !alias.scope !220, !noalias !229
   store i64 0, ptr %178, align 8, !alias.scope !223, !noalias !225
   %290 = getelementptr inbounds i8, ptr %268, i64 4
   %291 = trunc nuw i8 %270 to i1
@@ -2824,10 +2824,10 @@ attributes #18 = { cold }
 !184 = !{!185}
 !185 = distinct !{!185, !183, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6append17h1cd711880d9641deE: argument 1"}
 !186 = !{!182, !150, !152}
-!187 = !{!185, !171, !156, !148, !150, !152}
-!188 = !{!189, !182}
-!189 = distinct !{!189, !190, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17had1a95fa8d2d12d0E: argument 0"}
-!190 = distinct !{!190, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17had1a95fa8d2d12d0E"}
+!187 = !{!188, !182}
+!188 = distinct !{!188, !189, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17had1a95fa8d2d12d0E: argument 0"}
+!189 = distinct !{!189, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17had1a95fa8d2d12d0E"}
+!190 = !{!185, !171, !156, !148, !150, !152}
 !191 = !{!185, !150, !152}
 !192 = !{i32 0, i32 2}
 !193 = !{!194}
@@ -2863,10 +2863,10 @@ attributes #18 = { cold }
 !223 = !{!224}
 !224 = distinct !{!224, !222, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6append17h1cd711880d9641deE: argument 1"}
 !225 = !{!221, !171, !156, !148, !150, !152}
-!226 = !{!224, !150, !152}
-!227 = !{!228, !221}
-!228 = distinct !{!228, !229, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17had1a95fa8d2d12d0E: argument 0"}
-!229 = distinct !{!229, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17had1a95fa8d2d12d0E"}
+!226 = !{!227, !221}
+!227 = distinct !{!227, !228, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17had1a95fa8d2d12d0E: argument 0"}
+!228 = distinct !{!228, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17had1a95fa8d2d12d0E"}
+!229 = !{!224, !150, !152}
 !230 = !{!231, !171, !156, !148, !150, !152}
 !231 = distinct !{!231, !232, !"_ZN13async_process4Pipe4wait28_$u7b$$u7b$closure$u7d$$u7d$17h0628df63f57bd50aE: argument 0"}
 !232 = distinct !{!232, !"_ZN13async_process4Pipe4wait28_$u7b$$u7b$closure$u7d$$u7d$17h0628df63f57bd50aE"}

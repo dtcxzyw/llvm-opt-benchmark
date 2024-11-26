@@ -3530,8 +3530,8 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE6insertERKS3_.exit: 
 
 985:                                              ; preds = %.noexc360.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47)
-  %986 = load ptr, ptr %54, align 8
-  %987 = load ptr, ptr %271, align 8
+  %986 = load ptr, ptr %54, align 8, !noalias !37
+  %987 = load ptr, ptr %271, align 8, !noalias !37
   %988 = icmp eq ptr %986, %987
   br i1 %988, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i428, label %989
 
@@ -3552,7 +3552,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %999 = urem i32 %993, %998
   store i32 %999, ptr %47, align 4, !noalias !37
   %1000 = load ptr, ptr %273, align 8, !noalias !37
-  %1001 = load ptr, ptr %272, align 8
+  %1001 = load ptr, ptr %272, align 8, !noalias !37
   %1002 = ptrtoint ptr %1000 to i64
   %1003 = ptrtoint ptr %1001 to i64
   %1004 = sub i64 %1002, %1003
@@ -3901,8 +3901,8 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i418: ;
 .loopexit2222:                                    ; preds = %1166, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i422, %.loopexit.i409
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46)
-  %1174 = load ptr, ptr %55, align 8
-  %1175 = load ptr, ptr %276, align 8
+  %1174 = load ptr, ptr %55, align 8, !noalias !40
+  %1175 = load ptr, ptr %276, align 8, !noalias !40
   %1176 = icmp eq ptr %1174, %1175
   br i1 %1176, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i454, label %1177
 
@@ -3938,7 +3938,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %1194 = urem i32 %.0.i.i.i.i433, %1193
   store i32 %1194, ptr %46, align 4, !noalias !40
   %1195 = load ptr, ptr %278, align 8, !noalias !40
-  %1196 = load ptr, ptr %277, align 8
+  %1196 = load ptr, ptr %277, align 8, !noalias !40
   %1197 = ptrtoint ptr %1195 to i64
   %1198 = ptrtoint ptr %1196 to i64
   %1199 = sub i64 %1197, %1198
@@ -4292,8 +4292,8 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i444: ;
 
 1371:                                             ; preds = %.loopexit2219
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45)
-  %1372 = load ptr, ptr %122, align 8
-  %1373 = load ptr, ptr %281, align 8
+  %1372 = load ptr, ptr %122, align 8, !noalias !43
+  %1373 = load ptr, ptr %281, align 8, !noalias !43
   %1374 = icmp eq ptr %1372, %1373
   br i1 %1374, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i480, label %1375
 
@@ -4329,7 +4329,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %1392 = urem i32 %.0.i.i.i.i459, %1391
   store i32 %1392, ptr %45, align 4, !noalias !43
   %1393 = load ptr, ptr %283, align 8, !noalias !43
-  %1394 = load ptr, ptr %282, align 8
+  %1394 = load ptr, ptr %282, align 8, !noalias !43
   %1395 = ptrtoint ptr %1393 to i64
   %1396 = ptrtoint ptr %1394 to i64
   %1397 = sub i64 %1395, %1396
@@ -4815,8 +4815,8 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i498: ;
 
 1638:                                             ; preds = %1548, %.loopexit2214, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42)
-  %1639 = load ptr, ptr %123, align 8
-  %1640 = load ptr, ptr %289, align 8
+  %1639 = load ptr, ptr %123, align 8, !noalias !47
+  %1640 = load ptr, ptr %289, align 8, !noalias !47
   %1641 = icmp eq ptr %1639, %1640
   br i1 %1641, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i531, label %1642
 
@@ -4852,7 +4852,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %1659 = urem i32 %.0.i.i.i.i510, %1658
   store i32 %1659, ptr %42, align 4, !noalias !47
   %1660 = load ptr, ptr %291, align 8, !noalias !47
-  %1661 = load ptr, ptr %290, align 8
+  %1661 = load ptr, ptr %290, align 8, !noalias !47
   %1662 = ptrtoint ptr %1660 to i64
   %1663 = ptrtoint ptr %1661 to i64
   %1664 = sub i64 %1662, %1663

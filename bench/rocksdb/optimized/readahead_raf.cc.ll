@@ -278,6 +278,7 @@ if.end11:                                         ; preds = %_ZNSt11unique_lockI
   %sub.not.i = sub i64 0, %10
   %sub1.i = and i64 %add12, %sub.not.i
   %11 = load i64, ptr %readahead_size_, align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result.i)
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %12 = load i64, ptr %capacity_.i.i, align 8, !noalias !7
@@ -296,7 +297,7 @@ if.end11:                                         ; preds = %_ZNSt11unique_lockI
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.end11
-  %16 = load i8, ptr %agg.result, align 8
+  %16 = load i8, ptr %agg.result, align 8, !alias.scope !7
   %cmp.i.i = icmp eq i8 %16, 0
   br i1 %cmp.i.i, label %lor.lhs.false.i23, label %invoke.cont19
 

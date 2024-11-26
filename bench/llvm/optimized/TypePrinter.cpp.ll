@@ -7708,7 +7708,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit200.i:            ; preds = %1153, %1151
 
 _ZN4llvm11raw_ostreamlsEPKc.exit204.i:            ; preds = %1223, %1221, %1211, %1209, %1197
   call void @_ZNK5clang17FunctionProtoType27printExceptionSpecificationERN4llvm11raw_ostreamERKNS_14PrintingPolicyE(ptr noundef nonnull align 16 dereferenceable(48) %.tr466, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(22) %0)
-  %1226 = load i64, ptr %23, align 16
+  %1226 = load i64, ptr %23, align 16, !noalias !30
   %1227 = and i64 %1226, 576460752303423488
   %.not11.i.i = icmp eq i64 %1227, 0
   br i1 %.not11.i.i, label %._crit_edge336.i, label %1228

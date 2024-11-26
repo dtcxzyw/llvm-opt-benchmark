@@ -1030,7 +1030,7 @@ define void @_ZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0
   %29 = sub nsw i32 %.fr.i20.i, %28
   call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %23, i32 noundef %29)
   %30 = getelementptr inbounds i8, ptr %16, i64 4
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 4, !alias.scope !37
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.preheader.lr.ph.i, label %.loopexit
 
@@ -1125,7 +1125,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN5ZXing9BitMatrix3setEiib.exit.i
-  %.pre.i = load i32, ptr %30, align 4
+  %.pre.i = load i32, ptr %30, align 4, !alias.scope !37
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i

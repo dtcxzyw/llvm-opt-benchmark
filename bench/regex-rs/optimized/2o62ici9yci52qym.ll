@@ -970,26 +970,26 @@ define void @"_ZN79_$LT$regex..regex..bytes..NoExpand$u20$as$u20$regex..regex..b
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load i64, ptr %7, align 8, !alias.scope !115, !noalias !120, !noundef !5
-  %9 = load i64, ptr %2, align 8, !alias.scope !122, !noalias !120, !noundef !5
+  %8 = load i64, ptr %7, align 8, !alias.scope !115, !noalias !122, !noundef !5
+  %9 = load i64, ptr %2, align 8, !alias.scope !115, !noalias !122, !noundef !5
   %10 = sub i64 %9, %8
   %11 = icmp ugt i64 %6, %10
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h34461450d19cd157E.exit"
 
 12:                                               ; preds = %3
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h68f5e15620a6ff5eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %8, i64 noundef %6), !noalias !120
-  %.pre.i.i = load i64, ptr %7, align 8, !alias.scope !115, !noalias !120
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h68f5e15620a6ff5eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %8, i64 noundef %6), !noalias !122
+  %.pre.i.i = load i64, ptr %7, align 8, !alias.scope !124, !noalias !122
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h34461450d19cd157E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h34461450d19cd157E.exit": ; preds = %3, %12
   %13 = phi i64 [ %8, %3 ], [ %.pre.i.i, %12 ]
   %14 = getelementptr inbounds i8, ptr %2, i64 8
-  %15 = load ptr, ptr %14, align 8, !alias.scope !115, !noalias !120, !nonnull !5, !noundef !5
+  %15 = load ptr, ptr %14, align 8, !alias.scope !124, !noalias !122, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %4, i64 %6, i1 false)
-  %17 = load i64, ptr %7, align 8, !alias.scope !115, !noalias !120, !noundef !5
+  %17 = load i64, ptr %7, align 8, !alias.scope !124, !noalias !122, !noundef !5
   %18 = add i64 %17, %6
-  store i64 %18, ptr %7, align 8, !alias.scope !115, !noalias !120
+  store i64 %18, ptr %7, align 8, !alias.scope !124, !noalias !122
   ret void
 }
 
@@ -1279,13 +1279,13 @@ attributes #12 = { cold noreturn nounwind }
 !112 = distinct !{!112, !113, !"_ZN5regex9find_byte9find_byte17hc254a81dfb98b19dE: argument 0"}
 !113 = distinct !{!113, !"_ZN5regex9find_byte9find_byte17hc254a81dfb98b19dE"}
 !114 = !{!108, !100, !103}
-!115 = !{!116, !118}
-!116 = distinct !{!116, !117, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3ba5bca392670033E.llvm.615997076723623618: argument 0"}
-!117 = distinct !{!117, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3ba5bca392670033E.llvm.615997076723623618"}
-!118 = distinct !{!118, !119, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h34461450d19cd157E: argument 0"}
-!119 = distinct !{!119, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h34461450d19cd157E"}
-!120 = !{!121}
-!121 = distinct !{!121, !119, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h34461450d19cd157E: argument 1"}
-!122 = !{!123, !116, !118}
-!123 = distinct !{!123, !124, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf7fa3c0366a2885eE: argument 0"}
-!124 = distinct !{!124, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf7fa3c0366a2885eE"}
+!115 = !{!116, !118, !120}
+!116 = distinct !{!116, !117, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf7fa3c0366a2885eE: argument 0"}
+!117 = distinct !{!117, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf7fa3c0366a2885eE"}
+!118 = distinct !{!118, !119, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3ba5bca392670033E.llvm.615997076723623618: argument 0"}
+!119 = distinct !{!119, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3ba5bca392670033E.llvm.615997076723623618"}
+!120 = distinct !{!120, !121, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h34461450d19cd157E: argument 0"}
+!121 = distinct !{!121, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h34461450d19cd157E"}
+!122 = !{!123}
+!123 = distinct !{!123, !121, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h34461450d19cd157E: argument 1"}
+!124 = !{!118, !120}

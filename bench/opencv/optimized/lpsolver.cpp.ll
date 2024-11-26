@@ -1889,7 +1889,7 @@ _ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit:       ; preds = %77, %90
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %98 = call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  %99 = load ptr, ptr %15, align 8
+  %99 = load ptr, ptr %15, align 8, !alias.scope !75
   %100 = icmp eq ptr %99, null
   %101 = icmp eq i64 %98, 0
   %or.cond.i.i.i.i = or i1 %101, %100
@@ -2090,7 +2090,7 @@ _ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit78:     ; preds = %153, %166
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %174 = call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
-  %175 = load ptr, ptr %18, align 8
+  %175 = load ptr, ptr %18, align 8, !alias.scope !100
   %176 = icmp eq ptr %175, null
   %177 = icmp eq i64 %174, 0
   %or.cond.i.i.i.i61 = or i1 %177, %176

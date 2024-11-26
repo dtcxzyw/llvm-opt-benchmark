@@ -189,7 +189,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %2 = load ptr, ptr %_M_first3.i.i.i, align 8
+  %2 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !4
   %cmp.i.i1 = icmp eq ptr %0, %2
   br i1 %cmp.i.i1, label %if.else.i, label %if.then.i
 

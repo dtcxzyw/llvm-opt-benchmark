@@ -398,7 +398,7 @@ define internal fastcc void @"_ZN4core3ptr335drop_in_place$LT$$LT$alloc..collect
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %.val1.i.i, i64 16
-  %17 = load i64, ptr %16, align 8, !range !32, !invariant.load !7
+  %17 = load i64, ptr %16, align 8, !range !32, !invariant.load !7, !alias.scope !74
   %18 = add i64 %17, -1
   %19 = and i64 %18, -24
   %20 = getelementptr i8, ptr %.val.i.i, i64 %19
@@ -863,7 +863,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %.val1.i, i64 16
-  %18 = load i64, ptr %17, align 8, !range !32, !invariant.load !7
+  %18 = load i64, ptr %17, align 8, !range !32, !invariant.load !7, !alias.scope !123
   %19 = add i64 %18, -1
   %20 = and i64 %19, -24
   %21 = getelementptr i8, ptr %.val.i, i64 %20

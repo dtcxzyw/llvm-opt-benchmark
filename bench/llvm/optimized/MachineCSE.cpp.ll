@@ -5456,21 +5456,21 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MachineCSE17isProf
   %47 = add nuw i32 %33, 1
   store i32 %47, ptr %16, align 4, !noalias !58
   store ptr %31, ptr %40, align 8, !noalias !58
-  %48 = load ptr, ptr %6, align 8
-  %49 = load i32, ptr %16, align 4
+  %48 = load ptr, ptr %6, align 8, !noalias !58
+  %49 = load i32, ptr %16, align 4, !noalias !58
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 50:                                               ; preds = %._crit_edge.i.i, %.lr.ph
   %51 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull %31) #17, !noalias !58
-  %.pre.i = load ptr, ptr %6, align 8
-  %.pre6.i = load i32, ptr %16, align 4
+  %.pre.i = load ptr, ptr %6, align 8, !noalias !58
+  %.pre6.i = load i32, ptr %16, align 4, !noalias !58
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %50, %46
   %52 = phi i32 [ %49, %46 ], [ %.pre6.i, %50 ], [ %33, %.lr.ph.i.i ]
   %53 = phi ptr [ %48, %46 ], [ %.pre.i, %50 ], [ %34, %.lr.ph.i.i ]
-  %54 = load ptr, ptr %14, align 8
-  %55 = load i32, ptr %15, align 8
+  %54 = load ptr, ptr %14, align 8, !noalias !58
+  %55 = load i32, ptr %15, align 8, !noalias !58
   %56 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL15CSUsesThreshold, i64 128), align 8
   %.not = icmp slt i32 %.036202, %56
   br i1 %.not, label %57, label %.thread

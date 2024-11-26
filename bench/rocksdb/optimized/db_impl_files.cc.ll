@@ -3760,7 +3760,7 @@ for.inc497:                                       ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i357.not, label %invoke.cont502.loopexit, label %for.body488
 
 invoke.cont502.loopexit:                          ; preds = %for.inc497
-  %.pre = load i64, ptr %to_be_removed, align 8
+  %.pre = load i64, ptr %to_be_removed, align 8, !noalias !43
   %.pre716 = load ptr, ptr %_M_finish.i.i363, align 8, !noalias !43
   %.pre717 = load ptr, ptr %vect_.i, align 8, !noalias !43
   %184 = ptrtoint ptr %.pre716 to i64
@@ -6342,7 +6342,7 @@ entry:
   %vect_.i.i = getelementptr inbounds i8, ptr %edit_list, i64 80
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %edit_list, i64 88
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !70
-  %2 = load ptr, ptr %vect_.i.i, align 8
+  %2 = load ptr, ptr %vect_.i.i, align 8, !noalias !70
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -6443,7 +6443,7 @@ entry:
   %vect_.i.i = getelementptr inbounds i8, ptr %edit_lists, i64 848
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %edit_lists, i64 856
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !73
-  %2 = load ptr, ptr %vect_.i.i, align 8
+  %2 = load ptr, ptr %vect_.i.i, align 8, !noalias !73
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -6454,7 +6454,7 @@ entry:
   br i1 %cmp.i.i.not96, label %for.cond.cleanup.thread, label %invoke.cont6.lr.ph
 
 for.cond.cleanup.thread:                          ; preds = %entry
-  %.pre116 = load i64, ptr %cfds_to_flush, align 8
+  %.pre116 = load i64, ptr %cfds_to_flush, align 8, !noalias !76
   br label %if.then37
 
 invoke.cont6.lr.ph:                               ; preds = %entry
@@ -6464,7 +6464,7 @@ invoke.cont6.lr.ph:                               ; preds = %entry
 
 for.cond.cleanup:                                 ; preds = %8
   %cmp36 = icmp eq i64 %9, -1
-  %.pre = load i64, ptr %cfds_to_flush, align 8
+  %.pre = load i64, ptr %cfds_to_flush, align 8, !noalias !76
   br i1 %cmp36, label %if.then37, label %for.cond.cleanup.invoke.cont53_crit_edge
 
 for.cond.cleanup.invoke.cont53_crit_edge:         ; preds = %for.cond.cleanup
@@ -6489,7 +6489,7 @@ invoke.cont6:                                     ; preds = %invoke.cont6.lr.ph,
   %vect_.i.i21 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 80
   %_M_finish.i.i.i22 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %5 = load ptr, ptr %_M_finish.i.i.i22, align 8, !noalias !79
-  %6 = load ptr, ptr %vect_.i.i21, align 8
+  %6 = load ptr, ptr %vect_.i.i21, align 8, !noalias !79
   %sub.ptr.lhs.cast.i.i.i23 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i24 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i.i23, %sub.ptr.rhs.cast.i.i.i24
@@ -6744,7 +6744,7 @@ entry:
   %vect_.i.i.i = getelementptr inbounds i8, ptr %edit_list, i64 80
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %edit_list, i64 88
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !86
-  %2 = load ptr, ptr %vect_.i.i.i, align 8
+  %2 = load ptr, ptr %vect_.i.i.i, align 8, !noalias !86
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -9939,7 +9939,7 @@ declare void @_ZN7rocksdb4port7CondVar9SignalAllEv(ptr noundef nonnull align 8 d
 define linkonce_odr void @_ZN7rocksdb19SuperVersionContext5CleanEv(ptr noundef nonnull align 8 dereferenceable(536) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %write_stall_notifications = getelementptr inbounds i8, ptr %this, i64 104
-  %0 = load i64, ptr %write_stall_notifications, align 8
+  %0 = load i64, ptr %write_stall_notifications, align 8, !noalias !103
   %vect_.i.i = getelementptr inbounds i8, ptr %this, i64 504
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 512
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !103
@@ -9998,7 +9998,7 @@ invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i.i.i.
   br label %_ZN7rocksdb10autovectorINS_19SuperVersionContext22WriteStallNotificationELm8EE5clearEv.exit
 
 _ZN7rocksdb10autovectorINS_19SuperVersionContext22WriteStallNotificationELm8EE5clearEv.exit: ; preds = %while.end.i, %invoke.cont.i.i.i
-  %9 = load i64, ptr %this, align 8
+  %9 = load i64, ptr %this, align 8, !noalias !106
   %vect_.i.i13 = getelementptr inbounds i8, ptr %this, i64 80
   %_M_finish.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 88
   %10 = load ptr, ptr %_M_finish.i.i.i14, align 8, !noalias !106

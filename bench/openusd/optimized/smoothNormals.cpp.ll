@@ -1350,11 +1350,11 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
 
 .lr.ph:                                           ; preds = %7
   %23 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %21, i64 %.045
-  %24 = load double, ptr %23, align 8, !noalias !31
+  %24 = load double, ptr %23, align 8, !noalias !36
   %25 = getelementptr inbounds i8, ptr %23, i64 8
-  %26 = load double, ptr %25, align 8, !noalias !31
+  %26 = load double, ptr %25, align 8, !noalias !36
   %27 = getelementptr inbounds i8, ptr %23, i64 16
-  %28 = load double, ptr %27, align 8, !noalias !31
+  %28 = load double, ptr %27, align 8, !noalias !36
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
@@ -3531,11 +3531,11 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
 
 .lr.ph:                                           ; preds = %7
   %23 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %21, i64 %.050
-  %24 = load double, ptr %23, align 8, !noalias !31
+  %24 = load double, ptr %23, align 8, !noalias !52
   %25 = getelementptr inbounds i8, ptr %23, i64 8
-  %26 = load double, ptr %25, align 8, !noalias !31
+  %26 = load double, ptr %25, align 8, !noalias !52
   %27 = getelementptr inbounds i8, ptr %23, i64 16
-  %28 = load double, ptr %27, align 8, !noalias !31
+  %28 = load double, ptr %27, align 8, !noalias !52
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29

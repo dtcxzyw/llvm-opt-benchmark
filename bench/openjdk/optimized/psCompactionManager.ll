@@ -5318,7 +5318,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %35 = add nsw i64 %34, %5
   %36 = inttoptr i64 %35 to ptr
   %37 = load i32, ptr %36, align 4, !noalias !50
-  %38 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
+  %38 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !50
   %39 = sext i32 %38 to i64
   %40 = add i64 %39, %5
   %41 = inttoptr i64 %40 to ptr
@@ -5535,7 +5535,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %35 = add nsw i64 %34, %5
   %36 = inttoptr i64 %35 to ptr
   %37 = load i32, ptr %36, align 4, !noalias !55
-  %38 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
+  %38 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !55
   %39 = sext i32 %38 to i64
   %40 = add i64 %39, %5
   %41 = inttoptr i64 %40 to ptr

@@ -4664,7 +4664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i552:
   %950 = getelementptr inbounds i8, ptr %949, i64 %933
   store i8 0, ptr %950, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %951 = load i64, ptr %187, align 8
+  %951 = load i64, ptr %187, align 8, !alias.scope !37
   %952 = icmp eq i64 %951, 9223372036854775807
   br i1 %952, label %.invoke1060, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
 
@@ -4678,7 +4678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i552:
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %.noexc352
   %954 = add nsw i64 %951, 1
-  %955 = load ptr, ptr %44, align 8
+  %955 = load ptr, ptr %44, align 8, !alias.scope !37
   %956 = icmp eq ptr %955, %185
   br i1 %956, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.thread
 
@@ -4689,7 +4689,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; 
   br i1 %.not.i.i.i350, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i533, label %959
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
-  %958 = load i64, ptr %185, align 8
+  %958 = load i64, ptr %185, align 8, !alias.scope !37
   %.not.i.i.i350640 = icmp ugt i64 %954, %958
   br i1 %.not.i.i.i350640, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i533, label %959
 
@@ -4781,7 +4781,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm.exit549: 
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %979 = load ptr, ptr %26, align 8, !noalias !40
   %980 = load i64, ptr %178, align 8, !noalias !40
-  %981 = load i64, ptr %187, align 8
+  %981 = load i64, ptr %187, align 8, !noalias !40
   %982 = sub i64 9223372036854775807, %981
   %983 = icmp ult i64 %982, %980
   br i1 %983, label %.invoke1062, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i355
@@ -4796,7 +4796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm.exit549: 
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i355: ; preds = %976
   %985 = add i64 %981, %980
-  %986 = load ptr, ptr %44, align 8
+  %986 = load ptr, ptr %44, align 8, !noalias !40
   %987 = icmp eq ptr %986, %185
   br i1 %987, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i356, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i356.thread
 
@@ -4807,7 +4807,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i35
   br i1 %.not.i.i.i.i357, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i556, label %990
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i356.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i355
-  %989 = load i64, ptr %185, align 8
+  %989 = load i64, ptr %185, align 8, !noalias !40
   %.not.i.i.i.i357642 = icmp ugt i64 %985, %989
   br i1 %.not.i.i.i.i357642, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i556, label %990
 

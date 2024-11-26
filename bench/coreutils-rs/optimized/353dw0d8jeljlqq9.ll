@@ -149,8 +149,8 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %6 = ptrtoint ptr %1 to i64
   %7 = sub nuw i64 %5, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !noundef !28
-  %10 = load i64, ptr %0, align 8, !alias.scope !29, !noundef !28
+  %9 = load i64, ptr %8, align 8, !alias.scope !28, !noundef !31
+  %10 = load i64, ptr %0, align 8, !alias.scope !28, !noundef !31
   %11 = sub i64 %10, %9
   %12 = icmp ugt i64 %7, %11
   br i1 %12, label %13, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816.exit"
@@ -163,10 +163,10 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816.exit": ; preds = %3, %13
   %14 = phi i64 [ %9, %3 ], [ %.pre, %13 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !nonnull !28, !noundef !28
+  %16 = load ptr, ptr %15, align 8, !nonnull !31, !noundef !31
   %17 = getelementptr inbounds i8, ptr %16, i64 %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %1, i64 %7, i1 false)
-  %18 = load i64, ptr %8, align 8, !noundef !28
+  %18 = load i64, ptr %8, align 8, !noundef !31
   %19 = add i64 %18, %7
   store i64 %19, ptr %8, align 8
   ret void
@@ -174,9 +174,9 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN4core5slice4iter13Iter$LT$T$GT$10make_slice17h522e43a3b82fde36E.llvm.16386318578560689816"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !28, !noundef !28
+  %2 = load ptr, ptr %0, align 8, !nonnull !31, !noundef !31
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !28, !noundef !28
+  %4 = load ptr, ptr %3, align 8, !nonnull !31, !noundef !31
   %5 = ptrtoint ptr %4 to i64
   %6 = ptrtoint ptr %2 to i64
   %7 = sub nuw i64 %5, %6
@@ -188,34 +188,34 @@ define hidden { ptr, i64 } @"_ZN4core5slice4iter13Iter$LT$T$GT$10make_slice17h52
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9f88fd8d18ab6c2dE"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !alias.scope !32, !noundef !28
-  %6 = load i64, ptr %0, align 8, !alias.scope !35, !noundef !28
+  %5 = load i64, ptr %4, align 8, !alias.scope !32, !noundef !31
+  %6 = load i64, ptr %0, align 8, !alias.scope !32, !noundef !31
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hf953c0686621b6fdE.llvm.16386318578560689816.exit"
 
 9:                                                ; preds = %3
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h192f8284e0319556E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %2)
-  %.pre.i = load i64, ptr %4, align 8, !alias.scope !32
+  %.pre.i = load i64, ptr %4, align 8, !alias.scope !37
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hf953c0686621b6fdE.llvm.16386318578560689816.exit"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hf953c0686621b6fdE.llvm.16386318578560689816.exit": ; preds = %3, %9
   %10 = phi i64 [ %5, %3 ], [ %.pre.i, %9 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !32, !nonnull !28, !noundef !28
+  %12 = load ptr, ptr %11, align 8, !alias.scope !37, !nonnull !31, !noundef !31
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %14 = load i64, ptr %4, align 8, !alias.scope !32, !noundef !28
+  %14 = load i64, ptr %4, align 8, !alias.scope !37, !noundef !31
   %15 = add i64 %14, %2
-  store i64 %15, ptr %4, align 8, !alias.scope !32
+  store i64 %15, ptr %4, align 8, !alias.scope !37
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !noundef !28
-  %5 = load i64, ptr %0, align 8, !noundef !28
+  %4 = load i64, ptr %3, align 8, !noundef !31
+  %5 = load i64, ptr %0, align 8, !noundef !31
   %6 = sub i64 %5, %4
   %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
@@ -444,16 +444,16 @@ attributes #10 = { cold noreturn nounwind }
 !25 = distinct !{!25, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hacce421b184172ffE"}
 !26 = distinct !{!26, !27, !"_ZN4core4iter6traits8iterator8Iterator8for_each17haa602eab60d95995E: argument 0"}
 !27 = distinct !{!27, !"_ZN4core4iter6traits8iterator8Iterator8for_each17haa602eab60d95995E"}
-!28 = !{}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816: argument 0"}
-!31 = distinct !{!31, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hf953c0686621b6fdE.llvm.16386318578560689816: argument 0"}
-!34 = distinct !{!34, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hf953c0686621b6fdE.llvm.16386318578560689816"}
-!35 = !{!36, !33}
-!36 = distinct !{!36, !37, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816: argument 0"}
-!37 = distinct !{!37, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816: argument 0"}
+!30 = distinct !{!30, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816"}
+!31 = !{}
+!32 = !{!33, !35}
+!33 = distinct !{!33, !34, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816: argument 0"}
+!34 = distinct !{!34, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d314cae44fa4c88E.llvm.16386318578560689816"}
+!35 = distinct !{!35, !36, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hf953c0686621b6fdE.llvm.16386318578560689816: argument 0"}
+!36 = distinct !{!36, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hf953c0686621b6fdE.llvm.16386318578560689816"}
+!37 = !{!35}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc60c425731328eccE.llvm.16386318578560689816: argument 0"}
 !40 = distinct !{!40, !"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc60c425731328eccE.llvm.16386318578560689816"}

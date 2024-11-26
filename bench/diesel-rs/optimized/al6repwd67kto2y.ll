@@ -136,7 +136,7 @@ define hidden void @"_ZN123_$LT$diesel..query_builder..nodes..InfixNode$LT$T$C$U
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %8 = load i64, ptr %2, align 8, !range !11, !noalias !4, !noundef !4
+  %8 = load i64, ptr %2, align 8, !range !11, !alias.scope !22, !noalias !19, !noundef !4
   switch i64 %8, label %default.unreachable [
     i64 0, label %9
     i64 1, label %12
@@ -164,9 +164,9 @@ default.unreachable:                              ; preds = %22, %3
   %.sroa.13.0.i = phi ptr [ %16, %12 ], [ undef, %9 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ]
   %.sroa.11.0.i = phi ptr [ %14, %12 ], [ %11, %9 ], [ undef, %3 ], [ undef, %3 ], [ undef, %3 ]
   %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8, !noalias !4, !nonnull !4, !align !5, !noundef !4
+  %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8, !alias.scope !22, !noalias !19, !nonnull !4, !align !5, !noundef !4
   %17 = getelementptr inbounds i8, ptr %2, i64 32
-  %18 = load ptr, ptr %17, align 8, !noalias !4, !nonnull !4, !align !5, !noundef !4
+  %18 = load ptr, ptr %17, align 8, !alias.scope !22, !noalias !19, !nonnull !4, !align !5, !noundef !4
   store i64 %8, ptr %6, align 8, !alias.scope !19, !noalias !22
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !19, !noalias !22
@@ -495,10 +495,12 @@ define hidden noundef i64 @_ZN4core3mem7size_of17he30b7386c405fd74E.llvm.2484478
   ret i64 16
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h383b328342180a3fE.llvm.2484478404446752246(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   %3 = load i64, ptr %0, align 8, !alias.scope !112, !noalias !115, !noundef !4
-  %4 = load i64, ptr %1, align 8, !noalias !4, !noundef !4
+  %4 = load i64, ptr %1, align 8, !alias.scope !115, !noalias !112, !noundef !4
   %.not = icmp ule i64 %3, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
@@ -1176,7 +1178,7 @@ define hidden void @"_ZN80_$LT$core..core_arch..x86..__m128i$u20$as$u20$core..co
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h1015519cf76bb7ccE"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
-  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !16, !noundef !4
+  %4 = load ptr, ptr %1, align 8, !alias.scope !178, !nonnull !4, !align !16, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !178, !noundef !4
   %7 = add i64 %6, %2
@@ -1753,7 +1755,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h51be
   %6 = trunc nuw nsw i64 %5 to i8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !274, !noalias !277, !noundef !4
-  %9 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %9 = load ptr, ptr %0, align 8, !alias.scope !274, !noalias !277, !nonnull !4, !noundef !4
   %.0.vec.insert.i = insertelement <16 x i8> poison, i8 %6, i64 0
   %.15.vec.insert.i = shufflevector <16 x i8> %.0.vec.insert.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %10 = getelementptr inbounds i8, ptr %2, i64 24
@@ -2111,7 +2113,7 @@ attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" "target-features"="+sse2" }

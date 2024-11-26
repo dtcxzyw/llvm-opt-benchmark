@@ -22487,7 +22487,7 @@ _ZNKSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescE
   %22 = getelementptr inbounds i8, ptr %5, i64 24
   %23 = getelementptr inbounds i8, ptr %5, i64 32
   %24 = load ptr, ptr %23, align 8, !noalias !166
-  %25 = load ptr, ptr %22, align 8
+  %25 = load ptr, ptr %22, align 8, !noalias !166
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27

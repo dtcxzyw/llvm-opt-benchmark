@@ -913,8 +913,8 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i.i:         ; preds = %296
   store i64 %320, ptr %88, align 8, !noalias !19
   store i32 %326, ptr %90, align 8, !noalias !19
   store ptr %.sroa.26.80.copyload.i.i.i, ptr %91, align 8, !noalias !19
-  %327 = load i32, ptr %92, align 8, !noalias !16
-  %328 = load i32, ptr %93, align 8, !noalias !16
+  %327 = load i32, ptr %92, align 8, !noalias !19
+  %328 = load i32, ptr %93, align 8, !noalias !19
   %.not.i.i19.i.i.i.i = icmp eq i32 %327, %328
   br i1 %.not.i.i19.i.i.i.i, label %_ZNK12_GLOBAL__N_17BCEAtomltERKS0_.exit.i.i.i.i.i, label %329
 
@@ -4760,7 +4760,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_114BaseIdentifier9getBaseIdE
   %36 = load ptr, ptr %3, align 8, !noalias !98
   store ptr %36, ptr %35, align 8, !noalias !98
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %38 = load i32, ptr %0, align 8
+  %38 = load i32, ptr %0, align 8, !noalias !98
   store i32 %38, ptr %37, align 4, !noalias !98
   %39 = add i32 %38, 1
   store i32 %39, ptr %0, align 8

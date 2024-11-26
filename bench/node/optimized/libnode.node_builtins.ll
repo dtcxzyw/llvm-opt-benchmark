@@ -513,7 +513,7 @@ do.body5.i.i.i.i.i.i.i.i.i.i:                     ; preds = %entry
 
 _ZN4node9MutexBaseINS_17LibuvRwlockTraitsEEC2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 80
-  %2 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !noalias !11
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 

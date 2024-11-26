@@ -1386,7 +1386,7 @@ define noundef double @_ZN6statrs8function4beta8beta_inc17hdb112917ca1b2d54E(dou
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !80
   call void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, double noundef %0, double noundef %1, double noundef %2), !noalias !80
-  %6 = load i64, ptr %4, align 8, !range !4, !noundef !5
+  %6 = load i64, ptr %4, align 8, !range !4, !noalias !80, !noundef !5
   %7 = icmp eq i64 %6, 21
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   br i1 %7, label %9, label %14

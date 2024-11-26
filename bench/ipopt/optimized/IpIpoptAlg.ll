@@ -13035,7 +13035,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %_ZN5Ipopt9TimedTask
 73:                                               ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit
   %74 = load ptr, ptr %25, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 16
-  %76 = load ptr, ptr %75, align 8, !noalias !40
+  %76 = load ptr, ptr %75, align 8, !noalias !261
   %.not.i.i.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i.i.i, label %_ZNK5Ipopt9IpoptData4currEv.exit22, label %77
 

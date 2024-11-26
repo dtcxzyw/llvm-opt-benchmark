@@ -3074,19 +3074,19 @@ entry:
   call void %2(ptr nonnull sret(%"class.grpc_core::Poll.133") align 8 %ref.tmp.i.i, ptr noundef nonnull %arg.i.i.i), !noalias !116
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %3 = load i8, ptr %ref.tmp.i.i, align 8, !noalias !116
+  %3 = load i8, ptr %ref.tmp.i.i, align 8, !noalias !123
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   %frombool.i.i.i.i.i = and i8 %3, 1
-  store i8 %frombool.i.i.i.i.i, ptr %r.i, align 8, !alias.scope !123, !noalias !110
+  store i8 %frombool.i.i.i.i.i, ptr %r.i, align 8, !alias.scope !124, !noalias !110
   br i1 %tobool.i.i.i.i.i, label %if.then.i, label %_ZN9grpc_core14promise_detail3MapINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZNS_21promise_filter_detail9MapResultIS8_NS_16HttpServerFilterEEEDaMNT0_4CallEFvRS4_ET_PNS9_14FilterCallDataISC_EEEUlS7_E_EclEv.exit
 
 if.then.i:                                        ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %r.i, i64 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %6 = load i8, ptr %5, align 8, !noalias !124
-  store i8 %6, ptr %4, align 8, !alias.scope !123, !noalias !110
+  %6 = load i8, ptr %5, align 8, !noalias !123
+  store i8 %6, ptr %4, align 8, !alias.scope !124, !noalias !110
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %7 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !124
+  %7 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !123
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i), !noalias !110
   store i8 %6, ptr %agg.tmp.i, align 8, !noalias !110
   %8 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
@@ -4015,29 +4015,29 @@ lpad.i.i:                                         ; preds = %entry
 _ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERS8_PS5_EPNS5_4CallESD_PNS_18CallSpineInterfaceEEUlSB_E_SB_EclEv.exit.i: ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !143
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %6 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !noalias !143
+  %6 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !noalias !149
   %tobool.i.i.i.i.i.i.i.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i.i.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERS8_PS5_EPNS5_4CallESD_PNS_18CallSpineInterfaceEEUlSB_E_SB_EclEv.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  store i8 1, ptr %agg.result, align 8, !alias.scope !149
+  store i8 1, ptr %agg.result, align 8, !alias.scope !154
   %_M_engaged.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !149
+  store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !154
   br label %_ZN9grpc_core4PollISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEED2Ev.exit
 
 _ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i.i.i.i: ; preds = %_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERS8_PS5_EPNS5_4CallESD_PNS_18CallSpineInterfaceEEUlSB_E_SB_EclEv.exit.i
-  %7 = load i8, ptr %ref.tmp.i, align 8, !noalias !154
+  %7 = load i8, ptr %ref.tmp.i, align 8, !noalias !149
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %8 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !154
+  %8 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !149
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  store i8 1, ptr %agg.result, align 8, !alias.scope !149
+  store i8 1, ptr %agg.result, align 8, !alias.scope !154
   %_M_engaged.i.i.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %9 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i8 %7, ptr %9, align 8, !alias.scope !149
+  store i8 %7, ptr %9, align 8, !alias.scope !154
   %10 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i64 %8, ptr %10, align 8, !alias.scope !149
-  store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i8, align 8, !alias.scope !149
+  store i64 %8, ptr %10, align 8, !alias.scope !154
+  store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i8, align 8, !alias.scope !154
   br label %_ZN9grpc_core4PollISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEED2Ev.exit
 
 _ZN9grpc_core4PollISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEED2Ev.exit: ; preds = %if.then.i, %_ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i.i.i.i
@@ -4970,8 +4970,8 @@ attributes #26 = { builtin nounwind }
 !120 = !{!121}
 !121 = distinct !{!121, !122, !"_ZN9grpc_core14promise_detail11PollWrapperINS_4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEE4WrapEOS8_: %agg.result"}
 !122 = distinct !{!122, !"_ZN9grpc_core14promise_detail11PollWrapperINS_4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEE4WrapEOS8_"}
-!123 = !{!121, !118, !108}
-!124 = !{!121, !118, !108, !111}
+!123 = !{!121, !118, !108, !111}
+!124 = !{!121, !118, !108}
 !125 = !{!126, !128}
 !126 = distinct !{!126, !127, !"_ZN9grpc_core12PollCastImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEENS_4PollIS5_EEvE4CastEOS7_: %agg.result"}
 !127 = distinct !{!127, !"_ZN9grpc_core12PollCastImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEENS_4PollIS5_EEvE4CastEOS7_"}
@@ -4996,16 +4996,16 @@ attributes #26 = { builtin nounwind }
 !146 = !{!147, !144}
 !147 = distinct !{!147, !148, !"_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERS8_PS5_EPNS5_4CallESD_PNS_18CallSpineInterfaceEEUlSB_E_SB_EclEv: %agg.result"}
 !148 = distinct !{!148, !"_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERS8_PS5_EPNS5_4CallESD_PNS_18CallSpineInterfaceEEUlSB_E_SB_EclEv"}
-!149 = !{!150, !152}
-!150 = distinct !{!150, !151, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS7_EEvE4CastEOS9_: %agg.result"}
-!151 = distinct !{!151, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS7_EEvE4CastEOS9_"}
-!152 = distinct !{!152, !153, !"_ZN9grpc_core9poll_castISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS7_EEEENS8_IT_EET0_: %agg.result"}
-!153 = distinct !{!153, !"_ZN9grpc_core9poll_castISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS7_EEEENS8_IT_EET0_"}
-!154 = !{!155, !157, !144}
-!155 = distinct !{!155, !156, !"_ZN9grpc_core14promise_detail11PollWrapperISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEE4WrapEOS8_: %agg.result"}
-!156 = distinct !{!156, !"_ZN9grpc_core14promise_detail11PollWrapperISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEE4WrapEOS8_"}
-!157 = distinct !{!157, !158, !"_ZN9grpc_core14promise_detail10WrapInPollISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEDTclsr11PollWrapperIT_EE4Wrapclsr3stdE7forwardIS9_Efp_EEEOS9_: %agg.result"}
-!158 = distinct !{!158, !"_ZN9grpc_core14promise_detail10WrapInPollISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEDTclsr11PollWrapperIT_EE4Wrapclsr3stdE7forwardIS9_Efp_EEEOS9_"}
+!149 = !{!150, !152, !144}
+!150 = distinct !{!150, !151, !"_ZN9grpc_core14promise_detail11PollWrapperISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEE4WrapEOS8_: %agg.result"}
+!151 = distinct !{!151, !"_ZN9grpc_core14promise_detail11PollWrapperISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEE4WrapEOS8_"}
+!152 = distinct !{!152, !153, !"_ZN9grpc_core14promise_detail10WrapInPollISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEDTclsr11PollWrapperIT_EE4Wrapclsr3stdE7forwardIS9_Efp_EEEOS9_: %agg.result"}
+!153 = distinct !{!153, !"_ZN9grpc_core14promise_detail10WrapInPollISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEDTclsr11PollWrapperIT_EE4Wrapclsr3stdE7forwardIS9_Efp_EEEOS9_"}
+!154 = !{!155, !157}
+!155 = distinct !{!155, !156, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS7_EEvE4CastEOS9_: %agg.result"}
+!156 = distinct !{!156, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS7_EEvE4CastEOS9_"}
+!157 = distinct !{!157, !158, !"_ZN9grpc_core9poll_castISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS7_EEEENS8_IT_EET0_: %agg.result"}
+!158 = distinct !{!158, !"_ZN9grpc_core9poll_castISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS7_EEEENS8_IT_EET0_"}
 !159 = !{!160}
 !160 = distinct !{!160, !161, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFvRS3_EPNSA_4CallEPSA_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_: %agg.result"}
 !161 = distinct !{!161, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_16HttpServerFilterEEEvMNT_4CallEFvRS3_EPNSA_4CallEPSA_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_"}

@@ -165,9 +165,9 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Optio
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !alias.scope !49, !nonnull !4, !noundef !4
   %24 = getelementptr inbounds i8, ptr %0, i64 24
-  %25 = load i64, ptr %24, align 8, !alias.scope !50, !noundef !4
+  %25 = load i64, ptr %24, align 8, !alias.scope !49, !noundef !4
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17he0e18a4cd5f9b988E.llvm.12416308318850438941"(ptr noalias noundef nonnull align 8 %23, i64 noundef %25) #15
-          to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hada1a3b837886fcdE.llvm.12416308318850438941.exit.i.i" unwind label %26, !noalias !49
+          to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hada1a3b837886fcdE.llvm.12416308318850438941.exit.i.i" unwind label %26, !noalias !52
 
 26:                                               ; preds = %20
   %27 = landingpad { ptr, i32 }
@@ -2495,10 +2495,10 @@ attributes #17 = { cold noreturn nounwind }
 !46 = !{!47}
 !47 = distinct !{!47, !48, !"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17he4d97c081b99599fE: argument 0"}
 !48 = distinct !{!48, !"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17he4d97c081b99599fE"}
-!49 = !{!47, !35}
-!50 = !{!51, !47, !35}
-!51 = distinct !{!51, !52, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hada1a3b837886fcdE.llvm.12416308318850438941: argument 0"}
-!52 = distinct !{!52, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hada1a3b837886fcdE.llvm.12416308318850438941"}
+!49 = !{!50, !47, !35}
+!50 = distinct !{!50, !51, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hada1a3b837886fcdE.llvm.12416308318850438941: argument 0"}
+!51 = distinct !{!51, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hada1a3b837886fcdE.llvm.12416308318850438941"}
+!52 = !{!47, !35}
 !53 = !{!54}
 !54 = distinct !{!54, !55, !"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_json..value..Value$GT$$GT$17h03bf3774d0dda89cE.llvm.12416308318850438941: argument 0"}
 !55 = distinct !{!55, !"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_json..value..Value$GT$$GT$17h03bf3774d0dda89cE.llvm.12416308318850438941"}

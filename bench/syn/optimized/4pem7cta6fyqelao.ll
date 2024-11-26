@@ -1032,7 +1032,7 @@ define noundef zeroext i1 @"_ZN60_$LT$syn..token..Underscore$u20$as$u20$syn..tok
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.03.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %11 = load i32, ptr %.0.i.i.i.i, align 8, !range !144, !noalias !145, !noundef !4
+  %11 = load i32, ptr %.0.i.i.i.i, align 8, !range !144, !noalias !149, !noundef !4
   %12 = icmp ne i32 %11, 4
   %13 = icmp eq ptr %.0.i.i.i.i, %1
   %or.cond.i.i.i.i = or i1 %13, %12
@@ -1139,7 +1139,7 @@ _ZN3syn6buffer6Cursor5ident17he943c8405b28ecffE.exit: ; preds = %32
 .preheader.i.i15:                                 ; preds = %.lr.ph.i.i12, %.preheader.i.i15
   %.pn.i.i.i16 = phi ptr [ %.0.i.i.i.i17, %.preheader.i.i15 ], [ %.sroa.0.0.i, %.lr.ph.i.i12 ]
   %.0.i.i.i.i17 = getelementptr inbounds i8, ptr %.pn.i.i.i16, i64 40
-  %43 = load i32, ptr %.0.i.i.i.i17, align 8, !range !144, !noalias !172, !noundef !4
+  %43 = load i32, ptr %.0.i.i.i.i17, align 8, !range !144, !noalias !175, !noundef !4
   %44 = icmp ne i32 %43, 4
   %45 = icmp eq ptr %.0.i.i.i.i17, %1
   %or.cond.i.i.i.i18 = or i1 %45, %44
@@ -1330,7 +1330,7 @@ define noundef zeroext i1 @"_ZN3syn3ext90_$LT$impl$u20$syn..token..private..Cust
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.pn.i.i.i = phi ptr [ %.0.i.i.i.i, %.preheader.i.i ], [ %.sroa.03.0.i, %.lr.ph.i.i ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 40
-  %10 = load i32, ptr %.0.i.i.i.i, align 8, !range !144, !noalias !194, !noundef !4
+  %10 = load i32, ptr %.0.i.i.i.i, align 8, !range !144, !noalias !197, !noundef !4
   %11 = icmp ne i32 %10, 4
   %12 = icmp eq ptr %.0.i.i.i.i, %1
   %or.cond.i.i.i.i = or i1 %12, %11

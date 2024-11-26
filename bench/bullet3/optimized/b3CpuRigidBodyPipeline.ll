@@ -353,16 +353,16 @@ entry:
   %mul.i.i18 = fmul float %add.i8, 5.000000e-01
   %mul2.i.i20 = fmul float %add4.i, 5.000000e-01
   %mul4.i.i22 = fmul float %add7.i, 5.000000e-01
-  %6 = load float, ptr %orn, align 16
+  %6 = load float, ptr %orn, align 16, !noalias !7
   %arrayidx2.i.i.i.i.i = getelementptr inbounds i8, ptr %orn, i64 4
-  %7 = load float, ptr %arrayidx2.i.i.i.i.i, align 4
+  %7 = load float, ptr %arrayidx2.i.i.i.i.i, align 4, !noalias !7
   %mul4.i.i.i.i.i = fmul float %7, %7
   %8 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %mul4.i.i.i.i.i)
   %arrayidx5.i.i.i.i.i = getelementptr inbounds i8, ptr %orn, i64 8
-  %9 = load float, ptr %arrayidx5.i.i.i.i.i, align 8
+  %9 = load float, ptr %arrayidx5.i.i.i.i.i, align 8, !noalias !7
   %10 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %8)
   %arrayidx7.i.i.i.i.i = getelementptr inbounds i8, ptr %orn, i64 12
-  %11 = load float, ptr %arrayidx7.i.i.i.i.i, align 4
+  %11 = load float, ptr %arrayidx7.i.i.i.i.i, align 4, !noalias !7
   %12 = tail call noundef float @llvm.fmuladd.f32(float %11, float %11, float %10)
   %div.i.i.i = fdiv float 2.000000e+00, %12
   %mul.i.i.i = fmul float %6, %div.i.i.i
@@ -579,7 +579,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %iter.016, 1
   %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %for.cond6.preheader, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.cond6.preheader, label %for.body, !llvm.loop !10
 
 lpad.loopexit:                                    ; preds = %for.body8
   %lpad.loopexit14 = landingpad { ptr, i32 }
@@ -612,7 +612,7 @@ for.body8:                                        ; preds = %for.cond6.preheader
 for.inc17:                                        ; preds = %for.body8
   %inc18 = add nuw nsw i32 %iter5.017, 1
   %exitcond18.not = icmp eq i32 %inc18, 4
-  br i1 %exitcond18.not, label %for.end19, label %for.body8, !llvm.loop !8
+  br i1 %exitcond18.not, label %for.end19, label %for.body8, !llvm.loop !11
 
 for.end19:                                        ; preds = %for.inc17
   %2 = load ptr, ptr %m_data.i.i, align 8
@@ -732,7 +732,7 @@ for.body9.i:                                      ; preds = %for.body9.i, %.noex
   store i32 0, ptr %arrayidx12.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %exitcond.not.i, label %invoke.cont, label %for.body9.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %invoke.cont, label %for.body9.i, !llvm.loop !12
 
 invoke.cont:                                      ; preds = %for.body9.i, %for.body
   store i32 0, ptr %m_size.i.i, align 4
@@ -827,7 +827,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   store i32 %20, ptr %arrayidx.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if.then.i22.i221, label %for.body.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %if.then.i22.i221, label %for.body.i.i, !llvm.loop !13
 
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18.i: ; preds = %call.i.i.i.noexc, %if.then.i215
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 301)
@@ -881,7 +881,7 @@ for.body9.i69:                                    ; preds = %for.body9.i69, %.no
   store i32 0, ptr %arrayidx12.i71, align 4
   %indvars.iv.next.i72 = add nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i
-  br i1 %exitcond.not.i73, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit75, label %for.body9.i69, !llvm.loop !9
+  br i1 %exitcond.not.i73, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit75, label %for.body9.i69, !llvm.loop !12
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit75:  ; preds = %for.body9.i69
   store i32 %add28, ptr %m_size.i.i, align 4
@@ -933,7 +933,7 @@ for.body.i.i260:                                  ; preds = %for.body.i.i260, %f
   store i32 %27, ptr %arrayidx.i.i262, align 4
   %indvars.iv.next.i.i264 = add nuw nsw i64 %indvars.iv.i.i261, 1
   %exitcond.not.i.i265 = icmp eq i64 %indvars.iv.next.i.i264, %wide.trip.count.i.i259
-  br i1 %exitcond.not.i.i265, label %if.then.i22.i251, label %for.body.i.i260, !llvm.loop !10
+  br i1 %exitcond.not.i.i265, label %if.then.i22.i251, label %for.body.i.i260, !llvm.loop !13
 
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18.i266: ; preds = %call.i.i.i.noexc268, %if.then.i237
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 301)
@@ -987,7 +987,7 @@ for.body9.i83:                                    ; preds = %for.body9.i83, %.no
   store i32 0, ptr %arrayidx12.i85, align 4
   %indvars.iv.next.i86 = add nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i81
-  br i1 %exitcond.not.i87, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit89, label %for.body9.i83, !llvm.loop !9
+  br i1 %exitcond.not.i87, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit89, label %for.body9.i83, !llvm.loop !12
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit89:  ; preds = %for.body9.i83
   store i32 %add37, ptr %m_size.i.i, align 4
@@ -1263,7 +1263,7 @@ if.end.i:                                         ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i105, 1
   %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, 4
-  br i1 %exitcond.not.i108, label %for.inc119, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i108, label %for.inc119, label %for.body.i, !llvm.loop !14
 
 if.else:                                          ; preds = %if.end54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %maxRambdaDt73, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZN11b3SolveTask3runEi.maxRambdaDt.4, i64 16, i1 false)
@@ -1286,7 +1286,7 @@ for.body77:                                       ; preds = %if.else, %for.body7
   %add81 = fadd float %sum.0283, %131
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.cond84.preheader, label %for.body77, !llvm.loop !12
+  br i1 %exitcond.not, label %for.cond84.preheader, label %for.body77, !llvm.loop !15
 
 for.body86:                                       ; preds = %for.cond84.preheader, %for.body86
   %indvars.iv294 = phi i64 [ 0, %for.cond84.preheader ], [ %indvars.iv.next295, %for.body86 ]
@@ -1296,7 +1296,7 @@ for.body86:                                       ; preds = %for.cond84.preheade
   store float %fneg, ptr %arrayidx92, align 4
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond297.not = icmp eq i64 %indvars.iv.next295, 4
-  br i1 %exitcond297.not, label %for.end95, label %for.body86, !llvm.loop !13
+  br i1 %exitcond297.not, label %for.end95, label %for.body86, !llvm.loop !16
 
 for.end95:                                        ; preds = %for.body86
   %arrayidx.i114 = getelementptr inbounds %struct.b3ContactConstraint4, ptr %130, i64 %idxprom.i
@@ -1582,7 +1582,7 @@ for.body.i150:                                    ; preds = %for.body.i150, %_Z1
   %226 = load float, ptr %arrayidx7.i.i15.i.i141, align 8
   %add8.i174.i = fadd float %mul4.i144.i, %226
   store float %add8.i174.i, ptr %arrayidx7.i.i15.i.i141, align 8
-  br i1 %cmp13.i, label %for.body.i150, label %for.end.i, !llvm.loop !14
+  br i1 %cmp13.i, label %for.body.i150, label %for.end.i, !llvm.loop !17
 
 for.end.i:                                        ; preds = %for.body.i150
   %227 = load float, ptr %arrayidx.i63, align 16
@@ -1667,7 +1667,7 @@ _ZL15b3SolveFrictionR20b3ContactConstraint4RK9b3Vector3RS1_S4_fRK11b3Matrix3x3S3
 
 for.inc119:                                       ; preds = %for.inc.i, %_ZL15b3SolveFrictionR20b3ContactConstraint4RK9b3Vector3RS1_S4_fRK11b3Matrix3x3S3_S4_S4_fS7_PfS8_.exit, %for.body4
   %cmp3 = icmp sgt i32 %ic.0288.in, 1
-  br i1 %cmp3, label %for.body4, label %for.end120, !llvm.loop !15
+  br i1 %cmp3, label %for.body4, label %for.end120, !llvm.loop !18
 
 for.end120:                                       ; preds = %for.inc119, %invoke.cont
   %258 = load ptr, ptr %m_wgUsedBodies, align 8
@@ -1701,7 +1701,7 @@ for.body9.i191:                                   ; preds = %for.body9.i191, %.n
   store i32 0, ptr %arrayidx12.i193, align 4
   %indvars.iv.next.i194 = add nsw i64 %indvars.iv.i192, 1
   %exitcond.not.i195 = icmp eq i64 %indvars.iv.next.i194, %wide.trip.count.i189
-  br i1 %exitcond.not.i195, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit197, label %for.body9.i191, !llvm.loop !9
+  br i1 %exitcond.not.i195, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit197, label %for.body9.i191, !llvm.loop !12
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit197: ; preds = %for.body9.i191
   store i32 %261, ptr %m_size.i182, align 4
@@ -1736,13 +1736,13 @@ if.then150:                                       ; preds = %for.body146
 for.inc158:                                       ; preds = %for.body146, %if.then150
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %cmp145 = icmp samesign ult i64 %indvars.iv.next299, %264
-  br i1 %cmp145, label %for.body146, label %for.inc162, !llvm.loop !16
+  br i1 %cmp145, label %for.body146, label %for.inc162, !llvm.loop !19
 
 for.inc162:                                       ; preds = %for.inc158, %if.end140, %for.end120
   %inc163 = add nuw nsw i32 %bb.0292, 1
   %269 = load i32, ptr %m_maxNumBatches, align 8
   %cmp = icmp slt i32 %inc163, %269
-  br i1 %cmp, label %for.body, label %for.end164, !llvm.loop !17
+  br i1 %cmp, label %for.body, label %for.end164, !llvm.loop !20
 
 for.end164:                                       ; preds = %for.inc162
   %.pre313 = load ptr, ptr %m_data.i.i, align 8
@@ -1832,7 +1832,7 @@ for.body:                                         ; preds = %entry, %for.body
   %6 = load i32, ptr %m_size.i, align 4
   %7 = sext i32 %6 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -2332,7 +2332,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i32 %3, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !13
 
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18:   ; preds = %if.then, %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 301)
@@ -2416,7 +2416,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %arrayidx.i, ptr noundef nonnull align 16 dereferenceable(80) %arrayidx3.i, i64 80, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !22
 
 _ZNK20b3AlignedObjectArrayI15b3RigidBodyDataE4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 301)
@@ -2492,7 +2492,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayidx.i, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx3.i, i64 32, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !23
 
 _ZNK20b3AlignedObjectArrayI6b3AabbE4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayI6b3AabbE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 301)
@@ -2569,9 +2569,9 @@ attributes #19 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_Z23b3QuatGetRotationMatrixRK12b3Quaternion: %agg.result"}
+!9 = distinct !{!9, !"_Z23b3QuatGetRotationMatrixRK12b3Quaternion"}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -2583,3 +2583,6 @@ attributes #19 = { noreturn nounwind }
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}

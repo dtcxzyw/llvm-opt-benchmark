@@ -1302,8 +1302,8 @@ _ZNK5Yosys5RTLIL8IdString19compare_ptr_by_nameINS0_6ModuleEEclEPKS3_S6_.exit.i.i
   br i1 %.not302, label %.thread, label %_ZN5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE6insertERKS4_.exit
 
 .thread:                                          ; preds = %310, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL6ModuleESt4pairIKS3_iESt10_Select1stIS6_ENS1_8IdString19compare_ptr_by_nameIS2_EESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i, %_ZNK5Yosys5RTLIL8IdString19compare_ptr_by_nameINS0_6ModuleEEclEPKS3_S6_.exit.i.i.i
-  %331 = load ptr, ptr %23, align 8
-  %332 = load ptr, ptr %196, align 8
+  %331 = load ptr, ptr %23, align 8, !noalias !19
+  %332 = load ptr, ptr %196, align 8, !noalias !19
   %333 = icmp eq ptr %331, %332
   br i1 %333, label %.loopexit.i.thread, label %334
 
@@ -1317,7 +1317,7 @@ _ZNK5Yosys5RTLIL8IdString19compare_ptr_by_nameINS0_6ModuleEEclEPKS3_S6_.exit.i.i
   %341 = trunc i64 %340 to i32
   %342 = urem i32 %336, %341
   %343 = load ptr, ptr %192, align 8, !noalias !19
-  %344 = load ptr, ptr %172, align 8
+  %344 = load ptr, ptr %172, align 8, !noalias !19
   %345 = ptrtoint ptr %343 to i64
   %346 = ptrtoint ptr %344 to i64
   %347 = sub i64 %345, %346
@@ -1495,8 +1495,8 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE7do_hashERKS4_.exi
 .noexc:                                           ; preds = %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i128, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
   %430 = phi ptr [ %392, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ], [ %424, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i128 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %431 = load ptr, ptr %23, align 8
-  %432 = load ptr, ptr %196, align 8
+  %431 = load ptr, ptr %23, align 8, !noalias !19
+  %432 = load ptr, ptr %196, align 8, !noalias !19
   %433 = icmp eq ptr %431, %432
   br i1 %433, label %._crit_edge.i.i, label %_ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL6ModuleEEEjPKT_.exit.i.i.i62
 
@@ -12404,7 +12404,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit654:                ; preds = %2974, %2971, %2969
 
 2992:                                             ; preds = %2991
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
-  %2993 = load i32, ptr %131, align 4
+  %2993 = load i32, ptr %131, align 4, !noalias !199
   %2994 = sext i32 %2993 to i64
   %2995 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !noalias !199
   %2996 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !noalias !199
@@ -12909,8 +12909,8 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %3177, %3173
   %3186 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %3179, i64 %indvars.iv3458
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull align 8 dereferenceable(16) %3186, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  %3187 = load ptr, ptr %134, align 8
-  %3188 = load ptr, ptr %3137, align 8
+  %3187 = load ptr, ptr %134, align 8, !noalias !205
+  %3188 = load ptr, ptr %3137, align 8, !noalias !205
   %3189 = icmp eq ptr %3187, %3188
   br i1 %3189, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i, label %3190
 
@@ -12946,7 +12946,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %3207 = urem i32 %.0.i.i.i.i, %3206
   store i32 %3207, ptr %15, align 4, !noalias !205
   %3208 = load ptr, ptr %3140, align 8, !noalias !205
-  %3209 = load ptr, ptr %3139, align 8
+  %3209 = load ptr, ptr %3139, align 8, !noalias !205
   %3210 = ptrtoint ptr %3208 to i64
   %3211 = ptrtoint ptr %3209 to i64
   %3212 = sub i64 %3210, %3211
@@ -13390,8 +13390,8 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i734: ; preds = %3408, %3404
   %3417 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %3410, i64 %indvars.iv3467
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(16) %3417, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  %3418 = load ptr, ptr %134, align 8
-  %3419 = load ptr, ptr %3391, align 8
+  %3418 = load ptr, ptr %134, align 8, !noalias !210
+  %3419 = load ptr, ptr %3391, align 8, !noalias !210
   %3420 = icmp eq ptr %3418, %3419
   br i1 %3420, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i761, label %3421
 
@@ -13427,7 +13427,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %3438 = urem i32 %.0.i.i.i.i740, %3437
   store i32 %3438, ptr %14, align 4, !noalias !210
   %3439 = load ptr, ptr %3394, align 8, !noalias !210
-  %3440 = load ptr, ptr %3393, align 8
+  %3440 = load ptr, ptr %3393, align 8, !noalias !210
   %3441 = ptrtoint ptr %3439 to i64
   %3442 = ptrtoint ptr %3440 to i64
   %3443 = sub i64 %3441, %3442
@@ -17429,7 +17429,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_
   %31 = load ptr, ptr %1, align 8
   %32 = load ptr, ptr %8, align 8
   %33 = icmp eq ptr %31, %32
-  %.pre17.pre.pre = load i32, ptr %2, align 4
+  %.pre17.pre.pre = load i32, ptr %2, align 4, !noalias !241
   br i1 %33, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i, label %34
 
 34:                                               ; preds = %30
@@ -18882,7 +18882,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
   %31 = load ptr, ptr %1, align 8
   %32 = load ptr, ptr %8, align 8
   %33 = icmp eq ptr %31, %32
-  %.pre17.pre.pre = load i32, ptr %2, align 4
+  %.pre17.pre.pre = load i32, ptr %2, align 4, !noalias !252
   br i1 %33, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i, label %34
 
 34:                                               ; preds = %30
@@ -19189,7 +19189,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
   %31 = load ptr, ptr %1, align 8
   %32 = load ptr, ptr %8, align 8
   %33 = icmp eq ptr %31, %32
-  %.pre17.pre.pre = load i32, ptr %2, align 4
+  %.pre17.pre.pre = load i32, ptr %2, align 4, !noalias !258
   br i1 %33, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i, label %34
 
 34:                                               ; preds = %30

@@ -2584,6 +2584,7 @@ if.end24:                                         ; preds = %if.then17, %invoke.
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 if.end27:                                         ; preds = %invoke.cont6
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result.i)
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %25 = load i64, ptr %capacity_.i.i, align 8, !noalias !27
@@ -2602,7 +2603,7 @@ if.end27:                                         ; preds = %invoke.cont6
           to label %.noexc unwind label %lpad12
 
 .noexc:                                           ; preds = %if.end27
-  %29 = load i8, ptr %ref.tmp28, align 8
+  %29 = load i8, ptr %ref.tmp28, align 8, !alias.scope !27
   %cmp.i.i = icmp eq i8 %29, 0
   br i1 %cmp.i.i, label %if.then8.i, label %invoke.cont30
 

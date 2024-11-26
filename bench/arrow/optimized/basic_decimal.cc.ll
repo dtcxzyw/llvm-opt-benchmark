@@ -3579,7 +3579,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !33
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.i, i64 24
-  %0 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %0 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !33
   %cmp9.i.i.i = icmp slt i64 %0, 0
   br i1 %cmp9.i.i.i, label %for.body.i.i.i, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit
 

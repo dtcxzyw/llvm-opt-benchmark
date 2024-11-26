@@ -5057,7 +5057,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
 34:                                               ; preds = %2
   %35 = sub nuw i64 %1, %32
   %36 = getelementptr inbounds i8, ptr %0, i64 64
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !noalias !73
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %38, %20
   %40 = ashr exact i64 %39, 6
@@ -5068,11 +5068,11 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
 43:                                               ; preds = %34
   %44 = sub nuw i64 %35, %41
   tail call void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %44), !noalias !73
-  %.pre.i.i = load ptr, ptr %4, align 8
-  %.pre6.i.i = load ptr, ptr %36, align 8
+  %.pre.i.i = load ptr, ptr %4, align 8, !noalias !76
+  %.pre6.i.i = load ptr, ptr %36, align 8, !noalias !76
   %.pre7.i.i = ptrtoint ptr %.pre.i.i to i64
   %.pre = load ptr, ptr %18, align 8, !noalias !76
-  %.pre9 = load ptr, ptr %6, align 8
+  %.pre9 = load ptr, ptr %6, align 8, !noalias !76
   %.pre10 = ptrtoint ptr %.pre to i64
   %.pre11 = sub i64 %.pre7.i.i, %.pre10
   %.pre13 = ashr exact i64 %.pre11, 6
@@ -10597,7 +10597,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
 34:                                               ; preds = %2
   %35 = sub nuw i64 %1, %32
   %36 = getelementptr inbounds i8, ptr %0, i64 64
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !noalias !175
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %38, %20
   %40 = ashr exact i64 %39, 6
@@ -10608,11 +10608,11 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
 43:                                               ; preds = %34
   %44 = sub nuw i64 %35, %41
   tail call void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %44), !noalias !175
-  %.pre.i.i = load ptr, ptr %4, align 8
-  %.pre6.i.i = load ptr, ptr %36, align 8
+  %.pre.i.i = load ptr, ptr %4, align 8, !noalias !178
+  %.pre6.i.i = load ptr, ptr %36, align 8, !noalias !178
   %.pre7.i.i = ptrtoint ptr %.pre.i.i to i64
   %.pre = load ptr, ptr %18, align 8, !noalias !178
-  %.pre9 = load ptr, ptr %6, align 8
+  %.pre9 = load ptr, ptr %6, align 8, !noalias !178
   %.pre10 = ptrtoint ptr %.pre to i64
   %.pre11 = sub i64 %.pre7.i.i, %.pre10
   %.pre13 = ashr exact i64 %.pre11, 6

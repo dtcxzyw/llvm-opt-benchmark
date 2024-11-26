@@ -3608,7 +3608,7 @@ define weak_odr void @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %.sroa.0227.0.copyload.i = load <4 x float>, ptr %240, align 16, !noalias !285
   %241 = insertelement <4 x float> poison, float %.sroa.0221.4.vec.extract.i, i64 0
   %242 = shufflevector <4 x float> %241, <4 x float> poison, <4 x i32> zeroinitializer
-  %243 = load <4 x float>, ptr %6, align 16
+  %243 = load <4 x float>, ptr %6, align 16, !noalias !285
   %244 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %243, <4 x float> %242, <4 x float> %.sroa.0227.0.copyload.i)
   %245 = getelementptr inbounds i8, ptr %1, i64 160
   %246 = insertelement <4 x float> poison, float %.sroa.0221.0.vec.extract.i, i64 0
@@ -9096,7 +9096,7 @@ define linkonce_odr hidden void @_ZN5drjit12polar_decompIfLm3EEENSt3__14pairINS_
 18:                                               ; preds = %.lr.ph, %_ZNK5drjit9ArrayBaseINS_5ArrayIfLm3EEELb0ENS1_IS2_Lm3EEEE6fmadd_ERKS3_S6_.exit.preheader
   %.056 = phi i64 [ 0, %.lr.ph ], [ %92, %_ZNK5drjit9ArrayBaseINS_5ArrayIfLm3EEELb0ENS1_IS2_Lm3EEEE6fmadd_ERKS3_S6_.exit.preheader ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !558)
-  %.sroa.0227.0.copyload.i = load <4 x float>, ptr %6, align 16
+  %.sroa.0227.0.copyload.i = load <4 x float>, ptr %6, align 16, !noalias !558
   %.sroa.0232.0.copyload.i = load <4 x float>, ptr %14, align 16, !noalias !558
   %.sroa.0223.0.copyload.i = load <4 x float>, ptr %15, align 16, !noalias !558
   %19 = shufflevector <4 x float> %.sroa.0232.0.copyload.i, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>

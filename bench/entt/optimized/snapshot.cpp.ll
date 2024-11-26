@@ -29698,7 +29698,7 @@ cleanup.cont55:                                   ; preds = %_ZNKSt14default_del
 invoke.cont60:                                    ; preds = %cleanup.cont55
   %construction.i.i = getelementptr inbounds i8, ptr %call.i250, i64 104
   %_M_finish.i.i.i.i251 = getelementptr inbounds i8, ptr %call.i250, i64 112
-  %42 = load ptr, ptr %_M_finish.i.i.i.i251, align 8, !tbaa !23
+  %42 = load ptr, ptr %_M_finish.i.i.i.i251, align 8, !tbaa !23, !noalias !280
   %43 = load ptr, ptr %construction.i.i, align 8, !tbaa !28, !noalias !280
   %tobool.not15.i.i.i = icmp eq ptr %42, %43
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaI6shadowEEEE10disconnectITnDaXadL_ZNS8_8listenerERS3_S6_S3_EEJSD_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i
@@ -59984,7 +59984,7 @@ cleanup.cont56:                                   ; preds = %_ZNKSt14default_del
 invoke.cont61:                                    ; preds = %cleanup.cont56
   %construction.i.i = getelementptr inbounds i8, ptr %call.i259, i64 104
   %_M_finish.i.i.i.i260 = getelementptr inbounds i8, ptr %call.i259, i64 112
-  %53 = load ptr, ptr %_M_finish.i.i.i.i260, align 8, !tbaa !23
+  %53 = load ptr, ptr %_M_finish.i.i.i.i260, align 8, !tbaa !23, !noalias !363
   %54 = load ptr, ptr %construction.i.i, align 8, !tbaa !28, !noalias !363
   %tobool.not15.i.i.i = icmp eq ptr %53, %54
   br i1 %tobool.not15.i.i.i, label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaI6shadowEEEE10disconnectITnDaXadL_ZNS8_8listenerERS3_S6_S3_EEJSD_EEEvDpOT0_.exit.i, label %for.body.lr.ph.i.i.i

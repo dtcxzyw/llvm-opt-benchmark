@@ -629,7 +629,7 @@ common.resume:                                    ; preds = %10, %42, %23
   %31 = getelementptr inbounds i8, ptr %7, i64 24
   %32 = load ptr, ptr %31, align 8, !alias.scope !48, !noalias !53, !nonnull !4, !noundef !4
   %33 = getelementptr inbounds i8, ptr %7, i64 8
-  %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
+  %34 = load ptr, ptr %33, align 8, !alias.scope !48, !noalias !53, !nonnull !4, !noundef !4
   %35 = icmp eq ptr %32, %34
   br i1 %35, label %36, label %37
 
@@ -845,7 +845,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr197dro
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.sroa.5.i.sroa.4.7.copyload, ptr %.sroa.515.0..sroa_idx, align 8
   %50 = load ptr, ptr %13, align 8, !alias.scope !103, !noalias !108, !nonnull !4, !noundef !4
-  %51 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
+  %51 = load ptr, ptr %15, align 8, !alias.scope !103, !noalias !108, !nonnull !4, !noundef !4
   %52 = icmp eq ptr %50, %51
   br i1 %52, label %53, label %54
 
@@ -2777,7 +2777,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !624)
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !alias.scope !624, !nonnull !4, !noundef !4
+  %15 = load ptr, ptr %14, align 8, !alias.scope !627, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8, !alias.scope !627, !noundef !4
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17h7fe84a92264ee330E.llvm.9708849161435668323"(ptr noalias noundef nonnull align 8 %15, i64 noundef %17)
@@ -3319,13 +3319,13 @@ define internal fastcc noundef align 8 ptr @_ZN5serde3ser12SerializeMap15seriali
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %.val3 = load i64, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !750)
-  %6 = load i8, ptr %0, align 8, !range !90, !noundef !4
+  %6 = load i8, ptr %0, align 8, !range !90, !alias.scope !750, !noundef !4
   %trunc.i = trunc nuw i8 %6 to i1
   br i1 %trunc.i, label %26, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !37, !noundef !4
+  %9 = load ptr, ptr %8, align 8, !alias.scope !750, !nonnull !4, !align !37, !noundef !4
   %10 = getelementptr inbounds i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1, !range !753, !alias.scope !750, !noundef !4
   %12 = icmp eq i8 %11, 1
@@ -4960,7 +4960,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr42drop
 
 .noexc19:                                         ; preds = %.noexc18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1271
-  %45 = load i64, ptr %9, align 8, !range !787, !noalias !1276, !noundef !4
+  %45 = load i64, ptr %9, align 8, !range !787, !noalias !1271, !noundef !4
   %46 = icmp eq i64 %45, -9223372036854775808
   %47 = getelementptr inbounds i8, ptr %9, i64 8
   %48 = load ptr, ptr %47, align 8, !noalias !1276

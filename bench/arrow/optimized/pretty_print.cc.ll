@@ -975,7 +975,7 @@ call2.i.i5.i.i.i.i.i.i.noexc.i:                   ; preds = %do.end57.i.i.i.i.i8
 
 if.end67.i.i.i.i.i8268:                           ; preds = %call2.i.i5.i.i.i.i.i.i.noexc.i, %if.then36.i.i.i.i.invoke.i8266, %call34.i.i.i.i.noexc.i8319, %if.end.i.i.i.i.i8354
   %i.1.i.i.i.i.i8269 = phi i64 [ %sub29.i.i.i.i.i8356, %if.end.i.i.i.i.i8354 ], [ %i.04.i.i.i.i.i8224, %call34.i.i.i.i.noexc.i8319 ], [ %i.04.i.i.i.i.i8224, %call2.i.i5.i.i.i.i.i.i.noexc.i ], [ %i.04.i.i.i.i.i8224, %if.then36.i.i.i.i.invoke.i8266 ]
-  %this.val.i.i.i.i.i8270 = load ptr, ptr %this, align 8, !noalias !19
+  %this.val.i.i.i.i.i8270 = load ptr, ptr %this, align 8, !noalias !24
   %67 = getelementptr i8, ptr %this.val.i.i.i.i.i8270, i64 48
   %this.val.val.i.i.i.i.i8271 = load i8, ptr %67, align 8, !noalias !24
   %tobool.i93.i.i.i.i.i8272 = trunc i8 %this.val.val.i.i.i.i.i8271 to i1
@@ -988,9 +988,9 @@ if.end.i94.i.i.i.i.i8273:                         ; preds = %if.end67.i.i.i.i.i8
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i8276: ; preds = %if.end.i94.i.i.i.i.i8273, %if.end67.i.i.i.i.i8268
   %inc.i.i.i.i.i8277 = add nsw i64 %i.1.i.i.i.i.i8269, 1
-  %68 = load ptr, ptr %data_.i, align 8, !noalias !19
+  %68 = load ptr, ptr %data_.i, align 8, !noalias !24
   %length.i.i.i.i.i.i8278 = getelementptr inbounds i8, ptr %68, i64 16
-  %69 = load i64, ptr %length.i.i.i.i.i.i8278, align 8, !noalias !19
+  %69 = load i64, ptr %length.i.i.i.i.i.i8278, align 8, !noalias !24
   %cmp.i.i.i.i.i8279 = icmp slt i64 %inc.i.i.i.i.i8277, %69
   br i1 %cmp.i.i.i.i.i8279, label %for.body.i.i.i.i.i8223, label %if.end27.i8280, !llvm.loop !36
 
@@ -1548,7 +1548,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i8015:                ; preds = %do.end57.i.i.i.i.i8
 
 if.end67.i.i.i.i.i8018:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i8015, %if.then36.i.i.i.i.invoke.i8016, %call34.i.i.i.i.noexc.i8078, %if.end.i.i.i.i.i8113
   %i.1.i.i.i.i.i8019 = phi i64 [ %sub29.i.i.i.i.i8115, %if.end.i.i.i.i.i8113 ], [ %i.04.i.i.i.i.i7957, %call34.i.i.i.i.noexc.i8078 ], [ %i.04.i.i.i.i.i7957, %call2.i.i.i.i.i.i.i.i.noexc.i8015 ], [ %i.04.i.i.i.i.i7957, %if.then36.i.i.i.i.invoke.i8016 ]
-  %this.val.i.i.i.i.i8020 = load ptr, ptr %this, align 8, !noalias !37
+  %this.val.i.i.i.i.i8020 = load ptr, ptr %this, align 8, !noalias !40
   %156 = getelementptr i8, ptr %this.val.i.i.i.i.i8020, i64 48
   %this.val.val.i.i.i.i.i8021 = load i8, ptr %156, align 8, !noalias !40
   %tobool.i95.i.i.i.i.i8022 = trunc i8 %this.val.val.i.i.i.i.i8021 to i1
@@ -1561,9 +1561,9 @@ if.end.i96.i.i.i.i.i8023:                         ; preds = %if.end67.i.i.i.i.i8
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i8026: ; preds = %if.end.i96.i.i.i.i.i8023, %if.end67.i.i.i.i.i8018
   %inc.i.i.i.i.i8027 = add nsw i64 %i.1.i.i.i.i.i8019, 1
-  %157 = load ptr, ptr %data_.i, align 8, !noalias !37
+  %157 = load ptr, ptr %data_.i, align 8, !noalias !40
   %length.i.i.i.i.i.i8028 = getelementptr inbounds i8, ptr %157, i64 16
-  %158 = load i64, ptr %length.i.i.i.i.i.i8028, align 8, !noalias !37
+  %158 = load i64, ptr %length.i.i.i.i.i.i8028, align 8, !noalias !40
   %cmp.i.i.i.i.i8029 = icmp slt i64 %inc.i.i.i.i.i8027, %158
   br i1 %cmp.i.i.i.i.i8029, label %for.body.i.i.i.i.i7956, label %if.end27.i8030, !llvm.loop !52
 
@@ -2111,7 +2111,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i7746:                ; preds = %do.end57.i.i.i.i.i7
 
 if.end67.i.i.i.i.i7749:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i7746, %if.then36.i.i.i.i.invoke.i7747, %call34.i.i.i.i.noexc.i7806, %if.end.i.i.i.i.i7841
   %i.1.i.i.i.i.i7750 = phi i64 [ %sub29.i.i.i.i.i7843, %if.end.i.i.i.i.i7841 ], [ %i.04.i.i.i.i.i7692, %call34.i.i.i.i.noexc.i7806 ], [ %i.04.i.i.i.i.i7692, %call2.i.i.i.i.i.i.i.i.noexc.i7746 ], [ %i.04.i.i.i.i.i7692, %if.then36.i.i.i.i.invoke.i7747 ]
-  %this.val.i.i.i.i.i7751 = load ptr, ptr %this, align 8, !noalias !53
+  %this.val.i.i.i.i.i7751 = load ptr, ptr %this, align 8, !noalias !56
   %246 = getelementptr i8, ptr %this.val.i.i.i.i.i7751, i64 48
   %this.val.val.i.i.i.i.i7752 = load i8, ptr %246, align 8, !noalias !56
   %tobool.i93.i.i.i.i.i7753 = trunc i8 %this.val.val.i.i.i.i.i7752 to i1
@@ -2124,9 +2124,9 @@ if.end.i94.i.i.i.i.i7754:                         ; preds = %if.end67.i.i.i.i.i7
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i7757: ; preds = %if.end.i94.i.i.i.i.i7754, %if.end67.i.i.i.i.i7749
   %inc.i.i.i.i.i7758 = add nsw i64 %i.1.i.i.i.i.i7750, 1
-  %247 = load ptr, ptr %data_.i, align 8, !noalias !53
+  %247 = load ptr, ptr %data_.i, align 8, !noalias !56
   %length.i.i.i.i.i.i7759 = getelementptr inbounds i8, ptr %247, i64 16
-  %248 = load i64, ptr %length.i.i.i.i.i.i7759, align 8, !noalias !53
+  %248 = load i64, ptr %length.i.i.i.i.i.i7759, align 8, !noalias !56
   %cmp.i.i.i.i.i7760 = icmp slt i64 %inc.i.i.i.i.i7758, %248
   br i1 %cmp.i.i.i.i.i7760, label %for.body.i.i.i.i.i7691, label %if.end27.i7761, !llvm.loop !68
 
@@ -2690,7 +2690,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i7471:                ; preds = %do.end57.i.i.i.i.i7
 
 if.end67.i.i.i.i.i7474:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i7471, %if.then36.i.i.i.i.invoke.i7472, %call34.i.i.i.i.noexc.i7541, %if.end.i.i.i.i.i7576
   %i.1.i.i.i.i.i7475 = phi i64 [ %sub29.i.i.i.i.i7578, %if.end.i.i.i.i.i7576 ], [ %i.04.i.i.i.i.i7413, %call34.i.i.i.i.noexc.i7541 ], [ %i.04.i.i.i.i.i7413, %call2.i.i.i.i.i.i.i.i.noexc.i7471 ], [ %i.04.i.i.i.i.i7413, %if.then36.i.i.i.i.invoke.i7472 ]
-  %this.val.i.i.i.i.i7476 = load ptr, ptr %this, align 8, !noalias !69
+  %this.val.i.i.i.i.i7476 = load ptr, ptr %this, align 8, !noalias !72
   %335 = getelementptr i8, ptr %this.val.i.i.i.i.i7476, i64 48
   %this.val.val.i.i.i.i.i7477 = load i8, ptr %335, align 8, !noalias !72
   %tobool.i95.i.i.i.i.i7478 = trunc i8 %this.val.val.i.i.i.i.i7477 to i1
@@ -2703,9 +2703,9 @@ if.end.i96.i.i.i.i.i7479:                         ; preds = %if.end67.i.i.i.i.i7
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i7482: ; preds = %if.end.i96.i.i.i.i.i7479, %if.end67.i.i.i.i.i7474
   %inc.i.i.i.i.i7483 = add nsw i64 %i.1.i.i.i.i.i7475, 1
-  %336 = load ptr, ptr %data_.i, align 8, !noalias !69
+  %336 = load ptr, ptr %data_.i, align 8, !noalias !72
   %length.i.i.i.i.i.i7484 = getelementptr inbounds i8, ptr %336, i64 16
-  %337 = load i64, ptr %length.i.i.i.i.i.i7484, align 8, !noalias !69
+  %337 = load i64, ptr %length.i.i.i.i.i.i7484, align 8, !noalias !72
   %cmp.i.i.i.i.i7485 = icmp slt i64 %inc.i.i.i.i.i7483, %337
   br i1 %cmp.i.i.i.i.i7485, label %for.body.i.i.i.i.i7412, label %if.end27.i7486, !llvm.loop !85
 
@@ -3258,7 +3258,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i7195:                ; preds = %do.end57.i.i.i.i.i7
 
 if.end67.i.i.i.i.i7198:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i7195, %if.then36.i.i.i.i.invoke.i7196, %call34.i.i.i.i.noexc.i7263, %if.end.i.i.i.i.i7298
   %i.1.i.i.i.i.i7199 = phi i64 [ %sub29.i.i.i.i.i7300, %if.end.i.i.i.i.i7298 ], [ %i.04.i.i.i.i.i7142, %call34.i.i.i.i.noexc.i7263 ], [ %i.04.i.i.i.i.i7142, %call2.i.i.i.i.i.i.i.i.noexc.i7195 ], [ %i.04.i.i.i.i.i7142, %if.then36.i.i.i.i.invoke.i7196 ]
-  %this.val.i.i.i.i.i7200 = load ptr, ptr %this, align 8, !noalias !86
+  %this.val.i.i.i.i.i7200 = load ptr, ptr %this, align 8, !noalias !89
   %424 = getelementptr i8, ptr %this.val.i.i.i.i.i7200, i64 48
   %this.val.val.i.i.i.i.i7201 = load i8, ptr %424, align 8, !noalias !89
   %tobool.i93.i.i.i.i.i7202 = trunc i8 %this.val.val.i.i.i.i.i7201 to i1
@@ -3271,9 +3271,9 @@ if.end.i94.i.i.i.i.i7203:                         ; preds = %if.end67.i.i.i.i.i7
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i7206: ; preds = %if.end.i94.i.i.i.i.i7203, %if.end67.i.i.i.i.i7198
   %inc.i.i.i.i.i7207 = add nsw i64 %i.1.i.i.i.i.i7199, 1
-  %425 = load ptr, ptr %data_.i, align 8, !noalias !86
+  %425 = load ptr, ptr %data_.i, align 8, !noalias !89
   %length.i.i.i.i.i.i7208 = getelementptr inbounds i8, ptr %425, i64 16
-  %426 = load i64, ptr %length.i.i.i.i.i.i7208, align 8, !noalias !86
+  %426 = load i64, ptr %length.i.i.i.i.i.i7208, align 8, !noalias !89
   %cmp.i.i.i.i.i7209 = icmp slt i64 %inc.i.i.i.i.i7207, %426
   br i1 %cmp.i.i.i.i.i7209, label %for.body.i.i.i.i.i7141, label %if.end27.i7210, !llvm.loop !101
 
@@ -3837,7 +3837,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i6919:                ; preds = %do.end57.i.i.i.i.i6
 
 if.end67.i.i.i.i.i6922:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i6919, %if.then36.i.i.i.i.invoke.i6920, %call34.i.i.i.i.noexc.i6992, %if.end.i.i.i.i.i7027
   %i.1.i.i.i.i.i6923 = phi i64 [ %sub29.i.i.i.i.i7029, %if.end.i.i.i.i.i7027 ], [ %i.04.i.i.i.i.i6860, %call34.i.i.i.i.noexc.i6992 ], [ %i.04.i.i.i.i.i6860, %call2.i.i.i.i.i.i.i.i.noexc.i6919 ], [ %i.04.i.i.i.i.i6860, %if.then36.i.i.i.i.invoke.i6920 ]
-  %this.val.i.i.i.i.i6924 = load ptr, ptr %this, align 8, !noalias !102
+  %this.val.i.i.i.i.i6924 = load ptr, ptr %this, align 8, !noalias !105
   %511 = getelementptr i8, ptr %this.val.i.i.i.i.i6924, i64 48
   %this.val.val.i.i.i.i.i6925 = load i8, ptr %511, align 8, !noalias !105
   %tobool.i95.i.i.i.i.i6926 = trunc i8 %this.val.val.i.i.i.i.i6925 to i1
@@ -3850,9 +3850,9 @@ if.end.i96.i.i.i.i.i6927:                         ; preds = %if.end67.i.i.i.i.i6
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i6930: ; preds = %if.end.i96.i.i.i.i.i6927, %if.end67.i.i.i.i.i6922
   %inc.i.i.i.i.i6931 = add nsw i64 %i.1.i.i.i.i.i6923, 1
-  %512 = load ptr, ptr %data_.i, align 8, !noalias !102
+  %512 = load ptr, ptr %data_.i, align 8, !noalias !105
   %length.i.i.i.i.i.i6932 = getelementptr inbounds i8, ptr %512, i64 16
-  %513 = load i64, ptr %length.i.i.i.i.i.i6932, align 8, !noalias !102
+  %513 = load i64, ptr %length.i.i.i.i.i.i6932, align 8, !noalias !105
   %cmp.i.i.i.i.i6933 = icmp slt i64 %inc.i.i.i.i.i6931, %513
   br i1 %cmp.i.i.i.i.i6933, label %for.body.i.i.i.i.i6859, label %if.end27.i6934, !llvm.loop !118
 
@@ -4405,7 +4405,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i6639:                ; preds = %do.end57.i.i.i.i.i6
 
 if.end67.i.i.i.i.i6642:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i6639, %if.then36.i.i.i.i.invoke.i6640, %call34.i.i.i.i.noexc.i6710, %if.end.i.i.i.i.i6745
   %i.1.i.i.i.i.i6643 = phi i64 [ %sub29.i.i.i.i.i6747, %if.end.i.i.i.i.i6745 ], [ %i.04.i.i.i.i.i6584, %call34.i.i.i.i.noexc.i6710 ], [ %i.04.i.i.i.i.i6584, %call2.i.i.i.i.i.i.i.i.noexc.i6639 ], [ %i.04.i.i.i.i.i6584, %if.then36.i.i.i.i.invoke.i6640 ]
-  %this.val.i.i.i.i.i6644 = load ptr, ptr %this, align 8, !noalias !119
+  %this.val.i.i.i.i.i6644 = load ptr, ptr %this, align 8, !noalias !122
   %598 = getelementptr i8, ptr %this.val.i.i.i.i.i6644, i64 48
   %this.val.val.i.i.i.i.i6645 = load i8, ptr %598, align 8, !noalias !122
   %tobool.i93.i.i.i.i.i6646 = trunc i8 %this.val.val.i.i.i.i.i6645 to i1
@@ -4418,9 +4418,9 @@ if.end.i94.i.i.i.i.i6647:                         ; preds = %if.end67.i.i.i.i.i6
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i6650: ; preds = %if.end.i94.i.i.i.i.i6647, %if.end67.i.i.i.i.i6642
   %inc.i.i.i.i.i6651 = add nsw i64 %i.1.i.i.i.i.i6643, 1
-  %599 = load ptr, ptr %data_.i, align 8, !noalias !119
+  %599 = load ptr, ptr %data_.i, align 8, !noalias !122
   %length.i.i.i.i.i.i6652 = getelementptr inbounds i8, ptr %599, i64 16
-  %600 = load i64, ptr %length.i.i.i.i.i.i6652, align 8, !noalias !119
+  %600 = load i64, ptr %length.i.i.i.i.i.i6652, align 8, !noalias !122
   %cmp.i.i.i.i.i6653 = icmp slt i64 %inc.i.i.i.i.i6651, %600
   br i1 %cmp.i.i.i.i.i6653, label %for.body.i.i.i.i.i6583, label %if.end27.i6654, !llvm.loop !134
 
@@ -4982,7 +4982,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i6363:                ; preds = %do.end57.i.i.i.i.i6
 
 if.end67.i.i.i.i.i6366:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i6363, %if.then36.i.i.i.i.invoke.i6364, %call34.i.i.i.i.noexc.i6434, %if.end.i.i.i.i.i6469
   %i.1.i.i.i.i.i6367 = phi i64 [ %sub29.i.i.i.i.i6471, %if.end.i.i.i.i.i6469 ], [ %i.04.i.i.i.i.i6304, %call34.i.i.i.i.noexc.i6434 ], [ %i.04.i.i.i.i.i6304, %call2.i.i.i.i.i.i.i.i.noexc.i6363 ], [ %i.04.i.i.i.i.i6304, %if.then36.i.i.i.i.invoke.i6364 ]
-  %this.val.i.i.i.i.i6368 = load ptr, ptr %this, align 8, !noalias !135
+  %this.val.i.i.i.i.i6368 = load ptr, ptr %this, align 8, !noalias !138
   %685 = getelementptr i8, ptr %this.val.i.i.i.i.i6368, i64 48
   %this.val.val.i.i.i.i.i6369 = load i8, ptr %685, align 8, !noalias !138
   %tobool.i95.i.i.i.i.i6370 = trunc i8 %this.val.val.i.i.i.i.i6369 to i1
@@ -4995,9 +4995,9 @@ if.end.i96.i.i.i.i.i6371:                         ; preds = %if.end67.i.i.i.i.i6
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i6374: ; preds = %if.end.i96.i.i.i.i.i6371, %if.end67.i.i.i.i.i6366
   %inc.i.i.i.i.i6375 = add nsw i64 %i.1.i.i.i.i.i6367, 1
-  %686 = load ptr, ptr %data_.i, align 8, !noalias !135
+  %686 = load ptr, ptr %data_.i, align 8, !noalias !138
   %length.i.i.i.i.i.i6376 = getelementptr inbounds i8, ptr %686, i64 16
-  %687 = load i64, ptr %length.i.i.i.i.i.i6376, align 8, !noalias !135
+  %687 = load i64, ptr %length.i.i.i.i.i.i6376, align 8, !noalias !138
   %cmp.i.i.i.i.i6377 = icmp slt i64 %inc.i.i.i.i.i6375, %687
   br i1 %cmp.i.i.i.i.i6377, label %for.body.i.i.i.i.i6303, label %if.end27.i6378, !llvm.loop !151
 
@@ -5548,7 +5548,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i6085:                ; preds = %do.end57.i.i.i.i.i6
 
 if.end67.i.i.i.i.i6088:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i6085, %if.then36.i.i.i.i.invoke.i6086, %call34.i.i.i.i.noexc.i6154, %if.end.i.i.i.i.i6189
   %i.1.i.i.i.i.i6089 = phi i64 [ %sub29.i.i.i.i.i6191, %if.end.i.i.i.i.i6189 ], [ %i.04.i.i.i.i.i6030, %call34.i.i.i.i.noexc.i6154 ], [ %i.04.i.i.i.i.i6030, %call2.i.i.i.i.i.i.i.i.noexc.i6085 ], [ %i.04.i.i.i.i.i6030, %if.then36.i.i.i.i.invoke.i6086 ]
-  %this.val.i.i.i.i.i6090 = load ptr, ptr %this, align 8, !noalias !152
+  %this.val.i.i.i.i.i6090 = load ptr, ptr %this, align 8, !noalias !155
   %772 = getelementptr i8, ptr %this.val.i.i.i.i.i6090, i64 48
   %this.val.val.i.i.i.i.i6091 = load i8, ptr %772, align 8, !noalias !155
   %tobool.i93.i.i.i.i.i6092 = trunc i8 %this.val.val.i.i.i.i.i6091 to i1
@@ -5561,9 +5561,9 @@ if.end.i94.i.i.i.i.i6093:                         ; preds = %if.end67.i.i.i.i.i6
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i6096: ; preds = %if.end.i94.i.i.i.i.i6093, %if.end67.i.i.i.i.i6088
   %inc.i.i.i.i.i6097 = add nsw i64 %i.1.i.i.i.i.i6089, 1
-  %773 = load ptr, ptr %data_.i, align 8, !noalias !152
+  %773 = load ptr, ptr %data_.i, align 8, !noalias !155
   %length.i.i.i.i.i.i6098 = getelementptr inbounds i8, ptr %773, i64 16
-  %774 = load i64, ptr %length.i.i.i.i.i.i6098, align 8, !noalias !152
+  %774 = load i64, ptr %length.i.i.i.i.i.i6098, align 8, !noalias !155
   %cmp.i.i.i.i.i6099 = icmp slt i64 %inc.i.i.i.i.i6097, %774
   br i1 %cmp.i.i.i.i.i6099, label %for.body.i.i.i.i.i6029, label %if.end27.i6100, !llvm.loop !167
 
@@ -6127,7 +6127,7 @@ call2.i.i.i.i.i.i.i.noexc.i:                      ; preds = %do.end57.i.i.i.i
 
 if.end67.i.i.i.i:                                 ; preds = %call2.i.i.i.i.i.i.i.noexc.i, %if.then36.i.i.i.invoke.i, %call34.i.i.i.noexc.i, %if.end.i.i.i.i
   %i.1.i.i.i.i = phi i64 [ %sub29.i.i.i.i, %if.end.i.i.i.i ], [ %i.04.i.i.i.i, %call34.i.i.i.noexc.i ], [ %i.04.i.i.i.i, %call2.i.i.i.i.i.i.i.noexc.i ], [ %i.04.i.i.i.i, %if.then36.i.i.i.invoke.i ]
-  %this.val.i.i.i.i = load ptr, ptr %this, align 8, !noalias !168
+  %this.val.i.i.i.i = load ptr, ptr %this, align 8, !noalias !171
   %861 = getelementptr i8, ptr %this.val.i.i.i.i, i64 48
   %this.val.val.i.i.i.i = load i8, ptr %861, align 8, !noalias !171
   %tobool.i95.i.i.i.i = trunc i8 %this.val.val.i.i.i.i to i1
@@ -6140,9 +6140,9 @@ if.end.i96.i.i.i.i:                               ; preds = %if.end67.i.i.i.i
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i: ; preds = %if.end.i96.i.i.i.i, %if.end67.i.i.i.i
   %inc.i.i.i.i = add nsw i64 %i.1.i.i.i.i, 1
-  %862 = load ptr, ptr %data_.i, align 8, !noalias !168
+  %862 = load ptr, ptr %data_.i, align 8, !noalias !171
   %length.i.i.i.i.i5900 = getelementptr inbounds i8, ptr %862, i64 16
-  %863 = load i64, ptr %length.i.i.i.i.i5900, align 8, !noalias !168
+  %863 = load i64, ptr %length.i.i.i.i.i5900, align 8, !noalias !171
   %cmp.i.i.i.i5901 = icmp slt i64 %inc.i.i.i.i, %863
   br i1 %cmp.i.i.i.i5901, label %for.body.i.i.i.i, label %if.end27.i5902, !llvm.loop !181
 
@@ -7745,7 +7745,7 @@ call4.i.i.i.noexc.i5325:                          ; preds = %call2.i.i.i.i.noexc
 
 if.end67.i.i.i5328:                               ; preds = %call4.i.i.i.noexc.i5325, %if.then36.i.i.invoke.i5326, %call34.i.i.noexc.i5378, %if.end.i.i13.i5413
   %i.1.i.i.i5329 = phi i64 [ %sub29.i.i.i5415, %if.end.i.i13.i5413 ], [ %i.04.i.i.i5278, %call34.i.i.noexc.i5378 ], [ %i.04.i.i.i5278, %call4.i.i.i.noexc.i5325 ], [ %i.04.i.i.i5278, %if.then36.i.i.invoke.i5326 ]
-  %this.val.i.i.i5330 = load ptr, ptr %this, align 8, !noalias !218
+  %this.val.i.i.i5330 = load ptr, ptr %this, align 8, !noalias !221
   %1122 = getelementptr i8, ptr %this.val.i.i.i5330, i64 48
   %this.val.val.i.i.i5331 = load i8, ptr %1122, align 8, !noalias !221
   %tobool.i91.i.i.i5332 = trunc i8 %this.val.val.i.i.i5331 to i1
@@ -7758,9 +7758,9 @@ if.end.i92.i.i.i5333:                             ; preds = %if.end67.i.i.i5328
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i5336: ; preds = %if.end.i92.i.i.i5333, %if.end67.i.i.i5328
   %inc.i.i11.i5337 = add nsw i64 %i.1.i.i.i5329, 1
-  %1123 = load ptr, ptr %data_.i, align 8, !noalias !218
+  %1123 = load ptr, ptr %data_.i, align 8, !noalias !221
   %length.i.i.i.i5338 = getelementptr inbounds i8, ptr %1123, i64 16
-  %1124 = load i64, ptr %length.i.i.i.i5338, align 8, !noalias !218
+  %1124 = load i64, ptr %length.i.i.i.i5338, align 8, !noalias !221
   %cmp.i.i12.i5339 = icmp slt i64 %inc.i.i11.i5337, %1124
   br i1 %cmp.i.i12.i5339, label %for.body.i.i10.i5277, label %if.end27.i5340, !llvm.loop !229
 
@@ -8265,7 +8265,7 @@ call4.i.i.i.noexc.i5093:                          ; preds = %call2.i.i.i.i.noexc
 
 if.end67.i.i.i5096:                               ; preds = %call4.i.i.i.noexc.i5093, %if.then36.i.i.invoke.i5094, %call34.i.i.noexc.i5129, %if.end.i.i13.i5164
   %i.1.i.i.i5097 = phi i64 [ %sub29.i.i.i5166, %if.end.i.i13.i5164 ], [ %i.04.i.i.i5055, %call34.i.i.noexc.i5129 ], [ %i.04.i.i.i5055, %call4.i.i.i.noexc.i5093 ], [ %i.04.i.i.i5055, %if.then36.i.i.invoke.i5094 ]
-  %this.val.i.i.i5098 = load ptr, ptr %this, align 8, !noalias !230
+  %this.val.i.i.i5098 = load ptr, ptr %this, align 8, !noalias !233
   %1204 = getelementptr i8, ptr %this.val.i.i.i5098, i64 48
   %this.val.val.i.i.i5099 = load i8, ptr %1204, align 8, !noalias !233
   %tobool.i90.i.i.i = trunc i8 %this.val.val.i.i.i5099 to i1
@@ -8278,9 +8278,9 @@ if.end.i91.i.i.i:                                 ; preds = %if.end67.i.i.i5096
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i5101: ; preds = %if.end.i91.i.i.i, %if.end67.i.i.i5096
   %inc.i.i11.i5102 = add nsw i64 %i.1.i.i.i5097, 1
-  %1205 = load ptr, ptr %data_.i, align 8, !noalias !230
+  %1205 = load ptr, ptr %data_.i, align 8, !noalias !233
   %length.i.i.i.i5103 = getelementptr inbounds i8, ptr %1205, i64 16
-  %1206 = load i64, ptr %length.i.i.i.i5103, align 8, !noalias !230
+  %1206 = load i64, ptr %length.i.i.i.i5103, align 8, !noalias !233
   %cmp.i.i12.i5104 = icmp slt i64 %inc.i.i11.i5102, %1206
   br i1 %cmp.i.i12.i5104, label %for.body.i.i10.i5054, label %if.end27.i5105, !llvm.loop !241
 
@@ -8800,7 +8800,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i4894:              ; preds = %.noexc.i4891
 
 if.end67.i.i.i4897:                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i4894, %if.then36.i.i.invoke.i4895, %call34.i.i.noexc.i4947, %if.end.i.i13.i4982
   %i.1.i.i.i4898 = phi i64 [ %sub29.i.i.i4984, %if.end.i.i13.i4982 ], [ %i.04.i.i.i4849, %call34.i.i.noexc.i4947 ], [ %i.04.i.i.i4849, %_ZN5arrow6StatusD2Ev.exit.i.i.i4894 ], [ %i.04.i.i.i4849, %if.then36.i.i.invoke.i4895 ]
-  %this.val.i.i.i4899 = load ptr, ptr %this, align 8, !noalias !242
+  %this.val.i.i.i4899 = load ptr, ptr %this, align 8, !noalias !245
   %1291 = getelementptr i8, ptr %this.val.i.i.i4899, i64 48
   %this.val.val.i.i.i4900 = load i8, ptr %1291, align 8, !noalias !245
   %tobool.i92.i.i.i4901 = trunc i8 %this.val.val.i.i.i4900 to i1
@@ -8813,9 +8813,9 @@ if.end.i93.i.i.i4902:                             ; preds = %if.end67.i.i.i4897
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i4905: ; preds = %if.end.i93.i.i.i4902, %if.end67.i.i.i4897
   %inc.i.i11.i4906 = add nsw i64 %i.1.i.i.i4898, 1
-  %1292 = load ptr, ptr %data_.i, align 8, !noalias !242
+  %1292 = load ptr, ptr %data_.i, align 8, !noalias !245
   %length.i.i.i.i4907 = getelementptr inbounds i8, ptr %1292, i64 16
-  %1293 = load i64, ptr %length.i.i.i.i4907, align 8, !noalias !242
+  %1293 = load i64, ptr %length.i.i.i.i4907, align 8, !noalias !245
   %cmp.i.i12.i4908 = icmp slt i64 %inc.i.i11.i4906, %1293
   br i1 %cmp.i.i12.i4908, label %for.body.i.i10.i4848, label %if.end27.i4909, !llvm.loop !253
 
@@ -9325,7 +9325,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i4647:              ; preds = %.noexc.i4644
 
 if.end67.i.i.i4650:                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i4647, %if.then36.i.i.invoke.i4648, %call34.i.i.noexc.i4699, %if.end.i.i13.i4734
   %i.1.i.i.i4651 = phi i64 [ %sub29.i.i.i4736, %if.end.i.i13.i4734 ], [ %i.04.i.i.i4606, %call34.i.i.noexc.i4699 ], [ %i.04.i.i.i4606, %_ZN5arrow6StatusD2Ev.exit.i.i.i4647 ], [ %i.04.i.i.i4606, %if.then36.i.i.invoke.i4648 ]
-  %this.val.i.i.i4652 = load ptr, ptr %this, align 8, !noalias !254
+  %this.val.i.i.i4652 = load ptr, ptr %this, align 8, !noalias !257
   %1373 = getelementptr i8, ptr %this.val.i.i.i4652, i64 48
   %this.val.val.i.i.i4653 = load i8, ptr %1373, align 8, !noalias !257
   %tobool.i91.i.i.i4654 = trunc i8 %this.val.val.i.i.i4653 to i1
@@ -9338,9 +9338,9 @@ if.end.i92.i.i.i4655:                             ; preds = %if.end67.i.i.i4650
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i4657: ; preds = %if.end.i92.i.i.i4655, %if.end67.i.i.i4650
   %inc.i.i11.i4658 = add nsw i64 %i.1.i.i.i4651, 1
-  %1374 = load ptr, ptr %data_.i, align 8, !noalias !254
+  %1374 = load ptr, ptr %data_.i, align 8, !noalias !257
   %length.i.i.i.i4659 = getelementptr inbounds i8, ptr %1374, i64 16
-  %1375 = load i64, ptr %length.i.i.i.i4659, align 8, !noalias !254
+  %1375 = load i64, ptr %length.i.i.i.i4659, align 8, !noalias !257
   %cmp.i.i12.i4660 = icmp slt i64 %inc.i.i11.i4658, %1375
   br i1 %cmp.i.i12.i4660, label %for.body.i.i10.i4605, label %if.end27.i4661, !llvm.loop !265
 
@@ -9853,7 +9853,7 @@ call4.i.i.i.noexc.i:                              ; preds = %call2.i.i.i.i.noexc
 
 if.end67.i.i.i4435:                               ; preds = %call4.i.i.i.noexc.i, %if.then36.i.i.invoke.i4433, %call34.i.i.noexc.i4460, %if.end.i.i13.i4495
   %i.1.i.i.i4436 = phi i64 [ %sub29.i.i.i4496, %if.end.i.i13.i4495 ], [ %i.04.i.i.i4404, %call34.i.i.noexc.i4460 ], [ %i.04.i.i.i4404, %call4.i.i.i.noexc.i ], [ %i.04.i.i.i4404, %if.then36.i.i.invoke.i4433 ]
-  %this.val.i.i.i4437 = load ptr, ptr %this, align 8, !noalias !266
+  %this.val.i.i.i4437 = load ptr, ptr %this, align 8, !noalias !269
   %1460 = getelementptr i8, ptr %this.val.i.i.i4437, i64 48
   %this.val.val.i.i.i4438 = load i8, ptr %1460, align 8, !noalias !269
   %tobool.i91.i.i.i4439 = trunc i8 %this.val.val.i.i.i4438 to i1
@@ -9866,9 +9866,9 @@ if.end.i92.i.i.i4440:                             ; preds = %if.end67.i.i.i4435
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i4442: ; preds = %if.end.i92.i.i.i4440, %if.end67.i.i.i4435
   %inc.i.i11.i4443 = add nsw i64 %i.1.i.i.i4436, 1
-  %1461 = load ptr, ptr %data_.i, align 8, !noalias !266
+  %1461 = load ptr, ptr %data_.i, align 8, !noalias !269
   %length.i.i.i.i4444 = getelementptr inbounds i8, ptr %1461, i64 16
-  %1462 = load i64, ptr %length.i.i.i.i4444, align 8, !noalias !266
+  %1462 = load i64, ptr %length.i.i.i.i4444, align 8, !noalias !269
   %cmp.i.i12.i4445 = icmp slt i64 %inc.i.i11.i4443, %1462
   br i1 %cmp.i.i12.i4445, label %for.body.i.i10.i4403, label %if.end27.i4446, !llvm.loop !277
 
@@ -10386,7 +10386,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i4240:              ; preds = %.noexc.i4237
 
 if.end67.i.i.i4243:                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i4240, %if.then36.i.i.invoke.i4241, %call34.i.i.noexc.i4292, %if.end.i.i13.i4327
   %i.1.i.i.i4244 = phi i64 [ %sub29.i.i.i4329, %if.end.i.i13.i4327 ], [ %i.04.i.i.i4200, %call34.i.i.noexc.i4292 ], [ %i.04.i.i.i4200, %_ZN5arrow6StatusD2Ev.exit.i.i.i4240 ], [ %i.04.i.i.i4200, %if.then36.i.i.invoke.i4241 ]
-  %this.val.i.i.i4245 = load ptr, ptr %this, align 8, !noalias !278
+  %this.val.i.i.i4245 = load ptr, ptr %this, align 8, !noalias !281
   %1547 = getelementptr i8, ptr %this.val.i.i.i4245, i64 48
   %this.val.val.i.i.i4246 = load i8, ptr %1547, align 8, !noalias !281
   %tobool.i92.i.i.i4247 = trunc i8 %this.val.val.i.i.i4246 to i1
@@ -10399,9 +10399,9 @@ if.end.i93.i.i.i4248:                             ; preds = %if.end67.i.i.i4243
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i4250: ; preds = %if.end.i93.i.i.i4248, %if.end67.i.i.i4243
   %inc.i.i11.i4251 = add nsw i64 %i.1.i.i.i4244, 1
-  %1548 = load ptr, ptr %data_.i, align 8, !noalias !278
+  %1548 = load ptr, ptr %data_.i, align 8, !noalias !281
   %length.i.i.i.i4252 = getelementptr inbounds i8, ptr %1548, i64 16
-  %1549 = load i64, ptr %length.i.i.i.i4252, align 8, !noalias !278
+  %1549 = load i64, ptr %length.i.i.i.i4252, align 8, !noalias !281
   %cmp.i.i12.i4253 = icmp slt i64 %inc.i.i11.i4251, %1549
   br i1 %cmp.i.i12.i4253, label %for.body.i.i10.i4199, label %if.end27.i4254, !llvm.loop !289
 
@@ -10912,7 +10912,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i4002:              ; preds = %.noexc.i4000
 
 if.end67.i.i.i4005:                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i4002, %if.then36.i.i.invoke.i4003, %call34.i.i.noexc.i4052, %if.end.i.i13.i4087
   %i.1.i.i.i4006 = phi i64 [ %sub29.i.i.i4089, %if.end.i.i13.i4087 ], [ %i.04.i.i.i3963, %call34.i.i.noexc.i4052 ], [ %i.04.i.i.i3963, %_ZN5arrow6StatusD2Ev.exit.i.i.i4002 ], [ %i.04.i.i.i3963, %if.then36.i.i.invoke.i4003 ]
-  %this.val.i.i.i4007 = load ptr, ptr %this, align 8, !noalias !290
+  %this.val.i.i.i4007 = load ptr, ptr %this, align 8, !noalias !293
   %1628 = getelementptr i8, ptr %this.val.i.i.i4007, i64 48
   %this.val.val.i.i.i4008 = load i8, ptr %1628, align 8, !noalias !293
   %tobool.i92.i.i.i = trunc i8 %this.val.val.i.i.i4008 to i1
@@ -10925,9 +10925,9 @@ if.end.i93.i.i.i:                                 ; preds = %if.end67.i.i.i4005
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i4010: ; preds = %if.end.i93.i.i.i, %if.end67.i.i.i4005
   %inc.i.i11.i4011 = add nsw i64 %i.1.i.i.i4006, 1
-  %1629 = load ptr, ptr %data_.i, align 8, !noalias !290
+  %1629 = load ptr, ptr %data_.i, align 8, !noalias !293
   %length.i.i.i.i4012 = getelementptr inbounds i8, ptr %1629, i64 16
-  %1630 = load i64, ptr %length.i.i.i.i4012, align 8, !noalias !290
+  %1630 = load i64, ptr %length.i.i.i.i4012, align 8, !noalias !293
   %cmp.i.i12.i4013 = icmp slt i64 %inc.i.i11.i4011, %1630
   br i1 %cmp.i.i12.i4013, label %for.body.i.i10.i3962, label %if.end27.i4014, !llvm.loop !301
 
@@ -11489,7 +11489,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i3744:                ; preds = %do.end57.i.i.i.i.i3
 
 if.end67.i.i.i.i.i3747:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i3744, %if.then36.i.i.i.i.invoke.i3745, %call34.i.i.i.i.noexc.i3815, %if.end.i.i.i.i.i3850
   %i.1.i.i.i.i.i3748 = phi i64 [ %sub29.i.i.i.i.i3852, %if.end.i.i.i.i.i3850 ], [ %i.04.i.i.i.i.i3685, %call34.i.i.i.i.noexc.i3815 ], [ %i.04.i.i.i.i.i3685, %call2.i.i.i.i.i.i.i.i.noexc.i3744 ], [ %i.04.i.i.i.i.i3685, %if.then36.i.i.i.i.invoke.i3745 ]
-  %this.val.i.i.i.i.i3749 = load ptr, ptr %this, align 8, !noalias !302
+  %this.val.i.i.i.i.i3749 = load ptr, ptr %this, align 8, !noalias !305
   %1715 = getelementptr i8, ptr %this.val.i.i.i.i.i3749, i64 48
   %this.val.val.i.i.i.i.i3750 = load i8, ptr %1715, align 8, !noalias !305
   %tobool.i95.i.i.i.i.i3751 = trunc i8 %this.val.val.i.i.i.i.i3750 to i1
@@ -11502,9 +11502,9 @@ if.end.i96.i.i.i.i.i3752:                         ; preds = %if.end67.i.i.i.i.i3
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i3755: ; preds = %if.end.i96.i.i.i.i.i3752, %if.end67.i.i.i.i.i3747
   %inc.i.i.i.i.i3756 = add nsw i64 %i.1.i.i.i.i.i3748, 1
-  %1716 = load ptr, ptr %data_.i, align 8, !noalias !302
+  %1716 = load ptr, ptr %data_.i, align 8, !noalias !305
   %length.i.i.i.i.i.i3757 = getelementptr inbounds i8, ptr %1716, i64 16
-  %1717 = load i64, ptr %length.i.i.i.i.i.i3757, align 8, !noalias !302
+  %1717 = load i64, ptr %length.i.i.i.i.i.i3757, align 8, !noalias !305
   %cmp.i.i.i.i.i3758 = icmp slt i64 %inc.i.i.i.i.i3756, %1717
   br i1 %cmp.i.i.i.i.i3758, label %for.body.i.i.i.i.i3684, label %if.end27.i3759, !llvm.loop !317
 
@@ -12185,7 +12185,7 @@ do.end57.i.i.i.i.i3411:                           ; preds = %call2.i.i.i.i.i.i.i
 
 if.end67.i.i.i.i.i3414:                           ; preds = %do.end57.i.i.i.i.i3411, %if.then36.i.i.i.i.invoke.i3412, %call34.i.i.i.i.noexc.i3535, %if.end.i.i.i.i.i3570
   %i.1.i.i.i.i.i3415 = phi i64 [ %sub29.i.i.i.i.i3572, %if.end.i.i.i.i.i3570 ], [ %i.04.i.i.i.i.i3355, %call34.i.i.i.i.noexc.i3535 ], [ %i.04.i.i.i.i.i3355, %do.end57.i.i.i.i.i3411 ], [ %i.04.i.i.i.i.i3355, %if.then36.i.i.i.i.invoke.i3412 ]
-  %this.val.i.i.i.i.i3416 = load ptr, ptr %this, align 8, !noalias !318
+  %this.val.i.i.i.i.i3416 = load ptr, ptr %this, align 8, !noalias !321
   %1818 = getelementptr i8, ptr %this.val.i.i.i.i.i3416, i64 48
   %this.val.val.i.i.i.i.i3417 = load i8, ptr %1818, align 8, !noalias !321
   %tobool.i95.i.i.i.i.i3418 = trunc i8 %this.val.val.i.i.i.i.i3417 to i1
@@ -12198,9 +12198,9 @@ if.end.i96.i.i.i.i.i3419:                         ; preds = %if.end67.i.i.i.i.i3
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i3422: ; preds = %if.end.i96.i.i.i.i.i3419, %if.end67.i.i.i.i.i3414
   %inc.i.i.i.i.i3423 = add nsw i64 %i.1.i.i.i.i.i3415, 1
-  %1819 = load ptr, ptr %data_.i, align 8, !noalias !318
+  %1819 = load ptr, ptr %data_.i, align 8, !noalias !321
   %length.i.i.i.i.i.i3424 = getelementptr inbounds i8, ptr %1819, i64 16
-  %1820 = load i64, ptr %length.i.i.i.i.i.i3424, align 8, !noalias !318
+  %1820 = load i64, ptr %length.i.i.i.i.i.i3424, align 8, !noalias !321
   %cmp.i.i.i.i.i3425 = icmp slt i64 %inc.i.i.i.i.i3423, %1820
   br i1 %cmp.i.i.i.i.i3425, label %for.body.i.i.i.i.i3354, label %if.end27.i3426, !llvm.loop !333
 
@@ -12883,7 +12883,7 @@ do.end57.i.i.i.i.i3129:                           ; preds = %call2.i.i.i.i.i.i.i
 
 if.end67.i.i.i.i.i3132:                           ; preds = %do.end57.i.i.i.i.i3129, %if.then36.i.i.i.i.invoke.i3130, %call34.i.i.i.i.noexc.i3191, %if.end.i.i.i.i.i3226
   %i.1.i.i.i.i.i3133 = phi i64 [ %sub29.i.i.i.i.i3228, %if.end.i.i.i.i.i3226 ], [ %i.04.i.i.i.i.i3087, %call34.i.i.i.i.noexc.i3191 ], [ %i.04.i.i.i.i.i3087, %do.end57.i.i.i.i.i3129 ], [ %i.04.i.i.i.i.i3087, %if.then36.i.i.i.i.invoke.i3130 ]
-  %this.val.i.i.i.i.i3134 = load ptr, ptr %this, align 8, !noalias !334
+  %this.val.i.i.i.i.i3134 = load ptr, ptr %this, align 8, !noalias !337
   %1921 = getelementptr i8, ptr %this.val.i.i.i.i.i3134, i64 48
   %this.val.val.i.i.i.i.i3135 = load i8, ptr %1921, align 8, !noalias !337
   %tobool.i95.i.i.i.i.i3136 = trunc i8 %this.val.val.i.i.i.i.i3135 to i1
@@ -12896,9 +12896,9 @@ if.end.i96.i.i.i.i.i3137:                         ; preds = %if.end67.i.i.i.i.i3
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i3140: ; preds = %if.end.i96.i.i.i.i.i3137, %if.end67.i.i.i.i.i3132
   %inc.i.i.i.i.i3141 = add nsw i64 %i.1.i.i.i.i.i3133, 1
-  %1922 = load ptr, ptr %data_.i, align 8, !noalias !334
+  %1922 = load ptr, ptr %data_.i, align 8, !noalias !337
   %length.i.i.i.i.i.i3142 = getelementptr inbounds i8, ptr %1922, i64 16
-  %1923 = load i64, ptr %length.i.i.i.i.i.i3142, align 8, !noalias !334
+  %1923 = load i64, ptr %length.i.i.i.i.i.i3142, align 8, !noalias !337
   %cmp.i.i.i.i.i3143 = icmp slt i64 %inc.i.i.i.i.i3141, %1923
   br i1 %cmp.i.i.i.i.i3143, label %for.body.i.i.i.i.i3086, label %if.end27.i3144, !llvm.loop !349
 
@@ -14413,7 +14413,7 @@ do.end57.i.i.i.i.i2818:                           ; preds = %_ZN5arrow8internal1
 
 if.end67.i.i.i.i.i2821:                           ; preds = %do.end57.i.i.i.i.i2818, %if.then36.i.i.i.i.invoke.i2819, %call34.i.i.i.i.noexc.i2940, %if.end.i.i.i.i.i2974
   %i.1.i.i.i.i.i2822 = phi i64 [ %sub29.i.i.i.i.i2976, %if.end.i.i.i.i.i2974 ], [ %i.0100.i.i.i.i.i, %call34.i.i.i.i.noexc.i2940 ], [ %i.0100.i.i.i.i.i, %do.end57.i.i.i.i.i2818 ], [ %i.0100.i.i.i.i.i, %if.then36.i.i.i.i.invoke.i2819 ]
-  %this.val.i.i.i.i.i2823 = load ptr, ptr %this, align 8, !noalias !350
+  %this.val.i.i.i.i.i2823 = load ptr, ptr %this, align 8, !noalias !361
   %2133 = getelementptr i8, ptr %this.val.i.i.i.i.i2823, i64 48
   %this.val.val.i.i.i.i.i2824 = load i8, ptr %2133, align 8, !noalias !361
   %tobool.i92.i.i.i.i.i = trunc i8 %this.val.val.i.i.i.i.i2824 to i1
@@ -14426,9 +14426,9 @@ if.end.i93.i.i.i.i.i:                             ; preds = %if.end67.i.i.i.i.i2
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i2826: ; preds = %if.end.i93.i.i.i.i.i, %if.end67.i.i.i.i.i2821
   %inc.i.i.i.i.i2827 = add nsw i64 %i.1.i.i.i.i.i2822, 1
-  %2134 = load ptr, ptr %data_.i, align 8, !noalias !350
+  %2134 = load ptr, ptr %data_.i, align 8, !noalias !361
   %length.i.i.i.i.i.i2828 = getelementptr inbounds i8, ptr %2134, i64 16
-  %2135 = load i64, ptr %length.i.i.i.i.i.i2828, align 8, !noalias !350
+  %2135 = load i64, ptr %length.i.i.i.i.i.i2828, align 8, !noalias !361
   %cmp.i.i.i.i.i2829 = icmp slt i64 %inc.i.i.i.i.i2827, %2135
   br i1 %cmp.i.i.i.i.i2829, label %for.body.i.i.i.i.i2781, label %if.end27.i2830, !llvm.loop !368
 
@@ -15398,7 +15398,7 @@ do.end57.i.i.i.i.i2484:                           ; preds = %_ZN5arrow8internal1
 
 if.end67.i.i.i.i.i2487:                           ; preds = %do.end57.i.i.i.i.i2484, %if.then36.i.i.i.i.invoke.i2485, %call34.i.i.i.i.noexc.i2659, %if.end.i.i.i.i.i2694
   %i.1.i.i.i.i.i2488 = phi i64 [ %sub29.i.i.i.i.i2696, %if.end.i.i.i.i.i2694 ], [ %i.098.i.i.i.i.i2443, %call34.i.i.i.i.noexc.i2659 ], [ %i.098.i.i.i.i.i2443, %do.end57.i.i.i.i.i2484 ], [ %i.098.i.i.i.i.i2443, %if.then36.i.i.i.i.invoke.i2485 ]
-  %this.val.i.i.i.i.i2489 = load ptr, ptr %this, align 8, !noalias !369
+  %this.val.i.i.i.i.i2489 = load ptr, ptr %this, align 8, !noalias !380
   %2280 = getelementptr i8, ptr %this.val.i.i.i.i.i2489, i64 48
   %this.val.val.i.i.i.i.i2490 = load i8, ptr %2280, align 8, !noalias !380
   %tobool.i93.i.i.i.i.i2491 = trunc i8 %this.val.val.i.i.i.i.i2490 to i1
@@ -15411,9 +15411,9 @@ if.end.i94.i.i.i.i.i2492:                         ; preds = %if.end67.i.i.i.i.i2
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i2495: ; preds = %if.end.i94.i.i.i.i.i2492, %if.end67.i.i.i.i.i2487
   %inc.i.i.i.i.i2496 = add nsw i64 %i.1.i.i.i.i.i2488, 1
-  %2281 = load ptr, ptr %data_.i, align 8, !noalias !369
+  %2281 = load ptr, ptr %data_.i, align 8, !noalias !380
   %length.i.i.i.i.i.i2497 = getelementptr inbounds i8, ptr %2281, i64 16
-  %2282 = load i64, ptr %length.i.i.i.i.i.i2497, align 8, !noalias !369
+  %2282 = load i64, ptr %length.i.i.i.i.i.i2497, align 8, !noalias !380
   %cmp.i.i.i.i.i2498 = icmp slt i64 %inc.i.i.i.i.i2496, %2282
   br i1 %cmp.i.i.i.i.i2498, label %for.body.i.i.i.i.i2442, label %if.end27.i2499, !llvm.loop !386
 
@@ -16401,7 +16401,7 @@ do.end57.i.i.i.i.i2246:                           ; preds = %_ZN5arrow8internal1
 
 if.end67.i.i.i.i.i2249:                           ; preds = %do.end57.i.i.i.i.i2246, %if.then36.i.i.i.i.invoke.i2247, %call34.i.i.i.i.noexc.i2282, %if.end.i.i.i.i.i2315
   %i.1.i.i.i.i.i2250 = phi i64 [ %sub29.i.i.i.i.i2317, %if.end.i.i.i.i.i2315 ], [ %i.098.i.i.i.i.i, %call34.i.i.i.i.noexc.i2282 ], [ %i.098.i.i.i.i.i, %do.end57.i.i.i.i.i2246 ], [ %i.098.i.i.i.i.i, %if.then36.i.i.i.i.invoke.i2247 ]
-  %this.val.i.i.i.i.i2251 = load ptr, ptr %this, align 8, !noalias !387
+  %this.val.i.i.i.i.i2251 = load ptr, ptr %this, align 8, !noalias !398
   %2429 = getelementptr i8, ptr %this.val.i.i.i.i.i2251, i64 48
   %this.val.val.i.i.i.i.i2252 = load i8, ptr %2429, align 8, !noalias !398
   %tobool.i93.i.i.i.i.i = trunc i8 %this.val.val.i.i.i.i.i2252 to i1
@@ -16414,9 +16414,9 @@ if.end.i94.i.i.i.i.i:                             ; preds = %if.end67.i.i.i.i.i2
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i2254: ; preds = %if.end.i94.i.i.i.i.i, %if.end67.i.i.i.i.i2249
   %inc.i.i.i.i.i2255 = add nsw i64 %i.1.i.i.i.i.i2250, 1
-  %2430 = load ptr, ptr %data_.i, align 8, !noalias !387
+  %2430 = load ptr, ptr %data_.i, align 8, !noalias !398
   %length.i.i.i.i.i.i2256 = getelementptr inbounds i8, ptr %2430, i64 16
-  %2431 = load i64, ptr %length.i.i.i.i.i.i2256, align 8, !noalias !387
+  %2431 = load i64, ptr %length.i.i.i.i.i.i2256, align 8, !noalias !398
   %cmp.i.i.i.i.i2257 = icmp slt i64 %inc.i.i.i.i.i2255, %2431
   br i1 %cmp.i.i.i.i.i2257, label %for.body.i.i.i.i.i2213, label %if.end27.i2258, !llvm.loop !404
 
@@ -17116,7 +17116,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i2031:                ; preds = %do.end57.i.i.i.i.i2
 
 if.end67.i.i.i.i.i2034:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i2031, %if.then36.i.i.i.i.invoke.i2032, %call34.i.i.i.i.noexc.i2106, %if.end.i.i.i.i.i2141
   %i.1.i.i.i.i.i2035 = phi i64 [ %sub29.i.i.i.i.i2143, %if.end.i.i.i.i.i2141 ], [ %i.05.i.i.i.i.i, %call34.i.i.i.i.noexc.i2106 ], [ %i.05.i.i.i.i.i, %call2.i.i.i.i.i.i.i.i.noexc.i2031 ], [ %i.05.i.i.i.i.i, %if.then36.i.i.i.i.invoke.i2032 ]
-  %this.val.i.i.i.i.i2036 = load ptr, ptr %this, align 8, !noalias !405
+  %this.val.i.i.i.i.i2036 = load ptr, ptr %this, align 8, !noalias !408
   %2531 = getelementptr i8, ptr %this.val.i.i.i.i.i2036, i64 48
   %this.val.val.i.i.i.i.i2037 = load i8, ptr %2531, align 8, !noalias !408
   %tobool.i94.i.i.i.i.i2038 = trunc i8 %this.val.val.i.i.i.i.i2037 to i1
@@ -17129,9 +17129,9 @@ if.end.i95.i.i.i.i.i2039:                         ; preds = %if.end67.i.i.i.i.i2
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i2042: ; preds = %if.end.i95.i.i.i.i.i2039, %if.end67.i.i.i.i.i2034
   %inc.i.i.i.i.i2043 = add nsw i64 %i.1.i.i.i.i.i2035, 1
-  %2532 = load ptr, ptr %data_.i, align 8, !noalias !405
+  %2532 = load ptr, ptr %data_.i, align 8, !noalias !408
   %length.i.i.i.i.i.i2044 = getelementptr inbounds i8, ptr %2532, i64 16
-  %2533 = load i64, ptr %length.i.i.i.i.i.i2044, align 8, !noalias !405
+  %2533 = load i64, ptr %length.i.i.i.i.i.i2044, align 8, !noalias !408
   %cmp.i.i.i.i.i2045 = icmp slt i64 %inc.i.i.i.i.i2043, %2533
   br i1 %cmp.i.i.i.i.i2045, label %for.body.i.i.i.i.i1964, label %if.end27.i2046, !llvm.loop !420
 
@@ -17697,7 +17697,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i1759:                ; preds = %do.end57.i.i.i.i.i1
 
 if.end67.i.i.i.i.i1762:                           ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i1759, %if.then36.i.i.i.i.invoke.i1760, %call34.i.i.i.i.noexc.i1816, %if.end.i.i.i.i.i1851
   %i.1.i.i.i.i.i1763 = phi i64 [ %sub29.i.i.i.i.i1852, %if.end.i.i.i.i.i1851 ], [ %i.04.i.i.i.i.i1718, %call34.i.i.i.i.noexc.i1816 ], [ %i.04.i.i.i.i.i1718, %call2.i.i.i.i.i.i.i.i.noexc.i1759 ], [ %i.04.i.i.i.i.i1718, %if.then36.i.i.i.i.invoke.i1760 ]
-  %this.val.i.i.i.i.i1764 = load ptr, ptr %this, align 8, !noalias !421
+  %this.val.i.i.i.i.i1764 = load ptr, ptr %this, align 8, !noalias !424
   %2618 = getelementptr i8, ptr %this.val.i.i.i.i.i1764, i64 48
   %this.val.val.i.i.i.i.i1765 = load i8, ptr %2618, align 8, !noalias !424
   %tobool.i95.i.i.i.i.i = trunc i8 %this.val.val.i.i.i.i.i1765 to i1
@@ -17710,9 +17710,9 @@ if.end.i96.i.i.i.i.i:                             ; preds = %if.end67.i.i.i.i.i1
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i1767: ; preds = %if.end.i96.i.i.i.i.i, %if.end67.i.i.i.i.i1762
   %inc.i.i.i.i.i1768 = add nsw i64 %i.1.i.i.i.i.i1763, 1
-  %2619 = load ptr, ptr %data_.i, align 8, !noalias !421
+  %2619 = load ptr, ptr %data_.i, align 8, !noalias !424
   %length.i.i.i.i.i.i1769 = getelementptr inbounds i8, ptr %2619, i64 16
-  %2620 = load i64, ptr %length.i.i.i.i.i.i1769, align 8, !noalias !421
+  %2620 = load i64, ptr %length.i.i.i.i.i.i1769, align 8, !noalias !424
   %cmp.i.i.i.i.i1770 = icmp slt i64 %inc.i.i.i.i.i1768, %2620
   br i1 %cmp.i.i.i.i.i1770, label %for.body.i.i.i.i.i1717, label %if.end27.i1771, !llvm.loop !436
 
@@ -18345,7 +18345,7 @@ call2.i.i.i.i.i.i.i.i.noexc.i:                    ; preds = %do.end57.i.i.i.i.i
 
 if.end67.i.i.i.i.i:                               ; preds = %call2.i.i.i.i.i.i.i.i.noexc.i, %if.then36.i.i.i.i.invoke.i, %call34.i.i.i.i.noexc.i, %if.end.i.i.i.i.i1608
   %i.1.i.i.i.i.i = phi i64 [ %sub29.i.i.i.i.i, %if.end.i.i.i.i.i1608 ], [ %i.04.i.i.i.i.i, %call34.i.i.i.i.noexc.i ], [ %i.04.i.i.i.i.i, %call2.i.i.i.i.i.i.i.i.noexc.i ], [ %i.04.i.i.i.i.i, %if.then36.i.i.i.i.invoke.i ]
-  %this.val.i.i.i.i.i = load ptr, ptr %this, align 8, !noalias !437
+  %this.val.i.i.i.i.i = load ptr, ptr %this, align 8, !noalias !440
   %2710 = getelementptr i8, ptr %this.val.i.i.i.i.i, i64 48
   %this.val.val.i.i.i.i.i = load i8, ptr %2710, align 8, !noalias !440
   %tobool.i94.i.i.i.i.i = trunc i8 %this.val.val.i.i.i.i.i to i1
@@ -18358,9 +18358,9 @@ if.end.i95.i.i.i.i.i:                             ; preds = %if.end67.i.i.i.i.i
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i.i.i: ; preds = %if.end.i95.i.i.i.i.i, %if.end67.i.i.i.i.i
   %inc.i.i.i.i.i1592 = add nsw i64 %i.1.i.i.i.i.i, 1
-  %2711 = load ptr, ptr %data_.i, align 8, !noalias !437
+  %2711 = load ptr, ptr %data_.i, align 8, !noalias !440
   %length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2711, i64 16
-  %2712 = load i64, ptr %length.i.i.i.i.i.i, align 8, !noalias !437
+  %2712 = load i64, ptr %length.i.i.i.i.i.i, align 8, !noalias !440
   %cmp.i.i.i.i.i1593 = icmp slt i64 %inc.i.i.i.i.i1592, %2712
   br i1 %cmp.i.i.i.i.i1593, label %for.body.i.i.i.i.i1585, label %if.end27.i1594, !llvm.loop !452
 
@@ -18864,7 +18864,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i1432:              ; preds = %.noexc.i1429
 
 if.end67.i.i.i1435:                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i1432, %if.then36.i.i.invoke.i1433, %call34.i.i.noexc.i1485, %if.end.i.i13.i1520
   %i.1.i.i.i1436 = phi i64 [ %sub29.i.i.i1522, %if.end.i.i13.i1520 ], [ %i.04.i.i.i1393, %call34.i.i.noexc.i1485 ], [ %i.04.i.i.i1393, %_ZN5arrow6StatusD2Ev.exit.i.i.i1432 ], [ %i.04.i.i.i1393, %if.then36.i.i.invoke.i1433 ]
-  %this.val.i.i.i1437 = load ptr, ptr %this, align 8, !noalias !453
+  %this.val.i.i.i1437 = load ptr, ptr %this, align 8, !noalias !456
   %2790 = getelementptr i8, ptr %this.val.i.i.i1437, i64 48
   %this.val.val.i.i.i1438 = load i8, ptr %2790, align 8, !noalias !456
   %tobool.i91.i.i.i1439 = trunc i8 %this.val.val.i.i.i1438 to i1
@@ -18877,9 +18877,9 @@ if.end.i92.i.i.i1440:                             ; preds = %if.end67.i.i.i1435
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i1443: ; preds = %if.end.i92.i.i.i1440, %if.end67.i.i.i1435
   %inc.i.i11.i1444 = add nsw i64 %i.1.i.i.i1436, 1
-  %2791 = load ptr, ptr %data_.i, align 8, !noalias !453
+  %2791 = load ptr, ptr %data_.i, align 8, !noalias !456
   %length.i.i.i.i1445 = getelementptr inbounds i8, ptr %2791, i64 16
-  %2792 = load i64, ptr %length.i.i.i.i1445, align 8, !noalias !453
+  %2792 = load i64, ptr %length.i.i.i.i1445, align 8, !noalias !456
   %cmp.i.i12.i1446 = icmp slt i64 %inc.i.i11.i1444, %2792
   br i1 %cmp.i.i12.i1446, label %for.body.i.i10.i1392, label %if.end27.i1447, !llvm.loop !464
 
@@ -19383,7 +19383,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %.noexc.i1281
 
 if.end67.i.i.i:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i, %if.then36.i.i.invoke.i, %call34.i.i.noexc.i, %if.end.i.i13.i
   %i.1.i.i.i = phi i64 [ %sub29.i.i.i, %if.end.i.i13.i ], [ %i.04.i.i.i, %call34.i.i.noexc.i ], [ %i.04.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i ], [ %i.04.i.i.i, %if.then36.i.i.invoke.i ]
-  %this.val.i.i.i = load ptr, ptr %this, align 8, !noalias !465
+  %this.val.i.i.i = load ptr, ptr %this, align 8, !noalias !468
   %2870 = getelementptr i8, ptr %this.val.i.i.i, i64 48
   %this.val.val.i.i.i = load i8, ptr %2870, align 8, !noalias !468
   %tobool.i91.i.i.i = trunc i8 %this.val.val.i.i.i to i1
@@ -19396,9 +19396,9 @@ if.end.i92.i.i.i:                                 ; preds = %if.end67.i.i.i
 
 _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i.i.i: ; preds = %if.end.i92.i.i.i, %if.end67.i.i.i
   %inc.i.i11.i = add nsw i64 %i.1.i.i.i, 1
-  %2871 = load ptr, ptr %data_.i, align 8, !noalias !465
+  %2871 = load ptr, ptr %data_.i, align 8, !noalias !468
   %length.i.i.i.i = getelementptr inbounds i8, ptr %2871, i64 16
-  %2872 = load i64, ptr %length.i.i.i.i, align 8, !noalias !465
+  %2872 = load i64, ptr %length.i.i.i.i, align 8, !noalias !468
   %cmp.i.i12.i = icmp slt i64 %inc.i.i11.i, %2872
   br i1 %cmp.i.i12.i, label %for.body.i.i10.i, label %if.end27.i1282, !llvm.loop !476
 

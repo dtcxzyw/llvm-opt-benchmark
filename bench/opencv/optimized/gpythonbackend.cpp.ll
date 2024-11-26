@@ -8440,9 +8440,9 @@ _ZN2cv4util8optionalINS_4GArgEED2Ev.exit:         ; preds = %_ZN2cv4util8optiona
           to label %445 unwind label %547
 
 445:                                              ; preds = %442
-  %446 = load ptr, ptr %31, align 8
+  %446 = load ptr, ptr %31, align 8, !noalias !119
   %447 = getelementptr inbounds i8, ptr %31, i64 8
-  %448 = load ptr, ptr %447, align 8
+  %448 = load ptr, ptr %447, align 8, !noalias !119
   %449 = load ptr, ptr %2, align 8, !noalias !119
   %450 = getelementptr inbounds i8, ptr %2, i64 8
   %451 = load ptr, ptr %450, align 8, !noalias !119

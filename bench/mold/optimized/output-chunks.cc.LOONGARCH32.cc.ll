@@ -3707,7 +3707,7 @@ for.body178.i:                                    ; preds = %_ZNSt6vectorIN4mold
 if.then183.i:                                     ; preds = %for.body178.i
   call fastcc void @_ZZN4mold3elfL11create_phdrINS0_11LOONGARCH32EEESt6vectorINS0_7ElfPhdrIT_EESaIS6_EERNS0_7ContextIS5_EEENKUlmmPNS0_5ChunkIS2_EEE_clEmmSE_(ptr nonnull align 8 %ref.tmp, i64 noundef 1685382482, i64 noundef 4, ptr noundef nonnull %64)
   %cmp186537.i = icmp ult i64 %inc180.i, %sub.ptr.div.i.i
-  %.pre = load ptr, ptr %_M_finish.i336.i, align 8
+  %.pre = load ptr, ptr %_M_finish.i336.i, align 8, !alias.scope !4
   br i1 %cmp186537.i, label %land.rhs187.i.preheader, label %while.end195.i
 
 land.rhs187.i.preheader:                          ; preds = %if.then183.i
@@ -3798,7 +3798,7 @@ for.inc221.i:                                     ; preds = %if.then219.i, %_ZNS
   br i1 %cmp.i402.i, label %for.end223.loopexit.i, label %for.body213.i
 
 for.end223.loopexit.i:                            ; preds = %for.inc221.i
-  %.pre.pre.i = load ptr, ptr %_M_finish.i336.i, align 8
+  %.pre.pre.i = load ptr, ptr %_M_finish.i336.i, align 8, !alias.scope !4
   br label %for.end223.i
 
 for.end223.i:                                     ; preds = %for.end223.loopexit.i, %if.end201.i
@@ -3807,7 +3807,7 @@ for.end223.i:                                     ; preds = %for.end223.loopexit
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 264
   %73 = load i8, ptr %_M_engaged.i.i.i, align 8, !noalias !4
   %tobool.i.i.i = trunc i8 %73 to i1
-  %.pre567.i = load ptr, ptr %ref.tmp, align 8
+  %.pre567.i = load ptr, ptr %ref.tmp, align 8, !alias.scope !4
   %sub.ptr.lhs.cast.i407.i = ptrtoint ptr %72 to i64
   %sub.ptr.rhs.cast.i408.i = ptrtoint ptr %.pre567.i to i64
   %sub.ptr.sub.i409.i = sub i64 %sub.ptr.lhs.cast.i407.i, %sub.ptr.rhs.cast.i408.i

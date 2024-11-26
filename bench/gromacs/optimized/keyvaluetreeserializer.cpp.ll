@@ -4377,7 +4377,7 @@ define void @_ZN3gmx23deserializeKeyValueTreeEPNS_11ISerializerE(ptr dead_on_unw
 16:                                               ; preds = %10
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
   %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load ptr, ptr %12, align 8
+  %18 = load ptr, ptr %12, align 8, !noalias !130
   %.not.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit, label %19
 

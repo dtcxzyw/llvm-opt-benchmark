@@ -10278,7 +10278,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit: ; pr
   %68 = sext i32 %61 to i64
   %69 = load ptr, ptr %1, align 8, !noalias !117
   %70 = getelementptr inbounds double, ptr %69, i64 %68
-  %71 = load i64, ptr %27, align 8
+  %71 = load i64, ptr %27, align 8, !noalias !117
   %72 = mul nsw i64 %71, %51
   %73 = getelementptr inbounds double, ptr %70, i64 %72
   %74 = ptrtoint ptr %73 to i64

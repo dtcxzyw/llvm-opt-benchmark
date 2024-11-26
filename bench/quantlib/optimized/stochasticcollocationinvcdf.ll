@@ -405,7 +405,7 @@ cond.end31:                                       ; preds = %invoke.cont27, %inv
   %y_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %n_.i.i31 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %62 = load i64, ptr %n_.i.i31, align 8, !tbaa !6
+  %62 = load i64, ptr %n_.i.i31, align 8, !tbaa !6, !noalias !31
   %cmp.not.i.i32 = icmp eq i64 %62, 0
   br i1 %cmp.not.i.i32, label %invoke.cont.i, label %cond.true.i.i
 

@@ -300,7 +300,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %63 = load ptr, ptr %12, align 8, !noalias !7, !nonnull !3, !align !4, !noundef !3
   %64 = load i64, ptr %13, align 8, !noalias !7, !noundef !3
   call void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr nonnull align 8 %8, ptr nonnull align 1 %61, i64 %62, ptr nonnull align 1 %63, i64 %64, i1 zeroext %60), !noalias !7
-  %65 = load i64, ptr %3, align 8, !range !10, !noundef !3
+  %65 = load i64, ptr %3, align 8, !range !10, !noalias !7, !noundef !3
   %66 = icmp eq i64 %65, 1
   %67 = load i64, ptr %14, align 8
   br i1 %66, label %.preheader54, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit"

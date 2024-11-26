@@ -1136,7 +1136,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call fastcc void @_ZN12_GLOBAL__N_122InterestingBufferSizesEv(ptr noalias align 8 %ref.tmp2)
-  %0 = load ptr, ptr %ref.tmp2, align 8
+  %0 = load ptr, ptr %ref.tmp2, align 8, !noalias !14
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !14
   invoke void @_ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEENS_8internal14ParamGeneratorINSt15iterator_traitsIT_E10value_typeEEESC_SC_(ptr nonnull sret(%"class.testing::internal::ParamGenerator.24") align 8 %ref.tmp1, ptr %0, ptr %1)
@@ -1148,7 +1148,7 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %3 = load ptr, ptr %ref.tmp4, align 8
+  %3 = load ptr, ptr %ref.tmp4, align 8, !noalias !17
   %_M_finish.i.i5 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %4 = load ptr, ptr %_M_finish.i.i5, align 8, !noalias !17
   invoke void @_ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEENS_8internal14ParamGeneratorINSt15iterator_traitsIT_E10value_typeEEESC_SC_(ptr nonnull sret(%"class.testing::internal::ParamGenerator.24") align 8 %ref.tmp3, ptr %3, ptr %4)

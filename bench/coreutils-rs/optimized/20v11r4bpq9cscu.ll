@@ -20,12 +20,14 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
   %11 = alloca { { i64, [21 x i64] }, { i32, [1 x i32] } }, align 8
   %12 = alloca { { i64, [21 x i64] }, { i32, [1 x i32] } }, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %12)
-  %13 = load ptr, ptr %1, align 8, !noalias !4, !nonnull !4, !align !5, !noundef !4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  %13 = load ptr, ptr %1, align 8, !alias.scope !10, !noalias !11, !nonnull !14, !align !15, !noundef !14
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %14 = getelementptr inbounds i8, ptr %13, i64 40
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %15 = load ptr, ptr %14, align 8, !alias.scope !12, !noalias !13, !nonnull !4, !align !22, !noundef !4
-  call void @"_ZN76_$LT$std..fs..File$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hb84601ea182344d7E"(ptr noalias nocapture noundef nonnull sret({ { i64, [21 x i64] }, { i32, [1 x i32] } }) align 8 dereferenceable(184) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15), !noalias !23
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  %15 = load ptr, ptr %14, align 8, !alias.scope !22, !noalias !23, !nonnull !14, !align !26, !noundef !14
+  call void @"_ZN76_$LT$std..fs..File$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hb84601ea182344d7E"(ptr noalias nocapture noundef nonnull sret({ { i64, [21 x i64] }, { i32, [1 x i32] } }) align 8 dereferenceable(184) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15), !noalias !27
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %11)
   call void @"_ZN90_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyWrite$GT$10properties17h5765932d046dbf22E"(ptr noalias nocapture noundef nonnull sret({ { i64, [21 x i64] }, { i32, [1 x i32] } }) align 8 dereferenceable(184) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
   %.sroa.074.0.copyload = load i64, ptr %12, align 8
@@ -34,14 +36,14 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
   %.sroa.576.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 80
   %.sroa.576.0.copyload = load i64, ptr %.sroa.576.0..sroa_idx, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 176
-  %17 = load i32, ptr %16, align 8, !range !24, !noundef !4
+  %17 = load i32, ptr %16, align 8, !range !28, !noundef !14
   %18 = getelementptr inbounds i8, ptr %12, i64 180
   %19 = load i32, ptr %18, align 4
   %.sroa.077.0.copyload = load i64, ptr %11, align 8
   %.sroa.379.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 56
   %.sroa.379.0.copyload = load i32, ptr %.sroa.379.0..sroa_idx, align 8
   %20 = getelementptr inbounds i8, ptr %11, i64 176
-  %21 = load i32, ptr %20, align 8, !range !24, !noundef !4
+  %21 = load i32, ptr %20, align 8, !range !28, !noundef !14
   %22 = getelementptr inbounds i8, ptr %11, i64 180
   %23 = load i32, ptr %22, align 4
   %24 = icmp ne i32 %17, 0
@@ -52,28 +54,28 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110: ; preds = %124, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %104, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %3
   %.0 = phi i64 [ 0, %3 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %.299104125, %124 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299104127, %104 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ]
   call void @_ZN3std2io4copy17stack_buffer_copy17h281c6e6624094f88E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  %26 = load i64, ptr %6, align 8, !range !25, !noundef !4
+  %26 = load i64, ptr %6, align 8, !range !29, !noundef !14
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", label %131
 
 28:                                               ; preds = %3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %29 = getelementptr inbounds i8, ptr %1, i64 8
-  %30 = load i64, ptr %29, align 8, !alias.scope !26, !noalias !29, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !34
-  call void @"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h1a6437ca4e260831E.llvm.678384216342861276"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %30), !noalias !35
-  %31 = load i64, ptr %5, align 8, !range !25, !noalias !34, !noundef !4
+  %30 = load i64, ptr %29, align 8, !alias.scope !30, !noalias !33, !noundef !14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !38
+  call void @"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h1a6437ca4e260831E.llvm.678384216342861276"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %30), !noalias !39
+  %31 = load i64, ptr %5, align 8, !range !29, !noalias !38, !noundef !14
   %trunc.i.i = trunc nuw i64 %31 to i1
   %32 = getelementptr inbounds i8, ptr %5, i64 8
-  %33 = load ptr, ptr %32, align 8, !noalias !34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !34
+  %33 = load ptr, ptr %32, align 8, !noalias !38
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !38
   %34 = ptrtoint ptr %33 to i64
   br i1 %trunc.i.i, label %44, label %35
 
 35:                                               ; preds = %28
   %36 = sub i64 %30, %34
-  store i64 %36, ptr %29, align 8, !alias.scope !26, !noalias !29
-  %37 = tail call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$5flush17hcbf07f3a7026e02bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !38
+  store i64 %36, ptr %29, align 8, !alias.scope !30, !noalias !33
+  %37 = tail call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$5flush17hcbf07f3a7026e02bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !42
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %44
 
@@ -119,10 +121,10 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @_ZN3std3sys3pal4unix11kernel_copy18copy_regular_files17h92a60851b746f1efE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %10, i32 noundef %19, i32 noundef %23, i64 noundef %36)
   %53 = getelementptr inbounds i8, ptr %10, i64 8
-  %.val30 = load i64, ptr %53, align 8, !noundef !4
+  %.val30 = load i64, ptr %53, align 8, !noundef !14
   %54 = sub i64 %36, %.val30
-  store i64 %54, ptr %29, align 8, !alias.scope !39
-  %55 = load i64, ptr %10, align 8, !range !44, !noundef !4
+  store i64 %54, ptr %29, align 8, !alias.scope !43
+  %55 = load i64, ptr %10, align 8, !range !48, !noundef !14
   switch i64 %55, label %default.unreachable120 [
     i64 0, label %56
     i64 1, label %59
@@ -137,7 +139,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds i8, ptr %10, i64 16
-  %61 = load ptr, ptr %60, align 8, !nonnull !4, !noundef !4
+  %61 = load ptr, ptr %60, align 8, !nonnull !14, !noundef !14
   %62 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %61, ptr %62, align 8
   br label %65
@@ -199,10 +201,10 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, i1 noundef zeroext false, i32 noundef %19, i32 noundef %23, i64 noundef %36)
   %78 = getelementptr inbounds i8, ptr %9, i64 8
-  %.val31 = load i64, ptr %78, align 8, !noundef !4
+  %.val31 = load i64, ptr %78, align 8, !noundef !14
   %79 = sub i64 %49, %.val31
-  store i64 %79, ptr %29, align 8, !alias.scope !45
-  %80 = load i64, ptr %9, align 8, !range !44, !noundef !4
+  store i64 %79, ptr %29, align 8, !alias.scope !49
+  %80 = load i64, ptr %9, align 8, !range !48, !noundef !14
   switch i64 %80, label %default.unreachable120 [
     i64 0, label %81
     i64 1, label %84
@@ -217,7 +219,7 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
 
 84:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
   %85 = getelementptr inbounds i8, ptr %9, i64 16
-  %86 = load ptr, ptr %85, align 8, !nonnull !4, !noundef !4
+  %86 = load ptr, ptr %85, align 8, !nonnull !14, !noundef !14
   %87 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %86, ptr %87, align 8
   br label %90
@@ -298,10 +300,10 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %8, i1 noundef zeroext true, i32 noundef %19, i32 noundef %23, i64 noundef %36)
   %111 = getelementptr inbounds i8, ptr %8, i64 8
-  %.val32 = load i64, ptr %111, align 8, !noundef !4
+  %.val32 = load i64, ptr %111, align 8, !noundef !14
   %112 = sub i64 %110, %.val32
-  store i64 %112, ptr %29, align 8, !alias.scope !50
-  %113 = load i64, ptr %8, align 8, !range !44, !noundef !4
+  store i64 %112, ptr %29, align 8, !alias.scope !54
+  %113 = load i64, ptr %8, align 8, !range !48, !noundef !14
   switch i64 %113, label %default.unreachable120 [
     i64 0, label %114
     i64 1, label %117
@@ -316,7 +318,7 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
 
 117:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
   %118 = getelementptr inbounds i8, ptr %8, i64 16
-  %119 = load ptr, ptr %118, align 8, !nonnull !4, !noundef !4
+  %119 = load ptr, ptr %118, align 8, !nonnull !14, !noundef !14
   %120 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %119, ptr %120, align 8
   br label %123
@@ -336,15 +338,15 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
 
 125:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  store ptr @anon.3a0f8f0d6c73c1f21edb2018f58f8718.1, ptr %7, align 8, !alias.scope !55, !noalias !58
+  store ptr @anon.3a0f8f0d6c73c1f21edb2018f58f8718.1, ptr %7, align 8, !alias.scope !59, !noalias !62
   %126 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 1, ptr %126, align 8, !alias.scope !55, !noalias !58
+  store i64 1, ptr %126, align 8, !alias.scope !59, !noalias !62
   %127 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %127, align 8, !alias.scope !55, !noalias !58
+  store ptr null, ptr %127, align 8, !alias.scope !59, !noalias !62
   %128 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %4, ptr %128, align 8, !alias.scope !55, !noalias !58
+  store ptr %4, ptr %128, align 8, !alias.scope !59, !noalias !62
   %129 = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 0, ptr %129, align 8, !alias.scope !55, !noalias !58
+  store i64 0, ptr %129, align 8, !alias.scope !59, !noalias !62
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a0f8f0d6c73c1f21edb2018f58f8718.3) #5
   unreachable
 
@@ -359,7 +361,7 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit": ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
   %132 = getelementptr inbounds i8, ptr %6, i64 8
-  %133 = load i64, ptr %132, align 8, !noundef !4
+  %133 = load i64, ptr %132, align 8, !noundef !14
   %134 = add i64 %133, %.0
   %135 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %134, ptr %135, align 8
@@ -391,8 +393,10 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
   %11 = alloca { { i64, [21 x i64] }, { i32, [1 x i32] } }, align 8
   %12 = alloca { { i64, [21 x i64] }, { i32, [1 x i32] } }, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %12)
-  %13 = load ptr, ptr %1, align 8, !noalias !4, !nonnull !4, !align !5, !noundef !4
-  call void @"_ZN88_$LT$std..io..stdio..StdinLock$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h25248e4b66c21945E"(ptr noalias nocapture noundef nonnull sret({ { i64, [21 x i64] }, { i32, [1 x i32] } }) align 8 dereferenceable(184) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13), !noalias !60
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  %13 = load ptr, ptr %1, align 8, !alias.scope !70, !noalias !71, !nonnull !14, !align !15, !noundef !14
+  call void @"_ZN88_$LT$std..io..stdio..StdinLock$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h25248e4b66c21945E"(ptr noalias nocapture noundef nonnull sret({ { i64, [21 x i64] }, { i32, [1 x i32] } }) align 8 dereferenceable(184) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13), !noalias !70
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %11)
   call void @"_ZN90_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyWrite$GT$10properties17h5765932d046dbf22E"(ptr noalias nocapture noundef nonnull sret({ { i64, [21 x i64] }, { i32, [1 x i32] } }) align 8 dereferenceable(184) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
   %.sroa.074.0.copyload = load i64, ptr %12, align 8
@@ -401,14 +405,14 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
   %.sroa.576.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 80
   %.sroa.576.0.copyload = load i64, ptr %.sroa.576.0..sroa_idx, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 176
-  %15 = load i32, ptr %14, align 8, !range !24, !noundef !4
+  %15 = load i32, ptr %14, align 8, !range !28, !noundef !14
   %16 = getelementptr inbounds i8, ptr %12, i64 180
   %17 = load i32, ptr %16, align 4
   %.sroa.077.0.copyload = load i64, ptr %11, align 8
   %.sroa.379.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 56
   %.sroa.379.0.copyload = load i32, ptr %.sroa.379.0..sroa_idx, align 8
   %18 = getelementptr inbounds i8, ptr %11, i64 176
-  %19 = load i32, ptr %18, align 8, !range !24, !noundef !4
+  %19 = load i32, ptr %18, align 8, !range !28, !noundef !14
   %20 = getelementptr inbounds i8, ptr %11, i64 180
   %21 = load i32, ptr %20, align 4
   %22 = icmp ne i32 %15, 0
@@ -419,28 +423,28 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110: ; preds = %122, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %102, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %3
   %.0 = phi i64 [ 0, %3 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %.299104125, %122 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299104127, %102 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ]
   call void @_ZN3std2io4copy17stack_buffer_copy17hf0a39e05e7062c55E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  %24 = load i64, ptr %6, align 8, !range !25, !noundef !4
+  %24 = load i64, ptr %6, align 8, !range !29, !noundef !14
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", label %129
 
 26:                                               ; preds = %3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = load i64, ptr %27, align 8, !alias.scope !65, !noalias !68, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !73
-  call void @"_ZN88_$LT$std..io..stdio..StdinLock$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hf7ce0844b567d2e8E.llvm.14589055975246679480"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %28), !noalias !74
-  %29 = load i64, ptr %5, align 8, !range !25, !noalias !73, !noundef !4
+  %28 = load i64, ptr %27, align 8, !alias.scope !74, !noalias !77, !noundef !14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !82
+  call void @"_ZN88_$LT$std..io..stdio..StdinLock$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hf7ce0844b567d2e8E.llvm.14589055975246679480"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %28), !noalias !83
+  %29 = load i64, ptr %5, align 8, !range !29, !noalias !82, !noundef !14
   %trunc.i.i = trunc nuw i64 %29 to i1
   %30 = getelementptr inbounds i8, ptr %5, i64 8
-  %31 = load ptr, ptr %30, align 8, !noalias !73
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !73
+  %31 = load ptr, ptr %30, align 8, !noalias !82
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !82
   %32 = ptrtoint ptr %31 to i64
   br i1 %trunc.i.i, label %42, label %33
 
 33:                                               ; preds = %26
   %34 = sub i64 %28, %32
-  store i64 %34, ptr %27, align 8, !alias.scope !65, !noalias !68
-  %35 = tail call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$5flush17hcbf07f3a7026e02bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !77
+  store i64 %34, ptr %27, align 8, !alias.scope !74, !noalias !77
+  %35 = tail call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$5flush17hcbf07f3a7026e02bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !86
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %42
 
@@ -486,10 +490,10 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @_ZN3std3sys3pal4unix11kernel_copy18copy_regular_files17h92a60851b746f1efE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %10, i32 noundef %17, i32 noundef %21, i64 noundef %34)
   %51 = getelementptr inbounds i8, ptr %10, i64 8
-  %.val48 = load i64, ptr %51, align 8, !noundef !4
+  %.val48 = load i64, ptr %51, align 8, !noundef !14
   %52 = sub i64 %34, %.val48
-  store i64 %52, ptr %27, align 8, !alias.scope !78
-  %53 = load i64, ptr %10, align 8, !range !44, !noundef !4
+  store i64 %52, ptr %27, align 8, !alias.scope !87
+  %53 = load i64, ptr %10, align 8, !range !48, !noundef !14
   switch i64 %53, label %default.unreachable120 [
     i64 0, label %54
     i64 1, label %57
@@ -504,7 +508,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
 
 57:                                               ; preds = %50
   %58 = getelementptr inbounds i8, ptr %10, i64 16
-  %59 = load ptr, ptr %58, align 8, !nonnull !4, !noundef !4
+  %59 = load ptr, ptr %58, align 8, !nonnull !14, !noundef !14
   %60 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %59, ptr %60, align 8
   br label %63
@@ -566,10 +570,10 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, i1 noundef zeroext false, i32 noundef %17, i32 noundef %21, i64 noundef %34)
   %76 = getelementptr inbounds i8, ptr %9, i64 8
-  %.val49 = load i64, ptr %76, align 8, !noundef !4
+  %.val49 = load i64, ptr %76, align 8, !noundef !14
   %77 = sub i64 %47, %.val49
-  store i64 %77, ptr %27, align 8, !alias.scope !83
-  %78 = load i64, ptr %9, align 8, !range !44, !noundef !4
+  store i64 %77, ptr %27, align 8, !alias.scope !92
+  %78 = load i64, ptr %9, align 8, !range !48, !noundef !14
   switch i64 %78, label %default.unreachable120 [
     i64 0, label %79
     i64 1, label %82
@@ -584,7 +588,7 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
 
 82:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
   %83 = getelementptr inbounds i8, ptr %9, i64 16
-  %84 = load ptr, ptr %83, align 8, !nonnull !4, !noundef !4
+  %84 = load ptr, ptr %83, align 8, !nonnull !14, !noundef !14
   %85 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %84, ptr %85, align 8
   br label %88
@@ -665,10 +669,10 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %8, i1 noundef zeroext true, i32 noundef %17, i32 noundef %21, i64 noundef %34)
   %109 = getelementptr inbounds i8, ptr %8, i64 8
-  %.val50 = load i64, ptr %109, align 8, !noundef !4
+  %.val50 = load i64, ptr %109, align 8, !noundef !14
   %110 = sub i64 %108, %.val50
-  store i64 %110, ptr %27, align 8, !alias.scope !88
-  %111 = load i64, ptr %8, align 8, !range !44, !noundef !4
+  store i64 %110, ptr %27, align 8, !alias.scope !97
+  %111 = load i64, ptr %8, align 8, !range !48, !noundef !14
   switch i64 %111, label %default.unreachable120 [
     i64 0, label %112
     i64 1, label %115
@@ -683,7 +687,7 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
 
 115:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
   %116 = getelementptr inbounds i8, ptr %8, i64 16
-  %117 = load ptr, ptr %116, align 8, !nonnull !4, !noundef !4
+  %117 = load ptr, ptr %116, align 8, !nonnull !14, !noundef !14
   %118 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %117, ptr %118, align 8
   br label %121
@@ -703,15 +707,15 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
 
 123:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  store ptr @anon.3a0f8f0d6c73c1f21edb2018f58f8718.1, ptr %7, align 8, !alias.scope !93, !noalias !96
+  store ptr @anon.3a0f8f0d6c73c1f21edb2018f58f8718.1, ptr %7, align 8, !alias.scope !102, !noalias !105
   %124 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 1, ptr %124, align 8, !alias.scope !93, !noalias !96
+  store i64 1, ptr %124, align 8, !alias.scope !102, !noalias !105
   %125 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %125, align 8, !alias.scope !93, !noalias !96
+  store ptr null, ptr %125, align 8, !alias.scope !102, !noalias !105
   %126 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %4, ptr %126, align 8, !alias.scope !93, !noalias !96
+  store ptr %4, ptr %126, align 8, !alias.scope !102, !noalias !105
   %127 = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 0, ptr %127, align 8, !alias.scope !93, !noalias !96
+  store i64 0, ptr %127, align 8, !alias.scope !102, !noalias !105
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a0f8f0d6c73c1f21edb2018f58f8718.3) #5
   unreachable
 
@@ -726,7 +730,7 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit": ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
   %130 = getelementptr inbounds i8, ptr %6, i64 8
-  %131 = load i64, ptr %130, align 8, !noundef !4
+  %131 = load i64, ptr %130, align 8, !noundef !14
   %132 = add i64 %131, %.0
   %133 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %132, ptr %133, align 8
@@ -746,9 +750,11 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
   %11 = alloca { { i64, [21 x i64] }, { i32, [1 x i32] } }, align 8
   %12 = alloca { { i64, [21 x i64] }, { i32, [1 x i32] } }, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %12)
-  %13 = load ptr, ptr %1, align 8, !noalias !4, !nonnull !4, !align !5, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
+  %13 = load ptr, ptr %1, align 8, !alias.scope !113, !noalias !114, !nonnull !14, !align !15, !noundef !14
   %14 = getelementptr inbounds i8, ptr %13, i64 40
-  call void @"_ZN80_$LT$$RF$std..fs..File$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hb446047092ff980fE"(ptr noalias nocapture noundef nonnull sret({ { i64, [21 x i64] }, { i32, [1 x i32] } }) align 8 dereferenceable(184) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14), !noalias !98
+  call void @"_ZN80_$LT$$RF$std..fs..File$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hb446047092ff980fE"(ptr noalias nocapture noundef nonnull sret({ { i64, [21 x i64] }, { i32, [1 x i32] } }) align 8 dereferenceable(184) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14), !noalias !113
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %11)
   call void @"_ZN90_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyWrite$GT$10properties17h5765932d046dbf22E"(ptr noalias nocapture noundef nonnull sret({ { i64, [21 x i64] }, { i32, [1 x i32] } }) align 8 dereferenceable(184) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
   %.sroa.074.0.copyload = load i64, ptr %12, align 8
@@ -757,14 +763,14 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
   %.sroa.576.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 80
   %.sroa.576.0.copyload = load i64, ptr %.sroa.576.0..sroa_idx, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 176
-  %16 = load i32, ptr %15, align 8, !range !24, !noundef !4
+  %16 = load i32, ptr %15, align 8, !range !28, !noundef !14
   %17 = getelementptr inbounds i8, ptr %12, i64 180
   %18 = load i32, ptr %17, align 4
   %.sroa.077.0.copyload = load i64, ptr %11, align 8
   %.sroa.379.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 56
   %.sroa.379.0.copyload = load i32, ptr %.sroa.379.0..sroa_idx, align 8
   %19 = getelementptr inbounds i8, ptr %11, i64 176
-  %20 = load i32, ptr %19, align 8, !range !24, !noundef !4
+  %20 = load i32, ptr %19, align 8, !range !28, !noundef !14
   %21 = getelementptr inbounds i8, ptr %11, i64 180
   %22 = load i32, ptr %21, align 4
   %23 = icmp ne i32 %16, 0
@@ -775,28 +781,28 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110: ; preds = %123, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %103, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %3
   %.0 = phi i64 [ 0, %3 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %.299104125, %123 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299104127, %103 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ]
   call void @_ZN3std2io4copy17stack_buffer_copy17hbb94f2d404f8e65eE(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  %25 = load i64, ptr %6, align 8, !range !25, !noundef !4
+  %25 = load i64, ptr %6, align 8, !range !29, !noundef !14
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", label %130
 
 27:                                               ; preds = %3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %28 = getelementptr inbounds i8, ptr %1, i64 8
-  %29 = load i64, ptr %28, align 8, !alias.scope !103, !noalias !106, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !111
-  call void @"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hefc0ac02564a4309E.llvm.678384216342861276"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %29), !noalias !112
-  %30 = load i64, ptr %5, align 8, !range !25, !noalias !111, !noundef !4
+  %29 = load i64, ptr %28, align 8, !alias.scope !117, !noalias !120, !noundef !14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !125
+  call void @"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hefc0ac02564a4309E.llvm.678384216342861276"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %29), !noalias !126
+  %30 = load i64, ptr %5, align 8, !range !29, !noalias !125, !noundef !14
   %trunc.i.i = trunc nuw i64 %30 to i1
   %31 = getelementptr inbounds i8, ptr %5, i64 8
-  %32 = load ptr, ptr %31, align 8, !noalias !111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !111
+  %32 = load ptr, ptr %31, align 8, !noalias !125
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !125
   %33 = ptrtoint ptr %32 to i64
   br i1 %trunc.i.i, label %43, label %34
 
 34:                                               ; preds = %27
   %35 = sub i64 %29, %33
-  store i64 %35, ptr %28, align 8, !alias.scope !103, !noalias !106
-  %36 = tail call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$5flush17hcbf07f3a7026e02bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !115
+  store i64 %35, ptr %28, align 8, !alias.scope !117, !noalias !120
+  %36 = tail call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$5flush17hcbf07f3a7026e02bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !129
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %43
 
@@ -842,10 +848,10 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @_ZN3std3sys3pal4unix11kernel_copy18copy_regular_files17h92a60851b746f1efE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %10, i32 noundef %18, i32 noundef %22, i64 noundef %35)
   %52 = getelementptr inbounds i8, ptr %10, i64 8
-  %.val48 = load i64, ptr %52, align 8, !noundef !4
+  %.val48 = load i64, ptr %52, align 8, !noundef !14
   %53 = sub i64 %35, %.val48
-  store i64 %53, ptr %28, align 8, !alias.scope !116
-  %54 = load i64, ptr %10, align 8, !range !44, !noundef !4
+  store i64 %53, ptr %28, align 8, !alias.scope !130
+  %54 = load i64, ptr %10, align 8, !range !48, !noundef !14
   switch i64 %54, label %default.unreachable120 [
     i64 0, label %55
     i64 1, label %58
@@ -860,7 +866,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds i8, ptr %10, i64 16
-  %60 = load ptr, ptr %59, align 8, !nonnull !4, !noundef !4
+  %60 = load ptr, ptr %59, align 8, !nonnull !14, !noundef !14
   %61 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %60, ptr %61, align 8
   br label %64
@@ -922,10 +928,10 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, i1 noundef zeroext false, i32 noundef %18, i32 noundef %22, i64 noundef %35)
   %77 = getelementptr inbounds i8, ptr %9, i64 8
-  %.val49 = load i64, ptr %77, align 8, !noundef !4
+  %.val49 = load i64, ptr %77, align 8, !noundef !14
   %78 = sub i64 %48, %.val49
-  store i64 %78, ptr %28, align 8, !alias.scope !121
-  %79 = load i64, ptr %9, align 8, !range !44, !noundef !4
+  store i64 %78, ptr %28, align 8, !alias.scope !135
+  %79 = load i64, ptr %9, align 8, !range !48, !noundef !14
   switch i64 %79, label %default.unreachable120 [
     i64 0, label %80
     i64 1, label %83
@@ -940,7 +946,7 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
 
 83:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
   %84 = getelementptr inbounds i8, ptr %9, i64 16
-  %85 = load ptr, ptr %84, align 8, !nonnull !4, !noundef !4
+  %85 = load ptr, ptr %84, align 8, !nonnull !14, !noundef !14
   %86 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %85, ptr %86, align 8
   br label %89
@@ -1021,10 +1027,10 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %8, i1 noundef zeroext true, i32 noundef %18, i32 noundef %22, i64 noundef %35)
   %110 = getelementptr inbounds i8, ptr %8, i64 8
-  %.val50 = load i64, ptr %110, align 8, !noundef !4
+  %.val50 = load i64, ptr %110, align 8, !noundef !14
   %111 = sub i64 %109, %.val50
-  store i64 %111, ptr %28, align 8, !alias.scope !126
-  %112 = load i64, ptr %8, align 8, !range !44, !noundef !4
+  store i64 %111, ptr %28, align 8, !alias.scope !140
+  %112 = load i64, ptr %8, align 8, !range !48, !noundef !14
   switch i64 %112, label %default.unreachable120 [
     i64 0, label %113
     i64 1, label %116
@@ -1039,7 +1045,7 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
 
 116:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
   %117 = getelementptr inbounds i8, ptr %8, i64 16
-  %118 = load ptr, ptr %117, align 8, !nonnull !4, !noundef !4
+  %118 = load ptr, ptr %117, align 8, !nonnull !14, !noundef !14
   %119 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %118, ptr %119, align 8
   br label %122
@@ -1059,15 +1065,15 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
 
 124:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  store ptr @anon.3a0f8f0d6c73c1f21edb2018f58f8718.1, ptr %7, align 8, !alias.scope !131, !noalias !134
+  store ptr @anon.3a0f8f0d6c73c1f21edb2018f58f8718.1, ptr %7, align 8, !alias.scope !145, !noalias !148
   %125 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 1, ptr %125, align 8, !alias.scope !131, !noalias !134
+  store i64 1, ptr %125, align 8, !alias.scope !145, !noalias !148
   %126 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %126, align 8, !alias.scope !131, !noalias !134
+  store ptr null, ptr %126, align 8, !alias.scope !145, !noalias !148
   %127 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %4, ptr %127, align 8, !alias.scope !131, !noalias !134
+  store ptr %4, ptr %127, align 8, !alias.scope !145, !noalias !148
   %128 = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 0, ptr %128, align 8, !alias.scope !131, !noalias !134
+  store i64 0, ptr %128, align 8, !alias.scope !145, !noalias !148
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a0f8f0d6c73c1f21edb2018f58f8718.3) #5
   unreachable
 
@@ -1082,7 +1088,7 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.t
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit": ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
   %131 = getelementptr inbounds i8, ptr %6, i64 8
-  %132 = load i64, ptr %131, align 8, !noundef !4
+  %132 = load i64, ptr %131, align 8, !noundef !14
   %133 = add i64 %132, %.0
   %134 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %133, ptr %134, align 8
@@ -1167,135 +1173,149 @@ attributes #5 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
-!4 = !{}
-!5 = !{i64 8}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h7a254191aabb2431E.llvm.678384216342861276: argument 1"}
-!8 = distinct !{!8, !"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h7a254191aabb2431E.llvm.678384216342861276"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h105a2a6f3adcfe60E: argument 1"}
-!11 = distinct !{!11, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h105a2a6f3adcfe60E"}
-!12 = !{!10, !7}
-!13 = !{!14, !15, !16, !18, !19, !21}
-!14 = distinct !{!14, !11, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h105a2a6f3adcfe60E: argument 0"}
-!15 = distinct !{!15, !8, !"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h7a254191aabb2431E.llvm.678384216342861276: argument 0"}
-!16 = distinct !{!16, !17, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h42eccf8c7678a241E: argument 0"}
-!17 = distinct !{!17, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h42eccf8c7678a241E"}
-!18 = distinct !{!18, !17, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h42eccf8c7678a241E: argument 1"}
-!19 = distinct !{!19, !20, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hfa0a09c37f02ccfaE: argument 0"}
-!20 = distinct !{!20, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hfa0a09c37f02ccfaE"}
-!21 = distinct !{!21, !20, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hfa0a09c37f02ccfaE: argument 1"}
-!22 = !{i64 4}
-!23 = !{!10, !7, !18, !21}
-!24 = !{i32 0, i32 2}
-!25 = !{i64 0, i64 2}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4783de7a7bb183e6E: argument 1"}
-!28 = distinct !{!28, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4783de7a7bb183e6E"}
-!29 = !{!30, !31, !32}
-!30 = distinct !{!30, !28, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4783de7a7bb183e6E: argument 0"}
-!31 = distinct !{!31, !28, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4783de7a7bb183e6E: argument 2"}
-!32 = distinct !{!32, !33, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17hbd8bd45ac4381f5dE: argument 0"}
-!33 = distinct !{!33, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17hbd8bd45ac4381f5dE"}
-!34 = !{!30, !27, !31, !32}
-!35 = !{!36, !30, !27, !32}
-!36 = distinct !{!36, !37, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h8dcca8a2d5b13cedE: argument 1"}
-!37 = distinct !{!37, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h8dcca8a2d5b13cedE"}
-!38 = !{!32}
-!39 = !{!40, !42}
-!40 = distinct !{!40, !41, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E: argument 0"}
-!41 = distinct !{!41, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E"}
-!42 = distinct !{!42, !43, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE: argument 0"}
-!43 = distinct !{!43, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE"}
-!44 = !{i64 0, i64 3}
-!45 = !{!46, !48}
-!46 = distinct !{!46, !47, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E: argument 0"}
-!47 = distinct !{!47, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E"}
-!48 = distinct !{!48, !49, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE: argument 0"}
-!49 = distinct !{!49, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE"}
-!50 = !{!51, !53}
-!51 = distinct !{!51, !52, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E: argument 0"}
-!52 = distinct !{!52, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E"}
-!53 = distinct !{!53, !54, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE: argument 0"}
-!54 = distinct !{!54, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!57 = distinct !{!57, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!58 = !{!59}
-!59 = distinct !{!59, !57, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!60 = !{!61, !63}
-!61 = distinct !{!61, !62, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h8d1daac29da0d326E: argument 1"}
-!62 = distinct !{!62, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h8d1daac29da0d326E"}
-!63 = distinct !{!63, !64, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h252cccd55429f7a5E: argument 1"}
-!64 = distinct !{!64, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h252cccd55429f7a5E"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4ac3918cbcb0c649E: argument 1"}
-!67 = distinct !{!67, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4ac3918cbcb0c649E"}
-!68 = !{!69, !70, !71}
-!69 = distinct !{!69, !67, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4ac3918cbcb0c649E: argument 0"}
-!70 = distinct !{!70, !67, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4ac3918cbcb0c649E: argument 2"}
-!71 = distinct !{!71, !72, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17h41cf19736ecb4c60E: argument 0"}
-!72 = distinct !{!72, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17h41cf19736ecb4c60E"}
-!73 = !{!69, !66, !70, !71}
-!74 = !{!75, !69, !66, !71}
-!75 = distinct !{!75, !76, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h235ec50b386c97fbE: argument 1"}
-!76 = distinct !{!76, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h235ec50b386c97fbE"}
-!77 = !{!71}
-!78 = !{!79, !81}
-!79 = distinct !{!79, !80, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E: argument 0"}
-!80 = distinct !{!80, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E"}
-!81 = distinct !{!81, !82, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE: argument 0"}
-!82 = distinct !{!82, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE"}
-!83 = !{!84, !86}
-!84 = distinct !{!84, !85, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E: argument 0"}
-!85 = distinct !{!85, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E"}
-!86 = distinct !{!86, !87, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE: argument 0"}
-!87 = distinct !{!87, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE"}
-!88 = !{!89, !91}
-!89 = distinct !{!89, !90, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E: argument 0"}
-!90 = distinct !{!90, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E"}
-!91 = distinct !{!91, !92, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE: argument 0"}
-!92 = distinct !{!92, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!95 = distinct !{!95, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!96 = !{!97}
-!97 = distinct !{!97, !95, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!98 = !{!99, !101}
-!99 = distinct !{!99, !100, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h1de0f18b1f3a5205E: argument 1"}
-!100 = distinct !{!100, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h1de0f18b1f3a5205E"}
-!101 = distinct !{!101, !102, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h2ce4b64549d773ddE: argument 1"}
-!102 = distinct !{!102, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h2ce4b64549d773ddE"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hdc190d56472b19e2E: argument 1"}
-!105 = distinct !{!105, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hdc190d56472b19e2E"}
-!106 = !{!107, !108, !109}
-!107 = distinct !{!107, !105, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hdc190d56472b19e2E: argument 0"}
-!108 = distinct !{!108, !105, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hdc190d56472b19e2E: argument 2"}
-!109 = distinct !{!109, !110, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17h67d66e15fe62a9b8E: argument 0"}
-!110 = distinct !{!110, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17h67d66e15fe62a9b8E"}
-!111 = !{!107, !104, !108, !109}
-!112 = !{!113, !107, !104, !109}
-!113 = distinct !{!113, !114, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h841084ad91723e6fE: argument 1"}
-!114 = distinct !{!114, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h841084ad91723e6fE"}
-!115 = !{!109}
-!116 = !{!117, !119}
-!117 = distinct !{!117, !118, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE: argument 0"}
-!118 = distinct !{!118, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE"}
-!119 = distinct !{!119, !120, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E: argument 0"}
-!120 = distinct !{!120, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E"}
-!121 = !{!122, !124}
-!122 = distinct !{!122, !123, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE: argument 0"}
-!123 = distinct !{!123, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE"}
-!124 = distinct !{!124, !125, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E: argument 0"}
-!125 = distinct !{!125, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E"}
-!126 = !{!127, !129}
-!127 = distinct !{!127, !128, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE: argument 0"}
-!128 = distinct !{!128, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE"}
-!129 = distinct !{!129, !130, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E: argument 0"}
-!130 = distinct !{!130, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E"}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!133 = distinct !{!133, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!134 = !{!135}
-!135 = distinct !{!135, !133, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hfa0a09c37f02ccfaE: argument 1"}
+!6 = distinct !{!6, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hfa0a09c37f02ccfaE"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h42eccf8c7678a241E: argument 1"}
+!9 = distinct !{!9, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h42eccf8c7678a241E"}
+!10 = !{!8, !5}
+!11 = !{!12, !13}
+!12 = distinct !{!12, !9, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h42eccf8c7678a241E: argument 0"}
+!13 = distinct !{!13, !6, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hfa0a09c37f02ccfaE: argument 0"}
+!14 = !{}
+!15 = !{i64 8}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h7a254191aabb2431E.llvm.678384216342861276: argument 1"}
+!18 = distinct !{!18, !"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h7a254191aabb2431E.llvm.678384216342861276"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h105a2a6f3adcfe60E: argument 1"}
+!21 = distinct !{!21, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h105a2a6f3adcfe60E"}
+!22 = !{!20, !17}
+!23 = !{!24, !25, !12, !8, !13, !5}
+!24 = distinct !{!24, !21, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h105a2a6f3adcfe60E: argument 0"}
+!25 = distinct !{!25, !18, !"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h7a254191aabb2431E.llvm.678384216342861276: argument 0"}
+!26 = !{i64 4}
+!27 = !{!20, !17, !8, !5}
+!28 = !{i32 0, i32 2}
+!29 = !{i64 0, i64 2}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4783de7a7bb183e6E: argument 1"}
+!32 = distinct !{!32, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4783de7a7bb183e6E"}
+!33 = !{!34, !35, !36}
+!34 = distinct !{!34, !32, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4783de7a7bb183e6E: argument 0"}
+!35 = distinct !{!35, !32, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4783de7a7bb183e6E: argument 2"}
+!36 = distinct !{!36, !37, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17hbd8bd45ac4381f5dE: argument 0"}
+!37 = distinct !{!37, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17hbd8bd45ac4381f5dE"}
+!38 = !{!34, !31, !35, !36}
+!39 = !{!40, !34, !31, !36}
+!40 = distinct !{!40, !41, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h8dcca8a2d5b13cedE: argument 1"}
+!41 = distinct !{!41, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h8dcca8a2d5b13cedE"}
+!42 = !{!36}
+!43 = !{!44, !46}
+!44 = distinct !{!44, !45, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E: argument 0"}
+!45 = distinct !{!45, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E"}
+!46 = distinct !{!46, !47, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE: argument 0"}
+!47 = distinct !{!47, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE"}
+!48 = !{i64 0, i64 3}
+!49 = !{!50, !52}
+!50 = distinct !{!50, !51, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E: argument 0"}
+!51 = distinct !{!51, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E"}
+!52 = distinct !{!52, !53, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE: argument 0"}
+!53 = distinct !{!53, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE"}
+!54 = !{!55, !57}
+!55 = distinct !{!55, !56, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E: argument 0"}
+!56 = distinct !{!56, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h6a58eff385064bb8E"}
+!57 = distinct !{!57, !58, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE: argument 0"}
+!58 = distinct !{!58, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17hf8cb07689547c44aE"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!61 = distinct !{!61, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!62 = !{!63}
+!63 = distinct !{!63, !61, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h252cccd55429f7a5E: argument 1"}
+!66 = distinct !{!66, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h252cccd55429f7a5E"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h8d1daac29da0d326E: argument 1"}
+!69 = distinct !{!69, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h8d1daac29da0d326E"}
+!70 = !{!68, !65}
+!71 = !{!72, !73}
+!72 = distinct !{!72, !69, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h8d1daac29da0d326E: argument 0"}
+!73 = distinct !{!73, !66, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h252cccd55429f7a5E: argument 0"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4ac3918cbcb0c649E: argument 1"}
+!76 = distinct !{!76, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4ac3918cbcb0c649E"}
+!77 = !{!78, !79, !80}
+!78 = distinct !{!78, !76, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4ac3918cbcb0c649E: argument 0"}
+!79 = distinct !{!79, !76, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h4ac3918cbcb0c649E: argument 2"}
+!80 = distinct !{!80, !81, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17h41cf19736ecb4c60E: argument 0"}
+!81 = distinct !{!81, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17h41cf19736ecb4c60E"}
+!82 = !{!78, !75, !79, !80}
+!83 = !{!84, !78, !75, !80}
+!84 = distinct !{!84, !85, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h235ec50b386c97fbE: argument 1"}
+!85 = distinct !{!85, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h235ec50b386c97fbE"}
+!86 = !{!80}
+!87 = !{!88, !90}
+!88 = distinct !{!88, !89, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E: argument 0"}
+!89 = distinct !{!89, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E"}
+!90 = distinct !{!90, !91, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE: argument 0"}
+!91 = distinct !{!91, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE"}
+!92 = !{!93, !95}
+!93 = distinct !{!93, !94, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E: argument 0"}
+!94 = distinct !{!94, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E"}
+!95 = distinct !{!95, !96, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE: argument 0"}
+!96 = distinct !{!96, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE"}
+!97 = !{!98, !100}
+!98 = distinct !{!98, !99, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E: argument 0"}
+!99 = distinct !{!99, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17h9f0bfb86a9974680E"}
+!100 = distinct !{!100, !101, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE: argument 0"}
+!101 = distinct !{!101, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he743abda750bb3eeE"}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!104 = distinct !{!104, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!105 = !{!106}
+!106 = distinct !{!106, !104, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h2ce4b64549d773ddE: argument 1"}
+!109 = distinct !{!109, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h2ce4b64549d773ddE"}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h1de0f18b1f3a5205E: argument 1"}
+!112 = distinct !{!112, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h1de0f18b1f3a5205E"}
+!113 = !{!111, !108}
+!114 = !{!115, !116}
+!115 = distinct !{!115, !112, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h1de0f18b1f3a5205E: argument 0"}
+!116 = distinct !{!116, !109, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17h2ce4b64549d773ddE: argument 0"}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hdc190d56472b19e2E: argument 1"}
+!119 = distinct !{!119, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hdc190d56472b19e2E"}
+!120 = !{!121, !122, !123}
+!121 = distinct !{!121, !119, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hdc190d56472b19e2E: argument 0"}
+!122 = distinct !{!122, !119, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hdc190d56472b19e2E: argument 2"}
+!123 = distinct !{!123, !124, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17h67d66e15fe62a9b8E: argument 0"}
+!124 = distinct !{!124, !"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy28_$u7b$$u7b$closure$u7d$$u7d$17h67d66e15fe62a9b8E"}
+!125 = !{!121, !118, !122, !123}
+!126 = !{!127, !121, !118, !123}
+!127 = distinct !{!127, !128, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h841084ad91723e6fE: argument 1"}
+!128 = distinct !{!128, !"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h841084ad91723e6fE"}
+!129 = !{!123}
+!130 = !{!131, !133}
+!131 = distinct !{!131, !132, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE: argument 0"}
+!132 = distinct !{!132, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE"}
+!133 = distinct !{!133, !134, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E: argument 0"}
+!134 = distinct !{!134, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E"}
+!135 = !{!136, !138}
+!136 = distinct !{!136, !137, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE: argument 0"}
+!137 = distinct !{!137, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE"}
+!138 = distinct !{!138, !139, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E: argument 0"}
+!139 = distinct !{!139, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E"}
+!140 = !{!141, !143}
+!141 = distinct !{!141, !142, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE: argument 0"}
+!142 = distinct !{!142, !"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$5taken17hf72a12918983332fE"}
+!143 = distinct !{!143, !144, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E: argument 0"}
+!144 = distinct !{!144, !"_ZN3std3sys3pal4unix11kernel_copy10CopyResult11update_take17he723e30538a68d28E"}
+!145 = !{!146}
+!146 = distinct !{!146, !147, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!147 = distinct !{!147, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!148 = !{!149}
+!149 = distinct !{!149, !147, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}

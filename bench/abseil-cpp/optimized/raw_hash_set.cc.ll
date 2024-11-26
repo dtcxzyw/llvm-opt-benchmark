@@ -12,7 +12,7 @@ $_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12Comm
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { i64, i64 } @_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) %common, i64 noundef %hash) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %common, align 8
+  %0 = load ptr, ptr %common, align 8, !noalias !5
   %capacity_.i.i = getelementptr inbounds i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i.i, align 8, !noalias !5
   %shr.i.i.i = lshr i64 %hash, 7
@@ -172,7 +172,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { i64, i64 } @_ZN4absl18container_internal29find_first_non_full_outoflineERKNS0_12CommonFieldsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, i64 noundef %hash) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %common, align 8
+  %0 = load ptr, ptr %common, align 8, !noalias !11
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !11
   %shr.i.i.i.i = lshr i64 %hash, 7
@@ -259,8 +259,8 @@ for.body:                                         ; preds = %_ZN4absl18container
 
 if.end:                                           ; preds = %for.body
   %call7 = tail call noundef i64 %5(ptr noundef nonnull %common, ptr noundef %slot_ptr.096)
-  %9 = load ptr, ptr %common, align 8
-  %10 = load i64, ptr %capacity_.i, align 8
+  %9 = load ptr, ptr %common, align 8, !noalias !14
+  %10 = load i64, ptr %capacity_.i, align 8, !noalias !14
   %shr.i.i.i.i = lshr i64 %call7, 7
   %11 = ptrtoint ptr %9 to i64
   %shr.i.i.i.i.i = lshr i64 %11, 12
@@ -363,7 +363,7 @@ for.inc:                                          ; preds = %if.then19, %if.else
   %add.i = add i64 %7, %27
   %28 = inttoptr i64 %add.i to ptr
   %cmp.not = icmp eq i64 %inc, %1
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit
   %29 = load i64, ptr %capacity_.i, align 8
@@ -609,4 +609,7 @@ attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable w
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: %agg.result"}
 !13 = distinct !{!13, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
-!14 = distinct !{!14, !9}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: %agg.result"}
+!16 = distinct !{!16, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
+!17 = distinct !{!17, !9}

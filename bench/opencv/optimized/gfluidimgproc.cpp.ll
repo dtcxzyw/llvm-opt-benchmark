@@ -3525,7 +3525,7 @@ define linkonce_odr hidden void @_ZN2cv6detail10MetaHelperINS_4gapi7imgproc9GBGR
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !15
-  %9 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8, !noalias !15
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -7419,7 +7419,7 @@ define linkonce_odr hidden void @_ZN2cv6detail10MetaHelperINS_4gapi7imgproc9GRGB
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !57
-  %9 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8, !noalias !57
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -8267,7 +8267,7 @@ _ZN2cv4util8any_castIfEEPKT_PKNS0_3anyE.exit.thread.i.i.i27: ; preds = %_ZN2cv4u
   %41 = getelementptr inbounds i8, ptr %7, i64 24
   %42 = getelementptr inbounds i8, ptr %7, i64 32
   %43 = load ptr, ptr %42, align 8, !noalias !65
-  %44 = load ptr, ptr %41, align 8
+  %44 = load ptr, ptr %41, align 8, !noalias !65
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
@@ -36518,7 +36518,7 @@ define linkonce_odr hidden void @_ZN2cv6detail10MetaHelperINS_4gapi7imgproc12GBa
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !426
-  %9 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8, !noalias !426
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11

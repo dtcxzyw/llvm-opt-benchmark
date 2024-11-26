@@ -26480,7 +26480,7 @@ _ZN16hb_filter_iter_tI10hb_array_tIKN2OT30FeatureTableSubstitutionRecordEERPK8hb
   br i1 %or.cond, label %"_ZorI16hb_filter_iter_tI10hb_array_tIKN2OT30FeatureTableSubstitutionRecordEERPK8hb_set_tMS3_NS2_7IntTypeItLj2EEELPv0EE24hb_filter_iter_factory_tIZNKS2_24FeatureTableSubstitution15collect_lookupsES8_PK12hb_hashmap_tIjPKNS2_7FeatureELb0EEPS6_EUlRS4_E_RK4$_11ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSW_6item_tEEE5valueEvE4typeELSD_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISW_Efp_EEEOSW_OS11_.exit", label %.lr.ph
 
 .lr.ph.i.i.ithread-pre-split:                     ; preds = %110
-  %.val.i.i.i.pr = load ptr, ptr %71, align 8
+  %.val.i.i.i.pr = load ptr, ptr %71, align 8, !alias.scope !137
   %74 = icmp eq ptr %.val.i.i.i.pr, null
   br i1 %74, label %"_ZorI16hb_filter_iter_tI10hb_array_tIKN2OT30FeatureTableSubstitutionRecordEERPK8hb_set_tMS3_NS2_7IntTypeItLj2EEELPv0EE24hb_filter_iter_factory_tIZNKS2_24FeatureTableSubstitution15collect_lookupsES8_PK12hb_hashmap_tIjPKNS2_7FeatureELb0EEPS6_EUlRS4_E_RK4$_11ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSW_6item_tEEE5valueEvE4typeELSD_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISW_Efp_EEEOSW_OS11_.exit.thread", label %.lr.ph
 

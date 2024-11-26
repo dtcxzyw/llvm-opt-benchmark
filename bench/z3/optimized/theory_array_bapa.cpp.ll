@@ -5781,7 +5781,7 @@ invoke.cont30:                                    ; preds = %for.body29
           to label %call.i.i.noexc unwind label %lpad33
 
 call.i.i.noexc:                                   ; preds = %invoke.cont30
-  %37 = load ptr, ptr %this, align 8
+  %37 = load ptr, ptr %this, align 8, !noalias !36
   %tobool.not.i.i.i = icmp eq ptr %call.i.i30, null
   br i1 %tobool.not.i.i.i, label %invoke.cont38.thread, label %if.then.i.i.i
 

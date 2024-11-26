@@ -712,7 +712,7 @@ _ZN4llvm14BatchAAResultsC2ERNS_9AAResultsE.exit.i.i: ; preds = %.lr.ph.i.i.i.i3.
   br i1 %222, label %223, label %234
 
 223:                                              ; preds = %212
-  %224 = load i32, ptr %47, align 4
+  %224 = load i32, ptr %47, align 4, !noalias !12
   %225 = zext i32 %224 to i64
   %226 = getelementptr inbounds ptr, ptr %221, i64 %225
   %.not24.i.i.i.i = icmp eq i32 %224, 0
@@ -751,7 +751,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MemoryAccessEE6insertES2_.exit.i.backedge.i: ; p
   br i1 %238, label %.loopexit.i.i, label %212, !llvm.loop !15
 
 .loopexit60.i:                                    ; preds = %234, %_ZN4llvm15SmallPtrSetImplIPNS_12MemoryAccessEE6insertES2_.exit.i.thread.i
-  %.pre6.i.i.i = load i32, ptr %47, align 4
+  %.pre6.i.i.i = load i32, ptr %47, align 4, !noalias !12
   %239 = load i32, ptr %48, align 8
   %240 = sub i32 %.pre6.i.i.i, %239
   %241 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL21MoveAutoInitThreshold, i64 128), align 8

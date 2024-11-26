@@ -4678,7 +4678,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
 
 call.i62.noexc:                                   ; preds = %invoke.cont29
   store ptr %call.i6265, ptr %mIndices.i.i, align 8, !alias.scope !59
-  %9 = load ptr, ptr %__begin2, align 8
+  %9 = load ptr, ptr %__begin2, align 8, !noalias !59
   %tobool.not.i.i63 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i63, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit61.i.thread, label %if.end.i.i
 

@@ -2343,7 +2343,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
           to label %call3.i.noexc unwind label %lpad83.loopexit.split-lp
 
 call3.i.noexc:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
-  %74 = load ptr, ptr %eqs, align 8
+  %74 = load ptr, ptr %eqs, align 8, !noalias !30
   store ptr %call3.i96, ptr %fml, align 8, !alias.scope !30
   %m_manager.i.i93 = getelementptr inbounds i8, ptr %fml, i64 8
   store ptr %74, ptr %m_manager.i.i93, align 8, !alias.scope !30
@@ -3155,7 +3155,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %if.end.i.i, %for.en
 invoke.cont42:                                    ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i
   %m_solver.i50 = getelementptr inbounds i8, ptr %this, i64 24
   %47 = load ptr, ptr %m_solver.i50, align 8
-  %48 = load ptr, ptr %lits, align 8
+  %48 = load ptr, ptr %lits, align 8, !noalias !42
   %cmp.i.i51 = icmp eq ptr %48, null
   br i1 %cmp.i.i51, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i54, label %if.end.i.i52
 

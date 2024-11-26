@@ -4221,8 +4221,9 @@ define internal fastcc noundef zeroext i1 @_ZL11isInMIGCallRN5clang4ento14Checke
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !noalias !46
   %16 = and i32 %15, 127
   %17 = add nsw i32 %16, -37
   %18 = icmp ult i32 %17, -6

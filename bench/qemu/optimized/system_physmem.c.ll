@@ -8334,7 +8334,7 @@ if.end9.i:                                        ; preds = %if.end.i
   %call.val.i.i = load ptr, ptr %11, align 8, !noalias !77
   %call24.i = call fastcc ptr @address_space_translate_internal(ptr noundef %call.val.i.i, i64 noundef %or.i, ptr noundef nonnull %xlat, ptr noundef nonnull %plen, i1 noundef zeroext true), !noalias !77
   %mr.i = getelementptr inbounds i8, ptr %call24.i, i64 16
-  %12 = load ptr, ptr %mr.i, align 16
+  %12 = load ptr, ptr %mr.i, align 16, !noalias !77
   br label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %if.end9.i

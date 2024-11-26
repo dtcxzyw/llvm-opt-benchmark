@@ -833,7 +833,7 @@ default.unreachable:                              ; preds = %59, %38
           to label %.body.i unwind label %53, !noalias !124
 
 47:                                               ; preds = %40
-  %48 = load i64, ptr %5, align 8, !range !125, !noalias !126, !noundef !14
+  %48 = load i64, ptr %5, align 8, !range !125, !noalias !117, !noundef !14
   %49 = icmp eq i64 %48, 2
   %50 = getelementptr inbounds i8, ptr %5, i64 8
   %51 = load ptr, ptr %50, align 8, !noalias !126
@@ -908,7 +908,7 @@ _ZN3std2fs8metadata17h4facfe42aa80a9cfE.exit.i.i: ; preds = %52, %47
           to label %.body.i.i.i.i.i unwind label %74, !noalias !151
 
 68:                                               ; preds = %61
-  %69 = load i64, ptr %3, align 8, !range !125, !noalias !152, !noundef !14
+  %69 = load i64, ptr %3, align 8, !range !125, !noalias !144, !noundef !14
   %70 = icmp eq i64 %69, 2
   %71 = getelementptr inbounds i8, ptr %3, i64 8
   %72 = load ptr, ptr %71, align 8, !noalias !152

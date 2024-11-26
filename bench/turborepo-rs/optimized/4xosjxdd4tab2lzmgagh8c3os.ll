@@ -3507,7 +3507,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
 .noexc10:                                         ; preds = %40
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  %42 = load i64, ptr %6, align 8, !range !12, !noalias !61, !noundef !4
+  %42 = load i64, ptr %6, align 8, !range !12, !alias.scope !59, !noalias !61, !noundef !4
   %trunc.i.i.i.i.i.i.i = trunc nuw i64 %42 to i1
   br i1 %trunc.i.i.i.i.i.i.i, label %44, label %.thread.i.i.i.i.i.i.i
 

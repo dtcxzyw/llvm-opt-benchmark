@@ -34777,11 +34777,11 @@ _ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit4: ; preds = %21, %25
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13callback_base10trampolineINS1_19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_13ends_with_funEEEbEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPvRKT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !285
-  %4 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !108
+  %4 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !287
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !11, !noalias !287
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %8 = load ptr, ptr %3, align 8, !tbaa !3, !noalias !108
+  %8 = load ptr, ptr %3, align 8, !tbaa !3, !noalias !290
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !11, !noalias !290
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
@@ -34815,11 +34815,11 @@ _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_pr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13callback_base10trampolineINS1_19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_13ends_with_funEEEbEENS1_20basic_string_literalIcSt11char_traitsIcEEEEEvPvRKT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #6 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !285
-  %4 = load ptr, ptr %1, align 8, !tbaa !139, !noalias !108
+  %4 = load ptr, ptr %1, align 8, !tbaa !139, !noalias !295
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !141, !noalias !295
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %8 = load ptr, ptr %3, align 8, !tbaa !3, !noalias !108
+  %8 = load ptr, ptr %3, align 8, !tbaa !3, !noalias !298
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !11, !noalias !298
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
@@ -34854,11 +34854,11 @@ _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_pr
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13callback_base10trampolineINS1_19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_13ends_with_funEEEbEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvPvRKT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !285
   %4 = getelementptr inbounds i8, ptr %3, i64 32
-  %5 = load ptr, ptr %1, align 8, !tbaa !34, !noalias !108
+  %5 = load ptr, ptr %1, align 8, !tbaa !34, !noalias !302
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !35, !noalias !302
   %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
-  %9 = load ptr, ptr %4, align 8, !tbaa !34, !noalias !108
+  %9 = load ptr, ptr %4, align 8, !tbaa !34, !noalias !305
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !35, !noalias !305
   %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
@@ -34893,11 +34893,11 @@ _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_pr
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13callback_base10trampolineINS1_19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_13ends_with_funEEEbEENS1_20basic_string_literalIwSt11char_traitsIwEEEEEvPvRKT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #6 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !285
   %4 = getelementptr inbounds i8, ptr %3, i64 32
-  %5 = load ptr, ptr %1, align 8, !tbaa !142, !noalias !108
+  %5 = load ptr, ptr %1, align 8, !tbaa !142, !noalias !309
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !144, !noalias !309
   %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
-  %9 = load ptr, ptr %4, align 8, !tbaa !34, !noalias !108
+  %9 = load ptr, ptr %4, align 8, !tbaa !34, !noalias !312
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !35, !noalias !312
   %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11

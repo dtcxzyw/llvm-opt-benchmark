@@ -5418,7 +5418,7 @@ _ZN4llvm20filter_iterator_implIPNS_14MachineOperandESt8functionIFbRS1_EESt26bidi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.16..sroa_idx, i8 0, i64 24, i1 false), !noalias !136
   %102 = load ptr, ptr %101, align 8, !noalias !136
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %104 = load ptr, ptr %103, align 8
+  %104 = load ptr, ptr %103, align 8, !noalias !136
   %.not.i.i.not.i.i.i.i = icmp eq ptr %104, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm20filter_iterator_implIPNS_14MachineOperandESt8functionIFbRS1_EESt26bidirectional_iterator_tagEC2EOS8_.exit.i, label %105
 
@@ -5436,7 +5436,7 @@ _ZN4llvm20filter_iterator_implIPNS_14MachineOperandESt8functionIFbRS1_EESt26bidi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i, i8 0, i64 16, i1 false), !noalias !136
   %111 = load ptr, ptr %110, align 8, !noalias !136
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %113 = load ptr, ptr %112, align 8
+  %113 = load ptr, ptr %112, align 8, !noalias !136
   %.not.i.i.not.i.i.i1.i = icmp eq ptr %113, null
   br i1 %.not.i.i.not.i.i.i1.i, label %_ZN4llvm20filter_iterator_implIPNS_14MachineOperandESt8functionIFbRS1_EESt26bidirectional_iterator_tagEC2EOS8_.exit2.i, label %114
 

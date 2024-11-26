@@ -28039,7 +28039,7 @@ for.body450:                                      ; preds = %for.body450.lr.ph, 
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %427 = load ptr, ptr %__begin7.sroa.0.02562, align 8, !noalias !125
   store ptr %427, ptr %ref.tmp452, align 8, !alias.scope !125
-  %bf.load.i.i.i1811 = load i64, ptr %427, align 8
+  %bf.load.i.i.i1811 = load i64, ptr %427, align 8, !noalias !125
   %bf.lshr.i.i.i1812 = lshr i64 %bf.load.i.i.i1811, 40
   %428 = trunc nuw nsw i64 %bf.lshr.i.i.i1812 to i32
   %bf.cast.i.i.i1813 = and i32 %428, 1048575

@@ -6242,7 +6242,7 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17hbebfc7ea41
 
 "_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h47e2f022f10ae6eeE.llvm.9856359229311746364.exit": ; preds = %4
   %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8, !nonnull !5
+  %16 = load ptr, ptr %15, align 8, !alias.scope !1391, !nonnull !5
   %17 = extractvalue { i32, i32 } %10, 0
   %18 = getelementptr inbounds { { [490 x i64] }, i32, [1 x i32] }, ptr %16, i64 %14, i32 1
   %19 = load i32, ptr %18, align 8, !alias.scope !1394, !noalias !1399, !noundef !5

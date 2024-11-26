@@ -19,7 +19,7 @@ define hidden void @_ZN4LIEF3ELF22init_c_dynamic_entriesEP12Elf_Binary_tPNS0_6Bi
   %3 = alloca %"class.std::vector.79", align 8
   %4 = alloca %"class.std::vector.79", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 176
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !noalias !4
   %7 = getelementptr inbounds i8, ptr %1, i64 184
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
@@ -156,7 +156,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %88 = sub i64 %86, %87
   %89 = ashr exact i64 %88, 3
   %90 = icmp ult i64 %83, %89
-  br i1 %90, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
+  br i1 %90, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %75, align 8
@@ -238,7 +238,7 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit: ; preds = %11
   %132 = sub i64 %130, %131
   %133 = ashr exact i64 %132, 3
   %134 = icmp ult i64 %127, %133
-  br i1 %134, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, label %._crit_edge95.loopexit, !llvm.loop !6
+  br i1 %134, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, label %._crit_edge95.loopexit, !llvm.loop !9
 
 ._crit_edge95.loopexit:                           ; preds = %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
   %.pre100 = load ptr, ptr %13, align 8
@@ -290,7 +290,7 @@ define hidden void @_ZN4LIEF3ELF23destroy_dynamic_entriesEP12Elf_Binary_t(ptr no
   %12 = getelementptr inbounds ptr, ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %10
   %.pre = load ptr, ptr %2, align 8
@@ -327,7 +327,10 @@ attributes #9 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN4LIEF3ELF6Binary15dynamic_entriesEv: argument 0"}
+!6 = distinct !{!6, !"_ZN4LIEF3ELF6Binary15dynamic_entriesEv"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

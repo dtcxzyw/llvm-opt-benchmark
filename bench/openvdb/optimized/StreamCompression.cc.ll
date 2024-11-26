@@ -407,7 +407,7 @@ entry:
           to label %invoke.cont.i unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i, !noalias !4
 
 invoke.cont.i:                                    ; preds = %entry
-  %1 = load i64, ptr %compressedBytes, align 8
+  %1 = load i64, ptr %compressedBytes, align 8, !noalias !4
   tail call void @_ZdaPv(ptr noundef nonnull %call5.i) #22
   ret i64 %1
 
@@ -2517,7 +2517,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i: ; preds = %if.then2
   resume { ptr, i32 } %6
 
 _ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit: ; preds = %if.then2
-  %7 = load i64, ptr %compressedBytes.i, align 8
+  %7 = load i64, ptr %compressedBytes.i, align 8, !noalias !13
   tail call void @_ZdaPv(ptr noundef nonnull %call5.i.i) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %compressedBytes.i)
   store i64 %7, ptr %compressedBytes, align 8

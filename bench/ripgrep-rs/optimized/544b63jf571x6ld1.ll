@@ -1254,14 +1254,14 @@ define internal noundef range(i8 0, 3) i8 @"_ZN92_$LT$aho_corasick..nfa..noncont
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17h2cae0fffa4328cccE"(ptr noalias noundef readonly align 8 dereferenceable(440) %0, i1 noundef zeroext %1, i32 noundef %2, i8 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !5
+  %6 = load i64, ptr %5, align 8, !alias.scope !31, !noundef !5
   %7 = zext i32 %2 to i64
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %.lr.ph, label %._crit_edge, !prof !19
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !alias.scope !31, !nonnull !5, !noundef !5
   %11 = zext i8 %3 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 144
   %13 = getelementptr inbounds [256 x i8], ptr %12, i64 0, i64 %11

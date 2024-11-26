@@ -830,12 +830,12 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %_ZN4llvm19SmallPtrS
   %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #16
   %47 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %45, ptr nonnull %44, i64 %46)
   %48 = load ptr, ptr %42, align 8, !noalias !13
-  %49 = load ptr, ptr %28, align 8
+  %49 = load ptr, ptr %28, align 8, !noalias !13
   %50 = icmp eq ptr %48, %49
   br i1 %50, label %51, label %63
 
 51:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i
-  %52 = load i32, ptr %29, align 4
+  %52 = load i32, ptr %29, align 4, !noalias !13
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds ptr, ptr %49, i64 %53
   %.not24.i.i.i.i = icmp eq i32 %52, 0
@@ -868,8 +868,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %_ZN4llvm19SmallPtrS
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.sink.split
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.sink.split: ; preds = %61, %63
-  %.pre.i.i.i = load ptr, ptr %28, align 8
-  %.pre6.i.i.i = load i32, ptr %29, align 4
+  %.pre.i.i.i = load ptr, ptr %28, align 8, !noalias !13
+  %.pre6.i.i.i = load i32, ptr %29, align 4, !noalias !13
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.sink.split

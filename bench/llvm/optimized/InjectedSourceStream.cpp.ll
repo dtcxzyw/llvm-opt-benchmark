@@ -133,10 +133,11 @@ define dso_local void @_ZN4llvm3pdb20InjectedSourceStream6reloadERKNS0_14PDBStri
   %12 = alloca %"class.llvm::Expected", align 8
   %13 = load ptr, ptr %1, align 8
   call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(8) %13) #14
+  call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !4
   call void @_ZN4llvm18BinaryStreamReader9readBytesERNS_8ArrayRefIhEEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 64) #14
-  %14 = load ptr, ptr %0, align 8
+  %14 = load ptr, ptr %0, align 8, !alias.scope !4
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm18BinaryStreamReader10readObjectINS_3pdb20SrcHeaderBlockHeaderEEENS_5ErrorERPKT_.exit.thread
 
@@ -548,10 +549,11 @@ define linkonce_odr hidden void @_ZN4llvm3pdb9HashTableINS0_19SrcHeaderBlockEntr
   %9 = alloca %"class.llvm::ArrayRef", align 8
   %10 = alloca i32, align 4
   %11 = alloca %"class.llvm::SparseBitVector<>::SparseBitVectorIterator", align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !36
   call void @_ZN4llvm18BinaryStreamReader9readBytesERNS_8ArrayRefIhEEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 8) #14
-  %12 = load ptr, ptr %0, align 8
+  %12 = load ptr, ptr %0, align 8, !alias.scope !36
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %14, label %13
 
@@ -800,10 +802,11 @@ _ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit: ; pred
   store i32 %spec.select.i.i.i, ptr %108, align 4, !noalias !62
   store ptr null, ptr %0, align 8, !alias.scope !62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.experimental.noalias.scope.decl(metadata !65)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !noalias !65
   call void @_ZN4llvm18BinaryStreamReader9readBytesERNS_8ArrayRefIhEEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 40) #14
-  %116 = load ptr, ptr %0, align 8
+  %116 = load ptr, ptr %0, align 8, !alias.scope !65
   %.not.i42 = icmp eq ptr %116, null
   br i1 %.not.i42, label %118, label %117
 

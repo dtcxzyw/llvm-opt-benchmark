@@ -1754,7 +1754,7 @@ _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit
 
 49:                                               ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit
   %50 = load ptr, ptr %5, align 8, !noalias !22
-  %51 = load ptr, ptr %3, align 8
+  %51 = load ptr, ptr %3, align 8, !noalias !22
   %52 = icmp eq ptr %50, %51
   br i1 %52, label %53, label %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit
 
@@ -2105,7 +2105,7 @@ _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit
 
 53:                                               ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit
   %54 = load ptr, ptr %6, align 8, !noalias !31
-  %55 = load ptr, ptr %4, align 8
+  %55 = load ptr, ptr %4, align 8, !noalias !31
   %56 = icmp eq ptr %54, %55
   br i1 %56, label %57, label %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit
 

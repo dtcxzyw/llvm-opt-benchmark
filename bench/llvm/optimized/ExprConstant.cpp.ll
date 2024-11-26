@@ -81751,7 +81751,7 @@ _ZNK4llvm5APInt11countl_zeroEv.exit:              ; preds = %978, %983
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i.i:                ; preds = %992
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(13) %2) #26, !noalias !788
-  %.pr.i.i.i = load i32, ptr %993, align 8, !noalias !788
+  %.pr.i.i.i = load i32, ptr %993, align 8, !alias.scope !787, !noalias !788
   %996 = icmp ult i32 %.pr.i.i.i, 65
   br i1 %996, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i.i, label %1007
 
@@ -82968,7 +82968,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread.i:             ; preds = %10
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %10
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1) #26
-  %.pr.i = load i32, ptr %11, align 8
+  %.pr.i = load i32, ptr %11, align 8, !alias.scope !798
   %15 = icmp ult i32 %.pr.i, 65
   br i1 %15, label %16, label %23
 
@@ -82999,7 +82999,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %10
 
 _ZN4llvm5APIntC2ERKS0_.exit.i5:                   ; preds = %24
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %1) #26
-  %.pr.i6 = load i32, ptr %25, align 8
+  %.pr.i6 = load i32, ptr %25, align 8, !alias.scope !801
   %28 = icmp ult i32 %.pr.i6, 65
   br i1 %28, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, label %42
 
@@ -160427,7 +160427,7 @@ _ZN12_GLOBAL__N_116IntExprEvaluator7SuccessERKN4llvm6APSIntEPKN5clang4ExprE.exit
 _ZNK5clang16EnumConstantDecl10getInitValEv.exit38: ; preds = %136, %142
   %151 = phi i64 [ %150, %142 ], [ %.pre1.i37, %136 ]
   %.pr = phi i32 [ %134, %142 ], [ %.pre.i36, %136 ]
-  %152 = load i8, ptr %43, align 8, !noalias !274
+  %152 = load i8, ptr %43, align 8, !noalias !1077
   %153 = and i8 %152, 1
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %.pr, ptr %154, align 8, !alias.scope !1077
@@ -169313,7 +169313,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %63
 
 _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %63
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %10, i64 noundef 0, i1 noundef zeroext false) #26
-  %.pre.i = load i32, ptr %68, align 8
+  %.pre.i = load i32, ptr %68, align 8, !alias.scope !1150
   %73 = icmp ult i32 %.pre.i, 65
   %74 = and i32 %67, 63
   %75 = zext nneg i32 %74 to i64

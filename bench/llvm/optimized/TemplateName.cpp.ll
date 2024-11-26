@@ -243,7 +243,7 @@ define dso_local void @_ZN5clang36SubstTemplateTemplateParmPackStorage7ProfileER
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !noalias !4
-  %7 = load i32, ptr %0, align 8
+  %7 = load i32, ptr %0, align 8, !noalias !4
   %8 = lshr i32 %7, 17
   store i32 9, ptr %4, align 8, !alias.scope !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8

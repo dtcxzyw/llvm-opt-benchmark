@@ -3104,7 +3104,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(857) ptr @_ZN7rocksdb19GetImmutableOptionsEPNS_18ColumnFamilyHandleE(ptr noundef nonnull %column_family), !noalias !21
   %merge_operator2.i = getelementptr inbounds i8, ptr %call.i, i64 608
-  %0 = load ptr, ptr %merge_operator2.i, align 8
+  %0 = load ptr, ptr %merge_operator2.i, align 8, !noalias !21
   %tobool4.not.i = icmp eq ptr %0, null
   br i1 %tobool4.not.i, label %if.then5.i, label %invoke.cont.thread
 
@@ -3345,7 +3345,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(857) ptr @_ZN7rocksdb19GetImmutableOptionsEPNS_18ColumnFamilyHandleE(ptr noundef nonnull %column_family), !noalias !31
   %merge_operator2.i = getelementptr inbounds i8, ptr %call.i, i64 608
-  %0 = load ptr, ptr %merge_operator2.i, align 8
+  %0 = load ptr, ptr %merge_operator2.i, align 8, !noalias !31
   %tobool4.not.i = icmp eq ptr %0, null
   br i1 %tobool4.not.i, label %if.then5.i, label %invoke.cont.thread
 
@@ -3586,7 +3586,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(857) ptr @_ZN7rocksdb19GetImmutableOptionsEPNS_18ColumnFamilyHandleE(ptr noundef nonnull %column_family), !noalias !40
   %merge_operator2.i = getelementptr inbounds i8, ptr %call.i, i64 608
-  %0 = load ptr, ptr %merge_operator2.i, align 8
+  %0 = load ptr, ptr %merge_operator2.i, align 8, !noalias !40
   %tobool4.not.i = icmp eq ptr %0, null
   br i1 %tobool4.not.i, label %if.then5.i, label %invoke.cont.thread
 
@@ -3794,7 +3794,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(857) ptr @_ZN7rocksdb19GetImmutableOptionsEPNS_18ColumnFamilyHandleE(ptr noundef nonnull %column_family), !noalias !46
   %merge_operator2.i = getelementptr inbounds i8, ptr %call.i, i64 608
-  %0 = load ptr, ptr %merge_operator2.i, align 8
+  %0 = load ptr, ptr %merge_operator2.i, align 8, !noalias !46
   %tobool4.not.i = icmp eq ptr %0, null
   br i1 %tobool4.not.i, label %if.then5.i, label %invoke.cont.thread
 
@@ -6169,7 +6169,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(857) ptr @_ZN7rocksdb19GetImmutableOptionsEPNS_18ColumnFamilyHandleE(ptr noundef nonnull %column_family), !noalias !79
   %merge_operator2.i = getelementptr inbounds i8, ptr %call.i, i64 608
-  %0 = load ptr, ptr %merge_operator2.i, align 8
+  %0 = load ptr, ptr %merge_operator2.i, align 8, !noalias !79
   %tobool4.not.i = icmp eq ptr %0, null
   br i1 %tobool4.not.i, label %if.then5.i, label %invoke.cont.thread
 
@@ -6410,7 +6410,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(857) ptr @_ZN7rocksdb19GetImmutableOptionsEPNS_18ColumnFamilyHandleE(ptr noundef nonnull %column_family), !noalias !88
   %merge_operator2.i = getelementptr inbounds i8, ptr %call.i, i64 608
-  %0 = load ptr, ptr %merge_operator2.i, align 8
+  %0 = load ptr, ptr %merge_operator2.i, align 8, !noalias !88
   %tobool4.not.i = icmp eq ptr %0, null
   br i1 %tobool4.not.i, label %if.then5.i, label %invoke.cont.thread
 
@@ -6623,7 +6623,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(857) ptr @_ZN7rocksdb19GetImmutableOptionsEPNS_18ColumnFamilyHandleE(ptr noundef nonnull %column_family), !noalias !94
   %merge_operator2.i = getelementptr inbounds i8, ptr %call.i, i64 608
-  %0 = load ptr, ptr %merge_operator2.i, align 8
+  %0 = load ptr, ptr %merge_operator2.i, align 8, !noalias !94
   %tobool4.not.i = icmp eq ptr %0, null
   br i1 %tobool4.not.i, label %if.then5.i, label %invoke.cont.thread
 

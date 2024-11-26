@@ -7552,7 +7552,7 @@ define dso_local i64 @_ZN4llvm15MachineFunction14salvageCopySSAERNS_12MachineIns
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !noalias !64
   %18 = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %17, ptr %4, align 8, !alias.scope !64
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -8565,7 +8565,7 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit: ; preds = %_Z
 
 81:                                               ; preds = %.critedge
   %82 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %83 = load ptr, ptr %82, align 8
+  %83 = load ptr, ptr %82, align 8, !noalias !170
   %84 = getelementptr inbounds i8, ptr %83, i64 32
   store ptr %83, ptr %2, align 8, !alias.scope !170
   store ptr %84, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !170
@@ -9700,7 +9700,7 @@ define dso_local void @_ZN4llvm19MachineConstantPoolD2Ev(ptr nocapture noundef n
   br i1 %15, label %42, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %.sroa.017.026, align 8
+  %17 = load ptr, ptr %.sroa.017.026, align 8, !noalias !182
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i32
   %20 = lshr i32 %19, 4
@@ -9745,7 +9745,7 @@ define dso_local void @_ZN4llvm19MachineConstantPoolD2Ev(ptr nocapture noundef n
 42:                                               ; preds = %31, %12
   %.sink.i.i.i.i = phi ptr [ %32, %31 ], [ null, %12 ]
   %43 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_24MachineConstantPoolValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.017.026, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.017.026, ptr noundef %.sink.i.i.i.i), !noalias !182
-  %44 = load ptr, ptr %.sroa.017.026, align 8
+  %44 = load ptr, ptr %.sroa.017.026, align 8, !noalias !182
   store ptr %44, ptr %43, align 8, !noalias !182
   br label %_ZN4llvm6detail12DenseSetImplIPNS_24MachineConstantPoolValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit
 

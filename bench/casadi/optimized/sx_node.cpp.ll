@@ -2434,7 +2434,7 @@ _ZNSt5stackIPN6casadi6SXNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit15: ; preds = 
   br i1 %.07, label %115, label %88
 
 88:                                               ; preds = %87
-  %89 = load ptr, ptr %31, align 8
+  %89 = load ptr, ptr %31, align 8, !noalias !26
   %90 = icmp eq ptr %.pre22, %89
   br i1 %90, label %91, label %_ZNSt5stackIPN6casadi6SXNodeESt5dequeIS2_SaIS2_EEE3topEv.exit16
 

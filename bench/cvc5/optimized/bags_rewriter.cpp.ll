@@ -14732,7 +14732,7 @@ call2.i.i.i289.noexc:                             ; preds = %invoke.cont69
   %arrayidx.i.i295 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i293, i64 0, i64 %spec.select.i.i292
   %63 = load ptr, ptr %arrayidx.i.i295, align 8, !noalias !659
   store ptr %63, ptr %ref.tmp70, align 8, !alias.scope !659
-  %bf.load.i.i.i296 = load i64, ptr %63, align 8
+  %bf.load.i.i.i296 = load i64, ptr %63, align 8, !noalias !659
   %bf.lshr.i.i.i297 = lshr i64 %bf.load.i.i.i296, 40
   %64 = trunc nuw nsw i64 %bf.lshr.i.i.i297 to i32
   %bf.cast.i.i.i298 = and i32 %64, 1048575
@@ -14967,7 +14967,7 @@ call2.i.i.i429.noexc:                             ; preds = %invoke.cont82
   %arrayidx.i.i435 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i433, i64 0, i64 %spec.select.i.i432
   %82 = load ptr, ptr %arrayidx.i.i435, align 8, !noalias !671
   store ptr %82, ptr %ref.tmp83, align 8, !alias.scope !671
-  %bf.load.i.i.i436 = load i64, ptr %82, align 8
+  %bf.load.i.i.i436 = load i64, ptr %82, align 8, !noalias !671
   %bf.lshr.i.i.i437 = lshr i64 %bf.load.i.i.i436, 40
   %83 = trunc nuw nsw i64 %bf.lshr.i.i.i437 to i32
   %bf.cast.i.i.i438 = and i32 %83, 1048575

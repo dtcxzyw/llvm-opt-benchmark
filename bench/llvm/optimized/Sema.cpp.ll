@@ -29317,11 +29317,11 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZN4llvm9ErrorList2IDE) #23
-  %.pre52 = load ptr, ptr %2, align 8, !noalias !192
+  %.pre52 = load ptr, ptr %2, align 8, !noalias !303
   br i1 %23, label %24, label %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread
 
 24:                                               ; preds = %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
-  store ptr null, ptr %2, align 8, !noalias !303
+  store ptr null, ptr %2, align 8, !noalias !306
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
@@ -29373,9 +29373,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %24, %._
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
   %44 = phi ptr [ null, %17 ], [ %.pre52, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !306)
-  store ptr %44, ptr %4, align 8, !alias.scope !306
-  store ptr null, ptr %2, align 8, !noalias !306
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
+  store ptr %44, ptr %4, align 8, !alias.scope !303
+  store ptr null, ptr %2, align 8, !noalias !303
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -40890,7 +40890,7 @@ _ZSt22__uninitialized_copy_aIPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %69 = load ptr, ptr %68, align 8
+  %69 = load ptr, ptr %68, align 8, !noalias !411
   %70 = ptrtoint ptr %69 to i64
   %71 = ptrtoint ptr %10 to i64
   %72 = sub i64 %70, %71
@@ -40902,8 +40902,8 @@ _ZSt22__uninitialized_copy_aIPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES
 76:                                               ; preds = %67
   %77 = sub nuw nsw i64 %9, %74
   tail call void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %77), !noalias !411
-  %.pre.i11 = load ptr, ptr %64, align 8
-  %.pre6.i12 = load ptr, ptr %68, align 8
+  %.pre.i11 = load ptr, ptr %64, align 8, !noalias !414
+  %.pre6.i12 = load ptr, ptr %68, align 8, !noalias !414
   %.pre7.i13 = ptrtoint ptr %.pre.i11 to i64
   br label %78
 
@@ -40914,7 +40914,7 @@ _ZSt22__uninitialized_copy_aIPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %82 = load ptr, ptr %81, align 8, !noalias !414
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %84 = load ptr, ptr %83, align 8
+  %84 = load ptr, ptr %83, align 8, !noalias !414
   %85 = ptrtoint ptr %82 to i64
   %86 = sub i64 %.pre-phi.i, %85
   %87 = ashr exact i64 %86, 4
@@ -41072,7 +41072,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLoc
 
 62:                                               ; preds = %5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %64 = load ptr, ptr %63, align 8
+  %64 = load ptr, ptr %63, align 8, !noalias !426
   %65 = ptrtoint ptr %64 to i64
   %66 = sub i64 %38, %65
   %67 = ashr exact i64 %66, 4
@@ -41082,14 +41082,14 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLoc
 69:                                               ; preds = %62
   %70 = sub nuw i64 %4, %67
   tail call void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %70), !noalias !426
-  %.pre.i = load ptr, ptr %14, align 8
-  %.pre6.i = load ptr, ptr %63, align 8
+  %.pre.i = load ptr, ptr %14, align 8, !noalias !429
+  %.pre6.i = load ptr, ptr %63, align 8, !noalias !429
   %.pre7.i = ptrtoint ptr %.pre.i to i64
   %.pre8.i = ptrtoint ptr %.pre6.i to i64
   %.pre10.i = sub i64 %.pre7.i, %.pre8.i
   %.pre12.i = ashr exact i64 %.pre10.i, 4
-  %.pre357 = load ptr, ptr %34, align 8
-  %.pre358 = load ptr, ptr %17, align 8
+  %.pre357 = load ptr, ptr %34, align 8, !noalias !429
+  %.pre358 = load ptr, ptr %17, align 8, !noalias !429
   br label %71
 
 71:                                               ; preds = %69, %62
@@ -41182,10 +41182,10 @@ _ZStplRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5
   br i1 %.not, label %_ZSt7advanceIPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEElEvRT_T0_.exit, label %117
 
 117:                                              ; preds = %_ZStplRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_El.exit
-  %118 = load ptr, ptr %14, align 8
+  %118 = load ptr, ptr %14, align 8, !noalias !435
   %119 = load ptr, ptr %63, align 8, !noalias !435
-  %120 = load ptr, ptr %34, align 8
-  %121 = load ptr, ptr %17, align 8
+  %120 = load ptr, ptr %34, align 8, !noalias !435
+  %121 = load ptr, ptr %17, align 8, !noalias !435
   %122 = ptrtoint ptr %118 to i64
   %123 = ptrtoint ptr %119 to i64
   %124 = sub i64 %122, %123
@@ -41602,7 +41602,7 @@ _ZNSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_
 
 321:                                              ; preds = %5
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %323 = load ptr, ptr %322, align 8
+  %323 = load ptr, ptr %322, align 8, !noalias !500
   %324 = ptrtoint ptr %323 to i64
   %325 = sub i64 %324, %54
   %326 = ashr exact i64 %325, 4
@@ -41613,11 +41613,11 @@ _ZNSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_
 329:                                              ; preds = %321
   %330 = sub nuw i64 %4, %327
   tail call void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %330), !noalias !500
-  %.pre.i61 = load ptr, ptr %42, align 8
-  %.pre6.i62 = load ptr, ptr %322, align 8
+  %.pre.i61 = load ptr, ptr %42, align 8, !noalias !503
+  %.pre6.i62 = load ptr, ptr %322, align 8, !noalias !503
   %.pre7.i63 = ptrtoint ptr %.pre.i61 to i64
-  %.pre = load ptr, ptr %52, align 8
-  %.pre356 = load ptr, ptr %43, align 8
+  %.pre = load ptr, ptr %52, align 8, !noalias !503
+  %.pre356 = load ptr, ptr %43, align 8, !noalias !503
   %.pre359 = ptrtoint ptr %.pre to i64
   %.pre360 = sub i64 %.pre7.i63, %.pre359
   %.pre362 = ashr exact i64 %.pre360, 4
@@ -41716,8 +41716,8 @@ _ZStmiRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5
   br i1 %377, label %380, label %_ZSt7advanceIPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEElEvRT_T0_.exit108
 
 380:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_El.exit65
-  %381 = load ptr, ptr %42, align 8
-  %382 = load ptr, ptr %52, align 8
+  %381 = load ptr, ptr %42, align 8, !noalias !509
+  %382 = load ptr, ptr %52, align 8, !noalias !509
   %383 = sub nsw i64 0, %4
   %384 = ptrtoint ptr %381 to i64
   %385 = ptrtoint ptr %382 to i64

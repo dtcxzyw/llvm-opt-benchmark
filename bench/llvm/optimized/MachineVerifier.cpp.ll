@@ -5206,7 +5206,7 @@ _ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyEN
   %2148 = getelementptr inbounds nuw i8, ptr %2147, i64 48
   %2149 = load ptr, ptr %2148, align 8
   call void @_ZNK4llvm16MachineFrameInfo15getPristineRegsERKNS_15MachineFunctionE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::BitVector") align 8 %27, ptr noundef nonnull align 8 dereferenceable(696) %2149, ptr noundef nonnull align 8 dereferenceable(1041) %2147) #18
-  %2150 = load i32, ptr %1061, align 8
+  %2150 = load i32, ptr %1061, align 8, !noalias !42
   %2151 = icmp eq i32 %2150, 0
   br i1 %2151, label %._crit_edge636.i, label %2152
 
@@ -17916,7 +17916,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7.i:              ; preds = %865, %863
 
 884:                                              ; preds = %881
   %885 = load ptr, ptr %471, align 8, !noalias !141
-  %886 = load ptr, ptr %10, align 8
+  %886 = load ptr, ptr %10, align 8, !noalias !141
   %887 = icmp eq ptr %885, %886
   br i1 %887, label %888, label %900
 
@@ -20013,7 +20013,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterENS_6detail13DenseSetEmptyENS_12
   br i1 %1900, label %1901, label %1913
 
 1901:                                             ; preds = %1897
-  %1902 = load i32, ptr %1126, align 4
+  %1902 = load i32, ptr %1126, align 4, !noalias !159
   %1903 = zext i32 %1902 to i64
   %1904 = getelementptr inbounds ptr, ptr %1899, i64 %1903
   %.not24.i.i92.i = icmp eq i32 %1902, 0

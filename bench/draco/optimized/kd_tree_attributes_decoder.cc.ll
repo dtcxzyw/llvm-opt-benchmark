@@ -5731,7 +5731,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5
 
 61:                                               ; preds = %.lr.ph174, %.backedge
   %62 = phi ptr [ %41, %.lr.ph174 ], [ %364, %.backedge ]
-  %63 = load ptr, ptr %45, align 8
+  %63 = load ptr, ptr %45, align 8, !noalias !34
   %64 = icmp eq ptr %62, %63
   br i1 %64, label %67, label %65
 
@@ -7087,7 +7087,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5
 
 69:                                               ; preds = %.lr.ph179, %.backedge
   %70 = phi ptr [ %42, %.lr.ph179 ], [ %401, %.backedge ]
-  %71 = load ptr, ptr %46, align 8
+  %71 = load ptr, ptr %46, align 8, !noalias !46
   %72 = icmp eq ptr %70, %71
   br i1 %72, label %75, label %73
 
@@ -8365,7 +8365,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
 
 61:                                               ; preds = %.lr.ph174, %.backedge
   %62 = phi ptr [ %41, %.lr.ph174 ], [ %364, %.backedge ]
-  %63 = load ptr, ptr %45, align 8
+  %63 = load ptr, ptr %45, align 8, !noalias !56
   %64 = icmp eq ptr %62, %63
   br i1 %64, label %67, label %65
 
@@ -9607,7 +9607,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
 
 68:                                               ; preds = %.lr.ph175, %.backedge
   %69 = phi ptr [ %43, %.lr.ph175 ], [ %369, %.backedge ]
-  %70 = load ptr, ptr %47, align 8
+  %70 = load ptr, ptr %47, align 8, !noalias !66
   %71 = icmp eq ptr %69, %70
   br i1 %71, label %74, label %72
 
@@ -10850,7 +10850,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5
 
 61:                                               ; preds = %.lr.ph174, %.backedge
   %62 = phi ptr [ %41, %.lr.ph174 ], [ %364, %.backedge ]
-  %63 = load ptr, ptr %45, align 8
+  %63 = load ptr, ptr %45, align 8, !noalias !77
   %64 = icmp eq ptr %62, %63
   br i1 %64, label %67, label %65
 
@@ -12106,7 +12106,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5
 
 67:                                               ; preds = %.lr.ph183, %.backedge
   %68 = phi ptr [ %42, %.lr.ph183 ], [ %370, %.backedge ]
-  %69 = load ptr, ptr %46, align 8
+  %69 = load ptr, ptr %46, align 8, !noalias !87
   %70 = icmp eq ptr %68, %69
   br i1 %70, label %73, label %71
 
@@ -13367,7 +13367,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5
 
 61:                                               ; preds = %.lr.ph174, %.backedge
   %62 = phi ptr [ %41, %.lr.ph174 ], [ %364, %.backedge ]
-  %63 = load ptr, ptr %45, align 8
+  %63 = load ptr, ptr %45, align 8, !noalias !98
   %64 = icmp eq ptr %62, %63
   br i1 %64, label %67, label %65
 

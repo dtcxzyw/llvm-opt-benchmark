@@ -3230,8 +3230,8 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i293: ; preds = 
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit295
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit295:              ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i293, %1352
-  %1353 = load ptr, ptr %33, align 8
-  %1354 = load ptr, ptr %209, align 8
+  %1353 = load ptr, ptr %33, align 8, !noalias !28
+  %1354 = load ptr, ptr %209, align 8, !noalias !28
   %1355 = icmp eq ptr %1353, %1354
   br i1 %1355, label %.loopexit.i.thread, label %1356
 
@@ -3245,7 +3245,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit295:              ; preds = %_ZSt8_DestroyIPN5Yo
   %1363 = trunc i64 %1362 to i32
   %1364 = urem i32 %1358, %1363
   %1365 = load ptr, ptr %211, align 8, !noalias !28
-  %1366 = load ptr, ptr %210, align 8
+  %1366 = load ptr, ptr %210, align 8, !noalias !28
   %1367 = ptrtoint ptr %1365 to i64
   %1368 = ptrtoint ptr %1366 to i64
   %1369 = sub i64 %1367, %1368
@@ -3474,13 +3474,13 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.
   br i1 %1476, label %.lr.ph.i, label %.noexc299.loopexit, !llvm.loop !31
 
 .noexc299.loopexit:                               ; preds = %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i520
-  %.pre1920 = load ptr, ptr %209, align 8
+  %.pre1920 = load ptr, ptr %209, align 8, !noalias !28
   br label %.noexc299
 
 .noexc299:                                        ; preds = %.noexc299.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
   %1477 = phi ptr [ %1471, %.noexc299.loopexit ], [ %1439, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ]
   %1478 = phi ptr [ %.pre1920, %.noexc299.loopexit ], [ %1437, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ]
-  %1479 = load ptr, ptr %33, align 8
+  %1479 = load ptr, ptr %33, align 8, !noalias !28
   %1480 = icmp eq ptr %1479, %1478
   br i1 %1480, label %._crit_edge.i.i, label %_ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i.i
 

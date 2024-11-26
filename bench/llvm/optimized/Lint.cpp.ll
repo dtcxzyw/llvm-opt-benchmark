@@ -4848,7 +4848,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8CallBase15onlyReadsMemo
 
 _ZNK4llvm8CallBase25dataOperandHasImpliedAttrEjNS_9Attribute8AttrKindE.exit: ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %25 = load i32, ptr %24, align 8
+  %25 = load i32, ptr %24, align 8, !noalias !47
   %26 = sub i32 %1, %25
   %27 = load i32, ptr %4, align 4, !noalias !47
   %28 = and i32 %27, 134217727

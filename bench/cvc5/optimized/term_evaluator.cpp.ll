@@ -614,7 +614,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit283: ; preds = %cleanup128, %if.th
 
 if.end132:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit283, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit202, %if.then44
   %53 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !17
-  %bf.load.i.i.i = load i64, ptr %53, align 8
+  %bf.load.i.i.i = load i64, ptr %53, align 8, !noalias !17
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %54 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %54, 1048575
@@ -917,7 +917,7 @@ for.inc:                                          ; preds = %for.body, %land.rhs
 
 if.end215:                                        ; preds = %for.inc, %if.then172, %invoke.cont170, %if.end158
   %87 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !25
-  %bf.load.i.i.i441 = load i64, ptr %87, align 8
+  %bf.load.i.i.i441 = load i64, ptr %87, align 8, !noalias !25
   %bf.lshr.i.i.i442 = lshr i64 %bf.load.i.i.i441, 40
   %88 = trunc nuw nsw i64 %bf.lshr.i.i.i442 to i32
   %bf.cast.i.i.i443 = and i32 %88, 1048575

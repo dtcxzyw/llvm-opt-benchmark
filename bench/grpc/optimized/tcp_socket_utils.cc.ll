@@ -3306,7 +3306,7 @@ invoke.cont16:                                    ; preds = %if.end8, %if.end14
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont16
-  %13 = load i64, ptr %error, align 8
+  %13 = load i64, ptr %error, align 8, !alias.scope !59
   %cmp.i.i13 = icmp eq i64 %13, 0
   br i1 %cmp.i.i13, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.then.i61.i
 
@@ -3321,7 +3321,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %invoke.cont.i
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i
-  %15 = load i64, ptr %error, align 8
+  %15 = load i64, ptr %error, align 8, !alias.scope !59
   %cmp.i27.i = icmp eq i64 %15, 0
   br i1 %cmp.i27.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit32.i, label %if.then.i61.i
 
@@ -3336,7 +3336,7 @@ do.body20.i:                                      ; preds = %_ZN4absl12lts_20230
           to label %invoke.cont23.i unwind label %lpad.i
 
 invoke.cont23.i:                                  ; preds = %do.body20.i
-  %17 = load i64, ptr %error, align 8
+  %17 = load i64, ptr %error, align 8, !alias.scope !59
   %cmp.i33.i = icmp eq i64 %17, 0
   br i1 %cmp.i33.i, label %if.end37.i, label %if.then.i61.i
 
@@ -3361,7 +3361,7 @@ do.body44.i:                                      ; preds = %invoke.cont41.i
           to label %invoke.cont46.i unwind label %lpad.i
 
 invoke.cont46.i:                                  ; preds = %do.body44.i
-  %19 = load i64, ptr %error, align 8
+  %19 = load i64, ptr %error, align 8, !alias.scope !59
   %cmp.i39.i = icmp eq i64 %19, 0
   br i1 %cmp.i39.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit44.i, label %if.then.i61.i
 
@@ -3370,7 +3370,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit44.i:       ; preds = %invoke.cont46.i
           to label %invoke.cont62.i unwind label %lpad.i
 
 invoke.cont62.i:                                  ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit44.i
-  %20 = load i64, ptr %error, align 8
+  %20 = load i64, ptr %error, align 8, !alias.scope !59
   %cmp.i45.i = icmp eq i64 %20, 0
   br i1 %cmp.i45.i, label %nrvo.unused70.i, label %if.then.i61.i
 
@@ -3382,7 +3382,7 @@ nrvo.unused70.i:                                  ; preds = %invoke.cont62.i
           to label %invoke.cont78.i unwind label %lpad.i
 
 invoke.cont78.i:                                  ; preds = %nrvo.unused70.i
-  %22 = load i64, ptr %error, align 8
+  %22 = load i64, ptr %error, align 8, !alias.scope !59
   %cmp.i46.i = icmp eq i64 %22, 0
   br i1 %cmp.i46.i, label %nrvo.unused86.i, label %if.then.i61.i
 
@@ -3411,7 +3411,7 @@ if.then2.i.i.i:                                   ; preds = %call.i.i.noexc.i
           to label %invoke.cont112.i unwind label %lpad.i
 
 invoke.cont112.i:                                 ; preds = %if.then2.i.i.i
-  %.pr.i = load i64, ptr %error, align 8
+  %.pr.i = load i64, ptr %error, align 8, !alias.scope !59
   %cmp.i55.i = icmp eq i64 %.pr.i, 0
   br i1 %cmp.i55.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit60.i, label %if.then.i61.i
 

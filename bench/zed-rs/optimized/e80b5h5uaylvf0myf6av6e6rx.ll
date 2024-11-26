@@ -1020,7 +1020,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ma
   %41 = trunc nuw nsw i64 %40 to i8
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   %43 = load i64, ptr %42, align 8, !alias.scope !134, !noalias !135, !noundef !8
-  %44 = load ptr, ptr %0, align 8, !alias.scope !128, !noalias !135, !nonnull !8, !noundef !8
+  %44 = load ptr, ptr %0, align 8, !alias.scope !134, !noalias !135, !nonnull !8, !noundef !8
   %.sroa.0.0.vec.insert.i.i = insertelement <16 x i8> poison, i8 %41, i64 0
   %.sroa.0.15.vec.insert.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %45
@@ -1092,7 +1092,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf1b8
   %6 = trunc nuw nsw i64 %5 to i8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !160, !noundef !8
-  %9 = load ptr, ptr %0, align 8, !nonnull !8, !noundef !8
+  %9 = load ptr, ptr %0, align 8, !alias.scope !160, !nonnull !8, !noundef !8
   %.sroa.0.0.vec.insert.i = insertelement <16 x i8> poison, i8 %6, i64 0
   %.sroa.0.15.vec.insert.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %10

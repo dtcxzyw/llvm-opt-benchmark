@@ -3139,9 +3139,9 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
 
 1073:                                             ; preds = %1072
   %1074 = load ptr, ptr %621, align 8
-  %1075 = load ptr, ptr %1074, align 8
+  %1075 = load ptr, ptr %1074, align 8, !noalias !30
   %1076 = getelementptr inbounds i8, ptr %1074, i64 8
-  %1077 = load ptr, ptr %1076, align 8
+  %1077 = load ptr, ptr %1076, align 8, !noalias !30
   %1078 = icmp eq ptr %1075, %1077
   br i1 %1078, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.thread.i, label %1080
 
@@ -3162,8 +3162,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
   %1087 = urem i32 %1081, %1086
   %1088 = getelementptr inbounds i8, ptr %1074, i64 24
   %1089 = getelementptr inbounds i8, ptr %1074, i64 32
-  %1090 = load ptr, ptr %1089, align 8
-  %1091 = load ptr, ptr %1088, align 8
+  %1090 = load ptr, ptr %1089, align 8, !noalias !30
+  %1091 = load ptr, ptr %1088, align 8, !noalias !30
   %1092 = ptrtoint ptr %1090 to i64
   %1093 = ptrtoint ptr %1091 to i64
   %1094 = sub i64 %1092, %1093
@@ -6612,9 +6612,9 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
 
 2448:                                             ; preds = %2447
   %2449 = load ptr, ptr %621, align 8
-  %2450 = load ptr, ptr %2449, align 8
+  %2450 = load ptr, ptr %2449, align 8, !noalias !43
   %2451 = getelementptr inbounds i8, ptr %2449, i64 8
-  %2452 = load ptr, ptr %2451, align 8
+  %2452 = load ptr, ptr %2451, align 8, !noalias !43
   %2453 = icmp eq ptr %2450, %2452
   br i1 %2453, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.thread.i799, label %2455
 
@@ -6635,8 +6635,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
   %2462 = urem i32 %2456, %2461
   %2463 = getelementptr inbounds i8, ptr %2449, i64 24
   %2464 = getelementptr inbounds i8, ptr %2449, i64 32
-  %2465 = load ptr, ptr %2464, align 8
-  %2466 = load ptr, ptr %2463, align 8
+  %2465 = load ptr, ptr %2464, align 8, !noalias !43
+  %2466 = load ptr, ptr %2463, align 8, !noalias !43
   %2467 = ptrtoint ptr %2465 to i64
   %2468 = ptrtoint ptr %2466 to i64
   %2469 = sub i64 %2467, %2468
@@ -8759,9 +8759,9 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
 
 3281:                                             ; preds = %3280
   %3282 = load ptr, ptr %621, align 8
-  %3283 = load ptr, ptr %3282, align 8
+  %3283 = load ptr, ptr %3282, align 8, !noalias !51
   %3284 = getelementptr inbounds i8, ptr %3282, i64 8
-  %3285 = load ptr, ptr %3284, align 8
+  %3285 = load ptr, ptr %3284, align 8, !noalias !51
   %3286 = icmp eq ptr %3283, %3285
   br i1 %3286, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.thread.i1001, label %3288
 
@@ -8782,8 +8782,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
   %3295 = urem i32 %3289, %3294
   %3296 = getelementptr inbounds i8, ptr %3282, i64 24
   %3297 = getelementptr inbounds i8, ptr %3282, i64 32
-  %3298 = load ptr, ptr %3297, align 8
-  %3299 = load ptr, ptr %3296, align 8
+  %3298 = load ptr, ptr %3297, align 8, !noalias !51
+  %3299 = load ptr, ptr %3296, align 8, !noalias !51
   %3300 = ptrtoint ptr %3298 to i64
   %3301 = ptrtoint ptr %3299 to i64
   %3302 = sub i64 %3300, %3301

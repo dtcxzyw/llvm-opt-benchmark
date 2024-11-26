@@ -4166,7 +4166,7 @@ define hidden void @_ZN23JvmtiDeferredEventQueue4postEP8JvmtiEnv(ptr nocapture n
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN11JvmtiExport25post_compiled_method_loadEP8JvmtiEnvP7nmethod(ptr noundef %1, ptr noundef %8) #17
-  %9 = load ptr, ptr %0, align 8
+  %9 = load ptr, ptr %0, align 8, !noalias !31
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %11
 

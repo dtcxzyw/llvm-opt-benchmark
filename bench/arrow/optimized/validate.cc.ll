@@ -3538,7 +3538,7 @@ if.end.i:                                         ; preds = %_ZN5arrow8internal1
   %this.val11.i = load i8, ptr %4, align 8, !noalias !284
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets_byte_size.i.i), !noalias !284
   %length.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 16
-  %5 = load i64, ptr %length.i.i, align 8, !noalias !284
+  %5 = load i64, ptr %length.i.i, align 8, !noalias !287
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 16
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !287
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %6, null
@@ -3823,7 +3823,7 @@ if.end.i:                                         ; preds = %_ZN5arrow8internal1
   %this.val11.i = load i8, ptr %4, align 8, !noalias !320
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets_byte_size.i.i), !noalias !320
   %length.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 16
-  %5 = load i64, ptr %length.i.i, align 8, !noalias !320
+  %5 = load i64, ptr %length.i.i, align 8, !noalias !323
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 16
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !323
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %6, null
@@ -4035,7 +4035,7 @@ if.end.i:                                         ; preds = %_ZN5arrow8internal1
   %this.val11.i = load i8, ptr %4, align 8, !noalias !342
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets_byte_size.i.i), !noalias !342
   %length.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 16
-  %5 = load i64, ptr %length.i.i, align 8, !noalias !342
+  %5 = load i64, ptr %length.i.i, align 8, !noalias !345
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 16
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !345
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %6, null
@@ -4281,7 +4281,7 @@ if.end.i:                                         ; preds = %_ZN5arrow8internal1
   %this.val11.i = load i8, ptr %4, align 8, !noalias !369
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets_byte_size.i.i), !noalias !369
   %length.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 16
-  %5 = load i64, ptr %length.i.i, align 8, !noalias !369
+  %5 = load i64, ptr %length.i.i, align 8, !noalias !372
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 16
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !372
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %6, null
@@ -7385,7 +7385,7 @@ do.body.i:                                        ; preds = %entry
   %this.val15.i = load i8, ptr %full_validation2.i, align 8, !noalias !745
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets_byte_size.i)
   %length.i148 = getelementptr inbounds i8, ptr %this.val.i, i64 16
-  %9 = load i64, ptr %length.i148, align 8
+  %9 = load i64, ptr %length.i148, align 8, !noalias !751
   %10 = getelementptr i8, ptr %this.val.i, i64 40
   %this.val.val.i = load ptr, ptr %10, align 8, !noalias !751
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 16

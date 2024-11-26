@@ -4918,7 +4918,7 @@ define linkonce_odr dso_local void @_ZSt21__inplace_stable_sortISt15_Deque_itera
 51:                                               ; preds = %2
   %52 = lshr i64 %38, 1
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  %54 = load ptr, ptr %53, align 8
+  %54 = load ptr, ptr %53, align 8, !noalias !49
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %35, %55
   %57 = ashr exact i64 %56, 5
@@ -5109,7 +5109,7 @@ define linkonce_odr dso_local void @_ZSt22__stable_sort_adaptiveISt15_Deque_iter
   %43 = add i64 %42, %40
   %44 = sdiv i64 %43, 2
   %45 = getelementptr inbounds i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8
+  %46 = load ptr, ptr %45, align 8, !noalias !52
   %47 = ptrtoint ptr %46 to i64
   %48 = sub i64 %38, %47
   %49 = ashr exact i64 %48, 5

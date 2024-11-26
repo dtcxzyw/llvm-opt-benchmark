@@ -1733,7 +1733,7 @@ _ZN4llvm6APSIntaSERKS0_.exit:                     ; preds = %40, %42
   %49 = call i64 @_ZNK5clang10ASTContext21getIntTypeForBitwidthEjj(ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 noundef %46, i32 noundef %48) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %7, align 8
+  %51 = load i32, ptr %7, align 8, !noalias !28
   store i32 %51, ptr %50, align 8, !alias.scope !28
   %52 = icmp ult i32 %51, 65
   br i1 %52, label %_ZSt9make_pairIRN4llvm6APSIntEN5clang8QualTypeEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_.exit.thread, label %_ZSt9make_pairIRN4llvm6APSIntEN5clang8QualTypeEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_.exit

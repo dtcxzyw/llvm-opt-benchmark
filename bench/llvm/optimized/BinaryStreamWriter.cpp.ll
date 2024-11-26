@@ -240,28 +240,32 @@ _ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE.exit: ; preds = %_ZN4l
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm18BinaryStreamWriter12writeCStringENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca i8, align 1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %8 = load i64, ptr %7, align 8, !noalias !13
+  %8 = load i64, ptr %7, align 8, !noalias !19
   tail call void @_ZNK4llvm23WritableBinaryStreamRef10writeBytesEmNS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %8, ptr %2, i64 %3) #8
-  %9 = load ptr, ptr %0, align 8
+  %9 = load ptr, ptr %0, align 8, !alias.scope !19
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %10, label %16
 
 10:                                               ; preds = %4
-  %11 = load i64, ptr %7, align 8, !noalias !13
+  %11 = load i64, ptr %7, align 8, !noalias !19
   %12 = add i64 %11, %3
-  store i64 %12, ptr %7, align 8, !noalias !13
+  store i64 %12, ptr %7, align 8, !noalias !19
   store i8 0, ptr %5, align 1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @_ZNK4llvm23WritableBinaryStreamRef10writeBytesEmNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %12, ptr nonnull align 1 dereferenceable(1) %5, i64 1) #8
-  %13 = load ptr, ptr %0, align 8
+  %13 = load ptr, ptr %0, align 8, !alias.scope !26
   %.not.i.i10 = icmp eq ptr %13, null
   br i1 %.not.i.i10, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %16
 
 _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %10
-  %14 = load i64, ptr %7, align 8, !noalias !18
+  %14 = load i64, ptr %7, align 8, !noalias !26
   %15 = add i64 %14, 1
-  store i64 %15, ptr %7, align 8, !noalias !18
+  store i64 %15, ptr %7, align 8, !noalias !26
   br label %16
 
 16:                                               ; preds = %10, %4, %_ZN4llvm12ErrorSuccessD2Ev.exit
@@ -270,19 +274,19 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm18BinaryStreamWriter16writeFixedStringENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %7 = load i64, ptr %6, align 8, !noalias !23
+  %7 = load i64, ptr %6, align 8, !noalias !27
   tail call void @_ZNK4llvm23WritableBinaryStreamRef10writeBytesEmNS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %7, ptr %2, i64 %3) #8
-  %8 = load ptr, ptr %0, align 8, !alias.scope !23
+  %8 = load ptr, ptr %0, align 8, !alias.scope !27
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i, label %_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE.exit
 
 _ZN4llvm12ErrorSuccessD2Ev.exit.i:                ; preds = %4
-  %9 = load i64, ptr %6, align 8, !noalias !23
+  %9 = load i64, ptr %6, align 8, !noalias !27
   %10 = add i64 %9, %3
-  store i64 %10, ptr %6, align 8, !noalias !23
+  store i64 %10, ptr %6, align 8, !noalias !27
   br label %_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE.exit
 
 _ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE.exit: ; preds = %4, %_ZN4llvm12ErrorSuccessD2Ev.exit.i
@@ -555,17 +559,18 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit: ; preds = %54, %56, %58
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %66
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %68 = load i64, ptr %50, align 8, !noalias !26
+  call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  %68 = load i64, ptr %50, align 8, !noalias !30
   call void @_ZNK4llvm23WritableBinaryStreamRef10writeBytesEmNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 noundef %68, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #8
-  %69 = load ptr, ptr %0, align 8
+  %69 = load ptr, ptr %0, align 8, !alias.scope !30
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit10, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %70 = load i64, ptr %50, align 8, !noalias !26
+  %70 = load i64, ptr %50, align 8, !noalias !30
   %71 = add i64 %70, %.sroa.2.0.copyload
-  store i64 %71, ptr %50, align 8, !noalias !26
-  br label %51, !llvm.loop !29
+  store i64 %71, ptr %50, align 8, !noalias !30
+  br label %51, !llvm.loop !33
 
 _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit
   store ptr null, ptr %0, align 8
@@ -653,60 +658,60 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit:            ; preds = %.critedge, %90, %10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE5sliceEmm(ptr dead_on_unwind noalias writable sret(%"class.llvm::BinaryStreamRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 comdat align 2 {
   %.sroa.26 = alloca [7 x i8], align 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !noalias !30
+  %6 = load ptr, ptr %5, align 8, !noalias !34
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %.thread, label %7
 
 .thread:                                          ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.26, i8 0, i64 7, i1 false), !alias.scope !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.26, i8 0, i64 7, i1 false), !alias.scope !34
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2.thread
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 40
-  %9 = load i8, ptr %8, align 8, !noalias !30
+  %9 = load i8, ptr %8, align 8, !noalias !34
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %13 = load i64, ptr %12, align 8, !noalias !30
+  %13 = load i64, ptr %12, align 8, !noalias !34
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i
 
 14:                                               ; preds = %7
-  %15 = load ptr, ptr %6, align 8, !noalias !30
+  %15 = load ptr, ptr %6, align 8, !noalias !34
   %16 = getelementptr inbounds i8, ptr %15, i64 40
-  %17 = load ptr, ptr %16, align 8, !noalias !30
-  %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %6) #8, !noalias !30
+  %17 = load ptr, ptr %16, align 8, !noalias !34
+  %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %6) #8, !noalias !34
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %20 = load i64, ptr %19, align 8, !noalias !30
+  %20 = load i64, ptr %19, align 8, !noalias !34
   %21 = sub i64 %18, %20
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i: ; preds = %14, %11
   %.0.i.i = phi i64 [ %13, %11 ], [ %21, %14 ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i, i64 %2)
-  %22 = load ptr, ptr %1, align 8, !noalias !30
+  %22 = load ptr, ptr %1, align 8, !noalias !34
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !noalias !30
+  %24 = load ptr, ptr %23, align 8, !noalias !34
   %.not.i.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i, label %25
 
 25:                                               ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load i8, ptr @__libc_single_threaded, align 1, !noalias !30
+  %27 = load i8, ptr @__libc_single_threaded, align 1, !noalias !34
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = load i32, ptr %26, align 4, !noalias !30
+  %29 = load i32, ptr %26, align 4, !noalias !34
   %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %26, align 4, !noalias !30
+  store i32 %30, ptr %26, align 4, !noalias !34
   br label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i
 
 31:                                               ; preds = %25
-  %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4, !noalias !30
+  %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4, !noalias !34
   br label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i
 
 _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i:         ; preds = %31, %28, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i
@@ -724,7 +729,7 @@ _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i:         ; preds = %31, %28, %_ZNK4llvm
   %36 = select i1 %35, i64 %.sroa.speculated.i, i64 0
   %spec.select = select i1 %33, i64 0, i64 %36
   %.sroa.17.0 = sub i64 %.sroa.17.16.copyload, %spec.select
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   br i1 %35, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2, label %37
 
 37:                                               ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i
@@ -732,46 +737,46 @@ _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i:         ; preds = %31, %28, %_ZNK4llvm
   br i1 %.not.i.i, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2.thread, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2.thread75
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2.thread75: ; preds = %37
-  %38 = load ptr, ptr %.sroa.6.16.copyload, align 8, !noalias !33
+  %38 = load ptr, ptr %.sroa.6.16.copyload, align 8, !noalias !37
   %39 = getelementptr inbounds i8, ptr %38, i64 40
-  %40 = load ptr, ptr %39, align 8, !noalias !33
-  %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.6.16.copyload) #8, !noalias !33
+  %40 = load ptr, ptr %39, align 8, !noalias !37
+  %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.6.16.copyload) #8, !noalias !37
   %42 = add i64 %34, %3
   %43 = sub i64 %41, %42
   br label %45
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2: ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i
   %44 = sub i64 %.sroa.17.0, %3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %.not.i1.i = icmp eq ptr %.sroa.6.16.copyload, null
   br i1 %.not.i1.i, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2.thread, label %45
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2.thread: ; preds = %.thread, %37, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2
   %.sroa.3.04874 = phi ptr [ %24, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2 ], [ null, %.thread ], [ %24, %37 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false), !alias.scope !39
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false), !alias.scope !43
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit
 
 45:                                               ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2.thread75, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2
   %46 = phi i64 [ %43, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2.thread75 ], [ %44, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2 ]
-  store ptr %22, ptr %0, align 8, !alias.scope !39
+  store ptr %22, ptr %0, align 8, !alias.scope !43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %47, align 8, !alias.scope !39
+  store ptr %24, ptr %47, align 8, !alias.scope !43
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %50 = load i8, ptr @__libc_single_threaded, align 1, !noalias !39
+  %50 = load i8, ptr @__libc_single_threaded, align 1, !noalias !43
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %50, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %54, label %51
 
 51:                                               ; preds = %48
-  %52 = load i32, ptr %49, align 4, !noalias !39
+  %52 = load i32, ptr %49, align 4, !noalias !43
   %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %49, align 4, !noalias !39
+  store i32 %53, ptr %49, align 4, !noalias !43
   br label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i
 
 54:                                               ; preds = %48
-  %55 = atomicrmw volatile add ptr %49, i32 1 acq_rel, align 4, !noalias !39
+  %55 = atomicrmw volatile add ptr %49, i32 1 acq_rel, align 4, !noalias !43
   br label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i
 
 _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i:       ; preds = %54, %51, %45
@@ -793,29 +798,29 @@ _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengt
   br i1 %57, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit, label %._crit_edge.i.i
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread: ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i
-  %58 = load ptr, ptr %.sroa.6.16.copyload, align 8, !noalias !39
+  %58 = load ptr, ptr %.sroa.6.16.copyload, align 8, !noalias !43
   %59 = getelementptr inbounds i8, ptr %58, i64 40
-  %60 = load ptr, ptr %59, align 8, !noalias !39
-  %61 = tail call noundef i64 %60(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.6.16.copyload) #8, !noalias !39
+  %60 = load ptr, ptr %59, align 8, !noalias !43
+  %61 = tail call noundef i64 %60(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.6.16.copyload) #8, !noalias !43
   %62 = sub i64 %61, %34
   %.sroa.speculated.i.i93 = tail call i64 @llvm.umin.i64(i64 %62, i64 %46)
   %63 = icmp eq i64 %.sroa.speculated.i.i93, 0
   br i1 %63, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread
-  %64 = load ptr, ptr %.sroa.6.16.copyload, align 8, !noalias !39
+  %64 = load ptr, ptr %.sroa.6.16.copyload, align 8, !noalias !43
   %65 = getelementptr inbounds i8, ptr %64, i64 40
-  %66 = load ptr, ptr %65, align 8, !noalias !39
-  %67 = tail call noundef i64 %66(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.6.16.copyload) #8, !noalias !39
+  %66 = load ptr, ptr %65, align 8, !noalias !43
+  %67 = tail call noundef i64 %66(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.6.16.copyload) #8, !noalias !43
   %68 = sub i64 %67, %34
-  store i8 1, ptr %.sroa.22.16..sroa_idx22, align 8, !alias.scope !39
+  store i8 1, ptr %.sroa.22.16..sroa_idx22, align 8, !alias.scope !43
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i
   %.sroa.speculated.i.i9497 = phi i64 [ %.sroa.speculated.i.i93, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i ], [ %.sroa.speculated.i.i, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ]
   %69 = phi i64 [ %68, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i ], [ %.sroa.17.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ]
   %70 = sub i64 %69, %.sroa.speculated.i.i9497
-  store i64 %70, ptr %.sroa.17.16..sroa_idx17, align 8, !alias.scope !39
+  store i64 %70, ptr %.sroa.17.16..sroa_idx17, align 8, !alias.scope !43
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i2.thread, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i, %._crit_edge.i.i
@@ -991,60 +996,60 @@ define dso_local void @_ZNK4llvm18BinaryStreamWriter5splitEm(ptr dead_on_unwind 
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load i64, ptr %9, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8, !noalias !40
+  %12 = load ptr, ptr %11, align 8, !noalias !44
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit9.thread.thread, label %13
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit9.thread.thread: ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.47, i8 0, i64 7, i1 false), !alias.scope !40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.47, i8 0, i64 7, i1 false), !alias.scope !44
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i10.thread
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %1, i64 48
-  %15 = load i8, ptr %14, align 8, !noalias !40
+  %15 = load i8, ptr %14, align 8, !noalias !44
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %19 = load i64, ptr %18, align 8, !noalias !40
+  %19 = load i64, ptr %18, align 8, !noalias !44
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i
 
 20:                                               ; preds = %13
-  %21 = load ptr, ptr %12, align 8, !noalias !40
+  %21 = load ptr, ptr %12, align 8, !noalias !44
   %22 = getelementptr inbounds i8, ptr %21, i64 40
-  %23 = load ptr, ptr %22, align 8, !noalias !40
-  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %12) #8, !noalias !40
+  %23 = load ptr, ptr %22, align 8, !noalias !44
+  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %12) #8, !noalias !44
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %26 = load i64, ptr %25, align 8, !noalias !40
+  %26 = load i64, ptr %25, align 8, !noalias !44
   %27 = sub i64 %24, %26
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i: ; preds = %20, %17
   %.0.i.i = phi i64 [ %19, %17 ], [ %27, %20 ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i, i64 %10)
-  %28 = load ptr, ptr %8, align 8, !noalias !40
+  %28 = load ptr, ptr %8, align 8, !noalias !44
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8, !noalias !40
+  %30 = load ptr, ptr %29, align 8, !noalias !44
   %.not.i.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i, label %31
 
 31:                                               ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = load i8, ptr @__libc_single_threaded, align 1, !noalias !40
+  %33 = load i8, ptr @__libc_single_threaded, align 1, !noalias !44
   %.not.i.i.i.i.i.i.i = icmp eq i8 %33, 0
   br i1 %.not.i.i.i.i.i.i.i, label %37, label %34
 
 34:                                               ; preds = %31
-  %35 = load i32, ptr %32, align 4, !noalias !40
+  %35 = load i32, ptr %32, align 4, !noalias !44
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %32, align 4, !noalias !40
+  store i32 %36, ptr %32, align 4, !noalias !44
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i
 
 37:                                               ; preds = %31
-  %38 = atomicrmw volatile add ptr %32, i32 1 acq_rel, align 4, !noalias !40
+  %38 = atomicrmw volatile add ptr %32, i32 1 acq_rel, align 4, !noalias !44
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i
 
 _ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i: ; preds = %37, %34, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i
@@ -1062,7 +1067,7 @@ _ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i: ; preds = %37, %34, %_ZNK4llvm
   %42 = select i1 %41, i64 %.sroa.speculated.i, i64 0
   %spec.select = select i1 %39, i64 0, i64 %42
   %.sroa.30.0 = sub i64 %.sroa.30.16.copyload, %spec.select
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %.not.i2 = icmp eq ptr %.sroa.1397.16.copyload, null
   br i1 %.not.i2, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i10.thread, label %43
 
@@ -1070,10 +1075,10 @@ _ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i: ; preds = %37, %34, %_ZNK4llvm
   br i1 %41, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i3, label %44
 
 44:                                               ; preds = %43
-  %45 = load ptr, ptr %.sroa.1397.16.copyload, align 8, !noalias !43
+  %45 = load ptr, ptr %.sroa.1397.16.copyload, align 8, !noalias !47
   %46 = getelementptr inbounds i8, ptr %45, i64 40
-  %47 = load ptr, ptr %46, align 8, !noalias !43
-  %48 = tail call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1397.16.copyload) #8, !noalias !43
+  %47 = load ptr, ptr %46, align 8, !noalias !47
+  %48 = tail call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1397.16.copyload) #8, !noalias !47
   %49 = sub i64 %48, %40
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i3
 
@@ -1084,18 +1089,18 @@ _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryS
 
 50:                                               ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i3
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %52 = load i8, ptr @__libc_single_threaded, align 1, !noalias !43
+  %52 = load i8, ptr @__libc_single_threaded, align 1, !noalias !47
   %.not.i.i.i.i.i.i.i7 = icmp eq i8 %52, 0
   br i1 %.not.i.i.i.i.i.i.i7, label %56, label %53
 
 53:                                               ; preds = %50
-  %54 = load i32, ptr %51, align 4, !noalias !43
+  %54 = load i32, ptr %51, align 4, !noalias !47
   %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %51, align 4, !noalias !43
+  store i32 %55, ptr %51, align 4, !noalias !47
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i8
 
 56:                                               ; preds = %50
-  %57 = atomicrmw volatile add ptr %51, i32 1 acq_rel, align 4, !noalias !43
+  %57 = atomicrmw volatile add ptr %51, i32 1 acq_rel, align 4, !noalias !47
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i8
 
 _ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i8: ; preds = %56, %53, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i3
@@ -1105,28 +1110,28 @@ _ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i8: ; preds = %56, %53, %_ZNK4llv
   %60 = select i1 %41, i64 %.sroa.speculated.i5, i64 0
   %spec.select178 = select i1 %58, i64 0, i64 %60
   %.sroa.10.0 = sub i64 %.sroa.30.0, %spec.select178
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %61 = trunc i8 %.sroa.39.16.copyload to i1
   br i1 %61, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i10, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i10.thread170
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i10.thread170: ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i8
-  %62 = load ptr, ptr %.sroa.1397.16.copyload, align 8, !noalias !46
+  %62 = load ptr, ptr %.sroa.1397.16.copyload, align 8, !noalias !50
   %63 = getelementptr inbounds i8, ptr %62, i64 40
-  %64 = load ptr, ptr %63, align 8, !noalias !46
-  %65 = tail call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1397.16.copyload) #8, !noalias !46
+  %64 = load ptr, ptr %63, align 8, !noalias !50
+  %65 = tail call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1397.16.copyload) #8, !noalias !50
   %66 = add i64 %40, %2
   %67 = sub i64 %65, %66
   br label %69
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i10: ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i8
   %68 = sub i64 %.sroa.30.0, %2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   br label %69
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i10.thread: ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit9.thread.thread
   %.sroa.692.0158268 = phi ptr [ null, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit9.thread.thread ], [ %30, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1384, i8 0, i64 7, i1 false), !alias.scope !43
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i8 0, i64 7, i1 false), !alias.scope !52
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1384, i8 0, i64 7, i1 false), !alias.scope !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i8 0, i64 7, i1 false), !alias.scope !56
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit
 
 69:                                               ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i10, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i10.thread170
@@ -1136,18 +1141,18 @@ _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryS
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %73 = load i8, ptr @__libc_single_threaded, align 1, !noalias !52
+  %73 = load i8, ptr @__libc_single_threaded, align 1, !noalias !56
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %73, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %77, label %74
 
 74:                                               ; preds = %71
-  %75 = load i32, ptr %72, align 4, !noalias !52
+  %75 = load i32, ptr %72, align 4, !noalias !56
   %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %72, align 4, !noalias !52
+  store i32 %76, ptr %72, align 4, !noalias !56
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i.i
 
 77:                                               ; preds = %71
-  %78 = atomicrmw volatile add ptr %72, i32 1 acq_rel, align 4, !noalias !52
+  %78 = atomicrmw volatile add ptr %72, i32 1 acq_rel, align 4, !noalias !56
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i.i
 
 _ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i.i: ; preds = %77, %74, %69
@@ -1160,20 +1165,20 @@ _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryS
   br i1 %79, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit, label %._crit_edge.i.i
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread: ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i.i
-  %80 = load ptr, ptr %.sroa.1397.16.copyload, align 8, !noalias !52
+  %80 = load ptr, ptr %.sroa.1397.16.copyload, align 8, !noalias !56
   %81 = getelementptr inbounds i8, ptr %80, i64 40
-  %82 = load ptr, ptr %81, align 8, !noalias !52
-  %83 = tail call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1397.16.copyload) #8, !noalias !52
+  %82 = load ptr, ptr %81, align 8, !noalias !56
+  %83 = tail call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1397.16.copyload) #8, !noalias !56
   %84 = sub i64 %83, %40
   %.sroa.speculated.i.i173 = tail call i64 @llvm.umin.i64(i64 %84, i64 %70)
   %85 = icmp eq i64 %.sroa.speculated.i.i173, 0
   br i1 %85, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit4.i.i
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit4.i.i: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread
-  %86 = load ptr, ptr %.sroa.1397.16.copyload, align 8, !noalias !52
+  %86 = load ptr, ptr %.sroa.1397.16.copyload, align 8, !noalias !56
   %87 = getelementptr inbounds i8, ptr %86, i64 40
-  %88 = load ptr, ptr %87, align 8, !noalias !52
-  %89 = tail call noundef i64 %88(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1397.16.copyload) #8, !noalias !52
+  %88 = load ptr, ptr %87, align 8, !noalias !56
+  %89 = tail call noundef i64 %88(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1397.16.copyload) #8, !noalias !56
   %90 = sub i64 %89, %40
   br label %._crit_edge.i.i
 
@@ -1482,33 +1487,33 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm23WritableBinaryStreamRefD2Ev.exit35
 
 _ZN4llvm23WritableBinaryStreamRefD2Ev.exit35:     ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit28, %199, %212, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i34
-  call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %0, align 8, !alias.scope !53
+  call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %0, align 8, !alias.scope !57
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %218 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %219 = load ptr, ptr %218, align 8, !noalias !53
-  store ptr %219, ptr %217, align 8, !alias.scope !53
+  %219 = load ptr, ptr %218, align 8, !noalias !57
+  store ptr %219, ptr %217, align 8, !alias.scope !57
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %221 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %222 = load ptr, ptr %221, align 8, !noalias !53
-  store ptr %222, ptr %220, align 8, !alias.scope !53
+  %222 = load ptr, ptr %221, align 8, !noalias !57
+  store ptr %222, ptr %220, align 8, !alias.scope !57
   %.not.i.i.i.i.i.i.i.i36 = icmp eq ptr %222, null
   br i1 %.not.i.i.i.i.i.i.i.i36, label %_ZN4llvm18BinaryStreamWriterC2ERKS0_.exit.i.i, label %223
 
 223:                                              ; preds = %_ZN4llvm23WritableBinaryStreamRefD2Ev.exit35
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  %225 = load i8, ptr @__libc_single_threaded, align 1, !noalias !53
+  %225 = load i8, ptr @__libc_single_threaded, align 1, !noalias !57
   %.not.i.i.i.i.i.i.i.i.i37 = icmp eq i8 %225, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i37, label %229, label %226
 
 226:                                              ; preds = %223
-  %227 = load i32, ptr %224, align 4, !noalias !53
+  %227 = load i32, ptr %224, align 4, !noalias !57
   %228 = add nsw i32 %227, 1
-  store i32 %228, ptr %224, align 4, !noalias !53
+  store i32 %228, ptr %224, align 4, !noalias !57
   br label %_ZN4llvm18BinaryStreamWriterC2ERKS0_.exit.i.i
 
 229:                                              ; preds = %223
-  %230 = atomicrmw volatile add ptr %224, i32 1 acq_rel, align 4, !noalias !53
+  %230 = atomicrmw volatile add ptr %224, i32 1 acq_rel, align 4, !noalias !57
   br label %_ZN4llvm18BinaryStreamWriterC2ERKS0_.exit.i.i
 
 _ZN4llvm18BinaryStreamWriterC2ERKS0_.exit.i.i:    ; preds = %229, %226, %_ZN4llvm23WritableBinaryStreamRefD2Ev.exit35
@@ -1517,35 +1522,35 @@ _ZN4llvm18BinaryStreamWriterC2ERKS0_.exit.i.i:    ; preds = %229, %226, %_ZN4llv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %231, ptr noundef nonnull align 8 dereferenceable(32) %232, i64 32, i1 false)
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %234 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %235 = load i64, ptr %234, align 8, !noalias !53
-  store i64 %235, ptr %233, align 8, !alias.scope !53
+  %235 = load i64, ptr %234, align 8, !noalias !57
+  store i64 %235, ptr %233, align 8, !alias.scope !57
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %236, align 8, !alias.scope !53
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %236, align 8, !alias.scope !57
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %238 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %239 = load ptr, ptr %238, align 8, !noalias !53
-  store ptr %239, ptr %237, align 8, !alias.scope !53
+  %239 = load ptr, ptr %238, align 8, !noalias !57
+  store ptr %239, ptr %237, align 8, !alias.scope !57
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %241 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %242 = load ptr, ptr %241, align 8, !noalias !53
-  store ptr %242, ptr %240, align 8, !alias.scope !53
+  %242 = load ptr, ptr %241, align 8, !noalias !57
+  store ptr %242, ptr %240, align 8, !alias.scope !57
   %.not.i.i.i.i.i.i3.i.i = icmp eq ptr %242, null
   br i1 %.not.i.i.i.i.i.i3.i.i, label %_ZSt9make_pairIRN4llvm18BinaryStreamWriterES2_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit, label %243
 
 243:                                              ; preds = %_ZN4llvm18BinaryStreamWriterC2ERKS0_.exit.i.i
   %244 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  %245 = load i8, ptr @__libc_single_threaded, align 1, !noalias !53
+  %245 = load i8, ptr @__libc_single_threaded, align 1, !noalias !57
   %.not.i.i.i.i.i.i.i4.i.i = icmp eq i8 %245, 0
   br i1 %.not.i.i.i.i.i.i.i4.i.i, label %249, label %246
 
 246:                                              ; preds = %243
-  %247 = load i32, ptr %244, align 4, !noalias !53
+  %247 = load i32, ptr %244, align 4, !noalias !57
   %248 = add nsw i32 %247, 1
-  store i32 %248, ptr %244, align 4, !noalias !53
+  store i32 %248, ptr %244, align 4, !noalias !57
   br label %_ZSt9make_pairIRN4llvm18BinaryStreamWriterES2_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit
 
 249:                                              ; preds = %243
-  %250 = atomicrmw volatile add ptr %244, i32 1 acq_rel, align 4, !noalias !53
+  %250 = atomicrmw volatile add ptr %244, i32 1 acq_rel, align 4, !noalias !57
   br label %_ZSt9make_pairIRN4llvm18BinaryStreamWriterES2_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit
 
 _ZSt9make_pairIRN4llvm18BinaryStreamWriterES2_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit: ; preds = %_ZN4llvm18BinaryStreamWriterC2ERKS0_.exit.i.i, %246, %249
@@ -1554,8 +1559,8 @@ _ZSt9make_pairIRN4llvm18BinaryStreamWriterES2_ESt4pairINSt25__strip_reference_wr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef nonnull align 8 dereferenceable(32) %252, i64 32, i1 false)
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %254 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %255 = load i64, ptr %254, align 8, !noalias !53
-  store i64 %255, ptr %253, align 8, !alias.scope !53
+  %255 = load i64, ptr %254, align 8, !noalias !57
+  store i64 %255, ptr %253, align 8, !alias.scope !57
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %6, align 8
   %256 = load ptr, ptr %241, align 8
   %.not.i.i.i.i.i.i38 = icmp eq ptr %256, null
@@ -1954,9 +1959,9 @@ define dso_local void @_ZN4llvm18BinaryStreamWriter14padToAlignmentEj(ptr dead_o
   br i1 %.not.i.i, label %_ZN4llvm18BinaryStreamWriter10writeArrayIcEENS_5ErrorENS_8ArrayRefIT_EE.exit, label %_ZN4llvm5ErrorD2Ev.exit.thread
 
 _ZN4llvm18BinaryStreamWriter10writeArrayIcEENS_5ErrorENS_8ArrayRefIT_EE.exit: ; preds = %.lr.ph
-  %18 = load i64, ptr %4, align 8, !noalias !56
+  %18 = load i64, ptr %4, align 8, !noalias !60
   %19 = add i64 %18, %.sroa.speculated
-  store i64 %19, ptr %4, align 8, !noalias !56
+  store i64 %19, ptr %4, align 8, !noalias !60
   %20 = icmp ult i64 %19, %12
   br i1 %20, label %.lr.ph, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
@@ -2165,51 +2170,55 @@ attributes #9 = { builtin nounwind }
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE: argument 0"}
 !12 = distinct !{!12, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE: argument 0"}
-!15 = distinct !{!15, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE"}
-!16 = distinct !{!16, !17, !"_ZN4llvm18BinaryStreamWriter16writeFixedStringENS_9StringRefE: argument 0"}
-!17 = distinct !{!17, !"_ZN4llvm18BinaryStreamWriter16writeFixedStringENS_9StringRefE"}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE: argument 0"}
-!20 = distinct !{!20, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN4llvm18BinaryStreamWriter16writeFixedStringENS_9StringRefE: argument 0"}
+!15 = distinct !{!15, !"_ZN4llvm18BinaryStreamWriter16writeFixedStringENS_9StringRefE"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE: argument 0"}
+!18 = distinct !{!18, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE"}
+!19 = !{!17, !14}
+!20 = !{!21}
 !21 = distinct !{!21, !22, !"_ZN4llvm18BinaryStreamWriter11writeObjectIcEENS_5ErrorERKT_: argument 0"}
 !22 = distinct !{!22, !"_ZN4llvm18BinaryStreamWriter11writeObjectIcEENS_5ErrorERKT_"}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE: argument 0"}
 !25 = distinct !{!25, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE: argument 0"}
-!28 = distinct !{!28, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE"}
-!29 = distinct !{!29, !5}
+!26 = !{!24, !21}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE: argument 0"}
+!29 = distinct !{!29, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm: argument 0"}
-!32 = distinct !{!32, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm: argument 0"}
-!35 = distinct !{!35, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9drop_backEm: argument 0"}
-!38 = distinct !{!38, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9drop_backEm"}
-!39 = !{!37, !34}
+!31 = distinct !{!31, !32, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE: argument 0"}
+!32 = distinct !{!32, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE"}
+!33 = distinct !{!33, !5}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm: argument 0"}
+!36 = distinct !{!36, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm: argument 0"}
+!39 = distinct !{!39, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm"}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm: argument 0"}
-!42 = distinct !{!42, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm: argument 0"}
-!45 = distinct !{!45, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm: argument 0"}
-!48 = distinct !{!48, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9drop_backEm: argument 0"}
-!51 = distinct !{!51, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9drop_backEm"}
-!52 = !{!50, !47}
+!41 = distinct !{!41, !42, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9drop_backEm: argument 0"}
+!42 = distinct !{!42, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9drop_backEm"}
+!43 = !{!41, !38}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm: argument 0"}
+!46 = distinct !{!46, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm: argument 0"}
+!49 = distinct !{!49, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm: argument 0"}
+!52 = distinct !{!52, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm"}
 !53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZSt9make_pairIRN4llvm18BinaryStreamWriterES2_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_: argument 0"}
-!55 = distinct !{!55, !"_ZSt9make_pairIRN4llvm18BinaryStreamWriterES2_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_"}
-!56 = !{!57, !59}
-!57 = distinct !{!57, !58, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE: argument 0"}
-!58 = distinct !{!58, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE"}
-!59 = distinct !{!59, !60, !"_ZN4llvm18BinaryStreamWriter10writeArrayIcEENS_5ErrorENS_8ArrayRefIT_EE: argument 0"}
-!60 = distinct !{!60, !"_ZN4llvm18BinaryStreamWriter10writeArrayIcEENS_5ErrorENS_8ArrayRefIT_EE"}
+!54 = distinct !{!54, !55, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9drop_backEm: argument 0"}
+!55 = distinct !{!55, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9drop_backEm"}
+!56 = !{!54, !51}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZSt9make_pairIRN4llvm18BinaryStreamWriterES2_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_: argument 0"}
+!59 = distinct !{!59, !"_ZSt9make_pairIRN4llvm18BinaryStreamWriterES2_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_"}
+!60 = !{!61, !63}
+!61 = distinct !{!61, !62, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE: argument 0"}
+!62 = distinct !{!62, !"_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE"}
+!63 = distinct !{!63, !64, !"_ZN4llvm18BinaryStreamWriter10writeArrayIcEENS_5ErrorENS_8ArrayRefIT_EE: argument 0"}
+!64 = distinct !{!64, !"_ZN4llvm18BinaryStreamWriter10writeArrayIcEENS_5ErrorENS_8ArrayRefIT_EE"}

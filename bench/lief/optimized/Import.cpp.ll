@@ -25,7 +25,7 @@ define hidden void @_ZN4LIEF2PE14init_c_importsEP11Pe_Binary_tPNS0_6BinaryE(ptr 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr null, ptr %8, align 8
-  %.pre = load ptr, ptr %3, align 8
+  %.pre = load ptr, ptr %3, align 8, !noalias !4
   %.pre35 = load ptr, ptr %5, align 8
   br label %9
 
@@ -101,7 +101,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal
   %64 = sub i64 %62, %63
   %65 = sdiv exact i64 %64, 112
   %66 = icmp ult i64 %59, %65
-  br i1 %66, label %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit, label %._crit_edge.loopexit, !llvm.loop !4
+  br i1 %66, label %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit
   %.pre36 = load ptr, ptr %19, align 8
@@ -154,7 +154,7 @@ define hidden void @_ZN4LIEF2PE15destroy_importsEP11Pe_Binary_t(ptr nocapture no
   %10 = getelementptr inbounds ptr, ptr %3, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %2, align 8
@@ -188,6 +188,9 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN4LIEF2PE6Binary7importsEv: argument 0"}
+!6 = distinct !{!6, !"_ZN4LIEF2PE6Binary7importsEv"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

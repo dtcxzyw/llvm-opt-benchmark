@@ -17845,7 +17845,7 @@ _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.
   %agg.tmp26.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %div.i.i.i.i, i64 0
   %agg.tmp26.sroa.0.4.vec.insert.i = insertelement <2 x float> %agg.tmp26.sroa.0.0.vec.insert.i, float %div.i.i3.i.i, i64 1
   %medium.i = getelementptr inbounds i8, ptr %ray, i64 32
-  %13 = load i64, ptr %medium.i, align 8
+  %13 = load i64, ptr %medium.i, align 8, !noalias !180
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   store <2 x float> %agg.tmp26.sroa.0.4.vec.insert.i, ptr %ray, align 8

@@ -6013,10 +6013,10 @@ sw.bb.i.i.i:                                      ; preds = %do.end7
   call void @_ZN9grpc_core5SleepclEv(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %promise_holder_), !noalias !114
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  %13 = load i8, ptr %ref.tmp.i.i.i.i, align 8, !noalias !114
+  %13 = load i8, ptr %ref.tmp.i.i.i.i, align 8, !noalias !121
   %tobool.i.i.i.i.i.i.i = trunc i8 %13 to i1
   %frombool.i.i.i.i.i.i.i = and i8 %13, 1
-  store i8 %frombool.i.i.i.i.i.i.i, ptr %result.i.i.i, align 8, !alias.scope !121, !noalias !108
+  store i8 %frombool.i.i.i.i.i.i.i, ptr %result.i.i.i, align 8, !alias.scope !122, !noalias !108
   br i1 %tobool.i.i.i.i.i.i.i, label %if.end.i.i.i, label %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.thread.i.i
 
 lpad.i.i.i:                                       ; preds = %if.end9.i.i.i
@@ -6026,8 +6026,8 @@ lpad.i.i.i:                                       ; preds = %if.end9.i.i.i
   br label %common.resume
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i.i
-  %15 = load i64, ptr %5, align 8, !noalias !122
-  store i64 %15, ptr %4, align 8, !alias.scope !121, !noalias !108
+  %15 = load i64, ptr %5, align 8, !noalias !121
+  store i64 %15, ptr %4, align 8, !alias.scope !122, !noalias !108
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !108
   %cmp.i.i.i.i.i = icmp eq i64 %15, 0
   br i1 %cmp.i.i.i.i.i, label %if.end9.i.i.i, label %if.then10.loopexit
@@ -6186,7 +6186,7 @@ _ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit37.thread.i.i.i: ; pred
 sw.bb43.i.i.i:                                    ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit37.thread.i.i.i, %do.end7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i38.i.i.i), !noalias !108
   call void @_ZN9grpc_core5SleepclEv(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i38.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %promise_holder_), !noalias !166
-  %29 = load i8, ptr %ref.tmp.i38.i.i.i, align 8, !noalias !166
+  %29 = load i8, ptr %ref.tmp.i38.i.i.i, align 8, !noalias !169
   %tobool.i.i.i.i39.i.i.i = trunc i8 %29 to i1
   br i1 %tobool.i.i.i.i39.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit49.i.i.i, label %if.then50.i.i.i
 
@@ -7746,7 +7746,7 @@ entry.sw.bb13.i_crit_edge.i.i.i.i:                ; preds = %while.body.i.i
 sw.bb.i.i.i.i.i:                                  ; preds = %while.body.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !221
   call void @_ZN9grpc_core5SleepclEv(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %3), !noalias !226
-  %35 = load i8, ptr %ref.tmp.i.i.i.i.i.i, align 8, !noalias !226
+  %35 = load i8, ptr %ref.tmp.i.i.i.i.i.i, align 8, !noalias !229
   %tobool.i.i.i.i.i.i.i.i.i = trunc i8 %35 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i.i, label %if.end.cont.i.i.i.i.i, label %if.end12
 
@@ -11264,8 +11264,8 @@ attributes #28 = { noreturn }
 !118 = !{!119}
 !119 = distinct !{!119, !120, !"_ZN9grpc_core14promise_detail11PollWrapperINS_4PollIN4absl12lts_202308026StatusEEEE4WrapEOS6_: %agg.result"}
 !120 = distinct !{!120, !"_ZN9grpc_core14promise_detail11PollWrapperINS_4PollIN4absl12lts_202308026StatusEEEE4WrapEOS6_"}
-!121 = !{!119, !116, !112}
-!122 = !{!119, !116, !112, !109, !106, !103}
+!121 = !{!119, !116, !112, !109, !106, !103}
+!122 = !{!119, !116, !112}
 !123 = !{!124, !126, !128, !109, !106, !103}
 !124 = distinct !{!124, !125, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplIZNS_12MaxAgeFilter8PostInitEvE3$_1EENSt9enable_ifIXsr14IsVoidCallableINS0_9ResultOfTIFT_vEvE1TEEE5valueENS0_11PromiseLikeIDTclclsr3stdE7declvalIS6_EEEEvEEE4typeEOS6_: %agg.result"}
 !125 = distinct !{!125, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplIZNS_12MaxAgeFilter8PostInitEvE3$_1EENSt9enable_ifIXsr14IsVoidCallableINS0_9ResultOfTIFT_vEvE1TEEE5valueENS0_11PromiseLikeIDTclclsr3stdE7declvalIS6_EEEEvEEE4typeEOS6_"}

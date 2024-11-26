@@ -7852,7 +7852,7 @@ invoke.cont403:                                   ; preds = %if.end3.i.i.i.i.i10
   %retval.sroa.0.1.i.i.i1098 = phi ptr [ %164, %call2.i.i.i.i.noexc1107 ], [ %retval.sroa.0.0.i.i.i1104, %for.cond.i.i.i1102 ], [ %169, %if.end3.i.i.i.i.i1090 ]
   %second.i1099 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i1098, i64 16
   %173 = load i32, ptr %second.i1099, align 8
-  %174 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8, !noalias !4
+  %174 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8, !noalias !108
   %cmp.not.not.i.i.i.i = icmp eq i64 %174, 0
   br i1 %cmp.not.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.end15.i.i.i.i
 
@@ -9663,7 +9663,7 @@ if.else226:                                       ; preds = %if.else221
   %idxprom230 = sext i32 %b_i.01633 to i64
   %arrayidx231 = getelementptr inbounds [0 x i32], ptr %d_triggers228, i64 0, i64 %idxprom230
   %153 = load i32, ptr %arrayidx231, align 4
-  %154 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8, !noalias !4
+  %154 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8, !noalias !165
   %cmp.not.not.i.i.i.i = icmp eq i64 %154, 0
   br i1 %cmp.not.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.end15.i.i.i.i
 
@@ -13841,7 +13841,7 @@ while.body:                                       ; preds = %land.rhs33
   %call.i30 = call noundef i64 @_ZN4cvc58internal6theory15TheoryIdSetUtil8setIndexENS1_8TheoryIdEj(i32 noundef %call34, i32 noundef %17)
   %arrayidx.i31 = getelementptr inbounds [0 x i32], ptr %d_triggers.i29, i64 0, i64 %call.i30
   %18 = load i32, ptr %arrayidx.i31, align 4
-  %19 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8, !noalias !4
+  %19 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8, !noalias !272
   %cmp.not.not.i.i.i.i = icmp eq i64 %19, 0
   br i1 %cmp.not.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.end15.i.i.i.i
 
@@ -18167,7 +18167,7 @@ lpad.i.i1584:                                     ; preds = %init.i.i1582
 _ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit:   ; preds = %cond.end424, %init.check.i.i1580, %invoke.cont.i.i1585
   %172 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %172, ptr %c2, align 8
-  %.pre = load ptr, ptr %cnode, align 8, !noalias !4
+  %.pre = load ptr, ptr %cnode, align 8, !noalias !353
   %d_kind.i.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 8
   %d_children.i.i = getelementptr inbounds i8, ptr %.pre, i64 16
   %d_kind.i.i.i.i1597 = getelementptr inbounds i8, ptr %.pre, i64 8
@@ -18243,7 +18243,7 @@ call2.i.i.i.noexc1622:                            ; preds = %land.rhs
   %idxprom.i.i1607 = zext nneg i32 %spec.select.i.i1605 to i64
   %arrayidx.i.i1608 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i1606, i64 0, i64 %idxprom.i.i1607
   %175 = load ptr, ptr %arrayidx.i.i1608, align 8, !noalias !356
-  %bf.load.i.i.i1609 = load i64, ptr %175, align 8
+  %bf.load.i.i.i1609 = load i64, ptr %175, align 8, !noalias !356
   %bf.lshr.i.i.i1610 = lshr i64 %bf.load.i.i.i1609, 40
   %176 = trunc nuw nsw i64 %bf.lshr.i.i.i1610 to i32
   %bf.cast.i.i.i1611 = and i32 %176, 1048575

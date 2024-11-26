@@ -483,7 +483,7 @@ define hidden void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clon
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h1323122aae3844b7E.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  %5 = load i64, ptr %4, align 8, !alias.scope !113, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !113, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
@@ -539,7 +539,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h1323122aae38
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h3201b9525c962783E.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  %5 = load i64, ptr %4, align 8, !alias.scope !116, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !116, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
@@ -596,7 +596,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h3201b9525c96
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h37c2426eef0cabdcE.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !4
+  %6 = load i64, ptr %5, align 8, !alias.scope !119, !noundef !4
   %7 = load i64, ptr %0, align 8, !alias.scope !119, !noundef !4
   %8 = sub i64 %7, %6
   %9 = icmp ugt i64 %1, %8
@@ -724,7 +724,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h37c2426eef0c
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h38b1fb9f3c060a78E.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  %5 = load i64, ptr %4, align 8, !alias.scope !141, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !141, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
@@ -795,7 +795,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h38b1fb9f3c06
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h51253fb1008579cfE.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  %5 = load i64, ptr %4, align 8, !alias.scope !150, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !150, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
@@ -851,7 +851,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h51253fb10085
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17had0589e96642e79cE.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, i16 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  %5 = load i64, ptr %4, align 8, !alias.scope !153, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !153, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
@@ -907,7 +907,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17had0589e96642
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hb256643f222be9dfE.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  %5 = load i64, ptr %4, align 8, !alias.scope !156, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !156, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
@@ -954,7 +954,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hb256643f222b
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hcc3e2c4b3fb65075E.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  %5 = load i64, ptr %4, align 8, !alias.scope !159, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !159, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
@@ -1010,7 +1010,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hcc3e2c4b3fb6
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hd23d9f17b4a9e67dE.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
+  %5 = load i64, ptr %4, align 8, !alias.scope !162, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !162, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
@@ -1073,7 +1073,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hebedf26ef
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 2
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !noundef !4
+  %11 = load i64, ptr %10, align 8, !alias.scope !165, !noundef !4
   %12 = load i64, ptr %0, align 8, !alias.scope !165, !noundef !4
   %13 = sub i64 %12, %11
   %14 = icmp ugt i64 %9, %13
@@ -1922,7 +1922,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 2
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !alias.scope !260, !noundef !4
+  %11 = load i64, ptr %10, align 8, !alias.scope !263, !noundef !4
   %12 = load i64, ptr %0, align 8, !alias.scope !263, !noundef !4
   %13 = sub i64 %12, %11
   %14 = icmp ugt i64 %9, %13

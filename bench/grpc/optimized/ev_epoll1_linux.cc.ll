@@ -2614,11 +2614,11 @@ declare void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6Stat
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080223inlined_vector_internal7StorageIPN17grpc_event_engine12experimental17Epoll1EventHandleELm5ESaIS6_EE11EmplaceBackIJRKS6_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %this, align 8, !noalias !32
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %data_.i1.i, align 8
+  %1 = load ptr, ptr %data_.i1.i, align 8, !noalias !32
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !32
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
@@ -2670,7 +2670,7 @@ for.inc.i.i:                                      ; preds = %_ZN4absl12lts_20230
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0.i, i64 8
   %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %.sink.i
-  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !35
 
 invoke.cont21.i:                                  ; preds = %for.inc.i.i, %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIPN17grpc_event_engine12experimental17Epoll1EventHandleEELb0EE8AllocateERS7_m.exit.i.i
   br i1 %tobool.i.not.i, label %_ZN4absl12lts_2023080223inlined_vector_internal7StorageIPN17grpc_event_engine12experimental17Epoll1EventHandleELm5ESaIS6_EE15EmplaceBackSlowIJRKS6_EEERS6_DpOT_.exit, label %if.then.i.i
@@ -2847,5 +2847,7 @@ attributes #24 = { noreturn }
 !29 = distinct !{!29, !"_ZSt11make_sharedIN17grpc_event_engine12experimental12Epoll1PollerEJRPNS1_9SchedulerEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
-!32 = !{}
-!33 = distinct !{!33, !5}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN4absl12lts_2023080223inlined_vector_internal7StorageIPN17grpc_event_engine12experimental17Epoll1EventHandleELm5ESaIS6_EE15MakeStorageViewEv: %agg.result"}
+!34 = distinct !{!34, !"_ZN4absl12lts_2023080223inlined_vector_internal7StorageIPN17grpc_event_engine12experimental17Epoll1EventHandleELm5ESaIS6_EE15MakeStorageViewEv"}
+!35 = distinct !{!35, !5}

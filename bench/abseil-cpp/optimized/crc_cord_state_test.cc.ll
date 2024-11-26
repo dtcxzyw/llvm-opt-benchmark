@@ -2151,7 +2151,7 @@ if.else:                                          ; preds = %entry
 
 if.then19:                                        ; preds = %if.else
   %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
-  %27 = load ptr, ptr %_M_last.i34, align 8
+  %27 = load ptr, ptr %_M_last.i34, align 8, !noalias !68
   %sub.ptr.lhs.cast.i35 = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i36 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i37 = sub i64 %sub.ptr.lhs.cast.i35, %sub.ptr.rhs.cast.i36
@@ -2163,8 +2163,8 @@ if.then19:                                        ; preds = %if.else
 if.then.i52:                                      ; preds = %if.then19
   %sub4.i = sub nuw i64 %add12.i.i.i, %sub.i39
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !68
-  %.pre.i53 = load ptr, ptr %_M_finish, align 8
-  %.pre4.i54 = load ptr, ptr %_M_last.i34, align 8
+  %.pre.i53 = load ptr, ptr %_M_finish, align 8, !noalias !71
+  %.pre4.i54 = load ptr, ptr %_M_last.i34, align 8, !noalias !71
   %.pre5.i55 = ptrtoint ptr %.pre.i53 to i64
   br label %if.end.i41
 
@@ -2175,7 +2175,7 @@ if.end.i41:                                       ; preds = %if.then.i52, %if.th
   %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %30 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !71
   %_M_node5.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 72
-  %31 = load ptr, ptr %_M_node5.i.i.i45, align 8
+  %31 = load ptr, ptr %_M_node5.i.i.i45, align 8, !noalias !71
   %sub.ptr.rhs.cast.i.i.i46 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi.i, %sub.ptr.rhs.cast.i.i.i46
   %sub.ptr.div.i.i.i48 = ashr exact i64 %sub.ptr.sub.i.i.i47, 4
@@ -2754,7 +2754,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_first.i18 = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %_M_first.i18, align 8
+  %9 = load ptr, ptr %_M_first.i18, align 8, !noalias !97
   %sub.ptr.rhs.cast.i20 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.rhs.cast9.i, %sub.ptr.rhs.cast.i20
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 4
@@ -2764,14 +2764,14 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %sub.i23 = sub nuw i64 %__n, %sub.ptr.div.i22
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i23), !noalias !97
-  %.pre.i = load ptr, ptr %_M_start, align 8
-  %.pre4.i = load ptr, ptr %_M_first.i18, align 8
+  %.pre.i = load ptr, ptr %_M_start, align 8, !noalias !100
+  %.pre4.i = load ptr, ptr %_M_first.i18, align 8, !noalias !100
   %.pre5.i = ptrtoint ptr %.pre.i to i64
   %.pre6.i = ptrtoint ptr %.pre4.i to i64
   %.pre7.i = sub i64 %.pre5.i, %.pre6.i
   %.pre8.i = ashr exact i64 %.pre7.i, 4
-  %.pre789 = load ptr, ptr %_M_last.i, align 8
-  %.pre790 = load ptr, ptr %_M_node1.i, align 8
+  %.pre789 = load ptr, ptr %_M_last.i, align 8, !noalias !100
+  %.pre790 = load ptr, ptr %_M_node1.i, align 8, !noalias !100
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -2864,10 +2864,10 @@ _ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
   br i1 %cmp7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %_ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit
-  %16 = load ptr, ptr %_M_start, align 8
+  %16 = load ptr, ptr %_M_start, align 8, !noalias !106
   %17 = load ptr, ptr %_M_first.i18, align 8, !noalias !106
-  %18 = load ptr, ptr %_M_last.i, align 8
-  %19 = load ptr, ptr %_M_node1.i, align 8
+  %18 = load ptr, ptr %_M_last.i, align 8, !noalias !106
+  %19 = load ptr, ptr %_M_node1.i, align 8, !noalias !106
   %sub.ptr.lhs.cast.i.i42 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i43 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i44 = sub i64 %sub.ptr.lhs.cast.i.i42, %sub.ptr.rhs.cast.i.i43
@@ -3305,7 +3305,7 @@ lpad49:                                           ; preds = %_ZNSt11_Deque_baseI
 
 if.else51:                                        ; preds = %entry
   %_M_last.i289 = getelementptr inbounds i8, ptr %this, i64 64
-  %80 = load ptr, ptr %_M_last.i289, align 8
+  %80 = load ptr, ptr %_M_last.i289, align 8, !noalias !173
   %sub.ptr.lhs.cast.i290 = ptrtoint ptr %80 to i64
   %sub.ptr.sub.i292 = sub i64 %sub.ptr.lhs.cast.i290, %sub.ptr.lhs.cast3.i.i
   %sub.ptr.div.i293 = ashr exact i64 %sub.ptr.sub.i292, 4
@@ -3316,11 +3316,11 @@ if.else51:                                        ; preds = %entry
 if.then.i322:                                     ; preds = %if.else51
   %sub4.i = sub nuw i64 %__n, %sub.i294
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !173
-  %.pre.i323 = load ptr, ptr %_M_finish.i, align 8
-  %.pre4.i324 = load ptr, ptr %_M_last.i289, align 8
+  %.pre.i323 = load ptr, ptr %_M_finish.i, align 8, !noalias !176
+  %.pre4.i324 = load ptr, ptr %_M_last.i289, align 8, !noalias !176
   %.pre5.i325 = ptrtoint ptr %.pre.i323 to i64
-  %.pre = load ptr, ptr %_M_first.i.i, align 8
-  %.pre788 = load ptr, ptr %_M_node.i.i, align 8
+  %.pre = load ptr, ptr %_M_first.i.i, align 8, !noalias !176
+  %.pre788 = load ptr, ptr %_M_node.i.i, align 8, !noalias !176
   %.pre791 = ptrtoint ptr %.pre to i64
   %.pre792 = sub i64 %.pre5.i325, %.pre791
   %.pre793 = ashr exact i64 %.pre792, 4
@@ -3417,10 +3417,10 @@ _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
   br i1 %cmp57, label %if.then58, label %if.else84
 
 if.then58:                                        ; preds = %_ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit361
-  %87 = load ptr, ptr %_M_finish.i, align 8
+  %87 = load ptr, ptr %_M_finish.i, align 8, !noalias !182
   %88 = load ptr, ptr %_M_first.i.i, align 8, !noalias !182
-  %89 = load ptr, ptr %_M_last.i289, align 8
-  %90 = load ptr, ptr %_M_node.i.i, align 8
+  %89 = load ptr, ptr %_M_last.i289, align 8, !noalias !182
+  %90 = load ptr, ptr %_M_node.i.i, align 8, !noalias !182
   %sub.i.i368 = sub nsw i64 0, %__n
   %sub.ptr.lhs.cast.i.i.i369 = ptrtoint ptr %87 to i64
   %sub.ptr.rhs.cast.i.i.i370 = ptrtoint ptr %88 to i64

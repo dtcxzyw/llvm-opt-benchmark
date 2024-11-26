@@ -3347,7 +3347,7 @@ define dso_local void @_ZN4llvm22MustBeExecutedIterator16resetInstructionEPKNS_1
   %.02536.i.i.i.i = and i32 %19, %18
   %20 = zext i32 %.02536.i.i.i.i to i64
   %21 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %11, i64 %20
-  %.0.copyload.i.i2.i.i37.i.i.i.i = load i64, ptr %21, align 8, !noalias !54
+  %.0.copyload.i.i2.i.i37.i.i.i.i = load i64, ptr %21, align 8, !noalias !53
   %22 = icmp eq i64 %10, %.0.copyload.i.i2.i.i37.i.i.i.i
   br i1 %22, label %_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_.exit.thread, label %.lr.ph.i.i.i.i
 
@@ -3379,16 +3379,16 @@ _ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20Ex
   %.025.i.i.i.i = and i32 %31, %19
   %32 = zext i32 %.025.i.i.i.i to i64
   %33 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %11, i64 %32
-  %.0.copyload.i.i2.i.i.i.i.i.i = load i64, ptr %33, align 8, !noalias !54
+  %.0.copyload.i.i2.i.i.i.i.i.i = load i64, ptr %33, align 8, !noalias !53
   %34 = icmp eq i64 %10, %.0.copyload.i.i2.i.i.i.i.i.i
-  br i1 %34, label %_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !59
+  br i1 %34, label %_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !58
 
 35:                                               ; preds = %25, %2
   %.sink.i.i.i.i = phi ptr [ %26, %25 ], [ null, %2 ]
-  %36 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E20InsertIntoBucketImplISB_EEPSH_RKSB_RKT_SL_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !54
-  %37 = load i64, ptr %3, align 8, !noalias !54
-  store i64 %37, ptr %36, align 8, !noalias !54
-  %.pre = load i32, ptr %12, align 8, !noalias !53
+  %36 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E20InsertIntoBucketImplISB_EEPSH_RKSB_RKT_SL_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !53
+  %37 = load i64, ptr %3, align 8, !noalias !53
+  store i64 %37, ptr %36, align 8, !noalias !53
+  %.pre = load i32, ptr %12, align 8, !noalias !59
   %.pre39 = load ptr, ptr %0, align 8, !noalias !60
   br label %_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_.exit
 
@@ -3439,7 +3439,7 @@ _ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20Ex
   %61 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %43, i64 %60
   %.0.copyload.i.i2.i.i.i.i.i.i17 = load i64, ptr %61, align 8, !noalias !60
   %62 = icmp eq i64 %9, %.0.copyload.i.i2.i.i.i.i.i.i17
-  br i1 %62, label %_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_.exit25, label %.lr.ph.i.i.i.i9, !llvm.loop !59
+  br i1 %62, label %_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_.exit25, label %.lr.ph.i.i.i.i9, !llvm.loop !58
 
 63:                                               ; preds = %53, %_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_.exit
   %.sink.i.i.i.i24 = phi ptr [ %54, %53 ], [ null, %_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_.exit ]
@@ -3535,7 +3535,7 @@ define dso_local noundef ptr @_ZN4llvm22MustBeExecutedIterator7advanceEv(ptr nou
   %34 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %12, i64 %33
   %.0.copyload.i.i2.i.i.i.i.i.i = load i64, ptr %34, align 8, !noalias !65
   %35 = icmp eq i64 %11, %.0.copyload.i.i2.i.i.i.i.i.i
-  br i1 %35, label %.critedge, label %.lr.ph.i.i.i.i, !llvm.loop !59
+  br i1 %35, label %.critedge, label %.lr.ph.i.i.i.i, !llvm.loop !58
 
 36:                                               ; preds = %26, %9
   %.sink.i.i.i.i = phi ptr [ %27, %26 ], [ null, %9 ]
@@ -3641,7 +3641,7 @@ _ZN4llvm29MustBeExecutedContextExplorer32getMustBeExecutedPrevInstructionERNS_22
   %88 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %66, i64 %87
   %.0.copyload.i.i2.i.i.i.i.i.i18 = load i64, ptr %88, align 8, !noalias !70
   %89 = icmp eq i64 %65, %.0.copyload.i.i2.i.i.i.i.i.i18
-  br i1 %89, label %.critedge2, label %.lr.ph.i.i.i.i10, !llvm.loop !59
+  br i1 %89, label %.critedge2, label %.lr.ph.i.i.i.i10, !llvm.loop !58
 
 90:                                               ; preds = %80, %63
   %.sink.i.i.i.i25 = phi ptr [ %81, %80 ], [ null, %63 ]
@@ -9092,7 +9092,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_1
   %35 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %14, i64 %34
   %.0.copyload.i.i2.i.i.i.i = load i64, ptr %35, align 8
   %36 = icmp eq i64 %.sroa.0.0.copyload.i.i.i, %.0.copyload.i.i2.i.i.i.i
-  br i1 %36, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E15LookupBucketForISB_EEbRKT_RPSH_.exit, label %.lr.ph.i.i, !llvm.loop !59
+  br i1 %36, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E15LookupBucketForISB_EEbRKT_RPSH_.exit, label %.lr.ph.i.i, !llvm.loop !58
 
 37:                                               ; preds = %4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -9150,7 +9150,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_1
   %64 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %43, i64 %63
   %.0.copyload.i.i2.i.i.i.i21 = load i64, ptr %64, align 8
   %65 = icmp eq i64 %.sroa.0.0.copyload.i.i.i10, %.0.copyload.i.i2.i.i.i.i21
-  br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E15LookupBucketForISB_EEbRKT_RPSH_.exit, label %.lr.ph.i.i13, !llvm.loop !59
+  br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E15LookupBucketForISB_EEbRKT_RPSH_.exit, label %.lr.ph.i.i13, !llvm.loop !58
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E15LookupBucketForISB_EEbRKT_RPSH_.exit: ; preds = %29, %58, %56, %46, %42, %27, %17, %12, %37
   %.0 = phi ptr [ %3, %37 ], [ %28, %27 ], [ null, %12 ], [ %23, %17 ], [ %57, %56 ], [ null, %42 ], [ %52, %46 ], [ %64, %58 ], [ %35, %29 ]
@@ -9293,7 +9293,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1EN
   %59 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %39, i64 %58
   %.0.copyload.i.i2.i.i.i.i.i = load i64, ptr %59, align 8
   %60 = icmp eq i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i.i2.i.i.i.i.i
-  br i1 %60, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E15LookupBucketForISB_EEbRKT_RPSH_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !59
+  br i1 %60, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E15LookupBucketForISB_EEbRKT_RPSH_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !58
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E15LookupBucketForISB_EEbRKT_RPSH_.exit.i: ; preds = %53, %51, %38
   %.sink.i.i.i = phi ptr [ %52, %51 ], [ %47, %38 ], [ %59, %53 ]
@@ -9518,13 +9518,13 @@ attributes #23 = { noreturn nounwind }
 !50 = distinct !{!50, !51, !"_ZN4llvm10successorsEPKNS_10BasicBlockE: argument 0"}
 !51 = distinct !{!51, !"_ZN4llvm10successorsEPKNS_10BasicBlockE"}
 !52 = distinct !{!52, !5}
-!53 = !{}
-!54 = !{!55, !57}
-!55 = distinct !{!55, !56, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E11try_emplaceIJRSD_EEESt4pairINS_16DenseMapIteratorISB_SD_SF_SH_Lb0EEEbEOSB_DpOT_: argument 0"}
-!56 = distinct !{!56, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E11try_emplaceIJRSD_EEESt4pairINS_16DenseMapIteratorISB_SD_SF_SH_Lb0EEEbEOSB_DpOT_"}
-!57 = distinct !{!57, !58, !"_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_: argument 0"}
-!58 = distinct !{!58, !"_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_"}
-!59 = distinct !{!59, !5}
+!53 = !{!54, !56}
+!54 = distinct !{!54, !55, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E11try_emplaceIJRSD_EEESt4pairINS_16DenseMapIteratorISB_SD_SF_SH_Lb0EEEbEOSB_DpOT_: argument 0"}
+!55 = distinct !{!55, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E11try_emplaceIJRSD_EEESt4pairINS_16DenseMapIteratorISB_SD_SF_SH_Lb0EEEbEOSB_DpOT_"}
+!56 = distinct !{!56, !57, !"_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_: argument 0"}
+!57 = distinct !{!57, !"_ZN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertEOSB_"}
+!58 = distinct !{!58, !5}
+!59 = !{}
 !60 = !{!61, !63}
 !61 = distinct !{!61, !62, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E11try_emplaceIJRSD_EEESt4pairINS_16DenseMapIteratorISB_SD_SF_SH_Lb0EEEbEOSB_DpOT_: argument 0"}
 !62 = distinct !{!62, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISB_vEENSC_12DenseSetPairISB_EEEESB_SD_SF_SH_E11try_emplaceIJRSD_EEESt4pairINS_16DenseMapIteratorISB_SD_SF_SH_Lb0EEEbEOSB_DpOT_"}

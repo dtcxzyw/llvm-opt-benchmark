@@ -4426,7 +4426,7 @@ define linkonce_odr noundef ptr @_ZNK4llvm27SampleProfileLoaderBaseImplINS_15Mac
 39:                                               ; preds = %28, %8
   %.sink.i.i.i = phi ptr [ %29, %28 ], [ null, %8 ]
   %40 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10DILocationEPKNS_10sampleprof15FunctionSamplesENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E20InsertIntoBucketImplIS4_EEPSD_RKS4_RKT_SH_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i), !noalias !66
-  %41 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %3, align 8, !noalias !66
   store ptr %41, ptr %40, align 8, !noalias !66
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr null, ptr %42, align 8, !noalias !66

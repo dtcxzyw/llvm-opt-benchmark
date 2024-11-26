@@ -6733,7 +6733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i146.i: ; pr
   %938 = zext i32 %932 to i64
   %939 = sub nsw i64 0, %938
   %.not.i148.i = icmp ne i64 %937, %939
-  %.pre327.i = load i32, ptr %747, align 8
+  %.pre327.i = load i32, ptr %747, align 8, !noalias !44
   %940 = icmp sgt i32 %.pre327.i, 0
   %or.cond.i = select i1 %.not.i148.i, i1 %940, i1 false
   br i1 %or.cond.i, label %.lr.ph19.preheader.i150.i, label %.noexc75.i
@@ -7486,7 +7486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i.i: ; preds
   %1189 = zext i32 %1183 to i64
   %1190 = sub nsw i64 0, %1189
   %.not.i107.i = icmp ne i64 %1188, %1190
-  %.pre330.i = load i32, ptr %766, align 8
+  %.pre330.i = load i32, ptr %766, align 8, !noalias !52
   %1191 = icmp sgt i32 %.pre330.i, 0
   %or.cond363.i = select i1 %.not.i107.i, i1 %1191, i1 false
   br i1 %or.cond363.i, label %.lr.ph19.preheader.i.i, label %.noexc17.i

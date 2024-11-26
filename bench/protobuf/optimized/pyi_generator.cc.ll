@@ -2848,7 +2848,7 @@ call.i.i.i.i.i.i.i.i.i.i.noexc:                   ; preds = %if.end27.i, %if.els
   %shr.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %156 = load ptr, ptr %map.i264, align 8
+  %156 = load ptr, ptr %map.i264, align 8, !noalias !80
   %157 = load i64, ptr %capacity_.i.i, align 8, !noalias !80
   %shr.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %158 = ptrtoint ptr %156 to i64
@@ -3269,7 +3269,7 @@ for.end.i:                                        ; preds = %for.inc.i
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %agg.tmp3.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %144, i64 160
-  %200 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %200 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !99
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %144, i64 168
   %201 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !99
   %cmp.not.i.i.i370 = icmp eq ptr %200, %201
@@ -3610,7 +3610,7 @@ call.i.i.i.i.i.i.i.i.i.i.noexc485:                ; preds = %if.end27.i767, %if.
   %shr.i.i.i.i.i.i.i.i.i.i.i.i434 = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i433, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i435 = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i434, %mul.i.i.i.i.i.i.i.i.i.i.i.i433
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i436 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i435 to i64
-  %231 = load ptr, ptr %map.i280, align 8
+  %231 = load ptr, ptr %map.i280, align 8, !noalias !113
   %232 = load i64, ptr %capacity_.i.i492, align 8, !noalias !113
   %shr.i.i.i.i438 = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i436, 7
   %233 = ptrtoint ptr %231 to i64
@@ -4031,7 +4031,7 @@ for.end.i314:                                     ; preds = %for.inc.i313
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %agg.tmp3.i400)
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
   %_M_finish.i.i.i401 = getelementptr inbounds i8, ptr %219, i64 160
-  %275 = load ptr, ptr %_M_finish.i.i.i401, align 8
+  %275 = load ptr, ptr %_M_finish.i.i.i401, align 8, !noalias !130
   %_M_end_of_storage.i.i.i402 = getelementptr inbounds i8, ptr %219, i64 168
   %276 = load ptr, ptr %_M_end_of_storage.i.i.i402, align 8, !noalias !130
   %cmp.not.i.i.i403 = icmp eq ptr %275, %276
@@ -9567,7 +9567,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE4findIS9_EENSE_8iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %hash) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !305
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i, align 8, !noalias !305
   %shr.i.i.i = lshr i64 %hash, 7
@@ -9980,7 +9980,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !316
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !316
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -10537,7 +10537,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE4findIS7_EENSF_14const_iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %hash) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !340
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !340
   %shr.i.i.i.i = lshr i64 %hash, 7
@@ -10714,7 +10714,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %3 = load ptr, ptr %this, align 8
+  %3 = load ptr, ptr %this, align 8, !noalias !344
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i, align 8, !noalias !344
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -11035,7 +11035,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %3 = load ptr, ptr %this, align 8
+  %3 = load ptr, ptr %this, align 8, !noalias !349
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i, align 8, !noalias !349
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7
@@ -11405,7 +11405,7 @@ declare void @_ZN6google8protobuf8compiler6python27NamePrefixedWithNestedTypesIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_S9_EEE4findIS9_EENSH_8iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %hash) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !354
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i, align 8, !noalias !354
   %shr.i.i.i = lshr i64 %hash, 7

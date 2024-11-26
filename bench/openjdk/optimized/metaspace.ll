@@ -375,14 +375,14 @@ define hidden void @_ZN14MetaspaceUtils22print_metaspace_changeERK22MetaspaceCom
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0), !noalias !8
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %3, i32 noundef 1), !noalias !8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !noalias !8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !noalias !8
   %8 = add i64 %7, %5
   %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = load i64, ptr %9, align 8
+  %10 = load i64, ptr %9, align 8, !noalias !8
   %11 = getelementptr inbounds i8, ptr %3, i64 16
-  %12 = load i64, ptr %11, align 8
+  %12 = load i64, ptr %11, align 8, !noalias !8
   %13 = add i64 %12, %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -475,16 +475,16 @@ define hidden void @_ZN14MetaspaceUtils8print_onEP12outputStream(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0), !noalias !11
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %3, i32 noundef 1), !noalias !11
-  %4 = load i64, ptr %2, align 8
+  %4 = load i64, ptr %2, align 8, !noalias !11
   %5 = load i64, ptr %3, align 8, !noalias !11
   %6 = add i64 %5, %4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !noalias !11
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !noalias !11
   %11 = add i64 %10, %8
   %12 = getelementptr inbounds i8, ptr %2, i64 16
-  %13 = load i64, ptr %12, align 8
+  %13 = load i64, ptr %12, align 8, !noalias !11
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !noalias !11
   %16 = add i64 %15, %13

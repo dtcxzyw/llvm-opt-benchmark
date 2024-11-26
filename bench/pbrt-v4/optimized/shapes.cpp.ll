@@ -9691,9 +9691,9 @@ if.else233:                                       ; preds = %arrayinit.body.i.pr
   %agg.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i272, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i, align 4, !noalias !36
   %arrayidx.i.i275 = getelementptr inbounds i8, ptr %add.ptr.i272, i64 12
-  %agg.tmp1.sroa.0.0.copyload.i276 = load <2 x float>, ptr %arrayidx.i.i275, align 4
+  %agg.tmp1.sroa.0.0.copyload.i276 = load <2 x float>, ptr %arrayidx.i.i275, align 4, !noalias !36
   %agg.tmp1.sroa.2.0.call2.sroa_idx.i277 = getelementptr inbounds i8, ptr %add.ptr.i272, i64 20
-  %agg.tmp1.sroa.2.0.copyload.i278 = load float, ptr %agg.tmp1.sroa.2.0.call2.sroa_idx.i277, align 4
+  %agg.tmp1.sroa.2.0.copyload.i278 = load float, ptr %agg.tmp1.sroa.2.0.call2.sroa_idx.i277, align 4, !noalias !36
   br i1 %cmp211, label %invoke.cont246, label %invoke.cont255
 
 invoke.cont246:                                   ; preds = %if.else233

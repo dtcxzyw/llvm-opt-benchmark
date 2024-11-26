@@ -13451,7 +13451,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCos
 64:                                               ; preds = %53, %35
   %.sink.i.i.i.i = phi ptr [ %54, %53 ], [ null, %35 ]
   %65 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E20InsertIntoBucketImplIS2_EEPS8_RKS2_RKT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef %.sink.i.i.i.i), !noalias !154
-  %66 = load i32, ptr %6, align 4
+  %66 = load i32, ptr %6, align 4, !noalias !154
   store i32 %66, ptr %65, align 4, !noalias !154
   br label %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_13SmallDenseMapIS2_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertERKS2_.exit
 

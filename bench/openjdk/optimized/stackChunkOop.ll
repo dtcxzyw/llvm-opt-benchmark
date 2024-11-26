@@ -827,7 +827,7 @@ _ZNK17stackChunkOopDesc12derelativizeE5frame.exit:
   %.sroa.615.0.copyload = load ptr, ptr %.sroa.615.0..sroa_idx, align 8
   %5 = ptrtoint ptr %.sroa.013.0.copyload to i64
   %6 = ptrtoint ptr %1 to i64
-  %7 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
+  %7 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !6
   %8 = sext i32 %7 to i64
   %9 = add nsw i64 %8, %6
   %10 = inttoptr i64 %9 to ptr
@@ -848,7 +848,7 @@ _ZNK17stackChunkOopDesc12derelativizeE5frame.exit:
   %23 = ashr exact i64 %sext22, 32
   %24 = sub nsw i64 0, %23
   %25 = getelementptr inbounds i64, ptr %18, i64 %24
-  %26 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
+  %26 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !6
   %.not.i.i.i.i.i = icmp eq ptr %26, null
   %27 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
   %28 = sext i32 %27 to i64

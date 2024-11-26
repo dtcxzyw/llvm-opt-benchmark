@@ -321,7 +321,7 @@ invoke.cont95:                                    ; preds = %invoke.cont91
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %q, i64 24
   %21 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !7
   %cachePtr_.i.i.i = getelementptr inbounds i8, ptr %q, i64 32
-  %22 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !4
+  %22 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !7
   %23 = load ptr, ptr %22, align 8, !noalias !7
   %cmp.not.i.i.i = icmp eq ptr %21, %23
   br i1 %cmp.not.i.i.i, label %invoke.cont98, label %if.then.i.i.i
@@ -2982,7 +2982,7 @@ invoke.cont19:                                    ; preds = %cleanup.done
   %tailStart_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !22
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
-  %7 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !25
+  %7 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !22
   %8 = load ptr, ptr %7, align 8, !noalias !22
   %cmp.not.i.i.i.i = icmp eq ptr %6, %8
   br i1 %cmp.not.i.i.i.i, label %invoke.cont26, label %if.then.i.i.i.i
@@ -3223,7 +3223,7 @@ invoke.cont20:                                    ; preds = %cleanup.done
   %tailStart_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !32
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  %4 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !35
+  %4 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !32
   %5 = load ptr, ptr %4, align 8, !noalias !32
   %cmp.not.i.i.i.i = icmp eq ptr %3, %5
   br i1 %cmp.not.i.i.i.i, label %invoke.cont22, label %if.then.i.i.i.i
@@ -3428,7 +3428,7 @@ invoke.cont32:                                    ; preds = %while.end
   %tailStart_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !43
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
-  %9 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !46
+  %9 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !43
   %10 = load ptr, ptr %9, align 8, !noalias !43
   %cmp.not.i.i.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i.i.i, label %invoke.cont34, label %if.then.i.i.i.i

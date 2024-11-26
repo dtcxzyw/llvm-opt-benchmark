@@ -975,7 +975,7 @@ sw.bb3.i.i:                                       ; preds = %while.body.i
   br i1 %cmp.i.i.i.i118, label %cleanup.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i"
-  %83 = load ptr, ptr %_M_first.i10.i.i.i.i.i, align 8
+  %83 = load ptr, ptr %_M_first.i10.i.i.i.i.i, align 8, !noalias !11
   %cmp.i.i.i10.i = icmp eq ptr %81, %83
   br i1 %cmp.i.i.i10.i, label %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i, label %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i
 

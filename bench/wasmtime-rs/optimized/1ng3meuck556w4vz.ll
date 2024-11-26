@@ -356,7 +356,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder4Load1
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4brif17h2d47ba60e9821a6fE(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef nonnull readonly align 4 %4, i64 noundef %5, i32 noundef %6, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %8) unnamed_addr #0 personality ptr @rust_eh_personality {
   %10 = alloca { i8, [15 x i8] }, align 8
-  %11 = load ptr, ptr %0, align 8, !noalias !7, !nonnull !7, !align !8, !noundef !7
+  %11 = load ptr, ptr %0, align 8, !noalias !43, !nonnull !7, !align !8, !noundef !7
   %12 = tail call noundef align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %11), !noalias !43
   %13 = tail call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10block_call17hda33c7ea9e0d5b4fE(ptr noalias noundef nonnull align 8 dereferenceable(416) %12, i32 noundef %3, ptr noalias noundef nonnull readonly align 4 %4, i64 noundef %5)
   %14 = tail call noundef align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %11), !noalias !46

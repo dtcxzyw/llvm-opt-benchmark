@@ -219,24 +219,24 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr inbounds float, ptr %normal, i64 %indvars.iv
   store float 1.000000e+00, ptr %arrayidx, align 4
   %arrayidx5 = getelementptr inbounds [3 x %class.btJacobianEntry], ptr %m_jac, i64 0, i64 %indvars.iv
-  %2 = load float, ptr %m_worldTransform.i, align 4
-  %3 = load float, ptr %arrayidx3.i5, align 4
-  %4 = load float, ptr %arrayidx6.i, align 4
-  %5 = load float, ptr %arrayidx.i.i, align 4
-  %6 = load float, ptr %arrayidx.i1.i, align 4
-  %7 = load float, ptr %arrayidx.i2.i, align 4
-  %8 = load float, ptr %arrayidx.i3.i, align 4
-  %9 = load float, ptr %arrayidx.i4.i, align 4
-  %10 = load float, ptr %arrayidx.i5.i, align 4
-  %11 = load float, ptr %m_worldTransform.i6, align 4
-  %12 = load float, ptr %arrayidx3.i7, align 4
-  %13 = load float, ptr %arrayidx6.i8, align 4
-  %14 = load float, ptr %arrayidx.i.i9, align 4
-  %15 = load float, ptr %arrayidx.i1.i10, align 4
-  %16 = load float, ptr %arrayidx.i2.i11, align 4
-  %17 = load float, ptr %arrayidx.i3.i12, align 4
-  %18 = load float, ptr %arrayidx.i4.i13, align 4
-  %19 = load float, ptr %arrayidx.i5.i14, align 4
+  %2 = load float, ptr %m_worldTransform.i, align 4, !noalias !5
+  %3 = load float, ptr %arrayidx3.i5, align 4, !noalias !5
+  %4 = load float, ptr %arrayidx6.i, align 4, !noalias !5
+  %5 = load float, ptr %arrayidx.i.i, align 4, !noalias !5
+  %6 = load float, ptr %arrayidx.i1.i, align 4, !noalias !5
+  %7 = load float, ptr %arrayidx.i2.i, align 4, !noalias !5
+  %8 = load float, ptr %arrayidx.i3.i, align 4, !noalias !5
+  %9 = load float, ptr %arrayidx.i4.i, align 4, !noalias !5
+  %10 = load float, ptr %arrayidx.i5.i, align 4, !noalias !5
+  %11 = load float, ptr %m_worldTransform.i6, align 4, !noalias !8
+  %12 = load float, ptr %arrayidx3.i7, align 4, !noalias !8
+  %13 = load float, ptr %arrayidx6.i8, align 4, !noalias !8
+  %14 = load float, ptr %arrayidx.i.i9, align 4, !noalias !8
+  %15 = load float, ptr %arrayidx.i1.i10, align 4, !noalias !8
+  %16 = load float, ptr %arrayidx.i2.i11, align 4, !noalias !8
+  %17 = load float, ptr %arrayidx.i3.i12, align 4, !noalias !8
+  %18 = load float, ptr %arrayidx.i4.i13, align 4, !noalias !8
+  %19 = load float, ptr %arrayidx.i5.i14, align 4, !noalias !8
   %20 = load float, ptr %m_pivotInA, align 4
   %21 = load float, ptr %arrayidx5.i.i.i.i27, align 8
   %mul8.i.i.i.i = fmul float %5, %21
@@ -374,7 +374,7 @@ for.body:                                         ; preds = %entry, %for.body
   store float 0.000000e+00, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -635,7 +635,7 @@ for.body:                                         ; preds = %entry, %for.body
   store float %mul65, ptr %arrayidx69, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
   %69 = load i32, ptr %m_flags, align 4
@@ -659,7 +659,7 @@ for.body75:                                       ; preds = %for.cond73.preheade
   store float %.pre, ptr %arrayidx79, align 4
   %inc81 = add nuw nsw i32 %j.197, 1
   %exitcond101.not = icmp eq i32 %inc81, 3
-  br i1 %exitcond101.not, label %if.end, label %for.body75, !llvm.loop !8
+  br i1 %exitcond101.not, label %if.end, label %for.body75, !llvm.loop !14
 
 if.end:                                           ; preds = %for.body75, %for.end
   %m_impulseClamp = getelementptr inbounds i8, ptr %this, i64 380
@@ -694,7 +694,7 @@ if.then89:                                        ; preds = %for.body85
 for.inc99:                                        ; preds = %for.body85, %if.then89
   %inc100 = add nuw nsw i32 %j.298, 1
   %exitcond102.not = icmp eq i32 %inc100, 3
-  br i1 %exitcond102.not, label %for.end101, label %for.body85, !llvm.loop !9
+  br i1 %exitcond102.not, label %for.end101, label %for.body85, !llvm.loop !15
 
 for.end101:                                       ; preds = %for.inc99, %if.end
   %m_damping = getelementptr inbounds i8, ptr %this, i64 376
@@ -858,7 +858,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store float %0, ptr %arrayidx4.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !17
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %for.body.i
   %m_pivotInB = getelementptr inbounds i8, ptr %this, i64 340
@@ -873,7 +873,7 @@ for.body.i3:                                      ; preds = %for.body.i3, %_ZNK9
   store float %1, ptr %arrayidx4.i6, align 4
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 4
-  br i1 %exitcond.not.i8, label %_ZNK9btVector39serializeER18btVector3FloatData.exit9, label %for.body.i3, !llvm.loop !11
+  br i1 %exitcond.not.i8, label %_ZNK9btVector39serializeER18btVector3FloatData.exit9, label %for.body.i3, !llvm.loop !17
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit9: ; preds = %for.body.i3
   ret ptr @.str
@@ -936,10 +936,16 @@ attributes #17 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6, !10}
-!10 = !{!"llvm.loop.unswitch.partial.disable"}
-!11 = distinct !{!11, !6}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"_ZNK11btMatrix3x39transposeEv: %agg.result"}
+!7 = distinct !{!7, !"_ZNK11btMatrix3x39transposeEv"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK11btMatrix3x39transposeEv: %agg.result"}
+!10 = distinct !{!10, !"_ZNK11btMatrix3x39transposeEv"}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12, !16}
+!16 = !{!"llvm.loop.unswitch.partial.disable"}
+!17 = distinct !{!17, !12}

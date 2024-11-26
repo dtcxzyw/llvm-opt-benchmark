@@ -2203,7 +2203,7 @@ call2.i.i.i.i.noexc.i:                            ; preds = %if.end15.i.i.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %48, i64 %rem.i.i.i.i.i.i.i
   %49 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %49, null
-  %.pre.i.i = load ptr, ptr %agg.tmp.i, align 8
+  %.pre.i.i = load ptr, ptr %agg.tmp.i, align 8, !noalias !19
   br i1 %tobool.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %call2.i.i.i.i.noexc.i
@@ -2223,7 +2223,7 @@ for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i
   %54 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre.i.i, %54
   %55 = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %55, label %if.end.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !19
+  br i1 %55, label %if.end.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !22
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
   %__p.012.i.i.i.i.i.i = phi ptr [ %56, %for.cond.i.i.i.i.i.i ], [ %50, %if.end.i.i.i.i.i.i ]
@@ -2236,24 +2236,24 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %57 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %57, %47
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, !llvm.loop !19
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, !llvm.loop !22
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %call2.i.i.i.i.noexc.i
   %58 = phi ptr [ %.pre.i.i, %call2.i.i.i.i.noexc.i ], [ %43, %for.cond.i.i.i.i ], [ %.pre.i.i, %if.end3.i.i.i.i.i.i ], [ %.pre.i.i, %lor.lhs.false.i.i.i.i.i.i ]
   store i64 0, ptr %20, align 8
   store float 1.000000e+00, ptr %20, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  store ptr %58, ptr %ref.tmp7.i.i, align 8, !alias.scope !20
-  store i64 1, ptr %_M_bucket_count.i.i.i.i.i.i.i, align 8, !alias.scope !20
+  call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  store ptr %58, ptr %ref.tmp7.i.i, align 8, !alias.scope !19
+  store i64 1, ptr %_M_bucket_count.i.i.i.i.i.i.i, align 8, !alias.scope !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
-  store ptr %_M_single_bucket.i.i.i.i.i.i.i, ptr %second.i.i.i.i, align 8, !alias.scope !20
+  store ptr %_M_single_bucket.i.i.i.i.i.i.i, ptr %second.i.i.i.i, align 8, !alias.scope !19
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8
-  store i64 0, ptr %_M_next_resize.i.i.i.i.i, align 8, !noalias !20
-  store i64 1, ptr %_M_bucket_count.i.i.i27.i, align 8, !noalias !20
-  store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp8.i.i, align 8, !noalias !20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false), !noalias !20
+  store i64 0, ptr %_M_next_resize.i.i.i.i.i, align 8, !noalias !19
+  store i64 1, ptr %_M_bucket_count.i.i.i27.i, align 8, !noalias !19
+  store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp8.i.i, align 8, !noalias !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false), !noalias !19
   %call.i.i24.i.i = invoke { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_St13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEESaISD_ENSt8__detail10_Select1stESA_S8_NSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJS4_IS3_SC_EEEES4_INSF_14_Node_iteratorISD_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %d_funcToArgs, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp7.i.i)
           to label %invoke.cont10.i.i unwind label %lpad9.i.i
 
@@ -5268,7 +5268,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %21 = load ptr, ptr %add.ptr.i.i9, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %17, %21
   %22 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
-  br i1 %22, label %if.then.i, label %if.end3.i.i, !llvm.loop !19
+  br i1 %22, label %if.then.i, label %if.end3.i.i, !llvm.loop !22
 
 if.end3.i.i:                                      ; preds = %if.end.i.i, %for.cond.i.i
   %__p.012.i.i = phi ptr [ %23, %for.cond.i.i ], [ %16, %if.end.i.i ]
@@ -5281,7 +5281,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %24 = load i64, ptr %add.ptr.i.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %24, %12
   %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i.i, %rem.i.i.i
-  br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end34, !llvm.loop !19
+  br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end34, !llvm.loop !22
 
 if.end34:                                         ; preds = %if.end3.i.i, %lor.lhs.false.i.i, %if.then26, %invoke.cont21
   %call37 = invoke ptr @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_St13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEESaISD_ENSt8__detail10_Select1stESA_S8_NSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSF_10_Hash_nodeISD_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, i64 noundef %call2.i7, ptr noundef nonnull %call5.i.i.i.i, i64 noundef 1)
@@ -5610,7 +5610,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %7 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %.pre, %7
   %8 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
-  br i1 %8, label %return, label %if.end3.i.i, !llvm.loop !19
+  br i1 %8, label %return, label %if.end3.i.i, !llvm.loop !22
 
 if.end3.i.i:                                      ; preds = %if.end.i.i, %for.cond.i.i
   %__p.012.i.i = phi ptr [ %9, %for.cond.i.i ], [ %3, %if.end.i.i ]
@@ -5623,7 +5623,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %10 = load i64, ptr %add.ptr.i.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %10, %0
   %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i.i, %rem.i.i.i
-  br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end, !llvm.loop !19
+  br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end, !llvm.loop !22
 
 if.end:                                           ; preds = %lor.lhs.false.i.i, %if.end3.i.i, %entry
   store ptr %this, ptr %__node5, align 8
@@ -6982,10 +6982,10 @@ attributes #24 = { builtin nounwind }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZSt9make_pairIRN4cvc58internal12NodeTemplateILb0EEESt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_: %agg.result"}
-!22 = distinct !{!22, !"_ZSt9make_pairIRN4cvc58internal12NodeTemplateILb0EEESt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZSt9make_pairIRN4cvc58internal12NodeTemplateILb0EEESt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_: %agg.result"}
+!21 = distinct !{!21, !"_ZSt9make_pairIRN4cvc58internal12NodeTemplateILb0EEESt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_"}
+!22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = !{!25}
 !25 = distinct !{!25, !26, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}

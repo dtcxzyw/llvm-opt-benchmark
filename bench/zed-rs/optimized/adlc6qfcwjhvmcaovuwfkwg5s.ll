@@ -647,7 +647,7 @@ define hidden void @"_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 8, !noalias !4, !noundef !4
+  %5 = load i32, ptr %4, align 8, !alias.scope !152, !noalias !149, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4, !alias.scope !152, !noalias !149, !noundef !4
   %8 = icmp eq i32 %5, 0

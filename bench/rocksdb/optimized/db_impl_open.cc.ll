@@ -27780,7 +27780,7 @@ declare void @_ZN7rocksdb6DBImpl34InstallSuperVersionAndScheduleWorkEPNS_16Colum
 define linkonce_odr void @_ZN7rocksdb19SuperVersionContext5CleanEv(ptr noundef nonnull align 8 dereferenceable(536) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %write_stall_notifications = getelementptr inbounds i8, ptr %this, i64 104
-  %0 = load i64, ptr %write_stall_notifications, align 8
+  %0 = load i64, ptr %write_stall_notifications, align 8, !noalias !136
   %vect_.i.i = getelementptr inbounds i8, ptr %this, i64 504
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 512
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !136
@@ -27839,7 +27839,7 @@ invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i.i.i.
   br label %_ZN7rocksdb10autovectorINS_19SuperVersionContext22WriteStallNotificationELm8EE5clearEv.exit
 
 _ZN7rocksdb10autovectorINS_19SuperVersionContext22WriteStallNotificationELm8EE5clearEv.exit: ; preds = %while.end.i, %invoke.cont.i.i.i
-  %9 = load i64, ptr %this, align 8
+  %9 = load i64, ptr %this, align 8, !noalias !141
   %vect_.i.i13 = getelementptr inbounds i8, ptr %this, i64 80
   %_M_finish.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 88
   %10 = load ptr, ptr %_M_finish.i.i.i14, align 8, !noalias !141

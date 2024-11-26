@@ -6006,7 +6006,7 @@ sw.bb132:                                         ; preds = %tailrecurse
   %enum_def.i186 = getelementptr inbounds i8, ptr %type.tr, i64 16
   %34 = load ptr, ptr %enum_def.i186, align 8, !noalias !60
   %fixed_length.i187 = getelementptr inbounds i8, ptr %type.tr, i64 24
-  %35 = load i16, ptr %fixed_length.i187, align 8
+  %35 = load i16, ptr %fixed_length.i187, align 8, !noalias !60
   store i32 %32, ptr %vec_type133, align 8, !alias.scope !60
   %element.i.i188 = getelementptr inbounds i8, ptr %vec_type133, i64 4
   store i32 0, ptr %element.i.i188, align 4, !alias.scope !60

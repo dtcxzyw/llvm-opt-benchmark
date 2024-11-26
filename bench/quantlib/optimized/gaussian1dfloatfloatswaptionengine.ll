@@ -2778,7 +2778,7 @@ invoke.cont278:                                   ; preds = %invoke.cont270
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ibor1) #28
   %index1 = getelementptr inbounds i8, ptr %this, i64 712
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  %123 = load ptr, ptr %index1, align 8, !tbaa !148, !noalias !27
+  %123 = load ptr, ptr %index1, align 8, !tbaa !148, !noalias !145
   %124 = icmp eq ptr %123, null
   br i1 %124, label %cond.false.i550, label %dynamic_cast.end3.i
 
@@ -2803,7 +2803,7 @@ _ZN5boost20dynamic_pointer_castIN8QuantLib9IborIndexENS1_17InterestRateIndexEEEN
 if.then.i.i.i:                                    ; preds = %cond.true.i
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %126, i64 8
   %127 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !145
-  %.pre4575 = load ptr, ptr %index1, align 8, !tbaa !148, !noalias !27
+  %.pre4575 = load ptr, ptr %index1, align 8, !tbaa !148, !noalias !151
   br label %_ZN5boost20dynamic_pointer_castIN8QuantLib9IborIndexENS1_17InterestRateIndexEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit
 
 cond.false.i550:                                  ; preds = %dynamic_cast.end3.i, %invoke.cont278
@@ -2880,7 +2880,7 @@ _ZN5boost20dynamic_pointer_castIN8QuantLib15SwapSpreadIndexENS1_17InterestRateIn
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ibor2) #28
   %index2 = getelementptr inbounds i8, ptr %this, i64 728
   call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  %141 = load ptr, ptr %index2, align 8, !tbaa !148, !noalias !27
+  %141 = load ptr, ptr %index2, align 8, !tbaa !148, !noalias !159
   %142 = icmp eq ptr %141, null
   br i1 %142, label %cond.false.i577, label %dynamic_cast.end3.i569
 
@@ -2905,7 +2905,7 @@ _ZN5boost20dynamic_pointer_castIN8QuantLib9IborIndexENS1_17InterestRateIndexEEEN
 if.then.i.i.i575:                                 ; preds = %cond.true.i571
   %use_count_.i.i.i.i576 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %145 = atomicrmw add ptr %use_count_.i.i.i.i576, i32 1 monotonic, align 4, !noalias !159
-  %.pre4577 = load ptr, ptr %index2, align 8, !tbaa !148, !noalias !27
+  %.pre4577 = load ptr, ptr %index2, align 8, !tbaa !148, !noalias !162
   br label %_ZN5boost20dynamic_pointer_castIN8QuantLib9IborIndexENS1_17InterestRateIndexEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit578
 
 cond.false.i577:                                  ; preds = %dynamic_cast.end3.i569, %_ZN5boost20dynamic_pointer_castIN8QuantLib15SwapSpreadIndexENS1_17InterestRateIndexEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit

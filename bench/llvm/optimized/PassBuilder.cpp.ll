@@ -47098,7 +47098,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.preheader:              ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit.i.preheader, %395
   %.011.i5416 = phi ptr [ %396, %395 ], [ %389, %_ZN4llvm5ErrorD2Ev.exit.i.preheader ]
   call void @_ZN4llvm11PassBuilder14parseCGSCCPassERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEERKNS0_15PipelineElementE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(40) %.011.i5416)
-  %397 = load ptr, ptr %0, align 8
+  %397 = load ptr, ptr %0, align 8, !alias.scope !1551
   %.not5383 = icmp eq ptr %397, null
   br i1 %.not5383, label %395, label %.critedge
 
@@ -47419,7 +47419,7 @@ _ZL19parseDevirtPassNameN4llvm9StringRefE.exit:   ; preds = %496
 _ZN4llvm5ErrorD2Ev.exit.i1117:                    ; preds = %500, %503
   %.011.i11155412 = phi ptr [ %504, %503 ], [ %501, %500 ]
   call void @_ZN4llvm11PassBuilder14parseCGSCCPassERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEERKNS0_15PipelineElementE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(40) %.011.i11155412)
-  %505 = load ptr, ptr %0, align 8
+  %505 = load ptr, ptr %0, align 8, !alias.scope !1560
   %.not5381 = icmp eq ptr %505, null
   br i1 %.not5381, label %503, label %.critedge1095
 
@@ -57719,7 +57719,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.preheader:              ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit.i.preheader, %392
   %.011.i5685 = phi ptr [ %393, %392 ], [ %386, %_ZN4llvm5ErrorD2Ev.exit.i.preheader ]
   call void @_ZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(40) %.011.i5685)
-  %394 = load ptr, ptr %0, align 8
+  %394 = load ptr, ptr %0, align 8, !alias.scope !2290
   %.not5658 = icmp eq ptr %394, null
   br i1 %.not5658, label %392, label %.critedge
 
@@ -69571,7 +69571,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %78
   %.011.i806 = phi ptr [ %79, %78 ], [ %76, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   call void @_ZN4llvm11PassBuilder13parseLoopPassERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpdaterEEEERKNS0_15PipelineElementE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr noundef nonnull align 8 dereferenceable(120) %20, ptr noundef nonnull align 8 dereferenceable(40) %.011.i806)
-  %80 = load ptr, ptr %0, align 8
+  %80 = load ptr, ptr %0, align 8, !alias.scope !2485
   %.not798 = icmp eq ptr %80, null
   br i1 %.not798, label %78, label %.critedge
 

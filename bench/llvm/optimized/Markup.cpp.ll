@@ -515,9 +515,9 @@ define dso_local void @_ZN4llvm9symbolize12MarkupParser12parseElementENS_9String
   br i1 %40, label %_ZNK4llvm9StringRef5splitEc.exit.thread, label %_ZNK4llvm9StringRef5splitEc.exit
 
 _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %25
-  %41 = load i64, ptr %13, align 8
+  %41 = load i64, ptr %13, align 8, !noalias !12
   %42 = call i64 @llvm.umin.i64(i64 %39, i64 %41)
-  %43 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %8, align 8, !noalias !12
   %44 = add nuw i64 %39, 1
   %.sroa.speculated5.i.i.i = call i64 @llvm.umin.i64(i64 %41, i64 %44)
   %45 = getelementptr inbounds i8, ptr %43, i64 %.sroa.speculated5.i.i.i

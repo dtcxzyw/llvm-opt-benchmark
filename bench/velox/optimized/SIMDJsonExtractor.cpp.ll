@@ -750,7 +750,7 @@ if.end.i76:                                       ; preds = %if.then.i94, %if.en
   %cmp.i251 = icmp eq ptr %13, %add.ptr.i
   tail call void @llvm.assume(i1 %cmp.i251), !noalias !17
   %_depth.i252 = getelementptr inbounds i8, ptr %14, i64 36
-  %15 = load i32, ptr %_depth.i252, align 4
+  %15 = load i32, ptr %_depth.i252, align 4, !noalias !17
   %16 = load i32, ptr %_depth.i, align 8, !noalias !17
   %cmp5.i254 = icmp eq i32 %15, %16
   tail call void @llvm.assume(i1 %cmp5.i254), !noalias !17

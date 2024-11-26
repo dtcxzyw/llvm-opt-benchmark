@@ -475,7 +475,7 @@ _ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10I
 
 102:                                              ; preds = %98
   %103 = getelementptr inbounds i8, ptr %101, i64 12
-  %104 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
+  %104 = load i8, ptr @__libc_single_threaded, align 1, !noalias !16
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %104, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %109, label %.thread
 

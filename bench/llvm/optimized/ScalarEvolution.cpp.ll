@@ -4096,13 +4096,13 @@ define dso_local void @_ZN4llvm15ScalarEvolution21forgetMemoizedResultsENS_8Arra
 .lr.ph.i.i:                                       ; preds = %3, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
   %12 = phi ptr [ %31, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ %7, %3 ]
   %.07.i.i = phi ptr [ %32, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ %1, %3 ]
-  %13 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %8, align 8, !noalias !6
   %14 = load ptr, ptr %.07.i.i, align 8
   %15 = icmp eq ptr %13, %12
   br i1 %15, label %16, label %29
 
 16:                                               ; preds = %.lr.ph.i.i
-  %17 = load i32, ptr %10, align 4
+  %17 = load i32, ptr %10, align 4, !noalias !6
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %12, i64 %18
   %.not24.i.i.i.i = icmp eq i32 %17, 0
@@ -4128,12 +4128,12 @@ define dso_local void @_ZN4llvm15ScalarEvolution21forgetMemoizedResultsENS_8Arra
   %27 = add nuw i32 %17, 1
   store i32 %27, ptr %10, align 4, !noalias !6
   store ptr %14, ptr %19, align 8, !noalias !6
-  %28 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr %4, align 8, !noalias !6
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
 29:                                               ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i.i
   %30 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %14) #28, !noalias !6
-  %.pre.i.i.i = load ptr, ptr %4, align 8
+  %.pre.i.i.i = load ptr, ptr %4, align 8, !noalias !6
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %29, %26
@@ -28027,7 +28027,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   br i1 %43, label %44, label %57
 
 44:                                               ; preds = %33
-  %45 = load i32, ptr %19, align 4
+  %45 = load i32, ptr %19, align 4, !noalias !290
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds ptr, ptr %42, i64 %46
   %.not24.i.i = icmp eq i32 %45, 0
@@ -28053,12 +28053,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %55 = add nuw i32 %45, 1
   store i32 %55, ptr %19, align 4, !noalias !290
   store ptr %38, ptr %47, align 8, !noalias !290
-  %56 = load i32, ptr %19, align 4
+  %56 = load i32, ptr %19, align 4, !noalias !290
   br label %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
 
 57:                                               ; preds = %._crit_edge.i.i, %33
   %58 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef %38) #28, !noalias !290
-  %.pre6.i = load i32, ptr %19, align 4
+  %.pre6.i = load i32, ptr %19, align 4, !noalias !290
   %59 = extractvalue { ptr, i8 } %58, 1
   %60 = trunc i8 %59 to i1
   br label %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
@@ -31649,7 +31649,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !335
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !335
   store ptr %96, ptr %95, align 8, !noalias !335
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #28
@@ -44377,7 +44377,7 @@ _ZN4llvm5APInt17getSignedMaxValueEj.exit:         ; preds = %372, %377
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %_ZN4llvm5APInt17getSignedMaxValueEj.exit
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %51) #28
-  %.pr.i = load i32, ptr %385, align 8
+  %.pr.i = load i32, ptr %385, align 8, !alias.scope !525
   %388 = icmp ult i32 %.pr.i, 65
   br i1 %388, label %_ZNK4llvm5APInt4ashrEj.exit.thread, label %_ZNK4llvm5APInt4ashrEj.exit
 
@@ -76475,7 +76475,7 @@ _ZNK4llvm15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVE.exit: ; preds = %1613
   %1618 = load ptr, ptr %62, align 8
   store ptr %1618, ptr %63, align 8
   store ptr %.0.i157, ptr %1529, align 8
-  %1619 = load ptr, ptr %0, align 8
+  %1619 = load ptr, ptr %0, align 8, !noalias !911
   %1620 = load i32, ptr %1520, align 8, !noalias !911
   %1621 = icmp eq i32 %1620, 0
   br i1 %1621, label %1647, label %1622

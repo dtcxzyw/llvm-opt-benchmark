@@ -5862,7 +5862,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i130:           ; preds = %594
 
 _ZN4llvm5APIntC2Ejmbb.exit.i128:                  ; preds = %594
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %44, i64 noundef 0, i1 noundef zeroext false) #13
-  %.pre.i129 = load i32, ptr %595, align 8
+  %.pre.i129 = load i32, ptr %595, align 8, !alias.scope !201
   %600 = icmp ult i32 %.pre.i129, 65
   %601 = add i32 %50, -1
   %602 = and i32 %601, 63
@@ -5932,7 +5932,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i:              ; preds = %_ZNK4llvm5APInt4ash
   %631 = phi ptr [ %618, %_ZNK4llvm5APInt4ashrERKS0_.exit.thread ], [ %621, %_ZNK4llvm5APInt4ashrERKS0_.exit ]
   %632 = phi ptr [ %616, %_ZNK4llvm5APInt4ashrERKS0_.exit.thread ], [ %619, %_ZNK4llvm5APInt4ashrERKS0_.exit ]
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %47, i64 noundef -1, i1 noundef zeroext true) #13
-  %.pre.i132 = load i32, ptr %631, align 8
+  %.pre.i132 = load i32, ptr %631, align 8, !alias.scope !214
   %633 = icmp ult i32 %.pre.i132, 65
   %634 = add i32 %50, -1
   %635 = and i32 %634, 63
@@ -7339,7 +7339,7 @@ _ZN4llvmanENS_5APIntERKS0_.exit.thread:           ; preds = %_ZN4llvm5APIntC2ERK
   %.sink = phi ptr [ %1, %3 ], [ %5, %_ZN4llvm5APIntC2ERKS0_.exit ]
   %14 = phi i32 [ %10, %3 ], [ %.pr, %_ZN4llvm5APIntC2ERKS0_.exit ]
   %.pre = load i64, ptr %.sink, align 8
-  %15 = load i64, ptr %2, align 8
+  %15 = load i64, ptr %2, align 8, !noalias !244
   %16 = and i64 %.pre, %15
   store i64 %16, ptr %5, align 8, !noalias !244
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11469,7 +11469,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit27:          ; preds = %.thread, %.thread51
 
 190:                                              ; preds = %185
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %11, i64 noundef 0, i1 noundef zeroext false) #13
-  %.pre.i28 = load i32, ptr %187, align 8
+  %.pre.i28 = load i32, ptr %187, align 8, !alias.scope !317
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %190, %189

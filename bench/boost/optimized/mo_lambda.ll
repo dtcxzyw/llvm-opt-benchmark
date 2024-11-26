@@ -417,7 +417,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 .preheader:                                       ; preds = %.noexc
   %7 = ptrtoint ptr %6 to i64
   %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %.val.i146 = load i32, ptr %8, align 8
+  %.val.i146 = load i32, ptr %8, align 8, !noalias !21
   %.not14.i147 = icmp eq i32 %.val.i146, 261
   br i1 %.not14.i147, label %.lr.ph, label %.loopexit
 
@@ -446,7 +446,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %14, ptr %16, align 8, !tbaa !17, !noalias !24
   %17 = ptrtoint ptr %13 to i64
-  %.val.i.pre = load i32, ptr %8, align 8
+  %.val.i.pre = load i32, ptr %8, align 8, !noalias !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !21
   %.not14.i = icmp eq i32 %.val.i.pre, 261
   br i1 %.not14.i, label %.lr.ph, label %.loopexit, !llvm.loop !27

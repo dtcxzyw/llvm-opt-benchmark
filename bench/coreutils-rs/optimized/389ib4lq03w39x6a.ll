@@ -1592,7 +1592,7 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
   %75 = getelementptr inbounds i8, ptr %12, i64 8
   %76 = load ptr, ptr %75, align 8, !alias.scope !266, !noalias !265, !nonnull !13, !noundef !13
   %77 = getelementptr inbounds i8, ptr %12, i64 16
-  %78 = load i64, ptr %77, align 8, !noundef !13
+  %78 = load i64, ptr %77, align 8, !alias.scope !266, !noalias !265, !noundef !13
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !267
   invoke void @_ZN4core5slice4sort10merge_sort17h8ad7b542fb834e75E(ptr noalias noundef nonnull align 8 %76, i64 noundef %78, ptr noalias noundef nonnull align 1 %4)
           to label %.split35.i unwind label %79, !noalias !267

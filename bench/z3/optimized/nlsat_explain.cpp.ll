@@ -11244,7 +11244,7 @@ if.then.i.i288:                                   ; preds = %if.end.i286
 invoke.cont125:                                   ; preds = %if.end.i286, %if.then.i.i288
   store ptr %139, ptr %E, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  %141 = load ptr, ptr %m_manager.i25, align 8
+  %141 = load ptr, ptr %m_manager.i25, align 8, !noalias !75
   %142 = load ptr, ptr %D, align 8, !noalias !75
   %call3.i299 = invoke noundef ptr @_ZN10polynomial7manager3mulEPKNS_10polynomialES3_(ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef %142, ptr noundef %139)
           to label %call3.i.noexc298 unwind label %lpad27.loopexit

@@ -257,7 +257,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit: 
 79:                                               ; preds = %69, %54
   %.sink.i.i.i.i = phi ptr [ %70, %69 ], [ null, %54 ]
   %80 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8QualTypeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %.sink.i.i.i.i), !noalias !4
-  %81 = load i64, ptr %12, align 8
+  %81 = load i64, ptr %12, align 8, !noalias !4
   store i64 %81, ptr %80, align 8, !noalias !4
   %82 = call fastcc noundef zeroext i1 @"_ZZN5clang8SemaSYCL22deepTypeCheckForDeviceENS_14SourceLocationEN4llvm8DenseSetINS_8QualTypeENS2_12DenseMapInfoIS4_vEEEEPNS_9ValueDeclEENK3$_0clES4_PKS8_"(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %81, ptr noundef %48)
   br i1 %82, label %83, label %.preheader

@@ -478,23 +478,23 @@ define hidden void @_ZN32ZRememberedSetContainingIteratorC2EP5ZPage(ptr nocaptur
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds [2 x %class.ZMovableBitMap], ptr %4, i64 0, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8, !noalias !16
-  store ptr %8, ptr %3, align 8, !alias.scope !16
+  %10 = load i64, ptr %9, align 8, !noalias !15
+  store ptr %8, ptr %3, align 8, !alias.scope !15
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %11, align 8, !alias.scope !16
+  store i64 0, ptr %11, align 8, !alias.scope !15
   %12 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %10, ptr %12, align 8, !alias.scope !16
+  store i64 %10, ptr %12, align 8, !alias.scope !15
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %15 = load i64, ptr %9, align 8, !noalias !23
-  store ptr %8, ptr %14, align 8, !alias.scope !23
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  %15 = load i64, ptr %9, align 8, !noalias !22
+  store ptr %8, ptr %14, align 8, !alias.scope !22
   %16 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %16, align 8, !alias.scope !23
+  store i64 0, ptr %16, align 8, !alias.scope !22
   %17 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %15, ptr %17, align 8, !alias.scope !23
+  store i64 %15, ptr %17, align 8, !alias.scope !22
   ret void
 }
 
@@ -547,7 +547,7 @@ define hidden noundef zeroext i1 @_ZN32ZRememberedSetContainingIterator4nextEP24
   %33 = getelementptr inbounds i64, ptr %17, i64 %32
   %34 = load i64, ptr %33, align 8
   %.not37.i.i.i.i.i = icmp eq i64 %34, 0
-  br i1 %.not37.i.i.i.i.i, label %29, label %.loopexit45.i.i.i.i.i, !llvm.loop !24
+  br i1 %.not37.i.i.i.i.i, label %29, label %.loopexit45.i.i.i.i.i, !llvm.loop !23
 
 .loopexit45.i.i.i.i.i:                            ; preds = %31, %23
   %.028.ph.i.i.i.i.i = phi i64 [ %25, %23 ], [ %34, %31 ]
@@ -628,7 +628,7 @@ _ZN6BitMap15ReverseIteratorC2ERKS_mm.exit.i:      ; preds = %.loopexit45.i.i.i.i
   %79 = getelementptr inbounds i64, ptr %63, i64 %78
   %80 = load i64, ptr %79, align 8
   %.not37.i.i.i.i.i21 = icmp eq i64 %80, 0
-  br i1 %.not37.i.i.i.i.i21, label %75, label %.loopexit45.i.i.i.i.i16, !llvm.loop !24
+  br i1 %.not37.i.i.i.i.i21, label %75, label %.loopexit45.i.i.i.i.i16, !llvm.loop !23
 
 .loopexit45.i.i.i.i.i16:                          ; preds = %77, %69
   %.028.ph.i.i.i.i.i17 = phi i64 [ %71, %69 ], [ %80, %77 ]
@@ -692,31 +692,31 @@ _ZN7ZBitMap15ReverseIterator4nextEPm.exit22.thread: ; preds = %75, %.loopexit45.
 define hidden void @_ZN38ZRememberedSetContainingInLiveIteratorC2EP5ZPage(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 104)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %4 = getelementptr inbounds i8, ptr %1, i64 104
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %5 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4, !noalias !15
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  %5 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4, !noalias !30
   %6 = xor i32 %5, 1
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds [2 x %class.ZMovableBitMap], ptr %4, i64 0, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8, !noalias !31
-  store ptr %8, ptr %3, align 8, !alias.scope !31
+  %10 = load i64, ptr %9, align 8, !noalias !30
+  store ptr %8, ptr %3, align 8, !alias.scope !30
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %11, align 8, !alias.scope !31
+  store i64 0, ptr %11, align 8, !alias.scope !30
   %12 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %10, ptr %12, align 8, !alias.scope !31
+  store i64 %10, ptr %12, align 8, !alias.scope !30
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %15 = load i64, ptr %9, align 8, !noalias !38
-  store ptr %8, ptr %14, align 8, !alias.scope !38
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  %15 = load i64, ptr %9, align 8, !noalias !37
+  store ptr %8, ptr %14, align 8, !alias.scope !37
   %16 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %16, align 8, !alias.scope !38
+  store i64 0, ptr %16, align 8, !alias.scope !37
   %17 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %15, ptr %17, align 8, !alias.scope !38
+  store i64 %15, ptr %17, align 8, !alias.scope !37
   %18 = getelementptr inbounds i8, ptr %0, i64 64
   %19 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
@@ -856,7 +856,7 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %34, %37, %44, %64
   %82 = add i64 %81, 1
   store i64 %82, ptr %8, align 8
   %83 = call noundef zeroext i1 @_ZN32ZRememberedSetContainingIterator4nextEP24ZRememberedSetContaining(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3)
-  br i1 %83, label %9, label %.loopexit, !llvm.loop !39
+  br i1 %83, label %9, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %80, %2, %76
   %84 = phi i1 [ true, %76 ], [ false, %2 ], [ false, %80 ]
@@ -1099,7 +1099,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZLiveMap13find_base_bitEm(ptr nounde
   %7 = lshr i64 %5, 6
   %8 = getelementptr inbounds i64, ptr %6, i64 %7
   %9 = load volatile i64, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !39
   %10 = and i64 %5, 63
   %11 = shl nuw i64 1, %10
   %12 = and i64 %11, %9
@@ -1151,7 +1151,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32: ; preds = %20
   %40 = getelementptr inbounds i64, ptr %23, i64 %39
   %41 = load i64, ptr %40, align 8
   %.not37.i.i.i = icmp eq i64 %41, 0
-  br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !24
+  br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !23
 
 .loopexit45.i.i.i:                                ; preds = %38, %30
   %.028.ph.i.i.i = phi i64 [ %32, %30 ], [ %41, %38 ]
@@ -1181,7 +1181,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread: ; preds = %36, %.loopexit
   %52 = lshr i64 %51, 6
   %53 = getelementptr inbounds i64, ptr %6, i64 %52
   %54 = load volatile i64, ptr %53, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !39
   %55 = and i64 %51, 63
   %56 = shl nuw i64 1, %55
   %57 = and i64 %54, %56
@@ -1232,7 +1232,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
   %84 = getelementptr inbounds i64, ptr %67, i64 %83
   %85 = load i64, ptr %84, align 8
   %.not37.i.i.i28 = icmp eq i64 %85, 0
-  br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !24
+  br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !23
 
 .loopexit45.i.i.i23:                              ; preds = %82, %74
   %.028.ph.i.i.i24 = phi i64 [ %76, %74 ], [ %85, %82 ]
@@ -1248,7 +1248,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
 
 _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread: ; preds = %80, %.loopexit45.i.i.i23, %58, %50
   %.not17 = icmp eq i64 %51, 0
-  br i1 %.not17, label %.loopexit, label %50, !llvm.loop !41
+  br i1 %.not17, label %.loopexit, label %50, !llvm.loop !40
 
 .loopexit.split.loop.exit48:                      ; preds = %.loopexit45.i.i.i23
   %91 = and i64 %89, -2
@@ -1372,30 +1372,29 @@ attributes #19 = { noreturn nounwind }
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZN14ZRememberedSet25iterator_reverse_previousEv: argument 0"}
 !14 = distinct !{!14, !"_ZN14ZRememberedSet25iterator_reverse_previousEv"}
-!15 = !{}
-!16 = !{!13, !10}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN5ZPage32remset_reverse_iterator_previousEv: argument 0"}
-!19 = distinct !{!19, !"_ZN5ZPage32remset_reverse_iterator_previousEv"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN14ZRememberedSet25iterator_reverse_previousEv: argument 0"}
-!22 = distinct !{!22, !"_ZN14ZRememberedSet25iterator_reverse_previousEv"}
-!23 = !{!21, !18}
-!24 = distinct !{!24, !7}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN5ZPage32remset_reverse_iterator_previousEv: argument 0"}
-!27 = distinct !{!27, !"_ZN5ZPage32remset_reverse_iterator_previousEv"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN14ZRememberedSet25iterator_reverse_previousEv: argument 0"}
-!30 = distinct !{!30, !"_ZN14ZRememberedSet25iterator_reverse_previousEv"}
-!31 = !{!29, !26}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN5ZPage32remset_reverse_iterator_previousEv: argument 0"}
-!34 = distinct !{!34, !"_ZN5ZPage32remset_reverse_iterator_previousEv"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN14ZRememberedSet25iterator_reverse_previousEv: argument 0"}
-!37 = distinct !{!37, !"_ZN14ZRememberedSet25iterator_reverse_previousEv"}
-!38 = !{!36, !33}
-!39 = distinct !{!39, !7}
-!40 = !{i64 2145392468}
-!41 = distinct !{!41, !7}
+!15 = !{!13, !10}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN5ZPage32remset_reverse_iterator_previousEv: argument 0"}
+!18 = distinct !{!18, !"_ZN5ZPage32remset_reverse_iterator_previousEv"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN14ZRememberedSet25iterator_reverse_previousEv: argument 0"}
+!21 = distinct !{!21, !"_ZN14ZRememberedSet25iterator_reverse_previousEv"}
+!22 = !{!20, !17}
+!23 = distinct !{!23, !7}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN5ZPage32remset_reverse_iterator_previousEv: argument 0"}
+!26 = distinct !{!26, !"_ZN5ZPage32remset_reverse_iterator_previousEv"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN14ZRememberedSet25iterator_reverse_previousEv: argument 0"}
+!29 = distinct !{!29, !"_ZN14ZRememberedSet25iterator_reverse_previousEv"}
+!30 = !{!28, !25}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN5ZPage32remset_reverse_iterator_previousEv: argument 0"}
+!33 = distinct !{!33, !"_ZN5ZPage32remset_reverse_iterator_previousEv"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN14ZRememberedSet25iterator_reverse_previousEv: argument 0"}
+!36 = distinct !{!36, !"_ZN14ZRememberedSet25iterator_reverse_previousEv"}
+!37 = !{!35, !32}
+!38 = distinct !{!38, !7}
+!39 = !{i64 2145392468}
+!40 = distinct !{!40, !7}

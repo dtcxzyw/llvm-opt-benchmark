@@ -241,7 +241,7 @@ entry:
   br i1 %cmp.i.not, label %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %2 = load ptr, ptr %args, align 8, !noalias !4
+  %2 = load ptr, ptr %args, align 8, !noalias !7
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
@@ -318,7 +318,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_7JSErrorEEENS0_6HandleIT_EEONS0_1
   br i1 %cmp.i17, label %land.lhs.true.i19, label %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8CallableEEENS0_6HandleIT_EEj.exit
 
 land.lhs.true.i19:                                ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_7JSErrorEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  %16 = load ptr, ptr %args, align 8, !noalias !4
+  %16 = load ptr, ptr %args, align 8, !noalias !10
   %incdec.ptr.i.i.i20 = getelementptr inbounds i8, ptr %16, i64 -16
   %agg.tmp.sroa.0.0.copyload.i21 = load i64, ptr %incdec.ptr.i.i.i20, align 8
   %cmp.i.i.i22 = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i21, -844424930131969
@@ -1403,7 +1403,7 @@ _ZN6hermes2vm13MutableHandleINS0_7JSErrorEEC2ERNS0_15HandleRootOwnerEPS2_.exit: 
   br i1 %cmp.i.i.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_7JSErrorEEC2ERNS0_15HandleRootOwnerEPS2_.exit
-  %5 = load ptr, ptr %args, align 8, !noalias !5
+  %5 = load ptr, ptr %args, align 8, !noalias !13
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %5, align 8
   br label %if.end
 
@@ -1627,7 +1627,15 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
-!7 = distinct !{!7, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!6 = distinct !{!6, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!9 = distinct !{!9, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!12 = distinct !{!12, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!15 = distinct !{!15, !"_ZNK6hermes2vm10NativeArgs5beginEv"}

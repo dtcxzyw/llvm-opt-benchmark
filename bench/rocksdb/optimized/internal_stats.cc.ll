@@ -8743,9 +8743,9 @@ for.inc124:                                       ; preds = %invoke.cont118.for.
 
 for.end126:                                       ; preds = %for.inc124, %for.cond94.preheader
   %blob_files_.i = getelementptr inbounds i8, ptr %3, i64 2840
-  %78 = load ptr, ptr %blob_files_.i, align 8
+  %78 = load ptr, ptr %blob_files_.i, align 8, !noalias !68
   %_M_finish.i.i = getelementptr inbounds i8, ptr %3, i64 2848
-  %79 = load ptr, ptr %_M_finish.i.i, align 8
+  %79 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !68
   %cmp.i.not12.i = icmp eq ptr %78, %79
   br i1 %cmp.i.not12.i, label %invoke.cont127, label %for.body.i189
 

@@ -11265,7 +11265,7 @@ for.inc.i:                                        ; preds = %.noexc7.i, %lor.lhs
   %idx.ext.i.i.i = zext i32 %70 to i64
   %add.ptr.i.i.i414 = getelementptr inbounds ptr, ptr %71, i64 %idx.ext.i.i.i
   store ptr %64, ptr %add.ptr.i.i.i414, align 8
-  %72 = load ptr, ptr %m_nodes.i.i.i402, align 8
+  %72 = load ptr, ptr %m_nodes.i.i.i402, align 8, !alias.scope !42
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %72, i64 -4
   %73 = load i32, ptr %arrayidx10.i.i.i, align 4
   %inc.i.i.i = add i32 %73, 1

@@ -9956,7 +9956,7 @@ define internal fastcc noundef ptr @expand_report_argument(ptr nocapture noundef
 32:                                               ; preds = %30
   %33 = load i64, ptr @rb_argv0, align 8
   %34 = inttoptr i64 %33 to ptr
-  %35 = load i64, ptr %34, align 8, !noalias !21
+  %35 = load i64, ptr %34, align 8, !noalias !36
   %36 = and i64 %35, 8192
   %.not.i.i.i = icmp eq i64 %36, 0
   %37 = getelementptr inbounds i8, ptr %34, i64 24
@@ -9982,7 +9982,7 @@ RSTRING_END.exit.i:                               ; preds = %38, %32
   %43 = getelementptr i8, ptr %.023.i, i64 -1
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 47
-  br i1 %45, label %46, label %40, !llvm.loop !36
+  br i1 %45, label %46, label %40, !llvm.loop !39
 
 46:                                               ; preds = %42, %40
   store ptr %.023.i, ptr %1, align 8
@@ -10014,7 +10014,7 @@ append_basename.exit:                             ; preds = %50, %57
 59:                                               ; preds = %27
   %60 = load i64, ptr @rb_argv0, align 8
   %61 = inttoptr i64 %60 to ptr
-  %62 = load i64, ptr %61, align 8, !noalias !37
+  %62 = load i64, ptr %61, align 8, !noalias !40
   %63 = and i64 %62, 8192
   %.not.i.i.i74 = icmp eq i64 %63, 0
   %64 = getelementptr inbounds i8, ptr %61, i64 24
@@ -10068,7 +10068,7 @@ RSTRING_PTR.exit.i:                               ; preds = %65, %59
 82:                                               ; preds = %79
   %83 = load i8, ptr %80, align 1
   %84 = icmp eq i8 %83, 47
-  br i1 %84, label %79, label %.backedge.i, !llvm.loop !40
+  br i1 %84, label %79, label %.backedge.i, !llvm.loop !43
 
 .backedge.i:                                      ; preds = %82, %79, %97, %.critedge4.i, %87
   %.040.be.i = phi ptr [ %.242.lcssa.i, %97 ], [ %.242.lcssa.i, %.critedge4.i ], [ %.04060.i, %87 ], [ %80, %79 ], [ %80, %82 ]
@@ -10076,7 +10076,7 @@ RSTRING_PTR.exit.i:                               ; preds = %65, %59
   %85 = icmp ult ptr %.0.be.i, %8
   %86 = icmp ult ptr %.040.be.i, %68
   %or.cond.i = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond.i, label %.lr.ph62.i, label %append_pathname.exit, !llvm.loop !41
+  br i1 %or.cond.i, label %.lr.ph62.i, label %append_pathname.exit, !llvm.loop !44
 
 87:                                               ; preds = %72, %.lr.ph62.i
   %88 = icmp ult ptr %.061.i, %8
@@ -10099,7 +10099,7 @@ RSTRING_PTR.exit.i:                               ; preds = %65, %59
   %94 = icmp ult ptr %92, %8
   %95 = icmp ult ptr %93, %68
   %or.cond48.i = select i1 %94, i1 %95, i1 false
-  br i1 %or.cond48.i, label %.lr.ph.i, label %.critedge4.i, !llvm.loop !42
+  br i1 %or.cond48.i, label %.lr.ph.i, label %.critedge4.i, !llvm.loop !45
 
 .critedge4.i:                                     ; preds = %91, %.lr.ph.i, %.lr.ph.i
   %.242.lcssa.i = phi ptr [ %93, %91 ], [ %.24250.i, %.lr.ph.i ], [ %.24250.i, %.lr.ph.i ]
@@ -10130,7 +10130,7 @@ RSTRING_PTR.exit.i:                               ; preds = %65, %59
   %107 = getelementptr inbounds i8, ptr %106, i64 1256
   %108 = load i64, ptr %107, align 8
   %109 = inttoptr i64 %108 to ptr
-  %110 = load i64, ptr %109, align 8, !noalias !21
+  %110 = load i64, ptr %109, align 8, !noalias !46
   %111 = and i64 %110, 8192
   %.not.i.i.i82 = icmp eq i64 %111, 0
   %112 = getelementptr inbounds i8, ptr %109, i64 24
@@ -10156,7 +10156,7 @@ RSTRING_END.exit.i84:                             ; preds = %113, %105
   %118 = getelementptr i8, ptr %.023.i88, i64 -1
   %119 = load i8, ptr %118, align 1
   %120 = icmp eq i8 %119, 47
-  br i1 %120, label %121, label %115, !llvm.loop !36
+  br i1 %120, label %121, label %115, !llvm.loop !39
 
 121:                                              ; preds = %117, %115
   store ptr %.023.i88, ptr %15, align 8
@@ -10190,7 +10190,7 @@ append_basename.exit89:                           ; preds = %125, %132
   %136 = getelementptr inbounds i8, ptr %135, i64 1256
   %137 = load i64, ptr %136, align 8
   %138 = inttoptr i64 %137 to ptr
-  %139 = load i64, ptr %138, align 8, !noalias !43
+  %139 = load i64, ptr %138, align 8, !noalias !49
   %140 = and i64 %139, 8192
   %.not.i.i.i90 = icmp eq i64 %140, 0
   %141 = getelementptr inbounds i8, ptr %138, i64 24
@@ -10244,7 +10244,7 @@ RSTRING_PTR.exit.i92:                             ; preds = %142, %134
 159:                                              ; preds = %156
   %160 = load i8, ptr %157, align 1
   %161 = icmp eq i8 %160, 47
-  br i1 %161, label %156, label %.backedge.i101, !llvm.loop !40
+  br i1 %161, label %156, label %.backedge.i101, !llvm.loop !43
 
 .backedge.i101:                                   ; preds = %159, %156, %174, %.critedge4.i109, %164
   %.040.be.i102 = phi ptr [ %.242.lcssa.i110, %174 ], [ %.242.lcssa.i110, %.critedge4.i109 ], [ %.04060.i98, %164 ], [ %157, %156 ], [ %157, %159 ]
@@ -10252,7 +10252,7 @@ RSTRING_PTR.exit.i92:                             ; preds = %142, %134
   %162 = icmp ult ptr %.0.be.i103, %8
   %163 = icmp ult ptr %.040.be.i102, %145
   %or.cond.i104 = select i1 %162, i1 %163, i1 false
-  br i1 %or.cond.i104, label %.lr.ph62.i96, label %append_pathname.exit, !llvm.loop !41
+  br i1 %or.cond.i104, label %.lr.ph62.i96, label %append_pathname.exit, !llvm.loop !44
 
 164:                                              ; preds = %149, %.lr.ph62.i96
   %165 = icmp ult ptr %.061.i97, %8
@@ -10275,7 +10275,7 @@ RSTRING_PTR.exit.i92:                             ; preds = %142, %134
   %171 = icmp ult ptr %169, %8
   %172 = icmp ult ptr %170, %145
   %or.cond48.i112 = select i1 %171, i1 %172, i1 false
-  br i1 %or.cond48.i112, label %.lr.ph.i106, label %.critedge4.i109, !llvm.loop !42
+  br i1 %or.cond48.i112, label %.lr.ph.i106, label %.critedge4.i109, !llvm.loop !45
 
 .critedge4.i109:                                  ; preds = %168, %.lr.ph.i106, %.lr.ph.i106
   %.242.lcssa.i110 = phi ptr [ %170, %168 ], [ %.24250.i108, %.lr.ph.i106 ], [ %.24250.i108, %.lr.ph.i106 ]
@@ -10362,7 +10362,7 @@ append_pathname.exit:                             ; preds = %.backedge.i101, %.l
   %.1 = phi i1 [ %.2, %212 ], [ %.2, %210 ], [ true, %195 ], [ true, %184 ], [ true, %append_basename.exit89 ], [ true, %append_basename.exit ], [ false, %24 ], [ true, %RSTRING_PTR.exit.i ], [ true, %RSTRING_PTR.exit.i92 ], [ true, %.lr.ph62.i ], [ true, %.backedge.i ], [ true, %.lr.ph62.i96 ], [ true, %.backedge.i101 ]
   %214 = load i8, ptr %.258, align 1
   %.not72 = icmp eq i8 %214, 0
-  br i1 %.not72, label %215, label %16, !llvm.loop !46
+  br i1 %.not72, label %215, label %16, !llvm.loop !52
 
 215:                                              ; preds = %19, %append_pathname.exit
   %.161 = phi ptr [ %.060, %19 ], [ %.262, %append_pathname.exit ]
@@ -10713,14 +10713,20 @@ attributes #37 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite
 !33 = distinct !{!33, !34, !"rbimpl_rstring_getmem: argument 0"}
 !34 = distinct !{!34, !"rbimpl_rstring_getmem"}
 !35 = distinct !{!35, !14}
-!36 = distinct !{!36, !14}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"rbimpl_rstring_getmem: argument 0"}
-!39 = distinct !{!39, !"rbimpl_rstring_getmem"}
-!40 = distinct !{!40, !14}
-!41 = distinct !{!41, !14}
-!42 = distinct !{!42, !14}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"rbimpl_rstring_getmem: argument 0"}
-!45 = distinct !{!45, !"rbimpl_rstring_getmem"}
-!46 = distinct !{!46, !14}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"rbimpl_rstring_getmem: argument 0"}
+!38 = distinct !{!38, !"rbimpl_rstring_getmem"}
+!39 = distinct !{!39, !14}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"rbimpl_rstring_getmem: argument 0"}
+!42 = distinct !{!42, !"rbimpl_rstring_getmem"}
+!43 = distinct !{!43, !14}
+!44 = distinct !{!44, !14}
+!45 = distinct !{!45, !14}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"rbimpl_rstring_getmem: argument 0"}
+!48 = distinct !{!48, !"rbimpl_rstring_getmem"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"rbimpl_rstring_getmem: argument 0"}
+!51 = distinct !{!51, !"rbimpl_rstring_getmem"}
+!52 = distinct !{!52, !14}

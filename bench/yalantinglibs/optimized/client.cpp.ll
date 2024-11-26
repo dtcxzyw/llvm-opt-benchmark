@@ -8238,13 +8238,13 @@ entry:
   %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !91
   %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = load ptr, ptr %_M_node5.i.i, align 8
+  %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !91
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_finish.i, align 8, !noalias !94
   %_M_first3.i.i2 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %_M_first3.i.i2, align 8, !noalias !94
   %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
-  %5 = load ptr, ptr %_M_node5.i.i6, align 8
+  %5 = load ptr, ptr %_M_node5.i.i6, align 8, !noalias !94
   %__node.035.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp36.i.i = icmp ult ptr %__node.035.i.i, %5
   br i1 %cmp36.i.i, label %for.body.i.i, label %for.end.i.i

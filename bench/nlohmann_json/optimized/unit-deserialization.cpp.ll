@@ -67883,7 +67883,7 @@ if.end:                                           ; preds = %entry
   %primitive_iterator.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_it.i.i, i8 0, i64 16, i1 false), !alias.scope !655
   store i64 -9223372036854775808, ptr %primitive_iterator.i.i.i, align 8, !alias.scope !655
-  %3 = load i8, ptr %this, align 8
+  %3 = load i8, ptr %this, align 8, !noalias !655
   switch i8 %3, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit [
     i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread
     i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread12
@@ -67891,7 +67891,7 @@ if.end:                                           ; preds = %entry
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread: ; preds = %if.end
   %m_value.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %m_value.i.i, align 8
+  %4 = load ptr, ptr %m_value.i.i, align 8, !noalias !655
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %m_it.i.i, align 8, !alias.scope !655
   %m_it56 = getelementptr inbounds i8, ptr %pos, i64 8
@@ -67906,7 +67906,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit.thread12: ; preds = %if.end
   %m_value8.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load ptr, ptr %m_value8.i.i, align 8
+  %6 = load ptr, ptr %m_value8.i.i, align 8, !noalias !655
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !655
   %array_iterator.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16

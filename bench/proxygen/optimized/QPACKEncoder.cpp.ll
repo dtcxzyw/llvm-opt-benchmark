@@ -689,7 +689,7 @@ for.end:                                          ; preds = %_ZN8proxygen15HPACK
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %controlQueue, i64 24
   %18 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !7
   %cachePtr_.i.i.i = getelementptr inbounds i8, ptr %controlQueue, i64 32
-  %19 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !4
+  %19 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !7
   %20 = load ptr, ptr %19, align 8, !noalias !7
   %cmp.not.i.i.i = icmp eq ptr %18, %20
   br i1 %cmp.not.i.i.i, label %invoke.cont19, label %if.then.i.i.i
@@ -1273,7 +1273,7 @@ entry:
   %tailStart_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !19
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %2 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !22
+  %2 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !19
   %3 = load ptr, ptr %2, align 8, !noalias !19
   %cmp.not.i.i.i.i = icmp eq ptr %1, %3
   br i1 %cmp.not.i.i.i.i, label %_ZN8proxygen17HPACKEncodeBuffer7releaseEv.exit, label %if.then.i.i.i.i
@@ -1347,7 +1347,7 @@ if.end24:                                         ; preds = %invoke.cont9, %invo
   %tailStart_.i.i.i.i9 = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %tailStart_.i.i.i.i9, align 8, !noalias !29
   %cachePtr_.i.i.i.i10 = getelementptr inbounds i8, ptr %15, i64 32
-  %17 = load ptr, ptr %cachePtr_.i.i.i.i10, align 8, !noalias !32
+  %17 = load ptr, ptr %cachePtr_.i.i.i.i10, align 8, !noalias !29
   %18 = load ptr, ptr %17, align 8, !noalias !29
   %cmp.not.i.i.i.i11 = icmp eq ptr %16, %18
   br i1 %cmp.not.i.i.i.i11, label %invoke.cont26, label %if.then.i.i.i.i12

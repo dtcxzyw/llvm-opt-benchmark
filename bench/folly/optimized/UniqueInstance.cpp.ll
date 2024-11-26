@@ -827,7 +827,7 @@ call.i.i.i.noexc:                                 ; preds = %_ZN5folly13fbstring
   br label %invoke.cont5.i
 
 invoke.cont5.i:                                   ; preds = %call.i.i.i.noexc, %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, %if.then3.i.i
-  %13 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !24
+  %13 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !24, !noalias !49
   %cmp.i.i12.i = icmp ult i8 %13, 64
   br i1 %cmp.i.i12.i, label %_ZN5folly6detail12_GLOBAL__N_111render_tmplINS0_14UniqueInstance5ValueEEENS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEET_.exit, label %if.end.i.i13.i
 
@@ -850,7 +850,7 @@ if.end.sink.split.i:                              ; preds = %if.else.i, %if.end.
 lpad.i:                                           ; preds = %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i, %if.then3.i.i, %if.then.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  %17 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !24
+  %17 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !24, !noalias !49
   %cmp.i.i15.i = icmp ult i8 %17, 64
   br i1 %cmp.i.i15.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit17.i, label %if.end.i.i16.i
 

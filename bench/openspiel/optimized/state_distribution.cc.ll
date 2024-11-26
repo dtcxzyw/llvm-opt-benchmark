@@ -4813,7 +4813,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %221, %239, %252, %_
           to label %_ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit.i unwind label %.loopexit116.i, !noalias !96
 
 _ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit.i: ; preds = %359, %355
-  %360 = load ptr, ptr %35, align 8
+  %360 = load ptr, ptr %35, align 8, !alias.scope !96
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 24
   %362 = load double, ptr %296, align 8, !noalias !96
   %363 = fcmp ogt double %310, 0.000000e+00
@@ -4933,7 +4933,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS
           to label %_ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit56.i unwind label %.loopexit116.i, !noalias !96
 
 _ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit56.i: ; preds = %416, %412
-  %417 = load ptr, ptr %35, align 8
+  %417 = load ptr, ptr %35, align 8, !alias.scope !96
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 24
   %419 = getelementptr inbounds nuw i8, ptr %417, i64 32
   %420 = load ptr, ptr %419, align 8, !noalias !96
@@ -5456,7 +5456,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit82.i: ; p
 _ZNSt6vectorIdSaIdEE9push_backEOd.exit.i:         ; preds = %463, %._crit_edge.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, %423, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i, %369, %318, %303, %.lr.ph137.i
   %621 = phi ptr [ %462, %463 ], [ %462, %._crit_edge.i ], [ %417, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %417, %423 ], [ %360, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i ], [ %360, %369 ], [ %290, %303 ], [ %290, %318 ], [ %290, %.lr.ph137.i ]
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
-  %622 = load ptr, ptr %36, align 8
+  %622 = load ptr, ptr %36, align 8, !noalias !96
   %623 = getelementptr inbounds nuw i8, ptr %622, i64 8
   %624 = load ptr, ptr %623, align 8, !noalias !96
   %625 = load ptr, ptr %622, align 8, !noalias !96

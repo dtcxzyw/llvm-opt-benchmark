@@ -2629,8 +2629,9 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17hbf12fb1ed550fc41E.llvm.4233002952263615725"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = load ptr, ptr %0, align 8, !nonnull !14, !align !1026, !noundef !14
-  store i8 0, ptr %2, align 1, !noalias !1027
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1026)
+  %2 = load ptr, ptr %0, align 8, !alias.scope !1026, !nonnull !14, !align !1029, !noundef !14
+  store i8 0, ptr %2, align 1, !noalias !1026
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1030)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1033)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4752,7 +4753,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   %90 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1701)
   %91 = getelementptr inbounds i8, ptr %0, i64 184
-  %92 = load ptr, ptr %91, align 8, !nonnull !14, !noundef !14
+  %92 = load ptr, ptr %91, align 8, !alias.scope !1701, !nonnull !14, !noundef !14
   %93 = getelementptr inbounds i8, ptr %0, i64 192
   %94 = load i64, ptr %93, align 8, !alias.scope !1701, !noundef !14
   br label %95
@@ -5178,7 +5179,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6fff9c43db51247eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1810)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !14, !noundef !14
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1810, !nonnull !14, !noundef !14
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1810, !noundef !14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1813)
@@ -5730,7 +5731,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std.
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..command..Command$GT$$GT$17haa30cd7a32a00011E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !14, !noundef !14
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1993, !nonnull !14, !noundef !14
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1993, !noundef !14
   br label %6
@@ -7045,7 +7046,7 @@ define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allo
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf5461f52852276e4E.llvm.4233002952263615725"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #11 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !14, !align !1026, !noundef !14
+  %2 = load ptr, ptr %0, align 8, !nonnull !14, !align !1029, !noundef !14
   store i8 0, ptr %2, align 1
   ret void
 }
@@ -7145,7 +7146,7 @@ define hidden void @"_ZN70_$LT$std..thread..Packet$LT$T$GT$$u20$as$u20$core..ops
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   call void @_ZN3std9panicking3try8do_catch17h1bf2dacbe9e7fd24E.llvm.7250715705572359478(ptr nonnull %3, ptr %17)
-  %18 = load ptr, ptr %3, align 8, !noalias !2285, !nonnull !14, !align !1026
+  %18 = load ptr, ptr %3, align 8, !noalias !2285, !nonnull !14, !align !1029
   %19 = getelementptr inbounds i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !2285, !nonnull !14, !align !15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2285
@@ -10223,10 +10224,10 @@ attributes #27 = { noreturn }
 !1023 = !{!1024}
 !1024 = distinct !{!1024, !1022, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6fda4841f9b552aE.llvm.4233002952263615725: argument 0"}
 !1025 = !{!1018, !1015}
-!1026 = !{i64 1}
-!1027 = !{!1028}
-!1028 = distinct !{!1028, !1029, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf5461f52852276e4E.llvm.4233002952263615725: argument 0"}
-!1029 = distinct !{!1029, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf5461f52852276e4E.llvm.4233002952263615725"}
+!1026 = !{!1027}
+!1027 = distinct !{!1027, !1028, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf5461f52852276e4E.llvm.4233002952263615725: argument 0"}
+!1028 = distinct !{!1028, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf5461f52852276e4E.llvm.4233002952263615725"}
+!1029 = !{i64 1}
 !1030 = !{!1031}
 !1031 = distinct !{!1031, !1032, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h3312ab59ba5e1810E.llvm.4233002952263615725: argument 0"}
 !1032 = distinct !{!1032, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h3312ab59ba5e1810E.llvm.4233002952263615725"}

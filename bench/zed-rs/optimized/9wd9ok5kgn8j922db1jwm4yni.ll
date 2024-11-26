@@ -142,7 +142,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !alias.scope !16, !nonnull !4, !noundef !4
+  %21 = load ptr, ptr %20, align 8, !alias.scope !19, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !alias.scope !19, !noundef !4
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17h37e09e477a428a62E.llvm.382463742301095561"(ptr noalias noundef nonnull align 8 %21, i64 noundef %23) #21
@@ -190,7 +190,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Optio
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !alias.scope !46, !nonnull !4, !noundef !4
+  %6 = load ptr, ptr %5, align 8, !alias.scope !49, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !49, !noundef !4
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17h37e09e477a428a62E.llvm.382463742301095561"(ptr noalias noundef nonnull align 8 %6, i64 noundef %8) #21

@@ -1483,7 +1483,7 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr
   %19 = zext i8 %18 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %20 = load i32, ptr %13, align 8, !alias.scope !19
-  %21 = load i32, ptr %14, align 4
+  %21 = load i32, ptr %14, align 4, !alias.scope !19
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %VP8LoadNewBytes.exit.i
 
@@ -1508,14 +1508,14 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr
 
 33:                                               ; preds = %23
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
-  %.pre.i = load i32, ptr %14, align 4
+  %.pre.i = load i32, ptr %14, align 4, !alias.scope !19
   br label %VP8LoadNewBytes.exit.i
 
 VP8LoadNewBytes.exit.i:                           ; preds = %33, %27, %17
   %34 = phi i32 [ %.pre.i, %33 ], [ %32, %27 ], [ %21, %17 ]
   %35 = mul i32 %20, %19
   %36 = lshr i32 %35, 8
-  %37 = load i64, ptr %0, align 8
+  %37 = load i64, ptr %0, align 8, !alias.scope !19
   %38 = zext i32 %34 to i64
   %39 = lshr i64 %37, %38
   %40 = trunc i64 %39 to i32
@@ -1592,8 +1592,8 @@ VP8GetBitAlt.exit:                                ; preds = %47, %50
 
 77:                                               ; preds = %68
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
-  %.pre.i38 = load i32, ptr %14, align 4
-  %.pre = load i64, ptr %0, align 8
+  %.pre.i38 = load i32, ptr %14, align 4, !alias.scope !26
+  %.pre = load i64, ptr %0, align 8, !alias.scope !26
   br label %VP8LoadNewBytes.exit.i34
 
 VP8LoadNewBytes.exit.i34:                         ; preds = %77, %72, %.preheader
@@ -1680,7 +1680,7 @@ VP8GetBitAlt.exit40:                              ; preds = %91, %94
 
 127:                                              ; preds = %118
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
-  %.pre.i45 = load i32, ptr %14, align 4
+  %.pre.i45 = load i32, ptr %14, align 4, !alias.scope !34
   %.pre65 = load i64, ptr %0, align 8, !alias.scope !34
   br label %VP8LoadNewBytes.exit.i41
 
@@ -1867,7 +1867,7 @@ VP8LoadNewBytes.exit.i:                           ; preds = %33, %27, %17
   %34 = phi i32 [ %.pre.i, %33 ], [ %32, %27 ], [ %21, %17 ]
   %35 = mul i32 %20, %19
   %36 = lshr i32 %35, 8
-  %37 = load i64, ptr %0, align 8
+  %37 = load i64, ptr %0, align 8, !alias.scope !49
   %38 = zext i32 %34 to i64
   %39 = lshr i64 %37, %38
   %40 = trunc i64 %39 to i32
@@ -1936,7 +1936,7 @@ VP8GetBit.exit:                                   ; preds = %41, %47
 72:                                               ; preds = %63
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
   %.pre.i36 = load i32, ptr %14, align 4, !alias.scope !56
-  %.pre = load i64, ptr %0, align 8
+  %.pre = load i64, ptr %0, align 8, !alias.scope !56
   br label %VP8LoadNewBytes.exit.i34
 
 VP8LoadNewBytes.exit.i34:                         ; preds = %72, %67, %.preheader
@@ -2180,7 +2180,7 @@ VP8LoadNewBytes.exit.i:                           ; preds = %23, %17, %2
   %24 = phi i32 [ %.pre.i, %23 ], [ %22, %17 ], [ %9, %2 ]
   %25 = mul i32 %7, %5
   %26 = lshr i32 %25, 8
-  %27 = load i64, ptr %0, align 8
+  %27 = load i64, ptr %0, align 8, !alias.scope !79
   %28 = zext i32 %24 to i64
   %29 = lshr i64 %27, %28
   %30 = trunc i64 %29 to i32
@@ -2242,7 +2242,7 @@ VP8GetBit.exit:                                   ; preds = %31, %37
 61:                                               ; preds = %50
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
   %.pre.i38 = load i32, ptr %8, align 4, !alias.scope !86
-  %.pre = load i64, ptr %0, align 8
+  %.pre = load i64, ptr %0, align 8, !alias.scope !86
   br label %VP8LoadNewBytes.exit.i36
 
 VP8LoadNewBytes.exit.i36:                         ; preds = %61, %56, %46
@@ -2379,7 +2379,7 @@ VP8GetBit.exit45:                                 ; preds = %108, %114
 137:                                              ; preds = %126
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
   %.pre.i48 = load i32, ptr %8, align 4, !alias.scope !100
-  %.pre93 = load i64, ptr %0, align 8
+  %.pre93 = load i64, ptr %0, align 8, !alias.scope !100
   br label %VP8LoadNewBytes.exit.i46
 
 VP8LoadNewBytes.exit.i46:                         ; preds = %137, %132, %122
@@ -2448,7 +2448,7 @@ VP8GetBit.exit50:                                 ; preds = %145, %151
 175:                                              ; preds = %164
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
   %.pre.i53 = load i32, ptr %8, align 4, !alias.scope !107
-  %.pre94 = load i64, ptr %0, align 8
+  %.pre94 = load i64, ptr %0, align 8, !alias.scope !107
   br label %VP8LoadNewBytes.exit.i51
 
 VP8LoadNewBytes.exit.i51:                         ; preds = %175, %170, %160
@@ -2579,7 +2579,7 @@ VP8GetBit.exit60:                                 ; preds = %219, %225
 245:                                              ; preds = %234
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
   %.pre.i63 = load i32, ptr %8, align 4, !alias.scope !121
-  %.pre96 = load i64, ptr %0, align 8
+  %.pre96 = load i64, ptr %0, align 8, !alias.scope !121
   br label %VP8LoadNewBytes.exit.i61
 
 VP8LoadNewBytes.exit.i61:                         ; preds = %245, %240, %233
@@ -2712,7 +2712,7 @@ VP8GetBit.exit70:                                 ; preds = %290, %296
 320:                                              ; preds = %309
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
   %.pre.i73 = load i32, ptr %8, align 4, !alias.scope !135
-  %.pre98 = load i64, ptr %0, align 8
+  %.pre98 = load i64, ptr %0, align 8, !alias.scope !135
   br label %VP8LoadNewBytes.exit.i71
 
 VP8LoadNewBytes.exit.i71:                         ; preds = %320, %315, %305
@@ -2780,7 +2780,7 @@ VP8GetBit.exit75:                                 ; preds = %329, %335
 360:                                              ; preds = %349
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
   %.pre.i78 = load i32, ptr %8, align 4, !alias.scope !142
-  %.pre99 = load i64, ptr %0, align 8
+  %.pre99 = load i64, ptr %0, align 8, !alias.scope !142
   br label %VP8LoadNewBytes.exit.i76
 
 VP8LoadNewBytes.exit.i76:                         ; preds = %360, %355, %VP8GetBit.exit75

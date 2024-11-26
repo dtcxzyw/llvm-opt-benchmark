@@ -2440,8 +2440,8 @@ invoke.cont443:                                   ; preds = %.noexc661, %lor.lhs
   %187 = load ptr, ptr %m, align 8
   %188 = load ptr, ptr %Rxz, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  %189 = load ptr, ptr %m_manager.i58, align 8
-  %190 = load ptr, ptr %Rxy, align 8
+  %189 = load ptr, ptr %m_manager.i58, align 8, !noalias !27
+  %190 = load ptr, ptr %Rxy, align 8, !noalias !27
   %call.i.i670 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %189, i32 noundef 0, i32 noundef 5, ptr noundef %190, ptr noundef %188)
           to label %call.i.i.noexc669 unwind label %lpad189
 

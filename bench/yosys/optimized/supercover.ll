@@ -1776,8 +1776,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit159:             ; preds = %_ZN5Yosys5RTLIL7Sig
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %681 = load ptr, ptr %14, align 8
-  %682 = load ptr, ptr %71, align 8
+  %681 = load ptr, ptr %14, align 8, !noalias !17
+  %682 = load ptr, ptr %71, align 8, !noalias !17
   %683 = icmp eq ptr %681, %682
   br i1 %683, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i, label %684
 
@@ -1813,7 +1813,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %701 = urem i32 %.0.i.i.i.i161, %700
   store i32 %701, ptr %10, align 4, !noalias !17
   %702 = load ptr, ptr %74, align 8, !noalias !17
-  %703 = load ptr, ptr %73, align 8
+  %703 = load ptr, ptr %73, align 8, !noalias !17
   %704 = ptrtoint ptr %702 to i64
   %705 = ptrtoint ptr %703 to i64
   %706 = sub i64 %704, %705

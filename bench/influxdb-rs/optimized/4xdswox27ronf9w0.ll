@@ -4811,7 +4811,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %99 = getelementptr inbounds i8, ptr %90, i64 3618
-  %100 = load i16, ptr %99, align 2, !noalias !7, !noundef !7
+  %100 = load i16, ptr %99, align 2, !noalias !717, !noundef !7
   %101 = icmp ugt i16 %100, 4
   br i1 %101, label %.thread136, label %.lr.ph.preheader
 
@@ -4839,7 +4839,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds i8, ptr %105, i64 3618
-  %113 = load i16, ptr %112, align 2, !noalias !7, !noundef !7
+  %113 = load i16, ptr %112, align 2, !noalias !725, !noundef !7
   %.not.i.i.i = icmp eq i16 %113, 0
   br i1 %.not.i.i.i, label %114, label %128
 
@@ -4884,7 +4884,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   store ptr %.sroa.0.0.i152, ptr %.sink.i.sroa.gep110, align 8, !noalias !717
   store i64 %.sroa.3.0.i151, ptr %.sroa.24.8..sroa_idx27.i.i, align 8, !noalias !717
   %122 = getelementptr inbounds i8, ptr %121, i64 3618
-  %123 = load i16, ptr %122, align 2, !noalias !7, !noundef !7
+  %123 = load i16, ptr %122, align 2, !noalias !717, !noundef !7
   %124 = zext i16 %123 to i64
   %125 = add nuw nsw i64 %103, 1
   %126 = add nuw nsw i64 %125, %124
@@ -4904,7 +4904,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   store i64 %.sroa.3.0.i151, ptr %.sroa.24.8..sroa_idx.i.i, align 8, !noalias !717
   %131 = add nuw nsw i64 %103, 1
   %132 = getelementptr inbounds i8, ptr %130, i64 3618
-  %133 = load i16, ptr %132, align 2, !noalias !7, !noundef !7
+  %133 = load i16, ptr %132, align 2, !noalias !717, !noundef !7
   %134 = zext i16 %133 to i64
   %135 = add nuw nsw i64 %131, %134
   %136 = icmp samesign ult i64 %135, 12
@@ -5046,7 +5046,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
-  %198 = load i16, ptr %145, align 2, !noalias !7, !noundef !7
+  %198 = load i16, ptr %145, align 2, !noalias !717, !noundef !7
   %199 = icmp ugt i16 %198, 4
   br i1 %199, label %.thread136, label %.lr.ph
 

@@ -109,10 +109,11 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit: ; preds = %9, %12, %15
   br i1 %.not, label %32, label %27
 
 27:                                               ; preds = %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !4
   call void @_ZN4llvm18BinaryStreamReader9readBytesERNS_8ArrayRefIhEEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 4) #15
-  %28 = load ptr, ptr %0, align 8
+  %28 = load ptr, ptr %0, align 8, !alias.scope !4
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %.thread, label %31
 

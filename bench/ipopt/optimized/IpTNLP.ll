@@ -4682,7 +4682,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit25:      ; preds = %_ZNK5Ipopt14Compoun
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit25, %52
   %56 = getelementptr inbounds i8, ptr %storemerge.i.i126, i64 208
-  %57 = load ptr, ptr %56, align 8, !noalias !21
+  %57 = load ptr, ptr %56, align 8, !noalias !224
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !noalias !224
   %.not.i.i27 = icmp eq ptr %59, null
@@ -5265,7 +5265,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit25:      ; preds = %_ZNK5Ipopt14Compoun
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit25, %52
   %56 = getelementptr inbounds i8, ptr %storemerge.i.i126, i64 208
-  %57 = load ptr, ptr %56, align 8, !noalias !21
+  %57 = load ptr, ptr %56, align 8, !noalias !247
   %58 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8, !noalias !247
   %.not.i.i27 = icmp eq ptr %59, null

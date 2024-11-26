@@ -3935,7 +3935,7 @@ _ZN4llvm8AsmLexer11getNextCharEv.exit.i:          ; preds = %_ZN4llvm8AsmLexer11
 
 _ZN4llvm8AsmLexer14LexLineCommentEv.exit:         ; preds = %107, %109
   %.sink26.i = phi ptr [ %111, %109 ], [ %108, %107 ]
-  %.sink.i = load ptr, ptr %8, align 8
+  %.sink.i = load ptr, ptr %8, align 8, !noalias !137
   %112 = ptrtoint ptr %.sink26.i to i64
   %113 = ptrtoint ptr %.sink.i to i64
   %114 = sub i64 %112, %113

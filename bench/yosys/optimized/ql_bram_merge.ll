@@ -968,9 +968,9 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit29.i:               ; preds = %207, %204, %202
           to label %210 unwind label %.loopexit
 
 210:                                              ; preds = %208
-  %211 = load ptr, ptr %209, align 8
+  %211 = load ptr, ptr %209, align 8, !noalias !21
   %212 = getelementptr inbounds i8, ptr %209, i64 8
-  %213 = load ptr, ptr %212, align 8
+  %213 = load ptr, ptr %212, align 8, !noalias !21
   %214 = icmp eq ptr %211, %213
   br i1 %214, label %.loopexit.i44.thread, label %216
 
@@ -1004,8 +1004,8 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit29.i:               ; preds = %207, %204, %202
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %235
-  %236 = load ptr, ptr %209, align 8
-  %237 = load ptr, ptr %212, align 8
+  %236 = load ptr, ptr %209, align 8, !noalias !21
+  %237 = load ptr, ptr %212, align 8, !noalias !21
   %238 = icmp eq ptr %236, %237
   br i1 %238, label %._crit_edge.i.i43, label %_ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i.i47
 
@@ -3363,8 +3363,8 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   br i1 %1185, label %_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE6insertERKSt4pairIS3_S4_E.exit.i, label %1187
 
 1187:                                             ; preds = %1186
-  %1188 = load ptr, ptr %601, align 8
-  %1189 = load ptr, ptr %1016, align 8
+  %1188 = load ptr, ptr %601, align 8, !noalias !44
+  %1189 = load ptr, ptr %1016, align 8, !noalias !44
   %1190 = icmp eq ptr %1188, %1189
   br i1 %1190, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.thread.i.i, label %1191
 
@@ -3381,8 +3381,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
   %1196 = lshr exact i64 %1195, 2
   %1197 = trunc i64 %1196 to i32
   %1198 = urem i32 %1192, %1197
-  %1199 = load ptr, ptr %1089, align 8
-  %1200 = load ptr, ptr %1013, align 8
+  %1199 = load ptr, ptr %1089, align 8, !noalias !44
+  %1200 = load ptr, ptr %1013, align 8, !noalias !44
   %1201 = ptrtoint ptr %1199 to i64
   %1202 = ptrtoint ptr %1200 to i64
   %1203 = sub i64 %1201, %1202
@@ -3646,7 +3646,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
   %1327 = phi ptr [ %1188, %1191 ], [ %1314, %.noexc.i ], [ %1314, %1316 ]
   %1328 = sext i32 %.0.i35.i to i64
   %1329 = getelementptr inbounds i32, ptr %1327, i64 %1328
-  %1330 = load i32, ptr %1329, align 4
+  %1330 = load i32, ptr %1329, align 4, !noalias !44
   %1331 = icmp sgt i32 %1330, -1
   br i1 %1331, label %.lr.ph.i.i.i, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i.i
 

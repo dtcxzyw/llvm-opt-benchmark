@@ -699,7 +699,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
 .loopexit81:                                      ; preds = %15, %40
   %.sink.i.i.i.i = phi ptr [ %41, %40 ], [ null, %15 ]
   %52 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !8
-  %53 = load ptr, ptr %4, align 8
+  %53 = load ptr, ptr %4, align 8, !noalias !8
   store ptr %53, ptr %52, align 8, !noalias !8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 48
@@ -2551,7 +2551,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit: ; preds
 71:                                               ; preds = %41, %59
   %.sink.i.i.i.i = phi ptr [ %60, %59 ], [ null, %41 ]
   %72 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7PHINodeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink.i.i.i.i), !noalias !39
-  %73 = load ptr, ptr %6, align 8
+  %73 = load ptr, ptr %6, align 8, !noalias !39
   store ptr %73, ptr %72, align 8, !noalias !39
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
@@ -4227,7 +4227,7 @@ _ZN4llvm8CallBase7arg_endEv.exit44:               ; preds = %_ZNK4llvm8CallBase1
 
 _ZNK4llvm8CallBase25dataOperandHasImpliedAttrEjNS_9Attribute8AttrKindE.exit.i: ; preds = %95
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %102 = load i32, ptr %101, align 8
+  %102 = load i32, ptr %101, align 8, !noalias !56
   %103 = sub i32 %37, %102
   %104 = load i32, ptr %21, align 4, !noalias !56
   %105 = and i32 %104, 134217727

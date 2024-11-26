@@ -863,7 +863,7 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pred
   %.val29.i = load ptr, ptr %57, align 8
   %194 = getelementptr inbounds %"struct.(anonymous namespace)::BlockData", ptr %.val29.i, i64 %193
   %195 = getelementptr inbounds i8, ptr %194, i64 16
-  %.val11.i.i = load i8, ptr %195, align 8
+  %.val11.i.i = load i8, ptr %195, align 8, !noalias !12
   %.not.i.i44 = icmp eq i8 %.val11.i.i, 0
   br i1 %.not.i.i44, label %196, label %197
 

@@ -1664,7 +1664,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i6: 
   %127 = trunc nuw i8 %.0.i.i.i.i8 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
   %128 = load ptr, ptr %50, align 16, !alias.scope !227, !noalias !230, !nonnull !11, !noundef !11
-  %129 = load i64, ptr %39, align 8, !noalias !216, !noundef !11
+  %129 = load i64, ptr %39, align 8, !alias.scope !227, !noalias !230, !noundef !11
   %130 = getelementptr inbounds { ptr, i64, ptr }, ptr %128, i64 %129
   br label %131
 

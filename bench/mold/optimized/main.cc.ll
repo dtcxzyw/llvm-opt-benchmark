@@ -776,7 +776,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i, ptr noundef nonnull align 8 dereferenceable(32) %name.i), !noalias !10
   %_M_string_length.i.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
-  %2 = load i64, ptr %_M_string_length.i.i.i.i1.i, align 8, !noalias !10
+  %2 = load i64, ptr %_M_string_length.i.i.i.i1.i, align 8, !alias.scope !13, !noalias !10
   %cmp.i.i.i2.i = icmp sgt i64 %2, 9223372036854775802
   br i1 %cmp.i.i.i2.i, label %if.then.i.i.i7.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i
 
@@ -786,7 +786,7 @@ if.then.i.i.i7.i:                                 ; preds = %if.then.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i: ; preds = %if.then.i
   %add.i.i.i3.i = add nsw i64 %2, 5
-  %3 = load ptr, ptr %ref.tmp1.i, align 8, !noalias !10
+  %3 = load ptr, ptr %ref.tmp1.i, align 8, !alias.scope !13, !noalias !10
   %4 = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 16
   %cmp.i.i.i.i.i4.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i.i4.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread
@@ -796,7 +796,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i: 
   br i1 %cmp.not.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i16, label %if.end.i.i.i.i.i5.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i
-  %5 = load i64, ptr %4, align 8, !noalias !10
+  %5 = load i64, ptr %4, align 8, !alias.scope !13, !noalias !10
   %cmp.not.i.i.i.i54 = icmp ugt i64 %add.i.i.i3.i, %5
   br i1 %cmp.not.i.i.i.i54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i16, label %if.end.i.i.i.i.i5.i
 
@@ -886,7 +886,7 @@ if.then.i.i9.i:                                   ; preds = %_ZStplIcSt11char_tr
 if.end.i:                                         ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i, ptr noundef nonnull align 8 dereferenceable(32) %name.i), !noalias !10
   %_M_string_length.i.i.i.i11.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 8
-  %10 = load i64, ptr %_M_string_length.i.i.i.i11.i, align 8, !noalias !10
+  %10 = load i64, ptr %_M_string_length.i.i.i.i11.i, align 8, !alias.scope !16, !noalias !10
   %cmp.i.i.i13.i = icmp sgt i64 %10, 9223372036854775802
   br i1 %cmp.i.i.i13.i, label %if.then.i.i.i31.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i14.i
 
@@ -896,7 +896,7 @@ if.then.i.i.i31.i:                                ; preds = %if.end.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i14.i: ; preds = %if.end.i
   %add.i.i.i15.i = add nsw i64 %10, 5
-  %11 = load ptr, ptr %ref.tmp4.i, align 8, !noalias !10
+  %11 = load ptr, ptr %ref.tmp4.i, align 8, !alias.scope !16, !noalias !10
   %12 = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 16
   %cmp.i.i.i.i.i16.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i.i.i16.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i17.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i17.i.thread
@@ -906,7 +906,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i17.i
   br i1 %cmp.not.i.i.i19.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %if.end.i.i.i.i.i25.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i17.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i14.i
-  %13 = load i64, ptr %12, align 8, !noalias !10
+  %13 = load i64, ptr %12, align 8, !alias.scope !16, !noalias !10
   %cmp.not.i.i.i19.i59 = icmp ugt i64 %add.i.i.i15.i, %13
   br i1 %cmp.not.i.i.i19.i59, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %if.end.i.i.i.i.i25.i
 

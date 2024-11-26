@@ -2983,7 +2983,7 @@ _ZNK4LIEF2PE14ResourceDialog9signatureEv.exit:    ; preds = %.noexc113, %173
   %304 = getelementptr inbounds i8, ptr %1, i64 168
   %305 = load ptr, ptr %304, align 8, !noalias !35
   %306 = getelementptr inbounds i8, ptr %1, i64 176
-  %307 = load ptr, ptr %306, align 8, !noalias !36
+  %307 = load ptr, ptr %306, align 8, !noalias !38
   %308 = ptrtoint ptr %307 to i64
   %309 = ptrtoint ptr %305 to i64
   %310 = sub i64 %308, %309
@@ -3183,7 +3183,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WINDOW_STYLE
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -3203,7 +3203,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLESES2_St9_
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -3223,7 +3223,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_STYLESES2_
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -3521,7 +3521,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WIND
   %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !42
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -3593,7 +3593,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WIND
   %.in.i15 = getelementptr inbounds i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !42
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !44
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -3658,7 +3658,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WIND
   %.in.i35 = getelementptr inbounds i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !42
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !44
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -3745,7 +3745,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLES
   %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !43
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !45
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -3817,7 +3817,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLES
   %.in.i15 = getelementptr inbounds i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !43
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !45
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -3882,7 +3882,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLES
   %.in.i35 = getelementptr inbounds i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !43
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !45
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -3957,7 +3957,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_ST
   %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !44
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !46
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -4029,7 +4029,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_ST
   %.in.i15 = getelementptr inbounds i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !44
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !46
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -4094,7 +4094,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_ST
   %.in.i35 = getelementptr inbounds i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !44
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !46
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -4161,7 +4161,7 @@ define linkonce_odr hidden void @_ZN6spdlog6logger3logIPKcEEvNS_5level10level_en
   store i64 %18, ptr %20, align 8
   %21 = load i8, ptr @_ZGVZN6spdlog7details2os9thread_idEvE3tid, align 8
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %._crit_edge.i.i.i.i, !prof !45
+  br i1 %22, label %23, label %._crit_edge.i.i.i.i, !prof !47
 
 ._crit_edge.i.i.i.i:                              ; preds = %14
   %.pre.i.i.i.i = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
@@ -4434,7 +4434,7 @@ _ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i: ; preds = %28, %_ZN3fmt2v9
   store i64 %32, ptr %14, align 8
   %33 = getelementptr inbounds i8, ptr %.019.i, i64 %spec.select.i
   %.not.i = icmp eq ptr %33, %12
-  br i1 %.not.i, label %_ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit, label %15, !llvm.loop !46
+  br i1 %.not.i, label %_ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit, label %15, !llvm.loop !48
 
 _ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit: ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i, %2
   %34 = getelementptr inbounds i8, ptr %0, i64 80
@@ -4493,7 +4493,7 @@ _ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i11: ; preds = %54, %_ZN3fmt2
   store i64 %58, ptr %40, align 8
   %59 = getelementptr inbounds i8, ptr %.019.i6, i64 %spec.select.i8
   %.not.i12 = icmp eq ptr %59, %38
-  br i1 %.not.i12, label %_ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit16, label %41, !llvm.loop !46
+  br i1 %.not.i12, label %_ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit16, label %41, !llvm.loop !48
 
 _ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit16: ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i11, %_ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit
   %60 = load ptr, ptr %5, align 8
@@ -4703,15 +4703,17 @@ attributes #25 = { nounwind willreturn memory(read) }
 !32 = distinct !{!32, !33, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE: argument 0"}
 !33 = distinct !{!33, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE"}
 !34 = distinct !{!34, !5}
-!35 = !{}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorINS_2PE18ResourceDialogItemESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPKS3_S5_EEE3endEv: argument 0"}
-!38 = distinct !{!38, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorINS_2PE18ResourceDialogItemESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPKS3_S5_EEE3endEv"}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorINS_2PE18ResourceDialogItemESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPKS3_S5_EEE5beginEv: argument 0"}
+!37 = distinct !{!37, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorINS_2PE18ResourceDialogItemESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPKS3_S5_EEE5beginEv"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorINS_2PE18ResourceDialogItemESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPKS3_S5_EEE3endEv: argument 0"}
+!40 = distinct !{!40, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorINS_2PE18ResourceDialogItemESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPKS3_S5_EEE3endEv"}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
-!45 = !{!"branch_weights", i32 1, i32 1023}
+!45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
+!47 = !{!"branch_weights", i32 1, i32 1023}
+!48 = distinct !{!48, !5}

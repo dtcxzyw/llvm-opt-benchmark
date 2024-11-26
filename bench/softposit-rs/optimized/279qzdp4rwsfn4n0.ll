@@ -29,11 +29,13 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..
   ret i1 %5
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17ha4771de67d835390E.llvm.6896929094011925488"(ptr noalias nocapture noundef writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
-  %4 = load i32, ptr %1, align 4, !noalias !4, !noundef !4
-  %5 = load i32, ptr %3, align 4, !noalias !4, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  %4 = load i32, ptr %1, align 4, !alias.scope !5, !noalias !8, !noundef !4
+  %5 = load i32, ptr %3, align 4, !alias.scope !8, !noalias !5, !noundef !4
   %6 = icmp slt i32 %4, %5
   %7 = sext i32 %5 to i64
   %8 = sext i32 %4 to i64
@@ -47,11 +49,13 @@ define hidden void @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..ite
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define hidden noundef range(i64 -4294967295, 4294967296) i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h4b62a476302f5ebcE(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
-  %3 = load i32, ptr %0, align 4, !alias.scope !5, !noalias !8, !noundef !4
-  %4 = load i32, ptr %2, align 4, !alias.scope !5, !noalias !8, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  %3 = load i32, ptr %0, align 4, !alias.scope !15, !noalias !18, !noundef !4
+  %4 = load i32, ptr %2, align 4, !alias.scope !20, !noalias !21, !noundef !4
   %5 = icmp slt i32 %3, %4
   %6 = sext i32 %4 to i64
   %7 = sext i32 %3 to i64
@@ -460,17 +464,21 @@ define noundef i64 @_ZN9softposit4pxe17convert22convert_px1bits_to_u6417h5f59905
   ret i64 %.030
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.abs.i8(i8, i1 immarg) #7
+declare i8 @llvm.abs.i8(i8, i1 immarg) #8
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { nofree norecurse nosync nounwind nonlazybind memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}
@@ -481,7 +489,19 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
 !4 = !{}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17ha4771de67d835390E.llvm.6896929094011925488: argument 1"}
-!7 = distinct !{!7, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17ha4771de67d835390E.llvm.6896929094011925488"}
+!6 = distinct !{!6, !7, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i32$GT$2lt17hba0913eb0f623e32E.llvm.6896929094011925488: argument 0"}
+!7 = distinct !{!7, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i32$GT$2lt17hba0913eb0f623e32E.llvm.6896929094011925488"}
 !8 = !{!9}
-!9 = distinct !{!9, !7, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17ha4771de67d835390E.llvm.6896929094011925488: argument 0"}
+!9 = distinct !{!9, !7, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i32$GT$2lt17hba0913eb0f623e32E.llvm.6896929094011925488: argument 1"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i32$GT$2lt17hba0913eb0f623e32E.llvm.6896929094011925488: argument 0"}
+!12 = distinct !{!12, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i32$GT$2lt17hba0913eb0f623e32E.llvm.6896929094011925488"}
+!13 = !{!14}
+!14 = distinct !{!14, !12, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i32$GT$2lt17hba0913eb0f623e32E.llvm.6896929094011925488: argument 1"}
+!15 = !{!11, !16}
+!16 = distinct !{!16, !17, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17ha4771de67d835390E.llvm.6896929094011925488: argument 1"}
+!17 = distinct !{!17, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17ha4771de67d835390E.llvm.6896929094011925488"}
+!18 = !{!14, !19}
+!19 = distinct !{!19, !17, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17ha4771de67d835390E.llvm.6896929094011925488: argument 0"}
+!20 = !{!14, !16}
+!21 = !{!11, !19}

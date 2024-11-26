@@ -184,7 +184,7 @@ if.then23:                                        ; preds = %for.end
   %ref.tmp24.sroa.2.0.insert.shift = shl nuw i64 %ref.tmp24.sroa.2.0.insert.ext, 32
   %ref.tmp24.sroa.0.0.insert.ext = zext i32 %instructionIndex.0143 to i64
   %ref.tmp24.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp24.sroa.2.0.insert.shift, %ref.tmp24.sroa.0.0.insert.ext
-  %this.val5.i = load ptr, ptr %escapes, align 8
+  %this.val5.i = load ptr, ptr %escapes, align 8, !noalias !8
   %this.val6.i = load i32, ptr %4, align 8, !noalias !8
   %cmp.i.i.i22 = icmp eq i32 %this.val6.i, 0
   br i1 %cmp.i.i.i22, label %if.end.i44, label %if.end.i.i.i23
@@ -527,7 +527,7 @@ if.end13.i.i.i90:                                 ; preds = %if.end9.i.i.i86
 if.end.i107:                                      ; preds = %if.then12.i.i.i104, %if.then49
   %cond.sink.i.i.i108 = phi ptr [ %cond.i.i.i106, %if.then12.i.i.i104 ], [ null, %if.then49 ]
   %call.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E20InsertIntoBucketImplIjEEPS9_RKjRKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %auxPrefixes_, ptr noundef nonnull align 4 dereferenceable(4) %prefixLength, ptr noundef nonnull align 4 dereferenceable(4) %prefixLength, ptr noundef %cond.sink.i.i.i108), !noalias !13
-  %41 = load i32, ptr %prefixLength, align 4
+  %41 = load i32, ptr %prefixLength, align 4, !noalias !13
   store i32 %41, ptr %call.i.i, align 4, !noalias !13
   %second.i.i2.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   %escapeOffset.sroa.6.0.insert.ext114 = zext i8 %escapeOffset.sroa.6.1 to i64

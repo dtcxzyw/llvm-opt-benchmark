@@ -2095,7 +2095,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_112MetadataInfoENS_6detail13
   br label %99
 
 99:                                               ; preds = %96, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_112MetadataInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E15LookupBucketForIS5_EEbRKT_RPSB_.exit.i.i.i.i
-  %100 = load ptr, ptr %1, align 8
+  %100 = load ptr, ptr %1, align 8, !noalias !79
   store ptr %100, ptr %.0.i.i13.i.i, align 8, !noalias !79
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %102 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %101) #18

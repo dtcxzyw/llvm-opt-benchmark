@@ -768,7 +768,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8CallBase14doesNotCaptur
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %26 = load i32, ptr %25, align 8
+  %26 = load i32, ptr %25, align 8, !noalias !6
   %27 = sub i32 %1, %26
   %28 = load i32, ptr %4, align 4, !noalias !6
   %29 = and i32 %28, 134217727

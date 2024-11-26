@@ -4167,7 +4167,7 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$getrandom..error..Error$GT
 define hidden void @"_ZN4core3ptr46drop_in_place$LT$event_listener..ListGuard$GT$17h60491c59435b5cb7E.llvm.16910215836284360165"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !714)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !4, !align !5, !noundef !4
+  %3 = load ptr, ptr %2, align 8, !alias.scope !714, !nonnull !4, !align !5, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i64, ptr %4, align 8, !noalias !714, !noundef !4
   %6 = getelementptr inbounds i8, ptr %3, i64 32

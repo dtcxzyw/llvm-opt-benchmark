@@ -54,7 +54,7 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %7 = getelementptr inbounds i8, ptr %0, i64 28276
-  %.promoted.i = load i32, ptr %7, align 4
+  %.promoted.i = load i32, ptr %7, align 4, !noalias !10
   %.not15.i = icmp eq i32 %.promoted.i, 0
   %.sroa.498.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 28272
   br i1 %.not15.i, label %..loopexit_crit_edge, label %.lr.ph.i

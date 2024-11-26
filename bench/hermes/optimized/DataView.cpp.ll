@@ -119,7 +119,7 @@ declare noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(
 define hidden { i32, i64 } @_ZN6hermes2vm27dataViewPrototypeByteLengthEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %1 = load ptr, ptr %args, align 8, !noalias !4
+  %1 = load ptr, ptr %args, align 8, !noalias !7
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_10JSDataViewEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -178,7 +178,7 @@ return:                                           ; preds = %if.end, %if.then
 define hidden { i32, i64 } @_ZN6hermes2vm27dataViewPrototypeByteOffsetEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %1 = load ptr, ptr %args, align 8, !noalias !4
+  %1 = load ptr, ptr %args, align 8, !noalias !10
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_10JSDataViewEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -3822,7 +3822,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %args, align 8
+  %4 = load ptr, ptr %args, align 8, !noalias !13
   %argCount_.i = getelementptr inbounds i8, ptr %args, i64 8
   %5 = load i32, ptr %argCount_.i, align 8
   %cmp.i.not = icmp eq i32 %5, 0
@@ -4271,4 +4271,15 @@ attributes #7 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!6 = distinct !{!6, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!9 = distinct !{!9, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!12 = distinct !{!12, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!15 = distinct !{!15, !"_ZNK6hermes2vm10NativeArgs5beginEv"}

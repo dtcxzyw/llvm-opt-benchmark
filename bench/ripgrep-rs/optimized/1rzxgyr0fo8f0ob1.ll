@@ -276,7 +276,7 @@ define { ptr, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h
 define void @_ZN13grep_searcher11line_buffer10LineBuffer7consume17h1d9f088ff06f557aE(ptr noalias nocapture noundef align 8 dereferenceable(104) %0, i64 noundef %1) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %3 = getelementptr inbounds i8, ptr %0, i64 72
-  %4 = load i64, ptr %3, align 8, !noundef !18
+  %4 = load i64, ptr %3, align 8, !alias.scope !26, !noundef !18
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8, !alias.scope !26, !noundef !18
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -354,10 +354,11 @@ define noundef ptr @_ZN13grep_searcher11line_buffer10LineBuffer15ensure_capacity
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca i64, align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = load i64, ptr %6, align 8, !noundef !18
+  %7 = load i64, ptr %6, align 8, !alias.scope !37, !noundef !18
   %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = load i64, ptr %8, align 8, !noundef !18
+  %9 = load i64, ptr %8, align 8, !alias.scope !37, !noundef !18
   %10 = icmp ugt i64 %7, %9
   br i1 %10, label %11, label %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit
 

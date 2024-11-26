@@ -2875,7 +2875,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %if.then.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 96
-  %9 = load ptr, ptr %ref.tmp15, align 8
+  %9 = load ptr, ptr %ref.tmp15, align 8, !noalias !24
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -3358,7 +3358,7 @@ invoke.cont5:                                     ; preds = %if.then13.i.i33, %i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont5
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 96
-  %10 = load ptr, ptr %ref.tmp3, align 8
+  %10 = load ptr, ptr %ref.tmp3, align 8, !noalias !32
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -3726,7 +3726,7 @@ invoke.cont66:                                    ; preds = %if.else.i.i.i185, %
 
 if.then.i.i.i.i.i223:                             ; preds = %invoke.cont66
   %_M_before_begin.i.i.i.i.i.i.i224 = getelementptr inbounds i8, ptr %59, i64 96
-  %61 = load ptr, ptr %ref.tmp64, align 8
+  %61 = load ptr, ptr %ref.tmp64, align 8, !noalias !46
   br label %for.cond.i.i.i.i.i225
 
 for.cond.i.i.i.i.i225:                            ; preds = %for.body.i.i.i.i.i229, %if.then.i.i.i.i.i223

@@ -4481,7 +4481,7 @@ call.i.i.noexc.i:                                 ; preds = %if.end.i.i
   %groups.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i49.i, i64 8
   store i64 %36, ptr %groups.i.i.i.i, align 8, !noalias !101
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp6.i.i.i), !noalias !70
-  %37 = load ptr, ptr %_M_finish.i.i.i398, align 8
+  %37 = load ptr, ptr %_M_finish.i.i.i398, align 8, !alias.scope !70
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 -8
   %38 = ptrtoint ptr %call.i.i49.i to i64
   store i64 %38, ptr %agg.tmp6.i.i.i, align 8, !noalias !70
@@ -4775,7 +4775,7 @@ call11.i.noexc.i:                                 ; preds = %_ZNK3ue214RoseLiter
   br i1 %cmp12.not.i.i, label %do.end20.i.i, label %invoke.cont14.i
 
 do.end20.i.i:                                     ; preds = %call11.i.noexc.i
-  %79 = load ptr, ptr %_M_finish.i.i.i398, align 8
+  %79 = load ptr, ptr %_M_finish.i.i.i398, align 8, !alias.scope !70
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %79, i64 -8
   %80 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %call.i.i77.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
@@ -5123,7 +5123,7 @@ if.then.i.i.i:                                    ; preds = %lor.rhs.i.i.i, %_ZN
 _ZNKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit.i.i: ; preds = %lor.rhs.i.i.i
   %second.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i.i, i64 36
   %127 = load i32, ptr %second.i.i.i, align 4
-  %128 = load ptr, ptr %_M_finish.i.i.i398, align 8
+  %128 = load ptr, ptr %_M_finish.i.i.i398, align 8, !alias.scope !70
   %add.ptr.i.i.i30.i.i = getelementptr inbounds i8, ptr %128, i64 -8
   %129 = load ptr, ptr %add.ptr.i.i.i30.i.i, align 8
   %call.i.i158.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27

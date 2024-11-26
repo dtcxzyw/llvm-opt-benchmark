@@ -7409,7 +7409,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
 
 43:                                               ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread
   %44 = load ptr, ptr %10, align 8, !noalias !66
-  %45 = load ptr, ptr %8, align 8
+  %45 = load ptr, ptr %8, align 8, !noalias !66
   %46 = icmp eq ptr %44, %45
   br i1 %46, label %47, label %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit
 
@@ -7990,13 +7990,13 @@ _ZN4llvm5APIntaSERKS0_.exit53:                    ; preds = %86, %84, %_ZN4llvm5
   store i32 %123, ptr %95, align 4, !noalias !81
   store ptr %112, ptr %116, align 8, !noalias !81
   %124 = load ptr, ptr %8, align 8, !noalias !81
-  %125 = load i32, ptr %95, align 4
+  %125 = load i32, ptr %95, align 4, !noalias !81
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 126:                                              ; preds = %._crit_edge.i.i, %.lr.ph105
   %127 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef %112) #17, !noalias !81
   %.pre.i = load ptr, ptr %8, align 8, !noalias !81
-  %.pre6.i = load i32, ptr %95, align 4
+  %.pre6.i = load i32, ptr %95, align 4, !noalias !81
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %126, %122

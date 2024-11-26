@@ -204,7 +204,7 @@ entry:
   %seconds = alloca i64, align 8
   %t = alloca %struct.tm, align 8
   %logs_ = getelementptr inbounds i8, ptr %this, i64 2304
-  %0 = load i64, ptr %logs_, align 16
+  %0 = load i64, ptr %logs_, align 16, !noalias !4
   %vect_.i.i = getelementptr inbounds i8, ptr %this, i64 2384
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 2392
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !4

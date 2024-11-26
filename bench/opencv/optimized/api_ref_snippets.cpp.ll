@@ -18086,7 +18086,7 @@ define linkonce_odr hidden void @_ZN2cv6detail10MetaHelperI4IAddSt5tupleIJNS_4GM
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !117
-  %9 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8, !noalias !117
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -19322,7 +19322,7 @@ define linkonce_odr hidden void @_ZN2cv6detail10MetaHelperI9IFilter2DSt5tupleIJN
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !136
-  %9 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8, !noalias !136
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -19931,7 +19931,7 @@ define linkonce_odr hidden void @_ZN2cv6detail10MetaHelperI8IRGB2YUVSt5tupleIJNS
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !145
-  %9 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8, !noalias !145
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11

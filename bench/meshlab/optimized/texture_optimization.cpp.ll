@@ -851,27 +851,27 @@ define noundef i32 @_Z24RotateChartForResamplingSt10shared_ptrI9FaceGroupERKSt3s
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %42, align 8
   %46 = load double, ptr %44, align 8, !noalias !8
-  %47 = load double, ptr %45, align 8, !noalias !11
+  %47 = load double, ptr %45, align 8, !noalias !8
   %48 = fsub double %46, %47
   %49 = getelementptr inbounds i8, ptr %44, i64 8
   %50 = load double, ptr %49, align 8, !noalias !8
   %51 = getelementptr inbounds i8, ptr %45, i64 8
-  %52 = load double, ptr %51, align 8, !noalias !11
+  %52 = load double, ptr %51, align 8, !noalias !8
   %53 = fsub double %50, %52
   %54 = getelementptr inbounds i8, ptr %44, i64 16
   %55 = load double, ptr %54, align 8, !noalias !8
   %56 = getelementptr inbounds i8, ptr %45, i64 16
-  %57 = load double, ptr %56, align 8, !noalias !11
+  %57 = load double, ptr %56, align 8, !noalias !8
   %58 = fsub double %55, %57
   %59 = getelementptr inbounds i8, ptr %30, i64 24
   %60 = load ptr, ptr %59, align 8
-  %61 = load double, ptr %60, align 8, !noalias !12
+  %61 = load double, ptr %60, align 8, !noalias !11
   %62 = fsub double %61, %47
   %63 = getelementptr inbounds i8, ptr %60, i64 8
-  %64 = load double, ptr %63, align 8, !noalias !12
+  %64 = load double, ptr %63, align 8, !noalias !11
   %65 = fsub double %64, %52
   %66 = getelementptr inbounds i8, ptr %60, i64 16
-  %67 = load double, ptr %66, align 8, !noalias !12
+  %67 = load double, ptr %66, align 8, !noalias !11
   %68 = fsub double %67, %57
   %69 = fneg double %65
   %70 = fmul double %58, %69
@@ -902,7 +902,7 @@ define noundef i32 @_Z24RotateChartForResamplingSt10shared_ptrI9FaceGroupERKSt3s
   %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIP8MeshFaceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIP8MeshFaceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZNKSt8_Rb_treeIP8MeshFaceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %86 = icmp eq ptr %.19.i.i.i, %28
@@ -943,7 +943,7 @@ _ZNKSt3setIP8MeshFaceSt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %87, %_ZNKS
 
 108:                                              ; preds = %111
   %109 = icmp eq i32 %96, %113
-  br i1 %109, label %.loopexit129, label %.lr.ph.i.i.i.i, !llvm.loop !16
+  br i1 %109, label %.loopexit129, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
 .lr.ph.i.i.i.i:                                   ; preds = %103, %108
   %.018.i.i.i.i = phi ptr [ %110, %108 ], [ %104, %103 ]
@@ -957,7 +957,7 @@ _ZNKSt3setIP8MeshFaceSt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %87, %_ZNKS
   %114 = sext i32 %113 to i64
   %115 = urem i64 %114, %98
   %.not17.i.i.i.i = icmp eq i64 %115, %99
-  br i1 %.not17.i.i.i.i, label %108, label %.loopexit.i.i, !llvm.loop !16
+  br i1 %.not17.i.i.i.i, label %108, label %.loopexit.i.i, !llvm.loop !15
 
 .loopexit.i.i:                                    ; preds = %111, %.lr.ph.i.i.i.i, %94
   %116 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -1003,7 +1003,7 @@ _ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 
 135:                                              ; preds = %138
   %136 = icmp eq i32 %123, %140
-  br i1 %136, label %.loopexit128, label %.lr.ph.i.i.i.i32, !llvm.loop !17
+  br i1 %136, label %.loopexit128, label %.lr.ph.i.i.i.i32, !llvm.loop !16
 
 .lr.ph.i.i.i.i32:                                 ; preds = %130, %135
   %.018.i.i.i.i33 = phi ptr [ %137, %135 ], [ %131, %130 ]
@@ -1017,7 +1017,7 @@ _ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %141 = sext i32 %140 to i64
   %142 = urem i64 %141, %125
   %.not17.i.i.i.i35 = icmp eq i64 %142, %126
-  br i1 %.not17.i.i.i.i35, label %135, label %.loopexit.i.i36, !llvm.loop !17
+  br i1 %.not17.i.i.i.i35, label %135, label %.loopexit.i.i36, !llvm.loop !16
 
 .loopexit.i.i36:                                  ; preds = %138, %.lr.ph.i.i.i.i32, %.loopexit129
   %143 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -1077,7 +1077,7 @@ _ZNSt10_HashtableIiSt4pairIKiP8MeshFaceESaIS4_ENSt8__detail10_Select1stESt8equal
   br i1 %150, label %._crit_edge.thread, label %151
 
 151:                                              ; preds = %._crit_edge
-  %152 = load ptr, ptr %14, align 8, !nonnull !11, !noundef !11
+  %152 = load ptr, ptr %14, align 8, !nonnull !17, !noundef !17
   br label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %151, %185
@@ -1111,7 +1111,7 @@ _ZNSt10_HashtableIiSt4pairIKiP8MeshFaceESaIS4_ENSt8__detail10_Select1stESt8equal
 
 171:                                              ; preds = %174
   %172 = icmp eq i32 %159, %176
-  br i1 %172, label %.loopexit, label %.lr.ph.i.i.i.i43, !llvm.loop !17
+  br i1 %172, label %.loopexit, label %.lr.ph.i.i.i.i43, !llvm.loop !16
 
 .lr.ph.i.i.i.i43:                                 ; preds = %166, %171
   %.018.i.i.i.i44 = phi ptr [ %173, %171 ], [ %167, %166 ]
@@ -1125,7 +1125,7 @@ _ZNSt10_HashtableIiSt4pairIKiP8MeshFaceESaIS4_ENSt8__detail10_Select1stESt8equal
   %177 = sext i32 %176 to i64
   %178 = urem i64 %177, %161
   %.not17.i.i.i.i46 = icmp eq i64 %178, %162
-  br i1 %.not17.i.i.i.i46, label %171, label %.loopexit.i.i47, !llvm.loop !17
+  br i1 %.not17.i.i.i.i46, label %171, label %.loopexit.i.i47, !llvm.loop !16
 
 .loopexit.i.i47:                                  ; preds = %174, %.lr.ph.i.i.i.i43, %157
   %179 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -1328,7 +1328,7 @@ _ZNKSt3mapIibSt4lessIiESaISt4pairIKibEEE11lower_boundERS3_.exit.i: ; preds = %21
   %.1.in.i.i.i67 = getelementptr inbounds i8, ptr %.012.i.i.i63, i64 %.1.in.v.i.i.i66
   %.1.i.i.i68 = load ptr, ptr %.1.in.i.i.i67, align 8
   %.not.i.i.i69 = icmp eq ptr %.1.i.i.i68, null
-  br i1 %.not.i.i.i69, label %_ZNKSt8_Rb_treeIP8MeshFaceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i70, label %.lr.ph.i.i.i62, !llvm.loop !15
+  br i1 %.not.i.i.i69, label %_ZNKSt8_Rb_treeIP8MeshFaceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i70, label %.lr.ph.i.i.i62, !llvm.loop !14
 
 _ZNKSt8_Rb_treeIP8MeshFaceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i70: ; preds = %.lr.ph.i.i.i62
   %285 = icmp eq ptr %.19.i.i.i65, %253
@@ -3624,13 +3624,13 @@ attributes #26 = { nounwind willreturn memory(read) }
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
 !10 = distinct !{!10, !"_ZNK3vcg6Point3IdEmiERKS1_"}
-!11 = !{}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
-!14 = distinct !{!14, !"_ZNK3vcg6Point3IdEmiERKS1_"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
+!13 = distinct !{!13, !"_ZNK3vcg6Point3IdEmiERKS1_"}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!17 = !{}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}

@@ -5203,13 +5203,13 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
 .critedge:
   %3 = fcmp contract oge <4 x float> %1, zeroinitializer
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = load <4 x i32>, ptr %4, align 16
+  %5 = load <4 x i32>, ptr %4, align 16, !noalias !133
   %6 = xor <4 x i32> %5, splat (i32 -2147483648)
   %.sroa.0841.0.copyload = load <4 x float>, ptr %2, align 16
   %.sroa.028.0.copyload.cast = bitcast <4 x i32> %5 to <4 x float>
   %7 = fcmp contract ogt <4 x float> %.sroa.028.0.copyload.cast, zeroinitializer
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  %9 = load <4 x float>, ptr %8, align 16, !noalias !133
+  %9 = load <4 x float>, ptr %8, align 16, !noalias !136
   %10 = bitcast <4 x i32> %6 to <4 x float>
   %11 = select contract <4 x i1> %7, <4 x float> %10, <4 x float> %9
   store <4 x float> %.sroa.0841.0.copyload, ptr %2, align 16
@@ -5226,10 +5226,10 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
   %20 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %19, <4 x float> %14, <4 x i32> splat (i32 8889890), i32 0, i8 -1)
   %21 = fmul contract <4 x float> %.sroa.0841.0.copyload, %20
   %22 = fmul contract <4 x float> %20, %12
-  %23 = load <4 x float>, ptr %2, align 16, !noalias !136
+  %23 = load <4 x float>, ptr %2, align 16, !noalias !139
   %24 = select contract <4 x i1> %3, <4 x float> %23, <4 x float> %21
   %25 = getelementptr inbounds i8, ptr %2, i64 16
-  %26 = load <4 x float>, ptr %25, align 16, !noalias !136
+  %26 = load <4 x float>, ptr %25, align 16, !noalias !139
   %27 = select contract <4 x i1> %3, <4 x float> %26, <4 x float> %22
   %28 = select contract <4 x i1> %3, <4 x float> %21, <4 x float> %23
   %29 = select contract <4 x i1> %3, <4 x float> %22, <4 x float> %26
@@ -5455,12 +5455,12 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller7rotatorIfEEN5drjit6MatrixIT
   store float %59, ptr %60, align 4
   %61 = add nuw nsw i64 %.03753, 1
   %exitcond.not = icmp eq i64 %61, 4
-  br i1 %exitcond.not, label %62, label %55, !llvm.loop !137
+  br i1 %exitcond.not, label %62, label %55, !llvm.loop !142
 
 62:                                               ; preds = %55
   %63 = add nuw nsw i64 %.054, 1
   %exitcond55.not = icmp eq i64 %63, 4
-  br i1 %exitcond55.not, label %64, label %.preheader, !llvm.loop !138
+  br i1 %exitcond55.not, label %64, label %.preheader, !llvm.loop !143
 
 64:                                               ; preds = %62
   ret void
@@ -5737,8 +5737,13 @@ attributes #26 = { builtin nounwind }
 !131 = distinct !{!131, !132, !"_ZN7mitsuba13PluginManager13create_objectINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEENS_3refIT_EERKNS_10PropertiesE: argument 0"}
 !132 = distinct !{!132, !"_ZN7mitsuba13PluginManager13create_objectINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEENS_3refIT_EERKNS_10PropertiesE"}
 !133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZN5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_7ComplexIS3_EEE7select_INS_4MaskIS3_Lm2EEEEEDaRKT_RKS5_SE_: argument 0"}
-!135 = distinct !{!135, !"_ZN5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_7ComplexIS3_EEE7select_INS_4MaskIS3_Lm2EEEEEDaRKT_RKS5_SE_"}
-!136 = !{}
-!137 = distinct !{!137, !14}
-!138 = distinct !{!138, !14}
+!134 = distinct !{!134, !135, !"_ZN5drjit4conjIN7mitsuba8SpectrumIfLm4EEEEENS_7ComplexIT_EERKS6_: argument 0"}
+!135 = distinct !{!135, !"_ZN5drjit4conjIN7mitsuba8SpectrumIfLm4EEEEENS_7ComplexIT_EERKS6_"}
+!136 = !{!137}
+!137 = distinct !{!137, !138, !"_ZN5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_7ComplexIS3_EEE7select_INS_4MaskIS3_Lm2EEEEEDaRKT_RKS5_SE_: argument 0"}
+!138 = distinct !{!138, !"_ZN5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_7ComplexIS3_EEE7select_INS_4MaskIS3_Lm2EEEEEDaRKT_RKS5_SE_"}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"_ZN5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_7ComplexIS3_EEE7select_INS_4MaskIS3_Lm2EEEEEDaRKT_RKS5_SE_: argument 0"}
+!141 = distinct !{!141, !"_ZN5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_7ComplexIS3_EEE7select_INS_4MaskIS3_Lm2EEEEEDaRKT_RKS5_SE_"}
+!142 = distinct !{!142, !14}
+!143 = distinct !{!143, !14}

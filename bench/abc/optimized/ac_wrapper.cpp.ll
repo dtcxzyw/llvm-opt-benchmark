@@ -9455,7 +9455,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i106: ; preds = %
 
 _ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i107: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i106, %.noexc117
   %.0.i.i.i.i.i.i.i.i.i.i108 = phi ptr [ %423, %.noexc117 ], [ %422, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i106 ]
-  %426 = load ptr, ptr %3, align 8
+  %426 = load ptr, ptr %3, align 8, !noalias !207
   %427 = load ptr, ptr %29, align 8, !noalias !207
   %.not8.i.i.i.i109 = icmp eq ptr %426, %427
   br i1 %.not8.i.i.i.i109, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEES7_NS1_IPmS6_EESt6bit_orIvEET1_T_SD_T0_SC_T2_.exit.i.i.i, label %.lr.ph.i.i.i.i111

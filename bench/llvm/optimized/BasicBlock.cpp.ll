@@ -2112,7 +2112,7 @@ _ZNSt8functionIFbRKN4llvm11InstructionEEEC2ERKS5_.exit46: ; preds = %_ZNSt8funct
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.32..sroa_idx, i8 0, i64 24, i1 false), !noalias !16
   %30 = load ptr, ptr %29, align 8, !noalias !16
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !noalias !16
   %.not.i.i.not.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb1EEESt8functionIFbRKS4_EESt26bidirectional_iterator_tagEC2EOSE_.exit.i, label %33
 
@@ -2128,7 +2128,7 @@ _ZN4llvm20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12nod
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i, i8 0, i64 16, i1 false), !noalias !16
   %37 = load ptr, ptr %36, align 8, !noalias !16
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %39 = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %38, align 8, !noalias !16
   %.not.i.i.not.i.i.i1.i = icmp eq ptr %39, null
   br i1 %.not.i.i.not.i.i.i1.i, label %_ZN4llvm20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb1EEESt8functionIFbRKS4_EESt26bidirectional_iterator_tagEC2EOSE_.exit2.i, label %40
 
@@ -2286,7 +2286,7 @@ _ZNSt8functionIFbRN4llvm11InstructionEEEC2ERKS4_.exit46: ; preds = %_ZNSt8functi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.32..sroa_idx, i8 0, i64 24, i1 false), !noalias !19
   %30 = load ptr, ptr %29, align 8, !noalias !19
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !noalias !19
   %.not.i.i.not.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagEC2EOSD_.exit.i, label %33
 
@@ -2302,7 +2302,7 @@ _ZN4llvm20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12nod
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i, i8 0, i64 16, i1 false), !noalias !19
   %37 = load ptr, ptr %36, align 8, !noalias !19
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %39 = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %38, align 8, !noalias !19
   %.not.i.i.not.i.i.i1.i = icmp eq ptr %39, null
   br i1 %.not.i.i.not.i.i.i1.i, label %_ZN4llvm20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS4_EESt26bidirectional_iterator_tagEC2EOSD_.exit2.i, label %40
 
@@ -3112,13 +3112,13 @@ _ZNK4llvm10BasicBlock18getUniqueSuccessorEv.exit: ; preds = %24, %22
   %38 = add nuw i32 %9, 1
   store i32 %38, ptr %5, align 4, !noalias !40
   store ptr %23, ptr %31, align 8, !noalias !40
-  %39 = load ptr, ptr %1, align 8
+  %39 = load ptr, ptr %1, align 8, !noalias !40
   %40 = load i32, ptr %5, align 4, !noalias !40
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i13
 
 41:                                               ; preds = %._crit_edge.i.i31, %27
   %42 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull %23) #24, !noalias !40
-  %.pre.i10 = load ptr, ptr %1, align 8
+  %.pre.i10 = load ptr, ptr %1, align 8, !noalias !40
   %.pre6.i12 = load i32, ptr %5, align 4, !noalias !40
   %43 = extractvalue { ptr, i8 } %42, 1
   %44 = trunc i8 %43 to i1
@@ -3128,7 +3128,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i13: ; preds = %.lr.ph.i.i28,
   %45 = phi i32 [ %40, %37 ], [ %.pre6.i12, %41 ], [ %9, %.lr.ph.i.i28 ]
   %46 = phi ptr [ %39, %37 ], [ %.pre.i10, %41 ], [ %10, %.lr.ph.i.i28 ]
   %.fca.1.insert.merged.i.i14 = phi i1 [ true, %37 ], [ %44, %41 ], [ false, %.lr.ph.i.i28 ]
-  %47 = load ptr, ptr %3, align 8
+  %47 = load ptr, ptr %3, align 8, !noalias !40
   %48 = load i32, ptr %4, align 8, !noalias !40
   br i1 %.fca.1.insert.merged.i.i14, label %7, label %_ZNK4llvm10BasicBlock28getTerminatingDeoptimizeCallEv.exit, !llvm.loop !44
 

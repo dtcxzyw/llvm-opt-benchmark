@@ -2235,7 +2235,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_12DISubprogramENS_8DenseMapIS4_NS0_13DenseSet
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !46
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !46
   store ptr %96, ptr %95, align 8, !noalias !46
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #23
@@ -11391,7 +11391,7 @@ define hidden void @_ZN4llvm13CodeViewDebug12emitInlineesERKNS_8SmallSetINS_8cod
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 64
-  %9 = load i64, ptr %8, align 8, !noalias !129
+  %9 = load i64, ptr %8, align 8, !noalias !178
   %10 = icmp eq i64 %9, 0
   %spec.select.idx.i = select i1 %10, i64 0, i64 48
   %spec.select.i = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx.i

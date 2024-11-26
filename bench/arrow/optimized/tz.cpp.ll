@@ -2593,7 +2593,7 @@ invoke.cont:                                      ; preds = %invoke.cont46.i.i, 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20.i.i), !noalias !7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp21.i.i), !noalias !7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp44.i.i), !noalias !7
-  %157 = load ptr, ptr %ref.tmp, align 8
+  %157 = load ptr, ptr %ref.tmp, align 8, !alias.scope !7
   %call132.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp129.i) #26, !noalias !7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp129.i) #26, !noalias !7
   call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %subfolders.i) #26, !noalias !7

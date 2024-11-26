@@ -3698,7 +3698,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %0 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !70
   store ptr %0, ptr %ref.tmp2, align 8, !alias.scope !70
-  %bf.load.i.i.i = load i64, ptr %0, align 8
+  %bf.load.i.i.i = load i64, ptr %0, align 8, !noalias !70
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %1 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %1, 1048575
@@ -3721,7 +3721,7 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
   %bf.set23.i.i.i = or i64 %bf.load.i.i.i, 1152920405095219200
   store i64 %bf.set23.i.i.i, ptr %0, align 8, !noalias !70
   tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %0), !noalias !70
-  %bf.load.i.i.i.i.pre = load i64, ptr %0, align 8
+  %bf.load.i.i.i.i.pre = load i64, ptr %0, align 8, !noalias !73
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i, %if.then13.i.i.i

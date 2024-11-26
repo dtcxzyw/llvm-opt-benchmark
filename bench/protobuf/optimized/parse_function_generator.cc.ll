@@ -3045,7 +3045,7 @@ _ZNK6google8protobuf8compiler3cpp15NumToEntryTable6size16Ev.exit: ; preds = %for
 invoke.cont48:                                    ; preds = %_ZNK6google8protobuf8compiler3cpp15NumToEntryTable6size16Ev.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   store ptr %format, ptr %table_scope, align 8, !alias.scope !31
-  %32 = load ptr, ptr %format, align 8
+  %32 = load ptr, ptr %format, align 8, !noalias !31
   %spaces_per_indent.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 88
   %33 = load i64, ptr %spaces_per_indent.i.i.i.i, align 8, !noalias !31
   %indent_.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 104
@@ -3058,7 +3058,7 @@ invoke.cont48:                                    ; preds = %_ZNK6google8protobu
 invoke.cont51:                                    ; preds = %invoke.cont48
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
   store ptr %format, ptr %header_scope, align 8, !alias.scope !34
-  %35 = load ptr, ptr %format, align 8
+  %35 = load ptr, ptr %format, align 8, !noalias !34
   %spaces_per_indent.i.i.i.i81 = getelementptr inbounds i8, ptr %35, i64 88
   %36 = load i64, ptr %spaces_per_indent.i.i.i.i81, align 8, !noalias !34
   %indent_.i.i.i.i82 = getelementptr inbounds i8, ptr %35, i64 104
@@ -3440,7 +3440,7 @@ _ZN6google8protobuf8compiler3cpp9Formatter14ScopedIndenterD2Ev.exit162: ; preds 
 invoke.cont188:                                   ; preds = %_ZN6google8protobuf8compiler3cpp9Formatter14ScopedIndenterD2Ev.exit162
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
   store ptr %format, ptr %field_lookup_scope, align 8, !alias.scope !40
-  %102 = load ptr, ptr %format, align 8
+  %102 = load ptr, ptr %format, align 8, !noalias !40
   %spaces_per_indent.i.i.i.i167 = getelementptr inbounds i8, ptr %102, i64 88
   %103 = load i64, ptr %spaces_per_indent.i.i.i.i167, align 8, !noalias !40
   %indent_.i.i.i.i168 = getelementptr inbounds i8, ptr %102, i64 104
@@ -3691,7 +3691,7 @@ if.else255:                                       ; preds = %_ZN6google8protobuf
 invoke.cont257:                                   ; preds = %if.else255
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   store ptr %format, ptr %aux_scope, align 8, !alias.scope !47
-  %138 = load ptr, ptr %format, align 8
+  %138 = load ptr, ptr %format, align 8, !noalias !47
   %spaces_per_indent.i.i.i.i222 = getelementptr inbounds i8, ptr %138, i64 88
   %139 = load i64, ptr %spaces_per_indent.i.i.i.i222, align 8, !noalias !47
   %indent_.i.i.i.i223 = getelementptr inbounds i8, ptr %138, i64 104
@@ -8638,7 +8638,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE4findIS7_EENSJ_14const_iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %hash) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !noalias !265
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !265
   %shr.i.i.i.i = lshr i64 %hash, 7
@@ -9256,7 +9256,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !281
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !281
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7

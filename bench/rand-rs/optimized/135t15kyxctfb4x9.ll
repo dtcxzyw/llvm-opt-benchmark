@@ -111,7 +111,7 @@ common.resume.i:                                  ; preds = %26
 
 30:                                               ; preds = %16
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = load i64, ptr %31, align 16, !alias.scope !5, !noalias !13, !noundef !4
+  %32 = load i64, ptr %31, align 16, !alias.scope !28, !noalias !29, !noundef !4
   store i64 %32, ptr %6, align 8, !alias.scope !28, !noalias !29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull readonly align 16 dereferenceable(48) %19, i64 48, i1 false), !noalias !33
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !11
@@ -215,7 +215,7 @@ common.resume:                                    ; preds = %15
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %0, i64 56
   %21 = getelementptr inbounds i8, ptr %0, i64 48
-  %22 = load i64, ptr %21, align 16, !noundef !4
+  %22 = load i64, ptr %21, align 16, !alias.scope !37, !noalias !50, !noundef !4
   store i64 %22, ptr %20, align 8, !alias.scope !37, !noalias !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull readonly align 16 dereferenceable(48) %8, i64 48, i1 false), !noalias !54
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !37

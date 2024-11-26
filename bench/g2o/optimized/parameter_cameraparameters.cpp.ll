@@ -139,17 +139,17 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK3g2o16CameraParameters17stereocam_uvu_mapERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.3") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load double, ptr %2, align 8
+  %4 = load double, ptr %2, align 8, !noalias !7
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  %6 = load double, ptr %5, align 8
+  %6 = load double, ptr %5, align 8, !noalias !7
   %7 = fdiv double %4, %6
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load double, ptr %8, align 8, !noalias !7
   %10 = fdiv double %9, %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load double, ptr %11, align 16
+  %12 = load double, ptr %11, align 16, !noalias !12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load double, ptr %13, align 16
+  %14 = load double, ptr %13, align 16, !noalias !12
   %15 = tail call double @llvm.fmuladd.f64(double %7, double %12, double %14)
   %16 = getelementptr inbounds i8, ptr %1, i64 40
   %17 = load double, ptr %16, align 8, !noalias !12

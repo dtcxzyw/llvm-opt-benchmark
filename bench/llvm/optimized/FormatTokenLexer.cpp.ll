@@ -3154,9 +3154,9 @@ define dso_local noundef ptr @_ZN5clang6format16FormatTokenLexer12getNextTokenEv
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !noalias !20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !noalias !20
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %_ZNSt5stackIN5clang6format10LexerStateESt5dequeIS2_SaIS2_EEE3topEv.exit, label %_ZNSt5stackIN5clang6format10LexerStateESt5dequeIS2_SaIS2_EEE3topEv.exit.thread
 

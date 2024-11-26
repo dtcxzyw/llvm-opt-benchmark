@@ -5799,7 +5799,7 @@ _ZN5clang11DeclContext9getParentEv.exit:          ; preds = %_ZNSt5stackIPN5clan
   br i1 %55, label %88, label %56
 
 56:                                               ; preds = %.preheader
-  %57 = load ptr, ptr %22, align 8
+  %57 = load ptr, ptr %22, align 8, !noalias !44
   %58 = icmp eq ptr %53, %57
   br i1 %58, label %62, label %59
 
@@ -6241,7 +6241,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %_ZNSt5stackIPN5clan
   %.sroa.031.sroa.5.063 = phi i64 [ 12884901888, %_ZNSt8optionalIN5clang9api_notes7ContextEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit ], [ %67, %_ZN5clang4Decl14getDeclContextEv.exit ]
   %.sroa.031.sroa.0.0.in62 = phi i64 [ %102, %_ZNSt8optionalIN5clang9api_notes7ContextEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit ], [ %.fca.0.extract, %_ZN5clang4Decl14getDeclContextEv.exit ]
   %.sroa.6.061 = phi i8 [ %spec.select54, %_ZNSt8optionalIN5clang9api_notes7ContextEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit ], [ %.fca.1.extract, %_ZN5clang4Decl14getDeclContextEv.exit ]
-  %72 = load ptr, ptr %21, align 8
+  %72 = load ptr, ptr %21, align 8, !noalias !52
   %73 = icmp eq ptr %71, %72
   br i1 %73, label %77, label %74
 

@@ -2108,7 +2108,7 @@ do.end27:                                         ; preds = %_ZNK2v820FunctionCa
 
 if.then.i.i.i.i:                                  ; preds = %do.end27
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load i8, ptr @__libc_single_threaded, align 1
+  %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.then.i.i.i.i28, label %if.then.i.i.i.i28.thread
 
@@ -2317,7 +2317,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i369
 
 if.then.i.i.i.i50:                                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %_M_use_count.i.i.i.i.i51 = getelementptr inbounds i8, ptr %57, i64 8
-  %58 = load i8, ptr @__libc_single_threaded, align 1
+  %58 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
   %tobool.i.not.i.i.i.i.i52 = icmp eq i8 %58, 0
   br i1 %tobool.i.not.i.i.i.i.i52, label %if.then.i.i.i.i60, label %if.then.i.i.i.i60.thread
 
@@ -5360,13 +5360,13 @@ if.then.i.i:                                      ; preds = %_ZN2v89LocalBaseINS
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 72
-  %8 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !35
+  %8 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !37
   %cmp.i.i.i1.i.i.i = icmp eq ptr %6, %8
   br i1 %cmp.i.i.i1.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt5stackIPN4node18MemoryRetainerNodeESt5dequeIS2_SaIS2_EEE3topEv.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 88
-  %9 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !35
+  %9 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 512
@@ -5437,13 +5437,13 @@ _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
 
 if.end.i.i.i8:                                    ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
   %_M_first3.i.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %tracker, i64 72
-  %21 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i9, align 8, !noalias !34
+  %21 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i9, align 8, !noalias !40
   %cmp.i.i.i1.i.i.i10 = icmp eq ptr %19, %21
   br i1 %cmp.i.i.i1.i.i.i10, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i11, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i11: ; preds = %if.end.i.i.i8
   %_M_node5.i.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %tracker, i64 88
-  %22 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i12, align 8, !noalias !34
+  %22 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i12, align 8, !noalias !40
   %add.ptr.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %22, i64 -8
   %23 = load ptr, ptr %add.ptr.i.i.i.i.i.i13, align 8
   %incdec.ptr.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %23, i64 504
@@ -5669,7 +5669,12 @@ attributes #22 = { nounwind allocsize(1) }
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
 !33 = distinct !{!33, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!34 = !{}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!37 = distinct !{!37, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!36 = distinct !{!36, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!39 = distinct !{!39, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!42 = distinct !{!42, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}

@@ -874,7 +874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: 
           to label %"_ZN7xgboost10collectivelsIZNS0_9TCPSocket4SendENS_10StringViewEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS7_OS6_.exit" unwind label %97
 
 "_ZN7xgboost10collectivelsIZNS0_9TCPSocket4SendENS_10StringViewEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS7_OS6_.exit": ; preds = %77
-  %.pr65 = load ptr, ptr %16, align 8
+  %.pr65 = load ptr, ptr %16, align 8, !noalias !21
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %.not.i.i30 = icmp eq ptr %.pr65, null
   br i1 %.not.i.i30, label %79, label %"_ZN7xgboost10collectivelsIZNS0_9TCPSocket4SendENS_10StringViewEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS7_OS6_.exit.thread"
@@ -1250,7 +1250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: 
           to label %"_ZN7xgboost10collectivelsIZNS0_9TCPSocket4RecvEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSD_OSC_.exit" unwind label %67
 
 "_ZN7xgboost10collectivelsIZNS0_9TCPSocket4RecvEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSD_OSC_.exit": ; preds = %.noexc16
-  %.pr44 = load ptr, ptr %11, align 8
+  %.pr44 = load ptr, ptr %11, align 8, !noalias !50
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %.not.i.i18 = icmp eq ptr %.pr44, null
   br i1 %.not.i.i18, label %52, label %"_ZN7xgboost10collectivelsIZNS0_9TCPSocket4RecvEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSD_OSC_.exit.thread"

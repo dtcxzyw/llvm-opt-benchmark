@@ -2444,8 +2444,9 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$tokio..time..sleep..Sleep$GT
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h2253ef05b1b23304E.llvm.14059260848470938700"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !693, !noundef !4
-  store i8 0, ptr %2, align 1, !noalias !694
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !693)
+  %2 = load ptr, ptr %0, align 8, !alias.scope !693, !nonnull !4, !align !696, !noundef !4
+  store i8 0, ptr %2, align 1, !noalias !693
   tail call void @llvm.experimental.noalias.scope.decl(metadata !697)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !700)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6596,7 +6597,7 @@ define hidden void @"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..dro
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc893bd35b9186721E.llvm.14059260848470938700"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !693, !noundef !4
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !696, !noundef !4
   store i8 0, ptr %2, align 1
   ret void
 }
@@ -6644,7 +6645,7 @@ define hidden void @"_ZN70_$LT$std..thread..Packet$LT$T$GT$$u20$as$u20$core..ops
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   call void @_ZN3std9panicking3try8do_catch17h3f822f4f88f55226E.llvm.14770070883568428368(ptr nonnull %3, ptr %17)
-  %18 = load ptr, ptr %3, align 8, !noalias !2071, !nonnull !4, !align !693
+  %18 = load ptr, ptr %3, align 8, !noalias !2071, !nonnull !4, !align !696
   %19 = getelementptr inbounds i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !2071, !nonnull !4, !align !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2071
@@ -8871,10 +8872,10 @@ attributes #23 = { noreturn }
 !690 = !{!691}
 !691 = distinct !{!691, !689, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb26a22d13eab2efeE.llvm.14059260848470938700: argument 0"}
 !692 = !{!685, !682}
-!693 = !{i64 1}
-!694 = !{!695}
-!695 = distinct !{!695, !696, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc893bd35b9186721E.llvm.14059260848470938700: argument 0"}
-!696 = distinct !{!696, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc893bd35b9186721E.llvm.14059260848470938700"}
+!693 = !{!694}
+!694 = distinct !{!694, !695, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc893bd35b9186721E.llvm.14059260848470938700: argument 0"}
+!695 = distinct !{!695, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc893bd35b9186721E.llvm.14059260848470938700"}
+!696 = !{i64 1}
 !697 = !{!698}
 !698 = distinct !{!698, !699, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h5f0aab28cffce3e5E.llvm.14059260848470938700: argument 0"}
 !699 = distinct !{!699, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h5f0aab28cffce3e5E.llvm.14059260848470938700"}

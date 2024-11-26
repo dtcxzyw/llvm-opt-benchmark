@@ -9879,7 +9879,7 @@ entry:
   %cmp.i.i.i = icmp eq i32 %call2.i.i.i.i, 2
   %spec.select.v.i.i.i = select i1 %cmp.i.i.i, i64 24, i64 16
   %spec.select.i.i.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.v.i.i.i
-  %1 = load ptr, ptr %node, align 8
+  %1 = load ptr, ptr %node, align 8, !noalias !170
   %d_children.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %bf.load.i.i.i = load i32, ptr %d_nchildren.i.i.i, align 4, !noalias !170

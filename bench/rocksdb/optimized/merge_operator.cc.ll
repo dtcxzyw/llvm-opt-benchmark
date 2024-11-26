@@ -943,11 +943,11 @@ entry:
   %temp_slice = alloca %"class.rocksdb::Slice", align 8
   %temp_value = alloca %"class.std::__cxx11::basic_string", align 8
   %_M_start.i = getelementptr inbounds i8, ptr %operand_list, i64 16
-  %0 = load ptr, ptr %_M_start.i, align 8
+  %0 = load ptr, ptr %_M_start.i, align 8, !noalias !16
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %operand_list, i64 24
   %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !16
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %operand_list, i64 40
-  %2 = load ptr, ptr %_M_node5.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !16
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i

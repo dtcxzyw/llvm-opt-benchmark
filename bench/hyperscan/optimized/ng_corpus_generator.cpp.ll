@@ -1831,9 +1831,9 @@ for.body.i:                                       ; preds = %while.body.i, %for.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %vu.i) #26
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vu.i, i8 0, i64 24, i1 false), !alias.scope !22
-  %130 = load ptr, ptr %cProps.i, align 8
+  %130 = load ptr, ptr %cProps.i, align 8, !noalias !22
   %max.i.i = getelementptr i8, ptr %130, i64 16
-  %131 = load i32, ptr %max.i.i, align 4
+  %131 = load i32, ptr %max.i.i, align 4, !noalias !22
   %tobool.not.i.i = icmp eq i32 %131, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -1984,9 +1984,9 @@ for.body.lr.ph.i138.i:                            ; preds = %if.end.i.i
   br label %for.body.i145.i
 
 for.cond.cleanup.i.i:                             ; preds = %invoke.cont11.i.i, %if.end.i.i
-  %142 = load ptr, ptr %cProps.i, align 8
+  %142 = load ptr, ptr %cProps.i, align 8, !noalias !22
   %max14.i.i = getelementptr i8, ptr %142, i64 24
-  %143 = load i32, ptr %max14.i.i, align 4
+  %143 = load i32, ptr %max14.i.i, align 4, !noalias !22
   %tobool15.not.i.i = icmp eq i32 %143, 0
   br i1 %tobool15.not.i.i, label %invoke.cont25.i, label %if.then16.i.i
 
@@ -8049,7 +8049,7 @@ for.body.i:                                       ; preds = %while.body.i, %for.
   store ptr %18, ptr %s.i, align 8, !alias.scope !140
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !alias.scope !140
   store i8 0, ptr %18, align 8, !alias.scope !140
-  %24 = load ptr, ptr %cProps.i, align 8
+  %24 = load ptr, ptr %cProps.i, align 8, !noalias !140
   %max.i.i = getelementptr i8, ptr %24, i64 16
   %25 = load i32, ptr %max.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %25, 0
@@ -8145,7 +8145,7 @@ if.end.i.i:                                       ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.not41.i.i, label %for.cond.cleanup.i.i, label %invoke.cont9.i.i
 
 for.cond.cleanup.i.i:                             ; preds = %if.end17.i.i, %if.end.i.i
-  %37 = load ptr, ptr %cProps.i, align 8
+  %37 = load ptr, ptr %cProps.i, align 8, !noalias !140
   %max20.i.i = getelementptr i8, ptr %37, i64 24
   %38 = load i32, ptr %max20.i.i, align 4
   %tobool21.not.i.i = icmp eq i32 %38, 0

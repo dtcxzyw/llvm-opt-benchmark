@@ -11776,7 +11776,7 @@ _ZNK2cv3Mat5beginIfEENS_17MatConstIterator_IT_EEv.exit: ; preds = %29, %30
           to label %.noexc23 unwind label %.loopexit.split-lp
 
 .noexc23:                                         ; preds = %.noexc22
-  %35 = load ptr, ptr %8, align 8
+  %35 = load ptr, ptr %8, align 8, !alias.scope !351
   %36 = icmp eq ptr %35, null
   %37 = icmp eq i64 %34, 0
   %or.cond.i.i.i = or i1 %37, %36

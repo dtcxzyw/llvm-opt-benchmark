@@ -1847,9 +1847,9 @@ define hidden { ptr, i64 } @"_ZN4ring10arithmetic6bigint7modulus21OwnedModulus$L
 
 .critedge.i:                                      ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !noundef !67
+  %10 = load i64, ptr %9, align 8, !alias.scope !199, !noalias !202, !noundef !67
   %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !noundef !67
+  %12 = load i64, ptr %11, align 8, !alias.scope !202, !noalias !199, !noundef !67
   %13 = icmp eq i64 %10, %12
   br i1 %13, label %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387384687170936.exit.i, label %17
 
@@ -1934,9 +1934,9 @@ define hidden { ptr, i64 } @"_ZN4ring10arithmetic6bigint7modulus21OwnedModulus$L
 
 .critedge.i:                                      ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !noundef !67
+  %10 = load i64, ptr %9, align 8, !alias.scope !214, !noalias !217, !noundef !67
   %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !noundef !67
+  %12 = load i64, ptr %11, align 8, !alias.scope !217, !noalias !214, !noundef !67
   %13 = icmp eq i64 %10, %12
   br i1 %13, label %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387384687170936.exit.i, label %17
 

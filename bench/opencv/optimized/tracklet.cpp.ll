@@ -654,7 +654,7 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit:   ; preds = %2
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 120
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !noalias !25
   %15 = getelementptr inbounds i8, ptr %14, i64 -8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 496
@@ -685,13 +685,13 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit15: ; preds = %_ZNSt5dequeIN2cv5Re
   %36 = load float, ptr %35, align 4
   %37 = fptosi float %36 to i32
   %38 = getelementptr inbounds i8, ptr %0, i64 64
-  %39 = load ptr, ptr %38, align 8, !noalias !26
+  %39 = load ptr, ptr %38, align 8, !noalias !28
   %40 = getelementptr inbounds i8, ptr %0, i64 72
-  %41 = load ptr, ptr %40, align 8, !noalias !26
+  %41 = load ptr, ptr %40, align 8, !noalias !28
   %42 = getelementptr inbounds i8, ptr %0, i64 80
-  %43 = load ptr, ptr %42, align 8, !noalias !26
+  %43 = load ptr, ptr %42, align 8, !noalias !28
   %44 = getelementptr inbounds i8, ptr %0, i64 88
-  %45 = load ptr, ptr %44, align 8, !noalias !26
+  %45 = load ptr, ptr %44, align 8, !noalias !28
   %46 = getelementptr inbounds i8, ptr %0, i64 120
   %47 = icmp ult ptr %45, %19
   br i1 %47, label %.lr.ph.i.i.i.i, label %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5clearEv.exit.i
@@ -711,13 +711,13 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i.i, %_
   store ptr %43, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   store ptr %45, ptr %46, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 144
-  %51 = load ptr, ptr %50, align 8, !noalias !29
+  %51 = load ptr, ptr %50, align 8, !noalias !31
   %52 = getelementptr inbounds i8, ptr %0, i64 152
-  %53 = load ptr, ptr %52, align 8, !noalias !29
+  %53 = load ptr, ptr %52, align 8, !noalias !31
   %54 = getelementptr inbounds i8, ptr %0, i64 160
-  %55 = load ptr, ptr %54, align 8, !noalias !29
+  %55 = load ptr, ptr %54, align 8, !noalias !31
   %56 = getelementptr inbounds i8, ptr %0, i64 168
-  %57 = load ptr, ptr %56, align 8, !noalias !29
+  %57 = load ptr, ptr %56, align 8, !noalias !31
   %58 = getelementptr inbounds i8, ptr %0, i64 200
   %59 = load ptr, ptr %58, align 8
   %60 = icmp ult ptr %57, %59
@@ -905,9 +905,9 @@ define hidden void @_ZN3vas2ot26ShortTermImagelessTracklet15RenewTrajectoryERKN2
   %4 = load float, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = getelementptr inbounds i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !noalias !25
+  %7 = load ptr, ptr %6, align 8, !noalias !34
   %8 = getelementptr inbounds i8, ptr %0, i64 104
-  %9 = load ptr, ptr %8, align 8, !noalias !25
+  %9 = load ptr, ptr %8, align 8, !noalias !34
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %12, label %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit
 
@@ -919,7 +919,7 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit:   ; preds = %2
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 120
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !noalias !34
   %15 = getelementptr inbounds i8, ptr %14, i64 -8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 496
@@ -950,13 +950,13 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit15: ; preds = %_ZNSt5dequeIN2cv5Re
   %36 = load float, ptr %35, align 4
   %37 = fptosi float %36 to i32
   %38 = getelementptr inbounds i8, ptr %0, i64 64
-  %39 = load ptr, ptr %38, align 8, !noalias !32
+  %39 = load ptr, ptr %38, align 8, !noalias !37
   %40 = getelementptr inbounds i8, ptr %0, i64 72
-  %41 = load ptr, ptr %40, align 8, !noalias !32
+  %41 = load ptr, ptr %40, align 8, !noalias !37
   %42 = getelementptr inbounds i8, ptr %0, i64 80
-  %43 = load ptr, ptr %42, align 8, !noalias !32
+  %43 = load ptr, ptr %42, align 8, !noalias !37
   %44 = getelementptr inbounds i8, ptr %0, i64 88
-  %45 = load ptr, ptr %44, align 8, !noalias !32
+  %45 = load ptr, ptr %44, align 8, !noalias !37
   %46 = getelementptr inbounds i8, ptr %0, i64 120
   %47 = icmp ult ptr %45, %19
   br i1 %47, label %.lr.ph.i.i.i.i, label %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5clearEv.exit.i
@@ -976,13 +976,13 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i.i, %_
   store ptr %43, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   store ptr %45, ptr %46, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 144
-  %51 = load ptr, ptr %50, align 8, !noalias !35
+  %51 = load ptr, ptr %50, align 8, !noalias !40
   %52 = getelementptr inbounds i8, ptr %0, i64 152
-  %53 = load ptr, ptr %52, align 8, !noalias !35
+  %53 = load ptr, ptr %52, align 8, !noalias !40
   %54 = getelementptr inbounds i8, ptr %0, i64 160
-  %55 = load ptr, ptr %54, align 8, !noalias !35
+  %55 = load ptr, ptr %54, align 8, !noalias !40
   %56 = getelementptr inbounds i8, ptr %0, i64 168
-  %57 = load ptr, ptr %56, align 8, !noalias !35
+  %57 = load ptr, ptr %56, align 8, !noalias !40
   %58 = getelementptr inbounds i8, ptr %0, i64 200
   %59 = load ptr, ptr %58, align 8
   %60 = icmp ult ptr %57, %59
@@ -1109,7 +1109,7 @@ _ZNSt11_Deque_baseIN2cv5Rect_IfEESaIS2_EE16_M_allocate_nodeEv.exit.i: ; preds = 
   store ptr %12, ptr %.011.i, align 8
   %13 = getelementptr inbounds i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN2cv5Rect_IfEESaIS2_EE15_M_create_nodesEPPS2_S6_.exit, !llvm.loop !38
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN2cv5Rect_IfEESaIS2_EE15_M_create_nodesEPPS2_S6_.exit, !llvm.loop !43
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -1478,17 +1478,22 @@ attributes #19 = { noreturn nounwind }
 !22 = !{!23}
 !23 = distinct !{!23, !24, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv: argument 0"}
 !24 = distinct !{!24, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv"}
-!25 = !{}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv: argument 0"}
-!28 = distinct !{!28, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv: argument 0"}
-!31 = distinct !{!31, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv: argument 0"}
-!34 = distinct !{!34, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv: argument 0"}
-!37 = distinct !{!37, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv"}
-!38 = distinct !{!38, !5}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE3endEv: argument 0"}
+!27 = distinct !{!27, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE3endEv"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv: argument 0"}
+!30 = distinct !{!30, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv: argument 0"}
+!33 = distinct !{!33, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE3endEv: argument 0"}
+!36 = distinct !{!36, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE3endEv"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv: argument 0"}
+!39 = distinct !{!39, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv: argument 0"}
+!42 = distinct !{!42, !"_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE5beginEv"}
+!43 = distinct !{!43, !5}

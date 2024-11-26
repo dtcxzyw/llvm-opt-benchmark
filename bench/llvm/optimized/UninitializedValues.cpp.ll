@@ -1170,7 +1170,7 @@ define internal fastcc void @_ZNK5clang3CFG15VisitBlockStmtsIN12_GLOBAL__N_112Cl
   %235 = trunc i64 %.0.copyload.i.i.i.i.i.i to i32
   %236 = shl i32 %235, 2
   %237 = and i32 %236, 12
-  %.0.copyload.i.i.i3.i.i.i = load i64, ptr %233, align 8
+  %.0.copyload.i.i.i3.i.i.i = load i64, ptr %233, align 8, !noalias !25
   %238 = trunc i64 %.0.copyload.i.i.i3.i.i.i to i32
   %239 = and i32 %238, 3
   %240 = add nuw nsw i32 %239, -6
@@ -6699,7 +6699,7 @@ _ZN12_GLOBAL__N_114CFGBlockValues16mergeIntoScratchERKN4llvm12PackedVectorI5Valu
   %71 = trunc i64 %.0.copyload.i.i.i.i.i.i to i32
   %72 = shl i32 %71, 2
   %73 = and i32 %72, 12
-  %.0.copyload.i.i.i3.i.i.i = load i64, ptr %69, align 8
+  %.0.copyload.i.i.i3.i.i.i = load i64, ptr %69, align 8, !noalias !45
   %74 = trunc i64 %.0.copyload.i.i.i3.i.i.i to i32
   %75 = and i32 %74, 3
   %76 = add nuw nsw i32 %75, -6

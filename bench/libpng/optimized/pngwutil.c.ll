@@ -4544,7 +4544,7 @@ png_setup_sub_row_only.exit:                      ; preds = %.lr.ph12.i, %.prehe
 76:                                               ; preds = %png_setup_sub_row_only.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %77 = getelementptr inbounds i8, ptr %0, i64 560
-  %78 = load ptr, ptr %77, align 8
+  %78 = load ptr, ptr %77, align 8, !alias.scope !116
   store i8 2, ptr %78, align 1, !noalias !116
   %.not.i134 = icmp eq i64 %7, 0
   br i1 %.not.i134, label %png_setup_paeth_row_only.exit, label %.lr.ph.preheader.i
@@ -4578,7 +4578,7 @@ png_setup_sub_row_only.exit:                      ; preds = %.lr.ph12.i, %.prehe
 86:                                               ; preds = %84
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %87 = getelementptr inbounds i8, ptr %0, i64 560
-  %88 = load ptr, ptr %87, align 8
+  %88 = load ptr, ptr %87, align 8, !alias.scope !120
   store i8 2, ptr %88, align 1, !noalias !120
   %.not.i139 = icmp eq i64 %7, 0
   br i1 %.not.i139, label %png_setup_up_row.exit, label %.lr.ph.preheader.i140
@@ -4638,7 +4638,7 @@ png_setup_up_row_only.exit:                       ; preds = %.lr.ph.i135, %84, %
 107:                                              ; preds = %png_setup_up_row_only.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
   %108 = getelementptr inbounds i8, ptr %0, i64 560
-  %109 = load ptr, ptr %108, align 8
+  %109 = load ptr, ptr %108, align 8, !alias.scope !124
   store i8 3, ptr %109, align 1, !noalias !124
   %110 = getelementptr inbounds i8, ptr %0, i64 544
   %111 = load ptr, ptr %110, align 8, !alias.scope !124
@@ -4706,7 +4706,7 @@ png_setup_up_row_only.exit:                       ; preds = %.lr.ph.i135, %84, %
 133:                                              ; preds = %131
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %134 = getelementptr inbounds i8, ptr %0, i64 560
-  %135 = load ptr, ptr %134, align 8
+  %135 = load ptr, ptr %134, align 8, !alias.scope !129
   store i8 3, ptr %135, align 1, !noalias !129
   %136 = getelementptr inbounds i8, ptr %0, i64 544
   %137 = load ptr, ptr %136, align 8, !alias.scope !129
@@ -4808,7 +4808,7 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
 176:                                              ; preds = %png_setup_avg_row_only.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %177 = getelementptr inbounds i8, ptr %0, i64 560
-  %178 = load ptr, ptr %177, align 8
+  %178 = load ptr, ptr %177, align 8, !alias.scope !134
   store i8 4, ptr %178, align 1, !noalias !134
   %179 = getelementptr inbounds i8, ptr %0, i64 544
   %180 = load ptr, ptr %179, align 8, !alias.scope !134
@@ -4888,7 +4888,7 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
 206:                                              ; preds = %204
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %207 = getelementptr inbounds i8, ptr %0, i64 560
-  %208 = load ptr, ptr %207, align 8
+  %208 = load ptr, ptr %207, align 8, !alias.scope !139
   store i8 4, ptr %208, align 1, !noalias !139
   %209 = getelementptr inbounds i8, ptr %0, i64 544
   %210 = load ptr, ptr %209, align 8, !alias.scope !139

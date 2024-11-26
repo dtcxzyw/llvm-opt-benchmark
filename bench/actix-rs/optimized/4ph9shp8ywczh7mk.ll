@@ -1060,7 +1060,7 @@ select.unfold:                                    ; preds = %55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !214
   store i64 %84, ptr %8, align 8, !noalias !221
   %92 = getelementptr inbounds i8, ptr %10, i64 16
-  %93 = load i64, ptr %92, align 8, !noalias !214, !noundef !4
+  %93 = load i64, ptr %92, align 8, !alias.scope !218, !noalias !214, !noundef !4
   %.not.i.i.i.i = icmp ugt i64 %84, %93
   br i1 %.not.i.i.i.i, label %94, label %110
 

@@ -4020,27 +4020,27 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit: ;
 .loopexit.i.i:                                    ; preds = %51, %.preheader.i.i, %.lr.ph.i.i
   store ptr %49, ptr %6, align 8
   %.not11.i.i = icmp eq ptr %49, %46
-  br i1 %.not11.i.i, label %_ZN4llvm3opt12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEELj2EEC2ES7_S7_RA2_KNS0_12OptSpecifierE.exit, label %.lr.ph.i.i, !llvm.loop !111
+  br i1 %.not11.i.i, label %_ZN4llvm3opt12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEELj2EEC2ES7_S7_RA2_KNS0_12OptSpecifierE.exit, label %.lr.ph.i.i, !llvm.loop !113
 
 _ZN4llvm3opt12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEELj2EEC2ES7_S7_RA2_KNS0_12OptSpecifierE.exit: ; preds = %.loopexit.i.i, %53, %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit
   %55 = phi ptr [ %44, %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit ], [ %48, %53 ], [ %46, %.loopexit.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %56 = load i64, ptr %.ptr6.i, align 8, !noalias !112
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
+  %56 = load i64, ptr %.ptr6.i, align 8, !noalias !114
   %.sroa.6.16.insert.ext = zext i32 %3 to i64
   %.sroa.6.16.insert.shift = shl nuw i64 %.sroa.6.16.insert.ext, 32
   %.sroa.3.16.insert.ext = zext i32 %2 to i64
   %.sroa.3.16.insert.insert = or disjoint i64 %.sroa.6.16.insert.shift, %.sroa.3.16.insert.ext
-  store ptr %55, ptr %0, align 8, !alias.scope !112
+  store ptr %55, ptr %0, align 8, !alias.scope !114
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %46, ptr %57, align 8, !alias.scope !112
+  store ptr %46, ptr %57, align 8, !alias.scope !114
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %56, ptr %58, align 8, !alias.scope !112
+  store i64 %56, ptr %58, align 8, !alias.scope !114
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %46, ptr %59, align 8, !alias.scope !112
+  store ptr %46, ptr %59, align 8, !alias.scope !114
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %46, ptr %60, align 8, !alias.scope !112
+  store ptr %46, ptr %60, align 8, !alias.scope !114
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.3.16.insert.insert, ptr %61, align 8, !alias.scope !112
+  store i64 %.sroa.3.16.insert.insert, ptr %61, align 8, !alias.scope !114
   ret void
 }
 
@@ -4080,7 +4080,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRPKcEEvPT_
   %11 = getelementptr inbounds i8, ptr %.0811, i64 8
   %12 = getelementptr inbounds i8, ptr %.012, i64 32
   %.not = icmp eq ptr %11, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !115
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRPKcEEvPT_DpOT0_.exit, %3
   %.0.lcssa = phi ptr [ %2, %3 ], [ %12, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRPKcEEvPT_DpOT0_.exit ]
@@ -4170,7 +4170,7 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_3o
   %10 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
   %11 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %10, %8
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_3opt3ArgESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !116
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_3opt3ArgESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !118
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_3opt3ArgESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %2
   %12 = load ptr, ptr %0, align 8
@@ -4197,7 +4197,7 @@ _ZNKSt14default_deleteIN4llvm3opt3ArgEEclEPS2_.exit.i.i.i: ; preds = %.lr.ph.i.i
 _ZNSt10unique_ptrIN4llvm3opt3ArgESt14default_deleteIS2_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm3opt3ArgEEclEPS2_.exit.i.i.i, %.lr.ph.i.i
   store ptr null, ptr %15, align 8
   %.not.i.i = icmp eq ptr %12, %15
-  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_3opt3ArgESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit, label %.lr.ph.i.i, !llvm.loop !117
+  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_3opt3ArgESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit, label %.lr.ph.i.i, !llvm.loop !119
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_3opt3ArgESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit: ; preds = %_ZNSt10unique_ptrIN4llvm3opt3ArgESt14default_deleteIS2_EED2Ev.exit.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_3opt3ArgESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.i
   %17 = load i64, ptr %3, align 8
@@ -4382,11 +4382,13 @@ attributes #19 = { builtin nounwind }
 !107 = distinct !{!107, !"_ZSt11make_uniqueIN4llvm3opt3ArgEJRKNS1_6OptionEPKcRjS7_RPKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !108 = distinct !{!108, !10}
 !109 = distinct !{!109, !10}
-!110 = !{}
-!111 = distinct !{!111, !10}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN4llvm10make_rangeINS_3opt12arg_iteratorISt16reverse_iteratorIPKPNS1_3ArgEELj2EEEEENS_14iterator_rangeIT_EESB_SB_: argument 0"}
-!114 = distinct !{!114, !"_ZN4llvm10make_rangeINS_3opt12arg_iteratorISt16reverse_iteratorIPKPNS1_3ArgEELj2EEEEENS_14iterator_rangeIT_EESB_SB_"}
-!115 = distinct !{!115, !10}
-!116 = distinct !{!116, !10}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"_ZNK4llvm25SmallVectorTemplateCommonIPNS_3opt3ArgEvE4rendEv: argument 0"}
+!112 = distinct !{!112, !"_ZNK4llvm25SmallVectorTemplateCommonIPNS_3opt3ArgEvE4rendEv"}
+!113 = distinct !{!113, !10}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN4llvm10make_rangeINS_3opt12arg_iteratorISt16reverse_iteratorIPKPNS1_3ArgEELj2EEEEENS_14iterator_rangeIT_EESB_SB_: argument 0"}
+!116 = distinct !{!116, !"_ZN4llvm10make_rangeINS_3opt12arg_iteratorISt16reverse_iteratorIPKPNS1_3ArgEELj2EEEEENS_14iterator_rangeIT_EESB_SB_"}
 !117 = distinct !{!117, !10}
+!118 = distinct !{!118, !10}
+!119 = distinct !{!119, !10}

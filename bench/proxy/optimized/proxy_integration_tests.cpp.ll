@@ -1996,7 +1996,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br i1 %.not.i, label %92, label %25, !llvm.loop !25
 
 92:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i
-  %93 = load ptr, ptr %10, align 8
+  %93 = load ptr, ptr %10, align 8, !alias.scope !20
   %94 = getelementptr inbounds i8, ptr %93, i64 -32
   %95 = getelementptr inbounds i8, ptr %93, i64 -24
   %96 = load i64, ptr %95, align 8

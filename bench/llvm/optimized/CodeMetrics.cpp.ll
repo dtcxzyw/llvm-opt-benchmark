@@ -314,8 +314,8 @@ define internal fastcc void @_ZL23completeEphemeralValuesRN4llvm15SmallPtrSetImp
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not6.i.i.i.i.i = icmp eq ptr %14, null
-  %.pre = load ptr, ptr %7, align 8
-  %.pre29 = load ptr, ptr %2, align 8
+  %.pre = load ptr, ptr %7, align 8, !noalias !12
+  %.pre29 = load ptr, ptr %2, align 8, !noalias !12
   br i1 %.not6.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZL23completeEphemeralValuesRNS_15SmallPtrSetImplIPKS2_EERNS_15SmallVectorImplISA_EESC_E3$_0EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %9
@@ -345,7 +345,7 @@ define internal fastcc void @_ZL23completeEphemeralValuesRN4llvm15SmallPtrSetImp
 24:                                               ; preds = %.lr.ph.i.i.i.i.us.i.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %.01118.i.i.i.i.us.i.i.i.i.i, i64 8
   %.not13.i.i.i.i.us.i.i.i.i.i = icmp eq ptr %25, %18
-  br i1 %.not13.i.i.i.i.us.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZL23completeEphemeralValuesRNS_15SmallPtrSetImplIPKS2_EERNS_15SmallVectorImplISA_EESC_E3$_0EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.us.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not13.i.i.i.i.us.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZL23completeEphemeralValuesRNS_15SmallPtrSetImplIPKS2_EERNS_15SmallVectorImplISA_EESC_E3$_0EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.us.i.i.i.i.i, !llvm.loop !15
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZL23completeEphemeralValuesRN4llvm15SmallPtrSetImplIPKNS2_5ValueEEERNS2_15SmallVectorImplIS6_EES8_E3$_0EclINS4_18user_iterator_implIKNS2_4UserEEEEEbT_.exit.us.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.us.i.i.i.i.i
   %.not1.i.us.i.i.i.i.i = icmp eq ptr %.01118.i.i.i.i.us.i.i.i.i.i, %19
@@ -355,7 +355,7 @@ define internal fastcc void @_ZL23completeEphemeralValuesRN4llvm15SmallPtrSetImp
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.us.i.i.i.i.i, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not.us.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.us.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZL23completeEphemeralValuesRNS_15SmallPtrSetImplIPKS2_EERNS_15SmallVectorImplISA_EESC_E3$_0EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.preheader.us.i.i.i.i.i, !llvm.loop !13
+  br i1 %.not.us.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZL23completeEphemeralValuesRNS_15SmallPtrSetImplIPKS2_EERNS_15SmallVectorImplISA_EESC_E3$_0EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.preheader.us.i.i.i.i.i, !llvm.loop !16
 
 .lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i, %56
   %29 = phi ptr [ %50, %56 ], [ %.pre29, %.lr.ph.i.i.i.i.i ]
@@ -382,7 +382,7 @@ define internal fastcc void @_ZL23completeEphemeralValuesRN4llvm15SmallPtrSetImp
 40:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %.01118.i.i.i.i.i.i.i.i.i, i64 8
   %.not13.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, %37
-  br i1 %.not13.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not13.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !15
 
 ._crit_edge.i.i.i.i.i.i.i.i.i:                    ; preds = %40, %34
   %42 = getelementptr inbounds ptr, ptr %30, i64 %36
@@ -425,7 +425,7 @@ define internal fastcc void @_ZL23completeEphemeralValuesRN4llvm15SmallPtrSetImp
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i.i.i.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZL23completeEphemeralValuesRNS_15SmallPtrSetImplIPKS2_EERNS_15SmallVectorImplISA_EESC_E3$_0EEbOT_T0_.exit.thread", label %.lr.ph.split.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZL23completeEphemeralValuesRNS_15SmallPtrSetImplIPKS2_EERNS_15SmallVectorImplISA_EESC_E3$_0EEbOT_T0_.exit.thread", label %.lr.ph.split.i.i.i.i.i, !llvm.loop !17
 
 "_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZL23completeEphemeralValuesRNS_15SmallPtrSetImplIPKS2_EERNS_15SmallVectorImplISA_EESC_E3$_0EEbOT_T0_.exit.thread": ; preds = %56, %26, %9
   %59 = phi ptr [ %.pre29, %9 ], [ %.pre29, %26 ], [ %50, %56 ]
@@ -434,7 +434,7 @@ define internal fastcc void @_ZL23completeEphemeralValuesRN4llvm15SmallPtrSetImp
   br i1 %61, label %62, label %74
 
 62:                                               ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZL23completeEphemeralValuesRNS_15SmallPtrSetImplIPKS2_EERNS_15SmallVectorImplISA_EESC_E3$_0EEbOT_T0_.exit.thread"
-  %63 = load i32, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 4, !noalias !16
+  %63 = load i32, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 4, !noalias !12
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %59, i64 %64
   %.not24.i.i = icmp eq i32 %63, 0
@@ -442,7 +442,7 @@ define internal fastcc void @_ZL23completeEphemeralValuesRN4llvm15SmallPtrSetImp
 
 .lr.ph.i.i:                                       ; preds = %62, %68
   %.025.i.i = phi ptr [ %69, %68 ], [ %59, %62 ]
-  %66 = load ptr, ptr %.025.i.i, align 8, !noalias !16
+  %66 = load ptr, ptr %.025.i.i, align 8, !noalias !12
   %67 = icmp eq ptr %66, %12
   br i1 %67, label %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit, label %68
 
@@ -452,18 +452,18 @@ define internal fastcc void @_ZL23completeEphemeralValuesRN4llvm15SmallPtrSetImp
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %68, %62
-  %70 = load i32, ptr %8, align 8, !noalias !16
+  %70 = load i32, ptr %8, align 8, !noalias !12
   %71 = icmp ult i32 %63, %70
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %._crit_edge.i.i
   %73 = add nuw i32 %63, 1
-  store i32 %73, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 4, !noalias !16
-  store ptr %12, ptr %65, align 8, !noalias !16
+  store i32 %73, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 4, !noalias !12
+  store ptr %12, ptr %65, align 8, !noalias !12
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit
 
 74:                                               ; preds = %._crit_edge.i.i, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZL23completeEphemeralValuesRNS_15SmallPtrSetImplIPKS2_EERNS_15SmallVectorImplISA_EESC_E3$_0EEbOT_T0_.exit.thread"
-  %75 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull %12) #8, !noalias !16
+  %75 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull %12) #8, !noalias !12
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit
 
 _ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit: ; preds = %.lr.ph.i.i, %72, %74
@@ -662,7 +662,7 @@ define dso_local void @_ZN4llvm11CodeMetrics17analyzeBasicBlockEPKNS_10BasicBloc
 37:                                               ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds i8, ptr %.01118.i.i, i64 8
   %.not13.i.i = icmp eq ptr %38, %34
-  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %37, %31
   %39 = getelementptr inbounds ptr, ptr %28, i64 %33
@@ -1679,13 +1679,13 @@ attributes #9 = { nounwind willreturn memory(read) }
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_: argument 0"}
 !11 = distinct !{!11, !"_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_"}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8, !15}
-!15 = !{!"llvm.loop.unswitch.partial.disable"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_: argument 0"}
-!18 = distinct !{!18, !"_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_: argument 0"}
+!14 = distinct !{!14, !"_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_"}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8, !18}
+!18 = !{!"llvm.loop.unswitch.partial.disable"}
 !19 = distinct !{!19, !8}
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_: argument 0"}

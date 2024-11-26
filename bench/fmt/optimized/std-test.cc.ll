@@ -13264,7 +13264,7 @@ invoke.cont4:                                     ; preds = %if.else
 _ZNKSt10filesystem7__cxx114path5beginEv.exit:     ; preds = %invoke.cont4
   %call.i.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #27, !noalias !476
   %frombool.i.i = zext i1 %call.i.i to i8
-  %4 = load ptr, ptr %_M_cmpts.i, align 8
+  %4 = load ptr, ptr %_M_cmpts.i, align 8, !noalias !479
   %5 = ptrtoint ptr %4 to i64
   %conv.i.i3.i4 = and i64 %5, 3
   %cmp.i5 = icmp eq i64 %conv.i.i3.i4, 0
@@ -13272,7 +13272,7 @@ _ZNKSt10filesystem7__cxx114path5beginEv.exit:     ; preds = %invoke.cont4
 
 _ZNKSt10filesystem7__cxx114path5beginEv.exit.thread: ; preds = %invoke.cont4
   %call2.i = call noundef ptr @_ZNKSt10filesystem7__cxx114path5_List5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i) #27, !noalias !476
-  %6 = load ptr, ptr %_M_cmpts.i, align 8
+  %6 = load ptr, ptr %_M_cmpts.i, align 8, !noalias !479
   %7 = ptrtoint ptr %6 to i64
   %conv.i.i3.i448 = and i64 %7, 3
   %cmp.i549 = icmp eq i64 %conv.i.i3.i448, 0

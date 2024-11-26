@@ -149,7 +149,7 @@ define hidden { ptr, ptr } @"_ZN10async_task6header15Header$LT$M$GT$4take17h213b
 
 "_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit": ; preds = %31
   %37 = getelementptr i8, ptr %10, i64 24
-  %38 = load ptr, ptr %37, align 8, !noalias !5, !nonnull !5, !noundef !5
+  %38 = load ptr, ptr %37, align 8, !alias.scope !10, !noalias !13, !nonnull !5, !noundef !5
   %39 = getelementptr inbounds i8, ptr %21, i64 24
   %40 = load ptr, ptr %39, align 8, !alias.scope !13, !noalias !10, !nonnull !5, !noundef !5
   %41 = icmp eq ptr %38, %40
@@ -244,7 +244,7 @@ define hidden void @"_ZN10async_task6header15Header$LT$M$GT$6notify17h7037339302
 
 "_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit.i": ; preds = %31
   %37 = getelementptr i8, ptr %10, i64 24
-  %38 = load ptr, ptr %37, align 8, !noalias !15, !nonnull !5, !noundef !5
+  %38 = load ptr, ptr %37, align 8, !alias.scope !18, !noalias !23, !nonnull !5, !noundef !5
   %39 = getelementptr inbounds i8, ptr %21, i64 24
   %40 = load ptr, ptr %39, align 8, !alias.scope !21, !noalias !24, !nonnull !5, !noundef !5
   %41 = icmp eq ptr %38, %40
@@ -2535,7 +2535,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14408593437386099104.exit
 define hidden void @"_ZN4core3ptr139drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$concurrent_queue..ConcurrentQueue$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17h0226fe911933bebeE.llvm.14408593437386099104"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !603, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !603, !noundef !5
   %6 = icmp eq i64 %5, 0
@@ -4240,8 +4240,9 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h3d51fbcf0c5a4441E.llvm.14408593437386099104"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !1151, !noundef !5
-  store i8 0, ptr %2, align 1, !noalias !1152
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1151)
+  %2 = load ptr, ptr %0, align 8, !alias.scope !1151, !nonnull !5, !align !1154, !noundef !5
+  store i8 0, ptr %2, align 1, !noalias !1151
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1158)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5072,7 +5073,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..thr
 define hidden void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$17hac679f854dfff4b1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1437)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1437, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1437, !noundef !5
   br label %6
@@ -5244,7 +5245,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$async_lock..mutex..
 define hidden void @"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h026c2479e9377fb0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1484)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !4, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1484, !nonnull !5, !align !4, !noundef !5
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i64, ptr %4, align 8, !noalias !1484, !noundef !5
   %6 = getelementptr inbounds i8, ptr %3, i64 32
@@ -5294,7 +5295,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14408593437386099104.exit
 define hidden void @"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h529bc74fdfa98867E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1498)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !4, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1498, !nonnull !5, !align !4, !noundef !5
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i64, ptr %4, align 8, !noalias !1498, !noundef !5
   %6 = getelementptr inbounds i8, ptr %3, i64 32
@@ -7714,7 +7715,7 @@ define hidden void @"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..dr
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc893bd35b9186721E.llvm.14408593437386099104"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #14 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !1151, !noundef !5
+  %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !1154, !noundef !5
   store i8 0, ptr %2, align 1
   ret void
 }
@@ -7885,7 +7886,7 @@ define hidden void @"_ZN70_$LT$std..thread..Packet$LT$T$GT$$u20$as$u20$core..ops
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   call void @_ZN3std9panicking3try8do_catch17hda8e3f7d30719645E.llvm.17470729325788562433(ptr nonnull %3, ptr %17)
-  %18 = load ptr, ptr %3, align 8, !noalias !2118, !nonnull !5, !align !1151
+  %18 = load ptr, ptr %3, align 8, !noalias !2118, !nonnull !5, !align !1154
   %19 = getelementptr inbounds i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !2118, !nonnull !5, !align !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2118
@@ -10728,10 +10729,10 @@ attributes #29 = { cold }
 !1148 = distinct !{!1148, !1149, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6ab0150f039bc1a4E.llvm.14408593437386099104: argument 0"}
 !1149 = distinct !{!1149, !"_ZN69_$LT$std..os..fd..owned..OwnedFd$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6ab0150f039bc1a4E.llvm.14408593437386099104"}
 !1150 = !{!1148, !1145, !1142, !1139}
-!1151 = !{i64 1}
-!1152 = !{!1153}
-!1153 = distinct !{!1153, !1154, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc893bd35b9186721E.llvm.14408593437386099104: argument 0"}
-!1154 = distinct !{!1154, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc893bd35b9186721E.llvm.14408593437386099104"}
+!1151 = !{!1152}
+!1152 = distinct !{!1152, !1153, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc893bd35b9186721E.llvm.14408593437386099104: argument 0"}
+!1153 = distinct !{!1153, !"_ZN68_$LT$alloc..ffi..c_str..CString$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc893bd35b9186721E.llvm.14408593437386099104"}
+!1154 = !{i64 1}
 !1155 = !{!1156}
 !1156 = distinct !{!1156, !1157, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h7abd0cf2e29b0309E.llvm.14408593437386099104: argument 0"}
 !1157 = distinct !{!1157, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h7abd0cf2e29b0309E.llvm.14408593437386099104"}

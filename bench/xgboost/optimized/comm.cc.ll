@@ -7965,7 +7965,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7xgboost10collective7ChannelEES4_EvT_S6_RSaIT0_E.
   %.sink.i = phi ptr [ %17, %50 ], [ %16, %53 ], [ %16, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost10collective7ChannelEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i ]
   store ptr null, ptr %.sink.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !239)
-  %96 = load ptr, ptr %16, align 8
+  %96 = load ptr, ptr %16, align 8, !noalias !239
   %.not.i.i24 = icmp eq ptr %96, null
   br i1 %.not.i.i24, label %97, label %"_ZN7xgboost10collectivelsIZNS0_9RabitComm8ShutdownEvE3$_5EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS6_OS5_.exit.thread"
 
@@ -8377,7 +8377,7 @@ define void @_ZNK7xgboost10collective9RabitComm10LogTrackerENSt7__cxx1112basic_s
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #10, !noalias !266
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !255
   call void @llvm.experimental.noalias.scope.decl(metadata !267)
-  %35 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %9, align 8, !noalias !267
   %.not.i.i7 = icmp eq ptr %35, null
   br i1 %.not.i.i7, label %37, label %"_ZN7xgboost10collectivelsIZNKS0_9RabitComm10LogTrackerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit.thread"
 
@@ -8485,7 +8485,7 @@ define void @_ZN7xgboost10collective9RabitComm11SignalErrorERKNS0_6ResultE(ptr d
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #10, !noalias !284
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !273
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
-  %26 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %7, align 8, !noalias !285
   %.not.i.i8 = icmp eq ptr %26, null
   br i1 %.not.i.i8, label %28, label %"_ZN7xgboost10collectivelsIZNS0_9RabitComm11SignalErrorERKNS0_6ResultEE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EES3_E4typeEOS3_OS8_.exit.thread"
 

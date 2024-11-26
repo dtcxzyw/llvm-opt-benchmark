@@ -95228,7 +95228,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %new_size.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  %0 = load i64, ptr %size_.i.i.i, align 8, !noalias !80
+  %0 = load i64, ptr %size_.i.i.i, align 8, !noalias !3150
   %add.i = add nsw i64 %0, %elements
   store i64 %add.i, ptr %new_size.i, align 8, !noalias !3150
   %cmp.i = icmp sgt i64 %add.i, 2147483646
@@ -97643,7 +97643,7 @@ do.body10:                                        ; preds = %do.end6
   %conv = zext nneg i32 %length to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %new_size.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %7 = load i64, ptr %size_.i.i.i, align 8, !noalias !80
+  %7 = load i64, ptr %size_.i.i.i, align 8, !noalias !3288
   %add.i47 = add nsw i64 %7, %conv
   store i64 %add.i47, ptr %new_size.i, align 8, !noalias !3288
   %cmp.i48 = icmp sgt i64 %add.i47, 2147483646
@@ -110419,7 +110419,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %new_size.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  %0 = load i64, ptr %size_.i.i.i, align 8, !noalias !80
+  %0 = load i64, ptr %size_.i.i.i, align 8, !noalias !3629
   %add.i = add nsw i64 %0, %elements
   store i64 %add.i, ptr %new_size.i, align 8, !noalias !3629
   %cmp.i = icmp eq i64 %add.i, 9223372036854775807
@@ -112812,7 +112812,7 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
 do.body10:                                        ; preds = %do.end6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %new_size.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %7 = load i64, ptr %size_.i.i.i, align 8, !noalias !80
+  %7 = load i64, ptr %size_.i.i.i, align 8, !noalias !3767
   %add.i47 = add nsw i64 %7, %length
   store i64 %add.i47, ptr %new_size.i, align 8, !noalias !3767
   %cmp.i48 = icmp eq i64 %add.i47, 9223372036854775807

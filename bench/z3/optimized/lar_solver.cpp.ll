@@ -14859,7 +14859,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i.i.i, label %while.end20, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !94
   %cmp.i.i.i1 = icmp eq ptr %0, %2
   br i1 %cmp.i.i.i1, label %if.then.i.i.i, label %_ZNSt5stackIN2lp13static_matrixI8rationalNS0_12numeric_pairIS2_EEE3dimESt5dequeIS6_SaIS6_EEE3topEv.exit
 
@@ -15001,8 +15001,8 @@ _ZN6vectorIS_IN2lp8row_cellI8rationalEELb1EjELb1EjE8pop_backEv.exit: ; preds = %
   br i1 %cmp.i.i, label %while.end.loopexit, label %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE9row_countEv.exit, !llvm.loop !98
 
 while.end.loopexit:                               ; preds = %_ZN6vectorIS_IN2lp8row_cellI8rationalEELb1EjELb1EjE8pop_backEv.exit, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE9row_countEv.exit
-  %.pre48 = load ptr, ptr %_M_finish.i.i, align 8
-  %.pre49 = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  %.pre48 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !99
+  %.pre49 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !99
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %_ZNSt5stackIN2lp13static_matrixI8rationalNS0_12numeric_pairIS2_EEE3dimESt5dequeIS6_SaIS6_EEE3topEv.exit

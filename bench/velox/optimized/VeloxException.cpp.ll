@@ -248,7 +248,7 @@ invoke.cont6:                                     ; preds = %catch
   store ptr %12, ptr %state_.i.i.i, align 8, !noalias !4
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
-  %13 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  %13 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !4
   store ptr %13, ptr %_M_refcount.i.i.i.i.i, align 8, !noalias !4
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt18make_exception_ptrIN8facebook5velox14VeloxUserErrorEENSt15__exception_ptr13exception_ptrET_.exit, label %if.then.i.i.i.i.i.i

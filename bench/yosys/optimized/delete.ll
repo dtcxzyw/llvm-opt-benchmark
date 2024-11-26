@@ -666,8 +666,8 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit.thread681: ; preds = %151
 .lr.ph499:                                        ; preds = %160, %_ZN5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE6insertERKS4_.exit
   %.sroa.0275.0497 = phi ptr [ %292, %_ZN5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE6insertERKS4_.exit ], [ %161, %160 ]
   %165 = load ptr, ptr %.sroa.0275.0497, align 8
-  %166 = load ptr, ptr %6, align 8
-  %167 = load ptr, ptr %73, align 8
+  %166 = load ptr, ptr %6, align 8, !noalias !15
+  %167 = load ptr, ptr %73, align 8, !noalias !15
   %168 = icmp eq ptr %166, %167
   br i1 %168, label %.loopexit.i.thread, label %169
 
@@ -703,8 +703,8 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit.thread681: ; preds = %151
           to label %.noexc117 unwind label %.loopexit368
 
 .noexc117:                                        ; preds = %189
-  %190 = load ptr, ptr %6, align 8
-  %191 = load ptr, ptr %73, align 8
+  %190 = load ptr, ptr %6, align 8, !noalias !15
+  %191 = load ptr, ptr %73, align 8, !noalias !15
   %192 = icmp eq ptr %190, %191
   br i1 %192, label %._crit_edge.i.i, label %193
 

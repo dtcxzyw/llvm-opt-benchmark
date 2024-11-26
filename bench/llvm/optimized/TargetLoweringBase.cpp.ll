@@ -4910,7 +4910,7 @@ _ZN4llvm9BitVector13setBitsInMaskEPKjj.exit:      ; preds = %._crit_edge.i.i, %6
   br i1 %.not.i, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm9BitVector13setBitsInMaskEPKjj.exit
-  %.pre = load i32, ptr %22, align 8
+  %.pre = load i32, ptr %22, align 8, !noalias !31
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoEb.exit

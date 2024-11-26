@@ -6934,8 +6934,8 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES4_NS0_12hash_ptr_opsEE2atERK
           to label %2800 unwind label %.loopexit.split-lp.loopexit.i
 
 2800:                                             ; preds = %2797
-  %2801 = load ptr, ptr %42, align 8
-  %2802 = load ptr, ptr %543, align 8
+  %2801 = load ptr, ptr %42, align 8, !noalias !35
+  %2802 = load ptr, ptr %543, align 8, !noalias !35
   %2803 = icmp eq ptr %2801, %2802
   br i1 %2803, label %..loopexit589.thread.i_crit_edge, label %2804
 
@@ -6962,8 +6962,8 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES4_NS0_12hash_ptr_opsEE2atERK
 
 _ZNK5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i148, %2804
   %.0.lcssa.i.i.i.i = phi i32 [ 0, %2804 ], [ %2810, %.lr.ph.i.i.i.i148 ]
-  %2812 = load ptr, ptr %543, align 8
-  %2813 = load ptr, ptr %42, align 8
+  %2812 = load ptr, ptr %543, align 8, !noalias !35
+  %2813 = load ptr, ptr %42, align 8, !noalias !35
   %2814 = ptrtoint ptr %2812 to i64
   %2815 = ptrtoint ptr %2813 to i64
   %2816 = sub i64 %2814, %2815
@@ -32156,7 +32156,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i
   %73 = load ptr, ptr %26, align 8, !noalias !145
-  %74 = load i32, ptr %5, align 4
+  %74 = load i32, ptr %5, align 4, !noalias !145
   br label %75
 
 75:                                               ; preds = %80, %.lr.ph.i.i

@@ -2063,7 +2063,7 @@ if.end9:                                          ; preds = %invoke.cont6
 
 if.then.i.i.i33:                                  ; preds = %if.end9
   %_M_before_begin.i.i.i.i.i34 = getelementptr inbounds i8, ptr %this, i64 280
-  %27 = load ptr, ptr %factSym, align 8
+  %27 = load ptr, ptr %factSym, align 8, !noalias !23
   br label %for.cond.i.i.i35
 
 for.cond.i.i.i35:                                 ; preds = %for.body.i.i.i39, %if.then.i.i.i33
@@ -3163,7 +3163,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.end
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
-  %2 = load ptr, ptr %fact, align 8
+  %2 = load ptr, ptr %fact, align 8, !noalias !29
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -3281,7 +3281,7 @@ if.then8:                                         ; preds = %invoke.cont6
 
 if.then.i.i.i32:                                  ; preds = %if.then8
   %_M_before_begin.i.i.i.i.i33 = getelementptr inbounds i8, ptr %this, i64 280
-  %24 = load ptr, ptr %factSym, align 8
+  %24 = load ptr, ptr %factSym, align 8, !noalias !32
   br label %for.cond.i.i.i34
 
 for.cond.i.i.i34:                                 ; preds = %for.body.i.i.i38, %if.then.i.i.i32

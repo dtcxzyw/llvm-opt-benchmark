@@ -8664,7 +8664,7 @@ define linkonce_odr void @_ZN6casadi9XFunctionINS_10MXFunctionENS_2MXENS_6MXNode
 
 14:                                               ; preds = %.lr.ph, %_ZNSt5stackIPN6casadi6MXNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
   %15 = phi ptr [ %6, %.lr.ph ], [ %101, %_ZNSt5stackIPN6casadi6MXNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit ]
-  %16 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %9, align 8, !noalias !72
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %18, label %_ZNSt5stackIPN6casadi6MXNodeESt5dequeIS2_SaIS2_EEE3topEv.exit
 

@@ -5542,7 +5542,7 @@ define linkonce_odr void @_ZN10open_spiel8ObserverD0Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl7debian223inlined_vector_internal7StorageIiLm4ESaIiEE6AssignINS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPiSt6vectorIiS3_EEEEEEEvT_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i64, ptr %0, align 8
+  %4 = load i64, ptr %0, align 8, !noalias !46
   %5 = and i64 %4, 1
   %.not.i = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

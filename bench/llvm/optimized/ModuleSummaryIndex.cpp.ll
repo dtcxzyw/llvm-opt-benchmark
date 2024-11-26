@@ -2299,7 +2299,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_1
 
 _ZN4llvm8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS1_vEENS2_12DenseSetPairIS1_EEE4growEj.exit82: ; preds = %.lr.ph.i.i79, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E18moveFromOldBucketsEPS8_SB_.exit.i76
   %.sroa.11.14 = phi i32 [ %.sroa.11.13, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E18moveFromOldBucketsEPS8_SB_.exit.i76 ], [ 0, %.lr.ph.i.i79 ]
-  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %.021.i, align 8
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %.021.i, align 8, !noalias !19
   %150 = trunc i64 %.sroa.0.0.copyload.i.i.i.i to i32
   %151 = add i32 %.sroa.speculated.i50, -1
   %152 = and i32 %151, -8
@@ -2473,7 +2473,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_1
 
 _ZN4llvm8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS1_vEENS2_12DenseSetPairIS1_EEE4growEj.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E18moveFromOldBucketsEPS8_SB_.exit.i
   %.sroa.11.10 = phi i32 [ %.sroa.11.9, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9ValueInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E18moveFromOldBucketsEPS8_SB_.exit.i ], [ 0, %.lr.ph.i.i ]
-  %.sroa.0.0.copyload.i.i.i12.i = load i64, ptr %.021.i, align 8
+  %.sroa.0.0.copyload.i.i.i12.i = load i64, ptr %.021.i, align 8, !noalias !19
   %229 = trunc i64 %.sroa.0.0.copyload.i.i.i12.i to i32
   %230 = add i32 %.sroa.speculated.i, -1
   %231 = and i32 %230, -8

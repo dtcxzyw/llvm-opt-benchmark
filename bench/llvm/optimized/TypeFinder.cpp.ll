@@ -1836,7 +1836,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 56:                                               ; preds = %45, %26
   %.sink.i.i.i.i = phi ptr [ %46, %45 ], [ null, %26 ]
   %57 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !36
-  %58 = load ptr, ptr %3, align 8
+  %58 = load ptr, ptr %3, align 8, !noalias !36
   store ptr %58, ptr %57, align 8, !noalias !36
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
@@ -2059,7 +2059,7 @@ define dso_local void @_ZN4llvm10TypeFinder17incorporateMDNodeEPKNS_6MDNodeE(ptr
 34:                                               ; preds = %23, %2
   %.sink.i.i.i.i = phi ptr [ %24, %23 ], [ null, %2 ]
   %35 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !47
-  %36 = load ptr, ptr %3, align 8
+  %36 = load ptr, ptr %3, align 8, !noalias !47
   store ptr %36, ptr %35, align 8, !noalias !47
   %37 = getelementptr inbounds i8, ptr %36, i64 -16
   %38 = load i64, ptr %37, align 8

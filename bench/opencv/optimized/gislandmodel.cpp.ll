@@ -10922,7 +10922,7 @@ define hidden void @_ZN2cv5gimpl12GIslandModel14syncIslandTagsERN3ade10TypedGrap
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %31, i64 12
-  %34 = load i8, ptr @__libc_single_threaded, align 1, !noalias !19
+  %34 = load i8, ptr @__libc_single_threaded, align 1, !noalias !241
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %34, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %39, label %.thread
 
@@ -12184,7 +12184,7 @@ _ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10I
 
 168:                                              ; preds = %164
   %169 = getelementptr inbounds i8, ptr %167, i64 12
-  %170 = load i8, ptr @__libc_single_threaded, align 1, !noalias !19
+  %170 = load i8, ptr @__libc_single_threaded, align 1, !noalias !273
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %170, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %175, label %.thread
 
@@ -15537,7 +15537,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit69.thread:      ; preds = %333, %343, %_ZN3ade
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %28, i64 12
-  %31 = load i8, ptr @__libc_single_threaded, align 1, !noalias !19
+  %31 = load i8, ptr @__libc_single_threaded, align 1, !noalias !363
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %31, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %36, label %.thread
 

@@ -4256,7 +4256,7 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i.i: ; preds = %236
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i
   %250 = load ptr, ptr %193, align 8, !noalias !17
-  %251 = load i32, ptr %142, align 8
+  %251 = load i32, ptr %142, align 8, !noalias !17
   br label %252
 
 252:                                              ; preds = %257, %.lr.ph.i.i
@@ -7623,9 +7623,9 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i: ; preds = %459, %455
   %471 = trunc nuw nsw i64 %indvars.iv1135 to i32
   store i32 %471, ptr %119, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
-  %472 = load ptr, ptr %469, align 8
+  %472 = load ptr, ptr %469, align 8, !noalias !35
   %473 = getelementptr inbounds i8, ptr %469, i64 8
-  %474 = load ptr, ptr %473, align 8
+  %474 = load ptr, ptr %473, align 8, !noalias !35
   %475 = icmp eq ptr %472, %474
   br i1 %475, label %_ZNK5Yosys7hashlib4poolISt4pairIPNS_5RTLIL4CellEiENS0_8hash_opsIS6_EEE7do_hashERKS6_.exit.thread.i, label %476
 
@@ -7647,7 +7647,7 @@ _ZNK5Yosys7hashlib4poolISt4pairIPNS_5RTLIL4CellEiENS0_8hash_opsIS6_EEE7do_hashER
   %486 = getelementptr inbounds i8, ptr %469, i64 24
   %487 = getelementptr inbounds i8, ptr %469, i64 32
   %488 = load ptr, ptr %487, align 8, !noalias !35
-  %489 = load ptr, ptr %486, align 8
+  %489 = load ptr, ptr %486, align 8, !noalias !35
   %490 = ptrtoint ptr %488 to i64
   %491 = ptrtoint ptr %489 to i64
   %492 = sub i64 %490, %491

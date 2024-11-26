@@ -426,7 +426,7 @@ define hidden { ptr, ptr } @"_ZN10async_task6header15Header$LT$M$GT$4take17h213b
 
 "_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit": ; preds = %31
   %37 = getelementptr i8, ptr %10, i64 24
-  %38 = load ptr, ptr %37, align 8, !noalias !4, !nonnull !4, !noundef !4
+  %38 = load ptr, ptr %37, align 8, !alias.scope !54, !noalias !57, !nonnull !4, !noundef !4
   %39 = getelementptr inbounds i8, ptr %21, i64 24
   %40 = load ptr, ptr %39, align 8, !alias.scope !57, !noalias !54, !nonnull !4, !noundef !4
   %41 = icmp eq ptr %38, %40
@@ -521,7 +521,7 @@ define hidden void @"_ZN10async_task6header15Header$LT$M$GT$6notify17h7037339302
 
 "_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit.i": ; preds = %31
   %37 = getelementptr i8, ptr %10, i64 24
-  %38 = load ptr, ptr %37, align 8, !noalias !59, !nonnull !4, !noundef !4
+  %38 = load ptr, ptr %37, align 8, !alias.scope !62, !noalias !67, !nonnull !4, !noundef !4
   %39 = getelementptr inbounds i8, ptr %21, i64 24
   %40 = load ptr, ptr %39, align 8, !alias.scope !65, !noalias !68, !nonnull !4, !noundef !4
   %41 = icmp eq ptr %38, %40

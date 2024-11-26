@@ -121,7 +121,7 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %62 = load ptr, ptr %12, align 8, !noalias !6, !nonnull !4, !align !9, !noundef !4
   %63 = load i64, ptr %13, align 8, !noalias !6, !noundef !4
   call void @_ZN4core3str7pattern14TwoWaySearcher4next17h80928582f27ef1a0E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr nonnull align 8 %10, ptr nonnull align 1 %61, i64 %26, ptr nonnull align 1 %62, i64 %63, i1 zeroext %60), !noalias !6
-  %64 = load i64, ptr %3, align 8, !range !10, !noundef !4
+  %64 = load i64, ptr %3, align 8, !range !10, !noalias !6, !noundef !4
   %65 = icmp eq i64 %64, 1
   br i1 %65, label %66, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit"
 

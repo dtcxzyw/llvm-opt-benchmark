@@ -14436,9 +14436,9 @@ _ZN4ofbxL17parseTextArrayRawIfEEbRKNS_8PropertyEPT_i.exit: ; preds = %_ZN4ofbx10
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc { ptr, i8 } @_ZN4ofbxL15readTextElementEPNS_6CursorE(ptr nocapture noundef nonnull %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !noalias !210
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !noalias !210
   %5 = icmp ult ptr %2, %4
   br i1 %5, label %.lr.ph.preheader.i, label %_ZN4ofbxL13readTextTokenEPNS_6CursorE.exit
 

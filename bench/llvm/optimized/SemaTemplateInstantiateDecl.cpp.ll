@@ -93154,7 +93154,7 @@ _ZSt22__uninitialized_copy_aISt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS2_
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %105 = load ptr, ptr %104, align 8
+  %105 = load ptr, ptr %104, align 8, !noalias !310
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %37 to i64
   %108 = sub i64 %106, %107
@@ -93166,8 +93166,8 @@ _ZSt22__uninitialized_copy_aISt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS2_
 112:                                              ; preds = %103
   %113 = sub nuw i64 %36, %110
   tail call void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %113), !noalias !310
-  %.pre.i3 = load ptr, ptr %100, align 8
-  %.pre6.i4 = load ptr, ptr %104, align 8
+  %.pre.i3 = load ptr, ptr %100, align 8, !noalias !313
+  %.pre6.i4 = load ptr, ptr %104, align 8, !noalias !313
   %.pre7.i5 = ptrtoint ptr %.pre.i3 to i64
   br label %114
 
@@ -93178,7 +93178,7 @@ _ZSt22__uninitialized_copy_aISt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS2_
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %118 = load ptr, ptr %117, align 8, !noalias !313
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %120 = load ptr, ptr %119, align 8
+  %120 = load ptr, ptr %119, align 8, !noalias !313
   %121 = ptrtoint ptr %118 to i64
   %122 = sub i64 %.pre-phi.i, %121
   %123 = ashr exact i64 %122, 4
@@ -93390,7 +93390,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLoc
 
 78:                                               ; preds = %5
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %80 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %79, align 8, !noalias !325
   %81 = ptrtoint ptr %80 to i64
   %82 = sub i64 %54, %81
   %83 = ashr exact i64 %82, 4
@@ -93400,14 +93400,14 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLoc
 85:                                               ; preds = %78
   %86 = sub nuw i64 %4, %83
   tail call void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %86), !noalias !325
-  %.pre.i = load ptr, ptr %30, align 8
-  %.pre6.i = load ptr, ptr %79, align 8
+  %.pre.i = load ptr, ptr %30, align 8, !noalias !328
+  %.pre6.i = load ptr, ptr %79, align 8, !noalias !328
   %.pre7.i = ptrtoint ptr %.pre.i to i64
   %.pre8.i = ptrtoint ptr %.pre6.i to i64
   %.pre10.i = sub i64 %.pre7.i, %.pre8.i
   %.pre12.i = ashr exact i64 %.pre10.i, 4
-  %.pre359 = load ptr, ptr %50, align 8
-  %.pre360 = load ptr, ptr %33, align 8
+  %.pre359 = load ptr, ptr %50, align 8, !noalias !328
+  %.pre360 = load ptr, ptr %33, align 8, !noalias !328
   br label %87
 
 87:                                               ; preds = %85, %78
@@ -93500,10 +93500,10 @@ _ZStplRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5
   br i1 %.not, label %240, label %133
 
 133:                                              ; preds = %_ZStplRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_El.exit
-  %134 = load ptr, ptr %30, align 8
+  %134 = load ptr, ptr %30, align 8, !noalias !334
   %135 = load ptr, ptr %79, align 8, !noalias !334
-  %136 = load ptr, ptr %50, align 8
-  %137 = load ptr, ptr %33, align 8
+  %136 = load ptr, ptr %50, align 8, !noalias !334
+  %137 = load ptr, ptr %33, align 8, !noalias !334
   %138 = ptrtoint ptr %134 to i64
   %139 = ptrtoint ptr %135 to i64
   %140 = sub i64 %138, %139
@@ -93901,7 +93901,7 @@ _ZSt25__uninitialized_move_copyISt15_Deque_iteratorISt4pairIPN5clang9ValueDeclEN
 
 326:                                              ; preds = %5
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %328 = load ptr, ptr %327, align 8
+  %328 = load ptr, ptr %327, align 8, !noalias !401
   %329 = ptrtoint ptr %328 to i64
   %330 = sub i64 %329, %70
   %331 = ashr exact i64 %330, 4
@@ -93912,11 +93912,11 @@ _ZSt25__uninitialized_move_copyISt15_Deque_iteratorISt4pairIPN5clang9ValueDeclEN
 334:                                              ; preds = %326
   %335 = sub nuw i64 %4, %332
   tail call void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %335), !noalias !401
-  %.pre.i34 = load ptr, ptr %58, align 8
-  %.pre6.i35 = load ptr, ptr %327, align 8
+  %.pre.i34 = load ptr, ptr %58, align 8, !noalias !404
+  %.pre6.i35 = load ptr, ptr %327, align 8, !noalias !404
   %.pre7.i36 = ptrtoint ptr %.pre.i34 to i64
-  %.pre = load ptr, ptr %68, align 8
-  %.pre358 = load ptr, ptr %59, align 8
+  %.pre = load ptr, ptr %68, align 8, !noalias !404
+  %.pre358 = load ptr, ptr %59, align 8, !noalias !404
   %.pre361 = ptrtoint ptr %.pre to i64
   %.pre362 = sub i64 %.pre7.i36, %.pre361
   %.pre364 = ashr exact i64 %.pre362, 4
@@ -94013,10 +94013,10 @@ _ZStmiRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5
   br i1 %382, label %383, label %469
 
 383:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_El.exit38
-  %384 = load ptr, ptr %58, align 8
-  %385 = load ptr, ptr %68, align 8
-  %386 = load ptr, ptr %327, align 8
-  %387 = load ptr, ptr %59, align 8
+  %384 = load ptr, ptr %58, align 8, !noalias !410
+  %385 = load ptr, ptr %68, align 8, !noalias !410
+  %386 = load ptr, ptr %327, align 8, !noalias !410
+  %387 = load ptr, ptr %59, align 8, !noalias !410
   %388 = sub nsw i64 0, %4
   %389 = ptrtoint ptr %384 to i64
   %390 = ptrtoint ptr %385 to i64

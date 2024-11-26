@@ -402,31 +402,31 @@ entry:
   %mul.i.i19.i.i = fmul float %add.i8.i.i, 5.000000e-01
   %mul4.i.i21.i.i = fmul float %add8.i11.i.i, 5.000000e-01
   %mul8.i.i23.i.i = fmul float %add14.i.i.i, 5.000000e-01
-  %7 = load float, ptr %trans, align 4
+  %7 = load float, ptr %trans, align 4, !noalias !7
   %8 = tail call noundef float @llvm.fabs.f32(float %7)
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %trans, i64 4
-  %9 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %9 = load float, ptr %arrayidx.i.i.i.i, align 4, !noalias !7
   %10 = tail call noundef float @llvm.fabs.f32(float %9)
   %arrayidx.i1.i.i.i = getelementptr inbounds i8, ptr %trans, i64 8
-  %11 = load float, ptr %arrayidx.i1.i.i.i, align 4
+  %11 = load float, ptr %arrayidx.i1.i.i.i, align 4, !noalias !7
   %12 = tail call noundef float @llvm.fabs.f32(float %11)
   %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %trans, i64 16
-  %13 = load float, ptr %arrayidx15.i.i.i, align 4
+  %13 = load float, ptr %arrayidx15.i.i.i, align 4, !noalias !7
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
   %arrayidx.i2.i.i.i = getelementptr inbounds i8, ptr %trans, i64 20
-  %15 = load float, ptr %arrayidx.i2.i.i.i, align 4
+  %15 = load float, ptr %arrayidx.i2.i.i.i, align 4, !noalias !7
   %16 = tail call noundef float @llvm.fabs.f32(float %15)
   %arrayidx.i3.i.i.i = getelementptr inbounds i8, ptr %trans, i64 24
-  %17 = load float, ptr %arrayidx.i3.i.i.i, align 4
+  %17 = load float, ptr %arrayidx.i3.i.i.i, align 4, !noalias !7
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
   %arrayidx30.i.i.i = getelementptr inbounds i8, ptr %trans, i64 32
-  %19 = load float, ptr %arrayidx30.i.i.i, align 4
+  %19 = load float, ptr %arrayidx30.i.i.i, align 4, !noalias !7
   %20 = tail call noundef float @llvm.fabs.f32(float %19)
   %arrayidx.i4.i.i.i = getelementptr inbounds i8, ptr %trans, i64 36
-  %21 = load float, ptr %arrayidx.i4.i.i.i, align 4
+  %21 = load float, ptr %arrayidx.i4.i.i.i, align 4, !noalias !7
   %22 = tail call noundef float @llvm.fabs.f32(float %21)
   %arrayidx.i5.i.i.i = getelementptr inbounds i8, ptr %trans, i64 40
-  %23 = load float, ptr %arrayidx.i5.i.i.i, align 4
+  %23 = load float, ptr %arrayidx.i5.i.i.i, align 4, !noalias !7
   %24 = tail call noundef float @llvm.fabs.f32(float %23)
   %mul8.i.i.i.i.i = fmul float %mul4.i.i21.i.i, %9
   %25 = tail call float @llvm.fmuladd.f32(float %mul.i.i19.i.i, float %7, float %mul8.i.i.i.i.i)
@@ -500,7 +500,7 @@ entry:
   store i8 1, ptr %m_isLocalAabbValid.i, align 8
   %6 = load atomic i8, ptr @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %6, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !7
+  br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !10
 
 init.check.i:                                     ; preds = %entry
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions) #12
@@ -552,7 +552,7 @@ for.body.i:                                       ; preds = %for.body.i, %init.e
   store float %sub.i, ptr %arrayidx60.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit, label %for.body.i, !llvm.loop !11
 
 _ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit: ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %_supporting.i)
@@ -567,7 +567,7 @@ entry:
   store i8 1, ptr %m_isLocalAabbValid, align 8
   %0 = load atomic i8, ptr @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !10
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions) #12
@@ -619,7 +619,7 @@ for.body:                                         ; preds = %init.end, %for.body
   store float %sub, ptr %arrayidx60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -714,7 +714,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store float %0, ptr %arrayidx4.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !12
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %for.body.i
   %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
@@ -729,7 +729,7 @@ for.body.i5:                                      ; preds = %for.body.i5, %_ZNK9
   store float %1, ptr %arrayidx4.i8, align 4
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4
-  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %for.body.i5, !llvm.loop !9
+  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %for.body.i5, !llvm.loop !12
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %for.body.i5
   %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
@@ -818,6 +818,9 @@ attributes #13 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"branch_weights", i32 1, i32 1048575}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK11btMatrix3x38absoluteEv: %agg.result"}
+!9 = distinct !{!9, !"_ZNK11btMatrix3x38absoluteEv"}
+!10 = !{!"branch_weights", i32 1, i32 1048575}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}

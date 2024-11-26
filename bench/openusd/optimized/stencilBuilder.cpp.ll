@@ -5041,7 +5041,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWei
   %76 = load ptr, ptr %65, align 8
   %77 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4
-  %79 = load ptr, ptr %66, align 8
+  %79 = load ptr, ptr %66, align 8, !noalias !31
   %80 = getelementptr inbounds double, ptr %79, i64 %indvars.iv
   %81 = load double, ptr %80, align 8, !noalias !31
   %82 = load ptr, ptr %67, align 8, !noalias !31
@@ -5877,7 +5877,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWei
   %94 = load ptr, ptr %80, align 8
   %95 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4
-  %97 = load ptr, ptr %81, align 8
+  %97 = load ptr, ptr %81, align 8, !noalias !37
   %98 = getelementptr inbounds double, ptr %97, i64 %indvars.iv
   %99 = load double, ptr %98, align 8, !noalias !37
   %100 = load ptr, ptr %82, align 8, !noalias !37

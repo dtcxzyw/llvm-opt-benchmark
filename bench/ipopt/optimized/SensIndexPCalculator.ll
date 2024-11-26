@@ -333,7 +333,7 @@ define linkonce_odr void @_ZN5Ipopt11PCalculatorC2ENS_8SmartPtrINS_14SensBacksol
 
 31:                                               ; preds = %25
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %32 = load ptr, ptr %4, align 8
+  %32 = load ptr, ptr %4, align 8, !noalias !4
   %.not.i.i.i6 = icmp eq ptr %32, null
   br i1 %.not.i.i.i6, label %.thread, label %33
 

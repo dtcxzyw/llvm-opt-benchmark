@@ -3600,7 +3600,7 @@ _ZN5clang12ast_matchers6hasRHSERKNS0_8internal7MatcherINS_4ExprEEE.exit.i: ; pre
   call void @_ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4StmtEEENS1_7MatcherINS_14BinaryOperatorEEEXadL_ZNS1_25makeDynCastAllOfCompositeIS4_S7_EENS3_IT_EEN4llvm8ArrayRefIPKNS6_IT0_EEEEEEEclIJNS1_18PolymorphicMatcherINS1_22matcher_hasRHS0MatcherEFvNS1_8TypeListIJS7_NS_19CXXOperatorCallExprENS_26CXXRewrittenBinaryOperatorENS_18ArraySubscriptExprENS_11CXXFoldExprEEEEEJNS6_INS_4ExprEEEEEEEEES5_RKS8_DpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::BindableMatcher.1061") align 8 %98, ptr noundef nonnull align 1 dereferenceable(1) @_ZN5clang12ast_matchers14binaryOperatorE, ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %101), !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0215.i, ptr noundef nonnull align 8 dereferenceable(12) %98, i64 12, i1 false), !noalias !56
   %399 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %400 = load ptr, ptr %399, align 8, !noalias !56
+  %400 = load ptr, ptr %399, align 8, !noalias !155
   %.not.i.i.i.i.i.i.i29.i = icmp eq ptr %400, null
   br i1 %.not.i.i.i.i.i.i.i29.i, label %_ZN5clang12ast_matchers8internal34ArgumentAdaptingMatcherFuncAdaptorINS1_24ForEachDescendantMatcherENS_4StmtENS1_8TypeListIJNS_4DeclES4_NS_19NestedNameSpecifierENS_22NestedNameSpecifierLocENS_7TypeLocENS_8QualTypeENS_4AttrEEEEED2Ev.exit.i, label %401
 
@@ -5576,7 +5576,7 @@ _ZN5clang12ast_matchers6hasRHSERKNS0_8internal7MatcherINS_4ExprEEE.exit.i54: ; p
   call void @_ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4StmtEEENS1_7MatcherINS_14BinaryOperatorEEEXadL_ZNS1_25makeDynCastAllOfCompositeIS4_S7_EENS3_IT_EEN4llvm8ArrayRefIPKNS6_IT0_EEEEEEEclIJNS1_18PolymorphicMatcherINS1_22matcher_hasRHS0MatcherEFvNS1_8TypeListIJS7_NS_19CXXOperatorCallExprENS_26CXXRewrittenBinaryOperatorENS_18ArraySubscriptExprENS_11CXXFoldExprEEEEEJNS6_INS_4ExprEEEEEEEEES5_RKS8_DpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::BindableMatcher.1061") align 8 %34, ptr noundef nonnull align 1 dereferenceable(1) @_ZN5clang12ast_matchers14binaryOperatorE, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %37), !noalias !331
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0230.i, ptr noundef nonnull align 8 dereferenceable(12) %34, i64 12, i1 false), !noalias !331
   %1247 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %1248 = load ptr, ptr %1247, align 8, !noalias !331
+  %1248 = load ptr, ptr %1247, align 8, !noalias !401
   %.not.i.i.i.i.i.i.i18.i = icmp eq ptr %1248, null
   br i1 %.not.i.i.i.i.i.i.i18.i, label %_ZN5clang12ast_matchers8internal34ArgumentAdaptingMatcherFuncAdaptorINS1_24ForEachDescendantMatcherENS_4StmtENS1_8TypeListIJNS_4DeclES4_NS_19NestedNameSpecifierENS_22NestedNameSpecifierLocENS_7TypeLocENS_8QualTypeENS_4AttrEEEEED2Ev.exit.i56, label %1249
 

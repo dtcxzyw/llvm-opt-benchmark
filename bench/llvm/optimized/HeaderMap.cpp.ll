@@ -568,7 +568,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %119 = trunc i64 %116 to i32
   %120 = sub i32 %119, %112
   %121 = zext i32 %120 to i64
-  %122 = tail call i64 @strnlen(ptr noundef %118, i64 noundef %121) #16, !noalias !10
+  %122 = tail call i64 @strnlen(ptr noundef %118, i64 noundef %121) #16, !noalias !9
   %123 = trunc i64 %122 to i32
   %124 = icmp eq i32 %120, %123
   br i1 %124, label %125, label %130
@@ -577,7 +577,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %126 = add i64 %122, 4294967295
   %127 = and i64 %126, 4294967295
   %128 = getelementptr inbounds i8, ptr %118, i64 %127
-  %129 = load i8, ptr %128, align 1, !noalias !10
+  %129 = load i8, ptr %128, align 1, !noalias !9
   %.not13.i.i = icmp eq i8 %129, 0
   br i1 %.not13.i.i, label %130, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit"
 
@@ -598,7 +598,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %136 = trunc i64 %116 to i32
   %137 = sub i32 %136, %132
   %138 = zext i32 %137 to i64
-  %139 = tail call i64 @strnlen(ptr noundef %135, i64 noundef %138) #16, !noalias !13
+  %139 = tail call i64 @strnlen(ptr noundef %135, i64 noundef %138) #16, !noalias !12
   %140 = trunc i64 %139 to i32
   %141 = icmp eq i32 %137, %140
   br i1 %141, label %142, label %147
@@ -607,7 +607,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %143 = add i64 %139, 4294967295
   %144 = and i64 %143, 4294967295
   %145 = getelementptr inbounds i8, ptr %135, i64 %144
-  %146 = load i8, ptr %145, align 1, !noalias !13
+  %146 = load i8, ptr %145, align 1, !noalias !12
   %.not13.i.i50 = icmp eq i8 %146, 0
   br i1 %.not13.i.i50, label %147, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit51"
 
@@ -628,7 +628,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %153 = trunc i64 %116 to i32
   %154 = sub i32 %153, %149
   %155 = zext i32 %154 to i64
-  %156 = tail call i64 @strnlen(ptr noundef %152, i64 noundef %155) #16, !noalias !16
+  %156 = tail call i64 @strnlen(ptr noundef %152, i64 noundef %155) #16, !noalias !15
   %157 = trunc i64 %156 to i32
   %158 = icmp eq i32 %154, %157
   br i1 %158, label %159, label %164
@@ -637,7 +637,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %160 = add i64 %156, 4294967295
   %161 = and i64 %160, 4294967295
   %162 = getelementptr inbounds i8, ptr %152, i64 %161
-  %163 = load i8, ptr %162, align 1, !noalias !16
+  %163 = load i8, ptr %162, align 1, !noalias !15
   %.not13.i.i58 = icmp eq i8 %163, 0
   br i1 %.not13.i.i58, label %164, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit59"
 
@@ -859,7 +859,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit80:    ; preds = %256, %258, %259
 _ZN4llvm11raw_ostreamlsEPKc.exit83:               ; preds = %271, %269, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %59
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit83, %_ZN4llvm11raw_ostreamlsEPKc.exit41
   ret void
@@ -902,7 +902,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl14lookupFilenameEN4llvm9
   %25 = add i32 %24, %.09.i
   %26 = getelementptr inbounds i8, ptr %.058.i, i64 1
   %.not.i = icmp eq ptr %26, %16
-  br i1 %.not.i, label %_ZL11HashHMapKeyN4llvm9StringRefE.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %_ZL11HashHMapKeyN4llvm9StringRefE.exit, label %.lr.ph.i, !llvm.loop !19
 
 _ZL11HashHMapKeyN4llvm9StringRefE.exit:           ; preds = %.lr.ph.i, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ %25, %.lr.ph.i ]
@@ -930,13 +930,13 @@ _ZL11HashHMapKeyN4llvm9StringRefE.exit:           ; preds = %.lr.ph.i, %4
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %40 = load i32, ptr %.in, align 4
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = load i32, ptr %41, align 4, !noalias !21
+  %42 = load i32, ptr %41, align 4, !noalias !20
   %43 = call i32 @llvm.bswap.i32(i32 %42)
   %spec.select.i.i15 = select i1 %37, i32 %43, i32 %42
   %44 = add i32 %spec.select.i.i15, %spec.select.i.i56
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %47 = load ptr, ptr %46, align 8, !noalias !21
+  %47 = load ptr, ptr %46, align 8, !noalias !20
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %38 to i64
   %50 = sub i64 %48, %49
@@ -948,7 +948,7 @@ _ZL11HashHMapKeyN4llvm9StringRefE.exit:           ; preds = %.lr.ph.i, %4
   %53 = trunc i64 %50 to i32
   %54 = sub i32 %53, %44
   %55 = zext i32 %54 to i64
-  %56 = call i64 @strnlen(ptr noundef %52, i64 noundef %55) #16, !noalias !21
+  %56 = call i64 @strnlen(ptr noundef %52, i64 noundef %55) #16, !noalias !20
   %57 = trunc i64 %56 to i32
   %58 = icmp eq i32 %54, %57
   br i1 %58, label %59, label %64
@@ -957,7 +957,7 @@ _ZL11HashHMapKeyN4llvm9StringRefE.exit:           ; preds = %.lr.ph.i, %4
   %60 = add i64 %56, 4294967295
   %61 = and i64 %60, 4294967295
   %62 = getelementptr inbounds i8, ptr %52, i64 %61
-  %63 = load i8, ptr %62, align 1, !noalias !21
+  %63 = load i8, ptr %62, align 1, !noalias !20
   %.not13.i = icmp eq i8 %63, 0
   br i1 %.not13.i, label %64, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread
 
@@ -980,16 +980,16 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %64
   %72 = call i32 @llvm.bswap.i32(i32 %40)
   %spec.select.i7.i.le = select i1 %37, i32 %72, i32 %40
   %73 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %74 = load ptr, ptr %73, align 8, !noalias !9
+  %74 = load ptr, ptr %73, align 8, !noalias !23
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load i32, ptr %75, align 4, !noalias !9
+  %76 = load i32, ptr %75, align 4, !noalias !23
   %77 = trunc i8 %.pre65 to i1
   %78 = call i32 @llvm.bswap.i32(i32 %76)
   %spec.select.i.i17 = select i1 %77, i32 %78, i32 %76
   %79 = add i32 %spec.select.i.i17, %spec.select.i6.i.le
   %80 = zext i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %82 = load ptr, ptr %81, align 8, !noalias !9
+  %82 = load ptr, ptr %81, align 8, !noalias !23
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %74 to i64
   %85 = sub i64 %83, %84
@@ -1001,7 +1001,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %64
   %88 = trunc i64 %85 to i32
   %89 = sub i32 %88, %79
   %90 = zext i32 %89 to i64
-  %91 = call i64 @strnlen(ptr noundef %87, i64 noundef %90) #16, !noalias !24
+  %91 = call i64 @strnlen(ptr noundef %87, i64 noundef %90) #16, !noalias !23
   %92 = trunc i64 %91 to i32
   %93 = icmp eq i32 %89, %92
   br i1 %93, label %94, label %99
@@ -1010,7 +1010,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %64
   %95 = add i64 %91, 4294967295
   %96 = and i64 %95, 4294967295
   %97 = getelementptr inbounds i8, ptr %87, i64 %96
-  %98 = load i8, ptr %97, align 1, !noalias !24
+  %98 = load i8, ptr %97, align 1, !noalias !23
   %.not13.i21 = icmp eq i8 %98, 0
   br i1 %.not13.i21, label %99, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit22
 
@@ -1032,7 +1032,7 @@ _ZNK5clang13HeaderMapImpl9getStringEj.exit22:     ; preds = %70, %94, %99
   %105 = trunc i64 %85 to i32
   %106 = sub i32 %105, %101
   %107 = zext i32 %106 to i64
-  %108 = call i64 @strnlen(ptr noundef %104, i64 noundef %107) #16, !noalias !27
+  %108 = call i64 @strnlen(ptr noundef %104, i64 noundef %107) #16, !noalias !26
   %109 = trunc i64 %108 to i32
   %110 = icmp eq i32 %106, %109
   br i1 %110, label %111, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit28
@@ -1041,7 +1041,7 @@ _ZNK5clang13HeaderMapImpl9getStringEj.exit22:     ; preds = %70, %94, %99
   %112 = add i64 %108, 4294967295
   %113 = and i64 %112, 4294967295
   %114 = getelementptr inbounds i8, ptr %104, i64 %113
-  %115 = load i8, ptr %114, align 1, !noalias !27
+  %115 = load i8, ptr %114, align 1, !noalias !26
   %.not13.i27 = icmp eq i8 %115, 0
   br i1 %.not13.i27, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit28, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit28.thread
 
@@ -1085,7 +1085,7 @@ _ZNK5clang13HeaderMapImpl9getStringEj.exit.thread: ; preds = %64, %59, %.lr.ph, 
   %137 = call i32 @llvm.bswap.i32(i32 %135)
   %spec.select.i.i = select i1 %136, i32 %137, i32 %135
   %138 = icmp eq i32 %spec.select.i.i, 0
-  br i1 %138, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %138, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread, %_ZL11HashHMapKeyN4llvm9StringRefE.exit, %.critedge
   %.sroa.436.0 = phi i64 [ %125, %.critedge ], [ 0, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ], [ 0, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread ]
@@ -1226,13 +1226,13 @@ define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl21reverseLookupFilenameE
 
 51:                                               ; preds = %34
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %53 = load i32, ptr %52, align 4, !noalias !9
+  %53 = load i32, ptr %52, align 4, !noalias !30
   %54 = call i32 @llvm.bswap.i32(i32 %53)
   %spec.select.i.i20 = select i1 %42, i32 %54, i32 %53
   %55 = add i32 %spec.select.i.i20, %spec.select.i.i
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %58 = load ptr, ptr %57, align 8, !noalias !9
+  %58 = load ptr, ptr %57, align 8, !noalias !30
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %37 to i64
   %61 = sub i64 %59, %60
@@ -1244,7 +1244,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl21reverseLookupFilenameE
   %64 = trunc i64 %61 to i32
   %65 = sub i32 %64, %55
   %66 = zext i32 %65 to i64
-  %67 = call i64 @strnlen(ptr noundef %63, i64 noundef %66) #16, !noalias !31
+  %67 = call i64 @strnlen(ptr noundef %63, i64 noundef %66) #16, !noalias !30
   %68 = trunc i64 %67 to i32
   %69 = icmp eq i32 %65, %68
   br i1 %69, label %70, label %75
@@ -1253,7 +1253,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl21reverseLookupFilenameE
   %71 = add i64 %67, 4294967295
   %72 = and i64 %71, 4294967295
   %73 = getelementptr inbounds i8, ptr %63, i64 %72
-  %74 = load i8, ptr %73, align 1, !noalias !31
+  %74 = load i8, ptr %73, align 1, !noalias !30
   %.not13.i = icmp eq i8 %74, 0
   br i1 %.not13.i, label %75, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit
 
@@ -1275,7 +1275,7 @@ _ZNK5clang13HeaderMapImpl9getStringEj.exit:       ; preds = %51, %70, %75
   %81 = trunc i64 %61 to i32
   %82 = sub i32 %81, %77
   %83 = zext i32 %82 to i64
-  %84 = call i64 @strnlen(ptr noundef %80, i64 noundef %83) #16, !noalias !34
+  %84 = call i64 @strnlen(ptr noundef %80, i64 noundef %83) #16, !noalias !33
   %85 = trunc i64 %84 to i32
   %86 = icmp eq i32 %82, %85
   br i1 %86, label %87, label %92
@@ -1284,7 +1284,7 @@ _ZNK5clang13HeaderMapImpl9getStringEj.exit:       ; preds = %51, %70, %75
   %88 = add i64 %84, 4294967295
   %89 = and i64 %88, 4294967295
   %90 = getelementptr inbounds i8, ptr %80, i64 %89
-  %91 = load i8, ptr %90, align 1, !noalias !34
+  %91 = load i8, ptr %90, align 1, !noalias !33
   %.not13.i26 = icmp eq i8 %91, 0
   br i1 %.not13.i26, label %92, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit27
 
@@ -1306,7 +1306,7 @@ _ZNK5clang13HeaderMapImpl9getStringEj.exit27:     ; preds = %_ZNK5clang13HeaderM
   %98 = trunc i64 %61 to i32
   %99 = sub i32 %98, %94
   %100 = zext i32 %99 to i64
-  %101 = call i64 @strnlen(ptr noundef %97, i64 noundef %100) #16, !noalias !37
+  %101 = call i64 @strnlen(ptr noundef %97, i64 noundef %100) #16, !noalias !36
   %102 = trunc i64 %101 to i32
   %103 = icmp eq i32 %99, %102
   br i1 %103, label %104, label %109
@@ -1315,7 +1315,7 @@ _ZNK5clang13HeaderMapImpl9getStringEj.exit27:     ; preds = %_ZNK5clang13HeaderM
   %105 = add i64 %101, 4294967295
   %106 = and i64 %105, 4294967295
   %107 = getelementptr inbounds i8, ptr %97, i64 %106
-  %108 = load i8, ptr %107, align 1, !noalias !37
+  %108 = load i8, ptr %107, align 1, !noalias !36
   %.not13.i32 = icmp eq i8 %108, 0
   br i1 %.not13.i32, label %109, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit33
 
@@ -1388,7 +1388,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread51:       ; preds = %113, %_ZN4llvmeqENS
   %.sroa.048.2 = phi ptr [ %.sroa.048.161, %34 ], [ %.sroa.048.161, %112 ], [ %.sroa.048.161, %111 ], [ %.sroa.048.161, %_ZNK5clang13HeaderMapImpl9getStringEj.exit33 ], [ %.sroa.048.3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread51 ], [ %.sroa.048.3, %127 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %33
-  br i1 %.not, label %_ZNK4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEE6lookupES1_.exit, label %34, !llvm.loop !40
+  br i1 %.not, label %_ZNK4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEE6lookupES1_.exit, label %34, !llvm.loop !39
 
 _ZNK4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEE6lookupES1_.exit: ; preds = %.critedge, %21, %17, %9
   %.sroa.449.0 = phi i64 [ %.sroa.4.0.copyload.i, %17 ], [ 0, %9 ], [ 0, %21 ], [ %.sroa.449.2, %.critedge ]
@@ -1447,7 +1447,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_9StringRefENS_15Ma
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
   %11 = getelementptr inbounds i8, ptr %.sroa.030.0, i64 8
   %.pre = load ptr, ptr %11, align 8
-  br label %.preheader.i.i, !llvm.loop !41
+  br label %.preheader.i.i, !llvm.loop !40
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1495,7 +1495,7 @@ _ZN4llvm14StringMapEntryINS_9StringRefEE6createINS_15MallocAllocatorEJEEEPS2_S1_
 
 .critedge.i.i.i25:                                ; preds = %.preheader.i.i23, %.preheader.i.i23
   %31 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
-  br label %.preheader.i.i23, !llvm.loop !41
+  br label %.preheader.i.i23, !llvm.loop !40
 
 _ZN4llvm17StringMapIteratorINS_9StringRefEEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i23, %.preheader.i.i
   %.sroa.030.0.pn = phi ptr [ %.sroa.030.0, %.preheader.i.i ], [ %.sroa.0.0, %.preheader.i.i23 ]
@@ -1546,36 +1546,35 @@ attributes #16 = { nounwind willreturn memory(read) }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
 !8 = distinct !{!8, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
-!9 = !{}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
-!12 = distinct !{!12, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
-!15 = distinct !{!15, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
-!18 = distinct !{!18, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
+!11 = distinct !{!11, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
+!14 = distinct !{!14, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
+!17 = distinct !{!17, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
-!23 = distinct !{!23, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
-!26 = distinct !{!26, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
-!29 = distinct !{!29, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
-!30 = distinct !{!30, !5}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
-!33 = distinct !{!33, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
-!36 = distinct !{!36, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
-!39 = distinct !{!39, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
+!22 = distinct !{!22, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
+!25 = distinct !{!25, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
+!28 = distinct !{!28, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!29 = distinct !{!29, !5}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
+!32 = distinct !{!32, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
+!35 = distinct !{!35, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZNK5clang13HeaderMapImpl9getStringEj: argument 0"}
+!38 = distinct !{!38, !"_ZNK5clang13HeaderMapImpl9getStringEj"}
+!39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}

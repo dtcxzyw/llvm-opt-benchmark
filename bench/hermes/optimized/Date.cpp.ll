@@ -135,7 +135,7 @@ entry:
   br i1 %cmp.i.i.i.not, label %if.end73, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %args, align 8
+  %3 = load ptr, ptr %args, align 8, !noalias !4
   %argCount_.i = getelementptr inbounds i8, ptr %args, i64 8
   %4 = load i32, ptr %argCount_.i, align 8
   switch i32 %4, label %if.else56 [
@@ -300,7 +300,7 @@ declare void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjec
 define hidden { i32, i64 } @_ZN6hermes2vm20datePrototypeGetTimeEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %1 = load ptr, ptr %args, align 8, !noalias !4
+  %1 = load ptr, ptr %args, align 8, !noalias !7
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %1, align 8
   %cmp.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload, -844424930131969
   br i1 %cmp.i.i, label %cond.true.i, label %if.then
@@ -346,7 +346,7 @@ return:                                           ; preds = %if.end, %if.then
 define hidden { i32, i64 } @_ZN6hermes2vm24datePrototypeSetTime_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %0 = load ptr, ptr %args, align 8
+  %0 = load ptr, ptr %args, align 8, !noalias !10
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_6JSDateEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -424,7 +424,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm32datePrototypeSetMilliseconds_RJSEPvRN
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %tobool.not = icmp eq ptr %ctx, null
-  %0 = load ptr, ptr %args, align 8
+  %0 = load ptr, ptr %args, align 8, !noalias !13
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_6JSDateEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -529,7 +529,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm27datePrototypeSetSeconds_RJSEPvRNS0_7R
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %tobool.not = icmp eq ptr %ctx, null
-  %0 = load ptr, ptr %args, align 8
+  %0 = load ptr, ptr %args, align 8, !noalias !16
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_6JSDateEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -656,7 +656,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm27datePrototypeSetMinutes_RJSEPvRNS0_7R
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %tobool.not = icmp eq ptr %ctx, null
-  %0 = load ptr, ptr %args, align 8
+  %0 = load ptr, ptr %args, align 8, !noalias !19
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_6JSDateEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -805,7 +805,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm25datePrototypeSetHours_RJSEPvRNS0_7Run
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %tobool.not = icmp eq ptr %ctx, null
-  %0 = load ptr, ptr %args, align 8
+  %0 = load ptr, ptr %args, align 8, !noalias !22
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_6JSDateEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -976,7 +976,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm24datePrototypeSetDate_RJSEPvRNS0_7Runt
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %tobool.not = icmp eq ptr %ctx, null
-  %0 = load ptr, ptr %args, align 8
+  %0 = load ptr, ptr %args, align 8, !noalias !25
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_6JSDateEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -1081,7 +1081,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm25datePrototypeSetMonth_RJSEPvRNS0_7Run
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %tobool.not = icmp eq ptr %ctx, null
-  %0 = load ptr, ptr %args, align 8
+  %0 = load ptr, ptr %args, align 8, !noalias !28
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_6JSDateEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -1207,7 +1207,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm28datePrototypeSetFullYear_RJSEPvRNS0_7
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %tobool.not = icmp eq ptr %ctx, null
-  %0 = load ptr, ptr %args, align 8
+  %0 = load ptr, ptr %args, align 8, !noalias !31
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_6JSDateEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -1357,7 +1357,7 @@ return:                                           ; preds = %if.then44, %if.then
 define hidden { i32, i64 } @_ZN6hermes2vm24datePrototypeSetYear_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %0 = load ptr, ptr %args, align 8, !noalias !7
+  %0 = load ptr, ptr %args, align 8, !noalias !34
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_6JSDateEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -1466,7 +1466,7 @@ return:                                           ; preds = %if.end, %if.end29, 
 define hidden { i32, i64 } @_ZN6hermes2vm23datePrototypeToJSON_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %ref.tmp51 = alloca %"class.hermes::vm::TwineChar16", align 8
-  %0 = load ptr, ptr %args, align 8, !noalias !8
+  %0 = load ptr, ptr %args, align 8, !noalias !37
   %call4 = tail call { i32, i64 } @_ZN6hermes2vm8toObjectERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %0) #14
   %1 = extractvalue { i32, i64 } %call4, 0
   %cmp.i = icmp eq i32 %1, 0
@@ -1596,7 +1596,7 @@ entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp11 = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp37 = alloca %"class.hermes::vm::TwineChar16", align 8
-  %1 = load ptr, ptr %args, align 8
+  %1 = load ptr, ptr %args, align 8, !noalias !40
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -1913,7 +1913,7 @@ for.inc:                                          ; preds = %for.body
   store ptr %5, ptr %next_.i.i, align 8
   %inc = add nuw nsw i64 %i.025, 1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !43
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load double, ptr %fields, align 16
@@ -1975,14 +1975,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14, !noalias !13
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14, !noalias !45
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %_M_string_length.i.i, align 8, !alias.scope !13
+  store i64 0, ptr %_M_string_length.i.i, align 8, !alias.scope !45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %str.coerce0, ptr noundef %add.ptr.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -2011,7 +2011,7 @@ entry:
   %str = alloca %"class.llvh::SmallString", align 8
   %0 = ptrtoint ptr %ctx to i64
   %arrayidx = getelementptr inbounds [5 x %"struct.hermes::vm::(anonymous namespace)::ToStringOptions"], ptr @_ZZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsEE15toStringOptions, i64 0, i64 %0
-  %1 = load ptr, ptr %args, align 8, !noalias !16
+  %1 = load ptr, ptr %args, align 8, !noalias !48
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %1, align 8
   %cmp.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload, -844424930131969
   br i1 %cmp.i.i, label %cond.true.i, label %if.then
@@ -2147,7 +2147,7 @@ entry:
   %str = alloca %"class.hermes::vm::SmallXString", align 8
   %0 = ptrtoint ptr %ctx to i64
   %arrayidx = getelementptr inbounds [3 x %"struct.hermes::vm::(anonymous namespace)::ToLocaleStringOptions"], ptr @_ZZN6hermes2vm33datePrototypeToLocaleStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsEE21toLocaleStringOptions, i64 0, i64 %0
-  %1 = load ptr, ptr %args, align 8, !noalias !19
+  %1 = load ptr, ptr %args, align 8, !noalias !51
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %1, align 8
   %cmp.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload, -844424930131969
   br i1 %cmp.i.i, label %cond.true.i, label %if.then
@@ -2216,10 +2216,10 @@ if.end.i.i.i.i:                                   ; preds = %if.end11
   %add.ptr.i.idx.i.i = shl nuw nsw i64 %conv.i.i, 1
   %mul.i.i.i.i.i.i.i = add nuw nsw i64 %add.ptr.i.idx.i.i, 2
   %call5.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #16
-  store ptr %call5.i.i.i.i.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !22
-  store i64 %conv.i.i, ptr %14, align 8, !alias.scope !22
+  store ptr %call5.i.i.i.i.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !54
+  store i64 %conv.i.i, ptr %14, align 8, !alias.scope !54
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %12, i64 %add.ptr.i.idx.i.i, i1 false)
-  store i64 %conv.i.i, ptr %_M_string_length.i.i.i, align 8, !alias.scope !22
+  store i64 %conv.i.i, ptr %_M_string_length.i.i.i, align 8, !alias.scope !54
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #14
@@ -2265,7 +2265,7 @@ entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %0 = ptrtoint ptr %ctx to i64
   %arrayidx = getelementptr inbounds [18 x %"struct.hermes::vm::(anonymous namespace)::GetterOptions"], ptr @_ZZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsEE13getterOptions, i64 0, i64 %0
-  %1 = load ptr, ptr %args, align 8, !noalias !25
+  %1 = load ptr, ptr %args, align 8, !noalias !57
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %1, align 8
   %cmp.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload, -844424930131969
   br i1 %cmp.i.i, label %cond.true.i, label %if.then
@@ -2545,15 +2545,15 @@ attributes #17 = { builtin nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
 !6 = distinct !{!6, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
-!7 = !{}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
-!10 = distinct !{!10, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!9 = distinct !{!9, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!12 = distinct !{!12, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIcEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE: %agg.result"}
-!15 = distinct !{!15, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIcEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE"}
+!14 = distinct !{!14, !15, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!15 = distinct !{!15, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
 !18 = distinct !{!18, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
@@ -2561,8 +2561,40 @@ attributes #17 = { builtin nounwind }
 !20 = distinct !{!20, !21, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
 !21 = distinct !{!21, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIDsEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE: %agg.result"}
-!24 = distinct !{!24, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIDsEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE"}
+!23 = distinct !{!23, !24, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!24 = distinct !{!24, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
 !27 = distinct !{!27, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!30 = distinct !{!30, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!33 = distinct !{!33, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!36 = distinct !{!36, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!39 = distinct !{!39, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!42 = distinct !{!42, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!43 = distinct !{!43, !44}
+!44 = !{!"llvm.loop.mustprogress"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIcEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE: %agg.result"}
+!47 = distinct !{!47, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIcEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!50 = distinct !{!50, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!53 = distinct !{!53, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIDsEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE: %agg.result"}
+!56 = distinct !{!56, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIDsEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!59 = distinct !{!59, !"_ZNK6hermes2vm10NativeArgs5beginEv"}

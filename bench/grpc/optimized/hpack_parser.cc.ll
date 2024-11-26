@@ -10670,7 +10670,7 @@ entry:
   %helper = alloca %"class.grpc_core::metadata_detail::ParseHelper", align 8
   %agg.tmp.sroa.6 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %0 = load ptr, ptr %value, align 8
+  %0 = load ptr, ptr %value, align 8, !noalias !280
   %magicptr.i = ptrtoint ptr %0 to i64
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %if.then.i
@@ -17463,7 +17463,7 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
 cond.true:                                        ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp16.i)
-  %3 = load ptr, ptr %value, align 8
+  %3 = load ptr, ptr %value, align 8, !noalias !704
   %magicptr.i = ptrtoint ptr %3 to i64
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %if.then.i

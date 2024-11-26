@@ -5225,7 +5225,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %92, %_ZN17QArrayDat
   %99 = trunc i8 %98 to i1
   call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %90, i1 noundef zeroext %99)
   call void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind nonnull writable sret(%class.QList.6) align 8 %33, i32 noundef 0)
-  %100 = load ptr, ptr %33, align 8
+  %100 = load ptr, ptr %33, align 8, !noalias !65
   %101 = getelementptr inbounds i8, ptr %33, i64 8
   %102 = load ptr, ptr %101, align 8, !noalias !65
   %103 = getelementptr inbounds i8, ptr %33, i64 16
@@ -5959,7 +5959,7 @@ _ZN7QStringD2Ev.exit294.us:                       ; preds = %358, %_ZN17QArrayDa
           to label %360 unwind label %.split.us
 
 360:                                              ; preds = %_ZN7QStringD2Ev.exit294.us
-  %361 = load ptr, ptr %59, align 8
+  %361 = load ptr, ptr %59, align 8, !noalias !71
   %362 = load ptr, ptr %169, align 8, !noalias !71
   %363 = load i64, ptr %170, align 8, !noalias !71
   %.not.i.i.i.i.i303.us = icmp eq ptr %361, null
@@ -9496,7 +9496,7 @@ _ZN7QStringD2Ev.exit206:                          ; preds = %605, %_ZN17QArrayDa
   %.sroa.02.06.i.i.i = phi ptr [ %673, %.noexc.i.i ], [ %632, %630 ]
   %634 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i.i, i64 32
   %635 = load i32, ptr %634, align 8
-  %636 = load i64, ptr %610, align 8
+  %636 = load i64, ptr %610, align 8, !alias.scope !118
   %637 = load ptr, ptr %48, align 8
   %.not.i.i310 = icmp eq ptr %637, null
   br i1 %.not.i.i310, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i

@@ -5217,8 +5217,8 @@ invoke.cont394:                                   ; preds = %call.i.i1430.noexc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it1.i1437)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it2.i1438)
   call void @llvm.experimental.noalias.scope.decl(metadata !113)
-  %667 = load ptr, ptr %6, align 8, !noalias !93
-  %668 = load ptr, ptr %667, align 8, !noalias !93
+  %667 = load ptr, ptr %6, align 8, !noalias !113
+  %668 = load ptr, ptr %667, align 8, !noalias !113
   store ptr %668, ptr %it1.i1437, align 8, !alias.scope !113
   store ptr %667, ptr %mpBucket.i.i.i.i, align 8, !alias.scope !113
   %tobool.not.i.i1440 = icmp eq ptr %668, null
@@ -5473,8 +5473,8 @@ invoke.cont406:                                   ; preds = %call.i.i1509.noexc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it1.i1517)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it2.i1518)
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
-  %699 = load ptr, ptr %7, align 8, !noalias !93
-  %700 = load ptr, ptr %699, align 8, !noalias !93
+  %699 = load ptr, ptr %7, align 8, !noalias !129
+  %700 = load ptr, ptr %699, align 8, !noalias !129
   store ptr %700, ptr %it1.i1517, align 8, !alias.scope !129
   store ptr %699, ptr %mpBucket.i.i.i.i1520, align 8, !alias.scope !129
   %tobool.not.i.i1521 = icmp eq ptr %700, null

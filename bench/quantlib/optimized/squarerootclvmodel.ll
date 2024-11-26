@@ -13691,7 +13691,7 @@ if.end:                                           ; preds = %entry
   store i64 %2, ptr %count, align 8, !tbaa !30
   %invert.i = getelementptr inbounds nuw i8, ptr %f, i64 32
   %p.i = getelementptr inbounds i8, ptr %f, i64 16
-  %.pre159 = load x86_fp80, ptr %f, align 16, !tbaa !234
+  %.pre159 = load x86_fp80, ptr %f, align 16, !tbaa !234, !noalias !236
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end
@@ -13770,7 +13770,7 @@ try.cont.thread:                                  ; preds = %lpad
   %dec107 = add i64 %17, -1
   store i64 %dec107, ptr %count, align 8, !tbaa !30
   %cmp9108 = fcmp oeq x86_fp80 %.pr, 0xK00000000000000000000
-  %.pre = load x86_fp80, ptr %f, align 16, !tbaa !234
+  %.pre = load x86_fp80, ptr %f, align 16, !tbaa !234, !noalias !236
   br i1 %cmp9108, label %do.end, label %if.then13
 
 if.end11:                                         ; preds = %try.cont

@@ -1070,7 +1070,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !17
+  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !14
   br i1 %.b.i, label %if.end4.thread, label %_PyRuntime_Initialize.exit
 
 if.end4.thread:                                   ; preds = %if.end
@@ -1081,9 +1081,9 @@ if.end4.thread:                                   ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp1.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp6.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp12.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %preconfig.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %config_args.i.i), !noalias !18
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %preconfig.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %config_args.i.i), !noalias !17
   br label %_PyRuntime_Initialize.exit.thread.i.i
 
 _PyRuntime_Initialize.exit:                       ; preds = %if.end
@@ -1118,76 +1118,76 @@ if.then3:                                         ; preds = %_PyRuntime_Initiali
   br label %return
 
 if.end4:                                          ; preds = %_PyRuntime_Initialize.exit
-  %.b.i.i.i.pre = load i1, ptr @runtime_initialized, align 4, !noalias !21
+  %.b.i.i.i.pre = load i1, ptr @runtime_initialized, align 4, !noalias !20
   store ptr null, ptr %tstate, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp1.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp6.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp12.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %preconfig.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %config_args.i.i), !noalias !18
-  call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %preconfig.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %config_args.i.i), !noalias !17
+  call void @llvm.experimental.noalias.scope.decl(metadata !25)
   br i1 %.b.i.i.i.pre, label %_PyRuntime_Initialize.exit.thread.i.i, label %_PyRuntime_Initialize.exit.i.i
 
 _PyRuntime_Initialize.exit.thread.i.i:            ; preds = %if.end4.thread, %if.end4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i.i, i8 0, i64 32, i1 false), !alias.scope !26, !noalias !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i.i, i8 0, i64 32, i1 false), !alias.scope !25, !noalias !26
   br label %if.end.i.i
 
 _PyRuntime_Initialize.exit.i.i:                   ; preds = %if.end4
-  store i1 true, ptr @runtime_initialized, align 4, !noalias !21
-  call void @_PyRuntimeState_Init(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull @_PyRuntime) #21, !noalias !27
-  %.pr.i.i = load i32, ptr %status.i.i, align 8, !noalias !27
+  store i1 true, ptr @runtime_initialized, align 4, !noalias !20
+  call void @_PyRuntimeState_Init(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull @_PyRuntime) #21, !noalias !26
+  %.pr.i.i = load i32, ptr %status.i.i, align 8, !noalias !26
   %cmp.not.i.i = icmp eq i32 %.pr.i.i, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_PyRuntime_Initialize.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %status.i.i, i64 32, i1 false), !noalias !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %status.i.i, i64 32, i1 false), !noalias !17
   br label %_Py_PreInitializeFromConfig.exit.i
 
 if.end.i.i:                                       ; preds = %_PyRuntime_Initialize.exit.i.i, %_PyRuntime_Initialize.exit.thread.i.i
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 304), align 8, !noalias !27
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 304), align 8, !noalias !26
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %if.end3.i.i, label %_Py_PreInitializeFromConfig.exit.i.thread
 
 _Py_PreInitializeFromConfig.exit.i.thread:        ; preds = %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %preconfig.i.i), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %config_args.i.i), !noalias !18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %preconfig.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %config_args.i.i), !noalias !17
   br label %if.end.i12
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  call void @_PyPreConfig_InitFromConfig(ptr noundef nonnull %preconfig.i.i, ptr noundef nonnull %config) #21, !noalias !27
+  call void @_PyPreConfig_InitFromConfig(ptr noundef nonnull %preconfig.i.i, ptr noundef nonnull %config) #21, !noalias !26
   %parse_argv.i.i = getelementptr inbounds i8, ptr %config, i64 104
-  %1 = load i32, ptr %parse_argv.i.i, align 8, !noalias !27
+  %1 = load i32, ptr %parse_argv.i.i, align 8, !noalias !26
   %tobool4.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.end3.i.i
-  call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i.i, ptr noundef null), !noalias !18
+  call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i.i, ptr noundef null), !noalias !17
   br label %_Py_PreInitializeFromConfig.exit.i
 
 if.else.i.i:                                      ; preds = %if.end3.i.i
   %argv.i.i = getelementptr inbounds i8, ptr %config, i64 128
-  %2 = load i64, ptr %argv.i.i, align 8, !noalias !27
-  store i64 %2, ptr %config_args.i.i, align 8, !noalias !27
+  %2 = load i64, ptr %argv.i.i, align 8, !noalias !26
+  store i64 %2, ptr %config_args.i.i, align 8, !noalias !26
   %use_bytes_argv.i.i = getelementptr inbounds i8, ptr %config_args.i.i, i64 8
-  store i32 0, ptr %use_bytes_argv.i.i, align 8, !noalias !27
+  store i32 0, ptr %use_bytes_argv.i.i, align 8, !noalias !26
   %bytes_argv.i.i = getelementptr inbounds i8, ptr %config_args.i.i, i64 16
-  store ptr null, ptr %bytes_argv.i.i, align 8, !noalias !27
+  store ptr null, ptr %bytes_argv.i.i, align 8, !noalias !26
   %wchar_argv.i.i = getelementptr inbounds i8, ptr %config_args.i.i, i64 24
   %items.i.i = getelementptr inbounds i8, ptr %config, i64 136
-  %3 = load ptr, ptr %items.i.i, align 8, !noalias !27
-  store ptr %3, ptr %wchar_argv.i.i, align 8, !noalias !27
-  call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i.i, ptr noundef nonnull %config_args.i.i), !noalias !18
+  %3 = load ptr, ptr %items.i.i, align 8, !noalias !26
+  store ptr %3, ptr %wchar_argv.i.i, align 8, !noalias !26
+  call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i.i, ptr noundef nonnull %config_args.i.i), !noalias !17
   br label %_Py_PreInitializeFromConfig.exit.i
 
 _Py_PreInitializeFromConfig.exit.i:               ; preds = %if.else.i.i, %if.then5.i.i, %if.then.i.i
   %tmp5.sroa.0.0.copyload.pr = load i32, ptr %tmp.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %preconfig.i.i), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %config_args.i.i), !noalias !18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %preconfig.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %config_args.i.i), !noalias !17
   %cmp.not.i = icmp eq i32 %tmp5.sroa.0.0.copyload.pr, 0
   br i1 %cmp.not.i, label %if.end.i12, label %pyinit_core.exit.thread
 
@@ -1205,8 +1205,8 @@ pyinit_core.exit.thread:                          ; preds = %_Py_PreInitializeFr
   br label %if.then8.sink.split
 
 if.end.i12:                                       ; preds = %_Py_PreInitializeFromConfig.exit.i.thread, %_Py_PreInitializeFromConfig.exit.i
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #21, !noalias !18
-  call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %config.i, ptr noundef nonnull %config) #21, !noalias !18
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #21, !noalias !17
+  call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %config.i, ptr noundef nonnull %config) #21, !noalias !17
   %tmp5.sroa.0.0.copyload15 = load i32, ptr %tmp1.i, align 8
   %tmp5.sroa.9.0.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %tmp1.i, i64 4
   %tmp5.sroa.9.0.copyload18 = load i32, ptr %tmp5.sroa.9.0.tmp1.i.sroa_idx, align 4
@@ -1222,7 +1222,7 @@ if.end.i12:                                       ; preds = %_Py_PreInitializeFr
   br i1 %cmp3.not.i, label %if.end5.i, label %pyinit_core.exit.thread90
 
 if.end5.i:                                        ; preds = %if.end.i12
-  call void @_PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %tmp6.i, ptr noundef nonnull %config.i, i32 noundef 0) #21, !noalias !18
+  call void @_PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %tmp6.i, ptr noundef nonnull %config.i, i32 noundef 0) #21, !noalias !17
   %tmp5.sroa.0.0.copyload16 = load i32, ptr %tmp6.i, align 8
   %tmp5.sroa.9.0.tmp6.i.sroa_idx = getelementptr inbounds i8, ptr %tmp6.i, i64 4
   %tmp5.sroa.9.0.copyload19 = load i32, ptr %tmp5.sroa.9.0.tmp6.i.sroa_idx, align 4
@@ -1238,12 +1238,12 @@ if.end5.i:                                        ; preds = %if.end.i12
   br i1 %cmp8.not.i, label %if.end10.i, label %pyinit_core.exit.thread90
 
 if.end10.i:                                       ; preds = %if.end5.i
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 308), align 4, !noalias !18
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 308), align 4, !noalias !17
   %tobool.not.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i, label %if.then11.i, label %if.else.i
 
 if.then11.i:                                      ; preds = %if.end10.i
-  call fastcc void @pyinit_config(ptr noalias align 8 %tmp12.i, ptr noundef nonnull %tstate, ptr noundef %config.i), !noalias !18
+  call fastcc void @pyinit_config(ptr noalias align 8 %tmp12.i, ptr noundef nonnull %tstate, ptr noundef %config.i), !noalias !17
   %tmp5.sroa.0.0.copyload17 = load i32, ptr %tmp12.i, align 8
   %tmp5.sroa.9.0.tmp12.i.sroa_idx = getelementptr inbounds i8, ptr %tmp12.i, i64 4
   %tmp5.sroa.9.0.copyload20 = load i32, ptr %tmp5.sroa.9.0.tmp12.i.sroa_idx, align 4
@@ -1258,84 +1258,84 @@ if.then11.i:                                      ; preds = %if.end10.i
   br label %pyinit_core.exit
 
 if.else.i:                                        ; preds = %if.end10.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp12.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp21.i.i), !noalias !18
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp12.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp21.i.i), !noalias !17
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %6 = load ptr, ptr %5, align 8, !noalias !28
+  %6 = load ptr, ptr %5, align 8, !noalias !27
   %tobool.not.i5.i = icmp eq ptr %6, null
   br i1 %tobool.not.i5.i, label %pyinit_core_reconfigure.exit.i, label %if.end.i6.i
 
 if.end.i6.i:                                      ; preds = %if.else.i
-  store ptr %6, ptr %tstate, align 8, !noalias !28
+  store ptr %6, ptr %tstate, align 8, !noalias !27
   %interp1.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = load ptr, ptr %interp1.i.i, align 8, !noalias !28
+  %7 = load ptr, ptr %interp1.i.i, align 8, !noalias !27
   %cmp.i.i = icmp eq ptr %7, null
   br i1 %cmp.i.i, label %pyinit_core_reconfigure.exit.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i6.i
-  call void @_PyConfig_Write(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i.i, ptr noundef nonnull %config.i, ptr noundef nonnull @_PyRuntime) #21, !noalias !28
-  %status.sroa.0.0.copyload.i.i = load i32, ptr %tmp.i.i, align 8, !noalias !28
+  call void @_PyConfig_Write(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i.i, ptr noundef nonnull %config.i, ptr noundef nonnull @_PyRuntime) #21, !noalias !27
+  %status.sroa.0.0.copyload.i.i = load i32, ptr %tmp.i.i, align 8, !noalias !27
   %cmp9.not.i.i = icmp eq i32 %status.sroa.0.0.copyload.i.i, 0
   br i1 %cmp9.not.i.i, label %if.end11.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.end7.i.i
   %status.sroa.9.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 4
-  %tmp13.sroa.7.4.copyload.i = load i32, ptr %status.sroa.9.0.tmp.sroa_idx.i.i, align 4, !noalias !18
+  %tmp13.sroa.7.4.copyload.i = load i32, ptr %status.sroa.9.0.tmp.sroa_idx.i.i, align 4, !noalias !17
   %tmp13.sroa.10.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 8
-  %tmp13.sroa.10.4.copyload.i = load ptr, ptr %tmp13.sroa.10.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 8, !noalias !18
+  %tmp13.sroa.10.4.copyload.i = load ptr, ptr %tmp13.sroa.10.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
   %tmp13.sroa.12.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
-  %tmp13.sroa.12.4.copyload.i = load ptr, ptr %tmp13.sroa.12.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 8, !noalias !18
+  %tmp13.sroa.12.4.copyload.i = load ptr, ptr %tmp13.sroa.12.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
   %tmp13.sroa.14.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 24
-  %tmp13.sroa.14.4.copyload.i = load i32, ptr %tmp13.sroa.14.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 8, !noalias !18
+  %tmp13.sroa.14.4.copyload.i = load i32, ptr %tmp13.sroa.14.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
   %tmp13.sroa.16.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 28
-  %tmp13.sroa.16.4.copyload.i = load i32, ptr %tmp13.sroa.16.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 4, !noalias !18
+  %tmp13.sroa.16.4.copyload.i = load i32, ptr %tmp13.sroa.16.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 4, !noalias !17
   br label %pyinit_core_reconfigure.exit.i
 
 if.end11.i.i:                                     ; preds = %if.end7.i.i
   %config13.i.i = getelementptr inbounds i8, ptr %7, i64 1592
-  call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp12.i.i, ptr noundef nonnull %config13.i.i, ptr noundef nonnull %config.i) #21, !noalias !28
-  %status.sroa.0.0.copyload8.i.i = load i32, ptr %tmp12.i.i, align 8, !noalias !28
+  call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp12.i.i, ptr noundef nonnull %config13.i.i, ptr noundef nonnull %config.i) #21, !noalias !27
+  %status.sroa.0.0.copyload8.i.i = load i32, ptr %tmp12.i.i, align 8, !noalias !27
   %cmp15.not.i.i = icmp eq i32 %status.sroa.0.0.copyload8.i.i, 0
   br i1 %cmp15.not.i.i, label %if.end17.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %if.end11.i.i
   %status.sroa.9.0.tmp12.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp12.i.i, i64 4
-  %tmp13.sroa.7.4.copyload1.i = load i32, ptr %status.sroa.9.0.tmp12.sroa_idx.i.i, align 4, !noalias !18
+  %tmp13.sroa.7.4.copyload1.i = load i32, ptr %status.sroa.9.0.tmp12.sroa_idx.i.i, align 4, !noalias !17
   %tmp13.sroa.10.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp12.i.i, i64 8
-  %tmp13.sroa.10.4.copyload3.i = load ptr, ptr %tmp13.sroa.10.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 8, !noalias !18
+  %tmp13.sroa.10.4.copyload3.i = load ptr, ptr %tmp13.sroa.10.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
   %tmp13.sroa.12.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp12.i.i, i64 16
-  %tmp13.sroa.12.4.copyload5.i = load ptr, ptr %tmp13.sroa.12.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 8, !noalias !18
+  %tmp13.sroa.12.4.copyload5.i = load ptr, ptr %tmp13.sroa.12.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
   %tmp13.sroa.14.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp12.i.i, i64 24
-  %tmp13.sroa.14.4.copyload7.i = load i32, ptr %tmp13.sroa.14.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 8, !noalias !18
+  %tmp13.sroa.14.4.copyload7.i = load i32, ptr %tmp13.sroa.14.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
   %tmp13.sroa.16.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp12.i.i, i64 28
-  %tmp13.sroa.16.4.copyload9.i = load i32, ptr %tmp13.sroa.16.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 4, !noalias !18
+  %tmp13.sroa.16.4.copyload9.i = load i32, ptr %tmp13.sroa.16.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 4, !noalias !17
   br label %pyinit_core_reconfigure.exit.i
 
 if.end17.i.i:                                     ; preds = %if.end11.i.i
-  %call18.i.i = call ptr @_PyInterpreterState_GetConfig(ptr noundef nonnull %7) #21, !noalias !28
+  %call18.i.i = call ptr @_PyInterpreterState_GetConfig(ptr noundef nonnull %7) #21, !noalias !27
   %_install_importlib.i.i = getelementptr inbounds i8, ptr %call18.i.i, i64 432
-  %8 = load i32, ptr %_install_importlib.i.i, align 8, !noalias !28
+  %8 = load i32, ptr %_install_importlib.i.i, align 8, !noalias !27
   %tobool19.not.i.i = icmp eq i32 %8, 0
   br i1 %tobool19.not.i.i, label %pyinit_core_reconfigure.exit.i, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %if.end17.i.i
-  call void @_PyPathConfig_UpdateGlobal(ptr nonnull sret(%struct.PyStatus) align 8 %tmp21.i.i, ptr noundef nonnull %call18.i.i) #21, !noalias !28
-  %status.sroa.0.0.copyload10.i.i = load i32, ptr %tmp21.i.i, align 8, !noalias !28
+  call void @_PyPathConfig_UpdateGlobal(ptr nonnull sret(%struct.PyStatus) align 8 %tmp21.i.i, ptr noundef nonnull %call18.i.i) #21, !noalias !27
+  %status.sroa.0.0.copyload10.i.i = load i32, ptr %tmp21.i.i, align 8, !noalias !27
   %cmp23.not.i.i = icmp eq i32 %status.sroa.0.0.copyload10.i.i, 0
   br i1 %cmp23.not.i.i, label %pyinit_core_reconfigure.exit.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.then20.i.i
   %status.sroa.9.0.tmp21.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp21.i.i, i64 4
-  %tmp13.sroa.7.4.copyload2.i = load i32, ptr %status.sroa.9.0.tmp21.sroa_idx.i.i, align 4, !noalias !18
+  %tmp13.sroa.7.4.copyload2.i = load i32, ptr %status.sroa.9.0.tmp21.sroa_idx.i.i, align 4, !noalias !17
   %tmp13.sroa.10.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp21.i.i, i64 8
-  %tmp13.sroa.10.4.copyload4.i = load ptr, ptr %tmp13.sroa.10.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 8, !noalias !18
+  %tmp13.sroa.10.4.copyload4.i = load ptr, ptr %tmp13.sroa.10.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
   %tmp13.sroa.12.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp21.i.i, i64 16
-  %tmp13.sroa.12.4.copyload6.i = load ptr, ptr %tmp13.sroa.12.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 8, !noalias !18
+  %tmp13.sroa.12.4.copyload6.i = load ptr, ptr %tmp13.sroa.12.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
   %tmp13.sroa.14.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp21.i.i, i64 24
-  %tmp13.sroa.14.4.copyload8.i = load i32, ptr %tmp13.sroa.14.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 8, !noalias !18
+  %tmp13.sroa.14.4.copyload8.i = load i32, ptr %tmp13.sroa.14.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
   %tmp13.sroa.16.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp21.i.i, i64 28
-  %tmp13.sroa.16.4.copyload10.i = load i32, ptr %tmp13.sroa.16.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 4, !noalias !18
+  %tmp13.sroa.16.4.copyload10.i = load i32, ptr %tmp13.sroa.16.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 4, !noalias !17
   br label %pyinit_core_reconfigure.exit.i
 
 pyinit_core_reconfigure.exit.i:                   ; preds = %if.then24.i.i, %if.then20.i.i, %if.end17.i.i, %if.then16.i.i, %if.then10.i.i, %if.end.i6.i, %if.else.i
@@ -1345,9 +1345,9 @@ pyinit_core_reconfigure.exit.i:                   ; preds = %if.then24.i.i, %if.
   %tmp13.sroa.12.0.i = phi ptr [ %tmp13.sroa.12.4.copyload6.i, %if.then24.i.i ], [ %tmp13.sroa.12.4.copyload5.i, %if.then16.i.i ], [ %tmp13.sroa.12.4.copyload.i, %if.then10.i.i ], [ @.str.163, %if.else.i ], [ @.str.164, %if.end.i6.i ], [ null, %if.then20.i.i ], [ null, %if.end17.i.i ]
   %tmp13.sroa.14.0.i = phi i32 [ %tmp13.sroa.14.4.copyload8.i, %if.then24.i.i ], [ %tmp13.sroa.14.4.copyload7.i, %if.then16.i.i ], [ %tmp13.sroa.14.4.copyload.i, %if.then10.i.i ], [ 0, %if.else.i ], [ 0, %if.end.i6.i ], [ 0, %if.then20.i.i ], [ 0, %if.end17.i.i ]
   %tmp13.sroa.16.0.i = phi i32 [ %tmp13.sroa.16.4.copyload10.i, %if.then24.i.i ], [ %tmp13.sroa.16.4.copyload9.i, %if.then16.i.i ], [ %tmp13.sroa.16.4.copyload.i, %if.then10.i.i ], [ undef, %if.else.i ], [ undef, %if.end.i6.i ], [ 0, %if.then20.i.i ], [ 0, %if.end17.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i.i), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp12.i.i), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp21.i.i), !noalias !18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp12.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp21.i.i), !noalias !17
   br label %pyinit_core.exit
 
 pyinit_core.exit.thread90:                        ; preds = %if.end5.i, %if.end.i12
@@ -1357,7 +1357,7 @@ pyinit_core.exit.thread90:                        ; preds = %if.end5.i, %if.end.
   %tmp5.sroa.11.0.ph = phi ptr [ %tmp5.sroa.11.0.copyload21, %if.end.i12 ], [ %tmp5.sroa.11.0.copyload22, %if.end5.i ]
   %tmp5.sroa.9.0.ph = phi i32 [ %tmp5.sroa.9.0.copyload18, %if.end.i12 ], [ %tmp5.sroa.9.0.copyload19, %if.end5.i ]
   %tmp5.sroa.0.0.ph = phi i32 [ %tmp5.sroa.0.0.copyload15, %if.end.i12 ], [ %tmp5.sroa.0.0.copyload16, %if.end5.i ]
-  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #21, !noalias !18
+  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #21, !noalias !17
   br label %if.then8.sink.split
 
 pyinit_core.exit:                                 ; preds = %if.then11.i, %pyinit_core_reconfigure.exit.i
@@ -1367,7 +1367,7 @@ pyinit_core.exit:                                 ; preds = %if.then11.i, %pyini
   %tmp5.sroa.11.0 = phi ptr [ %tmp5.sroa.11.0.copyload23, %if.then11.i ], [ %tmp13.sroa.10.0.i, %pyinit_core_reconfigure.exit.i ]
   %tmp5.sroa.9.0 = phi i32 [ %tmp5.sroa.9.0.copyload20, %if.then11.i ], [ %tmp13.sroa.7.0.i, %pyinit_core_reconfigure.exit.i ]
   %tmp5.sroa.0.0 = phi i32 [ %tmp5.sroa.0.0.copyload17, %if.then11.i ], [ %tmp13.sroa.0.0.i, %pyinit_core_reconfigure.exit.i ]
-  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #21, !noalias !18
+  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #21, !noalias !17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp1.i)
@@ -1492,62 +1492,62 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i), !noalias !31
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status8.i.i), !noalias !31
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i), !noalias !30
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status8.i.i), !noalias !30
   %config1.i.i = getelementptr inbounds i8, ptr %0, i64 1592
-  call void @_PyConfig_Write(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config1.i.i, ptr noundef nonnull %1) #21, !noalias !31
-  %4 = load i32, ptr %status.i.i, align 8, !noalias !31
+  call void @_PyConfig_Write(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config1.i.i, ptr noundef nonnull %1) #21, !noalias !30
+  %4 = load i32, ptr %status.i.i, align 8, !noalias !30
   %cmp.not.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not.i.i, label %if.then.if.end4_crit_edge.i.i, label %interpreter_update_config.exit.thread.i
 
 if.then.if.end4_crit_edge.i.i:                    ; preds = %if.then4
-  %.pre.i.i = load ptr, ptr %interp1, align 8, !noalias !31
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8, !noalias !31
+  %.pre.i.i = load ptr, ptr %interp1, align 8, !noalias !30
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8, !noalias !30
   %cmp.i.not.i.i = icmp eq ptr %.pre.i.i, %5
   br i1 %cmp.i.not.i.i, label %if.then7.i.i, label %interpreter_update_config.exit.i
 
 if.then7.i.i:                                     ; preds = %if.then.if.end4_crit_edge.i.i
-  call void @_PyPathConfig_UpdateGlobal(ptr nonnull sret(%struct.PyStatus) align 8 %status8.i.i, ptr noundef nonnull %config1.i.i) #21, !noalias !31
-  %6 = load i32, ptr %status8.i.i, align 8, !noalias !31
+  call void @_PyPathConfig_UpdateGlobal(ptr nonnull sret(%struct.PyStatus) align 8 %status8.i.i, ptr noundef nonnull %config1.i.i) #21, !noalias !30
+  %6 = load i32, ptr %status8.i.i, align 8, !noalias !30
   %cmp10.not.i.i = icmp eq i32 %6, 0
   br i1 %cmp10.not.i.i, label %if.then7.if.end13_crit_edge.i.i, label %interpreter_update_config.exit.thread.i
 
 if.then7.if.end13_crit_edge.i.i:                  ; preds = %if.then7.i.i
-  %.pre7.i.i = load ptr, ptr %interp1, align 8, !noalias !31
+  %.pre7.i.i = load ptr, ptr %interp1, align 8, !noalias !30
   br label %interpreter_update_config.exit.i
 
 interpreter_update_config.exit.thread.i:          ; preds = %if.then7.i.i, %if.then4
   %status8.i.sink.i = phi ptr [ %status.i.i, %if.then4 ], [ %status8.i.i, %if.then7.i.i ]
-  call void @_PyErr_SetFromPyStatus(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status8.i.sink.i) #21, !noalias !31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i), !noalias !31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status8.i.i), !noalias !31
+  call void @_PyErr_SetFromPyStatus(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status8.i.sink.i) #21, !noalias !30
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i), !noalias !30
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status8.i.i), !noalias !30
   br label %if.then.i
 
 interpreter_update_config.exit.i:                 ; preds = %if.then7.if.end13_crit_edge.i.i, %if.then.if.end4_crit_edge.i.i
   %7 = phi ptr [ %.pre7.i.i, %if.then7.if.end13_crit_edge.i.i ], [ %.pre.i.i, %if.then.if.end4_crit_edge.i.i ]
   %int_max_str_digits.i.i = getelementptr inbounds i8, ptr %0, i64 1856
-  %8 = load i32, ptr %int_max_str_digits.i.i, align 8, !noalias !31
+  %8 = load i32, ptr %int_max_str_digits.i.i, align 8, !noalias !30
   %long_state.i.i = getelementptr inbounds i8, ptr %7, i64 267784
-  store i32 %8, ptr %long_state.i.i, align 8, !noalias !31
-  %call15.i.i = call i32 @_PySys_UpdateConfig(ptr noundef nonnull %tstate) #21, !noalias !31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i), !noalias !31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status8.i.i), !noalias !31
+  store i32 %8, ptr %long_state.i.i, align 8, !noalias !30
+  %call15.i.i = call i32 @_PySys_UpdateConfig(ptr noundef nonnull %tstate) #21, !noalias !30
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i), !noalias !30
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status8.i.i), !noalias !30
   %cmp.i = icmp slt i32 %call15.i.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %interpreter_update_config.exit.i, %interpreter_update_config.exit.thread.i
-  store i32 1, ptr %agg.result, align 8, !alias.scope !31
+  store i32 1, ptr %agg.result, align 8, !alias.scope !30
   %func.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr @__func__.pyinit_main_reconfigure, ptr %func.i, align 8, !alias.scope !31
+  store ptr @__func__.pyinit_main_reconfigure, ptr %func.i, align 8, !alias.scope !30
   %err_msg.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr @.str.166, ptr %err_msg.i, align 8, !alias.scope !31
+  store ptr @.str.166, ptr %err_msg.i, align 8, !alias.scope !30
   %exitcode.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store i32 0, ptr %exitcode.i, align 8, !alias.scope !31
+  store i32 0, ptr %exitcode.i, align 8, !alias.scope !30
   br label %return
 
 if.end.i:                                         ; preds = %interpreter_update_config.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !30
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -1574,16 +1574,16 @@ entry:
   %status = alloca %struct.PyStatus, align 8
   %tmp = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !34
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !33
   br i1 %.b.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp, i8 0, i64 32, i1 false), !alias.scope !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp, i8 0, i64 32, i1 false), !alias.scope !33
   br label %_PyRuntime_Initialize.exit
 
 if.end.i:                                         ; preds = %entry
-  store i1 true, ptr @runtime_initialized, align 4, !noalias !34
+  store i1 true, ptr @runtime_initialized, align 4, !noalias !33
   call void @_PyRuntimeState_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull @_PyRuntime) #21
   br label %_PyRuntime_Initialize.exit
 
@@ -1663,16 +1663,16 @@ entry:
 define dso_local void @_Py_InitializeMain(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result) local_unnamed_addr #1 {
 entry:
   %status = alloca %struct.PyStatus, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !37
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !36
   br i1 %.b.i, label %_PyRuntime_Initialize.exit.thread, label %_PyRuntime_Initialize.exit
 
 _PyRuntime_Initialize.exit.thread:                ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, i8 0, i64 32, i1 false), !alias.scope !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, i8 0, i64 32, i1 false), !alias.scope !36
   br label %if.end
 
 _PyRuntime_Initialize.exit:                       ; preds = %entry
-  store i1 true, ptr @runtime_initialized, align 4, !noalias !37
+  store i1 true, ptr @runtime_initialized, align 4, !noalias !36
   call void @_PyRuntimeState_Init(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull @_PyRuntime) #21
   %.pr = load i32, ptr %status, align 8
   %cmp.not = icmp eq i32 %.pr, 0
@@ -1798,7 +1798,7 @@ if.then.i11.i:                                    ; preds = %PyMutex_Unlock.exit
 PyMutex_Lock.exit12.i:                            ; preds = %if.then.i11.i, %PyMutex_Unlock.exit.i
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2192), align 8
   %cmp.i24 = icmp sgt i32 %23, 0
-  br i1 %cmp.i24, label %while.body.i, label %while.end.i, !llvm.loop !40
+  br i1 %cmp.i24, label %while.body.i, label %while.end.i, !llvm.loop !39
 
 while.end.i:                                      ; preds = %PyMutex_Lock.exit12.i, %PyMutex_Lock.exit.i
   %24 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 1928), i8 1, i8 0 seq_cst seq_cst, align 1
@@ -2127,7 +2127,7 @@ for.inc29.us.i:                                   ; preds = %if.then1.i.us.i, %i
   %add.ptr.us.i = getelementptr i8, ptr %p.12.us.i, i64 16
   %13 = load ptr, ptr %add.ptr.us.i, align 8
   %cmp10.not.us.i = icmp eq ptr %13, null
-  br i1 %cmp10.not.us.i, label %finalize_modules_delete_special.exit, label %for.body11.us.i, !llvm.loop !41
+  br i1 %cmp10.not.us.i, label %finalize_modules_delete_special.exit, label %for.body11.us.i, !llvm.loop !40
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %14 = phi ptr [ %15, %for.inc.i ], [ @.str.215, %for.body.i.preheader ]
@@ -2144,7 +2144,7 @@ for.inc.i:                                        ; preds = %if.then7.i, %for.bo
   %incdec.ptr.i = getelementptr i8, ptr %p.01.i, i64 8
   %15 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp4.not.i = icmp eq ptr %15, null
-  br i1 %cmp4.not.i, label %for.cond9.preheader.i, label %for.body.i, !llvm.loop !42
+  br i1 %cmp4.not.i, label %for.cond9.preheader.i, label %for.body.i, !llvm.loop !41
 
 for.body11.i:                                     ; preds = %for.cond9.preheader.i, %for.inc29.i
   %16 = phi ptr [ %26, %for.inc29.i ], [ @.str.225, %for.cond9.preheader.i ]
@@ -2212,7 +2212,7 @@ for.inc29.i:                                      ; preds = %if.then1.i.i, %if.e
   %add.ptr.i = getelementptr i8, ptr %p.12.i, i64 16
   %26 = load ptr, ptr %add.ptr.i, align 8
   %cmp10.not.i = icmp eq ptr %26, null
-  br i1 %cmp10.not.i, label %finalize_modules_delete_special.exit, label %for.body11.i, !llvm.loop !41
+  br i1 %cmp10.not.i, label %finalize_modules_delete_special.exit, label %for.body11.i, !llvm.loop !40
 
 finalize_modules_delete_special.exit:             ; preds = %for.inc29.i, %for.inc29.us.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
@@ -2270,7 +2270,7 @@ if.then29.us.us.i:                                ; preds = %if.then7.us.us.i
 if.end31.us.us.i:                                 ; preds = %if.then29.us.us.i, %if.then7.us.us.i, %PyObject_TypeCheck.exit.us.us.i
   %call3.us.us.i = call i32 @PyDict_Next(ptr noundef nonnull %call, ptr noundef nonnull %pos.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i23) #21
   %tobool4.not.us.us.i = icmp eq i32 %call3.us.us.i, 0
-  br i1 %tobool4.not.us.us.i, label %finalize_remove_modules.exit, label %while.body.us.us.i, !llvm.loop !43
+  br i1 %tobool4.not.us.us.i, label %finalize_remove_modules.exit, label %while.body.us.us.i, !llvm.loop !42
 
 while.body.us.i:                                  ; preds = %while.body.lr.ph.split.us.i, %if.end31.us.i
   %31 = load ptr, ptr %value.i23, align 8
@@ -2312,7 +2312,7 @@ if.then29.us.i:                                   ; preds = %if.end13.us.i
 if.end31.us.i:                                    ; preds = %if.then29.us.i, %if.end13.us.i, %PyObject_TypeCheck.exit.us.i
   %call3.us.i = call i32 @PyDict_Next(ptr noundef nonnull %call, ptr noundef nonnull %pos.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i23) #21
   %tobool4.not.us.i = icmp eq i32 %call3.us.i, 0
-  br i1 %tobool4.not.us.i, label %finalize_remove_modules.exit, label %while.body.us.i, !llvm.loop !43
+  br i1 %tobool4.not.us.i, label %finalize_remove_modules.exit, label %while.body.us.i, !llvm.loop !42
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %if.end31.i
   %38 = load ptr, ptr %value.i23, align 8
@@ -2430,7 +2430,7 @@ if.then29.i:                                      ; preds = %if.end26.i
 if.end31.i:                                       ; preds = %if.then29.i, %if.end26.i, %PyObject_TypeCheck.exit.i
   %call3.i = call i32 @PyDict_Next(ptr noundef nonnull %call, ptr noundef nonnull %pos.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i23) #21
   %tobool4.not.i = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.not.i, label %finalize_remove_modules.exit, label %while.body.i, !llvm.loop !43
+  br i1 %tobool4.not.i, label %finalize_remove_modules.exit, label %while.body.i, !llvm.loop !42
 
 if.else32.i:                                      ; preds = %if.end.i26
   %call33.i = call ptr @PyObject_GetIter(ptr noundef nonnull %call) #21
@@ -2459,7 +2459,7 @@ if.then45.i:                                      ; preds = %while.body41.i
 while.cond38.backedge.i:                          ; preds = %if.then1.i92.i, %if.end.i89.i, %Py_DECREF.exit103.i, %if.then45.i
   %call39.i = call ptr @PyIter_Next(ptr noundef nonnull %call33.i) #21
   %tobool40.not.i = icmp eq ptr %call39.i, null
-  br i1 %tobool40.not.i, label %while.end79.i, label %while.body41.i, !llvm.loop !44
+  br i1 %tobool40.not.i, label %while.end79.i, label %while.body41.i, !llvm.loop !43
 
 if.end46.i:                                       ; preds = %while.body41.i
   %53 = getelementptr i8, ptr %call43.i, i64 8
@@ -2805,7 +2805,7 @@ for.inc.sink.split.i:                             ; preds = %if.end.i.i66, %if.e
 for.inc.i64:                                      ; preds = %for.inc.sink.split.i, %if.end.i.i66, %if.end16.i, %if.end.i20.i, %if.then10.i, %if.end.i18.i, %for.body.i59
   %i.0.i = add nsw i64 %i.024.i, -1
   %cmp.i65 = icmp sgt i64 %i.024.i, 0
-  br i1 %cmp.i65, label %for.body.i59, label %finalize_modules_clear_weaklist.exit, !llvm.loop !45
+  br i1 %cmp.i65, label %for.body.i59, label %finalize_modules_clear_weaklist.exit, !llvm.loop !44
 
 finalize_modules_clear_weaklist.exit:             ; preds = %for.inc.i64, %if.then7
   %92 = load i64, ptr %call.i24, align 8
@@ -2940,16 +2940,16 @@ entry:
   %tmp22 = alloca %struct.PyStatus, align 8
   %tmp41 = alloca %struct.PyStatus, align 8
   %tmp46 = alloca %struct.PyStatus, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !46
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !45
   br i1 %.b.i, label %_PyRuntime_Initialize.exit.thread, label %_PyRuntime_Initialize.exit
 
 _PyRuntime_Initialize.exit.thread:                ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp, i8 0, i64 32, i1 false), !alias.scope !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp, i8 0, i64 32, i1 false), !alias.scope !45
   br label %if.end
 
 _PyRuntime_Initialize.exit:                       ; preds = %entry
-  store i1 true, ptr @runtime_initialized, align 4, !noalias !46
+  store i1 true, ptr @runtime_initialized, align 4, !noalias !45
   call void @_PyRuntimeState_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull @_PyRuntime) #21
   %status.sroa.0.0.copyload.pr = load i32, ptr %tmp, align 8
   %cmp.not = icmp eq i32 %status.sroa.0.0.copyload.pr, 0
@@ -3037,91 +3037,91 @@ if.end21:                                         ; preds = %if.end10, %if.then1
   br i1 %cmp25.not, label %if.end27, label %error.thread
 
 if.end27:                                         ; preds = %if.end21
-  %3 = load i32, ptr %config, align 4, !noalias !49
+  %3 = load i32, ptr %config, align 4, !noalias !48
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i69
 
 if.then.i69:                                      ; preds = %if.end27
   %feature_flags.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %4 = load i64, ptr %feature_flags.i, align 8, !noalias !49
+  %4 = load i64, ptr %feature_flags.i, align 8, !noalias !48
   %or.i = or i64 %4, 32
-  store i64 %or.i, ptr %feature_flags.i, align 8, !noalias !49
+  store i64 %or.i, ptr %feature_flags.i, align 8, !noalias !48
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %if.end27
   %check_multi_interp_extensions.i = getelementptr inbounds i8, ptr %config, i64 20
-  %5 = load i32, ptr %check_multi_interp_extensions.i, align 4, !noalias !49
+  %5 = load i32, ptr %check_multi_interp_extensions.i, align 4, !noalias !48
   %tobool1.not.i = icmp eq i32 %5, 0
   br i1 %tobool1.not.i, label %error.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else.i, %if.then.i69
   %allow_fork.i = getelementptr inbounds i8, ptr %config, i64 4
-  %6 = load i32, ptr %allow_fork.i, align 4, !noalias !49
+  %6 = load i32, ptr %allow_fork.i, align 4, !noalias !48
   %tobool4.not.i = icmp eq i32 %6, 0
   br i1 %tobool4.not.i, label %if.end8.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
   %feature_flags6.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %7 = load i64, ptr %feature_flags6.i, align 8, !noalias !49
+  %7 = load i64, ptr %feature_flags6.i, align 8, !noalias !48
   %or7.i = or i64 %7, 32768
-  store i64 %or7.i, ptr %feature_flags6.i, align 8, !noalias !49
+  store i64 %or7.i, ptr %feature_flags6.i, align 8, !noalias !48
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %if.end3.i
   %allow_exec.i = getelementptr inbounds i8, ptr %config, i64 8
-  %8 = load i32, ptr %allow_exec.i, align 4, !noalias !49
+  %8 = load i32, ptr %allow_exec.i, align 4, !noalias !48
   %tobool9.not.i = icmp eq i32 %8, 0
   br i1 %tobool9.not.i, label %if.end13.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
   %feature_flags11.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %9 = load i64, ptr %feature_flags11.i, align 8, !noalias !49
+  %9 = load i64, ptr %feature_flags11.i, align 8, !noalias !48
   %or12.i = or i64 %9, 65536
-  store i64 %or12.i, ptr %feature_flags11.i, align 8, !noalias !49
+  store i64 %or12.i, ptr %feature_flags11.i, align 8, !noalias !48
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then10.i, %if.end8.i
   %allow_threads.i = getelementptr inbounds i8, ptr %config, i64 12
-  %10 = load i32, ptr %allow_threads.i, align 4, !noalias !49
+  %10 = load i32, ptr %allow_threads.i, align 4, !noalias !48
   %tobool14.not.i = icmp eq i32 %10, 0
   br i1 %tobool14.not.i, label %if.end18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end13.i
   %feature_flags16.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %11 = load i64, ptr %feature_flags16.i, align 8, !noalias !49
+  %11 = load i64, ptr %feature_flags16.i, align 8, !noalias !48
   %or17.i = or i64 %11, 1024
-  store i64 %or17.i, ptr %feature_flags16.i, align 8, !noalias !49
+  store i64 %or17.i, ptr %feature_flags16.i, align 8, !noalias !48
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then15.i, %if.end13.i
   %allow_daemon_threads.i = getelementptr inbounds i8, ptr %config, i64 16
-  %12 = load i32, ptr %allow_daemon_threads.i, align 4, !noalias !49
+  %12 = load i32, ptr %allow_daemon_threads.i, align 4, !noalias !48
   %tobool19.not.i = icmp eq i32 %12, 0
   br i1 %tobool19.not.i, label %if.end23.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end18.i
   %feature_flags21.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %13 = load i64, ptr %feature_flags21.i, align 8, !noalias !49
+  %13 = load i64, ptr %feature_flags21.i, align 8, !noalias !48
   %or22.i = or i64 %13, 2048
-  store i64 %or22.i, ptr %feature_flags21.i, align 8, !noalias !49
+  store i64 %or22.i, ptr %feature_flags21.i, align 8, !noalias !48
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then20.i, %if.end18.i
   %check_multi_interp_extensions24.i = getelementptr inbounds i8, ptr %config, i64 20
-  %14 = load i32, ptr %check_multi_interp_extensions24.i, align 4, !noalias !49
+  %14 = load i32, ptr %check_multi_interp_extensions24.i, align 4, !noalias !48
   %tobool25.not.i = icmp eq i32 %14, 0
   br i1 %tobool25.not.i, label %if.end29.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end23.i
   %feature_flags27.i = getelementptr inbounds i8, ptr %call, i64 2040
-  %15 = load i64, ptr %feature_flags27.i, align 8, !noalias !49
+  %15 = load i64, ptr %feature_flags27.i, align 8, !noalias !48
   %or28.i = or i64 %15, 256
-  store i64 %or28.i, ptr %feature_flags27.i, align 8, !noalias !49
+  store i64 %or28.i, ptr %feature_flags27.i, align 8, !noalias !48
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then26.i, %if.end23.i
   %gil.i = getelementptr inbounds i8, ptr %config, i64 24
-  %16 = load i32, ptr %gil.i, align 4, !noalias !49
+  %16 = load i32, ptr %gil.i, align 4, !noalias !48
   %switch.i = icmp ult i32 %16, 3
   br i1 %switch.i, label %if.end32, label %error.thread
 
@@ -3396,7 +3396,7 @@ if.end17:                                         ; preds = %land.lhs.true, %whi
   %8 = load ptr, ptr %sysdict, align 8
   %call9 = call i32 @PyDict_Next(ptr noundef %8, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #21
   %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %if.end28, label %while.body, !llvm.loop !52
+  br i1 %tobool10.not, label %if.end28, label %while.body, !llvm.loop !51
 
 if.end18:                                         ; preds = %land.lhs.true
   %9 = load ptr, ptr %value, align 8
@@ -3446,7 +3446,7 @@ if.end65.us:                                      ; preds = %if.else.us, %if.the
   %inc.us = add i64 %count.0.ph45.us, 1
   %call3039.us = call i32 @PyDict_Next(ptr noundef nonnull %call, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #21
   %tobool31.not40.us = icmp eq i32 %call3039.us, 0
-  br i1 %tobool31.not40.us, label %while.end66, label %while.body32.lr.ph.us, !llvm.loop !53
+  br i1 %tobool31.not40.us, label %while.end66, label %while.body32.lr.ph.us, !llvm.loop !52
 
 while.body32.us.us:                               ; preds = %while.cond29.backedge.us.us, %while.body32.lr.ph.us
   %12 = load ptr, ptr %key, align 8
@@ -3467,7 +3467,7 @@ if.end37.us.us:                                   ; preds = %while.body32.us.us
 while.cond29.backedge.us.us:                      ; preds = %if.end37.us.us, %while.body32.us.us
   %call30.us.us = call i32 @PyDict_Next(ptr noundef nonnull %call, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #21
   %tobool31.not.us.us = icmp eq i32 %call30.us.us, 0
-  br i1 %tobool31.not.us.us, label %while.end66, label %while.body32.us.us, !llvm.loop !53
+  br i1 %tobool31.not.us.us, label %while.end66, label %while.body32.us.us, !llvm.loop !52
 
 if.end41.us.us:                                   ; preds = %if.end37.us.us
   br i1 %tobool61.not.us, label %if.else.us, label %if.then62.us
@@ -3490,7 +3490,7 @@ while.body32:                                     ; preds = %while.body32.lr.ph,
 while.cond29.backedge:                            ; preds = %land.lhs.true51, %while.body32, %if.end37
   %call30 = call i32 @PyDict_Next(ptr noundef nonnull %call, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #21
   %tobool31.not = icmp eq i32 %call30, 0
-  br i1 %tobool31.not, label %while.end66, label %while.body32, !llvm.loop !53
+  br i1 %tobool31.not, label %while.end66, label %while.body32, !llvm.loop !52
 
 if.end37:                                         ; preds = %while.body32
   %21 = load ptr, ptr %value, align 8
@@ -3518,12 +3518,12 @@ land.lhs.true51:                                  ; preds = %while.body47
   %26 = load ptr, ptr %key, align 8
   %call52 = call i32 @PyUnicode_Compare(ptr noundef %26, ptr noundef nonnull %22) #21
   %cmp53 = icmp eq i32 %call52, 0
-  br i1 %cmp53, label %while.cond29.backedge, label %if.end55, !llvm.loop !53
+  br i1 %cmp53, label %while.cond29.backedge, label %if.end55, !llvm.loop !52
 
 if.end55:                                         ; preds = %land.lhs.true51, %while.body47
   %call45 = call i32 @_PySet_NextEntry(ptr noundef nonnull %stdlib_module_names.1.fr, ptr noundef nonnull %i, ptr noundef nonnull %item, ptr noundef nonnull %hash) #21
   %tobool46.not = icmp eq i32 %call45, 0
-  br i1 %tobool46.not, label %if.end60.loopexit, label %while.body47, !llvm.loop !54
+  br i1 %tobool46.not, label %if.end60.loopexit, label %while.body47, !llvm.loop !53
 
 if.end60.loopexit:                                ; preds = %if.end41, %if.end55
   br i1 %tobool61.not, label %if.else, label %if.then62
@@ -3542,7 +3542,7 @@ if.end65:                                         ; preds = %if.else, %if.then62
   %inc = add i64 %count.0.ph45, 1
   %call3039 = call i32 @PyDict_Next(ptr noundef nonnull %call, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #21
   %tobool31.not40 = icmp eq i32 %call3039, 0
-  br i1 %tobool31.not40, label %while.end66, label %while.body32.lr.ph, !llvm.loop !53
+  br i1 %tobool31.not40, label %while.end66, label %while.body32.lr.ph, !llvm.loop !52
 
 while.end66:                                      ; preds = %if.end65, %while.cond29.backedge, %if.end65.us, %while.cond29.backedge.us.us
   %count.0.ph.lcssa = phi i64 [ %count.0.ph45.us, %while.cond29.backedge.us.us ], [ %inc.us, %if.end65.us ], [ %count.0.ph45, %while.cond29.backedge ], [ %inc, %if.end65 ]
@@ -4078,7 +4078,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp13.i)
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 312), align 8, !noalias !55
+  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 312), align 8, !noalias !54
   %tobool.not.i = icmp eq i32 %0, 0
   %tmp.i.sink102.sroa.gep = getelementptr inbounds i8, ptr %tmp.i, i64 4
   %tmp.i.sink102.sroa.gep103 = getelementptr inbounds i8, ptr %tmp8.i, i64 4
@@ -4098,8 +4098,8 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %pycore_init_runtime.exit.thread
 
 if.end.i:                                         ; preds = %entry
-  call void @_PyConfig_Write(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull @_PyRuntime) #21, !noalias !55
-  %1 = load i32, ptr %status.i, align 8
+  call void @_PyConfig_Write(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull @_PyRuntime) #21, !noalias !54
+  %1 = load i32, ptr %status.i, align 8, !noalias !54
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end3.i, label %if.then2.i
 
@@ -4117,26 +4117,26 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %pycore_init_runtime.exit.thread
 
 if.end3.i:                                        ; preds = %if.end.i
-  store atomic i64 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 320) monotonic, align 8, !noalias !55
-  store atomic i64 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 328) monotonic, align 8, !noalias !55
-  call void @_Py_InitVersion() #21, !noalias !55
-  call void @_Py_HashRandomization_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %config) #21, !noalias !55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i, ptr noundef nonnull align 8 dereferenceable(32) %tmp.i, i64 32, i1 false), !noalias !55
-  %2 = load i32, ptr %status.i, align 8, !noalias !55
+  store atomic i64 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 320) monotonic, align 8, !noalias !54
+  store atomic i64 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 328) monotonic, align 8, !noalias !54
+  call void @_Py_InitVersion() #21, !noalias !54
+  call void @_Py_HashRandomization_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %config) #21, !noalias !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i, ptr noundef nonnull align 8 dereferenceable(32) %tmp.i, i64 32, i1 false), !noalias !54
+  %2 = load i32, ptr %status.i, align 8, !noalias !54
   %cmp5.not.i = icmp eq i32 %2, 0
   br i1 %cmp5.not.i, label %if.end7.i, label %pycore_init_runtime.exit
 
 if.end7.i:                                        ; preds = %if.end3.i
-  call void @_PyImport_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp8.i) #21, !noalias !55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i, ptr noundef nonnull align 8 dereferenceable(32) %tmp8.i, i64 32, i1 false), !noalias !55
-  %3 = load i32, ptr %status.i, align 8, !noalias !55
+  call void @_PyImport_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp8.i) #21, !noalias !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i, ptr noundef nonnull align 8 dereferenceable(32) %tmp8.i, i64 32, i1 false), !noalias !54
+  %3 = load i32, ptr %status.i, align 8, !noalias !54
   %cmp10.not.i = icmp eq i32 %3, 0
   br i1 %cmp10.not.i, label %if.end12.i, label %pycore_init_runtime.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  call void @_PyInterpreterState_Enable(ptr nonnull sret(%struct.PyStatus) align 8 %tmp13.i, ptr noundef nonnull @_PyRuntime) #21, !noalias !55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i, ptr noundef nonnull align 8 dereferenceable(32) %tmp13.i, i64 32, i1 false), !noalias !55
-  %4 = load i32, ptr %status.i, align 8, !noalias !55
+  call void @_PyInterpreterState_Enable(ptr nonnull sret(%struct.PyStatus) align 8 %tmp13.i, ptr noundef nonnull @_PyRuntime) #21, !noalias !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i, ptr noundef nonnull align 8 dereferenceable(32) %tmp13.i, i64 32, i1 false), !noalias !54
+  %4 = load i32, ptr %status.i, align 8, !noalias !54
   %cmp15.not.i = icmp eq i32 %4, 0
   br i1 %cmp15.not.i, label %pycore_init_runtime.exit.thread77, label %pycore_init_runtime.exit
 
@@ -4205,72 +4205,72 @@ if.end:                                           ; preds = %pycore_init_runtime
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp1.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp6.i)
-  call void @_PyInterpreterState_New(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i4, ptr noundef null, ptr noundef nonnull %interp.i) #21, !noalias !58
-  %status.sroa.0.0.copyload.i = load i32, ptr %tmp.i4, align 8, !noalias !58
+  call void @_PyInterpreterState_New(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i4, ptr noundef null, ptr noundef nonnull %interp.i) #21, !noalias !57
+  %status.sroa.0.0.copyload.i = load i32, ptr %tmp.i4, align 8, !noalias !57
   %cmp.not.i5 = icmp eq i32 %status.sroa.0.0.copyload.i, 0
   br i1 %cmp.not.i5, label %if.end.i7, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.end
   %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i4, i64 28
-  %status.sroa.12.sroa.11.0.copyload.i = load i32, ptr %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 4, !noalias !58
+  %status.sroa.12.sroa.11.0.copyload.i = load i32, ptr %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 4, !noalias !57
   %status.sroa.12.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i4, i64 4
   %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i4, i64 24
-  %status.sroa.12.sroa.10.0.copyload.i = load i32, ptr %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !58
+  %status.sroa.12.sroa.10.0.copyload.i = load i32, ptr %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !57
   %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i4, i64 16
-  %status.sroa.12.sroa.9.0.copyload.i = load ptr, ptr %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !58
+  %status.sroa.12.sroa.9.0.copyload.i = load ptr, ptr %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !57
   %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i4, i64 8
-  %status.sroa.12.sroa.8.0.copyload.i = load ptr, ptr %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !58
-  %status.sroa.12.sroa.0.0.copyload.i = load i32, ptr %status.sroa.12.0.tmp.sroa_idx.i, align 4, !noalias !58
+  %status.sroa.12.sroa.8.0.copyload.i = load ptr, ptr %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !57
+  %status.sroa.12.sroa.0.0.copyload.i = load i32, ptr %status.sroa.12.0.tmp.sroa_idx.i, align 4, !noalias !57
   br label %if.then3
 
 if.end.i7:                                        ; preds = %if.end
-  %5 = load ptr, ptr %interp.i, align 8, !noalias !58
+  %5 = load ptr, ptr %interp.i, align 8, !noalias !57
   %config.i = getelementptr inbounds i8, ptr %5, i64 1592
-  call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %config.i, ptr noundef nonnull %config) #21, !noalias !58
-  %status.sroa.0.0.copyload8.i = load i32, ptr %tmp1.i, align 8, !noalias !58
+  call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %config.i, ptr noundef nonnull %config) #21, !noalias !57
+  %status.sroa.0.0.copyload8.i = load i32, ptr %tmp1.i, align 8, !noalias !57
   %cmp3.not.i = icmp eq i32 %status.sroa.0.0.copyload8.i, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i7
   %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 28
-  %status.sroa.12.sroa.11.0.copyload28.i = load i32, ptr %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 4, !noalias !58
+  %status.sroa.12.sroa.11.0.copyload28.i = load i32, ptr %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 4, !noalias !57
   %status.sroa.12.0.tmp1.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 4
   %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 24
-  %status.sroa.12.sroa.10.0.copyload22.i = load i32, ptr %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 8, !noalias !58
+  %status.sroa.12.sroa.10.0.copyload22.i = load i32, ptr %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 8, !noalias !57
   %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 16
-  %status.sroa.12.sroa.9.0.copyload16.i = load ptr, ptr %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 8, !noalias !58
+  %status.sroa.12.sroa.9.0.copyload16.i = load ptr, ptr %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 8, !noalias !57
   %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 8
-  %status.sroa.12.sroa.8.0.copyload10.i = load ptr, ptr %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 8, !noalias !58
-  %status.sroa.12.sroa.0.0.copyload4.i = load i32, ptr %status.sroa.12.0.tmp1.sroa_idx.i, align 4, !noalias !58
+  %status.sroa.12.sroa.8.0.copyload10.i = load ptr, ptr %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 8, !noalias !57
+  %status.sroa.12.sroa.0.0.copyload4.i = load i32, ptr %status.sroa.12.0.tmp1.sroa_idx.i, align 4, !noalias !57
   br label %if.then3
 
 if.end5.i:                                        ; preds = %if.end.i7
-  %6 = load ptr, ptr %interp.i, align 8, !noalias !58
-  call void @_PyGILState_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp6.i, ptr noundef %6) #21, !noalias !58
-  %status.sroa.0.0.copyload10.i = load i32, ptr %tmp6.i, align 8, !noalias !58
+  %6 = load ptr, ptr %interp.i, align 8, !noalias !57
+  call void @_PyGILState_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp6.i, ptr noundef %6) #21, !noalias !57
+  %status.sroa.0.0.copyload10.i = load i32, ptr %tmp6.i, align 8, !noalias !57
   %cmp8.not.i = icmp eq i32 %status.sroa.0.0.copyload10.i, 0
   br i1 %cmp8.not.i, label %if.end16.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
   %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 28
-  %status.sroa.12.sroa.11.0.copyload30.i = load i32, ptr %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 4, !noalias !58
+  %status.sroa.12.sroa.11.0.copyload30.i = load i32, ptr %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 4, !noalias !57
   %status.sroa.12.0.tmp6.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 4
   %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 24
-  %status.sroa.12.sroa.10.0.copyload24.i = load i32, ptr %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 8, !noalias !58
+  %status.sroa.12.sroa.10.0.copyload24.i = load i32, ptr %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 8, !noalias !57
   %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 16
-  %status.sroa.12.sroa.9.0.copyload18.i = load ptr, ptr %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 8, !noalias !58
+  %status.sroa.12.sroa.9.0.copyload18.i = load ptr, ptr %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 8, !noalias !57
   %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 8
-  %status.sroa.12.sroa.8.0.copyload12.i = load ptr, ptr %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 8, !noalias !58
-  %status.sroa.12.sroa.0.0.copyload6.i = load i32, ptr %status.sroa.12.0.tmp6.sroa_idx.i, align 4, !noalias !58
+  %status.sroa.12.sroa.8.0.copyload12.i = load ptr, ptr %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 8, !noalias !57
+  %status.sroa.12.sroa.0.0.copyload6.i = load i32, ptr %status.sroa.12.0.tmp6.sroa_idx.i, align 4, !noalias !57
   br label %if.then3
 
 if.end16.i:                                       ; preds = %if.end5.i
-  %7 = load ptr, ptr %interp.i, align 8, !noalias !58
+  %7 = load ptr, ptr %interp.i, align 8, !noalias !57
   %feature_flags.i.i = getelementptr inbounds i8, ptr %7, i64 2040
-  %8 = load i64, ptr %feature_flags.i.i, align 8, !noalias !61
+  %8 = load i64, ptr %feature_flags.i.i, align 8, !noalias !60
   %or22.i.i = or i64 %8, 101408
-  store i64 %or22.i.i, ptr %feature_flags.i.i, align 8, !noalias !61
-  %call.i = call ptr @_PyThreadState_New(ptr noundef %7, i32 noundef 1) #21, !noalias !58
+  store i64 %or22.i.i, ptr %feature_flags.i.i, align 8, !noalias !60
+  %call.i = call ptr @_PyThreadState_New(ptr noundef %7, i32 noundef 1) #21, !noalias !57
   %cmp17.i = icmp eq ptr %call.i, null
   br i1 %cmp17.i, label %if.then3, label %if.end4
 
@@ -4299,8 +4299,8 @@ if.then3:                                         ; preds = %if.then9.i, %if.the
   br label %return
 
 if.end4:                                          ; preds = %if.end16.i
-  call void @_PyThreadState_Bind(ptr noundef nonnull %call.i) #21, !noalias !58
-  call fastcc void @init_interp_create_gil(ptr noundef %call.i, i32 noundef 2), !noalias !58
+  call void @_PyThreadState_Bind(ptr noundef nonnull %call.i) #21, !noalias !57
+  call fastcc void @init_interp_create_gil(ptr noundef %call.i, i32 noundef 2), !noalias !57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %interp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp1.i)
@@ -4369,9 +4369,9 @@ entry:
   %0 = load ptr, ptr %interp1, align 8
   store ptr null, ptr %sysmod, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
-  tail call void @_PyFloat_InitState(ptr noundef %0) #21, !noalias !64
-  call void @_PyUnicode_InitGlobalObjects(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef %0) #21, !noalias !64
-  %status.sroa.0.0.copyload.i = load i32, ptr %tmp.i, align 8, !noalias !64
+  tail call void @_PyFloat_InitState(ptr noundef %0) #21, !noalias !63
+  call void @_PyUnicode_InitGlobalObjects(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef %0) #21, !noalias !63
+  %status.sroa.0.0.copyload.i = load i32, ptr %tmp.i, align 8, !noalias !63
   %cmp.not.i = icmp eq i32 %status.sroa.0.0.copyload.i, 0
   br i1 %cmp.not.i, label %if.end, label %if.then
 
@@ -4401,7 +4401,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @_PyUnicode_InitState(ptr noundef %0) #21, !noalias !64
+  call void @_PyUnicode_InitState(ptr noundef %0) #21, !noalias !63
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   call void @_PyDtoa_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp2, ptr noundef %0) #21
   %status.sroa.0.0.copyload9 = load i32, ptr %tmp2, align 8
@@ -4472,8 +4472,8 @@ if.end11:                                         ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp30.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp35.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp40.i)
-  call void @_PyTypes_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i35, ptr noundef %0) #21, !noalias !67
-  %status.sroa.0.0.copyload.i36 = load i32, ptr %tmp.i35, align 8, !noalias !67
+  call void @_PyTypes_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i35, ptr noundef %0) #21, !noalias !66
+  %status.sroa.0.0.copyload.i36 = load i32, ptr %tmp.i35, align 8, !noalias !66
   %cmp.not.i37 = icmp eq i32 %status.sroa.0.0.copyload.i36, 0
   br i1 %cmp.not.i37, label %if.end.i39, label %if.then.i38
 
@@ -4491,8 +4491,8 @@ if.then.i38:                                      ; preds = %if.end11
   br label %pycore_init_types.exit.thread
 
 if.end.i39:                                       ; preds = %if.end11
-  call void @_PyLong_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef %0) #21, !noalias !67
-  %status.sroa.0.0.copyload10.i = load i32, ptr %tmp1.i, align 8, !noalias !67
+  call void @_PyLong_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef %0) #21, !noalias !66
+  %status.sroa.0.0.copyload10.i = load i32, ptr %tmp1.i, align 8, !noalias !66
   %cmp3.not.i = icmp eq i32 %status.sroa.0.0.copyload10.i, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
@@ -4510,8 +4510,8 @@ if.then4.i:                                       ; preds = %if.end.i39
   br label %pycore_init_types.exit.thread
 
 if.end5.i:                                        ; preds = %if.end.i39
-  call void @_PyUnicode_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp6.i, ptr noundef %0) #21, !noalias !67
-  %status.sroa.0.0.copyload12.i = load i32, ptr %tmp6.i, align 8, !noalias !67
+  call void @_PyUnicode_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp6.i, ptr noundef %0) #21, !noalias !66
+  %status.sroa.0.0.copyload12.i = load i32, ptr %tmp6.i, align 8, !noalias !66
   %cmp8.not.i = icmp eq i32 %status.sroa.0.0.copyload12.i, 0
   br i1 %cmp8.not.i, label %if.end10.i, label %if.then9.i
 
@@ -4529,8 +4529,8 @@ if.then9.i:                                       ; preds = %if.end5.i
   br label %pycore_init_types.exit.thread
 
 if.end10.i:                                       ; preds = %if.end5.i
-  call void @_PyFloat_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp11.i, ptr noundef %0) #21, !noalias !67
-  %status.sroa.0.0.copyload14.i = load i32, ptr %tmp11.i, align 8, !noalias !67
+  call void @_PyFloat_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp11.i, ptr noundef %0) #21, !noalias !66
+  %status.sroa.0.0.copyload14.i = load i32, ptr %tmp11.i, align 8, !noalias !66
   %cmp13.not.i = icmp eq i32 %status.sroa.0.0.copyload14.i, 0
   br i1 %cmp13.not.i, label %if.end15.i, label %if.then14.i
 
@@ -4548,13 +4548,13 @@ if.then14.i:                                      ; preds = %if.end10.i
   br label %pycore_init_types.exit.thread
 
 if.end15.i:                                       ; preds = %if.end10.i
-  %call.i = call i32 @_PyExc_InitTypes(ptr noundef %0) #21, !noalias !67
+  %call.i = call i32 @_PyExc_InitTypes(ptr noundef %0) #21, !noalias !66
   %cmp16.i = icmp slt i32 %call.i, 0
   br i1 %cmp16.i, label %pycore_init_types.exit.thread, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end15.i
-  call void @_PyExc_InitGlobalObjects(ptr nonnull sret(%struct.PyStatus) align 8 %tmp20.i, ptr noundef %0) #21, !noalias !67
-  %status.sroa.0.0.copyload16.i = load i32, ptr %tmp20.i, align 8, !noalias !67
+  call void @_PyExc_InitGlobalObjects(ptr nonnull sret(%struct.PyStatus) align 8 %tmp20.i, ptr noundef %0) #21, !noalias !66
+  %status.sroa.0.0.copyload16.i = load i32, ptr %tmp20.i, align 8, !noalias !66
   %cmp22.not.i = icmp eq i32 %status.sroa.0.0.copyload16.i, 0
   br i1 %cmp22.not.i, label %if.end24.i, label %if.then23.i
 
@@ -4572,8 +4572,8 @@ if.then23.i:                                      ; preds = %if.end19.i
   br label %pycore_init_types.exit.thread
 
 if.end24.i:                                       ; preds = %if.end19.i
-  call void @_PyExc_InitState(ptr nonnull sret(%struct.PyStatus) align 8 %tmp25.i, ptr noundef %0) #21, !noalias !67
-  %status.sroa.0.0.copyload18.i = load i32, ptr %tmp25.i, align 8, !noalias !67
+  call void @_PyExc_InitState(ptr nonnull sret(%struct.PyStatus) align 8 %tmp25.i, ptr noundef %0) #21, !noalias !66
+  %status.sroa.0.0.copyload18.i = load i32, ptr %tmp25.i, align 8, !noalias !66
   %cmp27.not.i = icmp eq i32 %status.sroa.0.0.copyload18.i, 0
   br i1 %cmp27.not.i, label %if.end29.i, label %if.then28.i
 
@@ -4591,8 +4591,8 @@ if.then28.i:                                      ; preds = %if.end24.i
   br label %pycore_init_types.exit.thread
 
 if.end29.i:                                       ; preds = %if.end24.i
-  call void @_PyErr_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp30.i, ptr noundef %0) #21, !noalias !67
-  %status.sroa.0.0.copyload20.i = load i32, ptr %tmp30.i, align 8, !noalias !67
+  call void @_PyErr_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp30.i, ptr noundef %0) #21, !noalias !66
+  %status.sroa.0.0.copyload20.i = load i32, ptr %tmp30.i, align 8, !noalias !66
   %cmp32.not.i = icmp eq i32 %status.sroa.0.0.copyload20.i, 0
   br i1 %cmp32.not.i, label %if.end34.i, label %if.then33.i
 
@@ -4610,8 +4610,8 @@ if.then33.i:                                      ; preds = %if.end29.i
   br label %pycore_init_types.exit.thread
 
 if.end34.i:                                       ; preds = %if.end29.i
-  call void @_PyContext_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp35.i, ptr noundef %0) #21, !noalias !67
-  %status.sroa.0.0.copyload22.i = load i32, ptr %tmp35.i, align 8, !noalias !67
+  call void @_PyContext_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp35.i, ptr noundef %0) #21, !noalias !66
+  %status.sroa.0.0.copyload22.i = load i32, ptr %tmp35.i, align 8, !noalias !66
   %cmp37.not.i = icmp eq i32 %status.sroa.0.0.copyload22.i, 0
   br i1 %cmp37.not.i, label %if.end39.i, label %if.then38.i
 
@@ -4629,8 +4629,8 @@ if.then38.i:                                      ; preds = %if.end34.i
   br label %pycore_init_types.exit.thread
 
 if.end39.i:                                       ; preds = %if.end34.i
-  call void @_PyXI_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp40.i, ptr noundef %0) #21, !noalias !67
-  %status.sroa.0.0.copyload24.i = load i32, ptr %tmp40.i, align 8, !noalias !67
+  call void @_PyXI_InitTypes(ptr nonnull sret(%struct.PyStatus) align 8 %tmp40.i, ptr noundef %0) #21, !noalias !66
+  %status.sroa.0.0.copyload24.i = load i32, ptr %tmp40.i, align 8, !noalias !66
   %cmp42.not.i = icmp eq i32 %status.sroa.0.0.copyload24.i, 0
   br i1 %cmp42.not.i, label %if.end16, label %if.then43.i
 
@@ -6816,56 +6816,55 @@ attributes #25 = { noreturn nounwind }
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_PyRuntime_Initialize: %agg.result"}
 !16 = distinct !{!16, !"_PyRuntime_Initialize"}
-!17 = !{}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"pyinit_core: %agg.result"}
-!20 = distinct !{!20, !"pyinit_core"}
-!21 = !{!22, !24, !19}
-!22 = distinct !{!22, !23, !"_PyRuntime_Initialize: %agg.result"}
-!23 = distinct !{!23, !"_PyRuntime_Initialize"}
-!24 = distinct !{!24, !25, !"_Py_PreInitializeFromConfig: %agg.result"}
-!25 = distinct !{!25, !"_Py_PreInitializeFromConfig"}
-!26 = !{!22}
-!27 = !{!24, !19}
-!28 = !{!29, !19}
-!29 = distinct !{!29, !30, !"pyinit_core_reconfigure: %agg.result"}
-!30 = distinct !{!30, !"pyinit_core_reconfigure"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"pyinit_main_reconfigure: %agg.result"}
-!33 = distinct !{!33, !"pyinit_main_reconfigure"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_PyRuntime_Initialize: %agg.result"}
-!36 = distinct !{!36, !"_PyRuntime_Initialize"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_PyRuntime_Initialize: %agg.result"}
-!39 = distinct !{!39, !"_PyRuntime_Initialize"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"pyinit_core: %agg.result"}
+!19 = distinct !{!19, !"pyinit_core"}
+!20 = !{!21, !23, !18}
+!21 = distinct !{!21, !22, !"_PyRuntime_Initialize: %agg.result"}
+!22 = distinct !{!22, !"_PyRuntime_Initialize"}
+!23 = distinct !{!23, !24, !"_Py_PreInitializeFromConfig: %agg.result"}
+!24 = distinct !{!24, !"_Py_PreInitializeFromConfig"}
+!25 = !{!21}
+!26 = !{!23, !18}
+!27 = !{!28, !18}
+!28 = distinct !{!28, !29, !"pyinit_core_reconfigure: %agg.result"}
+!29 = distinct !{!29, !"pyinit_core_reconfigure"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"pyinit_main_reconfigure: %agg.result"}
+!32 = distinct !{!32, !"pyinit_main_reconfigure"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_PyRuntime_Initialize: %agg.result"}
+!35 = distinct !{!35, !"_PyRuntime_Initialize"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_PyRuntime_Initialize: %agg.result"}
+!38 = distinct !{!38, !"_PyRuntime_Initialize"}
+!39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
-!45 = distinct !{!45, !6}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_PyRuntime_Initialize: %agg.result"}
-!48 = distinct !{!48, !"_PyRuntime_Initialize"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"init_interp_settings: %agg.result"}
-!51 = distinct !{!51, !"init_interp_settings"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_PyRuntime_Initialize: %agg.result"}
+!47 = distinct !{!47, !"_PyRuntime_Initialize"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"init_interp_settings: %agg.result"}
+!50 = distinct !{!50, !"init_interp_settings"}
+!51 = distinct !{!51, !6}
 !52 = distinct !{!52, !6}
 !53 = distinct !{!53, !6}
-!54 = distinct !{!54, !6}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"pycore_init_runtime: %agg.result"}
-!57 = distinct !{!57, !"pycore_init_runtime"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"pycore_create_interpreter: %agg.result"}
-!60 = distinct !{!60, !"pycore_create_interpreter"}
-!61 = !{!62, !59}
-!62 = distinct !{!62, !63, !"init_interp_settings: %agg.result"}
-!63 = distinct !{!63, !"init_interp_settings"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"pycore_init_global_objects: %agg.result"}
-!66 = distinct !{!66, !"pycore_init_global_objects"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"pycore_init_types: %agg.result"}
-!69 = distinct !{!69, !"pycore_init_types"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"pycore_init_runtime: %agg.result"}
+!56 = distinct !{!56, !"pycore_init_runtime"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"pycore_create_interpreter: %agg.result"}
+!59 = distinct !{!59, !"pycore_create_interpreter"}
+!60 = !{!61, !58}
+!61 = distinct !{!61, !62, !"init_interp_settings: %agg.result"}
+!62 = distinct !{!62, !"init_interp_settings"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"pycore_init_global_objects: %agg.result"}
+!65 = distinct !{!65, !"pycore_init_global_objects"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"pycore_init_types: %agg.result"}
+!68 = distinct !{!68, !"pycore_init_types"}

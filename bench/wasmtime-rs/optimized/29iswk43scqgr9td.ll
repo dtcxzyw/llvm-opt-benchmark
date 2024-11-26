@@ -917,7 +917,7 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
 19:                                               ; preds = %12
   call void @"_ZN94_$LT$wasmparser..readers..core..types..RecGroup$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h11ffba07e717482aE"(ptr noalias nocapture noundef nonnull sret({ [2 x i32], i32, [11 x i32] }) align 8 dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1), !noalias !24
   %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = load i32, ptr %20, align 8, !range !20, !noalias !21, !noundef !4
+  %21 = load i32, ptr %20, align 8, !range !20, !noalias !26, !noundef !4
   %.not.i = icmp eq i32 %21, 3
   %22 = zext i1 %.not.i to i8
   store i8 %22, ptr %9, align 4, !alias.scope !21, !noalias !24

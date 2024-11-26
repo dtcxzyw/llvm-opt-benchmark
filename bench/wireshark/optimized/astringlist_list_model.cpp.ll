@@ -1584,7 +1584,7 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %52, %48
   %.sroa.02.06.i.i.i = phi ptr [ %128, %.noexc.i.i ], [ %61, %59 ]
   %63 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i.i, i64 32
   %64 = load i32, ptr %63, align 4
-  %65 = load i64, ptr %28, align 8
+  %65 = load i64, ptr %28, align 8, !alias.scope !28
   %66 = load ptr, ptr %8, align 8
   %.not.i.i44 = icmp eq ptr %66, null
   br i1 %.not.i.i44, label %.critedge.i, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i

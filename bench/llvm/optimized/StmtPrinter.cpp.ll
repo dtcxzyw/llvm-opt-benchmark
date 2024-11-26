@@ -11994,7 +11994,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %_ZNK5clang11DeclRef
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 8796093022208
   %.not32 = icmp eq i64 %57, 0
-  %.pre58 = load ptr, ptr %5, align 8
+  %.pre58 = load ptr, ptr %5, align 8, !noalias !55
   br i1 %.not32, label %.critedge, label %58
 
 58:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit

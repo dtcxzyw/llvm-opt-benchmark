@@ -3758,7 +3758,7 @@ _ZNK5boost4core17basic_string_viewIcE6substrEmm.exit33: ; preds = %_ZNK5boost4co
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #30, !noalias !84
   call void @_ZNK5boost4urls6detail16ipvfuture_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.20") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZN5boost4urls6detailL14ipvfuture_ruleE, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %49) #30, !noalias !84
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %51 = load i32, ptr %50, align 8, !tbaa !87
+  %51 = load i32, ptr %50, align 8, !tbaa !87, !noalias !84
   %52 = icmp ne i32 %51, 1
   %53 = load ptr, ptr %6, align 8, !noalias !84
   %.not.i = icmp eq ptr %53, %49
@@ -4385,7 +4385,7 @@ _ZNK5boost4urls7grammar16string_view_base6substrEmm.exit27: ; preds = %_ZNK5boos
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #30, !noalias !103
   call void @_ZNK5boost4urls6detail16ipvfuture_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.20") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) @_ZN5boost4urls6detailL14ipvfuture_ruleE, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %48) #30, !noalias !103
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %50 = load i32, ptr %49, align 8, !tbaa !87
+  %50 = load i32, ptr %49, align 8, !tbaa !87, !noalias !103
   %51 = icmp ne i32 %50, 1
   %52 = load ptr, ptr %5, align 8, !noalias !103
   %.not.i = icmp eq ptr %52, %48
@@ -4723,7 +4723,7 @@ common.resume:                                    ; preds = %116, %68, %32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #30, !noalias !109
   call void @_ZNK5boost4urls6detail16ipvfuture_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.20") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZN5boost4urls6detailL14ipvfuture_ruleE, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %38) #30, !noalias !109
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !87
+  %40 = load i32, ptr %39, align 8, !tbaa !87, !noalias !109
   %41 = icmp ne i32 %40, 1
   %42 = load ptr, ptr %6, align 8, !noalias !109
   %.not.i = icmp eq ptr %42, %38
@@ -5008,7 +5008,7 @@ common.resume:                                    ; preds = %136, %64, %28
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #30, !noalias !115
   call void @_ZNK5boost4urls6detail16ipvfuture_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.20") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) @_ZN5boost4urls6detailL14ipvfuture_ruleE, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %34) #30, !noalias !115
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %36 = load i32, ptr %35, align 8, !tbaa !87
+  %36 = load i32, ptr %35, align 8, !tbaa !87, !noalias !115
   %37 = icmp ne i32 %36, 1
   %38 = load ptr, ptr %5, align 8, !noalias !115
   %.not.i = icmp eq ptr %38, %34

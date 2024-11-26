@@ -461,7 +461,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL34isVariantApplicableInCo
   %.1 = select i1 %.not114, i32 %spec.select, i32 2
   %.0.val.fr.i73 = freeze i32 %.1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load i32, ptr %10, align 8
+  %11 = load i32, ptr %10, align 8, !noalias !4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %._crit_edge, label %13
 
@@ -1429,7 +1429,7 @@ _ZNK4llvm9BitVector5countEv.exit19:               ; preds = %.lr.ph.i14, %_ZNK4l
 
 19:                                               ; preds = %_ZNK4llvm9BitVector5countEv.exit19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load i32, ptr %20, align 8
+  %21 = load i32, ptr %20, align 8, !noalias !22
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %._crit_edge, label %23
 

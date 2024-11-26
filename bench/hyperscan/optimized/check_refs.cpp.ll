@@ -338,7 +338,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3ue28containsINS_8flat_setINSt
 entry:
   %0 = load ptr, ptr %container, align 8, !noalias !5
   %m_size.i.i.i = getelementptr inbounds i8, ptr %container, i64 8
-  %1 = load i64, ptr %m_size.i.i.i, align 8, !noalias !5
+  %1 = load i64, ptr %m_size.i.i.i, align 8, !noalias !10
   %cmp8.i.i.i = icmp sgt i64 %1, 0
   br i1 %cmp8.i.i.i, label %while.body.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit.i
 
@@ -348,7 +348,7 @@ while.body.i.i.i:                                 ; preds = %entry, %_ZN9__gnu_c
   %shr.i.i.i = lshr i64 %__len.09.i.i.i, 1
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.sroa.0.0.i.i, i64 %shr.i.i.i
   %call.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %key)
-          to label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEbT_RT0_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i, !noalias !6
+          to label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEbT_RT0_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i, !noalias !15
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -365,11 +365,11 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_
   %agg.tmp.sroa.0.1.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %agg.tmp.sroa.0.0.i.i
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub6.i.i.i, i64 %shr.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit.loopexit.i, !llvm.loop !13
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit.loopexit.i, !llvm.loop !20
 
 _ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit.loopexit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEbT_RT0_.exit.i.i.i
-  %.pre.i = load ptr, ptr %container, align 8, !noalias !5
-  %.pre9.i = load i64, ptr %m_size.i.i.i, align 8, !noalias !5
+  %.pre.i = load ptr, ptr %container, align 8, !noalias !22
+  %.pre9.i = load i64, ptr %m_size.i.i.i, align 8, !noalias !22
   br label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit.i
 
 _ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit.i: ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit.loopexit.i, %entry
@@ -382,7 +382,7 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt
 
 land.rhs.i:                                       ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit.i
   %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i unwind label %terminate.lpad.i.i.i, !noalias !15
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i unwind label %terminate.lpad.i.i.i, !noalias !27
 
 terminate.lpad.i.i.i:                             ; preds = %land.rhs.i
   %8 = landingpad { ptr, i32 }
@@ -393,8 +393,8 @@ terminate.lpad.i.i.i:                             ; preds = %land.rhs.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %land.rhs.i
   %cmp.i.i4.i = icmp slt i32 %call.i.i.i, 0
-  %.pre = load ptr, ptr %container, align 8, !noalias !5
-  %.pre3 = load i64, ptr %m_size.i.i.i, align 8, !noalias !5
+  %.pre = load ptr, ptr %container, align 8, !noalias !28
+  %.pre3 = load i64, ptr %m_size.i.i.i, align 8, !noalias !28
   %add.ptr.i.i6.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.pre3
   %spec.select = select i1 %cmp.i.i4.i, ptr %add.ptr.i.i6.i, ptr %7
   br label %_ZNK3ue28flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE4findERKS6_.exit
@@ -548,14 +548,33 @@ attributes #11 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{}
-!6 = !{!7, !9, !11}
-!7 = distinct !{!7, !8, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_N9__gnu_cxx5__ops14_Iter_comp_valISt4lessIS8_EEEET_SH_SH_RKT0_T1_: %agg.result"}
-!8 = distinct !{!8, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_N9__gnu_cxx5__ops14_Iter_comp_valISt4lessIS8_EEEET_SH_SH_RKT0_T1_"}
-!9 = distinct !{!9, !10, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_: %agg.result"}
-!10 = distinct !{!10, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_"}
-!11 = distinct !{!11, !12, !"_ZNK3ue28flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE4findERKS6_: %agg.result"}
-!12 = distinct !{!12, !"_ZNK3ue28flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE4findERKS6_"}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!11}
+!5 = !{!6, !8}
+!6 = distinct !{!6, !7, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE5beginEv: %agg.result"}
+!7 = distinct !{!7, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE5beginEv"}
+!8 = distinct !{!8, !9, !"_ZNK3ue28flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE4findERKS6_: %agg.result"}
+!9 = distinct !{!9, !"_ZNK3ue28flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE4findERKS6_"}
+!10 = !{!11, !13, !8}
+!11 = distinct !{!11, !12, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE4cendEv: %agg.result"}
+!12 = distinct !{!12, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE4cendEv"}
+!13 = distinct !{!13, !14, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE3endEv: %agg.result"}
+!14 = distinct !{!14, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE3endEv"}
+!15 = !{!16, !18, !8}
+!16 = distinct !{!16, !17, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_N9__gnu_cxx5__ops14_Iter_comp_valISt4lessIS8_EEEET_SH_SH_RKT0_T1_: %agg.result"}
+!17 = distinct !{!17, !"_ZSt13__lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_N9__gnu_cxx5__ops14_Iter_comp_valISt4lessIS8_EEEET_SH_SH_RKT0_T1_"}
+!18 = distinct !{!18, !19, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_: %agg.result"}
+!19 = distinct !{!19, !"_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_"}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = !{!23, !25, !8}
+!23 = distinct !{!23, !24, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE4cendEv: %agg.result"}
+!24 = distinct !{!24, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE4cendEv"}
+!25 = distinct !{!25, !26, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE3endEv: %agg.result"}
+!26 = distinct !{!26, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE3endEv"}
+!27 = !{!8}
+!28 = !{!29, !31, !33}
+!29 = distinct !{!29, !30, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE4cendEv: %agg.result"}
+!30 = distinct !{!30, !"_ZNK5boost9container6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22small_vector_allocatorIS7_SaIvEvEEvE4cendEv"}
+!31 = distinct !{!31, !32, !"_ZNK3ue28flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE4cendEv: %agg.result"}
+!32 = distinct !{!32, !"_ZNK3ue28flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE4cendEv"}
+!33 = distinct !{!33, !34, !"_ZNK3ue28flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE3endEv: %agg.result"}
+!34 = distinct !{!34, !"_ZNK3ue28flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE3endEv"}

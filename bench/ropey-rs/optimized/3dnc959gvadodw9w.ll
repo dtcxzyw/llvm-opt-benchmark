@@ -721,7 +721,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$smallvec..SmallVec$LT$ropey.
 define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$ropey..tree..node..Node$GT$$GT$$GT$17h118ae91c9920c75cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
+  %3 = load ptr, ptr %2, align 8, !alias.scope !302, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !302, !noundef !4
   %6 = icmp eq i64 %5, 0

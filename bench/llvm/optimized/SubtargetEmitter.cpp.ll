@@ -2739,7 +2739,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit35.i:             ; preds = %987, %985
   %1005 = getelementptr inbounds nuw i8, ptr %.sroa.02.010.i.i, i64 48
   %1006 = load ptr, ptr %1005, align 8
   %1007 = load ptr, ptr %996, align 8, !noalias !17
-  %1008 = load ptr, ptr %27, align 8
+  %1008 = load ptr, ptr %27, align 8, !noalias !17
   %1009 = icmp eq ptr %1007, %1008
   br i1 %1009, label %1010, label %_ZN4llvm15SmallPtrSetImplIPNS_6RecordEE6insertES2_.exit.i.i
 

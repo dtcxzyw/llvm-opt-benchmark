@@ -2913,7 +2913,7 @@ for.inc.i.i:                                      ; preds = %"_ZZN6hermes2vm7JSA
   store ptr %add.ptr.i.i.i15.i.i, ptr %curChunkEnd_.i.i.i.i.i, align 8
   store ptr %36, ptr %next_.i.i.i.i, align 8
   %60 = load ptr, ptr %toBeDeleted, align 8, !noalias !15
-  %61 = load i32, ptr %Size.i.i.i.i.i, align 8, !noalias !16
+  %61 = load i32, ptr %Size.i.i.i.i.i, align 8, !noalias !15
   %cmp.i.i63.not196 = icmp eq i32 %61, 0
   br i1 %cmp.i.i63.not196, label %for.end56, label %for.body38.preheader
 
@@ -2947,7 +2947,7 @@ if.then42:                                        ; preds = %for.body38
 
 for.inc54:                                        ; preds = %for.body38, %if.then42
   %cmp.i.i63.not = icmp eq ptr %incdec.ptr.i, %60
-  br i1 %cmp.i.i63.not, label %for.end56, label %for.body38, !llvm.loop !19
+  br i1 %cmp.i.i63.not, label %for.end56, label %for.body38, !llvm.loop !18
 
 for.end56:                                        ; preds = %for.inc54, %"_ZN6hermes2vm11HiddenClass15forEachPropertyIZNS0_7JSArray9setLengthENS0_6HandleIS3_EERNS0_7RuntimeEjNS0_11PropOpFlagsEE3$_0EEvNS4_IS1_EES7_RKT_.exit"
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %scope) #11
@@ -3051,29 +3051,29 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit161:  ; preds = %if.then79
   %conv.i110 = sext i32 %call.i to i64
   %ref.tmp85.sroa.0.0.insert.ext = zext i32 %sub86 to i64
   %79 = inttoptr i64 %ref.tmp85.sroa.0.0.insert.ext to ptr
-  store ptr @.str.3, ptr %ref.tmp83, align 8, !alias.scope !20
+  store ptr @.str.3, ptr %ref.tmp83, align 8, !alias.scope !19
   %leftKind_.i22.i.i = getelementptr inbounds i8, ptr %ref.tmp83, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !20
+  store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !19
   %rightChild_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp83, i64 16
-  store ptr %79, ptr %rightChild_.i.i.i, align 8, !alias.scope !20
+  store ptr %79, ptr %rightChild_.i.i.i, align 8, !alias.scope !19
   %rightKind_.i23.i.i = getelementptr inbounds i8, ptr %ref.tmp83, i64 24
-  store i32 7, ptr %rightKind_.i23.i.i, align 8, !alias.scope !20
+  store i32 7, ptr %rightKind_.i23.i.i, align 8, !alias.scope !19
   %leftSize_.i24.i.i = getelementptr inbounds i8, ptr %ref.tmp83, i64 32
-  store i64 24, ptr %leftSize_.i24.i.i, align 8, !alias.scope !20
+  store i64 24, ptr %leftSize_.i24.i.i, align 8, !alias.scope !19
   %rightSize_.i25.i.i = getelementptr inbounds i8, ptr %ref.tmp83, i64 40
-  store i64 %conv.i110, ptr %rightSize_.i25.i.i, align 8, !alias.scope !20
+  store i64 %conv.i110, ptr %rightSize_.i25.i.i, align 8, !alias.scope !19
   %add.i.i.i136 = add nsw i64 %conv.i110, 24
-  store ptr %ref.tmp83, ptr %ref.tmp82, align 8, !alias.scope !25
+  store ptr %ref.tmp83, ptr %ref.tmp82, align 8, !alias.scope !24
   %leftKind_.i22.i.i150 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
-  store i32 2, ptr %leftKind_.i22.i.i150, align 8, !alias.scope !25
+  store i32 2, ptr %leftKind_.i22.i.i150, align 8, !alias.scope !24
   %rightChild_.i.i.i151 = getelementptr inbounds i8, ptr %ref.tmp82, i64 16
-  store ptr @.str.4, ptr %rightChild_.i.i.i151, align 8, !alias.scope !25
+  store ptr @.str.4, ptr %rightChild_.i.i.i151, align 8, !alias.scope !24
   %rightKind_.i23.i.i152 = getelementptr inbounds i8, ptr %ref.tmp82, i64 24
-  store i32 3, ptr %rightKind_.i23.i.i152, align 8, !alias.scope !25
+  store i32 3, ptr %rightKind_.i23.i.i152, align 8, !alias.scope !24
   %leftSize_.i24.i.i153 = getelementptr inbounds i8, ptr %ref.tmp82, i64 32
-  store i64 %add.i.i.i136, ptr %leftSize_.i24.i.i153, align 8, !alias.scope !25
+  store i64 %add.i.i.i136, ptr %leftSize_.i24.i.i153, align 8, !alias.scope !24
   %rightSize_.i25.i.i154 = getelementptr inbounds i8, ptr %ref.tmp82, i64 40
-  store i64 1, ptr %rightSize_.i25.i.i154, align 8, !alias.scope !25
+  store i64 1, ptr %rightSize_.i25.i.i154, align 8, !alias.scope !24
   %call88 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp82) #11
   %bf.value.i = and i32 %call88, 255
   br label %return
@@ -3582,18 +3582,17 @@ attributes #12 = { noreturn nounwind }
 !12 = distinct !{!12, !11}
 !13 = distinct !{!13, !11}
 !14 = distinct !{!14, !11}
-!15 = !{}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN4llvh25SmallVectorTemplateCommonISt4pairIjN6hermes2vm8SymbolIDEEvE6rbeginEv: %agg.result"}
-!18 = distinct !{!18, !"_ZN4llvh25SmallVectorTemplateCommonISt4pairIjN6hermes2vm8SymbolIDEEvE6rbeginEv"}
-!19 = distinct !{!19, !11}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!22 = distinct !{!22, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!23 = distinct !{!23, !24, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
-!24 = distinct !{!24, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!27 = distinct !{!27, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!28 = distinct !{!28, !29, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
-!29 = distinct !{!29, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN4llvh25SmallVectorTemplateCommonISt4pairIjN6hermes2vm8SymbolIDEEvE6rbeginEv: %agg.result"}
+!17 = distinct !{!17, !"_ZN4llvh25SmallVectorTemplateCommonISt4pairIjN6hermes2vm8SymbolIDEEvE6rbeginEv"}
+!18 = distinct !{!18, !11}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!21 = distinct !{!21, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!22 = distinct !{!22, !23, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
+!23 = distinct !{!23, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
+!24 = !{!25, !27}
+!25 = distinct !{!25, !26, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!26 = distinct !{!26, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!27 = distinct !{!27, !28, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
+!28 = distinct !{!28, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}

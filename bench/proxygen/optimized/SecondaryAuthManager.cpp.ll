@@ -391,7 +391,7 @@ invoke.cont6:                                     ; preds = %_ZN5folly2io13Queue
 invoke.cont7:                                     ; preds = %invoke.cont6
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %contextQueue, i64 24
   %19 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !5
-  %20 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !10
+  %20 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !5
   %21 = load ptr, ptr %20, align 8, !noalias !5
   %cmp.not.i.i.i = icmp eq ptr %19, %21
   br i1 %cmp.not.i.i.i, label %invoke.cont8, label %if.then.i.i.i

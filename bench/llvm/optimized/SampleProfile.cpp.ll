@@ -4064,7 +4064,7 @@ _ZNSt6vectorIPN4llvm8FunctionESaIS2_EE9push_backEOS2_.exit.i.i: ; preds = %_ZNSt
 946:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i
   %947 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20UseProfiledCallGraph, i64 128), align 8, !noalias !49
   %948 = trunc i8 %947 to i1
-  %.pre91.i.i = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples11ProfileIsCSE, align 1, !noalias !49
+  %.pre91.i.i = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples11ProfileIsCSE, align 1, !noalias !53
   %.pre95.i.i = trunc i8 %.pre91.i.i to i1
   br i1 %948, label %._crit_edge94.i.i, label %950
 
@@ -7360,7 +7360,7 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_119SampleProfileLoader19findFuncti
 48:                                               ; preds = %37, %17
   %.sink.i.i.i = phi ptr [ %38, %37 ], [ null, %17 ]
   %49 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10DILocationEPKNS_10sampleprof15FunctionSamplesENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E20InsertIntoBucketImplIS4_EEPSD_RKS4_RKT_SH_(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i), !noalias !121
-  %50 = load ptr, ptr %4, align 8
+  %50 = load ptr, ptr %4, align 8, !noalias !121
   store ptr %50, ptr %49, align 8, !noalias !121
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr null, ptr %51, align 8, !noalias !121
@@ -7496,7 +7496,7 @@ define linkonce_odr noundef ptr @_ZNK4llvm27SampleProfileLoaderBaseImplINS_8Func
 39:                                               ; preds = %28, %8
   %.sink.i.i.i = phi ptr [ %29, %28 ], [ null, %8 ]
   %40 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10DILocationEPKNS_10sampleprof15FunctionSamplesENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E20InsertIntoBucketImplIS4_EEPSD_RKS4_RKT_SH_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i), !noalias !125
-  %41 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %3, align 8, !noalias !125
   store ptr %41, ptr %40, align 8, !noalias !125
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr null, ptr %42, align 8, !noalias !125
@@ -24005,7 +24005,7 @@ _ZNK12_GLOBAL__N_119SampleProfileLoader19findFunctionSamplesERKN4llvm11Instructi
 230:                                              ; preds = %219, %201
   %.sink.i.i.i.i.i = phi ptr [ %220, %219 ], [ null, %201 ]
   %231 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10DILocationEPKNS_10sampleprof15FunctionSamplesENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E20InsertIntoBucketImplIS4_EEPSD_RKS4_RKT_SH_(ptr noundef nonnull align 1 dereferenceable(1) %131, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef %.sink.i.i.i.i.i), !noalias !304
-  %232 = load ptr, ptr %49, align 8
+  %232 = load ptr, ptr %49, align 8, !noalias !304
   store ptr %232, ptr %231, align 8, !noalias !304
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 8
   store ptr null, ptr %233, align 8, !noalias !304
@@ -24819,7 +24819,7 @@ _ZNK12_GLOBAL__N_119SampleProfileLoader19findFunctionSamplesERKN4llvm11Instructi
 568:                                              ; preds = %557, %539
   %.sink.i.i.i.i227.i = phi ptr [ %558, %557 ], [ null, %539 ]
   %569 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10DILocationEPKNS_10sampleprof15FunctionSamplesENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E20InsertIntoBucketImplIS4_EEPSD_RKS4_RKT_SH_(ptr noundef nonnull align 1 dereferenceable(1) %375, ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef %.sink.i.i.i.i227.i), !noalias !310
-  %570 = load ptr, ptr %47, align 8
+  %570 = load ptr, ptr %47, align 8, !noalias !310
   store ptr %570, ptr %569, align 8, !noalias !310
   %571 = getelementptr inbounds nuw i8, ptr %569, i64 8
   store ptr null, ptr %571, align 8, !noalias !310
@@ -27898,7 +27898,7 @@ _ZNK12_GLOBAL__N_119SampleProfileLoader19findFunctionSamplesERKN4llvm11Instructi
 1977:                                             ; preds = %1966, %1948
   %.sink.i.i.i.i106.i = phi ptr [ %1967, %1966 ], [ null, %1948 ]
   %1978 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10DILocationEPKNS_10sampleprof15FunctionSamplesENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E20InsertIntoBucketImplIS4_EEPSD_RKS4_RKT_SH_(ptr noundef nonnull align 1 dereferenceable(1) %1820, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %.sink.i.i.i.i106.i), !noalias !327
-  %1979 = load ptr, ptr %14, align 8
+  %1979 = load ptr, ptr %14, align 8, !noalias !327
   store ptr %1979, ptr %1978, align 8, !noalias !327
   %1980 = getelementptr inbounds nuw i8, ptr %1978, i64 8
   store ptr null, ptr %1980, align 8, !noalias !327

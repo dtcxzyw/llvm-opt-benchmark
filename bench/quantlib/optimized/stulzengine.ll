@@ -1586,7 +1586,7 @@ do.end71:                                         ; preds = %cond.true.i, %if.th
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %basket_payoff) #26
   %payoff = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %49 = load ptr, ptr %payoff, align 8, !tbaa !88, !noalias !27
+  %49 = load ptr, ptr %payoff, align 8, !tbaa !88, !noalias !85
   %50 = icmp eq ptr %49, null
   br i1 %50, label %cond.false.i138, label %dynamic_cast.end3.i130
 
@@ -1611,7 +1611,7 @@ _ZN5boost20dynamic_pointer_castIN8QuantLib12BasketPayoffENS1_6PayoffEEENS_10shar
 if.then.i.i.i136:                                 ; preds = %cond.true.i132
   %use_count_.i.i.i.i137 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %53 = atomicrmw add ptr %use_count_.i.i.i.i137, i32 1 monotonic, align 4, !noalias !85
-  %.pre = load ptr, ptr %payoff, align 8, !tbaa !88, !noalias !27
+  %.pre = load ptr, ptr %payoff, align 8, !tbaa !88, !noalias !91
   br label %_ZN5boost20dynamic_pointer_castIN8QuantLib12BasketPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit
 
 cond.false.i138:                                  ; preds = %dynamic_cast.end3.i130, %do.end71

@@ -20020,7 +20020,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread21.i: ; preds =
 
 48:                                               ; preds = %47
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #30
-  %49 = load ptr, ptr %8, align 8
+  %49 = load ptr, ptr %8, align 8, !alias.scope !74
   %50 = icmp eq ptr %49, null
   br i1 %50, label %55, label %.critedge8.i
 

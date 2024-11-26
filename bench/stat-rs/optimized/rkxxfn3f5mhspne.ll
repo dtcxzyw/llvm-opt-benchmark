@@ -114,10 +114,12 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..
   ret i1 %5
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576937582(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
+define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576937582(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %3 = load double, ptr %0, align 8, !alias.scope !5, !noalias !8, !noundef !4
-  %4 = load double, ptr %1, align 8, !noalias !4, !noundef !4
+  %4 = load double, ptr %1, align 8, !alias.scope !8, !noalias !5, !noundef !4
   %5 = fcmp ugt double %3, %4
   br i1 %5, label %10, label %6
 
@@ -142,17 +144,19 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hb4e
   br label %10
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h0132f95a46154b5fE.llvm.13986783010576937582"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #3 {
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h0132f95a46154b5fE.llvm.13986783010576937582"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i64, ptr %0, align 8, !alias.scope !14, !noundef !4
-  %4 = load i64, ptr %2, align 8, !alias.scope !17, !noalias !20, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %3 = load i64, ptr %0, align 8, !alias.scope !19, !noalias !17, !noundef !4
+  %4 = load i64, ptr %2, align 8, !alias.scope !22, !noalias !14, !noundef !4
   %5 = icmp ult i64 %3, %4
   br i1 %5, label %6, label %"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h68ceafefef793592E.llvm.13986783010576937582.exit"
 
 6:                                                ; preds = %1
   %7 = add nuw i64 %3, 1
-  store i64 %7, ptr %0, align 8, !alias.scope !14
+  store i64 %7, ptr %0, align 8, !alias.scope !23
   br label %"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h68ceafefef793592E.llvm.13986783010576937582.exit"
 
 "_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h68ceafefef793592E.llvm.13986783010576937582.exit": ; preds = %1, %6
@@ -163,19 +167,19 @@ define hidden { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..tra
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef double @_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582(i64 noundef %0, i64 noundef %1, double noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef double @_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582(i64 noundef %0, i64 noundef %1, double noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = icmp ult i64 %0, %1
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %6 = load ptr, ptr %3, align 8, !noalias !22, !nonnull !4, !align !25, !noundef !4
+  %6 = load ptr, ptr %3, align 8, !noalias !24, !nonnull !4, !align !27, !noundef !4
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
   %.sroa.0.015 = phi double [ %2, %.lr.ph ], [ %12, %7 ]
   %.sroa.0.0814 = phi i64 [ %0, %.lr.ph ], [ %8, %7 ]
   %8 = add i64 %.sroa.0.0814, 1
-  %9 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, i64 noundef %.sroa.0.0814), !noalias !22
+  %9 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, i64 noundef %.sroa.0.0814), !noalias !24
   %10 = tail call noundef double @llvm.log.f64(double %9)
   %11 = fmul double %9, %10
   %12 = fsub double %.sroa.0.015, %11
@@ -197,11 +201,13 @@ define hidden { double, i32 } @"_ZN68_$LT$approx..Ulps$LT$A$C$B$GT$$u20$as$u20$c
   ret { double, i32 } { double 0x3CB0000000000000, i32 4 }
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h68ceafefef793592E.llvm.13986783010576937582"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #3 {
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h68ceafefef793592E.llvm.13986783010576937582"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i64, ptr %0, align 8, !noundef !4
-  %4 = load i64, ptr %2, align 8, !alias.scope !26, !noalias !29, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  %3 = load i64, ptr %0, align 8, !alias.scope !28, !noalias !31, !noundef !4
+  %4 = load i64, ptr %2, align 8, !alias.scope !31, !noalias !28, !noundef !4
   %5 = icmp ult i64 %3, %4
   br i1 %5, label %6, label %8
 
@@ -218,7 +224,7 @@ define hidden { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution4beta4Beta3new17hbe5e31a037a1a48dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #5 {
+define void @_ZN6statrs12distribution4beta4Beta3new17hbe5e31a037a1a48dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #6 {
   %or.cond = fcmp uno double %1, %2
   br i1 %or.cond, label %14, label %4
 
@@ -252,20 +258,20 @@ define void @_ZN6statrs12distribution4beta4Beta3new17hbe5e31a037a1a48dE(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6statrs12distribution4beta4Beta7shape_a17h8780c22a735f6aecE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define noundef double @_ZN6statrs12distribution4beta4Beta7shape_a17h8780c22a735f6aecE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   ret double %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6statrs12distribution4beta4Beta7shape_b17hf2fc7de28c57f8e6E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define noundef double @_ZN6statrs12distribution4beta4Beta7shape_b17hf2fc7de28c57f8e6E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8, !noundef !4
   ret double %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN71_$LT$statrs..distribution..beta..Beta$u20$as$u20$core..fmt..Display$GT$3fmt17h9d0d40a82047ccacE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #7 {
+define noundef zeroext i1 @"_ZN71_$LT$statrs..distribution..beta..Beta$u20$as$u20$core..fmt..Display$GT$3fmt17h9d0d40a82047ccacE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #8 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %2 = alloca [48 x i8], align 8
   %3 = alloca [32 x i8], align 8
@@ -282,7 +288,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %.val = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %.val7 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !31
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !33
   store ptr @anon.26f4206a9fc8a8c6d289e2be3cec11c9.4, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i64 3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -292,14 +298,14 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   store i64 2, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %8 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !31
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !31
+  %8 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !33
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret i1 %8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN105_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h508081a73f43fc7aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN105_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h508081a73f43fc7aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = fcmp olt double %1, 0.000000e+00
@@ -361,20 +367,20 @@ define noundef double @"_ZN105_$LT$statrs..distribution..beta..Beta$u20$as$u20$s
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread4": ; preds = %23, %30, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, double noundef %9, double noundef %14, double noundef %1)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %35 = load i64, ptr %4, align 8, !range !37, !alias.scope !34, !noalias !38, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  %35 = load i64, ptr %4, align 8, !range !39, !alias.scope !36, !noalias !40, !noundef !4
   %36 = icmp eq i64 %35, 21
   br i1 %36, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, label %37
 
 37:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread4"
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !38
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #16, !noalias !34
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !40
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #17, !noalias !36
   unreachable
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread4"
   %38 = getelementptr inbounds i8, ptr %4, i64 8
-  %39 = load double, ptr %38, align 8, !alias.scope !34, !noalias !38, !noundef !4
+  %39 = load double, ptr %38, align 8, !alias.scope !36, !noalias !40, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %40
 
@@ -384,7 +390,7 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %"_ZN47_$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN105_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17h20d04211450990b3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN105_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17h20d04211450990b3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = fcmp olt double %1, 0.000000e+00
@@ -447,20 +453,20 @@ define noundef double @"_ZN105_$LT$statrs..distribution..beta..Beta$u20$as$u20$s
   %35 = fsub double 1.000000e+00, %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, double noundef %14, double noundef %9, double noundef %35)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %36 = load i64, ptr %4, align 8, !range !37, !alias.scope !41, !noalias !44, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  %36 = load i64, ptr %4, align 8, !range !39, !alias.scope !43, !noalias !46, !noundef !4
   %37 = icmp eq i64 %36, 21
   br i1 %37, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, label %38
 
 38:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread4"
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !44
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #16, !noalias !41
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !46
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #17, !noalias !43
   unreachable
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread4"
   %39 = getelementptr inbounds i8, ptr %4, i64 8
-  %40 = load double, ptr %39, align 8, !alias.scope !41, !noalias !44, !noundef !4
+  %40 = load double, ptr %39, align 8, !alias.scope !43, !noalias !46, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %43
 
@@ -474,17 +480,17 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %"_ZN47_$L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef double @"_ZN95_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Min$LT$f64$GT$$GT$3min17h6130328e968c3440E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #8 {
+define noundef double @"_ZN95_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Min$LT$f64$GT$$GT$3min17h6130328e968c3440E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #9 {
   ret double 0.000000e+00
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef double @"_ZN95_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Max$LT$f64$GT$$GT$3max17h19d82ca3477b53d5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #8 {
+define noundef double @"_ZN95_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Max$LT$f64$GT$$GT$3max17h19d82ca3477b53d5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #9 {
   ret double 1.000000e+00
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h6ca90889e958aad9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h6ca90889e958aad9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = fcmp oeq double %3, 0x7FF0000000000000
@@ -498,7 +504,7 @@ define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17ha28b7ce98d1c3748E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17ha28b7ce98d1c3748E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = fcmp oeq double %3, 0x7FF0000000000000
@@ -527,7 +533,7 @@ define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hd4746829dff6c614E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hd4746829dff6c614E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = alloca [40 x i8], align 8
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = tail call double @llvm.fabs.f64(double %3)
@@ -551,21 +557,21 @@ define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$
 
 15:                                               ; preds = %13, %11
   %.sroa.7.0.ph.i = phi i64 [ ptrtoint (ptr @anon.add817559d7beeee5c0788ec3c34287f.40.llvm.10715550030521876899 to i64), %13 ], [ ptrtoint (ptr @anon.add817559d7beeee5c0788ec3c34287f.41.llvm.10715550030521876899 to i64), %11 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !47
-  store i64 2, ptr %2, align 8, !noalias !51
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !49
+  store i64 2, ptr %2, align 8, !noalias !53
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %.sroa.7.0.ph.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !51
+  store i64 %.sroa.7.0.ph.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !53
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
-  store i64 1, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !51
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.39.llvm.10715550030521876899) #16, !noalias !52
+  store i64 1, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !53
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.39.llvm.10715550030521876899) #17, !noalias !54
   unreachable
 
 _ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit: ; preds = %13
-  %16 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %3), !noalias !53
-  %17 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %8), !noalias !53
+  %16 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %3), !noalias !55
+  %17 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %8), !noalias !55
   %18 = fadd double %16, %17
   %19 = fadd double %3, %8
-  %20 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %19), !noalias !53
+  %20 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %19), !noalias !55
   %21 = fsub double %18, %20
   %22 = fadd double %3, -1.000000e+00
   %23 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %3)
@@ -590,7 +596,7 @@ _ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit: ; preds = %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h22b1e60d5b026461E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h22b1e60d5b026461E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = fcmp oeq double %3, 0x7FF0000000000000
@@ -624,7 +630,7 @@ define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN124_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h9a1f9db39fd324b5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN124_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h9a1f9db39fd324b5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = fcmp ugt double %2, 1.000000e+00
   br i1 %3, label %4, label %15
@@ -655,7 +661,7 @@ define { i64, double } @"_ZN124_$LT$statrs..distribution..beta..Beta$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN102_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h85e7c39d44824753E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN102_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h85e7c39d44824753E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = fcmp oge double %1, 0.000000e+00
   %4 = fcmp ole double %1, 1.000000e+00
   %or.cond35 = and i1 %3, %4
@@ -798,7 +804,7 @@ define noundef double @"_ZN102_$LT$statrs..distribution..beta..Beta$u20$as$u20$s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN102_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hcc1ce27af0371699E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN102_$LT$statrs..distribution..beta..Beta$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hcc1ce27af0371699E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = fcmp oge double %1, 0.000000e+00
   %4 = fcmp ole double %1, 1.000000e+00
   %or.cond = and i1 %3, %4
@@ -1054,7 +1060,7 @@ define noundef double @"_ZN102_$LT$statrs..distribution..beta..Beta$u20$as$u20$s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution8binomial8Binomial3new17he24f0cf7b640e9afE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, i64 noundef %2) unnamed_addr #5 {
+define void @_ZN6statrs12distribution8binomial8Binomial3new17he24f0cf7b640e9afE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, i64 noundef %2) unnamed_addr #6 {
   %4 = fcmp uno double %1, 0.000000e+00
   br i1 %4, label %_ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576937582.exit.thread, label %5
 
@@ -1078,20 +1084,20 @@ _ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6statrs12distribution8binomial8Binomial1p17h708208d34f5795faE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define noundef double @_ZN6statrs12distribution8binomial8Binomial1p17h708208d34f5795faE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   ret double %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6statrs12distribution8binomial8Binomial1n17h4b70f5c166df7915E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define noundef i64 @_ZN6statrs12distribution8binomial8Binomial1n17h4b70f5c166df7915E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN79_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$core..fmt..Display$GT$3fmt17h1e74add67bca6d14E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #7 {
+define noundef zeroext i1 @"_ZN79_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$core..fmt..Display$GT$3fmt17h1e74add67bca6d14E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #8 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %2 = alloca [48 x i8], align 8
   %3 = alloca [32 x i8], align 8
@@ -1108,7 +1114,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %.val = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %.val7 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !56
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !58
   store ptr @anon.26f4206a9fc8a8c6d289e2be3cec11c9.11, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i64 3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1118,14 +1124,14 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   store i64 2, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %8 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !56
+  %8 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !58
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !58
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret i1 %8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17h768a3c98d1b35a99E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17h768a3c98d1b35a99E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1142,20 +1148,20 @@ define noundef double @"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$
   %13 = fsub double 1.000000e+00, %12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, double noundef %9, double noundef %11, double noundef %13)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  %14 = load i64, ptr %4, align 8, !range !37, !alias.scope !59, !noalias !62, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  %14 = load i64, ptr %4, align 8, !range !39, !alias.scope !61, !noalias !64, !noundef !4
   %15 = icmp eq i64 %14, 21
   br i1 %15, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, label %16
 
 16:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !62
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #16, !noalias !59
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !64
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #17, !noalias !61
   unreachable
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %7
   %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = load double, ptr %17, align 8, !alias.scope !59, !noalias !62, !noundef !4
+  %18 = load double, ptr %17, align 8, !alias.scope !61, !noalias !64, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %19
 
@@ -1165,7 +1171,7 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf17h1fc55e4550a89c05E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf17h1fc55e4550a89c05E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1181,20 +1187,20 @@ define noundef double @"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$
   %12 = load double, ptr %0, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, double noundef %9, double noundef %11, double noundef %12)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %13 = load i64, ptr %4, align 8, !range !37, !alias.scope !65, !noalias !68, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  %13 = load i64, ptr %4, align 8, !range !39, !alias.scope !67, !noalias !70, !noundef !4
   %14 = icmp eq i64 %13, 21
   br i1 %14, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, label %15
 
 15:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !68
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #16, !noalias !65
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !70
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #17, !noalias !67
   unreachable
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = load double, ptr %16, align 8, !alias.scope !65, !noalias !68, !noundef !4
+  %17 = load double, ptr %16, align 8, !alias.scope !67, !noalias !70, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %18
 
@@ -1204,19 +1210,19 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @"_ZN103_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Min$LT$u64$GT$$GT$3min17h9af0dbd47f9dab66E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #8 {
+define noundef i64 @"_ZN103_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Min$LT$u64$GT$$GT$3min17h9af0dbd47f9dab66E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #9 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN103_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Max$LT$u64$GT$$GT$3max17h4abb2b4e8d8464a0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define noundef i64 @"_ZN103_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Max$LT$u64$GT$$GT$3max17h4abb2b4e8d8464a0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h15c171579dad5094E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h15c171579dad5094E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
@@ -1227,7 +1233,7 @@ define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17h939b4c910a770b1bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17h939b4c910a770b1bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = fsub double 1.000000e+00, %2
   %4 = fmul double %2, %3
@@ -1240,7 +1246,7 @@ define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hdb2a54ecee82bf2dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hdb2a54ecee82bf2dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = fcmp ugt double %3, 0x3CB0000000000000
@@ -1283,7 +1289,7 @@ define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20
   %.sroa.0.015.i = phi double [ %25, %.lr.ph.i ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ]
   %.sroa.0.0814.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ]
   %21 = add nuw i64 %.sroa.0.0814.i, 1
-  %22 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %.sroa.0.0814.i), !noalias !71
+  %22 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %.sroa.0.0814.i), !noalias !73
   %23 = tail call noundef double @llvm.log.f64(double %22)
   %24 = fmul double %22, %23
   %25 = fsub double %.sroa.0.015.i, %24
@@ -1297,9 +1303,9 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef double @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy28_$u7b$$u7b$closure$u7d$$u7d$17h1e477beac460a4feE.llvm.13986783010576937582"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, double noundef %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !25, !noundef !4
-  %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !25, !noundef !4
+define hidden noundef double @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy28_$u7b$$u7b$closure$u7d$$u7d$17h1e477beac460a4feE.llvm.13986783010576937582"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, double noundef %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+  %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !27, !noundef !4
+  %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !27, !noundef !4
   %6 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, i64 noundef %2)
   %7 = tail call noundef double @llvm.log.f64(double %6)
   %8 = fmul double %6, %7
@@ -1308,7 +1314,7 @@ define hidden noundef double @"_ZN112_$LT$statrs..distribution..binomial..Binomi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h5b534220503a1fcbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h5b534220503a1fcbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = fmul double %2, 2.000000e+00
   %4 = fsub double 1.000000e+00, %3
@@ -1325,7 +1331,7 @@ define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN106_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Median$LT$f64$GT$$GT$6median17hdb748ddb18bcf31bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define noundef double @"_ZN106_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Median$LT$f64$GT$$GT$6median17hdb748ddb18bcf31bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
@@ -1336,7 +1342,7 @@ define noundef double @"_ZN106_$LT$statrs..distribution..binomial..Binomial$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @"_ZN132_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$u64$GT$$GT$$GT$4mode17hd72b3194cb9d6e6bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define { i64, i64 } @"_ZN132_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$u64$GT$$GT$$GT$4mode17hd72b3194cb9d6e6bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = fcmp ugt double %3, 0x3CB0000000000000
@@ -1391,7 +1397,7 @@ define { i64, i64 } @"_ZN132_$LT$statrs..distribution..binomial..Binomial$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp ugt i64 %1, %4
@@ -1437,36 +1443,36 @@ define noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9": ; preds = %13, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6", %20
   %26 = icmp ugt i64 %4, 170
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9"
   %28 = uitofp i64 %4 to double
   %29 = fadd double %28, 1.000000e+00
-  %30 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %29), !noalias !79
+  %30 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %29), !noalias !81
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
 
 31:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9"
   %32 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %4
-  %33 = load double, ptr %32, align 8, !alias.scope !83, !noalias !86, !noundef !4
+  %33 = load double, ptr %32, align 8, !alias.scope !85, !noalias !88, !noundef !4
   %34 = tail call noundef double @llvm.log.f64(double %33)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
 
 _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds = %31, %27
   %.sroa.02.0.i.i.i = phi double [ %30, %27 ], [ %34, %31 ]
   %35 = icmp ugt i64 %1, 170
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
   %37 = uitofp i64 %1 to double
   %38 = fadd double %37, 1.000000e+00
-  %39 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %38), !noalias !90
+  %39 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %38), !noalias !92
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
 
 40:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
   %41 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
-  %42 = load double, ptr %41, align 8, !alias.scope !94, !noalias !97, !noundef !4
+  %42 = load double, ptr %41, align 8, !alias.scope !96, !noalias !99, !noundef !4
   %43 = tail call noundef double @llvm.log.f64(double %42)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
 
@@ -1475,18 +1481,18 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i: ; preds
   %44 = fsub double %.sroa.02.0.i.i.i, %.sroa.02.0.i.i2.i
   %45 = sub i64 %4, %1
   %46 = icmp ugt i64 %45, 170
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
   %48 = uitofp i64 %45 to double
   %49 = fadd double %48, 1.000000e+00
-  %50 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %49), !noalias !101
+  %50 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %49), !noalias !103
   br label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit
 
 51:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
   %52 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %45
-  %53 = load double, ptr %52, align 8, !alias.scope !105, !noalias !108, !noundef !4
+  %53 = load double, ptr %52, align 8, !alias.scope !107, !noalias !110, !noundef !4
   %54 = tail call noundef double @llvm.log.f64(double %53)
   %.pre = uitofp nneg i64 %45 to double
   br label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit
@@ -1517,7 +1523,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit: ; preds = %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$6ln_pmf17h78b19b1e4df2dc74E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$6ln_pmf17h78b19b1e4df2dc74E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp ugt i64 %1, %4
@@ -1563,36 +1569,36 @@ define noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9": ; preds = %13, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6", %20
   %26 = icmp ugt i64 %4, 170
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9"
   %28 = uitofp i64 %4 to double
   %29 = fadd double %28, 1.000000e+00
-  %30 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %29), !noalias !112
+  %30 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %29), !noalias !114
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
 
 31:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9"
   %32 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %4
-  %33 = load double, ptr %32, align 8, !alias.scope !116, !noalias !119, !noundef !4
+  %33 = load double, ptr %32, align 8, !alias.scope !118, !noalias !121, !noundef !4
   %34 = tail call noundef double @llvm.log.f64(double %33)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
 
 _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds = %31, %27
   %.sroa.02.0.i.i.i = phi double [ %30, %27 ], [ %34, %31 ]
   %35 = icmp ugt i64 %1, 170
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
   %37 = uitofp i64 %1 to double
   %38 = fadd double %37, 1.000000e+00
-  %39 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %38), !noalias !123
+  %39 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %38), !noalias !125
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
 
 40:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
   %41 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
-  %42 = load double, ptr %41, align 8, !alias.scope !127, !noalias !130, !noundef !4
+  %42 = load double, ptr %41, align 8, !alias.scope !129, !noalias !132, !noundef !4
   %43 = tail call noundef double @llvm.log.f64(double %42)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
 
@@ -1601,18 +1607,18 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i: ; preds
   %44 = fsub double %.sroa.02.0.i.i.i, %.sroa.02.0.i.i2.i
   %45 = sub i64 %4, %1
   %46 = icmp ugt i64 %45, 170
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
   %48 = uitofp i64 %45 to double
   %49 = fadd double %48, 1.000000e+00
-  %50 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %49), !noalias !134
+  %50 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %49), !noalias !136
   br label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit
 
 51:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
   %52 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %45
-  %53 = load double, ptr %52, align 8, !alias.scope !138, !noalias !141, !noundef !4
+  %53 = load double, ptr %52, align 8, !alias.scope !140, !noalias !143, !noundef !4
   %54 = tail call noundef double @llvm.log.f64(double %53)
   %.pre = uitofp nneg i64 %45 to double
   br label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit
@@ -1642,7 +1648,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution11chi_squared10ChiSquared3new17hc5b23d55317a370aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 24)) %0, double noundef %1) unnamed_addr #5 {
+define void @_ZN6statrs12distribution11chi_squared10ChiSquared3new17hc5b23d55317a370aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 24)) %0, double noundef %1) unnamed_addr #6 {
   %3 = fmul double %1, 5.000000e-01
   %or.cond = fcmp ule double %3, 0.000000e+00
   br i1 %or.cond, label %5, label %4
@@ -1663,27 +1669,27 @@ define void @_ZN6statrs12distribution11chi_squared10ChiSquared3new17hc5b23d55317
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6statrs12distribution11chi_squared10ChiSquared7freedom17hc4d152b458a7435bE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define noundef double @_ZN6statrs12distribution11chi_squared10ChiSquared7freedom17hc4d152b458a7435bE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8, !noundef !4
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6statrs12distribution11chi_squared10ChiSquared5shape17ha60c0b576392b13dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
-  %2 = load double, ptr %0, align 8, !alias.scope !142, !noundef !4
+define noundef double @_ZN6statrs12distribution11chi_squared10ChiSquared5shape17ha60c0b576392b13dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
+  %2 = load double, ptr %0, align 8, !alias.scope !144, !noundef !4
   ret double %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6statrs12distribution11chi_squared10ChiSquared4rate17hf3c203675bb0a47cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define noundef double @_ZN6statrs12distribution11chi_squared10ChiSquared4rate17hf3c203675bb0a47cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load double, ptr %2, align 8, !alias.scope !145, !noundef !4
+  %3 = load double, ptr %2, align 8, !alias.scope !147, !noundef !4
   ret double %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN84_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$core..fmt..Display$GT$3fmt17hff343c07de563a1dE"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #7 {
+define noundef zeroext i1 @"_ZN84_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$core..fmt..Display$GT$3fmt17hff343c07de563a1dE"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #8 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
@@ -1696,7 +1702,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %.val = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %.val3 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !148
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !150
   store ptr @anon.26f4206a9fc8a8c6d289e2be3cec11c9.13, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1706,49 +1712,49 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %7 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !148
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !148
+  %7 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !150
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !150
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN118_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h3fdc9ca99b837586E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #7 {
+define noundef double @"_ZN118_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h3fdc9ca99b837586E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #8 {
   %3 = tail call noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h8ea699656e017159E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1)
   ret double %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN118_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17hcb16a59ab8d07310E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #7 {
+define noundef double @"_ZN118_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17hcb16a59ab8d07310E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #8 {
   %3 = tail call noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17ha409f51e95304c1eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1)
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef double @"_ZN108_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Min$LT$f64$GT$$GT$3min17h9ae8fa216e7ad85eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #8 {
+define noundef double @"_ZN108_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Min$LT$f64$GT$$GT$3min17h9ae8fa216e7ad85eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #9 {
   ret double 0.000000e+00
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef double @"_ZN108_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Max$LT$f64$GT$$GT$3max17hac55892b56d3e8a7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #8 {
+define noundef double @"_ZN108_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Max$LT$f64$GT$$GT$3max17hac55892b56d3e8a7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #9 {
   ret double 0x7FF0000000000000
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h787fd55780d2cb40E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
-  %2 = load double, ptr %0, align 8, !alias.scope !151, !noundef !4
+define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h787fd55780d2cb40E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
+  %2 = load double, ptr %0, align 8, !alias.scope !153, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load double, ptr %3, align 8, !alias.scope !151, !noundef !4
+  %4 = load double, ptr %3, align 8, !alias.scope !153, !noundef !4
   %5 = fdiv double %2, %4
   %6 = insertvalue { i64, double } { i64 1, double poison }, double %5, 1
   ret { i64, double } %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hb4c45bd793501456E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
-  %2 = load double, ptr %0, align 8, !alias.scope !154, !noundef !4
+define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hb4c45bd793501456E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
+  %2 = load double, ptr %0, align 8, !alias.scope !156, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load double, ptr %3, align 8, !alias.scope !154, !noundef !4
+  %4 = load double, ptr %3, align 8, !alias.scope !156, !noundef !4
   %5 = fmul double %4, %4
   %6 = fdiv double %2, %5
   %7 = insertvalue { i64, double } { i64 1, double poison }, double %6, 1
@@ -1756,17 +1762,17 @@ define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquare
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17h1273d39a89b3b50eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
-  %2 = load double, ptr %0, align 8, !alias.scope !157, !noundef !4
+define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17h1273d39a89b3b50eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
+  %2 = load double, ptr %0, align 8, !alias.scope !159, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load double, ptr %3, align 8, !alias.scope !157, !noundef !4
+  %4 = load double, ptr %3, align 8, !alias.scope !159, !noundef !4
   %5 = tail call noundef double @llvm.log.f64(double %4)
   %6 = fsub double %2, %5
-  %7 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %2), !noalias !157
+  %7 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %2), !noalias !159
   %8 = fadd double %7, %6
   %9 = fsub double 1.000000e+00, %2
-  %10 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %2), !noalias !157
+  %10 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %2), !noalias !159
   %11 = fmul double %9, %10
   %12 = fadd double %8, %11
   %13 = insertvalue { i64, double } { i64 1, double poison }, double %12, 1
@@ -1774,8 +1780,8 @@ define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquare
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h40f4d5de3a5800c4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
-  %2 = load double, ptr %0, align 8, !alias.scope !160, !noundef !4
+define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h40f4d5de3a5800c4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
+  %2 = load double, ptr %0, align 8, !alias.scope !162, !noundef !4
   %3 = tail call double @llvm.sqrt.f64(double %2)
   %4 = fdiv double 2.000000e+00, %3
   %5 = insertvalue { i64, double } { i64 1, double poison }, double %4, 1
@@ -1783,7 +1789,7 @@ define { i64, double } @"_ZN117_$LT$statrs..distribution..chi_squared..ChiSquare
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN111_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Median$LT$f64$GT$$GT$6median17hc88b5dbeb01dcad3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define noundef double @"_ZN111_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Median$LT$f64$GT$$GT$6median17hc88b5dbeb01dcad3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8, !noundef !4
   %4 = fcmp olt double %3, 1.000000e+00
@@ -1806,12 +1812,12 @@ define noundef double @"_ZN111_$LT$statrs..distribution..chi_squared..ChiSquared
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN137_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17hdb1a114d5a2b390dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
-  %2 = load double, ptr %0, align 8, !alias.scope !163, !noundef !4
+define { i64, double } @"_ZN137_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17hdb1a114d5a2b390dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
+  %2 = load double, ptr %0, align 8, !alias.scope !165, !noundef !4
   %3 = fcmp uge double %2, 1.000000e+00
   %4 = fadd double %2, -1.000000e+00
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load double, ptr %5, align 8, !alias.scope !163
+  %6 = load double, ptr %5, align 8, !alias.scope !165
   %7 = fdiv double %4, %6
   %.sroa.3.0.i = select i1 %3, double %7, double undef
   %.sroa.0.0.i = zext i1 %3 to i64
@@ -1821,19 +1827,19 @@ define { i64, double } @"_ZN137_$LT$statrs..distribution..chi_squared..ChiSquare
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN115_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17hd65c5768fbe19f37E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #7 {
+define noundef double @"_ZN115_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17hd65c5768fbe19f37E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #8 {
   %3 = tail call noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h1673f1a8c3c39778E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1)
   ret double %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN115_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h37e87943de29591aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
+define noundef double @"_ZN115_$LT$statrs..distribution..chi_squared..ChiSquared$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h37e87943de29591aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %3 = fcmp olt double %1, 0.000000e+00
   br i1 %3, label %"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = load double, ptr %0, align 8, !alias.scope !166, !noundef !4
+  %5 = load double, ptr %0, align 8, !alias.scope !171, !noalias !174, !noundef !4
   %6 = fadd double %5, -1.000000e+00
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp ugt double %7, 0x3CB0000000000000
@@ -1866,7 +1872,7 @@ define noundef double @"_ZN115_$LT$statrs..distribution..chi_squared..ChiSquared
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread.i": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.i", %16, %4
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = load double, ptr %21, align 8, !alias.scope !166, !noundef !4
+  %22 = load double, ptr %21, align 8, !alias.scope !168, !noundef !4
   %23 = tail call noundef double @llvm.log.f64(double %22)
   %24 = fmul double %1, %22
   %25 = fsub double %23, %24
@@ -1874,7 +1880,7 @@ define noundef double @"_ZN115_$LT$statrs..distribution..chi_squared..ChiSquared
 
 26:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2.i"
   %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = load double, ptr %27, align 8, !alias.scope !166, !noundef !4
+  %28 = load double, ptr %27, align 8, !alias.scope !168, !noundef !4
   %29 = tail call noundef double @llvm.log.f64(double %28)
   %30 = fmul double %5, %29
   %31 = tail call noundef double @llvm.log.f64(double %1)
@@ -1882,7 +1888,7 @@ define noundef double @"_ZN115_$LT$statrs..distribution..chi_squared..ChiSquared
   %33 = fadd double %32, %30
   %34 = fmul double %1, %28
   %35 = fsub double %33, %34
-  %36 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %5), !noalias !166
+  %36 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %5), !noalias !168
   %37 = fsub double %35, %36
   br label %"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E.exit"
 
@@ -1892,7 +1898,7 @@ define noundef double @"_ZN115_$LT$statrs..distribution..chi_squared..ChiSquared
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution7poisson7Poisson3new17hc90cee90b2be26c8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1) unnamed_addr #5 {
+define void @_ZN6statrs12distribution7poisson7Poisson3new17hc90cee90b2be26c8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1) unnamed_addr #6 {
   %or.cond = fcmp ule double %1, 0.000000e+00
   br i1 %or.cond, label %5, label %3
 
@@ -1908,13 +1914,13 @@ define void @_ZN6statrs12distribution7poisson7Poisson3new17hc90cee90b2be26c8E(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6statrs12distribution7poisson7Poisson6lambda17h2b4166519a72ed2fE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 {
+define noundef double @_ZN6statrs12distribution7poisson7Poisson6lambda17h2b4166519a72ed2fE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   ret double %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN77_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$core..fmt..Display$GT$3fmt17h48d517f6048e0a69E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #7 {
+define noundef zeroext i1 @"_ZN77_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$core..fmt..Display$GT$3fmt17h48d517f6048e0a69E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #8 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
@@ -1926,7 +1932,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %.val3 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !169
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !176
   store ptr @anon.26f4206a9fc8a8c6d289e2be3cec11c9.15, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i64 2, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1936,14 +1942,14 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %6 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !169
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !169
+  %6 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !176
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !176
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN109_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17hfa053ce278d4d69bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN109_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17hfa053ce278d4d69bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = uitofp i64 %1 to double
@@ -1951,26 +1957,26 @@ define noundef double @"_ZN109_$LT$statrs..distribution..poisson..Poisson$u20$as
   %7 = load double, ptr %0, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @_ZN6statrs8function5gamma16checked_gamma_ur17hdd57d034a2d8e7e3E(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, double noundef %6, double noundef %7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
-  %8 = load i64, ptr %4, align 8, !range !37, !alias.scope !172, !noalias !175, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
+  %8 = load i64, ptr %4, align 8, !range !39, !alias.scope !179, !noalias !182, !noundef !4
   %9 = icmp eq i64 %8, 21
   br i1 %9, label %_ZN6statrs8function5gamma8gamma_ur17h0b4d3ff45eccbdceE.exit, label %10
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !177
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !175
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.c1bf2e375591bb6a447bdf89942637bc.4.llvm.11173233603740741911, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.5.llvm.11173233603740741911, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.10.llvm.11173233603740741911) #16, !noalias !172
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !182
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.c1bf2e375591bb6a447bdf89942637bc.4.llvm.11173233603740741911, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.5.llvm.11173233603740741911, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.10.llvm.11173233603740741911) #17, !noalias !179
   unreachable
 
 _ZN6statrs8function5gamma8gamma_ur17h0b4d3ff45eccbdceE.exit: ; preds = %2
   %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = load double, ptr %11, align 8, !alias.scope !172, !noalias !175, !noundef !4
+  %12 = load double, ptr %11, align 8, !alias.scope !179, !noalias !182, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   ret double %12
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN109_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf17h11fc6a541b50269aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN109_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf17h11fc6a541b50269aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = uitofp i64 %1 to double
@@ -1978,50 +1984,50 @@ define noundef double @"_ZN109_$LT$statrs..distribution..poisson..Poisson$u20$as
   %7 = load double, ptr %0, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, double noundef %6, double noundef %7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
-  %8 = load i64, ptr %4, align 8, !range !37, !alias.scope !178, !noalias !181, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
+  %8 = load i64, ptr %4, align 8, !range !39, !alias.scope !185, !noalias !188, !noundef !4
   %9 = icmp eq i64 %8, 21
   br i1 %9, label %_ZN6statrs8function5gamma8gamma_lr17hde27b862f6dd8958E.exit, label %10
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !183
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !181
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.c1bf2e375591bb6a447bdf89942637bc.4.llvm.11173233603740741911, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.5.llvm.11173233603740741911, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.14.llvm.11173233603740741911) #16, !noalias !178
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !190
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !188
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.c1bf2e375591bb6a447bdf89942637bc.4.llvm.11173233603740741911, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.5.llvm.11173233603740741911, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.14.llvm.11173233603740741911) #17, !noalias !185
   unreachable
 
 _ZN6statrs8function5gamma8gamma_lr17hde27b862f6dd8958E.exit: ; preds = %2
   %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = load double, ptr %11, align 8, !alias.scope !178, !noalias !181, !noundef !4
+  %12 = load double, ptr %11, align 8, !alias.scope !185, !noalias !188, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @"_ZN101_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Min$LT$u64$GT$$GT$3min17h12ba9b8996b56800E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #8 {
+define noundef i64 @"_ZN101_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Min$LT$u64$GT$$GT$3min17h12ba9b8996b56800E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #9 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @"_ZN101_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Max$LT$u64$GT$$GT$3max17h086eab8cc75f41e2E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #8 {
+define noundef i64 @"_ZN101_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Max$LT$u64$GT$$GT$3max17h086eab8cc75f41e2E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #9 {
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17hfa2da1348be8fa00E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17hfa2da1348be8fa00E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = insertvalue { i64, double } { i64 1, double poison }, double %2, 1
   ret { i64, double } %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17ha1451a8d9f96e903E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17ha1451a8d9f96e903E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = insertvalue { i64, double } { i64 1, double poison }, double %2, 1
   ret { i64, double } %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17he8cb44706e198609E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17he8cb44706e198609E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = fmul double %2, 0x403114580B45D474
   %4 = tail call noundef double @llvm.log.f64(double %3)
@@ -2043,7 +2049,7 @@ define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17hacb1ffacfeab8b5bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17hacb1ffacfeab8b5bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = tail call double @llvm.sqrt.f64(double %2)
   %4 = fdiv double 1.000000e+00, %3
@@ -2052,7 +2058,7 @@ define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN104_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Median$LT$f64$GT$$GT$6median17hf6f7064fa6cd3d98E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 {
+define noundef double @"_ZN104_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Median$LT$f64$GT$$GT$6median17hf6f7064fa6cd3d98E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = fadd double %2, 0x3FD5555555555555
   %4 = fdiv double 2.000000e-02, %2
@@ -2062,7 +2068,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..poisson..Poisson$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @"_ZN130_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$u64$GT$$GT$$GT$4mode17hd54447e7c61bd9e0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 {
+define { i64, i64 } @"_ZN130_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$u64$GT$$GT$$GT$4mode17hd54447e7c61bd9e0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = tail call double @llvm.floor.f64(double %2)
   %4 = tail call i64 @llvm.fptoui.sat.i64.f64(double %3)
@@ -2071,21 +2077,21 @@ define { i64, i64 } @"_ZN130_$LT$statrs..distribution..poisson..Poisson$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN106_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h5882e92511f83003E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN106_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h5882e92511f83003E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = uitofp i64 %1 to double
   %5 = icmp ugt i64 %1, 170
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = fadd double %4, 1.000000e+00
-  %8 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %7), !noalias !187
+  %8 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %7), !noalias !194
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
-  %11 = load double, ptr %10, align 8, !alias.scope !191, !noalias !194, !noundef !4
+  %11 = load double, ptr %10, align 8, !alias.scope !198, !noalias !201, !noundef !4
   %12 = tail call noundef double @llvm.log.f64(double %11)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
 
@@ -2100,21 +2106,21 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN106_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$6ln_pmf17h775a40e8a04bebd8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN106_$LT$statrs..distribution..poisson..Poisson$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$6ln_pmf17h775a40e8a04bebd8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = uitofp i64 %1 to double
   %5 = icmp ugt i64 %1, 170
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = fadd double %4, 1.000000e+00
-  %8 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %7), !noalias !198
+  %8 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %7), !noalias !205
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
-  %11 = load double, ptr %10, align 8, !alias.scope !202, !noalias !205, !noundef !4
+  %11 = load double, ptr %10, align 8, !alias.scope !209, !noalias !212, !noundef !4
   %12 = tail call noundef double @llvm.log.f64(double %11)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
 
@@ -2128,7 +2134,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution10triangular10Triangular3new17h846bbab4d5dc0978E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @_ZN6statrs12distribution10triangular10Triangular3new17h846bbab4d5dc0978E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp ueq double %5, 0x7FF0000000000000
   %7 = tail call double @llvm.fabs.f64(double %2)
@@ -2183,7 +2189,7 @@ define void @_ZN6statrs12distribution10triangular10Triangular3new17h846bbab4d5dc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN83_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$core..fmt..Display$GT$3fmt17habb13fb6df5bb2e8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #7 {
+define noundef zeroext i1 @"_ZN83_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$core..fmt..Display$GT$3fmt17habb13fb6df5bb2e8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #8 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %2 = alloca [48 x i8], align 8
   %3 = alloca [48 x i8], align 8
@@ -2205,7 +2211,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %.val = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %1, i64 40
   %.val11 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !206
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !213
   store ptr @anon.26f4206a9fc8a8c6d289e2be3cec11c9.18, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i64 4, ptr %.sroa.5.0..sroa_idx, align 8
@@ -2215,14 +2221,14 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   store i64 3, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %10 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !206
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !206
+  %10 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !213
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !213
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   ret i1 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN117_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17he25b5998a3e58076E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #6 {
+define noundef double @"_ZN117_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17he25b5998a3e58076E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #7 {
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8, !noundef !4
@@ -2264,7 +2270,7 @@ define noundef double @"_ZN117_$LT$statrs..distribution..triangular..Triangular$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN117_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17hc87d46e828554007E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #6 {
+define noundef double @"_ZN117_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17hc87d46e828554007E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #7 {
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8, !noundef !4
@@ -2306,20 +2312,20 @@ define noundef double @"_ZN117_$LT$statrs..distribution..triangular..Triangular$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN107_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Min$LT$f64$GT$$GT$3min17hb888bd1efd7593a0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define noundef double @"_ZN107_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Min$LT$f64$GT$$GT$3min17hb888bd1efd7593a0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   ret double %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN107_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Max$LT$f64$GT$$GT$3max17h709358551bdc359dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define noundef double @"_ZN107_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Max$LT$f64$GT$$GT$3max17h709358551bdc359dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8, !noundef !4
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h26799954f57e7ab8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h26799954f57e7ab8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8, !noundef !4
@@ -2333,7 +2339,7 @@ define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hdbb8dee692a55a2dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hdbb8dee692a55a2dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8, !noundef !4
@@ -2356,7 +2362,7 @@ define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17ha26f927344057de8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17ha26f927344057de8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8, !noundef !4
   %4 = load double, ptr %0, align 8, !noundef !4
@@ -2369,7 +2375,7 @@ define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h1537039dec7c85d6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h1537039dec7c85d6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8, !noundef !4
@@ -2406,7 +2412,7 @@ define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN110_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Median$LT$f64$GT$$GT$6median17h326a227dd2076c0bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define noundef double @"_ZN110_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Median$LT$f64$GT$$GT$6median17h326a227dd2076c0bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8, !noundef !4
@@ -2440,7 +2446,7 @@ define noundef double @"_ZN110_$LT$statrs..distribution..triangular..Triangular$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN136_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h7e3a9486f2d49476E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN136_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h7e3a9486f2d49476E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8, !noundef !4
   %4 = insertvalue { i64, double } { i64 1, double poison }, double %3, 1
@@ -2448,7 +2454,7 @@ define { i64, double } @"_ZN136_$LT$statrs..distribution..triangular..Triangular
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN114_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h231ff6063834b4ccE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #6 {
+define noundef double @"_ZN114_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h231ff6063834b4ccE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #7 {
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8, !noundef !4
@@ -2489,12 +2495,12 @@ define noundef double @"_ZN114_$LT$statrs..distribution..triangular..Triangular$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN114_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h6464a01e21151b4eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %3 = load double, ptr %0, align 8, !alias.scope !209, !noundef !4
+define noundef double @"_ZN114_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h6464a01e21151b4eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+  %3 = load double, ptr %0, align 8, !alias.scope !216, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load double, ptr %4, align 8, !alias.scope !209, !noundef !4
+  %5 = load double, ptr %4, align 8, !alias.scope !216, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load double, ptr %6, align 8, !alias.scope !209, !noundef !4
+  %7 = load double, ptr %6, align 8, !alias.scope !216, !noundef !4
   %8 = fcmp ole double %3, %1
   %9 = fcmp ole double %1, %7
   %or.cond.i = and i1 %8, %9
@@ -2531,7 +2537,7 @@ define noundef double @"_ZN114_$LT$statrs..distribution..triangular..Triangular$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution7uniform7Uniform3new17hecbe25eb1377c32bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #5 {
+define void @_ZN6statrs12distribution7uniform7Uniform3new17hecbe25eb1377c32bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #6 {
   %or.cond = fcmp uno double %1, %2
   br i1 %or.cond, label %4, label %5
 
@@ -2602,7 +2608,7 @@ define void @_ZN6statrs12distribution7uniform7Uniform3new17hecbe25eb1377c32bE(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN77_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$core..fmt..Display$GT$3fmt17h711aca25ff85b0e8E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #7 {
+define noundef zeroext i1 @"_ZN77_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$core..fmt..Display$GT$3fmt17h711aca25ff85b0e8E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #8 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %2 = alloca [48 x i8], align 8
   %3 = alloca [32 x i8], align 8
@@ -2619,7 +2625,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %.val = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %.val7 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !212
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !219
   store ptr @anon.26f4206a9fc8a8c6d289e2be3cec11c9.24, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i64 3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -2629,14 +2635,14 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   store i64 2, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %8 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !212
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !212
+  %8 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !219
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !219
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret i1 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN111_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc9e5b412093cb63fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #6 {
+define noundef double @"_ZN111_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc9e5b412093cb63fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #7 {
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = fcmp ugt double %1, %3
   br i1 %4, label %5, label %13
@@ -2659,7 +2665,7 @@ define noundef double @"_ZN111_$LT$statrs..distribution..uniform..Uniform$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN111_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17h33da036182c31923E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #6 {
+define noundef double @"_ZN111_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17h33da036182c31923E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #7 {
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = fcmp ugt double %1, %3
   br i1 %4, label %5, label %13
@@ -2682,7 +2688,7 @@ define noundef double @"_ZN111_$LT$statrs..distribution..uniform..Uniform$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN111_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$11inverse_cdf17hd5c2cb804515a9c3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #7 {
+define noundef double @"_ZN111_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$11inverse_cdf17hd5c2cb804515a9c3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #8 {
   %3 = alloca [16 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = alloca [8 x i8], align 8
@@ -2707,7 +2713,7 @@ _ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576
   store ptr %3, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 1, ptr %11, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26f4206a9fc8a8c6d289e2be3cec11c9.28) #16
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26f4206a9fc8a8c6d289e2be3cec11c9.28) #17
   unreachable
 
 12:                                               ; preds = %2
@@ -2737,20 +2743,20 @@ _ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN101_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Min$LT$f64$GT$$GT$3min17h0fa7a5ac77b5848bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define noundef double @"_ZN101_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Min$LT$f64$GT$$GT$3min17h0fa7a5ac77b5848bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   ret double %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN101_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Max$LT$f64$GT$$GT$3max17ha519b2c980ac416bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define noundef double @"_ZN101_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Max$LT$f64$GT$$GT$3max17ha519b2c980ac416bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8, !noundef !4
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h039d78b6318147beE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h039d78b6318147beE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8, !noundef !4
@@ -2761,7 +2767,7 @@ define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hfd9b58cf1bb7e01fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hfd9b58cf1bb7e01fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8, !noundef !4
   %4 = load double, ptr %0, align 8, !noundef !4
@@ -2773,7 +2779,7 @@ define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17h3026b7c036a5d1ebE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17h3026b7c036a5d1ebE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8, !noundef !4
   %4 = load double, ptr %0, align 8, !noundef !4
@@ -2784,12 +2790,12 @@ define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h081aaa6fccde022cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #8 {
+define { i64, double } @"_ZN110_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h081aaa6fccde022cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #9 {
   ret { i64, double } { i64 1, double 0.000000e+00 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN104_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Median$LT$f64$GT$$GT$6median17hec8b531a4ee93ff1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define noundef double @"_ZN104_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Median$LT$f64$GT$$GT$6median17hec8b531a4ee93ff1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8, !noundef !4
@@ -2799,7 +2805,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..uniform..Uniform$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i64, double } @"_ZN130_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h3113662afbbd3096E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define { i64, double } @"_ZN130_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h3113662afbbd3096E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8, !noundef !4
@@ -2810,7 +2816,7 @@ define { i64, double } @"_ZN130_$LT$statrs..distribution..uniform..Uniform$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN108_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h244dd5c458b9456bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #6 {
+define noundef double @"_ZN108_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h244dd5c458b9456bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #7 {
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = fcmp olt double %1, %3
   br i1 %4, label %12, label %5
@@ -2832,7 +2838,7 @@ define noundef double @"_ZN108_$LT$statrs..distribution..uniform..Uniform$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @"_ZN108_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hf303615c4c9b361cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define noundef double @"_ZN108_$LT$statrs..distribution..uniform..Uniform$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hf303615c4c9b361cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = fcmp olt double %1, %3
   br i1 %4, label %13, label %5
@@ -2855,7 +2861,7 @@ define noundef double @"_ZN108_$LT$statrs..distribution..uniform..Uniform$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @_ZN6statrs8function8harmonic8harmonic17hb10dfb4c8202bd94E(i64 noundef %0) unnamed_addr #7 {
+define noundef double @_ZN6statrs8function8harmonic8harmonic17hb10dfb4c8202bd94E(i64 noundef %0) unnamed_addr #8 {
   %2 = icmp eq i64 %0, 0
   br i1 %2, label %8, label %3
 
@@ -2872,7 +2878,7 @@ define noundef double @_ZN6statrs8function8harmonic8harmonic17hb10dfb4c8202bd94E
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
-define noundef double @_ZN6statrs8function8harmonic12gen_harmonic17hf5a5ac6ebead9cbbE(i64 noundef %0, double noundef %1) unnamed_addr #9 personality ptr @rust_eh_personality {
+define noundef double @_ZN6statrs8function8harmonic12gen_harmonic17hf5a5ac6ebead9cbbE(i64 noundef %0, double noundef %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %_ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit, label %4
 
@@ -2897,106 +2903,107 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log.f64(double) #10
+declare double @llvm.log.f64(double) #11
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #7
+declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #10
+declare double @llvm.fabs.f64(double) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #10
+declare double @llvm.copysign.f64(double, double) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #7
+declare noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17hf1cee52ef4fcaed8E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #7
+declare noundef zeroext i1 @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17hf1cee52ef4fcaed8E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef) unnamed_addr #7
+declare noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #10
+declare double @llvm.sqrt.f64(double) #11
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef) unnamed_addr #7
+declare noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.pow.f64(double, double) #10
+declare double @llvm.pow.f64(double, double) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.exp.f64(double) #10
+declare double @llvm.exp.f64(double) #11
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef) unnamed_addr #7
+declare noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17h5386a9d5c884cdb0E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #7
+declare noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17h5386a9d5c884cdb0E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #10
+declare double @llvm.floor.f64(double) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fptoui.sat.i64.f64(double) #10
+declare i64 @llvm.fptoui.sat.i64.f64(double) #11
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #12
+declare void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h8ea699656e017159E"(ptr noalias noundef readonly align 8 dereferenceable(16), double noundef) unnamed_addr #7
+declare noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h8ea699656e017159E"(ptr noalias noundef readonly align 8 dereferenceable(16), double noundef) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17ha409f51e95304c1eE"(ptr noalias noundef readonly align 8 dereferenceable(16), double noundef) unnamed_addr #7
+declare noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17ha409f51e95304c1eE"(ptr noalias noundef readonly align 8 dereferenceable(16), double noundef) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h1673f1a8c3c39778E"(ptr noalias noundef readonly align 8 dereferenceable(16), double noundef) unnamed_addr #7
+declare noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h1673f1a8c3c39778E"(ptr noalias noundef readonly align 8 dereferenceable(16), double noundef) unnamed_addr #8
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #12
+declare void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #13
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN6statrs8function5gamma16checked_gamma_ur17hdd57d034a2d8e7e3E(ptr dead_on_unwind noalias nocapture noundef writable sret([40 x i8]) align 8 dereferenceable(40), double noundef, double noundef) unnamed_addr #7
+declare void @_ZN6statrs8function5gamma16checked_gamma_ur17hdd57d034a2d8e7e3E(ptr dead_on_unwind noalias nocapture noundef writable sret([40 x i8]) align 8 dereferenceable(40), double noundef, double noundef) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr dead_on_unwind noalias nocapture noundef writable sret([40 x i8]) align 8 dereferenceable(40), double noundef, double noundef) unnamed_addr #7
+declare void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr dead_on_unwind noalias nocapture noundef writable sret([40 x i8]) align 8 dereferenceable(40), double noundef, double noundef) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr dead_on_unwind noalias nocapture noundef writable sret([40 x i8]) align 8 dereferenceable(40), double noundef, double noundef, double noundef) unnamed_addr #7
+declare void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr dead_on_unwind noalias nocapture noundef writable sret([40 x i8]) align 8 dereferenceable(40), double noundef, double noundef, double noundef) unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #14
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { nofree norecurse nosync nounwind nonlazybind memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { noreturn }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { nofree norecurse nosync nounwind nonlazybind memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #17 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}
@@ -3016,203 +3023,210 @@ attributes #16 = { noreturn }
 !12 = distinct !{!12, !13, !"_ZN100_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17h71e74c7704b76efcE: argument 0"}
 !13 = distinct !{!13, !"_ZN100_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17h71e74c7704b76efcE"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h68ceafefef793592E.llvm.13986783010576937582: argument 0"}
-!16 = distinct !{!16, !"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h68ceafefef793592E.llvm.13986783010576937582"}
-!17 = !{!18, !15}
-!18 = distinct !{!18, !19, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582: argument 1"}
-!19 = distinct !{!19, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582"}
-!20 = !{!21}
-!21 = distinct !{!21, !19, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582: argument 0"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy28_$u7b$$u7b$closure$u7d$$u7d$17h1e477beac460a4feE.llvm.13986783010576937582: argument 0"}
-!24 = distinct !{!24, !"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy28_$u7b$$u7b$closure$u7d$$u7d$17h1e477beac460a4feE.llvm.13986783010576937582"}
-!25 = !{i64 8}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582: argument 1"}
-!28 = distinct !{!28, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582"}
-!29 = !{!30}
-!30 = distinct !{!30, !28, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582: argument 0"}
+!15 = distinct !{!15, !16, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582: argument 0"}
+!16 = distinct !{!16, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582"}
+!17 = !{!18}
+!18 = distinct !{!18, !16, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582: argument 1"}
+!19 = !{!15, !20}
+!20 = distinct !{!20, !21, !"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h68ceafefef793592E.llvm.13986783010576937582: argument 0"}
+!21 = distinct !{!21, !"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h68ceafefef793592E.llvm.13986783010576937582"}
+!22 = !{!18, !20}
+!23 = !{!20}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy28_$u7b$$u7b$closure$u7d$$u7d$17h1e477beac460a4feE.llvm.13986783010576937582: argument 0"}
+!26 = distinct !{!26, !"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy28_$u7b$$u7b$closure$u7d$$u7d$17h1e477beac460a4feE.llvm.13986783010576937582"}
+!27 = !{i64 8}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582: argument 0"}
+!30 = distinct !{!30, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!33 = distinct !{!33, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 0"}
-!36 = distinct !{!36, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899"}
-!37 = !{i64 0, i64 22}
-!38 = !{!39}
-!39 = distinct !{!39, !36, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 1"}
-!40 = !{!35, !39}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 0"}
-!43 = distinct !{!43, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899"}
-!44 = !{!45}
-!45 = distinct !{!45, !43, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 1"}
-!46 = !{!42, !45}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 0"}
-!49 = distinct !{!49, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899"}
-!50 = distinct !{!50, !49, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 1"}
-!51 = !{!50}
-!52 = !{!48}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN6statrs8function4beta15checked_ln_beta17he680093e3756d6c1E: argument 0"}
-!55 = distinct !{!55, !"_ZN6statrs8function4beta15checked_ln_beta17he680093e3756d6c1E"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!58 = distinct !{!58, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 0"}
-!61 = distinct !{!61, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899"}
-!62 = !{!63}
-!63 = distinct !{!63, !61, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 1"}
-!64 = !{!60, !63}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 0"}
-!67 = distinct !{!67, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899"}
-!68 = !{!69}
-!69 = distinct !{!69, !67, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 1"}
-!70 = !{!66, !69}
-!71 = !{!72, !74}
-!72 = distinct !{!72, !73, !"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy28_$u7b$$u7b$closure$u7d$$u7d$17h1e477beac460a4feE.llvm.13986783010576937582: argument 0"}
-!73 = distinct !{!73, !"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy28_$u7b$$u7b$closure$u7d$$u7d$17h1e477beac460a4feE.llvm.13986783010576937582"}
-!74 = distinct !{!74, !75, !"_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582: argument 0"}
-!75 = distinct !{!75, !"_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
-!78 = distinct !{!78, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
-!79 = !{!80, !77, !82}
-!80 = distinct !{!80, !81, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
-!81 = distinct !{!81, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
-!82 = distinct !{!82, !78, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
-!83 = !{!84, !77}
-!84 = distinct !{!84, !85, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
-!85 = distinct !{!85, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
-!86 = !{!82}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
-!89 = distinct !{!89, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
-!90 = !{!91, !88, !93}
-!91 = distinct !{!91, !92, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
-!92 = distinct !{!92, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
-!93 = distinct !{!93, !89, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
-!94 = !{!95, !88}
-!95 = distinct !{!95, !96, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
-!96 = distinct !{!96, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
-!97 = !{!93}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
-!100 = distinct !{!100, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
-!101 = !{!102, !99, !104}
-!102 = distinct !{!102, !103, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
-!103 = distinct !{!103, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
-!104 = distinct !{!104, !100, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
-!105 = !{!106, !99}
-!106 = distinct !{!106, !107, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
-!107 = distinct !{!107, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
-!108 = !{!104}
-!109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
-!111 = distinct !{!111, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
-!112 = !{!113, !110, !115}
-!113 = distinct !{!113, !114, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
-!114 = distinct !{!114, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
-!115 = distinct !{!115, !111, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
-!116 = !{!117, !110}
-!117 = distinct !{!117, !118, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
-!118 = distinct !{!118, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
-!119 = !{!115}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
-!122 = distinct !{!122, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
-!123 = !{!124, !121, !126}
-!124 = distinct !{!124, !125, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
-!125 = distinct !{!125, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
-!126 = distinct !{!126, !122, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
-!127 = !{!128, !121}
-!128 = distinct !{!128, !129, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
-!129 = distinct !{!129, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
-!130 = !{!126}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
-!133 = distinct !{!133, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
-!134 = !{!135, !132, !137}
-!135 = distinct !{!135, !136, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
-!136 = distinct !{!136, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
-!137 = distinct !{!137, !133, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
-!138 = !{!139, !132}
-!139 = distinct !{!139, !140, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
-!140 = distinct !{!140, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
-!141 = !{!137}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZN6statrs12distribution5gamma5Gamma5shape17h4685db0c893eb530E: argument 0"}
-!144 = distinct !{!144, !"_ZN6statrs12distribution5gamma5Gamma5shape17h4685db0c893eb530E"}
-!145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZN6statrs12distribution5gamma5Gamma4rate17h402119f71def904eE: argument 0"}
-!147 = distinct !{!147, !"_ZN6statrs12distribution5gamma5Gamma4rate17h402119f71def904eE"}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!150 = distinct !{!150, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h625c5a94eb3ad10cE: argument 0"}
-!153 = distinct !{!153, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h625c5a94eb3ad10cE"}
-!154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hfaccd88540bda01dE: argument 0"}
-!156 = distinct !{!156, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hfaccd88540bda01dE"}
-!157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17h08fac05d736e2ba5E: argument 0"}
-!159 = distinct !{!159, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17h08fac05d736e2ba5E"}
-!160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17hc63e09b4516eff98E: argument 0"}
-!162 = distinct !{!162, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17hc63e09b4516eff98E"}
-!163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZN126_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h6c59d6ec172534e9E: argument 0"}
-!165 = distinct !{!165, !"_ZN126_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h6c59d6ec172534e9E"}
-!166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E: argument 0"}
-!168 = distinct !{!168, !"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E"}
-!169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!171 = distinct !{!171, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
-!172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911: argument 0"}
-!174 = distinct !{!174, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911"}
-!175 = !{!176}
-!176 = distinct !{!176, !174, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911: argument 1"}
-!177 = !{!173, !176}
-!178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911: argument 0"}
-!180 = distinct !{!180, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911"}
-!181 = !{!182}
-!182 = distinct !{!182, !180, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911: argument 1"}
-!183 = !{!179, !182}
-!184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
-!186 = distinct !{!186, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
-!187 = !{!188, !185, !190}
-!188 = distinct !{!188, !189, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
-!189 = distinct !{!189, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
-!190 = distinct !{!190, !186, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
-!191 = !{!192, !185}
-!192 = distinct !{!192, !193, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
-!193 = distinct !{!193, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
-!194 = !{!190}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
-!197 = distinct !{!197, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
-!198 = !{!199, !196, !201}
-!199 = distinct !{!199, !200, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
-!200 = distinct !{!200, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
-!201 = distinct !{!201, !197, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
-!202 = !{!203, !196}
-!203 = distinct !{!203, !204, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
-!204 = distinct !{!204, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
-!205 = !{!201}
-!206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!208 = distinct !{!208, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
-!209 = !{!210}
-!210 = distinct !{!210, !211, !"_ZN114_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h231ff6063834b4ccE: argument 0"}
-!211 = distinct !{!211, !"_ZN114_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h231ff6063834b4ccE"}
-!212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!214 = distinct !{!214, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!32 = distinct !{!32, !30, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17hdd7c0d928609866bE.llvm.13986783010576937582: argument 1"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!35 = distinct !{!35, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 0"}
+!38 = distinct !{!38, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899"}
+!39 = !{i64 0, i64 22}
+!40 = !{!41}
+!41 = distinct !{!41, !38, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 1"}
+!42 = !{!37, !41}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 0"}
+!45 = distinct !{!45, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899"}
+!46 = !{!47}
+!47 = distinct !{!47, !45, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 1"}
+!48 = !{!44, !47}
+!49 = !{!50, !52}
+!50 = distinct !{!50, !51, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 0"}
+!51 = distinct !{!51, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899"}
+!52 = distinct !{!52, !51, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 1"}
+!53 = !{!52}
+!54 = !{!50}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN6statrs8function4beta15checked_ln_beta17he680093e3756d6c1E: argument 0"}
+!57 = distinct !{!57, !"_ZN6statrs8function4beta15checked_ln_beta17he680093e3756d6c1E"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!60 = distinct !{!60, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 0"}
+!63 = distinct !{!63, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899"}
+!64 = !{!65}
+!65 = distinct !{!65, !63, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 1"}
+!66 = !{!62, !65}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 0"}
+!69 = distinct !{!69, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899"}
+!70 = !{!71}
+!71 = distinct !{!71, !69, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.10715550030521876899: argument 1"}
+!72 = !{!68, !71}
+!73 = !{!74, !76}
+!74 = distinct !{!74, !75, !"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy28_$u7b$$u7b$closure$u7d$$u7d$17h1e477beac460a4feE.llvm.13986783010576937582: argument 0"}
+!75 = distinct !{!75, !"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy28_$u7b$$u7b$closure$u7d$$u7d$17h1e477beac460a4feE.llvm.13986783010576937582"}
+!76 = distinct !{!76, !77, !"_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582: argument 0"}
+!77 = distinct !{!77, !"_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
+!80 = distinct !{!80, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
+!81 = !{!82, !79, !84}
+!82 = distinct !{!82, !83, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
+!83 = distinct !{!83, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
+!84 = distinct !{!84, !80, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
+!85 = !{!86, !79}
+!86 = distinct !{!86, !87, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
+!87 = distinct !{!87, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
+!88 = !{!84}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
+!91 = distinct !{!91, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
+!92 = !{!93, !90, !95}
+!93 = distinct !{!93, !94, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
+!94 = distinct !{!94, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
+!95 = distinct !{!95, !91, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
+!96 = !{!97, !90}
+!97 = distinct !{!97, !98, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
+!98 = distinct !{!98, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
+!99 = !{!95}
+!100 = !{!101}
+!101 = distinct !{!101, !102, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
+!102 = distinct !{!102, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
+!103 = !{!104, !101, !106}
+!104 = distinct !{!104, !105, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
+!105 = distinct !{!105, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
+!106 = distinct !{!106, !102, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
+!107 = !{!108, !101}
+!108 = distinct !{!108, !109, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
+!109 = distinct !{!109, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
+!110 = !{!106}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
+!113 = distinct !{!113, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
+!114 = !{!115, !112, !117}
+!115 = distinct !{!115, !116, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
+!116 = distinct !{!116, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
+!117 = distinct !{!117, !113, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
+!118 = !{!119, !112}
+!119 = distinct !{!119, !120, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
+!120 = distinct !{!120, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
+!121 = !{!117}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
+!124 = distinct !{!124, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
+!125 = !{!126, !123, !128}
+!126 = distinct !{!126, !127, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
+!127 = distinct !{!127, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
+!128 = distinct !{!128, !124, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
+!129 = !{!130, !123}
+!130 = distinct !{!130, !131, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
+!131 = distinct !{!131, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
+!132 = !{!128}
+!133 = !{!134}
+!134 = distinct !{!134, !135, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
+!135 = distinct !{!135, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
+!136 = !{!137, !134, !139}
+!137 = distinct !{!137, !138, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
+!138 = distinct !{!138, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
+!139 = distinct !{!139, !135, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
+!140 = !{!141, !134}
+!141 = distinct !{!141, !142, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
+!142 = distinct !{!142, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
+!143 = !{!139}
+!144 = !{!145}
+!145 = distinct !{!145, !146, !"_ZN6statrs12distribution5gamma5Gamma5shape17h4685db0c893eb530E: argument 0"}
+!146 = distinct !{!146, !"_ZN6statrs12distribution5gamma5Gamma5shape17h4685db0c893eb530E"}
+!147 = !{!148}
+!148 = distinct !{!148, !149, !"_ZN6statrs12distribution5gamma5Gamma4rate17h402119f71def904eE: argument 0"}
+!149 = distinct !{!149, !"_ZN6statrs12distribution5gamma5Gamma4rate17h402119f71def904eE"}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!152 = distinct !{!152, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!153 = !{!154}
+!154 = distinct !{!154, !155, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h625c5a94eb3ad10cE: argument 0"}
+!155 = distinct !{!155, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h625c5a94eb3ad10cE"}
+!156 = !{!157}
+!157 = distinct !{!157, !158, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hfaccd88540bda01dE: argument 0"}
+!158 = distinct !{!158, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hfaccd88540bda01dE"}
+!159 = !{!160}
+!160 = distinct !{!160, !161, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17h08fac05d736e2ba5E: argument 0"}
+!161 = distinct !{!161, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17h08fac05d736e2ba5E"}
+!162 = !{!163}
+!163 = distinct !{!163, !164, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17hc63e09b4516eff98E: argument 0"}
+!164 = distinct !{!164, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17hc63e09b4516eff98E"}
+!165 = !{!166}
+!166 = distinct !{!166, !167, !"_ZN126_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h6c59d6ec172534e9E: argument 0"}
+!167 = distinct !{!167, !"_ZN126_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h6c59d6ec172534e9E"}
+!168 = !{!169}
+!169 = distinct !{!169, !170, !"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E: argument 0"}
+!170 = distinct !{!170, !"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E"}
+!171 = !{!172, !169}
+!172 = distinct !{!172, !173, !"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243: argument 0"}
+!173 = distinct !{!173, !"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243"}
+!174 = !{!175}
+!175 = distinct !{!175, !173, !"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243: argument 1"}
+!176 = !{!177}
+!177 = distinct !{!177, !178, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!178 = distinct !{!178, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!179 = !{!180}
+!180 = distinct !{!180, !181, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911: argument 0"}
+!181 = distinct !{!181, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911"}
+!182 = !{!183}
+!183 = distinct !{!183, !181, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911: argument 1"}
+!184 = !{!180, !183}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911: argument 0"}
+!187 = distinct !{!187, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911"}
+!188 = !{!189}
+!189 = distinct !{!189, !187, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911: argument 1"}
+!190 = !{!186, !189}
+!191 = !{!192}
+!192 = distinct !{!192, !193, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
+!193 = distinct !{!193, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
+!194 = !{!195, !192, !197}
+!195 = distinct !{!195, !196, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
+!196 = distinct !{!196, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
+!197 = distinct !{!197, !193, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
+!198 = !{!199, !192}
+!199 = distinct !{!199, !200, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
+!200 = distinct !{!200, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
+!201 = !{!197}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 0"}
+!204 = distinct !{!204, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"}
+!205 = !{!206, !203, !208}
+!206 = distinct !{!206, !207, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309: argument 0"}
+!207 = distinct !{!207, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h33f2fac7048da5a3E.llvm.9554138872291501309"}
+!208 = distinct !{!208, !204, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309: argument 1"}
+!209 = !{!210, !203}
+!210 = distinct !{!210, !211, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309: argument 0"}
+!211 = distinct !{!211, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
+!212 = !{!208}
+!213 = !{!214}
+!214 = distinct !{!214, !215, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!215 = distinct !{!215, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!216 = !{!217}
+!217 = distinct !{!217, !218, !"_ZN114_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h231ff6063834b4ccE: argument 0"}
+!218 = distinct !{!218, !"_ZN114_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h231ff6063834b4ccE"}
+!219 = !{!220}
+!220 = distinct !{!220, !221, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!221 = distinct !{!221, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}

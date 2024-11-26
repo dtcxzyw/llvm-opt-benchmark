@@ -428,8 +428,8 @@ _ZNK4llvm9StringRef5splitEc.exit30.thread:        ; preds = %54
   br label %63
 
 _ZNK4llvm9StringRef5splitEc.exit30:               ; preds = %54
-  %57 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %58 = load ptr, ptr %39, align 8
+  %57 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !17
+  %58 = load ptr, ptr %39, align 8, !noalias !17
   %59 = add nuw i64 %55, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %.not86 = icmp ugt i64 %57, %59

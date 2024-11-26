@@ -349,7 +349,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
 
 for.end.loopexit:                                 ; preds = %for.body
-  %.pre = load i32, ptr %count, align 4
+  %.pre = load i32, ptr %count, align 4, !noalias !6
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
@@ -387,9 +387,9 @@ for.cond1.preheader.us.i:                         ; preds = %for.inc18.us.i, %fo
   %indvars.iv10.i.sroa.phi = phi ptr [ %axes.i, %for.cond1.preheader.us.preheader.i ], [ %indvars.iv.i.sroa.gep, %for.inc18.us.i ]
   %indvars.iv10.i = phi i32 [ 0, %for.cond1.preheader.us.preheader.i ], [ 1, %for.inc18.us.i ]
   %45 = phi float [ 0xC7EFFFFFE0000000, %for.cond1.preheader.us.preheader.i ], [ %48, %for.inc18.us.i ]
-  %46 = load float, ptr %indvars.iv10.i.sroa.phi, align 4
+  %46 = load float, ptr %indvars.iv10.i.sroa.phi, align 4, !noalias !6
   %y.i16.us.i = getelementptr inbounds i8, ptr %indvars.iv10.i.sroa.phi, i64 4
-  %47 = load float, ptr %y.i16.us.i, align 4
+  %47 = load float, ptr %y.i16.us.i, align 4, !noalias !6
   br label %for.body3.us.i
 
 if.then11.us.i:                                   ; preds = %for.cond1.for.end_crit_edge.us.i

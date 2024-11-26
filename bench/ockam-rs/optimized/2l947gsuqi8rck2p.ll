@@ -29,7 +29,7 @@ define internal fastcc void @"_ZN4core3ptr197drop_in_place$LT$$LP$ockam_executor
 
 9:                                                ; preds = %0
   %10 = getelementptr inbounds i8, ptr %.16.val, i64 16
-  %11 = load i64, ptr %10, align 8, !range !4, !invariant.load !5
+  %11 = load i64, ptr %10, align 8, !range !4, !invariant.load !5, !alias.scope !6
   %12 = add i64 %11, -1
   %13 = and i64 %12, -24
   %14 = getelementptr i8, ptr %.8.val, i64 %13

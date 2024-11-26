@@ -720,7 +720,7 @@ entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %m.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %m.i, align 8
+  %0 = load ptr, ptr %m.i, align 8, !noalias !7
   %m_true.i.i = getelementptr inbounds i8, ptr %0, i64 856
   %1 = load ptr, ptr %m_true.i.i, align 8, !noalias !7
   store ptr %1, ptr %ans, align 8, !alias.scope !7

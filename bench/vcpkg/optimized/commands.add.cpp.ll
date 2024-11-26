@@ -1292,7 +1292,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %.sroa.013.0.i.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.ph.i.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5vcpkg20command_add_and_exitERKNSF_17VcpkgCmdArgumentsERKNSF_10VcpkgPathsEE3$_1EEET_SO_SO_T0_.exit.i.i.i.i" ], [ %364, %._crit_edge.i.i.i.i.i.i ], [ %364, %393 ], [ %.sroa.013.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg20command_add_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsEE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISI_SaISI_EEEEEEbT_.exit.thread.i.i.i.i" ]
   %401 = load ptr, ptr %307, align 8
   %.not.i.i8.i.i = icmp eq ptr %.sroa.013.0.i.i.i.i, %401
-  %.pre246 = load ptr, ptr %30, align 8
+  %.pre246 = load ptr, ptr %30, align 8, !noalias !18
   br i1 %.not.i.i8.i.i, label %"_ZN5vcpkg4Util8erase_ifIZNS_20command_add_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_1JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRSt6vectorIDpT0_ET_.exit", label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i.i: ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN5vcpkg20command_add_and_exitERKNSD_17VcpkgCmdArgumentsERKNSD_10VcpkgPathsEE3$_1ET_SL_SL_T0_.exit.i.i"

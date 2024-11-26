@@ -290,20 +290,20 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120AArch64BranchTargets20run
   %49 = add nuw i32 %35, 1
   store i32 %49, ptr %18, align 4, !noalias !4
   store ptr %38, ptr %42, align 8, !noalias !4
-  %50 = load ptr, ptr %8, align 8
+  %50 = load ptr, ptr %8, align 8, !noalias !4
   %51 = load i32, ptr %18, align 4, !noalias !4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 52:                                               ; preds = %._crit_edge.i.i, %.lr.ph
   %53 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef %38) #11, !noalias !4
-  %.pre.i = load ptr, ptr %8, align 8
+  %.pre.i = load ptr, ptr %8, align 8, !noalias !4
   %.pre6.i = load i32, ptr %18, align 4, !noalias !4
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %52, %48
   %54 = phi i32 [ %51, %48 ], [ %.pre6.i, %52 ], [ %35, %.lr.ph.i.i ]
   %55 = phi ptr [ %50, %48 ], [ %.pre.i, %52 ], [ %36, %.lr.ph.i.i ]
-  %56 = load ptr, ptr %16, align 8
+  %56 = load ptr, ptr %16, align 8, !noalias !4
   %57 = load i32, ptr %17, align 8, !noalias !4
   %58 = getelementptr inbounds i8, ptr %.sroa.042.065, i64 8
   %.not53 = icmp eq ptr %58, %33

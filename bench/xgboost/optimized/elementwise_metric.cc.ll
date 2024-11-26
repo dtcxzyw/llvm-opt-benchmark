@@ -18520,7 +18520,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 171:                                              ; preds = %.noexc93, %.noexc92
   %172 = phi ptr [ %166, %.noexc93 ], [ %.pre8.i, %.noexc92 ]
   %173 = phi i64 [ %170, %.noexc93 ], [ %.pre.i, %.noexc92 ]
-  %.sroa.0.0.copyload.i.i91 = load i32, ptr %115, align 8
+  %.sroa.0.0.copyload.i.i91 = load i32, ptr %115, align 8, !noalias !527
   call void @llvm.experimental.noalias.scope.decl(metadata !535)
   %174 = load i64, ptr %27, align 8, !noalias !538
   store i64 1, ptr %31, align 8, !alias.scope !538
@@ -18560,7 +18560,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %.not.i.i.i.i.i, label %_ZN7xgboost6linalg6detail10CalcStrideILi3ELb0EEEvRAT__KmRAT__m.exit.i.i.i.i, label %182, !llvm.loop !539
 
 _ZN7xgboost6linalg6detail10CalcStrideILi3ELb0EEEvRAT__KmRAT__m.exit.i.i.i.i: ; preds = %182
-  %189 = load i64, ptr %176, align 8
+  %189 = load i64, ptr %176, align 8, !alias.scope !538
   %190 = icmp eq i64 %189, 0
   br i1 %190, label %.loopexit, label %.preheader.i.i.i.i
 

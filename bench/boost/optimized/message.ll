@@ -12388,7 +12388,7 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext11message_keyIwEC2
 30:                                               ; preds = %._crit_edge.i.i.i
   %31 = call ptr @wmemcpy(ptr noundef %27, ptr noundef %22, i64 noundef %spec.select.i.i.i) #24
   %.pre6.i.i.i = load i64, ptr %4, align 8, !tbaa !51, !noalias !308
-  %.pre7.i.i.i = load ptr, ptr %5, align 8, !tbaa !276
+  %.pre7.i.i.i = load ptr, ptr %5, align 8, !tbaa !276, !alias.scope !308
   br label %32
 
 32:                                               ; preds = %30, %28, %._crit_edge.i.i.i
@@ -12535,7 +12535,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_checkEmPKc.exit.i.i: ;
 76:                                               ; preds = %._crit_edge.i.i.i13
   %77 = call ptr @wmemcpy(ptr noundef %73, ptr noundef nonnull %67, i64 noundef %68) #24
   %.pre6.i.i.i14 = load i64, ptr %3, align 8, !tbaa !51, !noalias !311
-  %.pre7.i.i.i15 = load ptr, ptr %6, align 8, !tbaa !276
+  %.pre7.i.i.i15 = load ptr, ptr %6, align 8, !tbaa !276, !alias.scope !311
   br label %78
 
 78:                                               ; preds = %76, %74, %._crit_edge.i.i.i13

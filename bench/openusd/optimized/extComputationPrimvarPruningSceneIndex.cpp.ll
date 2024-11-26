@@ -14475,7 +14475,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
           to label %1888 unwind label %1931
 
 1888:                                             ; preds = %1884
-  %1889 = load ptr, ptr %559, align 8
+  %1889 = load ptr, ptr %559, align 8, !alias.scope !153
   %1890 = load ptr, ptr %560, align 8, !alias.scope !153
   %.not.i.i24.i = icmp eq ptr %1889, %1890
   br i1 %.not.i.i24.i, label %1894, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backEOS1_.exit.thread.i
@@ -19038,7 +19038,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %84 = load ptr, ptr %83, align 8
+  %84 = load ptr, ptr %83, align 8, !noalias !236
   %85 = ptrtoint ptr %84 to i64
   %86 = ptrtoint ptr %10 to i64
   %87 = sub i64 %85, %86
@@ -19050,8 +19050,8 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
 91:                                               ; preds = %82
   %92 = sub nuw nsw i64 %9, %89
   tail call void @_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %92), !noalias !236
-  %.pre.i19 = load ptr, ptr %79, align 8
-  %.pre6.i20 = load ptr, ptr %83, align 8
+  %.pre.i19 = load ptr, ptr %79, align 8, !noalias !239
+  %.pre6.i20 = load ptr, ptr %83, align 8, !noalias !239
   %.pre7.i21 = ptrtoint ptr %.pre.i19 to i64
   br label %93
 
@@ -19062,7 +19062,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %97 = load ptr, ptr %96, align 8, !noalias !239
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %99 = load ptr, ptr %98, align 8
+  %99 = load ptr, ptr %98, align 8, !noalias !239
   %100 = ptrtoint ptr %97 to i64
   %101 = sub i64 %.pre-phi.i, %100
   %102 = ashr exact i64 %101, 3
@@ -19250,7 +19250,7 @@ define linkonce_odr void @_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__7SdfPat
 
 70:                                               ; preds = %5
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %72 = load ptr, ptr %71, align 8
+  %72 = load ptr, ptr %71, align 8, !noalias !251
   %73 = ptrtoint ptr %72 to i64
   %74 = sub i64 %46, %73
   %75 = ashr exact i64 %74, 3
@@ -19260,14 +19260,14 @@ define linkonce_odr void @_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__7SdfPat
 77:                                               ; preds = %70
   %78 = sub nuw i64 %4, %75
   tail call void @_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %78), !noalias !251
-  %.pre.i = load ptr, ptr %22, align 8
-  %.pre6.i = load ptr, ptr %71, align 8
+  %.pre.i = load ptr, ptr %22, align 8, !noalias !254
+  %.pre6.i = load ptr, ptr %71, align 8, !noalias !254
   %.pre7.i = ptrtoint ptr %.pre.i to i64
   %.pre8.i = ptrtoint ptr %.pre6.i to i64
   %.pre10.i = sub i64 %.pre7.i, %.pre8.i
   %.pre12.i = ashr exact i64 %.pre10.i, 3
-  %.pre304 = load ptr, ptr %42, align 8
-  %.pre305 = load ptr, ptr %25, align 8
+  %.pre304 = load ptr, ptr %42, align 8, !noalias !254
+  %.pre305 = load ptr, ptr %25, align 8, !noalias !254
   br label %79
 
 79:                                               ; preds = %77, %70
@@ -19360,10 +19360,10 @@ _ZStplRKSt15_Deque_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathERS1_PS1_
   br i1 %.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit, label %125
 
 125:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathERS1_PS1_El.exit
-  %126 = load ptr, ptr %22, align 8
+  %126 = load ptr, ptr %22, align 8, !noalias !260
   %127 = load ptr, ptr %71, align 8, !noalias !260
-  %128 = load ptr, ptr %42, align 8
-  %129 = load ptr, ptr %25, align 8
+  %128 = load ptr, ptr %42, align 8, !noalias !260
+  %129 = load ptr, ptr %25, align 8, !noalias !260
   %130 = ptrtoint ptr %126 to i64
   %131 = ptrtoint ptr %127 to i64
   %132 = sub i64 %130, %131
@@ -19716,7 +19716,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7Sd
 
 286:                                              ; preds = %5
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %288 = load ptr, ptr %287, align 8
+  %288 = load ptr, ptr %287, align 8, !noalias !327
   %289 = ptrtoint ptr %288 to i64
   %290 = sub i64 %289, %62
   %291 = ashr exact i64 %290, 3
@@ -19727,11 +19727,11 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7Sd
 294:                                              ; preds = %286
   %295 = sub nuw i64 %4, %292
   tail call void @_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %295), !noalias !327
-  %.pre.i52 = load ptr, ptr %50, align 8
-  %.pre6.i53 = load ptr, ptr %287, align 8
+  %.pre.i52 = load ptr, ptr %50, align 8, !noalias !330
+  %.pre6.i53 = load ptr, ptr %287, align 8, !noalias !330
   %.pre7.i54 = ptrtoint ptr %.pre.i52 to i64
-  %.pre = load ptr, ptr %60, align 8
-  %.pre303 = load ptr, ptr %51, align 8
+  %.pre = load ptr, ptr %60, align 8, !noalias !330
+  %.pre303 = load ptr, ptr %51, align 8, !noalias !330
   %.pre306 = ptrtoint ptr %.pre to i64
   %.pre307 = sub i64 %.pre7.i54, %.pre306
   %.pre309 = ashr exact i64 %.pre307, 3
@@ -19830,8 +19830,8 @@ _ZStmiRKSt15_Deque_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathERS1_PS1_
   br i1 %342, label %345, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit82
 
 345:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathERS1_PS1_El.exit56
-  %346 = load ptr, ptr %50, align 8
-  %347 = load ptr, ptr %60, align 8
+  %346 = load ptr, ptr %50, align 8, !noalias !336
+  %347 = load ptr, ptr %60, align 8, !noalias !336
   %348 = sub nsw i64 0, %4
   %349 = ptrtoint ptr %346 to i64
   %350 = ptrtoint ptr %347 to i64

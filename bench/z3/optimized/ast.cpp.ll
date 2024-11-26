@@ -16033,8 +16033,8 @@ invoke.cont34:                                    ; preds = %invoke.cont34.lr.ph
   store ptr getelementptr inbounds (i8, ptr @_ZTV8ast_mark, i64 16), ptr %mark, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_marks.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_marks.i1.i, i8 0, i64 16, i1 false)
-  %22 = load ptr, ptr %m_ast_table, align 8, !noalias !46
-  %23 = load i32, ptr %m_slots.i, align 4, !noalias !46
+  %22 = load ptr, ptr %m_ast_table, align 8, !noalias !47
+  %23 = load i32, ptr %m_slots.i, align 4, !noalias !47
   %idx.ext.i = zext i32 %23 to i64
   %add.ptr.i81 = getelementptr inbounds %"struct.chashtable<ast *, obj_ptr_hash<ast>, ast_eq_proc>::cell", ptr %22, i64 %idx.ext.i
   %cmp.not3.i.i.i = icmp eq i32 %23, 0
@@ -18993,9 +18993,9 @@ _ZN9ast_tableC2Ev.exit:                           ; preds = %for.body.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i.i, i8 0, i64 16, i1 false)
   %m_collisions.i.i = getelementptr inbounds i8, ptr %new_ast_table, i64 32
   store i32 0, ptr %m_collisions.i.i, align 8
-  %2 = load ptr, ptr %m_ast_table, align 8
+  %2 = load ptr, ptr %m_ast_table, align 8, !noalias !63
   %m_slots.i = getelementptr inbounds i8, ptr %this, i64 740
-  %3 = load i32, ptr %m_slots.i, align 4
+  %3 = load i32, ptr %m_slots.i, align 4, !noalias !63
   %idx.ext.i = zext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds %"struct.chashtable<ast *, obj_ptr_hash<ast>, ast_eq_proc>::cell", ptr %2, i64 %idx.ext.i
   %cmp.not3.i.i.i = icmp eq i32 %3, 0
@@ -19440,7 +19440,7 @@ if.then.i.i.i7:                                   ; preds = %invoke.cont
 invoke.cont2:                                     ; preds = %invoke.cont, %if.then.i.i.i7
   store ptr null, ptr %m_free_ids.i5, align 8
   %m_ast_table = getelementptr inbounds i8, ptr %this, i64 720
-  %2 = load ptr, ptr %m_ast_table, align 8
+  %2 = load ptr, ptr %m_ast_table, align 8, !noalias !67
   %m_slots.i = getelementptr inbounds i8, ptr %this, i64 740
   %3 = load i32, ptr %m_slots.i, align 4, !noalias !67
   %idx.ext.i = zext i32 %3 to i64

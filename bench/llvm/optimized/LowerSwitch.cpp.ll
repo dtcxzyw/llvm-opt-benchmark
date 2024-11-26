@@ -636,8 +636,8 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i:   ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %163, label %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i._ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread.i_crit_edge, label %181
 
 _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i._ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread.i_crit_edge: ; preds = %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i
-  %.pre67 = load ptr, ptr %43, align 8
-  %.pre68 = load ptr, ptr %41, align 8
+  %.pre67 = load ptr, ptr %43, align 8, !noalias !16
+  %.pre68 = load ptr, ptr %41, align 8, !noalias !16
   br label %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread.i
 
 _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread.i: ; preds = %158, %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i._ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread.i_crit_edge, %150
@@ -647,7 +647,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread.i: ; preds = %158, %_ZN4llvm
   br i1 %166, label %167, label %179
 
 167:                                              ; preds = %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread.i
-  %168 = load i32, ptr %45, align 4
+  %168 = load i32, ptr %45, align 4, !noalias !16
   %169 = zext i32 %168 to i64
   %170 = getelementptr inbounds ptr, ptr %164, i64 %169
   %.not24.i.i.i = icmp eq i32 %168, 0
@@ -1535,7 +1535,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i.i:            ; preds = %_ZN4llvm5APIntC2ERK
 _ZN4llvm5APIntC2Ejmbb.exit.i.i:                   ; preds = %_ZN4llvm5APInt17getSignedMaxValueEj.exit.i, %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread.i
   store i32 %342, ptr %72, align 8, !alias.scope !54
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %25, i64 noundef 0, i1 noundef zeroext false) #16
-  %.pre.i141.i = load i32, ptr %72, align 8
+  %.pre.i141.i = load i32, ptr %72, align 8, !alias.scope !57
   %519 = icmp ult i32 %.pre.i141.i, 65
   br i1 %519, label %_ZN4llvm5APIntC2Ejmbb.exit.i._crit_edge.i, label %525
 
@@ -2463,13 +2463,13 @@ _ZN4llvm8DenseMapIPNS_10BasicBlockENS_5APIntENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %903, label %.loopexit.i, label %.lr.ph.i.i.i.i184.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %900, %885
-  %904 = load ptr, ptr %43, align 8
-  %905 = load ptr, ptr %41, align 8
+  %904 = load ptr, ptr %43, align 8, !noalias !84
+  %905 = load ptr, ptr %41, align 8, !noalias !84
   %906 = icmp eq ptr %904, %905
   br i1 %906, label %907, label %919
 
 907:                                              ; preds = %.loopexit.i
-  %908 = load i32, ptr %45, align 4
+  %908 = load i32, ptr %45, align 4, !noalias !84
   %909 = zext i32 %908 to i64
   %910 = getelementptr inbounds ptr, ptr %905, i64 %909
   %.not24.i.i206.i = icmp eq i32 %908, 0

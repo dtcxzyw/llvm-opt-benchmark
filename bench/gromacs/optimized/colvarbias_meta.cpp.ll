@@ -3281,7 +3281,7 @@ define noundef i32 @_ZN15colvarbias_meta18update_grid_paramsEv(ptr noundef nonnu
   br i1 %41, label %.noexc.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
 .noexc.i.i:                                       ; preds = %36
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.81) #26, !noalias !21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.81) #26, !noalias !18
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %36
@@ -3290,17 +3290,17 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %36
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %42 = shl nuw nsw i64 %40, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #25, !noalias !21
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #25, !noalias !18
   %44 = getelementptr inbounds i32, ptr %43, i64 %40
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %43, i8 0, i64 %42, i1 false), !noalias !21
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %43, i8 0, i64 %42, i1 false), !noalias !18
   %45 = getelementptr inbounds i8, ptr %38, i64 464
   %46 = getelementptr inbounds i8, ptr %38, i64 440
   %47 = getelementptr inbounds i8, ptr %38, i64 504
   %48 = getelementptr inbounds i8, ptr %38, i64 672
-  %.pre.i = load ptr, ptr %45, align 8, !noalias !18
-  %.pre8.i = load ptr, ptr %46, align 8, !noalias !18
-  %.pre9.i = load ptr, ptr %47, align 8, !noalias !18
-  %.pre10.i = load ptr, ptr %48, align 8, !noalias !18
+  %.pre.i = load ptr, ptr %45, align 8, !noalias !23
+  %.pre8.i = load ptr, ptr %46, align 8, !noalias !23
+  %.pre9.i = load ptr, ptr %47, align 8, !noalias !23
+  %.pre10.i = load ptr, ptr %48, align 8, !noalias !23
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph.i
@@ -3317,25 +3317,25 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %36
   %storemerge.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 %storemerge.idx.i.i.i.i.i.i.i
   %56 = and i64 %.07.i, 63
   %57 = shl nuw i64 1, %56
-  %58 = load i64, ptr %storemerge.i.i.i.i.i.i.i, align 8, !noalias !18
+  %58 = load i64, ptr %storemerge.i.i.i.i.i.i.i, align 8, !noalias !23
   %59 = and i64 %57, %58
   %.not.i.i = icmp eq i64 %59, 0
   %60 = getelementptr inbounds ptr, ptr %.pre8.i, i64 %51
-  %61 = load ptr, ptr %60, align 8, !noalias !18
+  %61 = load ptr, ptr %60, align 8, !noalias !23
   %..i.i = select i1 %.not.i.i, i64 672, i64 504
   %62 = getelementptr inbounds i8, ptr %61, i64 %..i.i
   %63 = getelementptr inbounds i8, ptr %62, i64 8
-  %64 = load double, ptr %63, align 8, !noalias !18
+  %64 = load double, ptr %63, align 8, !noalias !23
   %65 = getelementptr inbounds %class.colvarvalue, ptr %.pre9.i, i64 %51, i32 1
-  %66 = load double, ptr %65, align 8, !noalias !18
+  %66 = load double, ptr %65, align 8, !noalias !23
   %67 = fsub double %64, %66
   %68 = getelementptr inbounds double, ptr %.pre10.i, i64 %51
-  %69 = load double, ptr %68, align 8, !noalias !18
+  %69 = load double, ptr %68, align 8, !noalias !23
   %70 = fdiv double %67, %69
   %71 = tail call noundef double @llvm.floor.f64(double %70)
   %72 = fptosi double %71 to i32
   %73 = getelementptr inbounds i32, ptr %43, i64 %.07.i
-  store i32 %72, ptr %73, align 4, !noalias !18
+  store i32 %72, ptr %73, align 4, !noalias !23
   %74 = add nuw i64 %.07.i, 1
   %exitcond.not = icmp eq i64 %74, %40
   br i1 %exitcond.not, label %_ZNK11colvar_gridIdE17get_colvars_indexEv.exit.loopexit, label %49, !llvm.loop !24
@@ -4266,14 +4266,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i237: ; preds = %446
           to label %.noexc254 unwind label %.loopexit.split-lp
 
 .noexc254:                                        ; preds = %.lr.ph.i239
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %451, i8 0, i64 %450, i1 false), !noalias !41
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %451, i8 0, i64 %450, i1 false), !noalias !38
   %452 = getelementptr inbounds i8, ptr %390, i64 464
   %453 = getelementptr inbounds i8, ptr %390, i64 440
   %454 = getelementptr inbounds i8, ptr %390, i64 672
-  %.pre.i240 = load ptr, ptr %452, align 8, !noalias !38
-  %.pre8.i241 = load ptr, ptr %453, align 8, !noalias !38
-  %.pre9.i242 = load ptr, ptr %401, align 8, !noalias !38
-  %.pre10.i243 = load ptr, ptr %454, align 8, !noalias !38
+  %.pre.i240 = load ptr, ptr %452, align 8, !noalias !43
+  %.pre8.i241 = load ptr, ptr %453, align 8, !noalias !43
+  %.pre9.i242 = load ptr, ptr %401, align 8, !noalias !43
+  %.pre10.i243 = load ptr, ptr %454, align 8, !noalias !43
   br label %455
 
 455:                                              ; preds = %455, %.noexc254
@@ -4290,25 +4290,25 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i237: ; preds = %446
   %storemerge.i.i.i.i.i.i.i248 = getelementptr inbounds i8, ptr %459, i64 %storemerge.idx.i.i.i.i.i.i.i247
   %462 = and i64 %.07.i244, 63
   %463 = shl nuw i64 1, %462
-  %464 = load i64, ptr %storemerge.i.i.i.i.i.i.i248, align 8, !noalias !38
+  %464 = load i64, ptr %storemerge.i.i.i.i.i.i.i248, align 8, !noalias !43
   %465 = and i64 %463, %464
   %.not.i.i249 = icmp eq i64 %465, 0
   %466 = getelementptr inbounds ptr, ptr %.pre8.i241, i64 %457
-  %467 = load ptr, ptr %466, align 8, !noalias !38
+  %467 = load ptr, ptr %466, align 8, !noalias !43
   %..i.i250 = select i1 %.not.i.i249, i64 672, i64 504
   %468 = getelementptr inbounds i8, ptr %467, i64 %..i.i250
   %469 = getelementptr inbounds i8, ptr %468, i64 8
-  %470 = load double, ptr %469, align 8, !noalias !38
+  %470 = load double, ptr %469, align 8, !noalias !43
   %471 = getelementptr inbounds %class.colvarvalue, ptr %.pre9.i242, i64 %457, i32 1
-  %472 = load double, ptr %471, align 8, !noalias !38
+  %472 = load double, ptr %471, align 8, !noalias !43
   %473 = fsub double %470, %472
   %474 = getelementptr inbounds double, ptr %.pre10.i243, i64 %457
-  %475 = load double, ptr %474, align 8, !noalias !38
+  %475 = load double, ptr %474, align 8, !noalias !43
   %476 = fdiv double %473, %475
   %477 = call noundef double @llvm.floor.f64(double %476)
   %478 = fptosi double %477 to i32
   %479 = getelementptr inbounds i32, ptr %451, i64 %.07.i244
-  store i32 %478, ptr %479, align 4, !noalias !38
+  store i32 %478, ptr %479, align 4, !noalias !43
   %480 = add nuw i64 %.07.i244, 1
   %exitcond412.not = icmp eq i64 %480, %448
   br i1 %exitcond412.not, label %_ZNK11colvar_gridIdE17get_colvars_indexEv.exit255, label %455, !llvm.loop !24
@@ -18557,7 +18557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %24 = getelementptr inbounds i8, ptr %1, i64 504
   %25 = getelementptr inbounds i8, ptr %1, i64 672
   %26 = getelementptr inbounds i8, ptr %0, i64 320
-  %27 = load i64, ptr %26, align 8
+  %27 = load i64, ptr %26, align 8, !noalias !194
   %28 = icmp ugt i64 %27, 2305843009213693951
   br i1 %28, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -28037,12 +28037,12 @@ attributes #27 = { noreturn nounwind }
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZNK11colvar_gridIdE17get_colvars_indexEv: argument 0"}
-!20 = distinct !{!20, !"_ZNK11colvar_gridIdE17get_colvars_indexEv"}
-!21 = !{!22, !19}
-!22 = distinct !{!22, !23, !"_ZNK11colvar_gridIdE9new_indexEv: argument 0"}
-!23 = distinct !{!23, !"_ZNK11colvar_gridIdE9new_indexEv"}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"_ZNK11colvar_gridIdE9new_indexEv: argument 0"}
+!20 = distinct !{!20, !"_ZNK11colvar_gridIdE9new_indexEv"}
+!21 = distinct !{!21, !22, !"_ZNK11colvar_gridIdE17get_colvars_indexEv: argument 0"}
+!22 = distinct !{!22, !"_ZNK11colvar_gridIdE17get_colvars_indexEv"}
+!23 = !{!21}
 !24 = distinct !{!24, !9}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
@@ -28057,12 +28057,12 @@ attributes #27 = { noreturn nounwind }
 !35 = distinct !{!35, !36, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
 !36 = distinct !{!36, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !37 = distinct !{!37, !9}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZNK11colvar_gridIdE17get_colvars_indexEv: argument 0"}
-!40 = distinct !{!40, !"_ZNK11colvar_gridIdE17get_colvars_indexEv"}
-!41 = !{!42, !39}
-!42 = distinct !{!42, !43, !"_ZNK11colvar_gridIdE9new_indexEv: argument 0"}
-!43 = distinct !{!43, !"_ZNK11colvar_gridIdE9new_indexEv"}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"_ZNK11colvar_gridIdE9new_indexEv: argument 0"}
+!40 = distinct !{!40, !"_ZNK11colvar_gridIdE9new_indexEv"}
+!41 = distinct !{!41, !42, !"_ZNK11colvar_gridIdE17get_colvars_indexEv: argument 0"}
+!42 = distinct !{!42, !"_ZNK11colvar_gridIdE17get_colvars_indexEv"}
+!43 = !{!41}
 !44 = !{!45, !47}
 !45 = distinct !{!45, !46, !"_ZNK11colvar_gridIdE9new_indexEv: argument 0"}
 !46 = distinct !{!46, !"_ZNK11colvar_gridIdE9new_indexEv"}

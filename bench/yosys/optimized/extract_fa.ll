@@ -74244,7 +74244,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN5Yosys9CellType
 50:                                               ; preds = %49
   call void @llvm.experimental.noalias.scope.decl(metadata !591)
   %51 = getelementptr inbounds i8, ptr %8, i64 8
-  %52 = load ptr, ptr %51, align 8
+  %52 = load ptr, ptr %51, align 8, !noalias !591
   %53 = getelementptr inbounds i8, ptr %8, i64 16
   %54 = load ptr, ptr %53, align 8, !noalias !591
   %.not9.i = icmp eq ptr %52, %54
@@ -74280,7 +74280,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN5Yosys9CellType
 
 ._crit_edge.i:                                    ; preds = %59
   %.pre.i = load ptr, ptr %53, align 8, !noalias !591
-  %.pre11.i = load ptr, ptr %51, align 8
+  %.pre11.i = load ptr, ptr %51, align 8, !noalias !591
   %61 = load i32, ptr %8, align 8, !noalias !591
   store i32 %61, ptr %0, align 8, !alias.scope !591
   %62 = getelementptr inbounds i8, ptr %0, i64 8
@@ -74481,7 +74481,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit42:              ; preds = %_ZZN5Yosys9CellType
 136:                                              ; preds = %135
   call void @llvm.experimental.noalias.scope.decl(metadata !597)
   %137 = getelementptr inbounds i8, ptr %11, i64 8
-  %138 = load ptr, ptr %137, align 8
+  %138 = load ptr, ptr %137, align 8, !noalias !597
   %139 = getelementptr inbounds i8, ptr %11, i64 16
   %140 = load ptr, ptr %139, align 8, !noalias !597
   %.not9.i43 = icmp eq ptr %138, %140
@@ -74517,7 +74517,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit42:              ; preds = %_ZZN5Yosys9CellType
 
 ._crit_edge.i49:                                  ; preds = %145
   %.pre.i50 = load ptr, ptr %139, align 8, !noalias !597
-  %.pre11.i51 = load ptr, ptr %137, align 8
+  %.pre11.i51 = load ptr, ptr %137, align 8, !noalias !597
   %147 = load i32, ptr %11, align 8, !noalias !597
   store i32 %147, ptr %0, align 8, !alias.scope !597
   %148 = getelementptr inbounds i8, ptr %0, i64 8
@@ -77235,7 +77235,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit47:              ; preds = %_ZZN5Yosys9CellType
 186:                                              ; preds = %185
   call void @llvm.experimental.noalias.scope.decl(metadata !645)
   %187 = getelementptr inbounds i8, ptr %8, i64 8
-  %188 = load ptr, ptr %187, align 8
+  %188 = load ptr, ptr %187, align 8, !noalias !645
   %189 = getelementptr inbounds i8, ptr %8, i64 16
   %190 = load ptr, ptr %189, align 8, !noalias !645
   %.not9.i = icmp eq ptr %188, %190
@@ -77271,7 +77271,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit47:              ; preds = %_ZZN5Yosys9CellType
 
 ._crit_edge.i:                                    ; preds = %195
   %.pre.i = load ptr, ptr %189, align 8, !noalias !645
-  %.pre11.i = load ptr, ptr %187, align 8
+  %.pre11.i = load ptr, ptr %187, align 8, !noalias !645
   %197 = load i32, ptr %8, align 8, !noalias !645
   store i32 %197, ptr %0, align 8, !alias.scope !645
   %198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -77442,7 +77442,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit59:              ; preds = %_ZZN5Yosys9CellType
 263:                                              ; preds = %262
   call void @llvm.experimental.noalias.scope.decl(metadata !651)
   %264 = getelementptr inbounds i8, ptr %10, i64 8
-  %265 = load ptr, ptr %264, align 8
+  %265 = load ptr, ptr %264, align 8, !noalias !651
   %266 = getelementptr inbounds i8, ptr %10, i64 16
   %267 = load ptr, ptr %266, align 8, !noalias !651
   %.not9.i60 = icmp eq ptr %265, %267
@@ -77478,7 +77478,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit59:              ; preds = %_ZZN5Yosys9CellType
 
 ._crit_edge.i66:                                  ; preds = %272
   %.pre.i67 = load ptr, ptr %266, align 8, !noalias !651
-  %.pre11.i68 = load ptr, ptr %264, align 8
+  %.pre11.i68 = load ptr, ptr %264, align 8, !noalias !651
   %274 = load i32, ptr %10, align 8, !noalias !651
   store i32 %274, ptr %0, align 8, !alias.scope !651
   %275 = getelementptr inbounds i8, ptr %0, i64 8

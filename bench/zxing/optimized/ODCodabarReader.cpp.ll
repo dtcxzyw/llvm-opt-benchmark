@@ -267,7 +267,7 @@ define void @_ZNK5ZXing4OneD13CodabarReader13decodePatternEiRNS_11PatternViewERS
 
 15:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %16 = load ptr, ptr %3, align 8, !noalias !9
+  %16 = load ptr, ptr %3, align 8, !noalias !15
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !noalias !15
   %19 = getelementptr inbounds i8, ptr %3, i64 24

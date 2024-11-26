@@ -10038,7 +10038,7 @@ _ZN12_GLOBAL__N_119CallTracerIfSampledEP18grpc_chttp2_stream.exit.thread: ; pred
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call.i.i = tail call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 31)
-  %.pr.pre295 = load ptr, ptr %1, align 8
+  %.pr.pre295 = load ptr, ptr %1, align 8, !noalias !151
   br i1 %call.i.i, label %if.end.i, label %_ZN12_GLOBAL__N_119CallTracerIfSampledEP18grpc_chttp2_stream.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -14171,7 +14171,7 @@ _ZN19grpc_metadata_batchaSEOS_.exit:              ; preds = %if.end
   store ptr %10, ptr %append_4.i.i.i.i.i, align 8
   %12 = load ptr, ptr %recv_initial_metadata, align 8
   %peer_string = getelementptr inbounds i8, ptr %t, i64 32
-  %13 = load ptr, ptr %peer_string, align 8
+  %13 = load ptr, ptr %peer_string, align 8, !noalias !202
   %cmp.i.i = icmp ugt ptr %13, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK9grpc_core5Slice3RefEv.exit
 
@@ -23854,7 +23854,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core17LbCostBinMetadata9ValueTypeELm1ESaIS5_EE6AssignINS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvT_m(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %values.coerce, i64 noundef %new_size) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %this, align 8, !noalias !377
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -24084,7 +24084,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl12lts_2023080223inlined_vector_internal7StorageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1ESaIS8_EE6AssignINS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvT_m(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %values.coerce, i64 noundef %new_size) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %this, align 8, !noalias !381
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8

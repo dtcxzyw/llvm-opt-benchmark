@@ -1007,7 +1007,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit:               ; preds = %20
   %37 = lshr i64 %36, 4
   %38 = getelementptr inbounds [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %37
   %39 = lshr exact i64 %sext, 31
-  %40 = load i32, ptr %38, align 4
+  %40 = load i32, ptr %38, align 4, !noalias !9
   %41 = trunc i64 %39 to i32
   %42 = and i32 %41, 30
   %43 = ashr i32 %40, %42
@@ -1023,11 +1023,11 @@ _ZN12vmIntrinsics7find_idEPKc.exit.thread:        ; preds = %25, %34
   %49 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #10
   %50 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %50, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge74:                                    ; preds = %_ZN12vmIntrinsics7find_idEPKc.exit24.thread, %._crit_edge
   call void @_ZN20ControlIntrinsicIterD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #10
-  %51 = load i32, ptr @_ZL26vm_intrinsic_control_words, align 4
+  %51 = load i32, ptr @_ZL26vm_intrinsic_control_words, align 4, !noalias !14
   %52 = or i32 %51, 3
   store i32 %52, ptr @_ZL26vm_intrinsic_control_words, align 4
   br label %81
@@ -1076,7 +1076,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit24:             ; preds = %60
   %67 = lshr i64 %66, 4
   %68 = getelementptr inbounds [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %67
   %69 = lshr exact i64 %sext64, 31
-  %70 = load i32, ptr %68, align 4
+  %70 = load i32, ptr %68, align 4, !noalias !17
   %71 = trunc i64 %69 to i32
   %72 = and i32 %71, 30
   %73 = ashr i32 %70, %72
@@ -1092,7 +1092,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit24.thread:      ; preds = %65, %_ZN12vmIntrins
   %79 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33) %3) #10
   %80 = load ptr, ptr %11, align 8
   %.not9 = icmp eq ptr %80, null
-  br i1 %.not9, label %._crit_edge74, label %.lr.ph73, !llvm.loop !11
+  br i1 %.not9, label %._crit_edge74, label %.lr.ph73, !llvm.loop !20
 
 81:                                               ; preds = %._crit_edge74, %1
   %82 = sext i32 %0 to i64
@@ -1100,7 +1100,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit24.thread:      ; preds = %65, %_ZN12vmIntrins
   %84 = getelementptr inbounds [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %83
   %85 = shl i32 %0, 1
   %86 = and i32 %85, 30
-  %87 = load i32, ptr %84, align 4
+  %87 = load i32, ptr %84, align 4, !noalias !21
   %88 = ashr i32 %87, %86
   %89 = trunc i32 %88 to i8
   %90 = and i8 %89, 2
@@ -3744,6 +3744,18 @@ attributes #10 = { nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
 !8 = distinct !{!8, !"_ZN12TriBoolArrayILm421EiEixEm"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!11 = distinct !{!11, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!16 = distinct !{!16, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!19 = distinct !{!19, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!20 = distinct !{!20, !13}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!23 = distinct !{!23, !"_ZN12TriBoolArrayILm421EiEixEm"}

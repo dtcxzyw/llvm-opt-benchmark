@@ -4892,7 +4892,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 121:                                              ; preds = %115
   %122 = atomicrmw volatile add ptr %116, i32 1 acq_rel, align 4, !noalias !86
   %.val12.i.pre = load ptr, ptr %7, align 8, !noalias !77
-  %.val13.i.pre = load ptr, ptr %86, align 8
+  %.val13.i.pre = load ptr, ptr %86, align 8, !noalias !77
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
 
 .thread.i.i:                                      ; preds = %111, %108

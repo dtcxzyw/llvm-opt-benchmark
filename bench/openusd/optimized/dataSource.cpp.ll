@@ -1707,7 +1707,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 273:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__18HdVectorDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread156, %_ZN32pxrInternal_v0_24__pxrReserved__18HdVectorDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %274 = load ptr, ptr %1, align 8
+  %274 = load ptr, ptr %1, align 8, !noalias !37
   %275 = icmp eq ptr %274, null
   br i1 %275, label %.thread.i.i91, label %276
 

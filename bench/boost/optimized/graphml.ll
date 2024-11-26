@@ -4322,7 +4322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit629: ; preds = %_Z
   store i8 0, ptr %1217, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #26, !noalias !145
   store i8 47, ptr %1022, align 8, !tbaa !39, !alias.scope !145
-  %1218 = load ptr, ptr %103, align 8, !tbaa !21
+  %1218 = load ptr, ptr %103, align 8, !tbaa !21, !alias.scope !145
   store ptr %1218, ptr %1023, align 8, !alias.scope !145
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45) #26, !noalias !148
   store ptr %1024, ptr %45, align 8, !tbaa !16, !noalias !148

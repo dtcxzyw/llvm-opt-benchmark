@@ -33366,11 +33366,11 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7Proc
   store ptr %0, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1641)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !1641
-  %.val11.val.i = load ptr, ptr %.val.i, align 8
+  %.val11.val.i = load ptr, ptr %.val.i, align 8, !noalias !1641
   %46 = getelementptr inbounds i8, ptr %.val11.val.i, i64 576
   %47 = getelementptr inbounds i8, ptr %.val11.val.i, i64 584
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %47, align 8, !noalias !1641
+  %49 = load ptr, ptr %46, align 8, !noalias !1641
   %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
@@ -33423,7 +33423,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
           to label %70 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 70:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit
-  %.val15.i = load ptr, ptr %20, align 8
+  %.val15.i = load ptr, ptr %20, align 8, !noalias !1641
   %.val15.val.i = load ptr, ptr %.val15.i, align 8
   %71 = getelementptr i8, ptr %.val15.val.i, i64 696
   %.val19.i = load ptr, ptr %71, align 8
@@ -33459,7 +33459,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
   br i1 %.not.i.i, label %.loopexit35.loopexit.i, label %.lr.ph.i.i, !llvm.loop !1644
 
 .loopexit35.loopexit.i:                           ; preds = %"_ZZNK12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT19initialDependenciesB5cxx11EvENK3$_0clERKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_11SourceFileTEEE.exit.i.i"
-  %.val13.pre.i = load ptr, ptr %20, align 8
+  %.val13.pre.i = load ptr, ptr %20, align 8, !noalias !1641
   %.val13.val.pre.i = load ptr, ptr %.val13.pre.i, align 8
   br label %.loopexit35.i
 

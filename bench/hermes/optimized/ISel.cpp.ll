@@ -49445,7 +49445,7 @@ if.end13.i.i.i.i.i:                               ; preds = %if.end9.i.i.i.i.i
 if.end.i.i.i:                                     ; preds = %if.then12.i.i.i.i.i, %for.body.i
   %cond.sink.i.i.i.i.i = phi ptr [ %cond.i.i.i.i.i, %if.then12.i.i.i.i.i ], [ null, %for.body.i ]
   %call.i.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockENS_6detail13DenseSetEmptyELj16ENS_12DenseMapInfoIS5_EENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E20InsertIntoBucketImplIS5_EEPSB_RKS5_RKT_SF_(ptr noundef nonnull align 8 dereferenceable(136) %seen.i, ptr noundef nonnull align 8 dereferenceable(8) %BB.i, ptr noundef nonnull align 8 dereferenceable(8) %BB.i, ptr noundef %cond.sink.i.i.i.i.i), !noalias !59
-  %23 = load ptr, ptr %BB.i, align 8, !noalias !55
+  %23 = load ptr, ptr %BB.i, align 8, !noalias !59
   store ptr %23, ptr %call.i.i.i.i, align 8, !noalias !59
   br label %_ZN4llvh6detail12DenseSetImplIPKN6hermes10BasicBlockENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj16ENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertERKS5_.exit.i
 

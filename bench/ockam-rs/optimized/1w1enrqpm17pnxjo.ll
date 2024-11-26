@@ -1262,7 +1262,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !265, !nonnull !36, !noundef !36
+  %12 = load ptr, ptr %11, align 8, !alias.scope !271, !nonnull !36, !noundef !36
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !alias.scope !271, !noundef !36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
@@ -1345,7 +1345,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !341)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
-  %44 = load ptr, ptr %43, align 8, !alias.scope !341, !nonnull !36, !noundef !36
+  %44 = load ptr, ptr %43, align 8, !alias.scope !347, !nonnull !36, !noundef !36
   %45 = getelementptr inbounds i8, ptr %0, i64 24
   %46 = load i64, ptr %45, align 8, !alias.scope !347, !noundef !36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
@@ -1495,7 +1495,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
   %99 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !489)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !492)
-  %100 = load ptr, ptr %99, align 8, !alias.scope !489, !nonnull !36, !noundef !36
+  %100 = load ptr, ptr %99, align 8, !alias.scope !495, !nonnull !36, !noundef !36
   %101 = getelementptr inbounds i8, ptr %0, i64 24
   %102 = load i64, ptr %101, align 8, !alias.scope !495, !noundef !36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !496)

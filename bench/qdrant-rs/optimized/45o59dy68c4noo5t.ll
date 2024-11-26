@@ -406,7 +406,7 @@ _ZN4core3str7pattern13simd_contains17hf79408dc36f91aefE.exit.i: ; preds = %57
   %199 = load ptr, ptr %150, align 8, !noalias !10, !nonnull !3, !align !13, !noundef !3
   %200 = load i64, ptr %151, align 8, !noalias !10, !noundef !3
   call void @_ZN4core3str7pattern14TwoWaySearcher4next17h0003622fb0b8a5baE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull align 8 %148, ptr nonnull align 1 %198, i64 %164, ptr nonnull align 1 %199, i64 %200, i1 zeroext %197), !noalias !10
-  %201 = load i64, ptr %4, align 8, !range !14, !noalias !5, !noundef !3
+  %201 = load i64, ptr %4, align 8, !range !14, !noalias !10, !noundef !3
   %202 = icmp eq i64 %201, 1
   br i1 %202, label %203, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17he48b8abb1e9c2651E.exit.i.i"
 

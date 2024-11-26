@@ -1955,7 +1955,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i82
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont47, %if.then.i.i76, %if.then13.i.i82
   %65 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not5.i.i.i85 = icmp eq ptr %65, null
-  %.pre907 = load ptr, ptr %q, align 8
+  %.pre907 = load ptr, ptr %q, align 8, !noalias !13
   br i1 %cmp.not5.i.i.i85, label %if.end52, label %while.body.lr.ph.i.i.i86
 
 while.body.lr.ph.i.i.i86:                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit

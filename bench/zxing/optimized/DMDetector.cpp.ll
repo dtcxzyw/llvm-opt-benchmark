@@ -1280,8 +1280,8 @@ _ZNK5ZXing14RegressionLine6lengthEv.exit.i.i:     ; preds = %437, %430
           to label %.noexc70.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc70.i:                                       ; preds = %.noexc69.i
-  %597 = load ptr, ptr %210, align 8, !alias.scope !9
-  %598 = load ptr, ptr %211, align 8, !alias.scope !9
+  %597 = load ptr, ptr %210, align 8, !alias.scope !15
+  %598 = load ptr, ptr %211, align 8, !alias.scope !15
   %.not270.i.i = icmp eq ptr %597, %598
   br i1 %.not270.i.i, label %599, label %.loopexit121.i
 

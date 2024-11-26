@@ -7323,7 +7323,7 @@ entry:
   call void @_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_22LegacyServerAuthFilter18RunApplicationCodeEJSt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_8CallArgsEEEEE8PollOnceEv(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %agg.tmp, ptr noundef nonnull align 16 dereferenceable(64) %0)
   call void @llvm.experimental.noalias.scope.decl(metadata !205)
   call void @llvm.experimental.noalias.scope.decl(metadata !208)
-  %1 = load i8, ptr %agg.tmp, align 8
+  %1 = load i8, ptr %agg.tmp, align 8, !noalias !211
   %tobool.i.i.i = trunc i8 %1 to i1
   %frombool.i.i.i = and i8 %1, 1
   store i8 %frombool.i.i.i, ptr %agg.result, align 8, !alias.scope !211
@@ -7563,7 +7563,7 @@ sw.bb16:                                          ; preds = %_ZN9grpc_core4PollI
   %34 = load ptr, ptr %33, align 8, !noalias !234
   %arg.i.i17 = getelementptr inbounds i8, ptr %this, i64 16
   call void %34(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i16, ptr noundef nonnull %arg.i.i17), !noalias !239
-  %35 = load i8, ptr %ref.tmp.i16, align 8, !noalias !239
+  %35 = load i8, ptr %ref.tmp.i16, align 8, !noalias !240
   %tobool.i.i.i.i18 = trunc i8 %35 to i1
   br i1 %tobool.i.i.i.i18, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit29, label %if.then23
 

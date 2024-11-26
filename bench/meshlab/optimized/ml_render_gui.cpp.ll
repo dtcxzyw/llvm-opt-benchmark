@@ -687,7 +687,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %9, %25, %31
   %32 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %33 = load ptr, ptr %3, align 8
+  %33 = load ptr, ptr %3, align 8, !alias.scope !5, !noalias !8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = getelementptr inbounds i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8, !noalias !8
@@ -1164,7 +1164,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %10, %26, %32
   %33 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %34 = load ptr, ptr %3, align 8
+  %34 = load ptr, ptr %3, align 8, !alias.scope !18, !noalias !21
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = getelementptr inbounds i8, ptr %34, i64 8
   %37 = load i32, ptr %36, align 8, !noalias !21
@@ -1825,7 +1825,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %10, %26, %32
   %33 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %34 = load ptr, ptr %3, align 8
+  %34 = load ptr, ptr %3, align 8, !alias.scope !32, !noalias !35
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = getelementptr inbounds i8, ptr %34, i64 8
   %37 = load i32, ptr %36, align 8, !noalias !35
@@ -2765,7 +2765,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %11
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %17, %33, %39
   %40 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %41 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %3, align 8, !alias.scope !46, !noalias !49
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = getelementptr inbounds i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !noalias !49
@@ -6500,7 +6500,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %8
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %17, %33, %39
   %40 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  %41 = load ptr, ptr %4, align 8
+  %41 = load ptr, ptr %4, align 8, !alias.scope !58, !noalias !61
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = getelementptr inbounds i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !noalias !61
@@ -6608,7 +6608,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i21:        ; preds = %_ZN9QtPrivate17QFor
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit27: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i26, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i21, %67, %83, %89
   %90 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %91 = load ptr, ptr %5, align 8
+  %91 = load ptr, ptr %5, align 8, !alias.scope !69, !noalias !72
   %92 = getelementptr inbounds i8, ptr %91, i64 16
   %93 = getelementptr inbounds i8, ptr %91, i64 8
   %94 = load i32, ptr %93, align 8, !noalias !72
@@ -10733,7 +10733,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
 _ZN9QtPrivate21qMakeForeachContainerIRK5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %22, %38, %44
   %45 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %46 = load ptr, ptr %3, align 8
+  %46 = load ptr, ptr %3, align 8, !alias.scope !82, !noalias !85
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = getelementptr inbounds i8, ptr %46, i64 8
   %49 = load i32, ptr %48, align 8, !noalias !85
@@ -14543,7 +14543,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %46
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %.noexc, %67, %73
   call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  %74 = load ptr, ptr %4, align 8
+  %74 = load ptr, ptr %4, align 8, !alias.scope !131, !noalias !134
   %75 = getelementptr inbounds i8, ptr %74, i64 16
   %76 = getelementptr inbounds i8, ptr %74, i64 8
   %77 = load i32, ptr %76, align 8, !noalias !134
@@ -14931,7 +14931,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %52
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %.noexc, %73, %79
   call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %80 = load ptr, ptr %7, align 8
+  %80 = load ptr, ptr %7, align 8, !alias.scope !153, !noalias !156
   %81 = getelementptr inbounds i8, ptr %80, i64 16
   %82 = getelementptr inbounds i8, ptr %80, i64 8
   %83 = load i32, ptr %82, align 8, !noalias !156
@@ -15161,7 +15161,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i44:        ; preds = %139
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit51: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i49, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i44, %.noexc50, %160, %166
   %167 = getelementptr inbounds i8, ptr %8, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  %168 = load ptr, ptr %8, align 8
+  %168 = load ptr, ptr %8, align 8, !alias.scope !166, !noalias !169
   %169 = getelementptr inbounds i8, ptr %168, i64 16
   %170 = getelementptr inbounds i8, ptr %168, i64 8
   %171 = load i32, ptr %170, align 8, !noalias !169

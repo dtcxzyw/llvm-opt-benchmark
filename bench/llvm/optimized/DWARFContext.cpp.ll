@@ -17089,11 +17089,11 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZN4llvm9ErrorList2IDE) #24
-  %.pre52 = load ptr, ptr %2, align 8, !noalias !50
+  %.pre52 = load ptr, ptr %2, align 8, !noalias !449
   br i1 %23, label %24, label %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread
 
 24:                                               ; preds = %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
-  store ptr null, ptr %2, align 8, !noalias !449
+  store ptr null, ptr %2, align 8, !noalias !452
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
@@ -17145,9 +17145,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %24, %._
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
   %44 = phi ptr [ null, %17 ], [ %.pre52, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
-  store ptr %44, ptr %4, align 8, !alias.scope !452
-  store ptr null, ptr %2, align 8, !noalias !452
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !449)
+  store ptr %44, ptr %4, align 8, !alias.scope !449
+  store ptr null, ptr %2, align 8, !noalias !449
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -22242,7 +22242,7 @@ define internal void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextState13getDWOCo
   br i1 %29, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i, label %25, !llvm.loop !602
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i: ; preds = %26
-  %31 = load atomic i32, ptr %23 monotonic, align 8
+  %31 = load atomic i32, ptr %23 monotonic, align 8, !noalias !599
   %.fr.i.i.i = freeze i32 %31
   %.not.i.i.i = icmp eq i32 %.fr.i.i.i, 0
   %32 = load ptr, ptr %19, align 8, !noalias !599
@@ -22441,7 +22441,7 @@ _ZN4llvm9StringMapISt8weak_ptrIN12_GLOBAL__N_129ThreadUnsafeDWARFContextState7DW
   br i1 %115, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i31, label %111, !llvm.loop !602
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i31: ; preds = %112
-  %117 = load atomic i32, ptr %109 monotonic, align 8
+  %117 = load atomic i32, ptr %109 monotonic, align 8, !noalias !604
   %.fr.i.i.i32 = freeze i32 %117
   %.not.i.i.i33 = icmp eq i32 %.fr.i.i.i32, 0
   %118 = load ptr, ptr %105, align 8, !noalias !604

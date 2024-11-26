@@ -929,7 +929,7 @@ define dso_local void @_ZN4llvm3pdb14PDBFileBuilder14addNamedStreamENS_9StringRe
   %13 = load ptr, ptr %12, align 8, !noalias !30
   call void @_ZN4llvm3msf10MSFBuilder9addStreamEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.183") align 8 %8, ptr noundef nonnull align 8 dereferenceable(152) %13, i32 noundef %11) #16
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load i8, ptr %14, align 8
+  %15 = load i8, ptr %14, align 8, !alias.scope !30
   %16 = trunc i8 %15 to i1
   br i1 %16, label %_ZN4llvm3pdb14PDBFileBuilder19allocateNamedStreamENS_9StringRefEj.exit, label %17
 
@@ -1272,7 +1272,7 @@ _ZN4llvm3pdb14PDBFileBuilder14getInfoBuilderEv.exit: ; preds = %17, %20, %_ZNKSt
   %40 = load ptr, ptr %39, align 8, !noalias !40
   call void @_ZN4llvm3msf10MSFBuilder9addStreamEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.183") align 8 %3, ptr noundef nonnull align 8 dereferenceable(152) %40, i32 noundef 0) #16
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %42 = load i8, ptr %41, align 8
+  %42 = load i8, ptr %41, align 8, !alias.scope !40
   %43 = trunc i8 %42 to i1
   br i1 %43, label %_ZN4llvm3pdb14PDBFileBuilder19allocateNamedStreamENS_9StringRefEj.exit, label %44
 

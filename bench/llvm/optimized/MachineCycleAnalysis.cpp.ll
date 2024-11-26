@@ -3252,7 +3252,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_17MachineBasicBlockENS_8DenseMapIS4_NS0_13Den
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
   %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !102
-  %96 = load ptr, ptr %1, align 8
+  %96 = load ptr, ptr %1, align 8, !noalias !102
   store ptr %96, ptr %95, align 8, !noalias !102
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #14
@@ -5686,7 +5686,7 @@ define linkonce_odr void @_ZN4llvm23GenericCycleInfoComputeINS_17GenericSSAConte
   br i1 %57, label %84, label %58
 
 58:                                               ; preds = %.loopexit
-  %59 = load ptr, ptr %6, align 8
+  %59 = load ptr, ptr %6, align 8, !noalias !133
   %60 = ptrtoint ptr %59 to i64
   %61 = trunc i64 %60 to i32
   %62 = lshr i32 %61, 4
@@ -5731,7 +5731,7 @@ define linkonce_odr void @_ZN4llvm23GenericCycleInfoComputeINS_17GenericSSAConte
 84:                                               ; preds = %73, %.loopexit
   %.sink.i.i.i = phi ptr [ %74, %73 ], [ null, %.loopexit ]
   %85 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_23GenericCycleInfoComputeINS_17GenericSSAContextINS_15MachineFunctionEEEE7DFSInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E20InsertIntoBucketImplIS3_EEPSE_RKS3_RKT_SI_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink.i.i.i), !noalias !133
-  %86 = load ptr, ptr %6, align 8
+  %86 = load ptr, ptr %6, align 8, !noalias !133
   store ptr %86, ptr %85, align 8, !noalias !133
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 %54, ptr %87, align 4, !noalias !133

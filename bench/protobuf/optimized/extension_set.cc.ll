@@ -15283,7 +15283,7 @@ while.cond.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %iter.sroa.7.0.i.i.i.i = phi i32 [ %conv.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISF_EERSD_PSD_EELb0EEERKT_.exit.i.i.i ], [ %conv3.i.i.i.i, %while.body.i.i.i.i ]
   %iter.sroa.0.0.i2.i.i.i = phi ptr [ %iter.sroa.0.0.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISF_EERSD_PSD_EELb0EEERKT_.exit.i.i.i ], [ %6, %while.body.i.i.i.i ]
   %arrayidx.i.i3.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i2.i.i.i, i64 10
-  %4 = load i8, ptr %arrayidx.i.i3.i.i.i, align 1, !noalias !175
+  %4 = load i8, ptr %arrayidx.i.i3.i.i.i, align 1, !noalias !170
   %conv.i4.i.i.i = zext i8 %4 to i32
   %cmp.i.i.i.i = icmp eq i32 %iter.sroa.7.0.i.i.i.i, %conv.i4.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeISF_EERKSD_PSL_EE.exit.loopexit.i.i
@@ -15302,7 +15302,7 @@ cond.false.i.i.i:                                 ; preds = %while.body.i.i.i.i
   %rightmost_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %rightmost_.i.i.i.i.i, align 8, !noalias !170
   %arrayidx.i.i.i2.i.i = getelementptr i8, ptr %8, i64 10
-  %9 = load i8, ptr %arrayidx.i.i.i2.i.i, align 1, !noalias !175
+  %9 = load i8, ptr %arrayidx.i.i.i2.i.i, align 1, !noalias !170
   %conv.i.i3.i.i = zext i8 %9 to i32
   br label %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE12internal_endENS1_14btree_iteratorIKNS1_10btree_nodeISF_EERKSD_PSL_EE.exit.i.i
 

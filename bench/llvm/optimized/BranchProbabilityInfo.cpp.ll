@@ -8000,13 +8000,13 @@ define dso_local i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_
 
 .loopexit63:                                      ; preds = %.lr.ph.i.i.i.i, %3
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %45 = load ptr, ptr %44, align 8
+  %45 = load ptr, ptr %44, align 8, !noalias !165
   %46 = icmp eq ptr %44, %45
   br i1 %46, label %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit, label %47
 
 47:                                               ; preds = %.loopexit63
   %48 = getelementptr inbounds i8, ptr %45, i64 -24
-  %49 = load i8, ptr %48, align 8
+  %49 = load i8, ptr %48, align 8, !noalias !165
   %50 = add i8 %49, -30
   %51 = icmp ult i8 %50, 11
   br i1 %51, label %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit, label %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit

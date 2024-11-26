@@ -8072,7 +8072,7 @@ if.then13.i.i.i407:                               ; preds = %if.else.i.i.i405
           to label %cleanup.action unwind label %lpad127
 
 if.end.i:                                         ; preds = %call2.i.i.noexc
-  %135 = load ptr, ptr %p, align 8
+  %135 = load ptr, ptr %p, align 8, !noalias !35
   %d_children.i = getelementptr inbounds i8, ptr %135, i64 16
   %136 = load ptr, ptr %d_children.i, align 8, !noalias !35
   %bf.load.i.i3.i = load i64, ptr %136, align 8, !noalias !35

@@ -3099,7 +3099,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   br label %19
 
 ._crit_edge.loopexit:                             ; preds = %53
-  %.pre43.pre = load ptr, ptr %11, align 8
+  %.pre43.pre = load ptr, ptr %11, align 8, !alias.scope !322
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -3141,8 +3141,8 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
 
 37:                                               ; preds = %27
   %38 = icmp eq i8 %32, -1
-  %.pre = load i64, ptr %13, align 8
-  %.pre42 = load ptr, ptr %11, align 8
+  %.pre = load i64, ptr %13, align 8, !alias.scope !322
+  %.pre42 = load ptr, ptr %11, align 8, !alias.scope !322
   br i1 %38, label %39, label %33
 
 39:                                               ; preds = %37
@@ -3422,7 +3422,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %10 = icmp ult i64 %8, %9
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !noalias !4, !nonnull !4, !noundef !4
+  %12 = load ptr, ptr %11, align 8, !alias.scope !353, !noalias !356, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %12, i64 %8
   %.sroa.0.0.copyload1 = load i64, ptr %13, align 8, !noalias !353
   %14 = icmp eq i64 %.sroa.0.0.copyload1, 3

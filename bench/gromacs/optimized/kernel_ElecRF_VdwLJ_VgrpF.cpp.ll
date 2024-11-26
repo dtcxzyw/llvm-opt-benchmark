@@ -1092,9 +1092,9 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %799 = fmul <8 x float> %.sroa.01.0.copyload.i.i.cast.i.i, %.sroa.02662.0..sroa.02662.0..sroa.01.0.copyload.i.i.i804
   %.sroa.22663.0..sroa.22663.32..sroa.01.0.copyload.i1.i.i = load <8 x float>, ptr %.sroa.22663, align 32, !noalias !30
   %800 = fmul <8 x float> %.sroa.01.0.copyload.i1.i.cast.i.i, %.sroa.22663.0..sroa.22663.32..sroa.01.0.copyload.i1.i.i
-  %.sroa.02658.0..sroa.02658.0..sroa.01.0.copyload.i.i15.i = load <8 x float>, ptr %.sroa.02658, align 32, !noalias !30
+  %.sroa.02658.0..sroa.02658.0..sroa.01.0.copyload.i.i15.i = load <8 x float>, ptr %.sroa.02658, align 32, !noalias !33
   %801 = fmul <8 x float> %798, %.sroa.02658.0..sroa.02658.0..sroa.01.0.copyload.i.i15.i
-  %.sroa.22659.0..sroa.22659.32..sroa.01.0.copyload.i1.i17.i = load <8 x float>, ptr %.sroa.22659, align 32, !noalias !30
+  %.sroa.22659.0..sroa.22659.32..sroa.01.0.copyload.i1.i17.i = load <8 x float>, ptr %.sroa.22659, align 32, !noalias !33
   %802 = fsub <8 x float> %801, %799
   %803 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.02662.0..sroa.02662.0..sroa.01.0.copyload.i.i.i804, <8 x float> %36, <8 x float> %799)
   %804 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.22663.0..sroa.22663.32..sroa.01.0.copyload.i1.i.i, <8 x float> %36, <8 x float> %800)
@@ -1152,7 +1152,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   br i1 %834, label %833, label %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i820, !llvm.loop !25
 
 _ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i820: ; preds = %833
-  br i1 %824, label %.preheader30.i, label %.preheader.i821.preheader, !llvm.loop !31
+  br i1 %824, label %.preheader30.i, label %.preheader.i821.preheader, !llvm.loop !36
 
 .preheader.i821.preheader:                        ; preds = %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i820
   %844 = fmul <8 x float> %.sroa.01.0.copyload.i1.i.cast.i.i, %.sroa.01.0.copyload.i1.i.cast.i.i
@@ -1197,7 +1197,7 @@ _ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiX
   br i1 %861, label %860, label %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit27.i, !llvm.loop !25
 
 _ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit27.i: ; preds = %860
-  br i1 %851, label %.preheader.i821, label %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit, !llvm.loop !32
+  br i1 %851, label %.preheader.i821, label %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit, !llvm.loop !37
 
 _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit: ; preds = %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit27.i
   %871 = fmul <8 x float> %723, %791
@@ -1244,7 +1244,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4EL
   store <4 x float> %909, ptr %904, align 16
   %indvars.iv.next2387 = add nsw i64 %indvars.iv2386, 1
   %exitcond2390.not = icmp eq i64 %indvars.iv.next2387, %wide.trip.count2389
-  br i1 %exitcond2390.not, label %.loopexit, label %663, !llvm.loop !33
+  br i1 %exitcond2390.not, label %.loopexit, label %663, !llvm.loop !38
 
 .critedge2.loopexit:                              ; preds = %663
   %910 = trunc nsw i64 %indvars.iv2386 to i32
@@ -1387,7 +1387,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4EL
   store <8 x float> %1011, ptr %indvars.iv2391.sroa.phi2653, align 32
   %1012 = shufflevector <8 x float> %1009, <8 x float> %1010, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   store <8 x float> %1012, ptr %indvars.iv2391.sroa.phi, align 32
-  br i1 %983, label %982, label %.preheader30.i939.critedge, !llvm.loop !34
+  br i1 %983, label %982, label %.preheader30.i939.critedge, !llvm.loop !39
 
 .preheader30.i939.critedge:                       ; preds = %982
   %1013 = fmul <8 x float> %.sroa.51697.1, %954
@@ -1401,13 +1401,13 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4EL
   %1021 = fmul <8 x float> %1015, %1015
   %1022 = fmul <8 x float> %1015, %1021
   %1023 = fmul <8 x float> %1020, %1020
-  %.sroa.02655.0..sroa.02655.0..sroa.01.0.copyload.i.i.i922 = load <8 x float>, ptr %.sroa.02655, align 32, !noalias !30
+  %.sroa.02655.0..sroa.02655.0..sroa.01.0.copyload.i.i.i922 = load <8 x float>, ptr %.sroa.02655, align 32, !noalias !40
   %1024 = fmul <8 x float> %1020, %.sroa.02655.0..sroa.02655.0..sroa.01.0.copyload.i.i.i922
-  %.sroa.22656.0..sroa.22656.32..sroa.01.0.copyload.i1.i.i923 = load <8 x float>, ptr %.sroa.22656, align 32, !noalias !30
+  %.sroa.22656.0..sroa.22656.32..sroa.01.0.copyload.i1.i.i923 = load <8 x float>, ptr %.sroa.22656, align 32, !noalias !40
   %1025 = fmul <8 x float> %1022, %.sroa.22656.0..sroa.22656.32..sroa.01.0.copyload.i1.i.i923
-  %.sroa.02651.0..sroa.02651.0..sroa.01.0.copyload.i.i15.i924 = load <8 x float>, ptr %.sroa.02651, align 32, !noalias !30
+  %.sroa.02651.0..sroa.02651.0..sroa.01.0.copyload.i.i15.i924 = load <8 x float>, ptr %.sroa.02651, align 32, !noalias !43
   %1026 = fmul <8 x float> %1023, %.sroa.02651.0..sroa.02651.0..sroa.01.0.copyload.i.i15.i924
-  %.sroa.22652.0..sroa.22652.32..sroa.01.0.copyload.i1.i17.i925 = load <8 x float>, ptr %.sroa.22652, align 32, !noalias !30
+  %.sroa.22652.0..sroa.22652.32..sroa.01.0.copyload.i1.i17.i925 = load <8 x float>, ptr %.sroa.22652, align 32, !noalias !43
   %1027 = fsub <8 x float> %1026, %1024
   %1028 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.02655.0..sroa.02655.0..sroa.01.0.copyload.i.i.i922, <8 x float> %36, <8 x float> %1024)
   %1029 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.22656.0..sroa.22656.32..sroa.01.0.copyload.i1.i.i923, <8 x float> %36, <8 x float> %1025)
@@ -1462,7 +1462,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4EL
   br i1 %1057, label %1056, label %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i945, !llvm.loop !25
 
 _ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i945: ; preds = %1056
-  br i1 %1047, label %.preheader30.i939, label %.preheader.i946.preheader, !llvm.loop !31
+  br i1 %1047, label %.preheader30.i939, label %.preheader.i946.preheader, !llvm.loop !36
 
 .preheader.i946.preheader:                        ; preds = %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i945
   %1067 = fmul <8 x float> %1022, %1022
@@ -1504,7 +1504,7 @@ _ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiX
   br i1 %1082, label %1081, label %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit27.i951, !llvm.loop !25
 
 _ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit27.i951: ; preds = %1081
-  br i1 %1072, label %.preheader.i946, label %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit952, !llvm.loop !32
+  br i1 %1072, label %.preheader.i946, label %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit952, !llvm.loop !37
 
 _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit952: ; preds = %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit27.i951
   %1092 = fmul <8 x float> %1013, %1016
@@ -1551,7 +1551,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4EL
   store <4 x float> %1130, ptr %1125, align 16
   %indvars.iv.next2395 = add nsw i64 %indvars.iv2394, 1
   %exitcond2398.not = icmp eq i64 %indvars.iv.next2395, %wide.trip.count2397
-  br i1 %exitcond2398.not, label %.loopexit, label %.lr.ph2279, !llvm.loop !35
+  br i1 %exitcond2398.not, label %.loopexit, label %.lr.ph2279, !llvm.loop !46
 
 1131:                                             ; preds = %.lr.ph, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit
   %indvars.iv2371 = phi i64 [ %661, %.lr.ph ], [ %indvars.iv.next2372, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit ]
@@ -1679,7 +1679,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   store <8 x float> %1230, ptr %indvars.iv2368.sroa.phi2646, align 32
   %1231 = shufflevector <8 x float> %1228, <8 x float> %1229, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   store <8 x float> %1231, ptr %indvars.iv2368.sroa.phi, align 32
-  br i1 %1202, label %1201, label %.preheader.i1051.critedge, !llvm.loop !36
+  br i1 %1202, label %1201, label %.preheader.i1051.critedge, !llvm.loop !47
 
 .preheader.i1051.critedge:                        ; preds = %1201
   %1232 = fmul <8 x float> %1182, %1182
@@ -1690,13 +1690,13 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1237 = fmul <8 x float> %1233, %1236
   %1238 = fmul <8 x float> %1235, %1235
   %1239 = fmul <8 x float> %1237, %1237
-  %.sroa.02648.0..sroa.02648.0..sroa.01.0.copyload.i.i.i1030 = load <8 x float>, ptr %.sroa.02648, align 32, !noalias !30
+  %.sroa.02648.0..sroa.02648.0..sroa.01.0.copyload.i.i.i1030 = load <8 x float>, ptr %.sroa.02648, align 32, !noalias !48
   %1240 = fmul <8 x float> %1235, %.sroa.02648.0..sroa.02648.0..sroa.01.0.copyload.i.i.i1030
-  %.sroa.22649.0..sroa.22649.32..sroa.01.0.copyload.i1.i.i1031 = load <8 x float>, ptr %.sroa.22649, align 32, !noalias !30
+  %.sroa.22649.0..sroa.22649.32..sroa.01.0.copyload.i1.i.i1031 = load <8 x float>, ptr %.sroa.22649, align 32, !noalias !48
   %1241 = fmul <8 x float> %1237, %.sroa.22649.0..sroa.22649.32..sroa.01.0.copyload.i1.i.i1031
-  %.sroa.02644.0..sroa.02644.0..sroa.01.0.copyload.i.i15.i1032 = load <8 x float>, ptr %.sroa.02644, align 32, !noalias !30
+  %.sroa.02644.0..sroa.02644.0..sroa.01.0.copyload.i.i15.i1032 = load <8 x float>, ptr %.sroa.02644, align 32, !noalias !51
   %1242 = fmul <8 x float> %1238, %.sroa.02644.0..sroa.02644.0..sroa.01.0.copyload.i.i15.i1032
-  %.sroa.22645.0..sroa.22645.32..sroa.01.0.copyload.i1.i17.i1033 = load <8 x float>, ptr %.sroa.22645, align 32, !noalias !30
+  %.sroa.22645.0..sroa.22645.32..sroa.01.0.copyload.i1.i17.i1033 = load <8 x float>, ptr %.sroa.22645, align 32, !noalias !51
   %1243 = fmul <8 x float> %1239, %.sroa.22645.0..sroa.22645.32..sroa.01.0.copyload.i1.i17.i1033
   %1244 = fsub <8 x float> %1242, %1240
   %1245 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.02648.0..sroa.02648.0..sroa.01.0.copyload.i.i.i1030, <8 x float> %36, <8 x float> %1240)
@@ -1757,7 +1757,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   br i1 %1277, label %1276, label %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i1055, !llvm.loop !25
 
 _ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i1055: ; preds = %1276
-  br i1 %1267, label %.preheader.i1051, label %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit, !llvm.loop !37
+  br i1 %1267, label %.preheader.i1051, label %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit, !llvm.loop !54
 
 _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit: ; preds = %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i1055
   %1287 = fsub <8 x float> %1243, %1241
@@ -1801,7 +1801,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   store <4 x float> %1322, ptr %1317, align 16
   %indvars.iv.next2372 = add nsw i64 %indvars.iv2371, 1
   %exitcond2374.not = icmp eq i64 %indvars.iv.next2372, %wide.trip.count
-  br i1 %exitcond2374.not, label %.loopexit, label %1131, !llvm.loop !38
+  br i1 %exitcond2374.not, label %.loopexit, label %1131, !llvm.loop !55
 
 .critedge4.loopexit:                              ; preds = %1131
   %1323 = trunc nsw i64 %indvars.iv2371 to i32
@@ -1932,7 +1932,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   store <8 x float> %1413, ptr %indvars.iv2375.sroa.phi2639, align 32
   %1414 = shufflevector <8 x float> %1411, <8 x float> %1412, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   store <8 x float> %1414, ptr %indvars.iv2375.sroa.phi, align 32
-  br i1 %1385, label %1384, label %.preheader.i1141.critedge, !llvm.loop !39
+  br i1 %1385, label %1384, label %.preheader.i1141.critedge, !llvm.loop !56
 
 .preheader.i1141.critedge:                        ; preds = %1384
   %1415 = fmul <8 x float> %1365, %1365
@@ -1943,13 +1943,13 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   %1420 = fmul <8 x float> %1416, %1419
   %1421 = fmul <8 x float> %1418, %1418
   %1422 = fmul <8 x float> %1420, %1420
-  %.sroa.02641.0..sroa.02641.0..sroa.01.0.copyload.i.i.i1124 = load <8 x float>, ptr %.sroa.02641, align 32, !noalias !30
+  %.sroa.02641.0..sroa.02641.0..sroa.01.0.copyload.i.i.i1124 = load <8 x float>, ptr %.sroa.02641, align 32, !noalias !57
   %1423 = fmul <8 x float> %1418, %.sroa.02641.0..sroa.02641.0..sroa.01.0.copyload.i.i.i1124
-  %.sroa.22642.0..sroa.22642.32..sroa.01.0.copyload.i1.i.i1125 = load <8 x float>, ptr %.sroa.22642, align 32, !noalias !30
+  %.sroa.22642.0..sroa.22642.32..sroa.01.0.copyload.i1.i.i1125 = load <8 x float>, ptr %.sroa.22642, align 32, !noalias !57
   %1424 = fmul <8 x float> %1420, %.sroa.22642.0..sroa.22642.32..sroa.01.0.copyload.i1.i.i1125
-  %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i15.i1126 = load <8 x float>, ptr %.sroa.0, align 32, !noalias !30
+  %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i15.i1126 = load <8 x float>, ptr %.sroa.0, align 32, !noalias !60
   %1425 = fmul <8 x float> %1421, %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i15.i1126
-  %.sroa.2.0..sroa.2.32..sroa.01.0.copyload.i1.i17.i1127 = load <8 x float>, ptr %.sroa.2, align 32, !noalias !30
+  %.sroa.2.0..sroa.2.32..sroa.01.0.copyload.i1.i17.i1127 = load <8 x float>, ptr %.sroa.2, align 32, !noalias !60
   %1426 = fmul <8 x float> %1422, %.sroa.2.0..sroa.2.32..sroa.01.0.copyload.i1.i17.i1127
   %1427 = fsub <8 x float> %1425, %1423
   %1428 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.02641.0..sroa.02641.0..sroa.01.0.copyload.i.i.i1124, <8 x float> %36, <8 x float> %1423)
@@ -2007,7 +2007,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   br i1 %1458, label %1457, label %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i1147, !llvm.loop !25
 
 _ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i1147: ; preds = %1457
-  br i1 %1448, label %.preheader.i1141, label %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit1148, !llvm.loop !37
+  br i1 %1448, label %.preheader.i1141, label %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit1148, !llvm.loop !54
 
 _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit1148: ; preds = %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit.i1147
   %1468 = fsub <8 x float> %1426, %1424
@@ -2051,7 +2051,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   store <4 x float> %1503, ptr %1498, align 16
   %indvars.iv.next2379 = add nsw i64 %indvars.iv2378, 1
   %exitcond2382.not = icmp eq i64 %indvars.iv.next2379, %wide.trip.count2381
-  br i1 %exitcond2382.not, label %.loopexit, label %.lr.ph2224, !llvm.loop !40
+  br i1 %exitcond2382.not, label %.loopexit, label %.lr.ph2224, !llvm.loop !63
 
 .loopexit:                                        ; preds = %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit1148, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit952, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi1EL12KernelLayout1ELi4ELm2ELm1EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi1EL12KernelLayout1ELi4ELm2ELm1EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit692, %.critedge4, %.critedge2, %.critedge
   %.sroa.01647.3 = phi <8 x float> [ %.sroa.01647.1.lcssa, %.critedge ], [ %.sroa.01647.4.lcssa, %.critedge2 ], [ %.sroa.01647.6.lcssa, %.critedge4 ], [ %637, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi1EL12KernelLayout1ELi4ELm2ELm1EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit692 ], [ %436, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi1EL12KernelLayout1ELi4ELm2ELm1EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit ], [ %1108, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit952 ], [ %887, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit ], [ %1481, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit1148 ], [ %1300, %_ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4ELm2ELm2EEEviRKSt5arrayINS_9SimdFloatEXT3_EERKS4_IS5_XT4_EE.exit ]
@@ -2184,14 +2184,37 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !27 = distinct !{!27, !9}
 !28 = distinct !{!28, !9}
 !29 = distinct !{!29, !9}
-!30 = !{}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb1ELm2ELm2ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE_ESE_T0_: argument 0"}
+!32 = distinct !{!32, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb1ELm2ELm2ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE_ESE_T0_"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb1ELm2ELm2ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE0_ESE_T0_: argument 0"}
+!35 = distinct !{!35, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb1ELm2ELm2ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE0_ESE_T0_"}
 !36 = distinct !{!36, !9}
 !37 = distinct !{!37, !9}
 !38 = distinct !{!38, !9}
 !39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm0ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE_ESE_T0_: argument 0"}
+!42 = distinct !{!42, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm0ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE_ESE_T0_"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm0ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE0_ESE_T0_: argument 0"}
+!45 = distinct !{!45, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm0ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE0_ESE_T0_"}
+!46 = distinct !{!46, !9}
+!47 = distinct !{!47, !9}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm2ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE_ESE_T0_: argument 0"}
+!50 = distinct !{!50, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm2ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE_ESE_T0_"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm2ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE0_ESE_T0_: argument 0"}
+!53 = distinct !{!53, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm2ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE0_ESE_T0_"}
+!54 = distinct !{!54, !9}
+!55 = distinct !{!55, !9}
+!56 = distinct !{!56, !9}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm0ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE_ESE_T0_: argument 0"}
+!59 = distinct !{!59, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm0ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE_ESE_T0_"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm0ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE0_ESE_T0_: argument 0"}
+!62 = distinct !{!62, !"_Z6genArrILi2EZN3gmx22LennardJonesCalculatorILb1EL20InteractionModifiers1EE10forceC6C12ILi2ELb0ELm2ELm0ELm2EEEvRKSt5arrayINS0_9SimdFloatEXT1_EES9_S9_RKS5_INS0_9SimdFBoolEXT2_EERKS5_IS6_XT_EESG_S6_S6_RSE_RS5_IS6_XT3_EEEUliE0_ESE_T0_"}
+!63 = distinct !{!63, !9}

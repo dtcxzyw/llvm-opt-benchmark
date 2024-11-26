@@ -2119,7 +2119,7 @@ _ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i: ; preds = %.lr.ph.i
   %378 = trunc i64 %.0.copyload.i.i.i.i.i.i15.i to i32
   %379 = shl i32 %378, 2
   %380 = and i32 %379, 12
-  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %.039.i, align 8
+  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %.039.i, align 8, !noalias !40
   %381 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i to i32
   %382 = and i32 %381, 3
   %383 = add nuw nsw i32 %382, -6
@@ -6311,7 +6311,7 @@ define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZNK
 .lr.ph.i.i.i.i.i.i:                               ; preds = %2, %25
   %.058.i.i.i.i.i.i = phi i64 [ %27, %25 ], [ %9, %2 ]
   %.02957.i.i.i.i.i.i = phi ptr [ %26, %25 ], [ %3, %2 ]
-  %.029.val.i.i.i.i.i.i = load i64, ptr %.02957.i.i.i.i.i.i, align 8
+  %.029.val.i.i.i.i.i.i = load i64, ptr %.02957.i.i.i.i.i.i, align 8, !noalias !102
   %11 = getelementptr i8, ptr %.02957.i.i.i.i.i.i, i64 8
   %.029.val30.i.i.i.i.i.i = load i64, ptr %11, align 8, !noalias !102
   %12 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEvENKUlPKN5clang8CFGBlockEE_clES7_EUlRKNS4_10CFGElementEE_EclIPSA_EEbT_(ptr nonnull %1, i64 %.029.val.i.i.i.i.i.i, i64 %.029.val30.i.i.i.i.i.i)
@@ -6319,7 +6319,7 @@ define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZNK
 
 13:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %.02957.i.i.i.i.i.i, i64 16
-  %.val32.i.i.i.i.i.i = load i64, ptr %14, align 8
+  %.val32.i.i.i.i.i.i = load i64, ptr %14, align 8, !noalias !102
   %15 = getelementptr i8, ptr %.02957.i.i.i.i.i.i, i64 24
   %.val33.i.i.i.i.i.i = load i64, ptr %15, align 8, !noalias !102
   %16 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEvENKUlPKN5clang8CFGBlockEE_clES7_EUlRKNS4_10CFGElementEE_EclIPSA_EEbT_(ptr nonnull %1, i64 %.val32.i.i.i.i.i.i, i64 %.val33.i.i.i.i.i.i)
@@ -6327,7 +6327,7 @@ define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZNK
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %.02957.i.i.i.i.i.i, i64 32
-  %.val35.i.i.i.i.i.i = load i64, ptr %18, align 8
+  %.val35.i.i.i.i.i.i = load i64, ptr %18, align 8, !noalias !102
   %19 = getelementptr i8, ptr %.02957.i.i.i.i.i.i, i64 40
   %.val36.i.i.i.i.i.i = load i64, ptr %19, align 8, !noalias !102
   %20 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEvENKUlPKN5clang8CFGBlockEE_clES7_EUlRKNS4_10CFGElementEE_EclIPSA_EEbT_(ptr nonnull %1, i64 %.val35.i.i.i.i.i.i, i64 %.val36.i.i.i.i.i.i)
@@ -6335,7 +6335,7 @@ define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZNK
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %.02957.i.i.i.i.i.i, i64 48
-  %.val38.i.i.i.i.i.i = load i64, ptr %22, align 8
+  %.val38.i.i.i.i.i.i = load i64, ptr %22, align 8, !noalias !102
   %23 = getelementptr i8, ptr %.02957.i.i.i.i.i.i, i64 56
   %.val39.i.i.i.i.i.i = load i64, ptr %23, align 8, !noalias !102
   %24 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEvENKUlPKN5clang8CFGBlockEE_clES7_EUlRKNS4_10CFGElementEE_EclIPSA_EEbT_(ptr nonnull %1, i64 %.val38.i.i.i.i.i.i, i64 %.val39.i.i.i.i.i.i)
@@ -6363,7 +6363,7 @@ define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZNK
   ]
 
 30:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %.029.val41.i.i.i.i.i.i = load i64, ptr %.029.lcssa.i.i.i.i.i.i, align 8
+  %.029.val41.i.i.i.i.i.i = load i64, ptr %.029.lcssa.i.i.i.i.i.i, align 8, !noalias !102
   %31 = getelementptr i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   %.029.val42.i.i.i.i.i.i = load i64, ptr %31, align 8, !noalias !102
   %32 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEvENKUlPKN5clang8CFGBlockEE_clES7_EUlRKNS4_10CFGElementEE_EclIPSA_EEbT_(ptr nonnull %1, i64 %.029.val41.i.i.i.i.i.i, i64 %.029.val42.i.i.i.i.i.i)
@@ -6375,7 +6375,7 @@ define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZNK
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %34, %33 ]
-  %.1.val.i.i.i.i.i.i = load i64, ptr %.1.i.i.i.i.i.i, align 8
+  %.1.val.i.i.i.i.i.i = load i64, ptr %.1.i.i.i.i.i.i, align 8, !noalias !102
   %36 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
   %.1.val44.i.i.i.i.i.i = load i64, ptr %36, align 8, !noalias !102
   %37 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEvENKUlPKN5clang8CFGBlockEE_clES7_EUlRKNS4_10CFGElementEE_EclIPSA_EEbT_(ptr nonnull %1, i64 %.1.val.i.i.i.i.i.i, i64 %.1.val44.i.i.i.i.i.i)
@@ -6387,7 +6387,7 @@ define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZNK
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %39, %38 ]
-  %.2.val.i.i.i.i.i.i = load i64, ptr %.2.i.i.i.i.i.i, align 8
+  %.2.val.i.i.i.i.i.i = load i64, ptr %.2.i.i.i.i.i.i, align 8, !noalias !102
   %41 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
   %.2.val46.i.i.i.i.i.i = load i64, ptr %41, align 8, !noalias !102
   %42 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEvENKUlPKN5clang8CFGBlockEE_clES7_EUlRKNS4_10CFGElementEE_EclIPSA_EEbT_(ptr nonnull %1, i64 %.2.val.i.i.i.i.i.i, i64 %.2.val46.i.i.i.i.i.i)

@@ -2769,7 +2769,7 @@ _ZNSt4pairIN2cv3MatESt6vectorINS0_6Point_IfEESaIS4_EEED2Ev.exit62: ; preds = %19
   store ptr %194, ptr %197, align 8, !alias.scope !20
   %198 = getelementptr inbounds i8, ptr %0, i64 136
   store i64 0, ptr %198, align 8, !alias.scope !20
-  %199 = load ptr, ptr %22, align 8
+  %199 = load ptr, ptr %22, align 8, !noalias !20
   %.not.i.i.i.i63 = icmp eq ptr %199, null
   br i1 %.not.i.i.i.i63, label %_ZSt9make_pairIRN2cv3MatERSt3mapIiSt6vectorINS0_6Point_IfEESaIS6_EESt4lessIiESaISt4pairIKiS8_EEEESB_INSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSH_INSI_IT0_E4typeEE6__typeEEOSJ_OSO_.exit, label %200
 

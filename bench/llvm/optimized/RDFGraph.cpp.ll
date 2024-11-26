@@ -11266,7 +11266,7 @@ _ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit56: ; pred
 318:                                              ; preds = %307, %.lr.ph.i59
   %.sink.i.i.i.i.i = phi ptr [ %308, %307 ], [ null, %.lr.ph.i59 ]
   %319 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(8) %.06.i, ptr noundef nonnull align 8 dereferenceable(8) %.06.i, ptr noundef %.sink.i.i.i.i.i), !noalias !97
-  %320 = load ptr, ptr %.06.i, align 8
+  %320 = load ptr, ptr %.06.i, align 8, !noalias !97
   store ptr %320, ptr %319, align 8, !noalias !97
   %321 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #22
   %322 = add i64 %321, 1
@@ -21005,7 +21005,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_17MachineB
 33:                                               ; preds = %22, %2
   %.sink.i.i.i.i = phi ptr [ %23, %22 ], [ null, %2 ]
   %34 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !208
-  %35 = load ptr, ptr %1, align 8
+  %35 = load ptr, ptr %1, align 8, !noalias !208
   store ptr %35, ptr %34, align 8, !noalias !208
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #22

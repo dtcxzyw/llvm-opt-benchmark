@@ -3305,7 +3305,7 @@ _ZNK4llvm9StringRef8containsEc.exit.thread:       ; preds = %3, %_ZNSt11char_tra
   %.sroa.012.0 = phi ptr [ %47, %_ZSt16__remove_copy_ifIPKcSt20back_insert_iteratorIN4llvm11SmallStringILj16EEEEN9__gnu_cxx5__ops10_Iter_predIPFbcEEEET0_T_SE_SD_T1_.exit ], [ %21, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %21, %3 ]
   call void @_ZN4llvm7APFloat17convertFromStringENS_9StringRefENS_12RoundingModeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %.sroa.012.0, i64 %.sroa.6.0, i8 noundef signext %2) #19
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %50 = load i8, ptr %49, align 8
+  %50 = load i8, ptr %49, align 8, !noalias !52
   %51 = trunc i8 %50 to i1
   br i1 %51, label %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEE9takeErrorEv.exit, label %_ZNK4llvm9StringRef8containsEc.exit.thread._ZN4llvm8ExpectedINS_11APFloatBase8opStatusEE9takeErrorEv.exit.thread_crit_edge
 
@@ -10243,11 +10243,11 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZN4llvm9ErrorList2IDE) #19
-  %.pre52 = load ptr, ptr %2, align 8, !noalias !93
+  %.pre52 = load ptr, ptr %2, align 8, !noalias !199
   br i1 %23, label %24, label %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread
 
 24:                                               ; preds = %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
-  store ptr null, ptr %2, align 8, !noalias !199
+  store ptr null, ptr %2, align 8, !noalias !202
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
@@ -10299,9 +10299,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %24, %._
 
 _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9
   %44 = phi ptr [ null, %17 ], [ %.pre52, %_ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  store ptr %44, ptr %4, align 8, !alias.scope !202
-  store ptr null, ptr %2, align 8, !noalias !202
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
+  store ptr %44, ptr %4, align 8, !alias.scope !199
+  store ptr null, ptr %2, align 8, !noalias !199
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24

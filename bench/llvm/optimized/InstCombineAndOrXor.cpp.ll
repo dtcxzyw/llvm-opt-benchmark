@@ -38194,7 +38194,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %2
 _ZN4llvmanENS_5APIntERKS0_.exit.thread:           ; preds = %_ZN4llvm5APIntC2ERKS0_.exit, %2
   %.sink = phi ptr [ %0, %2 ], [ %4, %_ZN4llvm5APIntC2ERKS0_.exit ]
   %.pre = load i64, ptr %.sink, align 8
-  %10 = load i64, ptr %1, align 8
+  %10 = load i64, ptr %1, align 8, !noalias !545
   %11 = and i64 %.pre, %10
   br label %_ZNK4llvm5APInteqERKS0_.exit
 
@@ -38800,7 +38800,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; pred
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %94
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %.sink.i16) #16
-  %.pr.i = load i32, ptr %95, align 8
+  %.pr.i = load i32, ptr %95, align 8, !alias.scope !551
   %99 = icmp ult i32 %.pr.i, 65
   br i1 %99, label %_ZNK4llvm5APInt3shlEj.exit.thread, label %_ZNK4llvm5APInt3shlEj.exit
 

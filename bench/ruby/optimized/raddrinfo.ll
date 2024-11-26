@@ -3093,7 +3093,7 @@ init_unix_addrinfo.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %177 = call i64 @rb_string_value(ptr noundef nonnull %7) #19
   %178 = load i64, ptr %7, align 8
   %179 = inttoptr i64 %178 to ptr
-  %180 = load i64, ptr %179, align 8, !noalias !37
+  %180 = load i64, ptr %179, align 8, !noalias !39
   %181 = and i64 %180, 8192
   %.not.i.i39 = icmp eq i64 %181, 0
   %182 = getelementptr inbounds i8, ptr %179, i64 24
@@ -3450,7 +3450,7 @@ rsock_addrinfo_new.exit.i:                        ; preds = %54, %53
   %62 = getelementptr inbounds i8, ptr %.02631.i, i64 40
   %.026.i = load ptr, ptr %62, align 8
   %.not.i = icmp eq ptr %.026.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %rsock_addrinfo_new.exit.i
   %63 = getelementptr inbounds i8, ptr %25, i64 8
@@ -3563,7 +3563,7 @@ define internal i64 @addrinfo_s_unix(i32 noundef %0, ptr noundef %1, i64 %2) #0 
   %.2..2..2..sroa_idx6 = getelementptr inbounds i8, ptr %5, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %.2..2..2..sroa_idx6, i8 0, i64 108, i1 false)
   store i16 1, ptr %5, align 2
-  %30 = load i64, ptr %23, align 8, !noalias !36
+  %30 = load i64, ptr %23, align 8, !noalias !43
   %31 = and i64 %30, 8192
   %.not.i.i.i = icmp eq i64 %31, 0
   %32 = getelementptr inbounds i8, ptr %23, i64 24
@@ -5119,7 +5119,7 @@ define internal noundef i64 @addrinfo_mload(i64 noundef returned %0, i64 noundef
   %16 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
   %17 = load i64, ptr %4, align 8
   %18 = inttoptr i64 %17 to ptr
-  %19 = load i64, ptr %18, align 8, !noalias !41
+  %19 = load i64, ptr %18, align 8, !noalias !46
   %20 = and i64 %19, 8192
   %.not.i.i = icmp eq i64 %20, 0
   %21 = getelementptr inbounds i8, ptr %18, i64 24
@@ -5148,7 +5148,7 @@ RSTRING_PTR.exit:                                 ; preds = %13, %22
   %31 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
   %32 = load i64, ptr %4, align 8
   %33 = inttoptr i64 %32 to ptr
-  %34 = load i64, ptr %33, align 8, !noalias !44
+  %34 = load i64, ptr %33, align 8, !noalias !49
   %35 = and i64 %34, 8192
   %.not.i.i30 = icmp eq i64 %35, 0
   %36 = getelementptr inbounds i8, ptr %33, i64 24
@@ -5185,7 +5185,7 @@ RSTRING_PTR.exit33:                               ; preds = %29, %37
   %49 = call i64 @rb_string_value(ptr noundef nonnull %4) #19
   %50 = load i64, ptr %4, align 8
   %51 = inttoptr i64 %50 to ptr
-  %52 = load i64, ptr %51, align 8, !noalias !47
+  %52 = load i64, ptr %51, align 8, !noalias !52
   %53 = and i64 %52, 8192
   %.not.i.i34 = icmp eq i64 %53, 0
   %54 = getelementptr inbounds i8, ptr %51, i64 24
@@ -5228,7 +5228,7 @@ RSTRING_PTR.exit37:                               ; preds = %48, %55
 70:                                               ; preds = %66
   %71 = load i64, ptr %4, align 8
   %72 = inttoptr i64 %71 to ptr
-  %73 = load i64, ptr %72, align 8, !noalias !50
+  %73 = load i64, ptr %72, align 8, !noalias !55
   %74 = and i64 %73, 8192
   %.not.i.i38 = icmp eq i64 %74, 0
   %75 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5303,7 +5303,7 @@ RSTRING_PTR.exit41:                               ; preds = %70, %76
   unreachable
 
 109:                                              ; preds = %100
-  %110 = load i64, ptr %103, align 8, !noalias !53
+  %110 = load i64, ptr %103, align 8, !noalias !58
   %111 = and i64 %110, 8192
   %.not.i.i42 = icmp eq i64 %111, 0
   %112 = getelementptr inbounds i8, ptr %103, i64 24
@@ -5609,7 +5609,7 @@ define internal noalias noundef ptr @wait_getaddrinfo(ptr noundef %0) #0 {
   tail call void @rb_native_cond_wait(ptr noundef nonnull %6, ptr noundef nonnull %2) #19
   %10 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %7, label %.critedge, !llvm.loop !56
+  br i1 %.not, label %7, label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %7, %9, %1
   tail call void @rb_nativethread_lock_unlock(ptr noundef nonnull %2) #19
@@ -6192,24 +6192,29 @@ attributes #25 = { cold noreturn nounwind }
 !33 = !{!34}
 !34 = distinct !{!34, !35, !"rbimpl_rstring_getmem: argument 0"}
 !35 = distinct !{!35, !"rbimpl_rstring_getmem"}
-!36 = !{}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"rbimpl_rstring_getmem: argument 0"}
-!39 = distinct !{!39, !"rbimpl_rstring_getmem"}
-!40 = distinct !{!40, !7}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"rbimpl_rstring_getmem: argument 0"}
-!43 = distinct !{!43, !"rbimpl_rstring_getmem"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"rbimpl_rstring_getmem: argument 0"}
-!46 = distinct !{!46, !"rbimpl_rstring_getmem"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"rbimpl_rstring_getmem: argument 0"}
-!49 = distinct !{!49, !"rbimpl_rstring_getmem"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"rbimpl_rstring_getmem: argument 0"}
-!52 = distinct !{!52, !"rbimpl_rstring_getmem"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"rbimpl_rstring_getmem: argument 0"}
-!55 = distinct !{!55, !"rbimpl_rstring_getmem"}
-!56 = distinct !{!56, !7}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"rbimpl_rstring_getmem: argument 0"}
+!38 = distinct !{!38, !"rbimpl_rstring_getmem"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"rbimpl_rstring_getmem: argument 0"}
+!41 = distinct !{!41, !"rbimpl_rstring_getmem"}
+!42 = distinct !{!42, !7}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"rbimpl_rstring_getmem: argument 0"}
+!45 = distinct !{!45, !"rbimpl_rstring_getmem"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"rbimpl_rstring_getmem: argument 0"}
+!48 = distinct !{!48, !"rbimpl_rstring_getmem"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"rbimpl_rstring_getmem: argument 0"}
+!51 = distinct !{!51, !"rbimpl_rstring_getmem"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"rbimpl_rstring_getmem: argument 0"}
+!54 = distinct !{!54, !"rbimpl_rstring_getmem"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"rbimpl_rstring_getmem: argument 0"}
+!57 = distinct !{!57, !"rbimpl_rstring_getmem"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"rbimpl_rstring_getmem: argument 0"}
+!60 = distinct !{!60, !"rbimpl_rstring_getmem"}
+!61 = distinct !{!61, !7}

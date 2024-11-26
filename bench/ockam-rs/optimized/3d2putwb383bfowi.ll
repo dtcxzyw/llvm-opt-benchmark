@@ -1645,8 +1645,9 @@ define hidden void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$11coordinates17h4c9
   %8 = alloca { i64, [7 x i64] }, align 8
   %9 = alloca { i64, [7 x i64] }, align 8
   %10 = alloca { i64, [7 x i64] }, align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !438)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !438
-  %11 = load i8, ptr %1, align 1, !noundef !19
+  %11 = load i8, ptr %1, align 1, !alias.scope !438, !noundef !19
   call void @_ZN4sec15point3Tag7from_u817h0bcc195108734500E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %10, i8 noundef %11), !noalias !438
   tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
   %12 = load i64, ptr %10, align 8, !range !444, !alias.scope !441, !noalias !445, !noundef !19

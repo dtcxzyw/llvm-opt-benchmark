@@ -964,20 +964,20 @@ lpad2:                                            ; preds = %invoke.cont
 
 if.else:                                          ; preds = %entry
   %size_.i.i17 = getelementptr inbounds i8, ptr %data, i64 8
-  %19 = load i64, ptr %size_.i.i17, align 8
+  %19 = load i64, ptr %size_.i.i17, align 8, !noalias !14
   %tobool.not.i.i18 = icmp eq ptr %alloc, null
   br i1 %tobool.not.i.i18, label %if.end.i.i, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %if.else
-  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !14
+  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !17
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 152
-  %20 = load ptr, ptr %vfn.i.i, align 8, !noalias !14
+  %20 = load ptr, ptr %vfn.i.i, align 8, !noalias !17
   %call.i.i2021 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(32) %alloc, i64 noundef %19)
           to label %call.i.i20.noexc unwind label %lpad
 
 call.i.i20.noexc:                                 ; preds = %if.then.i.i19
   %21 = ptrtoint ptr %alloc to i64
-  %.pr.i = load i64, ptr %size_.i.i17, align 8
+  %.pr.i = load i64, ptr %size_.i.i17, align 8, !noalias !14
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else
@@ -992,8 +992,8 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i: ; preds = %if.end.i.i
   br i1 %cmp.i.i, label %invoke.cont15, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
-  %23 = load ptr, ptr %data, align 8, !noalias !19
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %23, i64 %22, i1 false), !noalias !19
+  %23 = load ptr, ptr %data, align 8, !noalias !14
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %23, i64 %22, i1 false), !noalias !14
   %.pre = load i64, ptr %size_.i.i17, align 8
   br label %invoke.cont15
 
@@ -1541,20 +1541,20 @@ lpad2:                                            ; preds = %invoke.cont
 
 if.else:                                          ; preds = %entry
   %size_.i.i17 = getelementptr inbounds i8, ptr %data, i64 8
-  %19 = load i64, ptr %size_.i.i17, align 8
+  %19 = load i64, ptr %size_.i.i17, align 8, !noalias !29
   %tobool.not.i.i18 = icmp eq ptr %alloc, null
   br i1 %tobool.not.i.i18, label %if.end.i.i, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %if.else
-  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !29
+  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !32
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 152
-  %20 = load ptr, ptr %vfn.i.i, align 8, !noalias !29
+  %20 = load ptr, ptr %vfn.i.i, align 8, !noalias !32
   %call.i.i2021 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(32) %alloc, i64 noundef %19)
           to label %call.i.i20.noexc unwind label %lpad
 
 call.i.i20.noexc:                                 ; preds = %if.then.i.i19
   %21 = ptrtoint ptr %alloc to i64
-  %.pr.i = load i64, ptr %size_.i.i17, align 8
+  %.pr.i = load i64, ptr %size_.i.i17, align 8, !noalias !29
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else
@@ -1569,8 +1569,8 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i: ; preds = %if.end.i.i
   br i1 %cmp.i.i, label %invoke.cont15, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
-  %23 = load ptr, ptr %data, align 8, !noalias !34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %23, i64 %22, i1 false), !noalias !34
+  %23 = load ptr, ptr %data, align 8, !noalias !29
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %23, i64 %22, i1 false), !noalias !29
   %.pre = load i64, ptr %size_.i.i17, align 8
   br label %invoke.cont15
 
@@ -1985,20 +1985,20 @@ lpad2:                                            ; preds = %invoke.cont
 
 if.else:                                          ; preds = %entry
   %size_.i.i17 = getelementptr inbounds i8, ptr %data, i64 8
-  %19 = load i64, ptr %size_.i.i17, align 8
+  %19 = load i64, ptr %size_.i.i17, align 8, !noalias !44
   %tobool.not.i.i18 = icmp eq ptr %alloc, null
   br i1 %tobool.not.i.i18, label %if.end.i.i, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %if.else
-  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !44
+  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !47
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 152
-  %20 = load ptr, ptr %vfn.i.i, align 8, !noalias !44
+  %20 = load ptr, ptr %vfn.i.i, align 8, !noalias !47
   %call.i.i2021 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(32) %alloc, i64 noundef %19)
           to label %call.i.i20.noexc unwind label %lpad
 
 call.i.i20.noexc:                                 ; preds = %if.then.i.i19
   %21 = ptrtoint ptr %alloc to i64
-  %.pr.i = load i64, ptr %size_.i.i17, align 8
+  %.pr.i = load i64, ptr %size_.i.i17, align 8, !noalias !44
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else
@@ -2013,8 +2013,8 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i: ; preds = %if.end.i.i
   br i1 %cmp.i.i, label %invoke.cont15, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
-  %23 = load ptr, ptr %data, align 8, !noalias !49
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %23, i64 %22, i1 false), !noalias !49
+  %23 = load ptr, ptr %data, align 8, !noalias !44
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %23, i64 %22, i1 false), !noalias !44
   %.pre = load i64, ptr %size_.i.i17, align 8
   br label %invoke.cont15
 
@@ -2441,20 +2441,20 @@ lpad2:                                            ; preds = %invoke.cont
 
 if.else:                                          ; preds = %entry
   %size_.i.i17 = getelementptr inbounds i8, ptr %data, i64 8
-  %24 = load i64, ptr %size_.i.i17, align 8
+  %24 = load i64, ptr %size_.i.i17, align 8, !noalias !59
   %tobool.not.i.i18 = icmp eq ptr %alloc, null
   br i1 %tobool.not.i.i18, label %if.end.i.i, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %if.else
-  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !59
+  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !62
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 152
-  %25 = load ptr, ptr %vfn.i.i, align 8, !noalias !59
+  %25 = load ptr, ptr %vfn.i.i, align 8, !noalias !62
   %call.i.i2021 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(32) %alloc, i64 noundef %24)
           to label %call.i.i20.noexc unwind label %lpad
 
 call.i.i20.noexc:                                 ; preds = %if.then.i.i19
   %26 = ptrtoint ptr %alloc to i64
-  %.pr.i = load i64, ptr %size_.i.i17, align 8
+  %.pr.i = load i64, ptr %size_.i.i17, align 8, !noalias !59
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else
@@ -2469,8 +2469,8 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i: ; preds = %if.end.i.i
   br i1 %cmp.i.i, label %invoke.cont15, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
-  %28 = load ptr, ptr %data, align 8, !noalias !64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %28, i64 %27, i1 false), !noalias !64
+  %28 = load ptr, ptr %data, align 8, !noalias !59
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %28, i64 %27, i1 false), !noalias !59
   %.pre = load i64, ptr %size_.i.i17, align 8
   br label %invoke.cont15
 
@@ -2896,20 +2896,20 @@ lpad2:                                            ; preds = %invoke.cont
 
 if.else:                                          ; preds = %entry
   %size_.i.i17 = getelementptr inbounds i8, ptr %data, i64 8
-  %19 = load i64, ptr %size_.i.i17, align 8
+  %19 = load i64, ptr %size_.i.i17, align 8, !noalias !74
   %tobool.not.i.i18 = icmp eq ptr %alloc, null
   br i1 %tobool.not.i.i18, label %if.end.i.i, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %if.else
-  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !74
+  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !77
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 152
-  %20 = load ptr, ptr %vfn.i.i, align 8, !noalias !74
+  %20 = load ptr, ptr %vfn.i.i, align 8, !noalias !77
   %call.i.i2021 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(32) %alloc, i64 noundef %19)
           to label %call.i.i20.noexc unwind label %lpad
 
 call.i.i20.noexc:                                 ; preds = %if.then.i.i19
   %21 = ptrtoint ptr %alloc to i64
-  %.pr.i = load i64, ptr %size_.i.i17, align 8
+  %.pr.i = load i64, ptr %size_.i.i17, align 8, !noalias !74
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else
@@ -2924,8 +2924,8 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i: ; preds = %if.end.i.i
   br i1 %cmp.i.i, label %invoke.cont15, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
-  %23 = load ptr, ptr %data, align 8, !noalias !79
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %23, i64 %22, i1 false), !noalias !79
+  %23 = load ptr, ptr %data, align 8, !noalias !74
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %23, i64 %22, i1 false), !noalias !74
   %.pre = load i64, ptr %size_.i.i17, align 8
   br label %invoke.cont15
 
@@ -3313,20 +3313,20 @@ lpad2:                                            ; preds = %invoke.cont
 
 if.else:                                          ; preds = %entry
   %size_.i.i17 = getelementptr inbounds i8, ptr %data, i64 8
-  %19 = load i64, ptr %size_.i.i17, align 8
+  %19 = load i64, ptr %size_.i.i17, align 8, !noalias !89
   %tobool.not.i.i18 = icmp eq ptr %alloc, null
   br i1 %tobool.not.i.i18, label %if.end.i.i, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %if.else
-  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !89
+  %vtable.i.i = load ptr, ptr %alloc, align 8, !noalias !92
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 152
-  %20 = load ptr, ptr %vfn.i.i, align 8, !noalias !89
+  %20 = load ptr, ptr %vfn.i.i, align 8, !noalias !92
   %call.i.i2021 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(32) %alloc, i64 noundef %19)
           to label %call.i.i20.noexc unwind label %lpad
 
 call.i.i20.noexc:                                 ; preds = %if.then.i.i19
   %21 = ptrtoint ptr %alloc to i64
-  %.pr.i = load i64, ptr %size_.i.i17, align 8
+  %.pr.i = load i64, ptr %size_.i.i17, align 8, !noalias !89
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else
@@ -3341,8 +3341,8 @@ _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i: ; preds = %if.end.i.i
   br i1 %cmp.i.i, label %invoke.cont15, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
-  %23 = load ptr, ptr %data, align 8, !noalias !94
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %23, i64 %22, i1 false), !noalias !94
+  %23 = load ptr, ptr %data, align 8, !noalias !89
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %call.sink.i.i, ptr align 1 %23, i64 %22, i1 false), !noalias !89
   %.pre = load i64, ptr %size_.i.i17, align 8
   br label %invoke.cont15
 
@@ -3853,12 +3853,12 @@ attributes #16 = { noreturn nounwind }
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !13 = distinct !{!13, !"_ZN7rocksdb6Status2OKEv"}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
-!16 = distinct !{!16, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
-!17 = distinct !{!17, !18, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
-!18 = distinct !{!18, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
-!19 = !{!17}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
+!16 = distinct !{!16, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
+!17 = !{!18, !15}
+!18 = distinct !{!18, !19, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
+!19 = distinct !{!19, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !22 = distinct !{!22, !"_ZN7rocksdb6Status2OKEv"}
@@ -3868,12 +3868,12 @@ attributes #16 = { noreturn nounwind }
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !28 = distinct !{!28, !"_ZN7rocksdb6Status2OKEv"}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
-!31 = distinct !{!31, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
-!32 = distinct !{!32, !33, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
-!33 = distinct !{!33, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
-!34 = !{!32}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
+!31 = distinct !{!31, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
+!32 = !{!33, !30}
+!33 = distinct !{!33, !34, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
+!34 = distinct !{!34, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
 !35 = !{!36}
 !36 = distinct !{!36, !37, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !37 = distinct !{!37, !"_ZN7rocksdb6Status2OKEv"}
@@ -3883,12 +3883,12 @@ attributes #16 = { noreturn nounwind }
 !41 = !{!42}
 !42 = distinct !{!42, !43, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !43 = distinct !{!43, !"_ZN7rocksdb6Status2OKEv"}
-!44 = !{!45, !47}
-!45 = distinct !{!45, !46, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
-!46 = distinct !{!46, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
-!47 = distinct !{!47, !48, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
-!48 = distinct !{!48, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
-!49 = !{!47}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
+!46 = distinct !{!46, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
+!47 = !{!48, !45}
+!48 = distinct !{!48, !49, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
+!49 = distinct !{!49, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
 !50 = !{!51}
 !51 = distinct !{!51, !52, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !52 = distinct !{!52, !"_ZN7rocksdb6Status2OKEv"}
@@ -3898,12 +3898,12 @@ attributes #16 = { noreturn nounwind }
 !56 = !{!57}
 !57 = distinct !{!57, !58, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !58 = distinct !{!58, !"_ZN7rocksdb6Status2OKEv"}
-!59 = !{!60, !62}
-!60 = distinct !{!60, !61, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
-!61 = distinct !{!61, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
-!62 = distinct !{!62, !63, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
-!63 = distinct !{!63, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
-!64 = !{!62}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
+!61 = distinct !{!61, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
+!62 = !{!63, !60}
+!63 = distinct !{!63, !64, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
+!64 = distinct !{!64, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
 !65 = !{!66}
 !66 = distinct !{!66, !67, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !67 = distinct !{!67, !"_ZN7rocksdb6Status2OKEv"}
@@ -3913,12 +3913,12 @@ attributes #16 = { noreturn nounwind }
 !71 = !{!72}
 !72 = distinct !{!72, !73, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !73 = distinct !{!73, !"_ZN7rocksdb6Status2OKEv"}
-!74 = !{!75, !77}
-!75 = distinct !{!75, !76, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
-!76 = distinct !{!76, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
-!77 = distinct !{!77, !78, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
-!78 = distinct !{!78, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
-!79 = !{!77}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
+!76 = distinct !{!76, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
+!77 = !{!78, !75}
+!78 = distinct !{!78, !79, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
+!79 = distinct !{!79, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
 !80 = !{!81}
 !81 = distinct !{!81, !82, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !82 = distinct !{!82, !"_ZN7rocksdb6Status2OKEv"}
@@ -3928,9 +3928,9 @@ attributes #16 = { noreturn nounwind }
 !86 = !{!87}
 !87 = distinct !{!87, !88, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !88 = distinct !{!88, !"_ZN7rocksdb6Status2OKEv"}
-!89 = !{!90, !92}
-!90 = distinct !{!90, !91, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
-!91 = distinct !{!91, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}
-!92 = distinct !{!92, !93, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
-!93 = distinct !{!93, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
-!94 = !{!92}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE: %agg.result"}
+!91 = distinct !{!91, !"_ZN7rocksdb20AllocateAndCopyBlockERKNS_5SliceEPNS_15MemoryAllocatorE"}
+!92 = !{!93, !90}
+!93 = distinct !{!93, !94, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE: %agg.result"}
+!94 = distinct !{!94, !"_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE"}

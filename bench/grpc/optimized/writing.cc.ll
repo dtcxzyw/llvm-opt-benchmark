@@ -5475,7 +5475,7 @@ terminate.lpad.i36:                               ; preds = %if.then.i.i.i34
 
 _ZN9grpc_core5SliceD2Ev.exit37:                   ; preds = %invoke.cont27, %if.then.i.i32, %if.then.i.i.i34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.sroa.4.i)
-  %27 = load ptr, ptr %value, align 8
+  %27 = load ptr, ptr %value, align 8, !noalias !193
   %cmp.i.i.i38 = icmp ugt ptr %27, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i38, label %if.then.i.i.i39, label %_ZNK9grpc_core5Slice3RefEv.exit.i
 
@@ -6230,7 +6230,7 @@ terminate.lpad.i36:                               ; preds = %if.then.i.i.i34
 
 _ZN9grpc_core5SliceD2Ev.exit37:                   ; preds = %invoke.cont27, %if.then.i.i32, %if.then.i.i.i34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.sroa.4.i)
-  %27 = load ptr, ptr %value, align 8
+  %27 = load ptr, ptr %value, align 8, !noalias !255
   %cmp.i.i.i38 = icmp ugt ptr %27, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i38, label %if.then.i.i.i39, label %_ZNK9grpc_core5Slice3RefEv.exit.i
 

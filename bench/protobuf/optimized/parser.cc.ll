@@ -12398,11 +12398,12 @@ lpad:                                             ; preds = %if.end, %if.then.i.
   resume { ptr, i32 } %8
 
 if.end:                                           ; preds = %invoke.cont, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
+  call void @llvm.experimental.noalias.scope.decl(metadata !263)
   invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream7AdvanceEm(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp.ensured6, ptr noundef nonnull align 8 dereferenceable(136) %this, i64 noundef %literal.coerce0)
           to label %.noexc2 unwind label %lpad
 
 .noexc2:                                          ; preds = %if.end
-  %9 = load i64, ptr %agg.tmp.ensured6, align 8
+  %9 = load i64, ptr %agg.tmp.ensured6, align 8, !alias.scope !263
   %cmp.i.i1 = icmp eq i64 %9, 0
   br i1 %cmp.i.i1, label %invoke.cont8.thread, label %invoke.cont8
 
@@ -15593,7 +15594,7 @@ entry:
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i64
-  %1 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8, !noalias !337
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8, !noalias !337
   %shr.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i, 7

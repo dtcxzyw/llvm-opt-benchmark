@@ -810,8 +810,8 @@ _ZNSt6vectorIN6casadi8FunctionESaIS1_EE5clearEv.exit: ; preds = %_ZNSt5dequeIiSa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @casadi_c_pop() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 48), align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 48), align 8, !noalias !11
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 56), align 8, !noalias !11
   %3 = icmp eq ptr %1, %2
   br i1 %3, label %7, label %4
 
