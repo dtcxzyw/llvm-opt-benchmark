@@ -641,7 +641,7 @@ abc/ioWriteDot.c.ll 480763918
 abc/ioWriteEdgelist.c.ll 655301380
 abc/ioWriteEqn.c.ll 174790235
 abc/ioWritePla.c.ll 351327898
-abc/ioWriteSmv.c.ll 230630064
+abc/ioWriteSmv.c.ll 230398812
 abc/ioWriteVerilog.c.ll 1286820517
 abc/ioaReadAig.c.ll 304759548
 abc/ioaUtil.c.ll 53459789
@@ -9791,7 +9791,7 @@ hdf5/h5dump_ddl.c.ll 516271103
 hdf5/h5dump_xml.c.ll 804275415
 hdf5/h5format_convert.c.ll 106627388
 hdf5/h5import.c.ll 2261948997
-hdf5/h5jam.c.ll 121196400
+hdf5/h5jam.c.ll 121070750
 hdf5/h5ls.c.ll 953780092
 hdf5/h5mkgrp.c.ll 141390234
 hdf5/h5repack.c.ll 595074997
@@ -17109,7 +17109,7 @@ lvgl/lv_led.ll 63510491
 lvgl/lv_line.ll 111529324
 lvgl/lv_list.ll 50712565
 lvgl/lv_ll.ll 133584581
-lvgl/lv_lru.ll 186444680
+lvgl/lv_lru.ll 186252183
 lvgl/lv_math.ll 174692073
 lvgl/lv_matrix.ll 124094904
 lvgl/lv_mem.ll 50262391
@@ -22446,7 +22446,7 @@ openjdk/LinuxSysInfo.ll 159302599
 openjdk/LinuxWatchService.ll 56012774
 openjdk/Log.ll 102059808
 openjdk/MappedMemoryUtils.ll 46988296
-openjdk/MaskBlit.ll 75325315
+openjdk/MaskBlit.ll 75248821
 openjdk/MaskFill.ll 970207076
 openjdk/MemoryImpl.ll 36068023
 openjdk/MemoryManagerImpl.ll 34162256
